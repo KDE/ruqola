@@ -62,6 +62,7 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowUiInteraction(const QJsonArray &array);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearNotification();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateRoomHeader();
     LIBRUQOLAWIDGETS_NO_EXPORT void connectRoom();

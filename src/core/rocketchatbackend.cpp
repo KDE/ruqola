@@ -384,7 +384,20 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         qCDebug(RUQOLA_LOG) << " EVENT " << eventname << "account name: " << mRocketChatAccount->accountName() << " contents " << contents
                             << fields.value("args"_L1).toArray().toVariantList();
 
-        if (eventname.endsWith("/subscriptions-changed"_L1)) {
+        if (eventname.endsWith("/uiInteraction"_L1)) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(fields);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: uiInteraction:"_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "stream-notify-user: uiInteraction " << object;
+            }
+            // TODO implement it
+            qDebug() << "uiInteraction********* " << contents;
+            if (mRocketChatAccount) {
+                Q_EMIT mRocketChatAccount->showUiInteraction(contents);
+            }
+        } else if (eventname.endsWith("/subscriptions-changed"_L1)) {
             RoomModel *model = mRocketChatAccount->roomModel();
             model->updateSubscription(contents);
             if (mRocketChatAccount->ruqolaLogger()) {

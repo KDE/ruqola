@@ -5,6 +5,7 @@
 */
 
 #include "roomwidget.h"
+#include "autogenerateui/autogenerateinteractionui.h"
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
 #include "encryption/e2edecodeencryptionkeywidget.h"
@@ -394,6 +395,19 @@ void RoomWidget::slotInviteUsers()
     dlg.setRoomId(mRoomWidgetBase->roomId());
     dlg.generateLink();
     dlg.exec();
+}
+
+void RoomWidget::slotShowUiInteraction(const QJsonArray &array)
+{
+    for (const auto &r : array) {
+        auto job = new AutoGenerateInteractionUi(this);
+        if (job->parseInteractionUi(r.toObject())) {
+            auto w = job->generateWidget(this, mCurrentRocketChatAccount);
+            w->show();
+        } else {
+            job->deleteLater();
+        }
+    }
 }
 
 void RoomWidget::updateListView()
@@ -942,6 +956,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::createE2eSaveEncryptionKeyWidget);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::showUiInteraction, this, &RoomWidget::slotShowUiInteraction);
     }
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
@@ -950,6 +965,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::showUiInteraction, this, &RoomWidget::slotShowUiInteraction);
 
 #if USE_E2E_SUPPORT
     auto showE2eDecodeEncryptionKeyWidget = [this] {

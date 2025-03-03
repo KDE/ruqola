@@ -418,6 +418,7 @@ public:
 
     [[nodiscard]] bool commandHasPreview(const QString &commandName) const;
 Q_SIGNALS:
+    void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);
     void disabledTotpValid(bool checked);
     void totpInvalid();
