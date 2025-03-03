@@ -69,6 +69,8 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
         if (numberElement > 1) {
             info.params = lst.join(QLatin1Char(' '));
         }
+        // TODO generate triggerId
+        info.triggerId = QStringLiteral("dddddddddddddddddd");
     }
     return info;
 }
