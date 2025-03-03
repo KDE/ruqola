@@ -5,7 +5,7 @@
 */
 
 #include "autogenerateinteractionuidialog.h"
-#include "autogenerateui/autogenerateinteractionui.h"
+#include "autogenerateinteractionui.h"
 
 #include <QVBoxLayout>
 

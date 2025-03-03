@@ -5,7 +5,7 @@
 */
 
 #include "roomwidget.h"
-#include "autogenerateui/autogenerateinteractionui.h"
+#include "autogenerateui/autogenerateinteractionuidialog.h"
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
 #include "encryption/e2edecodeencryptionkeywidget.h"
@@ -401,18 +401,12 @@ void RoomWidget::slotInviteUsers()
 void RoomWidget::slotShowUiInteraction(const QJsonArray &array)
 {
     for (const auto &r : array) {
-        auto job = new AutoGenerateInteractionUi(this);
-        if (job->parseInteractionUi(r.toObject())) {
-            auto d = new QDialog(this);
-            auto mainLayout = new QVBoxLayout(d);
-
-            auto parent = new QWidget;
-            auto w = job->generateWidget(parent, mCurrentRocketChatAccount);
-            mainLayout->addWidget(w);
-            d->exec();
-            delete d;
+        auto dialog = new AutoGenerateInteractionUiDialog(mCurrentRocketChatAccount, this);
+        if (dialog->parse(r.toObject())) {
+            dialog->exec();
+            delete dialog;
         } else {
-            job->deleteLater();
+            delete dialog;
         }
     }
 }
