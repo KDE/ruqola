@@ -76,7 +76,7 @@ bool CommandsModel::commandHasPreview(const QString &commandName) const
 {
     const auto commands = mCommands.commands();
     const auto index = std::find_if(commands.begin(), commands.end(), [commandName](const Command &command) {
-        return (command.commandName() == QLatin1Char('/') + commandName);
+        return (command.providesPreview() && (command.commandName() == QLatin1Char('/') + commandName));
     });
     return (index != commands.cend());
 }
