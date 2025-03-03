@@ -60,8 +60,8 @@ QString Block::convertEnumToStr(BlockType newBlockType) const
         return QStringLiteral("actions");
     case BlockType::Divider:
         return QStringLiteral("divider");
-    case BlockType::Markdown:
-        return QStringLiteral("mrkdwn");
+    case BlockType::Overflow:
+        return QStringLiteral("overflow");
     }
     return {};
 }
@@ -78,8 +78,8 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
         return BlockType::Context;
     } else if (typeStr == "divider"_L1) {
         return BlockType::Divider;
-    } else if (typeStr == "mrkdwn"_L1) {
-        return BlockType::Markdown;
+    } else if (typeStr == "overflow"_L1) {
+        return BlockType::Overflow;
     }
 
     qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;
@@ -131,7 +131,7 @@ QString Block::title() const
     case BlockType::Actions:
     case BlockType::Context:
     case BlockType::Divider:
-    case BlockType::Markdown:
+    case BlockType::Overflow:
     case BlockType::Unknown:
         break;
     case BlockType::VideoConf: {

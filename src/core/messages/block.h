@@ -22,7 +22,7 @@ public:
         Section,
         Context,
         Divider,
-        Markdown,
+        Overflow,
     };
     Q_ENUM(BlockType)
 
