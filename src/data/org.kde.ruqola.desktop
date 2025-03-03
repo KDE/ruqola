@@ -38,6 +38,7 @@ Type=Application
 Exec=ruqola -qwindowtitle %c %u
 Icon=ruqola
 GenericName=Rocket.Chat client
+GenericName[ar]=عميل روكت تشات
 GenericName[ca]=Client de xat del Rocket
 GenericName[ca@valencia]=Client de xat de Rocket
 GenericName[cs]=Klient pro Rocket Chat
