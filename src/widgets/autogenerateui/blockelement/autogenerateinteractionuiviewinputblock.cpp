@@ -6,11 +6,14 @@
 
 #include "autogenerateinteractionuiviewinputblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewradiobuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h"
 #include "ruqola_autogenerateui_debug.h"
 
 #include <QLabel>
@@ -42,6 +45,16 @@ bool AutoGenerateInteractionUiViewInputBlock::operator==(const AutoGenerateInter
 
 void AutoGenerateInteractionUiViewInputBlock::parseBlock(const QJsonObject &json)
 {
+    /*
+              element:
+                | ChannelsSelectElement
+                | ConversationsSelectElement
+                | MultiChannelsSelectElement
+                | MultiConversationsSelectElement
+                | MultiStaticSelectElement
+                | MultiUsersSelectElement
+                | UsersSelectElement
+    */
     mOptional = json["optional"_L1].toBool();
     mLabel.parse(json["label"_L1].toObject());
     const QJsonObject elementObj = json["element"_L1].toObject();
@@ -60,6 +73,15 @@ void AutoGenerateInteractionUiViewInputBlock::parseBlock(const QJsonObject &json
         mElement->parse(elementObj);
     } else if (type == "linear_scale"_L1) {
         mElement = new AutoGenerateInteractionUiViewLinearScaleElement;
+        mElement->parse(elementObj);
+    } else if (type == "checkbox"_L1) {
+        mElement = new AutoGenerateInteractionUiViewCheckboxElement;
+        mElement->parse(elementObj);
+    } else if (type == "radio_button"_L1) {
+        mElement = new AutoGenerateInteractionUiViewRadioButtonElement;
+        mElement->parse(elementObj);
+    } else if (type == "toggle_switch"_L1) {
+        mElement = new AutoGenerateInteractionUiViewToggleSwitchElement;
         mElement->parse(elementObj);
     } else {
         qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;

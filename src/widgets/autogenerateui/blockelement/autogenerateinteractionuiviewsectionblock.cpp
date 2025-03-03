@@ -100,12 +100,12 @@ void AutoGenerateInteractionUiViewSectionBlock::parseBlock(const QJsonObject &js
             AutoGenerateInteractionUiViewOverflowElement *flow = new AutoGenerateInteractionUiViewOverflowElement;
             flow->parse(accessoryObj);
             mAccessory = flow;
-        } else if (type == "multi_static_select"_L1) {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
         } else if (type == "static_select"_L1) {
             AutoGenerateInteractionUiViewStaticSelectElement *select = new AutoGenerateInteractionUiViewStaticSelectElement;
             select->parse(accessoryObj);
             mAccessory = select;
+        } else if (type == "multi_static_select"_L1) {
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
         }
