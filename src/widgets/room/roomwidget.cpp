@@ -63,6 +63,7 @@
 #include <KNotification>
 
 #include "ruqolautils.h"
+#include <QDialog>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QMimeData>
@@ -396,7 +397,7 @@ void RoomWidget::slotInviteUsers()
     dlg.generateLink();
     dlg.exec();
 }
-#include <QDialog>
+
 void RoomWidget::slotShowUiInteraction(const QJsonArray &array)
 {
     for (const auto &r : array) {

@@ -1,7 +1,8 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 add_library(libruqolawidgets
-    autogenerateui/autogenerateinteractionutil.h autogenerateui/autogenerateinteractionutil.cpp)
+    autogenerateui/autogenerateinteractionutil.h autogenerateui/autogenerateinteractionutil.cpp
+    autogenerateui/autogenerateinteractionuidialog.h autogenerateui/autogenerateinteractionuidialog.cpp)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
