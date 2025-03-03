@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    room/commandpreviewimagedelegate.h room/commandpreviewimagedelegate.cpp)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -754,6 +753,8 @@ target_sources(libruqolawidgets PRIVATE
 
     room/commandpreviewwidget.h
     room/commandpreviewwidget.cpp
+    room/commandpreviewimagedelegate.h
+    room/commandpreviewimagedelegate.cpp
 
     loginwidget/ruqolaloginwidget.cpp
     loginwidget/ruqolaloginwidget.h
@@ -1082,6 +1083,8 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.h
 
+    autogenerateui/autogenerateinteractionuimanager.h
+    autogenerateui/autogenerateinteractionuimanager.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
