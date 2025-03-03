@@ -168,6 +168,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Search in encrypted room is not possible."),
             i18n("Show roles for users in rooms."),
             i18n("Fix dark mode support."),
+            i18n("Fix download languages apps."),
         });
 
         listInfo.append(std::move(info));
