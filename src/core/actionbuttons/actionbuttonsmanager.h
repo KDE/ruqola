@@ -21,6 +21,8 @@ public:
 
     void parseActionButtons(const QJsonArray &array);
 
+    [[nodiscard]] QList<ActionButton> actionButtonsFromButtonContext(ActionButton::ButtonContext context) const;
+
 Q_SIGNALS:
     void actionButtonsChanged();
 

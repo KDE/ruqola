@@ -39,4 +39,15 @@ void ActionButtonsManager::parseActionButtons(const QJsonArray &array)
     setActionButtons(std::move(buttons));
 }
 
+QList<ActionButton> ActionButtonsManager::actionButtonsFromButtonContext(ActionButton::ButtonContext context) const
+{
+    QList<ActionButton> lists;
+    for (const auto &act : mActionButtons) {
+        if (act.buttonContext() == context) {
+            lists.append(act);
+        }
+    }
+    return lists;
+}
+
 #include "moc_actionbuttonsmanager.cpp"
