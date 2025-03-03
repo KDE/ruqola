@@ -102,7 +102,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAcc
     hboxLayout->setContentsMargins({});
     widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {
-        hboxLayout->addWidget(e->generateWidget(parent));
+        hboxLayout->addWidget(e->generateWidget(account, parent));
     }
     hboxLayout->addStretch(1);
     return widget;

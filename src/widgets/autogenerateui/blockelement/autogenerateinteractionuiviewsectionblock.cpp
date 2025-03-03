@@ -59,7 +59,7 @@ QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(RocketChatAcc
         hboxLayout->addWidget(label);
     }
     if (mAccessory) {
-        auto w = mAccessory->generateWidget(parent);
+        auto w = mAccessory->generateWidget(account, parent);
         hboxLayout->addWidget(w);
     }
     return widget;
