@@ -35,6 +35,7 @@ Name[x-test]=xxRuqolaxx
 Name[zh_TW]=Ruqola
 DesktopEntry=org.kde.ruqola
 Comment=Notification
+Comment[ar]=إخطار
 Comment[ca]=Notificació
 Comment[ca@valencia]=Notificació
 Comment[cs]=Upozornění
@@ -68,6 +69,7 @@ Comment[zh_TW]=通知
 
 [Event/Otr-end]
 Name=Off the record ended
+Name[ar]=انتهت الدردشة المؤقتة غير المسجلة
 Name[ca]=Ha acabat la confidencialitat
 Name[ca@valencia]=Ha acabat la confidencialitat
 Name[cs]=Mimo záznam skončil
@@ -98,6 +100,7 @@ Urgency=Normal
 
 [Event/Otr-deny]
 Name=Off the record denied
+Name[ar]=رُفضت الدردشة المؤقتة غير المسجلة
 Name[ca]=S'ha denegat la confidencialitat
 Name[ca@valencia]=S'ha denegat la confidencialitat
 Name[cs]=Mimo záznam byl odmítnut
@@ -127,6 +130,7 @@ Urgency=Normal
 
 [Event/Otr-handshake]
 Name=Ask to create Otr
+Name[ar]=اسأل إنشاء دردشة مؤقتة غير مسجلة
 Name[ca]=Demana crear un OTR
 Name[ca@valencia]=Demana crear un OTR
 Name[cs]=Požádat o vytvoření mimo záznam
@@ -156,6 +160,7 @@ Urgency=Normal
 
 [Event/export-message]
 Name=Messages Exported
+Name[ar]=صُدرت الرسائل
 Name[ca]=Missatges exportats
 Name[ca@valencia]=Missatges exportats
 Name[cs]=Zprávy byly exportovány
@@ -188,6 +193,7 @@ Urgency=Normal
 
 [Event/new-notification]
 Name=A Notification Arrived
+Name[ar]=وصل إخطار
 Name[ca]=Ha arribat una notificació
 Name[ca@valencia]=Ha arribat una notificació
 Name[cs]=Bylo přijato upozornění
@@ -222,6 +228,7 @@ Urgency=Normal
 
 [Event/VideoConference-Incoming]
 Name=Incoming Video Conference Call
+Name[ar]=مكالمة جماعية عبر الفيديو واردة
 Name[ca]=Trucada de videoconferència entrant
 Name[ca@valencia]=Tocada de videoconferència entrant
 Name[cs]=Příchozí videokonferenční hovor
@@ -250,6 +257,7 @@ Urgency=Normal
 
 [Event/Account-Added]
 Name=New Account Added
+Name[ar]=أضيف حساب جديد
 Name[ca]=S'ha afegit un compte nou
 Name[ca@valencia]=S'ha afegit un compte nou
 Name[cs]=Byl přidán nový účet
