@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-01 00:46+0000\n"
-"PO-Revision-Date: 2025-02-28 07:07+0100\n"
+"PO-Revision-Date: 2025-03-02 09:52+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -309,12 +309,12 @@ msgstr "Modificar a configuración do servidor"
 #: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Upload files to this server"
-msgstr "Enviar ficheiros ao servidor"
+msgstr "Subir ficheiros ao servidor"
 
 #: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Access files uploaded to this server"
-msgstr "Acceder a ficheiros enviador a este servidor"
+msgstr "Acceder a ficheiros subidos a este servidor"
 
 #: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
@@ -3783,12 +3783,12 @@ msgstr "Persoas usuarias da aplicación Rocket.Chat"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Total Uploads Size"
-msgstr "Tamaño total dos envíos"
+msgstr "Tamaño total das subidas"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Total Uploads"
-msgstr "Envíos totais"
+msgstr "Subidas totais"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, kde-format
@@ -4466,7 +4466,7 @@ msgstr "Mensaxe"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #, kde-format
 msgid "File Upload"
-msgstr "Envío de ficheiro"
+msgstr "Subida de ficheiros"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
 #, kde-format
@@ -5105,19 +5105,19 @@ msgstr "Licenza para empresas"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enabled File Upload"
-msgstr "Activar o envío de ficheiros."
+msgstr "Activar a subida de ficheiros."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Protect Uploaded Files"
-msgstr "Protexer os ficheiros enviados."
+msgstr "Protexer os ficheiros subidos."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Rotate images on upload"
-msgstr "Rotas as imaxes ao envialas."
+msgstr "Rotar as imaxes ao subilas."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
 #, kde-format
@@ -5129,7 +5129,7 @@ msgstr "Restrinxir os ficheiros aos membros das salas."
 #, kde-format
 msgctxt "@option:check"
 msgid "File Uploads Enabled in Direct Messages"
-msgstr "Permitir os envíos de ficheiros en mensaxes directas."
+msgstr "Permitir as subidas de ficheiros en mensaxes directas."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:35
 #, kde-format
@@ -5140,7 +5140,7 @@ msgstr "Defínao como -1 para eliminar a limitación de tamaño de ficheiro."
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:37
 #, kde-format
 msgid "Maximum File Upload Size (in bytes)"
-msgstr "Tamaño máximo de envío de ficheiros (en bytes)."
+msgstr "Tamaño máximo de subida de ficheiros (en bytes)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:40
 #, kde-format
@@ -5160,7 +5160,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
 msgstr ""
-"Restrinxir o acceso de ficheiros enviados en salas aos membros da sala."
+"Restrinxir o acceso de ficheiros subidos a salas para os membros da sala."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
 #, kde-format
@@ -5196,8 +5196,8 @@ msgid ""
 "File Upload Json Web Token Secret (Used to be able to access uploaded files "
 "without authentication)."
 msgstr ""
-"Segredo de pase web JSON de envío de ficheiros (úsase para poder acceder a "
-"ficheiros enviados sen autenticación)."
+"Segredo de pase web JSON de subida de ficheiros (úsase para poder acceder a "
+"ficheiros subidos sen autenticación)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:73
 #, kde-format
@@ -5857,7 +5857,7 @@ msgid ""
 "Upload' settings."
 msgstr ""
 "Require que os ficheiros «video/webm» sexan tipos multimedia aceptados na "
-"configuración de «Envío de ficheiros»."
+"configuración de «Subida de ficheiros»."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
 #, kde-format
@@ -5947,7 +5947,7 @@ msgid ""
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 "Retira os metadatos EXIF de ficheiros de imaxes (JPEG, TIFF, etc.). Esta "
-"configuración non é retroactiva, así que os ficheiros enviados mentres estea "
+"configuración non é retroactiva, así que os ficheiros subidos mentres estea "
 "desactivada terán os datos EXIF."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:139
@@ -6649,7 +6649,7 @@ msgstr "Restaurar"
 #, kde-format
 msgctxt "@option:check"
 msgid "File Upload"
-msgstr "Envío de ficheiros"
+msgstr "Subida de ficheiros."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
@@ -8243,7 +8243,7 @@ msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
 msgstr ""
-"As discusións adoitan comezar cunha pregunta, por exemplo «Como envío unha "
+"As discusións adoitan comezar cunha pregunta, por exemplo «Como subo unha "
 "imaxe?»."
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:157
@@ -8713,13 +8713,13 @@ msgstr "Vídeo: %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
-msgstr "Enviar un ficheiro"
+msgstr "Subir un ficheiro"
 
 #: widgets/dialogs/uploadfiledialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
-msgstr "Enviar unha imaxe"
+msgstr "Subir unha imaxe"
 
 #: widgets/dialogs/uploadfilewidget.cpp:50
 #, kde-format
@@ -8936,6 +8936,7 @@ msgstr ""
 "Se ninguén pode acceder ao contido cifrado, pode no seu lugar restabelecer a "
 "cifraxe."
 
+# skip-rule: trasno-enable
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
 msgid ""
@@ -8962,6 +8963,7 @@ msgctxt "@action:button"
 msgid "Enable Encryption"
 msgstr "Activar a cifraxe"
 
+# skip-rule: trasno-encrypt_reverse
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
 #, kde-format
 msgctxt "@info:placeholder"
@@ -10316,7 +10318,7 @@ msgstr "O ficheiro seleccionado é grande de máis (tamaño máximo: %1)"
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
-msgstr "Envío de ficheiro"
+msgstr "Subida de ficheiros"
 
 #: widgets/room/messagelinewidget.cpp:494
 #, kde-format
@@ -10698,7 +10700,7 @@ msgstr "%p%"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Upload"
-msgstr "Cancelar o envío"
+msgstr "Cancelar a subida"
 
 #: widgets/room/usersinroomcombobox.cpp:22
 #, kde-format
@@ -11449,10 +11451,8 @@ msgid "Implement Rocket.Chat application support."
 msgstr "Implementar a compatibilidade con aplicacións de Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "Implementar as vistas previas de URL."
+msgstr "Implementar as vistas previas de ordes."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -11805,7 +11805,7 @@ msgstr "Permitir silenciar e reactivar o son de persoas."
 #: widgets/whatsnew/whatsnewtranslations.cpp:133
 #, kde-format
 msgid "Add color to the text in the account tab"
-msgstr "Engadir cor ao texto da lapela de conta."
+msgstr "Engadir cor ao texto do separador de conta."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:134
 #, kde-format
