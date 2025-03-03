@@ -39,7 +39,7 @@ void Block::parseBlock(const QJsonObject &block)
         if (action.isValid()) {
             mBlockActions.append(std::move(action));
         } else {
-            qDebug() << "Invalid elements" << elements.at(i).toObject();
+            qDebug() << "Invalid elements" << elements.at(i).toObject() << " action " << action;
             qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();
         }
     }
@@ -60,6 +60,8 @@ QString Block::convertEnumToStr(BlockType newBlockType) const
         return QStringLiteral("actions");
     case BlockType::Divider:
         return QStringLiteral("divider");
+    case BlockType::Markdown:
+        return QStringLiteral("mrkdwn");
     }
     return {};
 }
@@ -74,6 +76,10 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
         return BlockType::Actions;
     } else if (typeStr == "context"_L1) {
         return BlockType::Context;
+    } else if (typeStr == "divider"_L1) {
+        return BlockType::Divider;
+    } else if (typeStr == "mrkdwn"_L1) {
+        return BlockType::Markdown;
     }
 
     qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;
@@ -125,6 +131,7 @@ QString Block::title() const
     case BlockType::Actions:
     case BlockType::Context:
     case BlockType::Divider:
+    case BlockType::Markdown:
     case BlockType::Unknown:
         break;
     case BlockType::VideoConf: {

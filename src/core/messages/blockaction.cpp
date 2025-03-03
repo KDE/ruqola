@@ -53,7 +53,11 @@ void BlockAction::parseAction(const QJsonObject &o)
     mValue = o["value"_L1].toString();
     mUrl = o["url"_L1].toString();
     const QJsonObject objText = o["text"_L1].toObject();
-    mText = objText["text"_L1].toString();
+    if (objText.isEmpty()) {
+        mText = o["text"_L1].toString();
+    } else {
+        mText = objText["text"_L1].toString();
+    }
 }
 
 QString BlockAction::actionId() const
