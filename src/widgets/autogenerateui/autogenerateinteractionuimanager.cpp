@@ -11,3 +11,5 @@ AutoGenerateInteractionUiManager::AutoGenerateInteractionUiManager(QObject *pare
 }
 
 AutoGenerateInteractionUiManager::~AutoGenerateInteractionUiManager() = default;
+
+#include "moc_autogenerateinteractionuimanager.cpp"

@@ -12,3 +12,5 @@ PreviewCommandUtilsTest::PreviewCommandUtilsTest(QObject *parent)
     : QObject{parent}
 {
 }
+
+#include "moc_previewcommandutilstest.cpp"

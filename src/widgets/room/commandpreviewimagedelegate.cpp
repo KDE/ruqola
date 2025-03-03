@@ -22,3 +22,5 @@ QSize CommandPreviewImageDelegate::sizeHint(const QStyleOptionViewItem &option, 
 {
     return QStyledItemDelegate::sizeHint(option, index);
 }
+
+#include "moc_commandpreviewimagedelegate.cpp"
