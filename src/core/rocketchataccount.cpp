@@ -123,7 +123,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mDiscussionsModel(new DiscussionsModel(this))
     , mCommandsModel(new CommandsModel(this))
     , mAutoTranslateLanguagesModel(new AutotranslateLanguagesModel(this))
-    , mDownloadAppsLanguagesManager(new DownloadAppsLanguagesManager(this))
+    , mDownloadAppsLanguagesManager(new DownloadAppsLanguagesManager(this, this))
     , mMessageCache(new MessageCache(this, this))
     , mManageChannels(new ManageChannels(this, this))
     , mCustomSoundManager(new CustomSoundsManager(this))
@@ -2388,9 +2388,7 @@ VideoConferenceMessageInfoManager *RocketChatAccount::videoConferenceMessageInfo
 
 void RocketChatAccount::downloadAppsLanguages()
 {
-    mDownloadAppsLanguagesManager->setServerVersion(mServerConfigInfo->serverVersionStr());
-    mDownloadAppsLanguagesManager->setAccountName(mSettings->accountName());
-    mDownloadAppsLanguagesManager->parse(mSettings->serverUrl());
+    mDownloadAppsLanguagesManager->parse();
 }
 
 void RocketChatAccount::slotUpdateCommands()
