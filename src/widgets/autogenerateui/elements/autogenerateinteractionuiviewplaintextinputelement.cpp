@@ -7,6 +7,7 @@
 #include "autogenerateinteractionuiviewplaintextinputelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 
+#include <QLineEdit>
 #include <QPlainTextEdit>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewPlainTextInputElement::AutoGenerateInteractionUiViewPlainTextInputElement()
@@ -34,15 +35,22 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::parseElement(const QJso
 QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
     Q_UNUSED(account)
-    auto plainText = new QPlainTextEdit(parent);
-    if (mPlaceHolder) {
-        plainText->setPlaceholderText(mPlaceHolder->generateText());
-    }
-    plainText->setPlainText(mInitialValue);
+    // TODO use minLength/maxLength
     if (!mMultiLine) {
-        plainText->setMaximumBlockCount(1);
+        auto lineEdit = new QLineEdit(parent);
+        if (mPlaceHolder) {
+            lineEdit->setPlaceholderText(mPlaceHolder->generateText());
+        }
+        lineEdit->setText(mInitialValue);
+        return lineEdit;
+    } else {
+        auto plainText = new QPlainTextEdit(parent);
+        if (mPlaceHolder) {
+            plainText->setPlaceholderText(mPlaceHolder->generateText());
+        }
+        plainText->setPlainText(mInitialValue);
+        return plainText;
     }
-    return plainText;
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewPlainTextInputElement::placeHolder() const
