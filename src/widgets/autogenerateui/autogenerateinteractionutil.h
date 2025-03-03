@@ -5,8 +5,19 @@
 */
 
 #pragma once
-
+#include <QJsonObject>
+// packages/ui-kit/src/interactions/UserInteraction.ts
 namespace AutoGenerateInteractionUtil
 {
-// TODO
+struct ViewBlockActionUserInfo {
+    QString actionId;
+    QString blockIdPayload;
+    QString valuePayload;
+    QString idContainer;
+    QString triggerId;
+};
+
+[[nodiscard]] QJsonObject createViewBlockActionUser(const ViewBlockActionUserInfo &info);
+[[nodiscard]] QJsonObject createViewClosedUser(const ViewBlockActionUserInfo &info);
+[[nodiscard]] QJsonObject createViewSubmitUser(const ViewBlockActionUserInfo &info);
 };
