@@ -6,9 +6,11 @@
 
 #include "commandpreviewimagedelegate.h"
 #include "model/previewcommandmodel.h"
+#include <QListView>
 #include <QPainter>
-CommandPreviewImageDelegate::CommandPreviewImageDelegate(QObject *parent)
+CommandPreviewImageDelegate::CommandPreviewImageDelegate(QListView *view, QObject *parent)
     : QStyledItemDelegate{parent}
+    , mView(view)
 {
 }
 
@@ -19,14 +21,14 @@ void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionVie
     const bool selected = option.state & QStyle::State_Selected;
     const bool underMouse = option.state & QStyle::State_MouseOver;
     const bool hasFocus = option.state & QStyle::State_HasFocus;
-#if 0
     qDebug() << " selected "     << selected;
     qDebug() << " underMouse "     << underMouse;
+#if 0
 
     // Select colors
     QPalette::ColorGroup cg;
      QColor bgColor, borderColor, fgColor;
-         const QWidget *viewport = d->mView->viewport();
+         const QWidget *viewport = mView->viewport();
      fgColor = viewport->palette().color(viewport->foregroundRole());
 
      if (selected || underMouse) {
@@ -49,7 +51,7 @@ void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionVie
 
     QPixmap pixmap = index.data(static_cast<int>(PreviewCommandModel::PreviewCommandRoles::Image)).value<QPixmap>();
     if (!pixmap.isNull()) {
-        const QRect rect = option.rect;
+        const QRect rect = option.rect.adjusted(5, 5, -5, -5);
         painter->drawPixmap(rect, pixmap.scaled(rect.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     } else {
         painter->drawText(option.rect, index.data(Qt::UserRole).toString());
