@@ -31,6 +31,16 @@ QString AutoGenerateInteractionUiViewButtonElement::convertStyleToString() const
     return {};
 }
 
+QString AutoGenerateInteractionUiViewButtonElement::value() const
+{
+    return mValue;
+}
+
+void AutoGenerateInteractionUiViewButtonElement::setValue(const QString &newValue)
+{
+    mValue = newValue;
+}
+
 AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::convertStyleFromString(const QString &str) const
 {
     if (str.isEmpty()) {
@@ -81,7 +91,8 @@ void AutoGenerateInteractionUiViewButtonElement::setStyle(Style newStyle)
 
 bool AutoGenerateInteractionUiViewButtonElement::operator==(const AutoGenerateInteractionUiViewButtonElement &other) const
 {
-    return other.style() == style() && other.text() == text() && other.secondary() == secondary() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.value() == value() && other.style() == style() && other.text() == text() && other.secondary() == secondary()
+        && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 AutoGenerateInteractionUiViewText AutoGenerateInteractionUiViewButtonElement::text() const
@@ -100,6 +111,7 @@ void AutoGenerateInteractionUiViewButtonElement::parseElement(const QJsonObject 
     mStyle = convertStyleFromString(json["style"_L1].toString());
     mText.parse(json["text"_L1].toObject());
     mSecondary = json["secondary"_L1].toBool();
+    mValue = json["value"_L1].toString();
     // qDebug() << "AutoGenerateInteractionUiViewButtonElement *this " << *this;
 }
 
@@ -109,6 +121,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t)
     d.space() << "style:" << t.style();
     d.space() << "text:" << t.text();
     d.space() << "secondary:" << t.secondary();
+    d.space() << "value:" << t.value();
     return d;
 }
 
@@ -119,6 +132,7 @@ void AutoGenerateInteractionUiViewButtonElement::serializeElement(QJsonObject &o
     if (!style.isEmpty()) {
         o["style"_L1] = style;
     }
+    o["value"_L1] = mValue;
     // TODO secondary ?
 }
 

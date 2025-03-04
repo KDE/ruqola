@@ -38,6 +38,9 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
 
+    [[nodiscard]] QString value() const;
+    void setValue(const QString &newValue);
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;
@@ -47,8 +50,8 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString convertStyleToString() const;
     Style mStyle = Style::Unknown;
     AutoGenerateInteractionUiViewText mText;
+    QString mValue;
     bool mSecondary = false;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewButtonElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewButtonElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t);
