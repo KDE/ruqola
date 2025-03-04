@@ -65,7 +65,7 @@ QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const
     return o;
 }
 
-QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(RocketChatAccount *account, QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
     Q_UNUSED(account);
     Q_UNUSED(parent);

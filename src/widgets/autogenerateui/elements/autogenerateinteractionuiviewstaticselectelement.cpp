@@ -48,6 +48,7 @@ QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(Rocket
     }
     connect(comboBox, &QComboBox::activated, this, [this, comboBox](int index) {
         if (index != -1) {
+            qDebug() << "combobox mBlockId******** " << mBlockId;
             Q_EMIT actionChanged(mBlockId, comboBox->itemData(index).toString());
         }
     });

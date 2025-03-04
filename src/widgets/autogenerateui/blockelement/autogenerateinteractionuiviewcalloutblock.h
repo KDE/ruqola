@@ -16,7 +16,7 @@ class AutoGenerateInteractionUiViewCalloutBlock : public AutoGenerateInteraction
 public:
     explicit AutoGenerateInteractionUiViewCalloutBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewCalloutBlock() override;
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *text() const;
     void setText(AutoGenerateInteractionUiViewText *newText);

@@ -16,7 +16,7 @@ class AutoGenerateInteractionUiViewImageBlock : public AutoGenerateInteractionUi
 public:
     explicit AutoGenerateInteractionUiViewImageBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewImageBlock() override;
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
+    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewImage image() const;
     void setImage(const AutoGenerateInteractionUiViewImage &newImage);

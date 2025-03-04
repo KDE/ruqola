@@ -26,7 +26,7 @@ bool AutoGenerateInteractionUiViewDividerBlock::operator==(const AutoGenerateInt
     return AutoGenerateInteractionUiViewBlockBase::operator==(other);
 }
 
-QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(RocketChatAccount *account, QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
     Q_UNUSED(account);
     return new KSeparator(parent);

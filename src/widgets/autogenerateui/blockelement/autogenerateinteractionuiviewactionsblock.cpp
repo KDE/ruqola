@@ -106,7 +106,7 @@ void AutoGenerateInteractionUiViewActionsBlock::setElements(const QList<AutoGene
     mElements = newElements;
 }
 
-QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAccount *account, QWidget *parent) const
+QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
@@ -114,7 +114,10 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAcc
     hboxLayout->setContentsMargins({});
     widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {
-        connect(e, &AutoGenerateInteractionUiViewActionable::actionChanged, this, &AutoGenerateInteractionUiViewActionsBlock::actionChanged);
+        connect(e, &AutoGenerateInteractionUiViewActionable::actionChanged, this, [this](const QByteArray &blockId, const QString &value) {
+            qDebug() << " blockId " << blockId << " value " << value;
+            Q_EMIT actionChanged(blockId, value);
+        });
         hboxLayout->addWidget(e->generateWidget(account, parent));
     }
     // hboxLayout->addStretch(1);

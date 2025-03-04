@@ -77,10 +77,12 @@ void AutoGenerateInteractionUiViewButtonElement::setSecondary(bool newSecondary)
 
 QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
+    Q_UNUSED(account)
     auto b = new QPushButton(parent);
     b->setText(mText.generateText());
     connect(b, &QPushButton::clicked, this, [this]() {
-        Q_EMIT actionChanged(mBlockId, mValue);
+        qDebug() << "BUTTON: mBlockId " << mBlockId << " mValue " << mValue << " mActionId " << mActionId;
+        Q_EMIT actionChanged(mActionId, mValue);
     });
     // TODO add Style
     return b;

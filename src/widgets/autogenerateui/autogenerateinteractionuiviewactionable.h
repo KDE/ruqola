@@ -36,7 +36,7 @@ public:
     [[nodiscard]] QJsonObject serialize() const;
 
 Q_SIGNALS:
-    void actionChanged(const QByteArray &blockId, const QString &values);
+    void actionChanged(const QByteArray &actionId, const QString &values);
 
 protected:
     virtual void serializeElement(QJsonObject &o) const = 0;

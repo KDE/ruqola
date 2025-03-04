@@ -17,8 +17,8 @@ public:
     explicit AutoGenerateInteractionUiViewToggleSwitchElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewToggleSwitchElement() override;
 
-    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption> options() const;
-    void setOptions(const QList<AutoGenerateInteractionUiViewOption> &newOptions);
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const;
@@ -29,7 +29,7 @@ protected:
 
 private:
     // TODO initialOptions
-    QList<AutoGenerateInteractionUiViewOption> mOptions;
+    QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewToggleSwitchElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchElement &t);

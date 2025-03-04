@@ -28,13 +28,13 @@ public:
     void parse(const QJsonObject &json);
     [[nodiscard]] QJsonObject serialize() const;
 
-    virtual QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const;
+    virtual QWidget *generateWidget(RocketChatAccount *account, QWidget *parent);
 
     [[nodiscard]] QString type() const;
     void setType(const QString &newType);
 
 Q_SIGNALS:
-    void actionChanged(const QByteArray &blockId, const QString &values);
+    void actionChanged(const QByteArray &blockId, const QString &value);
 
 protected:
     virtual void serializeBlock(QJsonObject &obj) const = 0;
