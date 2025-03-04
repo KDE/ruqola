@@ -46,6 +46,11 @@ QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(Rocket
     for (const auto &r : std::as_const(mOptions)) {
         comboBox->addItem(r->text().text(), r->value());
     }
+    connect(comboBox, &QComboBox::activated, this, [this, comboBox](int index) {
+        if (index != -1) {
+            Q_EMIT actionChanged(mBlockId, comboBox->itemData(index).toString());
+        }
+    });
     return comboBox;
 }
 
