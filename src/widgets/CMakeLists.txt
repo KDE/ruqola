@@ -1038,6 +1038,8 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/autogenerateinteractionuiviewimage.cpp
     autogenerateui/autogenerateinteractionuiviewoption.h
     autogenerateui/autogenerateinteractionuiviewoption.cpp
+    autogenerateui/autogenerateinteractionuiviewelement.h
+    autogenerateui/autogenerateinteractionuiviewelement.cpp    
 
     autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.h
     autogenerateui/blockelement/autogenerateinteractionuiviewsectionblock.cpp
@@ -1056,8 +1058,6 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/blockelement/autogenerateinteractionuiviewimageblock.cpp
     autogenerateui/blockelement/autogenerateinteractionuiviewimageblock.h
 
-    autogenerateui/elements/autogenerateinteractionuiviewelement.h
-    autogenerateui/elements/autogenerateinteractionuiviewelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h
     autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.cpp
