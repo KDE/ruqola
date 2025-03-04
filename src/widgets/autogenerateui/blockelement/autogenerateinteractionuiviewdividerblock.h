@@ -12,8 +12,9 @@
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewDividerBlock : public AutoGenerateInteractionUiViewBlockBase
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewDividerBlock();
+    explicit AutoGenerateInteractionUiViewDividerBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewDividerBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDividerBlock &other) const;
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
@@ -24,5 +25,4 @@ protected:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewDividerBlock)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewDividerBlock, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDividerBlock &t);

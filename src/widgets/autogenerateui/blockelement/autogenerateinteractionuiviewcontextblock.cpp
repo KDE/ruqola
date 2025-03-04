@@ -13,8 +13,8 @@
 #include <QLayout>
 #include <QWidget>
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewContextBlock::AutoGenerateInteractionUiViewContextBlock()
-    : AutoGenerateInteractionUiViewBlockBase()
+AutoGenerateInteractionUiViewContextBlock::AutoGenerateInteractionUiViewContextBlock(QObject *parent)
+    : AutoGenerateInteractionUiViewBlockBase(parent)
 {
 }
 

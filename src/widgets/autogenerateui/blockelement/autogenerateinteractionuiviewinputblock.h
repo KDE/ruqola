@@ -15,8 +15,9 @@
 class AutoGenerateInteractionUiViewActionable;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewInputBlock : public AutoGenerateInteractionUiViewBlockBase
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewInputBlock();
+    explicit AutoGenerateInteractionUiViewInputBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewInputBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewInputBlock &other) const;
 
@@ -42,5 +43,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewInputBlock)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewInputBlock, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t);

@@ -32,7 +32,7 @@ void AutoGenerateInteractionUiViewRadioButtonElement::parseElement(const QJsonOb
 
 QWidget *AutoGenerateInteractionUiViewRadioButtonElement::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
-    // QCheckBox ?
+    // QRadioButton ?
     Q_UNUSED(account)
     Q_UNUSED(parent)
     return nullptr;

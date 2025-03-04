@@ -12,8 +12,9 @@
 class AutoGenerateInteractionUiViewElement;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewContextBlock : public AutoGenerateInteractionUiViewBlockBase
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewContextBlock();
+    explicit AutoGenerateInteractionUiViewContextBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewContextBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewContextBlock &other) const;
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
@@ -30,5 +31,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewContextBlock)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewContextBlock, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewElement &t);

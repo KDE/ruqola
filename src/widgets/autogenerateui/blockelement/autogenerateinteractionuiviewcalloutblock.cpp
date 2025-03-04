@@ -14,8 +14,8 @@
 #include <QLabel>
 #include <QWidget>
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewCalloutBlock::AutoGenerateInteractionUiViewCalloutBlock()
-    : AutoGenerateInteractionUiViewBlockBase()
+AutoGenerateInteractionUiViewCalloutBlock::AutoGenerateInteractionUiViewCalloutBlock(QObject *parent)
+    : AutoGenerateInteractionUiViewBlockBase(parent)
 {
 }
 

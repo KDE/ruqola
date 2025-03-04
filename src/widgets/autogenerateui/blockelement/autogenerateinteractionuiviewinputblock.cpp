@@ -20,8 +20,8 @@
 #include <QLayout>
 #include <QWidget>
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewInputBlock::AutoGenerateInteractionUiViewInputBlock()
-    : AutoGenerateInteractionUiViewBlockBase()
+AutoGenerateInteractionUiViewInputBlock::AutoGenerateInteractionUiViewInputBlock(QObject *parent)
+    : AutoGenerateInteractionUiViewBlockBase(parent)
 {
 }
 

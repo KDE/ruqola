@@ -20,8 +20,8 @@
 #include <QLayout>
 #include <QWidget>
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewActionsBlock::AutoGenerateInteractionUiViewActionsBlock()
-    : AutoGenerateInteractionUiViewBlockBase()
+AutoGenerateInteractionUiViewActionsBlock::AutoGenerateInteractionUiViewActionsBlock(QObject *parent)
+    : AutoGenerateInteractionUiViewBlockBase(parent)
 {
 }
 
@@ -114,6 +114,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAcc
     hboxLayout->setContentsMargins({});
     widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {
+        // TODO connect(e, &AutoGenerateInteractionUiViewActionable::actionChanged, this, &AutoGenerateInteractionUiViewActionsBlock::actionChanged);
         hboxLayout->addWidget(e->generateWidget(account, parent));
     }
     // hboxLayout->addStretch(1);

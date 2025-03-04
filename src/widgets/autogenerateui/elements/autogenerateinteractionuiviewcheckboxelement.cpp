@@ -33,6 +33,7 @@ void AutoGenerateInteractionUiViewCheckboxElement::parseElement(const QJsonObjec
 
 QWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(RocketChatAccount *account, QWidget *parent)
 {
+    // TODO QCheckBox
     Q_UNUSED(parent)
     Q_UNUSED(account)
     // TODO

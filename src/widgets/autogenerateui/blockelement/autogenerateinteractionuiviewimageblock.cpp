@@ -6,11 +6,10 @@
 
 #include "autogenerateinteractionuiviewimageblock.h"
 
-AutoGenerateInteractionUiViewImageBlock::AutoGenerateInteractionUiViewImageBlock()
-    : AutoGenerateInteractionUiViewBlockBase()
+AutoGenerateInteractionUiViewImageBlock::AutoGenerateInteractionUiViewImageBlock(QObject *parent)
+    : AutoGenerateInteractionUiViewBlockBase(parent)
 {
 }
-
 AutoGenerateInteractionUiViewImageBlock::~AutoGenerateInteractionUiViewImageBlock() = default;
 
 QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget(RocketChatAccount *account, QWidget *parent) const

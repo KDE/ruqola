@@ -12,8 +12,9 @@
 // ./src/blocks/layout/ImageBlock.ts
 class AutoGenerateInteractionUiViewImageBlock : public AutoGenerateInteractionUiViewBlockBase
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewImageBlock();
+    explicit AutoGenerateInteractionUiViewImageBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewImageBlock() override;
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
 
@@ -32,5 +33,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewImageBlock)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewImageBlock, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageBlock &t);

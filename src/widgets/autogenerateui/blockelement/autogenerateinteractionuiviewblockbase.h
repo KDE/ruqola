@@ -11,11 +11,12 @@
 #include <QJsonObject>
 #include <QString>
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase : public QObject
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewBlockBase();
-    virtual ~AutoGenerateInteractionUiViewBlockBase();
+    explicit AutoGenerateInteractionUiViewBlockBase(QObject *parent = nullptr);
+    ~AutoGenerateInteractionUiViewBlockBase() override;
     [[nodiscard]] QString appId() const;
     void setAppId(const QString &newAppId);
 
@@ -31,6 +32,9 @@ public:
 
     [[nodiscard]] QString type() const;
     void setType(const QString &newType);
+
+Q_SIGNALS:
+    void actionChanged(const QByteArray &blockId, const QString &values);
 
 protected:
     virtual void serializeBlock(QJsonObject &obj) const = 0;

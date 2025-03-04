@@ -14,8 +14,9 @@ class AutoGenerateInteractionUiViewText;
 class AutoGenerateInteractionUiViewActionable;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewSectionBlock : public AutoGenerateInteractionUiViewBlockBase
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewSectionBlock();
+    explicit AutoGenerateInteractionUiViewSectionBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewSectionBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const;
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
@@ -39,5 +40,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewSectionBlock)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewSectionBlock, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t);

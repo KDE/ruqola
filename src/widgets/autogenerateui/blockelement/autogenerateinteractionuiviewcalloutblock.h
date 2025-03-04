@@ -12,8 +12,9 @@ class AutoGenerateInteractionUiViewActionable;
 // ./src/blocks/layout/CalloutBlock.ts
 class AutoGenerateInteractionUiViewCalloutBlock : public AutoGenerateInteractionUiViewBlockBase
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewCalloutBlock();
+    explicit AutoGenerateInteractionUiViewCalloutBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewCalloutBlock() override;
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) const override;
 
@@ -33,5 +34,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCalloutBlock)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewCalloutBlock, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCalloutBlock &t);

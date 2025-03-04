@@ -8,8 +8,8 @@
 
 #include <KSeparator>
 
-AutoGenerateInteractionUiViewDividerBlock::AutoGenerateInteractionUiViewDividerBlock()
-    : AutoGenerateInteractionUiViewBlockBase()
+AutoGenerateInteractionUiViewDividerBlock::AutoGenerateInteractionUiViewDividerBlock(QObject *parent)
+    : AutoGenerateInteractionUiViewBlockBase(parent)
 {
 }
 
