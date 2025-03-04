@@ -145,6 +145,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::teamChannelsRequested, this, &RoomWidget::slotTeamChannelsRequested);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::openTeam, this, &RoomWidget::slotOpenTeamRequested);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::callRequested, this, &RoomWidget::slotCallRequested);
+    connect(this, &RoomWidget::showUiInteractionDialog, this, &RoomWidget::displayUiInteractionDialog);
     setAcceptDrops(true);
 }
 
@@ -398,16 +399,21 @@ void RoomWidget::slotInviteUsers()
     dlg.exec();
 }
 
+void RoomWidget::displayUiInteractionDialog(const QJsonObject &obj)
+{
+    auto dialog = new AutoGenerateInteractionUiDialog(mCurrentRocketChatAccount, this);
+    if (dialog->parse(obj)) {
+        dialog->exec();
+        delete dialog;
+    } else {
+        delete dialog;
+    }
+}
+
 void RoomWidget::slotShowUiInteraction(const QJsonArray &array)
 {
     for (const auto &r : array) {
-        auto dialog = new AutoGenerateInteractionUiDialog(mCurrentRocketChatAccount, this);
-        if (dialog->parse(r.toObject())) {
-            dialog->exec();
-            delete dialog;
-        } else {
-            delete dialog;
-        }
+        Q_EMIT showUiInteractionDialog(r.toObject());
     }
 }
 

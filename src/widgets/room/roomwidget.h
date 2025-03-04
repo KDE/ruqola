@@ -56,6 +56,7 @@ public:
 
 Q_SIGNALS:
     void selectChannelRequested(const QByteArray &channelId);
+    void showUiInteractionDialog(const QJsonObject &obj);
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
@@ -114,6 +115,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDecodeEncryptionKey();
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomExportDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void displayUiInteractionDialog(const QJsonObject &obj);
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
