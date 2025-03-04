@@ -11,7 +11,7 @@
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewButtonElement : public AutoGenerateInteractionUiViewActionable
 {
-    Q_GADGET
+    Q_OBJECT
 public:
     enum class Style : uint8_t {
         Unknown,
@@ -22,7 +22,7 @@ public:
         Success,
     };
     Q_ENUM(Style)
-    AutoGenerateInteractionUiViewButtonElement();
+    explicit AutoGenerateInteractionUiViewButtonElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewButtonElement() override;
 
     [[nodiscard]] Style style() const;

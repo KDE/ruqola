@@ -9,11 +9,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewActionable
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewActionable : public QObject
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewActionable();
-    virtual ~AutoGenerateInteractionUiViewActionable();
+    explicit AutoGenerateInteractionUiViewActionable(QObject *parent = nullptr);
+    ~AutoGenerateInteractionUiViewActionable() override;
     virtual void parse(const QJsonObject &json);
 
     [[nodiscard]] QByteArray appId() const;
@@ -34,11 +35,14 @@ public:
 
     [[nodiscard]] QJsonObject serialize() const;
 
+Q_SIGNALS:
+    void actionChanged(const QByteArray &blockId, const QString &values);
+
 protected:
     virtual void serializeElement(QJsonObject &o) const = 0;
     virtual void parseElement(const QJsonObject &json) = 0;
 
-private:
+protected:
     QByteArray mAppId;
     QByteArray mBlockId;
     QByteArray mActionId;

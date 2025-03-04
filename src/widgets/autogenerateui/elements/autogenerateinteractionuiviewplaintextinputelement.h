@@ -12,8 +12,9 @@ class AutoGenerateInteractionUiViewText;
 // see ./packages/ui-kit/src/blocks/elements/PlainTextInputElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewPlainTextInputElement : public AutoGenerateInteractionUiViewActionable
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewPlainTextInputElement();
+    explicit AutoGenerateInteractionUiViewPlainTextInputElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewPlainTextInputElement() override;
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
@@ -47,5 +48,4 @@ private:
     int mMaxLength = -1;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewPlainTextInputElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewPlainTextInputElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewPlainTextInputElement &t);

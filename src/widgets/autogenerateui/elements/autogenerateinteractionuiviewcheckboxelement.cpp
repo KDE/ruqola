@@ -10,8 +10,8 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-AutoGenerateInteractionUiViewCheckboxElement::AutoGenerateInteractionUiViewCheckboxElement()
-    : AutoGenerateInteractionUiViewActionable()
+AutoGenerateInteractionUiViewCheckboxElement::AutoGenerateInteractionUiViewCheckboxElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
 {
 }
 

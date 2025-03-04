@@ -7,7 +7,11 @@
 #include "ruqola_action_buttons_debug.h"
 using namespace Qt::Literals::StringLiterals;
 
-AutoGenerateInteractionUiViewToggleSwitchElement::AutoGenerateInteractionUiViewToggleSwitchElement() = default;
+AutoGenerateInteractionUiViewToggleSwitchElement::AutoGenerateInteractionUiViewToggleSwitchElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
+{
+}
+
 AutoGenerateInteractionUiViewToggleSwitchElement::~AutoGenerateInteractionUiViewToggleSwitchElement() = default;
 
 void AutoGenerateInteractionUiViewToggleSwitchElement::parseElement(const QJsonObject &json)

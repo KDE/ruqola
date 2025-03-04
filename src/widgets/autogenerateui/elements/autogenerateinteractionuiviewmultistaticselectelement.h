@@ -14,8 +14,9 @@ class AutoGenerateInteractionUiViewOption;
 // see ./packages/ui-kit/src/blocks/elements/MultiStaticSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewMultiStaticSelectElement : public AutoGenerateInteractionUiViewActionable
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewMultiStaticSelectElement();
+    explicit AutoGenerateInteractionUiViewMultiStaticSelectElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewMultiStaticSelectElement() override;
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;

@@ -11,8 +11,8 @@
 #include <QMenu>
 #include <QToolButton>
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewOverflowElement::AutoGenerateInteractionUiViewOverflowElement()
-    : AutoGenerateInteractionUiViewActionable()
+AutoGenerateInteractionUiViewOverflowElement::AutoGenerateInteractionUiViewOverflowElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
 {
 }
 

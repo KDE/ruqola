@@ -12,9 +12,9 @@
 // see packages/ui-kit/src/blocks/elements/ToggleSwitchElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewToggleSwitchElement : public AutoGenerateInteractionUiViewActionable
 {
-    Q_GADGET
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewToggleSwitchElement();
+    explicit AutoGenerateInteractionUiViewToggleSwitchElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewToggleSwitchElement() override;
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption> options() const;
@@ -32,5 +32,4 @@ private:
     QList<AutoGenerateInteractionUiViewOption> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewToggleSwitchElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewToggleSwitchElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchElement &t);

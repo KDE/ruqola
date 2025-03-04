@@ -9,7 +9,10 @@
 #include <QDateEdit>
 
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewDatePickerElement::AutoGenerateInteractionUiViewDatePickerElement() = default;
+AutoGenerateInteractionUiViewDatePickerElement::AutoGenerateInteractionUiViewDatePickerElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
+{
+}
 
 AutoGenerateInteractionUiViewDatePickerElement::~AutoGenerateInteractionUiViewDatePickerElement()
 {

@@ -14,6 +14,7 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h"
+#include "common/flowlayout.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 #include <QLayout>
@@ -109,13 +110,13 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAcc
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
-    auto hboxLayout = new QHBoxLayout;
+    auto hboxLayout = new FlowLayout;
     hboxLayout->setContentsMargins({});
     widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {
         hboxLayout->addWidget(e->generateWidget(account, parent));
     }
-    hboxLayout->addStretch(1);
+    // hboxLayout->addStretch(1);
     return widget;
 }
 

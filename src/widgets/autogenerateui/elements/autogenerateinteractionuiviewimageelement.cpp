@@ -5,8 +5,8 @@
 */
 #include "autogenerateinteractionuiviewimageelement.h"
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageElement()
-    : AutoGenerateInteractionUiViewActionable()
+AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
 {
 }
 

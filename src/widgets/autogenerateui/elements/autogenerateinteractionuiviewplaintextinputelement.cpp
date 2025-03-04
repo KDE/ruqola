@@ -10,8 +10,8 @@
 #include <QLineEdit>
 #include <QPlainTextEdit>
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewPlainTextInputElement::AutoGenerateInteractionUiViewPlainTextInputElement()
-    : AutoGenerateInteractionUiViewActionable()
+AutoGenerateInteractionUiViewPlainTextInputElement::AutoGenerateInteractionUiViewPlainTextInputElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
 {
 }
 

@@ -12,8 +12,9 @@ class AutoGenerateInteractionUiViewOption;
 // ./packages/ui-kit/src/blocks/elements/OverflowElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOverflowElement : public AutoGenerateInteractionUiViewActionable
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewOverflowElement();
+    explicit AutoGenerateInteractionUiViewOverflowElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewOverflowElement() override;
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
 
@@ -31,5 +32,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOverflowElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewOverflowElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &t);

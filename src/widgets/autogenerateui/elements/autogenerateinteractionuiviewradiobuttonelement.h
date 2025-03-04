@@ -11,9 +11,9 @@
 // see ./packages/ui-kit/src/blocks/elements/RadioButtonElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewRadioButtonElement : public AutoGenerateInteractionUiViewActionable
 {
-    Q_GADGET
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewRadioButtonElement();
+    explicit AutoGenerateInteractionUiViewRadioButtonElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewRadioButtonElement() override;
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
@@ -29,5 +29,4 @@ private:
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewRadioButtonElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewRadioButtonElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t);

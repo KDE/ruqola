@@ -9,8 +9,8 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-AutoGenerateInteractionUiViewRadioButtonElement::AutoGenerateInteractionUiViewRadioButtonElement()
-    : AutoGenerateInteractionUiViewActionable()
+AutoGenerateInteractionUiViewRadioButtonElement::AutoGenerateInteractionUiViewRadioButtonElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
 {
 }
 

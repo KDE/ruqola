@@ -13,8 +13,9 @@ class AutoGenerateInteractionUiViewOption;
 // see ./packages/ui-kit/src/blocks/elements/StaticSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewStaticSelectElement : public AutoGenerateInteractionUiViewActionable
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewStaticSelectElement();
+    explicit AutoGenerateInteractionUiViewStaticSelectElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewStaticSelectElement() override;
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
@@ -39,5 +40,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewStaticSelectElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewStaticSelectElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewStaticSelectElement &t);

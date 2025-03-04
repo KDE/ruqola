@@ -5,8 +5,8 @@
 */
 #include "autogenerateinteractionuiviewlinearscaleelement.h"
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewLinearScaleElement::AutoGenerateInteractionUiViewLinearScaleElement()
-    : AutoGenerateInteractionUiViewActionable()
+AutoGenerateInteractionUiViewLinearScaleElement::AutoGenerateInteractionUiViewLinearScaleElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
 {
 }
 

@@ -28,14 +28,14 @@ void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldHaveDefaultVa
 void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldLoadJson()
 {
     QFETCH(QString, name);
-    QFETCH(AutoGenerateInteractionUiViewPlainTextInputElement, inputElement);
+    QFETCH(AutoGenerateInteractionUiViewPlainTextInputElement *, inputElement);
     const QString originalJsonFile =
         QLatin1StringView(RUQOLA_AUTOGENERATEUI_DATA_DIR) + "/autogenerateinteractionuiviewplaintextinputelement/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     AutoGenerateInteractionUiViewPlainTextInputElement result;
     result.parse(obj);
-    const bool equal = result == inputElement;
+    const bool equal = result == *inputElement;
     if (!equal) {
         qDebug() << " result " << result;
         qDebug() << " inputElement " << inputElement;
@@ -46,14 +46,14 @@ void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldLoadJson()
 void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldLoadJson_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addColumn<AutoGenerateInteractionUiViewPlainTextInputElement>("inputElement");
+    QTest::addColumn<AutoGenerateInteractionUiViewPlainTextInputElement *>("inputElement");
 
     {
-        AutoGenerateInteractionUiViewPlainTextInputElement textElement;
-        textElement.setInitialValue("Hey, I received your message and will get back to you as soon as possible."_L1);
-        textElement.setMultiLine(true);
-        textElement.setType("plain_text_input");
-        textElement.setActionId("AutoReplyMessage");
+        AutoGenerateInteractionUiViewPlainTextInputElement *textElement = new AutoGenerateInteractionUiViewPlainTextInputElement;
+        textElement->setInitialValue("Hey, I received your message and will get back to you as soon as possible."_L1);
+        textElement->setMultiLine(true);
+        textElement->setType("plain_text_input");
+        textElement->setActionId("AutoReplyMessage");
         QTest::addRow("plaintextinput") << QStringLiteral("plaintextinput") << textElement;
     }
 }

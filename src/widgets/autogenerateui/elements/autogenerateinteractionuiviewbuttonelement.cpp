@@ -9,7 +9,11 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-AutoGenerateInteractionUiViewButtonElement::AutoGenerateInteractionUiViewButtonElement() = default;
+AutoGenerateInteractionUiViewButtonElement::AutoGenerateInteractionUiViewButtonElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
+{
+}
+
 AutoGenerateInteractionUiViewButtonElement::~AutoGenerateInteractionUiViewButtonElement() = default;
 
 QString AutoGenerateInteractionUiViewButtonElement::convertStyleToString() const
@@ -75,6 +79,9 @@ QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(RocketChatAc
 {
     auto b = new QPushButton(parent);
     b->setText(mText.generateText());
+    connect(b, &QPushButton::clicked, this, [this]() {
+        Q_EMIT actionChanged(mBlockId, mValue);
+    });
     // TODO add Style
     return b;
 }

@@ -11,8 +11,9 @@
 // ./packages/ui-kit/src/blocks/elements/LinearScaleElement.ts range ?
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewLinearScaleElement : public AutoGenerateInteractionUiViewActionable
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewLinearScaleElement();
+    explicit AutoGenerateInteractionUiViewLinearScaleElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewLinearScaleElement() override;
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
@@ -38,5 +39,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewLinearScaleElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewLinearScaleElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewLinearScaleElement &t);

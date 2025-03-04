@@ -12,8 +12,8 @@
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 
-AutoGenerateInteractionUiViewStaticSelectElement::AutoGenerateInteractionUiViewStaticSelectElement()
-    : AutoGenerateInteractionUiViewActionable()
+AutoGenerateInteractionUiViewStaticSelectElement::AutoGenerateInteractionUiViewStaticSelectElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
 {
 }
 

@@ -11,8 +11,9 @@
 class AutoGenerateInteractionUiViewText;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewTimePickerElement : public AutoGenerateInteractionUiViewActionable
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewTimePickerElement();
+    explicit AutoGenerateInteractionUiViewTimePickerElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewTimePickerElement() override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewTimePickerElement &other) const;
@@ -34,5 +35,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewTimePickerElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewTimePickerElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewTimePickerElement &t);

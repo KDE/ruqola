@@ -6,7 +6,10 @@
 
 #include "autogenerateinteractionuiviewactionable.h"
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewActionable::AutoGenerateInteractionUiViewActionable() = default;
+AutoGenerateInteractionUiViewActionable::AutoGenerateInteractionUiViewActionable(QObject *parent)
+    : QObject(parent)
+{
+}
 
 AutoGenerateInteractionUiViewActionable::~AutoGenerateInteractionUiViewActionable() = default;
 

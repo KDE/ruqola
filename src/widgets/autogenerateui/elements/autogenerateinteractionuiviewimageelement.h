@@ -12,8 +12,9 @@
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewImageElement : public AutoGenerateInteractionUiViewActionable
 {
+    Q_OBJECT
 public:
-    AutoGenerateInteractionUiViewImageElement();
+    explicit AutoGenerateInteractionUiViewImageElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewImageElement() override;
 
     [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
@@ -31,5 +32,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewImageElement)
-Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewImageElement, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageElement &t);

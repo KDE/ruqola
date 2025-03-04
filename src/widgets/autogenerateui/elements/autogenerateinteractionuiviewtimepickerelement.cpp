@@ -9,7 +9,10 @@
 #include <QDateEdit>
 
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUiViewTimePickerElement::AutoGenerateInteractionUiViewTimePickerElement() = default;
+AutoGenerateInteractionUiViewTimePickerElement::AutoGenerateInteractionUiViewTimePickerElement(QObject *parent)
+    : AutoGenerateInteractionUiViewActionable(parent)
+{
+}
 
 AutoGenerateInteractionUiViewTimePickerElement::~AutoGenerateInteractionUiViewTimePickerElement()
 {
