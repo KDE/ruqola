@@ -97,6 +97,7 @@ void AutoGenerateInteractionUiViewBlocks::generateWidget(RocketChatAccount *acco
     vboxLayout->setContentsMargins({});
     widget->setLayout(vboxLayout);
     for (const auto &e : std::as_const(mBlockElements)) {
+        connect(e, &AutoGenerateInteractionUiViewBlockBase::actionChanged, this, &AutoGenerateInteractionUiViewBlocks::actionChanged);
         vboxLayout->addWidget(e->generateWidget(account, widget));
     }
 }

@@ -57,6 +57,7 @@ Q_SIGNALS:
     void closed();
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotActionChanged(const QByteArray &blockId, const QString &value);
     QByteArray mId;
     QByteArray mType;
     QByteArray mAppId;

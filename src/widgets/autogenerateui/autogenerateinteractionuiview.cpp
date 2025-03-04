@@ -110,6 +110,12 @@ void AutoGenerateInteractionUiView::setBlocks(AutoGenerateInteractionUiViewBlock
     mBlocks = newBlocks;
 }
 
+void AutoGenerateInteractionUiView::slotActionChanged(const QByteArray &blockId, const QString &value)
+{
+    // TODO generate call
+    qDebug() << " slotActionChanged blockId " << blockId << " value " << value;
+}
+
 void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAccount *account)
 {
     // TODO customize title
@@ -117,6 +123,7 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAc
     auto mainLayout = new QVBoxLayout(widget);
     if (!mBlocks) {
         mBlocks = new AutoGenerateInteractionUiViewBlocks(this);
+        connect(mBlocks, &AutoGenerateInteractionUiViewBlocks::actionChanged, this, &AutoGenerateInteractionUiView::slotActionChanged);
     }
     mBlocks->generateWidget(account, widget);
     if (mCloseButton || mSubmitButton) {

@@ -26,6 +26,9 @@ public:
     void generateWidget(RocketChatAccount *account, QWidget *parent);
     [[nodiscard]] QJsonArray serialize() const;
 
+Q_SIGNALS:
+    void actionChanged(const QByteArray &blockId, const QString &values);
+
 private:
     QList<AutoGenerateInteractionUiViewBlockBase *> mBlockElements;
 };
