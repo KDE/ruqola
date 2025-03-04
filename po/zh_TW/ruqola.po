@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-01 00:46+0000\n"
+"POT-Creation-Date: 2025-03-04 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -767,7 +767,7 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/messages/block.cpp:137 core/messages/message.cpp:857
+#: core/messages/block.cpp:144 core/messages/message.cpp:857
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
@@ -10942,33 +10942,33 @@ msgstr "正在於對話串中回覆"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "為此訊息在對話串中回覆：「%1」"
 
-#: widgets/room/roomwidget.cpp:334
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "您確定要移除歷史嗎？"
 
-#: widgets/room/roomwidget.cpp:335
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "移除歷史"
 
-#: widgets/room/roomwidget.cpp:369
+#: widgets/room/roomwidget.cpp:371
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: widgets/room/roomwidget.cpp:370
+#: widgets/room/roomwidget.cpp:372
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:512
+#: widgets/room/roomwidget.cpp:527
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:512
+#: widgets/room/roomwidget.cpp:527
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -10976,13 +10976,13 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "搜尋訊息"
 
-#: widgets/room/roomwidget.cpp:531
+#: widgets/room/roomwidget.cpp:546
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "需要有工作空間管理員安裝並設定會議通話 app。"
 
-#: widgets/room/roomwidget.cpp:532
+#: widgets/room/roomwidget.cpp:547
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"
@@ -12229,6 +12229,11 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:169
 #, kde-format
 msgid "Show roles for users in rooms."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:171
+#, kde-format
+msgid "Fix download languages apps."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44

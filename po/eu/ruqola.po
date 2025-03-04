@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-01 00:46+0000\n"
+"POT-Creation-Date: 2025-03-04 00:41+0000\n"
 "PO-Revision-Date: 2025-02-08 01:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -762,7 +762,7 @@ msgstr "Zerbitzariaren URLa falta da."
 msgid "Socket was unexpectedly closed."
 msgstr "Hargunea ustekabean itxi da."
 
-#: core/messages/block.cpp:137 core/messages/message.cpp:857
+#: core/messages/block.cpp:144 core/messages/message.cpp:857
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
@@ -10635,34 +10635,34 @@ msgstr "Hari batean erantzutea"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Erantzun harian mezuari: '%1'"
 
-#: widgets/room/roomwidget.cpp:334
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Historia benetan kendu nahi duzu?"
 
-#: widgets/room/roomwidget.cpp:335
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Kendu historia"
 
-#: widgets/room/roomwidget.cpp:369
+#: widgets/room/roomwidget.cpp:371
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: widgets/room/roomwidget.cpp:370
+#: widgets/room/roomwidget.cpp:372
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
 
-#: widgets/room/roomwidget.cpp:512
+#: widgets/room/roomwidget.cpp:527
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "Zuzeneko-mezuak ezin dira artxibatu"
 
-#: widgets/room/roomwidget.cpp:512
+#: widgets/room/roomwidget.cpp:527
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -10670,7 +10670,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Bilatu mezuak"
 
-#: widgets/room/roomwidget.cpp:531
+#: widgets/room/roomwidget.cpp:546
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10678,7 +10678,7 @@ msgstr ""
 "Langunearen administratzaile batek konferentzia aplikazio bat instalatu eta "
 "konfiguratu behar du."
 
-#: widgets/room/roomwidget.cpp:532
+#: widgets/room/roomwidget.cpp:547
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11895,6 +11895,11 @@ msgstr ""
 #| msgid "Improve list of user in room."
 msgid "Show roles for users in rooms."
 msgstr "Gelako erabiltzaileen zerrenda hobetzea."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:171
+#, kde-format
+msgid "Fix download languages apps."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

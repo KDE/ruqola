@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-01 00:46+0000\n"
+"POT-Creation-Date: 2025-03-04 00:41+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -765,7 +765,7 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/messages/block.cpp:137 core/messages/message.cpp:857
+#: core/messages/block.cpp:144 core/messages/message.cpp:857
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
@@ -10751,34 +10751,34 @@ msgstr "Válasz egy szálban"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Válasz szálban az üzenetre: „%1”"
 
-#: widgets/room/roomwidget.cpp:334
+#: widgets/room/roomwidget.cpp:336
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Biztosan el szeretné távolítani az előzményeket?"
 
-#: widgets/room/roomwidget.cpp:335
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Előzmények eltávolítása"
 
-#: widgets/room/roomwidget.cpp:369
+#: widgets/room/roomwidget.cpp:371
 #, kde-format
 msgid "Export Messages"
 msgstr "Üzenetek exportálása"
 
-#: widgets/room/roomwidget.cpp:370
+#: widgets/room/roomwidget.cpp:372
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Az e-maile sorba lett állítva a küldéshez."
 
-#: widgets/room/roomwidget.cpp:512
+#: widgets/room/roomwidget.cpp:527
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "Közvetlen üzenetek nem archiválhatók"
 
-#: widgets/room/roomwidget.cpp:512
+#: widgets/room/roomwidget.cpp:527
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -10786,7 +10786,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Üzenetek keresése"
 
-#: widgets/room/roomwidget.cpp:531
+#: widgets/room/roomwidget.cpp:546
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10794,7 +10794,7 @@ msgstr ""
 "A munkaterület adminisztrátorának telepítenie kell és be kell állítania egy "
 "konferenciahívás-alkalmazást."
 
-#: widgets/room/roomwidget.cpp:532
+#: widgets/room/roomwidget.cpp:547
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -12033,6 +12033,11 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:169
 #, kde-format
 msgid "Show roles for users in rooms."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:171
+#, kde-format
+msgid "Fix download languages apps."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
