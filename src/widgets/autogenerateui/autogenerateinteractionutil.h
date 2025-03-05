@@ -5,6 +5,8 @@
 */
 
 #pragma once
+#include "libruqolawidgets_export.h"
+#include <QDebug>
 #include <QJsonObject>
 // packages/ui-kit/src/interactions/UserInteraction.ts
 namespace AutoGenerateInteractionUtil
@@ -22,3 +24,4 @@ struct ViewBlockActionUserInfo {
 [[nodiscard]] QJsonObject createViewSubmitUser(const ViewBlockActionUserInfo &info);
 };
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewBlockActionUserInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &t);
