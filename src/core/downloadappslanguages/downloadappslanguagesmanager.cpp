@@ -36,8 +36,7 @@ void DownloadAppsLanguagesManager::parse()
 void DownloadAppsLanguagesManager::slotFileDownloaded(const QJsonObject &json)
 {
     DownloadAppsLanguagesParser parser;
-    parser.parse(json);
-    mLanguageMap = parser.map();
+    mLanguageMap = parser.parse(json);
     Q_EMIT fileLanguagesParseSuccess();
 }
 

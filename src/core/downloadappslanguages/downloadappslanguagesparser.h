@@ -13,12 +13,5 @@ class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesParser
 {
 public:
     DownloadAppsLanguagesParser();
-    void parse(const QJsonObject &obj);
-
-    [[nodiscard]] QMap<QString, DownloadAppsLanguagesInfo> map() const;
-
-private:
-    Q_DISABLE_COPY(DownloadAppsLanguagesParser)
-    QMap<QString, DownloadAppsLanguagesInfo> mMap;
-    QString mFileName;
+    [[nodiscard]] QMap<QString, DownloadAppsLanguagesInfo> parse(const QJsonObject &obj) const;
 };

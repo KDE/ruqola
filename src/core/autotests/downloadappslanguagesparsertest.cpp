@@ -30,8 +30,8 @@ void DownloadAppsLanguagesParserTest::shouldParseFile()
     DownloadAppsLanguagesParser parser;
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/downloadappslanguages/"_L1 + filename;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
-    parser.parse(obj);
-    QCOMPARE(parser.map().count(), identifier);
+    auto result = parser.parse(obj);
+    QCOMPARE(result.count(), identifier);
 }
 
 #include "moc_downloadappslanguagesparsertest.cpp"
