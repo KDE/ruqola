@@ -23,9 +23,9 @@ AutoGenerateInteractionUiDialog::~AutoGenerateInteractionUiDialog() = default;
 
 bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
 {
-    auto job = new AutoGenerateInteractionUi(this);
+    auto job = new AutoGenerateInteractionUi(mRocketChatAccount, this);
     if (job->parseInteractionUi(r)) {
-        auto w = job->generateWidget(this, mRocketChatAccount);
+        auto w = job->generateWidget(this);
         mainLayout->addWidget(w);
         return true;
     } else {

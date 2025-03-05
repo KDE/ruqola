@@ -26,7 +26,7 @@ AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
 
     auto button = new QPushButton(QStringLiteral("Generate"), this);
     mainLayout->addWidget(button);
-    AutoGenerateInteractionUi *engine = new AutoGenerateInteractionUi(this);
+    auto engine = new AutoGenerateInteractionUi(nullptr);
     connect(button, &QPushButton::clicked, this, [this, engine]() {
         const QString json = mPlainTextEdit->toPlainText();
         if (!json.isEmpty()) {

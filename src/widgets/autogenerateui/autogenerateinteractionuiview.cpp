@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiview.h"
+#include "autogenerateinteractionutil.h"
 #include <QDialogButtonBox>
 #include <QJsonArray>
 #include <QPushButton>
@@ -114,6 +115,7 @@ void AutoGenerateInteractionUiView::slotActionChanged(const QByteArray &blockId,
 {
     // TODO generate call
     qDebug() << " slotActionChanged blockId " << blockId << " value " << value << " actionId" << actionId;
+    // TODO generate
 }
 
 void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAccount *account)
@@ -121,10 +123,7 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAc
     // TODO customize title
     widget->setWindowTitle(mTitle.generateText());
     auto mainLayout = new QVBoxLayout(widget);
-    if (!mBlocks) {
-        mBlocks = new AutoGenerateInteractionUiViewBlocks(this);
-        connect(mBlocks, &AutoGenerateInteractionUiViewBlocks::actionChanged, this, &AutoGenerateInteractionUiView::slotActionChanged);
-    }
+    connect(mBlocks, &AutoGenerateInteractionUiViewBlocks::actionChanged, this, &AutoGenerateInteractionUiView::slotActionChanged);
     mBlocks->generateWidget(account, widget);
     if (mCloseButton || mSubmitButton) {
         auto buttonDialog = new QDialogButtonBox(widget);

@@ -122,6 +122,11 @@ QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(RocketChatAccou
     label->setText(mLabel.generateText());
     vboxLayout->addWidget(label);
     if (mElement) {
+        connect(mElement, &AutoGenerateInteractionUiViewActionable::actionChanged, this, [this](const QByteArray &actionId, const QString &value) {
+            qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
+            Q_EMIT actionChanged(mBlockId, actionId, value);
+        });
+
         vboxLayout->addWidget(mElement->generateWidget(account, parent));
     }
     return widget;

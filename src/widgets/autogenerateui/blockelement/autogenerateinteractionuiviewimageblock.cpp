@@ -5,7 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewimageblock.h"
-
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewImageBlock::AutoGenerateInteractionUiViewImageBlock(QObject *parent)
     : AutoGenerateInteractionUiViewBlockBase(parent)
 {
@@ -48,6 +48,7 @@ bool AutoGenerateInteractionUiViewImageBlock::operator==(const AutoGenerateInter
 
 void AutoGenerateInteractionUiViewImageBlock::serializeBlock(QJsonObject &o) const
 {
+    o["image"_L1] = mImage.serialize();
 }
 
 #include "moc_autogenerateinteractionuiviewimageblock.cpp"

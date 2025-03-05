@@ -19,7 +19,7 @@ AutoGenerateInteractionUiTest::AutoGenerateInteractionUiTest(QObject *parent)
 
 void AutoGenerateInteractionUiTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUi ui;
+    AutoGenerateInteractionUi ui(nullptr);
     QVERIFY(ui.appId().isEmpty());
     QVERIFY(ui.triggerId().isEmpty());
     QCOMPARE(ui.typeUi(), AutoGenerateInteractionUi::TypeUi::Unknown);

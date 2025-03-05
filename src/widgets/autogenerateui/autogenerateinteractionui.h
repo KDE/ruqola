@@ -23,7 +23,7 @@ public:
     };
     Q_ENUM(TypeUi)
 
-    explicit AutoGenerateInteractionUi(QObject *parent = nullptr);
+    explicit AutoGenerateInteractionUi(RocketChatAccount *account, QObject *parent = nullptr);
     ~AutoGenerateInteractionUi() override;
     [[nodiscard]] bool parseInteractionUi(const QJsonObject &json);
 
@@ -41,7 +41,7 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiView *view() const;
     void setView(AutoGenerateInteractionUiView *newView);
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr, RocketChatAccount *account = nullptr);
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr);
 
     [[nodiscard]] QJsonObject generateJson() const;
 
@@ -51,6 +51,7 @@ private:
     QByteArray mTriggerId;
     TypeUi mTypeUi = TypeUi::Unknown;
     AutoGenerateInteractionUiView *mView = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUi)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t);

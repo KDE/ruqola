@@ -115,7 +115,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAcc
     widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {
         connect(e, &AutoGenerateInteractionUiViewActionable::actionChanged, this, [this](const QByteArray &actionId, const QString &value) {
-            qDebug() << " actionId " << actionId << " value " << value << "blockId " << mBlockId;
+            qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
             Q_EMIT actionChanged(mBlockId, actionId, value);
         });
         hboxLayout->addWidget(e->generateWidget(account, parent));

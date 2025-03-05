@@ -42,6 +42,10 @@ QWidget *AutoGenerateInteractionUiViewCalloutBlock::generateWidget(RocketChatAcc
     }
     if (mAccessory) {
         auto w = mAccessory->generateWidget(account, parent);
+        connect(mAccessory, &AutoGenerateInteractionUiViewActionable::actionChanged, this, [this](const QByteArray &actionId, const QString &value) {
+            qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
+            Q_EMIT actionChanged(mBlockId, actionId, value);
+        });
         hboxLayout->addWidget(w);
     }
     return widget;

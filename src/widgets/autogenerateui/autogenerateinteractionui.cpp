@@ -10,8 +10,9 @@
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;
-AutoGenerateInteractionUi::AutoGenerateInteractionUi(QObject *parent)
+AutoGenerateInteractionUi::AutoGenerateInteractionUi(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -68,10 +69,10 @@ void AutoGenerateInteractionUi::setView(AutoGenerateInteractionUiView *newView)
     mView = newView;
 }
 
-QWidget *AutoGenerateInteractionUi::generateWidget(QWidget *parent, RocketChatAccount *account)
+QWidget *AutoGenerateInteractionUi::generateWidget(QWidget *parent)
 {
     auto widget = new QWidget(parent);
-    mView->generateWidget(widget, account);
+    mView->generateWidget(widget, mRocketChatAccount);
     return widget;
 }
 

@@ -121,7 +121,7 @@ void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
-        AutoGenerateInteractionUi view;
+        AutoGenerateInteractionUi view(nullptr);
         if (view.parseInteractionUi(replyObject)) {
             // TODO autodelete ?
             QWidget *widget = view.generateWidget();
