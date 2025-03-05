@@ -10,11 +10,11 @@
 namespace AutoGenerateInteractionUtil
 {
 struct ViewBlockActionUserInfo {
-    QString actionId;
-    QString blockIdPayload;
+    QByteArray actionId;
+    QByteArray blockIdPayload;
     QString valuePayload;
-    QString idContainer;
-    QString triggerId;
+    QByteArray idContainer;
+    QByteArray triggerId;
 };
 
 [[nodiscard]] QJsonObject createViewBlockActionUser(const ViewBlockActionUserInfo &info);

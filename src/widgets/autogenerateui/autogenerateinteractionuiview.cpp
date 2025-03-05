@@ -116,6 +116,17 @@ void AutoGenerateInteractionUiView::slotActionChanged(const QByteArray &blockId,
     // TODO generate call
     qDebug() << " slotActionChanged blockId " << blockId << " value " << value << " actionId" << actionId;
     // TODO generate
+
+    AutoGenerateInteractionUtil::ViewBlockActionUserInfo info;
+    info.actionId = actionId;
+    info.valuePayload = value;
+    info.blockIdPayload = blockId;
+    info.idContainer = mId;
+    info.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
+    qDebug() << " SSSSSSSSSSSSSSSSSSS : " << AutoGenerateInteractionUtil::createViewBlockActionUser(info);
+
+    // QByteArray idContainer;
+    // QByteArray triggerId;
 }
 
 void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAccount *account)

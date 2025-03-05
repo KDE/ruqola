@@ -10,17 +10,17 @@ QJsonObject AutoGenerateInteractionUtil::createViewBlockActionUser(const ViewBlo
 {
     QJsonObject o;
     o["type"_L1] = "blockAction"_L1;
-    o["actionId"_L1] = info.actionId;
+    o["actionId"_L1] = QString::fromLatin1(info.actionId);
     QJsonObject payload;
-    payload["blockId"_L1] = info.blockIdPayload;
+    payload["blockId"_L1] = QString::fromLatin1(info.blockIdPayload);
     payload["value"_L1] = info.valuePayload;
     o["payload"_L1] = payload;
 
     QJsonObject container;
     container["type"_L1] = "view"_L1;
-    container["id"_L1] = info.idContainer;
+    container["id"_L1] = QString::fromLatin1(info.idContainer);
     o["container"_L1] = container;
-    o["triggerId"_L1] = info.triggerId;
+    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
     return o;
 }
 
