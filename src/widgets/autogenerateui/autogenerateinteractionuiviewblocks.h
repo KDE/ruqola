@@ -27,7 +27,7 @@ public:
     [[nodiscard]] QJsonArray serialize() const;
 
 Q_SIGNALS:
-    void actionChanged(const QByteArray &blockId, const QString &values);
+    void actionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value);
 
 private:
     QList<AutoGenerateInteractionUiViewBlockBase *> mBlockElements;

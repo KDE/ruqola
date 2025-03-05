@@ -17,11 +17,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase : pub
 public:
     explicit AutoGenerateInteractionUiViewBlockBase(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewBlockBase() override;
-    [[nodiscard]] QString appId() const;
-    void setAppId(const QString &newAppId);
+    [[nodiscard]] QByteArray appId() const;
+    void setAppId(const QByteArray &newAppId);
 
-    [[nodiscard]] QString blockId() const;
-    void setBlockId(const QString &newBlockId);
+    [[nodiscard]] QByteArray blockId() const;
+    void setBlockId(const QByteArray &newBlockId);
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewBlockBase &other) const;
 
@@ -30,20 +30,20 @@ public:
 
     virtual QWidget *generateWidget(RocketChatAccount *account, QWidget *parent);
 
-    [[nodiscard]] QString type() const;
-    void setType(const QString &newType);
+    [[nodiscard]] QByteArray type() const;
+    void setType(const QByteArray &newType);
 
 Q_SIGNALS:
-    void actionChanged(const QByteArray &blockId, const QString &value);
+    void actionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value);
 
 protected:
     virtual void serializeBlock(QJsonObject &obj) const = 0;
     virtual void parseBlock(const QJsonObject &obj) = 0;
 
-private:
-    QString mAppId;
-    QString mBlockId;
-    QString mType;
+protected:
+    QByteArray mAppId;
+    QByteArray mBlockId;
+    QByteArray mType;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlockBase)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t);

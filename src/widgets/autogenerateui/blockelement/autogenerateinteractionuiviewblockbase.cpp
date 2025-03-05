@@ -14,22 +14,22 @@ AutoGenerateInteractionUiViewBlockBase::AutoGenerateInteractionUiViewBlockBase(Q
 
 AutoGenerateInteractionUiViewBlockBase::~AutoGenerateInteractionUiViewBlockBase() = default;
 
-QString AutoGenerateInteractionUiViewBlockBase::appId() const
+QByteArray AutoGenerateInteractionUiViewBlockBase::appId() const
 {
     return mAppId;
 }
 
-void AutoGenerateInteractionUiViewBlockBase::setAppId(const QString &newAppId)
+void AutoGenerateInteractionUiViewBlockBase::setAppId(const QByteArray &newAppId)
 {
     mAppId = newAppId;
 }
 
-QString AutoGenerateInteractionUiViewBlockBase::blockId() const
+QByteArray AutoGenerateInteractionUiViewBlockBase::blockId() const
 {
     return mBlockId;
 }
 
-void AutoGenerateInteractionUiViewBlockBase::setBlockId(const QString &newBlockId)
+void AutoGenerateInteractionUiViewBlockBase::setBlockId(const QByteArray &newBlockId)
 {
     mBlockId = newBlockId;
 }
@@ -49,18 +49,18 @@ bool AutoGenerateInteractionUiViewBlockBase::operator==(const AutoGenerateIntera
 
 void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)
 {
-    mAppId = json["appId"_L1].toString();
-    mBlockId = json["blockId"_L1].toString();
-    mType = json["type"_L1].toString();
+    mAppId = json["appId"_L1].toString().toLatin1();
+    mBlockId = json["blockId"_L1].toString().toLatin1();
+    mType = json["type"_L1].toString().toLatin1();
     parseBlock(json);
 }
 
 QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const
 {
     QJsonObject o;
-    o["type"_L1] = mType;
-    o["appId"_L1] = mAppId;
-    o["blockId"_L1] = mBlockId;
+    o["type"_L1] = QString::fromLatin1(mType);
+    o["appId"_L1] = QString::fromLatin1(mAppId);
+    o["blockId"_L1] = QString::fromLatin1(mBlockId);
     serializeBlock(o);
     return o;
 }
@@ -72,12 +72,12 @@ QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(RocketChatAccoun
     return nullptr;
 }
 
-QString AutoGenerateInteractionUiViewBlockBase::type() const
+QByteArray AutoGenerateInteractionUiViewBlockBase::type() const
 {
     return mType;
 }
 
-void AutoGenerateInteractionUiViewBlockBase::setType(const QString &newType)
+void AutoGenerateInteractionUiViewBlockBase::setType(const QByteArray &newType)
 {
     mType = newType;
 }
