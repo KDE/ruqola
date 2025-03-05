@@ -173,6 +173,8 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
         return mHelperActions.get();
     case Block::BlockType::Divider: // TODO look at it! Draw line
         return nullptr;
+    case Block::BlockType::Overflow: // TODO look at it!
+        return nullptr;
     }
     return nullptr;
 }
