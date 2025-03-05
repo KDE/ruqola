@@ -81,8 +81,6 @@ target_sources(libruqolacore PRIVATE
     discussions/discussions.h
     downloadappslanguages/downloadappslanguagesinfo.cpp
     downloadappslanguages/downloadappslanguagesinfo.h
-    downloadappslanguages/downloadappslanguagesjob.cpp
-    downloadappslanguages/downloadappslanguagesjob.h
     downloadappslanguages/downloadappslanguagesmanager.cpp
     downloadappslanguages/downloadappslanguagesmanager.h
     downloadappslanguages/downloadappslanguagesparser.cpp
