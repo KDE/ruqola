@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:41+0000\n"
+"POT-Creation-Date: 2025-03-05 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -10565,34 +10565,34 @@ msgstr "किसी थ्रेड में उत्तर देना"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "संदेश के लिए थ्रेड में उत्तर दें: '%1'"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "क्या आप सचमुच इतिहास हटाना चाहते हैं?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:338
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "इतिहास हटाएँ"
 
-#: widgets/room/roomwidget.cpp:371
+#: widgets/room/roomwidget.cpp:372
 #, kde-format
 msgid "Export Messages"
 msgstr "संदेश निर्यात करें"
 
-#: widgets/room/roomwidget.cpp:372
+#: widgets/room/roomwidget.cpp:373
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "आपका ईमेल भेजने के लिए कतारबद्ध कर दिया गया है."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "प्रत्यक्ष संदेश संग्रहीत नहीं किए जा सकते"
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -10600,7 +10600,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "संदेश खोजें"
 
-#: widgets/room/roomwidget.cpp:546
+#: widgets/room/roomwidget.cpp:552
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10608,7 +10608,7 @@ msgstr ""
 "कार्यस्थान व्यवस्थापक को कॉन्फ़्रेंस कॉल एप्लिकेशन इंस्टॉल और कॉन्फ़िगर करने की आवश्यकता होती "
 "है।"
 
-#: widgets/room/roomwidget.cpp:547
+#: widgets/room/roomwidget.cpp:553
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

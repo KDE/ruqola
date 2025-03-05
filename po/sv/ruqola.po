@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:41+0000\n"
+"POT-Creation-Date: 2025-03-05 00:43+0000\n"
 "PO-Revision-Date: 2025-02-28 19:48+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -10579,39 +10579,39 @@ msgstr "Svarar i en tråd"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Svara i tråd för meddelande: '%1'"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vill du verkligen ta bort historiken?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:338
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Ta bort historik"
 
-#: widgets/room/roomwidget.cpp:371
+#: widgets/room/roomwidget.cpp:372
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportera meddelanden"
 
-#: widgets/room/roomwidget.cpp:372
+#: widgets/room/roomwidget.cpp:373
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Krypterat innehåll går inte att söka i."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Sök meddelande"
 
-#: widgets/room/roomwidget.cpp:546
+#: widgets/room/roomwidget.cpp:552
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10619,7 +10619,7 @@ msgstr ""
 "En administratör av arbetsytan måste installera och ställa in ett program "
 "för konferenssamtal."
 
-#: widgets/room/roomwidget.cpp:547
+#: widgets/room/roomwidget.cpp:553
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:41+0000\n"
+"POT-Creation-Date: 2025-03-05 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -11153,47 +11153,47 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Nachricht"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Möchten Sie den Verlauf wirklich öffnen?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:338
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Verlauf löschen"
 
-#: widgets/room/roomwidget.cpp:371
+#: widgets/room/roomwidget.cpp:372
 #, kde-format
 msgid "Export Messages"
 msgstr "Nachrichten exportieren"
 
-#: widgets/room/roomwidget.cpp:372
+#: widgets/room/roomwidget.cpp:373
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, fuzzy, kde-format
 #| msgid "Search Message"
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Nachricht suchen"
 
-#: widgets/room/roomwidget.cpp:546
+#: widgets/room/roomwidget.cpp:552
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:547
+#: widgets/room/roomwidget.cpp:553
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgctxt "@title:window"

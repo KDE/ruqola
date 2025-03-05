@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:41+0000\n"
+"POT-Creation-Date: 2025-03-05 00:43+0000\n"
 "PO-Revision-Date: 2025-03-02 09:52+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -10644,39 +10644,39 @@ msgstr "Respondendo nun fío"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta no fío á mensaxe: «%1»"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Seguro que quere retirar o historial?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:338
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Retirar o historial"
 
-#: widgets/room/roomwidget.cpp:371
+#: widgets/room/roomwidget.cpp:372
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as mensaxes"
 
-#: widgets/room/roomwidget.cpp:372
+#: widgets/room/roomwidget.cpp:373
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu enderezo de correo electrónico púxose en cola para enviar."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Non se pode buscar en contido cifrado."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Buscar na mensaxe"
 
-#: widgets/room/roomwidget.cpp:546
+#: widgets/room/roomwidget.cpp:552
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10684,7 +10684,7 @@ msgstr ""
 "Alguén da administración do espazo de traballo ten que instalar e configurar "
 "aplicacións de chamadas de conferencia."
 
-#: widgets/room/roomwidget.cpp:547
+#: widgets/room/roomwidget.cpp:553
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

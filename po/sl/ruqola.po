@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:41+0000\n"
-"PO-Revision-Date: 2025-03-01 06:21+0100\n"
+"POT-Creation-Date: 2025-03-05 00:43+0000\n"
+"PO-Revision-Date: 2025-03-04 07:43+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -10626,39 +10626,39 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: '%1'"
 
-#: widgets/room/roomwidget.cpp:336
+#: widgets/room/roomwidget.cpp:337
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:337
+#: widgets/room/roomwidget.cpp:338
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:371
+#: widgets/room/roomwidget.cpp:372
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: widgets/room/roomwidget.cpp:372
+#: widgets/room/roomwidget.cpp:373
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Po šifriranih sporočilih ni mogoče iskati."
 
-#: widgets/room/roomwidget.cpp:527
+#: widgets/room/roomwidget.cpp:533
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Išči sporočilo"
 
-#: widgets/room/roomwidget.cpp:546
+#: widgets/room/roomwidget.cpp:552
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10666,7 +10666,7 @@ msgstr ""
 "Skrbnik delovnega prostora mora namestiti in konfigurirati aplikacije "
 "konferenčnih klicev."
 
-#: widgets/room/roomwidget.cpp:547
+#: widgets/room/roomwidget.cpp:553
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11874,7 +11874,7 @@ msgstr "Prikaži vloge uporabnikov v sobi."
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
 #, kde-format
 msgid "Fix download languages apps."
-msgstr ""
+msgstr "Popravi prenos jezika aplikacij."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
