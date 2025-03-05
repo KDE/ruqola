@@ -111,3 +111,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCalloutBlock &t)
     }
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewcalloutblock.cpp"

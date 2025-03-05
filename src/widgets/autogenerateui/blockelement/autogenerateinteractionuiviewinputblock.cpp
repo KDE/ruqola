@@ -145,3 +145,5 @@ void AutoGenerateInteractionUiViewInputBlock::serializeBlock(QJsonObject &o) con
         o["element"_L1] = mElement->serialize();
     }
 }
+
+#include "moc_autogenerateinteractionuiviewinputblock.cpp"

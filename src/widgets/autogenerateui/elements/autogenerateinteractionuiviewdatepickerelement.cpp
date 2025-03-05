@@ -80,3 +80,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDatePickerElement
     }
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewdatepickerelement.cpp"

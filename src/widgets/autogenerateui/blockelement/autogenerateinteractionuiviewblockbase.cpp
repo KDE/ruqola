@@ -81,3 +81,5 @@ void AutoGenerateInteractionUiViewBlockBase::setType(const QByteArray &newType)
 {
     mType = newType;
 }
+
+#include "moc_autogenerateinteractionuiviewblockbase.cpp"

@@ -136,3 +136,5 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::serializeElement(QJsonO
         o["maxLength"_L1] = mMaxLength;
     }
 }
+
+#include "moc_autogenerateinteractionuiviewplaintextinputelement.cpp"

@@ -101,3 +101,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t)
     d.space() << "type:" << t.type();
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewactionable.cpp"

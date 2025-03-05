@@ -132,3 +132,5 @@ void AutoGenerateInteractionUiViewActionsBlock::serializeBlock(QJsonObject &o) c
     }
     o["elements"_L1] = array;
 }
+
+#include "moc_autogenerateinteractionuiviewactionsblock.cpp"

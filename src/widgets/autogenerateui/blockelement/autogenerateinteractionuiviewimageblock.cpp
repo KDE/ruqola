@@ -49,3 +49,5 @@ bool AutoGenerateInteractionUiViewImageBlock::operator==(const AutoGenerateInter
 void AutoGenerateInteractionUiViewImageBlock::serializeBlock(QJsonObject &o) const
 {
 }
+
+#include "moc_autogenerateinteractionuiviewimageblock.cpp"

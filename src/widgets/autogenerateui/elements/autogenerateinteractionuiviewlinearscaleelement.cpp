@@ -84,3 +84,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewLinearScaleElemen
     d.space() << "initialValue:" << t.initialValue();
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewlinearscaleelement.cpp"

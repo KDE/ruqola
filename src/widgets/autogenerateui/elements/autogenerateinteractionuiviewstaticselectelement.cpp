@@ -106,3 +106,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewStaticSelectEleme
     d.space() << "options:" << t.options();
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewstaticselectelement.cpp"

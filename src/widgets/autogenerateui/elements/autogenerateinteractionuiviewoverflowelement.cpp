@@ -82,3 +82,5 @@ void AutoGenerateInteractionUiViewOverflowElement::serializeElement(QJsonObject 
     }
     o["options"_L1] = options;
 }
+
+#include "moc_autogenerateinteractionuiviewoverflowelement.cpp"

@@ -132,3 +132,5 @@ void AutoGenerateInteractionUiViewSectionBlock::serializeBlock(QJsonObject &o) c
         o["accessory"_L1] = mAccessory->serialize();
     }
 }
+
+#include "moc_autogenerateinteractionuiviewsectionblock.cpp"

@@ -33,3 +33,5 @@ bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
     }
     return false;
 }
+
+#include "moc_autogenerateinteractionuidialog.cpp"

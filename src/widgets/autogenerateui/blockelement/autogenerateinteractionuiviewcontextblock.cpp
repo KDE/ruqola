@@ -94,3 +94,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewContextBlock &t)
     d.space() << "elements:" << t.elements();
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewcontextblock.cpp"

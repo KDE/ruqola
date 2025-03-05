@@ -90,3 +90,5 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJs
     }
     o["options"_L1] = options;
 }
+
+#include "moc_autogenerateinteractionuiviewmultistaticselectelement.cpp"

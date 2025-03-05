@@ -52,3 +52,5 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageElement &t)
     d.space() << "image:" << t.image();
     return d;
 }
+
+#include "moc_autogenerateinteractionuiviewimageelement.cpp"
