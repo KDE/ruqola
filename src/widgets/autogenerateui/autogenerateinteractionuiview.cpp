@@ -5,7 +5,6 @@
 */
 
 #include "autogenerateinteractionuiview.h"
-#include "autogenerateinteractionutil.h"
 #include <QDialogButtonBox>
 #include <QJsonArray>
 #include <QPushButton>
@@ -123,6 +122,7 @@ void AutoGenerateInteractionUiView::slotActionChanged(const QByteArray &blockId,
     info.blockIdPayload = blockId;
     info.idContainer = mId;
     info.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
+    Q_EMIT actionChanged(std::move(info));
     qDebug() << " SSSSSSSSSSSSSSSSSSS : " << AutoGenerateInteractionUtil::createViewBlockActionUser(info);
 
     // QByteArray idContainer;

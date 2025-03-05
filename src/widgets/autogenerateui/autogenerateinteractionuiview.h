@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "autogenerateinteractionutil.h"
 #include "autogenerateui/autogenerateinteractionuiviewblocks.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "libruqolawidgets_private_export.h"
@@ -55,6 +56,7 @@ public:
 Q_SIGNALS:
     void submited();
     void closed();
+    void actionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value);

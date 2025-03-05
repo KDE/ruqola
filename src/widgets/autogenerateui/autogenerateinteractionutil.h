@@ -21,3 +21,4 @@ struct ViewBlockActionUserInfo {
 [[nodiscard]] QJsonObject createViewClosedUser(const ViewBlockActionUserInfo &info);
 [[nodiscard]] QJsonObject createViewSubmitUser(const ViewBlockActionUserInfo &info);
 };
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewBlockActionUserInfo, Q_RELOCATABLE_TYPE);
