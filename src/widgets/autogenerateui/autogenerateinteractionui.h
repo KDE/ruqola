@@ -47,6 +47,7 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotActionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info);
     QByteArray mAppId;
     QByteArray mTriggerId;
     TypeUi mTypeUi = TypeUi::Unknown;

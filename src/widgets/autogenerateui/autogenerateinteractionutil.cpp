@@ -24,10 +24,23 @@ QJsonObject AutoGenerateInteractionUtil::createViewBlockActionUser(const ViewBlo
     return o;
 }
 
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &t)
+{
+    d.space() << "actionId:" << t.actionId;
+    d.space() << "blockIdPayload:" << t.blockIdPayload;
+    d.space() << "valuePayload:" << t.valuePayload;
+    d.space() << "idContainer:" << t.idContainer;
+    d.space() << "triggerId:" << t.triggerId;
+    return d;
+}
+
 QJsonObject AutoGenerateInteractionUtil::createViewClosedUser(const ViewBlockActionUserInfo &info)
 {
     QJsonObject o;
     o["type"_L1] = "viewClosed"_L1;
+    QJsonObject payload;
+    o["payload"_L1] = payload;
+    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
     // TODO
     return {};
 }
@@ -51,6 +64,10 @@ QJsonObject AutoGenerateInteractionUtil::createViewSubmitUser(const ViewBlockAct
 {
     QJsonObject o;
     o["type"_L1] = "viewSubmit"_L1;
+    QJsonObject payload;
+    o["payload"_L1] = payload;
+
+    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
     // TODO
     return {};
 }

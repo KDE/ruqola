@@ -38,9 +38,20 @@ bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 
     if (!mView) {
         mView = new AutoGenerateInteractionUiView(this);
+        connect(mView, &AutoGenerateInteractionUiView::actionChanged, this, &AutoGenerateInteractionUi::slotActionChanged);
     }
     mView->parseView(json["view"_L1].toObject());
     return true;
+}
+
+void AutoGenerateInteractionUi::slotActionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info)
+{
+    // TODO
+    qDebug() << " AutoGenerateInteractionUi::slotActionChanged : " << info;
+    if (mRocketChatAccount) {
+        // Use AppId
+        // TODO send message
+    }
 }
 
 AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const
