@@ -188,10 +188,16 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
     d.space() << "type:" << t.type();
     d.space() << "appId:" << t.appId();
     d.space() << "showIcon:" << t.showIcon();
-    d.space() << "closeButton:" << *t.closeButton();
-    d.space() << "submitButton:" << *t.submitButton();
+    if (t.closeButton()) {
+        d.space() << "closeButton:" << *t.closeButton();
+    }
+    if (t.submitButton()) {
+        d.space() << "submitButton:" << *t.submitButton();
+    }
     d.space() << "title:" << t.title();
-    d.space() << "blocks:" << *t.blocks();
+    if (t.blocks()) {
+        d.space() << "blocks:" << *t.blocks();
+    }
     return d;
 }
 
