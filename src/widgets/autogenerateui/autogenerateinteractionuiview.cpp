@@ -23,6 +23,22 @@ AutoGenerateInteractionUiView::~AutoGenerateInteractionUiView()
     delete mSubmitButton;
 }
 
+void AutoGenerateInteractionUiView::clear()
+{
+    if (mCloseButton) {
+        mCloseButton->deleteLater();
+        mCloseButton = nullptr;
+    }
+    if (mSubmitButton) {
+        mSubmitButton->deleteLater();
+        mSubmitButton = nullptr;
+    }
+    if (mBlocks) {
+        mBlocks->deleteLater();
+        mBlocks = nullptr;
+    }
+}
+
 void AutoGenerateInteractionUiView::parseView(const QJsonObject &json)
 {
     if (json.contains("close"_L1)) {

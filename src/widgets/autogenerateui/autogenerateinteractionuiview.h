@@ -53,6 +53,7 @@ public:
     [[nodiscard]] QByteArray appId() const;
     void setAppId(const QByteArray &newAppId);
 
+    void clear();
 Q_SIGNALS:
     void submited();
     void closed();

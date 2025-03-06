@@ -29,6 +29,11 @@ QJsonObject AutoGenerateInteractionUi::generateJson() const
 
 bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 {
+    if (mView) {
+        mView->clear();
+        mView->deleteLater();
+        mView = nullptr;
+    }
     mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
     if (mTypeUi == AutoGenerateInteractionUi::TypeUi::Unknown) {
         return false;
