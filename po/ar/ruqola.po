@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 02:44+0000\n"
-"PO-Revision-Date: 2025-03-04 23:01+0400\n"
+"PO-Revision-Date: 2025-03-05 22:57+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -385,12 +385,12 @@ msgstr "تعديل تكوين الحقل المخصص للدردشة المبا�
 #: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr "السماح بكتابة إعدادات تطبيق oauth"
+msgstr "اسمح بكتابة إعدادات تطبيق أوث"
 
 #: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr "السماح بقراءة إعدادات تطبيق oauth"
+msgstr "اسمح بقراءة إعدادات تطبيق أوث"
 
 #: core/apps/appsmarketplaceinfo.cpp:665
 #, kde-format
@@ -1405,7 +1405,7 @@ msgstr "المصادقة الثنائية"
 #: core/model/personalaccesstokeninfosmodel.cpp:84
 #, kde-format
 msgid "Last token part"
-msgstr ""
+msgstr "أخر جزء من الرمز"
 
 #: core/model/roommodel.cpp:502
 #, kde-format
@@ -1413,7 +1413,7 @@ msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "لم تذكر"
 msgstr[1] "إشارة واحد"
-msgstr[2] "إشارتين"
+msgstr[2] "إشارتان"
 msgstr[3] "%1 إشارات"
 msgstr[4] "%1 إشارة"
 msgstr[5] "%1 إشارة"
@@ -1422,12 +1422,12 @@ msgstr[5] "%1 إشارة"
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد إشارة للمجموعة"
+msgstr[1] "إشارة واحدة للمجموعة"
+msgstr[2] "إشارتان للمجموعة"
+msgstr[3] "%1 إشارات للمجموعة"
+msgstr[4] "%1 إشارة للمجموعة"
+msgstr[5] "%1 إشارة للمجموعة"
 
 #: core/model/roommodel.cpp:510
 #, kde-format
@@ -1759,13 +1759,13 @@ msgstr "رفض %1 جلسة دردشة مؤقتة غير المسجلة."
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
-msgstr "<strong>%1</strong> يكتب..."
+msgstr "<strong>%1</strong> يكتب…"
 
 #: core/receivetypingnotificationmanager.cpp:72
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
-msgstr "<strong>%1</strong> يكتبون..."
+msgstr "<strong>%1</strong> يكتبون…"
 
 #: core/rocketchataccount.cpp:700
 #, kde-format
@@ -1773,6 +1773,8 @@ msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
+"REST: %1\n"
+"DDP: %2"
 
 #: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:720
 #, kde-format
@@ -1977,7 +1979,7 @@ msgstr "الرّمز:"
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
 #, kde-format
 msgid "Personal Access Token"
-msgstr ""
+msgstr "رمز الوصول الشخصي"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
@@ -2007,7 +2009,7 @@ msgstr "معلمات غير صالحة"
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:107
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
-msgstr ""
+msgstr "المعلمة المطلوبة '%1' المقدمة لا تتطابق مع أي قناة"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
 #, kde-format
@@ -2157,7 +2159,7 @@ msgstr "إعداد القناة المبدئي هو نفس الإعداد الذ
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
 msgid "The bodyParam 'default' is required"
-msgstr ""
+msgstr "يجب أن يكون bodyParam 'default' مطلوبًا"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:253
 #, kde-format
@@ -2520,7 +2522,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:400
 #, kde-format
 msgid "Push is disabled"
-msgstr ""
+msgstr "الإخطار الفوري معطل"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:404
 #, kde-format
@@ -2676,6 +2678,8 @@ msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
 msgstr ""
+"لا يتطابق المعلمة المطلوبة \\\"roomId\\\" أو \\\"roomName\\\" المقدمة مع أي "
+"قناة"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
@@ -2753,6 +2757,7 @@ msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
 msgstr ""
+"لا يتطابق المعلم المطلوب \\\"roomId\\\" أو \\\"roomName\\\" المقدم مع أي فريق"
 
 #: rocketchatrestapi-qt/users/getavatarjob.cpp:77
 #, kde-format
@@ -2767,12 +2772,12 @@ msgstr "بريد إلكتروني غير صالح '%1'."
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:112
 #, kde-format
 msgid "Invalid avatar URL: %1"
-msgstr ""
+msgstr "عنوان الصورة الرمزية غير صالح: %1"
 
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:116
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
-msgstr ""
+msgstr "حدث خطأ أثناء التعامل مع إعداد الصورة الرمزية من عنوان \"%1\" لـ %2"
 
 #: rocketchatrestapi-qt/users/setstatusjob.cpp:138
 #, kde-format
@@ -2904,17 +2909,17 @@ msgstr "لم يعثر على رموز تعبيرية مخصصة"
 #, kde-format
 msgid "%1 custom emoji (Total: %2)"
 msgid_plural "%1 custom emojis (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أي رمز تعبيري مخصص (المجموع: %2)"
+msgstr[1] "رمز تعبيري مخصص واحد (المجموع: %2)"
+msgstr[2] "رمزان تعبيريان مخصصان (المجموع: %2)"
+msgstr[3] "%1 رموز تعبيرية مخصص (المجموع: %2)"
+msgstr[4] "%1 رمزًا تعبيريًا مخصص (المجموع: %2)"
+msgstr[5] "%1 رمز تعبيري مخصص (المجموع: %2)"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:153
 #, kde-format
 msgid "Do you want to remove this emoji?"
-msgstr ""
+msgstr "هل تريد إزالة هذا الرمز التعبيري؟"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:154
 #, kde-format
@@ -2984,12 +2989,12 @@ msgstr "لم يعثر على أي صوت مخصص"
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أي صوت مخصص (المجموع: %2)"
+msgstr[1] "صوت مخصص واحد (المجموع: %2)"
+msgstr[2] "صوتان مخصصان (المجموع: %2)"
+msgstr[3] "%1 أصوات مخصصة (المجموع: %2)"
+msgstr[4] "%1 صوتًا مخصصًا (المجموع: %2)"
+msgstr[5] "%1 صوت مخصص (المجموع: %2)"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:132
 #, kde-format
@@ -3171,12 +3176,12 @@ msgstr "لم يُعثر على رسالة"
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أي رسالة في الغرفة"
+msgstr[1] "رسالة واحدة في الغرفة"
+msgstr[2] "رسالتان في الغرفة"
+msgstr[3] "%1 رسائل في الغرفة"
+msgstr[4] "%1 رسالة في الغرفة"
+msgstr[5] "%1 رسالة في الغرفة"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:37
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:39
@@ -3196,18 +3201,18 @@ msgstr "لم يعثر على رسالة الإشراف"
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أي رسالة إشراف (الإجمالي: %2)"
+msgstr[1] "رسالة إشراف واحدة (الإجمالي: %2)"
+msgstr[2] "رسالتا إشراف (الإجمالي: %2)"
+msgstr[3] "%1 رسائل إشراف (الإجمالي: %2)"
+msgstr[4] "%1 رسالة إشراف (الإجمالي: %2)"
+msgstr[5] "%1 رسالة إشراف (الإجمالي: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "See messages"
-msgstr "انظر الرسائل"
+msgstr "شاهد الرسائل"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:140
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:139
@@ -3368,7 +3373,7 @@ msgstr "بلّغ #%1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Oauth Apps"
-msgstr ""
+msgstr "أضف تطبيقات أوث"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
@@ -3387,7 +3392,7 @@ msgstr "أعد توجيه الرابط:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Oauth Apps"
-msgstr ""
+msgstr "حرر تطبيقات أوث"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:37
 #, kde-format
@@ -3402,30 +3407,29 @@ msgstr "سر العميل:"
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:45
 #, kde-format
 msgid "Authorization Url:"
-msgstr ""
+msgstr "عنوان التفويض:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:49
 #, kde-format
 msgid "Access Token URL:"
-msgstr ""
+msgstr "عنوان رمز الوصول:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Oauth apps…"
-msgstr "ابحث في الرسائل"
+msgstr "ابحث في تطبيقات أوث…"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:67
 #, kde-format
 msgid "Are you sure that you want to delete this Oauth?"
-msgstr ""
+msgstr "هل أنت متأكد أنك تريد حذف تطبيق أوث هذه؟"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove OAuth"
-msgstr ""
+msgstr "أزِل أوث"
 
 #: widgets/administratordialog/permissions/permissionseditdialog.cpp:16
 #, kde-format
@@ -3553,12 +3557,12 @@ msgstr "لم يعثر على أي مستخدم"
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أي مستخدمين (المجموع: %2)"
+msgstr[1] "مستخدم واحد (المجموع: %2)"
+msgstr[2] "مستخدمان (المجموع: %2)"
+msgstr[3] "%1 مستخدمون (المجموع: %2)"
+msgstr[4] "%1 مستخدمًا (المجموع: %2)"
+msgstr[5] "%1 مستخدم (المجموع: %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
@@ -3690,12 +3694,12 @@ msgstr "لم يعثر على أي غرفة"
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أي غرفة (المجموع: %2)"
+msgstr[1] "غرفة واحدة (المجموع: %2)"
+msgstr[2] "غرفتان (المجموع: %2)"
+msgstr[3] "%1 غرف (المجموع: %2)"
+msgstr[4] "%1 غرفة (المجموع: %2)"
+msgstr[5] "%1 غرفة (المجموع: %2)"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:212
 #, kde-format
@@ -3980,7 +3984,7 @@ msgstr "عناوين البريد الإلكتروني:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separate emails"
-msgstr ""
+msgstr "استخدم ','  لعناوين البريد الإلكتروني المنفصلة"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:19
@@ -4034,13 +4038,13 @@ msgstr "اجعله مشرفًا"
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
-msgstr ""
+msgstr "صفّر مفتاح التعمية من طرف لطرف"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
-msgstr ""
+msgstr "صفّر كلمة المرور المستندة على الوقت"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:435
 #, kde-format
@@ -4051,23 +4055,28 @@ msgid ""
 "E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
+"سيؤدي تصفير مفتاح التعمية من طرف لطرف الحالي إلى تسجيل خروج المستخدم. عندما "
+"يقوم المستخدم بالولوج مرة أخرى؛ سيعمل Rocket.Chat على إنشاء مفتاح جديد "
+"واستعادة وصول المستخدم إلى أي غرفة مشفرة بها عضو واحد أو أكثر متصل "
+"بالإنترنت. ونظرًا لطبيعة تعمية من طرف لطرف، فلن يتمكن Rocket.Chat من استعادة "
+"الوصول إلى أي غرفة مشفرة ليس بها عضو متصل بالإنترنت."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:439
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
-msgstr ""
+msgstr "صفّر مفتاح التعمية من طرف لطرف"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:471
 #, kde-format
 msgid "E2E key for %1 has been reset."
-msgstr ""
+msgstr "صُفّر مفتاح تعمية من طرف لطرف لـ%1"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:471
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
-msgstr ""
+msgstr "صفّر تعمية من طرف لطرف"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:484
 #, kde-format
@@ -4075,18 +4084,21 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
+"سيؤدي تصفير المصادقة الثنائية بكلمة المرور المستندة على الوقت الحالية إلى "
+"تسجيل خروج المستخدم. سيكون المستخدم قادرًا على المصادقة الثانائية مرة أخرى "
+"لاحقًا."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:485
 #: widgets/administratordialog/users/administratoruserswidget.cpp:516
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
-msgstr ""
+msgstr "صفّر كلمة المرور المستندة على الوقت"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:516
 #, kde-format
 msgid "TOTP key for %1 has been reset"
-msgstr ""
+msgstr "صُفّرت كلمة المرور المستندة على الوقت لـ%1"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -4153,7 +4165,7 @@ msgstr "اسمح بالقراءة المجهولة"
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Password Change for OAuth Users"
-msgstr "اسمح بتغيير كلمة السر لمستخدمي OAuth"
+msgstr "اسمح بتغيير كلمة السر لمستخدمي أوث"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
@@ -4429,7 +4441,7 @@ msgstr "عام"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
 #, kde-format
 msgid "Rate Limiter"
-msgstr ""
+msgstr "معدل الطلبات"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
@@ -4446,7 +4458,7 @@ msgstr "مؤتمرات الفيديو"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "IRC Federation"
-msgstr ""
+msgstr "اتحاد آي أر سي"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
@@ -4663,11 +4675,10 @@ msgid "Enabled"
 msgstr "ممكن"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgctxt "@option:check"
 msgid "Trust CAS Username"
-msgstr "اسم المستخدم"
+msgstr "ثقّ في اسم مستخدم خدمة المصادقة المركزية (CAS)"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:25
 #, kde-format
@@ -4684,7 +4695,7 @@ msgstr "زامن بيانات المستخدمين دائمًا"
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
 #, kde-format
 msgid "SSO Base URL"
-msgstr ""
+msgstr "العنوان الأساسي لتسجيل الدخول الموحد (SSO)"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
 #, kde-format
@@ -4692,11 +4703,13 @@ msgctxt "@info:tooltip"
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
+"العنوان الأساسي لخدمة تسجيل الدخول الموحد (SSO) الخارجية الخاصة بك، على سبيل "
+"المثال: https://sso.example.undef/sso/"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
-msgstr ""
+msgstr "العنوان الولوج لتسجيل الدخول الموحد (SSO)"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -4705,6 +4718,8 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
+"عنوان الولوج إلى خدمة تسجيل الدخول الموحد الخارجية الخاصة بك، على سبيل "
+"المثال: https://sso.example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:53
@@ -4721,17 +4736,24 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"عند تمكين هذه الميزة، سوف يثق Rocket.Chat في أن أي اسم مستخدم من خدمة "
+"المصادقة المركزية ينتمي إلى نفس المستخدم على Rocket.Chat.\n"
+"قد يكون هذا ضروريًا إذا أُعيد تسمية مستخدم على خدمة المصادقة المركزية، ولكن قد "
+"يسمح أيضًا للأشخاص بالتحكم في حسابات Rocket.Chat عن طريق إعادة تسمية مستخدمي "
+"خدمة المصادقة المركزية الخاصة بهم."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
+"اسمح بإنشاء مستخدم خدمة المصادقة المركزية من البيانات المقدمة بواسطة تذكرة "
+"خدمة المصادقة المركزية."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
-msgstr ""
+msgstr "التعامل مع السمات"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:67
 #, kde-format
@@ -4741,6 +4763,9 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"زامن بيانات مستخدمين خدمة المصادقة المركزية الخارجية دائمًا مع السمات المتاحة "
+"عند الولوج.\n"
+"ملاحظة: تُزامن السمات دائمًا عند إنشاء الحساب على أي حال."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:72
 #, kde-format
@@ -4762,6 +4787,16 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"استخدم إدخال JSON هذا لبناء سمات داخلية (مفتاح) من سمات خارجية (قيمة).\n"
+"سيتم استيفاء أسماء السمات الخارجية المرفقة بعلامة \"%\" في سلاسل القيم.<br/"
+">على سبيل المثال، {\"email\":\"%email%\", \"name\":\"%firstname%, %lastname%"
+"\"}\n"
+"يتم استيفاء خريطة السمات دائمًا. في خدمة المصادقة المركزية 1.0، تتوفر سمة اسم "
+"المستخدم فقط. السمات الداخلية المتاحة هي: اسم المستخدم، الاسم، البريد "
+"الإلكتروني، الغرف؛\n"
+"الغرف عبارة عن قائمة مفصولة بفواصل من الغرف للانضمام إليها عند إنشاء "
+"المستخدم، على سبيل المثال: {\"rooms\": \"%team%,%department%\"} ستضم مستخدمي "
+"خدمة المصادقة المركزية عند إنشائهم إلى قناة فريقهم وقسمهم."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, kde-format
@@ -4769,11 +4804,10 @@ msgid "Default Provider"
 msgstr "المزود المبدئي"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@option:check"
 msgid "IgnoreTLS"
-msgstr "تجاهل"
+msgstr "تجاهل TLS"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, kde-format
@@ -4924,11 +4958,10 @@ msgid "Password Changed"
 msgstr "تغيرت كلمة السر"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enabled E2E encryption"
-msgstr "التعمية"
+msgstr "مكّن التعمية من طرف لطرف"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:17
 #, kde-format
@@ -5141,7 +5174,7 @@ msgstr "مكّن الغرف المفضلة"
 #, kde-format
 msgctxt "@option:check"
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "تهذيب أسماء UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:32
 #, kde-format
@@ -5159,7 +5192,7 @@ msgstr "أرسل إحصائيات إلى Rocket.Chat"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use REST instead of websocket for Meteor calls"
-msgstr ""
+msgstr "استخدم REST بدلاً من websocket لاستدعاءات ميتيور"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
 #, kde-format
@@ -5206,12 +5239,12 @@ msgstr "القناة الأولى بعد الولوج"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
 #, kde-format
 msgid "Deep Link Url"
-msgstr ""
+msgstr "عنوان الرابط العميق"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:73
 #, kde-format
 msgid "CDN Prefix"
-msgstr ""
+msgstr "بادئة CDN"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:87
@@ -5338,12 +5371,12 @@ msgstr "الحد الأقصى لعدد أعضاء الغرفة قبل تعطيل
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:142
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "البث المباشر"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:147
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "عنوان البث المباشر"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:148
 #, kde-format
@@ -5352,6 +5385,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"عنوان الانترنت IP أو المضيف لمركز البث المباشر Rocket.Chat الخاص بك. على "
+"سبيل المثال 192.168.1.1:3000 أو localhost:4000"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:150
 #, kde-format
@@ -5411,7 +5446,7 @@ msgstr "RFC2813"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The port to bind to on the IRC host server."
-msgstr ""
+msgstr "المنفذ المطلوب الارتباط به على خادم آي أر سي المضيف."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:53
 #, kde-format
@@ -5480,13 +5515,13 @@ msgstr "أعد الاتّصال"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attempt to utilize LDAP for authentication."
-msgstr ""
+msgstr "محاولة استخدام LDAP للمصادقة."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:37
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
-msgstr ""
+msgstr "منفذ للوصول إلى LDAP. على سبيل المثال: 389 أو 636 لـ LDAPS"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:44
 #, kde-format
@@ -5495,6 +5530,7 @@ msgid ""
 "Try to reconnect automatically when connection is interrupted by some reason "
 "while executing operations."
 msgstr ""
+"حاول إعادة الاتصال تلقائيًا عند انقطاع الاتصال لأي سبب أثناء تنفيذ العمليات."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:48
 #, kde-format
@@ -5504,7 +5540,7 @@ msgstr "الاستيثاق"
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:57
 #, kde-format
 msgid "User DN"
-msgstr ""
+msgstr "اسم المستخدم المميز (DN)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:59
 #, kde-format
@@ -5514,6 +5550,10 @@ msgid ""
 "third-party integrations. Use a fully qualified name, such as "
 "cn=Administrator,cn=Users,dc=Example,dc=com."
 msgstr ""
+"مستخدم LDAP الذي يقوم بإجراء عمليات بحث عن المستخدم للتحقق من هوية "
+"المستخدمين الآخرين عند تسجيل الدخول. عادةً ما يكون هذا حساب خدمة تُنشئ خصيصًا "
+"للتكاملات مع جهات خارجية. استخدم اسمًا مؤهلاً بالكامل، مثل cn=Administrator،"
+"cn=Users،dc=Example،dc=com."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:67
 #, kde-format
@@ -5535,7 +5575,7 @@ msgstr "المهلة (م.ث)"
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:80
 #, kde-format
 msgid "Connection Timeout (ms)"
-msgstr ""
+msgstr "مهلة الاتصال (مللي ثانية)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:85
 #, kde-format
@@ -5543,6 +5583,8 @@ msgid ""
 "How many milliseconds wait after the latest LDAP operation until close the "
 "connection. (Each operation will open a new connection)"
 msgstr ""
+"كم عدد المللي ثانية انتظار بعد آخر عملية LDAP حتى إغلاق الاتصال. (ستفتح كل "
+"عملية اتصال جديد)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:86
 #, kde-format
@@ -5553,13 +5595,13 @@ msgstr "مهلة السكون (م.ث)"
 #, kde-format
 msgctxt "@option:check"
 msgid "Trace method calls"
-msgstr ""
+msgstr "تتبع استدعاءات الوظيفة"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Trace subscription calls"
-msgstr ""
+msgstr "تتبع استدعاءات الاشتراك"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -5568,11 +5610,12 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"قناة ستتلقى جميع الاستثناءات الملتقطة. اتركها فارغة لتجاهل الاستثناءات."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
 msgid "Log Exceptions to Channel"
-msgstr ""
+msgstr "سجّل الاستثناءات في قناة"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
 #, kde-format
@@ -5582,12 +5625,12 @@ msgstr "الأخطاء فقط"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, kde-format
 msgid "Errors and Information"
-msgstr ""
+msgstr "الأخطاء والمعلومات"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
 #, kde-format
 msgid "Errors, Information and Debug"
-msgstr ""
+msgstr "الأخطاء والمعلومات والتنقيح"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
@@ -5597,7 +5640,7 @@ msgstr "مستوى السجل"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
 #, kde-format
 msgid "Log View Limit"
-msgstr ""
+msgstr "حد عرض السجل"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:58
@@ -5607,12 +5650,14 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"سيقيَّم النص هنا على هيئة تعبير نمطي (RegExp('text') جديد). احتفظ به فارغًا "
+"لإظهار تتبع كل استدعاء."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:50
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
 #, kde-format
 msgid "Trace method filter"
-msgstr ""
+msgstr "تتبع مرشح الوظيفة"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:18
 #, kde-format
@@ -5666,13 +5711,13 @@ msgstr "مكّن مسجل الفيديو"
 #, kde-format
 msgctxt "@option:check"
 msgid "Remove EXIF metadata from supported files"
-msgstr ""
+msgstr "أزل بيانات EXIF الوصفية من الملفات المدعومة"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable image thumbnails to save bandwidth"
-msgstr ""
+msgstr "مكّن الصور المصغرة للصور لحفظ حزمة البيانات"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:34
 #, kde-format
@@ -5735,6 +5780,8 @@ msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
 msgstr ""
+"يتطلب أن تكون ملفات 'video/webm' من أنواع الوسائط المقبولة ضمن إعدادات 'رفع "
+"الملف'."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
 #, kde-format
@@ -5821,6 +5868,8 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
+"يحذف بيانات EXIF الوصفية من ملفات الصور (jpeg، tiff، إلخ). هذا الإعداد ليس "
+"بأثر رجعي، لذا ستحتوي الملفات التي تم تحميلها أثناء تعطيلها على بيانات EXIF"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:139
 #, kde-format
@@ -5830,6 +5879,8 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
+"ستُعرض الصور المصغرة بدلاً من الصورة الأصلية لتقليل استخدام البيانات. يمكن "
+"تنزيل الصور بالدقة الأصلية باستخدام الأيقونة الموجودة بجوار اسم المرفق."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:145
 #, kde-format
@@ -5925,6 +5976,8 @@ msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
 msgstr ""
+"عند تمكين هذا الخيار، ستجبر المستخدمين على استخدام رقم التعريف الشخصي (PIN)/"
+"القياس الحيوي (BIOMETRY)/معرف الوجه (FACEID) لفتح قفل التطبيق."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -5933,17 +5986,18 @@ msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
 msgstr ""
+"الوقت المستغرق لطلب كلمة السر مرة أخرى بعد انتهاء الجلسة الأخيرة،بالثواني."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
 msgid "Force Screen Lock After"
-msgstr ""
+msgstr "افرض قفل الشاشة بعد"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
 #, kde-format
 msgctxt "@option:check"
 msgid "Sign in with Apple"
-msgstr ""
+msgstr "لج باستخدام أبل"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
 #, kde-format
@@ -5979,7 +6033,7 @@ msgstr "ولوج غت هب"
 #, kde-format
 msgctxt "@option:check"
 msgid "Tokenpass Login"
-msgstr "الولوج بالرمز المميز"
+msgstr "ولوج توكنباس"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
 #, kde-format
@@ -5999,21 +6053,23 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
+"إذا كنت تريد تمكين الولوج باستخدام أبل على الهاتف المحمول فقط، فيمكنك ترك "
+"جميع الحقول فارغة."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
 msgid "OAuth Apple Id"
-msgstr ""
+msgstr "معرف أوث أبل"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
 #, kde-format
 msgid "OAuth Apple Iss"
-msgstr ""
+msgstr "معرف أوث Iss"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:72
 #, kde-format
 msgid "OAuth Apple Kid"
-msgstr ""
+msgstr "أوث أبل كد"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:74
 #, kde-format
@@ -6133,29 +6189,29 @@ msgstr "سر غت هب"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:191
 #, kde-format
 msgid "Tokenpass"
-msgstr ""
+msgstr "توكنباس"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr ""
+msgstr "مثال: https://domain.com (باستثناء الشرطة المائلة اللاحقة)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:201
 #, kde-format
 msgid "Tokenpass Server URL"
-msgstr ""
+msgstr "خادم توكنباس"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:204
 #, kde-format
 msgid "Tokenpass Id"
-msgstr ""
+msgstr "معرف توكنباس"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:207
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:210
 #, kde-format
 msgid "Tokenpass Secret"
-msgstr ""
+msgstr "سر توكنباس"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
@@ -6316,7 +6372,7 @@ msgstr "يجب أن تحتوي كلمة السر على حرف خاص واحد �
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Rate Limiter"
-msgstr ""
+msgstr "مكّن معدل الطلبات"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:16
 #, kde-format
@@ -6351,22 +6407,22 @@ msgstr "حدّ حسب الاتصال لكل طريقة"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:33
 #, kde-format
 msgid "API Rate Limiter"
-msgstr ""
+msgstr "الواجهة البرمجية لمعدل الطلبات"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:41
 #, kde-format
 msgid "DDP Rate Limit"
-msgstr ""
+msgstr "معدل طلبات DDP"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:51
 #, kde-format
 msgid "Limit by IP: interval time"
-msgstr ""
+msgstr "حدّ حسب عنوان الإنترنت (IP): الوقت الفاصل"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:55
 #, kde-format
 msgid "Limit by IP: requests allowed"
-msgstr ""
+msgstr "حدّ حسب عنوان الإنترنت (IP): الطلبات المسموحة"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:63
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:75
@@ -6374,7 +6430,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:101
 #, kde-format
 msgid "Limit by User: requests allowed"
-msgstr ""
+msgstr "حدّ حسب المستخدم: الطلبات المسموحة"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:67
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:79
@@ -6382,7 +6438,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:107
 #, kde-format
 msgid "Limit by User: interval time"
-msgstr ""
+msgstr "حدّ حسب المستخدم: الوقت الفاصل"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
 #, kde-format
@@ -6511,13 +6567,13 @@ msgstr "رفع الملف"
 #, kde-format
 msgctxt "@option:check"
 msgid "SlackBridge Out Enabled"
-msgstr ""
+msgstr "إرسال SlackBridge ممكن"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "SlackBridge Out All"
-msgstr ""
+msgstr "إرسال SlackBridge الكل"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:25
 #, kde-format
@@ -6529,25 +6585,25 @@ msgstr "ردود الفعل"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr ""
+msgstr "مكّن Rocket.Chat من التواصل مباشرة مع Slack."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
 msgid "API Tokens"
-msgstr ""
+msgstr "رموز الواجهة البرمجية"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
-msgstr ""
+msgstr "اختر ما إذا كان ينبغي على SlackBridge إرسال رسائلك أيضًا إلى Slack"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
-msgstr ""
+msgstr "أرسل رسائل من جميع القنوات الموجودة في Slack وانضم إليها الروبوت"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
 #, kde-format
@@ -6556,6 +6612,8 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"استورد الرسائل من Slack باسم مستعار؛ يُستبدل %s باسم المستخدم الخاص "
+"بالمستخدم. إذا كانت فارغة، لن يُستخدم أي اسم مستعار."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:52
 #, kde-format
@@ -6592,7 +6650,7 @@ msgstr "عطّل بث الوجود"
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Instance Broadcast"
-msgstr ""
+msgstr "عطّل بث المثيل"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
@@ -6604,7 +6662,7 @@ msgstr "عطّل مراقبة الجلسات"
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "عطِّل مراقبة نشاط الدردشة المباشرة"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
 #, kde-format
@@ -6616,7 +6674,7 @@ msgstr "عطّل مولد الإحصائيات"
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Data Exporter Processor"
-msgstr ""
+msgstr "عطِّل معالج تصدير البيانات"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
 #, kde-format
@@ -6630,6 +6688,8 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"يؤدي هذا الإعداد إلى تعطيل نظام الإشعارات تمامًا؛ ستتوقف الأصوات وإشعارات سطح "
+"المكتب وإشعارات الهاتف المحمول ورسائل البريد الإلكتروني!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -6638,6 +6698,8 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"يمنع هذا الإعداد جميع المثيلات من إرسال تغييرات حالة المستخدمين إلى عملائها "
+"مع الاحتفاظ بجميع المستخدمين بحالة ظهورهم منذ التحميل الأول!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -6646,6 +6708,8 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"يمنع هذا الإعداد مثيلات Rocket.Chat من إرسال الأحداث إلى المثيلات الأخرى، "
+"وقد يتسبب في حدوث مشاكل في المزامنة وسوء السلوك!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -6653,6 +6717,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"يوقف هذا الإعداد معالجة جلسات زوار الدردشة المباشرة مما يؤدي إلى توقف "
+"الإحصائيات عن العمل بشكل صحيح!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -6661,6 +6727,8 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"يوقف هذا الإعداد معالجة جميع الإحصائيات مما يجعل صفحة المعلومات قديمة حتى "
+"ينقر شخص ما على زر التحديث وقد يتسبب في فقدان معلومات أخرى حول النظام!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -6668,6 +6736,8 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
+"يؤدي هذا الإعداد إلى إيقاف معالجة جميع طلبات التصدير من المستخدمين، وبالتالي "
+"لن يتلقوا الرابط لتنزيل بياناتهم!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
@@ -6675,6 +6745,8 @@ msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"
 msgstr ""
+"يؤدي هذا الإعداد إلى إيقاف مزامنة هذا الخادم مع سحابة Rocket.Chat وقد يتسبب "
+"في حدوث مشكلات مع تراخيص السوق وتراخيص المؤسسات!"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -6737,13 +6809,13 @@ msgstr "مكّن للفرق"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable JWT auth"
-msgstr ""
+msgstr "مكّن مصادقة JWT"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:34
 #, kde-format
 msgctxt "@option:check"
 msgid "Limit token to Jitsi Room"
-msgstr ""
+msgstr "قيّد الرمز لغرفة جيتسي"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:45
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:63
@@ -7016,23 +7088,23 @@ msgstr "لم يعثر على معلومات الإصدار."
 #, kde-format
 msgid "%1 app enabled"
 msgid_plural "%1 apps enabled"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد تطبيق ممكّن"
+msgstr[1] "تطبيق واحد ممكّن"
+msgstr[2] "تطبيقان ممكنان"
+msgstr[3] "%1 تطبيقات ممكّنة"
+msgstr[4] "%1 تطبيقًا ممكّنًا"
+msgstr[5] "%1 تطبيق ممكّن"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
 #, kde-format
 msgid "%1 private app enabled"
 msgid_plural "%1 private apps enabled"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد تطبيق خاص ممكّن"
+msgstr[1] "تطبيق خاص واحد ممكّن"
+msgstr[2] "تطبيقان خاصان ممكنان"
+msgstr[3] "%1 تطبيقات خاصة ممكّنة"
+msgstr[4] "%1 تطبيقًا خاصًا ممكّنًا"
+msgstr[5] "%1 تطبيق خاص ممكّن"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -7606,6 +7678,8 @@ msgid ""
 "Messages are end-to-end encrypted, search will not work and notifications "
 "may not show message content"
 msgstr ""
+"الرسائل معماة من طرف لطرف ، ولن يعمل البحث وقد لا يعرض الإشعارات محتوى "
+"الرسالة"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
@@ -7991,9 +8065,9 @@ msgid "Encrypted Room:"
 msgstr "غرفة معماة:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:76
-#, fuzzy, kde-format
+#, kde-format
 msgid "Federated:"
-msgstr "مراقب (50)"
+msgstr "متحدة:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -8156,12 +8230,12 @@ msgstr "ولّد رابط جديد"
 #, kde-format
 msgid "Your invite link will expire on %2 or after %1 use."
 msgid_plural "Your invite link will expire on %2 or after %1 uses."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "ستنتهي صلاحية رابط دعوتك في %2 أو بعد استخدام."
+msgstr[1] "ستنتهي صلاحية رابط دعوتك في %2 أو بعد استخدام واحد."
+msgstr[2] "ستنتهي صلاحية رابط دعوتك في %2 أو بعد استخدامين."
+msgstr[3] "ستنتهي صلاحية رابط دعوتك في %2 أو بعد %1 استخدامات."
+msgstr[4] "ستنتهي صلاحية رابط دعوتك في %2 أو بعد %1 استخدامًا."
+msgstr[5] "ستنتهي صلاحية رابط دعوتك في %2 أو بعد %1 استخدام."
 
 #: widgets/dialogs/inviteuserswidget.cpp:117
 #, kde-format
@@ -8381,12 +8455,12 @@ msgstr "لا توجد مرفقات"
 #, kde-format
 msgid "%1 Attachment in room (Total: %2)"
 msgid_plural "%1 Attachments in room (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد مرفق في الغرفة (الإجمالي: %2)"
+msgstr[1] "مرفق واحد في الغرفة (الإجمالي: %2)"
+msgstr[2] "مرفقان في الغرفة (الإجمالي: %2)"
+msgstr[3] "%1 مرفقات في الغرفة (الإجمالي: %2)"
+msgstr[4] "%1 مرفقًا في الغرفة (الإجمالي: %2)"
+msgstr[5] "%1 مرفق في الغرفة (الإجمالي: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
@@ -8449,12 +8523,12 @@ msgstr "ابحث في الرسائل…"
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد رسالة في الغرفة (المجموع: %2)"
+msgstr[1] "رسالة واحدة في الغرفة (المجموع: %2)"
+msgstr[2] "رسالتان في الغرفة (المجموع: %2)"
+msgstr[3] "%1 رسائل في الغرفة (المجموع: %2)"
+msgstr[4] "%1 رسالة في الغرفة (المجموع: %2)"
+msgstr[5] "%1 رسالة في الغرفة (المجموع: %2)"
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:22
 #, kde-format
@@ -8590,12 +8664,12 @@ msgstr "لا يوجد فريق"
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد فريق (المجموع: %2)"
+msgstr[1] "فريق واحد (المجموع: %2)"
+msgstr[2] "فريقان (المجموع: %2)"
+msgstr[3] "%1 فرق (المجموع: %2)"
+msgstr[4] "%1 فرقة (المجموع: %2)"
+msgstr[5] "%1 فرقة (المجموع: %2)"
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
 #, kde-format
@@ -8634,12 +8708,12 @@ msgstr "لا توجد مناقشات"
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد نقاشات في الغرفة (المجموع: %2)"
+msgstr[1] "نقاش واحد في الغرفة (المجموع: %2)"
+msgstr[2] "نقاشان في الغرفة (المجموع: %2)"
+msgstr[3] "%1 نقاشات في الغرفة (المجموع: %2)"
+msgstr[4] "%1 نقاشًا في الغرفة (المجموع: %2)"
+msgstr[5] "%1 نقاش في الغرفة (المجموع: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
 #, kde-format
@@ -8669,6 +8743,11 @@ msgid ""
 "any browser you've entered it on. Remember to store your password before "
 "dismissing this message.<br/><br/>Your password is:"
 msgstr ""
+"أنشئ غرفًا خاصة آمنة ورسائل مباشرة باستخدام تعمية من طرف لطرف.<br/><br/> احفظ "
+"كلمة سرك بأمان، حيث لن يُحفظ مفتاح التعمية/فك التعمية رسائلك على الخادم. "
+"ستحتاج إلى إدخالها على أجهزة أخرى لاستخدام التعمية من طرف إلى طرف. <br/><br/"
+"> غيّر كلمة سرك في أي وقت من أي متصفح أدخلتها فيه. تذكر تخزين كلمة سرك قبل "
+"رفض هذه الرسالة.<br/><br/>كلمة سرك هي:"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:60
 #, kde-format
@@ -8693,7 +8772,7 @@ msgstr "فك تعمية مفتاح التعمية"
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:18
 #, kde-format
 msgid "Click here to enter your e2e password."
-msgstr ""
+msgstr "اضغط هنا لإدخال كلمة سرك للتعمية من طرف لطرف."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:20
 #, kde-format
@@ -8716,12 +8795,15 @@ msgid ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 msgstr ""
+"للوصول إلى مجموعاتك الخاصة المعمّاة ورسائلك المباشرة، أدخل كلمة سر تعميتك.\n"
+"تحتاج إلى إدخال كلمة السر هذه لتعمية/فك تعمية رسائلك على كل عميل تستخدمه، "
+"لأن المفتاح غير مخزّن على الخادم."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:18
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
-msgstr ""
+msgstr "احفظ كلمة سر تشفيرك. انقر هنا لعرض كلمة سرك ونسخها."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:20
 #, kde-format
@@ -9104,7 +9186,7 @@ msgstr "تحقق من الإصدار الجديد"
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
-msgstr ""
+msgstr "صفّر مفتاح التعمية من طرف لطرف"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:30
 #, kde-format
@@ -9117,6 +9199,11 @@ msgid ""
 "You will be required to enter it on other devices you wish to use e2e "
 "encryption on."
 msgstr ""
+"يمكنك الآن إنشاء مجموعات خاصة معماة ورسائل مباشرةمعماة. يمكنك أيضًا تغيير "
+"المجموعات الخاصة أو الرسائل المباشرة الموجودة إلى معماة. هذا تعمية من طرف "
+"لطرف، لذا لن يُحفظ مفتاح التعمية/فك التعمية رسائلك على الخادم. لهذا السبب "
+"تحتاج إلى تخزين كلمة سرك في مكان آمن. سيُطلب منك إدخالها على الأجهزة الأخرى "
+"التي ترغب في استخدام تعمية طرف لطرف عليها."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:43
 #, kde-format
@@ -9127,18 +9214,23 @@ msgid ""
 "the E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
+"سيؤدي هذا الخيار إلى إزالة مفتاح التعمية من طرف لطرف الحالي وتسجيل خروجك. "
+"عند الولوج مرة أخرى، سينشئ لك Rocket.Chat مفتاحًا جديدًا ويستعيد وصولك إلى أي "
+"غرفة معماة بها عضو أو أكثر متصل بالإنترنت. نظرًا لطبيعة التعمية من طرف لطرف، "
+"لن يتمكن Rocket.Chat من استعادة الوصول إلى أي غرفة معمّاة لا يوجد بها عضو "
+"متصل بالإنترنت."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via Email"
-msgstr ""
+msgstr "فعّل المصادقة الثانئية عبر البريد الإلكتروني"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
-msgstr ""
+msgstr "فعّل المصادقة الثنائية عبر كلمة المرور المستندة على الوقت"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:27
 #, kde-format
@@ -9147,6 +9239,8 @@ msgid ""
 "Open your authentication app and enter the code.\n"
 "You can also use one of your backup codes."
 msgstr ""
+"افتح تطبيق المصادقة الخاص بك وأدخل الرمز.\n"
+"يمكنك أيضًا استخدام أحد رموزك الاحتياطية."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:53
@@ -9166,20 +9260,20 @@ msgstr "تحقق"
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
-msgstr ""
+msgstr "أعد توليد الرمز"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
 #, kde-format
 msgid "Invalid two factor code."
-msgstr ""
+msgstr "رمز المصادقة الثنائية غير صحيح"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
-msgstr ""
+msgstr "تحقق من رمز المصادقة الثنائية"
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:36
 #, kde-format
@@ -9189,6 +9283,10 @@ msgid ""
 "below.\n"
 " If you can't scan the QR code, you may enter code manually instead:"
 msgstr ""
+"امسح رمز الاستجابة السريعة. سيظهر لك رمز مكون من 6 أرقام يتعين عليك إدخاله "
+"أدناه.\n"
+"إذا لم تتمكن من مسح رمز الاستجابة السريعة، يمكنك إدخال الرمز يدويًا بدلاً من "
+"ذلك:"
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:80
 #, kde-format
@@ -9233,7 +9331,7 @@ msgstr "عامل المصادقة الثنائية"
 #: widgets/myaccount/myaccountconfigurewidget.cpp:52
 #, kde-format
 msgid "E2E Encryption"
-msgstr ""
+msgstr "التعمية من طرف لطرف"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:58
 #, kde-format
@@ -9255,12 +9353,12 @@ msgstr "لا يوجد جهاز"
 #, kde-format
 msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أجهزة (الإجمالي: %2)"
+msgstr[1] "جهاز واحد (الإجمالي: %2)"
+msgstr[2] "جهازان (الإجمالي: %2)"
+msgstr[3] "%1 أجهزة (الإجمالي: %2)"
+msgstr[4] "%1 جهازًا (الإجمالي: %2)"
+msgstr[5] "%1 جهاز (الإجمالي: %2)"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
 #, kde-format
@@ -9293,6 +9391,8 @@ msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
 "it afterwards.<br><b>Token:</b> %1<br><b>Your user Id:</b> %2</qt>"
 msgstr ""
+"<qt>يرجى حفظ رمزك بعناية حيث لن تتمكن من عرضه بعد ذلك.<br><b>الرمز:</b> "
+"%1<br><b>معرف المستخدم الخاص بك:</b> %2</qt>"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
 #, kde-format
@@ -9303,7 +9403,7 @@ msgstr "أنشئ الرمز الشخصي"
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, kde-format
 msgid "Personal Token removed."
-msgstr ""
+msgstr "أزيل الرمز الشخصي"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
 #, kde-format
@@ -9315,7 +9415,7 @@ msgstr "أزل الرمز الشخصي"
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Regenerated"
-msgstr ""
+msgstr "أعيد إنشاء الرمز الشخصي"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
@@ -9326,13 +9426,13 @@ msgstr "أعد التوليد…"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:54
 #, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
-msgstr ""
+msgstr "أمتأكّد من حذف رمز \"%1؟"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Token"
-msgstr ""
+msgstr "أزل الرمز"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
@@ -9407,12 +9507,10 @@ msgid "Desktop notification:"
 msgstr "إخطار سطح المكتب:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
-msgstr "الإخطار"
+msgstr "إخطار فوري:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
 #, kde-format
@@ -9899,7 +9997,7 @@ msgstr "لا يوجد رسائل بعد"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
-msgstr ""
+msgstr "متابعة"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:987
 #, kde-format
@@ -10231,12 +10329,12 @@ msgstr "علّم كمقروء"
 #, kde-format
 msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 رسالة جديدة منذ %2."
+msgstr[1] "رسالة جديدة واحدة منذ %2."
+msgstr[2] "رسالتان جديدتان منذ %2."
+msgstr[3] "%1 رسائل جديدة منذ %2."
+msgstr[4] "%1 رسالة جديدة منذ %2."
+msgstr[5] "%1 رسالة جديدة منذ %2."
 
 #: widgets/room/roomheaderlabel.cpp:68
 #, kde-format
@@ -10260,11 +10358,10 @@ msgid "Favorite"
 msgstr "المفضّلة"
 
 #: widgets/room/roomheaderwidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
-msgstr "ممكّن"
+msgstr "التعمية من طرف لطرف ممكّنة"
 
 #: widgets/room/roomheaderwidget.cpp:113
 #, kde-format
@@ -10552,12 +10649,12 @@ msgstr "بلّغ عن المستخدم"
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 مستخدم في الغرفة (المجموع: %2)"
+msgstr[1] "مستخدم واحد في الغرفة (المجموع: %2)"
+msgstr[2] "مستخدمان في الغرفة (المجموع: %2)"
+msgstr[3] "%1 مستخدمين في الغرفة (المجموع: %2)"
+msgstr[4] "%1 مستخدمًا في الغرفة (المجموع: %2)"
+msgstr[5] "%1 مستخدم في الغرفة (المجموع: %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
@@ -10581,7 +10678,7 @@ msgstr "اعرض الرسالة"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
-msgstr ""
+msgstr "استخدم واجهة برمجة تطبيقات ddp للولوج"
 
 #: widgets/ruqolacommandlineoptions.cpp:47
 #, kde-format
