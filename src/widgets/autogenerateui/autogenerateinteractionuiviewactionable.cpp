@@ -19,7 +19,7 @@ void AutoGenerateInteractionUiViewActionable::parse(const QJsonObject &json)
     mBlockId = json["blockId"_L1].toString().toLatin1();
     mActionId = json["actionId"_L1].toString().toLatin1();
     mType = json["type"_L1].toString().toLatin1();
-    qDebug() << " AutoGenerateInteractionUiViewActionable::parse " << json;
+    // qDebug() << " AutoGenerateInteractionUiViewActionable::parse " << json;
     parseElement(json);
 }
 
