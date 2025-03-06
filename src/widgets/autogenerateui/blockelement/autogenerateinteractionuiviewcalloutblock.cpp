@@ -61,11 +61,11 @@ void AutoGenerateInteractionUiViewCalloutBlock::parseBlock(const QJsonObject &js
         const QJsonObject accessoryObj = json["accessory"_L1].toObject();
         const QString type = accessoryObj["type"_L1].toString();
         if (type == "button"_L1) {
-            AutoGenerateInteractionUiViewButtonElement *b = new AutoGenerateInteractionUiViewButtonElement;
+            auto b = new AutoGenerateInteractionUiViewButtonElement;
             b->parse(accessoryObj);
             mAccessory = b;
         } else if (type == "overflow"_L1) {
-            AutoGenerateInteractionUiViewOverflowElement *flow = new AutoGenerateInteractionUiViewOverflowElement;
+            auto flow = new AutoGenerateInteractionUiViewOverflowElement;
             flow->parse(accessoryObj);
             mAccessory = flow;
         } else {

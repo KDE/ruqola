@@ -55,39 +55,39 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
         if (type == "button"_L1) {
-            AutoGenerateInteractionUiViewButtonElement *e = new AutoGenerateInteractionUiViewButtonElement;
+            auto e = new AutoGenerateInteractionUiViewButtonElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "checkbox"_L1) {
-            AutoGenerateInteractionUiViewCheckboxElement *e = new AutoGenerateInteractionUiViewCheckboxElement;
+            auto e = new AutoGenerateInteractionUiViewCheckboxElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "radio_button"_L1) {
-            AutoGenerateInteractionUiViewRadioButtonElement *e = new AutoGenerateInteractionUiViewRadioButtonElement;
+            auto e = new AutoGenerateInteractionUiViewRadioButtonElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "toggle_switch"_L1) {
-            AutoGenerateInteractionUiViewToggleSwitchElement *e = new AutoGenerateInteractionUiViewToggleSwitchElement;
+            auto e = new AutoGenerateInteractionUiViewToggleSwitchElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "static_select"_L1) {
-            AutoGenerateInteractionUiViewStaticSelectElement *e = new AutoGenerateInteractionUiViewStaticSelectElement;
+            auto e = new AutoGenerateInteractionUiViewStaticSelectElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "overflow"_L1) {
-            AutoGenerateInteractionUiViewOverflowElement *e = new AutoGenerateInteractionUiViewOverflowElement;
+            auto e = new AutoGenerateInteractionUiViewOverflowElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "linear_scale"_L1) {
-            AutoGenerateInteractionUiViewLinearScaleElement *e = new AutoGenerateInteractionUiViewLinearScaleElement;
+            auto e = new AutoGenerateInteractionUiViewLinearScaleElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "datepicker"_L1) {
-            AutoGenerateInteractionUiViewDatePickerElement *e = new AutoGenerateInteractionUiViewDatePickerElement;
+            auto e = new AutoGenerateInteractionUiViewDatePickerElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else if (type == "time_picker"_L1) {
-            AutoGenerateInteractionUiViewTimePickerElement *e = new AutoGenerateInteractionUiViewTimePickerElement;
+            auto e = new AutoGenerateInteractionUiViewTimePickerElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else {

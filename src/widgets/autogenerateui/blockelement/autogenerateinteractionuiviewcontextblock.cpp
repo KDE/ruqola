@@ -56,11 +56,11 @@ void AutoGenerateInteractionUiViewContextBlock::parseBlock(const QJsonObject &js
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
         if (type == "plain_text"_L1 || type == "mrkdwn"_L1) {
-            AutoGenerateInteractionUiViewText *text = new AutoGenerateInteractionUiViewText;
+            auto text = new AutoGenerateInteractionUiViewText;
             text->parse(r.toObject());
             mElements.append(std::move(text));
         } else if (type == "image"_L1) {
-            AutoGenerateInteractionUiViewImage *img = new AutoGenerateInteractionUiViewImage;
+            auto img = new AutoGenerateInteractionUiViewImage;
             img->parse(r.toObject());
             mElements.append(std::move(img));
         } else {

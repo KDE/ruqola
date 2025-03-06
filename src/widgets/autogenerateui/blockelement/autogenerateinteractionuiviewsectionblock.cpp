@@ -89,23 +89,23 @@ void AutoGenerateInteractionUiViewSectionBlock::parseBlock(const QJsonObject &js
         const QJsonObject accessoryObj = json["accessory"_L1].toObject();
         const QString type = accessoryObj["type"_L1].toString();
         if (type == "button"_L1) {
-            AutoGenerateInteractionUiViewButtonElement *b = new AutoGenerateInteractionUiViewButtonElement;
+            auto b = new AutoGenerateInteractionUiViewButtonElement;
             b->parse(accessoryObj);
             mAccessory = b;
         } else if (type == "datepicker"_L1) {
-            AutoGenerateInteractionUiViewDatePickerElement *datePicker = new AutoGenerateInteractionUiViewDatePickerElement;
+            auto datePicker = new AutoGenerateInteractionUiViewDatePickerElement;
             datePicker->parse(accessoryObj);
             mAccessory = datePicker;
         } else if (type == "image"_L1) {
-            AutoGenerateInteractionUiViewImageElement *img = new AutoGenerateInteractionUiViewImageElement;
+            auto img = new AutoGenerateInteractionUiViewImageElement;
             img->parse(accessoryObj);
             mAccessory = img;
         } else if (type == "overflow"_L1) {
-            AutoGenerateInteractionUiViewOverflowElement *flow = new AutoGenerateInteractionUiViewOverflowElement;
+            auto flow = new AutoGenerateInteractionUiViewOverflowElement;
             flow->parse(accessoryObj);
             mAccessory = flow;
         } else if (type == "static_select"_L1) {
-            AutoGenerateInteractionUiViewStaticSelectElement *select = new AutoGenerateInteractionUiViewStaticSelectElement;
+            auto select = new AutoGenerateInteractionUiViewStaticSelectElement;
             select->parse(accessoryObj);
             mAccessory = select;
         } else if (type == "multi_static_select"_L1) {
@@ -130,7 +130,6 @@ void AutoGenerateInteractionUiViewSectionBlock::serializeBlock(QJsonObject &o) c
 {
     if (mText) {
         o["text"_L1] = mText->serialize();
-        // TODO
     }
     if (mAccessory) {
         o["accessory"_L1] = mAccessory->serialize();
