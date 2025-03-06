@@ -26,6 +26,7 @@
 #include "misc/emoticonmenuwidget.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
+#include "room/delegate/messagedelegatehelperdivider.h"
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
@@ -73,6 +74,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mHelperActions(new MessageDelegateHelperActions(account, view, mTextSelectionImpl))
     , mHelperSection(new MessageDelegateHelperSection(account, view, mTextSelectionImpl))
     , mHelperUrlPreview(new MessageDelegateHelperUrlPreview(account, view, mTextSelectionImpl))
+    , mHelperDivider(new MessageDelegateHelperDivider(account, view, mTextSelectionImpl))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
     , mMessageListLayoutBase(new MessageListCompactLayout(this))
 {
@@ -171,8 +173,8 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
         return mHelperSection.get();
     case Block::BlockType::Context: // TODO look at it!
         return mHelperActions.get();
-    case Block::BlockType::Divider: // TODO look at it! Draw line
-        return nullptr;
+    case Block::BlockType::Divider:
+        return mHelperDivider.get();
     case Block::BlockType::Overflow: // TODO look at it!
         return nullptr;
     }

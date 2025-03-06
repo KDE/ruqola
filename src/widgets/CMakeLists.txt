@@ -657,6 +657,8 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagedelegatehelperactions.h
     room/delegate/messagedelegatehelpersection.cpp
     room/delegate/messagedelegatehelpersection.h
+    room/delegate/messagedelegatehelperdivider.cpp
+    room/delegate/messagedelegatehelperdivider.h
 
     room/delegate/messageblockdelegatehelperbase.h
     room/delegate/messageblockdelegatehelperbase.cpp
