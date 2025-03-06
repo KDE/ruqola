@@ -40,14 +40,8 @@ private:
         QString url;
         QRectF buttonRect;
     };
-    struct ActionsLayout {
-        QList<ButtonLayout> buttonList;
+    struct ContextLayout {
+        QList<ButtonLayout> textList;
     };
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ActionsLayout layoutActions(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
-    LIBRUQOLAWIDGETS_NO_EXPORT void executeBlockAction(const QString &appId,
-                                                       const QString &actionId,
-                                                       const QString &value,
-                                                       const QString &blockId,
-                                                       const QByteArray &roomId,
-                                                       const QByteArray &messageId);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ContextLayout layoutContext(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
 };
