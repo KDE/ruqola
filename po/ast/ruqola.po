@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 00:43+0000\n"
+"POT-Creation-Date: 2025-03-06 00:41+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -9821,62 +9821,62 @@ msgstr ""
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:434
+#: widgets/room/delegate/messagelistdelegate.cpp:436
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:446
 #: widgets/room/messagelistview.cpp:405
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:670
+#: widgets/room/delegate/messagelistdelegate.cpp:672
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:680
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:680
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "No message yet"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:989
+#: widgets/room/delegate/messagelistdelegate.cpp:991
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:993
+#: widgets/room/delegate/messagelistdelegate.cpp:995
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:997
+#: widgets/room/delegate/messagelistdelegate.cpp:999
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1001
+#: widgets/room/delegate/messagelistdelegate.cpp:1003
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1005
+#: widgets/room/delegate/messagelistdelegate.cpp:1007
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
