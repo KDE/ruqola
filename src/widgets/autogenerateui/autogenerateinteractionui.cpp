@@ -47,6 +47,7 @@ bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 void AutoGenerateInteractionUi::slotActionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info)
 {
     qDebug() << " AutoGenerateInteractionUi::slotActionChanged : " << info;
+    qDebug() << " this " << *this;
     if (mRocketChatAccount) {
         // Use AppId
         // TODO send message
