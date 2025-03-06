@@ -191,7 +191,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)
     d.space() << "closeButton:" << *t.closeButton();
     d.space() << "submitButton:" << *t.submitButton();
     d.space() << "title:" << t.title();
-    d.space() << "blocks:" << t.blocks();
+    d.space() << "blocks:" << *t.blocks();
     return d;
 }
 
