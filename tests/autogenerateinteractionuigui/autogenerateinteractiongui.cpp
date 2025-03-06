@@ -47,7 +47,7 @@ AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
     connect(generateJsonbutton, &QPushButton::clicked, this, [this, engine]() {
         mSerializeTextEdit->clear();
         const QJsonObject o = engine->generateJson();
-        QJsonDocument d(o);
+        const QJsonDocument d(o);
         const QByteArray ba = d.toJson();
         mSerializeTextEdit->setPlainText(QString::fromUtf8(ba));
     });
