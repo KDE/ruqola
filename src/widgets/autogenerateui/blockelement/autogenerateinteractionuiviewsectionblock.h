@@ -27,6 +27,9 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewActionable *accessory() const;
     void setAccessory(AutoGenerateInteractionUiViewActionable *newAccessory);
 
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewText *> fields() const;
+    void setFields(const QList<AutoGenerateInteractionUiViewText *> &newFields);
+
 protected:
     void serializeBlock(QJsonObject &o) const override;
     void parseBlock(const QJsonObject &json) override;
@@ -34,6 +37,7 @@ protected:
 private:
     AutoGenerateInteractionUiViewText *mText = nullptr;
     AutoGenerateInteractionUiViewActionable *mAccessory = nullptr;
+    QList<AutoGenerateInteractionUiViewText *> mFields;
     /*
         fields?: readonly TextObject[];
     */

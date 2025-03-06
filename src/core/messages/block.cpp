@@ -43,6 +43,12 @@ void Block::parseBlock(const QJsonObject &block)
             qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();
         }
     }
+    // {"accessory":{"actionId":"finish","options":[{"text":{"emoji":false,"text":"Finish
+    // poll","type":"plain_text"},"value":"finish"}],"type":"overflow"},"appId":"c33fa1a6-68a7-491e-bf49-9d7b99671c48","blockId":"6c2122f0-faaa-11ef-85ff-4bacdd8b2d67","text":{"emoji":false,"text":"sdfsdf","type":"plain_text"},"type":"section"}
+    const QJsonObject accessory = block["accessory"_L1].toObject();
+    // Parse accessory
+    // const auto optionsCount = elements.count();
+    // mBlockActions.reserve(optionsCount);
 }
 
 QString Block::convertEnumToStr(BlockType newBlockType) const

@@ -12,6 +12,7 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "ruqola_autogenerateui_debug.h"
+#include <QJsonArray>
 #include <QLabel>
 #include <QLayout>
 using namespace Qt::Literals::StringLiterals;
@@ -24,6 +25,7 @@ AutoGenerateInteractionUiViewSectionBlock::~AutoGenerateInteractionUiViewSection
 {
     delete mText;
     delete mAccessory;
+    qDeleteAll(mFields);
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
@@ -35,12 +37,14 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
     if (t.accessory()) {
         d.space() << "accessory:" << *t.accessory();
     }
+    d.space() << "fields:" << t.fields();
     return d;
 }
 
 bool AutoGenerateInteractionUiViewSectionBlock::operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const
 {
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.text() == text() && other.accessory() == other.accessory();
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.text() == text() && other.accessory() == other.accessory()
+        && other.fields() == fields();
 }
 
 QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(RocketChatAccount *account, QWidget *parent)
@@ -114,6 +118,21 @@ void AutoGenerateInteractionUiViewSectionBlock::parseBlock(const QJsonObject &js
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
         }
     }
+    for (const auto &r : json["fields"_L1].toArray()) {
+        auto e = new AutoGenerateInteractionUiViewText;
+        e->parse(r.toObject());
+        mFields.append(e);
+    }
+}
+
+QList<AutoGenerateInteractionUiViewText *> AutoGenerateInteractionUiViewSectionBlock::fields() const
+{
+    return mFields;
+}
+
+void AutoGenerateInteractionUiViewSectionBlock::setFields(const QList<AutoGenerateInteractionUiViewText *> &newFields)
+{
+    mFields = newFields;
 }
 
 AutoGenerateInteractionUiViewActionable *AutoGenerateInteractionUiViewSectionBlock::accessory() const
@@ -133,6 +152,14 @@ void AutoGenerateInteractionUiViewSectionBlock::serializeBlock(QJsonObject &o) c
     }
     if (mAccessory) {
         o["accessory"_L1] = mAccessory->serialize();
+    }
+    QJsonArray array;
+    for (const auto &e : mFields) {
+        array.append(e->serialize());
+    }
+
+    if (!array.isEmpty()) {
+        o["fields"_L1] = array;
     }
 }
 
