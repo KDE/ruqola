@@ -142,6 +142,8 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
     mHelperActions->setRocketChatAccount(mRocketChatAccount);
     mHelperSection->setRocketChatAccount(mRocketChatAccount);
     mHelperUrlPreview->setRocketChatAccount(mRocketChatAccount);
+    mHelperDivider->setRocketChatAccount(mRocketChatAccount);
+    mHelperContext->setRocketChatAccount(mRocketChatAccount);
 }
 
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
