@@ -147,9 +147,6 @@ target_sources(libruqolacore PRIVATE
     messages/blockaccessory.h
     messages/blockaccessory.cpp
 
-    messages/blockaction/blockactionbase.h
-    messages/blockaction/blockactionbase.cpp
-
     messages/messageurls.h
     messages/messageurls.cpp
     messages/messageattachments.cpp
