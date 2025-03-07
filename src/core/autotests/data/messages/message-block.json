@@ -1,0 +1,168 @@
+{
+    "_id": "SQbSC5CKBRxjzNZXr",
+    "_updatedAt": {
+        "$date": 1741302155862
+    },
+    "alias": "laurent",
+    "blocks": [
+        {
+            "accessory": {
+                "actionId": "finish",
+                "options": [
+                    {
+                        "text": {
+                            "emoji": false,
+                            "text": "Finish poll",
+                            "type": "plain_text"
+                        },
+                        "value": "finish"
+                    }
+                ],
+                "type": "overflow"
+            },
+            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+            "blockId": "136c2440-fadf-11ef-85ff-4bacdd8b2d67",
+            "text": {
+                "emoji": false,
+                "text": "ssdf",
+                "type": "plain_text"
+            },
+            "type": "section"
+        },
+        {
+            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+            "blockId": "136c2441-fadf-11ef-85ff-4bacdd8b2d67",
+            "type": "divider"
+        },
+        {
+            "accessory": {
+                "actionId": "vote",
+                "text": {
+                    "emoji": false,
+                    "text": "Vote",
+                    "type": "plain_text"
+                },
+                "type": "button",
+                "value": "0"
+            },
+            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+            "blockId": "136c2442-fadf-11ef-85ff-4bacdd8b2d67",
+            "text": {
+                "emoji": false,
+                "text": "Test1",
+                "type": "plain_text"
+            },
+            "type": "section"
+        },
+        {
+            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+            "blockId": "136c2443-fadf-11ef-85ff-4bacdd8b2d67",
+            "elements": [
+                {
+                    "actionId": "fcda154d-4962-48ab-8beb-91b9653339e9",
+                    "text": "`                    ` 0.00% (0)",
+                    "type": "mrkdwn"
+                }
+            ],
+            "type": "context"
+        },
+        {
+            "accessory": {
+                "actionId": "vote",
+                "text": {
+                    "emoji": false,
+                    "text": "Vote",
+                    "type": "plain_text"
+                },
+                "type": "button",
+                "value": "1"
+            },
+            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+            "blockId": "136c2444-fadf-11ef-85ff-4bacdd8b2d67",
+            "text": {
+                "emoji": false,
+                "text": "Test2",
+                "type": "plain_text"
+            },
+            "type": "section"
+        },
+        {
+            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+            "blockId": "136c2445-fadf-11ef-85ff-4bacdd8b2d67",
+            "elements": [
+                {
+                    "actionId": "c86b3880-94f8-4590-ab5a-efae26ac2de1",
+                    "text": "`                    ` 0.00% (0)",
+                    "type": "mrkdwn"
+                }
+            ],
+            "type": "context"
+        },
+        {
+            "accessory": {
+                "actionId": "vote",
+                "text": {
+                    "emoji": false,
+                    "text": "Vote",
+                    "type": "plain_text"
+                },
+                "type": "button",
+                "value": "2"
+            },
+            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+            "blockId": "136c2446-fadf-11ef-85ff-4bacdd8b2d67",
+            "text": {
+                "emoji": false,
+                "text": "Test3",
+                "type": "plain_text"
+            },
+            "type": "section"
+        },
+        {
+            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+            "blockId": "136c2447-fadf-11ef-85ff-4bacdd8b2d67",
+            "elements": [
+                {
+                    "actionId": "0a0c0e2a-a6ca-436b-9efc-028f24103dc2",
+                    "text": "`                    ` 0.00% (0)",
+                    "type": "mrkdwn"
+                }
+            ],
+            "type": "context"
+        }
+    ],
+    "channels": [
+    ],
+    "editedAt": {
+        "$date": 1741302155859
+    },
+    "editedBy": {
+        "_id": "K2X3WKcpBqJv8vK3f",
+        "username": "poll.bot"
+    },
+    "md": [
+        {
+            "type": "PARAGRAPH",
+            "value": [
+                {
+                    "type": "PLAIN_TEXT",
+                    "value": "ssdf"
+                }
+            ]
+        }
+    ],
+    "mentions": [
+    ],
+    "msg": "ssdf",
+    "rid": "672ca85dc44b2a134443ea94",
+    "ts": {
+        "$date": 1741302148235
+    },
+    "u": {
+        "_id": "K2X3WKcpBqJv8vK3f",
+        "name": "Poll",
+        "username": "poll.bot"
+    },
+    "urls": [
+    ]
+}
