@@ -39,19 +39,19 @@ public:
     [[nodiscard]] static BlockAccessory deserialize(const QJsonObject &o);
 
     [[nodiscard]] bool isValid() const;
-    [[nodiscard]] QString type() const;
-    void setType(const QString &newType);
+    [[nodiscard]] BlockAccessory::AccessoryType type() const;
+    void setType(BlockAccessory::AccessoryType newType);
 
     [[nodiscard]] QList<BlockAccessoryOption> options() const;
     void setOptions(const QList<BlockAccessoryOption> &newOptions);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(AccessoryType newBlockType) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT BlockAccessory::AccessoryType convertAccessoryTypeToEnum(const QString &type);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString convertEnumToStr(AccessoryType newBlockType);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static BlockAccessory::AccessoryType convertAccessoryTypeToEnum(const QString &type);
 
     QByteArray mActionId;
     QString mValue;
-    QString mType;
+    BlockAccessory::AccessoryType mType = BlockAccessory::AccessoryType::Unknown;
     QList<BlockAccessoryOption> mOptions;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAccessory &t);

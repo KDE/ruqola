@@ -15,15 +15,15 @@ BlockAccessory::~BlockAccessory() = default;
 
 bool BlockAccessory::isValid() const
 {
-    return !mActionId.isEmpty();
+    return !mActionId.isEmpty() && (mType != BlockAccessory::AccessoryType::Unknown);
 }
 
-QString BlockAccessory::type() const
+BlockAccessory::AccessoryType BlockAccessory::type() const
 {
     return mType;
 }
 
-void BlockAccessory::setType(const QString &newType)
+void BlockAccessory::setType(BlockAccessory::AccessoryType newType)
 {
     mType = newType;
 }
@@ -69,7 +69,7 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
 
     mActionId = o["actionId"_L1].toString().toLatin1();
     mValue = o["value"_L1].toString();
-    mType = o["type"_L1].toString();
+    mType = convertAccessoryTypeToEnum(o["type"_L1].toString());
     if (o.contains("options"_L1)) {
         const QJsonArray optionsArray = o["options"_L1].toArray();
         for (const auto &r : optionsArray) {
@@ -85,7 +85,8 @@ QJsonObject BlockAccessory::serialize(const BlockAccessory &block)
     QJsonObject o;
     o["actionId"_L1] = QString::fromLatin1(block.actionId());
     o["value"_L1] = block.value();
-    // TODO type/options
+    o["type"_L1] = BlockAccessory::convertEnumToStr(block.type());
+    // TODO options
     return o;
 }
 
@@ -94,10 +95,12 @@ BlockAccessory BlockAccessory::deserialize(const QJsonObject &o)
     BlockAccessory accessory;
     accessory.setActionId(o["actionId"_L1].toString().toLatin1());
     accessory.setValue(o["value"_L1].toString());
+    accessory.setType(convertAccessoryTypeToEnum(o["type"_L1].toString()));
+    // TODO add options
     return accessory;
 }
 
-QString BlockAccessory::convertEnumToStr(AccessoryType newBlockType) const
+QString BlockAccessory::convertEnumToStr(AccessoryType newBlockType)
 {
     switch (newBlockType) {
     case AccessoryType::Unknown:
