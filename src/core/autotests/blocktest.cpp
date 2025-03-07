@@ -118,6 +118,18 @@ void BlockTest::shouldLoadBlock_data()
 
         QTest::addRow("action3-url") << QStringLiteral("action3-url") << info;
     }
+    {
+        Block info;
+        info.setAppId(QStringLiteral("c33fa1a6-68a7-491e-bf49-9d7b99671c48"));
+        info.setBlockId(QStringLiteral("136c2441-fadf-11ef-85ff-4bacdd8b2d67"));
+        info.setBlockTypeStr(QStringLiteral("divider"));
+        info.setBlockType(Block::BlockType::Divider);
+        QTest::addRow("divider1") << QStringLiteral("divider1") << info;
+    }
+
+    {
+        // accessory
+    }
 }
 
 void BlockTest::shouldLoadBlock()
