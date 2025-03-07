@@ -53,12 +53,16 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
 
 QJsonObject BlockAccessory::serialize(const BlockAccessory &block)
 {
-    // TODO
-    return {};
+    QJsonObject o;
+    o["actionId"_L1] = QString::fromLatin1(block.actionId());
+    o["value"_L1] = block.value();
+    return o;
 }
 
 BlockAccessory BlockAccessory::deserialize(const QJsonObject &o)
 {
-    // TODO
-    return {};
+    BlockAccessory accessory;
+    accessory.setActionId(o["actionId"_L1].toString().toLatin1());
+    accessory.setValue(o["value"_L1].toString());
+    return accessory;
 }
