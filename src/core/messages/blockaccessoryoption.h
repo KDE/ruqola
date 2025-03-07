@@ -20,7 +20,13 @@ public:
 
     [[nodiscard]] bool operator==(const BlockAccessoryOption &other) const;
 
+    [[nodiscard]] QString text() const;
+    void setText(const QString &newText);
+
+    void parse(const QJsonObject &obj);
+
 private:
+    QString mText;
     QString mValue;
 };
 

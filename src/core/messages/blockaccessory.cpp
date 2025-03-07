@@ -6,6 +6,8 @@
 
 #include "blockaccessory.h"
 #include "ruqola_debug.h"
+
+#include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 BlockAccessory::BlockAccessory() = default;
 
@@ -69,7 +71,12 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
     mValue = o["value"_L1].toString();
     mType = o["type"_L1].toString();
     if (o.contains("options"_L1)) {
-        // TODO add option
+        const QJsonArray optionsArray = o["options"_L1].toArray();
+        for (const auto &r : optionsArray) {
+            BlockAccessoryOption option;
+            option.parse(r.toObject());
+            mOptions.append(option);
+        }
     }
 }
 

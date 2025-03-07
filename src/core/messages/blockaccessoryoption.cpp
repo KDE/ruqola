@@ -10,10 +10,15 @@ BlockAccessoryOption::BlockAccessoryOption() = default;
 
 BlockAccessoryOption::~BlockAccessoryOption() = default;
 
+void BlockAccessoryOption::parse(const QJsonObject &obj)
+{
+    // TODO
+}
+
 QDebug operator<<(QDebug d, const BlockAccessoryOption &t)
 {
     d.space() << "value:" << t.value();
-    // TODO
+    d.space() << "text:" << t.text();
     return d;
 }
 
@@ -29,5 +34,15 @@ void BlockAccessoryOption::setValue(const QString &newValue)
 
 bool BlockAccessoryOption::operator==(const BlockAccessoryOption &other) const
 {
-    return mValue == other.value();
+    return mValue == other.value() && mText == other.text();
+}
+
+QString BlockAccessoryOption::text() const
+{
+    return mText;
+}
+
+void BlockAccessoryOption::setText(const QString &newText)
+{
+    mText = newText;
 }
