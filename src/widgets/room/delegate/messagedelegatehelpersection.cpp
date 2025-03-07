@@ -57,6 +57,10 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
     Q_UNUSED(blocksRect);
     Q_UNUSED(option);
     Q_UNUSED(index);
+    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+        const QPoint pos = mouseEvent->pos();
+        // TODO
+    }
     return false;
 }
 
@@ -75,6 +79,9 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
 #else
     layout.title = block.sectionText();
     if (block.blockAccessory().type() == BlockAccessory::AccessoryType::Overflow) {
+        if (!block.blockAccessory().options().isEmpty()) {
+            // Draw menu
+        }
         // TODO show accessory
         // TODO show options
     }
