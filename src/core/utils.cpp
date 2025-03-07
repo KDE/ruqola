@@ -5,7 +5,6 @@
 */
 
 #include "utils.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "colorsandmessageviewstyle.h"
 #include "rocketchataccount.h"
@@ -22,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <TextEmoticonsCore/EmoticonUnicodeUtils>
 
+using namespace Qt::Literals::StringLiterals;
 QUrl Utils::generateServerUrl(const QString &url)
 {
     if (url.isEmpty()) {

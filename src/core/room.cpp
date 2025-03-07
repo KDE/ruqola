@@ -7,7 +7,6 @@
  */
 
 #include "room.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/messagesmodel.h"
 #include "model/usersforroommodel.h"
@@ -22,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonArray>
 #include <QJsonDocument>
 
+using namespace Qt::Literals::StringLiterals;
 Room::Room(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mUsersModelForRoom(new UsersForRoomModel(this))

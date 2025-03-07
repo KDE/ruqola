@@ -5,7 +5,6 @@
 */
 
 #include "unityservicemanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QApplication>
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDBusPendingReply>
 #include <QDBusServiceWatcher>
 
+using namespace Qt::Literals::StringLiterals;
 UnityServiceManager::UnityServiceManager(QObject *parent)
     : QObject(parent)
     , mUnityServiceWatcher(new QDBusServiceWatcher(this))

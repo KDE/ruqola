@@ -5,7 +5,6 @@
 */
 
 #include "messagecache.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "chat/getmessagejob.h"
 #include "chat/getthreadmessagesjob.h"
 
+using namespace Qt::Literals::StringLiterals;
 MessageCache::MessageCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)

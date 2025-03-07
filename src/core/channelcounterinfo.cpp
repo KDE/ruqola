@@ -5,12 +5,12 @@
 */
 
 #include "channelcounterinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_room_memory_debug.h"
 
 #include <QTimeZone>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelCounterInfo::ChannelCounterInfo()
     : QSharedData()
 {

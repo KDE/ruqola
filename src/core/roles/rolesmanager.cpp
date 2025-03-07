@@ -5,10 +5,10 @@
 */
 
 #include "rolesmanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QJsonArray>
+using namespace Qt::Literals::StringLiterals;
 RolesManager::RolesManager(QObject *parent)
     : QObject{parent}
 {

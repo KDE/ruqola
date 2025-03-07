@@ -5,10 +5,10 @@
 */
 
 #include "channelusercompleter.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelUserCompleter::ChannelUserCompleter() = default;
 
 ChannelUserCompleter::~ChannelUserCompleter() = default;

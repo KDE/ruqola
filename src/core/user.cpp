@@ -5,7 +5,6 @@
 */
 
 #include "user.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include "ruqola_specialwarning_debug.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QTimeZone>
 
+using namespace Qt::Literals::StringLiterals;
 User::User() = default;
 
 User::~User() = default;
