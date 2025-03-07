@@ -15,11 +15,7 @@
 using namespace Qt::Literals::StringLiterals;
 Block::Block() = default;
 
-Block::~Block()
-{
-    qDebug() << " mBlockAccessory " << mBlockAccessory;
-    // FIXME delete mBlockAccessory;
-}
+Block::~Block() = default;
 
 void Block::parseBlock(const QJsonObject &block)
 {
@@ -52,8 +48,7 @@ void Block::parseBlock(const QJsonObject &block)
     }
     if (block.contains("accessory"_L1)) {
         const QJsonObject accessory = block["accessory"_L1].toObject();
-        mBlockAccessory = new BlockAccessory;
-        mBlockAccessory->parseAccessory(accessory);
+        mBlockAccessory.parseAccessory(accessory);
     }
 }
 
@@ -98,12 +93,12 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
     return BlockType::Unknown;
 }
 
-BlockAccessory *Block::blockAccessory() const
+BlockAccessory Block::blockAccessory() const
 {
     return mBlockAccessory;
 }
 
-void Block::setBlockAccessory(BlockAccessory *newBlockAccessory)
+void Block::setBlockAccessory(BlockAccessory newBlockAccessory)
 {
     mBlockAccessory = newBlockAccessory;
 }
@@ -212,9 +207,9 @@ void Block::setBlockType(BlockType newBlockType)
 
 bool Block::operator==(const Block &other) const
 {
-    // TODO check mActionAccessory
     return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId() && mBlockStr == other.blockTypeStr()
-        && mBlockActions == other.blockActions() && mSectionText == other.sectionText();
+        && mBlockActions == other.blockActions() && mSectionText == other.sectionText() && mBlockAccessory == other.blockAccessory()
+        && mVideoConferenceInfo == other.videoConferenceInfo();
 }
 
 QString Block::sectionText() const
@@ -262,6 +257,7 @@ Block Block::deserialize(const QJsonObject &o)
     } else {
         qCWarning(RUQOLA_LOG) << "info is invalid " << info;
     }
+    if (o.contains("accessory"_L1)) { }
     // TODO blockAction
     // TODO accessory
     return block;
@@ -277,9 +273,7 @@ QDebug operator<<(QDebug d, const Block &t)
     d.space() << "Video conf info" << t.videoConferenceInfo();
     d.space() << "Text Section" << t.sectionText();
     d.space() << "Block Actions" << t.blockActions();
-    if (t.blockAccessory()) {
-        d.space() << "Block Accessary" << *t.blockAccessory();
-    }
+    d.space() << "Block Accessary" << t.blockAccessory();
     return d;
 }
 

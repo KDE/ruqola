@@ -42,14 +42,21 @@ void BlockAction::setUrl(const QString &newUrl)
 
 QJsonObject BlockAction::serialize(const BlockAction &block)
 {
+    QJsonObject o;
     // TODO
-    return {};
+    return o;
 }
 
 BlockAction BlockAction::deserialize(const QJsonObject &o)
 {
-    // TODO
-    return {};
+    BlockAction blockAction;
+    blockAction.setActionId(o["actionId"_L1].toString());
+    blockAction.setBlockId(o["blockId"_L1].toString());
+    blockAction.setType(o["type"_L1].toString());
+    blockAction.setValue(o["value"_L1].toString());
+    blockAction.setUrl(o["url"_L1].toString());
+
+    return blockAction;
 }
 
 bool BlockAction::isValid() const

@@ -6,11 +6,12 @@
 
 #pragma once
 
+#include "blockaccessory.h"
 #include "blockaction.h"
 #include "libruqolacore_export.h"
 #include "videoconference/videoconferenceinfo.h"
 #include <QDebug>
-class BlockAccessory;
+
 class LIBRUQOLACORE_EXPORT Block
 {
     Q_GADGET
@@ -62,8 +63,8 @@ public:
     [[nodiscard]] QList<BlockAction> blockActions() const;
     void setBlockActions(const QList<BlockAction> &newBlockActions);
 
-    [[nodiscard]] BlockAccessory *blockAccessory() const;
-    void setBlockAccessory(BlockAccessory *newBlockAccessory);
+    [[nodiscard]] BlockAccessory blockAccessory() const;
+    void setBlockAccessory(BlockAccessory newBlockAccessory);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(BlockType newBlockType) const;
@@ -76,7 +77,7 @@ private:
     QString mSectionText;
     BlockType mBlockType = BlockType::Unknown;
     VideoConferenceInfo mVideoConferenceInfo;
-    BlockAccessory *mBlockAccessory = nullptr;
+    BlockAccessory mBlockAccessory;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
 Q_DECLARE_TYPEINFO(Block, Q_RELOCATABLE_TYPE);

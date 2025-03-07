@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "blockaccessoryoption.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
@@ -17,6 +18,7 @@ public:
     enum class AccessoryType : uint8_t {
         Unknown,
         Button,
+        Overflow,
     };
     Q_ENUM(AccessoryType)
 
@@ -36,11 +38,21 @@ public:
     [[nodiscard]] static QJsonObject serialize(const BlockAccessory &block);
     [[nodiscard]] static BlockAccessory deserialize(const QJsonObject &o);
 
+    [[nodiscard]] bool isValid() const;
+    [[nodiscard]] QString type() const;
+    void setType(const QString &newType);
+
+    [[nodiscard]] QList<BlockAccessoryOption> options() const;
+    void setOptions(const QList<BlockAccessoryOption> &newOptions);
+
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(AccessoryType newBlockType) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT BlockAccessory::AccessoryType convertAccessoryTypeToEnum(const QString &type);
+
     QByteArray mActionId;
     QString mValue;
-    // TODO Options
-    // Type
+    QString mType;
+    QList<BlockAccessoryOption> mOptions;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAccessory &t);
 Q_DECLARE_TYPEINFO(BlockAccessory, Q_RELOCATABLE_TYPE);
