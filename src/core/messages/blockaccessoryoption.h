@@ -25,6 +25,9 @@ public:
 
     void parse(const QJsonObject &obj);
 
+    [[nodiscard]] static QJsonObject serialize(const BlockAccessoryOption &block);
+    [[nodiscard]] static BlockAccessoryOption deserialize(const QJsonObject &o);
+
 private:
     QString mText;
     QString mValue;

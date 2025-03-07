@@ -70,13 +70,11 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
     mActionId = o["actionId"_L1].toString().toLatin1();
     mValue = o["value"_L1].toString();
     mType = convertAccessoryTypeToEnum(o["type"_L1].toString());
-    if (o.contains("options"_L1)) {
-        const QJsonArray optionsArray = o["options"_L1].toArray();
-        for (const auto &r : optionsArray) {
-            BlockAccessoryOption option;
-            option.parse(r.toObject());
-            mOptions.append(option);
-        }
+    const QJsonArray optionsArray = o["options"_L1].toArray();
+    for (const auto &r : optionsArray) {
+        BlockAccessoryOption option;
+        option.parse(r.toObject());
+        mOptions.append(option);
     }
 }
 
@@ -86,7 +84,13 @@ QJsonObject BlockAccessory::serialize(const BlockAccessory &block)
     o["actionId"_L1] = QString::fromLatin1(block.actionId());
     o["value"_L1] = block.value();
     o["type"_L1] = BlockAccessory::convertEnumToStr(block.type());
-    // TODO options
+    QJsonArray array;
+    for (const auto &o : block.options()) {
+        array.append(BlockAccessoryOption::serialize(o));
+    }
+    if (!array.isEmpty()) {
+        o["options"_L1] = array;
+    }
     return o;
 }
 
@@ -96,7 +100,14 @@ BlockAccessory BlockAccessory::deserialize(const QJsonObject &o)
     accessory.setActionId(o["actionId"_L1].toString().toLatin1());
     accessory.setValue(o["value"_L1].toString());
     accessory.setType(convertAccessoryTypeToEnum(o["type"_L1].toString()));
-    // TODO add options
+    const QJsonArray optionsArray = o["options"_L1].toArray();
+    QList<BlockAccessoryOption> options;
+    for (const auto &r : optionsArray) {
+        BlockAccessoryOption option;
+        option.parse(r.toObject());
+        options.append(option);
+    }
+    accessory.setOptions(std::move(options));
     return accessory;
 }
 

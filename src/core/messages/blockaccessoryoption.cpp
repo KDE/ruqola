@@ -5,14 +5,31 @@
 */
 
 #include "blockaccessoryoption.h"
-
+using namespace Qt::Literals::StringLiterals;
 BlockAccessoryOption::BlockAccessoryOption() = default;
 
 BlockAccessoryOption::~BlockAccessoryOption() = default;
 
 void BlockAccessoryOption::parse(const QJsonObject &obj)
 {
-    // TODO
+    mValue = obj["value"_L1].toString();
+    mText = obj["text"_L1]["text"_L1].toString();
+}
+
+QJsonObject BlockAccessoryOption::serialize(const BlockAccessoryOption &block)
+{
+    QJsonObject o;
+    o["value"_L1] = block.value();
+    o["text"_L1] = block.text();
+    return o;
+}
+
+BlockAccessoryOption BlockAccessoryOption::deserialize(const QJsonObject &o)
+{
+    BlockAccessoryOption option;
+    option.setValue(o["value"_L1].toString());
+    option.setValue(o["text"_L1].toString());
+    return option;
 }
 
 QDebug operator<<(QDebug d, const BlockAccessoryOption &t)
