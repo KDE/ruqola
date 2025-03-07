@@ -6,6 +6,7 @@
 
 #include "block.h"
 
+#include "blockaccessory.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
@@ -13,6 +14,11 @@
 
 using namespace Qt::Literals::StringLiterals;
 Block::Block() = default;
+
+Block::~Block()
+{
+    delete mBlockAccessory;
+}
 
 void Block::parseBlock(const QJsonObject &block)
 {
@@ -43,12 +49,11 @@ void Block::parseBlock(const QJsonObject &block)
             qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();
         }
     }
-    // {"accessory":{"actionId":"finish","options":[{"text":{"emoji":false,"text":"Finish
-    // poll","type":"plain_text"},"value":"finish"}],"type":"overflow"},"appId":"c33fa1a6-68a7-491e-bf49-9d7b99671c48","blockId":"6c2122f0-faaa-11ef-85ff-4bacdd8b2d67","text":{"emoji":false,"text":"sdfsdf","type":"plain_text"},"type":"section"}
-    const QJsonObject accessory = block["accessory"_L1].toObject();
-    // Parse accessory
-    // const auto optionsCount = elements.count();
-    // mBlockActions.reserve(optionsCount);
+    if (block.contains("accessory"_L1)) {
+        const QJsonObject accessory = block["accessory"_L1].toObject();
+        mBlockAccessory = new BlockAccessory;
+        mBlockAccessory->parseAccessory(accessory);
+    }
 }
 
 QString Block::convertEnumToStr(BlockType newBlockType) const
@@ -90,6 +95,16 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
 
     qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;
     return BlockType::Unknown;
+}
+
+BlockAccessory *Block::blockAccessory() const
+{
+    return mBlockAccessory;
+}
+
+void Block::setBlockAccessory(BlockAccessory *newBlockAccessory)
+{
+    mBlockAccessory = newBlockAccessory;
 }
 
 QList<BlockAction> Block::blockActions() const
@@ -196,6 +211,7 @@ void Block::setBlockType(BlockType newBlockType)
 
 bool Block::operator==(const Block &other) const
 {
+    // TODO check mActionAccessory
     return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId() && mBlockStr == other.blockTypeStr()
         && mBlockActions == other.blockActions() && mSectionText == other.sectionText();
 }
@@ -225,6 +241,8 @@ QJsonObject Block::serialize(const Block &block)
     } else {
         qCWarning(RUQOLA_LOG) << "block.mVideoConferenceInfo is invalid " << block.mVideoConferenceInfo;
     }
+    // o["elements"_L1] =
+    // TODO blockAction
     return o;
 }
 
@@ -242,6 +260,7 @@ Block Block::deserialize(const QJsonObject &o)
     } else {
         qCWarning(RUQOLA_LOG) << "info is invalid " << info;
     }
+    // TODO blockAction
     return block;
 }
 
@@ -255,6 +274,9 @@ QDebug operator<<(QDebug d, const Block &t)
     d.space() << "Video conf info" << t.videoConferenceInfo();
     d.space() << "Text Section" << t.sectionText();
     d.space() << "Block Actions" << t.blockActions();
+    if (t.blockAccessory()) {
+        d.space() << "Block Accessary" << *t.blockAccessory();
+    }
     return d;
 }
 

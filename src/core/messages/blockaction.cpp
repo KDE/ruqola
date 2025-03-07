@@ -40,6 +40,18 @@ void BlockAction::setUrl(const QString &newUrl)
     mUrl = newUrl;
 }
 
+QJsonObject BlockAction::serialize(const BlockAction &block)
+{
+    // TODO
+    return {};
+}
+
+BlockAction BlockAction::deserialize(const QJsonObject &o)
+{
+    // TODO
+    return {};
+}
+
 bool BlockAction::isValid() const
 {
     return !mActionId.isEmpty() /*&& !mBlockId.isEmpty()*/ && !mType.isEmpty() && !mText.isEmpty();

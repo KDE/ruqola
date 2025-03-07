@@ -38,6 +38,9 @@ public:
     [[nodiscard]] QString url() const;
     void setUrl(const QString &newUrl);
 
+    [[nodiscard]] static QJsonObject serialize(const BlockAction &block);
+    [[nodiscard]] static BlockAction deserialize(const QJsonObject &o);
+
 private:
     QString mActionId;
     QString mText;

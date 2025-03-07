@@ -10,7 +10,7 @@
 #include "libruqolacore_export.h"
 #include "videoconference/videoconferenceinfo.h"
 #include <QDebug>
-
+class BlockAccessory;
 class LIBRUQOLACORE_EXPORT Block
 {
     Q_GADGET
@@ -27,6 +27,7 @@ public:
     Q_ENUM(BlockType)
 
     Block();
+    ~Block();
     [[nodiscard]] bool operator==(const Block &other) const;
 
     [[nodiscard]] static QJsonObject serialize(const Block &block);
@@ -61,6 +62,9 @@ public:
     [[nodiscard]] QList<BlockAction> blockActions() const;
     void setBlockActions(const QList<BlockAction> &newBlockActions);
 
+    [[nodiscard]] BlockAccessory *blockAccessory() const;
+    void setBlockAccessory(BlockAccessory *newBlockAccessory);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(BlockType newBlockType) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Block::BlockType convertBlockTypeToEnum(const QString &type);
@@ -72,6 +76,7 @@ private:
     QString mSectionText;
     BlockType mBlockType = BlockType::Unknown;
     VideoConferenceInfo mVideoConferenceInfo;
+    BlockAccessory *mBlockAccessory = nullptr;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
 Q_DECLARE_TYPEINFO(Block, Q_RELOCATABLE_TYPE);

@@ -33,6 +33,9 @@ public:
 
     void parseAccessory(const QJsonObject &o);
 
+    [[nodiscard]] static QJsonObject serialize(const BlockAccessory &block);
+    [[nodiscard]] static BlockAccessory deserialize(const QJsonObject &o);
+
 private:
     QByteArray mActionId;
     QString mValue;
