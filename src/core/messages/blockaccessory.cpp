@@ -5,10 +5,8 @@
 */
 
 #include "blockaccessory.h"
-
-BlockAccessory::BlockAccessory()
-{
-}
+using namespace Qt::Literals::StringLiterals;
+BlockAccessory::BlockAccessory() = default;
 
 BlockAccessory::~BlockAccessory() = default;
 
@@ -42,4 +40,10 @@ QDebug operator<<(QDebug d, const BlockAccessory &t)
 bool BlockAccessory::operator==(const BlockAccessory &other) const
 {
     return other.actionId() == actionId() && other.value() == value();
+}
+
+void BlockAccessory::parseAccessory(const QJsonObject &o)
+{
+    mActionId = o["actionId"_L1].toString().toLatin1();
+    mValue = o["value"_L1].toString();
 }

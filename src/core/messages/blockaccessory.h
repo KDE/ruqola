@@ -12,7 +12,14 @@
 
 class LIBRUQOLACORE_EXPORT BlockAccessory
 {
+    Q_GADGET
 public:
+    enum class AccessoryType : uint8_t {
+        Unknown,
+        Button,
+    };
+    Q_ENUM(AccessoryType)
+
     BlockAccessory();
     ~BlockAccessory();
 
@@ -24,9 +31,13 @@ public:
 
     [[nodiscard]] bool operator==(const BlockAccessory &other) const;
 
+    void parseAccessory(const QJsonObject &o);
+
 private:
     QByteArray mActionId;
     QString mValue;
+    // TODO Options
+    // Type
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAccessory &t);
 Q_DECLARE_TYPEINFO(BlockAccessory, Q_RELOCATABLE_TYPE);
