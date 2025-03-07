@@ -69,6 +69,12 @@ QString Block::convertEnumToStr(BlockType newBlockType) const
         return QStringLiteral("divider");
     case BlockType::Overflow:
         return QStringLiteral("overflow");
+    case BlockType::Image:
+        return QStringLiteral("image");
+    case BlockType::Preview:
+        return QStringLiteral("preview");
+    case BlockType::Callout:
+        return QStringLiteral("callout");
     }
     return {};
 }
@@ -87,6 +93,12 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
         return BlockType::Divider;
     } else if (typeStr == "overflow"_L1) {
         return BlockType::Overflow;
+    } else if (typeStr == "image"_L1) {
+        return BlockType::Image;
+    } else if (typeStr == "preview"_L1) {
+        return BlockType::Preview;
+    } else if (typeStr == "callout"_L1) {
+        return BlockType::Callout;
     }
 
     qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;

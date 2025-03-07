@@ -74,6 +74,10 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
     layout.title = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 #else
     layout.title = block.sectionText();
+    if (block.blockAccessory().type() == BlockAccessory::AccessoryType::Overflow) {
+        // TODO show accessory
+        // TODO show options
+    }
 #endif
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     return layout;

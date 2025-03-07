@@ -19,6 +19,7 @@ public:
         Unknown,
         Button,
         Overflow,
+        // TODO add more
     };
     Q_ENUM(AccessoryType)
 

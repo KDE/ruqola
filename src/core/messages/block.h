@@ -11,7 +11,7 @@
 #include "libruqolacore_export.h"
 #include "videoconference/videoconferenceinfo.h"
 #include <QDebug>
-
+// packages/ui-kit/src/surfaces/message/UiKitParserMessage.ts
 class LIBRUQOLACORE_EXPORT Block
 {
     Q_GADGET
@@ -24,6 +24,9 @@ public:
         Context,
         Divider,
         Overflow,
+        Image,
+        Preview,
+        Callout,
     };
     Q_ENUM(BlockType)
 
