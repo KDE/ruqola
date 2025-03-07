@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 02:44+0000\n"
-"PO-Revision-Date: 2025-03-05 22:57+0400\n"
+"PO-Revision-Date: 2025-03-06 08:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3752,7 +3752,7 @@ msgstr "معرف النشر"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Rocket.Chat App Users"
-msgstr "مستخدمي تطبيق Rocket.Chat"
+msgstr "مستخدمي تطبيق روكت تشات"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
@@ -4056,9 +4056,9 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 "سيؤدي تصفير مفتاح التعمية من طرف لطرف الحالي إلى تسجيل خروج المستخدم. عندما "
-"يقوم المستخدم بالولوج مرة أخرى؛ سيعمل Rocket.Chat على إنشاء مفتاح جديد "
+"يقوم المستخدم بالولوج مرة أخرى؛ سيعمل روكت تشات على إنشاء مفتاح جديد "
 "واستعادة وصول المستخدم إلى أي غرفة مشفرة بها عضو واحد أو أكثر متصل "
-"بالإنترنت. ونظرًا لطبيعة تعمية من طرف لطرف، فلن يتمكن Rocket.Chat من استعادة "
+"بالإنترنت. ونظرًا لطبيعة تعمية من طرف لطرف، فلن يتمكن روكت تشات من استعادة "
 "الوصول إلى أي غرفة مشفرة ليس بها عضو متصل بالإنترنت."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:439
@@ -4736,10 +4736,10 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
-"عند تمكين هذه الميزة، سوف يثق Rocket.Chat في أن أي اسم مستخدم من خدمة "
-"المصادقة المركزية ينتمي إلى نفس المستخدم على Rocket.Chat.\n"
+"عند تمكين هذه الميزة، سوف يثق روكت تشات في أن أي اسم مستخدم من خدمة المصادقة "
+"المركزية ينتمي إلى نفس المستخدم على روكت تشات.\n"
 "قد يكون هذا ضروريًا إذا أُعيد تسمية مستخدم على خدمة المصادقة المركزية، ولكن قد "
-"يسمح أيضًا للأشخاص بالتحكم في حسابات Rocket.Chat عن طريق إعادة تسمية مستخدمي "
+"يسمح أيضًا للأشخاص بالتحكم في حسابات روكت تشات عن طريق إعادة تسمية مستخدمي "
 "خدمة المصادقة المركزية الخاصة بهم."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
@@ -4880,12 +4880,12 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
-"[تنبيه!] في حالة تمكين ”الرد المباشر“، سيتحكم Rocket.Chat في صندوق بريد "
-"البريد الإلكتروني المهيأ.\n"
+"[تنبيه!] في حالة تمكين ”الرد المباشر“، سيتحكم روكت تشات في صندوق بريد البريد "
+"الإلكتروني المهيأ.\n"
 "تُسترجع جميع رسائل البريد الإلكتروني غير المقروءة ويُوضع عليها علامة مقروءة "
 "وتُعالج.\n"
 "يجب تنشيط ”الرد المباشر“ فقط إذا كان صندوق البريد المستخدم مخصصًا حصريًا "
-"للوصول إليه بواسطة Rocket.Chat\n"
+"للوصول إليه بواسطة روكت تشات\n"
 "ولا يُقرأ/يعالج ”بالتوازي“ من قبل البشر."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:102
@@ -5030,8 +5030,8 @@ msgid ""
 "If your workspace is registered and license is provided by Rocket.Chat Cloud "
 "you don't need to manually update the license here."
 msgstr ""
-"إذا كانت مساحة عملك مسجلة ومرخصة من قبل Rocket.Chat Cloud، فلن تحتاج إلى "
-"تحديث الترخيص يدويًا هنا."
+"إذا كانت مساحة عملك مسجلة ومرخصة من قبل روكت تشات كلاود، فلن تحتاج إلى تحديث "
+"الترخيص يدويًا هنا."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:21
 #, kde-format
@@ -5186,7 +5186,7 @@ msgstr "مكّن فاحص التحديثات"
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Statistics to Rocket.Chat"
-msgstr "أرسل إحصائيات إلى Rocket.Chat"
+msgstr "أرسل إحصائيات إلى روكت تشات"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:38
 #, kde-format
@@ -5301,10 +5301,10 @@ msgid ""
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
 msgstr ""
-"يتحقق آلياً من التحديثات الجديدة/الرسائل المهمة من مطوري Rocket.Chat ويتلقى "
+"يتحقق آلياً من التحديثات الجديدة/الرسائل المهمة من مطوري روكت تشات ويتلقى "
 "إشعارات عند توفرها.\n"
-"يظهر الإشعار مرة واحدة لكل إصدار جديد كشعار قابل للنقر وكرسالة من الروبوت "
-"Rocket.Cat، \n"
+"يظهر الإشعار مرة واحدة لكل إصدار جديد كشعار قابل للنقر وكرسالة من آلي روكت "
+"تشات، \n"
 "كلاهما مرئي للمسؤولين فقط."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
@@ -5385,8 +5385,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
-"عنوان الانترنت IP أو المضيف لمركز البث المباشر Rocket.Chat الخاص بك. على "
-"سبيل المثال 192.168.1.1:3000 أو localhost:4000"
+"عنوان الانترنت IP أو المضيف لمركز البث المباشر روكت تشات الخاص بك. على سبيل "
+"المثال 192.168.1.1:3000 أو localhost:4000"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:150
 #, kde-format
@@ -5435,7 +5435,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Attempt to integrate IRC support. Changing this value requires restarting "
 "Rocket.Chat."
-msgstr "محاولة دمج دعم IRC. يتطلب تغيير هذه القيمة إعادة تشغيل Rocket.Chat."
+msgstr "محاولة دمج دعم آي أر سي. يتطلب تغيير هذه القيمة إعادة تشغيل روكت تشات."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
 #, kde-format
@@ -5829,8 +5829,8 @@ msgstr ""
 "الخاصّة ويُحتفظ بها في الغرف الأخرى. احذف جميع الرسائل: ستُحذف جميع الرسائل "
 "والملفات من المستخدم من قاعدة البيانات ولن يكون من الممكن تحديد موقع "
 "المستخدم بعد الآن. أزل الرابط بين المستخدم والرسائل: سيقوم هذا الخيار بتعيين "
-"جميع الرسائل والملفات الخاصة بالمستخدم إلى Rocket.chat.chat bot وستُحذف "
-"الرسائل الخاصة."
+"جميع الرسائل والملفات الخاصة بالمستخدم إلى آلي روكت تشات وستُحذف الرسائل "
+"الخاصة."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:114
 #, kde-format
@@ -6585,7 +6585,7 @@ msgstr "ردود الفعل"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr "مكّن Rocket.Chat من التواصل مباشرة مع Slack."
+msgstr "مكّن روكت تشات من التواصل مباشرة مع Slack."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
@@ -6603,7 +6603,7 @@ msgstr "اختر ما إذا كان ينبغي على SlackBridge إرسال ر�
 msgctxt "@info:tooltip"
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
-msgstr "أرسل رسائل من جميع القنوات الموجودة في Slack وانضم إليها الروبوت"
+msgstr "أرسل رسائل من جميع القنوات الموجودة في Slack وانضم إليها الآليين"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
 #, kde-format
@@ -6626,13 +6626,13 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
-"لا تنشر الرسائل من الروبوتات التي يتطابق اسمها مع التعبير النمطي أعلاه. إذا "
-"تركت فارغة، ستُنشر جميع الرسائل من الروبوتات."
+"لا تنشر الرسائل من الآليين التي يتطابق اسمها مع التعبير النمطي أعلاه. إذا "
+"تركت فارغة، ستُنشر جميع الرسائل من الآليين."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:57
 #, kde-format
 msgid "Exclude Bots"
-msgstr "استبعد الروبوتات"
+msgstr "استبعد آليين"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
 #, kde-format
@@ -6708,8 +6708,8 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
-"يمنع هذا الإعداد مثيلات Rocket.Chat من إرسال الأحداث إلى المثيلات الأخرى، "
-"وقد يتسبب في حدوث مشاكل في المزامنة وسوء السلوك!"
+"يمنع هذا الإعداد مثيلات روكت تشات من إرسال الأحداث إلى المثيلات الأخرى، وقد "
+"يتسبب في حدوث مشاكل في المزامنة وسوء السلوك!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -6745,8 +6745,8 @@ msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"
 msgstr ""
-"يؤدي هذا الإعداد إلى إيقاف مزامنة هذا الخادم مع سحابة Rocket.Chat وقد يتسبب "
-"في حدوث مشكلات مع تراخيص السوق وتراخيص المؤسسات!"
+"يؤدي هذا الإعداد إلى إيقاف مزامنة هذا الخادم مع سحابة روكت تشات وقد يتسبب في "
+"حدوث مشكلات مع تراخيص السوق وتراخيص المؤسسات!"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -9215,10 +9215,10 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 "سيؤدي هذا الخيار إلى إزالة مفتاح التعمية من طرف لطرف الحالي وتسجيل خروجك. "
-"عند الولوج مرة أخرى، سينشئ لك Rocket.Chat مفتاحًا جديدًا ويستعيد وصولك إلى أي "
+"عند الولوج مرة أخرى، سينشئ لك روكت تشات مفتاحًا جديدًا ويستعيد وصولك إلى أي "
 "غرفة معماة بها عضو أو أكثر متصل بالإنترنت. نظرًا لطبيعة التعمية من طرف لطرف، "
-"لن يتمكن Rocket.Chat من استعادة الوصول إلى أي غرفة معمّاة لا يوجد بها عضو "
-"متصل بالإنترنت."
+"لن يتمكن روكت تشات من استعادة الوصول إلى أي غرفة معمّاة لا يوجد بها عضو متصل "
+"بالإنترنت."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:23
 #, kde-format
@@ -9595,7 +9595,7 @@ msgstr "كل إشارة/رسالة مباشرة"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
-msgstr "قام مسؤول Rocket.Chat الخاص بك بتعطيل إخطارات البريد الإلكتروني"
+msgstr "قام مسؤول روكت تشات الخاص بك بتعطيل إخطارات البريد الإلكتروني"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
 #, kde-format
@@ -11449,7 +11449,7 @@ msgstr "إصلاح رابط المعاينة."
 #: widgets/whatsnew/whatsnewtranslations.cpp:99
 #, kde-format
 msgid "Implement Rocket.Chat Marketplace."
-msgstr "تنفيذ متجر Rocket.Chat."
+msgstr "تنفيذ متجر روكت تشات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
@@ -11519,7 +11519,7 @@ msgstr "إصلاح رسالة التحرير."
 #: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "اعرض التصاريح في Rocket.Chat Marketplace."
+msgstr "اعرض التصاريح في متجر روكت تشات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
