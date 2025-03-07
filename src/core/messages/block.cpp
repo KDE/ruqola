@@ -17,7 +17,8 @@ Block::Block() = default;
 
 Block::~Block()
 {
-    delete mBlockAccessory;
+    qDebug() << " mBlockAccessory " << mBlockAccessory;
+    // FIXME delete mBlockAccessory;
 }
 
 void Block::parseBlock(const QJsonObject &block)
@@ -243,6 +244,7 @@ QJsonObject Block::serialize(const Block &block)
     }
     // o["elements"_L1] =
     // TODO blockAction
+    // TODO accessory
     return o;
 }
 
@@ -261,6 +263,7 @@ Block Block::deserialize(const QJsonObject &o)
         qCWarning(RUQOLA_LOG) << "info is invalid " << info;
     }
     // TODO blockAction
+    // TODO accessory
     return block;
 }
 
