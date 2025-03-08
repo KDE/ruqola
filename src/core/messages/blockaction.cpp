@@ -55,6 +55,7 @@ BlockAction BlockAction::deserialize(const QJsonObject &o)
     blockAction.setType(o["type"_L1].toString());
     blockAction.setValue(o["value"_L1].toString());
     blockAction.setUrl(o["url"_L1].toString());
+    blockAction.setText(o["text"_L1].toString());
 
     return blockAction;
 }

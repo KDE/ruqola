@@ -128,7 +128,25 @@ void BlockTest::shouldLoadBlock_data()
     }
 
     {
-        // accessory
+        Block info;
+        info.setAppId(QStringLiteral("c33fa1a6-68a7-491e-bf49-9d7b99671c48"));
+        info.setBlockId(QStringLiteral("136c2440-fadf-11ef-85ff-4bacdd8b2d67"));
+        info.setBlockTypeStr(QStringLiteral("section"));
+        info.setBlockType(Block::BlockType::Section);
+        info.setSectionText(QStringLiteral("ssdf"));
+
+        BlockAccessory accessory;
+        accessory.setActionId("finish");
+        accessory.setType(BlockAccessory::AccessoryType::Overflow);
+
+        QList<BlockAccessoryOption> options;
+        BlockAccessoryOption opt;
+        opt.setValue(QStringLiteral("finish"));
+        opt.setText(QStringLiteral("Finish poll"));
+        options.append(opt);
+        accessory.setOptions(options);
+        info.setBlockAccessory(accessory);
+        QTest::addRow("accessory1") << QStringLiteral("accessory1") << info;
     }
 }
 
