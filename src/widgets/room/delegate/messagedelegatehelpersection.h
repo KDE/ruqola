@@ -32,8 +32,8 @@ public:
 
 private:
     struct SectionLayout {
-        QString title;
-        QSize titleSize;
+        QString sectionText;
+        QSize sectionTextSize;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
 };

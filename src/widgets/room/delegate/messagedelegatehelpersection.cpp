@@ -35,15 +35,15 @@ void MessageDelegateHelperSection::draw(const Block &block,
     const SectionLayout layout = layoutSection(block, option, blockRect.width());
     // Draw title and buttons
     const int positionY = blockRect.y() + option.fontMetrics.ascent();
-    painter->drawText(blockRect.x(), positionY, layout.title);
+    painter->drawText(blockRect.x(), positionY, layout.sectionText);
 }
 
 QSize MessageDelegateHelperSection::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const SectionLayout layout = layoutSection(block, option, maxWidth);
-    const int height = layout.titleSize.height() + DelegatePaintUtil::margin();
-    return {qMax(0, layout.titleSize.width()), height};
+    const int height = layout.sectionTextSize.height() + DelegatePaintUtil::margin();
+    return {qMax(0, layout.sectionTextSize.width()), height};
 }
 
 bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
@@ -77,15 +77,19 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
     int recursiveIndex = 0;
     layout.title = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 #else
-    layout.title = block.sectionText();
-    if (block.blockAccessory().type() == BlockAccessory::AccessoryType::Overflow) {
-        if (!block.blockAccessory().options().isEmpty()) {
-            // Draw menu
-        }
-        // TODO show accessory
-        // TODO show options
+    layout.sectionText = block.sectionText();
+    switch (block.blockAccessory().type()) {
+    case BlockAccessory::AccessoryType::Overflow: {
+        if (!block.blockAccessory().options().isEmpty()) { }
+        break;
     }
+    case BlockAccessory::AccessoryType::Button:
+        break;
+    case BlockAccessory::AccessoryType::Unknown:
+        break;
+    }
+
 #endif
-    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+    layout.sectionTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.sectionText);
     return layout;
 }
