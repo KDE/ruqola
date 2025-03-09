@@ -46,12 +46,16 @@ public:
     [[nodiscard]] QList<BlockAccessoryOption> options() const;
     void setOptions(const QList<BlockAccessoryOption> &newOptions);
 
+    [[nodiscard]] QString text() const;
+    void setText(const QString &newText);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString convertEnumToStr(AccessoryType newBlockType);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static BlockAccessory::AccessoryType convertAccessoryTypeToEnum(const QString &type);
 
     QByteArray mActionId;
     QString mValue;
+    QString mText;
     BlockAccessory::AccessoryType mType = BlockAccessory::AccessoryType::Unknown;
     QList<BlockAccessoryOption> mOptions;
 };

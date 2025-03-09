@@ -54,12 +54,13 @@ QDebug operator<<(QDebug d, const BlockAccessory &t)
     d.space() << "value:" << t.value();
     d.space() << "type:" << t.type();
     d.space() << "options:" << t.options();
+    d.space() << "text:" << t.text();
     return d;
 }
 
 bool BlockAccessory::operator==(const BlockAccessory &other) const
 {
-    return other.actionId() == actionId() && other.value() == value() && other.type() == type() && other.options() == options();
+    return other.actionId() == actionId() && other.value() == value() && other.type() == type() && other.options() == options() && other.text() == text();
 }
 
 void BlockAccessory::parseAccessory(const QJsonObject &o)
@@ -70,6 +71,7 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
     mActionId = o["actionId"_L1].toString().toLatin1();
     mValue = o["value"_L1].toString();
     mType = convertAccessoryTypeToEnum(o["type"_L1].toString());
+    mText = o["text"_L1]["text"_L1].toString();
     const QJsonArray optionsArray = o["options"_L1].toArray();
     for (const auto &r : optionsArray) {
         BlockAccessoryOption option;
@@ -83,6 +85,7 @@ QJsonObject BlockAccessory::serialize(const BlockAccessory &block)
     QJsonObject o;
     o["actionId"_L1] = QString::fromLatin1(block.actionId());
     o["value"_L1] = block.value();
+    o["text"_L1] = block.text();
     o["type"_L1] = BlockAccessory::convertEnumToStr(block.type());
     QJsonArray array;
     for (const auto &o : block.options()) {
@@ -100,6 +103,7 @@ BlockAccessory BlockAccessory::deserialize(const QJsonObject &o)
     accessory.setActionId(o["actionId"_L1].toString().toLatin1());
     accessory.setValue(o["value"_L1].toString());
     accessory.setType(convertAccessoryTypeToEnum(o["type"_L1].toString()));
+    accessory.setText(o["text"_L1].toString());
     const QJsonArray optionsArray = o["options"_L1].toArray();
     QList<BlockAccessoryOption> options;
     for (const auto &r : optionsArray) {
@@ -134,6 +138,16 @@ BlockAccessory::AccessoryType BlockAccessory::convertAccessoryTypeToEnum(const Q
         qCWarning(RUQOLA_LOG) << "Unknown accessory type " << type;
     }
     return BlockAccessory::AccessoryType::Unknown;
+}
+
+QString BlockAccessory::text() const
+{
+    return mText;
+}
+
+void BlockAccessory::setText(const QString &newText)
+{
+    mText = newText;
 }
 
 QList<BlockAccessoryOption> BlockAccessory::options() const
