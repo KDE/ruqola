@@ -24,7 +24,6 @@ MessageDelegateHelperSection::MessageDelegateHelperSection(RocketChatAccount *ac
 
 MessageDelegateHelperSection::~MessageDelegateHelperSection() = default;
 
-// Title
 void MessageDelegateHelperSection::draw(const Block &block,
                                         QPainter *painter,
                                         QRect blockRect,
@@ -38,10 +37,11 @@ void MessageDelegateHelperSection::draw(const Block &block,
     painter->drawText(blockRect.x(), positionY, layout.sectionText);
     // DrawButton
     if (!layout.buttonText.isEmpty()) {
-        const QRectF joinButtonRect = layout.buttonRect.translated(blockRect.x() + layout.sectionTextSize.width() + DelegatePaintUtil::margin(), blockRect.y());
+        const int positionX = blockRect.x() + layout.sectionTextSize.width() + DelegatePaintUtil::margin();
+        const QRectF joinButtonRect = layout.buttonRect.translated(positionX, blockRect.y());
         painter->drawRoundedRect(joinButtonRect.adjusted(-5, 0, +5, 0), 5, 5);
         // Fix position
-        painter->drawText(blockRect.x() + layout.sectionTextSize.width() + DelegatePaintUtil::margin(), positionY, layout.buttonText);
+        painter->drawText(positionX, positionY, layout.buttonText);
     }
 }
 
