@@ -181,6 +181,12 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
         return mHelperDivider.get();
     case Block::BlockType::Overflow: // TODO look at it!
         return nullptr;
+    case Block::BlockType::Image: // TODO look at it!
+        return nullptr;
+    case Block::BlockType::Preview: // TODO look at it!
+        return nullptr;
+    case Block::BlockType::Callout: // TODO look at it!
+        return nullptr;
     }
     return nullptr;
 }
