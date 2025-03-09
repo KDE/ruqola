@@ -38,6 +38,7 @@ private:
         // button
         QString buttonText;
         QSize buttonTextSize;
+        QRect buttonRect;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
 };

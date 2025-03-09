@@ -38,6 +38,8 @@ void MessageDelegateHelperSection::draw(const Block &block,
     painter->drawText(blockRect.x(), positionY, layout.sectionText);
     // DrawButton
     if (!layout.buttonText.isEmpty()) {
+        const QRectF joinButtonRect = layout.buttonRect.translated(blockRect.x() + layout.sectionTextSize.width() + DelegatePaintUtil::margin(), blockRect.y());
+        painter->drawRoundedRect(joinButtonRect.adjusted(-5, 0, +5, 0), 5, 5);
         // Fix position
         painter->drawText(blockRect.x() + layout.sectionTextSize.width() + DelegatePaintUtil::margin(), positionY, layout.buttonText);
     }
@@ -64,6 +66,9 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
     Q_UNUSED(index);
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
+        // if (!layout.buttonText.isEmpty()) {
+        //  TODO
+        //}
         // TODO
     }
     return false;
@@ -93,6 +98,7 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
     case BlockAccessory::AccessoryType::Button: {
         layout.buttonText = blockAccessory.text();
         layout.buttonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.buttonText);
+        layout.buttonRect = QRect(0, 0, layout.buttonTextSize.width(), layout.buttonTextSize.height());
         break;
     }
     case BlockAccessory::AccessoryType::Unknown:
