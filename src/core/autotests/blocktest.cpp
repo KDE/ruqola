@@ -148,6 +148,23 @@ void BlockTest::shouldLoadBlock_data()
         info.setBlockAccessory(accessory);
         QTest::addRow("accessory1") << QStringLiteral("accessory1") << info;
     }
+    {
+        Block info;
+        info.setAppId(QStringLiteral("c33fa1a6-68a7-491e-bf49-9d7b99671c48"));
+        info.setBlockId(QStringLiteral("d674d766-f513-11ef-82b6-d3aef5c738bf"));
+        info.setBlockTypeStr(QStringLiteral("context"));
+        info.setBlockType(Block::BlockType::Context);
+
+        QList<BlockAction> blockActions;
+        BlockAction act;
+        act.setActionId("665355b0-4589-4116-8cf2-ba72c4d8c5b8"_L1);
+        act.setText("`kkk` 100.00% (1)"_L1);
+        act.setType("mrkdwn"_L1);
+        blockActions.append(act);
+        info.setBlockActions(blockActions);
+
+        QTest::addRow("context1") << QStringLiteral("context1") << info;
+    }
 }
 
 void BlockTest::shouldLoadBlock()
