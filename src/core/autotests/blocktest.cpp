@@ -165,6 +165,23 @@ void BlockTest::shouldLoadBlock_data()
 
         QTest::addRow("context1") << QStringLiteral("context1") << info;
     }
+
+    {
+        Block info;
+        info.setAppId(QStringLiteral("c33fa1a6-68a7-491e-bf49-9d7b99671c48"));
+        info.setBlockId(QStringLiteral("33fec462-fcfb-11ef-85ff-4bacdd8b2d67"));
+        info.setBlockTypeStr(QStringLiteral("section"));
+        info.setBlockType(Block::BlockType::Section);
+        info.setSectionText("zz"_L1);
+
+        BlockAccessory accessory;
+        accessory.setActionId("vote");
+        accessory.setValue("0"_L1);
+        accessory.setText("Vote"_L1);
+        accessory.setType(BlockAccessory::AccessoryType::Button);
+        info.setBlockAccessory(std::move(accessory));
+        QTest::addRow("section2") << QStringLiteral("section2") << info;
+    }
 }
 
 void BlockTest::shouldLoadBlock()
