@@ -36,6 +36,11 @@ void MessageDelegateHelperSection::draw(const Block &block,
     // Draw title and buttons
     const int positionY = blockRect.y() + option.fontMetrics.ascent();
     painter->drawText(blockRect.x(), positionY, layout.sectionText);
+    // DrawButton
+    if (!layout.buttonText.isEmpty()) {
+        // Fix position
+        painter->drawText(blockRect.x() + layout.sectionTextSize.width() + DelegatePaintUtil::margin(), positionY, layout.buttonText);
+    }
 }
 
 QSize MessageDelegateHelperSection::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -78,18 +83,22 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
     layout.title = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 #else
     layout.sectionText = block.sectionText();
-    switch (block.blockAccessory().type()) {
+    layout.sectionTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.sectionText);
+    const auto blockAccessory = block.blockAccessory();
+    switch (blockAccessory.type()) {
     case BlockAccessory::AccessoryType::Overflow: {
-        if (!block.blockAccessory().options().isEmpty()) { }
+        if (!blockAccessory.options().isEmpty()) { }
         break;
     }
-    case BlockAccessory::AccessoryType::Button:
+    case BlockAccessory::AccessoryType::Button: {
+        layout.buttonText = blockAccessory.text();
+        layout.buttonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.buttonText);
         break;
+    }
     case BlockAccessory::AccessoryType::Unknown:
         break;
     }
 
 #endif
-    layout.sectionTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.sectionText);
     return layout;
 }
