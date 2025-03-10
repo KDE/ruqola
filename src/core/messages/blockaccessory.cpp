@@ -84,8 +84,8 @@ QJsonObject BlockAccessory::serialize(const BlockAccessory &block)
 {
     QJsonObject o;
     o["actionId"_L1] = QString::fromLatin1(block.actionId());
-    if (!block.value().isEmpty()) {
-        o["value"_L1] = block.value();
+    if (const QString value = block.value(); !value.isEmpty()) {
+        o["value"_L1] = value;
     }
     if (!block.text().isEmpty()) {
         o["text"_L1] = block.text();
