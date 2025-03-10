@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
@@ -153,14 +154,18 @@ void AppUpdateInfoJob::onDeleteRequestResponse(const QString &replyErrorString, 
 
 void AppUpdateInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["status"_L1].toString() == "success"_L1) {
-        addLoggerInfo("Get: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
-        Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
+    if (mAppUpdateInfo.mAppInfoType == AppInfoType::ActionButton) {
+        Q_EMIT fetchActionButtonsDone(replyJson.array());
     } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AppUpdateInfoJob: Error" + replyJson.toJson(QJsonDocument::Indented));
+        const QJsonObject replyObject = replyJson.object();
+        if (replyObject["status"_L1].toString() == "success"_L1) {
+            addLoggerInfo("Get: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
+            Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
+        } else {
+            emitFailedMessage(replyErrorString, replyObject);
+            addLoggerWarning("AppUpdateInfoJob: Error" + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
 }
 
@@ -173,6 +178,9 @@ bool AppUpdateInfoJob::AppUpdateInfo::isValid() const
     if (mAppMode == AppMode::Unknown) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppMode undefined";
         return false;
+    }
+    if (mAppMode == AppMode::Get && mAppInfoType == AppInfoType::ActionButton) {
+        return true;
     }
     if (mAppsId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mAppsId is empty";

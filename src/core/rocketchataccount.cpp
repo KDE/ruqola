@@ -142,7 +142,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mAppsMarketPlaceModel(new AppsMarketPlaceModel(this))
     , mAppsCategoriesModel(new AppsCategoriesModel(this))
     , mMemoryManager(new MemoryManager(this))
-    , mActionButtonsManager(new ActionButtonsManager(this))
+    , mActionButtonsManager(new ActionButtonsManager(this, this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -2329,6 +2329,7 @@ void RocketChatAccount::initializeAccount()
     restApi()->customUserStatus();
     slotLoadRoles();
     checkLicenses();
+    mActionButtonsManager->fetchActionButtons();
     qDebug() << "initializeAccount: encryptionEnabled =" << mRuqolaServerConfig->encryptionEnabled() << "account name" << accountName();
     if (mRuqolaServerConfig->encryptionEnabled()) {
         mE2eKeyManager->fetchMyKeys();

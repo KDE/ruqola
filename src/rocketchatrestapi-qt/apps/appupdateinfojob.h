@@ -57,6 +57,7 @@ public:
 
 Q_SIGNALS:
     void appUpdateInfoDone(const QJsonObject &obj);
+    void fetchActionButtonsDone(const QJsonArray &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
