@@ -5,6 +5,7 @@
 */
 
 #include "serializemessagesgui.h"
+#include "messages/message.h"
 
 #include <QApplication>
 #include <QJsonDocument>
@@ -29,7 +30,15 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
         const QString json = mPlainTextEdit->toPlainText();
         if (!json.isEmpty()) {
             const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-            // TOOD
+            Message msg;
+            msg.parseMessage(doc.object(), true, nullptr);
+
+            const QByteArray ba = Message::serialize(msg, false);
+            QJsonObject msgObj;
+            Message newMsg = msg.deserialize(msgObj);
+
+            const QByteArray newBa = Message::serialize(msg, false);
+            mSerializeTextEdit->setPlainText(QString::fromUtf8(newBa));
         }
     });
 
