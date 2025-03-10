@@ -38,8 +38,19 @@ void MessageDelegateHelperSection::draw(const Block &block,
     // DrawButton
     if (!layout.buttonText.isEmpty()) {
         const int positionX = blockRect.x() + layout.sectionTextSize.width() + DelegatePaintUtil::margin();
-        const QRectF joinButtonRect = layout.buttonRect.translated(positionX, blockRect.y());
-        painter->drawRoundedRect(joinButtonRect.adjusted(-5, 0, +5, 0), 5, 5);
+        const QRectF buttonRect = layout.buttonRect.translated(positionX, blockRect.y());
+        const QPen origPen = painter->pen();
+        const QBrush origBrush = painter->brush();
+        const QPen buttonPen(option.palette.color(QPalette::Button).darker());
+        QColor backgroundColor = option.palette.color(QPalette::Window);
+        const QBrush buttonBrush(backgroundColor);
+        painter->setPen(buttonPen);
+        painter->setBrush(buttonBrush);
+
+        painter->drawRoundedRect(buttonRect.adjusted(-5, 0, +5, 0), 5, 5);
+        painter->setBrush(origBrush);
+        painter->setPen(origPen);
+
         // Fix position
         painter->drawText(positionX, positionY, layout.buttonText);
     }
