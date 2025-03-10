@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore
-    messages/blockaccessoryoption.h messages/blockaccessoryoption.cpp)
+add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
@@ -142,11 +141,19 @@ target_sources(libruqolacore PRIVATE
     messages/channels.cpp
     messages/channels.h
 
-    messages/blocks.cpp
-    messages/blocks.h
+    messages/block/blocks.cpp
+    messages/block/blocks.h
 
-    messages/blockaccessory.h
-    messages/blockaccessory.cpp
+    messages/block/blockaccessory.h
+    messages/block/blockaccessory.cpp
+
+    messages/block/blockaccessoryoption.h
+    messages/block/blockaccessoryoption.cpp
+
+    messages/block/block.h
+    messages/block/block.cpp
+    messages/block/blockaction.h
+    messages/block/blockaction.cpp
 
     messages/messageurls.h
     messages/messageurls.cpp
@@ -484,11 +491,6 @@ target_sources(libruqolacore PRIVATE
     utils.h
 
     ruqolacore.qrc
-
-    messages/block.h
-    messages/block.cpp
-    messages/blockaction.h
-    messages/blockaction.cpp
 
     videoconference/videoconferencemanager.h
     videoconference/videoconferencemanager.cpp

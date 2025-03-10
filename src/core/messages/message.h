@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "blocks.h"
+#include "block/blocks.h"
 #include "channels.h"
 #include "libruqolacore_export.h"
 #include "messageattachments.h"

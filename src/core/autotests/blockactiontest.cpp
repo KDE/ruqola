@@ -5,7 +5,7 @@
 */
 
 #include "blockactiontest.h"
-#include "messages/blockaction.h"
+#include "messages/block/blockaction.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(BlockActionTest)
 

@@ -5,7 +5,7 @@
 */
 
 #include "blockstest.h"
-#include "messages/blocks.h"
+#include "messages/block/blocks.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(BlocksTest)
 BlocksTest::BlocksTest(QObject *parent)

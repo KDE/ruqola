@@ -8,7 +8,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "messages/block.h"
+#include "messages/block/block.h"
 #include "messages/messageattachment.h"
 #include "messages/messageurl.h"
 

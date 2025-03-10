@@ -5,7 +5,7 @@
 */
 
 #include "blocktest.h"
-#include "messages/block.h"
+#include "messages/block/block.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;

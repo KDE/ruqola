@@ -8,7 +8,7 @@
 
 #include "delegateutils/textselectionimpl.h"
 #include "messageblockdelegatehelperbase.h"
-#include "messages/block.h"
+#include "messages/block/block.h"
 
 #include <QIcon>
 #include <QModelIndex>
