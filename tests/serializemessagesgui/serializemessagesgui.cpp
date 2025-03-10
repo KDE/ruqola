@@ -6,15 +6,13 @@
 
 #include "serializemessagesgui.h"
 
-#include "autogenerateui/autogenerateinteractionui.h"
 #include <QApplication>
-#include <QFormLayout>
-#include <QHBoxLayout>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QStandardPaths>
+#include <QVBoxLayout>
 
 SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     : QWidget(parent)
@@ -24,34 +22,19 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mPlainTextEdit);
 
-    auto button = new QPushButton(QStringLiteral("Generate"), this);
-    mainLayout->addWidget(button);
-    auto engine = new AutoGenerateInteractionUi(nullptr);
-    connect(button, &QPushButton::clicked, this, [this, engine]() {
+    auto generateJsonbutton = new QPushButton(QStringLiteral("Serialize Json"), this);
+    mainLayout->addWidget(generateJsonbutton);
+
+    connect(generateJsonbutton, &QPushButton::clicked, this, [this]() {
         const QString json = mPlainTextEdit->toPlainText();
         if (!json.isEmpty()) {
             const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-            if (engine->parseInteractionUi(doc.object())) {
-                auto w = engine->generateWidget(nullptr);
-                w->show();
-            } else {
-                qWarning() << "Invalid Json" << json;
-            }
+            // TOOD
         }
     });
 
     mSerializeTextEdit->setReadOnly(true);
     mainLayout->addWidget(mSerializeTextEdit);
-    auto generateJsonbutton = new QPushButton(QStringLiteral("Generate Json"), this);
-    mainLayout->addWidget(generateJsonbutton);
-    connect(generateJsonbutton, &QPushButton::clicked, this, [this, engine]() {
-        mSerializeTextEdit->clear();
-        const QJsonObject o = engine->generateJson();
-        const QJsonDocument d(o);
-        const QByteArray ba = d.toJson();
-        mSerializeTextEdit->setPlainText(QString::fromUtf8(ba));
-    });
-
     resize(800, 600);
 }
 
