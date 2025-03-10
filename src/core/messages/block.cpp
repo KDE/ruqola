@@ -241,7 +241,9 @@ QJsonObject Block::serialize(const Block &block)
 {
     QJsonObject o;
     o["blockId"_L1] = block.blockId();
-    o["callId"_L1] = block.callId();
+    if (!block.callId().isEmpty()) {
+        o["callId"_L1] = block.callId();
+    }
     o["appId"_L1] = block.appId();
     o["type"_L1] = block.blockTypeStr();
     if (!block.sectionText().isEmpty()) {
@@ -272,9 +274,10 @@ Block Block::deserialize(const QJsonObject &o)
     } else {
         qCWarning(RUQOLA_LOG) << "info is invalid " << info;
     }
-    if (o.contains("accessory"_L1)) { }
+    if (o.contains("accessory"_L1)) {
+        block.setBlockAccessory(BlockAccessory::deserialize(o["accessory"_L1].toObject()));
+    }
     // TODO blockAction
-    // TODO accessory
     return block;
 }
 
