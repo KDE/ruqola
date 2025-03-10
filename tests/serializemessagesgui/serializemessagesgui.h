@@ -7,7 +7,7 @@
 #pragma once
 
 #include <QWidget>
-class QPlainTextEdit;
+class SerializeMessageWidget;
 class SerializeMessagesGui : public QWidget
 {
     Q_OBJECT
@@ -16,6 +16,6 @@ public:
     ~SerializeMessagesGui() override;
 
 private:
-    QPlainTextEdit *const mPlainTextEdit;
-    QPlainTextEdit *const mSerializeTextEdit;
+    SerializeMessageWidget *const mOriginal;
+    SerializeMessageWidget *const mSerialize;
 };

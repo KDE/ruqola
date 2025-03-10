@@ -6,8 +6,10 @@
 
 #include "serializemessagesgui.h"
 #include "messages/message.h"
+#include "serializemessagewidget.h"
 
 #include <QApplication>
+#include <QHBoxLayout>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QPlainTextEdit>
@@ -17,33 +19,36 @@
 
 SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     : QWidget(parent)
-    , mPlainTextEdit(new QPlainTextEdit(this))
-    , mSerializeTextEdit(new QPlainTextEdit(this))
+    , mOriginal(new SerializeMessageWidget(this))
+    , mSerialize(new SerializeMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(mPlainTextEdit);
+
+    mainLayout->addWidget(mOriginal);
 
     auto generateJsonbutton = new QPushButton(QStringLiteral("Serialize Json"), this);
     mainLayout->addWidget(generateJsonbutton);
+    mainLayout->addWidget(mSerialize);
 
     connect(generateJsonbutton, &QPushButton::clicked, this, [this]() {
-        const QString json = mPlainTextEdit->toPlainText();
+        const QString json = mOriginal->text();
         if (!json.isEmpty()) {
             const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
             Message msg;
             msg.parseMessage(doc.object(), true, nullptr);
 
+            mOriginal->addMessage(msg);
+
             const QByteArray ba = Message::serialize(msg, false);
-            QJsonObject msgObj;
-            Message newMsg = msg.deserialize(msgObj);
+            const QJsonDocument doc2 = QJsonDocument::fromJson(ba);
+            Message newMsg = msg.deserialize(doc2.object(), nullptr);
 
             const QByteArray newBa = Message::serialize(msg, false);
-            mSerializeTextEdit->setPlainText(QString::fromUtf8(newBa));
+            mSerialize->setText(QString::fromUtf8(newBa));
+            mSerialize->addMessage(newMsg);
         }
     });
 
-    mSerializeTextEdit->setReadOnly(true);
-    mainLayout->addWidget(mSerializeTextEdit);
     resize(800, 600);
 }
 
