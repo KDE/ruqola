@@ -163,3 +163,5 @@ void BlockAccessory::setOptions(const QList<BlockAccessoryOption> &newOptions)
 {
     mOptions = newOptions;
 }
+
+#include "moc_blockaccessory.cpp"
