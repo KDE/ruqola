@@ -35,7 +35,7 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
         if (!json.isEmpty()) {
             const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
             Message msg;
-            msg.parseMessage(doc.object(), true, nullptr);
+            msg.parseMessage(doc.object(), false, nullptr);
 
             mOriginal->addMessage(msg);
 
