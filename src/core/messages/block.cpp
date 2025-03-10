@@ -162,6 +162,9 @@ QString Block::title() const
     case BlockType::Divider:
     case BlockType::Overflow:
     case BlockType::Unknown:
+    case BlockType::Image:
+    case BlockType::Preview:
+    case BlockType::Callout:
         break;
     case BlockType::VideoConf: {
         if (mVideoConferenceInfo.isValid()) {
