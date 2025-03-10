@@ -1190,8 +1190,12 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     }
 
     o["editedByUsername"_L1] = message.mEditedByUsername;
-    o["alias"_L1] = message.mAlias;
-    o["avatar"_L1] = message.mAvatar;
+    if (!message.mAlias.isEmpty()) {
+        o["alias"_L1] = message.mAlias;
+    }
+    if (!message.mAvatar.isEmpty()) {
+        o["avatar"_L1] = message.mAvatar;
+    }
     o["groupable"_L1] = message.groupable();
     o["parseUrls"_L1] = message.parseUrls();
     if (message.unread()) {

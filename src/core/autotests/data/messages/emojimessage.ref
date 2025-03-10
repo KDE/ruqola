@@ -1,5 +1,4 @@
 {
-    "alias": "",
     "attachments": [
         {
             "attachmentType": "NormalText",
@@ -8,7 +7,6 @@
             "url": ""
         }
     ],
-    "avatar": "",
     "editedAt": -1,
     "editedByUsername": "",
     "emoji": ":warning:",
