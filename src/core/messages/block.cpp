@@ -257,8 +257,13 @@ QJsonObject Block::serialize(const Block &block)
     if (block.blockAccessory().isValid()) {
         o["accessory"_L1] = BlockAccessory::serialize(block.blockAccessory());
     }
-    // o["elements"_L1] =
-    // TODO blockAction
+    if (!block.blockActions().isEmpty()) {
+        QJsonArray array;
+        for (const auto &action : block.blockActions()) {
+            array.append(BlockAction::serialize(action));
+        }
+        o["elements"_L1] = array;
+    }
     return o;
 }
 
