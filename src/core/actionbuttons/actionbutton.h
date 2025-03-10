@@ -49,6 +49,12 @@ public:
     Q_FLAGS(MessageActionContext MessageActionContexts)
     Q_DECLARE_FLAGS(MessageActionContexts, MessageActionContext)
 
+    struct FilterActionInfo {
+        RoomTypeFilters roomTypeFilter = {RoomTypeFilter::Unknown};
+        ButtonContext buttonContext = ButtonContext::Unknown;
+        MessageActionContexts messageActionContext = {MessageActionContext::Unknown};
+    };
+
     ActionButton();
     ~ActionButton();
 
@@ -107,4 +113,6 @@ private:
 
 Q_DECLARE_METATYPE(ActionButton)
 Q_DECLARE_TYPEINFO(ActionButton, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(ActionButton::FilterActionInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ActionButton &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ActionButton::FilterActionInfo &t);

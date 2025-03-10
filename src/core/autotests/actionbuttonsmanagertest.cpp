@@ -17,7 +17,7 @@ ActionButtonsManagerTest::ActionButtonsManagerTest(QObject *parent)
 
 void ActionButtonsManagerTest::shouldHaveDefaultValues()
 {
-    ActionButtonsManager m;
+    ActionButtonsManager m(nullptr);
     QVERIFY(m.actionButtons().isEmpty());
 }
 
@@ -105,7 +105,7 @@ void ActionButtonsManagerTest::shouldLoadActionButtons()
     QFETCH(QList<ActionButton>, actionButtons);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/actionbuttons/"_L1 + name + ".json"_L1;
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
-    ActionButtonsManager m;
+    ActionButtonsManager m(nullptr);
     m.parseActionButtons(array);
     QCOMPARE(m.actionButtons(), actionButtons);
 }

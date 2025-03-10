@@ -8,12 +8,12 @@
 #include "actionbutton.h"
 #include "libruqolacore_export.h"
 #include <QObject>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT ActionButtonsManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit ActionButtonsManager(QObject *parent = nullptr);
+    explicit ActionButtonsManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~ActionButtonsManager() override;
 
     [[nodiscard]] QList<ActionButton> actionButtons() const;
@@ -21,11 +21,14 @@ public:
 
     void parseActionButtons(const QJsonArray &array);
 
-    [[nodiscard]] QList<ActionButton> actionButtonsFromButtonContext(ActionButton::ButtonContext context) const;
+    [[nodiscard]] QList<ActionButton> actionButtonsFromButtonContext(const ActionButton::FilterActionInfo &filterInfo) const;
+
+    void fetchActionButtons();
 
 Q_SIGNALS:
     void actionButtonsChanged();
 
 private:
     QList<ActionButton> mActionButtons;
+    RocketChatAccount *const mRocketChatAccount;
 };

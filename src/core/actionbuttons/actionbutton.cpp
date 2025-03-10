@@ -249,4 +249,12 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     return d;
 }
 
+QDebug operator<<(QDebug d, const ActionButton::FilterActionInfo &t)
+{
+    d.space() << "roomTypeFilter:" << t.roomTypeFilter;
+    d.space() << "buttonContext:" << t.buttonContext;
+    d.space() << "messageActionContext:" << t.messageActionContext;
+    return d;
+}
+
 #include "moc_actionbutton.cpp"
