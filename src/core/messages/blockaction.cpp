@@ -43,7 +43,18 @@ void BlockAction::setUrl(const QString &newUrl)
 QJsonObject BlockAction::serialize(const BlockAction &block)
 {
     QJsonObject o;
-    // TODO
+    o["actionId"_L1] = block.actionId();
+    if (const QString blockId = block.blockId(); !blockId.isEmpty()) {
+        o["blockId"_L1] = blockId;
+    }
+    o["type"_L1] = block.type();
+    if (const QString value = block.value(); !value.isEmpty()) {
+        o["value"_L1] = value;
+    }
+    if (const QString url = block.url(); !url.isEmpty()) {
+        o["url"_L1] = url;
+    }
+    o["text"_L1] = block.text();
     return o;
 }
 
