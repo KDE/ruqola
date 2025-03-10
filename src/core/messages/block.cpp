@@ -254,7 +254,9 @@ QJsonObject Block::serialize(const Block &block)
     } else {
         qCWarning(RUQOLA_LOG) << "block.mVideoConferenceInfo is invalid " << block.mVideoConferenceInfo;
     }
-    o["accessory"_L1] = BlockAccessory::serialize(block.blockAccessory());
+    if (block.blockAccessory().isValid()) {
+        o["accessory"_L1] = BlockAccessory::serialize(block.blockAccessory());
+    }
     // o["elements"_L1] =
     // TODO blockAction
     return o;
