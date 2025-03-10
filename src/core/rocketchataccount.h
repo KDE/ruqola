@@ -35,6 +35,7 @@
 #include <QUrl>
 #include <TextEmoticonsCore/CustomEmoji>
 class TypingNotification;
+class ActionButtonsManager;
 class UsersModel;
 class RoomModel;
 class MessagesModel;
@@ -659,6 +660,7 @@ private:
     AppsMarketPlaceModel *const mAppsMarketPlaceModel;
     AppsCategoriesModel *const mAppsCategoriesModel;
     MemoryManager *const mMemoryManager;
+    ActionButtonsManager *const mActionButtonsManager;
     int mDelayReconnect = 100;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
     bool mE2EPasswordMustBeSave = false;

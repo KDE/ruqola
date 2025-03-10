@@ -6,6 +6,7 @@
 
 #include "rocketchataccount.h"
 #include "accountroomsettings.h"
+#include "actionbuttons/actionbuttonsmanager.h"
 #include "apps/appcountjob.h"
 #include "apps/appinstalledjob.h"
 #include "apps/appscountinfo.h"
@@ -141,6 +142,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mAppsMarketPlaceModel(new AppsMarketPlaceModel(this))
     , mAppsCategoriesModel(new AppsCategoriesModel(this))
     , mMemoryManager(new MemoryManager(this))
+    , mActionButtonsManager(new ActionButtonsManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
