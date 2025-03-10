@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 02:44+0000\n"
-"PO-Revision-Date: 2025-02-21 09:11+0100\n"
+"PO-Revision-Date: 2025-03-04 17:25+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -11296,12 +11296,12 @@ msgstr "Aggiunge console di moderazione (Amministrazione, server RC 6.2)"
 #: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Implement message style"
-msgstr "Implementato lo stile del messaggio"
+msgstr "Implementa lo stile del messaggio"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid "Implement Url Preview"
-msgstr "Implementata l'anteprima dei collegamenti"
+msgstr "Implementa l'anteprima dei collegamenti"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
