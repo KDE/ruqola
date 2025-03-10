@@ -67,7 +67,7 @@ public:
     void setBlockActions(const QList<BlockAction> &newBlockActions);
 
     [[nodiscard]] BlockAccessory blockAccessory() const;
-    void setBlockAccessory(BlockAccessory newBlockAccessory);
+    void setBlockAccessory(const BlockAccessory &newBlockAccessory);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(BlockType newBlockType) const;

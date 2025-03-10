@@ -110,7 +110,7 @@ BlockAccessory Block::blockAccessory() const
     return mBlockAccessory;
 }
 
-void Block::setBlockAccessory(BlockAccessory newBlockAccessory)
+void Block::setBlockAccessory(const BlockAccessory &newBlockAccessory)
 {
     mBlockAccessory = newBlockAccessory;
 }
