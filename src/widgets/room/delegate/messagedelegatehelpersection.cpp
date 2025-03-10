@@ -37,8 +37,7 @@ void MessageDelegateHelperSection::draw(const Block &block,
     painter->drawText(blockRect.x(), positionY, layout.sectionText);
     // DrawButton
     if (!layout.buttonText.isEmpty()) {
-        const int positionX = blockRect.x() + layout.sectionTextSize.width() + DelegatePaintUtil::margin();
-        const QRectF buttonRect = layout.buttonRect.translated(positionX, blockRect.y());
+        const QRectF buttonRect = layout.buttonRect.translated(blockRect.x(), blockRect.y());
         const QPen origPen = painter->pen();
         const QBrush origBrush = painter->brush();
         const QPen buttonPen(option.palette.color(QPalette::Button).darker());
@@ -52,7 +51,7 @@ void MessageDelegateHelperSection::draw(const Block &block,
         painter->setPen(origPen);
 
         // Fix position
-        painter->drawText(positionX, positionY, layout.buttonText);
+        painter->drawText(buttonRect.x(), positionY, layout.buttonText);
     }
 }
 
@@ -77,6 +76,11 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
     Q_UNUSED(index);
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
+        const SectionLayout layout = layoutSection(block, option);
+        if (layout.buttonRect.translated(blocksRect.topLeft()).contains(pos)) {
+            qDebug() << " click on button";
+            return true;
+        }
         // if (!layout.buttonText.isEmpty()) {
         //  TODO
         //}
@@ -109,7 +113,8 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
     case BlockAccessory::AccessoryType::Button: {
         layout.buttonText = blockAccessory.text();
         layout.buttonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.buttonText);
-        layout.buttonRect = QRect(0, 0, layout.buttonTextSize.width(), layout.buttonTextSize.height());
+        layout.buttonRect =
+            QRect(layout.sectionTextSize.width() + DelegatePaintUtil::margin(), 0, layout.buttonTextSize.width(), layout.buttonTextSize.height());
         break;
     }
     case BlockAccessory::AccessoryType::Unknown:

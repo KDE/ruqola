@@ -40,5 +40,7 @@ private:
         QSize buttonTextSize;
         QRect buttonRect;
     };
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block,
+                                                                         const QStyleOptionViewItem &option,
+                                                                         int attachmentsWidth = -1) const;
 };
