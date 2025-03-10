@@ -1,7 +1,6 @@
 {
     "alias": "bli",
     "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "https://github.com/magne4000/quassel-webserver looks much better",
     "messageID": "74kLLpYCMXLHGzZj5",
@@ -9,9 +8,7 @@
     "name": "bla",
     "parseUrls": false,
     "roomID": "roomId",
-    "starred": false,
     "timestamp": 1519124970379,
-    "type": "",
     "updatedAt": 1519124971491,
     "urls": [
         {

@@ -1,7 +1,5 @@
 {
     "alias": "Laurent Montel",
-    "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "Voiture1",
     "messageID": "GvSPogsJ5fMqYvgQe",
@@ -9,9 +7,7 @@
     "name": "Laurent Montel",
     "parseUrls": false,
     "roomID": "kGtPa6bu7xHrS5xz6",
-    "starred": false,
     "timestamp": 1520403997425,
-    "type": "",
     "updatedAt": 1520403997430,
     "userID": "uKK39zoewTkdacidH",
     "username": "laurent"

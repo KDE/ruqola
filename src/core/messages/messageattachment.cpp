@@ -115,7 +115,9 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
     if (!messageAttach.title().isEmpty()) {
         obj["title"_L1] = messageAttach.title();
     }
-    obj["url"_L1] = messageAttach.link();
+    if (const QString url = messageAttach.link(); !url.isEmpty()) {
+        obj["url"_L1] = url;
+    }
     if (!messageAttach.imageUrlPreview().isEmpty()) {
         obj["image_preview"_L1] = messageAttach.imageUrlPreview();
     }

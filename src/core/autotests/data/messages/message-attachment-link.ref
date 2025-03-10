@@ -10,7 +10,6 @@
     ],
     "avatar": "https://avatars0.githubusercontent.com/in/29110?v=4",
     "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "Pull request synchronized",
     "messageID": "pErQaMzd8K94GGnW4",
@@ -18,9 +17,7 @@
     "name": "Rocket.Cat",
     "parseUrls": false,
     "roomID": "GENERAL",
-    "starred": false,
     "timestamp": 1600744018880,
-    "type": "",
     "updatedAt": 1600744018912,
     "userID": "rocket.cat",
     "username": "rocket.cat"

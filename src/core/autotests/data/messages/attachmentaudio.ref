@@ -8,7 +8,6 @@
         }
     ],
     "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "",
     "messageID": "Ef63eLHomq9vXiLAn",
@@ -16,9 +15,7 @@
     "name": "foo",
     "parseUrls": false,
     "roomID": "Drjw54ftqGa4antMW",
-    "starred": false,
     "timestamp": 1599481609792,
-    "type": "",
     "updatedAt": 1599481609840,
     "userID": "vtQEYqrDYGmXaZtEJ",
     "username": "bla"

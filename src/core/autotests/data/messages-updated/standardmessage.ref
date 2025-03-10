@@ -1,7 +1,5 @@
 {
     "alias": "john",
-    "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "message foo",
     "messageID": "Co6LnNbu5TYcXPuMG",
@@ -9,9 +7,7 @@
     "name": "john",
     "parseUrls": false,
     "roomID": "hPseB3qQYPxoXqGkN",
-    "starred": false,
     "timestamp": 1519115539337,
-    "type": "",
     "updatedAt": 1519115539341,
     "userID": "XQv6u7Kyb4pfDhS4w",
     "username": "Doe"

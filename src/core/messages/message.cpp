@@ -937,9 +937,7 @@ qint64 Message::editedAt() const
 
 void Message::setEditedAt(qint64 editedAt)
 {
-    if (mEditedAt != editedAt) {
-        mEditedAt = editedAt;
-    }
+    mEditedAt = editedAt;
 }
 
 qint64 Message::updatedAt() const
@@ -1189,7 +1187,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["tlm"_L1] = message.threadLastMessage();
     }
 
-    o["editedByUsername"_L1] = message.mEditedByUsername;
+    if (!message.mEditedByUsername.isEmpty()) {
+        o["editedByUsername"_L1] = message.mEditedByUsername;
+    }
     if (!message.mAlias.isEmpty()) {
         o["alias"_L1] = message.mAlias;
     }
@@ -1201,7 +1201,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (message.unread()) {
         o["unread"_L1] = true;
     }
-    o["starred"_L1] = message.mMessageStarred.isStarred();
+    if (message.mMessageStarred.isStarred()) {
+        o["starred"_L1] = true;
+    }
 
     if (message.mMessagePinned) {
         o["pinnedMessage"_L1] = MessagePinned::serialize(*message.mMessagePinned);
@@ -1214,7 +1216,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["emoji"_L1] = message.mEmoji;
     }
 
-    o["type"_L1] = SystemMessageTypeUtil::systemMessageTypeStringFromEnum(message.mSystemMessageType);
+    if (const QString typeMessage = SystemMessageTypeUtil::systemMessageTypeStringFromEnum(message.mSystemMessageType); !typeMessage.isEmpty()) {
+        o["type"_L1] = typeMessage;
+    }
     o["messageType"_L1] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
 
     // Attachments

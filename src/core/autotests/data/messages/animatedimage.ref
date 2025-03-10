@@ -13,8 +13,6 @@
             "url": "/file-upload/pp7trWCayLekSquM/blo.gif"
         }
     ],
-    "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "",
     "messageID": "ZGdbAFBZsLSrt7SLn",
@@ -22,9 +20,7 @@
     "name": "foo",
     "parseUrls": false,
     "roomID": "dBWXYy4nyBHn8Q7dv",
-    "starred": false,
     "timestamp": 1525277394341,
-    "type": "",
     "unread": true,
     "updatedAt": 1525277394344,
     "userID": "hLdKM5PHEfkxSexQe",

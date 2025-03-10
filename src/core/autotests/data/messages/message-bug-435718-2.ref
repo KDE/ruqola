@@ -9,12 +9,9 @@
                     "title": "status",
                     "value": "*From* Initial tests *to* Done"
                 }
-            ],
-            "url": ""
+            ]
         }
     ],
-    "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "Changed User Story:  *<https://tasks.eoniantec.com/project/angeldocampo-operations/us/26|#26: Buy more RAM for the PVE Cluster>*",
     "messageID": "bGPfZkAePkiCjEKPZ",
@@ -22,9 +19,7 @@
     "name": "Rocket.Cat",
     "parseUrls": false,
     "roomID": "mLkrwMQaQ4uYtxvj8",
-    "starred": false,
     "timestamp": 1618402509599,
-    "type": "",
     "unread": true,
     "updatedAt": 1618402509618,
     "userID": "rocket.cat",

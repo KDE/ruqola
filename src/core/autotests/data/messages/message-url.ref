@@ -1,7 +1,6 @@
 {
     "alias": "foo",
     "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "https://www.kde.org/bla.zip",
     "messageID": "NNLTgCTmhZNNDA",
@@ -9,9 +8,7 @@
     "name": "foo",
     "parseUrls": false,
     "roomID": "Pa6bu7xHrS5xz6",
-    "starred": false,
     "timestamp": 1520598979300,
-    "type": "",
     "updatedAt": 1520598979308,
     "urls": [
         {

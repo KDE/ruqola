@@ -1,7 +1,6 @@
 {
     "alias": "Bla",
     "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "mentions": [
         {
@@ -15,9 +14,7 @@
     "name": "Bla",
     "parseUrls": false,
     "roomID": "GENERAL",
-    "starred": false,
     "timestamp": 1515655872015,
-    "type": "",
     "updatedAt": 1515655872022,
     "urls": [
         {

@@ -29,12 +29,9 @@
                     "value": "jordi.vilar"
                 }
             ],
-            "title": "RunDeck Job Started",
-            "url": ""
+            "title": "RunDeck Job Started"
         }
     ],
-    "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "",
     "messageID": "Yj3wcLPi2xfr2Gc65",
@@ -42,9 +39,7 @@
     "name": "Rocket.Cat",
     "parseUrls": false,
     "roomID": "EGpqR23fNnjsTHua4",
-    "starred": false,
     "timestamp": 1617082008028,
-    "type": "",
     "updatedAt": 1617087956309,
     "userID": "rocket.cat",
     "username": "rocket.cat"

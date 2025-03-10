@@ -9,8 +9,6 @@
             "name": "ruqola5"
         }
     ],
-    "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "mentions": [
         {
@@ -28,9 +26,7 @@
     "name": "Laurent",
     "parseUrls": true,
     "roomID": "A7BegtZRWz4oQmnPy",
-    "starred": false,
     "timestamp": 1647583692904,
-    "type": "",
     "updatedAt": 1647583693046,
     "userID": "uKK39zoekdacidH",
     "username": "laurent"

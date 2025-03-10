@@ -1,15 +1,11 @@
 {
-    "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "",
     "messageID": "",
     "messageType": "NormalText",
     "parseUrls": false,
     "roomID": "",
-    "starred": false,
     "timestamp": -1,
-    "type": "",
     "updatedAt": -1,
     "userID": "",
     "username": ""

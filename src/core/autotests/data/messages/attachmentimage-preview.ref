@@ -13,7 +13,6 @@
         }
     ],
     "editedAt": -1,
-    "editedByUsername": "",
     "groupable": false,
     "message": "",
     "messageID": "jrCdGBkCHjdCjhsJr",
@@ -21,9 +20,7 @@
     "name": "mo",
     "parseUrls": false,
     "roomID": "Drjw54ftqGa4antMW",
-    "starred": false,
     "timestamp": 1600647439539,
-    "type": "",
     "updatedAt": 1600647439601,
     "userID": "DzJdzFXuPYTQMfee4",
     "username": "mohoss"
