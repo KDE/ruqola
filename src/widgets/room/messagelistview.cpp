@@ -674,6 +674,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (Ruqola::self()->debug()) {
         addDebugMenu(menu, index);
     }
+
+    // TODO add apps menu actions.
+
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
