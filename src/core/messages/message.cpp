@@ -1084,7 +1084,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mName = o["name"_L1].toString();
     message.mUserId = o["userID"_L1].toString().toLatin1();
     message.mUpdatedAt = static_cast<qint64>(o["updatedAt"_L1].toDouble());
-    message.setEditedAt(static_cast<qint64>(o["editedAt"_L1].toDouble()));
+    message.setEditedAt(static_cast<qint64>(o["editedAt"_L1].toDouble(-1)));
     message.mEditedByUsername = o["editedByUsername"_L1].toString();
     message.mAlias = o["alias"_L1].toString();
     message.mAvatar = o["avatar"_L1].toString();
@@ -1182,7 +1182,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     }
     o["userID"_L1] = QString::fromLatin1(message.mUserId);
     o["updatedAt"_L1] = message.mUpdatedAt;
-    o["editedAt"_L1] = message.mEditedAt;
+    if (message.mEditedAt != -1) {
+        o["editedAt"_L1] = message.mEditedAt;
+    }
     if (message.threadLastMessage() > -1) {
         o["tlm"_L1] = message.threadLastMessage();
     }
