@@ -2391,11 +2391,6 @@ VideoConferenceMessageInfoManager *RocketChatAccount::videoConferenceMessageInfo
     return mVideoConferenceMessageInfoManager;
 }
 
-void RocketChatAccount::downloadAppsLanguages()
-{
-    mDownloadAppsLanguagesManager->parse();
-}
-
 void RocketChatAccount::slotUpdateCommands()
 {
     // We need mDownloadAppsLanguagesManager result for updating command
@@ -2540,7 +2535,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     } else {
         qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
     }
-    downloadAppsLanguages();
+    mDownloadAppsLanguagesManager->parse();
     Q_EMIT bannerInfoChanged();
     Q_EMIT ownInfoChanged();
     Q_EMIT ownUserUiPreferencesChanged();

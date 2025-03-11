@@ -505,7 +505,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotInformTypingStatus(const QByteArray &room, bool typing);
 
     LIBRUQOLACORE_NO_EXPORT void setOwnStatus(const User &user);
-    LIBRUQOLACORE_NO_EXPORT void downloadAppsLanguages();
 
     LIBRUQOLACORE_NO_EXPORT void startConnecting();
     LIBRUQOLACORE_NO_EXPORT void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
