@@ -363,7 +363,6 @@ public:
     void addMessageToDataBase(const QString &roomName, const Message &message);
     void deleteMessageFromDatabase(const QString &roomName, const QByteArray &messageId);
     void loadAccountSettings();
-    void parseCustomSounds(const QJsonArray &obj);
 
     [[nodiscard]] QList<AuthenticationInfo> authenticationMethodInfos() const;
 

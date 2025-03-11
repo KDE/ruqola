@@ -1444,11 +1444,6 @@ void RocketChatAccount::changeNotificationsSettings(const QByteArray &roomId,
     }
 }
 
-void RocketChatAccount::parseCustomSounds(const QJsonArray &obj)
-{
-    mCustomSoundManager->parseCustomSounds(obj);
-}
-
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj, bool update)
 {
     mRuqolaServerConfig->parsePublicSettings(obj, update);
@@ -3348,7 +3343,7 @@ void RocketChatAccount::listCustomSounds(const QJsonObject &root)
 {
     displayLogInfo("list custom sounds"_ba, root);
     const QJsonArray obj = root.value("result"_L1).toArray();
-    parseCustomSounds(obj);
+    mCustomSoundManager->parseCustomSounds(obj);
 }
 
 void RocketChatAccount::validateTempToken2fa(const QJsonObject &root)
