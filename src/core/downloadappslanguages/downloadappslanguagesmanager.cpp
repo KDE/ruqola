@@ -40,6 +40,11 @@ void DownloadAppsLanguagesManager::slotFileDownloaded(const QJsonObject &json)
     Q_EMIT fileLanguagesParseSuccess();
 }
 
+QMap<QString, DownloadAppsLanguagesInfo> DownloadAppsLanguagesManager::languagesAppsMap() const
+{
+    return mLanguageMap;
+}
+
 QString DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &id)
 {
     QMap<QString, DownloadAppsLanguagesInfo>::const_iterator i = mLanguageMap.constBegin();

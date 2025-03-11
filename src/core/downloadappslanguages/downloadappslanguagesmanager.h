@@ -21,6 +21,8 @@ public:
     [[nodiscard]] QString translatedString(const QString &language, const QString &id);
     void parse();
 
+    [[nodiscard]] QMap<QString, DownloadAppsLanguagesInfo> languagesAppsMap() const;
+
 Q_SIGNALS:
     void fileLanguagesParseSuccess();
     void fileLanguagesParseFailed();

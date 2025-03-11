@@ -14,6 +14,7 @@
 #include "customusers/customuserstatuses.h"
 
 #include "ddpapi/ddpclient.h"
+#include "downloadappslanguages/downloadappslanguagesinfo.h"
 #include "inputtextmanager.h"
 #include "libruqolacore_export.h"
 #include "licenses/licensesmanager.h"
@@ -419,6 +420,7 @@ public:
     [[nodiscard]] bool commandHasPreview(const QString &commandName) const;
     [[nodiscard]] ActionButtonsManager *actionButtonsManager() const;
 
+    [[nodiscard]] QMap<QString, DownloadAppsLanguagesInfo> languagesAppsMap() const;
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);
@@ -590,6 +592,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void displayLogInfo(const QByteArray &ba, const QJsonObject &obj);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString restLoginStatusText() const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString ddpLoginStatusText() const;
+    LIBRUQOLACORE_NO_EXPORT void slotFileLanguagesDownloaded();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

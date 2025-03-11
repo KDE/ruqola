@@ -5,10 +5,10 @@
 */
 
 #pragma once
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QJsonObject>
 #include <QMap>
-class LIBRUQOLACORE_TESTS_EXPORT DownloadAppsLanguagesInfo
+class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesInfo
 {
 public:
     DownloadAppsLanguagesInfo();

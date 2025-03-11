@@ -224,8 +224,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
 
-    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseSuccess, this, &RocketChatAccount::slotUpdateCommands);
-    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseFailed, this, &RocketChatAccount::slotUpdateCommands);
+    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseSuccess, this, &RocketChatAccount::slotFileLanguagesDownloaded);
+    connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseFailed, this, &RocketChatAccount::slotFileLanguagesDownloaded);
 
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
@@ -2331,7 +2331,6 @@ void RocketChatAccount::initializeAccount()
     restApi()->customUserStatus();
     slotLoadRoles();
     checkLicenses();
-    mActionButtonsManager->fetchActionButtons();
     qDebug() << "initializeAccount: encryptionEnabled =" << mRuqolaServerConfig->encryptionEnabled() << "account name" << accountName();
     if (mRuqolaServerConfig->encryptionEnabled()) {
         mE2eKeyManager->fetchMyKeys();
@@ -2391,6 +2390,13 @@ VideoConferenceMessageInfoManager *RocketChatAccount::videoConferenceMessageInfo
     return mVideoConferenceMessageInfoManager;
 }
 
+void RocketChatAccount::slotFileLanguagesDownloaded()
+{
+    slotUpdateCommands();
+    // We need translation apps file downloaded first
+    mActionButtonsManager->fetchActionButtons();
+}
+
 void RocketChatAccount::slotUpdateCommands()
 {
     // We need mDownloadAppsLanguagesManager result for updating command
@@ -2400,6 +2406,11 @@ void RocketChatAccount::slotUpdateCommands()
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start ListPermissionsJob job";
     }
+}
+
+QMap<QString, DownloadAppsLanguagesInfo> RocketChatAccount::languagesAppsMap() const
+{
+    return mDownloadAppsLanguagesManager->languagesAppsMap();
 }
 
 QString RocketChatAccount::getTranslatedIdentifier(const QString &lang, const QString &identifier) const
