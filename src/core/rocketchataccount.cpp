@@ -1620,6 +1620,7 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                         mAppsMarketPlaceModel->removeApp(appsId);
                     }
                     updateCountApplications();
+                    mActionButtonsManager->fetchActionButtons();
                 } else if (type == "app/statusUpdate"_L1) {
                     const QJsonArray arrayApps = array.at(1).toArray();
                     for (auto j = 0; j < arrayApps.count(); ++j) {
@@ -1629,12 +1630,13 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                 } else if (type == "app/added"_L1) {
                     updateInstalledApps();
                     updateCountApplications();
+                    mActionButtonsManager->fetchActionButtons();
                 } else if (type == "command/removed"_L1) {
                     slotUpdateCommands();
                 } else if (type == "command/added"_L1) {
                     slotUpdateCommands();
                 } else if (type == "actions/changed"_L1) {
-                    qWarning() << " Not implemented yet " << type;
+                    mActionButtonsManager->fetchActionButtons();
                 } else {
                     qWarning() << " type unknown " << type;
                 }
