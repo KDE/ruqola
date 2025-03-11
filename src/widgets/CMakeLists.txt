@@ -1094,6 +1094,12 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/autogenerateinteractionutil.cpp
     autogenerateui/autogenerateinteractionuidialog.h
     autogenerateui/autogenerateinteractionuidialog.cpp
+
+    exploreappstranlationdialog/exploreappstranslationwidget.h
+    exploreappstranlationdialog/exploreappstranslationwidget.cpp
+
+    exploreappstranlationdialog/exploreappstranslationdialog.h
+    exploreappstranlationdialog/exploreappstranslationdialog.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
@@ -1265,6 +1271,7 @@ if(BUILD_TESTING)
     add_subdirectory(welcome/autotests)
     add_subdirectory(applicationssettingsdialog/autotests)
     add_subdirectory(autogenerateui/autotests)
+    add_subdirectory(exploreappstranlationdialog/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
