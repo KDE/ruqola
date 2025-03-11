@@ -52,6 +52,7 @@ void ActionButtonsManager::setActionButtons(const QList<ActionButton> &newAction
 
 void ActionButtonsManager::parseActionButtons(const QJsonArray &array)
 {
+    qDebug() << " void ActionButtonsManager::parseActionButtons(const QJsonArray &array) " << array;
     QList<ActionButton> buttons;
     for (const auto &r : array) {
         ActionButton act;
@@ -61,13 +62,22 @@ void ActionButtonsManager::parseActionButtons(const QJsonArray &array)
     setActionButtons(std::move(buttons));
 }
 
-QList<ActionButton> ActionButtonsManager::actionButtonsFromButtonContext(const ActionButton::FilterActionInfo &filterInfo) const
+QList<ActionButton> ActionButtonsManager::actionButtonsFromFilterActionInfo(const ActionButton::FilterActionInfo &filterInfo) const
 {
+    // qDebug() << " mActionButtons *********************** " << mActionButtons;
     QList<ActionButton> lists;
     for (const auto &act : mActionButtons) {
         if (act.buttonContext() == filterInfo.buttonContext) {
-            lists.append(act);
+            if (act.buttonContext() == ActionButton::ButtonContext::MessageAction) {
+                if ((act.messageActionContexts() == ActionButton::MessageActionContext::Unknown)
+                    || (act.messageActionContexts() & filterInfo.messageActionContext)) {
+                    lists.append(act);
+                }
+            } else if ((act.roomTypeFilters() == ActionButton::RoomTypeFilter::Unknown) || (act.roomTypeFilters() & filterInfo.roomTypeFilter)) {
+                lists.append(act);
+            }
         }
+        // TODO check with hasOneRole
     }
     return lists;
 }

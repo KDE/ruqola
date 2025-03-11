@@ -26,6 +26,7 @@ public:
         DirectMultiple = 128,
         LiveChat = 256,
     };
+    Q_ENUM(RoomTypeFilter)
     Q_FLAGS(RoomTypeFilter RoomTypeFilters)
     Q_DECLARE_FLAGS(RoomTypeFilters, RoomTypeFilter)
 
@@ -46,13 +47,16 @@ public:
         Threads = 4,
         Starred = 8,
     };
+    Q_ENUM(MessageActionContext)
     Q_FLAGS(MessageActionContext MessageActionContexts)
     Q_DECLARE_FLAGS(MessageActionContexts, MessageActionContext)
 
     struct FilterActionInfo {
-        RoomTypeFilters roomTypeFilter = {RoomTypeFilter::Unknown};
+        RoomTypeFilter roomTypeFilter = RoomTypeFilter::Unknown;
         ButtonContext buttonContext = ButtonContext::Unknown;
-        MessageActionContexts messageActionContext = {MessageActionContext::Unknown};
+        MessageActionContext messageActionContext = MessageActionContext::Unknown;
+        // TODO use it
+        QStringList roles = {};
     };
 
     ActionButton();

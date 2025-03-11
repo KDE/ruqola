@@ -21,7 +21,7 @@ public:
 
     void parseActionButtons(const QJsonArray &array);
 
-    [[nodiscard]] QList<ActionButton> actionButtonsFromButtonContext(const ActionButton::FilterActionInfo &filterInfo) const;
+    [[nodiscard]] QList<ActionButton> actionButtonsFromFilterActionInfo(const ActionButton::FilterActionInfo &filterInfo) const;
 
     void fetchActionButtons();
 
