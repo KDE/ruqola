@@ -22,16 +22,18 @@ ActionButtonsManager::~ActionButtonsManager() = default;
 
 void ActionButtonsManager::fetchActionButtons()
 {
-    auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
-    RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
-    info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
-    info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Get;
-    info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::ActionButton;
-    job->setAppUpdateInfo(info);
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::AppUpdateInfoJob::fetchActionButtonsDone, this, &ActionButtonsManager::parseActionButtons);
-    if (!job->start()) {
-        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Impossible to start AppUpdateInfoJob";
+    if (mRocketChatAccount) {
+        auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
+        RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
+        info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Get;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::ActionButton;
+        job->setAppUpdateInfo(info);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::AppUpdateInfoJob::fetchActionButtonsDone, this, &ActionButtonsManager::parseActionButtons);
+        if (!job->start()) {
+            qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Impossible to start AppUpdateInfoJob";
+        }
     }
 }
 
