@@ -5,6 +5,7 @@
 */
 
 #include "channelactionpopupmenu.h"
+#include "actionbuttons/actionbuttonsmanager.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include <KLocalizedString>
@@ -138,12 +139,51 @@ QMenu *ChannelActionPopupMenu::menu() const
 
 void ChannelActionPopupMenu::setRoom(Room *room)
 {
-    mRoom = room;
+    if (mRoom != room) {
+        mRoom = room;
+        slotActionButtonChanged();
+    }
 }
 
 void ChannelActionPopupMenu::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount->actionButtonsManager(),
+                   &ActionButtonsManager::actionButtonsChanged,
+                   this,
+                   &ChannelActionPopupMenu::slotActionButtonChanged);
+    }
     mCurrentRocketChatAccount = account;
+    if (mCurrentRocketChatAccount) {
+        connect(mCurrentRocketChatAccount->actionButtonsManager(),
+                &ActionButtonsManager::actionButtonsChanged,
+                this,
+                &ChannelActionPopupMenu::slotActionButtonChanged);
+    }
+}
+
+void ChannelActionPopupMenu::slotActionButtonChanged()
+{
+    // Check list of apps action
+    qDeleteAll(mListActionButton);
+    mListActionButton.clear();
+    ActionButton::FilterActionInfo filterInfo;
+    filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
+    filterInfo.roomTypeFilter = {ActionButton::RoomTypeFilter::Direct};
+    const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromButtonContext(filterInfo);
+    qDebug() << " actionButtons " << actionButtons;
+    if (!actionButtons.isEmpty()) {
+        auto actSeparator = new QAction(this);
+        actSeparator->setSeparator(true);
+        mListActionButton.append(actSeparator);
+        mMenu->addAction(actSeparator);
+        for (const auto &actionButton : actionButtons) {
+            auto act = new QAction(this);
+            act->setText(actionButton.labelI18n());
+            mListActionButton.append(act);
+            mMenu->addAction(act);
+        }
+    }
 }
 
 void ChannelActionPopupMenu::slotUpdateMenu()

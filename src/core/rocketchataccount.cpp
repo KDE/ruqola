@@ -701,6 +701,11 @@ QString RocketChatAccount::ddpLoginStatusText() const
     return i18n("Not connected");
 }
 
+ActionButtonsManager *RocketChatAccount::actionButtonsManager() const
+{
+    return mActionButtonsManager;
+}
+
 void RocketChatAccount::tryLogin()
 {
     if (mSettings->userName().isEmpty()) {

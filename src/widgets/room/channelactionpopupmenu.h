@@ -30,6 +30,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateMenu();
     LIBRUQOLAWIDGETS_NO_EXPORT void createMenu();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
     QMenu *const mMenu;
     QAction *mShowMentions = nullptr;
     QAction *mShowPinnedMessages = nullptr;
@@ -53,4 +54,5 @@ private:
 
     QPointer<Room> mRoom;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QList<QAction *> mListActionButton;
 };

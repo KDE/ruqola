@@ -417,6 +417,8 @@ public:
     void updateCountApplications();
 
     [[nodiscard]] bool commandHasPreview(const QString &commandName) const;
+    [[nodiscard]] ActionButtonsManager *actionButtonsManager() const;
+
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);
