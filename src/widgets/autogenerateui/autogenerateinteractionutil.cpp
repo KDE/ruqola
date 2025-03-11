@@ -87,7 +87,7 @@ export type ViewSubmitUserInteraction = {
 
 */
 
-QJsonObject AutoGenerateInteractionUtil::createActionButton(const ViewActionButton &info)
+QJsonObject AutoGenerateInteractionUtil::createActionButton(const ActionButtonInfo &info)
 {
     // {"type":"actionButton","actionId":"auto-reply-room-action-id","rid":"67b7116fc0984e12f9661a2c","payload":{"context":"roomAction"},"triggerId":"EdEdKAKzxMTu9io9L"}
     QJsonObject o;
@@ -101,7 +101,7 @@ QJsonObject AutoGenerateInteractionUtil::createActionButton(const ViewActionButt
     o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
     return o;
 }
-QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewActionButton &t)
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionButtonInfo &t)
 {
     d.space() << "actionId:" << t.actionId;
     d.space() << "triggerId:" << t.triggerId;
