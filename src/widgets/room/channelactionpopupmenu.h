@@ -26,6 +26,7 @@ public:
     void setRoom(Room *room);
 Q_SIGNALS:
     void actionRequested(RoomHeaderWidget::ChannelActionType type);
+    void uiInteractionRequested(const QJsonObject &obj);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateMenu();

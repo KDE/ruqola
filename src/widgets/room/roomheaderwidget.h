@@ -70,6 +70,7 @@ Q_SIGNALS:
     void teamChannelsRequested();
     void callRequested();
     void openTeam(const QByteArray &identifier);
+    void uiInteractionRequested(const QJsonObject &obj);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisabledEncryption();

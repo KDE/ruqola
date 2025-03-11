@@ -116,6 +116,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomExportDone();
     LIBRUQOLAWIDGETS_NO_EXPORT void displayUiInteractionDialog(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUiInteractionRequested(const QJsonObject &obj);
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 

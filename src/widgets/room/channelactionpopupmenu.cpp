@@ -6,6 +6,7 @@
 
 #include "channelactionpopupmenu.h"
 #include "actionbuttons/actionbuttonsmanager.h"
+#include "actionbuttons/actionbuttonutil.h"
 #include "autogenerateui/autogenerateinteractionutil.h"
 #include "connection.h"
 #include "misc/appsuiinteractionjob.h"
@@ -174,8 +175,8 @@ void ChannelActionPopupMenu::slotActionButtonChanged()
     if (mCurrentRocketChatAccount) {
         ActionButton::FilterActionInfo filterInfo;
         filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
-        filterInfo.roomTypeFilter = {ActionButton::RoomTypeFilter::Direct};
-        const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromButtonContext(filterInfo);
+        filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
+        const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
         if (!actionButtons.isEmpty()) {
             const QString lang = QLocale().name();
             auto actSeparator = new QAction(this);
@@ -200,16 +201,8 @@ void ChannelActionPopupMenu::slotActionButtonChanged()
                     job->setAppsUiInteractionJobInfo(info);
 
                     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-                    connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
-                        qDebug() << " return *************" << replyObject;
-                        /*
-                        AutoGenerateInteractionUi view(nullptr);
-                        if (view.parseInteractionUi(replyObject)) {
-                            // TODO autodelete ?
-                            QWidget *widget = view.generateWidget();
-                            widget->show();
-                        }
-                        */
+                    connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
+                        Q_EMIT uiInteractionRequested(replyObject);
                     });
                     if (!job->start()) {
                         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";

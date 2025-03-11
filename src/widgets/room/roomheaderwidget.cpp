@@ -180,6 +180,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelActionPopupMenu->setObjectName(QStringLiteral("mChannelActionPopupMenu"));
     mChannelAction->setMenu(mChannelActionPopupMenu->menu());
     connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::actionRequested, this, &RoomHeaderWidget::actionRequested);
+    connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::uiInteractionRequested, this, &RoomHeaderWidget::uiInteractionRequested);
     connect(mTeamName, &TeamNameLabel::openTeam, this, &RoomHeaderWidget::openTeam);
 }
 

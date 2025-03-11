@@ -5,6 +5,7 @@
 */
 
 #include "roomwidget.h"
+#include "autogenerateui/autogenerateinteractionui.h"
 #include "autogenerateui/autogenerateinteractionuidialog.h"
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
@@ -146,6 +147,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::openTeam, this, &RoomWidget::slotOpenTeamRequested);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::callRequested, this, &RoomWidget::slotCallRequested);
     connect(this, &RoomWidget::showUiInteractionDialog, this, &RoomWidget::displayUiInteractionDialog);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::uiInteractionRequested, this, &RoomWidget::slotUiInteractionRequested);
     setAcceptDrops(true);
 }
 
@@ -1080,6 +1082,16 @@ void RoomWidget::slotCloseOtr()
 void RoomWidget::slotRefreshOtrKeys()
 {
     // TODO
+}
+
+void RoomWidget::slotUiInteractionRequested(const QJsonObject &obj)
+{
+    AutoGenerateInteractionUi view(nullptr);
+    if (view.parseInteractionUi(obj)) {
+        // TODO autodelete ?
+        QWidget *widget = view.generateWidget();
+        widget->show();
+    }
 }
 
 #include "moc_roomwidget.cpp"
