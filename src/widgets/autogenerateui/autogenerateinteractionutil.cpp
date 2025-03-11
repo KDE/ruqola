@@ -87,7 +87,7 @@ export type ViewSubmitUserInteraction = {
 
 */
 
-QJsonObject AutoGenerateInteractionUtil::createActionButton(const ActionButtonInfo &info)
+QJsonObject AutoGenerateInteractionUtil::createRoomActionButton(const ActionButtonInfo &info)
 {
     // {"type":"actionButton","actionId":"auto-reply-room-action-id","rid":"67b7116fc0984e12f9661a2c","payload":{"context":"roomAction"},"triggerId":"EdEdKAKzxMTu9io9L"}
     QJsonObject o;

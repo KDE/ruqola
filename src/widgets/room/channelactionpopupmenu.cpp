@@ -197,7 +197,7 @@ void ChannelActionPopupMenu::slotActionButtonChanged()
                     actionButtonInfo.actionId = actionButton.actionId();
                     actionButtonInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
                     actionButtonInfo.roomId = roomId;
-                    info.messageObj = AutoGenerateInteractionUtil::createActionButton(actionButtonInfo);
+                    info.messageObj = AutoGenerateInteractionUtil::createRoomActionButton(actionButtonInfo);
                     job->setAppsUiInteractionJobInfo(info);
 
                     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);

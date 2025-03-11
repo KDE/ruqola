@@ -28,7 +28,7 @@ struct ActionButtonInfo {
     QByteArray roomId;
     QByteArray triggerId;
 };
-[[nodiscard]] QJsonObject createActionButton(const ActionButtonInfo &info);
+[[nodiscard]] QJsonObject createRoomActionButton(const ActionButtonInfo &info);
 };
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewBlockActionUserInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ActionButtonInfo, Q_RELOCATABLE_TYPE);
