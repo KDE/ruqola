@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 00:42+0000\n"
+"POT-Creation-Date: 2025-03-11 00:41+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -748,7 +748,7 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr "Socket was unexpectedly closed."
 
-#: core/messages/block.cpp:173 core/messages/message.cpp:857
+#: core/messages/block/block.cpp:176 core/messages/message.cpp:857
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
@@ -1781,7 +1781,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> are typing..."
 
-#: core/rocketchataccount.cpp:679
+#: core/rocketchataccount.cpp:681
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1790,12 +1790,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:687 core/rocketchataccount.cpp:699
+#: core/rocketchataccount.cpp:689 core/rocketchataccount.cpp:701
 #, kde-format
 msgid "Not connected"
 msgstr "Not connected"
 
-#: core/rocketchataccount.cpp:694
+#: core/rocketchataccount.cpp:696
 #, kde-format
 msgid "Not connected yet"
 msgstr "Not connected yet"
