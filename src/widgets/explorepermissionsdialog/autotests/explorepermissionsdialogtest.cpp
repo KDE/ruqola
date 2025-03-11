@@ -28,8 +28,8 @@ void ExplorePermissionsDialogTest::shouldHaveDefaultValues()
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mExporePermissionWidget = d.findChild<ExplorePermissionsWidget *>(QStringLiteral("mExporePermissionWidget"));
-    QVERIFY(mExporePermissionWidget);
+    auto mExplorePermissionWidget = d.findChild<ExplorePermissionsWidget *>(QStringLiteral("mExplorePermissionWidget"));
+    QVERIFY(mExplorePermissionWidget);
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);

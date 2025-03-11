@@ -21,5 +21,5 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    ExplorePermissionsWidget *const mExporePermissionWidget;
+    ExplorePermissionsWidget *const mExplorePermissionWidget;
 };

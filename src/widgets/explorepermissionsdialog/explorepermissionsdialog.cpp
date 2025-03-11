@@ -19,14 +19,14 @@ const char myExplorePermissionDialogConfigGroupName[] = "ExplorePermissionDialog
 }
 ExplorePermissionsDialog::ExplorePermissionsDialog(QWidget *parent)
     : QDialog(parent)
-    , mExporePermissionWidget(new ExplorePermissionsWidget(this))
+    , mExplorePermissionWidget(new ExplorePermissionsWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Permissions"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mExporePermissionWidget->setObjectName(QStringLiteral("mExporePermissionWidget"));
-    mainLayout->addWidget(mExporePermissionWidget);
+    mExplorePermissionWidget->setObjectName(QStringLiteral("mExplorePermissionWidget"));
+    mainLayout->addWidget(mExplorePermissionWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
@@ -58,12 +58,12 @@ void ExplorePermissionsDialog::writeConfig()
 
 void ExplorePermissionsDialog::setPermissions(const QList<Permission> &permissions)
 {
-    mExporePermissionWidget->setPermissions(permissions);
+    mExplorePermissionWidget->setPermissions(permissions);
 }
 
 void ExplorePermissionsDialog::setOWnRoles(const QStringList &roleStr)
 {
-    mExporePermissionWidget->setOWnRoles(roleStr);
+    mExplorePermissionWidget->setOWnRoles(roleStr);
 }
 
 #include "moc_explorepermissionsdialog.cpp"
