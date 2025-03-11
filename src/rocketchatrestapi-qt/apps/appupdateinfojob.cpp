@@ -104,6 +104,9 @@ QString AppUpdateInfoJob::generateUrlExtension() const
     case AppInfoType::ActionButton:
         url = QStringLiteral("actionButtons");
         break;
+    case AppInfoType::Icon:
+        url += QLatin1Char('/') + QStringLiteral("icon");
+        break;
     }
     return url;
 }

@@ -28,6 +28,7 @@ public:
         Apps,
         Status,
         ActionButton,
+        Icon,
     };
 
     struct AppUpdateInfo {

@@ -54,6 +54,19 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
     {
         AppUpdateInfoJob job;
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Icon;
+        info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Get;
+        info.mAppsId = "foo"_ba;
+        job.setAppUpdateInfo(info);
+
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo/icon")));
+    }
+
+    {
+        AppUpdateInfoJob job;
+        RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
         info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::ActionButton;
         info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Get;
         info.mAppsId = "foo"_ba;
