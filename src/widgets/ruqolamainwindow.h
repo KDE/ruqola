@@ -126,6 +126,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void applicationSettings(ApplicationsSettingsSearchWidget::Feature feature);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateApplicationsSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddInviteServer(const AccountManager::AccountManagerInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowAppsTranslation();
 
     bool mReallyClose{false};
 
@@ -177,6 +178,7 @@ private:
     QAction *mShowDatabaseMessages = nullptr;
     QAction *mMenuDebug = nullptr;
     QAction *mShowPermissions = nullptr;
+    QAction *mShowAppsTranslation = nullptr;
     QAction *mShowLogsFile = nullptr;
     QAction *mShowRestApiLogsFile = nullptr;
 

@@ -33,6 +33,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/serverinfo/serverinfodialog.h"
 #include "directory/directorydialog.h"
+#include "exploreappstranlationdialog/exploreappstranslationdialog.h"
 #include "importexportdata/exportdata/exportdatawizard.h"
 #include "importexportdata/importdata/importdatawizard.h"
 #include "localdatabase/localmessagelogger.h"
@@ -491,11 +492,19 @@ void RuqolaMainWindow::setupActions()
         connect(mShowDatabaseMessages, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessages);
         ac->addAction(QStringLiteral("show_database_messages"), mShowDatabaseMessages);
         menu->addAction(mShowDatabaseMessages);
+
         menu->addSeparator();
         mShowPermissions = new QAction(QStringLiteral("Show Permissions…"), this);
         connect(mShowPermissions, &QAction::triggered, this, &RuqolaMainWindow::slotShowPermissions);
         ac->addAction(QStringLiteral("show_permissions"), mShowPermissions);
         menu->addAction(mShowPermissions);
+
+        menu->addSeparator();
+        mShowAppsTranslation = new QAction(QStringLiteral("Show Application Translation…"), this);
+        connect(mShowAppsTranslation, &QAction::triggered, this, &RuqolaMainWindow::slotShowAppsTranslation);
+        ac->addAction(QStringLiteral("show_apps_translation"), mShowAppsTranslation);
+        menu->addAction(mShowAppsTranslation);
+
         menu->addSeparator();
         mShowLogsFile = new QAction(QStringLiteral("Show Ruqola Logs…"), this);
         connect(mShowLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowLogsFile);
@@ -503,7 +512,7 @@ void RuqolaMainWindow::setupActions()
         menu->addAction(mShowLogsFile);
 
         menu->addSeparator();
-        mShowRestApiLogsFile = new QAction(QStringLiteral("Show Ruqola Logs…"), this);
+        mShowRestApiLogsFile = new QAction(QStringLiteral("Show Ruqola Logs (RESTAPI)…"), this);
         connect(mShowRestApiLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowRestApiLogsFile);
         ac->addAction(QStringLiteral("show_ruqola_restapi_logs"), mShowRestApiLogsFile);
         menu->addAction(mShowRestApiLogsFile);
@@ -925,6 +934,13 @@ void RuqolaMainWindow::slotShowPermissions()
     dlg.exec();
 }
 
+void RuqolaMainWindow::slotShowAppsTranslation()
+{
+    ExploreAppsTranslationDialog dlg(this);
+    dlg.setAppsLanguagesInfoMap(mCurrentRocketChatAccount->languagesAppsMap());
+    dlg.exec();
+}
+
 void RuqolaMainWindow::slotShowServerInfo()
 {
     ServerErrorInfoMessageHistoryDialog dlg(this);
@@ -1004,6 +1020,9 @@ void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
     }
     if (mShowPermissions) {
         mShowPermissions->setEnabled(!loginPageActivated);
+    }
+    if (mShowAppsTranslation) {
+        mShowAppsTranslation->setEnabled(!loginPageActivated);
     }
     mAdministrationMenu->setEnabled(!loginPageActivated);
     mMessageStyleAction->setEnabled(!loginPageActivated);
