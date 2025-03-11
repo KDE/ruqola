@@ -148,31 +148,34 @@ void ChannelActionPopupMenu::setCurrentRocketChatAccount(RocketChatAccount *acco
 
 void ChannelActionPopupMenu::slotUpdateMenu()
 {
-    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessagePinningEnabled());
-    mShowStarredMessages->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessageStarringEnabled());
-    mAutoTranslate->setVisible(mCurrentRocketChatAccount->hasAutotranslateSupport());
-    mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->autoTranslateEnabled());
+    if (mCurrentRocketChatAccount) {
+        mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessagePinningEnabled());
+        mShowStarredMessages->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessageStarringEnabled());
+        mAutoTranslate->setVisible(mCurrentRocketChatAccount->hasAutotranslateSupport());
+        mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->autoTranslateEnabled());
 
-    bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(QStringLiteral("create-invite-links"));
-    mInviteUsersGenerateUrl->setVisible(hasPermissionInviteUserSupport);
-    mInviteUsersGenerateUrlSeparator->setVisible(hasPermissionInviteUserSupport);
-    mStartVideoChat->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->jitsiEnabled());
+        bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(QStringLiteral("create-invite-links"));
+        mInviteUsersGenerateUrl->setVisible(hasPermissionInviteUserSupport);
+        mInviteUsersGenerateUrlSeparator->setVisible(hasPermissionInviteUserSupport);
+        mStartVideoChat->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->jitsiEnabled());
 
-    mAddUserInRoomsSeparator->setVisible(mRoom && mRoom->canBeModify());
-    mAddUserInRooms->setVisible(mRoom && mRoom->canBeModify());
+        mAddUserInRoomsSeparator->setVisible(mRoom && mRoom->canBeModify());
+        mAddUserInRooms->setVisible(mRoom && mRoom->canBeModify());
 
-    const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(QStringLiteral("clean-channel-history"));
-    mPruneMessages->setVisible(showPruneMessage);
-    mPruneMessagesSeparator->setVisible(showPruneMessage);
+        const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(QStringLiteral("clean-channel-history"));
+        mPruneMessages->setVisible(showPruneMessage);
+        mPruneMessagesSeparator->setVisible(showPruneMessage);
 
-    mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(QStringLiteral("mail-messages")));
+        mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(QStringLiteral("mail-messages")));
 
-    // FIXME Disable for the moment
-    mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->ruqolaServerConfig()->otrEnabled() && mRoom->channelType() == Room::RoomType::Direct);
+        // FIXME Disable for the moment
+        mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->ruqolaServerConfig()->otrEnabled()
+                                          && mRoom->channelType() == Room::RoomType::Direct);
 
-    // FIXME Disable for the moment
-    // TODO
-    mEncryptMessages->setVisible(false);
+        // FIXME Disable for the moment
+        // TODO
+        mEncryptMessages->setVisible(false);
+    }
 }
 
 #include "moc_channelactionpopupmenu.cpp"
