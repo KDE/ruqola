@@ -154,7 +154,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
         mAutoTranslate->setVisible(mCurrentRocketChatAccount->hasAutotranslateSupport());
         mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->autoTranslateEnabled());
 
-        bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(QStringLiteral("create-invite-links"));
+        const bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(QStringLiteral("create-invite-links"));
         mInviteUsersGenerateUrl->setVisible(hasPermissionInviteUserSupport);
         mInviteUsersGenerateUrlSeparator->setVisible(hasPermissionInviteUserSupport);
         mStartVideoChat->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->jitsiEnabled());
