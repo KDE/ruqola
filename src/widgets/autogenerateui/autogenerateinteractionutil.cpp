@@ -69,7 +69,7 @@ QJsonObject AutoGenerateInteractionUtil::createViewSubmitUser(const ViewBlockAct
 
     o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
     // TODO
-    return {};
+    return o;
 }
 /*
 export type ViewSubmitUserInteraction = {
@@ -86,3 +86,25 @@ export type ViewSubmitUserInteraction = {
 };
 
 */
+
+QJsonObject AutoGenerateInteractionUtil::createActionButton(const ViewActionButton &info)
+{
+    // {"type":"actionButton","actionId":"auto-reply-room-action-id","rid":"67b7116fc0984e12f9661a2c","payload":{"context":"roomAction"},"triggerId":"EdEdKAKzxMTu9io9L"}
+    QJsonObject o;
+    o["type"_L1] = "actionButton"_L1;
+    o["actionId"_L1] = QString::fromLatin1(info.actionId);
+    QJsonObject payload;
+    payload["context"_L1] = "roomAction"_L1;
+    o["payload"_L1] = payload;
+
+    o["rid"_L1] = QString::fromLatin1(info.roomId);
+    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
+    return o;
+}
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewActionButton &t)
+{
+    d.space() << "actionId:" << t.actionId;
+    d.space() << "triggerId:" << t.triggerId;
+    d.space() << "roomId:" << t.roomId;
+    return d;
+}

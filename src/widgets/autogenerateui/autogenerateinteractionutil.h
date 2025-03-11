@@ -22,6 +22,16 @@ struct ViewBlockActionUserInfo {
 [[nodiscard]] QJsonObject createViewBlockActionUser(const ViewBlockActionUserInfo &info);
 [[nodiscard]] QJsonObject createViewClosedUser(const ViewBlockActionUserInfo &info);
 [[nodiscard]] QJsonObject createViewSubmitUser(const ViewBlockActionUserInfo &info);
+
+struct ViewActionButton {
+    QByteArray actionId;
+    QByteArray roomId;
+    QByteArray triggerId;
+};
+
+[[nodiscard]] QJsonObject createActionButton(const ViewActionButton &info);
 };
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewBlockActionUserInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewActionButton, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewActionButton &t);
