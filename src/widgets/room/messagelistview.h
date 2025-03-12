@@ -69,6 +69,7 @@ Q_SIGNALS:
     void loadHistoryRequested();
     void goToMessageRequested(const QByteArray &messageId, const QString &messageDateTimeUtc);
     void replyInThreadRequested(const QByteArray &messageId, const QString &text);
+    void uiInteractionRequested(const QJsonObject &obj);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotEditMessage(const QModelIndex &index);

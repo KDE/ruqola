@@ -148,6 +148,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::callRequested, this, &RoomWidget::slotCallRequested);
     connect(this, &RoomWidget::showUiInteractionDialog, this, &RoomWidget::displayUiInteractionDialog);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::uiInteractionRequested, this, &RoomWidget::slotUiInteractionRequested);
+    connect(mRoomWidgetBase, &RoomWidgetBase::uiInteractionRequested, this, &RoomWidget::slotUiInteractionRequested);
     setAcceptDrops(true);
 }
 

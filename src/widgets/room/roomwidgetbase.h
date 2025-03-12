@@ -47,6 +47,7 @@ Q_SIGNALS:
     void textToSpeech(const QString &messageText);
     void errorMessage(const QString &message);
     void successMessage(const QString &message);
+    void uiInteractionRequested(const QJsonObject &obj);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearNotification();
