@@ -9,6 +9,7 @@
 #include <QDialog>
 class QVBoxLayout;
 class RocketChatAccount;
+class AutoGenerateInteractionUi;
 class AutoGenerateInteractionUiDialog : public QDialog
 {
     Q_OBJECT
@@ -21,4 +22,6 @@ public:
 private:
     QVBoxLayout *const mainLayout;
     RocketChatAccount *const mRocketChatAccount;
+    QWidget *mMainWidget = nullptr;
+    AutoGenerateInteractionUi *const mAutoGenerateInteractionUi;
 };

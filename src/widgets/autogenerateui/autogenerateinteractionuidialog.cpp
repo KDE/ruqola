@@ -14,7 +14,10 @@ AutoGenerateInteractionUiDialog::AutoGenerateInteractionUiDialog(RocketChatAccou
     : QDialog(parent)
     , mainLayout(new QVBoxLayout(this))
     , mRocketChatAccount(account)
+    , mAutoGenerateInteractionUi(new AutoGenerateInteractionUi(mRocketChatAccount, this))
 {
+    connect(mAutoGenerateInteractionUi, &AutoGenerateInteractionUi::closeCalled, this, &AutoGenerateInteractionUiDialog::reject);
+    connect(mAutoGenerateInteractionUi, &AutoGenerateInteractionUi::submitCalled, this, &AutoGenerateInteractionUiDialog::accept);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName("mainLayout"_L1);
 }
@@ -23,15 +26,15 @@ AutoGenerateInteractionUiDialog::~AutoGenerateInteractionUiDialog() = default;
 
 bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
 {
-    auto view = new AutoGenerateInteractionUi(mRocketChatAccount, this);
-    if (view->parseInteractionUi(r)) {
-        auto w = view->generateWidget(this);
-        connect(view, &AutoGenerateInteractionUi::closeCalled, this, &AutoGenerateInteractionUiDialog::reject);
-        connect(view, &AutoGenerateInteractionUi::submitCalled, this, &AutoGenerateInteractionUiDialog::accept);
-        mainLayout->addWidget(w);
+    if (mAutoGenerateInteractionUi->parseInteractionUi(r)) {
+        if (mMainWidget) {
+            mainLayout->removeWidget(mMainWidget);
+            delete mMainWidget;
+        }
+        mMainWidget = mAutoGenerateInteractionUi->generateWidget(this);
+        mainLayout->addWidget(mMainWidget);
         return true;
     } else {
-        view->deleteLater();
         close();
     }
     return false;
