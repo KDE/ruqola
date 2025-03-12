@@ -690,9 +690,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(actSeparator);
             for (const auto &actionButton : actionButtons) {
                 auto act = new QAction(this);
+                const QString translateIdentifier = ActionButtonUtil::generateTranslateIdentifier(actionButton);
                 const QString appId = QString::fromLatin1(actionButton.appId());
                 const QByteArray roomId = mRoom->roomId();
-                const QString translateIdentifier = QStringLiteral("app-") + appId + QLatin1Char('.') + actionButton.labelI18n();
                 act->setText(mCurrentRocketChatAccount->getTranslatedIdentifier(lang, translateIdentifier));
                 connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId]() {
                     /*

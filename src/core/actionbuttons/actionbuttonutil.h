@@ -10,4 +10,5 @@
 namespace ActionButtonUtil
 {
 [[nodiscard]] LIBRUQOLACORE_EXPORT ActionButton::RoomTypeFilter convertRoomTypeToActionButtonRoomTypeFilter(Room *r);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString generateTranslateIdentifier(const ActionButton &actionButton);
 };

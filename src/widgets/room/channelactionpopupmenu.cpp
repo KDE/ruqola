@@ -185,10 +185,10 @@ void ChannelActionPopupMenu::slotActionButtonChanged()
             mMenu->addAction(actSeparator);
             for (const auto &actionButton : actionButtons) {
                 auto act = new QAction(this);
+                const QString translateIdentifier = ActionButtonUtil::generateTranslateIdentifier(actionButton);
                 const QString appId = QString::fromLatin1(actionButton.appId());
-                const QByteArray roomId = mRoom->roomId();
-                const QString translateIdentifier = QStringLiteral("app-") + appId + QLatin1Char('.') + actionButton.labelI18n();
                 act->setText(mCurrentRocketChatAccount->getTranslatedIdentifier(lang, translateIdentifier));
+                const QByteArray roomId = mRoom->roomId();
                 connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId]() {
                     auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
                     RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;

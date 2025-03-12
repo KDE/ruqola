@@ -40,3 +40,10 @@ ActionButton::RoomTypeFilter ActionButtonUtil::convertRoomTypeToActionButtonRoom
     }
     return ActionButton::RoomTypeFilter::Unknown;
 }
+
+QString ActionButtonUtil::generateTranslateIdentifier(const ActionButton &actionButton)
+{
+    const QString appId = QString::fromLatin1(actionButton.appId());
+    const QString translateIdentifier = QStringLiteral("app-") + appId + QLatin1Char('.') + actionButton.labelI18n();
+    return translateIdentifier;
+}
