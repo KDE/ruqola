@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewbuttonelement.h"
+#include "colorsandmessageviewstyle.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QPushButton>
 
@@ -79,12 +80,35 @@ QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(RocketChatAc
 {
     Q_UNUSED(account)
     auto b = new QPushButton(parent);
-    b->setText(mText.generateText());
+    b->setText(mText.generateText(true));
     connect(b, &QPushButton::clicked, this, [this]() {
-        qDebug() << "BUTTON: mBlockId " << mBlockId << " mValue " << mValue << " mActionId " << mActionId;
+        // qDebug() << "BUTTON: mBlockId " << mBlockId << " mValue " << mValue << " mActionId " << mActionId;
         Q_EMIT actionChanged(mActionId, mValue);
     });
-    // TODO add Style
+    switch (mStyle) {
+    case Style::Unknown:
+        break;
+    case Style::Danger: {
+        QPalette p = b->palette();
+        p.setColor(QPalette::Button, ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NegativeBackground).color());
+        p.setColor(QPalette::ButtonText, ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
+        b->setPalette(p);
+        break;
+    }
+    case Style::Primary: {
+        QPalette p = b->palette();
+        p.setColor(QPalette::ButtonText, ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::ActiveText).color());
+        p.setColor(QPalette::Button, ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::ActiveBackground).color());
+        b->setPalette(p);
+        break;
+    }
+    case Style::Secondary:
+    case Style::Warning:
+    case Style::Success:
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unimplemented style for " << mStyle;
+        break;
+    }
+
     return b;
 }
 
