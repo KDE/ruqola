@@ -32,12 +32,17 @@ QJsonObject AutoGenerateInteractionUi::generateJson() const
 
 bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 {
+    if (!json.contains("type"_L1)) {
+        qWarning() << " Invalid parseInteractionUi" << json;
+        return false;
+    }
     if (mView) {
         mView->clear();
         mView->deleteLater();
         mView = nullptr;
     }
     mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
+    qDebug() << " AutoGenerateInteractionUi::parseInteractionUi " << mTypeUi << " json " << json;
     if (mTypeUi == AutoGenerateInteractionUi::TypeUi::Unknown) {
         return false;
     }
@@ -66,7 +71,6 @@ void AutoGenerateInteractionUi::slotActionChanged(const AutoGenerateInteractionU
 
 void AutoGenerateInteractionUi::slotCloseButtonClicked(const QJsonObject &payload, const QString &appId)
 {
-    qDebug() << " void AutoGenerateInteractionUi::slotCloseButtonClicked()";
     if (mRocketChatAccount) {
         auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
         RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
@@ -76,6 +80,11 @@ void AutoGenerateInteractionUi::slotCloseButtonClicked(const QJsonObject &payloa
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
+            if (replyObject["success"_L1].toBool()) {
+                Q_EMIT closeCalled();
+            } else {
+                qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Error found when calling AppsUiInteractionJob " << replyObject;
+            }
             qDebug() << " CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << replyObject;
         });
         if (!job->start()) {

@@ -45,6 +45,10 @@ public:
 
     [[nodiscard]] QJsonObject generateJson() const;
 
+Q_SIGNALS:
+    void closeCalled();
+    void submitCalled();
+
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info);
