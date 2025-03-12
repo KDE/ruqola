@@ -41,17 +41,17 @@ void VerifyNewVersionWidget::checkNewVersion()
 void VerifyNewVersionWidget::slotFoundNewVersion(bool found)
 {
     const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
+    mCheckVersionResultLabel->setTextFormat(Qt::RichText);
     if (found) {
-        mCheckVersionResultLabel->setTextFormat(Qt::RichText);
         mCheckVersionResultLabel->setText(i18n("A new version found. Click <a href=\"%1\">here</a> for downloading it.", url.toString()));
-        connect(mCheckVersionResultLabel, &QLabel::linkActivated, this, [](const QString &url) {
-            if (!QDesktopServices::openUrl(QUrl(url))) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open url: " << url;
-            }
-        });
     } else {
         mCheckVersionResultLabel->setText(i18n("No new version found. Build can be found <a href=\"%1\">here</a>.", url.toString()));
     }
+    connect(mCheckVersionResultLabel, &QLabel::linkActivated, this, [](const QString &url) {
+        if (!QDesktopServices::openUrl(QUrl(url))) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open url: " << url;
+        }
+    });
 }
 
 #include "moc_verifynewversionwidget.cpp"
