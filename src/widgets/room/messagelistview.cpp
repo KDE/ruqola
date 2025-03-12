@@ -9,6 +9,7 @@
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "actionbuttons/actionbuttonutil.h"
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "chat/deletemessagejob.h"
 #include "chat/followmessagejob.h"
 #include "chat/pinmessagejob.h"
@@ -18,6 +19,7 @@
 #include "chat/unfollowmessagejob.h"
 
 #include "forwardmessage/forwardmessagedialog.h"
+#include "misc/appsuiinteractionjob.h"
 #include "moderation/moderationdismissreportsjob.h"
 
 #include "connection.h"
@@ -694,16 +696,16 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 const QString appId = QString::fromLatin1(actionButton.appId());
                 const QByteArray roomId = mRoom->roomId();
                 act->setText(mCurrentRocketChatAccount->getTranslatedIdentifier(lang, translateIdentifier));
-                connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId]() {
-                    /*
+                connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId, message]() {
                     auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
                     RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
                     info.methodName = appId;
-                    AutoGenerateInteractionUtil::ActionButtonInfo actionButtonInfo;
-                    actionButtonInfo.actionId = actionButton.actionId();
-                    actionButtonInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
-                    actionButtonInfo.roomId = roomId;
-                    info.messageObj = AutoGenerateInteractionUtil::createActionButton(actionButtonInfo);
+                    AutoGenerateInteractionUtil::ActionMessageInfo actionMessageInfo;
+                    actionMessageInfo.actionId = actionButton.actionId();
+                    actionMessageInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
+                    actionMessageInfo.roomId = roomId;
+                    actionMessageInfo.messageId = message->messageId();
+                    info.messageObj = AutoGenerateInteractionUtil::createMessageActionButton(actionMessageInfo);
                     job->setAppsUiInteractionJobInfo(info);
 
                     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -713,7 +715,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                     if (!job->start()) {
                         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";
                     }
-                    */
                 });
                 menu.addAction(act);
             }
