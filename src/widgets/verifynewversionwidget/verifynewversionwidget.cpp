@@ -40,9 +40,9 @@ void VerifyNewVersionWidget::checkNewVersion()
 
 void VerifyNewVersionWidget::slotFoundNewVersion(bool found)
 {
+    const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
     if (found) {
         mCheckVersionResultLabel->setTextFormat(Qt::RichText);
-        const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
         mCheckVersionResultLabel->setText(i18n("A new version found. Click <a href=\"%1\">here</a> for downloading it.", url.toString()));
         connect(mCheckVersionResultLabel, &QLabel::linkActivated, this, [](const QString &url) {
             if (!QDesktopServices::openUrl(QUrl(url))) {
@@ -50,7 +50,7 @@ void VerifyNewVersionWidget::slotFoundNewVersion(bool found)
             }
         });
     } else {
-        mCheckVersionResultLabel->setText(i18n("No new version found."));
+        mCheckVersionResultLabel->setText(i18n("No new version found. Build can be found <a href=\"%1\">here</a>.", url.toString()));
     }
 }
 
