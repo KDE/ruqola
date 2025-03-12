@@ -35,10 +35,9 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::parseElement(const Q
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(QWidget *parent)
 {
     Q_UNUSED(parent)
-    Q_UNUSED(account)
     // TODO QListWidget ??
     return nullptr;
 }

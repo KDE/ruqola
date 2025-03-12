@@ -16,7 +16,7 @@ public:
     explicit AutoGenerateInteractionUiViewCheckboxElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewCheckboxElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const;
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;

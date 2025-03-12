@@ -44,7 +44,7 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewBlocks *blocks() const;
     void setBlocks(AutoGenerateInteractionUiViewBlocks *newBlocks);
 
-    void generateWidget(QWidget *parent, RocketChatAccount *account = nullptr);
+    void generateWidget(QWidget *parent);
 
     [[nodiscard]] QJsonObject serialize() const;
     [[nodiscard]] QByteArray type() const;

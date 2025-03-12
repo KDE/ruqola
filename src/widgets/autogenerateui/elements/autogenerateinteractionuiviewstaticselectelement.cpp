@@ -39,9 +39,8 @@ void AutoGenerateInteractionUiViewStaticSelectElement::parseElement(const QJsonO
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidget *parent)
 {
-    Q_UNUSED(account)
     auto comboBox = new QComboBox(parent);
     for (const auto &r : std::as_const(mOptions)) {
         comboBox->addItem(r->text().text(), r->value());

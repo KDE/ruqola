@@ -108,7 +108,7 @@ void AutoGenerateInteractionUiViewInputBlock::setLabel(const AutoGenerateInterac
     mLabel = newLabel;
 }
 
-QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent)
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
@@ -127,7 +127,7 @@ QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(RocketChatAccou
             Q_EMIT actionChanged(mBlockId, actionId, value);
         });
 
-        vboxLayout->addWidget(mElement->generateWidget(account, parent));
+        vboxLayout->addWidget(mElement->generateWidget(parent));
     }
     return widget;
 }

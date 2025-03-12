@@ -48,9 +48,8 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::serializeElement(QJsonObj
     o["options"_L1] = options;
 }
 
-QWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidget *parent)
 {
-    Q_UNUSED(account)
     Q_UNUSED(parent)
     return nullptr;
 }

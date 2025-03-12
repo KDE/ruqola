@@ -23,7 +23,7 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase *> blockElements() const;
     void setBlockElements(const QList<AutoGenerateInteractionUiViewBlockBase *> &newBlockElements);
 
-    void generateWidget(RocketChatAccount *account, QWidget *parent);
+    void generateWidget(QWidget *parent);
     [[nodiscard]] QJsonArray serialize() const;
 
 Q_SIGNALS:

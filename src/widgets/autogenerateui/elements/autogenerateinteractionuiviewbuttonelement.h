@@ -36,7 +36,7 @@ public:
     [[nodiscard]] bool secondary() const;
     void setSecondary(bool newSecondary);
 
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] QString value() const;
     void setValue(const QString &newValue);

@@ -32,9 +32,8 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::parseElement(const QJso
     mMaxLength = json["maxLength"_L1].toInt(-1);
 }
 
-QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWidget *parent)
 {
-    Q_UNUSED(account)
     // TODO use minLength/maxLength
     if (!mMultiLine) {
         auto lineEdit = new QLineEdit(parent);

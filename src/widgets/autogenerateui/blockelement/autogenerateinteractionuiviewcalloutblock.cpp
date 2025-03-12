@@ -25,7 +25,7 @@ AutoGenerateInteractionUiViewCalloutBlock::~AutoGenerateInteractionUiViewCallout
     delete mAccessory;
 }
 
-QWidget *AutoGenerateInteractionUiViewCalloutBlock::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewCalloutBlock::generateWidget(QWidget *parent)
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
@@ -41,7 +41,7 @@ QWidget *AutoGenerateInteractionUiViewCalloutBlock::generateWidget(RocketChatAcc
         hboxLayout->addWidget(label);
     }
     if (mAccessory) {
-        auto w = mAccessory->generateWidget(account, parent);
+        auto w = mAccessory->generateWidget(parent);
         connect(mAccessory, &AutoGenerateInteractionUiViewActionable::actionChanged, this, [this](const QByteArray &actionId, const QString &value) {
             qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
             Q_EMIT actionChanged(mBlockId, actionId, value);

@@ -28,7 +28,7 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewActionable &other) const;
 
-    virtual QWidget *generateWidget(RocketChatAccount *account, QWidget *parent);
+    virtual QWidget *generateWidget(QWidget *parent);
 
     [[nodiscard]] QByteArray type() const;
     void setType(const QByteArray &newType);

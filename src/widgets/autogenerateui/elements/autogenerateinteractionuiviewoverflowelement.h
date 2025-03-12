@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOverflowElement
 public:
     explicit AutoGenerateInteractionUiViewOverflowElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewOverflowElement() override;
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);

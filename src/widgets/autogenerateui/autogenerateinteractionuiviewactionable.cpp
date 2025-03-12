@@ -58,11 +58,9 @@ bool AutoGenerateInteractionUiViewActionable::operator==(const AutoGenerateInter
     return other.appId() == appId() && other.blockId() == blockId() && other.actionId() == actionId() && other.type() == type();
 }
 
-QWidget *AutoGenerateInteractionUiViewActionable::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewActionable::generateWidget(QWidget *parent)
 {
     Q_UNUSED(parent)
-    Q_UNUSED(account)
-    // TODO
     return nullptr;
 }
 

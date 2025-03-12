@@ -12,9 +12,8 @@ AutoGenerateInteractionUiViewLinearScaleElement::AutoGenerateInteractionUiViewLi
 
 AutoGenerateInteractionUiViewLinearScaleElement::~AutoGenerateInteractionUiViewLinearScaleElement() = default;
 
-QWidget *AutoGenerateInteractionUiViewLinearScaleElement::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewLinearScaleElement::generateWidget(QWidget *parent)
 {
-    Q_UNUSED(account)
     Q_UNUSED(parent)
     // TODO return range widget
     return nullptr;

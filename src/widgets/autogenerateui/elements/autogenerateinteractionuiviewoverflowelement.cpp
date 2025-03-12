@@ -32,9 +32,8 @@ void AutoGenerateInteractionUiViewOverflowElement::parseElement(const QJsonObjec
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *parent)
 {
-    Q_UNUSED(account)
     auto toolButton = new QToolButton(parent);
     toolButton->setPopupMode(QToolButton::InstantPopup);
     auto menu = new QMenu(parent);

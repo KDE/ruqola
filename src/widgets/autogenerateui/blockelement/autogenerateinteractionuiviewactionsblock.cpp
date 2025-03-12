@@ -106,7 +106,7 @@ void AutoGenerateInteractionUiViewActionsBlock::setElements(const QList<AutoGene
     mElements = newElements;
 }
 
-QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *parent)
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
@@ -118,7 +118,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(RocketChatAcc
             qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
             Q_EMIT actionChanged(mBlockId, actionId, value);
         });
-        hboxLayout->addWidget(e->generateWidget(account, parent));
+        hboxLayout->addWidget(e->generateWidget(parent));
     }
     // hboxLayout->addStretch(1);
     return widget;

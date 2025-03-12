@@ -137,13 +137,13 @@ void AutoGenerateInteractionUiView::slotActionChanged(const QByteArray &blockId,
     Q_EMIT actionChanged(std::move(info));
 }
 
-void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAccount *account)
+void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
 {
     // TODO customize title
     widget->setWindowTitle(mTitle.generateText());
     auto mainLayout = new QVBoxLayout(widget);
     connect(mBlocks, &AutoGenerateInteractionUiViewBlocks::actionChanged, this, &AutoGenerateInteractionUiView::slotActionChanged);
-    mBlocks->generateWidget(account, widget);
+    mBlocks->generateWidget(widget);
     if (mCloseButton || mSubmitButton) {
         auto buttonDialog = new QDialogButtonBox(widget);
         if (mCloseButton) {

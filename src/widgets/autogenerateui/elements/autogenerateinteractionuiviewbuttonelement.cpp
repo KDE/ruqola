@@ -76,9 +76,8 @@ void AutoGenerateInteractionUiViewButtonElement::setSecondary(bool newSecondary)
     mSecondary = newSecondary;
 }
 
-QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(QWidget *parent)
 {
-    Q_UNUSED(account)
     auto b = new QPushButton(parent);
     b->setText(mText.generateText(true));
     connect(b, &QPushButton::clicked, this, [this]() {

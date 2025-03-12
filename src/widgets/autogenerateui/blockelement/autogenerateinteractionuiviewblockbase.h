@@ -28,7 +28,7 @@ public:
     void parse(const QJsonObject &json);
     [[nodiscard]] QJsonObject serialize() const;
 
-    virtual QWidget *generateWidget(RocketChatAccount *account, QWidget *parent);
+    virtual QWidget *generateWidget(QWidget *parent);
 
     [[nodiscard]] QByteArray type() const;
     void setType(const QByteArray &newType);

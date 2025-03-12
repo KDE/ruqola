@@ -18,7 +18,7 @@ public:
     explicit AutoGenerateInteractionUiViewStaticSelectElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewStaticSelectElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);

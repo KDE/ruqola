@@ -33,9 +33,8 @@ void AutoGenerateInteractionUiViewDatePickerElement::parseElement(const QJsonObj
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewDatePickerElement::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewDatePickerElement::generateWidget(QWidget *parent)
 {
-    Q_UNUSED(account)
     auto w = new QDateEdit(parent);
     if (!mInitialDate.isEmpty()) {
         w->setDate(QDate::fromString(mInitialDate, "yyyy-MM-dd"_L1));

@@ -16,7 +16,7 @@ public:
     explicit AutoGenerateInteractionUiViewLinearScaleElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewLinearScaleElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewLinearScaleElement &other) const;
 
     [[nodiscard]] int minValue() const;

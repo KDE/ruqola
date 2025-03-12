@@ -47,7 +47,7 @@ bool AutoGenerateInteractionUiViewSectionBlock::operator==(const AutoGenerateInt
         && other.fields() == fields();
 }
 
-QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(RocketChatAccount *account, QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *parent)
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
@@ -63,7 +63,7 @@ QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(RocketChatAcc
         hboxLayout->addWidget(label);
     }
     if (mAccessory) {
-        auto w = mAccessory->generateWidget(account, parent);
+        auto w = mAccessory->generateWidget(parent);
         connect(mAccessory, &AutoGenerateInteractionUiViewActionable::actionChanged, this, [this](const QByteArray &actionId, const QString &value) {
             qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
             Q_EMIT actionChanged(mBlockId, actionId, value);

@@ -19,7 +19,7 @@ public:
     explicit AutoGenerateInteractionUiViewSectionBlock(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewSectionBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const;
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *text() const;
     void setText(AutoGenerateInteractionUiViewText *newText);

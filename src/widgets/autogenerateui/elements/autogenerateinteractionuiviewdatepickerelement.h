@@ -18,7 +18,7 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDatePickerElement &other) const;
 
-    [[nodiscard]] QWidget *generateWidget(RocketChatAccount *account, QWidget *parent) override;
+    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
     [[nodiscard]] QString initialDate() const;
     void setInitialDate(const QString &newInitialDate);
 
