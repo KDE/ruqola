@@ -101,10 +101,35 @@ QJsonObject AutoGenerateInteractionUtil::createRoomActionButton(const ActionButt
     o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
     return o;
 }
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionButtonInfo &t)
 {
     d.space() << "actionId:" << t.actionId;
     d.space() << "triggerId:" << t.triggerId;
     d.space() << "roomId:" << t.roomId;
+    return d;
+}
+
+QJsonObject AutoGenerateInteractionUtil::createMessageActionButton(const ActionMessageInfo &info)
+{
+    // {"type":"actionButton","rid":"673d89fbc44b2a134443eb7d","mid":"4javjtcaA9KoaNXWa","actionId":"remind_me_about_this_msg_action","payload":{"context":"messageAction"},"triggerId":"KH6gZae9SouePp3KW"}
+    QJsonObject o;
+    o["type"_L1] = "actionButton"_L1;
+    o["actionId"_L1] = QString::fromLatin1(info.actionId);
+    o["mid"_L1] = QString::fromLatin1(info.messageId);
+    QJsonObject payload;
+    payload["context"_L1] = "messageAction"_L1;
+    o["payload"_L1] = payload;
+
+    o["rid"_L1] = QString::fromLatin1(info.roomId);
+    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
+    return o;
+}
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionMessageInfo &t)
+{
+    d.space() << "actionId:" << t.actionId;
+    d.space() << "triggerId:" << t.triggerId;
+    d.space() << "roomId:" << t.roomId;
+    d.space() << "messageId:" << t.messageId;
     return d;
 }
