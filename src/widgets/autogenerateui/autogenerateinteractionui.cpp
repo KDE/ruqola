@@ -44,6 +44,8 @@ bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
     if (!mView) {
         mView = new AutoGenerateInteractionUiView(this);
         connect(mView, &AutoGenerateInteractionUiView::actionChanged, this, &AutoGenerateInteractionUi::slotActionChanged);
+        connect(mView, &AutoGenerateInteractionUiView::closeButtonClicked, this, &AutoGenerateInteractionUi::slotCloseButtonClicked);
+        connect(mView, &AutoGenerateInteractionUiView::submitButtonClicked, this, &AutoGenerateInteractionUi::slotSubmitButtonClicked);
     }
     mView->parseView(json["view"_L1].toObject());
     return true;
@@ -57,6 +59,16 @@ void AutoGenerateInteractionUi::slotActionChanged(const AutoGenerateInteractionU
         // Use AppId
         // TODO send message
     }
+}
+
+void AutoGenerateInteractionUi::slotCloseButtonClicked()
+{
+    qDebug() << " void AutoGenerateInteractionUi::slotCloseButtonClicked()";
+}
+
+void AutoGenerateInteractionUi::slotSubmitButtonClicked()
+{
+    qDebug() << " void AutoGenerateInteractionUi::slotSubmitButtonClicked()";
 }
 
 AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const

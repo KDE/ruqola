@@ -55,8 +55,8 @@ public:
 
     void clear();
 Q_SIGNALS:
-    void submited();
-    void closed();
+    void submitButtonClicked();
+    void closeButtonClicked();
     void actionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info);
 
 private:

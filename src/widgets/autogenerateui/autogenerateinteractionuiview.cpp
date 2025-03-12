@@ -149,12 +149,12 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAc
         if (mCloseButton) {
             auto closeButton = buttonDialog->addButton(QDialogButtonBox::Close);
             closeButton->setText(mCloseButton->text().generateText());
-            connect(closeButton, &QPushButton::clicked, this, &AutoGenerateInteractionUiView::closed);
+            connect(closeButton, &QPushButton::clicked, this, &AutoGenerateInteractionUiView::closeButtonClicked);
         }
         if (mSubmitButton) {
             auto okButton = buttonDialog->addButton(QDialogButtonBox::Ok);
             okButton->setText(mSubmitButton->text().generateText());
-            connect(okButton, &QPushButton::clicked, this, &AutoGenerateInteractionUiView::submited);
+            connect(okButton, &QPushButton::clicked, this, &AutoGenerateInteractionUiView::submitButtonClicked);
         }
         mainLayout->addStretch(1);
         mainLayout->addWidget(buttonDialog);
