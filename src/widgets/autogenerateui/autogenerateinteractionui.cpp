@@ -93,7 +93,7 @@ void AutoGenerateInteractionUi::slotCloseButtonClicked(const QJsonObject &payloa
     }
 }
 
-void AutoGenerateInteractionUi::slotSubmitButtonClicked()
+void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &payload, const QString &appId)
 {
     qDebug() << " void AutoGenerateInteractionUi::slotSubmitButtonClicked()";
     if (mRocketChatAccount) {

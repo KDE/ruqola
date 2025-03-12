@@ -149,9 +149,7 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
         if (mCloseButton) {
             auto closeButton = buttonDialog->addButton(QDialogButtonBox::Close);
             closeButton->setText(mCloseButton->text().generateText());
-            qDebug() << " closeButton************************************";
             connect(closeButton, &QPushButton::clicked, this, [this]() {
-                qDebug() << " ssssssCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC111";
                 const QJsonObject payload = serialize();
                 const QString appId = QString::fromLatin1(mAppId);
                 Q_EMIT closeButtonClicked(payload, appId);
@@ -160,7 +158,12 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
         if (mSubmitButton) {
             auto okButton = buttonDialog->addButton(QDialogButtonBox::Ok);
             okButton->setText(mSubmitButton->text().generateText());
-            connect(okButton, &QPushButton::clicked, this, &AutoGenerateInteractionUiView::submitButtonClicked);
+            connect(okButton, &QPushButton::clicked, this, [this]() {
+                const QJsonObject payload = serialize();
+                const QString appId = QString::fromLatin1(mAppId);
+                // TODO FIXME
+                Q_EMIT submitButtonClicked(payload, appId);
+            });
         }
         mainLayout->addStretch(1);
         mainLayout->addWidget(buttonDialog);

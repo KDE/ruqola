@@ -55,7 +55,7 @@ public:
 
     void clear();
 Q_SIGNALS:
-    void submitButtonClicked();
+    void submitButtonClicked(const QJsonObject &payload, const QString &appId);
     void closeButtonClicked(const QJsonObject &payload, const QString &appId);
     void actionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info);
 
