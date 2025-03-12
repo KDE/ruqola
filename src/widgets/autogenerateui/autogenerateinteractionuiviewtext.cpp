@@ -80,7 +80,7 @@ QString AutoGenerateInteractionUiViewText::text() const
     return mText;
 }
 
-QString AutoGenerateInteractionUiViewText::generateText() const
+QString AutoGenerateInteractionUiViewText::generateText(bool forcePlainText) const
 {
     switch (mType) {
     case TextType::Unknown:
@@ -89,6 +89,9 @@ QString AutoGenerateInteractionUiViewText::generateText() const
     case TextType::PlainText:
         return mText;
     case TextType::Markdown: {
+        if (forcePlainText) {
+            return mText;
+        }
         QTextDocument doc;
         doc.setMarkdown(mText);
         return doc.toHtml();

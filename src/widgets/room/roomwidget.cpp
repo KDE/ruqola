@@ -147,8 +147,8 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::openTeam, this, &RoomWidget::slotOpenTeamRequested);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::callRequested, this, &RoomWidget::slotCallRequested);
     connect(this, &RoomWidget::showUiInteractionDialog, this, &RoomWidget::displayUiInteractionDialog);
-    connect(mRoomHeaderWidget, &RoomHeaderWidget::uiInteractionRequested, this, &RoomWidget::slotUiInteractionRequested);
-    connect(mRoomWidgetBase, &RoomWidgetBase::uiInteractionRequested, this, &RoomWidget::slotUiInteractionRequested);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::uiInteractionRequested, this, &RoomWidget::displayUiInteractionDialog);
+    connect(mRoomWidgetBase, &RoomWidgetBase::uiInteractionRequested, this, &RoomWidget::displayUiInteractionDialog);
     setAcceptDrops(true);
 }
 
@@ -1083,16 +1083,6 @@ void RoomWidget::slotCloseOtr()
 void RoomWidget::slotRefreshOtrKeys()
 {
     // TODO
-}
-
-void RoomWidget::slotUiInteractionRequested(const QJsonObject &obj)
-{
-    AutoGenerateInteractionUi view(nullptr);
-    if (view.parseInteractionUi(obj)) {
-        // TODO autodelete ?
-        QWidget *widget = view.generateWidget();
-        widget->show();
-    }
 }
 
 #include "moc_roomwidget.cpp"

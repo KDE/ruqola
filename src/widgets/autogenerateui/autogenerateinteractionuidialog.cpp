@@ -23,13 +23,16 @@ AutoGenerateInteractionUiDialog::~AutoGenerateInteractionUiDialog() = default;
 
 bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
 {
-    auto job = new AutoGenerateInteractionUi(mRocketChatAccount, this);
-    if (job->parseInteractionUi(r)) {
-        auto w = job->generateWidget(this);
+    auto view = new AutoGenerateInteractionUi(mRocketChatAccount, this);
+    if (view->parseInteractionUi(r)) {
+        auto w = view->generateWidget(this);
+        connect(view, &AutoGenerateInteractionUi::closeCalled, this, &AutoGenerateInteractionUiDialog::reject);
+        connect(view, &AutoGenerateInteractionUi::submitCalled, this, &AutoGenerateInteractionUiDialog::accept);
         mainLayout->addWidget(w);
         return true;
     } else {
-        job->deleteLater();
+        view->deleteLater();
+        close();
     }
     return false;
 }

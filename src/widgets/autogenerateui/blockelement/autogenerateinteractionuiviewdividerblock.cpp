@@ -34,10 +34,14 @@ QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(RocketChatAcc
 
 void AutoGenerateInteractionUiViewDividerBlock::serializeBlock(QJsonObject &o) const
 {
+    Q_UNUSED(o)
+    // Nothing
 }
 
 void AutoGenerateInteractionUiViewDividerBlock::parseBlock(const QJsonObject &json)
 {
+    Q_UNUSED(json)
+    // Nothing
 }
 
 #include "moc_autogenerateinteractionuiviewdividerblock.cpp"

@@ -33,7 +33,7 @@ public:
 
     [[nodiscard]] TextType type() const;
     void setType(TextType newType);
-    [[nodiscard]] QString generateText() const;
+    [[nodiscard]] QString generateText(bool forcePlainText = false) const;
     [[nodiscard]] QJsonObject serialize() const override;
 
 private:
