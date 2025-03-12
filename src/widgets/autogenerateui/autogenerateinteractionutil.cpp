@@ -34,15 +34,13 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewBlockActionUs
     return d;
 }
 
-QJsonObject AutoGenerateInteractionUtil::createViewClosedUser(const ViewBlockActionUserInfo &info)
+QJsonObject AutoGenerateInteractionUtil::createViewClosedUser(const QJsonObject &payload, const QString &triggerId)
 {
     QJsonObject o;
     o["type"_L1] = "viewClosed"_L1;
-    QJsonObject payload;
     o["payload"_L1] = payload;
-    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
-    // TODO
-    return {};
+    o["triggerId"_L1] = triggerId;
+    return o;
 }
 
 /*

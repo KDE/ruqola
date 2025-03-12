@@ -149,7 +149,13 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget, RocketChatAc
         if (mCloseButton) {
             auto closeButton = buttonDialog->addButton(QDialogButtonBox::Close);
             closeButton->setText(mCloseButton->text().generateText());
-            connect(closeButton, &QPushButton::clicked, this, &AutoGenerateInteractionUiView::closeButtonClicked);
+            qDebug() << " closeButton************************************";
+            connect(closeButton, &QPushButton::clicked, this, [this]() {
+                const QJsonObject payload = serialize();
+                const QString appId = QString::fromLatin1(mAppId);
+                qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC111";
+                Q_EMIT closeButtonClicked(payload, appId);
+            });
         }
         if (mSubmitButton) {
             auto okButton = buttonDialog->addButton(QDialogButtonBox::Ok);

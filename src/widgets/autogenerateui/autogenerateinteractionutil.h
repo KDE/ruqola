@@ -20,7 +20,7 @@ struct ViewBlockActionUserInfo {
 };
 
 [[nodiscard]] QJsonObject createViewBlockActionUser(const ViewBlockActionUserInfo &info);
-[[nodiscard]] QJsonObject createViewClosedUser(const ViewBlockActionUserInfo &info);
+[[nodiscard]] QJsonObject createViewClosedUser(const QJsonObject &payload, const QString &triggerId);
 [[nodiscard]] QJsonObject createViewSubmitUser(const ViewBlockActionUserInfo &info);
 
 struct ActionButtonInfo {

@@ -64,32 +64,23 @@ void AutoGenerateInteractionUi::slotActionChanged(const AutoGenerateInteractionU
     }
 }
 
-void AutoGenerateInteractionUi::slotCloseButtonClicked()
+void AutoGenerateInteractionUi::slotCloseButtonClicked(const QJsonObject &payload, const QString &appId)
 {
     qDebug() << " void AutoGenerateInteractionUi::slotCloseButtonClicked()";
     if (mRocketChatAccount) {
         auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
         RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
-        /*
         info.methodName = appId;
-        AutoGenerateInteractionUtil::ViewBlockActionUserInfo actionButtonInfo;
-        actionButtonInfo.actionId = actionButton.actionId();
-        actionButtonInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
-        actionButtonInfo.roomId = roomId;
-        info.messageObj = AutoGenerateInteractionUtil::createViewClosedUser(actionButtonInfo);
-        */
+        info.messageObj = AutoGenerateInteractionUtil::createViewClosedUser(payload, QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128)));
         job->setAppsUiInteractionJobInfo(info);
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
-            // TODO close if necessary
-            // Q_EMIT uiInteractionRequested(replyObject);
+            qDebug() << " CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << replyObject;
         });
         if (!job->start()) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
         }
-        // Use AppId
-        // TODO send message
     }
 }
 
