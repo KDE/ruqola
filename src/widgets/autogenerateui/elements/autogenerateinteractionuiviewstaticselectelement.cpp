@@ -51,6 +51,7 @@ QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidge
             Q_EMIT actionChanged(mActionId, comboBox->itemData(index).toString());
         }
     });
+    comboBox->setCurrentIndex(comboBox->findData(mInitialValue));
     return comboBox;
 }
 
