@@ -21,12 +21,12 @@ MultiStaticSelectLineEdit::MultiStaticSelectLineEdit(QWidget *parent)
     mCompletionListView->setTextWidget(this);
 }
 
+MultiStaticSelectLineEdit::~MultiStaticSelectLineEdit() = default;
+
 void MultiStaticSelectLineEdit::setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos)
 {
     mMultiStaticSelectLineEditModel->setUserCompletionInfos(newUserCompletionInfos);
 }
-
-MultiStaticSelectLineEdit::~MultiStaticSelectLineEdit() = default;
 
 void MultiStaticSelectLineEdit::slotSearchTextEdited()
 {
