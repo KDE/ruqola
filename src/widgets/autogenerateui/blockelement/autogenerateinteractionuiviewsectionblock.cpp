@@ -9,6 +9,7 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewimageelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewmultistaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "ruqola_autogenerateui_debug.h"
@@ -113,7 +114,9 @@ void AutoGenerateInteractionUiViewSectionBlock::parseBlock(const QJsonObject &js
             select->parse(accessoryObj);
             mAccessory = select;
         } else if (type == "multi_static_select"_L1) {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewSectionBlock not implemented yet " << type;
+            auto select = new AutoGenerateInteractionUiViewMultiStaticSelectElement;
+            select->parse(accessoryObj);
+            mAccessory = select;
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewSectionBlock Unknown type " << type;
         }
