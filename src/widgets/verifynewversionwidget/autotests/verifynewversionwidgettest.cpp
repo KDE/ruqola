@@ -28,3 +28,5 @@ void VerifyNewVersionWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 }
+
+#include "moc_verifynewversionwidgettest.cpp"
