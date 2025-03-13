@@ -39,3 +39,5 @@ QString SerializeMessageWidget::text() const
 {
     return mPlainTextEdit->toPlainText();
 }
+
+#include "moc_serializemessagewidget.cpp"
