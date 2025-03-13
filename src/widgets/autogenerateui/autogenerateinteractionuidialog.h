@@ -20,6 +20,7 @@ public:
     [[nodiscard]] bool parse(const QJsonObject &r);
 
 private:
+    void slotActionChanged(const QJsonObject &replyObject);
     QVBoxLayout *const mainLayout;
     RocketChatAccount *const mRocketChatAccount;
     QWidget *mMainWidget = nullptr;

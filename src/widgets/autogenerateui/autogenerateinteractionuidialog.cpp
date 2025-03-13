@@ -6,7 +6,7 @@
 
 #include "autogenerateinteractionuidialog.h"
 #include "autogenerateinteractionui.h"
-
+#include "ruqola_autogenerateui_debug.h"
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -18,6 +18,7 @@ AutoGenerateInteractionUiDialog::AutoGenerateInteractionUiDialog(RocketChatAccou
 {
     connect(mAutoGenerateInteractionUi, &AutoGenerateInteractionUi::closeCalled, this, &AutoGenerateInteractionUiDialog::reject);
     connect(mAutoGenerateInteractionUi, &AutoGenerateInteractionUi::submitCalled, this, &AutoGenerateInteractionUiDialog::accept);
+    connect(mAutoGenerateInteractionUi, &AutoGenerateInteractionUi::actionChanged, this, &AutoGenerateInteractionUiDialog::slotActionChanged);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName("mainLayout"_L1);
 }
@@ -35,9 +36,17 @@ bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
         mainLayout->addWidget(mMainWidget);
         return true;
     } else {
-        close();
+        // Don't close it.
+        // close();
     }
     return false;
+}
+
+void AutoGenerateInteractionUiDialog::slotActionChanged(const QJsonObject &replyObject)
+{
+    if (!parse(replyObject)) {
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to parse " << replyObject;
+    }
 }
 
 #include "moc_autogenerateinteractionuidialog.cpp"
