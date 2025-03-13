@@ -24,10 +24,14 @@ public:
 
     void setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
 
+    void setMaxSelectItems(int maxSelectItems);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QString &username);
+    LIBRUQOLAWIDGETS_NO_EXPORT void checkMaxSelectedItems();
     MultiStaticSelectLineEdit *const mLineEdit;
     FlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;
+    int mMaxSelectItems = -1;
 };

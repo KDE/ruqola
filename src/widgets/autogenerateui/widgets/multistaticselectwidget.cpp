@@ -40,6 +40,11 @@ QStringList MultiStaticSelectWidget::selectedUsers() const
     return {};
 }
 
+void MultiStaticSelectWidget::setMaxSelectItems(int maxSelectItems)
+{
+    mMaxSelectItems = maxSelectItems;
+}
+
 void MultiStaticSelectWidget::setPlaceholderText(const QString &str)
 {
     mLineEdit->setPlaceholderText(str);
@@ -56,6 +61,14 @@ void MultiStaticSelectWidget::slotAddNewName(const MultiStaticSelectLineEditMode
     connect(clickableUserWidget, &ClickableWidget::removeClickableWidget, this, &MultiStaticSelectWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
     mMap.insert(userName, clickableUserWidget);
+    checkMaxSelectedItems();
+}
+
+void MultiStaticSelectWidget::checkMaxSelectedItems()
+{
+    if (mMaxSelectItems != -1) {
+        mLineEdit->setEnabled(mMap.count() < mMaxSelectItems);
+    }
 }
 
 void MultiStaticSelectWidget::slotRemoveUser(const QString &username)
@@ -67,6 +80,7 @@ void MultiStaticSelectWidget::slotRemoveUser(const QString &username)
             userWidget->deleteLater();
             delete mFlowLayout->takeAt(index);
             mMap.remove(username);
+            checkMaxSelectedItems();
         }
     }
 }
