@@ -1,0 +1,73 @@
+/*
+   SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#include "multistaticselectwidget.h"
+#include "common/flowlayout.h"
+#include "misc/clickablewidget.h"
+#include "multistaticselectlineedit.h"
+#include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+MultiStaticSelectWidget::MultiStaticSelectWidget(QWidget *parent)
+    : QWidget{parent}
+    , mLineEdit(new MultiStaticSelectLineEdit(this))
+    , mFlowLayout(new FlowLayout)
+{
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setContentsMargins({});
+
+    mLineEdit->setObjectName("mLineEdit"_L1);
+    mainLayout->addWidget(mLineEdit);
+
+    mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
+    mainLayout->addLayout(mFlowLayout);
+}
+
+MultiStaticSelectWidget::~MultiStaticSelectWidget() = default;
+
+void MultiStaticSelectWidget::setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::UserCompletionInfo> &newUserCompletionInfos)
+{
+    mLineEdit->setUserCompletionInfos(newUserCompletionInfos);
+}
+
+QStringList MultiStaticSelectWidget::selectedUsers() const
+{
+    return {};
+}
+
+void MultiStaticSelectWidget::setPlaceholderText(const QString &str)
+{
+    mLineEdit->setPlaceholderText(str);
+}
+
+void MultiStaticSelectWidget::slotAddNewName(const MultiStaticSelectLineEditModel::UserCompletionInfo &info)
+{
+    const QString &userName = info.text;
+    if (mMap.contains(userName)) {
+        return;
+    }
+    auto clickableUserWidget = new ClickableWidget(userName, this);
+    clickableUserWidget->setIdentifier(info.value.toLatin1());
+    connect(clickableUserWidget, &ClickableWidget::removeClickableWidget, this, &MultiStaticSelectWidget::slotRemoveUser);
+    mFlowLayout->addWidget(clickableUserWidget);
+    mMap.insert(userName, clickableUserWidget);
+}
+
+void MultiStaticSelectWidget::slotRemoveUser(const QString &username)
+{
+    ClickableWidget *userWidget = mMap.value(username);
+    if (userWidget) {
+        const int index = mFlowLayout->indexOf(userWidget);
+        if (index != -1) {
+            userWidget->deleteLater();
+            delete mFlowLayout->takeAt(index);
+            mMap.remove(username);
+        }
+    }
+}
+
+#include "moc_multistaticselectwidget.cpp"

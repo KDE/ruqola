@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets)
+add_library(libruqolawidgets
+    autogenerateui/widgets/multistaticselectwidget.h autogenerateui/widgets/multistaticselectwidget.cpp
+    autogenerateui/widgets/multistaticselectlineedit.h autogenerateui/widgets/multistaticselectlineedit.cpp
+    autogenerateui/widgets/multistaticselectlineeditmodel.h autogenerateui/widgets/multistaticselectlineeditmodel.cpp)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE

@@ -6,6 +6,7 @@
 #include "autogenerateinteractionuiviewmultistaticselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/widgets/multistaticselectwidget.h"
 
 #include <QJsonArray>
 #include <QLineEdit>
@@ -58,10 +59,19 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setInitialValue(cons
 
 QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(QWidget *parent)
 {
-    auto lineEdit = new QLineEdit(parent);
+    auto lineEdit = new MultiStaticSelectWidget(parent);
     if (mPlaceHolder) {
         lineEdit->setPlaceholderText(mPlaceHolder->generateText());
     }
+    QList<MultiStaticSelectLineEditModel::UserCompletionInfo> lst;
+    lst.reserve(mOptions.count());
+    for (const auto &opt : std::as_const(mOptions)) {
+        MultiStaticSelectLineEditModel::UserCompletionInfo info;
+        info.text = opt->text().generateText(true);
+        info.value = opt->value();
+        lst.append(std::move(info));
+    }
+    lineEdit->setUserCompletionInfos(lst);
     // TODO lineEdit->setText(mInitialValue);
     return lineEdit;
 }
