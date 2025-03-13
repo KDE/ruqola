@@ -16,3 +16,5 @@ MultiStaticSelectLineEditProxyModel::MultiStaticSelectLineEditProxyModel(QObject
 }
 
 MultiStaticSelectLineEditProxyModel::~MultiStaticSelectLineEditProxyModel() = default;
+
+#include "moc_multistaticselectlineeditproxymodel.cpp"
