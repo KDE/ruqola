@@ -9,6 +9,7 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewmultistaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewradiobuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
@@ -82,6 +83,9 @@ void AutoGenerateInteractionUiViewInputBlock::parseBlock(const QJsonObject &json
         mElement->parse(elementObj);
     } else if (type == "toggle_switch"_L1) {
         mElement = new AutoGenerateInteractionUiViewToggleSwitchElement;
+        mElement->parse(elementObj);
+    } else if (type == "multi_static_select"_L1) {
+        mElement = new AutoGenerateInteractionUiViewMultiStaticSelectElement;
         mElement->parse(elementObj);
     } else {
         qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
