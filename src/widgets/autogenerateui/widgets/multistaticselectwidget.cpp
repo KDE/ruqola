@@ -25,11 +25,12 @@ MultiStaticSelectWidget::MultiStaticSelectWidget(QWidget *parent)
 
     mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
     mainLayout->addLayout(mFlowLayout);
+    connect(mLineEdit, &MultiStaticSelectLineEdit::addSelectedItem, this, &MultiStaticSelectWidget::slotAddNewName);
 }
 
 MultiStaticSelectWidget::~MultiStaticSelectWidget() = default;
 
-void MultiStaticSelectWidget::setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::UserCompletionInfo> &newUserCompletionInfos)
+void MultiStaticSelectWidget::setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos)
 {
     mLineEdit->setUserCompletionInfos(newUserCompletionInfos);
 }
@@ -44,7 +45,7 @@ void MultiStaticSelectWidget::setPlaceholderText(const QString &str)
     mLineEdit->setPlaceholderText(str);
 }
 
-void MultiStaticSelectWidget::slotAddNewName(const MultiStaticSelectLineEditModel::UserCompletionInfo &info)
+void MultiStaticSelectWidget::slotAddNewName(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info)
 {
     const QString &userName = info.text;
     if (mMap.contains(userName)) {

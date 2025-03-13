@@ -63,10 +63,10 @@ QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(Q
     if (mPlaceHolder) {
         lineEdit->setPlaceholderText(mPlaceHolder->generateText());
     }
-    QList<MultiStaticSelectLineEditModel::UserCompletionInfo> lst;
+    QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> lst;
     lst.reserve(mOptions.count());
     for (const auto &opt : std::as_const(mOptions)) {
-        MultiStaticSelectLineEditModel::UserCompletionInfo info;
+        MultiStaticSelectLineEditModel::SelectItemCompletionInfo info;
         info.text = opt->text().generateText(true);
         info.value = opt->value();
         lst.append(std::move(info));

@@ -24,7 +24,7 @@ QVariant MultiStaticSelectLineEditModel::data(const QModelIndex &index, int role
     if (index.row() < 0 || index.row() >= mUserCompletionInfos.count()) {
         return {};
     }
-    const UserCompletionInfo info = mUserCompletionInfos.at(index.row());
+    const SelectItemCompletionInfo info = mUserCompletionInfos.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case Text:
@@ -35,19 +35,19 @@ QVariant MultiStaticSelectLineEditModel::data(const QModelIndex &index, int role
     return {};
 }
 
-QList<MultiStaticSelectLineEditModel::UserCompletionInfo> MultiStaticSelectLineEditModel::userCompletionInfos() const
+QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> MultiStaticSelectLineEditModel::userCompletionInfos() const
 {
     return mUserCompletionInfos;
 }
 
-void MultiStaticSelectLineEditModel::setUserCompletionInfos(const QList<UserCompletionInfo> &newUserCompletionInfos)
+void MultiStaticSelectLineEditModel::setUserCompletionInfos(const QList<SelectItemCompletionInfo> &newUserCompletionInfos)
 {
     beginInsertRows(QModelIndex(), 0, newUserCompletionInfos.count() - 1);
     mUserCompletionInfos = newUserCompletionInfos;
     endInsertRows();
 }
 
-bool MultiStaticSelectLineEditModel::UserCompletionInfo::isValid() const
+bool MultiStaticSelectLineEditModel::SelectItemCompletionInfo::isValid() const
 {
     return value.isEmpty() && text.isEmpty();
 }

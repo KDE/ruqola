@@ -22,10 +22,10 @@ public:
 
     void setPlaceholderText(const QString &str);
 
-    void setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::UserCompletionInfo> &newUserCompletionInfos);
+    void setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const MultiStaticSelectLineEditModel::UserCompletionInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QString &username);
     MultiStaticSelectLineEdit *const mLineEdit;
     FlowLayout *const mFlowLayout;

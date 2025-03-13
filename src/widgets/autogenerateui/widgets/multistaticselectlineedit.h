@@ -16,7 +16,10 @@ public:
     explicit MultiStaticSelectLineEdit(QWidget *parent = nullptr);
     ~MultiStaticSelectLineEdit() override;
 
-    void setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::UserCompletionInfo> &newUserCompletionInfos);
+    void setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
+
+Q_SIGNALS:
+    void addSelectedItem(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();

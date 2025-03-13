@@ -20,7 +20,7 @@ public:
     };
     Q_ENUM(MultiStaticSelectLineEditRoles)
 
-    struct UserCompletionInfo {
+    struct SelectItemCompletionInfo {
         QString text;
         QString value;
         [[nodiscard]] bool isValid() const;
@@ -31,10 +31,10 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    [[nodiscard]] QList<UserCompletionInfo> userCompletionInfos() const;
-    void setUserCompletionInfos(const QList<UserCompletionInfo> &newUserCompletionInfos);
+    [[nodiscard]] QList<SelectItemCompletionInfo> userCompletionInfos() const;
+    void setUserCompletionInfos(const QList<SelectItemCompletionInfo> &newUserCompletionInfos);
 
 private:
-    QList<UserCompletionInfo> mUserCompletionInfos;
+    QList<SelectItemCompletionInfo> mUserCompletionInfos;
 };
-Q_DECLARE_TYPEINFO(MultiStaticSelectLineEditModel::UserCompletionInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(MultiStaticSelectLineEditModel::SelectItemCompletionInfo, Q_RELOCATABLE_TYPE);
