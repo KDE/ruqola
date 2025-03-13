@@ -42,7 +42,9 @@ QList<MultiStaticSelectLineEditModel::UserCompletionInfo> MultiStaticSelectLineE
 
 void MultiStaticSelectLineEditModel::setUserCompletionInfos(const QList<UserCompletionInfo> &newUserCompletionInfos)
 {
+    beginInsertRows(QModelIndex(), 0, newUserCompletionInfos.count() - 1);
     mUserCompletionInfos = newUserCompletionInfos;
+    endInsertRows();
 }
 
 bool MultiStaticSelectLineEditModel::UserCompletionInfo::isValid() const

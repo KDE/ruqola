@@ -8,6 +8,7 @@
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
 #include "multistaticselectlineeditmodel.h"
+class MultiStaticSelectLineEditProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MultiStaticSelectLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
@@ -21,4 +22,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
     MultiStaticSelectLineEditModel *const mMultiStaticSelectLineEditModel;
+    MultiStaticSelectLineEditProxyModel *const mMultiStaticSelectLineEditProxyModel;
 };

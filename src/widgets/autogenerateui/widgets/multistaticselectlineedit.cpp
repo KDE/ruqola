@@ -7,12 +7,15 @@
 #include "multistaticselectlineedit.h"
 #include "common/completionlistview.h"
 #include "multistaticselectlineeditmodel.h"
+#include "multistaticselectlineeditproxymodel.h"
 
 MultiStaticSelectLineEdit::MultiStaticSelectLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
     , mMultiStaticSelectLineEditModel(new MultiStaticSelectLineEditModel(this))
+    , mMultiStaticSelectLineEditProxyModel(new MultiStaticSelectLineEditProxyModel(this))
 {
-    setCompletionModel(mMultiStaticSelectLineEditModel);
+    mMultiStaticSelectLineEditProxyModel->setSourceModel(mMultiStaticSelectLineEditModel);
+    setCompletionModel(mMultiStaticSelectLineEditProxyModel);
     connect(this, &MultiStaticSelectLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
     connect(this, &MultiStaticSelectLineEdit::complete, this, &MultiStaticSelectLineEdit::slotComplete);
     mCompletionListView->setTextWidget(this);
@@ -27,7 +30,8 @@ MultiStaticSelectLineEdit::~MultiStaticSelectLineEdit() = default;
 
 void MultiStaticSelectLineEdit::slotSearchTextEdited()
 {
-    // TODO
+    mMultiStaticSelectLineEditProxyModel->setFilterFixedString(text());
+    mCompletionListView->show();
 }
 
 void MultiStaticSelectLineEdit::slotComplete(const QModelIndex &index)
