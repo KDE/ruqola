@@ -47,7 +47,7 @@ QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidge
     }
     connect(comboBox, &QComboBox::activated, this, [this, comboBox](int index) {
         if (index != -1) {
-            qDebug() << "combobox mActionId******** " << mActionId;
+            // qDebug() << "combobox mActionId******** " << mActionId;
             Q_EMIT actionChanged(mActionId, comboBox->itemData(index).toString());
         }
     });
