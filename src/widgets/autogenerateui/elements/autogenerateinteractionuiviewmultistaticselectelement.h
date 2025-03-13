@@ -28,6 +28,12 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewMultiStaticSelectElement &other) const;
 
+    [[nodiscard]] QStringList initialValue() const;
+    void setInitialValue(const QStringList &newInitialValue);
+
+    [[nodiscard]] int maxSelectItems() const;
+    void setMaxSelectItems(int newMaxSelectItems);
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;
@@ -35,6 +41,8 @@ protected:
 private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
+    QStringList mInitialValue;
+    int mMaxSelectItems = -1;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewMultiStaticSelectElement)
