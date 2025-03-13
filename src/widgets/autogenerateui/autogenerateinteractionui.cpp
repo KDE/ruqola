@@ -85,7 +85,6 @@ void AutoGenerateInteractionUi::slotCloseButtonClicked(const QJsonObject &payloa
             } else {
                 qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Error found when calling AppsUiInteractionJob " << replyObject;
             }
-            qDebug() << " CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << replyObject;
         });
         if (!job->start()) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
