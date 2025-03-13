@@ -33,7 +33,7 @@ QJsonObject AutoGenerateInteractionUi::generateJson() const
 bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
 {
     if (!json.contains("type"_L1)) {
-        qWarning() << " Invalid parseInteractionUi" << json;
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << " Invalid parseInteractionUi" << json;
         return false;
     }
     if (mView) {
@@ -42,7 +42,7 @@ bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
         mView = nullptr;
     }
     mTypeUi = convertTypeUiFromString(json["type"_L1].toString());
-    qDebug() << " AutoGenerateInteractionUi::parseInteractionUi " << mTypeUi << " json " << json;
+    // qDebug() << " AutoGenerateInteractionUi::parseInteractionUi " << mTypeUi << " json " << json;
     if (mTypeUi == AutoGenerateInteractionUi::TypeUi::Unknown) {
         return false;
     }
@@ -59,13 +59,29 @@ bool AutoGenerateInteractionUi::parseInteractionUi(const QJsonObject &json)
     return true;
 }
 
-void AutoGenerateInteractionUi::slotActionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info)
+void AutoGenerateInteractionUi::slotActionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &blockActionUserInfo)
 {
-    qDebug() << " AutoGenerateInteractionUi::slotActionChanged : " << info;
-    qDebug() << " this " << *this;
+    // qDebug() << " AutoGenerateInteractionUi::slotActionChanged : " << blockActionUserInfo;
+    // qDebug() << " this " << *this;
     if (mRocketChatAccount) {
-        // Use AppId
-        // TODO send message
+        auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
+        RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+        info.methodName = QString::fromLatin1(mAppId);
+        info.messageObj = AutoGenerateInteractionUtil::createViewBlockActionUser(blockActionUserInfo);
+        job->setAppsUiInteractionJobInfo(info);
+
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
+            // qDebug() << "AutoGenerateInteractionUi::slotActionChanged  " << replyObject;
+            if (replyObject["success"_L1].toBool()) {
+                Q_EMIT actionChanged(replyObject);
+            } else {
+                qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Error found when calling AppsUiInteractionJob " << replyObject;
+            }
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
+        }
     }
 }
 
@@ -98,6 +114,26 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
     if (mRocketChatAccount) {
         // Use AppId
         // TODO send message
+#if 0
+        auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
+        RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+        info.methodName = appId;
+        info.messageObj = AutoGenerateInteractionUtil::createViewSubmitUser(payload, QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128)));
+        job->setAppsUiInteractionJobInfo(info);
+
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
+            if (replyObject["success"_L1].toBool()) {
+                Q_EMIT submitCalled();
+            } else {
+                qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Error found when calling AppsUiInteractionJob " << replyObject;
+            }
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
+        }
+
+#endif
     }
 }
 

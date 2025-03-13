@@ -35,6 +35,7 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::parseElement(const Q
         option->parse(opt.toObject());
         mOptions.append(option);
     }
+    mMaxSelectItems = json["maxSelectItems"_L1].toInt(-1);
 }
 
 int AutoGenerateInteractionUiViewMultiStaticSelectElement::maxSelectItems() const
@@ -72,6 +73,9 @@ QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(Q
         lst.append(std::move(info));
     }
     lineEdit->setUserCompletionInfos(lst);
+    if (mMaxSelectItems != -1) {
+        lineEdit->setMaxSelectItems(mMaxSelectItems);
+    }
     // TODO lineEdit->setText(mInitialValue);
     return lineEdit;
 }

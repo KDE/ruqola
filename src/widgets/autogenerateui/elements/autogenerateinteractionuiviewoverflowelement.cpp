@@ -42,7 +42,7 @@ QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *p
         act->setText(r->text().generateText());
         act->setData(r->value());
         connect(act, &QAction::triggered, this, [this, r]() {
-            qDebug() << "act mBlockId " << mBlockId << " r->value() " << r->value() << " mActionId " << mActionId;
+            // qDebug() << "act mBlockId " << mBlockId << " r->value() " << r->value() << " mActionId " << mActionId;
             Q_EMIT actionChanged(mActionId, r->value());
         });
         menu->addAction(act);

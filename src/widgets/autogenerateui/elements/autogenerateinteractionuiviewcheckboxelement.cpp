@@ -18,6 +18,7 @@ AutoGenerateInteractionUiViewCheckboxElement::AutoGenerateInteractionUiViewCheck
 AutoGenerateInteractionUiViewCheckboxElement::~AutoGenerateInteractionUiViewCheckboxElement()
 {
     qDeleteAll(mOptions);
+    delete mInitialOption;
 }
 
 void AutoGenerateInteractionUiViewCheckboxElement::parseElement(const QJsonObject &json)
@@ -29,6 +30,20 @@ void AutoGenerateInteractionUiViewCheckboxElement::parseElement(const QJsonObjec
         option->parse(opt.toObject());
         mOptions.append(option);
     }
+    if (json.contains("initialOption"_L1)) {
+        mInitialOption = new AutoGenerateInteractionUiViewOption;
+        mInitialOption->parse(json["initialOption"_L1].toObject());
+    }
+}
+
+AutoGenerateInteractionUiViewOption *AutoGenerateInteractionUiViewCheckboxElement::initialOption() const
+{
+    return mInitialOption;
+}
+
+void AutoGenerateInteractionUiViewCheckboxElement::setInitialOption(AutoGenerateInteractionUiViewOption *newInitialOption)
+{
+    mInitialOption = newInitialOption;
 }
 
 QWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *parent)
@@ -41,6 +56,7 @@ QWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *p
 
 bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const
 {
+    // TODO mInitialOption
     return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
@@ -61,12 +77,18 @@ void AutoGenerateInteractionUiViewCheckboxElement::serializeElement(QJsonObject 
         options.append(r->serialize());
     }
     o["options"_L1] = options;
+    if (mInitialOption) {
+        o["initialOption"_L1] = mInitialOption->serialize();
+    }
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t)
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
     d.space() << "options:" << t.options();
+    if (t.initialOption()) {
+        d.space() << "initialOption:" << *t.initialOption();
+    }
     return d;
 }
 

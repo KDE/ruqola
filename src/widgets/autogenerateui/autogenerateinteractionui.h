@@ -48,6 +48,7 @@ public:
 Q_SIGNALS:
     void closeCalled();
     void submitCalled();
+    void actionChanged(const QJsonObject &replyObject);
 
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;

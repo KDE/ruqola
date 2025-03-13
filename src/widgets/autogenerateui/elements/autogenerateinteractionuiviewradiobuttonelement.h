@@ -20,13 +20,19 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewRadioButtonElement &other) const;
 
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
+    void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
+
+    [[nodiscard]] AutoGenerateInteractionUiViewOption *initialOption() const;
+    void setInitialOption(AutoGenerateInteractionUiViewOption *newInitialOption);
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;
 
 private:
-    // TODO initialOptions
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
+    AutoGenerateInteractionUiViewOption *mInitialOption = nullptr;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewRadioButtonElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t);
