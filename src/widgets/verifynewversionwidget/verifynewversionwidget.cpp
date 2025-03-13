@@ -24,6 +24,7 @@ VerifyNewVersionWidget::VerifyNewVersionWidget(QWidget *parent)
     mCheckVersionResultLabel->setObjectName(QStringLiteral("mCheckVersionResultLabel"));
     mCheckVersionResultLabel->setWordWrap(true);
     mCheckVersionResultLabel->setOpenExternalLinks(true);
+    mCheckVersionResultLabel->setTextFormat(Qt::RichText);
     mainLayout->addWidget(mCheckVersionResultLabel);
 }
 
@@ -41,7 +42,6 @@ void VerifyNewVersionWidget::checkNewVersion()
 void VerifyNewVersionWidget::slotFoundNewVersion(bool found)
 {
     const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
-    mCheckVersionResultLabel->setTextFormat(Qt::RichText);
     if (found) {
         mCheckVersionResultLabel->setText(i18n("A new version found. Click <a href=\"%1\">here</a> for downloading it.", url.toString()));
     } else {

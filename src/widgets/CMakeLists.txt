@@ -1272,6 +1272,7 @@ if(BUILD_TESTING)
     add_subdirectory(applicationssettingsdialog/autotests)
     add_subdirectory(autogenerateui/autotests)
     add_subdirectory(exploreappstranlationdialog/autotests)
+    add_subdirectory(verifynewversionwidget/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
