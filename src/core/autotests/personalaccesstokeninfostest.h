@@ -16,4 +16,6 @@ public:
     ~PersonalAccessTokenInfosTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadPersonalAccessTokenInfos_data();
+    void shouldLoadPersonalAccessTokenInfos();
 };
