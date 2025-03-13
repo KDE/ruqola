@@ -14,6 +14,7 @@ MultiStaticSelectLineEdit::MultiStaticSelectLineEdit(QWidget *parent)
 {
     setCompletionModel(mMultiStaticSelectLineEditModel);
     connect(this, &MultiStaticSelectLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
+    connect(this, &MultiStaticSelectLineEdit::complete, this, &MultiStaticSelectLineEdit::slotComplete);
     mCompletionListView->setTextWidget(this);
 }
 
@@ -27,6 +28,20 @@ MultiStaticSelectLineEdit::~MultiStaticSelectLineEdit() = default;
 void MultiStaticSelectLineEdit::slotSearchTextEdited()
 {
     // TODO
+}
+
+void MultiStaticSelectLineEdit::slotComplete(const QModelIndex &index)
+{
+    const QString text = index.data(MultiStaticSelectLineEditModel::Text).toString();
+    const QByteArray value = index.data(MultiStaticSelectLineEditModel::Value).toByteArray();
+    MultiStaticSelectLineEditModel::UserCompletionInfo info;
+    info.text = text;
+    info.value = QString::fromLatin1(value);
+    mCompletionListView->hide();
+    disconnect(this, &QLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
+    // TODP Q_EMIT newRoomName(std::move(info));
+    clear();
+    connect(this, &QLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
 }
 
 #include "moc_multistaticselectlineedit.cpp"

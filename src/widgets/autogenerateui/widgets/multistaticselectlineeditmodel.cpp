@@ -27,6 +27,7 @@ QVariant MultiStaticSelectLineEditModel::data(const QModelIndex &index, int role
     const UserCompletionInfo info = mUserCompletionInfos.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
+    case Text:
         return info.text;
     case Value:
         return info.value;

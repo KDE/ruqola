@@ -18,6 +18,7 @@ public:
     void setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::UserCompletionInfo> &newUserCompletionInfos);
 
 private:
-    void slotSearchTextEdited();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
     MultiStaticSelectLineEditModel *const mMultiStaticSelectLineEditModel;
 };

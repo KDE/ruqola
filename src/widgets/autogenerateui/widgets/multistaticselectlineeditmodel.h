@@ -16,6 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MultiStaticSelectLineEditModel : public QAbs
 public:
     enum MultiStaticSelectLineEditRoles {
         Value = Qt::UserRole + 1,
+        Text,
     };
     Q_ENUM(MultiStaticSelectLineEditRoles)
 
