@@ -64,7 +64,7 @@ void AutoGenerateInteractionUiViewContextBlock::parseBlock(const QJsonObject &js
             img->parse(r.toObject());
             mElements.append(std::move(img));
         } else {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewContextBlock Unknown type " << type;
         }
     }
 }

@@ -69,7 +69,7 @@ void AutoGenerateInteractionUiViewCalloutBlock::parseBlock(const QJsonObject &js
             flow->parse(accessoryObj);
             mAccessory = flow;
         } else {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewCalloutBlock Unknown type " << type;
         }
     }
 }

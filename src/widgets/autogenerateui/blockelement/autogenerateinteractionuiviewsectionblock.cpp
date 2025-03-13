@@ -113,9 +113,9 @@ void AutoGenerateInteractionUiViewSectionBlock::parseBlock(const QJsonObject &js
             select->parse(accessoryObj);
             mAccessory = select;
         } else if (type == "multi_static_select"_L1) {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock not implemented yet " << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewSectionBlock not implemented yet " << type;
         } else {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewInputBlock Unknown type " << type;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewSectionBlock Unknown type " << type;
         }
     }
     for (const auto &r : json["fields"_L1].toArray()) {
