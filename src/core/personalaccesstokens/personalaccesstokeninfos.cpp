@@ -5,13 +5,13 @@
 */
 
 #include "personalaccesstokeninfos.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 PersonalAccessTokenInfos::PersonalAccessTokenInfos() = default;
 
 QList<PersonalAccessTokenInfo> PersonalAccessTokenInfos::personalAccessTokenInfos() const
@@ -76,4 +76,9 @@ QDebug operator<<(QDebug d, const PersonalAccessTokenInfos &t)
         d.space() << t.personalAccessTokenInfos().at(i) << "\n";
     }
     return d;
+}
+
+bool PersonalAccessTokenInfos::operator==(const PersonalAccessTokenInfos &other) const
+{
+    return personalAccessTokenInfos() == other.personalAccessTokenInfos();
 }

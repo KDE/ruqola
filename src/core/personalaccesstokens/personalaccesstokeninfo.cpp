@@ -83,3 +83,9 @@ bool PersonalAccessTokenInfo::isValid() const
 {
     return !mLastTokenPart.isEmpty() && (mCreatedAt != -1);
 }
+
+bool PersonalAccessTokenInfo::operator==(const PersonalAccessTokenInfo &other) const
+{
+    return other.lastTokenPart() == lastTokenPart() && other.createdAt() == createdAt() && other.name() == name()
+        && other.bypassTwoFactor() == bypassTwoFactor();
+}

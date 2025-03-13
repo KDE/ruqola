@@ -29,6 +29,7 @@ public:
     void setCreatedAt(qint64 newCreatedAt);
 
     const QString &createAtDisplayDateTime() const;
+    [[nodiscard]] bool operator==(const PersonalAccessTokenInfo &other) const;
 
 private:
     QString mLastTokenPart;

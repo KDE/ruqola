@@ -27,6 +27,8 @@ public:
 
     void removeAt(int index);
 
+    [[nodiscard]] bool operator==(const PersonalAccessTokenInfos &other) const;
+
 private:
     QList<PersonalAccessTokenInfo> mPersonalAccessTokenInfos;
 };
