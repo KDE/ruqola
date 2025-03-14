@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-13 00:41+0000\n"
-"PO-Revision-Date: 2025-03-12 10:19+0100\n"
+"PO-Revision-Date: 2025-03-13 12:18+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11395,13 +11395,10 @@ msgstr ""
 "downloaden."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
-#, fuzzy, kde-format
-#| msgid ""
-#| "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+#, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
-"Een nieuwe versie gevonden. Klik <a href=\"%1\">hier</a> om het te "
-"downloaden."
+"Geen nieuwe versie gevonden. Bouwen is <a href=\"%1\">hier</a> te vinden."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

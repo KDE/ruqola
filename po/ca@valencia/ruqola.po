@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-13 00:41+0000\n"
-"PO-Revision-Date: 2025-03-12 09:49+0100\n"
+"PO-Revision-Date: 2025-03-13 10:23+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -11401,12 +11401,11 @@ msgstr ""
 "S'ha trobat una versió nova. Feu clic <a href=\"%1\">ací</a> per a baixar-la."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
-#, fuzzy, kde-format
-#| msgid ""
-#| "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+#, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
-"S'ha trobat una versió nova. Feu clic <a href=\"%1\">ací</a> per a baixar-la."
+"No s'ha trobat cap versió nova. La construcció es pot trobar <a href="
+"\"%1\">ací</a>."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11948,6 +11947,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"
-
-#~ msgid "No new version found."
-#~ msgstr "No s'ha trobat cap versió nova."

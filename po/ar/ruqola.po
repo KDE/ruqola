@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-13 00:41+0000\n"
-"PO-Revision-Date: 2025-03-06 08:45+0400\n"
+"PO-Revision-Date: 2025-03-13 11:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -8997,16 +8997,13 @@ msgid "Save Encryption Key"
 msgstr "احفظ مفتاح التعمية"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "التطبيق غير موجود"
+msgstr "ترجمة التطبيق"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translation"
+#, kde-format
 msgid "Translation"
 msgstr "الترجمة"
 
@@ -11465,7 +11462,7 @@ msgstr "تنفيذ معاينة الأمر."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Debug: explore translation from RC server."
-msgstr ""
+msgstr "التنقيح: استكشاف الترجمة من خادم روكت تشات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format

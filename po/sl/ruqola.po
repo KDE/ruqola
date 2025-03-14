@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-13 00:41+0000\n"
-"PO-Revision-Date: 2025-03-12 07:45+0100\n"
+"PO-Revision-Date: 2025-03-13 07:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -11385,11 +11385,9 @@ msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr "Najdena nova različica. Za prenos kliknite <a href=\"%1\">tukaj</a>."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
-#, fuzzy, kde-format
-#| msgid ""
-#| "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+#, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-msgstr "Najdena nova različica. Za prenos kliknite <a href=\"%1\">tukaj</a>."
+msgstr "Ni nove različice. Izgradnjo lahko najdete <a href=\"%1\">tukaj</a>."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
