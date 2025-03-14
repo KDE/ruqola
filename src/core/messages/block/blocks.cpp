@@ -54,7 +54,7 @@ void Blocks::setVideoConferenceInfo(const VideoConferenceInfo &info)
 
 void Blocks::parseBlocks(const QJsonArray &blocks)
 {
-    qDebug() << "blocks ************************************************* " << blocks;
+    // qDebug() << "blocks ************************************************* " << blocks;
     mBlocks.clear();
     for (int i = 0, total = blocks.count(); i < total; ++i) {
         const QJsonObject blockObject = blocks.at(i).toObject();
@@ -66,7 +66,7 @@ void Blocks::parseBlocks(const QJsonArray &blocks)
             qWarning() << " Invalid b " << blockObject;
         }
     }
-    qDebug() << "Blocks::parseBlocks " << mBlocks;
+    // qDebug() << "Blocks::parseBlocks " << mBlocks;
 }
 
 bool Blocks::operator==(const Blocks &other) const
