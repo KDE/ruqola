@@ -17,6 +17,7 @@ AutoGenerateInteractionUiViewToggleSwitchElement::AutoGenerateInteractionUiViewT
 AutoGenerateInteractionUiViewToggleSwitchElement::~AutoGenerateInteractionUiViewToggleSwitchElement()
 {
     qDeleteAll(mOptions);
+    qDeleteAll(mInitialOptions);
 }
 
 void AutoGenerateInteractionUiViewToggleSwitchElement::parseElement(const QJsonObject &json)
@@ -27,6 +28,13 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::parseElement(const QJsonO
         AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
         option->parse(opt.toObject());
         mOptions.append(option);
+    }
+    // initialOptions
+    const QJsonArray initialOptionsArray = json["initialOptions"_L1].toArray();
+    for (const auto &opt : initialOptionsArray) {
+        AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
+        option->parse(opt.toObject());
+        mInitialOptions.append(option);
     }
 }
 
@@ -47,10 +55,28 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::serializeElement(QJsonObj
         options.append(r->serialize());
     }
     o["options"_L1] = options;
+    if (!mInitialOptions.isEmpty()) {
+        for (const auto &r : std::as_const(mInitialOptions)) {
+            options.append(r->serialize());
+        }
+        o["initialOptions"_L1] = options;
+    }
+}
+
+QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewToggleSwitchElement::initialOptions() const
+{
+    return mInitialOptions;
+}
+
+void AutoGenerateInteractionUiViewToggleSwitchElement::setInitialOptions(const QList<AutoGenerateInteractionUiViewOption *> &newInitialOptions)
+{
+    mInitialOptions = newInitialOptions;
 }
 
 QWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidget *parent)
 {
+    qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewToggleSwitchElement UI";
+
     Q_UNUSED(parent)
     return nullptr;
 }
@@ -59,12 +85,13 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchEleme
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
     d.space() << "options:" << t.options();
+    d.space() << "initialOptions:" << t.initialOptions();
     return d;
 }
 
 bool AutoGenerateInteractionUiViewToggleSwitchElement::operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const
 {
-    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.options() == options();
+    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.options() == options() && other.initialOptions() == initialOptions();
 }
 
 #include "moc_autogenerateinteractionuiviewtoggleswitchelement.cpp"

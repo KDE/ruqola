@@ -23,6 +23,9 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const;
 
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> initialOptions() const;
+    void setInitialOptions(const QList<AutoGenerateInteractionUiViewOption *> &newInitialOptions);
+
 protected:
     void parseElement(const QJsonObject &json) override;
     void serializeElement(QJsonObject &o) const override;
@@ -30,6 +33,7 @@ protected:
 private:
     // TODO initialOptions
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
+    QList<AutoGenerateInteractionUiViewOption *> mInitialOptions;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewToggleSwitchElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchElement &t);
