@@ -31,11 +31,11 @@ void AutoGenerateInteractionUiViewUserSelectElement::parseElement(const QJsonObj
 QWidget *AutoGenerateInteractionUiViewUserSelectElement::generateWidget(QWidget *parent)
 {
     // Verify ?
-    auto plainText = new QPlainTextEdit(parent);
+    mPlainTextEdit = new QPlainTextEdit(parent);
     if (mPlaceHolder) {
-        plainText->setPlaceholderText(mPlaceHolder->generateText());
+        mPlainTextEdit->setPlaceholderText(mPlaceHolder->generateText());
     }
-    return plainText;
+    return mPlainTextEdit;
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewUserSelectElement::placeHolder() const

@@ -35,11 +35,11 @@ void AutoGenerateInteractionUiViewDatePickerElement::parseElement(const QJsonObj
 
 QWidget *AutoGenerateInteractionUiViewDatePickerElement::generateWidget(QWidget *parent)
 {
-    auto w = new QDateEdit(parent);
+    mDateTime = new QDateEdit(parent);
     if (!mInitialDate.isEmpty()) {
-        w->setDate(QDate::fromString(mInitialDate, "yyyy-MM-dd"_L1));
+        mDateTime->setDate(QDate::fromString(mInitialDate, "yyyy-MM-dd"_L1));
     }
-    return w;
+    return mDateTime;
 }
 
 QString AutoGenerateInteractionUiViewDatePickerElement::initialDate() const

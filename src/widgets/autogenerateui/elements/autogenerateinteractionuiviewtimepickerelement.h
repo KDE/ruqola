@@ -10,6 +10,7 @@
 #include <QJsonObject>
 // packages/ui-kit/src/blocks/elements/TimePickerElement.ts
 class AutoGenerateInteractionUiViewText;
+class QTimeEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewTimePickerElement : public AutoGenerateInteractionUiViewActionable
 {
     Q_OBJECT
@@ -33,6 +34,7 @@ protected:
 private:
     QString mInitialTime;
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
+    QTimeEdit *mTimeEdit = nullptr;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewTimePickerElement)

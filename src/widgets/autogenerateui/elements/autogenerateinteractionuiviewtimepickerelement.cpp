@@ -35,11 +35,11 @@ void AutoGenerateInteractionUiViewTimePickerElement::parseElement(const QJsonObj
 
 QWidget *AutoGenerateInteractionUiViewTimePickerElement::generateWidget(QWidget *parent)
 {
-    auto w = new QTimeEdit(parent);
+    mTimeEdit = new QTimeEdit(parent);
     if (!mInitialTime.isEmpty()) {
-        w->setTime(QTime::fromString(mInitialTime)); // TODO verify ?
+        mTimeEdit->setTime(QTime::fromString(mInitialTime)); // TODO verify ?
     }
-    return w;
+    return mTimeEdit;
 }
 
 QString AutoGenerateInteractionUiViewTimePickerElement::initialTime() const

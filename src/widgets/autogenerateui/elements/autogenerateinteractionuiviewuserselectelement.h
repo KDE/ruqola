@@ -9,6 +9,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 
 class AutoGenerateInteractionUiViewText;
+class QPlainTextEdit;
 // see ./packages/ui-kit/src/blocks/elements/PlainTextInputElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewUserSelectElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -30,6 +31,7 @@ protected:
 
 private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
+    QPlainTextEdit *mPlainTextEdit = nullptr;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewUserSelectElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewUserSelectElement &t);

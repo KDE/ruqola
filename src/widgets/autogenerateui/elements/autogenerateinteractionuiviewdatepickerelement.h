@@ -10,6 +10,7 @@
 #include <QJsonObject>
 // ./packages/ui-kit/src/blocks/elements/DatePickerElement.ts
 class AutoGenerateInteractionUiViewText;
+class QDateEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewDatePickerElement : public AutoGenerateInteractionUiViewActionable
 {
     Q_OBJECT
@@ -33,6 +34,7 @@ protected:
 private:
     QString mInitialDate;
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
+    QDateEdit *mDateTime = nullptr;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewDatePickerElement)
