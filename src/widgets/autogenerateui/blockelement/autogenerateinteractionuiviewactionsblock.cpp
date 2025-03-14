@@ -14,6 +14,8 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewuserselectelement.h"
+
 #include "common/flowlayout.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
@@ -50,7 +52,6 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
                 | MultiChannelsSelectElement
                 | MultiConversationsSelectElement
                 | MultiUsersSelectElement
-                | UsersSelectElement
 */
     for (const auto &r : json["elements"_L1].toArray()) {
         const QString type = r["type"_L1].toString();
@@ -88,6 +89,10 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
             mElements.append(std::move(e));
         } else if (type == "time_picker"_L1) {
             auto e = new AutoGenerateInteractionUiViewTimePickerElement;
+            e->parse(r.toObject());
+            mElements.append(std::move(e));
+        } else if (type == "users_select"_L1) {
+            auto e = new AutoGenerateInteractionUiViewUserSelectElement;
             e->parse(r.toObject());
             mElements.append(std::move(e));
         } else {

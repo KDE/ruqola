@@ -1088,6 +1088,9 @@ target_sources(libruqolawidgets PRIVATE
     autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.cpp
     autogenerateui/elements/autogenerateinteractionuiviewlinearscaleelement.h
 
+    autogenerateui/elements/autogenerateinteractionuiviewuserselectelement.cpp
+    autogenerateui/elements/autogenerateinteractionuiviewuserselectelement.h
+
     autogenerateui/widgets/multistaticselectwidget.h
     autogenerateui/widgets/multistaticselectwidget.cpp
     autogenerateui/widgets/multistaticselectlineedit.h
