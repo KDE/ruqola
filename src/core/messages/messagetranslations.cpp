@@ -3,38 +3,38 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
-#include "messagetranslation.h"
+#include "messagetranslations.h"
 
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
-MessageTranslation::MessageTranslation()
+MessageTranslations::MessageTranslations()
     : QSharedData()
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageTranslation created " << this;
 }
 
-MessageTranslation::MessageTranslation(const MessageTranslation &other)
+MessageTranslations::MessageTranslations(const MessageTranslations &other)
     : QSharedData(other)
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageTranslation created " << this;
     mTranslatedString = other.mTranslatedString;
 }
 
-MessageTranslation::~MessageTranslation()
+MessageTranslations::~MessageTranslations()
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageTranslation deleted " << this;
 }
 
-QDebug operator<<(QDebug d, const MessageTranslation &t)
+QDebug operator<<(QDebug d, const MessageTranslations &t)
 {
     d.space() << "translate string" << t.translatedString();
     return d;
 }
 
-void MessageTranslation::parse(const QJsonObject &obj)
+void MessageTranslations::parse(const QJsonObject &obj)
 {
     mTranslatedString.clear();
     const QJsonObject languageObject = obj["translations"_L1].toObject();
@@ -45,27 +45,27 @@ void MessageTranslation::parse(const QJsonObject &obj)
     // qDebug() << " void MessageTranslation::parse(const QJsonObject &obj)"<<mTranslatedString;
 }
 
-bool MessageTranslation::operator==(const MessageTranslation &other) const
+bool MessageTranslations::operator==(const MessageTranslations &other) const
 {
     return mTranslatedString == other.translatedString();
 }
 
-QMap<QString, QString> MessageTranslation::translatedString() const
+QMap<QString, QString> MessageTranslations::translatedString() const
 {
     return mTranslatedString;
 }
 
-void MessageTranslation::setTranslatedString(const QMap<QString, QString> &translatedString)
+void MessageTranslations::setTranslatedString(const QMap<QString, QString> &translatedString)
 {
     mTranslatedString = translatedString;
 }
 
-QString MessageTranslation::translatedStringFromLanguage(const QString &lang) const
+QString MessageTranslations::translatedStringFromLanguage(const QString &lang) const
 {
     return mTranslatedString.value(lang);
 }
 
-QJsonArray MessageTranslation::serialize(const MessageTranslation &translation)
+QJsonArray MessageTranslations::serialize(const MessageTranslations &translation)
 {
     QJsonArray array;
     QMapIterator<QString, QString> i(translation.mTranslatedString);
@@ -78,9 +78,9 @@ QJsonArray MessageTranslation::serialize(const MessageTranslation &translation)
     return array;
 }
 
-MessageTranslation *MessageTranslation::deserialize(const QJsonArray &array)
+MessageTranslations *MessageTranslations::deserialize(const QJsonArray &array)
 {
-    MessageTranslation *translationMessage = new MessageTranslation;
+    MessageTranslations *translationMessage = new MessageTranslations;
     QMap<QString, QString> translationStrings;
     for (int i = 0, total = array.count(); i < total; ++i) {
         QJsonObject o = array.at(i).toObject();
@@ -92,7 +92,7 @@ MessageTranslation *MessageTranslation::deserialize(const QJsonArray &array)
     return translationMessage;
 }
 
-bool MessageTranslation::isEmpty() const
+bool MessageTranslations::isEmpty() const
 {
     return mTranslatedString.isEmpty();
 }

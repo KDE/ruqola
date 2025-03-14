@@ -382,7 +382,7 @@ void MessageTest::shouldSerializeData()
         input.setDiscussionRoomId("discussion111"_ba);
         input.setDiscussionCount(90);
         input.setDiscussionLastMessage(985);
-        MessageTranslation l;
+        MessageTranslations l;
         l.setTranslatedString({{QStringLiteral("foo"), QStringLiteral("bla")}});
         input.setMessageTranslation(l);
         // It will break as it's not supported yet
@@ -596,7 +596,7 @@ void MessageTest::shouldSerializeData()
         input.setReactions(reactions);
 
         // Message Translation
-        MessageTranslation l;
+        MessageTranslations l;
         l.setTranslatedString({{QStringLiteral("foo"), QStringLiteral("bla")}});
         input.setMessageTranslation(l);
 

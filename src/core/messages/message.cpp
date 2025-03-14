@@ -82,7 +82,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
 
     // Translation
     if (o.contains("translations"_L1)) {
-        MessageTranslation translation;
+        MessageTranslations translation;
         translation.parse(o);
         if (!translation.isEmpty()) {
             setMessageTranslation(translation);
@@ -215,7 +215,7 @@ void Message::setShowTranslatedMessage(bool showOriginalMessage)
     assignMessageStateValue(Translated, showOriginalMessage);
 }
 
-const MessageTranslation *Message::messageTranslation() const
+const MessageTranslations *Message::messageTranslation() const
 {
     if (mMessageTranslation) {
         return mMessageTranslation.data();
@@ -223,12 +223,12 @@ const MessageTranslation *Message::messageTranslation() const
     return nullptr;
 }
 
-void Message::setMessageTranslation(const MessageTranslation &messageTranslation)
+void Message::setMessageTranslation(const MessageTranslations &messageTranslation)
 {
     if (!mMessageTranslation) {
-        mMessageTranslation = new MessageTranslation(messageTranslation);
+        mMessageTranslation = new MessageTranslations(messageTranslation);
     } else {
-        mMessageTranslation.reset(new MessageTranslation(messageTranslation));
+        mMessageTranslation.reset(new MessageTranslations(messageTranslation));
     }
 }
 
@@ -1160,7 +1160,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     if (o.contains("messageTranslation"_L1)) {
-        MessageTranslation *translation = MessageTranslation::deserialize(o["messageTranslation"_L1].toArray());
+        MessageTranslations *translation = MessageTranslations::deserialize(o["messageTranslation"_L1].toArray());
         message.setMessageTranslation(*translation);
         delete translation;
     }
@@ -1286,7 +1286,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["localTransation"_L1] = message.localTranslation();
     }
     if (message.messageTranslation() && !message.messageTranslation()->isEmpty()) {
-        o["messageTranslation"_L1] = MessageTranslation::serialize(*message.messageTranslation());
+        o["messageTranslation"_L1] = MessageTranslations::serialize(*message.messageTranslation());
     }
     if (message.privateMessage()) {
         o["private"_L1] = true;

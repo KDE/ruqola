@@ -13,7 +13,7 @@
 #include "messageextra.h"
 #include "messagepinned.h"
 #include "messagestarred.h"
-#include "messagetranslation.h"
+#include "messagetranslations.h"
 #include "messageurls.h"
 #include "moderation/moderationmessage.h"
 #include "reactions.h"
@@ -178,9 +178,9 @@ public:
 
     [[nodiscard]] QString displayTime() const;
 
-    [[nodiscard]] const MessageTranslation *messageTranslation() const;
-    void setMessageTranslation(const MessageTranslation &messageTranslation);
-    void setMessageTranslation(MessageTranslation *messageTranslation);
+    [[nodiscard]] const MessageTranslations *messageTranslation() const;
+    void setMessageTranslation(const MessageTranslations &messageTranslation);
+    void setMessageTranslation(MessageTranslations *messageTranslation);
 
     [[nodiscard]] bool showTranslatedMessage() const;
     void setShowTranslatedMessage(bool showTranslatedMessage);
@@ -256,7 +256,7 @@ private:
     MessageStarred mMessageStarred;
 
     // Message Translation
-    QSharedDataPointer<MessageTranslation> mMessageTranslation;
+    QSharedDataPointer<MessageTranslations> mMessageTranslation;
 
     // Message Object Fields
     QSharedDataPointer<MessageAttachments> mAttachments;

@@ -131,8 +131,8 @@ target_sources(libruqolacore PRIVATE
     messages/messagepinned.h
     messages/messagestarred.cpp
     messages/messagestarred.h
-    messages/messagetranslation.cpp
-    messages/messagetranslation.h
+    messages/messagetranslations.cpp
+    messages/messagetranslations.h
     messages/messageurl.cpp
     messages/messageurl.h
     messages/reaction.cpp
