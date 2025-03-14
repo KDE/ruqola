@@ -92,7 +92,6 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     }
     setPrivateMessage(o.value("private"_L1).toBool(false));
 
-    mMessageType = Message::MessageType::NormalText;
     const QString type = o.value("t"_L1).toString();
     if (!type.isEmpty()) {
         if (type == "videoconf"_L1) {
@@ -106,6 +105,8 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::System;
         }
+    } else {
+        mMessageType = Message::MessageType::NormalText;
     }
     parseBlocks(o.value("blocks"_L1).toArray());
     parseMentions(o.value("mentions"_L1).toArray());
