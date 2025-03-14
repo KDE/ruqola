@@ -62,4 +62,4 @@ enum SystemMessageType {
 
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT SystemMessageType systemMessageTypeFromString(const QString &str);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString systemMessageTypeStringFromEnum(SystemMessageType type);
-};
+}
