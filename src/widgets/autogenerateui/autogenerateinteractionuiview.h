@@ -46,7 +46,7 @@ public:
 
     void generateWidget(QWidget *parent);
 
-    [[nodiscard]] QJsonObject serialize() const;
+    [[nodiscard]] QJsonObject serialize(bool generateState = false) const;
     [[nodiscard]] QByteArray type() const;
     void setType(const QByteArray &newType);
 

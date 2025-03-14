@@ -26,6 +26,7 @@ public:
     void generateWidget(QWidget *parent);
     [[nodiscard]] QJsonArray serialize() const;
 
+    [[nodiscard]] QJsonObject serializeState() const;
 Q_SIGNALS:
     void actionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value);
 

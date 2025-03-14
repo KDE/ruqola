@@ -159,7 +159,7 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
             auto okButton = buttonDialog->addButton(QDialogButtonBox::Ok);
             okButton->setText(mSubmitButton->text().generateText());
             connect(okButton, &QPushButton::clicked, this, [this]() {
-                const QJsonObject payload = serialize();
+                const QJsonObject payload = serialize(true);
                 const QString appId = QString::fromLatin1(mAppId);
                 // TODO FIXME
                 Q_EMIT submitButtonClicked(payload, appId);
@@ -170,7 +170,7 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
     }
 }
 
-QJsonObject AutoGenerateInteractionUiView::serialize() const
+QJsonObject AutoGenerateInteractionUiView::serialize(bool generateState) const
 {
     QJsonObject o;
     o["blocks"_L1] = mBlocks->serialize();
@@ -184,6 +184,10 @@ QJsonObject AutoGenerateInteractionUiView::serialize() const
     o["id"_L1] = QString::fromLatin1(mId);
     o["type"_L1] = QString::fromLatin1(mType);
     o["appId"_L1] = QString::fromLatin1(mAppId);
+    if (generateState) {
+        QJsonObject stateObj;
+        o["state"_L1] = stateObj;
+    }
     return o;
 }
 

@@ -43,7 +43,7 @@ public:
 
     [[nodiscard]] QWidget *generateWidget(QWidget *parent = nullptr);
 
-    [[nodiscard]] QJsonObject generateJson() const;
+    [[nodiscard]] QJsonObject generateJson(bool generateState) const;
 
 Q_SIGNALS:
     void closeCalled();
