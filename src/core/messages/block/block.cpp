@@ -23,7 +23,7 @@ void Block::parseBlock(const QJsonObject &block)
     mBlockId = block["blockId"_L1].toString();
     mCallId = block["callId"_L1].toString();
     mAppId = block["appId"_L1].toString();
-    setBlockTypeStr(block["type"_L1].toString());
+    setBlockType(convertBlockTypeToEnum(block["type"_L1].toString()));
     if (mBlockType == BlockType::Unknown) {
         qCWarning(RUQOLA_LOG) << " Unknown type " << block;
     } else if (mBlockType == BlockType::Section) {
@@ -52,7 +52,7 @@ void Block::parseBlock(const QJsonObject &block)
     }
 }
 
-QString Block::convertEnumToStr(BlockType newBlockType) const
+QString Block::convertEnumToStr(BlockType newBlockType)
 {
     switch (newBlockType) {
     case BlockType::Unknown:
@@ -135,19 +135,6 @@ void Block::setVideoConferenceInfo(const VideoConferenceInfo &newInfo)
     mVideoConferenceInfo = newInfo;
 }
 
-QString Block::blockTypeStr() const
-{
-    return mBlockStr;
-}
-
-void Block::setBlockTypeStr(const QString &newBlockStr)
-{
-    if (mBlockStr != newBlockStr) {
-        mBlockStr = newBlockStr;
-        mBlockType = convertBlockTypeToEnum(mBlockStr);
-    }
-}
-
 bool Block::isValid() const
 {
     return mBlockType != BlockType::Unknown;
@@ -217,14 +204,12 @@ Block::BlockType Block::blockType() const
 void Block::setBlockType(BlockType newBlockType)
 {
     mBlockType = newBlockType;
-    mBlockStr = convertEnumToStr(mBlockType);
 }
 
 bool Block::operator==(const Block &other) const
 {
-    return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId() && mBlockStr == other.blockTypeStr()
-        && mBlockActions == other.blockActions() && mSectionText == other.sectionText() && mBlockAccessory == other.blockAccessory()
-        && mVideoConferenceInfo == other.videoConferenceInfo();
+    return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId() && mBlockActions == other.blockActions()
+        && mSectionText == other.sectionText() && mBlockAccessory == other.blockAccessory() && mVideoConferenceInfo == other.videoConferenceInfo();
 }
 
 QString Block::sectionText() const
@@ -245,7 +230,7 @@ QJsonObject Block::serialize(const Block &block)
         o["callId"_L1] = block.callId();
     }
     o["appId"_L1] = block.appId();
-    o["type"_L1] = block.blockTypeStr();
+    o["type"_L1] = Block::convertEnumToStr(block.blockType());
     if (!block.sectionText().isEmpty()) {
         o["sectionText"_L1] = block.sectionText();
     }
@@ -273,7 +258,7 @@ Block Block::deserialize(const QJsonObject &o)
     block.setBlockId(o["blockId"_L1].toString());
     block.setCallId(o["callId"_L1].toString());
     block.setAppId(o["appId"_L1].toString());
-    block.setBlockTypeStr(o["type"_L1].toString());
+    block.setBlockType(Block::convertBlockTypeToEnum(o["type"_L1].toString()));
     block.setSectionText(o["sectionText"_L1].toString());
     const VideoConferenceInfo info = VideoConferenceInfo::deserialize(o["videoconferenceinfo"_L1].toObject());
     if (info.isValid()) {
@@ -293,7 +278,6 @@ QDebug operator<<(QDebug d, const Block &t)
     d.space() << "blockId" << t.blockId();
     d.space() << "callId" << t.callId();
     d.space() << "appId" << t.appId();
-    d.space() << "blockTypeStr" << t.blockTypeStr();
     d.space() << "mBlockType" << t.blockType();
     d.space() << "Video conf info" << t.videoConferenceInfo();
     d.space() << "Text Section" << t.sectionText();

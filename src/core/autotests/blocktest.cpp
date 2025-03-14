@@ -21,11 +21,12 @@ void BlockTest::shouldHaveDefaultValues()
     QVERIFY(b.callId().isEmpty());
     QVERIFY(b.blockId().isEmpty());
     QVERIFY(b.appId().isEmpty());
-    QVERIFY(b.blockTypeStr().isEmpty());
     QCOMPARE(b.blockType(), Block::BlockType::Unknown);
 
     QVERIFY(!b.videoConferenceInfo().isValid());
     QVERIFY(!b.isValid());
+    // Original 432
+    QCOMPARE(sizeof(Block), 408);
 }
 
 void BlockTest::shouldLoadBlock_data()
@@ -37,20 +38,20 @@ void BlockTest::shouldLoadBlock_data()
         info.setBlockId(QStringLiteral("63936e304ef3f3baa9658bd7"));
         info.setAppId(QStringLiteral("videoconf-core"));
         info.setCallId(QStringLiteral("63936e304ef"));
-        info.setBlockTypeStr(QStringLiteral("video_conf"));
+        info.setBlockType(Block::BlockType::VideoConf);
         QTest::addRow("blocks1") << QStringLiteral("blocks1") << info;
     }
     {
         Block info;
         info.setAppId(QStringLiteral("mention-core"));
-        info.setBlockTypeStr(QStringLiteral("section"));
+        info.setBlockType(Block::BlockType::Section);
         info.setSectionText(QStringLiteral("You mentioned *foo*, but they're not in this room."));
         QTest::addRow("section1") << QStringLiteral("section1") << info;
     }
     {
         Block info;
         info.setAppId(QStringLiteral("mention-core"));
-        info.setBlockTypeStr(QStringLiteral("actions"));
+        info.setBlockType(Block::BlockType::Actions);
 
         QList<BlockAction> lstAct;
         {
@@ -88,7 +89,8 @@ void BlockTest::shouldLoadBlock_data()
         Block info;
         info.setAppId(QStringLiteral("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"));
         info.setBlockId(QStringLiteral("366e6622-f43a-11ef-9cd7-3df7975443e9"));
-        info.setBlockTypeStr(QStringLiteral("actions"));
+        info.setBlockType(Block::BlockType::Actions);
+
         QList<BlockAction> lstAct;
         {
             BlockAction act;
@@ -122,7 +124,6 @@ void BlockTest::shouldLoadBlock_data()
         Block info;
         info.setAppId(QStringLiteral("c33fa1a6-68a7-491e-bf49-9d7b99671c48"));
         info.setBlockId(QStringLiteral("136c2441-fadf-11ef-85ff-4bacdd8b2d67"));
-        info.setBlockTypeStr(QStringLiteral("divider"));
         info.setBlockType(Block::BlockType::Divider);
         QTest::addRow("divider1") << QStringLiteral("divider1") << info;
     }
@@ -131,7 +132,6 @@ void BlockTest::shouldLoadBlock_data()
         Block info;
         info.setAppId(QStringLiteral("c33fa1a6-68a7-491e-bf49-9d7b99671c48"));
         info.setBlockId(QStringLiteral("136c2440-fadf-11ef-85ff-4bacdd8b2d67"));
-        info.setBlockTypeStr(QStringLiteral("section"));
         info.setBlockType(Block::BlockType::Section);
         info.setSectionText(QStringLiteral("ssdf"));
 
@@ -152,7 +152,6 @@ void BlockTest::shouldLoadBlock_data()
         Block info;
         info.setAppId(QStringLiteral("c33fa1a6-68a7-491e-bf49-9d7b99671c48"));
         info.setBlockId(QStringLiteral("d674d766-f513-11ef-82b6-d3aef5c738bf"));
-        info.setBlockTypeStr(QStringLiteral("context"));
         info.setBlockType(Block::BlockType::Context);
 
         QList<BlockAction> blockActions;
@@ -170,7 +169,6 @@ void BlockTest::shouldLoadBlock_data()
         Block info;
         info.setAppId(QStringLiteral("c33fa1a6-68a7-491e-bf49-9d7b99671c48"));
         info.setBlockId(QStringLiteral("33fec462-fcfb-11ef-85ff-4bacdd8b2d67"));
-        info.setBlockTypeStr(QStringLiteral("section"));
         info.setBlockType(Block::BlockType::Section);
         info.setSectionText("zz"_L1);
 
@@ -207,7 +205,7 @@ void BlockTest::shouldSerializeData()
     input.setBlockId(QStringLiteral("63936e304ef3f3baa9658bd7"));
     input.setAppId(QStringLiteral("videoconf-core"));
     input.setCallId(QStringLiteral("63936e304ef"));
-    input.setBlockTypeStr(QStringLiteral("video_conf"));
+    input.setBlockType(Block::BlockType::VideoConf);
 
     const QJsonObject ba = Block::serialize(input);
     const Block output = Block::deserialize(ba);

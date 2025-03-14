@@ -57,9 +57,6 @@ public:
 
     [[nodiscard]] QString title() const;
 
-    [[nodiscard]] QString blockTypeStr() const;
-    void setBlockTypeStr(const QString &newBlockStr);
-
     [[nodiscard]] VideoConferenceInfo videoConferenceInfo() const;
     void setVideoConferenceInfo(const VideoConferenceInfo &newInfo);
 
@@ -70,13 +67,12 @@ public:
     void setBlockAccessory(const BlockAccessory &newBlockAccessory);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(BlockType newBlockType) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Block::BlockType convertBlockTypeToEnum(const QString &type);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString convertEnumToStr(BlockType newBlockType);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static Block::BlockType convertBlockTypeToEnum(const QString &type);
     QList<BlockAction> mBlockActions;
     QString mBlockId;
     QString mCallId;
     QString mAppId;
-    QString mBlockStr;
     QString mSectionText;
     BlockType mBlockType = BlockType::Unknown;
     VideoConferenceInfo mVideoConferenceInfo;
