@@ -5,6 +5,11 @@
 */
 
 #include "autogenerateinteractionuiviewimageblock.h"
+#include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "ruqola_autogenerateui_debug.h"
+
+// Look at /apps/uikit-playground/src/Payload/actionBlock/image
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewImageBlock::AutoGenerateInteractionUiViewImageBlock(QObject *parent)
     : AutoGenerateInteractionUiViewBlockBase(parent)
@@ -14,6 +19,7 @@ AutoGenerateInteractionUiViewImageBlock::~AutoGenerateInteractionUiViewImageBloc
 
 QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget(QWidget *parent)
 {
+    qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewImageBlock::generateWidget not implemented yet";
     Q_UNUSED(parent);
     return nullptr;
 }
@@ -21,7 +27,20 @@ QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget(QWidget *parent
 void AutoGenerateInteractionUiViewImageBlock::parseBlock(const QJsonObject &json)
 {
     mImage.parse(json);
-    // TODO
+    if (json.contains("title"_L1)) {
+        mTitle = new AutoGenerateInteractionUiViewText;
+        mTitle->parse(json["title"_L1].toObject());
+    }
+}
+
+AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewImageBlock::title() const
+{
+    return mTitle;
+}
+
+void AutoGenerateInteractionUiViewImageBlock::setTitle(AutoGenerateInteractionUiViewText *newText)
+{
+    mTitle = newText;
 }
 
 AutoGenerateInteractionUiViewImage AutoGenerateInteractionUiViewImageBlock::image() const
@@ -37,17 +56,24 @@ void AutoGenerateInteractionUiViewImageBlock::setImage(const AutoGenerateInterac
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageBlock &t)
 {
     d.space() << "image:" << t.image();
+    if (t.title()) {
+        d.space() << "text:" << *t.title();
+    }
     return d;
 }
 
 bool AutoGenerateInteractionUiViewImageBlock::operator==(const AutoGenerateInteractionUiViewImageBlock &other) const
 {
+    // TODO text
     return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.image() == image();
 }
 
 void AutoGenerateInteractionUiViewImageBlock::serializeBlock(QJsonObject &o) const
 {
     o["image"_L1] = mImage.serialize();
+    if (mTitle) {
+        o["title"_L1] = mTitle->serialize();
+    }
 }
 
 #include "moc_autogenerateinteractionuiviewimageblock.cpp"

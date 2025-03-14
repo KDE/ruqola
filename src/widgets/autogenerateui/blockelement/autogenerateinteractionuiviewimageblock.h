@@ -9,6 +9,7 @@
 #include "autogenerateinteractionuiviewblockbase.h"
 #include "autogenerateui/autogenerateinteractionuiviewimage.h"
 
+class AutoGenerateInteractionUiViewText;
 // ./src/blocks/layout/ImageBlock.ts
 class AutoGenerateInteractionUiViewImageBlock : public AutoGenerateInteractionUiViewBlockBase
 {
@@ -23,13 +24,16 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewImageBlock &other) const;
 
+    [[nodiscard]] AutoGenerateInteractionUiViewText *title() const;
+    void setTitle(AutoGenerateInteractionUiViewText *newText);
+
 protected:
     void serializeBlock(QJsonObject &o) const override;
     void parseBlock(const QJsonObject &json) override;
 
 private:
     AutoGenerateInteractionUiViewImage mImage;
-    // TODO title?: PlainText;
+    AutoGenerateInteractionUiViewText *mTitle = nullptr;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewImageBlock)
