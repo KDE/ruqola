@@ -9,7 +9,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewimage.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
-
+// ./packages/ui-kit/src/blocks/elements/ImageElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewImageElement : public AutoGenerateInteractionUiViewActionable
 {
     Q_OBJECT

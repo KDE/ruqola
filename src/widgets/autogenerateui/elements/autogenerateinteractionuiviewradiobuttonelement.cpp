@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewradiobuttonelement.h"
-#include "ruqola_action_buttons_debug.h"
+#include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 
 using namespace Qt::Literals::StringLiterals;
@@ -57,6 +57,8 @@ void AutoGenerateInteractionUiViewRadioButtonElement::setOptions(const QList<Aut
 
 QWidget *AutoGenerateInteractionUiViewRadioButtonElement::generateWidget(QWidget *parent)
 {
+    qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewRadioButtonElement UI";
+
     // QRadioButton ?
     Q_UNUSED(parent)
     return nullptr;

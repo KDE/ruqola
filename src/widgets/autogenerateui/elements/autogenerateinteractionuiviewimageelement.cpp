@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewimageelement.h"
+#include "ruqola_autogenerateui_debug.h"
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageElement(QObject *parent)
     : AutoGenerateInteractionUiViewActionable(parent)
@@ -15,7 +16,8 @@ AutoGenerateInteractionUiViewImageElement::~AutoGenerateInteractionUiViewImageEl
 QWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(QWidget *parent)
 {
     Q_UNUSED(parent)
-    // TODO
+    // TODO generate image
+    qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewImageElement UI";
     return nullptr;
 }
 

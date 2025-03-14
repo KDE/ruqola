@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewlinearscaleelement.h"
+#include "ruqola_autogenerateui_debug.h"
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewLinearScaleElement::AutoGenerateInteractionUiViewLinearScaleElement(QObject *parent)
     : AutoGenerateInteractionUiViewActionable(parent)
@@ -15,6 +16,8 @@ AutoGenerateInteractionUiViewLinearScaleElement::~AutoGenerateInteractionUiViewL
 QWidget *AutoGenerateInteractionUiViewLinearScaleElement::generateWidget(QWidget *parent)
 {
     Q_UNUSED(parent)
+    qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewLinearScaleElement UI";
+
     // TODO return range widget
     return nullptr;
 }

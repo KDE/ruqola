@@ -8,6 +8,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
+// packages/ui-kit/src/blocks/elements/TimePickerElement.ts
 class AutoGenerateInteractionUiViewText;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewTimePickerElement : public AutoGenerateInteractionUiViewActionable
 {

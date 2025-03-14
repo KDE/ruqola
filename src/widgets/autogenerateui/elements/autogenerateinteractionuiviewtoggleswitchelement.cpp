@@ -5,6 +5,7 @@
 */
 #include "autogenerateinteractionuiviewtoggleswitchelement.h"
 #include "ruqola_action_buttons_debug.h"
+#include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 
