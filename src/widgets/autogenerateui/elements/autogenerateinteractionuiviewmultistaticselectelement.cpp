@@ -48,6 +48,12 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setMaxSelectItems(in
     mMaxSelectItems = newMaxSelectItems;
 }
 
+QString AutoGenerateInteractionUiViewMultiStaticSelectElement::currentValue() const
+{
+    // TODO
+    return {};
+}
+
 QStringList AutoGenerateInteractionUiViewMultiStaticSelectElement::initialValue() const
 {
     return mInitialValue;

@@ -25,6 +25,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewOption *initialOption() const;
     void setInitialOption(AutoGenerateInteractionUiViewOption *newInitialOption);
 
+    [[nodiscard]] QString currentValue() const override;
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;

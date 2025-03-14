@@ -91,6 +91,11 @@ QJsonObject AutoGenerateInteractionUiViewActionable::serialize() const
     return o;
 }
 
+QString AutoGenerateInteractionUiViewActionable::currentValue() const
+{
+    return {};
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t)
 {
     d.space() << "appId:" << t.appId();

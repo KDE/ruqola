@@ -34,6 +34,8 @@ public:
     [[nodiscard]] int maxSelectItems() const;
     void setMaxSelectItems(int newMaxSelectItems);
 
+    [[nodiscard]] QString currentValue() const override;
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;

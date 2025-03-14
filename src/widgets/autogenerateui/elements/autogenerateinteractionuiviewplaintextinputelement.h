@@ -36,6 +36,8 @@ public:
     [[nodiscard]] int maxLength() const;
     void setMaxLength(int newMaxLength);
 
+    [[nodiscard]] QString currentValue() const override;
+
 protected:
     void parseElement(const QJsonObject &json) override;
     void serializeElement(QJsonObject &o) const override;

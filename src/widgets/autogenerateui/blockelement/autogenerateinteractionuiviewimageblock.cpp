@@ -64,7 +64,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageBlock &t)
 
 bool AutoGenerateInteractionUiViewImageBlock::operator==(const AutoGenerateInteractionUiViewImageBlock &other) const
 {
-    // TODO text
+    // TODO title
     return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.image() == image();
 }
 

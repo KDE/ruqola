@@ -29,6 +29,8 @@ public:
     [[nodiscard]] int initialValue() const;
     void setInitialValue(int newInitialValue);
 
+    [[nodiscard]] QString currentValue() const override;
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;

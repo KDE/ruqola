@@ -27,6 +27,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 
+    [[nodiscard]] QString currentValue() const override;
+
 protected:
     void parseElement(const QJsonObject &json) override;
     void serializeElement(QJsonObject &o) const override;

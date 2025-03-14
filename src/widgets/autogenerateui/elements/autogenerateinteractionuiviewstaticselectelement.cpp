@@ -41,18 +41,18 @@ void AutoGenerateInteractionUiViewStaticSelectElement::parseElement(const QJsonO
 
 QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidget *parent)
 {
-    auto comboBox = new QComboBox(parent);
+    mComboBox = new QComboBox(parent);
     for (const auto &r : std::as_const(mOptions)) {
-        comboBox->addItem(r->text().text(), r->value());
+        mComboBox->addItem(r->text().text(), r->value());
     }
-    connect(comboBox, &QComboBox::activated, this, [this, comboBox](int index) {
+    connect(mComboBox, &QComboBox::activated, this, [this](int index) {
         if (index != -1) {
             // qDebug() << "combobox mActionId******** " << mActionId;
-            Q_EMIT actionChanged(mActionId, comboBox->itemData(index).toString());
+            Q_EMIT actionChanged(mActionId, mComboBox->itemData(index).toString());
         }
     });
-    comboBox->setCurrentIndex(comboBox->findData(mInitialValue));
-    return comboBox;
+    mComboBox->setCurrentIndex(mComboBox->findData(mInitialValue));
+    return mComboBox;
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewStaticSelectElement::placeHolder() const
@@ -83,6 +83,11 @@ QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewStatic
 void AutoGenerateInteractionUiViewStaticSelectElement::setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions)
 {
     mOptions = newOptions;
+}
+
+QString AutoGenerateInteractionUiViewStaticSelectElement::currentValue() const
+{
+    return mComboBox->currentData().toString();
 }
 
 void AutoGenerateInteractionUiViewStaticSelectElement::serializeElement(QJsonObject &o) const

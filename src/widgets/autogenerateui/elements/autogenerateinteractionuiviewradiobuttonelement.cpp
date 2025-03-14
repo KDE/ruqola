@@ -45,6 +45,12 @@ void AutoGenerateInteractionUiViewRadioButtonElement::setInitialOption(AutoGener
     mInitialOption = newInitialOption;
 }
 
+QString AutoGenerateInteractionUiViewRadioButtonElement::currentValue() const
+{
+    // TODO
+    return {};
+}
+
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewRadioButtonElement::options() const
 {
     return mOptions;

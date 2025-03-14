@@ -121,6 +121,12 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::setMaxLength(int newMax
     mMaxLength = newMaxLength;
 }
 
+QString AutoGenerateInteractionUiViewPlainTextInputElement::currentValue() const
+{
+    // TODO
+    return {};
+}
+
 void AutoGenerateInteractionUiViewPlainTextInputElement::serializeElement(QJsonObject &o) const
 {
     if (mPlaceHolder) {

@@ -10,6 +10,7 @@
 #include <QJsonObject>
 class AutoGenerateInteractionUiViewText;
 class AutoGenerateInteractionUiViewOption;
+class QComboBox;
 // see ./packages/ui-kit/src/blocks/elements/StaticSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewStaticSelectElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -29,6 +30,8 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
 
+    [[nodiscard]] QString currentValue() const override;
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;
@@ -37,6 +40,7 @@ private:
     QString mInitialValue;
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
+    QComboBox *mComboBox = nullptr;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewStaticSelectElement)

@@ -97,10 +97,10 @@ void AutoGenerateInteractionUiViewCalloutBlock::setAccessory(AutoGenerateInterac
 void AutoGenerateInteractionUiViewCalloutBlock::serializeBlock(QJsonObject &o) const
 {
     if (mText) {
-        // TODO
+        o["text"_L1] = mText->serialize();
     }
     if (mAccessory) {
-        // TODO
+        o["accessory"_L1] = mAccessory->serialize();
     }
 }
 

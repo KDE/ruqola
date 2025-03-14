@@ -92,4 +92,9 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &
     return d;
 }
 
+QString AutoGenerateInteractionUiViewCheckboxElement::currentValue() const
+{
+    return {};
+}
+
 #include "moc_autogenerateinteractionuiviewcheckboxelement.cpp"

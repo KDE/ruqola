@@ -73,6 +73,12 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::setInitialOptions(const Q
     mInitialOptions = newInitialOptions;
 }
 
+QString AutoGenerateInteractionUiViewToggleSwitchElement::currentValue() const
+{
+    // TODO
+    return {};
+}
+
 QWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidget *parent)
 {
     qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewToggleSwitchElement UI";

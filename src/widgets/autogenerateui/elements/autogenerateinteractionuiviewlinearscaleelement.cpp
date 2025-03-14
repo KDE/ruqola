@@ -45,6 +45,11 @@ void AutoGenerateInteractionUiViewLinearScaleElement::setInitialValue(int newIni
     mInitialValue = newInitialValue;
 }
 
+QString AutoGenerateInteractionUiViewLinearScaleElement::currentValue() const
+{
+    return QString::number(mSlider->value());
+}
+
 int AutoGenerateInteractionUiViewLinearScaleElement::maxValue() const
 {
     return mMaxValue;

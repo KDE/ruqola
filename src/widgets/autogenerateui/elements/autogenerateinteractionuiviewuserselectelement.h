@@ -25,6 +25,8 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewUserSelectElement &other) const;
 
+    [[nodiscard]] QString currentValue() const override;
+
 protected:
     void parseElement(const QJsonObject &json) override;
     void serializeElement(QJsonObject &o) const override;

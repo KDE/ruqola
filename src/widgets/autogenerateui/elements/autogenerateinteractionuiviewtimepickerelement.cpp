@@ -62,6 +62,12 @@ void AutoGenerateInteractionUiViewTimePickerElement::setPlaceHolder(AutoGenerate
     mPlaceHolder = newPlaceHolder;
 }
 
+QString AutoGenerateInteractionUiViewTimePickerElement::currentValue() const
+{
+    // TODO verify
+    return mTimeEdit->dateTime().toString();
+}
+
 void AutoGenerateInteractionUiViewTimePickerElement::serializeElement(QJsonObject &o) const
 {
     if (mPlaceHolder) {

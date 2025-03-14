@@ -127,7 +127,7 @@ QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent
     vboxLayout->addWidget(label);
     if (mElement) {
         connect(mElement, &AutoGenerateInteractionUiViewActionable::actionChanged, this, [this](const QByteArray &actionId, const QString &value) {
-            qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
+            // qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
             Q_EMIT actionChanged(mBlockId, actionId, value);
         });
 

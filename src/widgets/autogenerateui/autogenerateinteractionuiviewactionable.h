@@ -35,6 +35,8 @@ public:
 
     [[nodiscard]] QJsonObject serialize() const;
 
+    virtual QString currentValue() const;
+
 Q_SIGNALS:
     void actionChanged(const QByteArray &actionId, const QString &values);
 

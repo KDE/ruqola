@@ -62,6 +62,11 @@ void AutoGenerateInteractionUiViewDatePickerElement::setPlaceHolder(AutoGenerate
     mPlaceHolder = newPlaceHolder;
 }
 
+QString AutoGenerateInteractionUiViewDatePickerElement::currentValue() const
+{
+    return mDateTime->dateTime().toString();
+}
+
 void AutoGenerateInteractionUiViewDatePickerElement::serializeElement(QJsonObject &o) const
 {
     if (mPlaceHolder) {

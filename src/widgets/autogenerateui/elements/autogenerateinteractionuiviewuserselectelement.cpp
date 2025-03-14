@@ -53,6 +53,11 @@ bool AutoGenerateInteractionUiViewUserSelectElement::operator==(const AutoGenera
     return AutoGenerateInteractionUiViewActionable::operator==(other) && other.placeHolder() == placeHolder();
 }
 
+QString AutoGenerateInteractionUiViewUserSelectElement::currentValue() const
+{
+    return mPlainTextEdit->toPlainText();
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewUserSelectElement &t)
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
