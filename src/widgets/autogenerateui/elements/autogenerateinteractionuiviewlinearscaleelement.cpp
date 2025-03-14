@@ -5,6 +5,7 @@
 */
 #include "autogenerateinteractionuiviewlinearscaleelement.h"
 #include "ruqola_autogenerateui_debug.h"
+#include <QSlider>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewLinearScaleElement::AutoGenerateInteractionUiViewLinearScaleElement(QObject *parent)
     : AutoGenerateInteractionUiViewActionable(parent)
@@ -15,11 +16,10 @@ AutoGenerateInteractionUiViewLinearScaleElement::~AutoGenerateInteractionUiViewL
 
 QWidget *AutoGenerateInteractionUiViewLinearScaleElement::generateWidget(QWidget *parent)
 {
-    Q_UNUSED(parent)
-    qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewLinearScaleElement UI";
-
-    // TODO return range widget
-    return nullptr;
+    mSlider = new QSlider(parent);
+    mSlider->setRange(mMinValue, mMaxValue);
+    mSlider->setValue(mInitialValue);
+    return mSlider;
 }
 
 bool AutoGenerateInteractionUiViewLinearScaleElement::operator==(const AutoGenerateInteractionUiViewLinearScaleElement &other) const

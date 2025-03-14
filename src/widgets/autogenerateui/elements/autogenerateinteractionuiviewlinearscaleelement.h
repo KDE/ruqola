@@ -8,6 +8,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
+class QSlider;
 // ./packages/ui-kit/src/blocks/elements/LinearScaleElement.ts range ?
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewLinearScaleElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -36,6 +37,7 @@ private:
     int mMinValue = -1;
     int mMaxValue = -1;
     int mInitialValue = -1;
+    QSlider *mSlider = nullptr;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewLinearScaleElement)
