@@ -6,7 +6,6 @@
 
 #include "multistaticselectlineedit.h"
 #include "common/completionlistview.h"
-#include "multistaticselectlineeditmodel.h"
 #include "multistaticselectlineeditproxymodel.h"
 
 MultiStaticSelectLineEdit::MultiStaticSelectLineEdit(QWidget *parent)

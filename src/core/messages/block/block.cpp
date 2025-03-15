@@ -6,7 +6,6 @@
 
 #include "block.h"
 
-#include "blockaccessory.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>

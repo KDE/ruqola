@@ -5,7 +5,6 @@
 */
 
 #include "showimagewidget.h"
-#include "attachments/fileattachments.h"
 #include "common/delegateutil.h"
 #include "connection.h"
 #include "rocketchataccount.h"

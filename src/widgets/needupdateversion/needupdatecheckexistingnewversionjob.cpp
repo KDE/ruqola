@@ -9,8 +9,6 @@
 #include "needupdateparsehtmlutil.h"
 #include "ruqolawidgets_debug.h"
 
-#include <QDate>
-
 NeedUpdateCheckExistingNewVersionJob::NeedUpdateCheckExistingNewVersionJob(QObject *parent)
     : QObject{parent}
 {

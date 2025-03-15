@@ -8,7 +8,6 @@
 
 #include "ruqola_debug.h"
 #include "usersmodel.h"
-#include "utils.h"
 
 #include <QIcon>
 #include <QJsonArray>

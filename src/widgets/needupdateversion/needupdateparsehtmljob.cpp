@@ -6,7 +6,6 @@
 
 #include "needupdateparsehtmljob.h"
 #include "ruqolawidgets_debug.h"
-#include <QUrl>
 #include <kio/transferjob.h>
 
 NeedUpdateParseHtmlJob::NeedUpdateParseHtmlJob(QObject *parent)
