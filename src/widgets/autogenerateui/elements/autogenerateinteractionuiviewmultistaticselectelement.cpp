@@ -36,6 +36,11 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::parseElement(const Q
         mOptions.append(option);
     }
     mMaxSelectItems = json["maxSelectItems"_L1].toInt(-1);
+    // TODO verify it
+    const QJsonArray array = json["initialValue"_L1].toArray();
+    for (int i = 0; i < array.count(); ++i) {
+        mInitialValue.append(array.at(i).toString());
+    }
 }
 
 int AutoGenerateInteractionUiViewMultiStaticSelectElement::maxSelectItems() const
