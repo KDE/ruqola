@@ -5,7 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewblockbase.h"
-#include "rocketchataccount.h"
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewBlockBase::AutoGenerateInteractionUiViewBlockBase(QObject *parent)
     : QObject(parent)
