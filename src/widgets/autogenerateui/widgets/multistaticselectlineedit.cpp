@@ -28,9 +28,25 @@ void MultiStaticSelectLineEdit::setSelectItemCompletionInfos(const QList<MultiSt
     mMultiStaticSelectLineEditModel->setUserCompletionInfos(newUserCompletionInfos);
 }
 
+void MultiStaticSelectLineEdit::setInitialValues(const QStringList &lst)
+{
+    QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> infoLst;
+    for (const auto &value : lst) {
+        const MultiStaticSelectLineEditModel::SelectItemCompletionInfo info = mMultiStaticSelectLineEditModel->itemCompletionInfo(value);
+        if (info.isValid()) {
+            infoLst.append(info);
+        }
+    }
+    if (!infoLst.isEmpty()) {
+        setCurrentSelectItems(std::move(infoLst));
+    }
+}
+
 void MultiStaticSelectLineEdit::setCurrentSelectItems(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos)
 {
-    // TODO implement it
+    for (const auto &info : newUserCompletionInfos) {
+        Q_EMIT addSelectedItem(info);
+    }
 }
 
 void MultiStaticSelectLineEdit::slotSearchTextEdited()

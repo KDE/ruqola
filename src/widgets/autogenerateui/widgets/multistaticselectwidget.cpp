@@ -47,7 +47,7 @@ void MultiStaticSelectWidget::setMaxSelectItems(int maxSelectItems)
 
 void MultiStaticSelectWidget::setInitialValues(const QStringList &lst)
 {
-    // TODO mLineEdit->setInitialValues(lst);
+    mLineEdit->setInitialValues(lst);
 }
 
 void MultiStaticSelectWidget::setPlaceholderText(const QString &str)

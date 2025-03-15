@@ -52,4 +52,14 @@ bool MultiStaticSelectLineEditModel::SelectItemCompletionInfo::isValid() const
     return value.isEmpty() && text.isEmpty();
 }
 
+MultiStaticSelectLineEditModel::SelectItemCompletionInfo MultiStaticSelectLineEditModel::itemCompletionInfo(const QString &value) const
+{
+    for (const auto &info : mUserCompletionInfos) {
+        if (info.value == value) {
+            return info;
+        }
+    }
+    return {};
+}
+
 #include "moc_multistaticselectlineeditmodel.cpp"

@@ -18,12 +18,12 @@ public:
 
     void setSelectItemCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
 
-    void setCurrentSelectItems(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
-
+    void setInitialValues(const QStringList &lst);
 Q_SIGNALS:
     void addSelectedItem(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void setCurrentSelectItems(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
     MultiStaticSelectLineEditModel *const mMultiStaticSelectLineEditModel;

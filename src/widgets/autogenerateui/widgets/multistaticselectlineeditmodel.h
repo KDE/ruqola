@@ -34,6 +34,8 @@ public:
     [[nodiscard]] QList<SelectItemCompletionInfo> userCompletionInfos() const;
     void setUserCompletionInfos(const QList<SelectItemCompletionInfo> &newUserCompletionInfos);
 
+    [[nodiscard]] MultiStaticSelectLineEditModel::SelectItemCompletionInfo itemCompletionInfo(const QString &value) const;
+
 private:
     QList<SelectItemCompletionInfo> mUserCompletionInfos;
 };
