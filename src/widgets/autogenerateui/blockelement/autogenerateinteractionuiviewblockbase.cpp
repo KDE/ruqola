@@ -57,8 +57,11 @@ void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)
 
 QJsonObject AutoGenerateInteractionUiViewBlockBase::serializeState() const
 {
-    return {};
-    // TODO
+    QJsonObject obj;
+    serializeBlockState(obj);
+    QJsonObject blockObj;
+    blockObj[QString::fromLatin1(mBlockId)] = obj;
+    return blockObj;
 }
 
 QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const

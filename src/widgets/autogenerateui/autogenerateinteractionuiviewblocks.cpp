@@ -115,10 +115,11 @@ QJsonArray AutoGenerateInteractionUiViewBlocks::serialize() const
 
 QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
 {
+    QJsonObject o;
     for (const auto &e : mBlockElements) {
-        // array.append(e->serialize());
+        e->serializeState();
     }
-    return {};
+    return o;
 }
 
 #include "moc_autogenerateinteractionuiviewblocks.cpp"

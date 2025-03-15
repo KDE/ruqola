@@ -92,6 +92,11 @@ void AutoGenerateInteractionUiViewInputBlock::parseBlock(const QJsonObject &json
     }
 }
 
+void AutoGenerateInteractionUiViewInputBlock::serializeBlockState(QJsonObject &obj) const
+{
+    // TODO
+}
+
 bool AutoGenerateInteractionUiViewInputBlock::optional() const
 {
     return mOptional;

@@ -39,6 +39,7 @@ Q_SIGNALS:
 
 protected:
     virtual void serializeBlock(QJsonObject &obj) const = 0;
+    virtual void serializeBlockState(QJsonObject &obj) const = 0;
     virtual void parseBlock(const QJsonObject &obj) = 0;
 
 protected:

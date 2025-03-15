@@ -33,6 +33,11 @@ void AutoGenerateInteractionUiViewImageBlock::parseBlock(const QJsonObject &json
     }
 }
 
+void AutoGenerateInteractionUiViewImageBlock::serializeBlockState(QJsonObject &obj) const
+{
+    // TODO
+}
+
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewImageBlock::title() const
 {
     return mTitle;

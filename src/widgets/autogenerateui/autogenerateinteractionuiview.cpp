@@ -185,7 +185,7 @@ QJsonObject AutoGenerateInteractionUiView::serialize(bool generateState) const
     o["type"_L1] = QString::fromLatin1(mType);
     o["appId"_L1] = QString::fromLatin1(mAppId);
     if (generateState) {
-        QJsonObject stateObj;
+        QJsonObject stateObj = mBlocks->serializeState();
         o["state"_L1] = stateObj;
     }
     return o;

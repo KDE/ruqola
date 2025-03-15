@@ -74,6 +74,11 @@ void AutoGenerateInteractionUiViewCalloutBlock::parseBlock(const QJsonObject &js
     }
 }
 
+void AutoGenerateInteractionUiViewCalloutBlock::serializeBlockState(QJsonObject &obj) const
+{
+    // TODO
+}
+
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewCalloutBlock::text() const
 {
     return mText;

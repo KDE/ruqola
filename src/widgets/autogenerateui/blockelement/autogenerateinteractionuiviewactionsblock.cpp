@@ -101,6 +101,11 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
     }
 }
 
+void AutoGenerateInteractionUiViewActionsBlock::serializeBlockState(QJsonObject &obj) const
+{
+    // TODO
+}
+
 QList<AutoGenerateInteractionUiViewActionable *> AutoGenerateInteractionUiViewActionsBlock::elements() const
 {
     return mElements;

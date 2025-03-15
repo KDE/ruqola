@@ -22,6 +22,7 @@ public:
 protected:
     void parseBlock(const QJsonObject &json) override;
     void serializeBlock(QJsonObject &o) const override;
+    void serializeBlockState(QJsonObject &obj) const override;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewDividerBlock)
