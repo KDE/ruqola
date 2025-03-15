@@ -36,19 +36,19 @@ QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWid
 {
     // TODO use minLength/maxLength
     if (!mMultiLine) {
-        auto lineEdit = new QLineEdit(parent);
+        mLineEdit = new QLineEdit(parent);
         if (mPlaceHolder) {
-            lineEdit->setPlaceholderText(mPlaceHolder->generateText());
+            mLineEdit->setPlaceholderText(mPlaceHolder->generateText());
         }
-        lineEdit->setText(mInitialValue);
-        return lineEdit;
+        mLineEdit->setText(mInitialValue);
+        return mLineEdit;
     } else {
-        auto plainText = new QPlainTextEdit(parent);
+        mPlainTextEdit = new QPlainTextEdit(parent);
         if (mPlaceHolder) {
-            plainText->setPlaceholderText(mPlaceHolder->generateText());
+            mPlainTextEdit->setPlaceholderText(mPlaceHolder->generateText());
         }
-        plainText->setPlainText(mInitialValue);
-        return plainText;
+        mPlainTextEdit->setPlainText(mInitialValue);
+        return mPlainTextEdit;
     }
 }
 
@@ -123,7 +123,12 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::setMaxLength(int newMax
 
 QString AutoGenerateInteractionUiViewPlainTextInputElement::currentValue() const
 {
-    // TODO
+    if (mLineEdit) {
+        return mLineEdit->text();
+    }
+    if (mPlainTextEdit) {
+        return mPlainTextEdit->toPlainText();
+    }
     return {};
 }
 

@@ -9,6 +9,8 @@
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 
 class AutoGenerateInteractionUiViewText;
+class QPlainTextEdit;
+class QLineEdit;
 // see ./packages/ui-kit/src/blocks/elements/PlainTextInputElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewPlainTextInputElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -48,6 +50,8 @@ private:
     bool mMultiLine = false;
     int mMinLength = -1;
     int mMaxLength = -1;
+    QPlainTextEdit *mPlainTextEdit = nullptr;
+    QLineEdit *mLineEdit = nullptr;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewPlainTextInputElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewPlainTextInputElement &t);
