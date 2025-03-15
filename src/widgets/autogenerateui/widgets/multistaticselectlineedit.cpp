@@ -28,6 +28,11 @@ void MultiStaticSelectLineEdit::setSelectItemCompletionInfos(const QList<MultiSt
     mMultiStaticSelectLineEditModel->setUserCompletionInfos(newUserCompletionInfos);
 }
 
+void MultiStaticSelectLineEdit::setCurrentSelectItems(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos)
+{
+    // TODO implement it
+}
+
 void MultiStaticSelectLineEdit::slotSearchTextEdited()
 {
     mMultiStaticSelectLineEditProxyModel->setFilterFixedString(text());

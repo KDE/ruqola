@@ -18,6 +18,8 @@ public:
 
     void setSelectItemCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
 
+    void setCurrentSelectItems(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
+
 Q_SIGNALS:
     void addSelectedItem(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info);
 
