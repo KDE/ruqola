@@ -61,6 +61,7 @@ QJsonObject AutoGenerateInteractionUiViewBlockBase::serializeState() const
     serializeBlockState(obj);
     QJsonObject blockObj;
     blockObj[QString::fromLatin1(mBlockId)] = obj;
+    qDebug() << " blockO" << blockObj;
     return blockObj;
 }
 
