@@ -5,6 +5,7 @@
 */
 
 #include "multistaticselectlineeditmodel.h"
+#include "ruqola_autogenerateui_debug.h"
 
 MultiStaticSelectLineEditModel::MultiStaticSelectLineEditModel(QObject *parent)
     : QAbstractListModel{parent}
@@ -59,6 +60,7 @@ MultiStaticSelectLineEditModel::SelectItemCompletionInfo MultiStaticSelectLineEd
             return info;
         }
     }
+    qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to find info for value: " << value;
     return {};
 }
 
