@@ -71,9 +71,9 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setInitialValue(cons
 
 QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(QWidget *parent)
 {
-    auto lineEdit = new MultiStaticSelectWidget(parent);
+    mMultiStaticSelectWidget = new MultiStaticSelectWidget(parent);
     if (mPlaceHolder) {
-        lineEdit->setPlaceholderText(mPlaceHolder->generateText());
+        mMultiStaticSelectWidget->setPlaceholderText(mPlaceHolder->generateText());
     }
     QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> lst;
     lst.reserve(mOptions.count());
@@ -83,12 +83,12 @@ QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(Q
         info.value = opt->value();
         lst.append(std::move(info));
     }
-    lineEdit->setUserCompletionInfos(lst);
+    mMultiStaticSelectWidget->setUserCompletionInfos(lst);
     if (mMaxSelectItems != -1) {
-        lineEdit->setMaxSelectItems(mMaxSelectItems);
+        mMultiStaticSelectWidget->setMaxSelectItems(mMaxSelectItems);
     }
-    // TODO lineEdit->setText(mInitialValue);
-    return lineEdit;
+    mMultiStaticSelectWidget->setInitialValues(mInitialValue);
+    return mMultiStaticSelectWidget;
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewMultiStaticSelectElement::placeHolder() const

@@ -11,6 +11,7 @@
 #include <QJsonObject>
 class AutoGenerateInteractionUiViewText;
 class AutoGenerateInteractionUiViewOption;
+class MultiStaticSelectWidget;
 // see ./packages/ui-kit/src/blocks/elements/MultiStaticSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewMultiStaticSelectElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -41,6 +42,7 @@ protected:
     void parseElement(const QJsonObject &json) override;
 
 private:
+    MultiStaticSelectWidget *mMultiStaticSelectWidget = nullptr;
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
     QStringList mInitialValue;

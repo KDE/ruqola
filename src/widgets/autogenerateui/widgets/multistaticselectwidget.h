@@ -25,6 +25,7 @@ public:
     void setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
 
     void setMaxSelectItems(int maxSelectItems);
+    void setInitialValues(const QStringList &lst);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info);
