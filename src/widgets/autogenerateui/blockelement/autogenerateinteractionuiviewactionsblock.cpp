@@ -125,7 +125,6 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
         });
         hboxLayout->addWidget(e->generateWidget(parent));
     }
-    // hboxLayout->addStretch(1);
     return widget;
 }
 
