@@ -32,7 +32,7 @@ MultiStaticSelectWidget::~MultiStaticSelectWidget() = default;
 
 void MultiStaticSelectWidget::setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos)
 {
-    mLineEdit->setUserCompletionInfos(newUserCompletionInfos);
+    mLineEdit->setSelectItemCompletionInfos(newUserCompletionInfos);
 }
 
 QStringList MultiStaticSelectWidget::selectedUsers() const
@@ -47,7 +47,7 @@ void MultiStaticSelectWidget::setMaxSelectItems(int maxSelectItems)
 
 void MultiStaticSelectWidget::setInitialValues(const QStringList &lst)
 {
-    // TODO implement it
+    // TODO mLineEdit->setInitialValues(lst);
 }
 
 void MultiStaticSelectWidget::setPlaceholderText(const QString &str)

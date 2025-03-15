@@ -16,7 +16,7 @@ public:
     explicit MultiStaticSelectLineEdit(QWidget *parent = nullptr);
     ~MultiStaticSelectLineEdit() override;
 
-    void setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
+    void setSelectItemCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos);
 
 Q_SIGNALS:
     void addSelectedItem(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info);

@@ -23,7 +23,7 @@ MultiStaticSelectLineEdit::MultiStaticSelectLineEdit(QWidget *parent)
 
 MultiStaticSelectLineEdit::~MultiStaticSelectLineEdit() = default;
 
-void MultiStaticSelectLineEdit::setUserCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos)
+void MultiStaticSelectLineEdit::setSelectItemCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos)
 {
     mMultiStaticSelectLineEditModel->setUserCompletionInfos(newUserCompletionInfos);
 }
