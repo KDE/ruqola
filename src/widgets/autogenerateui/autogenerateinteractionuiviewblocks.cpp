@@ -118,7 +118,7 @@ QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
     QJsonObject o;
     for (const auto &e : mBlockElements) {
         // TODO fix me
-        o["FFFFFF"_L1] = e->serializeState();
+        o[QString::fromLatin1(e->blockId())] = e->serializeState();
     }
     return o;
 }
