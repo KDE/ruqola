@@ -112,16 +112,15 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
 {
     qDebug() << " void AutoGenerateInteractionUi::slotSubmitButtonClicked()";
     if (mRocketChatAccount) {
-        // Use AppId
-        // TODO send message
-#if 1
         auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
         RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
         info.methodName = appId;
         AutoGenerateInteractionUtil::ViewSubmitUserInfo submitInfo;
         submitInfo.payload = payload;
-        // submitInfo.viewId = mView->
-        // submitInfo.actionId = ...;
+        submitInfo.viewId = mView->id();
+
+        // ActionId can be null ! Verify it
+        //  submitInfo.actionId = ...;
         submitInfo.triggerId = QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128));
         // payload, QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128))
         info.messageObj = AutoGenerateInteractionUtil::createViewSubmitUser(submitInfo);
@@ -138,8 +137,6 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
         if (!job->start()) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
         }
-
-#endif
     }
 }
 
