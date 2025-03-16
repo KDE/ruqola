@@ -116,19 +116,30 @@ QJsonArray AutoGenerateInteractionUiViewBlocks::serialize() const
 QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
 {
     QJsonObject o;
-    QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> mMap;
+    QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> map;
     for (const auto &e : mBlockElements) {
         const QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> lst = e->serializeState();
         if (!lst.isEmpty()) {
-            if (mMap.contains(QString::fromLatin1(e->blockId()))) {
-                mMap[QString::fromLatin1(e->blockId())].append(lst);
+            if (map.contains(QString::fromLatin1(e->blockId()))) {
+                map[QString::fromLatin1(e->blockId())].append(lst);
             } else {
-                mMap[QString::fromLatin1(e->blockId())] = {lst};
+                map[QString::fromLatin1(e->blockId())] = {lst};
             }
         }
     }
-    qDebug() << " result " << mMap;
-    // o[QString::fromLatin1(e->blockId())] = result;
+    QMapIterator<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> i(map);
+    while (i.hasNext()) {
+        i.next();
+        QJsonObject obj;
+        for (const auto &s : i.value()) {
+            if (!s.value.isEmpty()) {
+                obj[s.actionId] = s.value;
+            }
+        }
+        o[i.key()] = obj;
+    }
+
+    qDebug() << " result " << map;
     return o;
 }
 
