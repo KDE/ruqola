@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-16 00:41+0000\n"
 "PO-Revision-Date: 2025-03-13 13:37+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -748,7 +748,7 @@ msgstr "Пропущено адресу сервера."
 msgid "Socket was unexpectedly closed."
 msgstr "Сокет неочікувано закрито."
 
-#: core/messages/block/block.cpp:163 core/messages/message.cpp:858
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:858
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
@@ -8688,25 +8688,25 @@ msgstr "Показати попереднє зображення"
 msgid "Show next image"
 msgstr "Показати наступне зображення"
 
-#: widgets/dialogs/showimagewidget.cpp:64
+#: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr "Масштаб:"
 
-#: widgets/dialogs/showimagewidget.cpp:80
+#: widgets/dialogs/showimagewidget.cpp:79
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr "100%"
 
-#: widgets/dialogs/showimagewidget.cpp:87
+#: widgets/dialogs/showimagewidget.cpp:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Підібрати за розмірами"
 
-#: widgets/dialogs/showimagewidget.cpp:194
+#: widgets/dialogs/showimagewidget.cpp:193
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"

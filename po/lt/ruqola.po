@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-15 00:42+0000\n"
+"POT-Creation-Date: 2025-03-16 00:41+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -762,7 +762,7 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/messages/block/block.cpp:163 core/messages/message.cpp:858
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:858
 #: core/model/notificationhistorymodel.cpp:63
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
@@ -8900,25 +8900,25 @@ msgstr "Šifruota žinutė"
 msgid "Show next image"
 msgstr "Šifruota žinutė"
 
-#: widgets/dialogs/showimagewidget.cpp:64
+#: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Zoom:"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:80
+#: widgets/dialogs/showimagewidget.cpp:79
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:87
+#: widgets/dialogs/showimagewidget.cpp:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Fit to View"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:194
+#: widgets/dialogs/showimagewidget.cpp:193
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
