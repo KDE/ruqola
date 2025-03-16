@@ -38,7 +38,10 @@ QJsonObject AutoGenerateInteractionUtil::createViewClosedUser(const QJsonObject 
 {
     QJsonObject o;
     o["type"_L1] = "viewClosed"_L1;
-    o["payload"_L1] = payload;
+
+    QJsonObject view;
+    view["view"_L1] = payload;
+    o["payload"_L1] = view;
     o["triggerId"_L1] = triggerId;
     return o;
 }
