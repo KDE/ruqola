@@ -21,7 +21,14 @@ struct ViewBlockActionUserInfo {
 
 [[nodiscard]] QJsonObject createViewBlockActionUser(const ViewBlockActionUserInfo &info);
 [[nodiscard]] QJsonObject createViewClosedUser(const QJsonObject &payload, const QString &triggerId);
-[[nodiscard]] QJsonObject createViewSubmitUser(const ViewBlockActionUserInfo &info);
+struct ViewSubmitUserInfo {
+    QByteArray actionId;
+    QByteArray viewId;
+    QString triggerId;
+    QJsonObject payload;
+};
+
+[[nodiscard]] QJsonObject createViewSubmitUser(const ViewSubmitUserInfo &info);
 
 struct ActionButtonInfo {
     QByteArray actionId;
@@ -39,8 +46,10 @@ struct ActionMessageInfo {
 [[nodiscard]] QJsonObject createMessageActionButton(const ActionMessageInfo &info);
 };
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewBlockActionUserInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewSubmitUserInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ActionButtonInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ActionMessageInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &t);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionButtonInfo &t);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionMessageInfo &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewSubmitUserInfo &t);

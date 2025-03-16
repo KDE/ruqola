@@ -58,15 +58,14 @@ export type ViewClosedUserInteraction = {
 };
 */
 
-QJsonObject AutoGenerateInteractionUtil::createViewSubmitUser(const ViewBlockActionUserInfo &info)
+QJsonObject AutoGenerateInteractionUtil::createViewSubmitUser(const ViewSubmitUserInfo &info)
 {
     QJsonObject o;
     o["type"_L1] = "viewSubmit"_L1;
-    QJsonObject payload;
-    o["payload"_L1] = payload;
-
-    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
-    // TODO
+    o["payload"_L1] = info.payload;
+    o["actionId"_L1] = QString::fromLatin1(info.actionId);
+    o["viewId"_L1] = QString::fromLatin1(info.viewId);
+    o["triggerId"_L1] = info.triggerId;
     return o;
 }
 /*
@@ -129,5 +128,14 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionMessageInfo
     d.space() << "triggerId:" << t.triggerId;
     d.space() << "roomId:" << t.roomId;
     d.space() << "messageId:" << t.messageId;
+    return d;
+}
+
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewSubmitUserInfo &t)
+{
+    d.space() << "actionId:" << t.actionId;
+    d.space() << "triggerId:" << t.triggerId;
+    d.space() << "viewId:" << t.viewId;
+    d.space() << "payload:" << t.payload;
     return d;
 }

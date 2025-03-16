@@ -114,11 +114,17 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
     if (mRocketChatAccount) {
         // Use AppId
         // TODO send message
-#if 0
+#if 1
         auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
         RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
         info.methodName = appId;
-        info.messageObj = AutoGenerateInteractionUtil::createViewSubmitUser(payload, QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128)));
+        AutoGenerateInteractionUtil::ViewSubmitUserInfo submitInfo;
+        submitInfo.payload = payload;
+        // submitInfo.viewId = mView->
+        // submitInfo.actionId = ...;
+        submitInfo.triggerId = QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128));
+        // payload, QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128))
+        info.messageObj = AutoGenerateInteractionUtil::createViewSubmitUser(submitInfo);
         job->setAppsUiInteractionJobInfo(info);
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
