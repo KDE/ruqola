@@ -55,8 +55,7 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setMaxSelectItems(in
 
 QString AutoGenerateInteractionUiViewMultiStaticSelectElement::currentValue() const
 {
-    // TODO
-    return {};
+    return mMultiStaticSelectWidget->selectedUsers().join(QLatin1Char(','));
 }
 
 QStringList AutoGenerateInteractionUiViewMultiStaticSelectElement::initialValue() const
