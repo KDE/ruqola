@@ -116,14 +116,14 @@ QJsonArray AutoGenerateInteractionUiViewBlocks::serialize() const
 QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
 {
     QJsonObject o;
-    QMap<QString, QList<QJsonObject>> mMap;
+    QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> mMap;
     for (const auto &e : mBlockElements) {
-        // TODO fix me
-        if (const QJsonObject result = e->serializeState(); !result.isEmpty()) {
+        const QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> lst = e->serializeState();
+        if (!lst.isEmpty()) {
             if (mMap.contains(QString::fromLatin1(e->blockId()))) {
-                mMap[QString::fromLatin1(e->blockId())].append(result);
+                mMap[QString::fromLatin1(e->blockId())].append(lst);
             } else {
-                mMap[QString::fromLatin1(e->blockId())] = {result};
+                mMap[QString::fromLatin1(e->blockId())] = {lst};
             }
         }
     }

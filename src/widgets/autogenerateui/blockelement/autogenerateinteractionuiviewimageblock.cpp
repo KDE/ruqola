@@ -33,9 +33,9 @@ void AutoGenerateInteractionUiViewImageBlock::parseBlock(const QJsonObject &json
     }
 }
 
-void AutoGenerateInteractionUiViewImageBlock::serializeBlockState(QJsonObject &obj) const
+QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> AutoGenerateInteractionUiViewImageBlock::serializeBlockState() const
 {
-    // TODO
+    return {};
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewImageBlock::title() const

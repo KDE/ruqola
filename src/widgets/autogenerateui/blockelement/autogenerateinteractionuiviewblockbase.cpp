@@ -42,6 +42,13 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t)
     return d;
 }
 
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase::StateInfo &t)
+{
+    d.space() << "actionId:" << t.actionId;
+    d.space() << "value:" << t.value;
+    return d;
+}
+
 bool AutoGenerateInteractionUiViewBlockBase::operator==(const AutoGenerateInteractionUiViewBlockBase &other) const
 {
     return other.blockId() == blockId() && other.appId() == appId() && other.type() == type();
@@ -55,11 +62,9 @@ void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)
     parseBlock(json);
 }
 
-QJsonObject AutoGenerateInteractionUiViewBlockBase::serializeState() const
+QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> AutoGenerateInteractionUiViewBlockBase::serializeState() const
 {
-    QJsonObject obj;
-    serializeBlockState(obj);
-    return obj;
+    return serializeBlockState();
 }
 
 QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const

@@ -37,9 +37,9 @@ void AutoGenerateInteractionUiViewDividerBlock::serializeBlock(QJsonObject &o) c
     // Nothing
 }
 
-void AutoGenerateInteractionUiViewDividerBlock::serializeBlockState(QJsonObject &obj) const
+QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> AutoGenerateInteractionUiViewDividerBlock::serializeBlockState() const
 {
-    // TODO
+    return {};
 }
 
 void AutoGenerateInteractionUiViewDividerBlock::parseBlock(const QJsonObject &json)

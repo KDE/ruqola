@@ -74,9 +74,9 @@ void AutoGenerateInteractionUiViewCalloutBlock::parseBlock(const QJsonObject &js
     }
 }
 
-void AutoGenerateInteractionUiViewCalloutBlock::serializeBlockState(QJsonObject &obj) const
+QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> AutoGenerateInteractionUiViewCalloutBlock::serializeBlockState() const
 {
-    // TODO
+    return {};
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewCalloutBlock::text() const

@@ -33,7 +33,7 @@ public:
 protected:
     void serializeBlock(QJsonObject &o) const override;
     void parseBlock(const QJsonObject &json) override;
-    void serializeBlockState(QJsonObject &obj) const override;
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> serializeBlockState() const override;
 
 private:
     AutoGenerateInteractionUiViewText *mText = nullptr;

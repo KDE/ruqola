@@ -128,9 +128,9 @@ void AutoGenerateInteractionUiViewSectionBlock::parseBlock(const QJsonObject &js
     }
 }
 
-void AutoGenerateInteractionUiViewSectionBlock::serializeBlockState(QJsonObject &obj) const
+QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> AutoGenerateInteractionUiViewSectionBlock::serializeBlockState() const
 {
-    // TODO
+    return {};
 }
 
 QList<AutoGenerateInteractionUiViewText *> AutoGenerateInteractionUiViewSectionBlock::fields() const

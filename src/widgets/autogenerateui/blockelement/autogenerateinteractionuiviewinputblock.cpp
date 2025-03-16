@@ -92,12 +92,13 @@ void AutoGenerateInteractionUiViewInputBlock::parseBlock(const QJsonObject &json
     }
 }
 
-void AutoGenerateInteractionUiViewInputBlock::serializeBlockState(QJsonObject &obj) const
+QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> AutoGenerateInteractionUiViewInputBlock::serializeBlockState() const
 {
+    QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> lst;
     if (mElement) {
-        obj[QString::fromLatin1(mElement->actionId())] = mElement->currentValue();
-        qDebug() << " obj " << obj;
+        lst.append({QString::fromLatin1(mElement->actionId()), mElement->currentValue()});
     }
+    return lst;
 }
 
 bool AutoGenerateInteractionUiViewInputBlock::optional() const

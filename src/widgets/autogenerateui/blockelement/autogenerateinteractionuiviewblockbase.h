@@ -15,6 +15,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase : pub
 {
     Q_OBJECT
 public:
+    struct StateInfo {
+        QString actionId;
+        QString value;
+    };
     explicit AutoGenerateInteractionUiViewBlockBase(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewBlockBase() override;
     [[nodiscard]] QByteArray appId() const;
@@ -33,13 +37,13 @@ public:
     [[nodiscard]] QByteArray type() const;
     void setType(const QByteArray &newType);
 
-    [[nodiscard]] QJsonObject serializeState() const;
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> serializeState() const;
 Q_SIGNALS:
     void actionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value);
 
 protected:
     virtual void serializeBlock(QJsonObject &obj) const = 0;
-    virtual void serializeBlockState(QJsonObject &obj) const = 0;
+    [[nodiscard]] virtual QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> serializeBlockState() const = 0;
     virtual void parseBlock(const QJsonObject &obj) = 0;
 
 protected:
@@ -49,3 +53,4 @@ protected:
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlockBase)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase::StateInfo &t);
