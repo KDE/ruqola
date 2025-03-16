@@ -37,7 +37,13 @@ void MultiStaticSelectWidget::setUserCompletionInfos(const QList<MultiStaticSele
 
 QStringList MultiStaticSelectWidget::selectedUsers() const
 {
-    return {};
+    QStringList addUsers;
+    QMapIterator<QString, ClickableWidget *> i(mMap);
+    while (i.hasNext()) {
+        i.next();
+        addUsers << QString::fromUtf8(i.value()->identifier());
+    }
+    return addUsers;
 }
 
 void MultiStaticSelectWidget::setMaxSelectItems(int maxSelectItems)
