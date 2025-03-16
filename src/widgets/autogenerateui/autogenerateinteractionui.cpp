@@ -110,7 +110,6 @@ void AutoGenerateInteractionUi::slotCloseButtonClicked(const QJsonObject &payloa
 
 void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &payload, const QString &appId)
 {
-    qDebug() << " void AutoGenerateInteractionUi::slotSubmitButtonClicked()";
     if (mRocketChatAccount) {
         auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
         RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
@@ -122,9 +121,7 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
         // ActionId can be null ! Verify it
         //  submitInfo.actionId = ...;
         submitInfo.triggerId = QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128));
-        // payload, QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128))
         info.messageObj = AutoGenerateInteractionUtil::createViewSubmitUser(submitInfo);
-        qDebug() << " info " << info;
         job->setAppsUiInteractionJobInfo(info);
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
