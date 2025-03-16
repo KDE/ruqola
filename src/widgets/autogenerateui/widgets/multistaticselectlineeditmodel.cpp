@@ -50,7 +50,7 @@ void MultiStaticSelectLineEditModel::setUserCompletionInfos(const QList<SelectIt
 
 bool MultiStaticSelectLineEditModel::SelectItemCompletionInfo::isValid() const
 {
-    return value.isEmpty() && text.isEmpty();
+    return !value.isEmpty() && !text.isEmpty();
 }
 
 MultiStaticSelectLineEditModel::SelectItemCompletionInfo MultiStaticSelectLineEditModel::itemCompletionInfo(const QString &value) const
