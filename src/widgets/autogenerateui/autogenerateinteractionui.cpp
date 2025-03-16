@@ -124,6 +124,7 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
         submitInfo.triggerId = QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128));
         // payload, QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128))
         info.messageObj = AutoGenerateInteractionUtil::createViewSubmitUser(submitInfo);
+        qDebug() << " info " << info;
         job->setAppsUiInteractionJobInfo(info);
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);

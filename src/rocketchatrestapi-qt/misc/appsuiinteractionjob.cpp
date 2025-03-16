@@ -30,13 +30,15 @@ bool AppsUiInteractionJob::start()
     return true;
 }
 
+QDebug operator<<(QDebug d, const RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo &t)
+{
+    d << " messageObj: " << t.messageObj;
+    d << " methodName: " << t.methodName;
+    return d;
+}
+
 void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    Q_UNUSED(replyErrorString)
-    Q_UNUSED(replyJson)
-    // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
-    // It doesn't return success or not!
-#if 1
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
@@ -46,9 +48,6 @@ void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("AppsUiInteractionJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
-#else
-    Q_EMIT appsUiInteractionDone();
-#endif
 }
 
 AppsUiInteractionJob::AppsUiInteractionJobInfo AppsUiInteractionJob::methodCallJobInfo() const

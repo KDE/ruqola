@@ -44,3 +44,4 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo, Q_RELOCATABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo &t);
