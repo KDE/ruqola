@@ -52,6 +52,7 @@ public:
 
     [[nodiscard]] QByteArray appId() const;
     void setAppId(const QByteArray &newAppId);
+    void setErrorMessages(const QMap<QString, QString> &map);
 
     void clear();
 Q_SIGNALS:
