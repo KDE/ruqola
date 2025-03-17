@@ -11,14 +11,18 @@ class ActionElementWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ActionElementWidget(QWidget *parent = nullptr);
+    explicit ActionElementWidget(QWidget *widget, const QByteArray &actionId, QWidget *parent = nullptr);
     ~ActionElementWidget() override;
 
     void setErrorMessages(const QString &msg);
 
     void clearError();
 
+    [[nodiscard]] QByteArray actionId() const;
+    void setActionId(const QByteArray &newActionId);
+
 private:
+    QByteArray mActionId;
     QLabel *const mErrorLabel;
     QHBoxLayout *const mLayout;
 };

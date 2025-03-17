@@ -7,12 +7,15 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-ActionElementWidget::ActionElementWidget(QWidget *parent)
+ActionElementWidget::ActionElementWidget(QWidget *widget, const QByteArray &actionId, QWidget *parent)
     : QWidget{parent}
+    , mActionId(actionId)
     , mErrorLabel(new QLabel(this))
     , mLayout(new QHBoxLayout(this))
 {
     mLayout->setContentsMargins({});
+    mLayout->addWidget(widget);
+
     mLayout->addWidget(mErrorLabel);
     // Hide by default
     mErrorLabel->setVisible(false);
@@ -24,6 +27,16 @@ void ActionElementWidget::clearError()
 {
     mErrorLabel->clear();
     mErrorLabel->setVisible(false);
+}
+
+QByteArray ActionElementWidget::actionId() const
+{
+    return mActionId;
+}
+
+void ActionElementWidget::setActionId(const QByteArray &newActionId)
+{
+    mActionId = newActionId;
 }
 
 void ActionElementWidget::setErrorMessages(const QString &msg)
