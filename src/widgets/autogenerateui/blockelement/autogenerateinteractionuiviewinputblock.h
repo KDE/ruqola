@@ -32,6 +32,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewActionable *element() const;
     void setElement(AutoGenerateInteractionUiViewActionable *newElement);
 
+    void setErrorMessages(const QMap<QString, QString> &map) override;
+
 protected:
     void serializeBlock(QJsonObject &o) const override;
     void parseBlock(const QJsonObject &json) override;

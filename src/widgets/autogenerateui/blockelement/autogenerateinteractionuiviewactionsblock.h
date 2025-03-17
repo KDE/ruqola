@@ -22,6 +22,7 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewActionable *> elements() const;
     void setElements(const QList<AutoGenerateInteractionUiViewActionable *> &newElements);
     QWidget *generateWidget(QWidget *parent = nullptr) override;
+    void setErrorMessages(const QMap<QString, QString> &map) override;
 
 protected:
     void serializeBlock(QJsonObject &o) const override;

@@ -156,6 +156,10 @@ void AutoGenerateInteractionUiViewInputBlock::setElement(AutoGenerateInteraction
     mElement = newElement;
 }
 
+void AutoGenerateInteractionUiViewInputBlock::setErrorMessages(const QMap<QString, QString> &map)
+{
+}
+
 void AutoGenerateInteractionUiViewInputBlock::serializeBlock(QJsonObject &o) const
 {
     o["label"_L1] = mLabel.serialize();

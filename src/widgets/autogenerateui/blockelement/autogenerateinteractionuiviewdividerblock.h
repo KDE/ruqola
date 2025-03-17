@@ -18,6 +18,7 @@ public:
     ~AutoGenerateInteractionUiViewDividerBlock() override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDividerBlock &other) const;
     [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    void setErrorMessages(const QMap<QString, QString> &map) override;
 
 protected:
     void parseBlock(const QJsonObject &json) override;

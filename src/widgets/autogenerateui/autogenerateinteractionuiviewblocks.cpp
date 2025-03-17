@@ -147,4 +147,11 @@ QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
     return o;
 }
 
+void AutoGenerateInteractionUiViewBlocks::setErrorMessages(const QMap<QString, QString> &map)
+{
+    for (const auto &e : mBlockElements) {
+        e->setErrorMessages(map);
+    }
+}
+
 #include "moc_autogenerateinteractionuiviewblocks.cpp"

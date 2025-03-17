@@ -30,6 +30,8 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewText *> fields() const;
     void setFields(const QList<AutoGenerateInteractionUiViewText *> &newFields);
 
+    void setErrorMessages(const QMap<QString, QString> &map) override;
+
 protected:
     void serializeBlock(QJsonObject &o) const override;
     void parseBlock(const QJsonObject &json) override;

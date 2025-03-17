@@ -24,6 +24,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewActionable *accessory() const;
     void setAccessory(AutoGenerateInteractionUiViewActionable *newAccessory);
 
+    void setErrorMessages(const QMap<QString, QString> &map) override;
+
 protected:
     void serializeBlock(QJsonObject &o) const override;
     void parseBlock(const QJsonObject &json) override;

@@ -38,6 +38,7 @@ public:
     void setType(const QByteArray &newType);
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> serializeState() const;
+    virtual void setErrorMessages(const QMap<QString, QString> &map) = 0;
 Q_SIGNALS:
     void actionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value);
 

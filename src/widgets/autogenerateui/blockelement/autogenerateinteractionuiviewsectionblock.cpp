@@ -144,6 +144,10 @@ void AutoGenerateInteractionUiViewSectionBlock::setFields(const QList<AutoGenera
     mFields = newFields;
 }
 
+void AutoGenerateInteractionUiViewSectionBlock::setErrorMessages(const QMap<QString, QString> &map)
+{
+}
+
 AutoGenerateInteractionUiViewActionable *AutoGenerateInteractionUiViewSectionBlock::accessory() const
 {
     return mAccessory;

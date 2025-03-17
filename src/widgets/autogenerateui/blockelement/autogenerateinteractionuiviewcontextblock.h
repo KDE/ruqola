@@ -22,6 +22,8 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewElement *> elements() const;
     void setElements(const QList<AutoGenerateInteractionUiViewElement *> &newElements);
 
+    void setErrorMessages(const QMap<QString, QString> &map) override;
+
 protected:
     void serializeBlock(QJsonObject &o) const override;
     void parseBlock(const QJsonObject &json) override;

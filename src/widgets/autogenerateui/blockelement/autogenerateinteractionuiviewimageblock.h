@@ -27,6 +27,8 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewText *title() const;
     void setTitle(AutoGenerateInteractionUiViewText *newText);
 
+    void setErrorMessages(const QMap<QString, QString> &map) override;
+
 protected:
     void serializeBlock(QJsonObject &o) const override;
     void parseBlock(const QJsonObject &json) override;

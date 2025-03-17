@@ -213,7 +213,7 @@ void AutoGenerateInteractionUiView::setAppId(const QByteArray &newAppId)
 
 void AutoGenerateInteractionUiView::setErrorMessages(const QMap<QString, QString> &map)
 {
-    // TODO
+    mBlocks->setErrorMessages(map);
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)

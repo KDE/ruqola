@@ -84,6 +84,10 @@ void AutoGenerateInteractionUiViewContextBlock::setElements(const QList<AutoGene
     mElements = newElements;
 }
 
+void AutoGenerateInteractionUiViewContextBlock::setErrorMessages(const QMap<QString, QString> &map)
+{
+}
+
 void AutoGenerateInteractionUiViewContextBlock::serializeBlock(QJsonObject &o) const
 {
     QJsonArray r;

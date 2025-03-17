@@ -27,6 +27,7 @@ public:
     [[nodiscard]] QJsonArray serialize() const;
 
     [[nodiscard]] QJsonObject serializeState() const;
+    void setErrorMessages(const QMap<QString, QString> &map);
 Q_SIGNALS:
     void actionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value);
 
