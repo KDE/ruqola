@@ -15,6 +15,7 @@ ActionElementWidget::ActionElementWidget(QWidget *widget, const QByteArray &acti
     , mLayout(new QHBoxLayout(this))
 {
     mLayout->setContentsMargins({});
+    Q_ASSERT(widget);
     mLayout->addWidget(widget);
 
     mLayout->addWidget(mErrorLabel);
