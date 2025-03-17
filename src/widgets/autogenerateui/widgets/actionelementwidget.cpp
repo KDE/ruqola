@@ -31,3 +31,5 @@ void ActionElementWidget::setErrorMessages(const QString &msg)
     mErrorLabel->setVisible(true);
     mErrorLabel->setText(msg);
 }
+
+#include "moc_actionelementwidget.cpp"
