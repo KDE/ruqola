@@ -140,6 +140,9 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
 
 void AutoGenerateInteractionUiViewActionsBlock::setErrorMessages(const QMap<QString, QString> &map)
 {
+    for (const auto &e : mElements) {
+        e->setErrorMessages(map);
+    }
 }
 
 void AutoGenerateInteractionUiViewActionsBlock::serializeBlock(QJsonObject &o) const

@@ -50,6 +50,7 @@ void AutoGenerateInteractionUiViewImageBlock::setTitle(AutoGenerateInteractionUi
 
 void AutoGenerateInteractionUiViewImageBlock::setErrorMessages(const QMap<QString, QString> &map)
 {
+    Q_UNUSED(map);
 }
 
 AutoGenerateInteractionUiViewImage AutoGenerateInteractionUiViewImageBlock::image() const

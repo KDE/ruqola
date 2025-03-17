@@ -102,6 +102,9 @@ void AutoGenerateInteractionUiViewCalloutBlock::setAccessory(AutoGenerateInterac
 
 void AutoGenerateInteractionUiViewCalloutBlock::setErrorMessages(const QMap<QString, QString> &map)
 {
+    if (mAccessory) {
+        mAccessory->setErrorMessages(map);
+    }
 }
 
 void AutoGenerateInteractionUiViewCalloutBlock::serializeBlock(QJsonObject &o) const

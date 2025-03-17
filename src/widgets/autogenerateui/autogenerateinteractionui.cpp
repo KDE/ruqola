@@ -142,6 +142,7 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
                 for (const auto &k : keys) {
                     errorMap.insert(k, errorsObj[k].toString());
                 }
+                mView->setErrorMessages(errorMap);
                 qDebug() << " errorMap: " << errorMap;
             }
 

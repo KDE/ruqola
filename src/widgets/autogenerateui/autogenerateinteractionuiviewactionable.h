@@ -38,6 +38,7 @@ public:
 
     virtual QVariant currentValue() const;
 
+    void setErrorMessages(const QMap<QString, QString> &map);
 Q_SIGNALS:
     void actionChanged(const QByteArray &actionId, const QString &values);
 

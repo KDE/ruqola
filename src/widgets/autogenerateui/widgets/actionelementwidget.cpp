@@ -12,13 +12,13 @@ ActionElementWidget::ActionElementWidget(QWidget *widget, const QByteArray &acti
     : QWidget{parent}
     , mActionId(actionId)
     , mErrorLabel(new QLabel(this))
-    , mLayout(new QHBoxLayout(this))
 {
-    mLayout->setContentsMargins({});
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins({});
     Q_ASSERT(widget);
-    mLayout->addWidget(widget);
+    mainLayout->addWidget(widget);
 
-    mLayout->addWidget(mErrorLabel);
+    mainLayout->addWidget(mErrorLabel);
     // Hide by default
     mErrorLabel->setVisible(false);
     QPalette pal = mErrorLabel->palette();
@@ -42,6 +42,19 @@ QByteArray ActionElementWidget::actionId() const
 void ActionElementWidget::setActionId(const QByteArray &newActionId)
 {
     mActionId = newActionId;
+}
+
+void ActionElementWidget::setErrorMessages(const QMap<QString, QString> &map)
+{
+    QMapIterator<QString, QString> i(map);
+    while (i.hasNext()) {
+        i.next();
+        if (i.key() == QString::fromLatin1(mActionId)) {
+            setErrorMessages(i.value());
+        } else {
+            clearError();
+        }
+    }
 }
 
 void ActionElementWidget::setErrorMessages(const QString &msg)

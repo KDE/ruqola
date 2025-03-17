@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewactionable.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewActionable::AutoGenerateInteractionUiViewActionable(QObject *parent)
     : QObject(parent)
@@ -94,6 +95,13 @@ QJsonObject AutoGenerateInteractionUiViewActionable::serialize() const
 QVariant AutoGenerateInteractionUiViewActionable::currentValue() const
 {
     return {};
+}
+
+void AutoGenerateInteractionUiViewActionable::setErrorMessages(const QMap<QString, QString> &map)
+{
+    if (mActionElementWidget) {
+        mActionElementWidget->setErrorMessages(map);
+    }
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t)

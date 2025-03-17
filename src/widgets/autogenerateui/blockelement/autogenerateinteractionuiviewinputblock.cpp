@@ -158,6 +158,9 @@ void AutoGenerateInteractionUiViewInputBlock::setElement(AutoGenerateInteraction
 
 void AutoGenerateInteractionUiViewInputBlock::setErrorMessages(const QMap<QString, QString> &map)
 {
+    if (mElement) {
+        mElement->setErrorMessages(map);
+    }
 }
 
 void AutoGenerateInteractionUiViewInputBlock::serializeBlock(QJsonObject &o) const

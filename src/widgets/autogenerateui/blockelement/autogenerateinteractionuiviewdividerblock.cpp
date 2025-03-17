@@ -33,6 +33,7 @@ QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *pare
 
 void AutoGenerateInteractionUiViewDividerBlock::setErrorMessages(const QMap<QString, QString> &map)
 {
+    Q_UNUSED(map);
 }
 
 void AutoGenerateInteractionUiViewDividerBlock::serializeBlock(QJsonObject &o) const
