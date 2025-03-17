@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "actionelementwidget.h"
+#include "colorsandmessageviewstyle.h"
 #include <QLabel>
 #include <QVBoxLayout>
 
@@ -19,6 +20,9 @@ ActionElementWidget::ActionElementWidget(QWidget *widget, const QByteArray &acti
     mLayout->addWidget(mErrorLabel);
     // Hide by default
     mErrorLabel->setVisible(false);
+    QPalette pal = mErrorLabel->palette();
+    pal.setColor(foregroundRole(), ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
+    mErrorLabel->setPalette(pal);
 }
 
 ActionElementWidget::~ActionElementWidget() = default;
