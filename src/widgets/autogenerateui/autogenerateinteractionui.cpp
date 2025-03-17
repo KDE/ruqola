@@ -126,9 +126,12 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
-            if (replyObject["success"_L1].toBool()) {
+            const bool success = replyObject["success"_L1].toBool();
+            if (success) {
                 Q_EMIT submitCalled();
             } else {
+                // TODO emit error => parse it.
+                // Q_EMIT errorFound();
                 qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Error found when calling AppsUiInteractionJob " << replyObject;
             }
         });
