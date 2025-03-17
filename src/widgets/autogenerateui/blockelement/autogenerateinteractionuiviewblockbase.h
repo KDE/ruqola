@@ -17,7 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase : pub
 public:
     struct StateInfo {
         QString actionId;
-        QString value;
+        QVariant value;
     };
     explicit AutoGenerateInteractionUiViewBlockBase(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewBlockBase() override;

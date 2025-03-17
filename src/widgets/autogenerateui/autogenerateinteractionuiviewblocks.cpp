@@ -132,8 +132,12 @@ QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
         i.next();
         QJsonObject obj;
         for (const auto &s : i.value()) {
-            if (!s.value.isEmpty()) {
-                obj[s.actionId] = s.value;
+            if (s.value.isValid()) {
+                if (s.value.metaType().id() == QMetaType::QStringList) {
+                    obj[s.actionId] = QJsonArray::fromStringList(s.value.toStringList());
+                } else {
+                    obj[s.actionId] = s.value.toString();
+                }
             }
         }
         o[i.key()] = obj;

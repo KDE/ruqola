@@ -20,7 +20,7 @@ public:
     explicit AutoGenerateInteractionUiViewMultiStaticSelectElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewMultiStaticSelectElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 
@@ -35,7 +35,7 @@ public:
     [[nodiscard]] int maxSelectItems() const;
     void setMaxSelectItems(int newMaxSelectItems);
 
-    [[nodiscard]] QString currentValue() const override;
+    [[nodiscard]] QVariant currentValue() const override;
 
 protected:
     void serializeElement(QJsonObject &o) const override;

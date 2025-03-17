@@ -5,6 +5,7 @@
 */
 #include "autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QDateEdit>
 
@@ -33,13 +34,14 @@ void AutoGenerateInteractionUiViewDatePickerElement::parseElement(const QJsonObj
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewDatePickerElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewDatePickerElement::generateWidget(QWidget *parent)
 {
     mDateTime = new QDateEdit(parent);
+    mActionElementWidget = new ActionElementWidget(mDateTime, actionId(), parent);
     if (!mInitialDate.isEmpty()) {
         mDateTime->setDate(QDate::fromString(mInitialDate, "yyyy-MM-dd"_L1));
     }
-    return mDateTime;
+    return mActionElementWidget;
 }
 
 QString AutoGenerateInteractionUiViewDatePickerElement::initialDate() const
@@ -62,7 +64,7 @@ void AutoGenerateInteractionUiViewDatePickerElement::setPlaceHolder(AutoGenerate
     mPlaceHolder = newPlaceHolder;
 }
 
-QString AutoGenerateInteractionUiViewDatePickerElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewDatePickerElement::currentValue() const
 {
     return mDateTime->dateTime().toString();
 }

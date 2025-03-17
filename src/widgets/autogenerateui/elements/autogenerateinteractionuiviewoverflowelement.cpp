@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewoverflowelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QJsonArray>
 #include <QMenu>
@@ -32,9 +33,10 @@ void AutoGenerateInteractionUiViewOverflowElement::parseElement(const QJsonObjec
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *parent)
 {
     auto toolButton = new QToolButton(parent);
+    mActionElementWidget = new ActionElementWidget(toolButton, actionId(), parent);
     toolButton->setPopupMode(QToolButton::InstantPopup);
     auto menu = new QMenu(parent);
     for (const auto &r : std::as_const(mOptions)) {
@@ -48,7 +50,7 @@ QWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *p
         menu->addAction(act);
     }
     toolButton->setMenu(menu);
-    return toolButton;
+    return mActionElementWidget;
 }
 
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewOverflowElement::options() const

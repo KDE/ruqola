@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewplaintextinputelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QLineEdit>
 #include <QPlainTextEdit>
@@ -32,23 +33,27 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::parseElement(const QJso
     mMaxLength = json["maxLength"_L1].toInt(-1);
 }
 
-QWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewPlainTextInputElement::generateWidget(QWidget *parent)
 {
     // TODO use minLength/maxLength
     if (!mMultiLine) {
         mLineEdit = new QLineEdit(parent);
+        mActionElementWidget = new ActionElementWidget(mLineEdit, actionId(), parent);
+
         if (mPlaceHolder) {
             mLineEdit->setPlaceholderText(mPlaceHolder->generateText());
         }
         mLineEdit->setText(mInitialValue);
-        return mLineEdit;
+        return mActionElementWidget;
     } else {
         mPlainTextEdit = new QPlainTextEdit(parent);
+        mActionElementWidget = new ActionElementWidget(mPlainTextEdit, actionId(), parent);
+
         if (mPlaceHolder) {
             mPlainTextEdit->setPlaceholderText(mPlaceHolder->generateText());
         }
         mPlainTextEdit->setPlainText(mInitialValue);
-        return mPlainTextEdit;
+        return mActionElementWidget;
     }
 }
 
@@ -121,7 +126,7 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::setMaxLength(int newMax
     mMaxLength = newMaxLength;
 }
 
-QString AutoGenerateInteractionUiViewPlainTextInputElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewPlainTextInputElement::currentValue() const
 {
     if (mLineEdit) {
         return mLineEdit->text();

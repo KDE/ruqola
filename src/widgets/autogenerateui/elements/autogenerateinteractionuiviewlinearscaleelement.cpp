@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewlinearscaleelement.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QSlider>
 using namespace Qt::Literals::StringLiterals;
@@ -14,12 +15,13 @@ AutoGenerateInteractionUiViewLinearScaleElement::AutoGenerateInteractionUiViewLi
 
 AutoGenerateInteractionUiViewLinearScaleElement::~AutoGenerateInteractionUiViewLinearScaleElement() = default;
 
-QWidget *AutoGenerateInteractionUiViewLinearScaleElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewLinearScaleElement::generateWidget(QWidget *parent)
 {
     mSlider = new QSlider(parent);
+    mActionElementWidget = new ActionElementWidget(mSlider, actionId(), parent);
     mSlider->setRange(mMinValue, mMaxValue);
     mSlider->setValue(mInitialValue);
-    return mSlider;
+    return mActionElementWidget;
 }
 
 bool AutoGenerateInteractionUiViewLinearScaleElement::operator==(const AutoGenerateInteractionUiViewLinearScaleElement &other) const
@@ -45,7 +47,7 @@ void AutoGenerateInteractionUiViewLinearScaleElement::setInitialValue(int newIni
     mInitialValue = newInitialValue;
 }
 
-QString AutoGenerateInteractionUiViewLinearScaleElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewLinearScaleElement::currentValue() const
 {
     return QString::number(mSlider->value());
 }

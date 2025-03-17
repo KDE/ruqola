@@ -7,6 +7,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 
+#include "autogenerateui/widgets/actionelementwidget.h"
 #include "ruqola_action_buttons_debug.h"
 #include <QComboBox>
 #include <QJsonArray>
@@ -39,9 +40,10 @@ void AutoGenerateInteractionUiViewStaticSelectElement::parseElement(const QJsonO
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidget *parent)
 {
     mComboBox = new QComboBox(parent);
+    mActionElementWidget = new ActionElementWidget(mComboBox, actionId(), parent);
     for (const auto &r : std::as_const(mOptions)) {
         mComboBox->addItem(r->text().text(), r->value());
     }
@@ -52,7 +54,7 @@ QWidget *AutoGenerateInteractionUiViewStaticSelectElement::generateWidget(QWidge
         }
     });
     mComboBox->setCurrentIndex(mComboBox->findData(mInitialValue));
-    return mComboBox;
+    return mActionElementWidget;
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewStaticSelectElement::placeHolder() const
@@ -85,7 +87,7 @@ void AutoGenerateInteractionUiViewStaticSelectElement::setOptions(const QList<Au
     mOptions = newOptions;
 }
 
-QString AutoGenerateInteractionUiViewStaticSelectElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewStaticSelectElement::currentValue() const
 {
     return mComboBox->currentData().toString();
 }

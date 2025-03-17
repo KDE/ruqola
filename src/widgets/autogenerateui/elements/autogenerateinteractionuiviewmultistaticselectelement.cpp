@@ -6,6 +6,7 @@
 #include "autogenerateinteractionuiviewmultistaticselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 #include "autogenerateui/widgets/multistaticselectwidget.h"
 
 #include <QJsonArray>
@@ -53,9 +54,9 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setMaxSelectItems(in
     mMaxSelectItems = newMaxSelectItems;
 }
 
-QString AutoGenerateInteractionUiViewMultiStaticSelectElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewMultiStaticSelectElement::currentValue() const
 {
-    return mMultiStaticSelectWidget->selectedUsers().join(QLatin1Char(','));
+    return mMultiStaticSelectWidget->selectedUsers();
 }
 
 QStringList AutoGenerateInteractionUiViewMultiStaticSelectElement::initialValue() const
@@ -68,9 +69,10 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::setInitialValue(cons
     mInitialValue = newInitialValue;
 }
 
-QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(QWidget *parent)
 {
     mMultiStaticSelectWidget = new MultiStaticSelectWidget(parent);
+    mActionElementWidget = new ActionElementWidget(mMultiStaticSelectWidget, actionId(), parent);
     if (mPlaceHolder) {
         mMultiStaticSelectWidget->setPlaceholderText(mPlaceHolder->generateText());
     }
@@ -87,7 +89,7 @@ QWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::generateWidget(Q
         mMultiStaticSelectWidget->setMaxSelectItems(mMaxSelectItems);
     }
     mMultiStaticSelectWidget->setInitialValues(mInitialValue);
-    return mMultiStaticSelectWidget;
+    return mActionElementWidget;
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewMultiStaticSelectElement::placeHolder() const

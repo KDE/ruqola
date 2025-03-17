@@ -58,7 +58,7 @@ bool AutoGenerateInteractionUiViewActionable::operator==(const AutoGenerateInter
     return other.appId() == appId() && other.blockId() == blockId() && other.actionId() == actionId() && other.type() == type();
 }
 
-QWidget *AutoGenerateInteractionUiViewActionable::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewActionable::generateWidget(QWidget *parent)
 {
     Q_UNUSED(parent)
     return nullptr;
@@ -91,7 +91,7 @@ QJsonObject AutoGenerateInteractionUiViewActionable::serialize() const
     return o;
 }
 
-QString AutoGenerateInteractionUiViewActionable::currentValue() const
+QVariant AutoGenerateInteractionUiViewActionable::currentValue() const
 {
     return {};
 }

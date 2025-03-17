@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewuserselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QLineEdit>
 #include <QPlainTextEdit>
@@ -28,14 +29,16 @@ void AutoGenerateInteractionUiViewUserSelectElement::parseElement(const QJsonObj
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewUserSelectElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewUserSelectElement::generateWidget(QWidget *parent)
 {
     // Verify ?
     mPlainTextEdit = new QPlainTextEdit(parent);
+    mActionElementWidget = new ActionElementWidget(mPlainTextEdit, actionId(), parent);
+
     if (mPlaceHolder) {
         mPlainTextEdit->setPlaceholderText(mPlaceHolder->generateText());
     }
-    return mPlainTextEdit;
+    return mActionElementWidget;
 }
 
 AutoGenerateInteractionUiViewText *AutoGenerateInteractionUiViewUserSelectElement::placeHolder() const
@@ -53,7 +56,7 @@ bool AutoGenerateInteractionUiViewUserSelectElement::operator==(const AutoGenera
     return AutoGenerateInteractionUiViewActionable::operator==(other) && other.placeHolder() == placeHolder();
 }
 
-QString AutoGenerateInteractionUiViewUserSelectElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewUserSelectElement::currentValue() const
 {
     return mPlainTextEdit->toPlainText();
 }

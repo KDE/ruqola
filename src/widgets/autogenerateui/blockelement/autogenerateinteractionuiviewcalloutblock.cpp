@@ -8,6 +8,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 #include "ruqola_autogenerateui_debug.h"
 
 #include <QHBoxLayout>

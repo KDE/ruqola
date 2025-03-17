@@ -45,7 +45,7 @@ void AutoGenerateInteractionUiViewRadioButtonElement::setInitialOption(AutoGener
     mInitialOption = newInitialOption;
 }
 
-QString AutoGenerateInteractionUiViewRadioButtonElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewRadioButtonElement::currentValue() const
 {
     // TODO
     return {};
@@ -61,7 +61,7 @@ void AutoGenerateInteractionUiViewRadioButtonElement::setOptions(const QList<Aut
     mOptions = newOptions;
 }
 
-QWidget *AutoGenerateInteractionUiViewRadioButtonElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewRadioButtonElement::generateWidget(QWidget *parent)
 {
     qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewRadioButtonElement UI";
 

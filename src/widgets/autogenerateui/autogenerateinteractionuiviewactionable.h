@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
 class RocketChatAccount;
+class ActionElementWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewActionable : public QObject
 {
     Q_OBJECT
@@ -28,14 +29,14 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewActionable &other) const;
 
-    virtual QWidget *generateWidget(QWidget *parent);
+    virtual ActionElementWidget *generateWidget(QWidget *parent);
 
     [[nodiscard]] QByteArray type() const;
     void setType(const QByteArray &newType);
 
     [[nodiscard]] QJsonObject serialize() const;
 
-    virtual QString currentValue() const;
+    virtual QVariant currentValue() const;
 
 Q_SIGNALS:
     void actionChanged(const QByteArray &actionId, const QString &values);
@@ -49,6 +50,7 @@ protected:
     QByteArray mBlockId;
     QByteArray mActionId;
     QByteArray mType;
+    ActionElementWidget *mActionElementWidget = nullptr;
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionable)

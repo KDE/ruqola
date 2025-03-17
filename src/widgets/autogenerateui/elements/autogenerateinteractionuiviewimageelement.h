@@ -17,7 +17,7 @@ public:
     explicit AutoGenerateInteractionUiViewImageElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewImageElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewImageElement &other) const;
 
     [[nodiscard]] AutoGenerateInteractionUiViewImage image() const;

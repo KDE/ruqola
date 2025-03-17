@@ -19,7 +19,7 @@ public:
     explicit AutoGenerateInteractionUiViewPlainTextInputElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewPlainTextInputElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
@@ -38,7 +38,7 @@ public:
     [[nodiscard]] int maxLength() const;
     void setMaxLength(int newMaxLength);
 
-    [[nodiscard]] QString currentValue() const override;
+    [[nodiscard]] QVariant currentValue() const override;
 
 protected:
     void parseElement(const QJsonObject &json) override;

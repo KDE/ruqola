@@ -12,6 +12,7 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewmultistaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewoverflowelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 #include <QLabel>

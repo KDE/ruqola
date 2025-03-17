@@ -20,14 +20,14 @@ public:
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewDatePickerElement &other) const;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
     [[nodiscard]] QString initialDate() const;
     void setInitialDate(const QString &newInitialDate);
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 
-    [[nodiscard]] QString currentValue() const override;
+    [[nodiscard]] QVariant currentValue() const override;
 
 protected:
     void serializeElement(QJsonObject &o) const override;

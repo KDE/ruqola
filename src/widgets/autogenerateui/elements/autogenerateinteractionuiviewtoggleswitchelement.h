@@ -19,14 +19,14 @@ public:
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const;
 
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> initialOptions() const;
     void setInitialOptions(const QList<AutoGenerateInteractionUiViewOption *> &newInitialOptions);
 
-    [[nodiscard]] QString currentValue() const override;
+    [[nodiscard]] QVariant currentValue() const override;
 
 protected:
     void parseElement(const QJsonObject &json) override;

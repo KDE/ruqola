@@ -11,6 +11,7 @@
 class AutoGenerateInteractionUiViewText;
 class AutoGenerateInteractionUiViewOption;
 class QComboBox;
+class ActionElementWidget;
 // see ./packages/ui-kit/src/blocks/elements/StaticSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewStaticSelectElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -19,7 +20,7 @@ public:
     explicit AutoGenerateInteractionUiViewStaticSelectElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewStaticSelectElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
@@ -30,7 +31,7 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
 
-    [[nodiscard]] QString currentValue() const override;
+    [[nodiscard]] QVariant currentValue() const override;
 
 protected:
     void serializeElement(QJsonObject &o) const override;

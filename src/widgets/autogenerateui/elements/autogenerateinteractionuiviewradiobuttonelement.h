@@ -16,7 +16,7 @@ public:
     explicit AutoGenerateInteractionUiViewRadioButtonElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewRadioButtonElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewRadioButtonElement &other) const;
 
@@ -26,7 +26,7 @@ public:
     [[nodiscard]] AutoGenerateInteractionUiViewOption *initialOption() const;
     void setInitialOption(AutoGenerateInteractionUiViewOption *newInitialOption);
 
-    [[nodiscard]] QString currentValue() const override;
+    [[nodiscard]] QVariant currentValue() const override;
 
 protected:
     void serializeElement(QJsonObject &o) const override;

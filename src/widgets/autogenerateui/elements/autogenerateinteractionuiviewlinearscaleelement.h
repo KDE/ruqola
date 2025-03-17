@@ -17,7 +17,7 @@ public:
     explicit AutoGenerateInteractionUiViewLinearScaleElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewLinearScaleElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewLinearScaleElement &other) const;
 
     [[nodiscard]] int minValue() const;
@@ -29,7 +29,7 @@ public:
     [[nodiscard]] int initialValue() const;
     void setInitialValue(int newInitialValue);
 
-    [[nodiscard]] QString currentValue() const override;
+    [[nodiscard]] QVariant currentValue() const override;
 
 protected:
     void serializeElement(QJsonObject &o) const override;

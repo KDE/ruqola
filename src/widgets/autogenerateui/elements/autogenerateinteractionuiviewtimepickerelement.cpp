@@ -5,6 +5,7 @@
 */
 #include "autogenerateinteractionuiviewtimepickerelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QDateEdit>
 
@@ -33,13 +34,15 @@ void AutoGenerateInteractionUiViewTimePickerElement::parseElement(const QJsonObj
     }
 }
 
-QWidget *AutoGenerateInteractionUiViewTimePickerElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewTimePickerElement::generateWidget(QWidget *parent)
 {
     mTimeEdit = new QTimeEdit(parent);
+    mActionElementWidget = new ActionElementWidget(mTimeEdit, actionId(), parent);
+
     if (!mInitialTime.isEmpty()) {
         mTimeEdit->setTime(QTime::fromString(mInitialTime)); // TODO verify ?
     }
-    return mTimeEdit;
+    return mActionElementWidget;
 }
 
 QString AutoGenerateInteractionUiViewTimePickerElement::initialTime() const
@@ -62,7 +65,7 @@ void AutoGenerateInteractionUiViewTimePickerElement::setPlaceHolder(AutoGenerate
     mPlaceHolder = newPlaceHolder;
 }
 
-QString AutoGenerateInteractionUiViewTimePickerElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewTimePickerElement::currentValue() const
 {
     return mTimeEdit->time().toString();
 }

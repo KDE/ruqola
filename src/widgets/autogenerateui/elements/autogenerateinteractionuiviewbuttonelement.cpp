@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewbuttonelement.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 #include "colorsandmessageviewstyle.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QPushButton>
@@ -76,9 +77,10 @@ void AutoGenerateInteractionUiViewButtonElement::setSecondary(bool newSecondary)
     mSecondary = newSecondary;
 }
 
-QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(QWidget *parent)
 {
     auto b = new QPushButton(parent);
+    mActionElementWidget = new ActionElementWidget(b, actionId(), parent);
     b->setText(mText.generateText(true));
     connect(b, &QPushButton::clicked, this, [this]() {
         // qDebug() << "BUTTON: mBlockId " << mBlockId << " mValue " << mValue << " mActionId " << mActionId;
@@ -108,7 +110,7 @@ QWidget *AutoGenerateInteractionUiViewButtonElement::generateWidget(QWidget *par
         break;
     }
 
-    return b;
+    return mActionElementWidget;
 }
 
 AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::style() const
@@ -164,7 +166,9 @@ void AutoGenerateInteractionUiViewButtonElement::serializeElement(QJsonObject &o
     if (!style.isEmpty()) {
         o["style"_L1] = style;
     }
-    o["value"_L1] = mValue;
+    if (!mValue.isEmpty()) {
+        o["value"_L1] = mValue;
+    }
     // TODO secondary ?
 }
 

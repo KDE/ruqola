@@ -15,6 +15,7 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewuserselectelement.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 
 #include "common/flowlayout.h"
 #include "ruqola_autogenerateui_debug.h"

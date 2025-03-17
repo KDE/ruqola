@@ -18,14 +18,14 @@ public:
     explicit AutoGenerateInteractionUiViewUserSelectElement(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiViewUserSelectElement() override;
 
-    [[nodiscard]] QWidget *generateWidget(QWidget *parent) override;
+    [[nodiscard]] ActionElementWidget *generateWidget(QWidget *parent) override;
 
     [[nodiscard]] AutoGenerateInteractionUiViewText *placeHolder() const;
     void setPlaceHolder(AutoGenerateInteractionUiViewText *newPlaceHolder);
 
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewUserSelectElement &other) const;
 
-    [[nodiscard]] QString currentValue() const override;
+    [[nodiscard]] QVariant currentValue() const override;
 
 protected:
     void parseElement(const QJsonObject &json) override;

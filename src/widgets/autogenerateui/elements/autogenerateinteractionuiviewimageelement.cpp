@@ -13,7 +13,7 @@ AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageEle
 
 AutoGenerateInteractionUiViewImageElement::~AutoGenerateInteractionUiViewImageElement() = default;
 
-QWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(QWidget *parent)
 {
     Q_UNUSED(parent)
     // TODO generate image

@@ -46,7 +46,7 @@ void AutoGenerateInteractionUiViewCheckboxElement::setInitialOption(AutoGenerate
     mInitialOption = newInitialOption;
 }
 
-QWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *parent)
 {
     // TODO QCheckBox
     Q_UNUSED(parent)
@@ -92,7 +92,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &
     return d;
 }
 
-QString AutoGenerateInteractionUiViewCheckboxElement::currentValue() const
+QVariant AutoGenerateInteractionUiViewCheckboxElement::currentValue() const
 {
     return {};
 }

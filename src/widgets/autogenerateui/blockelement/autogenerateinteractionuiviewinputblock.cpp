@@ -15,6 +15,7 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewstaticselectelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtimepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewtoggleswitchelement.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 #include "ruqola_autogenerateui_debug.h"
 
 #include <QLabel>
