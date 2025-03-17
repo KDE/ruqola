@@ -126,14 +126,26 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
-            const bool success = replyObject["success"_L1].toBool();
-            if (success) {
-                Q_EMIT submitCalled();
-            } else {
-                // TODO emit error => parse it.
-                // Q_EMIT errorFound();
-                qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Error found when calling AppsUiInteractionJob " << replyObject;
+            Q_EMIT submitCalled();
+        });
+        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionFailed, this, [this](const QJsonObject &replyObject) {
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Error found when calling AppsUiInteractionJob " << replyObject;
+            qDebug() << "RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionFailed: " << replyObject;
+            // {"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","errors":{"message":"Message cannot be
+            // empty"},"success":false,"triggerId":"9bbc60224515470bbfcee0734ad79ba1","type":"errors","viewId":"modal-reminder-create--GENERAL"}
+
+            if (replyObject["type"_L1].toString() == "errors"_L1) {
+                // Error
+                const QJsonObject errorsObj = replyObject["errors"_L1].toObject();
+                const QStringList keys = errorsObj.keys();
+                QMap<QString, QString> errorMap;
+                for (const auto &k : keys) {
+                    errorMap.insert(k, errorsObj[k].toString());
+                }
+                qDebug() << " errorMap: " << errorMap;
             }
+
+            // Q_EMIT submitCalled();
         });
         if (!job->start()) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
