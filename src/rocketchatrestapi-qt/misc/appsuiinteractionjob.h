@@ -37,6 +37,7 @@ public:
 
 Q_SIGNALS:
     void appsUiInteractionDone(const QJsonObject &replyObject);
+    void appsUiInteractionFailed(const QJsonObject &replyObject);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
