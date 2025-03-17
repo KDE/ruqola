@@ -10,7 +10,6 @@
 #include <QDebug>
 #include <QJsonObject>
 #include <QString>
-class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase : public QObject
 {
     Q_OBJECT

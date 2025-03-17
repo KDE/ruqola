@@ -14,7 +14,6 @@
 
 // Rocket.Chat/packages/ui-kit/src/surfaces/modal/ModalView.ts
 // TODO make it private export symbol ?
-class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiView : public QObject
 {
     Q_OBJECT

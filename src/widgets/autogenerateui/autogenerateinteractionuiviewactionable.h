@@ -8,7 +8,6 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
-class RocketChatAccount;
 class ActionElementWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewActionable : public QObject
 {
