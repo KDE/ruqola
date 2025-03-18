@@ -52,7 +52,7 @@ void PreviewCommandModel::fetchImage(const PreviewCommand &command, int index)
             mMapUrlToImage.insert(url, image);
             const int row = index;
             if (row != -1) {
-                QModelIndex index = createIndex(row, 0);
+                const QModelIndex index = createIndex(row, 0);
                 Q_EMIT dataChanged(index, index, {static_cast<int>(PreviewCommandRoles::Image)});
             }
         }
@@ -61,7 +61,7 @@ void PreviewCommandModel::fetchImage(const PreviewCommand &command, int index)
 
 void PreviewCommandModel::fetchImages()
 {
-    for (int i = 0; i < mPreviewCommands.count(); ++i) {
+    for (int i = 0, total = mPreviewCommands.count(); i < total; ++i) {
         fetchImage(mPreviewCommands.at(i), i);
     }
 }
