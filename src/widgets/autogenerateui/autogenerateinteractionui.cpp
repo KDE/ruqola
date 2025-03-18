@@ -134,6 +134,7 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
+            Q_UNUSED(replyObject);
             Q_EMIT submitCalled();
         });
         connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionFailed, this, [this](const QJsonObject &replyObject) {
