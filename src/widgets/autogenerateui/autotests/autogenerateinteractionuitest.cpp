@@ -30,6 +30,8 @@ void AutoGenerateInteractionUiTest::shouldHaveDefaultValues()
 void AutoGenerateInteractionUiTest::shouldLoadJson()
 {
     QFETCH(QString, fileNameinit);
+    QFETCH(QByteArray, serializeState);
+
     const QString originalJsonFile = QLatin1StringView(RUQOLA_AUTOGENERATEUI_DATA_DIR) + "/autogenerateinteractionui/"_L1 + fileNameinit + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     QWidget *parent = new QWidget;
@@ -42,6 +44,8 @@ void AutoGenerateInteractionUiTest::shouldLoadJson()
     const QJsonDocument docSerialized = QJsonDocument(objUi);
     const QByteArray ba = docSerialized.toJson(QJsonDocument::Indented);
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
+    QCOMPARE(QJsonDocument(ui.serializeState()).toJson(), serializeState);
+
     AutoTestHelper::compareFile("/autogenerateinteractionui/"_L1, jsonIndented, fileNameinit);
     parent->deleteLater();
     parent = nullptr;
@@ -50,8 +54,17 @@ void AutoGenerateInteractionUiTest::shouldLoadJson()
 void AutoGenerateInteractionUiTest::shouldLoadJson_data()
 {
     QTest::addColumn<QString>("fileNameinit");
+    QTest::addColumn<QByteArray>("serializeState");
 
-    QTest::addRow("contextbaropen1") << QStringLiteral("contextbaropen1");
+    QTest::addRow("contextbaropen1") << QStringLiteral("contextbaropen1")
+                                     << QByteArray(
+                                            "{\n    \"autoReplySettings\": {\n        \"AutoReplyMessage\": \"Hey, I received your message and will get back "
+                                            "to you as soon as possible.\"\n    }\n}\n");
+    QTest::addRow("modalupdate1")
+        << QStringLiteral("modalupdate1")
+        << QByteArray(
+               "{\n    \"reminderData\": {\n        \"message\": \"\",\n        \"repeat\": \"once\",\n        \"targetChannel\": \"\",\n        "
+               "\"targetType\": \"channel\",\n        \"whenDate\": \"18/03/2025\",\n        \"whenTime\": \"14:00\"\n    }\n}\n");
 }
 
 #include "moc_autogenerateinteractionuitest.cpp"
