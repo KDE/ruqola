@@ -170,6 +170,11 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
     }
 }
 
+QJsonObject AutoGenerateInteractionUiView::serializeState() const
+{
+    return mBlocks->serializeState();
+}
+
 QJsonObject AutoGenerateInteractionUiView::serialize(bool generateState) const
 {
     QJsonObject o;
@@ -185,8 +190,7 @@ QJsonObject AutoGenerateInteractionUiView::serialize(bool generateState) const
     o["type"_L1] = QString::fromLatin1(mType);
     o["appId"_L1] = QString::fromLatin1(mAppId);
     if (generateState) {
-        QJsonObject stateObj = mBlocks->serializeState();
-        o["state"_L1] = stateObj;
+        o["state"_L1] = serializeState();
     }
     return o;
 }

@@ -45,6 +45,7 @@ public:
 
     [[nodiscard]] QJsonObject generateJson(bool generateState) const;
 
+    [[nodiscard]] QJsonObject serializeState() const;
 Q_SIGNALS:
     void closeCalled();
     void submitCalled();

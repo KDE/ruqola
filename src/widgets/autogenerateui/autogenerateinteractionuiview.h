@@ -54,6 +54,7 @@ public:
     void setErrorMessages(const QMap<QString, QString> &map);
 
     void clear();
+    [[nodiscard]] QJsonObject serializeState() const;
 Q_SIGNALS:
     void submitButtonClicked(const QJsonObject &payload, const QString &appId);
     void closeButtonClicked(const QJsonObject &payload, const QString &appId);

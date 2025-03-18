@@ -21,6 +21,14 @@ AutoGenerateInteractionUi::AutoGenerateInteractionUi(RocketChatAccount *account,
 
 AutoGenerateInteractionUi::~AutoGenerateInteractionUi() = default;
 
+QJsonObject AutoGenerateInteractionUi::serializeState() const
+{
+    if (mView) {
+        return mView->serializeState();
+    }
+    return {};
+}
+
 QJsonObject AutoGenerateInteractionUi::generateJson(bool generateState) const
 {
     QJsonObject o;

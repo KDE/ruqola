@@ -29,6 +29,8 @@ bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
 {
     if (mAutoGenerateInteractionUi->parseInteractionUi(r)) {
         if (mMainWidget) {
+            const QJsonObject values = mAutoGenerateInteractionUi->serializeState();
+            // TODO use it
             mainLayout->removeWidget(mMainWidget);
             delete mMainWidget;
         }
