@@ -40,6 +40,9 @@ void NeedUpdateParseHtmlJob::start()
     }
     KIO::TransferJob *tjob = KIO::get(mUrl, KIO::Reload);
     connect(tjob, &KIO::TransferJob::data, this, &NeedUpdateParseHtmlJob::slotHttpDataFile);
+    if (!tjob->exec()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible execute KIO::TransferJob";
+    }
 }
 
 void NeedUpdateParseHtmlJob::slotHttpDataFile(KIO::Job *job, const QByteArray &data)

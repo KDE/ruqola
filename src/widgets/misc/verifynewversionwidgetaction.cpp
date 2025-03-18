@@ -6,7 +6,6 @@
 
 #include "verifynewversionwidgetaction.h"
 #include "needupdateversion/needupdateversionutils.h"
-#include "ruqolawidgets_debug.h"
 #include "verifynewversionwidget/verifynewversiondialog.h"
 #include <KLocalizedString>
 #include <QAction>
