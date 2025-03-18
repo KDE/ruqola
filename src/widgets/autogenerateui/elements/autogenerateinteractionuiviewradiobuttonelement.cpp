@@ -51,6 +51,11 @@ QVariant AutoGenerateInteractionUiViewRadioButtonElement::currentValue() const
     return {};
 }
 
+void AutoGenerateInteractionUiViewRadioButtonElement::setCurrentValue(const QVariant &v)
+{
+    qWarning() << " not implemented yet" << v;
+}
+
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewRadioButtonElement::options() const
 {
     return mOptions;

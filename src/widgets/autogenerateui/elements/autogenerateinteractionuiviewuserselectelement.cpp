@@ -61,6 +61,11 @@ QVariant AutoGenerateInteractionUiViewUserSelectElement::currentValue() const
     return mPlainTextEdit->toPlainText();
 }
 
+void AutoGenerateInteractionUiViewUserSelectElement::setCurrentValue(const QVariant &v)
+{
+    mPlainTextEdit->setPlainText(v.toString());
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewUserSelectElement &t)
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);

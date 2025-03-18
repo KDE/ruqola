@@ -137,6 +137,12 @@ QVariant AutoGenerateInteractionUiViewPlainTextInputElement::currentValue() cons
     return {};
 }
 
+void AutoGenerateInteractionUiViewPlainTextInputElement::setCurrentValue(const QVariant &v)
+{
+    qWarning() << " not implemented yet" << v;
+    // TODO
+}
+
 void AutoGenerateInteractionUiViewPlainTextInputElement::serializeElement(QJsonObject &o) const
 {
     if (mPlaceHolder) {

@@ -52,6 +52,11 @@ QVariant AutoGenerateInteractionUiViewLinearScaleElement::currentValue() const
     return QString::number(mSlider->value());
 }
 
+void AutoGenerateInteractionUiViewLinearScaleElement::setCurrentValue(const QVariant &v)
+{
+    mSlider->setValue(v.toString().toInt());
+}
+
 int AutoGenerateInteractionUiViewLinearScaleElement::maxValue() const
 {
     return mMaxValue;

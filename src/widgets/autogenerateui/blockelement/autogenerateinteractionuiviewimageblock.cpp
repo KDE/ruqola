@@ -53,6 +53,10 @@ void AutoGenerateInteractionUiViewImageBlock::setErrorMessages(const QMap<QStrin
     Q_UNUSED(map);
 }
 
+void AutoGenerateInteractionUiViewImageBlock::assignState(const QList<StateInfo> &info)
+{
+}
+
 AutoGenerateInteractionUiViewImage AutoGenerateInteractionUiViewImageBlock::image() const
 {
     return mImage;

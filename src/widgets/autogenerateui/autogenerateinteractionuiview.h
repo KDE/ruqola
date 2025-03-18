@@ -55,6 +55,7 @@ public:
 
     void clear();
     [[nodiscard]] QJsonObject serializeState() const;
+    void assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map);
 Q_SIGNALS:
     void submitButtonClicked(const QJsonObject &payload, const QString &appId);
     void closeButtonClicked(const QJsonObject &payload, const QString &appId);

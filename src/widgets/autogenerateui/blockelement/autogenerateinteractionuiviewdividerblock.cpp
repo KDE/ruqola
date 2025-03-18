@@ -36,6 +36,10 @@ void AutoGenerateInteractionUiViewDividerBlock::setErrorMessages(const QMap<QStr
     Q_UNUSED(map);
 }
 
+void AutoGenerateInteractionUiViewDividerBlock::assignState(const QList<StateInfo> &info)
+{
+}
+
 void AutoGenerateInteractionUiViewDividerBlock::serializeBlock(QJsonObject &o) const
 {
     Q_UNUSED(o)

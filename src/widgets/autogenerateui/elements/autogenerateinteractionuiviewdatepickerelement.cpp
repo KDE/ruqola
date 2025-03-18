@@ -69,6 +69,11 @@ QVariant AutoGenerateInteractionUiViewDatePickerElement::currentValue() const
     return mDateTime->dateTime().toString();
 }
 
+void AutoGenerateInteractionUiViewDatePickerElement::setCurrentValue(const QVariant &v)
+{
+    mDateTime->setDateTime(QDateTime::fromString(v.toString()));
+}
+
 void AutoGenerateInteractionUiViewDatePickerElement::serializeElement(QJsonObject &o) const
 {
     if (mPlaceHolder) {

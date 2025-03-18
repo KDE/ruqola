@@ -46,6 +46,7 @@ public:
     [[nodiscard]] QJsonObject generateJson(bool generateState) const;
 
     [[nodiscard]] QJsonObject serializeState() const;
+    void assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map);
 Q_SIGNALS:
     void closeCalled();
     void submitCalled();

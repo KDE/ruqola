@@ -36,7 +36,7 @@ public:
     [[nodiscard]] QJsonObject serialize() const;
 
     virtual QVariant currentValue() const;
-
+    virtual void setCurrentValue(const QVariant &);
     void setErrorMessages(const QMap<QString, QString> &map);
 Q_SIGNALS:
     void actionChanged(const QByteArray &actionId, const QString &values);

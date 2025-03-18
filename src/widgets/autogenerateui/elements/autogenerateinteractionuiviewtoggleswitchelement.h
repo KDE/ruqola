@@ -27,6 +27,7 @@ public:
     void setInitialOptions(const QList<AutoGenerateInteractionUiViewOption *> &newInitialOptions);
 
     [[nodiscard]] QVariant currentValue() const override;
+    void setCurrentValue(const QVariant &v) override;
 
 protected:
     void parseElement(const QJsonObject &json) override;

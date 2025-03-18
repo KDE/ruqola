@@ -97,6 +97,11 @@ QVariant AutoGenerateInteractionUiViewActionable::currentValue() const
     return {};
 }
 
+void AutoGenerateInteractionUiViewActionable::setCurrentValue(const QVariant &)
+{
+    // Reimplement in subclass
+}
+
 void AutoGenerateInteractionUiViewActionable::setErrorMessages(const QMap<QString, QString> &map)
 {
     if (mActionElementWidget) {

@@ -59,6 +59,12 @@ QVariant AutoGenerateInteractionUiViewMultiStaticSelectElement::currentValue() c
     return mMultiStaticSelectWidget->selectedUsers();
 }
 
+void AutoGenerateInteractionUiViewMultiStaticSelectElement::setCurrentValue(const QVariant &v)
+{
+    qWarning() << " not implemented yet";
+    // TODO
+}
+
 QStringList AutoGenerateInteractionUiViewMultiStaticSelectElement::initialValue() const
 {
     return mInitialValue;

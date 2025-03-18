@@ -163,6 +163,13 @@ void AutoGenerateInteractionUiViewInputBlock::setErrorMessages(const QMap<QStrin
     }
 }
 
+void AutoGenerateInteractionUiViewInputBlock::assignState(const QList<StateInfo> &info)
+{
+    if (mElement) {
+        // TODO lst.append({QString::fromLatin1(mElement->actionId()), mElement->currentValue()});
+    }
+}
+
 void AutoGenerateInteractionUiViewInputBlock::serializeBlock(QJsonObject &o) const
 {
     o["label"_L1] = mLabel.serialize();

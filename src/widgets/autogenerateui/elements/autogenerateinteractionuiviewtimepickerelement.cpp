@@ -70,6 +70,11 @@ QVariant AutoGenerateInteractionUiViewTimePickerElement::currentValue() const
     return mTimeEdit->time().toString();
 }
 
+void AutoGenerateInteractionUiViewTimePickerElement::setCurrentValue(const QVariant &v)
+{
+    mTimeEdit->setTime(QTime::fromString(v.toString()));
+}
+
 void AutoGenerateInteractionUiViewTimePickerElement::serializeElement(QJsonObject &o) const
 {
     if (mPlaceHolder) {

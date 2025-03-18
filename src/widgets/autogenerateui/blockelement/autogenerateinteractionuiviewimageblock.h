@@ -28,6 +28,7 @@ public:
     void setTitle(AutoGenerateInteractionUiViewText *newText);
 
     void setErrorMessages(const QMap<QString, QString> &map) override;
+    void assignState(const QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> &info) override;
 
 protected:
     void serializeBlock(QJsonObject &o) const override;

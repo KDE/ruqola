@@ -27,6 +27,10 @@ public:
 
     [[nodiscard]] QJsonObject serializeState() const;
     void setErrorMessages(const QMap<QString, QString> &map);
+
+    [[nodiscard]] QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> createStateInfos() const;
+    void assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map);
+
 Q_SIGNALS:
     void actionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value);
 

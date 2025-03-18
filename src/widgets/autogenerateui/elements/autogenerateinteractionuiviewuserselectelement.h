@@ -26,6 +26,7 @@ public:
     [[nodiscard]] bool operator==(const AutoGenerateInteractionUiViewUserSelectElement &other) const;
 
     [[nodiscard]] QVariant currentValue() const override;
+    void setCurrentValue(const QVariant &v) override;
 
 protected:
     void parseElement(const QJsonObject &json) override;

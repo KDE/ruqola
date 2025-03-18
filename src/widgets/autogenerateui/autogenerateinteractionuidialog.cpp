@@ -30,6 +30,8 @@ bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
     if (mAutoGenerateInteractionUi) {
         const QJsonObject values = mAutoGenerateInteractionUi->serializeState();
         qDebug() << " values" << values;
+        const QStringList keys = values.keys();
+        // TODO
     }
     if (mAutoGenerateInteractionUi->parseInteractionUi(r)) {
         if (mMainWidget) {

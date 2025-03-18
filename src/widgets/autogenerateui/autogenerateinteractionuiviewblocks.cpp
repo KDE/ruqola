@@ -113,9 +113,8 @@ QJsonArray AutoGenerateInteractionUiViewBlocks::serialize() const
     return array;
 }
 
-QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
+QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> AutoGenerateInteractionUiViewBlocks::createStateInfos() const
 {
-    QJsonObject o;
     QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> map;
     for (const auto &e : mBlockElements) {
         const QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> lst = e->serializeState();
@@ -127,6 +126,23 @@ QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
             }
         }
     }
+    return map;
+}
+
+void AutoGenerateInteractionUiViewBlocks::assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map)
+{
+    for (const auto &e : mBlockElements) {
+        if (map.contains(QString::fromLatin1(e->blockId()))) {
+            e->assignState(map[QString::fromLatin1(e->blockId())]);
+        }
+    }
+}
+
+QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
+{
+    QJsonObject o;
+    const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> map = createStateInfos();
+
     QMapIterator<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> i(map);
     while (i.hasNext()) {
         i.next();

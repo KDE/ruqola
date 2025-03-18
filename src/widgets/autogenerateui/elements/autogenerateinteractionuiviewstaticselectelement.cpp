@@ -92,6 +92,11 @@ QVariant AutoGenerateInteractionUiViewStaticSelectElement::currentValue() const
     return mComboBox->currentData().toString();
 }
 
+void AutoGenerateInteractionUiViewStaticSelectElement::setCurrentValue(const QVariant &v)
+{
+    qWarning() << " not implemented yet" << v;
+}
+
 void AutoGenerateInteractionUiViewStaticSelectElement::serializeElement(QJsonObject &o) const
 {
     // TODO initial value ? is current value §????

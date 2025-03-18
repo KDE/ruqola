@@ -21,6 +21,11 @@ AutoGenerateInteractionUi::AutoGenerateInteractionUi(RocketChatAccount *account,
 
 AutoGenerateInteractionUi::~AutoGenerateInteractionUi() = default;
 
+void AutoGenerateInteractionUi::assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map)
+{
+    mView->assignState(map);
+}
+
 QJsonObject AutoGenerateInteractionUi::serializeState() const
 {
     if (mView) {

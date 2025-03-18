@@ -79,6 +79,11 @@ QVariant AutoGenerateInteractionUiViewToggleSwitchElement::currentValue() const
     return {};
 }
 
+void AutoGenerateInteractionUiViewToggleSwitchElement::setCurrentValue(const QVariant &v)
+{
+    qWarning() << " not implemented yet" << v;
+}
+
 ActionElementWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidget *parent)
 {
     qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewToggleSwitchElement UI";
