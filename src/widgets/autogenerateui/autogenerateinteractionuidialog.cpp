@@ -37,9 +37,6 @@ bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
         mMainWidget = mAutoGenerateInteractionUi->generateWidget(this);
         mainLayout->addWidget(mMainWidget);
         return true;
-    } else {
-        // Don't close it.
-        // close();
     }
     return false;
 }
