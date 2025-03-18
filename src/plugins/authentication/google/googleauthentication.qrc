@@ -1,3 +1,8 @@
+<!--
+    SPDX-FileCopyrightText: Laurent Montel <montel@kde.org>
+    SPDX-License-Identifier: CC0-1.0
+-->
+
 <RCC>
     <qresource prefix="/">
         <file alias="client_secret.json">data/client_secret.json</file>
