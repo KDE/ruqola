@@ -161,7 +161,6 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
             connect(okButton, &QPushButton::clicked, this, [this]() {
                 const QJsonObject payload = serialize(true);
                 const QString appId = QString::fromLatin1(mAppId);
-                // TODO FIXME
                 Q_EMIT submitButtonClicked(payload, appId);
             });
         }
