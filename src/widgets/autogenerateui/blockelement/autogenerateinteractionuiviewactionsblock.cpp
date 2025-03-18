@@ -147,6 +147,9 @@ void AutoGenerateInteractionUiViewActionsBlock::setErrorMessages(const QMap<QStr
 
 void AutoGenerateInteractionUiViewActionsBlock::assignState(const QList<StateInfo> &info)
 {
+    for (const auto &e : std::as_const(mElements)) {
+        // e->setValue(info);
+    }
 }
 
 void AutoGenerateInteractionUiViewActionsBlock::serializeBlock(QJsonObject &o) const
