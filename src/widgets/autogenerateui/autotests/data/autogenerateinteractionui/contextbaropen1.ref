@@ -1,0 +1,88 @@
+{
+    "view": {
+        "appId": "821cd5c6-1fb5-4d9e-8e88-e6176463efb6",
+        "blocks": [
+            {
+                "appId": "821cd5c6-1fb5-4d9e-8e88-e6176463efb6",
+                "blockId": "8038c6d0-ef88-11ef-ac2c-1ff9f8bf2fe2",
+                "text": {
+                    "emoji": false,
+                    "text": "*Auto-reply* allows you to automatically send customized messages in response to incoming texts.\nyou can set up personalized auto-responses to ensure that your contacts receive a prompt reply, even when you are not available to respond immediately.",
+                    "type": "mrkdwn"
+                },
+                "type": "section"
+            },
+            {
+                "appId": "821cd5c6-1fb5-4d9e-8e88-e6176463efb6",
+                "blockId": "8038c6d1-ef88-11ef-ac2c-1ff9f8bf2fe2",
+                "type": "divider"
+            },
+            {
+                "appId": "821cd5c6-1fb5-4d9e-8e88-e6176463efb6",
+                "blockId": "autoReplySettings",
+                "elements": [
+                    {
+                        "actionId": "DisableApp",
+                        "style": "danger",
+                        "text": {
+                            "emoji": false,
+                            "text": "Disable Auto-reply",
+                            "type": "plain_text"
+                        },
+                        "type": "button",
+                        "value": "Disable"
+                    }
+                ],
+                "type": "actions"
+            },
+            {
+                "appId": "821cd5c6-1fb5-4d9e-8e88-e6176463efb6",
+                "blockId": "autoReplySettings",
+                "element": {
+                    "actionId": "AutoReplyMessage",
+                    "initialValue": "Hey, I received your message and will get back to you as soon as possible.",
+                    "multiline": true,
+                    "type": "plain_text_input"
+                },
+                "label": {
+                    "emoji": false,
+                    "text": "📝 Auto-reply Message:",
+                    "type": "plain_text"
+                },
+                "optional": false,
+                "type": "input"
+            }
+        ],
+        "close": {
+            "actionId": "8038c6d3-ef88-11ef-ac2c-1ff9f8bf2fe2",
+            "text": {
+                "emoji": false,
+                "text": "Cancel",
+                "type": "plain_text"
+            },
+            "type": "button"
+        },
+        "id": "1f6d2a7a-24d7-462e-a74c-183e375f5134",
+        "state": {
+            "autoReplySettings": {
+                "AutoReplyMessage": "Hey, I received your message and will get back to you as soon as possible."
+            }
+        },
+        "submit": {
+            "actionId": "8038c6d2-ef88-11ef-ac2c-1ff9f8bf2fe2",
+            "style": "primary",
+            "text": {
+                "emoji": false,
+                "text": "Submit",
+                "type": "plain_text"
+            },
+            "type": "button"
+        },
+        "title": {
+            "emoji": true,
+            "text": "Auto Reply",
+            "type": "plain_text"
+        },
+        "type": "contextualBar"
+    }
+}

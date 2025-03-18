@@ -16,4 +16,6 @@ public:
     ~AutoGenerateInteractionUiTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadJson();
+    void shouldLoadJson_data();
 };
