@@ -5,10 +5,8 @@
 */
 
 #include "messageattachmentdelegatehelperimagetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messages/messageattachment.h"
-#include "rocketchataccount.h"
 #include "room/delegate/messageattachmentdelegatehelperimage.h"
 #include "testdata.h"
 
@@ -19,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(MessageDelegateHelperImageTest)
 
+using namespace Qt::Literals::StringLiterals;
 MessageDelegateHelperImageTest::MessageDelegateHelperImageTest(QObject *parent)
     : QObject(parent)
 {
