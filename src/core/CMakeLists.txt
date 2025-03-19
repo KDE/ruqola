@@ -612,12 +612,6 @@ target_sources(libruqolacore PRIVATE
     job/validateinviteserverjob.h
     job/validateinviteserverjob.cpp
 
-    attachmentsimage/attachmentimageinfo.h
-    attachmentsimage/attachmentimageinfo.cpp
-
-    attachmentsimage/attachmentimageinfos.h
-    attachmentsimage/attachmentimageinfos.cpp
-
     actionbuttons/actionbutton.h
     actionbuttons/actionbutton.cpp
 
