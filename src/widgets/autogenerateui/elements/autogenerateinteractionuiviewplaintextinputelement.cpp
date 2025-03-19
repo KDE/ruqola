@@ -139,7 +139,6 @@ QVariant AutoGenerateInteractionUiViewPlainTextInputElement::currentValue() cons
 
 void AutoGenerateInteractionUiViewPlainTextInputElement::setCurrentValue(const QVariant &v)
 {
-    qDebug() << " AutoGenerateInteractionUiViewPlainTextInputElement::setCurrentValu********* " << v;
     if (mLineEdit) {
         mLineEdit->setText(v.toString());
         return;
