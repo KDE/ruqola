@@ -116,6 +116,11 @@ void AutoGenerateInteractionUiView::setTitle(const AutoGenerateInteractionUiView
     mTitle = newTitle;
 }
 
+QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> AutoGenerateInteractionUiView::createStateInfos() const
+{
+    return mBlocks->createStateInfos();
+}
+
 void AutoGenerateInteractionUiView::assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map)
 {
     mBlocks->assignState(map);

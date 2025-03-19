@@ -27,12 +27,12 @@ AutoGenerateInteractionUiDialog::~AutoGenerateInteractionUiDialog() = default;
 
 bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
 {
+    QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> currentState;
     if (mAutoGenerateInteractionUi) {
-        const QJsonObject values = mAutoGenerateInteractionUi->serializeState();
-        qDebug() << " values" << values;
-        const QStringList keys = values.keys();
-        // TODO
+        // get current State => allow to reapply after that
+        currentState = mAutoGenerateInteractionUi->createStateInfos();
     }
+    qDebug() << " values" << currentState;
     if (mAutoGenerateInteractionUi->parseInteractionUi(r)) {
         if (mMainWidget) {
             mainLayout->removeWidget(mMainWidget);
@@ -40,6 +40,9 @@ bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
         }
         mMainWidget = mAutoGenerateInteractionUi->generateWidget(this);
         mainLayout->addWidget(mMainWidget);
+        if (!currentState.isEmpty()) {
+            mAutoGenerateInteractionUi->assignState(currentState);
+        }
         return true;
     }
     return false;

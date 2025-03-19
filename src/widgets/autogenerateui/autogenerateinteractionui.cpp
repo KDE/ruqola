@@ -23,7 +23,17 @@ AutoGenerateInteractionUi::~AutoGenerateInteractionUi() = default;
 
 void AutoGenerateInteractionUi::assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map)
 {
-    mView->assignState(map);
+    if (mView) {
+        mView->assignState(map);
+    }
+}
+
+QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> AutoGenerateInteractionUi::createStateInfos() const
+{
+    if (mView) {
+        return mView->createStateInfos();
+    }
+    return {};
 }
 
 QJsonObject AutoGenerateInteractionUi::serializeState() const
