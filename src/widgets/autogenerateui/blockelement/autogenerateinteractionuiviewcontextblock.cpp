@@ -86,10 +86,12 @@ void AutoGenerateInteractionUiViewContextBlock::setElements(const QList<AutoGene
 
 void AutoGenerateInteractionUiViewContextBlock::setErrorMessages(const QMap<QString, QString> &map)
 {
+    Q_UNUSED(map);
 }
 
 void AutoGenerateInteractionUiViewContextBlock::assignState(const QList<StateInfo> &info)
 {
+    Q_UNUSED(info);
 }
 
 void AutoGenerateInteractionUiViewContextBlock::serializeBlock(QJsonObject &o) const
