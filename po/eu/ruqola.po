@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:41+0000\n"
 "PO-Revision-Date: 2025-02-08 01:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -9375,7 +9375,7 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Bidali kode berria"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:32
+#: widgets/misc/verifynewversionwidgetaction.cpp:31
 #, kde-format
 msgid "Check New Version"
 msgstr "Egiaztatu bertsio berririk dagoen"

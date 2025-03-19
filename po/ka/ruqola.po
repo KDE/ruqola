@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:41+0000\n"
 "PO-Revision-Date: 2025-03-13 05:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -9320,7 +9320,7 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "ახალი კოდის გაგზავნა"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:32
+#: widgets/misc/verifynewversionwidgetaction.cpp:31
 #, kde-format
 msgid "Check New Version"
 msgstr "ახალი ვერსიის შემოწმება"

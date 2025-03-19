@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:41+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -9133,7 +9133,7 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Odeslat nový kód"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:32
+#: widgets/misc/verifynewversionwidgetaction.cpp:31
 #, kde-format
 msgid "Check New Version"
 msgstr "Zkontrolovat novou verzi"

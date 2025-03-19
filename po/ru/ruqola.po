@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:41+0000\n"
 "PO-Revision-Date: 2024-11-06 16:19+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -9458,7 +9458,7 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Отправить новый код"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:32
+#: widgets/misc/verifynewversionwidgetaction.cpp:31
 #, kde-format
 msgid "Check New Version"
 msgstr "Проверить наличие новой версии"
