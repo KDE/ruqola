@@ -50,8 +50,9 @@ void MultiStaticSelectLineEdit::setCurrentSelectItems(const QList<MultiStaticSel
 
 void MultiStaticSelectLineEdit::slotSearchTextEdited()
 {
-    mMultiStaticSelectLineEditProxyModel->setFilterFixedString(text());
-    mCompletionListView->show();
+    const QString str = text().trimmed();
+    mMultiStaticSelectLineEditProxyModel->setFilterFixedString(str);
+    mCompletionListView->setVisible(!str.isEmpty());
 }
 
 void MultiStaticSelectLineEdit::slotComplete(const QModelIndex &index)
