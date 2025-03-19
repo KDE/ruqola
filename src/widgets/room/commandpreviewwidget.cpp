@@ -45,6 +45,11 @@ void CommandPreviewWidget::keyPressEvent(QKeyEvent *e)
     if (key == Qt::Key_Escape) {
         e->accept();
         hidePreview();
+    } else if (key == Qt::Key_Return || key == Qt::Key_Enter) {
+        const QModelIndexList selectedIndexes = mListView->selectionModel()->selectedIndexes();
+        if (!selectedIndexes.isEmpty()) {
+            slotDoubleClicked(selectedIndexes.constFirst());
+        }
     }
 }
 
