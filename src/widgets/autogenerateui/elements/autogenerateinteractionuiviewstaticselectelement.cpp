@@ -8,7 +8,6 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 
 #include "autogenerateui/widgets/actionelementwidget.h"
-#include "ruqola_action_buttons_debug.h"
 #include <QComboBox>
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;

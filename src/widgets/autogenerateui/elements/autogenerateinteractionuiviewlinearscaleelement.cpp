@@ -5,7 +5,6 @@
 */
 #include "autogenerateinteractionuiviewlinearscaleelement.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
-#include "ruqola_autogenerateui_debug.h"
 #include <QSlider>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewLinearScaleElement::AutoGenerateInteractionUiViewLinearScaleElement(QObject *parent)
