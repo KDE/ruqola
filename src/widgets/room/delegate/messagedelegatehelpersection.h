@@ -10,6 +10,7 @@
 #include "messageblockdelegatehelperbase.h"
 #include "messages/block/block.h"
 
+#include <QIcon>
 #include <QModelIndex>
 #include <QSize>
 
@@ -43,4 +44,6 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block,
                                                                          const QStyleOptionViewItem &option,
                                                                          int attachmentsWidth = -1) const;
+
+    const QIcon mMenuIcon;
 };
