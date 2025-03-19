@@ -4,8 +4,9 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewcheckboxelement.h"
-#include "ruqola_action_buttons_debug.h"
+#include "autogenerateui/widgets/actionelementwidget.h"
 
+#include <QCheckBox>
 #include <QJsonArray>
 
 using namespace Qt::Literals::StringLiterals;
@@ -48,10 +49,9 @@ void AutoGenerateInteractionUiViewCheckboxElement::setInitialOption(AutoGenerate
 
 ActionElementWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *parent)
 {
-    // TODO QCheckBox
-    Q_UNUSED(parent)
-    // TODO
-    return nullptr;
+    mCheckBox = new QCheckBox(parent);
+    mActionElementWidget = new ActionElementWidget(mCheckBox, actionId(), parent);
+    return mActionElementWidget;
 }
 
 bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const
@@ -94,12 +94,12 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &
 
 QVariant AutoGenerateInteractionUiViewCheckboxElement::currentValue() const
 {
-    return {};
+    return mCheckBox->isChecked();
 }
 
 void AutoGenerateInteractionUiViewCheckboxElement::setCurrentValue(const QVariant &v)
 {
-    // TODO
+    mCheckBox->setCheckable(v.toBool());
 }
 
 #include "moc_autogenerateinteractionuiviewcheckboxelement.cpp"

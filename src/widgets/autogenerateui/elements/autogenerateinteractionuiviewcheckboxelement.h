@@ -8,6 +8,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "libruqolawidgets_private_export.h"
 #include <QJsonObject>
+class QCheckBox;
 // see ./packages/ui-kit/src/blocks/elements/CheckboxElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewCheckboxElement : public AutoGenerateInteractionUiViewActionable
 {
@@ -35,6 +36,7 @@ protected:
 private:
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
     AutoGenerateInteractionUiViewOption *mInitialOption = nullptr;
+    QCheckBox *mCheckBox = nullptr;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCheckboxElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t);
