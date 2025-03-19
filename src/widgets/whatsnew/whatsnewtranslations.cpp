@@ -23,6 +23,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Implement Rocket.Chat application support."),
         kli18n("Implement command preview."),
         kli18n("Debug: explore translation from RC server."),
+        kli18n("Implement plugin UI support (Create dialog box for configure settings)."),
     };
     return info;
 }
