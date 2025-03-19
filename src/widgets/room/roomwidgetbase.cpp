@@ -166,6 +166,8 @@ void RoomWidgetBase::keyPressedInLineEdit(QKeyEvent *ev)
             Q_EMIT mRoomReplyThreadWidget->cancelReplyingInThread();
         } else if (mRoomQuoteMessageWidget->isVisible()) {
             Q_EMIT mRoomQuoteMessageWidget->cancelQuoteMessage();
+        } else if (mCommandPreviewWidget->isVisible()) {
+            mCommandPreviewWidget->hidePreview();
         } else {
             slotClearNotification();
         }

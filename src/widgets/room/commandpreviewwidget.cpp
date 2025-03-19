@@ -43,16 +43,14 @@ void CommandPreviewWidget::keyPressEvent(QKeyEvent *e)
     const int key = e->key();
     if (key == Qt::Key_Escape) {
         e->accept();
-        setVisible(false);
-        mPreviewCommandModel->clear();
+        hidePreview();
     }
 }
+
 void CommandPreviewWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mCurrentRocketChatAccount = account;
-    // Hide it when we switch account
-    setVisible(false);
-    mPreviewCommandModel->clear();
+    hidePreview();
 }
 
 void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info)
@@ -67,6 +65,12 @@ void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::Previe
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
         }
     }
+}
+
+void CommandPreviewWidget::hidePreview()
+{
+    setVisible(false);
+    mPreviewCommandModel->clear();
 }
 
 void CommandPreviewWidget::slotParsePreviewCommandItems(const QJsonObject &replyObject)

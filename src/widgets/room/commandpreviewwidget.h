@@ -21,6 +21,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void setPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
+    void hidePreview();
 
 Q_SIGNALS:
     void sendPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
