@@ -166,7 +166,11 @@ void AutoGenerateInteractionUiViewInputBlock::setErrorMessages(const QMap<QStrin
 void AutoGenerateInteractionUiViewInputBlock::assignState(const QList<StateInfo> &info)
 {
     if (mElement) {
-        // TODO lst.append({QString::fromLatin1(mElement->actionId()), mElement->currentValue()});
+        for (const auto &stateInfo : info) {
+            if (QString::fromLatin1(mElement->actionId()) == stateInfo.actionId) {
+                mElement->setCurrentValue(mElement->currentValue());
+            }
+        }
     }
 }
 

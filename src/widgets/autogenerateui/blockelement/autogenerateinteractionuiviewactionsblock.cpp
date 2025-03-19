@@ -148,7 +148,11 @@ void AutoGenerateInteractionUiViewActionsBlock::setErrorMessages(const QMap<QStr
 void AutoGenerateInteractionUiViewActionsBlock::assignState(const QList<StateInfo> &info)
 {
     for (const auto &e : std::as_const(mElements)) {
-        // e->setValue(info);
+        for (const auto &stateInfo : info) {
+            if (QString::fromLatin1(e->actionId()) == stateInfo.actionId) {
+                e->setCurrentValue(e->currentValue());
+            }
+        }
     }
 }
 
