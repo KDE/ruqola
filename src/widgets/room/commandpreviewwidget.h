@@ -25,6 +25,9 @@ public:
 Q_SIGNALS:
     void sendPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
 
+protected:
+    void keyPressEvent(QKeyEvent *e) override;
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotParsePreviewCommandItems(const QJsonObject &replyObject);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDoubleClicked(const QModelIndex &);

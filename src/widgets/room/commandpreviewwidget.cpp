@@ -12,6 +12,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <QHBoxLayout>
+#include <QKeyEvent>
 #include <QListView>
 
 CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
@@ -37,11 +38,21 @@ CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
 
 CommandPreviewWidget::~CommandPreviewWidget() = default;
 
+void CommandPreviewWidget::keyPressEvent(QKeyEvent *e)
+{
+    const int key = e->key();
+    if (key == Qt::Key_Escape) {
+        e->accept();
+        setVisible(false);
+        mPreviewCommandModel->clear();
+    }
+}
 void CommandPreviewWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mCurrentRocketChatAccount = account;
     // Hide it when we switch account
     setVisible(false);
+    mPreviewCommandModel->clear();
 }
 
 void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info)
