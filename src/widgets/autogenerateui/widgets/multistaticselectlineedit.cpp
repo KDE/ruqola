@@ -25,6 +25,8 @@ MultiStaticSelectLineEdit::~MultiStaticSelectLineEdit() = default;
 void MultiStaticSelectLineEdit::setSelectItemCompletionInfos(const QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> &newUserCompletionInfos)
 {
     mMultiStaticSelectLineEditModel->setUserCompletionInfos(newUserCompletionInfos);
+    // Hide after assign infos
+    mCompletionListView->setVisible(false);
 }
 
 void MultiStaticSelectLineEdit::setInitialValues(const QStringList &lst)
