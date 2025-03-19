@@ -139,8 +139,14 @@ QVariant AutoGenerateInteractionUiViewPlainTextInputElement::currentValue() cons
 
 void AutoGenerateInteractionUiViewPlainTextInputElement::setCurrentValue(const QVariant &v)
 {
-    qWarning() << " not implemented yet" << v;
-    // TODO
+    qDebug() << " AutoGenerateInteractionUiViewPlainTextInputElement::setCurrentValu********* " << v;
+    if (mLineEdit) {
+        mLineEdit->setText(v.toString());
+        return;
+    }
+    if (mPlainTextEdit) {
+        mPlainTextEdit->setPlainText(v.toString());
+    }
 }
 
 void AutoGenerateInteractionUiViewPlainTextInputElement::serializeElement(QJsonObject &o) const
