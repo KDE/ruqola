@@ -10,7 +10,6 @@
 #include "autogenerateui/widgets/multistaticselectwidget.h"
 
 #include <QJsonArray>
-#include <QLineEdit>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewMultiStaticSelectElement::AutoGenerateInteractionUiViewMultiStaticSelectElement(QObject *parent)
     : AutoGenerateInteractionUiViewActionable(parent)

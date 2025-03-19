@@ -7,7 +7,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
-#include <QDateEdit>
+#include <QTimeEdit>
 
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewTimePickerElement::AutoGenerateInteractionUiViewTimePickerElement(QObject *parent)

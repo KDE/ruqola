@@ -8,7 +8,6 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
-#include <QLineEdit>
 #include <QPlainTextEdit>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewUserSelectElement::AutoGenerateInteractionUiViewUserSelectElement(QObject *parent)
