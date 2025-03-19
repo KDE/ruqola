@@ -32,6 +32,7 @@ ImportDataSelectAccountPage::ImportDataSelectAccountPage(QWidget *parent)
 
     auto label = new QLabel(i18nc("@label:textbox", "Select Zip file:"), this);
     label->setObjectName(QStringLiteral("label"));
+    label->setTextFormat(Qt::PlainText);
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mUrlRequester);
 }

@@ -35,6 +35,7 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     mainLayout->addLayout(messageLayout);
 
     auto lab = new QLabel(i18nc("@label:textbox", "Message:"), this);
+    lab->setTextFormat(Qt::PlainText);
     lab->setObjectName(QStringLiteral("label"));
     messageLayout->addWidget(lab, 0, Qt::AlignTop);
 

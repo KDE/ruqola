@@ -19,6 +19,7 @@ ExportDataSelectAccountPage::ExportDataSelectAccountPage(QWidget *parent)
 
     auto label = new QLabel(i18nc("@label:textbox", "Select Accounts:"), this);
     label->setObjectName(QStringLiteral("label"));
+    label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
     mExportDataSelectAccountListWidget->setObjectName(QStringLiteral("mExportDataSelectAccountListWidget"));

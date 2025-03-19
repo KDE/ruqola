@@ -19,6 +19,7 @@ SearchTeamWidget::SearchTeamWidget(RocketChatAccount *account, QWidget *parent)
 
     auto label = new QLabel(i18nc("@label:textbox", "Team Name:"), this);
     label->setObjectName(QStringLiteral("label"));
+    label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
     mSearchLine->setObjectName(QStringLiteral("mSearchLine"));

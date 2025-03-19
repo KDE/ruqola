@@ -60,9 +60,10 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showNextImage, this, &ShowImageWidget::slotShowNextImage);
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showPreviousImage, this, &ShowImageWidget::slotShowPreviousImage);
 
-    auto mLabel = new QLabel(i18nc("@label:textbox", "Zoom:"), this);
-    mLabel->setObjectName(QStringLiteral("zoomLabel"));
-    zoomLayout->addWidget(mLabel);
+    auto label = new QLabel(i18nc("@label:textbox", "Zoom:"), this);
+    label->setObjectName(QStringLiteral("zoomLabel"));
+    label->setTextFormat(Qt::PlainText);
+    zoomLayout->addWidget(label);
 
     mZoomSpin->setObjectName(QStringLiteral("mZoomSpin"));
 

@@ -22,6 +22,7 @@ ResetPasswordWidget::ResetPasswordWidget(QWidget *parent)
 
     auto label = new QLabel(i18nc("@label:textbox", "Email:"), this);
     label->setObjectName(QStringLiteral("label"));
+    label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
     mEmail->setObjectName(QStringLiteral("mEmail"));
