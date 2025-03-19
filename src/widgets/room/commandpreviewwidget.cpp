@@ -31,6 +31,7 @@ CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
     mListView->setResizeMode(QListView::Adjust);
     mListView->setWrapping(false);
     mListView->setItemDelegate(new CommandPreviewImageDelegate(mListView, this));
+    mListView->setSpacing(2);
 
     mListView->setModel(mPreviewCommandModel);
     connect(mListView, &QListView::doubleClicked, this, &CommandPreviewWidget::slotDoubleClicked);
