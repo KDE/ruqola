@@ -41,7 +41,7 @@ void Block::parseBlock(const QJsonObject &block)
         if (action.isValid()) {
             mBlockActions.append(std::move(action));
         } else {
-            qDebug() << "Invalid elements" << elements.at(i).toObject() << " action " << action;
+            // qDebug() << "Invalid elements" << elements.at(i).toObject() << " action " << action;
             qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();
         }
     }

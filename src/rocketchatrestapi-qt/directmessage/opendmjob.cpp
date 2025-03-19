@@ -37,7 +37,7 @@ void OpenDmJob::onPostRequestResponse(const QString &replyErrorString, const QJs
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("Create direct message success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        qDebug() << " replyJson " << replyJson;
+        // qDebug() << " replyJson " << replyJson;
         Q_EMIT openDmDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);

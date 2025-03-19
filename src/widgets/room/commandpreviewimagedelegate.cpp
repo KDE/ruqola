@@ -18,11 +18,9 @@ CommandPreviewImageDelegate::~CommandPreviewImageDelegate() = default;
 
 void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const bool selected = option.state & QStyle::State_Selected;
-    const bool underMouse = option.state & QStyle::State_MouseOver;
+    // const bool selected = option.state & QStyle::State_Selected;
+    // const bool underMouse = option.state & QStyle::State_MouseOver;
     const bool hasFocus = option.state & QStyle::State_HasFocus;
-    qDebug() << " selected " << selected;
-    qDebug() << " underMouse " << underMouse;
 #if 0
 
     // Select colors
