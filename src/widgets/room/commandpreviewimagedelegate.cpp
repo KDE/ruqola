@@ -53,6 +53,9 @@ void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionVie
     if (!pixmap.isNull()) {
         const QRect rect = option.rect.adjusted(5, 5, -5, -5);
         painter->drawPixmap(rect, pixmap.scaled(rect.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        if (hasFocus) {
+            painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
+        }
     } else {
         painter->drawText(option.rect, index.data(Qt::UserRole).toString());
     }
