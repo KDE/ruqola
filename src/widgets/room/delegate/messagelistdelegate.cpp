@@ -183,7 +183,7 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
     case Block::BlockType::Image: // TODO look at it!
     case Block::BlockType::Preview: // TODO look at it!
     case Block::BlockType::Callout: // TODO look at it!
-        qWarning() << " not implemented BlockType " << block.blockType();
+        qCWarning(RUQOLAWIDGETS_LOG) << " not implemented BlockType " << block.blockType();
         return nullptr;
     }
     return nullptr;
