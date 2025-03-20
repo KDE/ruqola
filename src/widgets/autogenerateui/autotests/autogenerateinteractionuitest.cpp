@@ -65,6 +65,13 @@ void AutoGenerateInteractionUiTest::shouldLoadJson_data()
         << QByteArray(
                "{\n    \"reminderData\": {\n        \"message\": \"\",\n        \"repeat\": \"once\",\n        \"targetChannel\": \"\",\n        "
                "\"targetType\": \"channel\",\n        \"whenDate\": \"18/03/2025\",\n        \"whenTime\": \"14:00\"\n    }\n}\n");
+
+    QTest::addRow("datetime")
+        << QStringLiteral("datetime")
+        << QByteArray(
+               "{\n    \"43ac4271-0584-11f0-9f18-1735ff3ce6ab\": {\n        "
+               "\"linked-msg-reminder-change-duration-option_msgReminderCreateModal-0c4e4b86-6de8-415e-95e6-de42643f3bcb\": \"custom\"\n    },\n    "
+               "\"reminder\": {\n        \"date\": \"2025-03-20\",\n        \"description\": \"\",\n        \"time\": \"01:15 PM\"\n    }\n}\n");
 }
 
 #include "moc_autogenerateinteractionuitest.cpp"
