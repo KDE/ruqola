@@ -40,6 +40,9 @@ private:
         QString buttonText;
         QSize buttonTextSize;
         QRect buttonRect;
+
+        // Menu
+        QRect menuRect;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block,
                                                                          const QStyleOptionViewItem &option,

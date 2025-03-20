@@ -53,6 +53,9 @@ void MessageDelegateHelperSection::draw(const Block &block,
         // Fix position
         painter->drawText(buttonRect.x(), positionY, layout.buttonText);
     }
+    if (!layout.menuRect.isEmpty()) {
+        mMenuIcon.paint(painter, layout.menuRect.translated(blockRect.topLeft()));
+    }
 }
 
 QSize MessageDelegateHelperSection::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -77,6 +80,10 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
             qDebug() << " click on button";
             return true;
         }
+        if (layout.menuRect.translated(blocksRect.topLeft()).contains(pos)) {
+            qDebug() << " click on menu";
+            return true;
+        }
         // if (!layout.buttonText.isEmpty()) {
         //  TODO
         //}
@@ -96,8 +103,8 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
     switch (blockAccessory.type()) {
     case BlockAccessory::AccessoryType::Overflow: {
         if (!blockAccessory.options().isEmpty()) {
-            qDebug() << " Need to implement it";
-            // TODO draw menu
+            const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+            layout.menuRect = QRect(layout.sectionTextSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
         }
         break;
     }
