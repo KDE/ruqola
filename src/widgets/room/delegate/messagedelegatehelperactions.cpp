@@ -85,15 +85,15 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
         const ActionsLayout layout = layoutActions(block, option, blocksRect.width());
         for (const ButtonLayout &button : layout.buttonList) {
             if (button.buttonRect.translated(blocksRect.topLeft()).contains(pos)) {
-                qDebug() << " button.appId" << button.appId;
-                qDebug() << " button.actionId" << button.actionId;
-                qDebug() << " button.value" << button.value;
-                qDebug() << " button.blockId" << button.blockId;
-                qDebug() << " button.url" << button.blockId;
+                // qDebug() << " button.appId" << button.appId;
+                // qDebug() << " button.actionId" << button.actionId;
+                // qDebug() << " button.value" << button.value;
+                // qDebug() << " button.blockId" << button.blockId;
+                // qDebug() << " button.url" << button.blockId;
                 const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
                 Q_ASSERT(message);
-                qDebug() << " message->roomId" << message->roomId();
-                qDebug() << " message->messageId" << message->messageId();
+                // qDebug() << " message->roomId" << message->roomId();
+                // qDebug() << " message->messageId" << message->messageId();
 
                 if (!button.url.isEmpty()) {
                     Q_EMIT mRocketChatAccount->openLinkRequested(button.url);
