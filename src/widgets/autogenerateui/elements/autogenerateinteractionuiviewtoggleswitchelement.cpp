@@ -75,6 +75,7 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::setInitialOptions(const Q
 
 QVariant AutoGenerateInteractionUiViewToggleSwitchElement::currentValue() const
 {
+    qWarning() << " not implemented yet";
     // TODO
     return {};
 }
