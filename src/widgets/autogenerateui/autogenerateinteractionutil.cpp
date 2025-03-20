@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionutil.h"
+
 using namespace Qt::Literals::StringLiterals;
 QJsonObject AutoGenerateInteractionUtil::createViewBlockActionUser(const ViewBlockActionUserInfo &info)
 {
@@ -127,6 +128,7 @@ QJsonObject AutoGenerateInteractionUtil::createMessageActionButton(const ActionM
     o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
     return o;
 }
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionMessageInfo &t)
 {
     d.space() << "actionId:" << t.actionId;
