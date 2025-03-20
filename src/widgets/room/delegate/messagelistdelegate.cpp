@@ -180,12 +180,10 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
     case Block::BlockType::Divider:
         return mHelperDivider.get();
     case Block::BlockType::Overflow: // TODO look at it!
-        return nullptr;
     case Block::BlockType::Image: // TODO look at it!
-        return nullptr;
     case Block::BlockType::Preview: // TODO look at it!
-        return nullptr;
     case Block::BlockType::Callout: // TODO look at it!
+        qWarning() << " not implemented BlockType " << block.blockType();
         return nullptr;
     }
     return nullptr;

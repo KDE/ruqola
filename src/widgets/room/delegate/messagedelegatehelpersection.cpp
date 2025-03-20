@@ -79,6 +79,7 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
         const SectionLayout layout = layoutSection(block, option);
         if (layout.buttonRect.translated(blocksRect.topLeft()).contains(pos)) {
             qDebug() << " click on button";
+            qWarning() << " need to implement it";
             return true;
         }
         if (layout.menuRect.translated(blocksRect.topLeft()).contains(pos)) {
