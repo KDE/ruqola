@@ -28,8 +28,8 @@ public:
     [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    [[nodiscard]] QList<CustomUserStatus> customUserses() const;
-    void setCustomUserses(const QList<CustomUserStatus> &customUserses);
+    [[nodiscard]] QList<CustomUserStatus> customUserStatusList() const;
+    void setCustomUserStatusList(const QList<CustomUserStatus> &customUserses);
 
     void parseCustomUserStatuses(const QJsonObject &customStatusObj);
     void deleteCustomUserStatuses(const QJsonArray &replyArray);
@@ -37,7 +37,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListCustomUserStatuses(const QJsonObject &commandsObj);
-    QList<CustomUserStatus> mCustomUserses;
+    QList<CustomUserStatus> mCustomUserStatusList;
     int mCustomUserCount = 0;
     int mOffset = 0;
     int mTotal = 0;

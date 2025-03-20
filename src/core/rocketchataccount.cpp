@@ -2866,7 +2866,7 @@ MessageCache *RocketChatAccount::messageCache() const
 
 void RocketChatAccount::slotUpdateCustomUserStatus()
 {
-    mStatusModel->updateCustomStatus(mCustomUserStatuses.customUserses());
+    mStatusModel->updateCustomStatus(mCustomUserStatuses.customUserStatusList());
     Q_EMIT customStatusChanged();
 }
 
