@@ -15,7 +15,10 @@ AutoGenerateInteractionUiViewImageBlock::AutoGenerateInteractionUiViewImageBlock
     : AutoGenerateInteractionUiViewBlockBase(parent)
 {
 }
-AutoGenerateInteractionUiViewImageBlock::~AutoGenerateInteractionUiViewImageBlock() = default;
+AutoGenerateInteractionUiViewImageBlock::~AutoGenerateInteractionUiViewImageBlock()
+{
+    delete mTitle;
+}
 
 QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget(QWidget *parent)
 {
