@@ -12,4 +12,19 @@ AutoGenerateInteractionUiManager::AutoGenerateInteractionUiManager(QObject *pare
 
 AutoGenerateInteractionUiManager::~AutoGenerateInteractionUiManager() = default;
 
+QWidget *AutoGenerateInteractionUiManager::parentWidget() const
+{
+    return mParentWidget;
+}
+
+void AutoGenerateInteractionUiManager::setParentWidget(QWidget *newParentWidget)
+{
+    mParentWidget = newParentWidget;
+}
+
+void AutoGenerateInteractionUiManager::addNewUi(const QJsonObject &obj)
+{
+    mListJsonObject.append(obj);
+}
+
 #include "moc_autogenerateinteractionuimanager.cpp"

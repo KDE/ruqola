@@ -5,6 +5,7 @@
 */
 #pragma once
 
+#include <QJsonObject>
 #include <QObject>
 
 class AutoGenerateInteractionUiManager : public QObject
@@ -13,4 +14,13 @@ class AutoGenerateInteractionUiManager : public QObject
 public:
     explicit AutoGenerateInteractionUiManager(QObject *parent = nullptr);
     ~AutoGenerateInteractionUiManager() override;
+
+    [[nodiscard]] QWidget *parentWidget() const;
+    void setParentWidget(QWidget *newParentWidget);
+
+    void addNewUi(const QJsonObject &obj);
+
+private:
+    QWidget *mParentWidget = nullptr;
+    QList<QJsonObject> mListJsonObject;
 };
