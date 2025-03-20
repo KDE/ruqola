@@ -159,7 +159,7 @@ QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
         o[i.key()] = obj;
     }
 
-    qDebug() << " result " << map;
+    // qDebug() << " result " << map;
     return o;
 }
 

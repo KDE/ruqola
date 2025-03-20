@@ -32,7 +32,7 @@ bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
         // get current State => allow to reapply after that
         currentState = mAutoGenerateInteractionUi->createStateInfos();
     }
-    qDebug() << " values" << currentState;
+    // qDebug() << " values" << currentState;
     if (mAutoGenerateInteractionUi->parseInteractionUi(r)) {
         if (mMainWidget) {
             mainLayout->removeWidget(mMainWidget);
