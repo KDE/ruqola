@@ -29,6 +29,7 @@ void CommandPreviewWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mListView->flow(), QListView::LeftToRight);
     QCOMPARE(mListView->resizeMode(), QListView::Adjust);
     QVERIFY(!mListView->wordWrap());
+    QCOMPARE(mListView->spacing(), 2);
 }
 
 #include "moc_commandpreviewwidgettest.cpp"
