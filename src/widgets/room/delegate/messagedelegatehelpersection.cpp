@@ -93,6 +93,7 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
                     const QString value = opt.value();
                     connect(act, &QAction::triggered, this, [this, value]() {
                         qDebug() << " value " << value;
+                        qWarning() << " need to implement it";
                     });
                 }
                 menu.exec(QCursor::pos());
