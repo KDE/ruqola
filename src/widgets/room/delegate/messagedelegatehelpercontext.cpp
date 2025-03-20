@@ -62,6 +62,10 @@ bool MessageDelegateHelperContext::handleMouseEvent(const Block &block,
                                                     const QStyleOptionViewItem &option,
                                                     const QModelIndex &index)
 {
+    Q_UNUSED(block);
+    Q_UNUSED(mouseEvent);
+    Q_UNUSED(blocksRect);
+    Q_UNUSED(option);
     Q_UNUSED(index);
     return false;
 }

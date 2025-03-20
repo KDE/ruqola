@@ -149,6 +149,8 @@ int MessageAttachmentDelegateHelperBase::charPosition(const QTextDocument *doc,
 
 void MessageAttachmentDelegateHelperBase::drawTitle(const MessageAttachment &msgAttach, QPainter *painter)
 {
+    Q_UNUSED(msgAttach);
+    Q_UNUSED(painter);
 }
 
 void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach,
