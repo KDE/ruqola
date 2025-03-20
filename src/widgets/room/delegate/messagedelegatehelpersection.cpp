@@ -12,6 +12,7 @@
 
 #include <QAbstractItemView>
 #include <QListView>
+#include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>
@@ -82,12 +83,22 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
         }
         if (layout.menuRect.translated(blocksRect.topLeft()).contains(pos)) {
             qDebug() << " click on menu";
+            auto parentWidget = const_cast<QWidget *>(option.widget);
+            const auto blockAccessory = block.blockAccessory();
+            const auto options = blockAccessory.options();
+            if (!options.isEmpty()) {
+                QMenu menu(parentWidget);
+                for (const auto &opt : options) {
+                    auto act = menu.addAction(opt.text());
+                    const QString value = opt.value();
+                    connect(act, &QAction::triggered, this, [this, value]() {
+                        qDebug() << " value " << value;
+                    });
+                }
+                menu.exec(QCursor::pos());
+            }
             return true;
         }
-        // if (!layout.buttonText.isEmpty()) {
-        //  TODO
-        //}
-        // TODO
     }
     return false;
 }
