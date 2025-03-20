@@ -7,12 +7,12 @@
 
 #include <QJsonObject>
 #include <QObject>
-
+class RocketChatAccount;
 class AutoGenerateInteractionUiManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit AutoGenerateInteractionUiManager(QObject *parent = nullptr);
+    explicit AutoGenerateInteractionUiManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~AutoGenerateInteractionUiManager() override;
 
     [[nodiscard]] QWidget *parentWidget() const;
@@ -22,5 +22,6 @@ public:
 
 private:
     QWidget *mParentWidget = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
     QList<QJsonObject> mListJsonObject;
 };

@@ -4,9 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuimanager.h"
+#include "rocketchataccount.h"
 
-AutoGenerateInteractionUiManager::AutoGenerateInteractionUiManager(QObject *parent)
+AutoGenerateInteractionUiManager::AutoGenerateInteractionUiManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
+    , mRocketChatAccount(account)
 {
 }
 
