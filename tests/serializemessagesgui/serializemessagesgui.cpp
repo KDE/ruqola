@@ -58,7 +58,14 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
             mSerialize->setText(QString::fromUtf8(newBa));
             mSerialize->addMessage(newMsg);
 
-            qDebug() << " equal " << (newMsg == msg);
+            const bool equal = (newMsg == msg);
+            if (equal) {
+                mDiffMessage->setPlainText(QStringLiteral("Messages are equal"));
+            } else {
+                QString diff = QStringLiteral("Original Message %1").arg(QDebug::toString(msg));
+                diff += QStringLiteral("\nSerialized Message %1").arg(QDebug::toString(newMsg));
+                mDiffMessage->setPlainText(QStringLiteral("Messages are NOT equal\n%1").arg(diff));
+            }
         }
     });
 
