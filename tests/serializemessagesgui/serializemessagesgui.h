@@ -8,6 +8,7 @@
 
 #include <QWidget>
 class SerializeMessageWidget;
+class QPlainTextEdit;
 class SerializeMessagesGui : public QWidget
 {
     Q_OBJECT
@@ -18,4 +19,5 @@ public:
 private:
     SerializeMessageWidget *const mOriginal;
     SerializeMessageWidget *const mSerialize;
+    QPlainTextEdit *const mDiffMessage;
 };

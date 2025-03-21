@@ -21,6 +21,7 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     : QWidget(parent)
     , mOriginal(new SerializeMessageWidget(this))
     , mSerialize(new SerializeMessageWidget(this))
+    , mDiffMessage(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
 
@@ -46,10 +47,15 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
             const QByteArray newBa = Message::serialize(msg, false);
             mSerialize->setText(QString::fromUtf8(newBa));
             mSerialize->addMessage(newMsg);
+
+            qDebug() << " equal " << (newMsg == msg);
         }
     });
 
-    resize(800, 600);
+    mDiffMessage->setReadOnly(true);
+    mainLayout->addWidget(mDiffMessage);
+
+    resize(1200, 800);
 }
 
 SerializeMessagesGui::~SerializeMessagesGui() = default;
