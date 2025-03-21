@@ -1317,17 +1317,17 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "mAvatar:" << t.avatar();
     d.space() << "mGroupable:" << t.groupable();
     d.space() << "mParseUrls:" << t.parseUrls();
-    if (t.attachments()) {
+    if (t.attachments() && !t.attachments()->isEmpty()) {
         d.space() << "\nAttachment:" << *t.attachments();
     }
 
-    if (t.urls()) {
+    if (t.urls() && !t.urls()->isEmpty()) {
         d.space() << "\nUrls:" << *t.urls();
     }
     d.space() << "Mentions:" << t.mentions();
     d.space() << "mMessageType:" << t.messageType();
     d.space() << "mRole:" << t.role();
-    if (t.reactions()) {
+    if (t.reactions() && t.reactions()->isEmpty()) {
         d.space() << "mReaction:" << *t.reactions();
     }
     d.space() << "mUnread:" << t.unread();
