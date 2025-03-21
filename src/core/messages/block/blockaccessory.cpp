@@ -111,8 +111,7 @@ BlockAccessory BlockAccessory::deserialize(const QJsonObject &o)
     const QJsonArray optionsArray = o["options"_L1].toArray();
     QList<BlockAccessoryOption> options;
     for (const auto &r : optionsArray) {
-        BlockAccessoryOption option;
-        option.parse(r.toObject());
+        const BlockAccessoryOption option = BlockAccessoryOption::deserialize(r.toObject());
         options.append(option);
     }
     accessory.setOptions(std::move(options));
