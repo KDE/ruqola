@@ -384,9 +384,13 @@ void MessageUrl::generateMessageUrlInfo()
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
 {
     QJsonObject obj;
-    obj["pageTitle"_L1] = url.pageTitle();
+    if (!url.pageTitle().isEmpty()) {
+        obj["pageTitle"_L1] = url.pageTitle();
+    }
     obj["url"_L1] = url.url();
-    obj["description"_L1] = url.description();
+    if (!url.description().isEmpty()) {
+        obj["description"_L1] = url.description();
+    }
     if (!url.imageUrl().isEmpty()) {
         obj["imageUrl"_L1] = url.imageUrl();
     }
