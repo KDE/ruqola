@@ -37,6 +37,7 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
 
     mainWidgetLayout->addWidget(mOriginal);
 
+    mSerialize->setReadOnly(true);
     auto generateJsonbutton = new QPushButton(QStringLiteral("Serialize Json"), this);
     mainWidgetLayout->addWidget(generateJsonbutton);
     mainWidgetLayout->addWidget(mSerialize);

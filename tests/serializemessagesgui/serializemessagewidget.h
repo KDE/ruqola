@@ -17,6 +17,7 @@ class SerializeMessageWidget : public QWidget
 public:
     explicit SerializeMessageWidget(QWidget *parent = nullptr);
     ~SerializeMessageWidget() override;
+    void setReadOnly(bool b);
 
     void setText(const QString &text);
     [[nodiscard]] QString text() const;

@@ -28,6 +28,11 @@ SerializeMessageWidget::SerializeMessageWidget(QWidget *parent)
 
 SerializeMessageWidget::~SerializeMessageWidget() = default;
 
+void SerializeMessageWidget::setReadOnly(bool b)
+{
+    mPlainTextEdit->setReadOnly(b);
+}
+
 void SerializeMessageWidget::addMessage(const Message &msg)
 {
     mMessageModel->addMessages({msg});
