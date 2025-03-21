@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:42+0000\n"
-"PO-Revision-Date: 2025-03-13 10:23+0100\n"
+"POT-Creation-Date: 2025-03-21 00:41+0000\n"
+"PO-Revision-Date: 2025-03-20 09:08+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -10172,62 +10172,62 @@ msgstr "Uneix-te"
 msgid "Link Preview"
 msgstr "Visualització prèvia de l'enllaç"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:446
 #, kde-format
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:458
+#: widgets/room/delegate/messagelistdelegate.cpp:456
 #: widgets/room/messagelistview.cpp:411
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Inicia una conversa privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:684
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:694
+#: widgets/room/delegate/messagelistdelegate.cpp:692
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 missatge"
 msgstr[1] "%1 missatges"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:694
+#: widgets/room/delegate/messagelistdelegate.cpp:692
 #, kde-format
 msgid "No message yet"
 msgstr "Encara no hi ha cap missatge"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1003
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "S'està seguint"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1007
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "El missatge s'ha fixat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1011
+#: widgets/room/delegate/messagelistdelegate.cpp:1009
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1015
+#: widgets/room/delegate/messagelistdelegate.cpp:1013
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Resposta al fil"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1019
+#: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -11477,6 +11477,8 @@ msgstr "Depuració: explora la traducció des del servidor RC."
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
+"Implementa el suport de la IU de connectors (crea el quadre de diàleg per a "
+"configurar les opcions)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format

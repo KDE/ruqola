@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:42+0000\n"
-"PO-Revision-Date: 2025-03-13 11:38+0400\n"
+"POT-Creation-Date: 2025-03-21 00:41+0000\n"
+"PO-Revision-Date: 2025-03-20 09:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -10155,19 +10155,19 @@ msgstr "انضم"
 msgid "Link Preview"
 msgstr "معاينة الوصلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:446
 #, kde-format
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:458
+#: widgets/room/delegate/messagelistdelegate.cpp:456
 #: widgets/room/messagelistview.cpp:411
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "ابدأ محادثة خاصة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:684
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10178,7 +10178,7 @@ msgstr[3] "%1 ردود"
 msgstr[4] "%1 ردًّا"
 msgstr[5] "%1 ردّ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:694
+#: widgets/room/delegate/messagelistdelegate.cpp:692
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10189,36 +10189,36 @@ msgstr[3] "%1 رسائل"
 msgstr[4] "%1 رسالة"
 msgstr[5] "%1 رسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:694
+#: widgets/room/delegate/messagelistdelegate.cpp:692
 #, kde-format
 msgid "No message yet"
 msgstr "لا يوجد رسائل بعد"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1003
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "متابعة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1007
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "لقد ثُبتت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1011
+#: widgets/room/delegate/messagelistdelegate.cpp:1009
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "لقد عُلّمت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1015
+#: widgets/room/delegate/messagelistdelegate.cpp:1013
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1019
+#: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -11394,11 +11394,9 @@ msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr "توجد نسخة جديدة. انقر <a href=\"%1\">هنا</a> لتنزيله."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
-#, fuzzy, kde-format
-#| msgid ""
-#| "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+#, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-msgstr "توجد نسخة جديدة. انقر <a href=\"%1\">هنا</a> لتنزيله."
+msgstr "توجد نسخة جديدة. يمكن أن تجدها <a href=\"%1\">هنا</a>."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

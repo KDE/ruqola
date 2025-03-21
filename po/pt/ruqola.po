@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-20 00:42+0000\n"
+"POT-Creation-Date: 2025-03-21 00:41+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -10899,12 +10899,12 @@ msgstr "Juntar-se"
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:446
 #, kde-format
 msgid "User Info"
 msgstr "Informações do Utilizador"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:458
+#: widgets/room/delegate/messagelistdelegate.cpp:456
 #: widgets/room/messagelistview.cpp:411
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
@@ -10912,54 +10912,54 @@ msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Iniciar uma Conversação Privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:684
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:694
+#: widgets/room/delegate/messagelistdelegate.cpp:692
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensagem"
 msgstr[1] "%1 mensagens"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:694
+#: widgets/room/delegate/messagelistdelegate.cpp:692
 #, kde-format
 msgid "No message yet"
 msgstr "Ainda sem mensagem"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1003
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, fuzzy, kde-format
 #| msgid "Following"
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "A Seguir"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1007
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, fuzzy, kde-format
 #| msgid "Message has been pinned"
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "A mensagem ficou fixa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1011
+#: widgets/room/delegate/messagelistdelegate.cpp:1009
 #, fuzzy, kde-format
 #| msgid "Message has been starred"
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "A mensagem ficou marcada com uma estrela"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1015
+#: widgets/room/delegate/messagelistdelegate.cpp:1013
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Responder no Tópico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1019
+#: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, fuzzy, kde-format
 #| msgid "Search Emoticon..."
 msgctxt "@info:tooltip"
