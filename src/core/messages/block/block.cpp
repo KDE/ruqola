@@ -268,6 +268,9 @@ Block Block::deserialize(const QJsonObject &o)
     if (o.contains("accessory"_L1)) {
         block.setBlockAccessory(BlockAccessory::deserialize(o["accessory"_L1].toObject()));
     }
+    if (o.contains("elements"_L1)) {
+        // TODO
+    }
     // TODO blockAction
     return block;
 }
