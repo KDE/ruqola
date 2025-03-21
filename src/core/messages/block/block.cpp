@@ -269,9 +269,21 @@ Block Block::deserialize(const QJsonObject &o)
         block.setBlockAccessory(BlockAccessory::deserialize(o["accessory"_L1].toObject()));
     }
     if (o.contains("elements"_L1)) {
-        // TODO
+        QList<BlockAction> blockActions;
+        const QJsonArray elements = o["elements"_L1].toArray();
+        const auto elementsCount = elements.count();
+        blockActions.reserve(elementsCount);
+        for (auto i = 0; i < elementsCount; ++i) {
+            const BlockAction action = BlockAction::deserialize(elements.at(i).toObject());
+            if (action.isValid()) {
+                blockActions.append(std::move(action));
+            } else {
+                // qDebug() << "Invalid elements" << elements.at(i).toObject() << " action " << action;
+                qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();
+            }
+        }
+        block.setBlockActions(blockActions);
     }
-    // TODO blockAction
     return block;
 }
 
