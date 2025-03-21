@@ -643,7 +643,8 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
     } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
         MessagesModel *model = messageModel();
         auto isEditable = [this](const Message &msg) {
-            return mCurrentRocketChatAccount->isMessageEditable(msg);
+            // Don't allow to edit no own message with Up+ALT (we still can edit with mouse)
+            return (msg.userId() == mCurrentRocketChatAccount->userId()) && mCurrentRocketChatAccount->isMessageEditable(msg);
         };
         if (key == Qt::Key_Up) {
             const Message &msg = model->findLastMessageBefore(mMessageIdBeingEdited, isEditable);
