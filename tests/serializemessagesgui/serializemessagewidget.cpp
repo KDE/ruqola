@@ -9,6 +9,7 @@
 #include "room/messagelistview.h"
 #include <QHBoxLayout>
 #include <QPlainTextEdit>
+#include <QSplitter>
 
 SerializeMessageWidget::SerializeMessageWidget(QWidget *parent)
     : QWidget{parent}
@@ -17,9 +18,11 @@ SerializeMessageWidget::SerializeMessageWidget(QWidget *parent)
     , mMessageModel(new MessagesModel())
 {
     auto mainLayout = new QHBoxLayout(this);
+    auto splitter = new QSplitter(this);
     mainLayout->setContentsMargins({});
-    mainLayout->addWidget(mPlainTextEdit);
-    mainLayout->addWidget(mMessageListView);
+    mainLayout->addWidget(splitter);
+    splitter->addWidget(mPlainTextEdit);
+    splitter->addWidget(mMessageListView);
     mMessageListView->setModel(mMessageModel);
 }
 
