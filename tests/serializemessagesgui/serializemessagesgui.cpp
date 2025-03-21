@@ -14,6 +14,7 @@
 #include <QJsonObject>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QSplitter>
 #include <QStandardPaths>
 #include <QVBoxLayout>
 
@@ -25,11 +26,20 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
 
-    mainLayout->addWidget(mOriginal);
+    auto splitter = new QSplitter(Qt::Orientation::Vertical, this);
+    mainLayout->addWidget(splitter);
+
+    auto mainWidget = new QWidget(this);
+    splitter->addWidget(mainWidget);
+
+    auto mainWidgetLayout = new QVBoxLayout(mainWidget);
+    mainWidgetLayout->setContentsMargins({});
+
+    mainWidgetLayout->addWidget(mOriginal);
 
     auto generateJsonbutton = new QPushButton(QStringLiteral("Serialize Json"), this);
-    mainLayout->addWidget(generateJsonbutton);
-    mainLayout->addWidget(mSerialize);
+    mainWidgetLayout->addWidget(generateJsonbutton);
+    mainWidgetLayout->addWidget(mSerialize);
 
     connect(generateJsonbutton, &QPushButton::clicked, this, [this]() {
         const QString json = mOriginal->text();
@@ -53,7 +63,7 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     });
 
     mDiffMessage->setReadOnly(true);
-    mainLayout->addWidget(mDiffMessage);
+    splitter->addWidget(mDiffMessage);
 
     resize(1200, 800);
 }
