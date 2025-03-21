@@ -28,7 +28,7 @@ BlockAccessoryOption BlockAccessoryOption::deserialize(const QJsonObject &o)
 {
     BlockAccessoryOption option;
     option.setValue(o["value"_L1].toString());
-    option.setValue(o["text"_L1].toString());
+    option.setText(o["text"_L1].toString());
     return option;
 }
 
