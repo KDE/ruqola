@@ -131,7 +131,7 @@ QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> AutoGene
 
 void AutoGenerateInteractionUiViewBlocks::assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map)
 {
-    for (const auto &e : mBlockElements) {
+    for (const auto &e : std::as_const(mBlockElements)) {
         if (map.contains(QString::fromLatin1(e->blockId()))) {
             e->assignState(map[QString::fromLatin1(e->blockId())]);
         }
@@ -165,7 +165,7 @@ QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
 
 void AutoGenerateInteractionUiViewBlocks::setErrorMessages(const QMap<QString, QString> &map)
 {
-    for (const auto &e : mBlockElements) {
+    for (const auto &e : std::as_const(mBlockElements)) {
         e->setErrorMessages(map);
     }
 }

@@ -54,7 +54,8 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
                 | MultiConversationsSelectElement
                 | MultiUsersSelectElement
 */
-    for (const auto &r : json["elements"_L1].toArray()) {
+    const QJsonArray array = json["elements"_L1].toArray();
+    for (const auto &r : array) {
         const QString type = r["type"_L1].toString();
         if (type == "button"_L1) {
             auto e = new AutoGenerateInteractionUiViewButtonElement;
