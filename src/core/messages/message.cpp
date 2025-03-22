@@ -591,6 +591,9 @@ void Message::parseAttachment(const QJsonArray &attachments)
             mAttachments.reset(new MessageAttachments);
         }
         mAttachments->parseMessageAttachments(attachments, messageId());
+        if (mAttachments->isEmpty()) {
+            mAttachments.reset();
+        }
     }
 }
 
