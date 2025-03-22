@@ -1101,7 +1101,9 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     message.mRole = o["role"_L1].toString();
-    message.mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(o["type"_L1].toString());
+    if (o.contains("type"_L1)) {
+        message.mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(o["type"_L1].toString());
+    }
     message.mEmoji = o["emoji"_L1].toString();
     message.mMessageType = o["messageType"_L1].toVariant().value<MessageType>();
 
