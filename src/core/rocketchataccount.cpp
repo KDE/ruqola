@@ -74,7 +74,6 @@
 #include "discussions/discussions.h"
 #include "emoji/loademojicustomjob.h"
 #include "license/licensesinfojob.h"
-#include "license/licensesisenterprisejob.h"
 #include "listmessages.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "localdatabase/localdatabaseutils.h"
