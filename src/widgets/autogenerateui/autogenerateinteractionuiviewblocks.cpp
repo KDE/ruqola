@@ -70,7 +70,7 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlocks &t)
 {
     for (const auto &e : t.blockElements()) {
-        d.space() << "blockElements: e: " << *e;
+        d.space() << "blockElements:" << *e;
     }
     return d;
 }
