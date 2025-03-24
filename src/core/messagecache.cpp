@@ -47,7 +47,7 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
     if (cachedMessage) {
         return cachedMessage;
     } else if (!mMessageJobs.contains(messageId)) {
-#if 1
+#ifdef USE_GET_MESSAGE_JOB
         auto job = new RocketChatRestApi::GetMessageJob(this);
         mMessageJobs.insert(messageId, job);
         job->setMessageId(messageId);
@@ -66,7 +66,6 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         mMessageJobs.insert(messageId, job);
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, messageId](const QJsonObject &replyObj) {
-            qDebug() << " getSingleMessage****************************************************" << replyObj;
             slotGetSingleMessageDone(replyObj, messageId);
         });
         if (!job->start()) {
@@ -96,20 +95,18 @@ void MessageCache::slotGetSingleMessageDone(const QJsonObject &obj, const QByteA
     if (obj.contains("result"_L1)) {
         const QJsonObject msgObject = obj["result"_L1].toObject();
         if (msgObject.isEmpty()) {
-            qDebug() << " Message " << messageId << " does not exist. It was removed it seems";
+            qCWarning(RUQOLA_LOG) << " Message " << messageId << " does not exist. It was removed it seems";
             // TODO load from attachment info ???
         } else {
-            qDebug() << "msgObject************** " << msgObject;
-            /*
-            Q_ASSERT(!msgObject.isEmpty());
+            // qDebug() << "msgObject************** " << msgObject;
             auto message = new Message;
-            message->parseMessage(msgObject, true, nullptr);
+            message->parseMessage(msgObject, false, nullptr);
             const QByteArray msgId = message->messageId();
             Q_ASSERT(messageId == msgId);
             mMessages.insert(msgId, message);
             mMessageJobs.remove(messageId);
+            // qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC " << *message;
             Q_EMIT messageLoaded(msgId);
-            */
         }
     } else {
         qDebug() << " Message " << messageId << " invalid" << obj;
