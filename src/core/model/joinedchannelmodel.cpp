@@ -15,7 +15,8 @@ JoinedChannelModel::~JoinedChannelModel() = default;
 
 int JoinedChannelModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mRooms.count();
 }
 

@@ -16,7 +16,8 @@ BannerInfosModel::~BannerInfosModel() = default;
 
 int BannerInfosModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mBannerInfos.count();
 }
 

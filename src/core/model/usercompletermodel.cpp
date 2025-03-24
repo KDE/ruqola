@@ -37,7 +37,8 @@ void UserCompleterModel::addUsers(const QList<User> &users)
 
 int UserCompleterModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mUsers.count();
 }
 

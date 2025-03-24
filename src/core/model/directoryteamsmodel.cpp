@@ -21,7 +21,8 @@ void DirectoryTeamsModel::checkFullList()
 
 int DirectoryTeamsModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mRoomsInfo.count();
 }
 

@@ -16,7 +16,8 @@ AutotranslateLanguagesModel::~AutotranslateLanguagesModel() = default;
 
 int AutotranslateLanguagesModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mAutoTranslateLanguages.count();
 }
 

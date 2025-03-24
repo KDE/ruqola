@@ -100,7 +100,8 @@ RocketChatAccount *RocketChatAccountModel::account(int index) const
 
 int RocketChatAccountModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mRocketChatAccount.count();
 }
 

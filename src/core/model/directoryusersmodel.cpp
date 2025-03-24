@@ -22,7 +22,8 @@ void DirectoryUsersModel::checkFullList()
 
 int DirectoryUsersModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mUsers.count();
 }
 

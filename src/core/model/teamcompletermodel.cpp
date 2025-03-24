@@ -35,7 +35,8 @@ void TeamCompleterModel::insertTeams(const QList<TeamCompleter> &teams)
 
 int TeamCompleterModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mTeams.count();
 }
 

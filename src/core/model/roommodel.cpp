@@ -83,7 +83,8 @@ Room *RoomModel::findRoom(const QByteArray &roomID) const
 
 int RoomModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mRoomsList.size();
 }
 

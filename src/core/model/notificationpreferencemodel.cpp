@@ -17,7 +17,8 @@ NotificationPreferenceModel::~NotificationPreferenceModel() = default;
 
 int NotificationPreferenceModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mNotificationPreferenceList.count();
 }
 

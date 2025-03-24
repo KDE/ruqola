@@ -35,7 +35,8 @@ void TeamRoomCompleterModel::setRooms(const QList<TeamRoomCompleter> &teams)
 
 int TeamRoomCompleterModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mRooms.count();
 }
 

@@ -17,7 +17,8 @@ NotificationDesktopDurationPreferenceModel::~NotificationDesktopDurationPreferen
 
 int NotificationDesktopDurationPreferenceModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) // flat model
+        return 0;
     return mNotificationDestktopDurationPreferenceList.count();
 }
 
