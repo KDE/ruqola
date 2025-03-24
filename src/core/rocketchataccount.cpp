@@ -862,7 +862,7 @@ void RocketChatAccount::openDirectChannel(const QString &roomId)
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start OpenDmJob job";
         }
-        qDebug() << "Open direct conversation channel with" << roomId;
+        // qDebug() << "Open direct conversation channel with" << roomId;
     }
 }
 
