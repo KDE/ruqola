@@ -47,7 +47,7 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
     if (cachedMessage) {
         return cachedMessage;
     } else if (!mMessageJobs.contains(messageId)) {
-#if 0
+#if 1
         auto job = new RocketChatRestApi::GetMessageJob(this);
         mMessageJobs.insert(messageId, job);
         job->setMessageId(messageId);
