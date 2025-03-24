@@ -47,7 +47,7 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
     if (cachedMessage) {
         return cachedMessage;
     } else if (!mMessageJobs.contains(messageId)) {
-#if 1
+#if 0
         auto job = new RocketChatRestApi::GetMessageJob(this);
         mMessageJobs.insert(messageId, job);
         job->setMessageId(messageId);
@@ -62,13 +62,12 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
         const QJsonArray params{QString::fromLatin1(messageId)};
         info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
         info.anonymous = false;
-        qDebug() << "params  " << params;
         job->setMethodCallJobInfo(std::move(info));
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         mMessageJobs.insert(messageId, job);
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, messageId](const QJsonObject &replyObj) {
             qDebug() << " getSingleMessage****************************************************" << replyObj;
-            slotGetMessageDone(replyObj, messageId);
+            slotGetSingleMessageDone(replyObj, messageId);
         });
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start MethodCallJobInfo/getSingleMessage job";
@@ -90,6 +89,31 @@ void MessageCache::slotGetThreadMessagesDone(const QJsonObject &obj, const QByte
     }
     mThreadMessageJobs.remove(threadMessageId);
     Q_EMIT modelLoaded();
+}
+
+void MessageCache::slotGetSingleMessageDone(const QJsonObject &obj, const QByteArray &messageId)
+{
+    if (obj.contains("result"_L1)) {
+        const QJsonObject msgObject = obj["result"_L1].toObject();
+        if (msgObject.isEmpty()) {
+            qDebug() << " Message " << messageId << " does not exist. It was removed it seems";
+            // TODO load from attachment info ???
+        } else {
+            qDebug() << "msgObject************** " << msgObject;
+            /*
+            Q_ASSERT(!msgObject.isEmpty());
+            auto message = new Message;
+            message->parseMessage(msgObject, true, nullptr);
+            const QByteArray msgId = message->messageId();
+            Q_ASSERT(messageId == msgId);
+            mMessages.insert(msgId, message);
+            mMessageJobs.remove(messageId);
+            Q_EMIT messageLoaded(msgId);
+            */
+        }
+    } else {
+        qDebug() << " Message " << messageId << " invalid" << obj;
+    }
 }
 
 void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QByteArray &messageId)
