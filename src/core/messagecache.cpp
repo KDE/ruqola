@@ -7,6 +7,7 @@
 #include "messagecache.h"
 
 #include "connection.h"
+#include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 
@@ -46,6 +47,7 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
     if (cachedMessage) {
         return cachedMessage;
     } else if (!mMessageJobs.contains(messageId)) {
+#if 1
         auto job = new RocketChatRestApi::GetMessageJob(this);
         mMessageJobs.insert(messageId, job);
         job->setMessageId(messageId);
@@ -53,6 +55,25 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
         if (!startJob(job)) {
             qCDebug(RUQOLA_LOG) << "Impossible to start GetMessageJob";
         }
+#else
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+        info.methodName = QStringLiteral("getSingleMessage");
+        const QJsonArray params{QString::fromLatin1(messageId)};
+        info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+        info.anonymous = false;
+        qDebug() << "params  " << params;
+        job->setMethodCallJobInfo(std::move(info));
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        mMessageJobs.insert(messageId, job);
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, messageId](const QJsonObject &replyObj) {
+            qDebug() << " getSingleMessage****************************************************" << replyObj;
+            slotGetMessageDone(replyObj, messageId);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start MethodCallJobInfo/getSingleMessage job";
+        }
+#endif
     }
     return nullptr;
 }

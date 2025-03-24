@@ -18,6 +18,7 @@ namespace RocketChatRestApi
 class RestApiAbstractJob;
 class GetThreadMessagesJob;
 class GetMessageJob;
+class MethodCallJob;
 }
 
 class LIBRUQOLACORE_EXPORT MessageCache : public QObject
@@ -44,7 +45,11 @@ private:
     mutable QMap<QByteArray, RocketChatRestApi::GetThreadMessagesJob *> mThreadMessageJobs;
     QCache<QByteArray, ThreadMessageModel> mThreadMessageModels;
 
+#if 1
     mutable QMap<QByteArray, RocketChatRestApi::GetMessageJob *> mMessageJobs;
+#else
+    mutable QMap<QByteArray, RocketChatRestApi::MethodCallJob *> mMessageJobs;
+#endif
     QCache<QByteArray, Message> mMessages;
     RocketChatAccount *const mRocketChatAccount;
 };
