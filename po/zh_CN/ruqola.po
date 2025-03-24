@@ -10825,7 +10825,7 @@ msgstr ""
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
-msgstr ""
+msgstr "<qt>这将完全隐藏菜单栏。按 %1 可以重新显示。</qt>"
 
 #: widgets/ruqolamainwindow.cpp:1223
 #, kde-format
