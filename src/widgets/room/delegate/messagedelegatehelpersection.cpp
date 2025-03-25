@@ -5,6 +5,7 @@
 */
 
 #include "messagedelegatehelpersection.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "common/delegatepaintutil.h"
 #include "rocketchataccount.h"
 
@@ -78,6 +79,8 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
         const QPoint pos = mouseEvent->pos();
         const SectionLayout layout = layoutSection(block, option);
         if (layout.buttonRect.translated(blocksRect.topLeft()).contains(pos)) {
+            AutoGenerateInteractionUtil::MessageBlockMessageActionUserInfo info;
+            // TODO
             qDebug() << " click on button";
             qWarning() << " need to implement it";
             return true;
