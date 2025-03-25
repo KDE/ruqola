@@ -7,7 +7,10 @@
 #include "messagedelegatehelpersection.h"
 #include "autogenerateui/autogenerateinteractionutil.h"
 #include "common/delegatepaintutil.h"
+#include "connection.h"
+#include "misc/appsuiinteractionjob.h"
 #include "rocketchataccount.h"
+#include "ruqola_autogenerateui_debug.h"
 
 #include <KLocalizedString>
 
@@ -79,7 +82,27 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
         const QPoint pos = mouseEvent->pos();
         const SectionLayout layout = layoutSection(block, option);
         if (layout.buttonRect.translated(blocksRect.topLeft()).contains(pos)) {
-            AutoGenerateInteractionUtil::MessageBlockMessageActionUserInfo info;
+            const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+            AutoGenerateInteractionUtil::MessageBlockMessageActionUserInfo messageBockUserinfo;
+            messageBockUserinfo.actionId = block.callId().toLatin1();
+            messageBockUserinfo.roomId = message->roomId();
+            messageBockUserinfo.messageId = message->messageId();
+            messageBockUserinfo.threadId = message->threadMessageId();
+            messageBockUserinfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
+            RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+            info.methodName = block.appId();
+            info.messageObj = AutoGenerateInteractionUtil::createBlockMessageActionUser(messageBockUserinfo);
+            auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            job->setAppsUiInteractionJobInfo(info);
+            connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
+                Q_UNUSED(replyObject);
+                // Q_EMIT submitCalled();
+                qDebug() << " DONE";
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
+            }
             // TODO
             qDebug() << " click on button";
             qWarning() << " need to implement it";
