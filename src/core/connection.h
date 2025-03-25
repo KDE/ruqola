@@ -124,7 +124,6 @@ public:
     void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());
     void setUserStatus(const QString &userId, RocketChatRestApi::SetStatusJob::StatusType status, const QString &message = QString());
     void usersPresence();
-    void customUserStatus();
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void getChannelsCounter(const QByteArray &roomId);
@@ -153,7 +152,6 @@ Q_SIGNALS:
     void getSnippetedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getMentionedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void usersPresenceDone(const QJsonObject &obj);
-    void customUserStatusDone(const QJsonObject &);
 
     void usersAutocompleteDone(const QJsonObject &obj);
 

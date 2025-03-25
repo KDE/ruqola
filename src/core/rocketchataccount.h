@@ -593,6 +593,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString restLoginStatusText() const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString ddpLoginStatusText() const;
     LIBRUQOLACORE_NO_EXPORT void slotFileLanguagesDownloaded();
+    LIBRUQOLACORE_NO_EXPORT void customUserStatus();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

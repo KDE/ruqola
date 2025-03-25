@@ -74,8 +74,6 @@
 
 #include "permissions/permissionslistalljob.h"
 
-#include "custom/customuserstatuslistjob.h"
-
 #include <QNetworkAccessManager>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
@@ -1160,16 +1158,6 @@ void Connection::usersPresence()
     connect(job, &UsersPresenceJob::usersPresenceDone, this, &Connection::usersPresenceDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start usersPresenceJob";
-    }
-}
-
-void Connection::customUserStatus()
-{
-    auto job = new CustomUserStatusListJob(this);
-    initializeRestApiJob(job);
-    connect(job, &CustomUserStatusListJob::customUserStatusDone, this, &Connection::customUserStatusDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusJob";
     }
 }
 

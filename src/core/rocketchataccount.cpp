@@ -92,6 +92,7 @@
 #include <QTimer>
 #include <TextEmoticonsCore/EmojiModel>
 #include <TextEmoticonsCore/EmojiModelManager>
+#include <custom/customuserstatuslistjob.h>
 
 #if HAVE_NETWORKMANAGER
 #include <NetworkManagerQt/Manager>
@@ -560,7 +561,6 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi.get(), &Connection::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
         connect(mRestApi.get(), &Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
         connect(mRestApi.get(), &Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
-        connect(mRestApi.get(), &Connection::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
         connect(mRestApi.get(), &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi.get(), &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
         connect(mRestApi.get(), &Connection::networkError, this, [this]() {
@@ -2327,7 +2327,7 @@ void RocketChatAccount::initializeAccount()
     // Initialize sounds
     mCustomSoundManager->initializeDefaultSounds();
     ddp()->listCustomSounds();
-    restApi()->customUserStatus();
+    customUserStatus();
     slotLoadRoles();
     checkLicenses();
     qDebug() << "initializeAccount: encryptionEnabled =" << mRuqolaServerConfig->encryptionEnabled() << "account name" << accountName();
@@ -2336,6 +2336,16 @@ void RocketChatAccount::initializeAccount()
     }
 
     Q_EMIT accountInitialized();
+}
+
+void RocketChatAccount::customUserStatus()
+{
+    auto job = new RocketChatRestApi::CustomUserStatusListJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::CustomUserStatusListJob::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusJob";
+    }
 }
 
 bool RocketChatAccount::hasAtLeastVersion(int major, int minor, int patch) const
