@@ -5,7 +5,6 @@
 */
 
 #include "customsoundslistjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 CustomSoundsListJob::CustomSoundsListJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

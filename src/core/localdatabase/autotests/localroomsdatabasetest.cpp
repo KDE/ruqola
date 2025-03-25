@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "localroomsdatabasetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabase/localroomsdatabase.h"
 #include "room.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 
 QTEST_GUILESS_MAIN(LocalRoomsDatabaseTest)
+using namespace Qt::Literals::StringLiterals;
 static QString accountName()
 {
     return QStringLiteral("myAccount");

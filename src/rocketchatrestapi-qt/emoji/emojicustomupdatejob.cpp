@@ -5,7 +5,6 @@
 */
 
 #include "emojicustomupdatejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMimeDatabase>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 EmojiCustomUpdateJob::EmojiCustomUpdateJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

@@ -5,12 +5,12 @@
 */
 
 #include "bannerinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
 BannerInfo::BannerInfo() = default;
 
 BannerInfo::~BannerInfo() = default;

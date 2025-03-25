@@ -5,7 +5,6 @@
 */
 
 #include "textconvertertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "emoticons/emojimanager.h"
 #include "messages/message.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KColorScheme>
 
 QTEST_GUILESS_MAIN(TextConverterTest)
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {

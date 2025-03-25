@@ -5,7 +5,6 @@
 */
 
 #include "inputcompletermodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QModelIndex>
 
+using namespace Qt::Literals::StringLiterals;
 InputCompleterModel::InputCompleterModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRocketChatAccount(account)

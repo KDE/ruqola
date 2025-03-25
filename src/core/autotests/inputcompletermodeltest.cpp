@@ -5,7 +5,6 @@
 */
 
 #include "inputcompletermodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/inputcompletermodel.h"
 #include "test_model_helpers.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(InputCompleterModelTest)
 
+using namespace Qt::Literals::StringLiterals;
 InputCompleterModelTest::InputCompleterModelTest(QObject *parent)
     : QObject(parent)
 {

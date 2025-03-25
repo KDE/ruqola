@@ -5,13 +5,13 @@
 */
 
 #include "ruqolaserverconfigtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_autotest_helper.h"
 #include "ruqolaserverconfig.h"
 
 QTEST_GUILESS_MAIN(RuqolaServerConfigTest)
 
+using namespace Qt::Literals::StringLiterals;
 RuqolaServerConfigTest::RuqolaServerConfigTest(QObject *parent)
     : QObject(parent)
 {
