@@ -40,16 +40,6 @@ QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index,
     return {};
 }
 
-QList<CustomSoundInfo> NotificationDesktopSoundPreferenceModel::notificationDestktopSoundInfo() const
-{
-    return mCustomSoundManager->customSoundsInfo();
-}
-
-void NotificationDesktopSoundPreferenceModel::setNotificationDestktopSoundInfo(const QList<CustomSoundInfo> &newNotificationDestktopSoundInfo)
-{
-    mCustomSoundManager->setCustomSoundsInfo(newNotificationDestktopSoundInfo);
-}
-
 CustomSoundsManager *NotificationDesktopSoundPreferenceModel::customSoundManager() const
 {
     return mCustomSoundManager;

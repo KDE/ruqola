@@ -30,9 +30,6 @@ public:
 
     [[nodiscard]] QByteArray currentPreference(int index) const;
 
-    [[nodiscard]] QList<CustomSoundInfo> notificationDestktopSoundInfo() const;
-    void setNotificationDestktopSoundInfo(const QList<CustomSoundInfo> &newNotificationDestktopSoundInfo);
-
     [[nodiscard]] CustomSoundsManager *customSoundManager() const;
     void setCustomSoundManager(CustomSoundsManager *newCustomSoundManager);
 
