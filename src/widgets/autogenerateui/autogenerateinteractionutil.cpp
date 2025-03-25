@@ -141,7 +141,7 @@ QJsonObject AutoGenerateInteractionUtil::createBlockMessageActionUser(const Mess
         o["tmid"_L1] = QString::fromLatin1(info.threadId);
     }
     QJsonObject payload;
-    payload["context"_L1] = "messageAction"_L1;
+    // TODO payload["blockId"_L1] = info.
     o["payload"_L1] = payload;
 
     QJsonObject container;

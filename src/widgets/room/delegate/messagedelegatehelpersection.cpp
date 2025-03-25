@@ -95,17 +95,14 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
             auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             job->setAppsUiInteractionJobInfo(info);
-            connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
+            qDebug() << " info " << info;
+            connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
                 Q_UNUSED(replyObject);
-                // Q_EMIT submitCalled();
                 qDebug() << " DONE";
             });
             if (!job->start()) {
                 qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
             }
-            // TODO
-            qDebug() << " click on button";
-            qWarning() << " need to implement it";
             return true;
         }
         if (layout.menuRect.translated(blocksRect.topLeft()).contains(pos)) {
