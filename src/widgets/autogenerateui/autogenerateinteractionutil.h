@@ -51,6 +51,8 @@ struct MessageBlockMessageActionUserInfo {
     QByteArray messageId;
     QByteArray triggerId;
     QByteArray threadId;
+    QString value;
+    QString blockId;
 };
 [[nodiscard]] QJsonObject createBlockMessageActionUser(const MessageBlockMessageActionUserInfo &info);
 };

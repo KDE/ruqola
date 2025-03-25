@@ -131,7 +131,9 @@ QJsonObject AutoGenerateInteractionUtil::createMessageActionButton(const ActionM
 
 QJsonObject AutoGenerateInteractionUtil::createBlockMessageActionUser(const MessageBlockMessageActionUserInfo &info)
 {
-    // {"type":"blockAction","actionId":"finish","payload":{"blockId":"33fec460-fcfb-11ef-85ff-4bacdd8b2d67","value":"finish"},"container":{"type":"message","id":"acAmZ9pPwPnucd3hy"},"rid":"67b7116fc0984e12f9661a2c","mid":"acAmZ9pPwPnucd3hy","triggerId":"MrXYAw674kHmpD7fe"}
+    // {"type":"blockAction","actionId":"finish","payload":{"blockId":"33fec460-fcfb-11ef-85ff-4bacdd8b2d67","value":"finish"},
+    // "container":{"type":"message","id":"acAmZ9pPwPnucd3hy"},"rid":"67b7116fc0984e12f9661a2c",
+    // "mid":"acAmZ9pPwPnucd3hy","triggerId":"MrXYAw674kHmpD7fe"}
     QJsonObject o;
     o["type"_L1] = "blockAction"_L1;
     o["actionId"_L1] = QString::fromLatin1(info.actionId);
@@ -141,7 +143,8 @@ QJsonObject AutoGenerateInteractionUtil::createBlockMessageActionUser(const Mess
         o["tmid"_L1] = QString::fromLatin1(info.threadId);
     }
     QJsonObject payload;
-    // TODO payload["blockId"_L1] = info.
+    payload["blockId"_L1] = info.blockId;
+    payload["value"_L1] = info.value;
     o["payload"_L1] = payload;
 
     QJsonObject container;
@@ -177,6 +180,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::MessageBlockMessa
     d.space() << "triggerId:" << t.triggerId;
     d.space() << "roomId:" << t.roomId;
     d.space() << "messageId:" << t.messageId;
-    d.space() << "messageId:" << t.threadId;
+    d.space() << "threadId:" << t.threadId;
+    d.space() << "blockId:" << t.blockId;
+    d.space() << "value:" << t.value;
     return d;
 }

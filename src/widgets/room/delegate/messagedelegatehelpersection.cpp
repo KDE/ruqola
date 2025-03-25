@@ -84,18 +84,20 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
         if (layout.buttonRect.translated(blocksRect.topLeft()).contains(pos)) {
             const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
             AutoGenerateInteractionUtil::MessageBlockMessageActionUserInfo messageBockUserinfo;
-            messageBockUserinfo.actionId = block.callId().toLatin1();
+            messageBockUserinfo.actionId = block.blockAccessory().actionId();
             messageBockUserinfo.roomId = message->roomId();
             messageBockUserinfo.messageId = message->messageId();
             messageBockUserinfo.threadId = message->threadMessageId();
             messageBockUserinfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
+            messageBockUserinfo.blockId = block.blockId();
+            messageBockUserinfo.value = block.blockAccessory().value();
             RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
             info.methodName = block.appId();
             info.messageObj = AutoGenerateInteractionUtil::createBlockMessageActionUser(messageBockUserinfo);
             auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             job->setAppsUiInteractionJobInfo(info);
-            qDebug() << " info " << info;
+            // qDebug() << " info " << info;
             connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
                 Q_UNUSED(replyObject);
                 qDebug() << " DONE";
@@ -106,18 +108,38 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
             return true;
         }
         if (layout.menuRect.translated(blocksRect.topLeft()).contains(pos)) {
-            qDebug() << " click on menu";
             auto parentWidget = const_cast<QWidget *>(option.widget);
             const auto blockAccessory = block.blockAccessory();
             const auto options = blockAccessory.options();
             if (!options.isEmpty()) {
                 QMenu menu(parentWidget);
+                const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
                 for (const auto &opt : options) {
                     auto act = menu.addAction(opt.text());
                     const QString value = opt.value();
-                    connect(act, &QAction::triggered, this, [this, value]() {
-                        qDebug() << " value " << value;
-                        qWarning() << " need to implement it";
+                    connect(act, &QAction::triggered, this, [this, value, message, block]() {
+                        AutoGenerateInteractionUtil::MessageBlockMessageActionUserInfo messageBockUserinfo;
+                        messageBockUserinfo.actionId = block.blockAccessory().actionId();
+                        messageBockUserinfo.roomId = message->roomId();
+                        messageBockUserinfo.messageId = message->messageId();
+                        messageBockUserinfo.threadId = message->threadMessageId();
+                        messageBockUserinfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
+                        messageBockUserinfo.blockId = block.blockId();
+                        messageBockUserinfo.value = block.blockAccessory().value();
+                        RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+                        info.methodName = block.appId();
+                        info.messageObj = AutoGenerateInteractionUtil::createBlockMessageActionUser(messageBockUserinfo);
+                        auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
+                        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                        job->setAppsUiInteractionJobInfo(info);
+                        // qDebug() << " info " << info;
+                        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
+                            Q_UNUSED(replyObject);
+                            // qDebug() << " DONE";
+                        });
+                        if (!job->start()) {
+                            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
+                        }
                     });
                 }
                 menu.exec(QCursor::pos());
