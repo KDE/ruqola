@@ -20,7 +20,7 @@ class MyMessageCache : public MessageCache
 {
 public:
     using MessageCache::MessageCache;
-    int jobsStarted() const
+    [[nodiscard]] int jobsStarted() const
     {
         return mJobStarted;
     }
