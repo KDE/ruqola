@@ -129,6 +129,30 @@ QJsonObject AutoGenerateInteractionUtil::createMessageActionButton(const ActionM
     return o;
 }
 
+QJsonObject AutoGenerateInteractionUtil::createMessageActionUser(const MessageBlockActionUserInfo &info)
+{
+    // {"type":"blockAction","actionId":"finish","payload":{"blockId":"33fec460-fcfb-11ef-85ff-4bacdd8b2d67","value":"finish"},"container":{"type":"message","id":"acAmZ9pPwPnucd3hy"},"rid":"67b7116fc0984e12f9661a2c","mid":"acAmZ9pPwPnucd3hy","triggerId":"MrXYAw674kHmpD7fe"}
+    QJsonObject o;
+    o["type"_L1] = "blockAction"_L1;
+    o["actionId"_L1] = QString::fromLatin1(info.actionId);
+    o["mid"_L1] = QString::fromLatin1(info.messageId);
+    o["rid"_L1] = QString::fromLatin1(info.roomId);
+    if (!info.threadId.isEmpty()) {
+        o["tmid"_L1] = QString::fromLatin1(info.threadId);
+    }
+    QJsonObject payload;
+    payload["context"_L1] = "messageAction"_L1;
+    o["payload"_L1] = payload;
+
+    QJsonObject container;
+    container["type"_L1] = "message"_L1;
+    container["id"_L1] = QString::fromLatin1(info.messageId);
+    o["container"_L1] = container;
+
+    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
+    return o;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionMessageInfo &t)
 {
     d.space() << "actionId:" << t.actionId;
@@ -144,5 +168,15 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewSubmitUserInf
     d.space() << "triggerId:" << t.triggerId;
     d.space() << "viewId:" << t.viewId;
     d.space() << "payload:" << t.payload;
+    return d;
+}
+
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::MessageBlockActionUserInfo &t)
+{
+    d.space() << "actionId:" << t.actionId;
+    d.space() << "triggerId:" << t.triggerId;
+    d.space() << "roomId:" << t.roomId;
+    d.space() << "messageId:" << t.messageId;
+    d.space() << "messageId:" << t.threadId;
     return d;
 }
