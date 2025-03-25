@@ -21,7 +21,7 @@ public:
     void setShowUnread(bool newShowUnread);
 
 protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     bool mShowUnread = false;

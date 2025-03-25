@@ -29,7 +29,7 @@ public:
     void clear();
 
 protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 Q_SIGNALS:
     void hasFullListChanged();
