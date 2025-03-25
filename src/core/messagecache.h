@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "misc/methodcalljob.h"
 #include "model/threadmessagemodel.h"
 #include <QCache>
 #include <QMap>
@@ -18,7 +19,6 @@ namespace RocketChatRestApi
 class RestApiAbstractJob;
 class GetThreadMessagesJob;
 class GetMessageJob;
-class MethodCallJob;
 }
 
 class LIBRUQOLACORE_EXPORT MessageCache : public QObject
@@ -37,6 +37,7 @@ Q_SIGNALS:
 
 protected:
     virtual bool startJob(RocketChatRestApi::RestApiAbstractJob *job); // virtual for unittest
+    virtual RocketChatRestApi::MethodCallJob::MethodCallJobInfo generateMethodCallInfo(const QByteArray &messageId); // virtual for unittest
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);

@@ -57,11 +57,8 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
         }
 #else
         auto job = new RocketChatRestApi::MethodCallJob(this);
-        RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-        info.methodName = QStringLiteral("getSingleMessage");
-        const QJsonArray params{QString::fromLatin1(messageId)};
-        info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
-        info.anonymous = false;
+
+        const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info = generateMethodCallInfo(messageId);
         job->setMethodCallJobInfo(std::move(info));
         mMessageJobs.insert(messageId, job);
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, messageId](const QJsonObject &replyObj) {
@@ -97,7 +94,6 @@ void MessageCache::slotGetSingleMessageDone(const QJsonObject &obj, const QByteA
             qCWarning(RUQOLA_LOG) << " Message " << messageId << " does not exist. It was removed it seems";
             // TODO load from attachment info ???
         } else {
-            // qDebug() << "msgObject************** " << msgObject;
             auto message = new Message;
             message->parseMessage(msgObject, false, nullptr);
             const QByteArray msgId = message->messageId();
@@ -129,6 +125,16 @@ bool MessageCache::startJob(RocketChatRestApi::RestApiAbstractJob *job)
 {
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     return job->start();
+}
+
+RocketChatRestApi::MethodCallJob::MethodCallJobInfo MessageCache::generateMethodCallInfo(const QByteArray &messageId)
+{
+    RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+    info.methodName = QStringLiteral("getSingleMessage");
+    const QJsonArray params{QString::fromLatin1(messageId)};
+    info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+    info.anonymous = false;
+    return info;
 }
 
 #include "moc_messagecache.cpp"
