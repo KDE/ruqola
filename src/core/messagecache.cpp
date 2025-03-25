@@ -63,12 +63,11 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
         info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
         info.anonymous = false;
         job->setMethodCallJobInfo(std::move(info));
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         mMessageJobs.insert(messageId, job);
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, messageId](const QJsonObject &replyObj) {
             slotGetSingleMessageDone(replyObj, messageId);
         });
-        if (!job->start()) {
+        if (!startJob(job)) {
             qCWarning(RUQOLA_LOG) << "Impossible to start MethodCallJobInfo/getSingleMessage job";
         }
 #endif
