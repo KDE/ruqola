@@ -52,7 +52,7 @@ struct MessageBlockActionUserInfo {
     QByteArray triggerId;
     QByteArray threadId;
 };
-[[nodiscard]] QJsonObject createMessageActionUser(const MessageBlockActionUserInfo &info);
+[[nodiscard]] QJsonObject createBlockMessageActionUser(const MessageBlockActionUserInfo &info);
 };
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewBlockActionUserInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewSubmitUserInfo, Q_RELOCATABLE_TYPE);

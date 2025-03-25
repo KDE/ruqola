@@ -129,7 +129,7 @@ QJsonObject AutoGenerateInteractionUtil::createMessageActionButton(const ActionM
     return o;
 }
 
-QJsonObject AutoGenerateInteractionUtil::createMessageActionUser(const MessageBlockActionUserInfo &info)
+QJsonObject AutoGenerateInteractionUtil::createBlockMessageActionUser(const MessageBlockActionUserInfo &info)
 {
     // {"type":"blockAction","actionId":"finish","payload":{"blockId":"33fec460-fcfb-11ef-85ff-4bacdd8b2d67","value":"finish"},"container":{"type":"message","id":"acAmZ9pPwPnucd3hy"},"rid":"67b7116fc0984e12f9661a2c","mid":"acAmZ9pPwPnucd3hy","triggerId":"MrXYAw674kHmpD7fe"}
     QJsonObject o;
