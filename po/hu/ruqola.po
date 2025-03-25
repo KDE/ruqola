@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-23 00:41+0000\n"
+"POT-Creation-Date: 2025-03-25 00:41+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -676,8 +676,8 @@ msgid "None"
 msgstr "Nincs"
 
 #: core/customsound/customsoundsmanager.cpp:33
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationpreferencemodel.cpp:46
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:49
+#: core/model/notificationpreferencemodel.cpp:47
 #: widgets/dialogs/createsoundmessagewidget.cpp:96
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
@@ -766,7 +766,7 @@ msgid "Socket was unexpectedly closed."
 msgstr ""
 
 #: core/messages/block/block.cpp:162 core/messages/message.cpp:861
-#: core/model/notificationhistorymodel.cpp:63
+#: core/model/notificationhistorymodel.cpp:64
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
@@ -1029,13 +1029,13 @@ msgstr "%1 és %2"
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
-#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:101
+#: core/model/directoryroomsmodel.cpp:117 core/model/directoryteamsmodel.cpp:91
+#: core/model/directoryusersmodel.cpp:102
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
-#: core/model/personalaccesstokeninfosmodel.cpp:78
-#: core/model/usersinrolemodel.cpp:86
+#: core/model/personalaccesstokeninfosmodel.cpp:79
+#: core/model/usersinrolemodel.cpp:87
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:44
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
@@ -1045,7 +1045,7 @@ msgstr "Név"
 #: core/model/admincustomemojimodel.cpp:36
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:122 core/model/directoryteamsmodel.cpp:94
+#: core/model/directoryroomsmodel.cpp:123 core/model/directoryteamsmodel.cpp:95
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
 #, kde-format
 msgid "Identifier"
@@ -1153,17 +1153,17 @@ msgstr "Üzenetek száma"
 msgid "Number of Users"
 msgstr "Felhasználók száma"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:120
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:121
 #, kde-format
 msgid "Topic"
 msgstr "Téma"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:124
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:125
 #, kde-format
 msgid "Read-only"
 msgstr "Csak olvasható"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:126
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:127
 #, kde-format
 msgid "Default Room"
 msgstr "Alapértelmezett szoba"
@@ -1255,7 +1255,7 @@ msgstr "Aktiválás"
 msgid "Pending action"
 msgstr "Függő művelet"
 
-#: core/model/bannerinfosmodel.cpp:52
+#: core/model/bannerinfosmodel.cpp:53
 #, kde-format
 msgid "link"
 msgstr "hivatkozás"
@@ -1293,44 +1293,44 @@ msgstr "IP"
 msgid "Login At"
 msgstr "Bejelentkezés"
 
-#: core/model/directoryroomsmodel.cpp:118
+#: core/model/directoryroomsmodel.cpp:119
 #, kde-format
 msgid "Number Of Users"
 msgstr "Felhasználók száma"
 
-#: core/model/directoryroomsmodel.cpp:128
+#: core/model/directoryroomsmodel.cpp:129
 #, kde-format
 msgid "Last Message"
 msgstr "Utolsó üzenet"
 
-#: core/model/directoryroomsmodel.cpp:130 core/model/directoryteamsmodel.cpp:96
+#: core/model/directoryroomsmodel.cpp:131 core/model/directoryteamsmodel.cpp:97
 #, kde-format
 msgid "Created"
 msgstr "Létrehozva"
 
-#: core/model/directoryroomsmodel.cpp:133
+#: core/model/directoryroomsmodel.cpp:134
 #, kde-format
 msgid "Channel Type"
 msgstr "Csatornatípus"
 
-#: core/model/directoryroomsmodel.cpp:135
+#: core/model/directoryroomsmodel.cpp:136
 #, kde-format
 msgid "Belongs To"
 msgstr "Ehhez tartozik:"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:585
+#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:586
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
 msgid "Rooms"
 msgstr "Szobák"
 
-#: core/model/directoryusersmodel.cpp:103 core/model/usersinrolemodel.cpp:88
+#: core/model/directoryusersmodel.cpp:104 core/model/usersinrolemodel.cpp:89
 #, kde-format
 msgid "Emails"
 msgstr "E-mailek"
 
-#: core/model/directoryusersmodel.cpp:105
+#: core/model/directoryusersmodel.cpp:106
 #, kde-format
 msgid "Join At"
 msgstr "Csatlakozás"
@@ -1355,17 +1355,17 @@ msgstr "Nincs találat."
 msgid "Notify active users in this room"
 msgstr "Aktív felhasználók értesítése ebben a szobában"
 
-#: core/model/messagesmodel.cpp:224
+#: core/model/messagesmodel.cpp:225
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 szerkesztette ekkor: %1"
 
-#: core/model/messagesmodel.cpp:374
+#: core/model/messagesmodel.cpp:375
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mellőzött üzenet"
 
-#: core/model/messagesmodel.cpp:383
+#: core/model/messagesmodel.cpp:384
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Csak Ön láthatja ezt az üzenetet"
@@ -1399,26 +1399,26 @@ msgstr "Jelentés dátuma"
 msgid "Room"
 msgstr "Szoba"
 
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:54
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:55
 #, kde-format
 msgid "1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "1 másodperc"
 msgstr[1] "%1 másodperc"
 
-#: core/model/notificationpreferencemodel.cpp:52
+#: core/model/notificationpreferencemodel.cpp:53
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:243
 #, kde-format
 msgid "All Messages"
 msgstr "Minden üzenet"
 
-#: core/model/notificationpreferencemodel.cpp:58
+#: core/model/notificationpreferencemodel.cpp:59
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
 #, kde-format
 msgid "Mentions"
 msgstr "Említések"
 
-#: core/model/notificationpreferencemodel.cpp:64
+#: core/model/notificationpreferencemodel.cpp:65
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
 #, kde-format
 msgid "Nothing"
@@ -1431,105 +1431,105 @@ msgstr "Semmi"
 msgid "Roles"
 msgstr "Szerepek"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:45
+#: core/model/personalaccesstokeninfosmodel.cpp:46
 #, kde-format
 msgid "Ignored"
 msgstr "Mellőzve"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:45
+#: core/model/personalaccesstokeninfosmodel.cpp:46
 #, kde-format
 msgid "Required"
 msgstr "Kötelező"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:80
+#: core/model/personalaccesstokeninfosmodel.cpp:81
 #, kde-format
 msgid "Create At"
 msgstr "Létrehozva:"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:82
+#: core/model/personalaccesstokeninfosmodel.cpp:83
 #, kde-format
 msgid "Two Factor Authentication"
 msgstr "Kétfaktoros hitelesítés"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:84
+#: core/model/personalaccesstokeninfosmodel.cpp:85
 #, kde-format
 msgid "Last token part"
 msgstr "Utolsó tokenrész"
 
-#: core/model/roommodel.cpp:504
+#: core/model/roommodel.cpp:505
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 említés"
 msgstr[1] "%1 említés"
 
-#: core/model/roommodel.cpp:508
+#: core/model/roommodel.cpp:509
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 csoportemlítés"
 msgstr[1] "%1 csoportemlítés"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:513
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 olvasatlan szálüzenet"
 msgstr[1] "%1 olvasatlan szálüzenet"
 
-#: core/model/roommodel.cpp:516
+#: core/model/roommodel.cpp:517
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 olvasatlan üzenet"
 msgstr[1] "%1 olvasatlan üzenet"
 
-#: core/model/roommodel.cpp:542
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Teams Room"
 msgstr "Csapatszoba"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Private Room"
 msgstr "Személyes szoba"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Discussion Room"
 msgstr "Megbeszélésszoba"
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:555
 #, kde-format
 msgid "Channel Room"
 msgstr "Csatornaszoba"
 
-#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:15
+#: core/model/roommodel.cpp:580 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "Olvasatlan"
 
-#: core/model/roommodel.cpp:581
+#: core/model/roommodel.cpp:582
 #, kde-format
 msgid "Favorites"
 msgstr "Kedvencek"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Teams"
 msgstr "Csapatok"
 
-#: core/model/roommodel.cpp:587
+#: core/model/roommodel.cpp:588
 #, kde-format
 msgid "Discussions"
 msgstr "Megbeszélések"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Private Messages"
 msgstr "Személyes üzenetek"
 
-#: core/model/roommodel.cpp:591
+#: core/model/roommodel.cpp:592
 #, kde-format
 msgid "Unknown"
 msgstr "Ismeretlen"
@@ -1719,12 +1719,12 @@ msgstr "A „szoba leírása megváltoztatva” üzenetek elrejtése"
 msgid "Joined this Team"
 msgstr "Csatlakozott ehhez a csapathoz"
 
-#: core/model/teamroomsmodel.cpp:32
+#: core/model/teamroomsmodel.cpp:34
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Automatikus csatlakozás)"
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:93 core/utils.cpp:354
+#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
 #, kde-format
 msgid "Offline"
 msgstr "Kilépett"
@@ -1804,19 +1804,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:681
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:689 core/rocketchataccount.cpp:701
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:696
+#: core/rocketchataccount.cpp:695
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"

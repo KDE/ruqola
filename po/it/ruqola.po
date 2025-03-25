@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-23 00:41+0000\n"
+"POT-Creation-Date: 2025-03-25 00:41+0000\n"
 "PO-Revision-Date: 2025-03-13 18:52+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -656,8 +656,8 @@ msgid "None"
 msgstr "Nessuno"
 
 #: core/customsound/customsoundsmanager.cpp:33
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationpreferencemodel.cpp:46
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:49
+#: core/model/notificationpreferencemodel.cpp:47
 #: widgets/dialogs/createsoundmessagewidget.cpp:96
 #: widgets/dialogs/createsoundmessagewidget.cpp:138
 #: widgets/dialogs/playsoundwidget.cpp:122
@@ -746,7 +746,7 @@ msgid "Socket was unexpectedly closed."
 msgstr "Il socket è stato chiuso inaspettatamente."
 
 #: core/messages/block/block.cpp:162 core/messages/message.cpp:861
-#: core/model/notificationhistorymodel.cpp:63
+#: core/model/notificationhistorymodel.cpp:64
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
@@ -1009,13 +1009,13 @@ msgstr "%1 e %2"
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
-#: core/model/directoryroomsmodel.cpp:116 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:101
+#: core/model/directoryroomsmodel.cpp:117 core/model/directoryteamsmodel.cpp:91
+#: core/model/directoryusersmodel.cpp:102
 #: core/model/moderationreportedmessagemodel.cpp:30
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
-#: core/model/personalaccesstokeninfosmodel.cpp:78
-#: core/model/usersinrolemodel.cpp:86
+#: core/model/personalaccesstokeninfosmodel.cpp:79
+#: core/model/usersinrolemodel.cpp:87
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:44
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
@@ -1025,7 +1025,7 @@ msgstr "Nome"
 #: core/model/admincustomemojimodel.cpp:36
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:122 core/model/directoryteamsmodel.cpp:94
+#: core/model/directoryroomsmodel.cpp:123 core/model/directoryteamsmodel.cpp:95
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
 #, kde-format
 msgid "Identifier"
@@ -1133,17 +1133,17 @@ msgstr "Numero di messaggi"
 msgid "Number of Users"
 msgstr "Numero di utenti"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:120
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:121
 #, kde-format
 msgid "Topic"
 msgstr "Argomento"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:124
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:125
 #, kde-format
 msgid "Read-only"
 msgstr "Sola lettura"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:126
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:127
 #, kde-format
 msgid "Default Room"
 msgstr "Stanza predefinita"
@@ -1235,7 +1235,7 @@ msgstr "Attiva"
 msgid "Pending action"
 msgstr "Azione in sospeso"
 
-#: core/model/bannerinfosmodel.cpp:52
+#: core/model/bannerinfosmodel.cpp:53
 #, kde-format
 msgid "link"
 msgstr "collegamento"
@@ -1273,44 +1273,44 @@ msgstr "Ip"
 msgid "Login At"
 msgstr "Accedi a"
 
-#: core/model/directoryroomsmodel.cpp:118
+#: core/model/directoryroomsmodel.cpp:119
 #, kde-format
 msgid "Number Of Users"
 msgstr "Numero di utenti"
 
-#: core/model/directoryroomsmodel.cpp:128
+#: core/model/directoryroomsmodel.cpp:129
 #, kde-format
 msgid "Last Message"
 msgstr "Ultimo messaggio"
 
-#: core/model/directoryroomsmodel.cpp:130 core/model/directoryteamsmodel.cpp:96
+#: core/model/directoryroomsmodel.cpp:131 core/model/directoryteamsmodel.cpp:97
 #, kde-format
 msgid "Created"
 msgstr "Creato"
 
-#: core/model/directoryroomsmodel.cpp:133
+#: core/model/directoryroomsmodel.cpp:134
 #, kde-format
 msgid "Channel Type"
 msgstr "Tipo di canale"
 
-#: core/model/directoryroomsmodel.cpp:135
+#: core/model/directoryroomsmodel.cpp:136
 #, kde-format
 msgid "Belongs To"
 msgstr "Appartiene a"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:585
+#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:586
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #, kde-format
 msgid "Rooms"
 msgstr "Stanze"
 
-#: core/model/directoryusersmodel.cpp:103 core/model/usersinrolemodel.cpp:88
+#: core/model/directoryusersmodel.cpp:104 core/model/usersinrolemodel.cpp:89
 #, kde-format
 msgid "Emails"
 msgstr "Messaggi di posta elettronica"
 
-#: core/model/directoryusersmodel.cpp:105
+#: core/model/directoryusersmodel.cpp:106
 #, kde-format
 msgid "Join At"
 msgstr "Unisciti su"
@@ -1335,17 +1335,17 @@ msgstr "Nessun risultato trovato."
 msgid "Notify active users in this room"
 msgstr "Avvisa gli utenti attivi in questa stanza"
 
-#: core/model/messagesmodel.cpp:224
+#: core/model/messagesmodel.cpp:225
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Modificato alle %1 da %2"
 
-#: core/model/messagesmodel.cpp:374
+#: core/model/messagesmodel.cpp:375
 #, kde-format
 msgid "Ignored Message"
 msgstr "Messaggio ignorato"
 
-#: core/model/messagesmodel.cpp:383
+#: core/model/messagesmodel.cpp:384
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Solo tu puoi vedere questo messaggio"
@@ -1379,26 +1379,26 @@ msgstr "Data segnalata"
 msgid "Room"
 msgstr "Stanza"
 
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:54
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:55
 #, kde-format
 msgid "1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "Un secondo"
 msgstr[1] "%1 secondi"
 
-#: core/model/notificationpreferencemodel.cpp:52
+#: core/model/notificationpreferencemodel.cpp:53
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:243
 #, kde-format
 msgid "All Messages"
 msgstr "Tutti i messaggi"
 
-#: core/model/notificationpreferencemodel.cpp:58
+#: core/model/notificationpreferencemodel.cpp:59
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
 #, kde-format
 msgid "Mentions"
 msgstr "Menzioni"
 
-#: core/model/notificationpreferencemodel.cpp:64
+#: core/model/notificationpreferencemodel.cpp:65
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
 #, kde-format
 msgid "Nothing"
@@ -1411,105 +1411,105 @@ msgstr "Niente"
 msgid "Roles"
 msgstr "Ruoli"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:45
+#: core/model/personalaccesstokeninfosmodel.cpp:46
 #, kde-format
 msgid "Ignored"
 msgstr "Ignorato"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:45
+#: core/model/personalaccesstokeninfosmodel.cpp:46
 #, kde-format
 msgid "Required"
 msgstr "Richiesto"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:80
+#: core/model/personalaccesstokeninfosmodel.cpp:81
 #, kde-format
 msgid "Create At"
 msgstr "Creato il"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:82
+#: core/model/personalaccesstokeninfosmodel.cpp:83
 #, kde-format
 msgid "Two Factor Authentication"
 msgstr "Autenticazione a due fattori"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:84
+#: core/model/personalaccesstokeninfosmodel.cpp:85
 #, kde-format
 msgid "Last token part"
 msgstr "Ultima parte del token"
 
-#: core/model/roommodel.cpp:504
+#: core/model/roommodel.cpp:505
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 menzione"
 msgstr[1] "%1 menzioni"
 
-#: core/model/roommodel.cpp:508
+#: core/model/roommodel.cpp:509
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 menzione di gruppo"
 msgstr[1] "%1 menzioni di gruppo"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:513
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 messaggio di una conversazione non letto"
 msgstr[1] "%1 messaggi di una conversazione non letti"
 
-#: core/model/roommodel.cpp:516
+#: core/model/roommodel.cpp:517
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 messaggio non letto"
 msgstr[1] "%1 messaggi non letti"
 
-#: core/model/roommodel.cpp:542
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Teams Room"
 msgstr "Stanza delle squadre"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Private Room"
 msgstr "Stanza privata"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Discussion Room"
 msgstr "Stanza di discussione"
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:555
 #, kde-format
 msgid "Channel Room"
 msgstr "Stanza del canale"
 
-#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:15
+#: core/model/roommodel.cpp:580 widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Unread"
 msgstr "Non letto"
 
-#: core/model/roommodel.cpp:581
+#: core/model/roommodel.cpp:582
 #, kde-format
 msgid "Favorites"
 msgstr "Preferiti"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Teams"
 msgstr "Squadre"
 
-#: core/model/roommodel.cpp:587
+#: core/model/roommodel.cpp:588
 #, kde-format
 msgid "Discussions"
 msgstr "Discussioni"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Private Messages"
 msgstr "Messaggi privati"
 
-#: core/model/roommodel.cpp:591
+#: core/model/roommodel.cpp:592
 #, kde-format
 msgid "Unknown"
 msgstr "Sconosciuto"
@@ -1699,12 +1699,12 @@ msgstr "Nascondi i messaggi Descrizione della stanza modificata»"
 msgid "Joined this Team"
 msgstr "Unito a questa squadra"
 
-#: core/model/teamroomsmodel.cpp:32
+#: core/model/teamroomsmodel.cpp:34
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Unisciti automaticamente)"
 
-#: core/model/usersmodel.cpp:73 core/utils.cpp:93 core/utils.cpp:354
+#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
 #, kde-format
 msgid "Offline"
 msgstr "Non in linea"
@@ -1780,7 +1780,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:681
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1789,12 +1789,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:689 core/rocketchataccount.cpp:701
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "Non connesso"
 
-#: core/rocketchataccount.cpp:696
+#: core/rocketchataccount.cpp:695
 #, kde-format
 msgid "Not connected yet"
 msgstr "Non ancora connesso"
