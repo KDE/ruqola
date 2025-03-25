@@ -8,7 +8,6 @@
 
 #include "connection.h"
 #include "license/licensesinfojob.h"
-#include "license/licenseslistjob.h"
 #include "misc/statisticsjob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
