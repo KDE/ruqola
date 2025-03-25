@@ -55,8 +55,10 @@ void CommandPreviewWidget::keyPressEvent(QKeyEvent *e)
 
 void CommandPreviewWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    mCurrentRocketChatAccount = account;
-    hidePreview();
+    if (mCurrentRocketChatAccount != account) {
+        mCurrentRocketChatAccount = account;
+        hidePreview();
+    }
 }
 
 void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info)
