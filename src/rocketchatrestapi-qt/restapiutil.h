@@ -311,7 +311,6 @@ enum class RestApiUrlType {
     OauthAppsDelete,
 
     // License
-    LicensesGet,
     LicensesMaxActiveUsers,
     LicensesAdd,
     LicensesIsEntreprise,
