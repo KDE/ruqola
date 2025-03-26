@@ -438,9 +438,6 @@ Q_SIGNALS:
     void ddpLoginStatusChanged();
     void socketError(QAbstractSocket::SocketError error, const QString &errorString);
     void logoutDone(const QString &accountname);
-    void added(const QJsonObject &item);
-    void changed(const QJsonObject &item);
-    void removed(const QJsonObject &item);
     void notification(const NotificationInfo &info);
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
@@ -563,7 +560,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loadSoundFiles();
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
     LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
-    LIBRUQOLACORE_NO_EXPORT void slotCleanRoomHistory();
     LIBRUQOLACORE_NO_EXPORT void slotDDpLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRESTLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRoomOpenChanged(const QByteArray &rid);

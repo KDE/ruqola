@@ -39,9 +39,6 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
 {
     connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::slotLoginStatusChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIdChanged, this, &RocketChatBackend::subscribeRegistration);
-    connect(mRocketChatAccount, &RocketChatAccount::changed, this, &RocketChatBackend::slotChanged);
-    connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::slotAdded);
-    connect(mRocketChatAccount, &RocketChatAccount::removed, this, &RocketChatBackend::slotRemoved);
     connect(mRocketChatAccount, &RocketChatAccount::ddpConnectedChanged, this, &RocketChatBackend::slotDDPConnectedChanged);
     connect(mRocketChatAccount, &RocketChatAccount::passwordAvailable, this, &RocketChatBackend::tryAutoLogin);
 }

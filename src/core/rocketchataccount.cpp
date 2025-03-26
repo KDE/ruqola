@@ -281,7 +281,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
     connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
     connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
-    connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, this, &RocketChatAccount::slotCleanRoomHistory);
+    connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, mRoomModel, &RoomModel::cleanRoomHistory);
 
     // Initiate socket connections, once we're out of Ruqola::self()
     if (accountEnabled()) {
@@ -634,9 +634,9 @@ DDPClient *RocketChatAccount::ddp()
             connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
         }
         connect(mDdp.get(), &DDPClient::connectedChanged, this, &RocketChatAccount::ddpConnectedChanged);
-        connect(mDdp.get(), &DDPClient::changed, this, &RocketChatAccount::changed);
-        connect(mDdp.get(), &DDPClient::added, this, &RocketChatAccount::added);
-        connect(mDdp.get(), &DDPClient::removed, this, &RocketChatAccount::removed);
+        connect(mDdp.get(), &DDPClient::changed, mRocketChatBackend, &RocketChatBackend::slotChanged);
+        connect(mDdp.get(), &DDPClient::added, mRocketChatBackend, &RocketChatBackend::slotAdded);
+        connect(mDdp.get(), &DDPClient::removed, mRocketChatBackend, &RocketChatBackend::slotRemoved);
         connect(mDdp.get(), &DDPClient::socketError, this, &RocketChatAccount::socketError);
         connect(mDdp.get(), &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToDdpServer);
         connect(mDdp.get(), &DDPClient::methodRequested, this, &RocketChatAccount::parseMethodRequested);
@@ -3137,11 +3137,6 @@ void RocketChatAccount::slotVerifyKeysDone()
 MemoryManager *RocketChatAccount::memoryManager() const
 {
     return mMemoryManager;
-}
-
-void RocketChatAccount::slotCleanRoomHistory()
-{
-    mRoomModel->cleanRoomHistory();
 }
 
 void RocketChatAccount::streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId)

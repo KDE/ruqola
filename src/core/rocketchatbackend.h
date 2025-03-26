@@ -34,10 +34,11 @@ public:
 
     void ddpLogin();
 
+    void slotRemoved(const QJsonObject &object);
+    void slotAdded(const QJsonObject &object);
+    void slotChanged(const QJsonObject &object);
+
 private:
-    LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);
-    LIBRUQOLACORE_NO_EXPORT void slotAdded(const QJsonObject &object);
-    LIBRUQOLACORE_NO_EXPORT void slotChanged(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotDDPConnectedChanged(bool connected);
     LIBRUQOLACORE_NO_EXPORT void parseServerVersionDone(const QString &version);
