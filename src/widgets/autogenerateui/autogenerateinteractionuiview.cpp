@@ -186,6 +186,7 @@ QJsonObject AutoGenerateInteractionUiView::serializeState() const
 QJsonObject AutoGenerateInteractionUiView::serialize(bool generateState) const
 {
     QJsonObject o;
+    o["showIcon"_L1] = mShowIcon;
     o["blocks"_L1] = mBlocks->serialize();
     o["title"_L1] = mTitle.serialize();
     if (mSubmitButton) {
