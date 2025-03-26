@@ -10,7 +10,7 @@
 
 class AutoGenerateInteractionUiViewText;
 class QPlainTextEdit;
-// see ./packages/ui-kit/src/blocks/elements/PlainTextInputElement.ts
+// see ./packages/ui-kit/src/blocks/elements/UsersSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewUserSelectElement : public AutoGenerateInteractionUiViewActionable
 {
     Q_OBJECT
