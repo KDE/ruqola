@@ -33,7 +33,7 @@ private:
     AutoGenerateInteractionUiViewText mText;
     QString mValue;
     QString mUrl;
-    // TODO add url/description
+    // TODO add description
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOption)
