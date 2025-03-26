@@ -23,8 +23,8 @@ public:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> options() const;
     void setOptions(const QList<AutoGenerateInteractionUiViewOption *> &newOptions);
 
-    [[nodiscard]] AutoGenerateInteractionUiViewOption *initialOption() const;
-    void setInitialOption(AutoGenerateInteractionUiViewOption *newInitialOption);
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> initialOptions() const;
+    void setInitialOptions(const QList<AutoGenerateInteractionUiViewOption *> &newInitialOption);
 
     [[nodiscard]] QVariant currentValue() const override;
     void setCurrentValue(const QVariant &v) override;
@@ -35,7 +35,7 @@ protected:
 
 private:
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
-    AutoGenerateInteractionUiViewOption *mInitialOption = nullptr;
+    QList<AutoGenerateInteractionUiViewOption *> mInitialOptions;
     QCheckBox *mCheckBox = nullptr;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCheckboxElement)

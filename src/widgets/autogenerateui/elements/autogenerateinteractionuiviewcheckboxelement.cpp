@@ -19,7 +19,7 @@ AutoGenerateInteractionUiViewCheckboxElement::AutoGenerateInteractionUiViewCheck
 AutoGenerateInteractionUiViewCheckboxElement::~AutoGenerateInteractionUiViewCheckboxElement()
 {
     qDeleteAll(mOptions);
-    delete mInitialOption;
+    qDeleteAll(mInitialOptions);
 }
 
 void AutoGenerateInteractionUiViewCheckboxElement::parseElement(const QJsonObject &json)
@@ -31,20 +31,22 @@ void AutoGenerateInteractionUiViewCheckboxElement::parseElement(const QJsonObjec
         option->parse(opt.toObject());
         mOptions.append(option);
     }
-    if (json.contains("initialOption"_L1)) {
-        mInitialOption = new AutoGenerateInteractionUiViewOption;
-        mInitialOption->parse(json["initialOption"_L1].toObject());
+    const QJsonArray initialOptionsArray = json["initialOption"_L1].toArray();
+    for (const auto &opt : initialOptionsArray) {
+        AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
+        option->parse(opt.toObject());
+        mInitialOptions.append(option);
     }
 }
 
-AutoGenerateInteractionUiViewOption *AutoGenerateInteractionUiViewCheckboxElement::initialOption() const
+QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewCheckboxElement::initialOptions() const
 {
-    return mInitialOption;
+    return mInitialOptions;
 }
 
-void AutoGenerateInteractionUiViewCheckboxElement::setInitialOption(AutoGenerateInteractionUiViewOption *newInitialOption)
+void AutoGenerateInteractionUiViewCheckboxElement::setInitialOptions(const QList<AutoGenerateInteractionUiViewOption *> &newInitialOption)
 {
-    mInitialOption = newInitialOption;
+    mInitialOptions = newInitialOption;
 }
 
 ActionElementWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *parent)
@@ -56,8 +58,7 @@ ActionElementWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidge
 
 bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const
 {
-    // TODO mInitialOption
-    return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.initialOptions() == initialOptions() && other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewCheckboxElement::options() const
@@ -77,8 +78,12 @@ void AutoGenerateInteractionUiViewCheckboxElement::serializeElement(QJsonObject 
         options.append(r->serialize());
     }
     o["options"_L1] = options;
-    if (mInitialOption) {
-        o["initialOption"_L1] = mInitialOption->serialize();
+    if (!mInitialOptions.isEmpty()) {
+        QJsonArray initialOptions;
+        for (const auto &r : std::as_const(mInitialOptions)) {
+            initialOptions.append(r->serialize());
+        }
+        o["initialOption"_L1] = initialOptions;
     }
 }
 
@@ -86,9 +91,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &
 {
     d.space() << "AutoGenerateInteractionUiViewActionable:" << static_cast<const AutoGenerateInteractionUiViewActionable &>(t);
     d.space() << "options:" << t.options();
-    if (t.initialOption()) {
-        d.space() << "initialOption:" << *t.initialOption();
-    }
+    d.space() << "initialOption:" << t.initialOptions();
     return d;
 }
 
