@@ -190,6 +190,15 @@ if(TARGET KF6::TextCustomEditor)
     set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
 endif()
 
+find_package(KF6TextAutogenerateText ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF6TextAutogenerateText PROPERTIES
+    TYPE OPTIONAL
+    PURPOSE "Required for building AI plugins support"
+    DESCRIPTION "Use AI plugin"
+)
+
+
+
 # shall we use DBus?
 # enabled per default on Linux & BSD systems
 set(USE_DBUS_DEFAULT OFF)
