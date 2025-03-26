@@ -197,7 +197,9 @@ set_package_properties(KF6TextAutogenerateText PROPERTIES
     DESCRIPTION "Use AI plugin"
 )
 
-
+if(TARGET KF6::TextAutogenerateText)
+    set(HAVE_TEXT_AUTOGENERATE_TEXT TRUE)
+endif()
 
 # shall we use DBus?
 # enabled per default on Linux & BSD systems
