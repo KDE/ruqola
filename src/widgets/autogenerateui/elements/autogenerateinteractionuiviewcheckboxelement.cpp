@@ -51,6 +51,7 @@ void AutoGenerateInteractionUiViewCheckboxElement::setInitialOptions(const QList
 
 ActionElementWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidget(QWidget *parent)
 {
+    // TODO list of checkbox ????
     mCheckBox = new QCheckBox(parent);
     mActionElementWidget = new ActionElementWidget(mCheckBox, actionId(), parent);
     return mActionElementWidget;
