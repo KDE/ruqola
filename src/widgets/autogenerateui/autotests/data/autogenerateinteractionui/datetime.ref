@@ -953,6 +953,7 @@
             "type": "button"
         },
         "id": "msgReminderCreateModal-0c4e4b86-6de8-415e-95e6-de42643f3bcb",
+        "showIcon": true,
         "state": {
             "43ac4271-0584-11f0-9f18-1735ff3ce6ab": {
                 "linked-msg-reminder-change-duration-option_msgReminderCreateModal-0c4e4b86-6de8-415e-95e6-de42643f3bcb": "custom"

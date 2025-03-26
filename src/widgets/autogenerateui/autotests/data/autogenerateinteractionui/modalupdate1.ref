@@ -222,6 +222,7 @@
             "type": "button"
         },
         "id": "modal-reminder-create--GENERAL",
+        "showIcon": true,
         "state": {
             "reminderData": {
                 "message": "",

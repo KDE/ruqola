@@ -63,6 +63,7 @@
             "type": "button"
         },
         "id": "1f6d2a7a-24d7-462e-a74c-183e375f5134",
+        "showIcon": true,
         "state": {
             "autoReplySettings": {
                 "AutoReplyMessage": "Hey, I received your message and will get back to you as soon as possible."
