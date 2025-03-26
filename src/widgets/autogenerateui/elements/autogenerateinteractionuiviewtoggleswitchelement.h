@@ -34,7 +34,6 @@ protected:
     void serializeElement(QJsonObject &o) const override;
 
 private:
-    // TODO initialOptions
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
     QList<AutoGenerateInteractionUiViewOption *> mInitialOptions;
 };

@@ -43,6 +43,7 @@ protected:
 private:
     AutoGenerateInteractionUiViewText mLabel;
     AutoGenerateInteractionUiViewActionable *mElement = nullptr;
+    // TODO hint
     bool mOptional = false;
 };
 

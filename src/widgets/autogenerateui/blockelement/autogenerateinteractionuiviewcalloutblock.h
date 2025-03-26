@@ -35,6 +35,8 @@ protected:
 private:
     AutoGenerateInteractionUiViewText *mText = nullptr;
     AutoGenerateInteractionUiViewActionable *mAccessory = nullptr;
+    // TODO variant
+    // TODO title
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCalloutBlock)

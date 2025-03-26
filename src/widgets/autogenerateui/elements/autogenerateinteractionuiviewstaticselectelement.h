@@ -43,6 +43,8 @@ private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
     QComboBox *mComboBox = nullptr;
+    // TODO optionGroups
+    // TODO initialOption
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewStaticSelectElement)
