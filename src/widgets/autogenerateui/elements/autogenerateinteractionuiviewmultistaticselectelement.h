@@ -38,6 +38,9 @@ public:
     [[nodiscard]] QVariant currentValue() const override;
     void setCurrentValue(const QVariant &v) override;
 
+    [[nodiscard]] QList<AutoGenerateInteractionUiViewOption *> initialOptions() const;
+    void setInitialOptions(const QList<AutoGenerateInteractionUiViewOption *> &newInitialOptions);
+
 protected:
     void serializeElement(QJsonObject &o) const override;
     void parseElement(const QJsonObject &json) override;
@@ -46,6 +49,7 @@ private:
     MultiStaticSelectWidget *mMultiStaticSelectWidget = nullptr;
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
+    QList<AutoGenerateInteractionUiViewOption *> mInitialOptions;
     QStringList mInitialValue;
     int mMaxSelectItems = -1;
 };

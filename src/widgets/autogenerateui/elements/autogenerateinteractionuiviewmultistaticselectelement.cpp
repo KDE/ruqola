@@ -20,6 +20,7 @@ AutoGenerateInteractionUiViewMultiStaticSelectElement::~AutoGenerateInteractionU
 {
     delete mPlaceHolder;
     qDeleteAll(mOptions);
+    qDeleteAll(mInitialOptions);
 }
 
 void AutoGenerateInteractionUiViewMultiStaticSelectElement::parseElement(const QJsonObject &json)
@@ -41,6 +42,24 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::parseElement(const Q
     for (int i = 0; i < array.count(); ++i) {
         mInitialValue.append(array.at(i).toString());
     }
+
+    // initialOptions
+    const QJsonArray initialOptionsArray = json["initialOptions"_L1].toArray();
+    for (const auto &opt : initialOptionsArray) {
+        AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
+        option->parse(opt.toObject());
+        mInitialOptions.append(option);
+    }
+}
+
+QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewMultiStaticSelectElement::initialOptions() const
+{
+    return mInitialOptions;
+}
+
+void AutoGenerateInteractionUiViewMultiStaticSelectElement::setInitialOptions(const QList<AutoGenerateInteractionUiViewOption *> &newInitialOptions)
+{
+    mInitialOptions = newInitialOptions;
 }
 
 int AutoGenerateInteractionUiViewMultiStaticSelectElement::maxSelectItems() const
@@ -94,6 +113,7 @@ ActionElementWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::gene
         mMultiStaticSelectWidget->setMaxSelectItems(mMaxSelectItems);
     }
     mMultiStaticSelectWidget->setInitialValues(mInitialValue);
+    // TODO use mInitialOptions
     return mActionElementWidget;
 }
 
@@ -126,6 +146,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelect
     d.space() << "options:" << t.options();
     d.space() << "initialValue:" << t.initialValue();
     d.space() << "maxSelectItems:" << t.maxSelectItems();
+    d.space() << "initialOptions:" << t.initialOptions();
     return d;
 }
 
@@ -133,7 +154,7 @@ bool AutoGenerateInteractionUiViewMultiStaticSelectElement::operator==(const Aut
 {
     // TODO add placeholder too
     return other.maxSelectItems() == maxSelectItems() && other.initialValue() == initialValue() && other.options() == options()
-        && AutoGenerateInteractionUiViewActionable::operator==(other);
+        && other.initialOptions() == initialOptions() && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJsonObject &o) const
@@ -146,6 +167,12 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJs
         options.append(r->serialize());
     }
     o["options"_L1] = options;
+    if (!mInitialOptions.isEmpty()) {
+        for (const auto &r : std::as_const(mInitialOptions)) {
+            options.append(r->serialize());
+        }
+        o["initialOptions"_L1] = options;
+    }
 }
 
 #include "moc_autogenerateinteractionuiviewmultistaticselectelement.cpp"
