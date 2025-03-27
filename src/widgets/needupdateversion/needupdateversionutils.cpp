@@ -78,7 +78,7 @@ QUrl NeedUpdateVersionUtils::newVersionUrl()
     // TODO add support for AppImage linux too
 #if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
 #if RUQOLA_STABLE_VERSION
-    QString url = "https://cdn.kde.org/ci-builds/network/ruqola/2.4/%1/"_L1;
+    QString url = "https://cdn.kde.org/ci-builds/network/ruqola/2.5/%1/"_L1;
 #else
     QString url = "https://cdn.kde.org/ci-builds/network/ruqola/master/%1/"_L1;
 #endif
