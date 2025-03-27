@@ -169,7 +169,7 @@ void AutoGenerateInteractionUiViewButtonElement::serializeElement(QJsonObject &o
     if (!mValue.isEmpty()) {
         o["value"_L1] = mValue;
     }
-    // TODO secondary ?
+    o["secondary"_L1] = mSecondary;
 }
 
 #include "moc_autogenerateinteractionuiviewbuttonelement.cpp"

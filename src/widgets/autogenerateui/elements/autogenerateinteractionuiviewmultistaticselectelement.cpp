@@ -173,6 +173,9 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJs
         }
         o["initialOptions"_L1] = options;
     }
+    if (mMaxSelectItems != -1) {
+        o["maxSelectItems"_L1] = mMaxSelectItems;
+    }
 }
 
 #include "moc_autogenerateinteractionuiviewmultistaticselectelement.cpp"
