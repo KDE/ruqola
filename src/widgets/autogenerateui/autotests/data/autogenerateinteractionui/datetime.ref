@@ -945,6 +945,7 @@
         ],
         "close": {
             "actionId": "43ac6985-0584-11f0-9f18-1735ff3ce6ab",
+            "secondary": false,
             "text": {
                 "emoji": false,
                 "text": "Cancel",
@@ -966,6 +967,7 @@
         },
         "submit": {
             "actionId": "43ac6984-0584-11f0-9f18-1735ff3ce6ab",
+            "secondary": false,
             "text": {
                 "emoji": false,
                 "text": "Create",

@@ -23,6 +23,7 @@
                 "elements": [
                     {
                         "actionId": "DisableApp",
+                        "secondary": false,
                         "style": "danger",
                         "text": {
                             "emoji": false,
@@ -55,6 +56,7 @@
         ],
         "close": {
             "actionId": "8038c6d3-ef88-11ef-ac2c-1ff9f8bf2fe2",
+            "secondary": false,
             "text": {
                 "emoji": false,
                 "text": "Cancel",
@@ -71,6 +73,7 @@
         },
         "submit": {
             "actionId": "8038c6d2-ef88-11ef-ac2c-1ff9f8bf2fe2",
+            "secondary": false,
             "style": "primary",
             "text": {
                 "emoji": false,
