@@ -109,6 +109,11 @@ QJsonObject AutoGenerateInteractionUiViewText::serialize() const
     return o;
 }
 
+bool AutoGenerateInteractionUiViewText::isEmpty() const
+{
+    return mText.isEmpty();
+}
+
 void AutoGenerateInteractionUiViewText::setText(const QString &newText)
 {
     mText = newText;

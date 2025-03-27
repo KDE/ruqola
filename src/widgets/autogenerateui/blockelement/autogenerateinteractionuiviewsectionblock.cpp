@@ -57,7 +57,7 @@ QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *pare
     hboxLayout->setContentsMargins({});
     widget->setLayout(hboxLayout);
 
-    if (mText) {
+    if (mText && !mText->isEmpty()) {
         auto label = new QLabel(parent);
         label->setWordWrap(true);
         label->setOpenExternalLinks(true);
