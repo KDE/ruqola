@@ -36,6 +36,8 @@ public:
     [[nodiscard]] QString generateText(bool forcePlainText = false) const;
     [[nodiscard]] QJsonObject serialize() const override;
 
+    [[nodiscard]] bool isEmpty() const;
+
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewText::TextType convertTypeFromString(const QString &str) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString convertTextTypeToString() const;

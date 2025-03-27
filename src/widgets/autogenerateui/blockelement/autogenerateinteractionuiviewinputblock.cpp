@@ -129,12 +129,14 @@ QWidget *AutoGenerateInteractionUiViewInputBlock::generateWidget(QWidget *parent
     auto vboxLayout = new QVBoxLayout;
     vboxLayout->setContentsMargins({});
     widget->setLayout(vboxLayout);
-    auto label = new QLabel(parent);
-    QFont f = label->font();
-    f.setBold(true);
-    label->setFont(f);
-    label->setText(mLabel.generateText());
-    vboxLayout->addWidget(label);
+    if (!mLabel.isEmpty()) {
+        auto label = new QLabel(parent);
+        QFont f = label->font();
+        f.setBold(true);
+        label->setFont(f);
+        label->setText(mLabel.generateText());
+        vboxLayout->addWidget(label);
+    }
     if (mElement) {
         connect(mElement, &AutoGenerateInteractionUiViewActionable::actionChanged, this, [this](const QByteArray &actionId, const QString &value) {
             // qDebug() << "AutoGenerateInteractionUiViewActionsBlock: actionId " << actionId << " value " << value << "blockId " << mBlockId;
