@@ -73,14 +73,26 @@ QDate NeedUpdateVersionUtils::compileDate()
     return QDate::fromString(QString::fromLatin1(__DATE__), QStringLiteral("MMM dd yyyy"));
 }
 
+QUrl NeedUpdateVersionUtils::nextVersionUrl()
+{
+    // For stable version we need to look at if we have next stable version.
+    return generateNewVersionUrl("2.6"_L1);
+}
+
 QUrl NeedUpdateVersionUtils::newVersionUrl()
+{
+    return generateNewVersionUrl("2.5"_L1);
+}
+
+QUrl NeedUpdateVersionUtils::generateNewVersionUrl([[maybe_unused]] const QString &currentStableVersion)
 {
     // TODO add support for AppImage linux too
 #if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
+    const QString baseUrl = "https://cdn.kde.org/ci-builds/network/ruqola/"_L1;
 #if RUQOLA_STABLE_VERSION
-    QString url = "https://cdn.kde.org/ci-builds/network/ruqola/2.5/%1/"_L1;
+    QString url = baseUrl + currentStableVersion + "/%1/"_L1;
 #else
-    QString url = "https://cdn.kde.org/ci-builds/network/ruqola/master/%1/"_L1;
+    QString url = baseUrl + "master/%1/"_L1;
 #endif
 #endif
 
