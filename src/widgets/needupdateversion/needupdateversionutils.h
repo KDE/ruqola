@@ -24,5 +24,7 @@ void disableCheckVersion();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QUrl newVersionUrl();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT bool canVerifyNewVersion();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QDate compileDate();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QUrl nextVersionUrl();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QUrl generateNewVersionUrl(const QString &currentStableVersion);
 };
 Q_DECLARE_METATYPE(NeedUpdateVersionUtils::ObsoleteVersion)
