@@ -19,6 +19,8 @@ public:
     void checkNewVersion();
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotFoundNewVersion(bool found);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFoundNewVersion(const QUrl &url, bool found);
+    LIBRUQOLAWIDGETS_NO_EXPORT void checkCurrentVersion();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFoundNextVersion(bool found);
     QLabel *const mCheckVersionResultLabel;
 };

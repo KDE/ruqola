@@ -5,6 +5,7 @@
 */
 
 #include "verifynewversionwidget.h"
+#include "config-ruqola.h"
 #include "needupdateversion/needupdatecheckexistingnewversionjob.h"
 #include "needupdateversion/needupdateversionutils.h"
 #include "ruqolawidgets_debug.h"
@@ -32,16 +33,40 @@ VerifyNewVersionWidget::~VerifyNewVersionWidget() = default;
 
 void VerifyNewVersionWidget::checkNewVersion()
 {
+#if RUQOLA_STABLE_VERSION
     auto job = new NeedUpdateCheckExistingNewVersionJob(this);
-    job->setUrl(NeedUpdateVersionUtils::newVersionUrl());
+    job->setUrl(NeedUpdateVersionUtils::nextVersionUrl());
     job->setCompileDate(NeedUpdateVersionUtils::compileDate());
-    connect(job, &NeedUpdateCheckExistingNewVersionJob::foundNewVersion, this, &VerifyNewVersionWidget::slotFoundNewVersion);
+    connect(job, &NeedUpdateCheckExistingNewVersionJob::foundNewVersion, this, &VerifyNewVersionWidget::slotFoundNextVersion);
+    job->start();
+#else
+    checkCurrentVersion();
+#endif
+}
+
+void VerifyNewVersionWidget::checkCurrentVersion()
+{
+    auto job = new NeedUpdateCheckExistingNewVersionJob(this);
+    const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
+    job->setUrl(url);
+    job->setCompileDate(NeedUpdateVersionUtils::compileDate());
+    connect(job, &NeedUpdateCheckExistingNewVersionJob::foundNewVersion, this, [this, url](bool found) {
+        slotFoundNewVersion(url, found);
+    });
     job->start();
 }
 
-void VerifyNewVersionWidget::slotFoundNewVersion(bool found)
+void VerifyNewVersionWidget::slotFoundNextVersion(bool found)
 {
-    const QUrl url = NeedUpdateVersionUtils::newVersionUrl();
+    if (found) {
+        slotFoundNewVersion(NeedUpdateVersionUtils::nextVersionUrl(), found);
+    } else {
+        checkCurrentVersion();
+    }
+}
+
+void VerifyNewVersionWidget::slotFoundNewVersion(const QUrl &url, bool found)
+{
     if (found) {
         mCheckVersionResultLabel->setText(i18n("A new version found. Click <a href=\"%1\">here</a> for downloading it.", url.toString()));
     } else {
