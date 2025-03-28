@@ -19,4 +19,7 @@ private Q_SLOTS:
     void shouldGenerateRequest();
     void shouldGenerateJson();
     void shouldNotStarting();
+    void testRunCommandInfo();
+    void testRunCommandInfo_data();
+    void shouldHaveDefaultValueRunCommandInfo();
 };
