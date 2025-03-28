@@ -56,11 +56,17 @@ void RunCommandJob::setRunCommandInfo(const RunCommandInfo &runCommandInfo)
     mRunCommandInfo = runCommandInfo;
 }
 
-RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid)
+bool RunCommandJob::RunCommandInfo::operator==(const RunCommandInfo &info) const
+{
+    return commandName == info.commandName && roomId == info.roomId && threadMessageId == info.threadMessageId && triggerId == info.triggerId
+        && params == info.params;
+}
+
+RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid, const QString &forceUuid)
 {
     RunCommandJob::RunCommandInfo info;
     if (str.length() > 1) {
-        const QString newStr = str.mid(1);
+        const QString newStr = str.sliced(1);
         QStringList lst = newStr.split(QLatin1Char(' '), Qt::SkipEmptyParts);
         const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
@@ -69,7 +75,11 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
         if (numberElement > 1) {
             info.params = lst.join(QLatin1Char(' '));
         }
-        info.triggerId = QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128));
+        if (forceUuid.isEmpty()) {
+            info.triggerId = QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128));
+        } else {
+            info.triggerId = forceUuid;
+        }
     }
     return info;
 }

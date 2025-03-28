@@ -75,4 +75,78 @@ void RunCommandJobTest::shouldNotStarting()
     QVERIFY(job.canStart());
 }
 
+void RunCommandJobTest::shouldHaveDefaultValueRunCommandInfo()
+{
+    RunCommandJob::RunCommandInfo job;
+    QVERIFY(job.commandName.isEmpty());
+    QVERIFY(job.roomId.isEmpty());
+    QVERIFY(job.threadMessageId.isEmpty());
+    QVERIFY(job.triggerId.isEmpty());
+    QVERIFY(job.params.isEmpty());
+    QVERIFY(!job.isValid());
+}
+
+void RunCommandJobTest::testRunCommandInfo()
+{
+    QFETCH(QString, commandLine);
+    QFETCH(QByteArray, roomId);
+    QFETCH(QByteArray, threadId);
+    QFETCH(RunCommandJob::RunCommandInfo, info);
+    QFETCH(bool, valid);
+
+    const RunCommandJob::RunCommandInfo parsed = RunCommandJob::parseString(commandLine, roomId, threadId, "AUTOTEST"_L1);
+    QCOMPARE(parsed.isValid(), valid);
+    QCOMPARE(parsed, info);
+}
+
+void RunCommandJobTest::testRunCommandInfo_data()
+{
+    QTest::addColumn<QString>("commandLine");
+    QTest::addColumn<QByteArray>("roomId");
+    QTest::addColumn<QByteArray>("threadId");
+    QTest::addColumn<RunCommandJob::RunCommandInfo>("info");
+    QTest::addColumn<bool>("valid");
+
+    {
+        RunCommandJob::RunCommandInfo empty;
+        QTest::addRow("empty") << QString() << QByteArray() << QByteArray() << empty << false;
+    }
+    {
+        RunCommandJob::RunCommandInfo info;
+        info.commandName = "poll"_L1;
+        info.roomId = "bla"_L1;
+        info.threadMessageId = "bli"_L1;
+        info.triggerId = "AUTOTEST"_L1;
+        // info.params;
+        QTest::addRow("test1") << QStringLiteral("/poll") << QByteArray("bla") << QByteArray("bli") << info << true;
+    }
+    {
+        RunCommandJob::RunCommandInfo info;
+        info.commandName = "poll"_L1;
+        info.roomId = "bla"_L1;
+        info.threadMessageId = "bli"_L1;
+        info.triggerId = "AUTOTEST"_L1;
+        info.params = "test1"_L1;
+        QTest::addRow("test2") << QStringLiteral("/poll test1") << QByteArray("bla") << QByteArray("bli") << info << true;
+    }
+    {
+        RunCommandJob::RunCommandInfo info;
+        info.commandName = "poll"_L1;
+        info.roomId = "bla"_L1;
+        info.threadMessageId = "bli"_L1;
+        info.triggerId = "AUTOTEST"_L1;
+        info.params = "test1 voiture"_L1;
+        QTest::addRow("test3") << QStringLiteral("/poll test1 voiture") << QByteArray("bla") << QByteArray("bli") << info << true;
+    }
+    {
+        RunCommandJob::RunCommandInfo info;
+        info.commandName = "poll"_L1;
+        info.roomId = "bla"_L1;
+        info.threadMessageId = "bli"_L1;
+        info.triggerId = "AUTOTEST"_L1;
+        info.params = "test1 voiture"_L1;
+        QTest::addRow("test4") << QStringLiteral("/poll test1 voiture    ") << QByteArray("bla") << QByteArray("bli") << info << true;
+    }
+}
+
 #include "moc_runcommandjobtest.cpp"

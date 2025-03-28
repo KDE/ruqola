@@ -22,6 +22,7 @@ public:
         QString triggerId;
         QString params;
         [[nodiscard]] bool isValid() const;
+        [[nodiscard]] bool operator==(const RunCommandInfo &info) const;
     };
     explicit RunCommandJob(QObject *parent = nullptr);
     ~RunCommandJob() override;
@@ -36,7 +37,7 @@ public:
     [[nodiscard]] RunCommandInfo runCommandInfo() const;
     void setRunCommandInfo(const RunCommandInfo &runCommandInfo);
 
-    [[nodiscard]] static RunCommandInfo parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid);
+    [[nodiscard]] static RunCommandInfo parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid, const QString &forceUuid = {});
 Q_SIGNALS:
     void runCommandDone();
     void runCommandFailed(const RunCommandJob::RunCommandInfo &info);
