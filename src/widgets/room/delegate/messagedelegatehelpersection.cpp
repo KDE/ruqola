@@ -46,7 +46,7 @@ void MessageDelegateHelperSection::draw(const Block &block,
         const QPen origPen = painter->pen();
         const QBrush origBrush = painter->brush();
         const QPen buttonPen(option.palette.color(QPalette::Button).darker());
-        QColor backgroundColor = option.palette.color(QPalette::Window);
+        const QColor backgroundColor = option.palette.color(QPalette::Window);
         const QBrush buttonBrush(backgroundColor);
         painter->setPen(buttonPen);
         painter->setBrush(buttonBrush);
