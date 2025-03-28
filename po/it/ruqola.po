@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-26 00:42+0000\n"
-"PO-Revision-Date: 2025-03-13 18:52+0100\n"
+"POT-Creation-Date: 2025-03-28 00:42+0000\n"
+"PO-Revision-Date: 2025-03-21 07:58+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -11395,14 +11395,14 @@ msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Verifica nuova versione"
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:46
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:71
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
 "È stata trovata una nuova versione. Fai clic <a href=\"%1\">qui</a> per "
 "scaricarla."
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
@@ -11478,6 +11478,8 @@ msgstr "Debug: esplora la traduzione dal server RC."
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
+"Implementa il supporto dell'interfaccia utente delle estensioni (crea una "
+"finestra per configurare le impostazioni)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
