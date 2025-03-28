@@ -151,7 +151,7 @@ void AutoGenerateInteractionUiViewActionsBlock::assignState(const QList<StateInf
     for (const auto &e : std::as_const(mElements)) {
         for (const auto &stateInfo : info) {
             if (QString::fromLatin1(e->actionId()) == stateInfo.actionId) {
-                e->setCurrentValue(e->currentValue());
+                e->setCurrentValue(stateInfo.value);
             }
         }
     }
