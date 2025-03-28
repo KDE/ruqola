@@ -13,18 +13,7 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{
-        kli18n("Add support for tools plugins"),
-        kli18n("Plugin: Add screenshot button (near send message button)"),
-        kli18n("Implement invite RC url support"),
-        kli18n("Implement verify if a new Ruqola version exist"),
-        kli18n("Allow to search threads by unread/following"),
-        kli18n("Show images from attachment dialog box"),
-        kli18n("Implement Rocket.Chat application support."),
-        kli18n("Implement command preview."),
-        kli18n("Debug: explore translation from RC server."),
-        kli18n("Implement plugin UI support (Create dialog box for configure settings)."),
-    };
+    const QList<KLazyLocalizedString> info{};
     return info;
 }
 
@@ -120,11 +109,6 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
     }
     {
         WhatsNewInfo info;
-        QStringList lst;
-        for (const KLazyLocalizedString &l : lastNewFeatures()) {
-            lst += l.toString();
-        }
-        info.setNewFeatures(lst);
         info.setVersion(QStringLiteral("2.4"));
         info.setNewFeatures({
             i18n("Allow to clean up room history when room was not opened from long time."),
@@ -154,11 +138,18 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
     }
     {
         WhatsNewInfo info;
-        QStringList lst;
-        for (const KLazyLocalizedString &l : lastNewFeatures()) {
-            lst += l.toString();
-        }
-        info.setNewFeatures(lst);
+        info.setNewFeatures({
+            i18n("Add support for tools plugins"),
+            i18n("Plugin: Add screenshot button (near send message button)"),
+            i18n("Implement invite RC url support"),
+            i18n("Implement verify if a new Ruqola version exist"),
+            i18n("Allow to search threads by unread/following"),
+            i18n("Show images from attachment dialog box"),
+            i18n("Implement Rocket.Chat application support."),
+            i18n("Implement command preview."),
+            i18n("Debug: explore translation from RC server."),
+            i18n("Implement plugin UI support (Create dialog box for configure settings)."),
+        });
         info.setVersion(QStringLiteral("2.5"));
         info.setBugFixings({
             i18n("Allow to search file from username and filename."),
@@ -172,6 +163,18 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix dark mode support."),
             i18n("Fix download languages apps."),
         });
+
+        listInfo.append(std::move(info));
+    }
+    {
+        WhatsNewInfo info;
+        QStringList lst;
+        for (const KLazyLocalizedString &l : lastNewFeatures()) {
+            lst += l.toString();
+        }
+        info.setNewFeatures(lst);
+        info.setVersion(QStringLiteral("2.6"));
+        info.setBugFixings({});
 
         listInfo.append(std::move(info));
     }
