@@ -68,11 +68,10 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
     if (str.length() > 1) {
         const QString newStr = str.sliced(1);
         QStringList lst = newStr.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-        const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
         info.roomId = QLatin1StringView(roomId);
         info.threadMessageId = QLatin1StringView(tmid);
-        if (numberElement > 1) {
+        if (!lst.isEmpty()) {
             info.params = lst.join(QLatin1Char(' '));
         }
         if (forceUuid.isEmpty()) {
