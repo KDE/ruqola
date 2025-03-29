@@ -120,11 +120,6 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
     }
     {
         WhatsNewInfo info;
-        QStringList lst;
-        for (const KLazyLocalizedString &l : lastNewFeatures()) {
-            lst += l.toString();
-        }
-        info.setNewFeatures(lst);
         info.setVersion(QStringLiteral("2.4"));
         info.setNewFeatures({
             i18n("Allow to clean up room history when room was not opened from long time."),
