@@ -2,13 +2,12 @@
 # This file is distributed under the same license as the ruqola package.
 #
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 giovanni <g.sora@tiscali.it>
-# giovanni <g.sora@tiscali.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-26 00:42+0000\n"
-"PO-Revision-Date: 2025-03-20 19:24+0100\n"
+"POT-Creation-Date: 2025-03-29 02:33+0000\n"
+"PO-Revision-Date: 2025-02-05 10:42+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -29,9 +28,10 @@ msgid "Rocket Chat Client"
 msgstr "Cliente de Rocket Chat (Conversation in directo de Rocchetta)"
 
 #: apps/main.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2024 Ruqola authors"
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © 2020-2025 Autores de Ruqola"
+msgstr "Copyright © 2020-2024 Autores de Ruqola"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -174,9 +174,10 @@ msgid "The following accounts are available:"
 msgstr "Le sequente contos es disponibile:"
 
 #: core/accountmanager.cpp:855
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invalid token"
 msgid "Invalid invite token"
-msgstr "Indicio (token) de invitar invalide"
+msgstr "Indicio (token) invalide"
 
 #: core/accountmanager.cpp:856
 #, kde-format
@@ -408,14 +409,16 @@ msgid "Allow to send email"
 msgstr "Permitte inviar eposta"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to send email"
 msgid "Allow to write role"
-msgstr "Permitte scriber rolo"
+msgstr "Permitte inviar eposta"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to send email"
 msgid "Allow to read role"
-msgstr "Permitte leger rolo"
+msgstr "Permitte inviar eposta"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -2011,9 +2014,10 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Tu pote trovar le nove requesta a:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Created at"
 msgid "Create a screenshot"
-msgstr "Crear un instantanee de schermo"
+msgstr "Create a:"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -3311,10 +3315,12 @@ msgstr "Abbandona Omne Reportos"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:287
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Copy link"
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Copia selection"
+msgstr "Copia Ligamine"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -4950,7 +4956,8 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mentions"
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Mentiones"
@@ -6805,9 +6812,10 @@ msgid "Permissions"
 msgstr "Permissiones"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No version info found."
 msgid "No permissions information found."
-msgstr "Nulle information de permission trovate."
+msgstr "Nulle info de version trovate"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -6848,7 +6856,7 @@ msgstr "Habilitate"
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
-msgstr[0] "%1 Requesta"
+msgstr[0] "Require"
 msgstr[1] "%1 Requestas"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
@@ -6898,19 +6906,24 @@ msgid "Ask Application…"
 msgstr "Demanda Application…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Install"
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "De-installa"
+msgstr "Installa"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable"
 msgctxt "@action"
 msgid "Disable"
 msgstr "Dishabilita"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable"
 msgctxt "@action"
 msgid "Enable"
 msgstr "Habilita"
@@ -6923,15 +6936,18 @@ msgid "Copy Text"
 msgstr "Copia texto"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do you want to unarchive this room?"
 msgid "Do you want to uninstall this application?"
-msgstr "Tu vole de-installar iste application?"
+msgstr "Tu vole de-archivar iste sala?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Installed Applications…"
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Deinstalla Applicationes"
+msgstr "Applicationes installate …"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -8221,7 +8237,7 @@ msgstr "Reporta Message"
 #, kde-format
 msgctxt "@action:button"
 msgid "Report"
-msgstr "Reporta"
+msgstr "Reporto"
 
 #: widgets/dialogs/reportmessagewidget.cpp:37
 #: widgets/dialogs/reportuserwidget.cpp:37
@@ -8418,14 +8434,18 @@ msgid "Copy Location to Clipboard"
 msgstr "Copia location a area de transferentia"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
 msgid "Show previous image"
-msgstr "Monstra previe imagine"
+msgstr "Monstra message"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
 msgid "Show next image"
-msgstr "Monstra proxime imagine"
+msgstr "Monstra message"
 
 #: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
@@ -8477,7 +8497,9 @@ msgid "Show Starred Messages - %1"
 msgstr "Monstra messages con stella - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Following"
 msgid "Following"
 msgstr "Sequente"
 
@@ -8696,10 +8718,12 @@ msgid "Decode Encryption Key"
 msgstr "Decifra Clave de Cryptation"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Dishabilita Cryptation"
+msgstr "Habilita Cryptation E2E"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8719,9 +8743,11 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decode Encryption Key"
 msgid "Reset encryption keys"
-msgstr "Reinitia Claves de Cryptation"
+msgstr "Decifra Clave de Cryptation"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
@@ -8730,10 +8756,12 @@ msgid "Decode Key"
 msgstr ""
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Habilita Cryptation"
+msgstr "Habilita Cryptation E2E"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
 #, kde-format
@@ -8764,13 +8792,16 @@ msgid "Save Encryption Key"
 msgstr "Salveguarda Clave de Cryptation"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Traduction de Application"
+msgstr "Application non trovate"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Translation"
 msgid "Translation"
 msgstr "Traduction"
 
@@ -9151,10 +9182,11 @@ msgid "Reset E2E Key"
 msgstr "Refixa Clave E2E"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Modify…"
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Modifica"
+msgstr "Modifica..."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -10045,7 +10077,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
-msgstr "Error de commando"
+msgstr ""
 
 #: widgets/room/messagelinewidget.cpp:245
 #, kde-format
@@ -10425,15 +10457,18 @@ msgid "Your email has been queued for sending."
 msgstr "Tu e-posta ha essite ponite in cauda pro inviar."
 
 #: widgets/room/roomwidget.cpp:536
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
-msgstr "Contento cryptate non pote esser cercate."
+msgstr "Messages directe non pote esser archivate"
 
 #: widgets/room/roomwidget.cpp:536
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Cerca Message"
+msgstr "Cerca Messages"
 
 #: widgets/room/roomwidget.cpp:555
 #, kde-format
@@ -10470,9 +10505,10 @@ msgid "Disconnected"
 msgstr "Disconnectite"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Owner"
 msgid "Owners"
-msgstr "Proprietarios"
+msgstr "Proprietario"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -10661,7 +10697,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
-msgstr "Lista le optiones disponibile per responsa de usator"
+msgstr "Lista le optiones disponibile per responsa al usator"
 
 #: widgets/ruqolamainwindow.cpp:230
 #, kde-format
@@ -11135,23 +11171,21 @@ msgid "Return the number of account."
 msgstr "Rtorna le numero de conto."
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Check New Version"
 msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Verifica nove version"
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:46
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:71
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
-"Un nove version trovate. Clicca <a href=\"%1\">hic</a> per discargar lo."
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
-"Nulle nove version trovate. Construer (build) pote esser trovate <a href="
-"\"%1\"> hic </a> ."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11670,35 +11704,6 @@ msgstr ""
 msgid "Some bug fixing:"
 msgstr "Alcun correction de faltas (bug)"
 
-#~ msgid "No new version found."
-#~ msgstr "Nulle nove version trovate"
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Attacha File"
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Monstra registro"
-
-#~ msgid "Private"
-#~ msgstr "Private"
-
-#~ msgid "Installed"
-#~ msgstr "Installate"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Uni canales predefinite"
-
 #~ msgid "Starred Messages"
 #~ msgstr "Messages con stella"
 
@@ -11714,8 +11719,26 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Messages de topicos non legite"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Marca como legite)"
+#~ msgid "System Messages"
+#~ msgstr "Messages de systema"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Uni canales predefinite"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Verificate"
+
+#~ msgid "Private"
+#~ msgstr "Private"
+
+#~ msgid "Installed"
+#~ msgstr "Installate"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Marca como legite"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Nomine de usator o E-Posta:"
@@ -11740,57 +11763,41 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Server Url:"
 #~ msgstr "URL de servitor:"
 
-#~ msgid "Message %1"
-#~ msgstr "Message %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marca como legite"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Refixa E2E"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Omne usatores in iste equipa pote scriber messages"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Verificate"
+#~ msgid "Message %1"
+#~ msgstr "Message %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Messages de systema"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Marca como legite)"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Monstra registro"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Selige toto"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Refixa TOTP"
 
-#~ msgid "Create"
-#~ msgstr "Crea"
+#~ msgid "Add..."
+#~ msgstr "Adde..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Fixa como Favorite"
+#~ msgid "Modify..."
+#~ msgstr "Modifica..."
 
-#~ msgid "Search rooms…"
-#~ msgstr "Cerca Salas…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Copia message"
-
-#, fuzzy
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Cerca Salas…"
-
-#, fuzzy
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Cerca Usatores..."
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Directorio - %1"
 
 #~ msgid "Search channels…"
 #~ msgstr "Cerca canales…"
@@ -11798,9 +11805,11 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Open…"
 #~ msgstr "Aperi..."
 
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Directorio - %1"
+#~ msgid "Go to Message"
+#~ msgstr "Vade a message"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Pulsa hic per cargar plus ...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -11811,24 +11820,6 @@ msgstr "Alcun correction de faltas (bug)"
 
 #~ msgid "Version 2.2"
 #~ msgstr "Version 2.2"
-
-#~ msgid "Version 2.3"
-#~ msgstr "Version 2.3"
-
-#~ msgid "Select All"
-#~ msgstr "Selige toto"
-
-#~ msgid "Go to Message"
-#~ msgstr "Vade a message"
-
-#~ msgid "Add..."
-#~ msgstr "Adde..."
-
-#~ msgid "Modify..."
-#~ msgstr "Modifica..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Pulsa hic per cargar plus ...)"
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Pulsa hic per cargar plus ...)"
@@ -12259,6 +12250,10 @@ msgstr "Alcun correction de faltas (bug)"
 
 #~ msgid "Export Autocorrection File"
 #~ msgstr "Exporta file de correction automatic"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select Special Characters"
+#~ msgstr "Selige characteres special"
 
 #~ msgid "Insert"
 #~ msgstr "Inserta"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-26 00:42+0000\n"
-"PO-Revision-Date: 2025-02-27 20:07-0300\n"
+"POT-Creation-Date: 2025-03-29 02:33+0000\n"
+"PO-Revision-Date: 2025-02-27 20:36-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -7397,31 +7397,29 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Search Permissions..."
 msgctxt "@info:placeholder"
 msgid "Search Applications"
-msgstr "Aplicativo não encontrado"
+msgstr "Pesquisar permissões..."
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
-msgstr "Aplicativo não encontrado"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
-msgstr "Aplicativo não encontrado"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Search Permissions..."
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Aplicativo não encontrado"
+msgstr "Pesquisar permissões..."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
@@ -9173,10 +9171,10 @@ msgstr "Pesquisar equipes"
 
 #: widgets/directory/directorywidget.cpp:80
 #, fuzzy, kde-format
-#| msgid "%2 added %1 to the conversation"
+#| msgid "Join"
 msgctxt "@action"
 msgid "Join…"
-msgstr "%2 adicionou %1 à conversa"
+msgstr "Entrar"
 
 #: widgets/directory/directorywidget.cpp:83
 #, fuzzy, kde-format
@@ -10712,11 +10710,10 @@ msgstr "Responder no tópico"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Account"
+#| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "Add reaction"
-msgstr "Adicionar conta"
+msgstr "Menções"
 
 #: widgets/room/messagelinewidget.cpp:68
 #, fuzzy, kde-format
@@ -10746,10 +10743,10 @@ msgstr "Crie uma mensagem de vídeo"
 
 #: widgets/room/messagelinewidget.cpp:90 widgets/room/messagelinewidget.cpp:97
 #, fuzzy, kde-format
-#| msgid "Search Messages..."
+#| msgid "Search Messages"
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
-msgstr "Pesquisar mensagens..."
+msgstr "Pesquisar mensagens"
 
 #: widgets/room/messagelinewidget.cpp:92
 #, fuzzy, kde-format
@@ -10817,9 +10814,9 @@ msgstr "Mensagem fixada"
 
 #: widgets/room/messagelinewidget.cpp:347
 #, fuzzy, kde-format
-#| msgid "Search Messages..."
+#| msgid "Search Messages"
 msgid "Send a message in %1…"
-msgstr "Pesquisar mensagens..."
+msgstr "Pesquisar mensagens"
 
 #: widgets/room/messagelinewidget.cpp:488
 #, kde-format
@@ -11633,18 +11630,16 @@ msgid "Applications…"
 msgstr "Aplicativo não encontrado"
 
 #: widgets/ruqolamainwindow.cpp:553
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
-msgstr "Aplicativo não encontrado"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:558
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
-msgstr "Aplicativo não encontrado"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:563
 #, fuzzy, kde-format
@@ -12011,12 +12006,12 @@ msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Versão do nó"
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:46
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:71
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
@@ -12396,10 +12391,9 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Total de mensagens nos canais"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:116
-#, fuzzy, kde-format
-#| msgid "Total Messages in Channels"
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "Total de mensagens nos canais"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, kde-format
@@ -12434,10 +12428,9 @@ msgid "Add color to the text in the account tab"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Allow to show private installed applications"
-msgstr "Aplicativo não encontrado"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:141
 #, fuzzy, kde-format
@@ -12488,10 +12481,9 @@ msgid "Fix open discussion channel"
 msgstr "Abrir discussão"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:150
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Aplicativo não encontrado"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
@@ -12566,32 +12558,6 @@ msgstr ""
 msgid "Some bug fixing:"
 msgstr "Correção de erros"
 
-#, fuzzy
-#~| msgid "No room found"
-#~ msgid "No new version found."
-#~ msgstr "Nenhuma sala encontrada"
-
-#, fuzzy
-#~| msgid "Attach Files"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Anexar arquivos"
-
-#, fuzzy
-#~| msgid "Show Channel Log"
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Mostrar log do canal"
-
-#~ msgid "Private"
-#~ msgstr "Privado"
-
-#, fuzzy
-#~| msgid "Join Default Channels"
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Entrar nos canais padrão"
-
 #~ msgid "Starred Messages"
 #~ msgstr "Mensagens com estrela"
 
@@ -12607,10 +12573,29 @@ msgstr "Correção de erros"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Mensagens dos tópicos não lidos"
 
+#~ msgid "System Messages"
+#~ msgstr "Mensagens do sistema"
+
 #, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Marcar como lida)"
+#~| msgid "Join Default Channels"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Entrar nos canais padrão"
+
+#, fuzzy
+#~| msgid "Verified"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Verificado"
+
+#~ msgid "Private"
+#~ msgstr "Privado"
+
+#, fuzzy
+#~| msgid "Mark As Read"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Marcar como lida"
 
 #, fuzzy
 #~| msgid "Username:"
@@ -12646,72 +12631,38 @@ msgstr "Correção de erros"
 #~ msgstr "URL do servidor:"
 
 #, fuzzy
-#~| msgid "Message"
-#~ msgid "Message %1"
-#~ msgstr "Mensagem"
-
-#, fuzzy
-#~| msgid "Mark As Read"
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marcar como lida"
-
-#, fuzzy
-#~| msgid "Reset Avatar"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Redefinir avatar"
-
-#, fuzzy
 #~| msgid "All users in this team can write messages"
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Todos os usuários nesta equipe podem escrever mensagens"
 
 #, fuzzy
-#~| msgid "Verified"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Verificado"
+#~| msgid "Message"
+#~ msgid "Message %1"
+#~ msgstr "Mensagem"
 
-#~ msgid "System Messages"
-#~ msgstr "Mensagens do sistema"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Marcar como lida)"
+
+#, fuzzy
+#~| msgid "Show Channel Log"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Mostrar log do canal"
+
+#~ msgid "Select All"
+#~ msgstr "Selecionar tudo"
 
 #, fuzzy
 #~| msgid "Reset Avatar"
 #~ msgid "Reset TOTP"
 #~ msgstr "Redefinir avatar"
 
-#~ msgid "Create"
-#~ msgstr "Criar"
+#~ msgid "Add..."
+#~ msgstr "Adicionar..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Definir como favorito"
-
-#, fuzzy
-#~| msgid "Search Rooms"
-#~ msgid "Search rooms…"
-#~ msgstr "Pesquisar salas"
-
-#~ msgid "Copy Message"
-#~ msgstr "Copiar mensagem"
-
-#, fuzzy
-#~| msgid "Search Rooms"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Pesquisar salas"
-
-#, fuzzy
-#~| msgid "Search Users"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Pesquisar usuários"
-
-#, fuzzy
-#~| msgid "Search Channels"
-#~ msgid "Search channels…"
-#~ msgstr "Pesquisar canais"
+#~ msgid "Modify..."
+#~ msgstr "Modificar..."
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -12719,6 +12670,17 @@ msgstr "Correção de erros"
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Pasta"
+
+#, fuzzy
+#~| msgid "Search Channels"
+#~ msgid "Search channels…"
+#~ msgstr "Pesquisar canais"
+
+#~ msgid "Go to Message"
+#~ msgstr "Ir para mensagem"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Clique aqui para carregar mais...)"
 
 #, fuzzy
 #~| msgid "Directory..."
@@ -12735,26 +12697,6 @@ msgstr "Correção de erros"
 #~| msgid "Version"
 #~ msgid "Version 2.2"
 #~ msgstr "Versão"
-
-#, fuzzy
-#~| msgid "Version"
-#~ msgid "Version 2.3"
-#~ msgstr "Versão"
-
-#~ msgid "Select All"
-#~ msgstr "Selecionar tudo"
-
-#~ msgid "Go to Message"
-#~ msgstr "Ir para mensagem"
-
-#~ msgid "Add..."
-#~ msgstr "Adicionar..."
-
-#~ msgid "Modify..."
-#~ msgstr "Modificar..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Clique aqui para carregar mais...)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"

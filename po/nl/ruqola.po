@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-26 00:42+0000\n"
-"PO-Revision-Date: 2025-03-20 13:08+0100\n"
+"POT-Creation-Date: 2025-03-29 02:33+0000\n"
+"PO-Revision-Date: 2025-02-24 17:40+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -28,9 +28,10 @@ msgid "Rocket Chat Client"
 msgstr "Client Rocket Chat"
 
 #: apps/main.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2024 Ruqola authors"
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © 2020-2025 auteurs van Ruqola"
+msgstr "Copyright © 2020-2024 auteurs van Ruqola"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -173,14 +174,15 @@ msgid "The following accounts are available:"
 msgstr "De volgende accounts zijn beschikbaar:"
 
 #: core/accountmanager.cpp:855
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invalid token"
 msgid "Invalid invite token"
-msgstr "Ongeldig uitnodigingstoken"
+msgstr "Ongeldig token"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr "Uitnodigingstoken is ongeldig. Aanmaken account geannuleerd."
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:108
 #, kde-format
@@ -394,12 +396,12 @@ msgstr "Livechat aangepast veldconfiguratie wijzigen"
 #: core/apps/appsmarketplaceinfo.cpp:667
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr "Bied het schrijven van oauth-app-instellingen"
+msgstr "Toestaan om oauth toepassingsinstellingen te schrijven"
 
 #: core/apps/appsmarketplaceinfo.cpp:669
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr "Bied het lezen van oauth-app-instellingen"
+msgstr "Toestaan om oauth toepassingsinstellingen te lezen"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
 #, kde-format
@@ -407,14 +409,16 @@ msgid "Allow to send email"
 msgstr "Verzenden van e-mail toestaan"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to write oauth app settings"
 msgid "Allow to write role"
-msgstr "Bied de rol van schrijven"
+msgstr "Toestaan om oauth toepassingsinstellingen te schrijven"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to send email"
 msgid "Allow to read role"
-msgstr "Bied de rol van lezen"
+msgstr "Verzenden van e-mail toestaan"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -739,7 +743,7 @@ msgstr "(Laatste bericht: %1)"
 #: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
-msgstr "Server-URL ontbreekt."
+msgstr ""
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -2018,9 +2022,10 @@ msgstr ""
 "<qt>Het nieuwe verzoek kunt u vinden op:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Created at"
 msgid "Create a screenshot"
-msgstr "Een schermafdruk maken"
+msgstr "Aangemaakt op"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -3330,10 +3335,12 @@ msgstr "Alle rapporten verwerpen"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:287
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Copy link"
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Selectie kopiëren"
+msgstr "Koppeling kopiëren"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -3400,7 +3407,7 @@ msgstr "Rollen:"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:54
 #, kde-format
 msgid "Report #%1"
-msgstr "#%1 rapporteren"
+msgstr "Rapport #%1"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -5020,7 +5027,8 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Heb toegang tot niet versleutelde inhoud in versleutelde rooms"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mentions"
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Vermeldingen"
@@ -5059,8 +5067,6 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
-"Laat mensen weten en accentueer gebruiker, kanaal en team vermelding in "
-"versleutelde inhoud."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -7006,9 +7012,10 @@ msgid "Permissions"
 msgstr "Toegangsrechten"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No version info found."
 msgid "No permissions information found."
-msgstr "Geen informatie over toegangsrechten gevonden."
+msgstr "Geen versie-informatie gevonden."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -7049,7 +7056,7 @@ msgstr "Ingeschakeld"
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
-msgstr[0] "%1 verzoek"
+msgstr[0] "Verzoek"
 msgstr[1] "%1 verzoeken"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
@@ -7099,19 +7106,24 @@ msgid "Ask Application…"
 msgstr "Aan toepassing vragen…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Install"
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Installatie ongedaan maken"
+msgstr "Installeren"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable"
 msgctxt "@action"
 msgid "Disable"
 msgstr "Uitschakelen"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable"
 msgctxt "@action"
 msgid "Enable"
 msgstr "Inschakelen"
@@ -7124,15 +7136,18 @@ msgid "Copy Text"
 msgstr "Tekst kopiëren"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do you want to unarchive this room?"
 msgid "Do you want to uninstall this application?"
-msgstr "Wilt u de installatie van deze toepassing ongedaan maken?"
+msgstr "Wilt u deze room uit het archief halen?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Installed Applications…"
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Installatie van toepassing ongedaan maken"
+msgstr "Geïnstalleerde toepassingen…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -7186,7 +7201,7 @@ msgstr "Private toepassingen zoeken"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr "Toepassingen hebben geen instellingen."
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
@@ -7221,7 +7236,7 @@ msgstr "Alle statussen"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr "Versie-informatie wordt opgehaald..."
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
@@ -7445,7 +7460,7 @@ msgstr "Een oproep beginnen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Start"
-msgstr "Begin"
+msgstr "Starten"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:31
 #, kde-format
@@ -7905,7 +7920,7 @@ msgstr "Wachtwoord toevoegen"
 #, kde-format
 msgctxt "@option:check"
 msgid "Exclude pinned messages"
-msgstr "Vast gepinde berichten uitsluiten"
+msgstr "Vastgepinde berichten uitsluiten"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:20
 #, kde-format
@@ -8188,14 +8203,18 @@ msgid "Private Room:"
 msgstr "Privéroom:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Messages are end-to-end encrypted, search will not work and notifications "
+#| "may not show message content"
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Kanaal eind-tot-eind versleuteld. Zoeken zal niet werken met versleuteld "
-"kanaal en meldingen kunnen de inhoud van het bericht niet tonen."
+"Berichten zijn eind-tot-eind versleuteld, zoeken zal niet werken en "
+"meldingen kunnen de inhoud van het bericht niet tonen"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
@@ -8627,14 +8646,18 @@ msgid "Copy Location to Clipboard"
 msgstr "Locatie naar klembord kopiëren"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
 msgid "Show previous image"
-msgstr "Vorige afbeelding tonen"
+msgstr "Bericht tonen"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
 msgid "Show next image"
-msgstr "Volgende afbeelding tonen"
+msgstr "Bericht tonen"
 
 #: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
@@ -8677,7 +8700,7 @@ msgstr "Vermeldingsberichten tonen - %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
-msgstr "Vast gepinde berichten tonen - %1"
+msgstr "Vastgepinde berichten tonen - %1"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, kde-format
@@ -8686,7 +8709,9 @@ msgid "Show Starred Messages - %1"
 msgstr "Berichten met sterren tonen - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Following"
 msgid "Following"
 msgstr "Bezig met volgen"
 
@@ -8914,10 +8939,12 @@ msgid "Decode Encryption Key"
 msgstr "Versleutelde sleutel ontcijferen"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Versleuteling uitschakelen"
+msgstr "Ingeschakelde E2E-versleuteling"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8928,12 +8955,6 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
-"E2EE uitschakelen zal de privacy van deze private groep compromitteren. "
-"Toegang tot elke versleutelde inhoud zal verloren gaan voor alle leden van "
-"private groepen.\n"
-"Versleuteling kan later weer ingeschakeld worden. Ga voorzichtig verder.\n"
-"Als niemand in staat is om toegang te hebben tot de versleutelde inhoud, dan "
-"kunt u versleutelingssleutels in plaats daarvan resetten."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8941,14 +8962,13 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
-"Een alternatief is het resetten van versleutelingssleutels die versleuteling "
-"ingeschakeld laat maar toegang tot eerder versleutelde inhoud kan verloren "
-"zijn."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decode Encryption Key"
 msgid "Reset encryption keys"
-msgstr "Versleutelingssleutels resetten"
+msgstr "Versleutelde sleutel ontcijferen"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
@@ -8957,16 +8977,19 @@ msgid "Decode Key"
 msgstr "Sleutel decoderen"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Versleuteling inschakelen"
+msgstr "Ingeschakelde E2E-versleuteling"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Click here to enter your e2e password."
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Voer uw E2EE-wachtwoord in"
+msgstr "Klik hier om uw tweede password in te voeren."
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
@@ -8997,13 +9020,16 @@ msgid "Save Encryption Key"
 msgstr "Versleutelingssleutel opslaan"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Vertaling van toepassing"
+msgstr "Programma niet gevonden"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Translation"
 msgid "Translation"
 msgstr "Vertaling"
 
@@ -9294,7 +9320,7 @@ msgstr "Compact"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr "Uw wachtwoorden komen niet overeen."
+msgstr ""
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9387,10 +9413,11 @@ msgid "Reset E2E Key"
 msgstr "E2E-sleutel resetten"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Modify…"
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Wijzigen"
+msgstr "Wijzigen…"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -10047,7 +10074,7 @@ msgstr "Vermeldingen tonen…"
 #, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
-msgstr "Vast gepinde berichten tonen…"
+msgstr "Vastgepinde berichten tonen…"
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
@@ -10284,13 +10311,13 @@ msgstr "Bericht verzenden"
 #: widgets/room/messagelinewidget.cpp:187
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
-msgstr "Opdracht is mislukt. Wilt u de opdracht naar het klembord kopiëren?"
+msgstr ""
 
 #: widgets/room/messagelinewidget.cpp:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
-msgstr "Opdrachtfout"
+msgstr ""
 
 #: widgets/room/messagelinewidget.cpp:245
 #, kde-format
@@ -10670,12 +10697,14 @@ msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
 
 #: widgets/room/roomwidget.cpp:536
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
-msgstr "In versleutelde inhoud kan niet gezocht worden."
+msgstr "Directe berichten kunnen niet gearchiveerd worden"
 
 #: widgets/room/roomwidget.cpp:536
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Message"
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Bericht doorzoeken"
@@ -10717,9 +10746,10 @@ msgid "Disconnected"
 msgstr "Verbinding verbroken"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Owner"
 msgid "Owners"
-msgstr "Eigenaars"
+msgstr "Eigenaar"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -10758,7 +10788,7 @@ msgstr "Wilt u deze gebruiker dempen?"
 #, kde-format
 msgctxt "@title"
 msgid "Mute User"
-msgstr "Gebruikers dempen"
+msgstr "Gebruiker dempen"
 
 #: widgets/room/usersinroommenu.cpp:74
 #, kde-format
@@ -10908,7 +10938,8 @@ msgstr "ddp-api voor aanmelden gebruiken"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
-msgstr "Toont de beschikbare opties voor terugkoppeling van gebruiker"
+msgstr ""
+"Geeft een lijst met de beschikbare opties voor terugkoppeling van gebruiker"
 
 #: widgets/ruqolamainwindow.cpp:230
 #, kde-format
@@ -11050,7 +11081,7 @@ msgstr "Geïnstalleerde toepassingen…"
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "Private toepassingen…"
+msgstr "Privé toepassingen…"
 
 #: widgets/ruqolamainwindow.cpp:568
 #, kde-format
@@ -11382,23 +11413,21 @@ msgid "Return the number of account."
 msgstr "Het nummer van het account teruggeven."
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Check New Version"
 msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Op nieuwe versie controleren"
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:46
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:71
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
-"Een nieuwe versie gevonden. Klik <a href=\"%1\">hier</a> om het te "
-"downloaden."
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
-"Geen nieuwe versie gevonden. Bouwen is <a href=\"%1\">hier</a> te vinden."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11430,47 +11459,51 @@ msgstr "Wat is er nieuw in %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr "Ondersteuning voor plug-ins voor hulpmiddelen toevoegen"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
-"Plug-in: knop voor schermafdruk toevoegen (nabij knop voor verzenden van "
-"bericht)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
+#, fuzzy
+#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Ondersteuning voor uitnodiging-RC-url implementeren"
+msgstr "Ondersteuning van vermeldingen verbeteren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement verify if a new Ruqola version exist"
-msgstr "Implementeer verifiëren als een nieuwe Ruqola-versie bestaat"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr "Sta toe threads (discussies) te doorzoeken op ongelezen/volgen"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
+#, fuzzy
+#| msgid "Show Files Attachment In Room"
 msgid "Show images from attachment dialog box"
-msgstr "Afbeeldingen uit bijlage van dialoogvak tonen"
+msgstr "Bestanden als bijlage in room tonen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
+#, fuzzy
+#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
-msgstr "Ondersteuning voor toepassing Rocket.Chat implementeren."
+msgstr "Marktplein van Rocket.Chat implementeren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
+#, fuzzy
+#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "Voorbeeld van opdracht implementeren."
+msgstr "Voorbeeld van Url implementeren"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Debug: explore translation from RC server."
-msgstr "Debug: onderzoek vertaling uit RC-server."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
-"Ondersteuning voor UI van plug-in implementeren (dialoogvak voor "
-"instellingen voor configureren aanmaken)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
@@ -11878,48 +11911,47 @@ msgstr "Sta het tonen van instellingen van toepassingenmarkt toe"
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr "Zoeken van bestand bieden met gebruikersnaam en bestandsnaam."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
-msgstr "Kopie-actietekst wanneer we een tekstselectie kopiëren."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "A command start with '/' and not /* or // "
-msgstr "Een opdracht begint met '/' en niet met /* of // "
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:167
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
-"Sta toe om opdrachtregel in het klembord te stoppen wanneer een fout optreedt"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
-msgstr "Sta toe activeren/deactiveren van apps-markt."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:169
 #, kde-format
 msgid "Improve list of user in room."
-msgstr "Lijst van gebruikers in room."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:170
 #, kde-format
 msgid "Search in encrypted room is not possible."
-msgstr "Zoeken in versleuteld room is niet mogelijk."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
 #, kde-format
 msgid "Show roles for users in rooms."
-msgstr "Rollen voor gebruikers in room tonen."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:173
 #, kde-format
 msgid "Fix download languages apps."
-msgstr "Downloaden van talentoepassingen repareren."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11946,39 +11978,6 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
 
-#~ msgid "No new version found."
-#~ msgstr "Geen nieuwe versie gevonden."
-
-#~ msgid "Add screenshot button"
-#~ msgstr "Knop voor schermafdruk toevoegen"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Bestand bijvoegen"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Log openen is onmogelijk"
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Log tonen"
-
-#~ msgid "Private"
-#~ msgstr "Privé"
-
-#~ msgid "Installed"
-#~ msgstr "Geïnstalleerd"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Meedoen in standaard kanalen"
-
 #~ msgid "Starred Messages"
 #~ msgstr "Berichten met sterren"
 
@@ -11994,27 +11993,53 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Ongelezen berichten uit discussiebundeling"
 
-#~ msgid "@option:check"
-#~ msgstr "@option:check"
+#~ msgid "System Messages"
+#~ msgstr "Systeemberichten"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Als gelezen markeren)"
+#, fuzzy
+#~| msgid "Join Default Channels"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Meedoen in standaard kanalen"
+
+#, fuzzy
+#~| msgid "Verified"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Geverifieerd"
+
+#~ msgid "Private"
+#~ msgstr "Privé"
+
+#, fuzzy
+#~| msgid "Mark As Read"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Als gelezen markeren"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Gebruikersnaam of e-mailadres:"
 
+#, fuzzy
+#~| msgid "Show images by default"
 #~ msgctxt "@option:check"
 #~ msgid "Show images by default"
 #~ msgstr "Standaard afbeeldingen tonen"
 
+#, fuzzy
+#~| msgid "Show preview url by default"
 #~ msgctxt "@option:check"
 #~ msgid "Show preview url by default"
 #~ msgstr "Standaard voorbeeld van url tonen"
 
+#, fuzzy
+#~| msgid "Show hover highlights"
 #~ msgctxt "@option:check"
 #~ msgid "Show hover highlights"
 #~ msgstr "Accentueringen bij er boven zweven tonen"
 
+#, fuzzy
+#~| msgid "Use local dataBase (experimental)"
 #~ msgctxt "@option:check"
 #~ msgid "Use local dataBase (experimental)"
 #~ msgstr "Lokale database gebruiken (experimenteel)"
@@ -12023,65 +12048,58 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Account"
 #~ msgstr "Account"
 
+#, fuzzy
+#~| msgid "Connection"
 #~ msgctxt "@action:button"
 #~ msgid "Connection"
 #~ msgstr "Verbinding"
 
+#, fuzzy
+#~| msgid "Server Url:"
 #~ msgctxt "@label:textbox"
 #~ msgid "Server Url:"
-#~ msgstr "URL van server:"
-
-#~ msgid "Impossible to access to server."
-#~ msgstr "Toegang tot server is onmogelijk."
-
-#~ msgid "Message %1"
-#~ msgstr "Bericht %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Als gelezen markeren"
-
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Resetten"
+#~ msgstr "URL-adres server:"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Alle gebruikers in dit team kunnen berichten schrijven"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Geverifieerd"
+#~ msgid "Message %1"
+#~ msgstr "Bericht %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Systeemberichten"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Als gelezen markeren)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Log openen is onmogelijk"
+
+#, fuzzy
+#~| msgid "Show Log"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Log tonen"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Alles selecteren"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "TOTP resetten"
 
-#~ msgid "Create"
-#~ msgstr "Aanmaken"
+#~ msgid "Add..."
+#~ msgstr "Toevoegen..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Als favoriet instellen"
+#~ msgid "Modify..."
+#~ msgstr "Wijzigen..."
 
-#~ msgid "Search rooms…"
-#~ msgstr "Rooms zoeken…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Bericht kopiëren"
-
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Rooms zoeken…"
-
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Gebruikers zoeken…"
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Map - %1"
 
 #~ msgid "Search channels…"
 #~ msgstr "Kanalen doorzoeken…"
@@ -12089,9 +12107,11 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Open…"
 #~ msgstr "Openen…"
 
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Map - %1"
+#~ msgid "Go to Message"
+#~ msgstr "Naar bericht gaan"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Klik hier om meer te laden...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -12103,27 +12123,9 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Version 2.2"
 #~ msgstr "Versie 2.2"
 
-#~ msgid "Version 2.3"
-#~ msgstr "Versie 2.3"
-
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Wat is er nieuw in Ruqola"
-
-#~ msgid "Select All"
-#~ msgstr "Alles selecteren"
-
-#~ msgid "Go to Message"
-#~ msgstr "Naar bericht gaan"
-
-#~ msgid "Add..."
-#~ msgstr "Toevoegen..."
-
-#~ msgid "Modify..."
-#~ msgstr "Wijzigen..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Klik hier om meer te laden...)"
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Klik hier om meer te laden…)"

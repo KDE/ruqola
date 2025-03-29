@@ -1,15 +1,15 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
 #
 # Martin Srebotnjak <miles@filmsi.net>, 2021,2022.
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-26 00:42+0000\n"
-"PO-Revision-Date: 2025-03-20 07:33+0100\n"
+"POT-Creation-Date: 2025-03-29 02:33+0000\n"
+"PO-Revision-Date: 2024-12-18 07:36+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -31,9 +31,10 @@ msgid "Rocket Chat Client"
 msgstr "Odjemalec klepetov Rocket"
 
 #: apps/main.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2024 Ruqola authors"
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © 2020-2025 avtorji programa Ruqola"
+msgstr "Copyright/Avtorske pravice © 2020-2024 avtorji programa Ruqola"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -176,14 +177,15 @@ msgid "The following accounts are available:"
 msgstr "Na voljo so naslednji računi:"
 
 #: core/accountmanager.cpp:855
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invalid token"
 msgid "Invalid invite token"
-msgstr "Neveljaven žeton povabila"
+msgstr "Neveljaven žeton"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr "Žeton povabila je neveljaven. Kreiranje računa preklicano."
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:108
 #, kde-format
@@ -410,14 +412,16 @@ msgid "Allow to send email"
 msgstr "Dovoli pošiljanje elektronske pošte"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to write oauth app settings"
 msgid "Allow to write role"
-msgstr "Dovoli pisanje vloge"
+msgstr "Dovoli pisanje nastavitev aplikacije oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to send email"
 msgid "Allow to read role"
-msgstr "Dovoli branje vloge"
+msgstr "Dovoli pošiljanje elektronske pošte"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -739,7 +743,7 @@ msgstr "(Zadnje sporočilo: %1)"
 #: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
-msgstr "Manjka strežnikov url."
+msgstr ""
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -2025,9 +2029,10 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Novi zahtevek lahko najdete na:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Created at"
 msgid "Create a screenshot"
-msgstr "Ustvari posnetek zaslona"
+msgstr "Ustvarjeno"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -2933,27 +2938,27 @@ msgstr "Iskanje čustvenčkov po meri"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:46
 #, kde-format
 msgid "No custom emoji found"
-msgstr "Čustvenčkov po meri ni mogoče najti"
+msgstr "Emodžijev po meri ni mogoče najti"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:51
 #, kde-format
 msgid "%1 custom emoji (Total: %2)"
 msgid_plural "%1 custom emojis (Total: %2)"
-msgstr[0] "%1 čustvenčkov po meri (skupaj: %2)"
-msgstr[1] "%1 čustvenček po meri (skupaj: %2)"
-msgstr[2] "%1 čustvenčka po meri (skupaj: %2)"
-msgstr[3] "%1 čustvenčki po meri (skupaj: %2)"
+msgstr[0] "%1 emodži po meri (skupaj: %2)"
+msgstr[1] "%1 emodžija po meri (skupaj: %2)"
+msgstr[2] "%1 emodžiji po meri (skupaj: %2)"
+msgstr[3] "%1 emodžijev po meri (skupaj: %2)"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:153
 #, kde-format
 msgid "Do you want to remove this emoji?"
-msgstr "Ali želite odstraniti ta čustvenček?"
+msgstr "Ali želite odstraniti ta emodži?"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:154
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
-msgstr "Odstrani čustvenčka"
+msgstr "Odstrani emodži"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
@@ -3331,10 +3336,12 @@ msgstr "Odpusti vsa poročila"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:287
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Copy link"
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Kopiraj izbiro"
+msgstr "Kopiraj povezavo"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -5021,7 +5028,8 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Dostopaj do nešifrirane vsebine v šifriranih sobah"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mentions"
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Omembe"
@@ -5059,8 +5067,6 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
-"Obvesti ljudi in označi omembe uporabnikov, kanalov in ekip v šifrirani "
-"vsebini."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -6978,9 +6984,10 @@ msgid "Permissions"
 msgstr "Dovoljenja"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No version info found."
 msgid "No permissions information found."
-msgstr "Ni informacij o dovoljenjih."
+msgstr "Ni informacij o različici."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -7073,19 +7080,24 @@ msgid "Ask Application…"
 msgstr "Vprašaj aplikacijo…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Install"
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Odmesti"
+msgstr "Namesti"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disabled"
 msgctxt "@action"
 msgid "Disable"
-msgstr "Onemogoči"
+msgstr "Onemogočeno"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable"
 msgctxt "@action"
 msgid "Enable"
 msgstr "Omogoči"
@@ -7098,15 +7110,18 @@ msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do you want to unarchive this room?"
 msgid "Do you want to uninstall this application?"
-msgstr "Ali želite odmestiti to aplikacijo?"
+msgstr "Bi radi to sobo povrnili iz arhiva?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Installed Applications…"
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Odmesti aplikacijo"
+msgstr "Nameščene aplikacije…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -7160,7 +7175,7 @@ msgstr "Išči zasebne aplikacije"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr "Aplikacije nimajo nastavitev."
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
@@ -7195,7 +7210,7 @@ msgstr "Vsa stanja"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr "Pridobivanje informacij o različici v teku..."
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
@@ -7648,7 +7663,7 @@ msgstr "Odstrani dnevnike shranjene na disku"
 #: widgets/configuredialog/removeaccountwidget.cpp:38
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
-msgstr "Ali želite odstraniti ta račun '%1'?"
+msgstr "Ali želite odstraniti ta račun »%1«?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:24
 #, kde-format
@@ -7767,13 +7782,13 @@ msgstr "Jezik:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Team Info about '%1'"
-msgstr "Podatki o ekipi '%1'"
+msgstr "Podatki o ekipi »%1«"
 
 #: widgets/dialogs/channelinfodialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info about '%1'"
-msgstr "Podatki o kanalu '%1'"
+msgstr "Podatki o kanalu »%1«"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:42
 #, kde-format
@@ -8170,14 +8185,18 @@ msgid "Private Room:"
 msgstr "Zasebna soba:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Messages are end-to-end encrypted, search will not work and notifications "
+#| "may not show message content"
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Enkriptiran kanal od enega konca do drugega konca. Iskanje ne bo delovalo s "
-"šifriranim kanalom in obvestila morda ne bodo prikazala vsebine sporočil."
+"Sporočila so šifrirana od enega konca do drugega konca, iskanje ne bo "
+"delovalo in obvestila morda ne bodo prikazala vsebine sporočila"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
@@ -8611,14 +8630,18 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopiraj mesto na odložišče"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
 msgid "Show previous image"
-msgstr "Prikaži prejšnje sporočilo"
+msgstr "Prikaži sporočilo"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:shell"
+#| msgid "Show Message"
 msgid "Show next image"
-msgstr "Prikaži naslednje sporočilo"
+msgstr "Prikaži sporočilo"
 
 #: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
@@ -8672,9 +8695,11 @@ msgid "Show Starred Messages - %1"
 msgstr "Pokaži sporočila z zvezdico - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Following"
 msgid "Following"
-msgstr "Sledim"
+msgstr "Sledi"
 
 #: widgets/dialogs/showthreadsdialog.cpp:26
 #, kde-format
@@ -8905,10 +8930,12 @@ msgid "Decode Encryption Key"
 msgstr "Dekodiraj ključ šifriranja"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Onemogoči šifriranje"
+msgstr "Omogočeno šifriranje E2E"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8919,11 +8946,6 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
-"Onemogočanje E2EE bo ogrozilo zasebnost te zasebne grupe. Dostop do katere "
-"koli šifrirane vsebine bo izgubljen za vse člane zasebne grupe.\n"
-"Šifriranje lahko pozneje znova omogočite. Nadaljujte previdno.\n"
-"Če nihče ne more dostopati do šifrirane vsebine, lahko namesto tega "
-"ponastavite šifrirne ključe."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8931,13 +8953,13 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
-"Druga možnost je, da s ponastavitvijo šifrirnih ključev šifriranje ostane "
-"omogočeno, vendar se lahko izgubi dostop do predhodno šifrirane vsebine."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Decode Encryption Key"
 msgid "Reset encryption keys"
-msgstr "Ponovno nastavi ključe šifriranja"
+msgstr "Dekodiraj ključ šifriranja"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
@@ -8946,16 +8968,19 @@ msgid "Decode Key"
 msgstr "Dekodiraj ključ"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Omogoči šifriranje"
+msgstr "Omogočeno šifriranje E2E"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Click here to enter your e2e password."
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Kliknite sem, da vnesete vaše geslo E2EE"
+msgstr "Kliknite sem, da vnesete vaše geslo e2e."
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
@@ -8986,13 +9011,16 @@ msgid "Save Encryption Key"
 msgstr "Shrani ključ šifriranja"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Prevod aplikacije"
+msgstr "Programa ni mogoče najti"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Translation"
 msgid "Translation"
 msgstr "Prevod"
 
@@ -9280,7 +9308,7 @@ msgstr "Kompaktni"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr "Vaši gesli se ne ujemata."
+msgstr ""
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9373,10 +9401,11 @@ msgid "Reset E2E Key"
 msgstr "Ponastavi ključ E2E"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Modify…"
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Spremeni"
+msgstr "Spremeni…"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -10223,7 +10252,7 @@ msgstr "Pripni datoteko…"
 #: widgets/room/messagelinewidget.cpp:71
 #, kde-format
 msgid "Attach File"
-msgstr "Pripni datoteko"
+msgstr "Priloži datoteko"
 
 #: widgets/room/messagelinewidget.cpp:79
 #, kde-format
@@ -10272,13 +10301,13 @@ msgstr "Pošlji sporočilo"
 #: widgets/room/messagelinewidget.cpp:187
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
-msgstr "Ukaz ni uspel. Ali želite kopirati ukaz na odložišče?"
+msgstr ""
 
 #: widgets/room/messagelinewidget.cpp:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
-msgstr "Napaka ukaza"
+msgstr ""
 
 #: widgets/room/messagelinewidget.cpp:245
 #, kde-format
@@ -10660,15 +10689,18 @@ msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
 
 #: widgets/room/roomwidget.cpp:536
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
-msgstr "Po šifriranih sporočilih ni mogoče iskati."
+msgstr "Neposrednih sporočil ni mogoče arhivirati"
 
 #: widgets/room/roomwidget.cpp:536
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Išči sporočilo"
+msgstr "Išči sporočila"
 
 #: widgets/room/roomwidget.cpp:555
 #, kde-format
@@ -10707,9 +10739,10 @@ msgid "Disconnected"
 msgstr "Nepovezani"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Owner"
 msgid "Owners"
-msgstr "Lastniki"
+msgstr "Lastnik"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11374,20 +11407,21 @@ msgid "Return the number of account."
 msgstr "Vrnite številko računa."
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Check New Version"
 msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Preveri novo različico"
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:46
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:71
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
-msgstr "Najdena nova različica. Za prenos kliknite <a href=\"%1\">tukaj</a>."
+msgstr ""
 
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:48
+#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-msgstr "Ni nove različice. Izgradnjo lahko najdete <a href=\"%1\">tukaj</a>."
+msgstr ""
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11419,46 +11453,49 @@ msgstr "Kaj je novega v %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr "Dodaj podporo za orodja vtičnikov"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
-"Vtičnik: Dodaj gumb za posnetek zaslona (blizu gumba za pošiljanje sporočila)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
+#, fuzzy
+#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Implementacija podpore povabila RC za URL"
+msgstr "Izboljšaj podporo omemb."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement verify if a new Ruqola version exist"
-msgstr "Izvedi preverjanje, ali obstaja nova različica Ruqole"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr "Dovoli iskanje niti po neprebranih/sledečih"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Show images from attachment dialog box"
-msgstr "Prikaži slike iz pogovornega okna priloge"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
+#, fuzzy
+#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
-msgstr "Izvedi podporo aplikacije Rocket.Chat."
+msgstr "Izvedi trg Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
+#, fuzzy
+#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "Implementiraj predogled ukaza."
+msgstr "Implementiraj predogled Url"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Debug: explore translation from RC server."
-msgstr "Odpravljanje napak: razišči prevod s strežnika RC."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
-"Izvedi podporo za uporabniški vmesnik vtičnika (Ustvari pogovorno okno za "
-"konfiguracijo nastavitev)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
@@ -11855,48 +11892,47 @@ msgstr "Dovoli prikaz nastavitev trga aplikacij"
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr "Dovoli iskanje po uporabniškem imenu in imenu datoteke."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
-msgstr "Popravi besedilo dejanja kopiranja, ko kopiramo izbor besedila."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "A command start with '/' and not /* or // "
-msgstr "Ukaz se začne z '/' in ne z /* ali // "
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:167
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
-"Dovoli, da se ukazna vrstica postavi na odložišče, ko je prišlo do napake"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
-msgstr "Dovoli aktiviranje/deaktiviranje trga aplikacij."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:169
 #, kde-format
 msgid "Improve list of user in room."
-msgstr "Izboljšaj seznam uporabnikov v sobi."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:170
 #, kde-format
 msgid "Search in encrypted room is not possible."
-msgstr "Iskanje v šifrirani sobi ni mogoče."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
 #, kde-format
 msgid "Show roles for users in rooms."
-msgstr "Prikaži vloge uporabnikov v sobi."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:173
 #, kde-format
 msgid "Fix download languages apps."
-msgstr "Popravi prenos jezika aplikacij."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11923,39 +11959,6 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
 
-#~ msgid "No new version found."
-#~ msgstr "Ni nove različice."
-
-#~ msgid "Add screenshot button"
-#~ msgstr "Dodaj gumb za posnetek zaslona"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Pripni datoteko"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Ni mogoče odpreti dnevnika."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Prikaži dnevnik"
-
-#~ msgid "Private"
-#~ msgstr "Zasebno"
-
-#~ msgid "Installed"
-#~ msgstr "Nameščeno"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Pridruži se privzetim kanalom"
-
 #~ msgid "Starred Messages"
 #~ msgstr "Sporočila z zvezdico"
 
@@ -11971,11 +11974,26 @@ msgstr "Nekaj odprav napak:"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Neprebrana sporočila niti"
 
-#~ msgid "@option:check"
-#~ msgstr "@option:check"
+#~ msgid "System Messages"
+#~ msgstr "Sistemska sporočila"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Označi kot prebrano)"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Pridruži se privzetim kanalom"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Preverjeno"
+
+#~ msgid "Private"
+#~ msgstr "Zasebno"
+
+#~ msgid "Installed"
+#~ msgstr "Nameščeno"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Označi kot prebrano"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Uporabniško ime ali naslov e-pošte:"
@@ -12008,56 +12026,44 @@ msgstr "Nekaj odprav napak:"
 #~ msgid "Server Url:"
 #~ msgstr "Url strežnika:"
 
-#~ msgid "Impossible to access to server."
-#~ msgstr "Ni mogoče pristopiti do strežnika."
-
-#~ msgid "Message %1"
-#~ msgstr "Sporočilo %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Označi kot prebrano"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Ponovno nastavi E2E"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Vsi uporabniki te skupine lahko pišejo sporočila"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Preverjeno"
+#~ msgid "Message %1"
+#~ msgstr "Sporočilo %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Sistemska sporočila"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Označi kot prebrano)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Ni mogoče odpreti dnevnika."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Prikaži dnevnik"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Izberi vse"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Ponovno nastavi časovno odvisni enkratni ključ"
 
-#~ msgid "Create"
-#~ msgstr "Ustvari"
+#~ msgid "Add..."
+#~ msgstr "Dodaj ..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Nastavi kot priljubljeno"
+#~ msgid "Modify..."
+#~ msgstr "Spremeni ..."
 
-#~ msgid "Search rooms…"
-#~ msgstr "Išči sobe…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Kopiraj sporočilo"
-
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Išči sobe…"
-
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Išči uporabnike…"
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Mapa - %1"
 
 #~ msgid "Search channels…"
 #~ msgstr "Išči kanale…"
@@ -12065,9 +12071,11 @@ msgstr "Nekaj odprav napak:"
 #~ msgid "Open…"
 #~ msgstr "Odpri…"
 
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Mapa - %1"
+#~ msgid "Go to Message"
+#~ msgstr "Sporočilo"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Kliknite tukaj za nalaganje dodatnih ...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -12079,27 +12087,9 @@ msgstr "Nekaj odprav napak:"
 #~ msgid "Version 2.2"
 #~ msgstr "Različica 2.2"
 
-#~ msgid "Version 2.3"
-#~ msgstr "Različica 2.3"
-
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Kaj je novega v aplikaciji Ruqola"
-
-#~ msgid "Select All"
-#~ msgstr "Izberi vse"
-
-#~ msgid "Go to Message"
-#~ msgstr "Sporočilo"
-
-#~ msgid "Add..."
-#~ msgstr "Dodaj ..."
-
-#~ msgid "Modify..."
-#~ msgstr "Spremeni ..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Kliknite tukaj za nalaganje dodatnih ...)"
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Kliknite tukaj za nalaganje dodatnih…)"
