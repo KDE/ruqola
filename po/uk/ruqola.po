@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 02:33+0000\n"
+"POT-Creation-Date: 2025-03-30 02:29+0000\n"
 "PO-Revision-Date: 2024-12-19 22:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -11778,7 +11778,7 @@ msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Реалізовано упорядковані і неупорядковані списки Markdown."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:87
-#: widgets/whatsnew/whatsnewtranslations.cpp:172
+#: widgets/whatsnew/whatsnewtranslations.cpp:167
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Виправлено підтримку темного режиму."
@@ -11887,134 +11887,134 @@ msgstr "Виправлено дублювання повідомлень у ві
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Додано делегат у кімнати пошуку у вікні команд."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:130
+#: widgets/whatsnew/whatsnewtranslations.cpp:125
 #, kde-format
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
 "Дозволити чищення журналу кімнати, якщо кімнату не відчиняли досить довго."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
 msgid "Add restore button in administrator server settings dialog."
 msgstr "Додано кнопку відновлення у вікні параметрів адміністратора сервера."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:132
+#: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, kde-format
 msgid "Improve changing password (show validation info)."
 msgstr "Удосконалено зміну пароля (показ даних щодо коректності)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:133
+#: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
 msgid "Improve register new account (Add reason support)."
 msgstr ""
 "Удосконалено реєстрацію нового облікового запису (додано підтримку причини)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:134
+#: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
 msgid "Implement mute/unmute user."
 msgstr "Реалізовано вимикання та вмикання повідомлень від користувача."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:135
+#: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, kde-format
 msgid "Add color to the text in the account tab"
 msgstr "Додано колір до тексту на вкладці облікових записів"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:136
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
 msgid "Allow to show private installed applications"
 msgstr "Дозволити показ приватно встановлених програм"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:141
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
 #, kde-format
 msgid "Fix editing message."
 msgstr "Виправлено редагування повідомлень."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:142
+#: widgets/whatsnew/whatsnewtranslations.cpp:137
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Показ прав доступу у крамниці Rocket.Chat."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:143
+#: widgets/whatsnew/whatsnewtranslations.cpp:138
 #, kde-format
 msgid "Fix reconnect server."
 msgstr "Виправлено повторне з'єднання з сервером."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:144
+#: widgets/whatsnew/whatsnewtranslations.cpp:139
 #, kde-format
 msgid "Fix single application on Windows/MacOs"
 msgstr "Виправлено проблему із єдиним екземпляром програми у Windows/MacOs"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:145
+#: widgets/whatsnew/whatsnewtranslations.cpp:140
 #, kde-format
 msgid "Fix select created room/discussion/teams"
 msgstr "Виправлено позначення створених кімнат, обговорень та команд"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:146
+#: widgets/whatsnew/whatsnewtranslations.cpp:141
 #, kde-format
 msgid "Fix filter discussion in administrator mode"
 msgstr "Виправлено фільтрування обговорень у режимі адміністратора"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:147
+#: widgets/whatsnew/whatsnewtranslations.cpp:142
 #, kde-format
 msgid "Fix message video support"
 msgstr "Виправлено підтримку відео у повідомленнях"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:148
+#: widgets/whatsnew/whatsnewtranslations.cpp:143
 #, kde-format
 msgid "Fix highlight text in quoted message"
 msgstr "Виправлено підсвічування тексту у цитованому повідомленні"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:149
+#: widgets/whatsnew/whatsnewtranslations.cpp:144
 #, kde-format
 msgid "Fix open discussion channel"
 msgstr "Виправлено канал відкритого спілкування"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:150
+#: widgets/whatsnew/whatsnewtranslations.cpp:145
 #, kde-format
 msgid "Allow to show application market settings"
 msgstr "Уможливлено показ параметрів ринку програм"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:164
+#: widgets/whatsnew/whatsnewtranslations.cpp:159
 #, kde-format
 msgid "Allow to search file from username and filename."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:165
+#: widgets/whatsnew/whatsnewtranslations.cpp:160
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#: widgets/whatsnew/whatsnewtranslations.cpp:161
 #, kde-format
 msgid "A command start with '/' and not /* or // "
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:167
+#: widgets/whatsnew/whatsnewtranslations.cpp:162
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:168
+#: widgets/whatsnew/whatsnewtranslations.cpp:163
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:169
+#: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Improve list of user in room."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:170
+#: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Search in encrypted room is not possible."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:171
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "Show roles for users in rooms."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:173
+#: widgets/whatsnew/whatsnewtranslations.cpp:168
 #, kde-format
 msgid "Fix download languages apps."
 msgstr ""
