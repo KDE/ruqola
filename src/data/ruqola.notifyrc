@@ -257,6 +257,11 @@ Urgency=Normal
 
 [Event/Invite-Account-Invalid]
 Name=Invalid invite token
+Name[ca]=Testimoni d'invitació no vàlid
+Name[ca@valencia]=Testimoni d'invitació no vàlid
+Name[es]=Símbolo de invitación inválido
+Name[nl]=Ongeldig uitnodigingstoken
+Name[sl]=Neveljaven žeton povabila
 Action=Popup
 Urgency=Normal
 
