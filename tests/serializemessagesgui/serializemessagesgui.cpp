@@ -32,9 +32,16 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     connect(saveFromFile, &QPushButton::clicked, this, [this]() {
         const QString str = QFileDialog::getOpenFileName(this, QStringLiteral("Load File"));
         if (!str.isEmpty()) {
-            // TODO
+            QFile f(str);
+            if (!f.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                qWarning() << " Impossible to open:" << str;
+            } else {
+                QTextStream in(&f);
+                const QString fileContent = in.readAll();
+                f.close();
+                mOriginal->setText(fileContent);
+            }
         }
-        // TODO
     });
 
     auto splitter = new QSplitter(Qt::Orientation::Vertical, this);
