@@ -91,7 +91,7 @@ if(UNITY_SUPPORT)
 endif()
 
 set(KTEXTADDONS_MIN_VERSION "1.5.4")
-set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
+set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
