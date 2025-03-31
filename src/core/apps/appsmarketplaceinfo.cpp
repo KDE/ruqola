@@ -384,7 +384,11 @@ void AppsMarketPlaceInfo::setModifiedDate(qint64 newModifiedDate)
 QString AppsMarketPlaceInfo::applicationInformations() const
 {
     QString str = QStringLiteral("<b>%1</b><br/>").arg(mAppName);
-    str += mShortDescription + QStringLiteral("<br/><br/>");
+    if (!mShortDescription.isEmpty()) {
+        str += mShortDescription + QStringLiteral("<br/><br/>");
+    } else {
+        str += QStringLiteral("<br/>");
+    }
 
     const QString pricingInfo = generatePriceInfo();
     if (!pricingInfo.isEmpty()) {
