@@ -9,6 +9,7 @@
 #include "serializemessagewidget.h"
 
 #include <QApplication>
+#include <QFileDialog>
 #include <QHBoxLayout>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -25,6 +26,16 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     , mDiffMessage(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
+
+    auto saveFromFile = new QPushButton(QStringLiteral("Load..."), this);
+    mainLayout->addWidget(saveFromFile);
+    connect(saveFromFile, &QPushButton::clicked, this, [this]() {
+        const QString str = QFileDialog::getOpenFileName(this, QStringLiteral("Load File"));
+        if (!str.isEmpty()) {
+            // TODO
+        }
+        // TODO
+    });
 
     auto splitter = new QSplitter(Qt::Orientation::Vertical, this);
     mainLayout->addWidget(splitter);
