@@ -260,8 +260,10 @@ Name=Invalid invite token
 Name[ca]=Testimoni d'invitació no vàlid
 Name[ca@valencia]=Testimoni d'invitació no vàlid
 Name[es]=Símbolo de invitación inválido
+Name[fr]=Jeton d'invitation non valable
 Name[nl]=Ongeldig uitnodigingstoken
 Name[sl]=Neveljaven žeton povabila
+Name[uk]=Некоректний жетон запрошення
 Action=Popup
 Urgency=Normal
 
