@@ -57,26 +57,54 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
         const QString json = mOriginal->text();
         if (!json.isEmpty()) {
             const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-            Message msg;
-            msg.parseMessage(doc.object(), false, nullptr);
+            if (doc.isObject()) {
+                Message msg;
+                msg.parseMessage(doc.object(), false, nullptr);
 
-            mOriginal->addMessage(msg);
+                mOriginal->addMessage(msg);
 
-            const QByteArray ba = Message::serialize(msg, false);
-            const QJsonDocument doc2 = QJsonDocument::fromJson(ba);
-            Message newMsg = msg.deserialize(doc2.object(), nullptr);
+                const QByteArray ba = Message::serialize(msg, false);
+                const QJsonDocument doc2 = QJsonDocument::fromJson(ba);
+                Message newMsg = msg.deserialize(doc2.object(), nullptr);
 
-            const QByteArray newBa = Message::serialize(msg, false);
-            mSerialize->setText(QString::fromUtf8(newBa));
-            mSerialize->addMessage(newMsg);
+                const QByteArray newBa = Message::serialize(msg, false);
+                mSerialize->setText(QString::fromUtf8(newBa));
+                mSerialize->addMessage(newMsg);
 
-            const bool equal = (newMsg == msg);
-            if (equal) {
-                mDiffMessage->setPlainText(QStringLiteral("Messages are equal"));
-            } else {
-                QString diff = QStringLiteral("Original Message %1").arg(QDebug::toString(msg));
-                diff += QStringLiteral("\nSerialized Message %1").arg(QDebug::toString(newMsg));
-                mDiffMessage->setPlainText(QStringLiteral("Messages are NOT equal\n%1").arg(diff));
+                const bool equal = (newMsg == msg);
+                if (equal) {
+                    mDiffMessage->setPlainText(QStringLiteral("Messages are equal"));
+                } else {
+                    QString diff = QStringLiteral("Original Message %1").arg(QDebug::toString(msg));
+                    diff += QStringLiteral("\nSerialized Message %1").arg(QDebug::toString(newMsg));
+                    mDiffMessage->setPlainText(QStringLiteral("Messages are NOT equal\n%1").arg(diff));
+                }
+            } else if (doc.isArray()) {
+                // List of messages
+                const QJsonArray array = doc.array();
+                for (const auto &r : array) {
+                    Message msg;
+                    msg.parseMessage(r.toObject(), false, nullptr);
+
+                    mOriginal->addMessage(msg);
+
+                    const QByteArray ba = Message::serialize(msg, false);
+                    const QJsonDocument doc2 = QJsonDocument::fromJson(ba);
+                    Message newMsg = msg.deserialize(doc2.object(), nullptr);
+
+                    const QByteArray newBa = Message::serialize(msg, false);
+                    mSerialize->setText(QString::fromUtf8(newBa));
+                    mSerialize->addMessage(newMsg);
+
+                    const bool equal = (newMsg == msg);
+                    if (equal) {
+                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + QLatin1Char('\n') + QStringLiteral("Messages are equal"));
+                    } else {
+                        QString diff = QStringLiteral("Original Message %1").arg(QDebug::toString(msg));
+                        diff += QStringLiteral("\nSerialized Message %1").arg(QDebug::toString(newMsg));
+                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + QLatin1Char('\n') + QStringLiteral("Messages are NOT equal\n%1").arg(diff));
+                    }
+                }
             }
         }
     });
