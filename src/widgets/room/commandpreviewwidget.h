@@ -12,6 +12,23 @@
 class QListView;
 class PreviewCommandModel;
 class RocketChatAccount;
+class QStackedWidget;
+class KBusyIndicatorWidget;
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CommandPreviewLoadingWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit CommandPreviewLoadingWidget(QWidget *parent = nullptr);
+    ~CommandPreviewLoadingWidget() override;
+
+    void stop();
+    void start();
+
+private:
+    KBusyIndicatorWidget *const mBusyIndicator;
+};
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CommandPreviewWidget : public QWidget
 {
     Q_OBJECT
@@ -36,4 +53,6 @@ private:
     QListView *const mListView;
     PreviewCommandModel *const mPreviewCommandModel;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QStackedWidget *const mStackWidget;
+    CommandPreviewLoadingWidget *const mCommandPreviewLoadingWidget;
 };
