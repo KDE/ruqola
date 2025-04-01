@@ -18,34 +18,7 @@ CommandPreviewImageDelegate::~CommandPreviewImageDelegate() = default;
 
 void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // const bool selected = option.state & QStyle::State_Selected;
-    // const bool underMouse = option.state & QStyle::State_MouseOver;
     const bool hasFocus = option.state & QStyle::State_HasFocus;
-#if 0
-
-    // Select colors
-    QPalette::ColorGroup cg;
-     QColor bgColor, borderColor, fgColor;
-         const QWidget *viewport = mView->viewport();
-     fgColor = viewport->palette().color(viewport->foregroundRole());
-
-     if (selected || underMouse) {
-         bgColor = option.palette.color(cg, QPalette::Highlight);
-
-         if (hasFocus) {
-             borderColor = bgColor.darker(FOCUS_BORDER_DARKNESS);
-         } else {
-             borderColor = bgColor.darker(SELECTION_BORDER_DARKNESS);
-         }
-     } else {
-         bgColor = viewport->palette().color(viewport->backgroundRole());
-         if (hasFocus) {
-             borderColor = fgColor;
-         } else {
-             borderColor = bgColor.lighter(200);
-         }
-     }
-#endif
 
     QPixmap pixmap = index.data(static_cast<int>(PreviewCommandModel::PreviewCommandRoles::Image)).value<QPixmap>();
     if (!pixmap.isNull()) {
