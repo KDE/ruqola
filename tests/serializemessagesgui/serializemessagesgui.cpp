@@ -100,7 +100,7 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
                     Message newMsg = msg.deserialize(doc2.object(), nullptr);
 
                     const QByteArray newBa = Message::serialize(msg, false);
-                    mSerialize->setText(QString::fromUtf8(newBa));
+                    mSerialize->setText(mSerialize->text() + QLatin1Char('\n') + QString::fromUtf8(newBa));
                     mSerialize->addMessage(newMsg);
 
                     const bool equal = (newMsg == msg);
@@ -112,6 +112,8 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
                         mDiffMessage->setPlainText(mDiffMessage->toPlainText() + QLatin1Char('\n') + QStringLiteral("Messages are NOT equal\n%1").arg(diff));
                     }
                 }
+            } else {
+                qDebug() << " Invalid json" << doc.isEmpty();
             }
         }
     });
