@@ -263,6 +263,7 @@ Name[es]=Símbolo de invitación inválido
 Name[fr]=Jeton d'invitation non valable
 Name[nl]=Ongeldig uitnodigingstoken
 Name[sl]=Neveljaven žeton povabila
+Name[sv]=Ogiltig inbjudningssymbol
 Name[uk]=Некоректний жетон запрошення
 Action=Popup
 Urgency=Normal
