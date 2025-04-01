@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:42+0000\n"
+"POT-Creation-Date: 2025-04-01 00:41+0000\n"
 "PO-Revision-Date: 2025-02-28 19:48+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -197,221 +197,221 @@ msgstr "månad"
 msgid "year"
 msgstr "år"
 
-#: core/apps/appsmarketplaceinfo.cpp:401 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:405 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Beskrivning"
 
-#: core/apps/appsmarketplaceinfo.cpp:410
+#: core/apps/appsmarketplaceinfo.cpp:414
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
 #, kde-format
 msgid "Version"
 msgstr "Version"
 
-#: core/apps/appsmarketplaceinfo.cpp:413 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:417 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Kategorier"
 
-#: core/apps/appsmarketplaceinfo.cpp:417
+#: core/apps/appsmarketplaceinfo.cpp:421
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: core/apps/appsmarketplaceinfo.cpp:429
+#: core/apps/appsmarketplaceinfo.cpp:433
 #, kde-format
 msgid "Author"
 msgstr "Upphovsman"
 
-#: core/apps/appsmarketplaceinfo.cpp:442
+#: core/apps/appsmarketplaceinfo.cpp:446
 #, kde-format
 msgid "Homepage"
 msgstr "Hemsida"
 
-#: core/apps/appsmarketplaceinfo.cpp:454
+#: core/apps/appsmarketplaceinfo.cpp:458
 #, kde-format
 msgid "Support"
 msgstr "Support"
 
-#: core/apps/appsmarketplaceinfo.cpp:458
+#: core/apps/appsmarketplaceinfo.cpp:462
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Integritetssammanfattning"
 
-#: core/apps/appsmarketplaceinfo.cpp:469
+#: core/apps/appsmarketplaceinfo.cpp:473
 #: widgets/administratordialog/administratorwidget.cpp:74
 #, kde-format
 msgid "Permissions"
 msgstr "Rättigheter"
 
-#: core/apps/appsmarketplaceinfo.cpp:601
+#: core/apps/appsmarketplaceinfo.cpp:605
 #, kde-format
 msgid "Access messages"
 msgstr "Kom åt meddelanden"
 
-#: core/apps/appsmarketplaceinfo.cpp:603
+#: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Skicka och ändra meddelanden"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Access room information"
 msgstr "Kom åt rumsinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Skapa och ändra rum"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Access to this server network"
 msgstr "Kom åt det här servernätverket"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Access user information"
 msgstr "Kom åt användarinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Modify user information"
 msgstr "Ändra användarinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Registrera nya snedstreckskommandon"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Registrera och underhåll schemalagda jobb"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Registrera nya HTTP-ändpunkter"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Kom åt inställningar i den här servern"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Ändra inställningar i den  här servern"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Ladda upp filer till den här servern"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Kom åt filer uppladdade till den här servern"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Interagera med molntjänster å den här serverns vägnar"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Kom åt minimal information om den här servermiljön"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Åtkomst till flera  Livechat departementsinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Kom åt  Livechat departementsinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Ändra  Livechat departementsinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Ändra  Livechat rumsinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Kom åt  Livechat rumsinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Ändra  Livechat meddelandeinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Kom åt  Livechat meddelandeinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Ändra  Livechat besökarinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Kom åt  Livechat besökarinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Kom åt  Livechat statusinformation"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Interagera med användargränssnittet"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Lagra intern data i databasen"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Ändra Livechat inställning av egna fält"
 
-#: core/apps/appsmarketplaceinfo.cpp:667
+#: core/apps/appsmarketplaceinfo.cpp:671
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Tillåt skrivning av oauth-programinställningar"
 
-#: core/apps/appsmarketplaceinfo.cpp:669
+#: core/apps/appsmarketplaceinfo.cpp:673
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Tillåt läsning av oauth-programinställningar"
 
-#: core/apps/appsmarketplaceinfo.cpp:683
+#: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Allow to send email"
 msgstr "Tillåt att skicka e-post"
 
-#: core/apps/appsmarketplaceinfo.cpp:685
+#: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
 msgid "Allow to write role"
 msgstr "Tillåt att skriva roll"
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:691
 #, kde-format
 msgid "Allow to read role"
 msgstr "Tillåt att läsa roll"
