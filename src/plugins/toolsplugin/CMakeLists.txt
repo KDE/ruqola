@@ -3,5 +3,5 @@
 add_subdirectory(grabscreen)
 
 if(TARGET KF6::TextAutogenerateText)
-    #TODO add plugin
+    add_subdirectory(autogeneratetext)
 endif()
