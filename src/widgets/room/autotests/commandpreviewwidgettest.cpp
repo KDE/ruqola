@@ -7,6 +7,7 @@
 #include "room/commandpreviewwidget.h"
 #include <QHBoxLayout>
 #include <QListView>
+#include <QStackedWidget>
 #include <QTest>
 QTEST_MAIN(CommandPreviewWidgetTest)
 
@@ -30,6 +31,9 @@ void CommandPreviewWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mListView->resizeMode(), QListView::Adjust);
     QVERIFY(!mListView->wordWrap());
     QCOMPARE(mListView->spacing(), 2);
+
+    auto mStackWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackWidget"));
+    QVERIFY(mStackWidget);
 }
 
 #include "moc_commandpreviewwidgettest.cpp"
