@@ -8,6 +8,7 @@
 #include "utils.h"
 
 #include <QJsonArray>
+#include <QJsonDocument>
 #include <QJsonObject>
 #include <QTimeZone>
 using namespace Qt::Literals::StringLiterals;
@@ -89,15 +90,8 @@ void ApplicationsSettingsLogsInfo::LogsArgument::parseArguments(const QJsonObjec
     method = obj["method"_L1].toString();
     severity = obj["severity"_L1].toString(); // TODO convert to enum !!!
     const QJsonArray arrayArgs = obj["args"_L1].toArray();
-    for (const QJsonValue &current : arrayArgs) {
-        if (current.isBool()) {
-            args.append(current.toBool() ? QStringLiteral("true") : QStringLiteral("false"));
-        } else if (current.isNull()) {
-            args.append(QStringLiteral("null"));
-        } else {
-            args.append(current.toString());
-        }
-    }
+    const QJsonDocument r(arrayArgs);
+    args = r.toJson().replace("\n", "<br/>").replace(" ", "&nbsp;");
 }
 
 bool ApplicationsSettingsLogsInfo::LogsArgument::operator==(const LogsArgument &other) const

@@ -48,9 +48,11 @@ void ApplicationsSettingsLogsInfoTest::shouldLoadApplicationLogsInfo_data()
             arg.caller = "anonymous OR constructor -> App"_L1;
             arg.method = "app:construct"_L1;
             arg.severity = "debug"_L1;
-            arg.args = {"Constructed the App icanhazdadjoke (92b75f5e-5df0-4d4e-8c5b-2184ba3a5d77)"_L1,
-                        "v1.0.2 which depends on the API v^1.0.0!"_L1,
-                        "Created by Kai Alexander Fischer"_L1};
+            arg.args =
+                "[<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"Constructed&nbsp;the&nbsp;App&nbsp;icanhazdadjoke&nbsp;(92b75f5e-5df0-4d4e-8c5b-2184ba3a5d77)\",<br/"
+                ">&nbsp;&nbsp;&nbsp;&nbsp;\"v1.0.2&nbsp;which&nbsp;depends&nbsp;on&nbsp;the&nbsp;API&nbsp;v^1.0.0!\",<br/"
+                ">&nbsp;&nbsp;&nbsp;&nbsp;\"Created&nbsp;by&nbsp;Kai&nbsp;Alexander&nbsp;Fischer\"<br/>]<br/>";
+
             args.append(arg);
         }
         {
@@ -58,7 +60,7 @@ void ApplicationsSettingsLogsInfoTest::shouldLoadApplicationLogsInfo_data()
             arg.caller = "anonymous OR constructor"_L1;
             arg.method = "app:construct"_L1;
             arg.severity = "debug"_L1;
-            arg.args = {"The status is now: constructed"_L1};
+            arg.args = "[<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"The&nbsp;status&nbsp;is&nbsp;now:&nbsp;constructed\"<br/>]<br/>";
             args.append(arg);
         }
         info.setArguments(args);

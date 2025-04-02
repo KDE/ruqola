@@ -62,11 +62,7 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
             message += QStringLiteral("<br/>");
             message += i18n("%1 Caller: %2", arg.severity, arg.caller) + QStringLiteral("<br/>");
             message += arg.method + QStringLiteral("<br/>");
-            message += QStringLiteral("[<br/>");
-            for (const QString &str : arg.args) {
-                message += QStringLiteral("&nbsp;&nbsp;&nbsp;&nbsp;\"") + str + QStringLiteral("\"") + QStringLiteral("<br/>");
-            }
-            message += QStringLiteral("]<br/>");
+            message += QString::fromLatin1(arg.args);
         }
     }
     if (message.isEmpty()) {
