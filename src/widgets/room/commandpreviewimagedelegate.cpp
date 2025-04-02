@@ -34,6 +34,7 @@ void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionVie
 
 QSize CommandPreviewImageDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    Q_UNUSED(option);
     QPixmap pixmap = index.data(static_cast<int>(PreviewCommandModel::PreviewCommandRoles::Image)).value<QPixmap>();
     if (!pixmap.isNull()) {
         return pixmap.size();

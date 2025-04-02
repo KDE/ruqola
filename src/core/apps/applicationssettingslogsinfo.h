@@ -17,7 +17,7 @@ public:
         QString caller;
         QString method;
         QString severity;
-        QStringList args;
+        QByteArray args;
         void parseArguments(const QJsonObject &obj);
 
         [[nodiscard]] bool operator==(const LogsArgument &other) const;
