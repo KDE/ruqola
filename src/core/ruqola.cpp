@@ -89,6 +89,16 @@ void Ruqola::setUseRestApiLogin(bool newUseRestApiLogin)
     sUseRestApiLogin = newUseRestApiLogin;
 }
 
+QWidget *Ruqola::parentWidget() const
+{
+    return mParentWidget;
+}
+
+void Ruqola::setParentWidget(QWidget *newParentWidget)
+{
+    mParentWidget = newParentWidget;
+}
+
 void Ruqola::setCurrentAccount(const QString &accountName)
 {
     mAccountManager->setCurrentAccount(accountName);
