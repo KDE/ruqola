@@ -880,7 +880,7 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
             threadMessagePreview = index.data(MessagesModel::MessageConvertedText).toString();
         }
     }
-    auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
+    auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, Ruqola::self()->parentWidget());
     ThreadMessageWidget::ThreadMessageInfo info;
     info.threadMessageId = messageId;
     info.threadMessagePreview = threadMessagePreview;

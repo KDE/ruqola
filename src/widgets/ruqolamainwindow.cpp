@@ -119,6 +119,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 #endif
 
 {
+    Ruqola::self()->setParentWidget(mMainWidget);
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotDisableActions);
     connect(mMainWidget, &RuqolaCentralWidget::createNewAccount, this, &RuqolaMainWindow::slotAddServer);

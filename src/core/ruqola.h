@@ -56,6 +56,9 @@ public:
     [[nodiscard]] static bool useRestApiLogin();
     static void setUseRestApiLogin(bool newUseRestApiLogin);
 
+    [[nodiscard]] QWidget *parentWidget() const;
+    void setParentWidget(QWidget *newParentWidget);
+
 Q_SIGNALS:
     void translatorMenuChanged();
     void addInviteServer(const AccountManager::AccountManagerInfo &info);
@@ -68,4 +71,5 @@ private:
 
     CustomEmojiIconManager *const mCustomEmojiIconManager;
     bool mDebug = false;
+    QWidget *mParentWidget = nullptr;
 };
