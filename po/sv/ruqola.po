@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 02:32+0000\n"
-"PO-Revision-Date: 2025-01-11 09:41+0100\n"
+"POT-Creation-Date: 2025-04-02 02:32+0000\n"
+"PO-Revision-Date: 2025-04-01 19:39+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket Chat-klient"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © 2020-2024 Ruqola-upphovsmännen"
+msgstr "Copyright © 2020-2025 Ruqola-upphovsmännen"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -174,15 +173,14 @@ msgid "The following accounts are available:"
 msgstr "Följande konton är tillgängliga:"
 
 #: core/accountmanager.cpp:855
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Ogiltig symbol"
+msgstr "Ogiltig inbjudningssymbol"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr ""
+msgstr "Inbjudningssymbolen är ogiltig. Skapa konto avbröts."
 
 #: core/apps/appsmarketplaceinfo.cpp:108
 #, kde-format
@@ -409,16 +407,14 @@ msgid "Allow to send email"
 msgstr "Tillåt att skicka e-post"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write role"
-msgstr "Tillåt skrivning av oauth-programinställningar"
+msgstr "Allow to write role"
 
 #: core/apps/appsmarketplaceinfo.cpp:691
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to read role"
-msgstr "Tillåt att skicka e-post"
+msgstr "Allow to read role"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -740,7 +736,7 @@ msgstr "(Senaste meddelande: %1)"
 #: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
-msgstr ""
+msgstr "Saknar serverwebbadress.."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -2016,10 +2012,9 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Den nya begäran finns på:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgid "Created at"
+#, kde-format
 msgid "Create a screenshot"
-msgstr "Skapad"
+msgstr "Create a screenshot"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -3313,12 +3308,10 @@ msgstr "Avfärda alla rapporter"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:287
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Kopiera länk"
+msgstr "Kopiera markering"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -5002,8 +4995,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Åtkomst av okrypterat innehåll i krypterade rum"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Omnämnanden"
@@ -5041,6 +5033,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Underrätta personer, och markera omnämnanden av användare, kanal, och grupp "
+"i krypterat innehåll.."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -6969,10 +6963,9 @@ msgid "Permissions"
 msgstr "Rättigheter"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "No version info found."
+#, kde-format
 msgid "No permissions information found."
-msgstr "Ingen versionsinformation hittades."
+msgstr "Ingen rättighetsinformation hittades."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -7063,24 +7056,19 @@ msgid "Ask Application…"
 msgstr "Fråga program…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Installera"
+msgstr "Avinstallera"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, fuzzy, kde-format
-#| msgid "Disable"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
 msgstr "Inaktivera"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Aktivera"
@@ -7093,18 +7081,15 @@ msgid "Copy Text"
 msgstr "Kopiera text"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "Vill du packa upp rummet?"
+msgstr "Vill du avinstallera programmet?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Installerade program…"
+msgstr "Avinstallera program"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -7158,7 +7143,7 @@ msgstr "Sök efter privata program"
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Applications does not have settings."
-msgstr ""
+msgstr "Programmen har inga inställningar.."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
 #, kde-format
@@ -7193,7 +7178,7 @@ msgstr "All status"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr ""
+msgstr "Hämtning av versionsinformation pågår......"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
@@ -8158,18 +8143,14 @@ msgid "Private Room:"
 msgstr "Privat rum:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Messages are end-to-end encrypted, search will not work and notifications "
-#| "may not show message content"
+#, kde-format
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Meddelanden är krypterade från början till slut, sökning fungerar inte och "
-"underrättelser kanske inte visar meddelandeinnehåll"
+"Kanalen är krypterade från början till slut. Sökning fungerar inte med en "
+"krypterad kanal och underrättelser kanske inte visar meddelandeinnehållet."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
@@ -8600,18 +8581,14 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopiera plats till klippbordet"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show previous image"
-msgstr "Visa meddelande"
+msgstr "Visa föregående bild"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show next image"
-msgstr "Visa meddelande"
+msgstr "Visa nästa bild"
 
 #: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
@@ -8663,9 +8640,7 @@ msgid "Show Starred Messages - %1"
 msgstr "Visa stjärnmärkta meddelanden: %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
 msgstr "Följer"
 
@@ -8893,12 +8868,10 @@ msgid "Decode Encryption Key"
 msgstr "Avkoda krypteringsnyckel"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Aktivera E2E-kryptering"
+msgstr "Inaktivera kryptering"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8909,6 +8882,12 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"Att inaktivera E2EE äventyrar integriteten för den här privata gruppen. "
+"Tillgång till krypterat innehåll går förlorad för alla medlemmar av den "
+"privata gruppen.\n"
+"Kryptering kan återaktiveras senare. Fortsätt med försiktighet.\n"
+"Om ingen kan komma åt det krypterade innehållet kan krypteringsnycklarna "
+"nollställas istället.."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8916,13 +8895,13 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"Alternativt gör nollställning av krypteringsnycklar att kryptering förblir "
+"aktiverad men åtkomst till tidigare krypterat innehåll kan gå förlorad.."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Avkoda krypteringsnyckel"
+msgstr "Nollställ krypteringsnycklar"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
@@ -8931,19 +8910,16 @@ msgid "Decode Key"
 msgstr "Avkodningsnyckel"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Aktivera E2E-kryptering"
+msgstr "Aktivera kryptering"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Click here to enter your e2e password."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Klicka här för att ange ditt E2E-lösenord."
+msgstr "Klicka här för att ange ditt E2EE-lösenord."
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
@@ -8974,16 +8950,13 @@ msgid "Save Encryption Key"
 msgstr "Spara krypteringsnyckel"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Program hittades inte"
+msgstr "Programöversättning"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translation"
+#, kde-format
 msgid "Translation"
 msgstr "Översättning"
 
@@ -9273,7 +9246,7 @@ msgstr "Kompakt"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr ""
+msgstr "Lösenorden stämmer inte överens.."
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9366,11 +9339,10 @@ msgid "Reset E2E Key"
 msgstr "Nollställ E2E-nyckel"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Ändra…"
+msgstr "Ändra"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -10089,6 +10061,12 @@ msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Kryptera meddelanden"
 
+#: widgets/room/commandpreviewwidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading..."
+msgstr "Läser in…"
+
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
 #, kde-format
 msgctxt "@title:window"
@@ -10255,13 +10233,13 @@ msgstr "Skicka meddelande"
 #: widgets/room/messagelinewidget.cpp:187
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
-msgstr ""
+msgstr "Kommandot misslyckades. Vill du kopiera kommandot till klippbordet? ?"
 
 #: widgets/room/messagelinewidget.cpp:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
-msgstr ""
+msgstr "Kommandofel"
 
 #: widgets/room/messagelinewidget.cpp:245
 #, kde-format
@@ -10641,14 +10619,12 @@ msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgid "Direct Messages can not be archived"
+#, kde-format
 msgid "Encrypted content cannot be searched."
-msgstr "Direktmeddelanden kan inte arkiveras"
+msgstr "Krypterat innehåll går inte att söka i."
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgid "Search Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Sök meddelande"
@@ -10690,8 +10666,7 @@ msgid "Disconnected"
 msgstr "Nerkopplad"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owners"
 msgstr "Ägare"
 
@@ -11355,8 +11330,7 @@ msgid "Return the number of account."
 msgstr "Returnera antal konton."
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Check New Version"
+#, kde-format
 msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Kontrollera ny version"
@@ -11365,11 +11339,12 @@ msgstr "Kontrollera ny version"
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
+"En ny version hittades. Klicka <a href=\"%1\">här</a> för att ladda ner den.."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-msgstr ""
+msgstr "Ingen ny version hittades. Bygge finns <a href=\"%1\">här</a>."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11401,51 +11376,47 @@ msgstr "Vad är nytt i %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr ""
+msgstr "Lägg stöd för verktygsinsticksprogram"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
+"Insticksprogram: Lägg till skärmbildsknapp (nära knappen för att skicka "
+"meddelande)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Förbättra stöd för omnämnanden."
+msgstr "Implementera stöd för RC-webbadressinbjudan"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement verify if a new Ruqola version exist"
-msgstr ""
+msgstr "Implementera verifiering av om en ny version av Ruqola finns"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Tillåt att söka efter trådar enligt oläst/följer"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
-#, fuzzy
-#| msgid "Show Files Attachment In Room"
 msgid "Show images from attachment dialog box"
-msgstr "Visa filbilagor i rum"
+msgstr "Visa bilder från dialogrutan för bilagor"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
-msgstr "Implementera Rocket Chat marknadsplats."
+msgstr "Implementera Rocket Chat programsupport."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "Implementera förhandsgranskning av webbadresser"
+msgstr "Implementera förhandsgranskning av kommandon."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Debug: explore translation from RC server."
-msgstr ""
+msgstr "Felsök: utforska översättning från RC-server."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
+"Implementera stöd för användargränssnitt i insticksprogram (skapa dialogruta "
+"för att anpassa inställningar)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
@@ -11844,47 +11815,47 @@ msgstr "tillåt att programmens marknadsinställningar visas"
 #: widgets/whatsnew/whatsnewtranslations.cpp:159
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr ""
+msgstr "Tillåt att söka efter fil från användarnamn och filnamn."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:160
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
-msgstr ""
+msgstr "Rätta kopieringsåtgärdstext när vi kopierar en textmarkering."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:161
 #, kde-format
 msgid "A command start with '/' and not /* or // "
-msgstr ""
+msgstr "Ett kommando börjar med '/' och inte /* eller // "
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:162
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
-msgstr ""
+msgstr "Tillåt att kopiera kommandoraden till klippbordet när ett fel uppstod"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:163
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
-msgstr ""
+msgstr "Tillåt att aktivera eller inaktivera programmarknad."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "Förbättra användarlista i rum."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Search in encrypted room is not possible."
-msgstr ""
+msgstr "Sökning i krypterat rum är inte möjlig."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "Show roles for users in rooms."
-msgstr ""
+msgstr "Visa roller för användare i rum."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
 #, kde-format
 msgid "Fix download languages apps."
-msgstr ""
+msgstr "Rätta nerladdning av språk för program."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

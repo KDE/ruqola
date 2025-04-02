@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 02:32+0000\n"
+"POT-Creation-Date: 2025-04-02 02:32+0000\n"
 "PO-Revision-Date: 2025-03-06 08:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -10138,6 +10138,12 @@ msgstr "دردشة مؤقتة غير المسجلة"
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "عمّي الرسائل"
+
+#: widgets/room/commandpreviewwidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading..."
+msgstr "يحمل…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
 #, kde-format

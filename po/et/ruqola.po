@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 02:32+0000\n"
+"POT-Creation-Date: 2025-04-02 02:32+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -10664,6 +10664,12 @@ msgstr ""
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Krüptitud sõnum"
+
+#: widgets/room/commandpreviewwidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Loading..."
+msgid "Loading..."
+msgstr "Laadimine ..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
 #, fuzzy, kde-format

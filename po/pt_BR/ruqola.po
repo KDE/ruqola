@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 02:32+0000\n"
+"POT-Creation-Date: 2025-04-02 02:32+0000\n"
 "PO-Revision-Date: 2025-02-27 20:36-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -10596,6 +10596,12 @@ msgstr ""
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Criptografar mensagens"
+
+#: widgets/room/commandpreviewwidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Loading..."
+msgid "Loading..."
+msgstr "Carregando..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 02:32+0000\n"
+"POT-Creation-Date: 2025-04-02 02:32+0000\n"
 "PO-Revision-Date: 2025-03-29 13:49+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -10117,6 +10117,12 @@ msgstr "OTR"
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Berichten versleutelen"
+
+#: widgets/room/commandpreviewwidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading..."
+msgstr "Bezig met laden…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
 #, kde-format
