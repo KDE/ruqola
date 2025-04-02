@@ -137,7 +137,7 @@ CommandPreviewLoadingWidget::CommandPreviewLoadingWidget(QWidget *parent)
     mBusyIndicator->setObjectName(QStringLiteral("mBusyIndicator"));
     mainLayout->addWidget(mBusyIndicator, 0, Qt::AlignTop);
 
-    auto label = new QLabel(i18n("Loading..."), this);
+    auto label = new QLabel(i18n("Loading…"), this);
     label->setObjectName(QStringLiteral("label"));
     QFont f = label->font();
     f.setBold(true);
