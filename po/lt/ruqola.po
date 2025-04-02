@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 00:41+0000\n"
+"POT-Creation-Date: 2025-04-02 00:41+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -10466,6 +10466,12 @@ msgstr ""
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Šifruota žinutė"
+
+#: widgets/room/commandpreviewwidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading..."
+msgstr "Įkeliama…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
 #, fuzzy, kde-format
