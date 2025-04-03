@@ -92,6 +92,7 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
 
     auto applyButton = new QPushButton(i18n("Apply"), this);
     connect(applyButton, &QPushButton::clicked, this, [this]() {
+        qCWarning(RUQOLAWIDGETS_LOG) << "APPLY not implemented yet";
         // TODO apply value
     });
     applyButton->setEnabled(false);
