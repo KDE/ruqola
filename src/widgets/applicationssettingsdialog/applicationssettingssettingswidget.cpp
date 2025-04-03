@@ -49,7 +49,11 @@ void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj
         infos.append(std::move(i));
     }
     if (infos.isEmpty()) {
-        auto label = new QLabel(i18n("Applications does not have settings."), this);
+        auto label = new QLabel(i18n("Application does not have settings."), this);
+        QFont f = label->font();
+        f.setBold(true);
+        f.setItalic(true);
+        label->setFont(f);
         mMainLayout->addWidget(label);
         mMainLayout->addStretch(1);
     } else {
