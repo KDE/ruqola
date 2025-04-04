@@ -192,15 +192,15 @@ void ApplicationsSettingsSettingsWidget::addIntSettings(const ApplicationsSettin
     hbox->addWidget(spinbox);
     /*
     const auto defaultValue = info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked;
-    combobox->setCheckState(defaultValue);
+    spinbox->setValue(defaultValue);
     */
     connect(spinbox, &QSpinBox::valueChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
     /*
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [combobox, defaultValue]() {
-        QSignalBlocker b(combobox);
-        combobox->setCheckState(defaultValue);
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [spinbox, defaultValue]() {
+        QSignalBlocker b(spinbox);
+        spinbox->setValue(defaultValue);
     });
     */
     mMainLayout->addLayout(hbox);
@@ -216,9 +216,15 @@ void ApplicationsSettingsSettingsWidget::addSelectSettings(const ApplicationsSet
     combobox->setObjectName(info.id());
     combobox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
     hbox->addWidget(combobox);
+    // Fill Combobox
+    QMapIterator<QString, QString> i(info.values());
+    while (i.hasNext()) {
+        i.next();
+        combobox->addItem(getTranslatedIdentifier(lang, i.value()), i.key());
+    }
     /*
     const auto defaultValue = info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked;
-    combobox->setCheckState(defaultValue);
+    combobox->setCurrentIndex(defaultValue);
     */
     connect(combobox, &QComboBox::currentIndexChanged, this, [this]() {
         Q_EMIT dataChanged(true);
