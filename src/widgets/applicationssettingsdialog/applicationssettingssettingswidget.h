@@ -35,6 +35,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addIntSettings(const ApplicationsSettingsSettingsInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void addSelectSettings(const ApplicationsSettingsSettingsInfo &info);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString getTranslatedIdentifier(const QString &lang, const QString &id) const;
+    QList<ApplicationsSettingsSettingsInfo> mSettingsInfo;
     bool mWasInitialized = false;
     QByteArray mAppId;
     RocketChatAccount *const mRocketChatAccount;

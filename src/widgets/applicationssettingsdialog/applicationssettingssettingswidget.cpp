@@ -44,14 +44,13 @@ void ApplicationsSettingsSettingsWidget::showEvent(QShowEvent *event)
 
 void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj)
 {
-    QList<ApplicationsSettingsSettingsInfo> infos;
     const QJsonObject settings = obj[QStringLiteral("settings")].toObject();
     for (const QJsonValue &current : settings) {
         ApplicationsSettingsSettingsInfo i;
         i.parseSettings(current.toObject());
-        infos.append(std::move(i));
+        mSettingsInfo.append(std::move(i));
     }
-    if (infos.isEmpty()) {
+    if (mSettingsInfo.isEmpty()) {
         auto label = new QLabel(i18n("Application does not have settings."), this);
         QFont f = label->font();
         f.setBold(true);
@@ -60,7 +59,7 @@ void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj
         mMainLayout->addWidget(label);
         mMainLayout->addStretch(1);
     } else {
-        generateSettingsWidgets(infos);
+        generateSettingsWidgets(mSettingsInfo);
     }
 }
 
@@ -198,12 +197,10 @@ void ApplicationsSettingsSettingsWidget::addIntSettings(const ApplicationsSettin
     connect(spinbox, &QSpinBox::valueChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    /*
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [spinbox, defaultValue]() {
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [spinbox, r]() {
         QSignalBlocker b(spinbox);
-        spinbox->setValue(defaultValue);
+        spinbox->setValue(r.toInt());
     });
-    */
     mMainLayout->addLayout(hbox);
 }
 
@@ -228,12 +225,10 @@ void ApplicationsSettingsSettingsWidget::addSelectSettings(const ApplicationsSet
     connect(combobox, &QComboBox::currentIndexChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    /*
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [combobox, defaultValue]() {
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [combobox, r]() {
         QSignalBlocker b(combobox);
-        combobox->setCheckState(defaultValue);
+        combobox->setCurrentIndex(combobox->findData(r.toString()));
     });
-    */
     mMainLayout->addLayout(hbox);
 }
 
