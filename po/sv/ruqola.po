@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 02:33+0000\n"
-"PO-Revision-Date: 2025-04-01 19:39+0200\n"
+"POT-Creation-Date: 2025-04-04 02:40+0000\n"
+"PO-Revision-Date: 2025-04-03 22:25+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -6591,7 +6591,7 @@ msgstr "Maximal meddelandeålder i direktmeddelanden"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
 #, kde-format
 msgid "Apply"
 msgstr "Verkställ"
@@ -7141,11 +7141,12 @@ msgid "Search Private Applications"
 msgstr "Sök efter privata program"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
-#, kde-format
-msgid "Applications does not have settings."
+#, fuzzy, kde-format
+#| msgid "Applications does not have settings."
+msgid "Application does not have settings."
 msgstr "Programmen har inga inställningar.."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:85
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
@@ -10062,10 +10063,9 @@ msgid "Encrypt Messages"
 msgstr "Kryptera meddelanden"
 
 #: widgets/room/commandpreviewwidget.cpp:140
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading..."
-msgstr "Läser in…"
+msgstr "Läser in..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
 #, kde-format

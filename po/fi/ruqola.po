@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 02:33+0000\n"
+"POT-Creation-Date: 2025-04-04 02:40+0000\n"
 "PO-Revision-Date: 2025-02-04 19:21+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket-keskusteluasiakas"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Tekijänoikeudet © 2020–2024 Ruqolan tekijät"
+msgstr "Tekijänoikeudet © 2020–2025 Ruqolan tekijät"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -6566,7 +6565,7 @@ msgstr "Viestin enimmäisikä suoraviesteissä"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
 #, kde-format
 msgid "Apply"
 msgstr "Käytä"
@@ -7120,12 +7119,14 @@ msgid "Search Private Applications"
 msgstr "Etsi yksityissovelluksia"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
-#, kde-format
-msgid "Applications does not have settings."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Application not found"
+msgid "Application does not have settings."
+msgstr "Sovellusta ei löytynyt"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
-#, kde-format
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:85
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgid "Cancel"
 msgstr "Peru"
 
@@ -7157,7 +7158,7 @@ msgstr "Kaikki tilat"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr ""
+msgstr "Versiotietoa noudetaan…"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
