@@ -46,6 +46,7 @@ void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj
 {
     const QJsonObject settings = obj[QStringLiteral("settings")].toObject();
     for (const QJsonValue &current : settings) {
+        // TODO store json => update it when widget settings change
         ApplicationsSettingsSettingsInfo i;
         i.parseSettings(current.toObject());
         mSettingsInfo.append(std::move(i));
@@ -89,7 +90,6 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
         }
     }
     mMainLayout->addStretch(1);
-    // TODO show or not
     auto hLayout = new QHBoxLayout;
     hLayout->setContentsMargins({});
     hLayout->addStretch(1);
