@@ -16,6 +16,8 @@ public:
         Unknown,
         String,
         Boolean,
+        Select,
+        Int,
     };
     Q_ENUM(SettingType);
 

@@ -21,6 +21,10 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
         mPackageValue = obj["packageValue"_L1].toString();
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Boolean) {
         mPackageValue = obj["packageValue"_L1].toBool() ? QStringLiteral("true") : QStringLiteral("false");
+    } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Select) {
+        qDebug() << " Implement values !!!!!" << mSettingType;
+    } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Int) {
+        qDebug() << " Implement values !!!!!" << mSettingType;
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type " << obj["packageValue"_L1];
     }
@@ -40,6 +44,10 @@ ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::
         return SettingType::String;
     } else if (str == "boolean"_L1) {
         return SettingType::Boolean;
+    } else if (str == "select"_L1) {
+        return SettingType::Select;
+    } else if (str == "int"_L1) {
+        return SettingType::Int;
     }
     qCWarning(RUQOLA_LOG) << "Unknown type " << str;
     return SettingType::Unknown;
