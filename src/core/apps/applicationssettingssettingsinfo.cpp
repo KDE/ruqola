@@ -47,7 +47,7 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
         qCWarning(RUQOLA_LOG) << "Unknown type " << obj["packageValue"_L1];
     }
 
-    // TODO add createdAt/public/required/updatedAt
+    // TODO add createdAt/public/updatedAt
 }
 
 bool ApplicationsSettingsSettingsInfo::operator==(const ApplicationsSettingsSettingsInfo &other) const
