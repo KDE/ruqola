@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:41+0000\n"
+"POT-Creation-Date: 2025-04-04 00:41+0000\n"
 "PO-Revision-Date: 2025-03-23 09:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -6608,7 +6608,7 @@ msgstr "الحد الأقصى لعمر الرسالة في الرسائل الم
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
 #, kde-format
 msgid "Apply"
 msgstr "طبّق"
@@ -7153,11 +7153,12 @@ msgid "Search Private Applications"
 msgstr "ابحث في التطبيقات الخاصة"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
-#, kde-format
-msgid "Applications does not have settings."
+#, fuzzy, kde-format
+#| msgid "Applications does not have settings."
+msgid "Application does not have settings."
 msgstr "لا تحتوي التطبيقات على إعدادات."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:85
 #, kde-format
 msgid "Cancel"
 msgstr "ألغِ"
