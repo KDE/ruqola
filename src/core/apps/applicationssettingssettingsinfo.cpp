@@ -20,21 +20,29 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
     mSettingType = convertStringToType(obj["type"_L1].toString());
     if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::String) {
         mPackageValue = obj["packageValue"_L1].toString();
-        mValue = obj["value"_L1].toString();
+        if (obj.contains("value"_L1)) {
+            mValue = obj["value"_L1].toString();
+        }
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Boolean) {
-        mPackageValue = obj["packageValue"_L1].toBool() ? QStringLiteral("true") : QStringLiteral("false");
-        mValue = obj["value"_L1].toBool() ? QStringLiteral("true") : QStringLiteral("false");
+        mPackageValue = obj["packageValue"_L1].toBool();
+        if (obj.contains("value"_L1)) {
+            mValue = obj["value"_L1].toBool();
+        }
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Select) {
         mPackageValue = obj["packageValue"_L1].toString();
-        mValue = obj["value"_L1].toString();
+        if (obj.contains("value"_L1)) {
+            mValue = obj["value"_L1].toString();
+        }
         // Load allow selected values
         const QJsonArray array = obj["values"_L1].toArray();
         for (const auto &r : array) {
             mValues.insert(r["key"_L1].toString(), r["i18nLabel"_L1].toString());
         }
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Int) {
-        mPackageValue = QString::number(obj["packageValue"_L1].toInt());
-        mValue = QString::number(obj["value"_L1].toInt());
+        mPackageValue = obj["packageValue"_L1].toInt();
+        if (obj.contains("value"_L1)) {
+            mValue = obj["value"_L1].toInt();
+        }
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type " << obj["packageValue"_L1];
     }
@@ -63,12 +71,12 @@ ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::
     return SettingType::Unknown;
 }
 
-QString ApplicationsSettingsSettingsInfo::value() const
+QVariant ApplicationsSettingsSettingsInfo::value() const
 {
     return mValue;
 }
 
-void ApplicationsSettingsSettingsInfo::setValue(const QString &newValue)
+void ApplicationsSettingsSettingsInfo::setValue(const QVariant &newValue)
 {
     mValue = newValue;
 }
@@ -123,12 +131,12 @@ void ApplicationsSettingsSettingsInfo::setId(const QString &newId)
     mId = newId;
 }
 
-QString ApplicationsSettingsSettingsInfo::packageValue() const
+QVariant ApplicationsSettingsSettingsInfo::packageValue() const
 {
     return mPackageValue;
 }
 
-void ApplicationsSettingsSettingsInfo::setPackageValue(const QString &newPackageValue)
+void ApplicationsSettingsSettingsInfo::setPackageValue(const QVariant &newPackageValue)
 {
     mPackageValue = newPackageValue;
 }
