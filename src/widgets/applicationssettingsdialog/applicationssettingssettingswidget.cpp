@@ -7,6 +7,7 @@
 #include "applicationssettingssettingswidget.h"
 
 #include "apps/appinfojob.h"
+#include "apps/appupdateinfojob.h"
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -92,8 +93,16 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
 
     auto applyButton = new QPushButton(i18n("Apply"), this);
     connect(applyButton, &QPushButton::clicked, this, [this]() {
-        qCWarning(RUQOLAWIDGETS_LOG) << "APPLY not implemented yet";
-        // TODO apply value
+        auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
+        RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
+        info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
+        info.mAppsId = mAppId;
+        job->setAppUpdateInfo(info);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+        }
     });
     applyButton->setEnabled(false);
     hLayout->addWidget(applyButton);
