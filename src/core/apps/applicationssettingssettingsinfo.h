@@ -42,6 +42,12 @@ public:
 
     [[nodiscard]] bool operator==(const ApplicationsSettingsSettingsInfo &other) const;
 
+    [[nodiscard]] QMap<QString, QString> values() const;
+    void setValues(const QMap<QString, QString> &newValues);
+
+    [[nodiscard]] bool required() const;
+    void setRequired(bool newRequired);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ApplicationsSettingsSettingsInfo::SettingType convertStringToType(const QString &str);
     QString mI18nDescription;
@@ -49,6 +55,9 @@ private:
     QString mId;
     QString mPackageValue;
     SettingType mSettingType = SettingType::Unknown;
+    // <key, i18nLabel>
+    QMap<QString, QString> mValues;
+    bool mRequired = false;
 };
 Q_DECLARE_METATYPE(ApplicationsSettingsSettingsInfo)
 Q_DECLARE_TYPEINFO(ApplicationsSettingsSettingsInfo, Q_RELOCATABLE_TYPE);

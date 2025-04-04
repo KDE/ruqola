@@ -6,6 +6,7 @@
 
 #include "applicationssettingssettingsinfo.h"
 #include "ruqola_debug.h"
+#include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsSettingsInfo::ApplicationsSettingsSettingsInfo() = default;
 
@@ -22,7 +23,10 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Boolean) {
         mPackageValue = obj["packageValue"_L1].toBool() ? QStringLiteral("true") : QStringLiteral("false");
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Select) {
-        qDebug() << " Implement values !!!!!" << mSettingType;
+        const QJsonArray array = obj["values"_L1].toArray();
+        for (const auto &r : array) {
+            mValues.insert(r["key"_L1].toString(), r["i18nLabel"_L1].toString());
+        }
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Int) {
         qDebug() << " Implement values !!!!!" << mSettingType;
     } else {
@@ -35,7 +39,7 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
 bool ApplicationsSettingsSettingsInfo::operator==(const ApplicationsSettingsSettingsInfo &other) const
 {
     return mI18nDescription == other.mI18nDescription && mI18nLabel == other.mI18nLabel && mId == other.mId && mPackageValue == other.mPackageValue
-        && mSettingType == other.mSettingType;
+        && mSettingType == other.mSettingType && mValues == other.mValues && mRequired == other.mRequired;
 }
 
 ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::convertStringToType(const QString &str)
@@ -51,6 +55,26 @@ ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::
     }
     qCWarning(RUQOLA_LOG) << "Unknown type " << str;
     return SettingType::Unknown;
+}
+
+bool ApplicationsSettingsSettingsInfo::required() const
+{
+    return mRequired;
+}
+
+void ApplicationsSettingsSettingsInfo::setRequired(bool newRequired)
+{
+    mRequired = newRequired;
+}
+
+QMap<QString, QString> ApplicationsSettingsSettingsInfo::values() const
+{
+    return mValues;
+}
+
+void ApplicationsSettingsSettingsInfo::setValues(const QMap<QString, QString> &newValues)
+{
+    mValues = newValues;
 }
 
 QString ApplicationsSettingsSettingsInfo::i18nDescription() const
@@ -110,6 +134,8 @@ QDebug operator<<(QDebug d, const ApplicationsSettingsSettingsInfo &t)
     d.space() << "id" << t.id();
     d.space() << "packageValue" << t.packageValue();
     d.space() << "settingType" << t.settingType();
+    d.space() << "values" << t.values();
+    d.space() << "required" << t.required();
     return d;
 }
 
