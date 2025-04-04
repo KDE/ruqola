@@ -34,8 +34,8 @@ public:
     [[nodiscard]] QString id() const;
     void setId(const QString &newId);
 
-    [[nodiscard]] QString packageValue() const;
-    void setPackageValue(const QString &newPackageValue);
+    [[nodiscard]] QVariant packageValue() const;
+    void setPackageValue(const QVariant &newPackageValue);
 
     [[nodiscard]] SettingType settingType() const;
     void setSettingType(SettingType newSettingType);
@@ -48,16 +48,16 @@ public:
     [[nodiscard]] bool required() const;
     void setRequired(bool newRequired);
 
-    [[nodiscard]] QString value() const;
-    void setValue(const QString &newValue);
+    [[nodiscard]] QVariant value() const;
+    void setValue(const QVariant &newValue);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ApplicationsSettingsSettingsInfo::SettingType convertStringToType(const QString &str);
     QString mI18nDescription;
     QString mI18nLabel;
     QString mId;
-    QString mPackageValue;
-    QString mValue;
+    QVariant mPackageValue;
+    QVariant mValue;
     SettingType mSettingType = SettingType::Unknown;
     // <key, i18nLabel>
     QMap<QString, QString> mValues;

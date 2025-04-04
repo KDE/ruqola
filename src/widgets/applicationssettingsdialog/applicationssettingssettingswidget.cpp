@@ -144,14 +144,15 @@ void ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSe
     checkBox->setObjectName(info.id());
     checkBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
     hbox->addWidget(checkBox);
-    const auto defaultValue = info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked;
-    checkBox->setCheckState(defaultValue);
+    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+    checkBox->setCheckState(r.toBool() ? Qt::Checked : Qt::Unchecked);
+
     connect(checkBox, &QCheckBox::clicked, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox, defaultValue]() {
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox, r]() {
         QSignalBlocker b(checkBox);
-        checkBox->setCheckState(defaultValue);
+        checkBox->setCheckState(r.toBool() ? Qt::Checked : Qt::Unchecked);
     });
     mMainLayout->addLayout(hbox);
 }
@@ -167,14 +168,15 @@ void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSet
     auto lineEdit = new QLineEdit(this);
     lineEdit->setObjectName(info.id());
     hbox->addWidget(lineEdit);
-    const QString defaultValue = info.packageValue();
-    lineEdit->setText(defaultValue);
+    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+    lineEdit->setText(r.toString());
+
     connect(lineEdit, &QLineEdit::textChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [lineEdit, defaultValue]() {
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [lineEdit, r]() {
         QSignalBlocker b(lineEdit);
-        lineEdit->setText(defaultValue);
+        lineEdit->setText(r.toString());
     });
 
     mMainLayout->addLayout(hbox);
@@ -187,13 +189,12 @@ void ApplicationsSettingsSettingsWidget::addIntSettings(const ApplicationsSettin
     auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
     hbox->addWidget(label);
     auto spinbox = new QSpinBox(this);
+    spinbox->setMaximum(999999999);
     spinbox->setObjectName(info.id());
     spinbox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
     hbox->addWidget(spinbox);
-    /*
-    const auto defaultValue = info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked;
-    spinbox->setValue(defaultValue);
-    */
+    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+    spinbox->setValue(r.toInt());
     connect(spinbox, &QSpinBox::valueChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
@@ -222,10 +223,8 @@ void ApplicationsSettingsSettingsWidget::addSelectSettings(const ApplicationsSet
         i.next();
         combobox->addItem(getTranslatedIdentifier(lang, i.value()), i.key());
     }
-    /*
-    const auto defaultValue = info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked;
-    combobox->setCurrentIndex(defaultValue);
-    */
+    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+    combobox->setCurrentIndex(combobox->findData(r.toString()));
     connect(combobox, &QComboBox::currentIndexChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });

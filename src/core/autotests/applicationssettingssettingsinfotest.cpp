@@ -21,8 +21,8 @@ void ApplicationsSettingsSettingsInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.i18nDescription().isEmpty());
     QVERIFY(w.i18nLabel().isEmpty());
     QVERIFY(w.id().isEmpty());
-    QVERIFY(w.packageValue().isEmpty());
-    QVERIFY(w.value().isEmpty());
+    QVERIFY(!w.packageValue().isValid());
+    QVERIFY(!w.value().isValid());
     QVERIFY(w.values().isEmpty());
     QVERIFY(!w.required());
     QCOMPARE(w.settingType(), ApplicationsSettingsSettingsInfo::SettingType::Unknown);
@@ -39,6 +39,7 @@ void ApplicationsSettingsSettingsInfoTest::shouldLoadApplicationSettingsInfo_dat
         info.setI18nLabel("jitsi_application_id"_L1);
         info.setId("jitsi_application_id"_L1);
         info.setSettingType(ApplicationsSettingsSettingsInfo::SettingType::String);
+        info.setPackageValue(QStringLiteral(""));
         QTest::addRow("test1") << QStringLiteral("test1") << info;
     }
 }

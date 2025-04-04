@@ -1626,6 +1626,8 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                         const QJsonObject obj = arrayApps.at(j).toObject();
                         mAppsMarketPlaceModel->updateAppStatus(obj["appId"_L1].toString(), obj["status"_L1].toString());
                     }
+                } else if (type == "app/settingUpdated"_L1) {
+                    qDebug() << " NEED TO IMPLEMENT app/settingUpdated";
                 } else if (type == "app/added"_L1) {
                     updateInstalledApps();
                     updateCountApplications();
