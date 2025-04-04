@@ -32,6 +32,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generateSettingsWidgets(const QList<ApplicationsSettingsSettingsInfo> &infos);
     LIBRUQOLAWIDGETS_NO_EXPORT void addBooleanSettings(const ApplicationsSettingsSettingsInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void addStringSettings(const ApplicationsSettingsSettingsInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void addIntSettings(const ApplicationsSettingsSettingsInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void addSelectSettings(const ApplicationsSettingsSettingsInfo &info);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString getTranslatedIdentifier(const QString &lang, const QString &id) const;
     bool mWasInitialized = false;
     QByteArray mAppId;

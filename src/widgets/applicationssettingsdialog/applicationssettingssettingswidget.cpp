@@ -13,11 +13,13 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QShowEvent>
+#include <QSpinBox>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -66,6 +68,9 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
 {
     for (const ApplicationsSettingsSettingsInfo &info : infos) {
         switch (info.settingType()) {
+        case ApplicationsSettingsSettingsInfo::SettingType::Unknown: {
+            break;
+        }
         case ApplicationsSettingsSettingsInfo::SettingType::Boolean: {
             addBooleanSettings(info);
             break;
@@ -74,8 +79,14 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
             addStringSettings(info);
             break;
         }
-        default:
+        case ApplicationsSettingsSettingsInfo::SettingType::Int: {
+            addIntSettings(info);
             break;
+        }
+        case ApplicationsSettingsSettingsInfo::SettingType::Select: {
+            addSelectSettings(info);
+            break;
+        }
         }
     }
     mMainLayout->addStretch(1);
@@ -166,6 +177,58 @@ void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSet
         lineEdit->setText(defaultValue);
     });
 
+    mMainLayout->addLayout(hbox);
+}
+
+void ApplicationsSettingsSettingsWidget::addIntSettings(const ApplicationsSettingsSettingsInfo &info)
+{
+    const QString lang = QLocale().name();
+    QHBoxLayout *hbox = new QHBoxLayout;
+    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
+    hbox->addWidget(label);
+    auto spinbox = new QSpinBox(this);
+    spinbox->setObjectName(info.id());
+    spinbox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
+    hbox->addWidget(spinbox);
+    /*
+    const auto defaultValue = info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked;
+    combobox->setCheckState(defaultValue);
+    */
+    connect(spinbox, &QSpinBox::valueChanged, this, [this]() {
+        Q_EMIT dataChanged(true);
+    });
+    /*
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [combobox, defaultValue]() {
+        QSignalBlocker b(combobox);
+        combobox->setCheckState(defaultValue);
+    });
+    */
+    mMainLayout->addLayout(hbox);
+}
+
+void ApplicationsSettingsSettingsWidget::addSelectSettings(const ApplicationsSettingsSettingsInfo &info)
+{
+    const QString lang = QLocale().name();
+    QHBoxLayout *hbox = new QHBoxLayout;
+    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
+    hbox->addWidget(label);
+    auto combobox = new QComboBox(this);
+    combobox->setObjectName(info.id());
+    combobox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
+    hbox->addWidget(combobox);
+    /*
+    const auto defaultValue = info.packageValue() == "true"_L1 ? Qt::Checked : Qt::Unchecked;
+    combobox->setCheckState(defaultValue);
+    */
+    connect(combobox, &QComboBox::currentIndexChanged, this, [this]() {
+        Q_EMIT dataChanged(true);
+    });
+    /*
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [combobox, defaultValue]() {
+        QSignalBlocker b(combobox);
+        combobox->setCheckState(defaultValue);
+    });
+    */
     mMainLayout->addLayout(hbox);
 }
 
