@@ -22,6 +22,7 @@ void ApplicationsSettingsSettingsInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.i18nLabel().isEmpty());
     QVERIFY(w.id().isEmpty());
     QVERIFY(w.packageValue().isEmpty());
+    QVERIFY(w.value().isEmpty());
     QVERIFY(w.values().isEmpty());
     QVERIFY(!w.required());
     QCOMPARE(w.settingType(), ApplicationsSettingsSettingsInfo::SettingType::Unknown);

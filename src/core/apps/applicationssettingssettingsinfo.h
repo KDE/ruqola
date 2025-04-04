@@ -48,12 +48,16 @@ public:
     [[nodiscard]] bool required() const;
     void setRequired(bool newRequired);
 
+    [[nodiscard]] QString value() const;
+    void setValue(const QString &newValue);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ApplicationsSettingsSettingsInfo::SettingType convertStringToType(const QString &str);
     QString mI18nDescription;
     QString mI18nLabel;
     QString mId;
     QString mPackageValue;
+    QString mValue;
     SettingType mSettingType = SettingType::Unknown;
     // <key, i18nLabel>
     QMap<QString, QString> mValues;
