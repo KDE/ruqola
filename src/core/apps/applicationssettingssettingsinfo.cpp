@@ -20,15 +20,21 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
     mSettingType = convertStringToType(obj["type"_L1].toString());
     if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::String) {
         mPackageValue = obj["packageValue"_L1].toString();
+        mValue = obj["value"_L1].toString();
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Boolean) {
         mPackageValue = obj["packageValue"_L1].toBool() ? QStringLiteral("true") : QStringLiteral("false");
+        mValue = obj["value"_L1].toBool() ? QStringLiteral("true") : QStringLiteral("false");
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Select) {
+        mPackageValue = obj["packageValue"_L1].toString();
+        mValue = obj["value"_L1].toString();
+        // Load allow selected values
         const QJsonArray array = obj["values"_L1].toArray();
         for (const auto &r : array) {
             mValues.insert(r["key"_L1].toString(), r["i18nLabel"_L1].toString());
         }
     } else if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::Int) {
-        qDebug() << " Implement values !!!!!" << mSettingType;
+        mPackageValue = QString::number(obj["packageValue"_L1].toInt());
+        mValue = QString::number(obj["value"_L1].toInt());
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type " << obj["packageValue"_L1];
     }
@@ -39,7 +45,7 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
 bool ApplicationsSettingsSettingsInfo::operator==(const ApplicationsSettingsSettingsInfo &other) const
 {
     return mI18nDescription == other.mI18nDescription && mI18nLabel == other.mI18nLabel && mId == other.mId && mPackageValue == other.mPackageValue
-        && mSettingType == other.mSettingType && mValues == other.mValues && mRequired == other.mRequired;
+        && mSettingType == other.mSettingType && mValues == other.mValues && mRequired == other.mRequired && other.mValue == mValue;
 }
 
 ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::convertStringToType(const QString &str)
@@ -55,6 +61,16 @@ ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::
     }
     qCWarning(RUQOLA_LOG) << "Unknown type " << str;
     return SettingType::Unknown;
+}
+
+QString ApplicationsSettingsSettingsInfo::value() const
+{
+    return mValue;
+}
+
+void ApplicationsSettingsSettingsInfo::setValue(const QString &newValue)
+{
+    mValue = newValue;
 }
 
 bool ApplicationsSettingsSettingsInfo::required() const
@@ -133,9 +149,11 @@ QDebug operator<<(QDebug d, const ApplicationsSettingsSettingsInfo &t)
     d.space() << "i18nLabel" << t.i18nLabel();
     d.space() << "id" << t.id();
     d.space() << "packageValue" << t.packageValue();
+    d.space() << "value" << t.value();
     d.space() << "settingType" << t.settingType();
     d.space() << "values" << t.values();
     d.space() << "required" << t.required();
+
     return d;
 }
 
