@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-04 02:40+0000\n"
+"POT-Creation-Date: 2025-04-05 02:38+0000\n"
 "PO-Revision-Date: 2025-02-15 11:12+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -6629,7 +6629,7 @@ msgstr "Graniczny wiek wiadomości w wiadomościach bezpośrednich"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:104
 #, kde-format
 msgid "Apply"
 msgstr "Zastosuj"
@@ -7190,13 +7190,13 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Poszukaj prywatnych aplikacji"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgid "Application does not have settings."
 msgstr "Nie znaleziono programu"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:85
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
 #, kde-format
 msgid "Cancel"
 msgstr "Anuluj"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-04 02:40+0000\n"
+"POT-Creation-Date: 2025-04-05 02:38+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -6819,7 +6819,7 @@ msgstr "Správa"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:104
 #, kde-format
 msgid "Apply"
 msgstr ""
@@ -7367,13 +7367,13 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Hľadať súbor..."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgid "Application does not have settings."
 msgstr "Aplikácia nenájdená"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:85
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
 #, kde-format
 msgid "Cancel"
 msgstr ""

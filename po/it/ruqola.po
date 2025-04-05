@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-04 02:40+0000\n"
+"POT-Creation-Date: 2025-04-05 02:38+0000\n"
 "PO-Revision-Date: 2025-03-21 07:58+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -6636,7 +6636,7 @@ msgstr "Durata massima del messaggio nei messaggi diretti"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:104
 #, kde-format
 msgid "Apply"
 msgstr "Applica"
@@ -7188,13 +7188,13 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Cerca applicazioni private"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Applications does not have settings."
 msgid "Application does not have settings."
 msgstr "Le applicazioni non hanno impostazioni."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:85
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
 #, kde-format
 msgid "Cancel"
 msgstr "Annulla"
