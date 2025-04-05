@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-04 00:41+0000\n"
-"PO-Revision-Date: 2025-04-02 06:28+0200\n"
+"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"PO-Revision-Date: 2025-04-04 07:01+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -6611,7 +6611,7 @@ msgstr "Največja starost sporočil v neposrednih sporočilih"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:104
 #, kde-format
 msgid "Apply"
 msgstr "Uveljavi"
@@ -7158,13 +7158,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Išči zasebne aplikacije"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Applications does not have settings."
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Aplikacije nimajo nastavitev."
+msgstr "Aplikacija nima nastavitev."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:85
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"
