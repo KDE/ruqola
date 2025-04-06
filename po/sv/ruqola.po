@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 00:41+0000\n"
-"PO-Revision-Date: 2025-02-28 19:48+0100\n"
+"PO-Revision-Date: 2025-04-05 13:48+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -7142,8 +7142,7 @@ msgid "Search Private Applications"
 msgstr "Sök efter privata program"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Applications does not have settings."
+#, kde-format
 msgid "Application does not have settings."
 msgstr "Programmen har inga inställningar."
 
@@ -8952,16 +8951,13 @@ msgid "Save Encryption Key"
 msgstr "Spara krypteringsnyckel"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Program hittades inte"
+msgstr "Programöversättning"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translation"
+#, kde-format
 msgid "Translation"
 msgstr "Översättning"
 
@@ -11341,12 +11337,9 @@ msgstr ""
 "En ny version hittades. Klicka <a href=\"%1\">här</a> för att ladda ner den."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
-#, fuzzy, kde-format
-#| msgid ""
-#| "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+#, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-msgstr ""
-"En ny version hittades. Klicka <a href=\"%1\">här</a> för att ladda ner den."
+msgstr "Ingen ny version hittades. Bygge finns <a href=\"%1\">här</a>."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11808,20 +11801,21 @@ msgid "Implement Rocket.Chat application support."
 msgstr "Implementera Rocket Chat programsupport."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:149
-#, fuzzy, kde-format
-#| msgid "Implement Url Preview"
+#, kde-format
 msgid "Implement command preview."
-msgstr "Implementera förhandsgranskning av webbadresser"
+msgstr "Implementera förhandsgranskning av kommandon."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:150
 #, kde-format
 msgid "Debug: explore translation from RC server."
-msgstr ""
+msgstr "Felsök: utforska översättning från RC-server."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:151
 #, kde-format
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
+"Implementera stöd för användargränssnitt i insticksprogram (skapa dialogruta "
+"för att anpassa inställningar)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:155
 #, kde-format
@@ -11866,7 +11860,7 @@ msgstr "Visa roller för användare i rum."
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Fix download languages apps."
-msgstr ""
+msgstr "Rätta nerladdning av språk för program."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

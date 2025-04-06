@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 00:41+0000\n"
-"PO-Revision-Date: 2025-04-02 11:26+0200\n"
+"PO-Revision-Date: 2025-04-04 12:25+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -7185,10 +7185,9 @@ msgid "Search Private Applications"
 msgstr "Private toepassingen zoeken"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Applications does not have settings."
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Toepassingen hebben geen instellingen."
+msgstr "Toepassing heeft geen instellingen."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
 #, kde-format
