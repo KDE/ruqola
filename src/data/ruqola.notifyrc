@@ -257,6 +257,7 @@ Urgency=Normal
 
 [Event/Invite-Account-Invalid]
 Name=Invalid invite token
+Name[ar]=رمز الدعوة غير صالح
 Name[ca]=Testimoni d'invitació no vàlid
 Name[ca@valencia]=Testimoni d'invitació no vàlid
 Name[es]=Símbolo de invitación inválido
