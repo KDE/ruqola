@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 02:38+0000\n"
-"PO-Revision-Date: 2025-03-30 01:05+0100\n"
+"PO-Revision-Date: 2025-04-06 12:52+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -7192,10 +7192,9 @@ msgid "Search Private Applications"
 msgstr "Buscar aplicaciones privadas"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Applications does not have settings."
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Las aplicaciones no tienen preferencias."
+msgstr "La aplicación no tiene preferencias."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
 #, kde-format
@@ -10131,8 +10130,7 @@ msgid "Encrypt Messages"
 msgstr "Cifrar mensajes"
 
 #: widgets/room/commandpreviewwidget.cpp:140
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading..."
 msgstr "Cargando…"
 
