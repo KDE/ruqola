@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 00:41+0000\n"
-"PO-Revision-Date: 2025-04-08 17:25+0300\n"
+"PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -412,14 +412,14 @@ msgid "Allow to send email"
 msgstr "Возможность отправки эл. почты"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
-#, fuzzy, kde-format
+#, kde-format
 msgid "Allow to write role"
-msgstr "Возможность записи параметров программ OAuth"
+msgstr "Возможность записи роли"
 
 #: core/apps/appsmarketplaceinfo.cpp:691
-#, fuzzy, kde-format
+#, kde-format
 msgid "Allow to read role"
-msgstr "Возможность отправки эл. почты"
+msgstr "Возможность чтения роли"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -2033,9 +2033,9 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новый запрос доступен здесь:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Create a screenshot"
-msgstr "Создано"
+msgstr "Сделать снимок экрана"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -5055,7 +5055,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Доступ к незашифрованному содержимому в зашифрованных комнатах"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Упоминания"
@@ -5094,6 +5094,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Уведомлять людей и подсвечивать упоминания пользователя, канала и команды в "
+"зашифрованном содержимом"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -7041,9 +7043,9 @@ msgid "Permissions"
 msgstr "Права доступа"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "No permissions information found."
-msgstr "Информация о версии не найдена."
+msgstr "Информация о правах доступа не найдена."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -7136,19 +7138,19 @@ msgid "Ask Application…"
 msgstr "Сделать запрос к приложению…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Установить"
+msgstr "Удалить"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "Отключено"
+msgstr "Отключить"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Включить"
@@ -7161,15 +7163,15 @@ msgid "Copy Text"
 msgstr "Копировать текст"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
-#, fuzzy, kde-format
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "Восстановить комнату из архива?"
+msgstr "Удалить это приложение?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Установленные приложения…"
+msgstr "Удаление приложения"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -7221,9 +7223,9 @@ msgid "Search Private Applications"
 msgstr "Поиск приватных приложений"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
-#, fuzzy, kde-format
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Приложение не найдено"
+msgstr "У приложения нет параметров."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
 #, kde-format
@@ -7258,7 +7260,7 @@ msgstr "Все статусы"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr ""
+msgstr "Выполняется получение сведений о версии…"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
@@ -8234,14 +8236,14 @@ msgid "Private Room:"
 msgstr "Закрытая комната:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:74
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Для сообщений используется сквозное шифрование, поиск не будет работать, а в "
-"уведомлениях может не отображаться содержимое сообщений"
+"Канал со сквозным шифрованием. Для него не будет работать поиск, а в "
+"уведомлениях может не отображаться содержимое сообщений."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
@@ -8682,14 +8684,14 @@ msgid "Copy Location to Clipboard"
 msgstr "Копировать расположение в буфер обмена"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show previous image"
-msgstr "Показать сообщение"
+msgstr "Показать предыдущее изображение"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show next image"
-msgstr "Показать сообщение"
+msgstr "Показать следующее изображение"
 
 #: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
@@ -8743,7 +8745,7 @@ msgid "Show Starred Messages - %1"
 msgstr "Показ сообщений со звёздочкой — %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Following"
 msgstr "Отслеживается"
 
@@ -9060,13 +9062,13 @@ msgid "Save Encryption Key"
 msgstr "Сохранить ключ шифрования"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Приложение не найдено"
+msgstr "Перевод приложения"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Translation"
 msgstr "Перевод"
 
@@ -10351,7 +10353,7 @@ msgstr "Отправить сообщение"
 #: widgets/room/messagelinewidget.cpp:187
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
-msgstr ""
+msgstr "Не удалось выполнить команду. Скопировать её в буфер обмена?"
 
 #: widgets/room/messagelinewidget.cpp:188
 #, kde-format
@@ -10739,15 +10741,15 @@ msgid "Your email has been queued for sending."
 msgstr "Электронное письмо помещено в очередь для отправки."
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encrypted content cannot be searched."
-msgstr "Личные сообщения нельзя добавить в архив"
+msgstr "В зашифрованном содержимом нельзя выполнять поиск."
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Поиск сообщений"
+msgstr "Поиск сообщения"
 
 #: widgets/room/roomwidget.cpp:555
 #, kde-format
@@ -10786,9 +10788,9 @@ msgid "Disconnected"
 msgstr "Отключён"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Owners"
-msgstr "Владелец"
+msgstr "Владельцы"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11453,10 +11455,10 @@ msgid "Return the number of account."
 msgstr "Вернуть номер учётной записи."
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Check New Version"
-msgstr "Проверить наличие новой версии"
+msgstr "Проверка наличия новой версии"
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:71
 #, kde-format
@@ -11910,19 +11912,19 @@ msgstr ""
 "Модуль: добавление кнопки снимка экрана (рядом с кнопкой отправки сообщения)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:144
-#, fuzzy, kde-format
+#, kde-format
 msgid "Implement invite RC url support"
-msgstr "Улучшение поддержки упоминаний"
+msgstr "Реализация поддержки ссылки с приглашением RC"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:145
 #, kde-format
 msgid "Implement verify if a new Ruqola version exist"
-msgstr ""
+msgstr "Реализация проверки наличия новой версии Ruqola"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:146
 #, kde-format
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Возможность поиска веток по признакам «не прочитано»/«отслеживается»"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:147
 #, kde-format
@@ -11930,14 +11932,14 @@ msgid "Show images from attachment dialog box"
 msgstr "Показ изображений из диалогового окна вложения"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:148
-#, fuzzy, kde-format
+#, kde-format
 msgid "Implement Rocket.Chat application support."
-msgstr "Реализация рынка программ Rocket.Chat (Rocket.Chat Marketplace)"
+msgstr "Реализация поддержки приложения Rocket.Chat"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:149
-#, fuzzy, kde-format
+#, kde-format
 msgid "Implement command preview."
-msgstr "Реализация предпросмотра содержимого по ссылкам"
+msgstr "Реализация предпросмотра команды"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:150
 #, kde-format
@@ -11971,31 +11973,33 @@ msgstr "Начало команды с «/», а не /* или // "
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
+"Возможность поместить содержимое командной строки в буфер обмена при "
+"возникновении ошибки"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:159
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
-msgstr ""
+msgstr "Возможность активации и деактивации рынка программ"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:160
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "Улучшение списка пользователей в комнате"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:161
 #, kde-format
 msgid "Search in encrypted room is not possible."
-msgstr ""
+msgstr "Поиск в зашифрованной комнате невозможен"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:162
 #, kde-format
 msgid "Show roles for users in rooms."
-msgstr ""
+msgstr "Показ ролей для пользователей в комнатах"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Fix download languages apps."
-msgstr ""
+msgstr "Исправление загрузки языковых приложений"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -12022,7 +12026,6 @@ msgstr "Некоторые из новых возможностей в этой 
 msgid "Some bug fixing:"
 msgstr "Исправление некоторых ошибок:"
 
-#, fuzzy
 #~ msgid "Loading..."
 #~ msgstr "Загрузка…"
 
