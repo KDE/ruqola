@@ -16,8 +16,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "BUILD_WITH_QT6": "ON",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-		"OPTION_DISABLE_HARDENED_OPTIMIZATION": "ON"
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             },
             "inherits": [
                 "base"
@@ -54,7 +53,6 @@
                 "CMAKE_BUILD_TYPE": "Debug",
 		"BUILD_WITH_QT6": "ON",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-		"OPTION_DISABLE_HARDENED_OPTIMIZATION": "ON",
                 "CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold"
             },
             "inherits": [
