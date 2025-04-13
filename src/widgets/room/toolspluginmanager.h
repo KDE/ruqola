@@ -44,7 +44,7 @@ private:
     explicit ToolsPluginManager(QObject *parent = nullptr);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadPlugin(ToolsPluginManagerInfo *item);
-    LIBRUQOLAWIDGETS_NO_EXPORT PluginToolsUtilData createPluginMetaData(const KPluginMetaData &metaData);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT PluginToolsUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QList<ToolsPluginManagerInfo> mPluginList;
     QList<PluginToolsUtilData> mPluginDataList;
 };
