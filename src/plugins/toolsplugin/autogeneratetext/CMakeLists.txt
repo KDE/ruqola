@@ -10,6 +10,7 @@ ecm_qt_declare_logging_category(ruqola_autogenerateplugin HEADER autogenerateplu
 kconfig_add_kcfg_files(ruqola_autogenerateplugin autogenerateplugintoolconfig.kcfgc)
 
 target_sources(ruqola_autogenerateplugin PRIVATE
+    autogeneratetextplugintool.cpp autogeneratetextplugintool.h
 )
 target_link_libraries(ruqola_autogenerateplugin
     libruqolawidgets

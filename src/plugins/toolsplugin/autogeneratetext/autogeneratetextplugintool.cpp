@@ -1,0 +1,54 @@
+/*
+   SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#include "autogeneratetextplugintool.h"
+#include "grabscreenplugintoolinterface.h"
+#include "utils.h"
+#include <KLocalizedString>
+#include <KPluginFactory>
+#include <QStandardPaths>
+
+K_PLUGIN_CLASS_WITH_JSON(AutoGenerateTextPluginTool, "ruqola_autogeneratetexttoolsplugin.json")
+
+AutoGenerateTextPluginTool::AutoGenerateTextPluginTool(QObject *parent, const QVariantList &)
+    : PluginTool{parent}
+{
+}
+
+AutoGenerateTextPluginTool::~AutoGenerateTextPluginTool() = default;
+
+bool AutoGenerateTextPluginTool::toolFound() const
+{
+    return Utils::executableFound(QStringLiteral("spectacle"));
+}
+
+PluginTool::ToolType AutoGenerateTextPluginTool::toolType() const
+{
+    return PluginTool::ToolType::MessageViewToolBar;
+}
+
+QString AutoGenerateTextPluginTool::iconName() const
+{
+    return QStringLiteral("transform-crop");
+}
+
+QString AutoGenerateTextPluginTool::toolTip() const
+{
+    return i18n("Create a screenshot");
+}
+
+QString AutoGenerateTextPluginTool::description() const
+{
+    return {};
+}
+
+PluginToolInterface *AutoGenerateTextPluginTool::createInterface(QObject *parent)
+{
+    return new AutoGenerateTextPluginToolInterface(parent);
+}
+#include "autogeneratetextplugintool.moc"
+
+#include "moc_autogeneratetextplugintool.cpp"
