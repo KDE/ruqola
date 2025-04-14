@@ -91,6 +91,8 @@ if(UNITY_SUPPORT)
 endif()
 
 set(KTEXTADDONS_MIN_VERSION "1.5.4")
+# Remove it when next 1.6.0 KTEXTADDONS_MIN_VERSION
+set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "1.5.53")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
@@ -190,7 +192,7 @@ if(TARGET KF6::TextCustomEditor)
     set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
 endif()
 
-find_package(KF6TextAutogenerateText ${KTEXTADDONS_MIN_VERSION} CONFIG)
+find_package(KF6TextAutogenerateText ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION} CONFIG)
 set_package_properties(KF6TextAutogenerateText PROPERTIES
     TYPE OPTIONAL
     PURPOSE "Required for building AI plugins support"
