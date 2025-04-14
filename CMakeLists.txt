@@ -51,6 +51,8 @@ option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
 option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
 option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
 
+option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" OFF)
+
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
         set(OPTION_USE_PLASMA_ACTIVITIES true)
@@ -192,12 +194,14 @@ if(TARGET KF6::TextCustomEditor)
     set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
 endif()
 
-find_package(KF6TextAutogenerateText ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION} CONFIG)
-set_package_properties(KF6TextAutogenerateText PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Required for building AI plugins support"
-    DESCRIPTION "Use AI plugin"
-)
+if(OPTION_ADD_AUTOGENERATETEXT)
+    find_package(KF6TextAutogenerateText ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION} CONFIG)
+    set_package_properties(KF6TextAutogenerateText PROPERTIES
+        TYPE OPTIONAL
+        PURPOSE "Required for building AI plugins support"
+        DESCRIPTION "Use AI plugin"
+    )
+endif()
 
 if(TARGET KF6::TextAutogenerateText)
     set(HAVE_TEXT_AUTOGENERATE_TEXT TRUE)
