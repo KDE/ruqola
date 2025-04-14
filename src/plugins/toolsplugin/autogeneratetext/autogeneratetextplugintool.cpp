@@ -5,8 +5,7 @@
 */
 
 #include "autogeneratetextplugintool.h"
-#include "grabscreenplugintoolinterface.h"
-#include "utils.h"
+#include "autogeneratetextplugintoolinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QStandardPaths>
@@ -22,7 +21,7 @@ AutoGenerateTextPluginTool::~AutoGenerateTextPluginTool() = default;
 
 bool AutoGenerateTextPluginTool::toolFound() const
 {
-    return Utils::executableFound(QStringLiteral("spectacle"));
+    return true;
 }
 
 PluginTool::ToolType AutoGenerateTextPluginTool::toolType() const
@@ -32,12 +31,12 @@ PluginTool::ToolType AutoGenerateTextPluginTool::toolType() const
 
 QString AutoGenerateTextPluginTool::iconName() const
 {
-    return QStringLiteral("transform-crop");
+    return QStringLiteral("transform-crop"); // TODO change it
 }
 
 QString AutoGenerateTextPluginTool::toolTip() const
 {
-    return i18n("Create a screenshot");
+    return i18n("Ask to AI");
 }
 
 QString AutoGenerateTextPluginTool::description() const
