@@ -4,7 +4,7 @@
 kcoreaddons_add_plugin(ruqola_grabscreenplugin INSTALL_NAMESPACE ruqolaplugins/toolsplugins)
 
 ecm_qt_declare_logging_category(ruqola_grabscreenplugin HEADER grabscreenplugin_debug.h
-    IDENTIFIER RUQOLA_GRABSCREEN_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_grabscreenplugun
+    IDENTIFIER RUQOLA_GRABSCREEN_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_grabscreenplugin
     DESCRIPTION "ruqola (grab screen plugin)" EXPORT RUQOLA)
 
 kconfig_add_kcfg_files(ruqola_grabscreenplugin grabscreenplugintoolconfig.kcfgc)
