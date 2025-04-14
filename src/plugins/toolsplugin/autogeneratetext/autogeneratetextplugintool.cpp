@@ -31,7 +31,7 @@ PluginTool::ToolType AutoGenerateTextPluginTool::toolType() const
 
 QString AutoGenerateTextPluginTool::iconName() const
 {
-    return QStringLiteral("transform-crop"); // TODO change it
+    return QStringLiteral("question"); // TODO change it
 }
 
 QString AutoGenerateTextPluginTool::toolTip() const
