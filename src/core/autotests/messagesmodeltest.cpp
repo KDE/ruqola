@@ -179,20 +179,20 @@ void MessagesModelTest::shouldDetectDateChange()
     MessagesModel model;
     Message first;
     first.setMessageId("first"_ba);
-    first.setTimeStamp(QDateTime(QDate(2019, 6, 7), QTime(23, 50, 50), QTimeZone::UTC).toMSecsSinceEpoch());
+    first.setTimeStamp(QDateTime(QDate(2019, 6, 7), QTime(20, 50, 50), QTimeZone::UTC).toMSecsSinceEpoch());
     model.addMessages({first});
     QCOMPARE(model.rowCount(), 1);
     QVERIFY(model.index(0, 0).data(MessagesModel::DateDiffersFromPrevious).toBool()); // first message
 
     Message second;
     second.setMessageId("second"_ba);
-    second.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 2, 3), QTimeZone::UTC).toMSecsSinceEpoch());
+    second.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(5, 2, 3), QTimeZone::UTC).toMSecsSinceEpoch());
     model.addMessages({second});
     QCOMPARE(model.rowCount(), 2);
     QVERIFY(model.index(1, 0).data(MessagesModel::DateDiffersFromPrevious).toBool()); // next day
 
     Message third;
-    third.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 4, 3), QTimeZone::UTC).toMSecsSinceEpoch());
+    third.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(5, 4, 3), QTimeZone::UTC).toMSecsSinceEpoch());
     third.setMessageId("third"_ba);
     model.addMessages({third});
     QCOMPARE(model.rowCount(), 3);

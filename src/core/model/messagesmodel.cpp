@@ -252,9 +252,9 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     }
     case MessagesModel::DateDiffersFromPrevious:
         if (idx > 0) {
-            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), QTimeZone::utc());
+            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), QTimeZone::systemTimeZone());
             const Message &previousMessage = mAllMessages.at(idx - 1);
-            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), QTimeZone::utc());
+            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), QTimeZone::systemTimeZone());
             return currentDate.date() != previousDate.date();
         }
         return true; // show date at the top
