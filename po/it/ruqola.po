@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-05 02:38+0000\n"
-"PO-Revision-Date: 2025-03-21 07:58+0100\n"
+"PO-Revision-Date: 2025-04-05 17:55+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -7189,10 +7189,9 @@ msgid "Search Private Applications"
 msgstr "Cerca applicazioni private"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Applications does not have settings."
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Le applicazioni non hanno impostazioni."
+msgstr "L'applicazione non ha impostazioni."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
 #, kde-format
@@ -10128,10 +10127,9 @@ msgid "Encrypt Messages"
 msgstr "Cifra messaggi"
 
 #: widgets/room/commandpreviewwidget.cpp:140
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading..."
-msgstr "Caricamento…"
+msgstr "Caricamento..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
 #, kde-format
