@@ -8,6 +8,7 @@
 #include "applicationssettingsdialog/applicationspermissionwidget.h"
 
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QTextEdit>
 #include <QVBoxLayout>
@@ -19,6 +20,7 @@ QTEST_MAIN(ApplicationsPermissionDialogTest)
 ApplicationsPermissionDialogTest::ApplicationsPermissionDialogTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ApplicationsPermissionDialogTest::shouldHaveDefaultValues()
