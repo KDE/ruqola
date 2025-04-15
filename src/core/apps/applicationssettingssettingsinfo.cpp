@@ -17,6 +17,8 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
     mI18nDescription = obj["i18nDescription"_L1].toString();
     mI18nLabel = obj["i18nLabel"_L1].toString();
     mId = obj["id"_L1].toString();
+    mRequired = obj["required"_L1].toBool(false);
+    mMultiLine = obj["multiline"_L1].toBool(false);
     mSettingType = convertStringToType(obj["type"_L1].toString());
     if (mSettingType == ApplicationsSettingsSettingsInfo::SettingType::String) {
         mPackageValue = obj["packageValue"_L1].toString();
@@ -53,7 +55,8 @@ void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
 bool ApplicationsSettingsSettingsInfo::operator==(const ApplicationsSettingsSettingsInfo &other) const
 {
     return mI18nDescription == other.mI18nDescription && mI18nLabel == other.mI18nLabel && mId == other.mId && mPackageValue == other.mPackageValue
-        && mSettingType == other.mSettingType && mValues == other.mValues && mRequired == other.mRequired && other.mValue == mValue;
+        && mSettingType == other.mSettingType && mValues == other.mValues && mRequired == other.mRequired && other.mValue == mValue
+        && other.mMultiLine == mMultiLine;
 }
 
 ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::convertStringToType(const QString &str)
@@ -69,6 +72,16 @@ ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::
     }
     qCWarning(RUQOLA_LOG) << "Unknown type " << str;
     return SettingType::Unknown;
+}
+
+bool ApplicationsSettingsSettingsInfo::multiLine() const
+{
+    return mMultiLine;
+}
+
+void ApplicationsSettingsSettingsInfo::setMultiLine(bool newMultiLine)
+{
+    mMultiLine = newMultiLine;
 }
 
 QVariant ApplicationsSettingsSettingsInfo::value() const
@@ -161,6 +174,7 @@ QDebug operator<<(QDebug d, const ApplicationsSettingsSettingsInfo &t)
     d.space() << "settingType" << t.settingType();
     d.space() << "values" << t.values();
     d.space() << "required" << t.required();
+    d.space() << "multiLine" << t.multiLine();
 
     return d;
 }
