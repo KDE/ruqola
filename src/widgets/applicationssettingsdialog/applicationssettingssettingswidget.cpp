@@ -163,7 +163,7 @@ void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSet
     QHBoxLayout *hbox = new QHBoxLayout;
     auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
     label->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
-    hbox->addWidget(label, 0, Qt::AlignTop);
+    hbox->addWidget(label, 0, info.multiLine() ? Qt::AlignTop : Qt::Alignment());
     if (info.multiLine()) {
         auto plainTextEdit = new QPlainTextEdit(this);
         plainTextEdit->setObjectName(info.id());
