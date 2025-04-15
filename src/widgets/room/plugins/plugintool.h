@@ -27,7 +27,7 @@ public:
     [[nodiscard]] virtual QString toolTip() const = 0;
     [[nodiscard]] virtual QString description() const = 0;
 
-    virtual PluginToolInterface *createInterface(QObject *parent) = 0;
+    [[nodiscard]] virtual PluginToolInterface *createInterface(QObject *parent) = 0;
 
 Q_SIGNALS:
     void activated();
