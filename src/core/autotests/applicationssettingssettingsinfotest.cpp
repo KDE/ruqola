@@ -25,6 +25,7 @@ void ApplicationsSettingsSettingsInfoTest::shouldHaveDefaultValues()
     QVERIFY(!w.value().isValid());
     QVERIFY(w.values().isEmpty());
     QVERIFY(!w.required());
+    QVERIFY(!w.multiLine());
     QCOMPARE(w.settingType(), ApplicationsSettingsSettingsInfo::SettingType::Unknown);
 }
 
@@ -41,6 +42,20 @@ void ApplicationsSettingsSettingsInfoTest::shouldLoadApplicationSettingsInfo_dat
         info.setSettingType(ApplicationsSettingsSettingsInfo::SettingType::String);
         info.setPackageValue(QStringLiteral(""));
         QTest::addRow("test1") << QStringLiteral("test1") << info;
+    }
+
+    {
+        ApplicationsSettingsSettingsInfo info;
+        info.setI18nDescription("WordReplacerApp_Filters_Description"_L1);
+        info.setI18nLabel("WordReplacerApp_Filters"_L1);
+        info.setId("filters"_L1);
+        info.setSettingType(ApplicationsSettingsSettingsInfo::SettingType::String);
+        info.setRequired(true);
+        info.setMultiLine(true);
+        info.setPackageValue(
+            QStringLiteral("[{\"search\": \"#(\\\\d+)\", \"replace\": \"[$&](https://www1.example.com/issues/$1)\"}, {\"search\": \"BUG-(\\\\d+)\", "
+                           "\"replace\": \"[$&](https://www2.example.com/issues/$1)\"}]"));
+        QTest::addRow("test2") << QStringLiteral("test2") << info;
     }
 }
 

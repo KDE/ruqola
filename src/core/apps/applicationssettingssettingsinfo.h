@@ -51,6 +51,9 @@ public:
     [[nodiscard]] QVariant value() const;
     void setValue(const QVariant &newValue);
 
+    bool multiLine() const;
+    void setMultiLine(bool newMultiLine);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ApplicationsSettingsSettingsInfo::SettingType convertStringToType(const QString &str);
     QString mI18nDescription;
@@ -62,6 +65,7 @@ private:
     // <key, i18nLabel>
     QMap<QString, QString> mValues;
     bool mRequired = false;
+    bool mMultiLine = false;
 };
 Q_DECLARE_METATYPE(ApplicationsSettingsSettingsInfo)
 Q_DECLARE_TYPEINFO(ApplicationsSettingsSettingsInfo, Q_RELOCATABLE_TYPE);
