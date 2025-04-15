@@ -13,7 +13,7 @@
 #include <QScrollBar>
 
 CompletionListView::CompletionListView()
-    : QListView()
+
 {
     setUniformItemSizes(true);
     setWindowFlag(Qt::Popup);

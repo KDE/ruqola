@@ -10,7 +10,7 @@
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 ModerationMessage::ModerationMessage()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " ModerationMessage created " << this;
 }

@@ -13,7 +13,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 MessageAttachments::MessageAttachments()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageAttachments created " << this;
 }

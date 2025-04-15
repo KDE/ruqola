@@ -8,7 +8,7 @@
 #include "ruqola_message_memory_debug.h"
 
 MessageExtra::MessageExtra()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageExtra created " << this;
 }

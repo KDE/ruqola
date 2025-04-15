@@ -7,7 +7,7 @@
 #include "autogenerateinteractionuiviewoption.h"
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewOption::AutoGenerateInteractionUiViewOption()
-    : AutoGenerateInteractionUiViewElement()
+
 {
 }
 

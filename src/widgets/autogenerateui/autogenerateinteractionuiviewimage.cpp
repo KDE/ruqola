@@ -8,7 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 AutoGenerateInteractionUiViewImage::AutoGenerateInteractionUiViewImage()
-    : AutoGenerateInteractionUiViewElement()
+
 {
 }
 

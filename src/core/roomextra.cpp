@@ -9,7 +9,7 @@
 #include "ruqola_room_memory_debug.h"
 
 RoomExtra::RoomExtra()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomExtra created " << this;
 }

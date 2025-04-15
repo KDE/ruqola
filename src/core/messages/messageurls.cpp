@@ -13,7 +13,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 MessageUrls::MessageUrls()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageUrls created " << this;
 }

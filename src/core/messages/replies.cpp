@@ -12,7 +12,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 Replies::Replies()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Replies created " << this;
 }

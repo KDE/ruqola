@@ -9,10 +9,11 @@
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
+#include <algorithm>
 
 using namespace Qt::Literals::StringLiterals;
 Blocks::Blocks()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Blocks created " << this;
 }

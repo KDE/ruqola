@@ -12,7 +12,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 Channels::Channels()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Channels created " << this;
 }

@@ -10,7 +10,7 @@
 #include <QTextDocument>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewText::AutoGenerateInteractionUiViewText()
-    : AutoGenerateInteractionUiViewElement()
+
 {
 }
 

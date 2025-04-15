@@ -9,7 +9,7 @@
 #include <QApplication>
 
 ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
-    : QObject()
+
 {
     regenerateColorScheme();
     qGuiApp->installEventFilter(this);

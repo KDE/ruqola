@@ -11,7 +11,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 MessageTranslations::MessageTranslations()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageTranslation created " << this;
 }

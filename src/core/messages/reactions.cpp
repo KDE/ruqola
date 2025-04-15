@@ -12,7 +12,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 Reactions::Reactions()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Reactions created " << this;
 }

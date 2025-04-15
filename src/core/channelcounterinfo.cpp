@@ -12,7 +12,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 ChannelCounterInfo::ChannelCounterInfo()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomExtra created " << this;
 }

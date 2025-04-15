@@ -9,7 +9,7 @@
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 MessagePinned::MessagePinned()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessagePinned created " << this;
 }

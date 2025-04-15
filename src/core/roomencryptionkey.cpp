@@ -7,7 +7,7 @@
 #include "roomencryptionkey.h"
 #include "ruqola_room_memory_debug.h"
 RoomEncryptionKey::RoomEncryptionKey()
-    : QSharedData()
+
 {
     qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomEncryptionKey created " << this;
 }
