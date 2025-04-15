@@ -41,7 +41,7 @@ E2eDisableWidget::E2eDisableWidget(QWidget *parent)
     auto pushButton = new QPushButton(i18n("Reset encryption keys"), this);
     pushButton->setObjectName("pushButton"_L1);
     mainLayout->addWidget(pushButton);
-    connect(pushButton, &QPushButton::clicked, this, [this]() {
+    connect(pushButton, &QPushButton::clicked, this, []() {
         qDebug() << " Not implemented yet";
         // TODO
     });
