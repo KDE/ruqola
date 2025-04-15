@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2140,11 +2140,21 @@ msgstr ""
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr ""
+
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Create a screenshot"
 msgstr "Opustiť kanál"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:45
+#, kde-format
+msgid "This tool allows to create screenshot."
+msgstr ""
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, fuzzy, kde-format
@@ -12454,6 +12464,11 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Fix download languages apps."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:177
+#, kde-format
+msgid "Fix show date info."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44

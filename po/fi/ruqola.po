@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-04 19:21+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2020,11 +2020,21 @@ msgstr "Tiedosto on jaettu."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Löydät uuden pyynnön osoitteesta:<br /><a href='%1'>%1</a> </qt>"
 
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr ""
+
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, fuzzy, kde-format
 #| msgid "Created at"
 msgid "Create a screenshot"
 msgstr "Luotu"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:45
+#, kde-format
+msgid "This tool allows to create screenshot."
+msgstr ""
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -11856,6 +11866,12 @@ msgstr ""
 #, kde-format
 msgid "Fix download languages apps."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:177
+#, fuzzy, kde-format
+#| msgid "Fix show avatar url."
+msgid "Fix show date info."
+msgstr "Korjattu avatarin verkko-osoitteen näyttäminen."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

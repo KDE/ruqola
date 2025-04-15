@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2139,11 +2139,21 @@ msgstr "Die Datei ist zu groß"
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr ""
+
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, fuzzy, kde-format
 #| msgid "Created at"
 msgid "Create a screenshot"
 msgstr "Erstellt am"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:45
+#, kde-format
+msgid "This tool allows to create screenshot."
+msgstr ""
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, fuzzy, kde-format
@@ -12527,6 +12537,11 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Fix download languages apps."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:177
+#, kde-format
+msgid "Fix show date info."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44

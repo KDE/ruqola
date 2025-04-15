@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -2017,11 +2017,21 @@ msgstr "फ़ाइल साझा की गई."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>आप नया अनुरोध यहां पा सकते हैं:<br /> <a href='%1'>%1</a></qt>"
 
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr ""
+
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, fuzzy, kde-format
 #| msgid "Created at"
 msgid "Create a screenshot"
 msgstr "पर बनाया गया"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:45
+#, kde-format
+msgid "This tool allows to create screenshot."
+msgstr ""
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -11848,6 +11858,12 @@ msgstr ""
 #, kde-format
 msgid "Fix download languages apps."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:177
+#, fuzzy, kde-format
+#| msgid "Fix show avatar url."
+msgid "Fix show date info."
+msgstr "अवतार यूआरएल दिखाना ठीक करें."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
