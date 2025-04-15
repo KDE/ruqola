@@ -6,9 +6,18 @@
 
 #include "applicationspermissiondialog.h"
 #include "applicationspermissionwidget.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QWindow>
+
+namespace
+{
+const char myApplicationsSettingsApplicationsPermissionDialogGroupName[] = "ApplicationsPermissionDialog";
+}
 
 ApplicationsPermissionDialog::ApplicationsPermissionDialog(QWidget *parent)
     : QDialog(parent)
@@ -27,13 +36,32 @@ ApplicationsPermissionDialog::ApplicationsPermissionDialog(QWidget *parent)
 
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsPermissionDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &ApplicationsPermissionDialog::accept);
+    writeConfig();
 }
 
-ApplicationsPermissionDialog::~ApplicationsPermissionDialog() = default;
+ApplicationsPermissionDialog::~ApplicationsPermissionDialog()
+{
+    writeConfig();
+}
 
 void ApplicationsPermissionDialog::setApplicationPermission(const QString &desc)
 {
     mApplicationsPermissionWidget->setApplicationPermission(desc);
+}
+
+void ApplicationsPermissionDialog::readConfig()
+{
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(400, 300));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName));
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
+}
+
+void ApplicationsPermissionDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName));
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
 #include "moc_applicationspermissiondialog.cpp"
