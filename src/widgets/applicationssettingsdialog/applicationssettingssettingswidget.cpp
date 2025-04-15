@@ -17,6 +17,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QPushButton>
 #include <QShowEvent>
 #include <QSpinBox>
@@ -162,22 +163,36 @@ void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSet
     QHBoxLayout *hbox = new QHBoxLayout;
     auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
     label->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
-    hbox->addWidget(label);
+    hbox->addWidget(label, 0, Qt::AlignTop);
+    if (info.multiLine()) {
+        auto plainTextEdit = new QPlainTextEdit(this);
+        plainTextEdit->setObjectName(info.id());
+        hbox->addWidget(plainTextEdit);
+        const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+        plainTextEdit->setPlainText(r.toString());
 
-    auto lineEdit = new QLineEdit(this);
-    lineEdit->setObjectName(info.id());
-    hbox->addWidget(lineEdit);
-    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
-    lineEdit->setText(r.toString());
-
-    connect(lineEdit, &QLineEdit::textChanged, this, [this]() {
-        Q_EMIT dataChanged(true);
-    });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [lineEdit, r]() {
-        QSignalBlocker b(lineEdit);
+        connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [this]() {
+            Q_EMIT dataChanged(true);
+        });
+        connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [plainTextEdit, r]() {
+            QSignalBlocker b(plainTextEdit);
+            plainTextEdit->setPlainText(r.toString());
+        });
+    } else {
+        auto lineEdit = new QLineEdit(this);
+        lineEdit->setObjectName(info.id());
+        hbox->addWidget(lineEdit);
+        const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
         lineEdit->setText(r.toString());
-    });
 
+        connect(lineEdit, &QLineEdit::textChanged, this, [this]() {
+            Q_EMIT dataChanged(true);
+        });
+        connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [lineEdit, r]() {
+            QSignalBlocker b(lineEdit);
+            lineEdit->setText(r.toString());
+        });
+    }
     mMainLayout->addLayout(hbox);
 }
 
