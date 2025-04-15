@@ -11,7 +11,7 @@
 #include <QFileInfo>
 
 RuqolaLogger::RuqolaLogger(const QString &accountName)
-    : RocketChatRestApi::AbstractLogger()
+
 {
     static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;

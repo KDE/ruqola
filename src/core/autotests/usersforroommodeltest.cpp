@@ -118,7 +118,7 @@ void UsersForRoomModelTest::shouldParseUsers_data()
     QTest::newRow("severalusers1-restapi") << QStringLiteral("severalusers1-restapi.json") << 2 << 1 << true;
 }
 
-QJsonObject loadFile(const QString &file)
+static QJsonObject loadFile(const QString &file)
 {
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/usersforroom/"_L1 + file;
     QFile f(originalJsonFile);

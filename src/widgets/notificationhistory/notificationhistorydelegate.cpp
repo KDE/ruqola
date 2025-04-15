@@ -28,7 +28,7 @@ NotificationHistoryDelegate::NotificationHistoryDelegate(QListView *view, QObjec
 
 NotificationHistoryDelegate::~NotificationHistoryDelegate() = default;
 
-NotificationHistoryDelegate::RoomAccount roomAccountInfo(const QModelIndex &index)
+static NotificationHistoryDelegate::RoomAccount roomAccountInfo(const QModelIndex &index)
 {
     NotificationHistoryDelegate::RoomAccount info;
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();

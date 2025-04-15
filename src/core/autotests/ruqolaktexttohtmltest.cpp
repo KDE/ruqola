@@ -19,7 +19,7 @@ QTEST_MAIN(KTextToHTMLTest)
 Q_DECLARE_METATYPE(RuqolaKTextToHTML::Options)
 
 #ifndef Q_OS_WIN
-void initLocale()
+static void initLocale()
 {
     setenv("LC_ALL", "en_US.utf-8", 1);
 }

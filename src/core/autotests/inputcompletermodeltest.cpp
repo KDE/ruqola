@@ -106,7 +106,7 @@ void InputCompleterModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
 }
 
-QJsonObject loadFile(const QString &file)
+static QJsonObject loadFile(const QString &file)
 {
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/"_L1 + file;
     QFile f(originalJsonFile);

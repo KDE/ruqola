@@ -334,7 +334,7 @@ void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, In
 }
 }
 
-QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTextSettings &settings)
+static QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTextSettings &settings)
 {
     QString richText;
     QTextStream richTextStream(&richText);
@@ -428,7 +428,7 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
 
 // #define DEBUG_CMARK_RC
 
-void convertHtmlChar(QString &str)
+static void convertHtmlChar(QString &str)
 {
     str.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
     str.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
@@ -436,7 +436,7 @@ void convertHtmlChar(QString &str)
     str.replace(QStringLiteral("&amp;"), QStringLiteral("&"));
 }
 
-QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
+static QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
 {
     // Need to escaped text (avoid to interprete html code)
     const TextConverter::ConvertMessageTextSettings settings{
