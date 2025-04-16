@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:41+0000\n"
-"PO-Revision-Date: 2025-04-04 09:58+0200\n"
+"POT-Creation-Date: 2025-04-16 00:42+0000\n"
+"PO-Revision-Date: 2025-04-15 19:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -187,236 +187,236 @@ msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
 "El testimoni d'invitació no és vàlid. S'ha cancel·lat la creació del compte."
 
-#: core/apps/appsmarketplaceinfo.cpp:108
+#: core/apps/appsmarketplaceinfo.cpp:109
 #, kde-format
 msgid "per %1"
 msgstr "per %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:157
+#: core/apps/appsmarketplaceinfo.cpp:158
 #, kde-format
 msgid "month"
 msgstr "mes"
 
-#: core/apps/appsmarketplaceinfo.cpp:159
+#: core/apps/appsmarketplaceinfo.cpp:160
 #, kde-format
 msgid "year"
 msgstr "any"
 
-#: core/apps/appsmarketplaceinfo.cpp:405 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:406 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Descripció"
 
-#: core/apps/appsmarketplaceinfo.cpp:414
+#: core/apps/appsmarketplaceinfo.cpp:415
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
 #, kde-format
 msgid "Version"
 msgstr "Versió"
 
-#: core/apps/appsmarketplaceinfo.cpp:417 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:418 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Categories"
 
-#: core/apps/appsmarketplaceinfo.cpp:421
+#: core/apps/appsmarketplaceinfo.cpp:422
 #, kde-format
 msgid "Documentation"
 msgstr "Documentació"
 
-#: core/apps/appsmarketplaceinfo.cpp:433
+#: core/apps/appsmarketplaceinfo.cpp:434
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: core/apps/appsmarketplaceinfo.cpp:446
+#: core/apps/appsmarketplaceinfo.cpp:447
 #, kde-format
 msgid "Homepage"
 msgstr "Pàgina web"
 
-#: core/apps/appsmarketplaceinfo.cpp:458
+#: core/apps/appsmarketplaceinfo.cpp:459
 #, kde-format
 msgid "Support"
 msgstr "Assistència"
 
-#: core/apps/appsmarketplaceinfo.cpp:462
+#: core/apps/appsmarketplaceinfo.cpp:464
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Resum de privadesa"
 
-#: core/apps/appsmarketplaceinfo.cpp:473
+#: core/apps/appsmarketplaceinfo.cpp:476
 #: widgets/administratordialog/administratorwidget.cpp:74
 #, kde-format
 msgid "Permissions"
 msgstr "Permisos"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:608
 #, kde-format
 msgid "Access messages"
 msgstr "Accés als missatges"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:610
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Enviar i modificar els missatges"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:612
 #, kde-format
 msgid "Access room information"
 msgstr "Accés a la informació de la sala"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:614
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Crear i modificar sales"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
 msgid "Access to this server network"
 msgstr "Accés a la xarxa d'aquest servidor"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:618
 #, kde-format
 msgid "Access user information"
 msgstr "Accés a la informació dels usuaris"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:620
 #, kde-format
 msgid "Modify user information"
 msgstr "Modificar la informació dels usuaris"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Registrar ordres noves de barra"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Registrar i mantenir treballs planificats"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:626
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Registrar punts finals nous HTTP"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Accés a la configuració d'aquest servidor"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Modificar la configuració d'aquest servidor"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Pujar fitxers a aquest servidor"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Accés als fitxers pujats en aquest servidor"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Interactuar amb serveis al núvol en nom d'aquest servidor"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Accés a la informació mínima quant a l'entorn d'aquest servidor"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Accés a la informació dels diversos departaments del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Accés a la informació del departament del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Modificar la informació del departament del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Modificar la informació de la sala del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Accés a la informació de la sala del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Modificar la informació del missatge del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Accés a la informació del missatge del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Modificar la informació del visitant del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Accés a la informació del visitant del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Accés a la informació d'estat del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Interactuar amb la IU"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Emmagatzemar la dades internes a la base de dades"
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Modificar la configuració dels caps personalitzats del Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:671
+#: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Permetre escriure paràmetres de l'aplicació «oauth»"
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:676
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Permetre llegir paràmetres de l'aplicació «oauth»"
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to send email"
 msgstr "Permetre enviar correu electrònic"
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:692
 #, kde-format
 msgid "Allow to write role"
 msgstr "Permetre el rol d'escriptura"
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:694
 #, kde-format
 msgid "Allow to read role"
 msgstr "Permetre el rol de lectura"
@@ -2022,7 +2022,7 @@ msgstr "<qt>Trobareu la nova sol·licitud a:<br /><a href='%1'>%1</a></qt>"
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
 msgid "Ask to AI"
-msgstr ""
+msgstr "Pregunta a la IA"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -2032,7 +2032,7 @@ msgstr "Crea una captura de pantalla"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:45
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr ""
+msgstr "Aquesta eina permet crear una captura de pantalla."
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -6642,7 +6642,7 @@ msgstr "Antiguitat màxima dels missatges als missatges directes"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:104
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:105
 #, kde-format
 msgid "Apply"
 msgstr "Aplica"
@@ -7009,7 +7009,7 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr "Servidors STUN/TURN"
 
-#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:17
+#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:26
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
 msgctxt "@title:window"
@@ -7196,12 +7196,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Cerca aplicacions privades"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:56
 #, kde-format
 msgid "Application does not have settings."
 msgstr "L'aplicació no té opcions."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:97
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -11952,10 +11952,9 @@ msgid "Fix download languages apps."
 msgstr "Corregeix les aplicacions de baixada d'idiomes."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:177
-#, fuzzy, kde-format
-#| msgid "Fix show avatar url."
+#, kde-format
 msgid "Fix show date info."
-msgstr "Corregeix la visualització dels URL dels avatars."
+msgstr "Corregeix la visualització de la informació de la data."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

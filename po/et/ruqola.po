@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:41+0000\n"
+"POT-Creation-Date: 2025-04-16 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -195,251 +195,251 @@ msgstr "Vigane pääsmik"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:108
+#: core/apps/appsmarketplaceinfo.cpp:109
 #, kde-format
 msgid "per %1"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:157
+#: core/apps/appsmarketplaceinfo.cpp:158
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "month"
 msgstr "Eelmine kanal"
 
-#: core/apps/appsmarketplaceinfo.cpp:159
+#: core/apps/appsmarketplaceinfo.cpp:160
 #, kde-format
 msgid "year"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:405 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:406 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Kirjeldus"
 
-#: core/apps/appsmarketplaceinfo.cpp:414
+#: core/apps/appsmarketplaceinfo.cpp:415
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Version"
 msgstr "Versioon %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:417 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:418 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:421
+#: core/apps/appsmarketplaceinfo.cpp:422
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Documentation"
 msgstr "Autentimisviis"
 
-#: core/apps/appsmarketplaceinfo.cpp:433
+#: core/apps/appsmarketplaceinfo.cpp:434
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: core/apps/appsmarketplaceinfo.cpp:446
+#: core/apps/appsmarketplaceinfo.cpp:447
 #, kde-format
 msgid "Homepage"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:458
+#: core/apps/appsmarketplaceinfo.cpp:459
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Support"
 msgstr "Veast teatamine"
 
-#: core/apps/appsmarketplaceinfo.cpp:462
+#: core/apps/appsmarketplaceinfo.cpp:464
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Privacy Summary"
 msgstr "Privaatne:"
 
-#: core/apps/appsmarketplaceinfo.cpp:473
+#: core/apps/appsmarketplaceinfo.cpp:476
 #: widgets/administratordialog/administratorwidget.cpp:74
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Permissions"
 msgstr "Versioon %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:608
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Access messages"
 msgstr "Kõik sõnumid"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:610
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Send and modify messages"
 msgstr "Otsi sõnumeid ..."
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:612
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access room information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:614
 #, kde-format
 msgid "Create and modify rooms"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
 msgid "Access to this server network"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:618
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access user information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:620
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Modify user information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Register new slash commands"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:626
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Access settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Modify settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Upload files to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Access Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access Livechat room information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Access Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access Livechat status information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Interact with the UI"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Store internal data in the database"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:671
+#: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:676
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:690
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Allow to send email"
 msgstr "Sõnum kustutatud"
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:692
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Allow to write role"
 msgstr "Sõnum kustutatud"
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:694
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Allow to read role"
@@ -6963,7 +6963,7 @@ msgstr "Videosõnumi loomine"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:104
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:105
 #, kde-format
 msgid "Apply"
 msgstr ""
@@ -7312,7 +7312,7 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:17
+#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:26
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, fuzzy, kde-format
 #| msgid "Version %1"
@@ -7517,13 +7517,13 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Rakendust ei leitud"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgid "Application does not have settings."
 msgstr "Rakendust ei leitud"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:97
 #, kde-format
 msgid "Cancel"
 msgstr "Loobu"
