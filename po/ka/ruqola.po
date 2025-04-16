@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 02:38+0000\n"
+"POT-Creation-Date: 2025-04-16 02:31+0000\n"
 "PO-Revision-Date: 2025-04-13 05:10+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -183,236 +183,236 @@ msgstr "არასწორი მოწვევის კოდი"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "მოწვევის კოდი არასწორია. ანგარიშის შექმნა გაუქმდა."
 
-#: core/apps/appsmarketplaceinfo.cpp:108
+#: core/apps/appsmarketplaceinfo.cpp:109
 #, kde-format
 msgid "per %1"
 msgstr "თითოეულ %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:157
+#: core/apps/appsmarketplaceinfo.cpp:158
 #, kde-format
 msgid "month"
 msgstr "თვე"
 
-#: core/apps/appsmarketplaceinfo.cpp:159
+#: core/apps/appsmarketplaceinfo.cpp:160
 #, kde-format
 msgid "year"
 msgstr "წელი"
 
-#: core/apps/appsmarketplaceinfo.cpp:405 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:406 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "აღწერა"
 
-#: core/apps/appsmarketplaceinfo.cpp:414
+#: core/apps/appsmarketplaceinfo.cpp:415
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
 #, kde-format
 msgid "Version"
 msgstr "ვერსია"
 
-#: core/apps/appsmarketplaceinfo.cpp:417 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:418 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "კატეგორიები"
 
-#: core/apps/appsmarketplaceinfo.cpp:421
+#: core/apps/appsmarketplaceinfo.cpp:422
 #, kde-format
 msgid "Documentation"
 msgstr "დოკუმენტაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:433
+#: core/apps/appsmarketplaceinfo.cpp:434
 #, kde-format
 msgid "Author"
 msgstr "ავტორი"
 
-#: core/apps/appsmarketplaceinfo.cpp:446
+#: core/apps/appsmarketplaceinfo.cpp:447
 #, kde-format
 msgid "Homepage"
 msgstr "საწყისი გვერდი"
 
-#: core/apps/appsmarketplaceinfo.cpp:458
+#: core/apps/appsmarketplaceinfo.cpp:459
 #, kde-format
 msgid "Support"
 msgstr "ანგარიში"
 
-#: core/apps/appsmarketplaceinfo.cpp:462
+#: core/apps/appsmarketplaceinfo.cpp:464
 #, kde-format
 msgid "Privacy Summary"
 msgstr "პირადი ინფორმაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:473
+#: core/apps/appsmarketplaceinfo.cpp:476
 #: widgets/administratordialog/administratorwidget.cpp:74
 #, kde-format
 msgid "Permissions"
 msgstr "წვდომები"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:608
 #, kde-format
 msgid "Access messages"
 msgstr "წვდომა შეტყობინებებზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:610
 #, kde-format
 msgid "Send and modify messages"
 msgstr "შეტყობინებების გაგზავნა და შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:612
 #, kde-format
 msgid "Access room information"
 msgstr "წვდომა ოთხის ინფორმაციასთან"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:614
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "ოთახების შექმნა და შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
 msgid "Access to this server network"
 msgstr "წვდომა ამ სერვერის ქსელთან"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:618
 #, kde-format
 msgid "Access user information"
 msgstr "წვდომა მომხმარებლის ინფორმაციასთან"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:620
 #, kde-format
 msgid "Modify user information"
 msgstr "მომხმარებლის ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Register new slash commands"
 msgstr "ახალი slash ბრძანებების რეგისტრაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "დაგეგმილი დავალებების რეგისტრაცია და მართვა"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:626
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "ახალი HTTP ბოლოწერტილების რეგისტრაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Access settings in this server"
 msgstr "წვდომა პარამეტრებთან ამ სერვერზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "პარამეტრების შეცვლა ამ სერვერზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Upload files to this server"
 msgstr "ფაილების ატვირთვა ამ სერვერზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "წვდომა ამ სერვერზე ატვირთულ ფაილებზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "ღრუბლოვან სერვისებთან ურთერთობა ამ სერვერის სახელით"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "წვდომა მინიმალურ ინფორმაციაზე ამ სერვერის გარემოს შესახებ"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "წვდომა მრავალი ცოცხალი ჩატის დეპარტამენტების ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "წვდომა ცოცხალი ჩატის დეპარტამენტის ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "ცოცხალი ჩატის დეპარტამენტის ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "ცოცხალი ჩატის ოთახის ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "წვდომა ცოცხალი ჩატის ოთახის ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "ცოცხალი ჩატის შეტყობინების ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "წვდომა ცოცხალი ჩატის შეტყობინების ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "ცოცხალი ჩატის ვიზიტორების ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "წვდომა ცოცხალი ჩატის ვიზიტორის ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "წვდომა ცოცხალი ჩატის სტატუსის ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Interact with the UI"
 msgstr "ურთიერთობა ინტერფეისთან"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "შიდა მონაცემების მონაცემთა ბაზაში შენახვა"
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "ცოცხალი ჩატის მორგებული ველის კონფიგურაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:671
+#: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "OAuth აპის პარამეტრების ჩაწერის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:676
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "OAuth აპის პარამეტრების წაკითხვის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to send email"
 msgstr "ელფოსტის გაგზავნის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:692
 #, kde-format
 msgid "Allow to write role"
 msgstr "როლის ჩაწერის უფლება"
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:694
 #, kde-format
 msgid "Allow to read role"
 msgstr "როლის წაკითხვის უფლება"
@@ -6589,7 +6589,7 @@ msgstr "პირად შეტყობინებების მაქს�
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:104
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:105
 #, kde-format
 msgid "Apply"
 msgstr "გამოყენება"
@@ -6951,7 +6951,7 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr "STUN/TURN სერვერები"
 
-#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:17
+#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:26
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
 msgctxt "@title:window"
@@ -7136,12 +7136,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "კონფიდენციალური აპლიკაციების ძებნა"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:54
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
 #, kde-format
 msgid "Application does not have settings."
 msgstr "აპლიკაციას პარამეტრები არ აქვს."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:96
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:97
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"
