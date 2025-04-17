@@ -247,7 +247,7 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
             job->setInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::NotifyAdminsAppsJob::notifyAdminsAppsDone, this, [](const QJsonObject &obj) {
-                qDebug() << "NotifyAdminsAppsJob: obj " << obj;
+                qCDebug(RUQOLAWIDGETS_LOG) << "NotifyAdminsAppsJob: obj " << obj;
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start NotifyAdminsAppsJob";
