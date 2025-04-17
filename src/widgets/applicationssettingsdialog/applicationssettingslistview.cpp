@@ -65,7 +65,7 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
             if (!index.data(AppsMarketPlaceModel::Private).toBool() && !index.data(AppsMarketPlaceModel::Installed).toBool()) {
                 if (mRocketChatAccount->isAdministrator()) {
                     menu.addSeparator();
-                    menu.addAction(i18nc("@action", "Install"), this, [this, index]() {
+                    menu.addAction(QIcon::fromTheme(QStringLiteral("install")), i18nc("@action", "Install"), this, [this, index]() {
                         slotInstallApplication(index);
                     });
                 } else {
@@ -78,7 +78,7 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
             if (index.data(AppsMarketPlaceModel::Installed).toBool()) {
                 if (mRocketChatAccount->isAdministrator()) {
                     menu.addSeparator();
-                    menu.addAction(i18nc("@action", "Uninstall"), this, [this, index]() {
+                    menu.addAction(QIcon::fromTheme(QStringLiteral("uninstall")), i18nc("@action", "Uninstall"), this, [this, index]() {
                         slotUninstallApplication(index);
                     });
 
