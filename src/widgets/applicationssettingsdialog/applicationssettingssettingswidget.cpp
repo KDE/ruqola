@@ -127,6 +127,9 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
 
 QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QString &lang, const QString &id) const
 {
+    if (id.isEmpty()) {
+        return {};
+    }
     const QString translatedString =
         mRocketChatAccount->getTranslatedIdentifier(lang, QStringLiteral("app-") + QString::fromLatin1(mAppId) + QLatin1Char('.') + id);
     if (translatedString.isEmpty()) {
