@@ -94,7 +94,7 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
     auto hLayout = new QHBoxLayout;
     hLayout->setContentsMargins({});
     hLayout->addStretch(1);
-    auto cancelButton = new QPushButton(i18n("Cancel"), this);
+    auto cancelButton = new QPushButton(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Cancel"), this);
     connect(cancelButton, &QPushButton::clicked, this, [this]() {
         Q_EMIT resetValue();
         Q_EMIT dataChanged(false);
@@ -102,7 +102,7 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
     cancelButton->setEnabled(false);
     hLayout->addWidget(cancelButton);
 
-    auto applyButton = new QPushButton(i18n("Apply"), this);
+    auto applyButton = new QPushButton(QIcon::fromTheme(QStringLiteral("dialog-ok-apply")), i18n("Apply"), this);
     connect(applyButton, &QPushButton::clicked, this, [this]() {
         auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
