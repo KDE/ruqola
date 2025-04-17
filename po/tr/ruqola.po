@@ -2017,17 +2017,17 @@ msgstr "<qt>Yeni isteği şurada bulabilirsiniz:<br /><a href='%1'>%1</a> </qt>"
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
 msgid "Ask to AI"
-msgstr ""
+msgstr "Yapay Zekâya Sor"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
 msgid "Create a screenshot"
-msgstr "Ekran görüntüsü al"
+msgstr "Ekran Görüntüsü Al"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:45
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr ""
+msgstr "Bu araç, bir ekran görüntüsü almaya olanak tanır."
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -11867,10 +11867,9 @@ msgid "Fix download languages apps."
 msgstr "Dil uygulamalarını indirmeyi onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:177
-#, fuzzy, kde-format
-#| msgid "Fix show avatar url."
+#, kde-format
 msgid "Fix show date info."
-msgstr "Avatar gösterme URL’sini onar"
+msgstr "Tarih bilgisini göstermeyi onar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11896,24 +11895,3 @@ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeleri:"
-
-#~| msgid "Loading…"
-#~ msgid "Loading..."
-#~ msgstr "Yükleniyor…"
-
-#~ msgid "No new version found."
-#~ msgstr "Bulunan yeni sürüm yok."
-
-#~ msgid "Add screenshot button"
-#~ msgstr "Ekran görüntüsü düğmesi ekle"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Dosya İliştir"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Günlüğü açmak olanaksız."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Günlüğü Göster"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-16 00:42+0000\n"
-"PO-Revision-Date: 2025-04-04 09:58+0200\n"
+"PO-Revision-Date: 2025-04-15 19:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -2023,7 +2023,7 @@ msgstr "<qt>Trobareu la nova sol·licitud a:<br /><a href='%1'>%1</a></qt>"
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
 msgid "Ask to AI"
-msgstr ""
+msgstr "Pregunta a la IA"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -2033,7 +2033,7 @@ msgstr "Crea una captura de pantalla"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:45
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr ""
+msgstr "Esta eina permet crear una captura de pantalla."
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -11950,10 +11950,9 @@ msgid "Fix download languages apps."
 msgstr "Corregix les aplicacions de baixada d'idiomes."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:177
-#, fuzzy, kde-format
-#| msgid "Fix show avatar url."
+#, kde-format
 msgid "Fix show date info."
-msgstr "Corregix la visualització dels URL dels avatars."
+msgstr "Corregix la visualització de la informació de la data."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
