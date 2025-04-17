@@ -39,7 +39,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::AppsUiInteractionJob::AppsU
 
 void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
+    // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("AppsUiInteractionJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
