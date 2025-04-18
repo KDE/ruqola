@@ -2457,9 +2457,11 @@ bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArr
             if (!uploadedAt || !blockDeleteInMinutes) {
                 return false;
             }
+            const qint64 currentMs = QDateTime::currentMSecsSinceEpoch();
             constexpr int minutes = 60 * 1000;
-            const int elapsedMinutes = (uploadedAt - QDateTime::currentMSecsSinceEpoch()) * minutes;
-            return elapsedMinutes < blockDeleteInMinutes;
+            const int elapsedMinutes = (currentMs - uploadedAt) / minutes;
+            const bool result = elapsedMinutes < blockDeleteInMinutes;
+            return result;
         }
 
         return true;

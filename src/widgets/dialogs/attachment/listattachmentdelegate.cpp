@@ -70,7 +70,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         QPoint(DelegatePaintUtil::margin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY + painter->fontMetrics().ascent()));
 
     // Draw delete icon (for our own messages)
-    if (file->userId() == mRocketChatAccount->userId()) {
+    if (mRocketChatAccount->isFileDeletable(file->roomId(), file->userId(), file->uploadedAt())) {
         mDeleteIcon.paint(painter, layout.deleteAttachmentRect);
     }
 
