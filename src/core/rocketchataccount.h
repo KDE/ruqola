@@ -421,6 +421,9 @@ public:
     [[nodiscard]] ActionButtonsManager *actionButtonsManager() const;
 
     [[nodiscard]] QMap<QString, DownloadAppsLanguagesInfo> languagesAppsMap() const;
+
+    [[nodiscard]] bool useMessageDeletionIsAllowed() const;
+
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);
