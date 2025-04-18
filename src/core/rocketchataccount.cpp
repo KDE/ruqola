@@ -1994,23 +1994,29 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
 {
+    if (hasPermission(QStringLiteral("force-delete-message"), message.roomId())) {
+        return true;
+    }
+
     if (!mRuqolaServerConfig->allowMessageDeletingEnabled()) {
         return false;
     }
-    if (hasPermission(QStringLiteral("force-delete-message"))) {
-        return true;
-    }
-    if (hasPermission(QStringLiteral("delete-message"))) {
-        return true;
-    }
-    if (message.userId() != userId()) {
+
+    const bool deleteAnyAllowed = hasPermission(QStringLiteral("delete-message"), message.roomId());
+    const bool deleteOwnAllowed = hasPermission(QStringLiteral("delete-own-message"), message.roomId());
+    const bool deleteAllowed = deleteAnyAllowed || (deleteOwnAllowed && message.userId() == userId());
+
+    if (!deleteAllowed) {
         return false;
     }
-    if (ruqolaServerConfig()->blockDeletingMessageInMinutes() == 0) { // TODO verify it
-        return true;
-    }
+
     constexpr int minutes = 60 * 1000;
-    return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
+    const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
+    const bool bypassBlockTimeLimit = hasPermission(QStringLiteral("bypass-time-limit-edit-and-delete"), message.roomId());
+    const bool elapsedMinutes = (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
+    const bool onTimeForDelete = bypassBlockTimeLimit || !blockDeleteInMinutes || elapsedMinutes;
+
+    return deleteAllowed && onTimeForDelete;
 }
 
 void RocketChatAccount::parseVideoConference(const QJsonArray &contents)
@@ -2422,6 +2428,11 @@ void RocketChatAccount::slotUpdateCommands()
 QMap<QString, DownloadAppsLanguagesInfo> RocketChatAccount::languagesAppsMap() const
 {
     return mDownloadAppsLanguagesManager->languagesAppsMap();
+}
+
+bool RocketChatAccount::useMessageDeletionIsAllowed() const
+{
+    return false;
 }
 
 QString RocketChatAccount::getTranslatedIdentifier(const QString &lang, const QString &identifier) const
