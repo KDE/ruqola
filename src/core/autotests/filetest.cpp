@@ -28,6 +28,7 @@ void FileTest::shouldHaveDefaultValue()
     QCOMPARE(f.uploadedAt(), -1);
     QCOMPARE(f.complete(), false);
     QVERIFY(f.typeGroup().isEmpty());
+    QVERIFY(f.roomId().isEmpty());
 }
 
 void FileTest::shouldAssignValue()
@@ -102,6 +103,7 @@ void FileTest::shouldParseFile_data()
         expected.setMimeType(QStringLiteral("image/jpeg"));
         expected.setUploadedAt(1507828418338);
         expected.setFileId("ybWLKB4FepCkzQXsa"_ba);
+        expected.setRoomId("GENERAL"_ba);
         QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
     }
     {
@@ -117,6 +119,7 @@ void FileTest::shouldParseFile_data()
         expected.setUserName(QStringLiteral("bli"));
         expected.setPath(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));
         expected.setComplete(true);
+        expected.setRoomId("GENERAL"_ba);
         QTest::newRow("roomfile1-restapi") << QStringLiteral("roomfile1") << expected << true;
     }
 }
