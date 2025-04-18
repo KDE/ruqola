@@ -65,6 +65,7 @@ private:
     QSlider *const mSlider;
     ShowImagePrevNextImageWidget *const mShowImagePrevNextImageWidget;
     RocketChatAccount *const mRocketChatAccount;
+    bool mDownloadInProgress = false;
 };
 Q_DECLARE_TYPEINFO(ShowImageWidget::ImageInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t);
