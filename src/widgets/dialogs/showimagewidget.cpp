@@ -106,12 +106,18 @@ ShowImageWidget::~ShowImageWidget() = default;
 
 void ShowImageWidget::slotShowPreviousImage()
 {
+    if (mDownloadInProgress) {
+        return;
+    }
     setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
     updateButtons();
 }
 
 void ShowImageWidget::slotShowNextImage()
 {
+    if (mDownloadInProgress) {
+        return;
+    }
     ++mImageListInfo.index;
     // qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " <<
     //  mImageListInfo.index;
@@ -210,6 +216,7 @@ void ShowImageWidget::copyLocation()
 
 void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roomId, int offset)
 {
+    mDownloadInProgress = true;
     auto job = new RocketChatRestApi::RoomsImagesJob(this);
     RocketChatRestApi::RoomsImagesJob::RoomsImagesJobInfo info;
     info.roomId = roomId;
@@ -233,6 +240,7 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         // qDebug() << " info.offset " << info.offset;
         // qDebug() << " info.totla " << mImageListInfo.imageAttachments.total();
         // qDebug() << " mImageListInfo " << mImageListInfo.imageAttachments;
+        mDownloadInProgress = false;
         mShowImagePrevNextImageWidget->setVisible(true);
         updateButtons();
     });
