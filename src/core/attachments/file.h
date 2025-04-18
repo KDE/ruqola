@@ -57,6 +57,9 @@ public:
     [[nodiscard]] QString path() const;
     void setPath(const QString &newPath);
 
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &newRoomId);
+
 private:
     QString mFileName;
     QString mDescription;
@@ -68,6 +71,7 @@ private:
     QString mUploadedDateTimeStr;
     QString mTypeGroup;
     QString mPath;
+    QByteArray mRoomId;
 
     bool mComplete = false;
     qint64 mUploadedAt = -1;
