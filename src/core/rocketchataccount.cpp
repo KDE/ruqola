@@ -2336,9 +2336,9 @@ void RocketChatAccount::initializeAccount()
     mCustomSoundManager->initializeDefaultSounds();
     ddp()->listCustomSounds();
     customUserStatus();
-    slotLoadRoles();
+    loadRoles();
     checkLicenses();
-    qDebug() << "initializeAccount: encryptionEnabled =" << mRuqolaServerConfig->encryptionEnabled() << "account name" << accountName();
+    // qDebug() << "initializeAccount: encryptionEnabled =" << mRuqolaServerConfig->encryptionEnabled() << "account name" << accountName();
     if (mRuqolaServerConfig->encryptionEnabled()) {
         mE2eKeyManager->fetchMyKeys();
     }
@@ -2937,7 +2937,7 @@ bool RocketChatAccount::displayAvatars() const
     return mOwnUser.ownUserPreferences().displayAvatars();
 }
 
-void RocketChatAccount::slotLoadRoles()
+void RocketChatAccount::loadRoles()
 {
     // First load list of roles.
     auto job = new RocketChatRestApi::RolesListJob(this);

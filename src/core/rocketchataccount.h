@@ -554,7 +554,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
     LIBRUQOLACORE_NO_EXPORT void slotUpdateCustomUserStatus();
     LIBRUQOLACORE_NO_EXPORT void updateCustomEmojiList(bool fetchListCustom);
-    LIBRUQOLACORE_NO_EXPORT void slotLoadRoles();
+    LIBRUQOLACORE_NO_EXPORT void loadRoles();
     LIBRUQOLACORE_NO_EXPORT void slotAwayStatusChanged(bool away);
     LIBRUQOLACORE_NO_EXPORT void slotJobFailed(const QString &str);
     LIBRUQOLACORE_NO_EXPORT void checkLicenses();
