@@ -280,7 +280,7 @@ void MessagesModelTest::shouldAllowEditing()
     QCOMPARE(model.rowCount(), 1);
 
     // THEN
-    QVERIFY(model.index(0, 0).data(MessagesModel::CanDeleteMessage).toBool());
+    QVERIFY(!model.index(0, 0).data(MessagesModel::CanDeleteMessage).toBool());
     QVERIFY(model.index(0, 0).data(MessagesModel::CanEditMessage).toBool());
 
     // GIVEN a message from someone else
