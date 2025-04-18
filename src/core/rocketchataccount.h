@@ -422,7 +422,7 @@ public:
 
     [[nodiscard]] QMap<QString, DownloadAppsLanguagesInfo> languagesAppsMap() const;
 
-    [[nodiscard]] bool useMessageDeletionIsAllowed() const;
+    [[nodiscard]] bool isFileDeletable(const QByteArray &roomId, const QByteArray &fileUserId, qint64 uploadedAt) const;
 
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);

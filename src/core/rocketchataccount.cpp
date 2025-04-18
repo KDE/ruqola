@@ -2430,8 +2430,41 @@ QMap<QString, DownloadAppsLanguagesInfo> RocketChatAccount::languagesAppsMap() c
     return mDownloadAppsLanguagesManager->languagesAppsMap();
 }
 
-bool RocketChatAccount::useMessageDeletionIsAllowed() const
+// apps/meteor/client/views/room/contextualBar/RoomFiles/hooks/useMessageDeletionIsAllowed.ts
+bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArray &fileUserId, qint64 uploadedAt) const
 {
+    const bool canForceDelete = hasPermission(QStringLiteral("force-delete-message"), roomId);
+    const bool deletionIsEnabled = mRuqolaServerConfig->allowMessageDeletingEnabled();
+    const bool userHasPermissionToDeleteAny = hasPermission(QStringLiteral("delete-message"), roomId);
+    const bool userHasPermissionToDeleteOwn = hasPermission(QStringLiteral("delete-own-message"));
+    const bool bypassBlockTimeLimit = hasPermission(QStringLiteral("bypass-time-limit-edit-and-delete"), roomId);
+    const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
+    if (canForceDelete) {
+        return true;
+    }
+
+    if (!deletionIsEnabled) {
+        return false;
+    }
+
+    if (!userHasPermissionToDeleteAny && !userHasPermissionToDeleteOwn) {
+        return false;
+    }
+
+    const bool isUserOwnFile = fileUserId == userId();
+    if (userHasPermissionToDeleteAny || isUserOwnFile) {
+        if (!bypassBlockTimeLimit && blockDeleteInMinutes != 0) {
+            if (!uploadedAt || !blockDeleteInMinutes) {
+                return false;
+            }
+            constexpr int minutes = 60 * 1000;
+            const int elapsedMinutes = (uploadedAt - QDateTime::currentMSecsSinceEpoch()) * minutes;
+            return elapsedMinutes < blockDeleteInMinutes;
+        }
+
+        return true;
+    }
+
     return false;
 }
 
