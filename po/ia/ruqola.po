@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:41+0000\n"
-"PO-Revision-Date: 2025-04-15 15:45+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-18 12:01+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -8456,7 +8456,7 @@ msgctxt "@action:button"
 msgid "Fit to View"
 msgstr "Adapta a Vista"
 
-#: widgets/dialogs/showimagewidget.cpp:194
+#: widgets/dialogs/showimagewidget.cpp:200
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
@@ -11193,11 +11193,8 @@ msgid "What's new in %2. %1"
 msgstr "Que es de novo in %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Add Autojoin"
 msgid "Add AI plugin"
-msgstr "Adde autouni"
+msgstr "Adde plugin de AI"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
