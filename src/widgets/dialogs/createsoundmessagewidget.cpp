@@ -5,6 +5,7 @@
 */
 
 #include "createsoundmessagewidget.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -143,13 +144,16 @@ void CreateSoundMessageWidget::initializeInput()
 
     mTemporaryFile = new QTemporaryFile(QDir::tempPath() + "/ruqola_XXXXXX"_L1); // TODO fix extension
     mTemporaryFile->setAutoRemove(false);
-    mTemporaryFile->open();
-    //        QMediaFormat format;
-    //        format.setFileFormat(QMediaFormat::FileFormat::AVI);
-    //        mMediaRecorder->setMediaFormat(format);
-    // Define url temporary file.
-    mAudioRecorder->setOutputLocation(QUrl::fromLocalFile(mTemporaryFile->fileName()));
-    // qDebug() << " store " << mTemporaryFile->fileName();
+    if (!mTemporaryFile->open()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open" << mTemporaryFile->fileName();
+    } else {
+        //        QMediaFormat format;
+        //        format.setFileFormat(QMediaFormat::FileFormat::AVI);
+        //        mMediaRecorder->setMediaFormat(format);
+        // Define url temporary file.
+        // qDebug() << " store " << mTemporaryFile->fileName();
+        mAudioRecorder->setOutputLocation(QUrl::fromLocalFile(mTemporaryFile->fileName()));
+    }
 }
 
 void CreateSoundMessageWidget::updateRecordTime(qint64 duration)

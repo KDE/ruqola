@@ -6,6 +6,7 @@
 
 #include "createvideomessagewidget.h"
 #include "ruqola_videomessage_debug.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KMessageWidget>
 #include <QAudioInput>
@@ -163,17 +164,20 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
         mMediaRecorder.reset(new QMediaRecorder);
         mTemporaryFile = new QTemporaryFile(QDir::tempPath() + "/ruqola_XXXXXX"_L1); // TODO fix extension
         mTemporaryFile->setAutoRemove(false);
-        mTemporaryFile->open();
-        //        QMediaFormat format;
-        //        format.setFileFormat(QMediaFormat::FileFormat::AVI);
-        //        mMediaRecorder->setMediaFormat(format);
-        // Define url temporary file.
-        mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(mTemporaryFile->fileName()));
-        // qDebug() << " store " << mTemporaryFile->fileName();
-        mCaptureSession.setRecorder(mMediaRecorder.data());
-        connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this, &CreateVideoMessageWidget::updateRecorderState);
-        connect(mMediaRecorder.data(), &QMediaRecorder::durationChanged, this, &CreateVideoMessageWidget::updateRecordTime);
-        connect(mMediaRecorder.data(), &QMediaRecorder::errorChanged, this, &CreateVideoMessageWidget::displayRecorderError);
+        if (!mTemporaryFile->open()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open" << mTemporaryFile->fileName();
+        } else {
+            //        QMediaFormat format;
+            //        format.setFileFormat(QMediaFormat::FileFormat::AVI);
+            //        mMediaRecorder->setMediaFormat(format);
+            // Define url temporary file.
+            mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(mTemporaryFile->fileName()));
+            // qDebug() << " store " << mTemporaryFile->fileName();
+            mCaptureSession.setRecorder(mMediaRecorder.data());
+            connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this, &CreateVideoMessageWidget::updateRecorderState);
+            connect(mMediaRecorder.data(), &QMediaRecorder::durationChanged, this, &CreateVideoMessageWidget::updateRecordTime);
+            connect(mMediaRecorder.data(), &QMediaRecorder::errorChanged, this, &CreateVideoMessageWidget::displayRecorderError);
+        }
     }
     mCaptureSession.setVideoOutput(mVideoWidget);
     updateRecorderState(mMediaRecorder->recorderState());
