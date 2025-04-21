@@ -9,12 +9,14 @@
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(AccountManagerTest)
 
 AccountManagerTest::AccountManagerTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void AccountManagerTest::shouldHaveDefaultValue()
