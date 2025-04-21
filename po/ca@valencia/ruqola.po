@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
 "PO-Revision-Date: 2025-04-18 10:43+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -665,8 +665,8 @@ msgstr "Cap"
 #: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:49
 #: core/model/notificationpreferencemodel.cpp:47
-#: widgets/dialogs/createsoundmessagewidget.cpp:96
-#: widgets/dialogs/createsoundmessagewidget.cpp:138
+#: widgets/dialogs/createsoundmessagewidget.cpp:97
+#: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
@@ -8258,8 +8258,8 @@ msgstr ""
 "Normalment els debats comencen amb una pregunta, per exemple, «Com puge una "
 "imatge?»"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:244
+#: widgets/dialogs/createsoundmessagewidget.cpp:161
+#: widgets/dialogs/createvideomessagewidget.cpp:248
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "S'han enregistrat %1 s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -719,8 +719,8 @@ msgstr "Nenhuma"
 #: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:49
 #: core/model/notificationpreferencemodel.cpp:47
-#: widgets/dialogs/createsoundmessagewidget.cpp:96
-#: widgets/dialogs/createsoundmessagewidget.cpp:138
+#: widgets/dialogs/createsoundmessagewidget.cpp:97
+#: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
@@ -8830,8 +8830,8 @@ msgstr ""
 "Normalmente uma discussão começa com uma pergunta, por exemplo \"Como envio "
 "uma imagem?\""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:244
+#: widgets/dialogs/createsoundmessagewidget.cpp:161
+#: widgets/dialogs/createvideomessagewidget.cpp:248
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 segundos gravados"

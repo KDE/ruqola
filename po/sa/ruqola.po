@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -662,8 +662,8 @@ msgstr "न कश्चित्"
 #: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:49
 #: core/model/notificationpreferencemodel.cpp:47
-#: widgets/dialogs/createsoundmessagewidget.cpp:96
-#: widgets/dialogs/createsoundmessagewidget.cpp:138
+#: widgets/dialogs/createsoundmessagewidget.cpp:97
+#: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
@@ -8182,8 +8182,8 @@ msgid ""
 "picture?\""
 msgstr "प्रायः चर्चा एकेन प्रश्नेन आरभ्यते, यथा \"अहं चित्रं कथं अपलोड् करोमि?\""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:244
+#: widgets/dialogs/createsoundmessagewidget.cpp:161
+#: widgets/dialogs/createvideomessagewidget.cpp:248
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 सेकण्ड् अभिलेखितम्"

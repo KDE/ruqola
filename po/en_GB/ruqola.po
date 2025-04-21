@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"POT-Creation-Date: 2025-04-21 00:41+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -661,8 +661,8 @@ msgstr "None"
 #: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:49
 #: core/model/notificationpreferencemodel.cpp:47
-#: widgets/dialogs/createsoundmessagewidget.cpp:96
-#: widgets/dialogs/createsoundmessagewidget.cpp:138
+#: widgets/dialogs/createsoundmessagewidget.cpp:97
+#: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
@@ -8231,8 +8231,8 @@ msgstr ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:157
-#: widgets/dialogs/createvideomessagewidget.cpp:244
+#: widgets/dialogs/createsoundmessagewidget.cpp:161
+#: widgets/dialogs/createvideomessagewidget.cpp:248
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Recorded %1 sec"
