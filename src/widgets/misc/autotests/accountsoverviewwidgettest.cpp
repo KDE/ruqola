@@ -7,12 +7,14 @@
 #include "accountsoverviewwidgettest.h"
 #include "misc/accountsoverviewwidget.h"
 #include <QHBoxLayout>
+#include <QStandardPaths>
 #include <QTabBar>
 #include <QTest>
 QTEST_MAIN(AccountsOverviewWidgetTest)
 AccountsOverviewWidgetTest::AccountsOverviewWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void AccountsOverviewWidgetTest::shouldHaveDefaultValues()

@@ -8,6 +8,7 @@
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "rocketchataccount.h"
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 
 class RESTAuthenticationManagerTestImpl : public RESTAuthenticationManager
@@ -32,6 +33,7 @@ QTEST_GUILESS_MAIN(RESTAuthenticationManagerTest)
 RESTAuthenticationManagerTest::RESTAuthenticationManagerTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RESTAuthenticationManagerTest::testLoginSuccess()

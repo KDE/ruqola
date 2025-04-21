@@ -14,6 +14,7 @@
 #include "authenticationmanager/ddpauthenticationmanager.h"
 
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(DDPAuthenticationManagerTest)
@@ -21,6 +22,7 @@ QTEST_GUILESS_MAIN(DDPAuthenticationManagerTest)
 DDPAuthenticationManagerTest::DDPAuthenticationManagerTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void DDPAuthenticationManagerTest::testLoginSuccess()

@@ -6,12 +6,14 @@
 
 #include "configureautocorrectionwidgettest.h"
 #include "configuredialog/configureautocorrectionwidget.h"
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ConfigureAutoCorrectionWidgetTest)
 ConfigureAutoCorrectionWidgetTest::ConfigureAutoCorrectionWidgetTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ConfigureAutoCorrectionWidgetTest::shouldHaveDefaultValues()
