@@ -9,12 +9,14 @@
 #include "dialogs/asktwoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AskTwoAuthenticationPasswordDialogTest)
 AskTwoAuthenticationPasswordDialogTest::AskTwoAuthenticationPasswordDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void AskTwoAuthenticationPasswordDialogTest::shouldHaveDefaultValues()
