@@ -51,11 +51,14 @@ public:
     [[nodiscard]] QVariant value() const;
     void setValue(const QVariant &newValue);
 
-    bool multiLine() const;
+    [[nodiscard]] bool multiLine() const;
     void setMultiLine(bool newMultiLine);
+
+    [[nodiscard]] QJsonObject jsonObj() const;
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ApplicationsSettingsSettingsInfo::SettingType convertStringToType(const QString &str);
+    QJsonObject mJsonObj;
     QString mI18nDescription;
     QString mI18nLabel;
     QString mId;

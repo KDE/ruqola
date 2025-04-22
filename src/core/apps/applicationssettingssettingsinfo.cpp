@@ -14,6 +14,7 @@ ApplicationsSettingsSettingsInfo::~ApplicationsSettingsSettingsInfo() = default;
 
 void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
 {
+    mJsonObj = obj;
     mI18nDescription = obj["i18nDescription"_L1].toString();
     mI18nLabel = obj["i18nLabel"_L1].toString();
     mId = obj["id"_L1].toString();
@@ -72,6 +73,11 @@ ApplicationsSettingsSettingsInfo::SettingType ApplicationsSettingsSettingsInfo::
     }
     qCWarning(RUQOLA_LOG) << "Unknown type " << str;
     return SettingType::Unknown;
+}
+
+QJsonObject ApplicationsSettingsSettingsInfo::jsonObj() const
+{
+    return mJsonObj;
 }
 
 bool ApplicationsSettingsSettingsInfo::multiLine() const
