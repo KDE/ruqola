@@ -55,6 +55,7 @@ InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent
     copyLinkButton->setObjectName(QStringLiteral("copyLinkButton"));
     copyLinkButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     copyLinkButton->setToolTip(i18nc("@info:tooltip", "Copy link"));
+    copyLinkButton->setAutoRaise(true);
     hlayout->addWidget(copyLinkButton);
     connect(copyLinkButton, &QToolButton::clicked, this, &InviteUsersWidget::slotCopyLink);
 
