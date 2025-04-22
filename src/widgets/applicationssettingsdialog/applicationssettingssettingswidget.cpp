@@ -110,6 +110,7 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
         info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
         info.mAppsId = mAppId;
         job->setAppUpdateInfo(info);
+        // TODO add json.
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
