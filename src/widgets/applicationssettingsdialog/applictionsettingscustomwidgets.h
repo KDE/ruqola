@@ -1,0 +1,19 @@
+/*
+   SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+
+#include <QWidget>
+
+class ApplictionSettingsCustomWidgetsBase : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit ApplictionSettingsCustomWidgetsBase(QWidget *parent = nullptr);
+    ~ApplictionSettingsCustomWidgetsBase() override;
+
+    [[nodiscard]] virtual QString value() const = 0;
+};
