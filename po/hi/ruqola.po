@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-21 00:41+0000\n"
+"POT-Creation-Date: 2025-04-23 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -8296,45 +8296,45 @@ msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "लिंक की प्रतिलिपि करें"
 
-#: widgets/dialogs/inviteuserswidget.cpp:63
+#: widgets/dialogs/inviteuserswidget.cpp:64
 #, kde-format
 msgid "Options"
 msgstr "विकल्प"
 
-#: widgets/dialogs/inviteuserswidget.cpp:71
+#: widgets/dialogs/inviteuserswidget.cpp:72
 #, kde-format
 msgid "Expiration (Days)"
 msgstr "समाप्ति (दिन)"
 
-#: widgets/dialogs/inviteuserswidget.cpp:74
+#: widgets/dialogs/inviteuserswidget.cpp:75
 #, kde-format
 msgid "Max number of uses"
 msgstr "उपयोगों की अधिकतम संख्या"
 
-#: widgets/dialogs/inviteuserswidget.cpp:76
+#: widgets/dialogs/inviteuserswidget.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "नया लिंक बनाएं"
 
-#: widgets/dialogs/inviteuserswidget.cpp:111
+#: widgets/dialogs/inviteuserswidget.cpp:112
 #, kde-format
 msgid "Your invite link will expire on %2 or after %1 use."
 msgid_plural "Your invite link will expire on %2 or after %1 uses."
 msgstr[0] "आपका आमंत्रण लिंक %2 को या %1 उपयोग के बाद समाप्त हो जाएगा।"
 msgstr[1] "आपका आमंत्रण लिंक %2 को या %1 उपयोग के बाद समाप्त हो जाएगा।"
 
-#: widgets/dialogs/inviteuserswidget.cpp:116
+#: widgets/dialogs/inviteuserswidget.cpp:117
 #, kde-format
 msgid "Your invite link will expire on %1."
 msgstr "आपका आमंत्रण लिंक %1 को समाप्त हो जाएगा."
 
-#: widgets/dialogs/inviteuserswidget.cpp:149
+#: widgets/dialogs/inviteuserswidget.cpp:150
 #, kde-format
 msgid "Never"
 msgstr "कभी नहीं"
 
-#: widgets/dialogs/inviteuserswidget.cpp:157
+#: widgets/dialogs/inviteuserswidget.cpp:158
 #, kde-format
 msgid "No Limit"
 msgstr "कोई सीमा नहीं"
