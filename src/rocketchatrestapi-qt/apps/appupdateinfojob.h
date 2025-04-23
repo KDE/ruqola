@@ -8,7 +8,7 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
-
+#include <QJsonArray>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT AppUpdateInfoJob : public RestApiAbstractJob
@@ -32,6 +32,7 @@ public:
     };
 
     struct AppUpdateInfo {
+        QJsonArray mAppsSettings;
         QByteArray mAppsId;
         QString mAppVersion;
         QString mStatus;

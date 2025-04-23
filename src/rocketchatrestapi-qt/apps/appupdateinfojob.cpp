@@ -76,6 +76,9 @@ QJsonDocument AppUpdateInfoJob::json() const
         jsonObj["version"_L1] = mAppUpdateInfo.mAppVersion;
         jsonObj["marketplace"_L1] = true;
     }
+    if (mAppUpdateInfo.mAppInfoType == AppInfoType::Settings) {
+        jsonObj["Settings"_L1] = mAppUpdateInfo.mAppsSettings;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

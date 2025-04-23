@@ -105,13 +105,19 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
 
     auto applyButton = new QPushButton(QIcon::fromTheme(QStringLiteral("dialog-ok-apply")), i18n("Apply"), this);
     connect(applyButton, &QPushButton::clicked, this, [this]() {
+        QJsonArray array;
+        for (ApplictionSettingsCustomWidgetsBase *widget : std::as_const(mCustomWidgets)) {
+            QJsonObject obj = widget->info().jsonObj();
+            obj["value"_L1] = widget->value();
+            array.append(obj);
+        }
         auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
-        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
+        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Settings;
         info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
         info.mAppsId = mAppId;
+        info.mAppsSettings = array;
         job->setAppUpdateInfo(info);
-        // TODO add json.
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
