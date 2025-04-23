@@ -141,52 +141,56 @@ QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QStrin
     return translatedString;
 }
 
-void ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSettingsSettingsInfo &info)
+ApplictionSettingsCustomWidgetsBase *ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSettingsSettingsInfo &info)
 {
-    auto checkBox = new ApplictionSettingsCustomWidgetsCheckBox(mAppId, mRocketChatAccount, info, this);
-    connect(checkBox, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
+    auto checkBoxWidget = new ApplictionSettingsCustomWidgetsCheckBox(mAppId, mRocketChatAccount, info, this);
+    connect(checkBoxWidget, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox]() {
-        Q_EMIT checkBox->resetValue();
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBoxWidget]() {
+        Q_EMIT checkBoxWidget->resetValue();
     });
-    mMainLayout->addWidget(checkBox);
+    mMainLayout->addWidget(checkBoxWidget);
+    return checkBoxWidget;
 }
 
-void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSettingsSettingsInfo &info)
+ApplictionSettingsCustomWidgetsBase *ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSettingsSettingsInfo &info)
 {
-    auto checkBox = new ApplictionSettingsCustomWidgetsString(mAppId, mRocketChatAccount, info, this);
-    connect(checkBox, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
+    auto stringWidget = new ApplictionSettingsCustomWidgetsString(mAppId, mRocketChatAccount, info, this);
+    connect(stringWidget, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox]() {
-        Q_EMIT checkBox->resetValue();
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [stringWidget]() {
+        Q_EMIT stringWidget->resetValue();
     });
-    mMainLayout->addWidget(checkBox);
+    mMainLayout->addWidget(stringWidget);
+    return stringWidget;
 }
 
-void ApplicationsSettingsSettingsWidget::addIntSettings(const ApplicationsSettingsSettingsInfo &info)
+ApplictionSettingsCustomWidgetsBase *ApplicationsSettingsSettingsWidget::addIntSettings(const ApplicationsSettingsSettingsInfo &info)
 {
-    auto checkBox = new ApplictionSettingsCustomWidgetsSpinBox(mAppId, mRocketChatAccount, info, this);
-    connect(checkBox, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
+    auto spinboxWidget = new ApplictionSettingsCustomWidgetsSpinBox(mAppId, mRocketChatAccount, info, this);
+    connect(spinboxWidget, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox]() {
-        Q_EMIT checkBox->resetValue();
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [spinboxWidget]() {
+        Q_EMIT spinboxWidget->resetValue();
     });
-    mMainLayout->addWidget(checkBox);
+    mMainLayout->addWidget(spinboxWidget);
+    return spinboxWidget;
 }
 
-void ApplicationsSettingsSettingsWidget::addSelectSettings(const ApplicationsSettingsSettingsInfo &info)
+ApplictionSettingsCustomWidgetsBase *ApplicationsSettingsSettingsWidget::addSelectSettings(const ApplicationsSettingsSettingsInfo &info)
 {
-    auto checkBox = new ApplictionSettingsCustomWidgetsComboBox(mAppId, mRocketChatAccount, info, this);
-    connect(checkBox, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
+    auto comboboxWidget = new ApplictionSettingsCustomWidgetsComboBox(mAppId, mRocketChatAccount, info, this);
+    connect(comboboxWidget, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox]() {
-        Q_EMIT checkBox->resetValue();
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [comboboxWidget]() {
+        Q_EMIT comboboxWidget->resetValue();
     });
-    mMainLayout->addWidget(checkBox);
+    mMainLayout->addWidget(comboboxWidget);
+    return comboboxWidget;
 }
 
 void ApplicationsSettingsSettingsWidget::initialize()

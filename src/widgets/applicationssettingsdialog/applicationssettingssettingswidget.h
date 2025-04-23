@@ -10,6 +10,7 @@
 #include <QWidget>
 class QVBoxLayout;
 class RocketChatAccount;
+class ApplictionSettingsCustomWidgetsBase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -30,10 +31,10 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generateSettings(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
     LIBRUQOLAWIDGETS_NO_EXPORT void generateSettingsWidgets(const QList<ApplicationsSettingsSettingsInfo> &infos);
-    LIBRUQOLAWIDGETS_NO_EXPORT void addBooleanSettings(const ApplicationsSettingsSettingsInfo &info);
-    LIBRUQOLAWIDGETS_NO_EXPORT void addStringSettings(const ApplicationsSettingsSettingsInfo &info);
-    LIBRUQOLAWIDGETS_NO_EXPORT void addIntSettings(const ApplicationsSettingsSettingsInfo &info);
-    LIBRUQOLAWIDGETS_NO_EXPORT void addSelectSettings(const ApplicationsSettingsSettingsInfo &info);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ApplictionSettingsCustomWidgetsBase *addBooleanSettings(const ApplicationsSettingsSettingsInfo &info);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ApplictionSettingsCustomWidgetsBase *addStringSettings(const ApplicationsSettingsSettingsInfo &info);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ApplictionSettingsCustomWidgetsBase *addIntSettings(const ApplicationsSettingsSettingsInfo &info);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ApplictionSettingsCustomWidgetsBase *addSelectSettings(const ApplicationsSettingsSettingsInfo &info);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString getTranslatedIdentifier(const QString &lang, const QString &id) const;
     QList<ApplicationsSettingsSettingsInfo> mSettingsInfo;
     bool mWasInitialized = false;
