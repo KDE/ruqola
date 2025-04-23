@@ -12,6 +12,8 @@ class RocketChatAccount;
 class QCheckBox;
 class QSpinBox;
 class QComboBox;
+class QPlainTextEdit;
+class QLineEdit;
 class ApplictionSettingsCustomWidgetsBase : public QWidget
 {
     Q_OBJECT
@@ -83,4 +85,21 @@ public:
 
 private:
     QComboBox *const mComboBox;
+};
+
+class ApplictionSettingsCustomWidgetsString : public ApplictionSettingsCustomWidgetsBase
+{
+    Q_OBJECT
+public:
+    explicit ApplictionSettingsCustomWidgetsString(const QByteArray &appId,
+                                                   RocketChatAccount *account,
+                                                   const ApplicationsSettingsSettingsInfo &info,
+                                                   QWidget *parent = nullptr);
+    ~ApplictionSettingsCustomWidgetsString() override;
+
+    [[nodiscard]] QString value() const override;
+
+private:
+    QPlainTextEdit *mPlainTextEdit = nullptr;
+    QLineEdit *mLineEdit = nullptr;
 };

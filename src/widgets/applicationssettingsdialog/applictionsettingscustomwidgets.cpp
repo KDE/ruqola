@@ -12,6 +12,8 @@
 #include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QSpinBox>
 
 ApplictionSettingsCustomWidgetsBase::ApplictionSettingsCustomWidgetsBase(const QByteArray &appId,
@@ -147,6 +149,60 @@ ApplictionSettingsCustomWidgetsComboBox::~ApplictionSettingsCustomWidgetsComboBo
 QString ApplictionSettingsCustomWidgetsComboBox::value() const
 {
     return mComboBox->currentText();
+}
+
+ApplictionSettingsCustomWidgetsString::ApplictionSettingsCustomWidgetsString(const QByteArray &appId,
+                                                                             RocketChatAccount *account,
+                                                                             const ApplicationsSettingsSettingsInfo &info,
+                                                                             QWidget *parent)
+    : ApplictionSettingsCustomWidgetsBase(appId, account, info, parent)
+{
+    const QString lang = QLocale().name();
+    QHBoxLayout *hbox = new QHBoxLayout;
+    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
+    label->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
+    hbox->addWidget(label, 0, info.multiLine() ? Qt::AlignTop : Qt::Alignment());
+    if (info.multiLine()) {
+        mPlainTextEdit = new QPlainTextEdit(this);
+        mPlainTextEdit->setObjectName(info.id());
+        hbox->addWidget(mPlainTextEdit);
+        const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+        mPlainTextEdit->setPlainText(r.toString());
+
+        connect(mPlainTextEdit, &QPlainTextEdit::textChanged, this, [this]() {
+            Q_EMIT dataChanged(true);
+        });
+        connect(this, &ApplictionSettingsCustomWidgetsComboBox::resetValue, this, [this, r]() {
+            QSignalBlocker b(mPlainTextEdit);
+            mPlainTextEdit->setPlainText(r.toString());
+        });
+    } else {
+        mLineEdit = new QLineEdit(this);
+        mLineEdit->setObjectName(info.id());
+        hbox->addWidget(mLineEdit);
+        const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+        mLineEdit->setText(r.toString());
+
+        connect(mLineEdit, &QLineEdit::textChanged, this, [this]() {
+            Q_EMIT dataChanged(true);
+        });
+        connect(this, &ApplictionSettingsCustomWidgetsComboBox::resetValue, this, [this, r]() {
+            QSignalBlocker b(mLineEdit);
+            mLineEdit->setText(r.toString());
+        });
+    }
+}
+
+ApplictionSettingsCustomWidgetsString::~ApplictionSettingsCustomWidgetsString() = default;
+
+QString ApplictionSettingsCustomWidgetsString::value() const
+{
+    if (mLineEdit) {
+        return mLineEdit->text();
+    } else if (mPlainTextEdit) {
+        return mPlainTextEdit->toPlainText();
+    }
+    return {};
 }
 
 #include "moc_applictionsettingscustomwidgets.cpp"
