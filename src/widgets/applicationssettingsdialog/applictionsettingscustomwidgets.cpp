@@ -56,7 +56,7 @@ ApplictionSettingsCustomWidgetsCheckBox::ApplictionSettingsCustomWidgetsCheckBox
     , mCheckBox(new QCheckBox(this))
 {
     const QString lang = QLocale().name();
-    QHBoxLayout *hbox = new QHBoxLayout;
+    QHBoxLayout *hbox = new QHBoxLayout(this);
     mCheckBox->setText(getTranslatedIdentifier(lang, info.i18nLabel()));
     mCheckBox->setObjectName(info.id());
     mCheckBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
@@ -88,7 +88,7 @@ ApplictionSettingsCustomWidgetsSpinBox::ApplictionSettingsCustomWidgetsSpinBox(c
     , mSpinBox(new QSpinBox(this))
 {
     const QString lang = QLocale().name();
-    QHBoxLayout *hbox = new QHBoxLayout;
+    QHBoxLayout *hbox = new QHBoxLayout(this);
     auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
     hbox->addWidget(label);
     mSpinBox->setMaximum(999999999);
@@ -121,7 +121,7 @@ ApplictionSettingsCustomWidgetsComboBox::ApplictionSettingsCustomWidgetsComboBox
     , mComboBox(new QComboBox(this))
 {
     const QString lang = QLocale().name();
-    QHBoxLayout *hbox = new QHBoxLayout;
+    QHBoxLayout *hbox = new QHBoxLayout(this);
     auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
     hbox->addWidget(label);
     mComboBox->setObjectName(info.id());
@@ -158,7 +158,7 @@ ApplictionSettingsCustomWidgetsString::ApplictionSettingsCustomWidgetsString(con
     : ApplictionSettingsCustomWidgetsBase(appId, account, info, parent)
 {
     const QString lang = QLocale().name();
-    QHBoxLayout *hbox = new QHBoxLayout;
+    QHBoxLayout *hbox = new QHBoxLayout(this);
     auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
     label->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
     hbox->addWidget(label, 0, info.multiLine() ? Qt::AlignTop : Qt::Alignment());

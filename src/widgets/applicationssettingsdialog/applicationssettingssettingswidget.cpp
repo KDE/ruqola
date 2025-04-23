@@ -5,6 +5,7 @@
 */
 
 #include "applicationssettingssettingswidget.h"
+#include "applictionsettingscustomwidgets.h"
 
 #include "apps/appinfojob.h"
 #include "apps/appupdateinfojob.h"
@@ -142,113 +143,50 @@ QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QStrin
 
 void ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSettingsSettingsInfo &info)
 {
-    const QString lang = QLocale().name();
-    QHBoxLayout *hbox = new QHBoxLayout;
-    auto checkBox = new QCheckBox(getTranslatedIdentifier(lang, info.i18nLabel()), this);
-    checkBox->setObjectName(info.id());
-    checkBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
-    hbox->addWidget(checkBox);
-    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
-    checkBox->setCheckState(r.toBool() ? Qt::Checked : Qt::Unchecked);
-
-    connect(checkBox, &QCheckBox::clicked, this, [this]() {
+    auto checkBox = new ApplictionSettingsCustomWidgetsCheckBox(mAppId, mRocketChatAccount, info, this);
+    connect(checkBox, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox, r]() {
-        QSignalBlocker b(checkBox);
-        checkBox->setCheckState(r.toBool() ? Qt::Checked : Qt::Unchecked);
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox]() {
+        Q_EMIT checkBox->resetValue();
     });
-    mMainLayout->addLayout(hbox);
+    mMainLayout->addWidget(checkBox);
 }
 
 void ApplicationsSettingsSettingsWidget::addStringSettings(const ApplicationsSettingsSettingsInfo &info)
 {
-    const QString lang = QLocale().name();
-    QHBoxLayout *hbox = new QHBoxLayout;
-    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
-    label->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
-    hbox->addWidget(label, 0, info.multiLine() ? Qt::AlignTop : Qt::Alignment());
-    if (info.multiLine()) {
-        auto plainTextEdit = new QPlainTextEdit(this);
-        plainTextEdit->setObjectName(info.id());
-        hbox->addWidget(plainTextEdit);
-        const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
-        plainTextEdit->setPlainText(r.toString());
-
-        connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [this]() {
-            Q_EMIT dataChanged(true);
-        });
-        connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [plainTextEdit, r]() {
-            QSignalBlocker b(plainTextEdit);
-            plainTextEdit->setPlainText(r.toString());
-        });
-    } else {
-        auto lineEdit = new QLineEdit(this);
-        lineEdit->setObjectName(info.id());
-        hbox->addWidget(lineEdit);
-        const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
-        lineEdit->setText(r.toString());
-
-        connect(lineEdit, &QLineEdit::textChanged, this, [this]() {
-            Q_EMIT dataChanged(true);
-        });
-        connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [lineEdit, r]() {
-            QSignalBlocker b(lineEdit);
-            lineEdit->setText(r.toString());
-        });
-    }
-    mMainLayout->addLayout(hbox);
+    auto checkBox = new ApplictionSettingsCustomWidgetsString(mAppId, mRocketChatAccount, info, this);
+    connect(checkBox, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
+        Q_EMIT dataChanged(true);
+    });
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox]() {
+        Q_EMIT checkBox->resetValue();
+    });
+    mMainLayout->addWidget(checkBox);
 }
 
 void ApplicationsSettingsSettingsWidget::addIntSettings(const ApplicationsSettingsSettingsInfo &info)
 {
-    const QString lang = QLocale().name();
-    QHBoxLayout *hbox = new QHBoxLayout;
-    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
-    hbox->addWidget(label);
-    auto spinbox = new QSpinBox(this);
-    spinbox->setMaximum(999999999);
-    spinbox->setObjectName(info.id());
-    spinbox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
-    hbox->addWidget(spinbox);
-    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
-    spinbox->setValue(r.toInt());
-    connect(spinbox, &QSpinBox::valueChanged, this, [this]() {
+    auto checkBox = new ApplictionSettingsCustomWidgetsSpinBox(mAppId, mRocketChatAccount, info, this);
+    connect(checkBox, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [spinbox, r]() {
-        QSignalBlocker b(spinbox);
-        spinbox->setValue(r.toInt());
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox]() {
+        Q_EMIT checkBox->resetValue();
     });
-    mMainLayout->addLayout(hbox);
+    mMainLayout->addWidget(checkBox);
 }
 
 void ApplicationsSettingsSettingsWidget::addSelectSettings(const ApplicationsSettingsSettingsInfo &info)
 {
-    const QString lang = QLocale().name();
-    QHBoxLayout *hbox = new QHBoxLayout;
-    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
-    hbox->addWidget(label);
-    auto combobox = new QComboBox(this);
-    combobox->setObjectName(info.id());
-    combobox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
-    hbox->addWidget(combobox);
-    // Fill Combobox
-    QMapIterator<QString, QString> i(info.values());
-    while (i.hasNext()) {
-        i.next();
-        combobox->addItem(getTranslatedIdentifier(lang, i.value()), i.key());
-    }
-    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
-    combobox->setCurrentIndex(combobox->findData(r.toString()));
-    connect(combobox, &QComboBox::currentIndexChanged, this, [this]() {
+    auto checkBox = new ApplictionSettingsCustomWidgetsComboBox(mAppId, mRocketChatAccount, info, this);
+    connect(checkBox, &ApplictionSettingsCustomWidgetsBase::dataChanged, this, [this]() {
         Q_EMIT dataChanged(true);
     });
-    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [combobox, r]() {
-        QSignalBlocker b(combobox);
-        combobox->setCurrentIndex(combobox->findData(r.toString()));
+    connect(this, &ApplicationsSettingsSettingsWidget::resetValue, this, [checkBox]() {
+        Q_EMIT checkBox->resetValue();
     });
-    mMainLayout->addLayout(hbox);
+    mMainLayout->addWidget(checkBox);
 }
 
 void ApplicationsSettingsSettingsWidget::initialize()
