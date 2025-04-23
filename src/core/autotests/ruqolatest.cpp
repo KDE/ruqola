@@ -6,6 +6,7 @@
 
 #include "ruqolatest.h"
 #include "ruqola.h"
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(RuqolaTest)
@@ -13,6 +14,7 @@ QTEST_GUILESS_MAIN(RuqolaTest)
 RuqolaTest::RuqolaTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RuqolaTest::shouldHaveDefaultValue()
