@@ -14,10 +14,15 @@ class ApplictionSettingsCustomWidgetsBase : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ApplictionSettingsCustomWidgetsBase(const QByteArray &appId, RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit ApplictionSettingsCustomWidgetsBase(const QByteArray &appId,
+                                                 RocketChatAccount *account,
+                                                 const ApplicationsSettingsSettingsInfo &info,
+                                                 QWidget *parent = nullptr);
     ~ApplictionSettingsCustomWidgetsBase() override;
 
     [[nodiscard]] virtual QString value() const = 0;
+
+    [[nodiscard]] ApplicationsSettingsSettingsInfo info() const;
 
 Q_SIGNALS:
     void dataChanged(bool status);
@@ -27,6 +32,7 @@ protected:
     [[nodiscard]] QString getTranslatedIdentifier(const QString &lang, const QString &id) const;
     RocketChatAccount *const mRocketChatAccount;
     const QByteArray mAppId;
+    const ApplicationsSettingsSettingsInfo mInfo;
 };
 
 class ApplictionSettingsCustomWidgetsCheckBox : public ApplictionSettingsCustomWidgetsBase

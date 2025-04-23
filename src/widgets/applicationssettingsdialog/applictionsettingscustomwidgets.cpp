@@ -11,10 +11,14 @@
 #include <QCheckBox>
 #include <QHBoxLayout>
 
-ApplictionSettingsCustomWidgetsBase::ApplictionSettingsCustomWidgetsBase(const QByteArray &appId, RocketChatAccount *account, QWidget *parent)
+ApplictionSettingsCustomWidgetsBase::ApplictionSettingsCustomWidgetsBase(const QByteArray &appId,
+                                                                         RocketChatAccount *account,
+                                                                         const ApplicationsSettingsSettingsInfo &info,
+                                                                         QWidget *parent)
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mAppId(appId)
+    , mInfo(info)
 {
 }
 
@@ -34,11 +38,16 @@ QString ApplictionSettingsCustomWidgetsBase::getTranslatedIdentifier(const QStri
     return translatedString;
 }
 
+ApplicationsSettingsSettingsInfo ApplictionSettingsCustomWidgetsBase::info() const
+{
+    return mInfo;
+}
+
 ApplictionSettingsCustomWidgetsCheckBox::ApplictionSettingsCustomWidgetsCheckBox(const QByteArray &appId,
                                                                                  RocketChatAccount *account,
                                                                                  const ApplicationsSettingsSettingsInfo &info,
                                                                                  QWidget *parent)
-    : ApplictionSettingsCustomWidgetsBase(appId, account, parent)
+    : ApplictionSettingsCustomWidgetsBase(appId, account, info, parent)
     , mCheckBox(new QCheckBox(this))
 {
     const QString lang = QLocale().name();
