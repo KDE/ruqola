@@ -176,7 +176,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         }
         info.setNewFeatures(lst);
         info.setVersion(QStringLiteral("2.6"));
-        info.setBugFixings({i18n("Fix show date info.")});
+        info.setBugFixings({i18n("Fix show date info."), i18n("Fix save application settings.")});
 
         listInfo.append(std::move(info));
     }
