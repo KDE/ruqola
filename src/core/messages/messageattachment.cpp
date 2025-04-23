@@ -311,14 +311,23 @@ void MessageAttachment::setAttachmentFields(const QList<MessageAttachmentField> 
     generateAttachmentFieldsText();
 }
 
+QString MessageAttachment::fixTitle(const QString &title) const
+{
+    QString newTitle = title;
+    if (newTitle.length() > 80) {
+        newTitle = newTitle.left(80) + QStringLiteral("...");
+    }
+    return newTitle;
+}
+
 void MessageAttachment::generateTitle()
 {
     if (!mTitle.isEmpty()) {
         if (mAttachmentGeneratedTitle.isEmpty()) {
             if (mAttachmentSize == -1) {
-                mAttachmentGeneratedTitle = mTitle;
+                mAttachmentGeneratedTitle = fixTitle(mTitle);
             } else {
-                mAttachmentGeneratedTitle = QStringLiteral("%1 (%2)").arg(mTitle, KIO::convertSize(mAttachmentSize));
+                mAttachmentGeneratedTitle = QStringLiteral("%1 (%2)").arg(fixTitle(mTitle), KIO::convertSize(mAttachmentSize));
             }
         }
     }
