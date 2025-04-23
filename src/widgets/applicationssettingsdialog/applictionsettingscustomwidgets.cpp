@@ -9,6 +9,7 @@
 #include "ruqolawidgets_debug.h"
 
 #include <QCheckBox>
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QSpinBox>
@@ -108,6 +109,44 @@ ApplictionSettingsCustomWidgetsSpinBox::~ApplictionSettingsCustomWidgetsSpinBox(
 QString ApplictionSettingsCustomWidgetsSpinBox::value() const
 {
     return QString::number(mSpinBox->value());
+}
+
+ApplictionSettingsCustomWidgetsComboBox::ApplictionSettingsCustomWidgetsComboBox(const QByteArray &appId,
+                                                                                 RocketChatAccount *account,
+                                                                                 const ApplicationsSettingsSettingsInfo &info,
+                                                                                 QWidget *parent)
+    : ApplictionSettingsCustomWidgetsBase(appId, account, info, parent)
+    , mComboBox(new QComboBox(this))
+{
+    const QString lang = QLocale().name();
+    QHBoxLayout *hbox = new QHBoxLayout;
+    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
+    hbox->addWidget(label);
+    mComboBox->setObjectName(info.id());
+    mComboBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
+    hbox->addWidget(mComboBox);
+    // Fill Combobox
+    QMapIterator<QString, QString> i(info.values());
+    while (i.hasNext()) {
+        i.next();
+        mComboBox->addItem(getTranslatedIdentifier(lang, i.value()), i.key());
+    }
+    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+    mComboBox->setCurrentIndex(mComboBox->findData(r.toString()));
+    connect(mComboBox, &QComboBox::currentIndexChanged, this, [this]() {
+        Q_EMIT dataChanged(true);
+    });
+    connect(this, &ApplictionSettingsCustomWidgetsComboBox::resetValue, this, [this, r]() {
+        QSignalBlocker b(mComboBox);
+        mComboBox->setCurrentIndex(mComboBox->findData(r.toString()));
+    });
+}
+
+ApplictionSettingsCustomWidgetsComboBox::~ApplictionSettingsCustomWidgetsComboBox() = default;
+
+QString ApplictionSettingsCustomWidgetsComboBox::value() const
+{
+    return mComboBox->currentText();
 }
 
 #include "moc_applictionsettingscustomwidgets.cpp"
