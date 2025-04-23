@@ -70,17 +70,16 @@ QJsonDocument AppUpdateInfoJob::json() const
     QJsonObject jsonObj;
     if (mAppUpdateInfo.mAppInfoType == AppInfoType::Status) {
         jsonObj["status"_L1] = mAppUpdateInfo.mStatus;
-    }
-    if (mAppUpdateInfo.mAppMode == AppMode::Post && mAppUpdateInfo.mAppInfoType == AppInfoType::Apps) {
+    } else if (mAppUpdateInfo.mAppMode == AppMode::Post && mAppUpdateInfo.mAppInfoType == AppInfoType::Apps) {
         jsonObj["appId"_L1] = QString::fromLatin1(mAppUpdateInfo.mAppsId);
         jsonObj["version"_L1] = mAppUpdateInfo.mAppVersion;
         jsonObj["marketplace"_L1] = true;
-    }
-    if (mAppUpdateInfo.mAppInfoType == AppInfoType::Settings) {
-        jsonObj["Settings"_L1] = mAppUpdateInfo.mAppsSettings;
+    } else if (mAppUpdateInfo.mAppInfoType == AppInfoType::Settings) {
+        jsonObj["settings"_L1] = mAppUpdateInfo.mAppsSettings;
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
+    // qDebug() << " postData: " << postData;
     return postData;
 }
 
