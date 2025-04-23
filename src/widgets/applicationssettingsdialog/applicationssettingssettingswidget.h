@@ -41,4 +41,5 @@ private:
     QByteArray mAppId;
     RocketChatAccount *const mRocketChatAccount;
     QVBoxLayout *const mMainLayout;
+    QList<ApplictionSettingsCustomWidgetsBase *> mCustomWidgets;
 };

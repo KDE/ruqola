@@ -74,19 +74,19 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
             break;
         }
         case ApplicationsSettingsSettingsInfo::SettingType::Boolean: {
-            addBooleanSettings(info);
+            mCustomWidgets.append(addBooleanSettings(info));
             break;
         }
         case ApplicationsSettingsSettingsInfo::SettingType::String: {
-            addStringSettings(info);
+            mCustomWidgets.append(addStringSettings(info));
             break;
         }
         case ApplicationsSettingsSettingsInfo::SettingType::Int: {
-            addIntSettings(info);
+            mCustomWidgets.append(addIntSettings(info));
             break;
         }
         case ApplicationsSettingsSettingsInfo::SettingType::Select: {
-            addSelectSettings(info);
+            mCustomWidgets.append(addSelectSettings(info));
             break;
         }
         }
