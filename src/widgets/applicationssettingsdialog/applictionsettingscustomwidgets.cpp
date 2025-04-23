@@ -10,6 +10,8 @@
 
 #include <QCheckBox>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QSpinBox>
 
 ApplictionSettingsCustomWidgetsBase::ApplictionSettingsCustomWidgetsBase(const QByteArray &appId,
                                                                          RocketChatAccount *account,
@@ -73,6 +75,39 @@ ApplictionSettingsCustomWidgetsCheckBox::~ApplictionSettingsCustomWidgetsCheckBo
 QString ApplictionSettingsCustomWidgetsCheckBox::value() const
 {
     return mCheckBox->isChecked() ? QStringLiteral("true") : QStringLiteral("false");
+}
+
+ApplictionSettingsCustomWidgetsSpinBox::ApplictionSettingsCustomWidgetsSpinBox(const QByteArray &appId,
+                                                                               RocketChatAccount *account,
+                                                                               const ApplicationsSettingsSettingsInfo &info,
+                                                                               QWidget *parent)
+    : ApplictionSettingsCustomWidgetsBase(appId, account, info, parent)
+    , mSpinBox(new QSpinBox(this))
+{
+    const QString lang = QLocale().name();
+    QHBoxLayout *hbox = new QHBoxLayout;
+    auto label = new QLabel(getTranslatedIdentifier(lang, info.i18nLabel()), this);
+    hbox->addWidget(label);
+    mSpinBox->setMaximum(999999999);
+    mSpinBox->setObjectName(info.id());
+    mSpinBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
+    hbox->addWidget(mSpinBox);
+    const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
+    mSpinBox->setValue(r.toInt());
+    connect(mSpinBox, &QSpinBox::valueChanged, this, [this]() {
+        Q_EMIT dataChanged(true);
+    });
+    connect(this, &ApplictionSettingsCustomWidgetsSpinBox::resetValue, this, [this, r]() {
+        QSignalBlocker b(mSpinBox);
+        mSpinBox->setValue(r.toInt());
+    });
+}
+
+ApplictionSettingsCustomWidgetsSpinBox::~ApplictionSettingsCustomWidgetsSpinBox() = default;
+
+QString ApplictionSettingsCustomWidgetsSpinBox::value() const
+{
+    return QString::number(mSpinBox->value());
 }
 
 #include "moc_applictionsettingscustomwidgets.cpp"

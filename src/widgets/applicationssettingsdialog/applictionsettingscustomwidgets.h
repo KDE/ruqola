@@ -10,6 +10,7 @@
 #include <QWidget>
 class RocketChatAccount;
 class QCheckBox;
+class QSpinBox;
 class ApplictionSettingsCustomWidgetsBase : public QWidget
 {
     Q_OBJECT
@@ -49,4 +50,20 @@ public:
 
 private:
     QCheckBox *const mCheckBox;
+};
+
+class ApplictionSettingsCustomWidgetsSpinBox : public ApplictionSettingsCustomWidgetsBase
+{
+    Q_OBJECT
+public:
+    explicit ApplictionSettingsCustomWidgetsSpinBox(const QByteArray &appId,
+                                                    RocketChatAccount *account,
+                                                    const ApplicationsSettingsSettingsInfo &info,
+                                                    QWidget *parent = nullptr);
+    ~ApplictionSettingsCustomWidgetsSpinBox() override;
+
+    [[nodiscard]] QString value() const override;
+
+private:
+    QSpinBox *const mSpinBox;
 };
