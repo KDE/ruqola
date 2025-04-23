@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 02:34+0000\n"
+"POT-Creation-Date: 2025-04-23 02:35+0000\n"
 "PO-Revision-Date: 2025-02-15 11:12+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -8362,28 +8362,28 @@ msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "Skopiuj odnośnik"
 
-#: widgets/dialogs/inviteuserswidget.cpp:63
+#: widgets/dialogs/inviteuserswidget.cpp:64
 #, kde-format
 msgid "Options"
 msgstr "Ustawienia"
 
-#: widgets/dialogs/inviteuserswidget.cpp:71
+#: widgets/dialogs/inviteuserswidget.cpp:72
 #, kde-format
 msgid "Expiration (Days)"
 msgstr "Wygaśnięcie (w dniach)"
 
-#: widgets/dialogs/inviteuserswidget.cpp:74
+#: widgets/dialogs/inviteuserswidget.cpp:75
 #, kde-format
 msgid "Max number of uses"
 msgstr "Graniczna liczba użytkowników"
 
-#: widgets/dialogs/inviteuserswidget.cpp:76
+#: widgets/dialogs/inviteuserswidget.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "Przygotuj nowy odnośnik"
 
-#: widgets/dialogs/inviteuserswidget.cpp:111
+#: widgets/dialogs/inviteuserswidget.cpp:112
 #, kde-format
 msgid "Your invite link will expire on %2 or after %1 use."
 msgid_plural "Your invite link will expire on %2 or after %1 uses."
@@ -8391,17 +8391,17 @@ msgstr[0] "Twój odnośnik zapraszający wygaśnie dnia %2 lub po %1 użyciu."
 msgstr[1] "Twój odnośnik zapraszający wygaśnie dnia %2 lub po %1 użyciach."
 msgstr[2] "Twój odnośnik zapraszający wygaśnie dnia %2 lub po %1 użyciach."
 
-#: widgets/dialogs/inviteuserswidget.cpp:116
+#: widgets/dialogs/inviteuserswidget.cpp:117
 #, kde-format
 msgid "Your invite link will expire on %1."
 msgstr "Twój odnośnik zapraszający wygaśnie dnia %1."
 
-#: widgets/dialogs/inviteuserswidget.cpp:149
+#: widgets/dialogs/inviteuserswidget.cpp:150
 #, kde-format
 msgid "Never"
 msgstr "Nigdy"
 
-#: widgets/dialogs/inviteuserswidget.cpp:157
+#: widgets/dialogs/inviteuserswidget.cpp:158
 #, kde-format
 msgid "No Limit"
 msgstr "Bez ograniczeń"

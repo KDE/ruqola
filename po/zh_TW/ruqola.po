@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 02:34+0000\n"
+"POT-Creation-Date: 2025-04-23 02:35+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -8542,45 +8542,45 @@ msgctxt "@info:tooltip"
 msgid "Copy link"
 msgstr "複製連結"
 
-#: widgets/dialogs/inviteuserswidget.cpp:63
+#: widgets/dialogs/inviteuserswidget.cpp:64
 #, kde-format
 msgid "Options"
 msgstr "選項"
 
-#: widgets/dialogs/inviteuserswidget.cpp:71
+#: widgets/dialogs/inviteuserswidget.cpp:72
 #, kde-format
 msgid "Expiration (Days)"
 msgstr ""
 
-#: widgets/dialogs/inviteuserswidget.cpp:74
+#: widgets/dialogs/inviteuserswidget.cpp:75
 #, kde-format
 msgid "Max number of uses"
 msgstr "最大使用次數"
 
-#: widgets/dialogs/inviteuserswidget.cpp:76
+#: widgets/dialogs/inviteuserswidget.cpp:77
 #, fuzzy, kde-format
 #| msgid "Generate New Link"
 msgctxt "@action:button"
 msgid "Generate New Link"
 msgstr "產生新的連結"
 
-#: widgets/dialogs/inviteuserswidget.cpp:111
+#: widgets/dialogs/inviteuserswidget.cpp:112
 #, kde-format
 msgid "Your invite link will expire on %2 or after %1 use."
 msgid_plural "Your invite link will expire on %2 or after %1 uses."
 msgstr[0] "您的邀請連結將在 %2 或是使用 %1 後過期。"
 
-#: widgets/dialogs/inviteuserswidget.cpp:116
+#: widgets/dialogs/inviteuserswidget.cpp:117
 #, kde-format
 msgid "Your invite link will expire on %1."
 msgstr "您的邀請連結將在 %1 過期。"
 
-#: widgets/dialogs/inviteuserswidget.cpp:149
+#: widgets/dialogs/inviteuserswidget.cpp:150
 #, kde-format
 msgid "Never"
 msgstr "永不"
 
-#: widgets/dialogs/inviteuserswidget.cpp:157
+#: widgets/dialogs/inviteuserswidget.cpp:158
 #, kde-format
 msgid "No Limit"
 msgstr "無限制"
