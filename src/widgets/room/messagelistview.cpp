@@ -510,7 +510,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
             menu.addAction(deleteAction);
         }
-        if (!isVideoConferenceMessage && (mCurrentRocketChatAccount->hasAutotranslateSupport() || !message->localTranslation().isEmpty())) {
+        if (!isVideoConferenceMessage
+            && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
+                || !message->localTranslation().isEmpty())) {
             createSeparator(menu);
             const bool isTranslated = message->showTranslatedMessage();
             auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
