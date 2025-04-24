@@ -160,7 +160,7 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
 
 QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(const MessageAttachment &msgAttach, int width) const
 {
-    const QByteArray attachmentId = msgAttach.attachmentId();
+    const QByteArray attachmentId = documentId(DocumentIdType::Description, msgAttach);
     auto it = mDocumentCache.find(attachmentId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
