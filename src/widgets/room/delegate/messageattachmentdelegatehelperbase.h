@@ -92,6 +92,7 @@ private:
         Title,
         Description,
     };
+    Q_ENUM(DocumentIdType);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray documentId(MessageAttachmentDelegateHelperBase::DocumentIdType type,
                                                                    const MessageAttachment &msgAttach) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
