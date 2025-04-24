@@ -1,16 +1,16 @@
 # Translation for ruqola.po to Euskara/Basque (eu).
-# Copyright (C) 2022-2024 This file is copyright:
+# Copyright (C) 2022-2025 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
-# SPDX-FileCopyrightText: 2024, 2025 KDE euskaratzeko proiektuk arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2023, 2024.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-23 02:35+0000\n"
-"PO-Revision-Date: 2025-01-31 00:27+0100\n"
+"POT-Creation-Date: 2025-04-24 02:33+0000\n"
+"PO-Revision-Date: 2025-04-23 15:46+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -31,10 +31,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket berriketa bezeroa"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © 2020-2024 «Ruqola»ren egileak"
+msgstr "Copyright © 2020-2025 Ruqola-ren egileak"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -177,15 +176,14 @@ msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
 
 #: core/accountmanager.cpp:855
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Token baliogabea"
+msgstr "Gonbidapen token baliogabea"
 
 #: core/accountmanager.cpp:856
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr ""
+msgstr "Gonbidapen tokena baliogabea da. Kontua sortzea bertan behera utzi da."
 
 #: core/apps/appsmarketplaceinfo.cpp:109
 #, kde-format
@@ -412,16 +410,14 @@ msgid "Allow to send email"
 msgstr "Baimendu e-posta bidaltzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:692
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write role"
-msgstr "Baimendu «oauth» aplikazioen ezarpenak idaztea"
+msgstr "Baimendu eginkizuna idaztea"
 
 #: core/apps/appsmarketplaceinfo.cpp:694
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to read role"
-msgstr "Baimendu e-posta bidaltzea"
+msgstr "Baimendu eginkizuna irakurtzea"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -744,7 +740,7 @@ msgstr "(Azken mezua: %1)"
 #: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
-msgstr ""
+msgstr "Zerbitzariaren URLa falta da."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -2021,10 +2017,9 @@ msgstr ""
 "<qt>Eskaera berria hemen aurki dezakezu:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgid "Created at"
+#, kde-format
 msgid "Create a screenshot"
-msgstr "Sorrera"
+msgstr "Sortu pantaila-argazki bat"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -3328,12 +3323,10 @@ msgstr "Txosten guztiak baztertu"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:287
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Kopiatu esteka"
+msgstr "Kopiatu hautapena"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -3347,7 +3340,7 @@ msgstr "Kopiatu mezua"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:659
+#: widgets/room/messagelistview.cpp:661
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgctxt "@action"
@@ -5020,8 +5013,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Zifratuetako geletan zifratu gabeko edukietara sartzea"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Aipamenak"
@@ -5059,6 +5051,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Zifratutako edukian, jendeari jakinarazi, eta erabiltzailea, kanala eta "
+"talde-aipamenak nabarmendu."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:56
 #, kde-format
@@ -6992,10 +6986,9 @@ msgid "Permissions"
 msgstr "Baimenak"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "No version info found."
+#, kde-format
 msgid "No permissions information found."
-msgstr "Ez da bertsioari buruzko informaziorik aurkitu."
+msgstr "Ez da baimenei buruzko informaziorik aurkitu."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -7087,24 +7080,19 @@ msgid "Ask Application…"
 msgstr "Eskatu aplikazio..."
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Instalatu"
+msgstr "Desinstalatu"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "Ezgaituta"
+msgstr "Ezgaitu"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Gaitu"
@@ -7117,18 +7105,15 @@ msgid "Copy Text"
 msgstr "Kopiatu testua"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "Gela hori desartxibatu nahi duzu?"
+msgstr "Aplikazio hau desinstalatu nahi duzu?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Instalatutako aplikazioak..."
+msgstr "Desinstalatu aplikazioa"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
 #, kde-format
@@ -7180,10 +7165,9 @@ msgid "Search Private Applications"
 msgstr "Bilatu aplikazio pribatuak"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Aplikazioa ez da aurkitu"
+msgstr "Aplikazioak ez dauka ezarpenik."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:97
 #, kde-format
@@ -7218,7 +7202,7 @@ msgstr "Egoera denak"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr ""
+msgstr "Bertsioari buruzko informazioa eskuratzen..."
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
@@ -8183,18 +8167,14 @@ msgid "Private Room:"
 msgstr "Gela pribatua:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Messages are end-to-end encrypted, search will not work and notifications "
-#| "may not show message content"
+#, kde-format
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Mezuak muturren artean zifratuta daude, bilaketa ez da ibiliko eta baliteke "
-"jakinarazpenek mezuaren edukia ez erakustea"
+"Muturren artean zifratutako kanala. Bilaketa ez da ibiliko zifratutako "
+"kanalarekin eta baliteke jakinarazpenek mezuaren edukia ez erakustea."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
@@ -8626,18 +8606,14 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopiatu kokalekua arbelera"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show previous image"
-msgstr "Erakutsi mezua"
+msgstr "Erakutsi aurreko irudia"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show next image"
-msgstr "Erakutsi mezua"
+msgstr "Erakutsi hurrengo irudia"
 
 #: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
@@ -8689,9 +8665,7 @@ msgid "Show Starred Messages - %1"
 msgstr "Erakutsi izardun mezuak - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
 msgstr "Jarraitzen"
 
@@ -8918,12 +8892,10 @@ msgid "Decode Encryption Key"
 msgstr "Zifratzeko gakoa deskodetu"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "E2E zifratzea gaitu da"
+msgstr "Ezgaitu zifratzea"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8934,6 +8906,12 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"E2EE ezgaitzeak talde pribatu honen pribatutasuna arriskuan jarriko du. "
+"Talde pribatuko partaide guztiek zifratutako edukirako sarbide galduko "
+"dute.\n"
+"Zifratzea aurrerago birgaitu daiteke. Kontuz ibili.\n"
+"Inork ezin badu zifratutako edukia atzitu, horren ordez zifratzeko gakoak "
+"berrezarri ditzakezu."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -8941,13 +8919,13 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"Bestela, zifratzeko gakoak berrezartzea zifratzea gaituta mantenduko du, "
+"baina aurrez zifratutako edukirako sarbidea gal daiteke."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Zifratzeko gakoa deskodetu"
+msgstr "Berrezarri zifratzeko gakoak"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
@@ -8956,19 +8934,16 @@ msgid "Decode Key"
 msgstr "Gakoa deskodetu"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "E2E zifratzea gaitu da"
+msgstr "Gaitu zifratzea"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Click here to enter your e2e password."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Egin klik hemen zure e2e pasahitza sartzeko."
+msgstr "Mesedez, sartu zure E2EE pasahitza"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
@@ -8999,16 +8974,13 @@ msgid "Save Encryption Key"
 msgstr "Gorde zifratzeko gakoa"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Aplikazioa ez da aurkitu"
+msgstr "Aplikazioaren itzulpena"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translation"
+#, kde-format
 msgid "Translation"
 msgstr "Itzulpena"
 
@@ -9302,7 +9274,7 @@ msgstr "Trinkoa"
 #: widgets/misc/passwordconfirmwidget.cpp:22
 #, kde-format
 msgid "Your passwords do no match."
-msgstr ""
+msgstr "Zure pasahitzak ez datoz bat."
 
 #: widgets/misc/passwordconfirmwidget.cpp:36
 #, kde-format
@@ -9395,11 +9367,10 @@ msgid "Reset E2E Key"
 msgstr "Berrezarri E2E gakoa"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Aldatu..."
+msgstr "Aldatu."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -9928,7 +9899,7 @@ msgid "Clear"
 msgstr "Garbitu"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:641
+#: widgets/room/messagelistview.cpp:643
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10129,8 +10100,7 @@ msgid "Encrypt Messages"
 msgstr "Zifratu mezuak"
 
 #: widgets/room/commandpreviewwidget.cpp:140
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading..."
 msgstr "Zamatzen..."
 
@@ -10300,13 +10270,13 @@ msgstr "Bidali mezua"
 #: widgets/room/messagelinewidget.cpp:187
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
-msgstr ""
+msgstr "Komandoak huts egin du. Komandoa arbelean kopiatu nahi duzu?"
 
 #: widgets/room/messagelinewidget.cpp:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
-msgstr ""
+msgstr "Komando errorea"
 
 #: widgets/room/messagelinewidget.cpp:245
 #, kde-format
@@ -10451,48 +10421,48 @@ msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Erantzun harian"
 
-#: widgets/room/messagelistview.cpp:516
+#: widgets/room/messagelistview.cpp:518
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Erakutsi jatorrizko mezua"
 
-#: widgets/room/messagelistview.cpp:516
+#: widgets/room/messagelistview.cpp:518
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Itzuli mezua"
 
-#: widgets/room/messagelistview.cpp:563
+#: widgets/room/messagelistview.cpp:565
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Ikusi txostenak"
 
-#: widgets/room/messagelistview.cpp:586
+#: widgets/room/messagelistview.cpp:588
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Txostenak baztertu"
 
-#: widgets/room/messagelistview.cpp:668
+#: widgets/room/messagelistview.cpp:670
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Eman mezuaren berri"
 
-#: widgets/room/messagelistview.cpp:912
+#: widgets/room/messagelistview.cpp:914
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Mezu hori ezabatu nahi duzu?"
 
-#: widgets/room/messagelistview.cpp:913
+#: widgets/room/messagelistview.cpp:915
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ezabatu mezua"
 
-#: widgets/room/messagelistview.cpp:1094
+#: widgets/room/messagelistview.cpp:1096
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -10686,18 +10656,15 @@ msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgid "Direct Messages can not be archived"
+#, kde-format
 msgid "Encrypted content cannot be searched."
-msgstr "Zuzeneko-mezuak ezin dira artxibatu"
+msgstr "Zifratutako edukia ezin da bilatu."
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Bilatu mezuak"
+msgstr "Bilatu mezua"
 
 #: widgets/room/roomwidget.cpp:555
 #, kde-format
@@ -10736,10 +10703,9 @@ msgid "Disconnected"
 msgstr "Deskonektatuta"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owners"
-msgstr "Jabea"
+msgstr "Jabeak"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11403,8 +11369,7 @@ msgid "Return the number of account."
 msgstr "Itzuli kontuaren zenbakia."
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Check New Version"
+#, kde-format
 msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Egiaztatu bertsio berririk dagoen"
@@ -11413,11 +11378,15 @@ msgstr "Egiaztatu bertsio berririk dagoen"
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
+"Bertsio berri bat aurkitu da. Egin klik <a href=\"%1\">hemen</a> hura zama-"
+"jaisteko."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
+"Ez da bertsio berririk aurkitu. Eraikina <a href=\"%1\">hemen</a> aurki "
+"daiteke."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11449,49 +11418,45 @@ msgstr "Zer berri %2(a)n. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr ""
+msgstr "Tresnen pluginentzako euskarria gehitzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
-msgstr ""
+msgstr "Plugina: Gehitu pantaila-argazki botoia (bidaltzeko botoiaren ondoan)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
-msgstr "Aipamenen euskarria hobetzea."
+msgstr "Gonbidapen RC URLaren euskarria inplementatzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement verify if a new Ruqola version exist"
-msgstr ""
+msgstr "Ruqola-ren bertsio berri bat dagoen egiaztatzea inplementatzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Hariak irakurri gabeen/jarraitutakoen arabera bilatzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Show images from attachment dialog box"
-msgstr ""
+msgstr "Eranskin elkarrizketa-koadroan irudiak erakustea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
-msgstr "Rocket.Chat-en merkatu-plaza inplementatzea."
+msgstr "Rocket.Chat aplikazioaren euskarria inplementatzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "URL aurreikuspegia inplementatzea"
+msgstr "Komando aurreikuspegia inplementatzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Debug: explore translation from RC server."
-msgstr ""
+msgstr "Araztea: esploratu RC zerbitzariaren itzulpena."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
+"Pluginaren EI euskarria inplementatzea (konfiguratu ezarpenetarako "
+"elkarrizketa-koadroa sortu)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
@@ -11894,46 +11859,49 @@ msgstr "Baimendu aplikazioaren merkatuko ezarpenak erakustea"
 #, kde-format
 msgid "Allow to search file from username and filename."
 msgstr ""
+"Utzi, erabiltzaile-izena eta fitxategi-izenetik abiatuta, fitxategia "
+"bilatzen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:160
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
 msgstr ""
+"Testu hautapen bat kopiatzen dugunean ekintzaren testua kopiatu konpontzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:161
 #, kde-format
 msgid "A command start with '/' and not /* or // "
-msgstr ""
+msgstr "Komando bat '/'-rekin hasten da eta ez /* edo //-rekin "
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:162
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
-msgstr ""
+msgstr "Errore bat gertatu denean komando lerroa arbelean jartzen utzi"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:163
 #, kde-format
 msgid "Allow to activate/desactivate apps market."
-msgstr ""
+msgstr "Aplikazioen merkatua aktibatzeko/desaktibatzeko aukera ematen du."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Improve list of user in room."
-msgstr ""
+msgstr "Gelako erabiltzaileen zerrenda hobetzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Search in encrypted room is not possible."
-msgstr ""
+msgstr "Zifratutako gelan ezin da bilatu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "Show roles for users in rooms."
-msgstr ""
+msgstr "Erabiltzaileen geletako eginkizunak erakutsi."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
 #, kde-format
 msgid "Fix download languages apps."
-msgstr ""
+msgstr "Hizkuntza zama-jaisteko aplikazioen konponketa."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
