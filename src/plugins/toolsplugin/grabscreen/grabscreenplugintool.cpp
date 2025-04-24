@@ -49,6 +49,11 @@ PluginToolInterface *GrabScreenPluginTool::createInterface(QObject *parent)
 {
     return new GrabScreenPluginToolInterface(parent);
 }
+
+int GrabScreenPluginTool::order() const
+{
+    return 20;
+}
 #include "grabscreenplugintool.moc"
 
 #include "moc_grabscreenplugintool.cpp"

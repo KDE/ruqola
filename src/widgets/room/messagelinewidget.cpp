@@ -49,7 +49,12 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     , mEmoticonButton(new QToolButton(this))
     , mSendMessageButton(new QToolButton(this))
 {
-    const QList<PluginTool *> plugins = ToolsPluginManager::self()->pluginsList();
+    QList<PluginTool *> plugins = ToolsPluginManager::self()->pluginsList();
+    if (plugins.count() > 1) {
+        std::sort(plugins.begin(), plugins.end(), [](PluginTool *left, PluginTool *right) {
+            return left->order() < right->order();
+        });
+    }
 
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

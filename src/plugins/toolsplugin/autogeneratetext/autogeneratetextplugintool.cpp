@@ -48,6 +48,11 @@ PluginToolInterface *AutoGenerateTextPluginTool::createInterface(QObject *parent
 {
     return new AutoGenerateTextPluginToolInterface(parent);
 }
+
+int AutoGenerateTextPluginTool::order() const
+{
+    return 30;
+}
 #include "autogeneratetextplugintool.moc"
 
 #include "moc_autogeneratetextplugintool.cpp"

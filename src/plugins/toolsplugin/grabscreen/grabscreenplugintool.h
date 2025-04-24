@@ -21,4 +21,5 @@ public:
     [[nodiscard]] QString toolTip() const override;
     [[nodiscard]] QString description() const override;
     [[nodiscard]] PluginToolInterface *createInterface(QObject *parent) override;
+    [[nodiscard]] int order() const override;
 };
