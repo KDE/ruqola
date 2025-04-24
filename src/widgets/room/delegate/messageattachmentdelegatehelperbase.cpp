@@ -69,6 +69,7 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
         break;
     }
     case QEvent::MouseButtonDblClick: {
+        qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double click";
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
             if (const auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
                 const QPoint pos = mouseEvent->pos();
@@ -84,6 +85,7 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
         break;
     }
     case QEvent::MouseButtonPress: {
+        qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "mouse press";
         mTextSelectionImpl->setMightStartDrag(false);
         mCurrentIndex = QModelIndex();
         if (const auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
