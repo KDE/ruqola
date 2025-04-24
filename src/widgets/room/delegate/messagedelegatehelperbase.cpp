@@ -100,3 +100,11 @@ QString MessageDelegateHelperBase::searchText() const
 {
     return mSearchText;
 }
+
+QDebug operator<<(QDebug d, const MessageDelegateHelperBase::DocumentDescriptionInfo &t)
+{
+    d.space() << "documentId:" << t.documentId;
+    d.space() << "description:" << t.description;
+    d.space() << "width:" << t.width;
+    return d;
+}
