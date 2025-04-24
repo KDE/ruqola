@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-23 00:42+0000\n"
+"POT-Creation-Date: 2025-04-24 00:41+0000\n"
 "PO-Revision-Date: 2025-04-18 06:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3359,7 +3359,7 @@ msgstr "Kopiraj sporočilo"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:660
+#: widgets/room/messagelistview.cpp:662
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgctxt "@action"
@@ -6621,7 +6621,7 @@ msgstr "Največja starost sporočil v neposrednih sporočilih"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:105
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
 #, kde-format
 msgid "Apply"
 msgstr "Uveljavi"
@@ -7168,12 +7168,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Išči zasebne aplikacije"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:56
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:57
 #, kde-format
 msgid "Application does not have settings."
 msgstr "Aplikacija nima nastavitev."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:97
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:98
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"
@@ -9913,7 +9913,7 @@ msgid "Clear"
 msgstr "Počisti"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:642
+#: widgets/room/messagelistview.cpp:644
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10434,48 +10434,48 @@ msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:519
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Pokaži izvirno sporočilo"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:519
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
-#: widgets/room/messagelistview.cpp:564
+#: widgets/room/messagelistview.cpp:566
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Pogled poročil"
 
-#: widgets/room/messagelistview.cpp:587
+#: widgets/room/messagelistview.cpp:589
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Odpusti poročila"
 
-#: widgets/room/messagelistview.cpp:669
+#: widgets/room/messagelistview.cpp:671
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Poročaj sporočilo"
 
-#: widgets/room/messagelistview.cpp:913
+#: widgets/room/messagelistview.cpp:915
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ali želite izbrisati to sporočilo?"
 
-#: widgets/room/messagelistview.cpp:914
+#: widgets/room/messagelistview.cpp:916
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:1095
+#: widgets/room/messagelistview.cpp:1097
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11927,6 +11927,12 @@ msgstr "Popravi prenos jezika aplikacij."
 #, kde-format
 msgid "Fix show date info."
 msgstr "Popravi pogled informacij o datumu."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#, fuzzy, kde-format
+#| msgid "Allow to show application market settings"
+msgid "Fix save application settings."
+msgstr "Dovoli prikaz nastavitev trga aplikacij"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

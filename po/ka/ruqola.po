@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-23 00:42+0000\n"
+"POT-Creation-Date: 2025-04-24 00:41+0000\n"
 "PO-Revision-Date: 2025-04-18 03:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3344,7 +3344,7 @@ msgstr "შეტყობინების კოპირება"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:660
+#: widgets/room/messagelistview.cpp:662
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgctxt "@action"
@@ -6601,7 +6601,7 @@ msgstr "პირად შეტყობინებების მაქს�
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:105
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
 #, kde-format
 msgid "Apply"
 msgstr "გამოყენება"
@@ -7148,12 +7148,12 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "პირადი აპლიკაციების ძებნა"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:56
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:57
 #, kde-format
 msgid "Application does not have settings."
 msgstr "აპლიკაციას პარამეტრები არ აქვს."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:97
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:98
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"
@@ -9869,7 +9869,7 @@ msgid "Clear"
 msgstr "გასუფთავება"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:642
+#: widgets/room/messagelistview.cpp:644
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10386,48 +10386,48 @@ msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "ნაკადში პასუხი"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:519
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "ორიგინალი შეტყობინების ჩვენება"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:519
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "შეტყობინების თარგმნა"
 
-#: widgets/room/messagelistview.cpp:564
+#: widgets/room/messagelistview.cpp:566
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "ანგარიშების ნახვა"
 
-#: widgets/room/messagelistview.cpp:587
+#: widgets/room/messagelistview.cpp:589
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "ანგარიშების გაუქმება"
 
-#: widgets/room/messagelistview.cpp:669
+#: widgets/room/messagelistview.cpp:671
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "ანგარიში შეტყობინების შესახებ"
 
-#: widgets/room/messagelistview.cpp:913
+#: widgets/room/messagelistview.cpp:915
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "გსურთ, წაშალოთ ეს შეტყობინება?"
 
-#: widgets/room/messagelistview.cpp:914
+#: widgets/room/messagelistview.cpp:916
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "შეტყობინების წაშლა"
 
-#: widgets/room/messagelistview.cpp:1095
+#: widgets/room/messagelistview.cpp:1097
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11883,6 +11883,12 @@ msgstr "გასწორდა ენის აპების გადმო
 #, kde-format
 msgid "Fix show date info."
 msgstr "გასწორდა თარიღის ინფორმაციის ჩვენება."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#, fuzzy, kde-format
+#| msgid "Allow to show application market settings"
+msgid "Fix save application settings."
+msgstr "აპლიკაციის მარკეტის პარამეტრების ჩვენების დაშვება"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
