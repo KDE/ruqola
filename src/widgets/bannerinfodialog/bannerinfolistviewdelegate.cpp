@@ -11,7 +11,6 @@
 #include "ruqola_sizehint_cache_debug.h"
 #endif
 
-#include <KColorScheme>
 #include <KLocalizedString>
 #include <QAbstractItemView>
 #include <QListView>
