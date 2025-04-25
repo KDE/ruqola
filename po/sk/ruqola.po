@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-25 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -9040,7 +9040,7 @@ msgid "Video: %1"
 msgstr "Video"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:465
+#: widgets/room/messagelinewidget.cpp:470
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10638,118 +10638,118 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Pridať účet"
 
-#: widgets/room/messagelinewidget.cpp:68
+#: widgets/room/messagelinewidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Attachments"
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Prílohy"
 
-#: widgets/room/messagelinewidget.cpp:71
+#: widgets/room/messagelinewidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Attachments"
 msgid "Attach File"
 msgstr "Prílohy"
 
-#: widgets/room/messagelinewidget.cpp:79
+#: widgets/room/messagelinewidget.cpp:84
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/messagelinewidget.cpp:81
+#: widgets/room/messagelinewidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Video Message"
 msgstr "Správa"
 
-#: widgets/room/messagelinewidget.cpp:90 widgets/room/messagelinewidget.cpp:97
+#: widgets/room/messagelinewidget.cpp:95 widgets/room/messagelinewidget.cpp:102
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:97
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Sound Message"
 msgstr "Všetky správy"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:109
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Pridať účet"
 
-#: widgets/room/messagelinewidget.cpp:106
+#: widgets/room/messagelinewidget.cpp:111
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "Add Emoticon"
 msgstr "Pridať účet"
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelinewidget.cpp:115
+#: widgets/room/messagelinewidget.cpp:120
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Send Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelinewidget.cpp:187
+#: widgets/room/messagelinewidget.cpp:192
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:188
+#: widgets/room/messagelinewidget.cpp:193
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:245
+#: widgets/room/messagelinewidget.cpp:250
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:246
+#: widgets/room/messagelinewidget.cpp:251
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Správa"
 
-#: widgets/room/messagelinewidget.cpp:347
+#: widgets/room/messagelinewidget.cpp:352
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Message %1 in thread"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelinewidget.cpp:347
+#: widgets/room/messagelinewidget.cpp:352
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Send a message in %1…"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/messagelinewidget.cpp:488
+#: widgets/room/messagelinewidget.cpp:493
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:489
+#: widgets/room/messagelinewidget.cpp:494
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:494
+#: widgets/room/messagelinewidget.cpp:499
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
@@ -12482,6 +12482,11 @@ msgstr ""
 #| msgid "Application not found"
 msgid "Fix save application settings."
 msgstr "Aplikácia nenájdená"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#, kde-format
+msgid "Fix text selection in attachment."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format

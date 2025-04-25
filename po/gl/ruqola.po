@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-25 00:42+0000\n"
 "PO-Revision-Date: 2025-03-20 07:49+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -8722,7 +8722,7 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:465
+#: widgets/room/messagelinewidget.cpp:470
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10246,105 +10246,105 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Engadir unha reacción"
 
-#: widgets/room/messagelinewidget.cpp:68
+#: widgets/room/messagelinewidget.cpp:73
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Anexar un ficheiro…"
 
-#: widgets/room/messagelinewidget.cpp:71
+#: widgets/room/messagelinewidget.cpp:76
 #, kde-format
 msgid "Attach File"
 msgstr "Anexar un ficheiro"
 
-#: widgets/room/messagelinewidget.cpp:79
+#: widgets/room/messagelinewidget.cpp:84
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Enviar unha mensaxe de vídeo…"
 
-#: widgets/room/messagelinewidget.cpp:81
+#: widgets/room/messagelinewidget.cpp:86
 #, kde-format
 msgid "Video Message"
 msgstr "Mensaxe de vídeo"
 
-#: widgets/room/messagelinewidget.cpp:90 widgets/room/messagelinewidget.cpp:97
+#: widgets/room/messagelinewidget.cpp:95 widgets/room/messagelinewidget.cpp:102
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Enviar unha mensaxe de son…"
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:97
 #, kde-format
 msgid "Sound Message"
 msgstr "Mensaxe de son"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:109
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Engadir unha emoticona…"
 
-#: widgets/room/messagelinewidget.cpp:106
+#: widgets/room/messagelinewidget.cpp:111
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Engadir unha emoticona"
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:118
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Enviar unha mensaxe"
 
-#: widgets/room/messagelinewidget.cpp:115
+#: widgets/room/messagelinewidget.cpp:120
 #, kde-format
 msgid "Send Message"
 msgstr "Enviar a mensaxe"
 
-#: widgets/room/messagelinewidget.cpp:187
+#: widgets/room/messagelinewidget.cpp:192
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "A orde fallou. Quere copiala no portapapeis?"
 
-#: widgets/room/messagelinewidget.cpp:188
+#: widgets/room/messagelinewidget.cpp:193
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Erro da orde"
 
-#: widgets/room/messagelinewidget.cpp:245
+#: widgets/room/messagelinewidget.cpp:250
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Quere converter este texto longo nun anexo?"
 
-#: widgets/room/messagelinewidget.cpp:246
+#: widgets/room/messagelinewidget.cpp:251
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "A mensaxe é longa de máis"
 
-#: widgets/room/messagelinewidget.cpp:347
+#: widgets/room/messagelinewidget.cpp:352
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Mensaxe %1 do fío"
 
-#: widgets/room/messagelinewidget.cpp:347
+#: widgets/room/messagelinewidget.cpp:352
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Enviar unha mensaxe en %1…"
 
-#: widgets/room/messagelinewidget.cpp:488
+#: widgets/room/messagelinewidget.cpp:493
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "O ficheiro seleccionado é grande de máis (tamaño máximo: %1)"
 
-#: widgets/room/messagelinewidget.cpp:489
+#: widgets/room/messagelinewidget.cpp:494
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Subida de ficheiros"
 
-#: widgets/room/messagelinewidget.cpp:494
+#: widgets/room/messagelinewidget.cpp:499
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "O servidor non autorizou o ficheiro (o tipo MIME non é válido)."
@@ -11971,6 +11971,11 @@ msgstr "Corrixir amosar o URL de avatar."
 #| msgid "Allow to show application market settings"
 msgid "Fix save application settings."
 msgstr "Permitir amosar a configuración de mercado das aplicacións."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#, kde-format
+msgid "Fix text selection in attachment."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

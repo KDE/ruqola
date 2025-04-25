@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-25 00:42+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -8806,7 +8806,7 @@ msgid "Video: %1"
 msgstr "Videó: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:465
+#: widgets/room/messagelinewidget.cpp:470
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10342,19 +10342,19 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Reakció hozzáadása"
 
-#: widgets/room/messagelinewidget.cpp:68
+#: widgets/room/messagelinewidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Attach File"
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Fájl csatolása"
 
-#: widgets/room/messagelinewidget.cpp:71
+#: widgets/room/messagelinewidget.cpp:76
 #, kde-format
 msgid "Attach File"
 msgstr "Fájl csatolása"
 
-#: widgets/room/messagelinewidget.cpp:79
+#: widgets/room/messagelinewidget.cpp:84
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search moderation message…"
@@ -10362,12 +10362,12 @@ msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Moderációs üzenetek keresése…"
 
-#: widgets/room/messagelinewidget.cpp:81
+#: widgets/room/messagelinewidget.cpp:86
 #, kde-format
 msgid "Video Message"
 msgstr "Videoüzenet"
 
-#: widgets/room/messagelinewidget.cpp:90 widgets/room/messagelinewidget.cpp:97
+#: widgets/room/messagelinewidget.cpp:95 widgets/room/messagelinewidget.cpp:102
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search moderation message…"
@@ -10375,81 +10375,81 @@ msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Moderációs üzenetek keresése…"
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:97
 #, kde-format
 msgid "Sound Message"
 msgstr "Hangüzenet"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:109
 #, fuzzy, kde-format
 #| msgid "Add Emoticon"
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Hangulatjel hozzáadása"
 
-#: widgets/room/messagelinewidget.cpp:106
+#: widgets/room/messagelinewidget.cpp:111
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Hangulatjel hozzáadása"
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Send Message"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Üzenet küldése"
 
-#: widgets/room/messagelinewidget.cpp:115
+#: widgets/room/messagelinewidget.cpp:120
 #, kde-format
 msgid "Send Message"
 msgstr "Üzenet küldése"
 
-#: widgets/room/messagelinewidget.cpp:187
+#: widgets/room/messagelinewidget.cpp:192
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:188
+#: widgets/room/messagelinewidget.cpp:193
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:245
+#: widgets/room/messagelinewidget.cpp:250
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Szeretné átalakítani ezt a nagy szöveget mellékletté?"
 
-#: widgets/room/messagelinewidget.cpp:246
+#: widgets/room/messagelinewidget.cpp:251
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Az üzenet túl nagy"
 
-#: widgets/room/messagelinewidget.cpp:347
+#: widgets/room/messagelinewidget.cpp:352
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Üzenet küldése a(z) %1 szobának szálban"
 
-#: widgets/room/messagelinewidget.cpp:347
+#: widgets/room/messagelinewidget.cpp:352
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search moderation message…"
 msgid "Send a message in %1…"
 msgstr "Moderációs üzenetek keresése…"
 
-#: widgets/room/messagelinewidget.cpp:488
+#: widgets/room/messagelinewidget.cpp:493
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "A kiválasztott fájl túl nagy (maximális méret: %1)"
 
-#: widgets/room/messagelinewidget.cpp:489
+#: widgets/room/messagelinewidget.cpp:494
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Fájlfeltöltés"
 
-#: widgets/room/messagelinewidget.cpp:494
+#: widgets/room/messagelinewidget.cpp:499
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "A kiszolgáló nem hitelesítette ezt a fájlt (érvénytelen MIME-típus)"
@@ -12100,6 +12100,11 @@ msgstr "Profilkép URL megjelenítése javítva."
 #| msgid "Search Installed Applications"
 msgid "Fix save application settings."
 msgstr "Telepített alkalmazások keresése"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#, kde-format
+msgid "Fix text selection in attachment."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

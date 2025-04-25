@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-24 00:41+0000\n"
-"PO-Revision-Date: 2025-04-18 06:50+0200\n"
+"POT-Creation-Date: 2025-04-25 00:42+0000\n"
+"PO-Revision-Date: 2025-04-24 07:20+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -8706,7 +8706,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:465
+#: widgets/room/messagelinewidget.cpp:470
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10225,105 +10225,105 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Dodaj reakcijo"
 
-#: widgets/room/messagelinewidget.cpp:68
+#: widgets/room/messagelinewidget.cpp:73
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Pripni datoteko…"
 
-#: widgets/room/messagelinewidget.cpp:71
+#: widgets/room/messagelinewidget.cpp:76
 #, kde-format
 msgid "Attach File"
 msgstr "Pripni datoteko"
 
-#: widgets/room/messagelinewidget.cpp:79
+#: widgets/room/messagelinewidget.cpp:84
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Pošlji video sporočilo…"
 
-#: widgets/room/messagelinewidget.cpp:81
+#: widgets/room/messagelinewidget.cpp:86
 #, kde-format
 msgid "Video Message"
 msgstr "Video sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:90 widgets/room/messagelinewidget.cpp:97
+#: widgets/room/messagelinewidget.cpp:95 widgets/room/messagelinewidget.cpp:102
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Pošlji zvočno sporočilo…"
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:97
 #, kde-format
 msgid "Sound Message"
 msgstr "Zvočno sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:109
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Dodaj čustvenčka…"
 
-#: widgets/room/messagelinewidget.cpp:106
+#: widgets/room/messagelinewidget.cpp:111
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Poišči čustvenčka"
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:118
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Pošlji sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:115
+#: widgets/room/messagelinewidget.cpp:120
 #, kde-format
 msgid "Send Message"
 msgstr "Pošlji sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:187
+#: widgets/room/messagelinewidget.cpp:192
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Ukaz ni uspel. Ali želite kopirati ukaz na odložišče?"
 
-#: widgets/room/messagelinewidget.cpp:188
+#: widgets/room/messagelinewidget.cpp:193
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Napaka ukaza"
 
-#: widgets/room/messagelinewidget.cpp:245
+#: widgets/room/messagelinewidget.cpp:250
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Ali želite pretvoriti to obširno besedilo kot prilogo?"
 
-#: widgets/room/messagelinewidget.cpp:246
+#: widgets/room/messagelinewidget.cpp:251
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Sporočilo je preveliko"
 
-#: widgets/room/messagelinewidget.cpp:347
+#: widgets/room/messagelinewidget.cpp:352
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Sporočilo %1 v niti"
 
-#: widgets/room/messagelinewidget.cpp:347
+#: widgets/room/messagelinewidget.cpp:352
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Pošlji sporočilo v %1…"
 
-#: widgets/room/messagelinewidget.cpp:488
+#: widgets/room/messagelinewidget.cpp:493
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Izbrana datoteka je prevelika (največja velikost je %1)"
 
-#: widgets/room/messagelinewidget.cpp:489
+#: widgets/room/messagelinewidget.cpp:494
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Prenos datoteke tja"
 
-#: widgets/room/messagelinewidget.cpp:494
+#: widgets/room/messagelinewidget.cpp:499
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
@@ -11929,10 +11929,14 @@ msgid "Fix show date info."
 msgstr "Popravi pogled informacij o datumu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:179
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Dovoli prikaz nastavitev trga aplikacij"
+msgstr "Popravi shranjevanje nastavitev aplikacije."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#, kde-format
+msgid "Fix text selection in attachment."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
