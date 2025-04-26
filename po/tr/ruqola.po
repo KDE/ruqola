@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-25 00:42+0000\n"
-"PO-Revision-Date: 2025-04-21 10:50+0300\n"
+"PO-Revision-Date: 2025-04-25 09:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11876,15 +11876,14 @@ msgid "Fix show date info."
 msgstr "Tarih bilgisini göstermeyi onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:179
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Uygulama marketi ayarlarını göstermeye izin ver"
+msgstr "Uygulama ayarlarını kaydetmeyi onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:179
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "İlişikte metin seçimini onar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

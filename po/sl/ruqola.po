@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-25 00:42+0000\n"
-"PO-Revision-Date: 2025-04-24 07:20+0200\n"
+"PO-Revision-Date: 2025-04-25 06:55+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -11936,7 +11936,7 @@ msgstr "Popravi shranjevanje nastavitev aplikacije."
 #: widgets/whatsnew/whatsnewtranslations.cpp:179
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "Popravi izbiro besedila v prilogi."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
