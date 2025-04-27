@@ -334,9 +334,7 @@ void MessageListDelegate::needUpdateIndexBackground(const QPersistentModelIndex 
     if (it != mIndexBackgroundColorList.cend()) {
         mIndexBackgroundColorList.erase(it);
     }
-    IndexBackgroundColor back;
-    back.color = color;
-    back.index = index;
+    const IndexBackgroundColor back{.index = index, .color = color};
     mIndexBackgroundColorList.append(std::move(back));
 }
 
