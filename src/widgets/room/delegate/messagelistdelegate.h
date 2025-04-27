@@ -43,11 +43,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
     Q_OBJECT
 
 public:
-    struct IndexBackgroundColor {
-        QPersistentModelIndex index;
-        QColor color;
-    };
-
     struct MenuInfo {
         Room::RoomType roomType = Room::RoomType::Unknown;
         QPoint globalPos;
@@ -118,6 +113,10 @@ Q_SIGNALS:
     void replyToThread(const QByteArray &messageId, const QString &threadPreview);
 
 private:
+    struct IndexBackgroundColor {
+        QPersistentModelIndex index;
+        QColor color;
+    };
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateColors();
     LIBRUQOLAWIDGETS_NO_EXPORT void switchMessageLayout();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
