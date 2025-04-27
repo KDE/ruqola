@@ -328,12 +328,7 @@ void MessageListDelegate::removeSizeHintCache(const QByteArray &messageId)
 
 void MessageListDelegate::needUpdateIndexBackground(const QPersistentModelIndex &index, const QColor &color)
 {
-    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [index](const IndexBackgroundColor &key) {
-        return key.index == index;
-    });
-    if (it != mIndexBackgroundColorList.cend()) {
-        mIndexBackgroundColorList.erase(it);
-    }
+    removeNeedUpdateIndexBackground(index);
     const IndexBackgroundColor back{.index = index, .color = color};
     mIndexBackgroundColorList.append(std::move(back));
 }
