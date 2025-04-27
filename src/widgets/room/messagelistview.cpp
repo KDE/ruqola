@@ -1029,7 +1029,7 @@ void MessageListView::addSelectedMessageBackgroundAnimation(const QModelIndex &i
 {
     auto messageModel = qobject_cast<MessagesModel *>(model());
     if (messageModel) {
-        auto animation = new SelectedMessageBackgroundAnimation(messageModel, this);
+        auto animation = new SelectedMessageBackgroundAnimation(this);
         animation->setModelIndex(index);
         connect(animation, &SelectedMessageBackgroundAnimation::backgroundColorChanged, this, [this, animation]() {
             mMessageListDelegate->needUpdateIndexBackground(animation->modelIndex(), animation->backgroundColor());

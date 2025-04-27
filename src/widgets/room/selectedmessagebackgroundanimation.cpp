@@ -5,15 +5,14 @@
 */
 
 #include "selectedmessagebackgroundanimation.h"
-#include "model/messagesmodel.h"
 
 #include "colorsandmessageviewstyle.h"
 #include "ruqolawidgets_debug.h"
 #include <QPropertyAnimation>
+using namespace Qt::Literals::StringLiterals;
 
-SelectedMessageBackgroundAnimation::SelectedMessageBackgroundAnimation(MessagesModel *model, QObject *parent)
+SelectedMessageBackgroundAnimation::SelectedMessageBackgroundAnimation(QObject *parent)
     : QObject{parent}
-    , mModel(model)
 {
 }
 
@@ -56,11 +55,6 @@ void SelectedMessageBackgroundAnimation::start()
         Q_EMIT animationFinished();
         deleteLater();
     });
-}
-
-MessagesModel *SelectedMessageBackgroundAnimation::messageModel() const
-{
-    return mModel;
 }
 
 #include "moc_selectedmessagebackgroundanimation.cpp"

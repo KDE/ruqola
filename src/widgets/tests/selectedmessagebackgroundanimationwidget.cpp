@@ -20,7 +20,7 @@ SelectedMessageBackgroundAnimationWidget::SelectedMessageBackgroundAnimationWidg
     auto pushButton = new QPushButton(QStringLiteral("Activate"), this);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, [this] {
-        auto animation = new SelectedMessageBackgroundAnimation(nullptr, this);
+        auto animation = new SelectedMessageBackgroundAnimation(this);
         connect(animation, &SelectedMessageBackgroundAnimation::backgroundColorChanged, this, [this, animation]() {
             mLabel->setBackgroundColor(animation->backgroundColor());
         });
