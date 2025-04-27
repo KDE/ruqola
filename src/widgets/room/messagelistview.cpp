@@ -1027,23 +1027,17 @@ void MessageListView::scrollTo(const QModelIndex &index, QAbstractItemView::Scro
 
 void MessageListView::addSelectedMessageBackgroundAnimation(const QModelIndex &index)
 {
-    auto messageModel = qobject_cast<MessagesModel *>(model());
-    if (messageModel) {
-        auto animation = new SelectedMessageBackgroundAnimation(this);
-        animation->setModelIndex(index);
-        connect(animation, &SelectedMessageBackgroundAnimation::backgroundColorChanged, this, [this, animation]() {
-            mMessageListDelegate->needUpdateIndexBackground(animation->modelIndex(), animation->backgroundColor());
-            update(animation->modelIndex());
-        });
-        connect(animation, &SelectedMessageBackgroundAnimation::animationFinished, this, [this, animation]() {
-            mMessageListDelegate->removeNeedUpdateIndexBackground(animation->modelIndex());
-            update(animation->modelIndex());
-        });
-        animation->start();
-
-    } else {
-        qCWarning(RUQOLAWIDGETS_LOG) << " message model empty";
-    }
+    auto animation = new SelectedMessageBackgroundAnimation(this);
+    animation->setModelIndex(index);
+    connect(animation, &SelectedMessageBackgroundAnimation::backgroundColorChanged, this, [this, animation]() {
+        mMessageListDelegate->needUpdateIndexBackground(animation->modelIndex(), animation->backgroundColor());
+        update(animation->modelIndex());
+    });
+    connect(animation, &SelectedMessageBackgroundAnimation::animationFinished, this, [this, animation]() {
+        mMessageListDelegate->removeNeedUpdateIndexBackground(animation->modelIndex());
+        update(animation->modelIndex());
+    });
+    animation->start();
 }
 
 void MessageListView::setSearchText(const QString &str)
