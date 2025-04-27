@@ -51,7 +51,7 @@ option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
 option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
 option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
 
-option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" OFF)
+option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" ON)
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
@@ -94,7 +94,7 @@ endif()
 
 set(KTEXTADDONS_MIN_VERSION "1.5.4")
 # Remove it when next 1.6.0 KTEXTADDONS_MIN_VERSION
-set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "1.5.56")
+set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "1.5.57")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
