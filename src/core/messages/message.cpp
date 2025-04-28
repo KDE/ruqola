@@ -516,11 +516,13 @@ void Message::setVideoConferenceInfo(const VideoConferenceInfo &info)
 
 void Message::parseMentions(const QJsonArray &mentions)
 {
-    mMentions.clear();
+    QMap<QString, QByteArray> m;
+
     for (int i = 0; i < mentions.size(); i++) {
         const QJsonObject mention = mentions.at(i).toObject();
-        mMentions.insert(mention.value("username"_L1).toString(), mention.value("_id"_L1).toString().toLatin1());
+        m.insert(mention.value("username"_L1).toString(), mention.value("_id"_L1).toString().toLatin1());
     }
+    setMentions(m);
 }
 
 void Message::parseMessageUrls(const QJsonArray &urls)
