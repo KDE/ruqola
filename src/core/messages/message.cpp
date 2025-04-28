@@ -516,11 +516,11 @@ void Message::setVideoConferenceInfo(const VideoConferenceInfo &info)
 
 void Message::parseMentions(const QJsonArray &mentions)
 {
-    QMap<QString, QByteArray> m;
+    QList<QPair<QString, QByteArray>> m;
 
     for (int i = 0; i < mentions.size(); i++) {
         const QJsonObject mention = mentions.at(i).toObject();
-        m.insert(mention.value("username"_L1).toString(), mention.value("_id"_L1).toString().toLatin1());
+        m.append(QPair(mention.value("username"_L1).toString(), mention.value("_id"_L1).toString().toLatin1()));
     }
     setMentions(m);
 }
@@ -574,12 +574,12 @@ void Message::setIsStarred(bool starred)
     mMessageStarred.setIsStarred(starred);
 }
 
-QMap<QString, QByteArray> Message::mentions() const
+QList<QPair<QString, QByteArray>> Message::mentions() const
 {
     return mMentions;
 }
 
-void Message::setMentions(const QMap<QString, QByteArray> &mentions)
+void Message::setMentions(const QList<QPair<QString, QByteArray>> &mentions)
 {
     mMentions = mentions;
 }
@@ -1140,11 +1140,11 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         delete replies;
     }
 
-    QMap<QString, QByteArray> mentions;
+    QList<QPair<QString, QByteArray>> mentions;
     const QJsonArray mentionsArray = o.value("mentions"_L1).toArray();
     for (int i = 0, total = mentionsArray.count(); i < total; ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();
-        mentions.insert(mention.value("username"_L1).toString(), mention.value("_id"_L1).toString().toLatin1());
+        mentions.append(QPair(mention.value("username"_L1).toString(), mention.value("_id"_L1).toString().toLatin1()));
     }
     message.setMentions(std::move(mentions));
 
@@ -1238,13 +1238,11 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     // Mentions
     if (!message.mentions().isEmpty()) {
-        QMapIterator<QString, QByteArray> i(message.mentions());
         QJsonArray array;
-        while (i.hasNext()) {
-            i.next();
+        for (int i = 0; i < message.mentions().size(); ++i) {
             QJsonObject mention;
-            mention.insert("_id"_L1, QString::fromLatin1(i.value()));
-            mention.insert("username"_L1, i.key());
+            mention.insert("_id"_L1, QString::fromLatin1(message.mentions().at(i).second));
+            mention.insert("username"_L1, message.mentions().at(i).first);
             array.append(std::move(mention));
         }
         o["mentions"_L1] = array;

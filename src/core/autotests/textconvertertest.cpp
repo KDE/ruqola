@@ -400,16 +400,16 @@ void TextConverterTest::shouldShowChannels_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
-    QTest::addColumn<QMap<QString, QByteArray>>("mentions");
+    QTest::addColumn<QList<QPair<QString, QByteArray>>>("mentions");
     QTest::addColumn<QList<Channels::ChannelInfo>>("channels");
 
     {
-        QMap<QString, QByteArray> mentions;
+        QList<QPair<QString, QByteArray>> mentions;
         QList<Channels::ChannelInfo> channels;
         QTest::newRow("empty") << QString() << QString() << mentions << channels;
     }
     {
-        QMap<QString, QByteArray> mentions;
+        QList<QPair<QString, QByteArray>> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("foo");
@@ -418,7 +418,7 @@ void TextConverterTest::shouldShowChannels_data()
         QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<p><a href='ruqola:/room/idd'>#foo</a></p>\n") << mentions << channels;
     }
     {
-        QMap<QString, QByteArray> mentions;
+        QList<QPair<QString, QByteArray>> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("bla");
@@ -427,7 +427,7 @@ void TextConverterTest::shouldShowChannels_data()
         QTest::newRow("not existing room") << QStringLiteral("#foo") << QStringLiteral("<p><a href='ruqola:/room/foo'>#foo</a></p>\n") << mentions << channels;
     }
     {
-        QMap<QString, QByteArray> mentions;
+        QList<QPair<QString, QByteArray>> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("bla");
@@ -437,7 +437,7 @@ void TextConverterTest::shouldShowChannels_data()
         QTest::newRow("use fname") << QStringLiteral("#bla") << QStringLiteral("<p><a href='ruqola:/room/idd'>#FNAME</a></p>\n") << mentions << channels;
     }
     {
-        QMap<QString, QByteArray> mentions;
+        QList<QPair<QString, QByteArray>> mentions;
 
         QList<Channels::ChannelInfo> channels;
         {
@@ -460,7 +460,7 @@ void TextConverterTest::shouldShowChannels_data()
 
 void TextConverterTest::shouldShowChannels()
 {
-    using mapMentions = QMap<QString, QByteArray>;
+    using mapMentions = QList<QPair<QString, QByteArray>>;
     using mapChannels = QList<Channels::ChannelInfo>;
     QFETCH(QString, input);
     QFETCH(QString, output);
@@ -479,7 +479,7 @@ void TextConverterTest::shouldShowChannels()
 
 void TextConverterTest::shouldShowUsers()
 {
-    using mapMentions = QMap<QString, QByteArray>;
+    using mapMentions = QList<QPair<QString, QByteArray>>;
     using mapChannels = QList<Channels::ChannelInfo>;
     QFETCH(QString, input);
     QFETCH(QString, output);

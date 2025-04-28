@@ -133,7 +133,7 @@ QString markdownToRichTextCMark(const QString &markDown)
 QString generateRichTextCMark(const QString &str,
                               const QString &username,
                               const QStringList &highlightWords,
-                              const QMap<QString, QByteArray> &mentions,
+                              const QList<QPair<QString, QByteArray>> &mentions,
                               const Channels *const channels,
                               const QString &searchedText)
 {
@@ -281,8 +281,14 @@ QString generateRichTextCMark(const QString &str,
         const QRegularExpressionMatch match = userIterator.next();
         const QStringView word = match.capturedView(2);
         // Highlight only if it's yours
+        QByteArray userIdentifier;
+        for (int i = 0; i < mentions.size(); ++i) {
+            if (mentions.at(i).first == word.toString()) {
+                userIdentifier = mentions.at(i).second;
+                break;
+            }
+        }
 
-        const QByteArray userIdentifier = mentions.value(word.toString());
         QString wordFromUserIdentifier = QString::fromLatin1(userIdentifier);
         if (userIdentifier.isEmpty()) {
             wordFromUserIdentifier = word.toString();

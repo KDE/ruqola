@@ -27,7 +27,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
                                const QStringList &_highlightWords,
                                EmojiManager *_emojiManager,
                                MessageCache *_messageCache,
-                               const QMap<QString, QByteArray> &_mentions,
+                               const QList<QPair<QString, QByteArray>> &_mentions,
                                const Channels *_channels,
                                const QString &_searchedText = {},
                                int _maximumRecursiveQuotedText = -1)
@@ -49,7 +49,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     const QStringList highlightWords;
     EmojiManager *const emojiManager;
     MessageCache *const messageCache;
-    const QMap<QString, QByteArray> mentions;
+    const QList<QPair<QString, QByteArray>> mentions;
     const Channels *const channels;
     const QString searchedText;
     int maximumRecursiveQuotedText = -1;

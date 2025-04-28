@@ -31,7 +31,7 @@ void MessageTest::shouldHaveDefaultValues()
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 432);
+    QCOMPARE(sizeof(Message), 448);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -604,11 +604,11 @@ void MessageTest::shouldSerializeData()
         input.setLocalTranslation(QStringLiteral("message fr"));
 
         // Mention
-        QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("bla1"), "foo1"_ba);
-        mentions.insert(QStringLiteral("bla2"), "foo2"_ba);
-        mentions.insert(QStringLiteral("bla3"), "foo3"_ba);
-        mentions.insert(QStringLiteral("bla4"), "foo4"_ba);
+        QList<QPair<QString, QByteArray>> mentions;
+        mentions.append(QPair(QStringLiteral("bla1"), "foo1"_ba));
+        mentions.append(QPair(QStringLiteral("bla2"), "foo2"_ba));
+        mentions.append(QPair(QStringLiteral("bla3"), "foo3"_ba));
+        mentions.append(QPair(QStringLiteral("bla4"), "foo4"_ba));
         input.setMentions(mentions);
 
         // Channels
