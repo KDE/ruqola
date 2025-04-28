@@ -535,8 +535,8 @@ void TextConverterTest::shouldShowUsers_data()
 
     {
         QList<QPair<QString, QByteArray>> mentions;
-        mentions.append(QPair(QStringLiteral("nico"), "bb"_ba));
         mentions.append(QPair(QStringLiteral("nico.bla"), "bb_new"_ba));
+        mentions.append(QPair(QStringLiteral("nico"), "bb"_ba));
         QList<Channels::ChannelInfo> lst;
         QTest::newRow("channel-user-unknown") << QStringLiteral("@nico foo @nico.bla")
                                               << QStringLiteral("<p><a href='ruqola:/user/bb'>@nico</a> foo <a href='ruqola:/user/bb'>@nico</a>.bla</p>\n")
