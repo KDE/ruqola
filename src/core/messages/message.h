@@ -135,8 +135,8 @@ public:
     [[nodiscard]] const MessageUrls *urls() const;
     void setUrls(const MessageUrls &urls);
 
-    [[nodiscard]] QList<QPair<QString, QByteArray>> mentions() const;
-    void setMentions(const QList<QPair<QString, QByteArray>> &mentions);
+    [[nodiscard]] QMap<QString, QByteArray> mentions() const;
+    void setMentions(const QMap<QString, QByteArray> &mentions);
 
     [[nodiscard]] bool isStarred() const;
     void setIsStarred(bool starred);
@@ -271,7 +271,7 @@ private:
     QSharedDataPointer<Reactions> mReactions;
 
     // Mentions username/identifier
-    QList<QPair<QString, QByteArray>> mMentions;
+    QMap<QString, QByteArray> mMentions;
 
     // Channels Name/identifier
     QSharedDataPointer<Channels> mChannels;
