@@ -500,17 +500,17 @@ void TextConverterTest::shouldShowUsers_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
-    QTest::addColumn<QMap<QString, QByteArray>>("mentions");
+    QTest::addColumn<QList<QPair<QString, QByteArray>>>("mentions");
     QTest::addColumn<QList<Channels::ChannelInfo>>("channels");
 
     {
-        QMap<QString, QByteArray> mentions;
+        QList<QPair<QString, QByteArray>> mentions;
         QList<Channels::ChannelInfo> lst;
         QTest::newRow("empty") << QString() << QString() << mentions << lst;
     }
     {
-        QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("kde"), "bb"_ba);
+        QList<QPair<QString, QByteArray>> mentions;
+        mentions.append(QPair(QStringLiteral("kde"), "bb"_ba));
         QList<Channels::ChannelInfo> lst;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("foo");
@@ -521,8 +521,8 @@ void TextConverterTest::shouldShowUsers_data()
     }
 
     {
-        QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("kde1"), "bb"_ba);
+        QList<QPair<QString, QByteArray>> mentions;
+        mentions.append(QPair(QStringLiteral("kde1"), "bb"_ba));
         QList<Channels::ChannelInfo> lst;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("foo2");
@@ -534,9 +534,9 @@ void TextConverterTest::shouldShowUsers_data()
     }
 
     {
-        QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("nico"), "bb"_ba);
-        mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
+        QList<QPair<QString, QByteArray>> mentions;
+        mentions.append(QPair(QStringLiteral("nico"), "bb"_ba));
+        mentions.append(QPair(QStringLiteral("nico.bla"), "bb_new"_ba));
         QList<Channels::ChannelInfo> lst;
         QTest::newRow("channel-user-unknown") << QStringLiteral("@nico foo @nico.bla")
                                               << QStringLiteral("<p><a href='ruqola:/user/bb'>@nico</a> foo <a href='ruqola:/user/bb'>@nico</a>.bla</p>\n")
