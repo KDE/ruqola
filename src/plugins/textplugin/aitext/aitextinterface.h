@@ -7,6 +7,7 @@
 #pragma once
 
 #include "room/plugins/plugintextinterface.h"
+class AiTextMenuWidget;
 class AiTextInterface : public PluginTextInterface
 {
     Q_OBJECT
@@ -17,4 +18,7 @@ public:
     void addAction(QMenu *menu) override;
 
     void setSelectedText(const QString &str) override;
+
+private:
+    AiTextMenuWidget *const mMenuWidget;
 };

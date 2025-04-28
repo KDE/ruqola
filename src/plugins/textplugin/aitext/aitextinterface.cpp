@@ -5,11 +5,13 @@
 */
 
 #include "aitextinterface.h"
+#include "aitextmenuwidget.h"
 
 #include <QMenu>
 
 AiTextInterface::AiTextInterface(QObject *parent)
     : PluginTextInterface(parent)
+    , mMenuWidget(new AiTextMenuWidget(this))
 {
 }
 
@@ -18,10 +20,12 @@ AiTextInterface::~AiTextInterface() = default;
 void AiTextInterface::addAction(QMenu *menu)
 {
     menu->addSeparator();
+    menu->addMenu(mMenuWidget->menu());
 }
 
 void AiTextInterface::setSelectedText(const QString &str)
 {
+    mMenuWidget->setSelectedText(str);
 }
 
 #include "moc_aitextinterface.cpp"
