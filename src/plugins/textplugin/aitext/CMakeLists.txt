@@ -9,6 +9,8 @@ target_sources(ruqola_aitextplugin PRIVATE
     aitextinterface.h
     aitextplugin.cpp
     aitextplugin.h
+    aitextmenuwidget.h
+    aitextmenuwidget.cpp
 
 )
 target_link_libraries(ruqola_aitextplugin
