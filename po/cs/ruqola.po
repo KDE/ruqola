@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-25 00:42+0000\n"
+"POT-Creation-Date: 2025-04-28 00:41+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -9900,19 +9900,19 @@ msgstr "Připojit"
 msgid "Link Preview"
 msgstr "Náhled odkazu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:446
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #, kde-format
 msgid "User Info"
 msgstr "Informace o uživateli"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:449
 #: widgets/room/messagelistview.cpp:412
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:682
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -9920,7 +9920,7 @@ msgstr[0] "1 odpověď"
 msgstr[1] "%1 odpovědi"
 msgstr[2] "%1 odpovědí"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -9928,36 +9928,36 @@ msgstr[0] "1 Zpráva"
 msgstr[1] "%1 zprávy"
 msgstr[2] "%1 zpráv"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "No message yet"
 msgstr "Zatím žádné zprávy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1001
+#: widgets/room/delegate/messagelistdelegate.cpp:994
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Sledujete"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1005
+#: widgets/room/delegate/messagelistdelegate.cpp:998
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1009
+#: widgets/room/delegate/messagelistdelegate.cpp:1002
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1013
+#: widgets/room/delegate/messagelistdelegate.cpp:1006
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Odpovědět ve vláknu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1017
+#: widgets/room/delegate/messagelistdelegate.cpp:1010
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -10213,7 +10213,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Smazat zprávu"
 
-#: widgets/room/messagelistview.cpp:1097
+#: widgets/room/messagelistview.cpp:1091
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"

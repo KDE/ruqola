@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-25 00:42+0000\n"
+"POT-Creation-Date: 2025-04-28 00:41+0000\n"
 "PO-Revision-Date: 2025-04-17 12:48+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -10119,62 +10119,62 @@ msgstr "Gå med"
 msgid "Link Preview"
 msgstr "Länkförhandsgranskning"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:446
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #, kde-format
 msgid "User Info"
 msgstr "Användarinformation"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:449
 #: widgets/room/messagelistview.cpp:412
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Starta ett privat samtal"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:682
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 svar"
 msgstr[1] "%1 svar"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 meddelande"
 msgstr[1] "%1 meddelanden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "No message yet"
 msgstr "Inget meddelande ännu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1001
+#: widgets/room/delegate/messagelistdelegate.cpp:994
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Följer"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1005
+#: widgets/room/delegate/messagelistdelegate.cpp:998
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Meddelandet är uppsatt"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1009
+#: widgets/room/delegate/messagelistdelegate.cpp:1002
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Meddelande är stjärnmärkt"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1013
+#: widgets/room/delegate/messagelistdelegate.cpp:1006
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Svara på tråd"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1017
+#: widgets/room/delegate/messagelistdelegate.cpp:1010
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -10430,7 +10430,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ta bort meddelande"
 
-#: widgets/room/messagelistview.cpp:1097
+#: widgets/room/messagelistview.cpp:1091
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"

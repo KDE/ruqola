@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-25 00:42+0000\n"
-"PO-Revision-Date: 2025-04-06 12:53+0100\n"
+"POT-Creation-Date: 2025-04-28 00:41+0000\n"
+"PO-Revision-Date: 2025-04-27 05:06+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -2022,7 +2022,7 @@ msgstr ""
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
 msgid "Ask to AI"
-msgstr ""
+msgstr "Preguntar a una IA"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -2032,7 +2032,7 @@ msgstr "Crear una captura de pantalla"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:45
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr ""
+msgstr "Esta herramienta permite crear capturas de pantalla."
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -10187,62 +10187,62 @@ msgstr "Unirse"
 msgid "Link Preview"
 msgstr "Vista previa del enlace"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:446
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #, kde-format
 msgid "User Info"
 msgstr "Información del usuario"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:449
 #: widgets/room/messagelistview.cpp:412
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Iniciar una conversación privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:682
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 respuesta"
 msgstr[1] "%1 respuestas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensaje"
 msgstr[1] "%1 mensajes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "No message yet"
 msgstr "Ningún mensaje todavía"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1001
+#: widgets/room/delegate/messagelistdelegate.cpp:994
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Siguiendo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1005
+#: widgets/room/delegate/messagelistdelegate.cpp:998
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "El mensaje ha sido fijado"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1009
+#: widgets/room/delegate/messagelistdelegate.cpp:1002
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "El mensaje se ha destacado"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1013
+#: widgets/room/delegate/messagelistdelegate.cpp:1006
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Responder en el hilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1017
+#: widgets/room/delegate/messagelistdelegate.cpp:1010
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -10499,7 +10499,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Borrar mensaje"
 
-#: widgets/room/messagelistview.cpp:1097
+#: widgets/room/messagelistview.cpp:1091
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11452,11 +11452,8 @@ msgid "What's new in %2. %1"
 msgstr "¿Qué hay de nuevo en %2?. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Add Autojoin"
 msgid "Add AI plugin"
-msgstr "Añadir unirse automáticamente"
+msgstr "Añadir complemento IA"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
@@ -11963,21 +11960,19 @@ msgid "Fix download languages apps."
 msgstr "Mejora en la descarga de aplicaciones de idiomas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:179
-#, fuzzy, kde-format
-#| msgid "Fix show avatar url."
+#, kde-format
 msgid "Fix show date info."
-msgstr "Corrección al mostrar la URL del avatar."
+msgstr "Corrección en la información al mostrar fecha."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:179
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Permite mostrar las preferencias del mercado de aplicaciones"
+msgstr "Corrección al guardar las preferencias de la aplicación."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:179
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "Corrección de la selección de texto en el adjunto."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
