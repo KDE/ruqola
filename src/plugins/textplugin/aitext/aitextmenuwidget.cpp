@@ -16,11 +16,17 @@ AiTextMenuWidget::AiTextMenuWidget(QObject *parent)
     mAiTextMenu->setTitle(i18n("Ask AI…"));
     // mMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
     mAiTextMenu->setObjectName(QStringLiteral("mMenu"));
+    connect(mAiTextMenu, &QMenu::aboutToShow, this, &AiTextMenuWidget::slotInitializeMenu);
 }
 
 AiTextMenuWidget::~AiTextMenuWidget()
 {
     delete mAiTextMenu;
+}
+
+void AiTextMenuWidget::slotInitializeMenu()
+{
+    // TODO
 }
 
 QMenu *AiTextMenuWidget::menu() const
@@ -37,3 +43,5 @@ void AiTextMenuWidget::setSelectedText(const QString &newSelectedText)
 {
     mSelectedText = newSelectedText;
 }
+
+#include "moc_aitextmenuwidget.cpp"
