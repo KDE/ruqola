@@ -4,3 +4,7 @@ add_subdirectory(webshortcut)
 if(TARGET KF6::Purpose)
     add_subdirectory(sharetext)
 endif()
+
+if(TARGET KF6::TextAutogenerateText)
+    add_subdirectory(aitext)
+endif()
