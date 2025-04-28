@@ -5,6 +5,11 @@
 kcoreaddons_add_plugin(ruqola_aitextplugin INSTALL_NAMESPACE ruqolaplugins/textplugins)
 
 target_sources(ruqola_aitextplugin PRIVATE
+    aitextinterface.cpp
+    aitextinterface.h
+    aitextplugin.cpp
+    aitextplugin.h
+
 )
 target_link_libraries(ruqola_aitextplugin
     libruqolawidgets
