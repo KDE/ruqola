@@ -16,6 +16,7 @@ AiTextMenuWidget::AiTextMenuWidget(QObject *parent)
     mAiTextMenu->setTitle(i18n("Ask AI…"));
     // mMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
     mAiTextMenu->setObjectName(QStringLiteral("mMenu"));
+    // TODO necessary ???
     connect(mAiTextMenu, &QMenu::aboutToShow, this, &AiTextMenuWidget::slotInitializeMenu);
 }
 
@@ -26,7 +27,11 @@ AiTextMenuWidget::~AiTextMenuWidget()
 
 void AiTextMenuWidget::slotInitializeMenu()
 {
-    // TODO
+    // TODO add list of actions
+    auto configureAction = new QAction(i18nc("@action", "Configure…"), mAiTextMenu);
+    connect(configureAction, &QAction::triggered, this, &AiTextMenuWidget::slotConfigure);
+    mAiTextMenu->addSeparator();
+    mAiTextMenu->addAction(configureAction);
 }
 
 QMenu *AiTextMenuWidget::menu() const
@@ -42,6 +47,11 @@ QString AiTextMenuWidget::selectedText() const
 void AiTextMenuWidget::setSelectedText(const QString &newSelectedText)
 {
     mSelectedText = newSelectedText;
+}
+
+void AiTextMenuWidget::slotConfigure()
+{
+    // TODO
 }
 
 #include "moc_aitextmenuwidget.cpp"

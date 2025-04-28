@@ -22,6 +22,7 @@ public:
 
 private:
     void slotInitializeMenu();
+    void slotConfigure();
     QString mSelectedText;
     QMenu *const mAiTextMenu;
 };
