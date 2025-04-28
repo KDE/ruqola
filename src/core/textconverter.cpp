@@ -287,20 +287,25 @@ QString generateRichTextCMark(const QString &str,
         if (userIdentifier.isEmpty()) {
             wordFromUserIdentifier = word.toString();
         }
+        const int capturedStart = match.capturedStart(2) - 1;
+        const int replaceWordLength = word.toString().length() + 1;
         if (word == username) {
-            newStr.replace(QLatin1Char('@') + word.toString(),
+            newStr.replace(capturedStart,
+                           replaceWordLength,
                            QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
                                .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, wordFromUserIdentifier));
 
         } else {
             if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
-                newStr.replace(QLatin1Char('@') + word.toString(),
+                newStr.replace(capturedStart,
+                               replaceWordLength,
                                QStringLiteral("<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>")
                                    .arg(word.toString(), hereAllMentionForegroundColor, hereAllMentionBackgroundColor));
             } else {
-                newStr.replace(QLatin1Char('@') + word.toString(), QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, wordFromUserIdentifier));
+                newStr.replace(capturedStart, replaceWordLength, QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, wordFromUserIdentifier));
             }
         }
+        userIterator = regularExpressionUser.globalMatch(newStr);
     }
 
     return newStr;
