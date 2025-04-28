@@ -500,17 +500,17 @@ void TextConverterTest::shouldShowUsers_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
-    QTest::addColumn<QList<QPair<QString, QByteArray>>>("mentions");
+    QTest::addColumn<QMap<QString, QByteArray>>("mentions");
     QTest::addColumn<QList<Channels::ChannelInfo>>("channels");
 
     {
-        QList<QPair<QString, QByteArray>> mentions;
+        QMap<QString, QByteArray> mentions;
         QList<Channels::ChannelInfo> lst;
         QTest::newRow("empty") << QString() << QString() << mentions << lst;
     }
     {
-        QList<QPair<QString, QByteArray>> mentions;
-        mentions.append(QPair(QStringLiteral("kde"), "bb"_ba));
+        QMap<QString, QByteArray> mentions;
+        mentions.insert(QStringLiteral("kde"), "bb"_ba);
         QList<Channels::ChannelInfo> lst;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("foo");
@@ -521,8 +521,8 @@ void TextConverterTest::shouldShowUsers_data()
     }
 
     {
-        QList<QPair<QString, QByteArray>> mentions;
-        mentions.append(QPair(QStringLiteral("kde1"), "bb"_ba));
+        QMap<QString, QByteArray> mentions;
+        mentions.insert(QStringLiteral("kde1"), "bb"_ba);
         QList<Channels::ChannelInfo> lst;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("foo2");
@@ -535,8 +535,8 @@ void TextConverterTest::shouldShowUsers_data()
 
     {
         QList<QPair<QString, QByteArray>> mentions;
-        mentions.append(QPair(QStringLiteral("nico.bla"), "bb_new"_ba));
-        mentions.append(QPair(QStringLiteral("nico"), "bb"_ba));
+        mentions.insert(QStringLiteral("nico"), "bb"_ba);
+        mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
         QList<Channels::ChannelInfo> lst;
         QTest::newRow("quasi same name") << QStringLiteral("@nico foo @nico.bla")
                                          << QStringLiteral("<p><a href='ruqola:/user/bb'>@nico</a> foo <a href='ruqola:/user/bb'>@nico</a>.bla</p>\n")
