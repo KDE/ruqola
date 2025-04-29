@@ -22,5 +22,4 @@ public:
 
 private:
     AiTextListView *const mListView;
-    AiTextModel *const mModel;
 };

@@ -11,7 +11,6 @@
 AiTextMenuConfigureWidget::AiTextMenuConfigureWidget(QWidget *parent)
     : QWidget{parent}
     , mListView(new AiTextListView(this))
-    , mModel(new AiTextModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
@@ -19,19 +18,18 @@ AiTextMenuConfigureWidget::AiTextMenuConfigureWidget(QWidget *parent)
 
     mListView->setObjectName(QStringLiteral("mListView"));
     mainLayout->addWidget(mListView);
-    mListView->setModel(mModel);
 }
 
 AiTextMenuConfigureWidget::~AiTextMenuConfigureWidget() = default;
 
 void AiTextMenuConfigureWidget::setAiTextInfos(const QList<AiTextInfo> &infos)
 {
-    mModel->setInfos(infos);
+    mListView->setAiTextInfos(infos);
 }
 
 QList<AiTextInfo> AiTextMenuConfigureWidget::aiTextInfos() const
 {
-    return mModel->infos();
+    return mListView->aiTextInfos();
 }
 
 #include "moc_aitextmenuconfigurewidget.cpp"

@@ -6,36 +6,47 @@
 
 #include "aitextlistview.h"
 
+#include "aitextmodel.h"
+
 #include <KLocalizedString>
 #include <QContextMenuEvent>
 #include <QMenu>
 
 AiTextListView::AiTextListView(QWidget *parent)
     : QListView(parent)
+    , mModel(new AiTextModel(this))
 {
     setDragEnabled(false);
+    setModel(mModel);
 }
 
 AiTextListView::~AiTextListView() = default;
+
+void AiTextListView::setAiTextInfos(const QList<AiTextInfo> &infos)
+{
+    mModel->setInfos(infos);
+}
+
+QList<AiTextInfo> AiTextListView::aiTextInfos() const
+{
+    return mModel->infos();
+}
 
 void AiTextListView::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu(this);
     auto addAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Add…"), &menu);
     connect(addAction, &QAction::triggered, this, [this]() {
-        // TODO
+        AiTextInfo info;
+        info.setRequestText(QStringLiteral("foo"));
+        mModel->addItem(std::move(info));
     });
     menu.addAction(addAction);
     const QModelIndex index = indexAt(event->pos());
     if (index.isValid()) {
         auto editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), &menu);
         connect(editAction, &QAction::triggered, this, [index, this]() {
-            /*
-            const QByteArray uuid = index.data(TextAutoGenerateChatModel::UuidRole).toByteArray();
-            if (!uuid.isEmpty()) {
-                edit(index);
-            }
-            */
+            edit(index);
         });
         menu.addAction(editAction);
 
@@ -50,7 +61,6 @@ void AiTextListView::contextMenuEvent(QContextMenuEvent *event)
             */
         });
         menu.addAction(removeAction);
-        // TODO
     }
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
