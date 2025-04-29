@@ -32,6 +32,7 @@ QVariant AiTextModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
     case TextRole:
         return textInfo.requestText();
+    case Qt::CheckStateRole:
     case EnabledRole:
         return textInfo.enabled();
     }
@@ -78,6 +79,14 @@ void AiTextModel::addItem(const AiTextInfo &msg)
     beginInsertRows(QModelIndex(), mTextInfos.count(), mTextInfos.count());
     mTextInfos.append(msg);
     endInsertRows();
+}
+
+Qt::ItemFlags AiTextModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return Qt::NoItemFlags;
+
+    return Qt::ItemIsEditable | Qt::ItemIsUserCheckable | QAbstractListModel::flags(index);
 }
 
 #include "moc_aitextmodel.cpp"
