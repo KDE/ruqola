@@ -14,10 +14,12 @@ AiTextManager::~AiTextManager() = default;
 
 void AiTextManager::load()
 {
+    // TODO use KConfig
 }
 
 void AiTextManager::save()
 {
+    // TODO use KConfig
 }
 
 QList<AiTextInfo> AiTextManager::textInfos() const
