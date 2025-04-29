@@ -5,6 +5,7 @@
 */
 
 #include "aitextmenuwidget.h"
+#include "aitextmenuconfiguredialog.h"
 
 #include <KLocalizedString>
 #include <QMenu>
@@ -16,8 +17,7 @@ AiTextMenuWidget::AiTextMenuWidget(QObject *parent)
     mAiTextMenu->setTitle(i18n("Ask AI…"));
     // mMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
     mAiTextMenu->setObjectName(QStringLiteral("mMenu"));
-    // TODO necessary ???
-    connect(mAiTextMenu, &QMenu::aboutToShow, this, &AiTextMenuWidget::slotInitializeMenu);
+    initializeMenu();
 }
 
 AiTextMenuWidget::~AiTextMenuWidget()
@@ -25,7 +25,7 @@ AiTextMenuWidget::~AiTextMenuWidget()
     delete mAiTextMenu;
 }
 
-void AiTextMenuWidget::slotInitializeMenu()
+void AiTextMenuWidget::initializeMenu()
 {
     // TODO add list of actions
     auto configureAction = new QAction(i18nc("@action", "Configure…"), mAiTextMenu);
@@ -51,7 +51,12 @@ void AiTextMenuWidget::setSelectedText(const QString &newSelectedText)
 
 void AiTextMenuWidget::slotConfigure()
 {
-    // TODO
+    auto dlg = new AiTextMenuConfigureDialog(nullptr);
+    if (dlg->exec()) {
+        mAiTextMenu->clear();
+        initializeMenu();
+    }
+    delete dlg;
 }
 
 #include "moc_aitextmenuwidget.cpp"

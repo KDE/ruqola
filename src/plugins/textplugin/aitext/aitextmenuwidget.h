@@ -21,7 +21,7 @@ public:
     void setSelectedText(const QString &newSelectedText);
 
 private:
-    void slotInitializeMenu();
+    void initializeMenu();
     void slotConfigure();
     QString mSelectedText;
     QMenu *const mAiTextMenu;
