@@ -20,7 +20,7 @@ AiTextMenuConfigureDialog::AiTextMenuConfigureDialog(QWidget *parent)
     : QDialog(parent)
     , mAiTextMenuConfigureWidget(new AiTextMenuConfigureWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Configure Openai IA"));
+    setWindowTitle(i18nc("@title:window", "Configure AI text plugins"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
