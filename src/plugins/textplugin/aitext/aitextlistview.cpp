@@ -6,6 +6,7 @@
 
 #include "aitextlistview.h"
 
+#include "aitextlistviewdelegate.h"
 #include "aitextmodel.h"
 
 #include <KLocalizedString>
@@ -18,6 +19,7 @@ AiTextListView::AiTextListView(QWidget *parent)
 {
     setDragEnabled(false);
     setModel(mModel);
+    setItemDelegate(new AiTextListViewDelegate(this));
 }
 
 AiTextListView::~AiTextListView() = default;
@@ -38,7 +40,7 @@ void AiTextListView::contextMenuEvent(QContextMenuEvent *event)
     auto addAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Add…"), &menu);
     connect(addAction, &QAction::triggered, this, [this]() {
         AiTextInfo info;
-        info.setRequestText(QStringLiteral("foo"));
+        info.setRequestText(QStringLiteral("foo")); // TODO fix me.
         mModel->addItem(std::move(info));
     });
     menu.addAction(addAction);
@@ -66,3 +68,5 @@ void AiTextListView::contextMenuEvent(QContextMenuEvent *event)
         menu.exec(event->globalPos());
     }
 }
+
+#include "moc_aitextlistview.cpp"

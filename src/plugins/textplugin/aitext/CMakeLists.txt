@@ -23,6 +23,8 @@ target_sources(ruqola_aitextplugin PRIVATE
     aitextmanager.cpp
     aitextlistview.h
     aitextlistview.cpp
+    aitextlistviewdelegate.h
+    aitextlistviewdelegate.cpp
 )
 
 target_link_libraries(ruqola_aitextplugin

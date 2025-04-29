@@ -45,3 +45,5 @@ void AiTextListViewDelegate::updateEditorGeometry(QWidget *editor, const QStyleO
     Q_UNUSED(index);
     editor->setGeometry(option.rect);
 }
+
+#include "moc_aitextlistviewdelegate.cpp"
