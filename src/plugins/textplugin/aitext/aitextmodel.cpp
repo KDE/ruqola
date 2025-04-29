@@ -27,18 +27,14 @@ QVariant AiTextModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    /*
-    const auto &askItem = mTextInfos[index.row()];
+    const auto &textInfo = mTextInfos[index.row()];
     switch (role) {
     case Qt::DisplayRole:
-    case TitleRole:
-        return askItem.title();
     case TextRole:
-        return askItem.text();
+        return textInfo.requestText();
     case EnabledRole:
-        return askItem.enabled();
+        return textInfo.enabled();
     }
-    */
     return {};
 }
 

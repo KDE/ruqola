@@ -6,11 +6,14 @@
 #pragma once
 
 #include <QWidget>
-
+class QListView;
 class AiTextMenuConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AiTextMenuConfigureWidget(QWidget *parent = nullptr);
     ~AiTextMenuConfigureWidget() override;
+
+private:
+    QListView *const mListView;
 };
