@@ -15,7 +15,11 @@ public:
     [[nodiscard]] bool enabled() const;
     void setEnabled(bool newEnabled);
 
+    [[nodiscard]] QString requestText() const;
+    void setRequestText(const QString &newRequestText);
+
 private:
+    QString mRequestText;
     bool mEnabled = true;
 };
 Q_DECLARE_TYPEINFO(AiTextInfo, Q_RELOCATABLE_TYPE);

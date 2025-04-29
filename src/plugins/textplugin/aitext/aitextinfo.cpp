@@ -20,8 +20,19 @@ void AiTextInfo::setEnabled(bool newEnabled)
     mEnabled = newEnabled;
 }
 
+QString AiTextInfo::requestText() const
+{
+    return mRequestText;
+}
+
+void AiTextInfo::setRequestText(const QString &newRequestText)
+{
+    mRequestText = newRequestText;
+}
+
 QDebug operator<<(QDebug d, const AiTextInfo &t)
 {
     d.space() << "enabled:" << t.enabled();
+    d.space() << "requestText:" << t.requestText();
     return d;
 }
