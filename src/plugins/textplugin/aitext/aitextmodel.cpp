@@ -38,10 +38,27 @@ QVariant AiTextModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-bool AiTextModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool AiTextModel::setData(const QModelIndex &idx, const QVariant &value, int role)
 {
-    // TODO
-    return false;
+    if (!idx.isValid()) {
+        // qCWarning(TEXTAUTOGENERATETEXT_CORE_LOG) << "ERROR: invalid index";
+        return false;
+    }
+    const int id = idx.row();
+    AiTextInfo &info = mTextInfos[id];
+    switch (role) {
+    case AiTextRoles::TextRole: {
+        info.setRequestText(value.toString());
+        const QModelIndex newIndex = index(idx.row(), AiTextRoles::TextRole);
+        Q_EMIT dataChanged(newIndex, newIndex);
+        return true;
+    }
+    case AiTextRoles::EnabledRole:
+        info.setEnabled(value.toBool());
+        Q_EMIT dataChanged(idx, idx, {AiTextRoles::EnabledRole});
+        return true;
+    }
+    return QAbstractListModel::setData(idx, value, role);
 }
 
 QList<AiTextInfo> AiTextModel::infos() const
