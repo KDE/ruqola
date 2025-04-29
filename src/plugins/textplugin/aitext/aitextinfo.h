@@ -5,7 +5,7 @@
 */
 
 #pragma once
-
+#include <QDebug>
 class AiTextInfo
 {
 public:
@@ -18,3 +18,5 @@ public:
 private:
     bool mEnabled = true;
 };
+Q_DECLARE_TYPEINFO(AiTextInfo, Q_RELOCATABLE_TYPE);
+QDebug operator<<(QDebug d, const AiTextInfo &t);

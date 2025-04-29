@@ -19,3 +19,9 @@ void AiTextInfo::setEnabled(bool newEnabled)
 {
     mEnabled = newEnabled;
 }
+
+QDebug operator<<(QDebug d, const AiTextInfo &t)
+{
+    d.space() << "enabled:" << t.enabled();
+    return d;
+}
