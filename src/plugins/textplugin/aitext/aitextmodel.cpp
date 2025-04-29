@@ -34,7 +34,7 @@ QVariant AiTextModel::data(const QModelIndex &index, int role) const
         return textInfo.requestText();
     case Qt::CheckStateRole:
     case EnabledRole:
-        return textInfo.enabled();
+        return textInfo.enabled() ? Qt::Checked : Qt::Unchecked;
     }
     return {};
 }
@@ -54,6 +54,7 @@ bool AiTextModel::setData(const QModelIndex &idx, const QVariant &value, int rol
         Q_EMIT dataChanged(newIndex, newIndex);
         return true;
     }
+    case Qt::CheckStateRole:
     case AiTextRoles::EnabledRole:
         info.setEnabled(value.toBool());
         Q_EMIT dataChanged(idx, idx, {AiTextRoles::EnabledRole});
