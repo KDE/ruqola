@@ -66,6 +66,7 @@ void AiTextMenuWidget::setSelectedText(const QString &newSelectedText)
 void AiTextMenuWidget::slotConfigure()
 {
     auto dlg = new AiTextMenuConfigureDialog(nullptr);
+    dlg->setAiTextInfos(mAiTextManager->textInfos());
     if (dlg->exec()) {
         mAiTextManager->setTextInfos(dlg->aiTextInfos());
         mAiTextManager->save();
