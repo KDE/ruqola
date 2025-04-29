@@ -15,6 +15,8 @@ target_sources(ruqola_aitextplugin PRIVATE
     aitextmenuconfiguredialog.cpp
     aitextmenuconfigurewidget.h
     aitextmenuconfigurewidget.cpp
+    aitextinfo.h
+    aitextinfo.cpp
 
 )
 target_link_libraries(ruqola_aitextplugin
