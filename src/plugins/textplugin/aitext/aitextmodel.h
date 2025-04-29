@@ -31,6 +31,7 @@ public:
     void setInfos(const QList<AiTextInfo> &newAskItems);
 
     void addItem(const AiTextInfo &msg);
+    void removeInfo(int index);
 
 private:
     QList<AiTextInfo> mTextInfos;

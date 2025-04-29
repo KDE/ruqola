@@ -55,6 +55,7 @@ void AiTextListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         auto removeAction = new QAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove…"), &menu);
         connect(removeAction, &QAction::triggered, this, [index]() {
+            // TODO remove it
             /*
             const QByteArray uuid = index.data(TextAutoGenerateChatModel::UuidRole).toByteArray();
             if (!uuid.isEmpty()) {

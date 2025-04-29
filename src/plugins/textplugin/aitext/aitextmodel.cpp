@@ -83,6 +83,13 @@ void AiTextModel::addItem(const AiTextInfo &msg)
     endInsertRows();
 }
 
+void AiTextModel::removeInfo(int index)
+{
+    beginRemoveRows(QModelIndex(), index, index);
+    mTextInfos.removeAt(index);
+    endRemoveRows();
+}
+
 Qt::ItemFlags AiTextModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
