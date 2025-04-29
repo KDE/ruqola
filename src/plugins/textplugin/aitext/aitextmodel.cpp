@@ -5,6 +5,7 @@
 */
 
 #include "aitextmodel.h"
+#include "ruqola_aitextplugin_debug.h"
 
 AiTextModel::AiTextModel(QObject *parent)
     : QAbstractListModel{parent}
@@ -42,7 +43,7 @@ QVariant AiTextModel::data(const QModelIndex &index, int role) const
 bool AiTextModel::setData(const QModelIndex &idx, const QVariant &value, int role)
 {
     if (!idx.isValid()) {
-        // qCWarning(TEXTAUTOGENERATETEXT_CORE_LOG) << "ERROR: invalid index";
+        qCWarning(RUQOLA_AITEXT_PLUGIN_LOG) << "ERROR: invalid index";
         return false;
     }
     const int id = idx.row();
