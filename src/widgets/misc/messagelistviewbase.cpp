@@ -28,7 +28,13 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     scrollToBottom();
     setMouseTracking(true);
 
-    const QList<PluginText *> plugins = TextPluginManager::self()->pluginsList();
+    QList<PluginText *> plugins = TextPluginManager::self()->pluginsList();
+    qDebug() << " plugins : " << plugins.count();
+    if (plugins.count() > 1) {
+        std::sort(plugins.begin(), plugins.end(), [](PluginText *left, PluginText *right) {
+            return left->order() < right->order();
+        });
+    }
     for (PluginText *plugin : plugins) {
         connect(plugin, &PluginText::errorMessage, this, &MessageListViewBase::errorMessage);
         connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);
