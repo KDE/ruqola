@@ -5,6 +5,7 @@
 */
 
 #include "aitextmenuwidget.h"
+#include "aitextmanager.h"
 #include "aitextmenuconfiguredialog.h"
 
 #include <KLocalizedString>
@@ -13,7 +14,9 @@
 AiTextMenuWidget::AiTextMenuWidget(QObject *parent)
     : QObject{parent}
     , mAiTextMenu(new QMenu)
+    , mAiTextManager(new AiTextManager(this))
 {
+    mAiTextManager->load();
     mAiTextMenu->setTitle(i18n("Ask AI…"));
     // mMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
     mAiTextMenu->setObjectName(QStringLiteral("mMenu"));
@@ -27,10 +30,21 @@ AiTextMenuWidget::~AiTextMenuWidget()
 
 void AiTextMenuWidget::initializeMenu()
 {
-    // TODO add list of actions
+    const auto infos = mAiTextManager->textInfos();
+    for (const AiTextInfo &info : infos) {
+        if (info.enabled()) {
+            auto action = new QAction(info.requestText(), mAiTextMenu);
+            connect(action, &QAction::triggered, this, [this]() {
+                // TODO
+            });
+            mAiTextMenu->addAction(action);
+        }
+    }
     auto configureAction = new QAction(i18nc("@action", "Configure…"), mAiTextMenu);
     connect(configureAction, &QAction::triggered, this, &AiTextMenuWidget::slotConfigure);
-    mAiTextMenu->addSeparator();
+    if (!mAiTextMenu->isEmpty()) {
+        mAiTextMenu->addSeparator();
+    }
     mAiTextMenu->addAction(configureAction);
 }
 
@@ -53,6 +67,8 @@ void AiTextMenuWidget::slotConfigure()
 {
     auto dlg = new AiTextMenuConfigureDialog(nullptr);
     if (dlg->exec()) {
+        mAiTextManager->setTextInfos(dlg->aiTextInfos());
+        mAiTextManager->save();
         mAiTextMenu->clear();
         initializeMenu();
     }

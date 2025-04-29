@@ -40,6 +40,16 @@ AiTextMenuConfigureDialog::~AiTextMenuConfigureDialog()
     writeConfig();
 }
 
+void AiTextMenuConfigureDialog::setAiTextInfos(const QList<AiTextInfo> &infos)
+{
+    mAiTextMenuConfigureWidget->setAiTextInfos(infos);
+}
+
+QList<AiTextInfo> AiTextMenuConfigureDialog::aiTextInfos() const
+{
+    return mAiTextMenuConfigureWidget->aiTextInfos();
+}
+
 void AiTextMenuConfigureDialog::readConfig()
 {
     create(); // ensure a window is created

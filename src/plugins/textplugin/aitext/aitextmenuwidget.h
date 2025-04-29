@@ -8,6 +8,7 @@
 
 #include <QObject>
 class QMenu;
+class AiTextManager;
 class AiTextMenuWidget : public QObject
 {
     Q_OBJECT
@@ -25,4 +26,5 @@ private:
     void slotConfigure();
     QString mSelectedText;
     QMenu *const mAiTextMenu;
+    AiTextManager *const mAiTextManager;
 };

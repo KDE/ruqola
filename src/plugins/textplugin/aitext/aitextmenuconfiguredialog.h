@@ -5,6 +5,8 @@
 */
 #pragma once
 
+#include "aitextinfo.h"
+
 #include <QDialog>
 class AiTextMenuConfigureWidget;
 class AiTextMenuConfigureDialog : public QDialog
@@ -13,6 +15,9 @@ class AiTextMenuConfigureDialog : public QDialog
 public:
     explicit AiTextMenuConfigureDialog(QWidget *parent = nullptr);
     ~AiTextMenuConfigureDialog() override;
+
+    void setAiTextInfos(const QList<AiTextInfo> &infos);
+    [[nodiscard]] QList<AiTextInfo> aiTextInfos() const;
 
 private:
     void readConfig();

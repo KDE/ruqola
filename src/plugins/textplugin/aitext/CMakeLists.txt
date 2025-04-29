@@ -19,8 +19,12 @@ target_sources(ruqola_aitextplugin PRIVATE
     aitextinfo.cpp
     aitextmodel.h
     aitextmodel.cpp
-
+    aitextmanager.h
+    aitextmanager.cpp
+    aitextlistview.h
+    aitextlistview.cpp
 )
+
 target_link_libraries(ruqola_aitextplugin
     libruqolawidgets
     KF6::TextAutogenerateText

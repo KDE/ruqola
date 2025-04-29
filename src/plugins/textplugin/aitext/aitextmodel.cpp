@@ -62,3 +62,5 @@ void AiTextModel::addItem(const AiTextInfo &msg)
     mTextInfos.append(msg);
     endInsertRows();
 }
+
+#include "moc_aitextmodel.cpp"
