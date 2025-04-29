@@ -40,7 +40,7 @@ void AiTextListView::contextMenuEvent(QContextMenuEvent *event)
     auto addAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Add…"), &menu);
     connect(addAction, &QAction::triggered, this, [this]() {
         AiTextInfo info;
-        info.setRequestText(QStringLiteral("foo")); // TODO fix me.
+        info.setRequestText(i18n("Ask to AI"));
         mModel->addItem(std::move(info));
     });
     menu.addAction(addAction);
