@@ -17,4 +17,6 @@ public:
     ~WebShortcutTextPlugin() override;
 
     [[nodiscard]] PluginTextInterface *createInterface(QObject *parent) override;
+
+    [[nodiscard]] int order() const override;
 };

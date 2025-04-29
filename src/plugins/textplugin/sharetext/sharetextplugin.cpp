@@ -25,6 +25,11 @@ PluginTextInterface *ShareTextPlugin::createInterface(QObject *parent)
     return shareTextInterface;
 }
 
+int ShareTextPlugin::order() const
+{
+    return 20;
+}
+
 #include "sharetextplugin.moc"
 
 #include "moc_sharetextplugin.cpp"

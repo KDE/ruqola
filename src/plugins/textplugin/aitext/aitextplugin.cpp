@@ -22,6 +22,11 @@ PluginTextInterface *AiTextPlugin::createInterface(QObject *parent)
     return new AiTextInterface(parent);
 }
 
+int AiTextPlugin::order() const
+{
+    return 30;
+}
+
 #include "aitextplugin.moc"
 
 #include "moc_aitextplugin.cpp"

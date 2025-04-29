@@ -17,4 +17,5 @@ public:
     ~AiTextPlugin() override;
 
     [[nodiscard]] PluginTextInterface *createInterface(QObject *parent) override;
+    [[nodiscard]] int order() const override;
 };

@@ -18,6 +18,7 @@ public:
 
     virtual PluginTextInterface *createInterface(QObject *parent) = 0;
 
+    [[nodiscard]] virtual int order() const = 0;
 Q_SIGNALS:
     void errorMessage(const QString &message);
     void successMessage(const QString &message);
