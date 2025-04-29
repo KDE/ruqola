@@ -5,8 +5,11 @@
 */
 #pragma once
 
+#include "aitextinfo.h"
+
 #include <QWidget>
-class QListView;
+class AiTextListView;
+class AiTextModel;
 class AiTextMenuConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -14,6 +17,10 @@ public:
     explicit AiTextMenuConfigureWidget(QWidget *parent = nullptr);
     ~AiTextMenuConfigureWidget() override;
 
+    void setAiTextInfos(const QList<AiTextInfo> &infos);
+    [[nodiscard]] QList<AiTextInfo> aiTextInfos() const;
+
 private:
-    QListView *const mListView;
+    AiTextListView *const mListView;
+    AiTextModel *const mModel;
 };
