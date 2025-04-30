@@ -5,7 +5,6 @@
 */
 #include "aitextmenuconfigurewidget.h"
 #include "aitextlistview.h"
-#include "aitextmodel.h"
 #include <QVBoxLayout>
 
 AiTextMenuConfigureWidget::AiTextMenuConfigureWidget(QWidget *parent)
