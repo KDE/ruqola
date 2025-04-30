@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:41+0000\n"
+"POT-Creation-Date: 2025-04-30 00:42+0000\n"
 "PO-Revision-Date: 2025-04-25 09:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1994,21 +1994,63 @@ msgstr "Jeton:"
 msgid "Personal Access Token"
 msgstr "Kişisel Erişim Jetonu"
 
+#: plugins/textplugin/aitext/aitextlistview.cpp:40
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
+#, kde-format
+msgctxt "@action"
+msgid "Add…"
+msgstr "Ekle…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:43
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr "Yapay Zekâya Sor"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:49
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
+#: widgets/administratordialog/permissions/permissionswidget.cpp:92
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Modify…"
+msgstr "Değiştir…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove"
+msgctxt "@action"
+msgid "Remove…"
+msgstr "Kaldır"
+
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#| msgid "Configure Activities"
 msgctxt "@title:window"
-msgid "Configure Openai IA"
-msgstr "Roka’yı Yapılandır"
+msgid "Configure AI text plugins"
+msgstr "Etkinlikleri Yapılandır"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:16
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Ask to AI"
 msgid "Ask AI…"
 msgstr "Yapay Zekâya Sor"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:31
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:43
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Configure Notification…"
@@ -2035,11 +2077,6 @@ msgstr "Dosya, paylaşıldı."
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Yeni isteği şurada bulabilirsiniz:<br /><a href='%1'>%1</a> </qt>"
-
-#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
-#, kde-format
-msgid "Ask to AI"
-msgstr "Yapay Zekâya Sor"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -2965,32 +3002,6 @@ msgstr "Bu emojiyi kaldırmak istiyor musunz?"
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Emojiyi Kaldır"
-
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:295
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
-#, kde-format
-msgctxt "@action"
-msgid "Add…"
-msgstr "Ekle…"
-
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
-#: widgets/administratordialog/permissions/permissionswidget.cpp:92
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
-#, kde-format
-msgctxt "@action"
-msgid "Modify…"
-msgstr "Değiştir…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:174
@@ -11892,20 +11903,25 @@ msgstr "Odalardaki kullanıcıların rollerini göster"
 msgid "Fix download languages apps."
 msgstr "Dil uygulamalarını indirmeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix show date info."
 msgstr "Tarih bilgisini göstermeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix save application settings."
 msgstr "Uygulama ayarlarını kaydetmeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "İlişikte metin seçimini onar"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#, kde-format
+msgid "Fix display user."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -11931,3 +11947,10 @@ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeleri:"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Roka’yı Yapılandır"

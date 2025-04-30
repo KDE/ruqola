@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:41+0000\n"
+"POT-Creation-Date: 2025-04-30 00:42+0000\n"
 "PO-Revision-Date: 2025-04-19 09:10+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -2000,21 +2000,63 @@ msgstr "Jeton :"
 msgid "Personal Access Token"
 msgstr "Jeton d'accès personnel"
 
+#: plugins/textplugin/aitext/aitextlistview.cpp:40
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
+#, kde-format
+msgctxt "@action"
+msgid "Add…"
+msgstr "Ajouter..."
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:43
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr "Demander à l'IA"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:49
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
+#: widgets/administratordialog/permissions/permissionswidget.cpp:92
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Modify…"
+msgstr "Modifier…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove"
+msgctxt "@action"
+msgid "Remove…"
+msgstr "Supprimer"
+
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Configure Engine"
+#| msgid "Configure Activities"
 msgctxt "@title:window"
-msgid "Configure Openai IA"
-msgstr "Configurer un moteur"
+msgid "Configure AI text plugins"
+msgstr "Configurer les activités"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:16
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Ask to AI"
 msgid "Ask AI…"
 msgstr "Demander à l'IA"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:31
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Configure"
 msgctxt "@action"
@@ -2042,11 +2084,6 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 "<qt>Vous pouvez trouver la nouvelle requête à :<br /><a href='%1'>%1</a> </"
 "qt>"
-
-#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
-#, kde-format
-msgid "Ask to AI"
-msgstr "Demander à l'IA"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -3003,32 +3040,6 @@ msgstr "Voulez-vous vraiment supprimer cette émoticône ?"
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Supprimer une émoticône"
-
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:295
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
-#, kde-format
-msgctxt "@action"
-msgid "Add…"
-msgstr "Ajouter..."
-
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
-#: widgets/administratordialog/permissions/permissionswidget.cpp:92
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
-#, kde-format
-msgctxt "@action"
-msgid "Modify…"
-msgstr "Modifier…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:174
@@ -12061,20 +12072,25 @@ msgstr "Afficher le rôle des utilisateurs dans les salons."
 msgid "Fix download languages apps."
 msgstr "Corriger les applications de téléchargement de langues"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix show date info."
 msgstr "Corriger la date d’affichage des informations."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, fuzzy, kde-format
 #| msgid "Allow to show application market settings"
 msgid "Fix save application settings."
 msgstr "Autoriser à afficher la configuration du marché des applications"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix text selection in attachment."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#, kde-format
+msgid "Fix display user."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
@@ -12103,6 +12119,13 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Quelques correction de bogues :"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Engine"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Configurer un moteur"
 
 #, fuzzy
 #~| msgid "Loading…"

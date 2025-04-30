@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:41+0000\n"
-"PO-Revision-Date: 2025-04-25 12:58+0200\n"
+"POT-Creation-Date: 2025-04-30 00:42+0000\n"
+"PO-Revision-Date: 2025-04-29 12:09+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1996,27 +1996,66 @@ msgstr "Token:"
 msgid "Personal Access Token"
 msgstr "Persoonlijk toegangstoken"
 
+#: plugins/textplugin/aitext/aitextlistview.cpp:40
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
+#, kde-format
+msgctxt "@action"
+msgid "Add…"
+msgstr "Toevoegen…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:43
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr "Aan AI vragen"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:49
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
+#: widgets/administratordialog/permissions/permissionswidget.cpp:92
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Modify…"
+msgstr "Wijzigen…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove"
+msgctxt "@action"
+msgid "Remove…"
+msgstr "Verwijderen"
+
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Configure Engine"
+#| msgid "Configure Activities"
 msgctxt "@title:window"
-msgid "Configure Openai IA"
-msgstr "Configuratie-engine"
+msgid "Configure AI text plugins"
+msgstr "Activiteiten configureren"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Ask to AI"
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:20
+#, kde-format
 msgid "Ask AI…"
-msgstr "Aan AI vragen"
+msgstr "Aan AI vragen…"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure"
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:43
+#, kde-format
 msgctxt "@action"
 msgid "Configure…"
-msgstr "Configureren"
+msgstr "Configureren…"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
@@ -2038,11 +2077,6 @@ msgstr "Bestand was gedeeld."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 "<qt>Het nieuwe verzoek kunt u vinden op:<br /><a href='%1'>%1</a> </qt>"
-
-#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
-#, kde-format
-msgid "Ask to AI"
-msgstr "Aan AI vragen"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -2989,32 +3023,6 @@ msgstr "Wilt u deze emoji verwijderen?"
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Emoji verwijderen"
-
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:295
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
-#, kde-format
-msgctxt "@action"
-msgid "Add…"
-msgstr "Toevoegen…"
-
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
-#: widgets/administratordialog/permissions/permissionswidget.cpp:92
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
-#, kde-format
-msgctxt "@action"
-msgid "Modify…"
-msgstr "Wijzigen…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:174
@@ -11968,20 +11976,25 @@ msgstr "Rollen voor gebruikers in room tonen."
 msgid "Fix download languages apps."
 msgstr "Downloaden van talentoepassingen repareren."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix show date info."
 msgstr "Datuminformatie tonen repareren."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix save application settings."
 msgstr "Opslaan van instellingen van toepassingen repareren."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "Tekstselectie in bijlage repareren."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#, kde-format
+msgid "Fix display user."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -12007,6 +12020,12 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
+
+#~| msgctxt "@title:window"
+#~| msgid "Configure Engine"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Openai IA configureren"
 
 #~| msgid "Loading…"
 #~ msgid "Loading..."

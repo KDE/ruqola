@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:41+0000\n"
-"PO-Revision-Date: 2025-04-25 09:24+0300\n"
+"POT-Creation-Date: 2025-04-30 00:42+0000\n"
+"PO-Revision-Date: 2025-04-29 08:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2007,27 +2007,66 @@ msgstr "Жетон:"
 msgid "Personal Access Token"
 msgstr "Особистий жетон доступу"
 
+#: plugins/textplugin/aitext/aitextlistview.cpp:40
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
+#, kde-format
+msgctxt "@action"
+msgid "Add…"
+msgstr "Додати…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:43
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr "Запитати у ШІ"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:49
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
+#: widgets/administratordialog/permissions/permissionswidget.cpp:92
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Modify…"
+msgstr "Змінити…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove"
+msgctxt "@action"
+msgid "Remove…"
+msgstr "Вилучити"
+
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Configure Engine"
+#| msgid "Configure Activities"
 msgctxt "@title:window"
-msgid "Configure Openai IA"
-msgstr "Налаштовування рушія"
+msgid "Configure AI text plugins"
+msgstr "Налаштовування просторів дій"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Ask to AI"
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:20
+#, kde-format
 msgid "Ask AI…"
-msgstr "Запитати у ШІ"
+msgstr "Запитати у ШІ…"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure"
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:43
+#, kde-format
 msgctxt "@action"
 msgid "Configure…"
-msgstr "Налаштовування"
+msgstr "Налаштувати…"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
@@ -2048,11 +2087,6 @@ msgstr "Файл оприлюднено."
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новий запит можна знайти тут:<br /><a href='%1'>%1</a> </qt>"
-
-#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
-#, kde-format
-msgid "Ask to AI"
-msgstr "Запитати у ШІ"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -3001,32 +3035,6 @@ msgstr "Хочете вилучити цей емодзі?"
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Вилучення емодзі"
-
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:295
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
-#, kde-format
-msgctxt "@action"
-msgid "Add…"
-msgstr "Додати…"
-
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
-#: widgets/administratordialog/permissions/permissionswidget.cpp:92
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
-#, kde-format
-msgctxt "@action"
-msgid "Modify…"
-msgstr "Змінити…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:174
@@ -12035,20 +12043,25 @@ msgstr "Реалізовано показ ролей користувачів у
 msgid "Fix download languages apps."
 msgstr "Виправлено отримання мовних програм."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix show date info."
 msgstr "Виправлено показ даних щодо дати."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix save application settings."
 msgstr "Виправлено збереження параметрів роботи програми."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "Виправлено позначення тексту у долученні."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#, kde-format
+msgid "Fix display user."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -12074,6 +12087,12 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~| msgctxt "@title:window"
+#~| msgid "Configure Engine"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Налаштування ШІ Openai"
 
 #~| msgid "Loading…"
 #~ msgid "Loading..."
