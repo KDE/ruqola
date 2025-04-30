@@ -10,6 +10,7 @@
 #include "aitextmodel.h"
 
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QContextMenuEvent>
 #include <QMenu>
 
@@ -55,7 +56,14 @@ void AiTextListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         auto removeAction = new QAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove…"), &menu);
         connect(removeAction, &QAction::triggered, this, [index, this]() {
-            mModel->removeInfo(index.row());
+            if (KMessageBox::warningTwoActions(this,
+                                               i18n("Do you want to remove it?"),
+                                               i18nc("@title", "Remove"),
+                                               KStandardGuiItem::remove(),
+                                               KStandardGuiItem::cancel())
+                == KMessageBox::PrimaryAction) {
+                mModel->removeInfo(index.row());
+            }
         });
         menu.addAction(removeAction);
     }
