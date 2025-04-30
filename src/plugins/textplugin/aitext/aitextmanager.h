@@ -7,6 +7,7 @@
 
 #include "aitextinfo.h"
 
+#include <KSharedConfig>
 #include <QObject>
 
 class AiTextManager : public QObject
@@ -23,5 +24,6 @@ public:
     void setTextInfos(const QList<AiTextInfo> &newTextInfos);
 
 private:
+    [[nodiscard]] QStringList keyRecorderList(KSharedConfig::Ptr &config) const;
     QList<AiTextInfo> mTextInfos;
 };
