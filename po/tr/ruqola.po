@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:42+0000\n"
-"PO-Revision-Date: 2025-04-25 09:55+0300\n"
+"POT-Creation-Date: 2025-05-01 00:42+0000\n"
+"PO-Revision-Date: 2025-04-30 18:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1994,7 +1994,7 @@ msgstr "Jeton:"
 msgid "Personal Access Token"
 msgstr "Kişisel Erişim Jetonu"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:40
+#: plugins/textplugin/aitext/aitextlistview.cpp:41
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
@@ -2008,13 +2008,13 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "Ekle…"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:43
+#: plugins/textplugin/aitext/aitextlistview.cpp:44
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
 msgid "Ask to AI"
 msgstr "Yapay Zekâya Sor"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:49
+#: plugins/textplugin/aitext/aitextlistview.cpp:50
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
@@ -2028,35 +2028,41 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "Değiştir…"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove"
+#: plugins/textplugin/aitext/aitextlistview.cpp:57
+#, kde-format
 msgctxt "@action"
 msgid "Remove…"
+msgstr "Kaldır…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:60
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Do you want to remove it?"
+msgstr "“%1” durumunu kaldırmak istiyor musunuz?"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:61
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove"
 msgstr "Kaldır"
 
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure AI text plugins"
-msgstr "Etkinlikleri Yapılandır"
+msgstr "Yapay Zekâ Metin Eklentilerini Yapılandı"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Ask to AI"
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
+#, kde-format
 msgid "Ask AI…"
-msgstr "Yapay Zekâya Sor"
+msgstr "Yapay Zekâya Sor…"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Configure Notification…"
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
+#, kde-format
 msgctxt "@action"
 msgid "Configure…"
-msgstr "Bildirimi Yapılandır…"
+msgstr "Yapılandır…"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
@@ -11921,7 +11927,7 @@ msgstr "İlişikte metin seçimini onar"
 #: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix display user."
-msgstr ""
+msgstr "Kullanıcı görüntülemeyi onar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

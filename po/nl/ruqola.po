@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:42+0000\n"
-"PO-Revision-Date: 2025-04-29 12:09+0200\n"
+"POT-Creation-Date: 2025-05-01 00:42+0000\n"
+"PO-Revision-Date: 2025-04-30 12:15+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1996,7 +1996,7 @@ msgstr "Token:"
 msgid "Personal Access Token"
 msgstr "Persoonlijk toegangstoken"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:40
+#: plugins/textplugin/aitext/aitextlistview.cpp:41
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
@@ -2010,13 +2010,13 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "Toevoegen…"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:43
+#: plugins/textplugin/aitext/aitextlistview.cpp:44
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
 msgid "Ask to AI"
 msgstr "Aan AI vragen"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:49
+#: plugins/textplugin/aitext/aitextlistview.cpp:50
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
@@ -2030,28 +2030,37 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "Wijzigen…"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove"
+#: plugins/textplugin/aitext/aitextlistview.cpp:57
+#, kde-format
 msgctxt "@action"
 msgid "Remove…"
+msgstr "Verwijderen…"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:60
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Do you want to remove it?"
+msgstr "Wilt u \"%1\" verwijderen?"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:61
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove"
 msgstr "Verwijderen"
 
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure AI text plugins"
-msgstr "Activiteiten configureren"
+msgstr "AI-tekstplug-ins configureren"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:20
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
 #, kde-format
 msgid "Ask AI…"
 msgstr "Aan AI vragen…"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:43
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
 #, kde-format
 msgctxt "@action"
 msgid "Configure…"
@@ -11994,7 +12003,7 @@ msgstr "Tekstselectie in bijlage repareren."
 #: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix display user."
-msgstr ""
+msgstr "Scherm van gebruiker repareren."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:42+0000\n"
+"POT-Creation-Date: 2025-05-01 00:42+0000\n"
 "PO-Revision-Date: 2025-04-28 17:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2012,7 +2012,7 @@ msgstr "الرّمز:"
 msgid "Personal Access Token"
 msgstr "رمز الوصول الشخصي"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:40
+#: plugins/textplugin/aitext/aitextlistview.cpp:41
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
@@ -2026,13 +2026,13 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "أضف…"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:43
+#: plugins/textplugin/aitext/aitextlistview.cpp:44
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
 msgid "Ask to AI"
 msgstr "اسأل الذكاء الاصطناعي"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:49
+#: plugins/textplugin/aitext/aitextlistview.cpp:50
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
@@ -2046,12 +2046,25 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "عدّل…"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:56
+#: plugins/textplugin/aitext/aitextlistview.cpp:57
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Remove…"
+msgstr "أزل"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:60
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Do you want to remove it?"
+msgstr "أتريد إزالة \"%1\"؟"
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:61
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove"
 msgstr "أزل"
 
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
@@ -2062,13 +2075,13 @@ msgctxt "@title:window"
 msgid "Configure AI text plugins"
 msgstr "اضبط الأنشطة"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:20
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Ask to AI"
 msgid "Ask AI…"
 msgstr "اسأل الذكاء الاصطناعي"
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:43
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Configure Notification…"

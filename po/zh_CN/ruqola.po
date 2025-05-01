@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:42+0000\n"
+"POT-Creation-Date: 2025-05-01 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1982,7 +1982,7 @@ msgstr ""
 msgid "Personal Access Token"
 msgstr ""
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:40
+#: plugins/textplugin/aitext/aitextlistview.cpp:41
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
@@ -1996,13 +1996,13 @@ msgctxt "@action"
 msgid "Add…"
 msgstr ""
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:43
+#: plugins/textplugin/aitext/aitextlistview.cpp:44
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
 msgid "Ask to AI"
 msgstr ""
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:49
+#: plugins/textplugin/aitext/aitextlistview.cpp:50
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
@@ -2016,10 +2016,21 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr ""
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:56
+#: plugins/textplugin/aitext/aitextlistview.cpp:57
 #, kde-format
 msgctxt "@action"
 msgid "Remove…"
+msgstr ""
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:60
+#, kde-format
+msgid "Do you want to remove it?"
+msgstr ""
+
+#: plugins/textplugin/aitext/aitextlistview.cpp:61
+#, kde-format
+msgctxt "@title"
+msgid "Remove"
 msgstr ""
 
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
@@ -2028,12 +2039,12 @@ msgctxt "@title:window"
 msgid "Configure AI text plugins"
 msgstr ""
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:20
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
 #, kde-format
 msgid "Ask AI…"
 msgstr ""
 
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:43
+#: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
 #, kde-format
 msgctxt "@action"
 msgid "Configure…"
