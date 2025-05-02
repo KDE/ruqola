@@ -36,7 +36,9 @@ void AiTextListViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *m
 {
     QLineEdit *lineEdit = qobject_cast<QLineEdit *>(editor);
     if (lineEdit) {
-        model->setData(index, lineEdit->text(), AiTextModel::TextRole);
+        if (!lineEdit->text().trimmed().isEmpty()) {
+            model->setData(index, lineEdit->text(), AiTextModel::TextRole);
+        }
     }
 }
 
