@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:42+0000\n"
-"PO-Revision-Date: 2025-04-19 09:10+0200\n"
+"PO-Revision-Date: 2025-04-30 15:26+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2064,17 +2064,15 @@ msgid "Configure AI text plugins"
 msgstr "Configurer les activités"
 
 #: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Ask to AI"
+#, kde-format
 msgid "Ask AI…"
-msgstr "Demander à l'IA"
+msgstr "Demander à l'IA..."
 
 #: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@action"
 msgid "Configure…"
-msgstr "Configurer"
+msgstr "Configurer..."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
@@ -12091,15 +12089,14 @@ msgid "Fix show date info."
 msgstr "Corriger la date d’affichage des informations."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:180
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Autoriser à afficher la configuration du marché des applications"
+msgstr "Corriger la configuration d'enregistrement des applications."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "Corriger la sélection de texte en pièce jointe."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format

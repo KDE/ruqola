@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-01 00:42+0000\n"
-"PO-Revision-Date: 2025-04-30 09:29+0300\n"
+"PO-Revision-Date: 2025-05-01 12:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2048,17 +2048,15 @@ msgid "Remove…"
 msgstr "Вилучити…"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:60
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Do you want to remove it?"
-msgstr "Хочете вилучити «%1»?"
+msgstr "Хочете вилучити?"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:61
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove"
-msgstr "Вилучити"
+msgstr "Вилучення"
 
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
 #, kde-format
