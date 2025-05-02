@@ -22,18 +22,18 @@ public:
     static constexpr uint sectionCount = uint(RoomModel::Section::NSections);
 
     // QAbstractItemModel interface
-    QVariant data(const QModelIndex &index, int role) const override;
-    QModelIndex index(int row, int column, const QModelIndex &parent) const override;
-    QModelIndex parent(const QModelIndex &child) const override;
-    int rowCount(const QModelIndex &parent) const override;
-    int columnCount(const QModelIndex &parent) const override;
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
-    bool hasChildren(const QModelIndex &index) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QModelIndex index(int row, int column, const QModelIndex &parent) const override;
+    [[nodiscard]] QModelIndex parent(const QModelIndex &child) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent) const override;
+    [[nodiscard]] int columnCount(const QModelIndex &parent) const override;
+    [[nodiscard]] Qt::ItemFlags flags(const QModelIndex &index) const override;
+    [[nodiscard]] bool hasChildren(const QModelIndex &index) const override;
 
     // QAbstractProxyModel interface
     void setSourceModel(QAbstractItemModel *sourceModel) override;
-    QModelIndex mapToSource(const QModelIndex &proxyIndex) const override;
-    QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
+    [[nodiscard]] QModelIndex mapToSource(const QModelIndex &proxyIndex) const override;
+    [[nodiscard]] QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void onRowsInserted(const QModelIndex &parent, int first, int last);
