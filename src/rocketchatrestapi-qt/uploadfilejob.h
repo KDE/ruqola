@@ -60,3 +60,4 @@ Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadFileInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadFileInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadStatusInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadStatusInfo, Q_RELOCATABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UploadFileJob::UploadFileInfo &t);

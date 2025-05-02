@@ -176,4 +176,15 @@ bool UploadFileJob::UploadFileInfo::isValid() const
     return !roomId.isEmpty() && !filenameUrl.isEmpty();
 }
 
+QDebug operator<<(QDebug d, const RocketChatRestApi::UploadFileJob::UploadFileInfo &t)
+{
+    d.space() << "roomId:" << t.roomId;
+    d.space() << "description:" << t.description;
+    d.space() << "messageText:" << t.messageText;
+    d.space() << "filenameUrl:" << t.filenameUrl;
+    d.space() << "fileName:" << t.fileName;
+    d.space() << "threadMessageId:" << t.threadMessageId;
+    d.space() << "deleteTemporaryFile:" << t.deleteTemporaryFile;
+    return d;
+}
 #include "moc_uploadfilejob.cpp"
