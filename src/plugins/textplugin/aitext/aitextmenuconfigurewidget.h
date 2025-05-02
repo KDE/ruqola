@@ -9,7 +9,6 @@
 
 #include <QWidget>
 class AiTextListView;
-class AiTextModel;
 class AiTextMenuConfigureWidget : public QWidget
 {
     Q_OBJECT
