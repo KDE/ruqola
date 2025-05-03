@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-01 00:42+0000\n"
-"PO-Revision-Date: 2025-04-30 15:26+0200\n"
+"POT-Creation-Date: 2025-05-03 00:42+0000\n"
+"PO-Revision-Date: 2025-05-01 16:54+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2035,12 +2035,10 @@ msgid "Modify…"
 msgstr "Modifier…"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove…"
-msgstr "Supprimer"
+msgstr "Supprimer..."
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:60
 #, fuzzy, kde-format
@@ -2056,12 +2054,10 @@ msgid "Remove"
 msgstr "Supprimer"
 
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure AI text plugins"
-msgstr "Configurer les activités"
+msgstr "Configurer les modules externes d'IA pour le texte"
 
 #: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
 #, kde-format
@@ -3416,7 +3412,7 @@ msgstr "Copier un message"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:662
+#: widgets/room/messagelistview.cpp:682
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgctxt "@action"
@@ -10037,7 +10033,7 @@ msgid "Clear"
 msgstr "Effacer"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:644
+#: widgets/room/messagelistview.cpp:664
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10557,48 +10553,48 @@ msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Répondre dans le fil de discussions"
 
-#: widgets/room/messagelistview.cpp:519
+#: widgets/room/messagelistview.cpp:519 widgets/room/messagelistview.cpp:577
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Afficher le message original"
 
-#: widgets/room/messagelistview.cpp:519
+#: widgets/room/messagelistview.cpp:519 widgets/room/messagelistview.cpp:577
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traduire un message"
 
-#: widgets/room/messagelistview.cpp:566
+#: widgets/room/messagelistview.cpp:586
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Afficher les rapports"
 
-#: widgets/room/messagelistview.cpp:589
+#: widgets/room/messagelistview.cpp:609
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Rejeter les rapports"
 
-#: widgets/room/messagelistview.cpp:671
+#: widgets/room/messagelistview.cpp:691
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Signaler un message"
 
-#: widgets/room/messagelistview.cpp:915
+#: widgets/room/messagelistview.cpp:935
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Voulez-vous supprimer ce message ?"
 
-#: widgets/room/messagelistview.cpp:916
+#: widgets/room/messagelistview.cpp:936
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Supprimer un message"
 
-#: widgets/room/messagelistview.cpp:1091
+#: widgets/room/messagelistview.cpp:1111
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -12083,7 +12079,7 @@ msgstr "Afficher le rôle des utilisateurs dans les salons."
 msgid "Fix download languages apps."
 msgstr "Corriger les applications de téléchargement de langues"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
 #, kde-format
 msgid "Fix show date info."
 msgstr "Corriger la date d’affichage des informations."
@@ -12093,15 +12089,21 @@ msgstr "Corriger la date d’affichage des informations."
 msgid "Fix save application settings."
 msgstr "Corriger la configuration d'enregistrement des applications."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#: widgets/whatsnew/whatsnewtranslations.cpp:181
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "Corriger la sélection de texte en pièce jointe."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#: widgets/whatsnew/whatsnewtranslations.cpp:182
 #, kde-format
 msgid "Fix display user."
-msgstr ""
+msgstr "Corriger l'affichage de l'utilisateur."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:183
+#, fuzzy, kde-format
+#| msgid "Fix translate message in direct channel."
+msgid "Display translate menu in thread dialog."
+msgstr "Corriger la traduction de messages dans un canal direct."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

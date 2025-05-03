@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-01 00:42+0000\n"
+"POT-Creation-Date: 2025-05-03 00:42+0000\n"
 "PO-Revision-Date: 2025-04-18 12:01+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3384,7 +3384,7 @@ msgstr "Copia message"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:662
+#: widgets/room/messagelistview.cpp:682
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgctxt "@action"
@@ -9729,7 +9729,7 @@ msgid "Clear"
 msgstr "Netta"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:644
+#: widgets/room/messagelistview.cpp:664
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10246,48 +10246,48 @@ msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Responde in Topico"
 
-#: widgets/room/messagelistview.cpp:519
+#: widgets/room/messagelistview.cpp:519 widgets/room/messagelistview.cpp:577
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Monstra message original"
 
-#: widgets/room/messagelistview.cpp:519
+#: widgets/room/messagelistview.cpp:519 widgets/room/messagelistview.cpp:577
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traduce Message"
 
-#: widgets/room/messagelistview.cpp:566
+#: widgets/room/messagelistview.cpp:586
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Vide Reportos"
 
-#: widgets/room/messagelistview.cpp:589
+#: widgets/room/messagelistview.cpp:609
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Abbandona Reportos"
 
-#: widgets/room/messagelistview.cpp:671
+#: widgets/room/messagelistview.cpp:691
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Reporta Message"
 
-#: widgets/room/messagelistview.cpp:915
+#: widgets/room/messagelistview.cpp:935
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Tu vole deler iste message?"
 
-#: widgets/room/messagelistview.cpp:916
+#: widgets/room/messagelistview.cpp:936
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Dele Messages"
 
-#: widgets/room/messagelistview.cpp:1091
+#: widgets/room/messagelistview.cpp:1111
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11715,7 +11715,7 @@ msgstr ""
 msgid "Fix download languages apps."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
 #, kde-format
 msgid "Fix show date info."
 msgstr "Corrige info de data a monstrar."
@@ -11726,15 +11726,21 @@ msgstr "Corrige info de data a monstrar."
 msgid "Fix save application settings."
 msgstr "Permitte monstrar preferentias de application de mercato "
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#: widgets/whatsnew/whatsnewtranslations.cpp:181
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#: widgets/whatsnew/whatsnewtranslations.cpp:182
 #, kde-format
 msgid "Fix display user."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:183
+#, fuzzy, kde-format
+#| msgid "Fix translate message in direct channel."
+msgid "Display translate menu in thread dialog."
+msgstr "Corrige message de traduction in canal directe."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
