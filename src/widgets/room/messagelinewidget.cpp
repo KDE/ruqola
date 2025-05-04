@@ -154,7 +154,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
                 const PluginToolInterface::PluginToolInfo info{
                     .roomId = roomId(),
                     .accountName = mCurrentRocketChatAccount->accountName(),
-                    .tmid = {},
+                    .tmid = mThreadMessageId,
                     .msgId = {},
                 };
                 interface->setInfo(info);
