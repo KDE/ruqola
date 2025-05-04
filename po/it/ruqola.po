@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-03 00:42+0000\n"
-"PO-Revision-Date: 2025-04-21 14:36+0200\n"
+"PO-Revision-Date: 2025-05-01 17:48+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2029,46 +2029,38 @@ msgid "Modify…"
 msgstr "Modifica…"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove…"
-msgstr "Rimuovi"
+msgstr "Rimuovi…"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:60
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Do you want to remove it?"
-msgstr "Vuoi rimuovere «%1»?"
+msgstr "Vuoi rimuoverlo?"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:61
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove"
 msgstr "Rimuovi"
 
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure AI text plugins"
-msgstr "Configura le attività"
+msgstr "Configura le estensioni di testo dell'IA"
 
 #: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Ask to AI"
+#, kde-format
 msgid "Ask AI…"
-msgstr "Chiedi all'IA"
+msgstr "Chiedi all'IA…"
 
 #: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@action"
 msgid "Configure…"
-msgstr "Configura"
+msgstr "Configura…"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
@@ -12012,20 +12004,19 @@ msgid "Fix show date info."
 msgstr "Corregge le informazioni di visualizzazione della data"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:180
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Consente di mostrare le impostazioni del negozio delle applicazioni"
+msgstr "Corregge le impostazioni di salvataggio dell'applicazione."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:181
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "Corregge la selezione del testo nell'allegato."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:182
 #, kde-format
 msgid "Fix display user."
-msgstr ""
+msgstr "Corregge la visualizzazione dell'utente."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
 #, fuzzy, kde-format

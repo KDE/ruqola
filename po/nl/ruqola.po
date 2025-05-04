@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-03 00:42+0000\n"
-"PO-Revision-Date: 2025-05-01 18:58+0200\n"
+"PO-Revision-Date: 2025-05-03 12:44+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12004,10 +12004,9 @@ msgid "Fix display user."
 msgstr "Scherm van gebruiker repareren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Bericht vertalen in direct kanaal repareren."
+msgstr "Vertaalmenu in dialoog van discussiebundeling tonen."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

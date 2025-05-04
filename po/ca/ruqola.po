@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-03 00:42+0000\n"
-"PO-Revision-Date: 2025-05-01 10:33+0200\n"
+"PO-Revision-Date: 2025-05-03 09:28+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -12013,10 +12013,9 @@ msgid "Fix display user."
 msgstr "Corregeix la visualització de l'usuari."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Corregeix el missatge de traducció al canal directe."
+msgstr "Mostra el menú de traducció en el diàleg dels fils."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

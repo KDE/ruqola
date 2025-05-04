@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-03 00:42+0000\n"
-"PO-Revision-Date: 2025-05-01 12:48+0300\n"
+"PO-Revision-Date: 2025-05-03 09:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -12071,10 +12071,9 @@ msgid "Fix display user."
 msgstr "Виправлено показ користувача."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Виправлено переклад повідомлень у безпосередньому каналі."
+msgstr "Реалізовано показ меню перекладу у вікні гілки."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
