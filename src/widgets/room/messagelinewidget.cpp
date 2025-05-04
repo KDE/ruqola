@@ -155,7 +155,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
                     .roomId = roomId(),
                     .accountName = mCurrentRocketChatAccount->accountName(),
                     .tmid = mThreadMessageId,
-                    .msgId = {},
+                    .msgId = mMessageIdBeingEdited,
                 };
                 interface->setInfo(info);
                 interface->activateTool();
