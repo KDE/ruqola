@@ -72,14 +72,13 @@ void RoomFilterProxyModel::setSortOrder(OwnUserPreferences::RoomListSortOrder so
 
 bool RoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
-
     // By default don't display any sections
     // Thanks to recursive filtering, the sections with channels will be displayed
     if (!source_parent.isValid()) {
         return false;
     }
 
+    const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
     auto match = [&](int role) {
         return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
     };
