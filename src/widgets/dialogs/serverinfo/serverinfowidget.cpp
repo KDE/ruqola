@@ -54,7 +54,7 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
         mEnterpriseLicense->setTextInteractionFlags(Qt::TextSelectableByMouse);
         mEnterpriseLicense->setTextFormat(Qt::PlainText);
         layout->addRow(i18n("License:"), mEnterpriseLicense);
-        mEnterpriseLicense->setText(mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport() ? i18n("Enterprise") : i18n("None"));
+        mEnterpriseLicense->setText(mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport() ? i18n("Enterprise") : i18nc("No license", "None"));
         setServerConfigInfo(mRocketChatAccount->serverConfigInfo());
     }
 }
