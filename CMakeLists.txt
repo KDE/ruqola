@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(RUQOLA_VERSION "2.5.42")
+set(RUQOLA_VERSION "2.5.43")
 # TODO: update it in each release version
-set(RUQOLA_RELEASE_VERSION "25.04.23") # yy.MM.dd
+set(RUQOLA_RELEASE_VERSION "25.05.05") # yy.MM.dd
 
 # Use true if stable version => we will check specific version
 set(RUQOLA_STABLE_VERSION false)
@@ -94,7 +94,7 @@ endif()
 
 set(KTEXTADDONS_MIN_VERSION "1.5.4")
 # Remove it when next 1.6.0 KTEXTADDONS_MIN_VERSION
-set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "1.5.60")
+set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "1.5.62")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
