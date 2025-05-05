@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-03 00:42+0000\n"
-"PO-Revision-Date: 2025-05-01 03:31+0200\n"
+"PO-Revision-Date: 2025-05-04 04:06+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -11937,10 +11937,9 @@ msgid "Fix display user."
 msgstr "გასწორდა მომხმარებლის ჩვენება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "პირდაპირ არხში შეტყობინების თარგმნის გასწორება."
+msgstr "თარგმანის მენიუს ჩვენება საუბრის დიალოგში."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
