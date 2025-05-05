@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-03 02:31+0000\n"
-"PO-Revision-Date: 2025-04-05 17:55+0200\n"
+"PO-Revision-Date: 2025-05-04 18:14+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -6193,7 +6193,7 @@ msgstr "LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:118
 #, kde-format
 msgid "LinkedIn Id"
-msgstr "ID Linkedin"
+msgstr "ID LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:121
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:124
@@ -6943,7 +6943,7 @@ msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
 msgstr ""
-"Consigliato da abilitare se l'istanza jitsi non utilizza alcun meccanismo di "
+"Consigliato da abilitare se l'istanza Jitsi non utilizza alcun meccanismo di "
 "autenticazione."
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:93
@@ -7590,7 +7590,7 @@ msgstr "Evidenzia i messaggi quando li sorvoli con il puntatore"
 #, kde-format
 msgctxt "@option:check"
 msgid "Animate GIFs"
-msgstr "Gif animate"
+msgstr "GIF animate"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
@@ -8196,7 +8196,7 @@ msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Canale cifrato end-to-end. La ricerca non funzionerà con il canale cifratoe "
+"Canale cifrato end-to-end. La ricerca non funzionerà con il canale cifrato e "
 "le notifiche potrebbero non mostrare il contenuto dei messaggi."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
