@@ -7,11 +7,11 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QGraphicsPixmapItem>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageGraphicsPixmapItem : public QGraphicsPixmapItem
 {
 public:
-    explicit ShowImageGraphicsPixmapItem(QGraphicsItem *parent = nullptr);
+    explicit ShowImageGraphicsPixmapItem(RocketChatAccount *account, QGraphicsItem *parent = nullptr);
     ~ShowImageGraphicsPixmapItem() override;
 
 protected:
@@ -20,4 +20,5 @@ protected:
 
 private:
     QPointF dragStartPosition;
+    RocketChatAccount *const mRocketChatAccount;
 };

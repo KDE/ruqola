@@ -4,16 +4,19 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "showimagegraphicspixmapitem.h"
+#include "rocketchataccount.h"
 
 #include <QApplication>
 #include <QDrag>
 #include <QGraphicsSceneMouseEvent>
 #include <QIODevice>
 #include <QMimeData>
+#include <QUrl>
 #include <QWidget>
 
-ShowImageGraphicsPixmapItem::ShowImageGraphicsPixmapItem(QGraphicsItem *parent)
+ShowImageGraphicsPixmapItem::ShowImageGraphicsPixmapItem(RocketChatAccount *account, QGraphicsItem *parent)
     : QGraphicsPixmapItem(parent)
+    , mRocketChatAccount(account)
 {
     setFlag(QGraphicsItem::ItemIsSelectable);
 }
@@ -38,6 +41,7 @@ void ShowImageGraphicsPixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event
     }
     QDrag *drag = new QDrag(event->widget());
     QMimeData *mimeData = new QMimeData;
+    // mimeData->setUrls(QList<QUrl>{mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath)});
     QByteArray itemData;
     QDataStream dataStream(&itemData, QIODevice::WriteOnly);
     dataStream << pixmap().toImage();

@@ -11,8 +11,9 @@
 #include <QMimeData>
 #include <QMouseEvent>
 
-ShowImageGraphicsImageLabel::ShowImageGraphicsImageLabel(QWidget *parent)
+ShowImageGraphicsImageLabel::ShowImageGraphicsImageLabel(RocketChatAccount *account, QWidget *parent)
     : QLabel(parent)
+    , mRocketChatAccount(account)
 {
 }
 
