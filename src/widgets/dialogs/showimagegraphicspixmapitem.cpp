@@ -10,6 +10,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QIODevice>
 #include <QMimeData>
+#include <QWidget>
 
 ShowImageGraphicsPixmapItem::ShowImageGraphicsPixmapItem(QGraphicsItem *parent)
     : QGraphicsPixmapItem(parent)
@@ -35,7 +36,7 @@ void ShowImageGraphicsPixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event
     if ((event->pos() - dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
         return;
     }
-    QDrag *drag = new QDrag(nullptr);
+    QDrag *drag = new QDrag(event->widget());
     QMimeData *mimeData = new QMimeData;
     QByteArray itemData;
     QDataStream dataStream(&itemData, QIODevice::WriteOnly);
