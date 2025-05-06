@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:42+0000\n"
-"PO-Revision-Date: 2025-05-02 16:18+0200\n"
+"POT-Creation-Date: 2025-05-06 00:41+0000\n"
+"PO-Revision-Date: 2025-05-04 11:48+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -651,7 +651,6 @@ msgid "Unarchive"
 msgstr "Désarchiver"
 
 #: core/customsound/customsoundsmanager.cpp:25
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "None"
 msgstr "Aucun"
@@ -8651,6 +8650,13 @@ msgstr "Version du serveur : "
 msgid "License:"
 msgstr "Licence :"
 
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "No license"
+msgid "None"
+msgstr "Aucun"
+
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format
 msgid "Videos"
@@ -12098,10 +12104,9 @@ msgid "Fix display user."
 msgstr "Corriger l'affichage de l'utilisateur."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Corriger la traduction de messages dans un canal direct."
+msgstr "Afficher le menu de traduction dans la boîte de dialogue des messages."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:41+0000\n"
 "PO-Revision-Date: 2025-05-04 06:26+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -649,7 +649,6 @@ msgid "Unarchive"
 msgstr "غير مؤرشف"
 
 #: core/customsound/customsoundsmanager.cpp:25
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "None"
 msgstr "لا شيء"
@@ -8584,6 +8583,13 @@ msgstr "نسخة الخادم:"
 #, kde-format
 msgid "License:"
 msgstr "الرّخصة:"
+
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "No license"
+msgid "None"
+msgstr "لا شيء"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format

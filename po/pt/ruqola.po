@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:41+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -711,7 +711,6 @@ msgid "Unarchive"
 msgstr "Retirar do arquivo"
 
 #: core/customsound/customsoundsmanager.cpp:25
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "None"
 msgstr "Nenhuma"
@@ -9195,6 +9194,13 @@ msgstr "Versão do servidor:"
 #, kde-format
 msgid "License:"
 msgstr "Licença:"
+
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "No license"
+msgid "None"
+msgstr "Nenhuma"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:41+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -670,7 +670,6 @@ msgid "Unarchive"
 msgstr "Archiválás megszüntetése"
 
 #: core/customsound/customsoundsmanager.cpp:25
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "None"
 msgstr "Nincs"
@@ -8685,6 +8684,13 @@ msgstr "Kiszolgáló verziója:"
 #, kde-format
 msgid "License:"
 msgstr "Licenc:"
+
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "No license"
+msgid "None"
+msgstr "Nincs"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:41+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -649,7 +649,6 @@ msgstr "Zrušit archivaci"
 
 # žádné parametry funkce v inspektoru funkcí
 #: core/customsound/customsoundsmanager.cpp:25
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "None"
 msgstr "Nic"
@@ -8379,6 +8378,14 @@ msgstr "Verze serveru:"
 #, kde-format
 msgid "License:"
 msgstr "Licence:"
+
+# žádné parametry funkce v inspektoru funkcí
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "No license"
+msgid "None"
+msgstr "Nic"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format
