@@ -12,7 +12,8 @@
 #include "libruqolawidgets_private_export.h"
 #include "showimagewidget.h"
 class RocketChatAccount;
-class QLabel;
+class ShowImageGraphicsImageLabel;
+class ShowImageGraphicsPixmapItem;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageGraphicsView : public QGraphicsView
 {
@@ -58,8 +59,8 @@ private:
     ShowImageWidget::ImageInfo mImageInfo;
 
     QGraphicsProxyWidget *mGraphicsProxyWidget = nullptr;
-    QGraphicsPixmapItem *mGraphicsPixmapItem = nullptr;
-    QLabel *const mAnimatedLabel;
+    ShowImageGraphicsPixmapItem *const mGraphicsPixmapItem;
+    ShowImageGraphicsImageLabel *const mAnimatedLabel;
     RocketChatAccount *const mRocketChatAccount;
 
     qreal mMinimumZoom;

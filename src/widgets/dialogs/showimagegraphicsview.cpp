@@ -7,6 +7,8 @@
 #include "showimagegraphicsview.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_showimage_debug.h"
+#include "showimagegraphicsimagelabel.h"
+#include "showimagegraphicspixmapitem.h"
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsProxyWidget>
@@ -34,7 +36,8 @@ qreal fitToViewZoomScale(QSize imageSize, QSize widgetSize)
 
 ShowImageGraphicsView::ShowImageGraphicsView(RocketChatAccount *account, QWidget *parent)
     : QGraphicsView(parent)
-    , mAnimatedLabel(new QLabel)
+    , mGraphicsPixmapItem(new ShowImageGraphicsPixmapItem)
+    , mAnimatedLabel(new ShowImageGraphicsImageLabel)
     , mRocketChatAccount(account)
     , mMinimumZoom(defaultMinimumZoomScale)
     , mMaximumZoom(defaultMaximumZoomScale)
@@ -52,7 +55,7 @@ ShowImageGraphicsView::ShowImageGraphicsView(RocketChatAccount *account, QWidget
     mGraphicsProxyWidget->setObjectName(QStringLiteral("mGraphicsProxyWidget"));
     mGraphicsProxyWidget->setFlag(QGraphicsItem::ItemIsMovable, true);
 
-    mGraphicsPixmapItem = scene->addPixmap({});
+    scene->addItem(mGraphicsPixmapItem);
     mGraphicsPixmapItem->setTransformationMode(Qt::SmoothTransformation);
 
     updateRanges();

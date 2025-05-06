@@ -450,6 +450,11 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/showimagegraphicsview.cpp
     dialogs/showimageprevnextimagewidget.h
     dialogs/showimageprevnextimagewidget.cpp
+    dialogs/showimagegraphicsimagelabel.h
+    dialogs/showimagegraphicsimagelabel.cpp
+    dialogs/showimagegraphicspixmapitem.h
+    dialogs/showimagegraphicspixmapitem.cpp
+
     dialogs/showlistmessagebasedialog.cpp
     dialogs/showlistmessagebasedialog.h
     dialogs/showlistmessagebasewidget.cpp
