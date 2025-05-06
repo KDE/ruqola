@@ -21,7 +21,6 @@ TextHighlighter::TextHighlighter(QTextStream *stream)
 void TextHighlighter::highlight(const QString &str)
 {
     *mStream << QStringLiteral("<code>");
-
     KSyntaxHighlighting::State state;
 
     int lineStart = 0;
@@ -63,8 +62,10 @@ void TextHighlighter::applyFormat(int offset, int length, const KSyntaxHighlight
         }
         *mStream << QStringLiteral("\">");
     }
-
-    *mStream << mCurrentLine.mid(offset, length).toHtmlEscaped().replace(QLatin1Char(' '), "&nbsp;"_L1);
+    QString str = mCurrentLine.mid(offset, length).toHtmlEscaped();
+    str = str.replace(QLatin1Char('\t'), "    "_L1);
+    str = str.replace(QLatin1Char(' '), "&nbsp;"_L1);
+    *mStream << str;
 
     if (!format.isDefaultTextStyle(theme())) {
         *mStream << QStringLiteral("</span>");
