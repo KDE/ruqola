@@ -134,6 +134,12 @@ void TextConverterTest::shouldConvertText_data()
         << QStringLiteral(
                "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
                "$BORDERCOLOR$'><code>&nbsp;&nbsp;first&nbsp;line<br>&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n");
+
+    QTest::newRow("indented-code-block2")
+        << QStringLiteral("```\n\tfirst line\t  second line\n```")
+        << QStringLiteral(
+               "<p><table><tr><td style='background-color:#f7f7f7; padding: 5px; border: 1px solid "
+               "#707d8a'><code>&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;line&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n");
 }
 
 void TextConverterTest::shouldConvertText()
