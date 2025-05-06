@@ -11,41 +11,48 @@
 #include <QMimeData>
 #include <QMouseEvent>
 
-ShowImageGraphicsImageLabel::ShowImageGraphicsImageLabel(RocketChatAccount *account, QWidget *parent)
+ShowImageGraphicsImageLabel::ShowImageGraphicsImageLabel(QWidget *parent)
     : QLabel(parent)
-    , mRocketChatAccount(account)
 {
 }
 
 ShowImageGraphicsImageLabel::~ShowImageGraphicsImageLabel() = default;
 
+void ShowImageGraphicsImageLabel::setImagePath(const QString &path)
+{
+    mImagePath = path;
+}
+
 void ShowImageGraphicsImageLabel::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton) {
+    if (event->button() == Qt::LeftButton && (event->modifiers() & Qt::ControlModifier)) {
         mDragStartPosition = event->pos();
+        return;
     }
+    mDragStartPosition = {};
+    QLabel::mousePressEvent(event);
 }
 
 void ShowImageGraphicsImageLabel::mouseMoveEvent(QMouseEvent *event)
 {
-    if (!(event->buttons() & Qt::LeftButton)) {
+    if ((event->buttons() == Qt::LeftButton) && (event->modifiers() & Qt::ControlModifier)
+        && (event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+        QDrag *drag = new QDrag(this);
+        QMimeData *mimeData = new QMimeData;
+        mimeData->setUrls(QList<QUrl>{QUrl::fromLocalFile(mImagePath)});
+        QByteArray itemData;
+        QDataStream dataStream(&itemData, QIODevice::WriteOnly);
+        dataStream << pixmap().toImage();
+        mimeData->setData(QStringLiteral("application/x-dnditemdata"), itemData);
+
+        drag->setMimeData(mimeData);
+        drag->setPixmap(pixmap());
+        drag->setHotSpot(event->pos());
+
+        drag->exec(Qt::CopyAction | Qt::MoveAction);
         return;
     }
-    if ((event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
-        return;
-    }
-
-    QDrag *drag = new QDrag(this);
-    QMimeData *mimeData = new QMimeData;
-
-    QPixmap pixmap = this->pixmap();
-    mimeData->setImageData(pixmap);
-
-    drag->setMimeData(mimeData);
-    drag->setPixmap(pixmap);
-    drag->setHotSpot(event->pos());
-
-    drag->exec(Qt::CopyAction | Qt::MoveAction);
+    QLabel::mouseMoveEvent(event);
 }
 
 #include "moc_showimagegraphicsimagelabel.cpp"

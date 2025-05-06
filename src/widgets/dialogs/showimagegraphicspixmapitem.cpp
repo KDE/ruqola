@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "showimagegraphicspixmapitem.h"
-#include "rocketchataccount.h"
 
 #include <QApplication>
 #include <QDrag>
@@ -14,42 +13,46 @@
 #include <QUrl>
 #include <QWidget>
 
-ShowImageGraphicsPixmapItem::ShowImageGraphicsPixmapItem(RocketChatAccount *account, QGraphicsItem *parent)
+ShowImageGraphicsPixmapItem::ShowImageGraphicsPixmapItem(QGraphicsItem *parent)
     : QGraphicsPixmapItem(parent)
-    , mRocketChatAccount(account)
 {
-    setFlag(QGraphicsItem::ItemIsSelectable);
 }
 
 ShowImageGraphicsPixmapItem::~ShowImageGraphicsPixmapItem() = default;
 
+void ShowImageGraphicsPixmapItem::setImagePath(const QString &path)
+{
+    mImagePath = path;
+}
+
 void ShowImageGraphicsPixmapItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton) {
-        dragStartPosition = event->pos();
+    if (event->button() == Qt::LeftButton && (event->modifiers() & Qt::ControlModifier)) {
+        mDragStartPosition = event->pos();
+        return;
     }
+    mDragStartPosition = {};
     QGraphicsPixmapItem::mousePressEvent(event);
 }
 
 void ShowImageGraphicsPixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (!(event->buttons() & Qt::LeftButton)) {
+    if ((event->buttons() == Qt::LeftButton) && (event->modifiers() & Qt::ControlModifier)
+        && (event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+        QDrag *drag = new QDrag(event->widget());
+        QMimeData *mimeData = new QMimeData;
+        mimeData->setUrls(QList<QUrl>{QUrl::fromLocalFile(mImagePath)});
+        QByteArray itemData;
+        QDataStream dataStream(&itemData, QIODevice::WriteOnly);
+        dataStream << pixmap().toImage();
+        mimeData->setData(QStringLiteral("application/x-dnditemdata"), itemData);
+
+        drag->setMimeData(mimeData);
+        // TODO verify it
+        drag->setPixmap(pixmap().scaled(200, 200, Qt::KeepAspectRatio));
+
+        drag->exec(Qt::CopyAction | Qt::MoveAction);
         return;
     }
-    if ((event->pos() - dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
-        return;
-    }
-    QDrag *drag = new QDrag(event->widget());
-    QMimeData *mimeData = new QMimeData;
-    // mimeData->setUrls(QList<QUrl>{mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath)});
-    QByteArray itemData;
-    QDataStream dataStream(&itemData, QIODevice::WriteOnly);
-    dataStream << pixmap().toImage();
-    mimeData->setData(QStringLiteral("application/x-dnditemdata"), itemData);
-
-    drag->setMimeData(mimeData);
-    drag->setPixmap(pixmap());
-    drag->setHotSpot(event->pos().toPoint());
-
-    drag->exec(Qt::CopyAction | Qt::MoveAction);
+    QGraphicsPixmapItem::mouseMoveEvent(event);
 }

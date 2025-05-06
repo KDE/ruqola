@@ -36,8 +36,8 @@ qreal fitToViewZoomScale(QSize imageSize, QSize widgetSize)
 
 ShowImageGraphicsView::ShowImageGraphicsView(RocketChatAccount *account, QWidget *parent)
     : QGraphicsView(parent)
-    , mGraphicsPixmapItem(new ShowImageGraphicsPixmapItem(account))
-    , mAnimatedLabel(new ShowImageGraphicsImageLabel(account))
+    , mGraphicsPixmapItem(new ShowImageGraphicsPixmapItem)
+    , mAnimatedLabel(new ShowImageGraphicsImageLabel)
     , mRocketChatAccount(account)
     , mMinimumZoom(defaultMinimumZoomScale)
     , mMaximumZoom(defaultMaximumZoomScale)
@@ -67,6 +67,7 @@ void ShowImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path
 {
     clearContents();
     if (!mImageInfo.isAnimatedImage) {
+        mGraphicsPixmapItem->setImagePath(path);
         mGraphicsPixmapItem->setPixmap(pix);
         QTimer::singleShot(0, this, [this] {
             updateRanges();
@@ -78,6 +79,7 @@ void ShowImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path
         mMovie->setFileName(path);
         mMovie->start();
         mMovie->stop();
+        mAnimatedLabel->setImagePath(path);
         mAnimatedLabel->setMovie(mMovie.data());
 
         QTimer::singleShot(0, this, [this] {

@@ -7,13 +7,13 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QLabel>
-class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageGraphicsImageLabel : public QLabel
 {
     Q_OBJECT
 public:
-    explicit ShowImageGraphicsImageLabel(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit ShowImageGraphicsImageLabel(QWidget *parent = nullptr);
     ~ShowImageGraphicsImageLabel() override;
+    void setImagePath(const QString &path);
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
@@ -21,5 +21,5 @@ protected:
 
 private:
     QPoint mDragStartPosition;
-    RocketChatAccount *const mRocketChatAccount;
+    QString mImagePath;
 };

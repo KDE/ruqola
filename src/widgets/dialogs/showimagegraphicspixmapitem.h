@@ -7,18 +7,18 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QGraphicsPixmapItem>
-class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageGraphicsPixmapItem : public QGraphicsPixmapItem
 {
 public:
-    explicit ShowImageGraphicsPixmapItem(RocketChatAccount *account, QGraphicsItem *parent = nullptr);
+    explicit ShowImageGraphicsPixmapItem(QGraphicsItem *parent = nullptr);
     ~ShowImageGraphicsPixmapItem() override;
+    void setImagePath(const QString &path);
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
-    QPointF dragStartPosition;
-    RocketChatAccount *const mRocketChatAccount;
+    QString mImagePath;
+    QPointF mDragStartPosition;
 };
