@@ -18,5 +18,5 @@ public:
 
     virtual void addAction(QMenu *menu) = 0;
 
-    virtual void setSelectedText(const QString &str);
+    virtual void setSelectedText(const QString &str) = 0;
 };

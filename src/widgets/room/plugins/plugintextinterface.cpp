@@ -13,9 +13,4 @@ PluginTextInterface::PluginTextInterface(QObject *parent)
 
 PluginTextInterface::~PluginTextInterface() = default;
 
-void PluginTextInterface::setSelectedText(const QString &str)
-{
-    Q_UNUSED(str)
-}
-
 #include "moc_plugintextinterface.cpp"
