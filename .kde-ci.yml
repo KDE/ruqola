@@ -44,3 +44,4 @@ Dependencies:
 Options:
  require-passing-tests-on: ['Linux', 'Windows']
  tests-run-in-parallel: True
+ use-ccache: True
