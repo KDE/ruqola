@@ -10,10 +10,8 @@
 #include "showimagegraphicsimagelabel.h"
 #include "showimagegraphicspixmapitem.h"
 
-#include <QGraphicsPixmapItem>
 #include <QGraphicsProxyWidget>
 #include <QGraphicsScene>
-#include <QLabel>
 #include <QMovie>
 #include <QScopedValueRollback>
 #include <QTimer>
