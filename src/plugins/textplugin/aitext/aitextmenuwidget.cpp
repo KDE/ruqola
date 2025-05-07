@@ -46,7 +46,7 @@ void AiTextMenuWidget::initializeMenu()
             mAiTextMenu->addAction(action);
         }
     }
-    auto configureAction = new QAction(i18nc("@action", "Configure…"), mAiTextMenu);
+    auto configureAction = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18nc("@action", "Configure…"), mAiTextMenu);
     connect(configureAction, &QAction::triggered, this, &AiTextMenuWidget::slotConfigure);
     if (!mAiTextMenu->isEmpty()) {
         mAiTextMenu->addSeparator();
