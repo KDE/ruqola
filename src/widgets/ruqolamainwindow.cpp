@@ -5,7 +5,6 @@
 */
 
 #include "ruqolamainwindow.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
@@ -108,7 +107,7 @@ namespace
 static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 const int ruqolaVersion = 3;
 }
-
+using namespace Qt::Literals::StringLiterals;
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
     , mMainWidget(new RuqolaCentralWidget(this))
