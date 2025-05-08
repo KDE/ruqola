@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-07 00:42+0000\n"
-"PO-Revision-Date: 2025-05-06 20:51+0300\n"
+"PO-Revision-Date: 2025-05-07 13:47+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -11554,10 +11554,8 @@ msgid "Add AI plugin"
 msgstr "Додано додаток ШІ"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Дозволено надсилання електронної пошти"
+msgstr "Дозволено зображення «Не турбувати»."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

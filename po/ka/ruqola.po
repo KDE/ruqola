@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-07 00:42+0000\n"
-"PO-Revision-Date: 2025-05-06 04:40+0200\n"
+"PO-Revision-Date: 2025-05-07 05:01+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -11426,10 +11426,8 @@ msgid "Add AI plugin"
 msgstr "ხი-ის დამატება"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "ელფოსტის გაგზავნის დაშვება"
+msgstr "გამოსახულების დაგდების დაშვება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

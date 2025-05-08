@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-07 00:42+0000\n"
-"PO-Revision-Date: 2025-05-06 09:16+0200\n"
+"PO-Revision-Date: 2025-05-07 06:37+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -11475,10 +11475,8 @@ msgid "Add AI plugin"
 msgstr "Dodaj vtičnik umetne inteligence"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Dovoli pošiljanje elektronske pošte"
+msgstr "Dovoli dnd slike."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

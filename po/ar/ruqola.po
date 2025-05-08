@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-07 00:42+0000\n"
-"PO-Revision-Date: 2025-05-04 06:26+0400\n"
+"PO-Revision-Date: 2025-05-07 17:51+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -8585,8 +8585,7 @@ msgid "License:"
 msgstr "الرّخصة:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No license"
 msgid "None"
 msgstr "لا شيء"
@@ -11485,10 +11484,8 @@ msgid "Add AI plugin"
 msgstr "أضف ملحقة الذكاء الاصطناعي"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "السماح بإرسال البريد الإلكتروني"
+msgstr "السماح بتحويل الصور إلى نمط سجون وتنانين."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
