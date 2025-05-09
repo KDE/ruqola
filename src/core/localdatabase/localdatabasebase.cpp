@@ -73,7 +73,7 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
 bool LocalDatabaseBase::checkDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db)
 {
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    const QString dbName = generateDatabaseName(accountName, roomName);
     db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room"
@@ -97,10 +97,16 @@ bool LocalDatabaseBase::checkDataBase(const QString &accountName, QSqlDatabase &
     return true;
 }
 
+QString LocalDatabaseBase::generateDatabaseName(const QString &accountName, const QString &roomName) const
+{
+    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    return dbName;
+}
+
 bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db)
 {
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    const QString dbName = generateDatabaseName(accountName, roomName);
     db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);

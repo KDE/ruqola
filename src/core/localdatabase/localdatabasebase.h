@@ -37,4 +37,7 @@ protected:
     [[nodiscard]] QString databaseName(const QString &name) const;
     const QString mBasePath;
     const DatabaseType mDatabaseType = DatabaseType::Unknown;
+
+private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDatabaseName(const QString &accountName, const QString &_roomName) const;
 };
