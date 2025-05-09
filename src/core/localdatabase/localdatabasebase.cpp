@@ -52,13 +52,13 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     case DatabaseType::Unknown:
         qCWarning(RUQOLA_DATABASE_LOG) << "Unknown data base it's a bug";
         break;
-    case DatabaseType::Account:
+    case DatabaseType::Accounts:
         prefix = QStringLiteral("accounts-");
         break;
     case DatabaseType::Rooms:
         prefix = QStringLiteral("rooms-");
         break;
-    case DatabaseType::Message:
+    case DatabaseType::Messages:
         prefix = QStringLiteral("messages-");
         break;
     case DatabaseType::Global:

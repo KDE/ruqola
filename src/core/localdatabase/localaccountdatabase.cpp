@@ -19,7 +19,7 @@ enum class AccountFields {
 }; // in the same order as the table
 
 LocalAccountDatabase::LocalAccountDatabase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localAccountDatabasePath(), LocalDatabaseBase::DatabaseType::Account)
+    : LocalDatabaseBase(LocalDatabaseUtils::localAccountDatabasePath(), LocalDatabaseBase::DatabaseType::Accounts)
 {
 }
 

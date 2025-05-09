@@ -31,7 +31,7 @@ LocalDatabaseBaseTest::LocalDatabaseBaseTest(QObject *parent)
 void LocalDatabaseBaseTest::shouldHaveDefaultValues()
 {
     {
-        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Account);
+        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Accounts);
         QCOMPARE(w.currentDatabaseName(QStringLiteral("kde")), QStringLiteral("accounts-kde"));
     }
     {
@@ -39,7 +39,7 @@ void LocalDatabaseBaseTest::shouldHaveDefaultValues()
         QCOMPARE(w.currentDatabaseName(QStringLiteral("kde")), QStringLiteral("rooms-kde"));
     }
     {
-        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Message);
+        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Messages);
         QCOMPARE(w.currentDatabaseName(QStringLiteral("kde")), QStringLiteral("messages-kde"));
     }
     {

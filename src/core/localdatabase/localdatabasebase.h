@@ -14,9 +14,9 @@ class LIBRUQOLACORE_EXPORT LocalDatabaseBase
 public:
     enum class DatabaseType {
         Unknown = 0,
-        Account,
+        Accounts,
         Rooms,
-        Message,
+        Messages,
         Logger,
         Global,
     };
