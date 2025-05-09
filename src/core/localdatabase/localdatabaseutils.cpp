@@ -36,9 +36,9 @@ QString LocalDatabaseUtils::localRoomsDatabasePath()
     return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Rooms);
 }
 
-QString LocalDatabaseUtils::localAccountDatabasePath()
+QString LocalDatabaseUtils::localAccountsDatabasePath()
 {
-    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Account);
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts);
 }
 
 QString LocalDatabaseUtils::localGlobalDatabasePath()
@@ -53,7 +53,7 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
         return QStringLiteral("messages/");
     case LocalDatabaseUtils::DatabasePath::Rooms:
         return QStringLiteral("rooms/");
-    case LocalDatabaseUtils::DatabasePath::Account:
+    case LocalDatabaseUtils::DatabasePath::Accounts:
         return QStringLiteral("account/");
     case LocalDatabaseUtils::DatabasePath::Global:
         return QStringLiteral("global/");

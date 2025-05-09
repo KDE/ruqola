@@ -986,7 +986,7 @@ void AccountManager::removeLogs(const QString &accountName)
 
 void AccountManager::removeDatabaseAccount(const QString &accountName)
 {
-    const QString directory = LocalDatabaseUtils::localAccountDatabasePath() + accountName;
+    const QString directory = LocalDatabaseUtils::localAccountsDatabasePath() + accountName;
     removeDirectory(directory);
 }
 

@@ -27,7 +27,7 @@ void LocalDatabaseUtilsTest::shouldCheckPath()
 {
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Messages), QStringLiteral("messages/"));
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Rooms), QStringLiteral("rooms/"));
-    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Account), QStringLiteral("account/"));
+    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts), QStringLiteral("account/"));
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global), QStringLiteral("global/"));
 }
 

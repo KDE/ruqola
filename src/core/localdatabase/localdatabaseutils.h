@@ -13,7 +13,7 @@ namespace LocalDatabaseUtils
 enum class DatabasePath : uint8_t {
     Messages,
     Rooms,
-    Account,
+    Accounts,
     Global,
 };
 
@@ -22,7 +22,7 @@ enum class DatabasePath : uint8_t {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString localDatabasePath();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString localMessagesDatabasePath();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString localRoomsDatabasePath();
-[[nodiscard]] LIBRUQOLACORE_EXPORT QString localAccountDatabasePath();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString localAccountsDatabasePath();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString localGlobalDatabasePath();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString databasePath(LocalDatabaseUtils::DatabasePath pathType);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteMessage();
