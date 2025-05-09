@@ -14,10 +14,10 @@ macro(add_ruqola_localdatabase_test _source)
 
 endmacro()
 add_ruqola_localdatabase_test(localmessageloggertest.cpp)
-add_ruqola_localdatabase_test(localmessagedatabasetest.cpp)
+add_ruqola_localdatabase_test(localmessagesdatabasetest.cpp)
 add_ruqola_localdatabase_test(localdatabaseutilstest.cpp)
 add_ruqola_localdatabase_test(globaldatabasetest.cpp)
 
-add_ruqola_localdatabase_test(localaccountdatabasetest.cpp)
+add_ruqola_localdatabase_test(localaccountsdatabasetest.cpp)
 add_ruqola_localdatabase_test(localroomsdatabasetest.cpp)
 add_ruqola_localdatabase_test(localdatabasebasetest.cpp)

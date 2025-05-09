@@ -39,8 +39,8 @@ void LocalRoomsDatabaseTest::shouldDefaultValues()
 
 void LocalRoomsDatabaseTest::shouldVerifyDbFileName()
 {
-    LocalRoomsDatabase accountDataBase;
-    QCOMPARE(accountDataBase.dbFileName(accountName()),
+    LocalRoomsDatabase roomDatabase;
+    QCOMPARE(roomDatabase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/rooms/myAccount/myAccount.sqlite"));
 }
 

@@ -6,7 +6,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "localdatabase/localmessagedatabase.h"
+#include "localdatabase/localmessagesdatabase.h"
 #include <QWidget>
 class RocketChatAccount;
 class MessageListView;
@@ -26,7 +26,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoad();
     RocketChatAccount *const mRocketChatAccount;
     MessageListView *const mMessageListView;
-    std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
+    std::unique_ptr<LocalMessagesDatabase> mLocalMessageDatabase;
     ExploreDatabaseLineEdit *const mRoomName;
     QSpinBox *const mNumberOfMessages;
     QCheckBox *const mUseStartDateTime;

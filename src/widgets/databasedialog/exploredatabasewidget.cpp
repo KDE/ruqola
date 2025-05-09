@@ -23,7 +23,7 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
-    , mLocalMessageDatabase(new LocalMessageDatabase())
+    , mLocalMessageDatabase(new LocalMessagesDatabase())
     , mRoomName(new ExploreDatabaseLineEdit(account, this))
     , mNumberOfMessages(new QSpinBox(this))
     , mUseStartDateTime(new QCheckBox(QStringLiteral("Start"), this))

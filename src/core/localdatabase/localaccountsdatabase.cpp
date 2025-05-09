@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "localaccountdatabase.h"
+#include "localaccountsdatabase.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 #include <QSqlDatabase>
@@ -12,25 +12,25 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
-static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
+static const char s_schemaAccountsDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
 enum class AccountFields {
     AccountName,
     Json,
 }; // in the same order as the table
 
-LocalAccountDatabase::LocalAccountDatabase()
+LocalAccountsDatabase::LocalAccountsDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localAccountsDatabasePath(), LocalDatabaseBase::DatabaseType::Accounts)
 {
 }
 
-LocalAccountDatabase::~LocalAccountDatabase() = default;
+LocalAccountsDatabase::~LocalAccountsDatabase() = default;
 
-QString LocalAccountDatabase::schemaDataBase() const
+QString LocalAccountsDatabase::schemaDataBase() const
 {
-    return QString::fromLatin1(s_schemaAccountDataBase);
+    return QString::fromLatin1(s_schemaAccountsDataBase);
 }
 
-void LocalAccountDatabase::updateAccount(const QString &accountName, const QByteArray &ba)
+void LocalAccountsDatabase::updateAccount(const QString &accountName, const QByteArray &ba)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
@@ -43,7 +43,7 @@ void LocalAccountDatabase::updateAccount(const QString &accountName, const QByte
     }
 }
 
-void LocalAccountDatabase::deleteAccount(const QString &accountName)
+void LocalAccountsDatabase::deleteAccount(const QString &accountName)
 {
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
@@ -56,7 +56,7 @@ void LocalAccountDatabase::deleteAccount(const QString &accountName)
     }
 }
 
-QByteArray LocalAccountDatabase::jsonAccount(const QString &accountName)
+QByteArray LocalAccountsDatabase::jsonAccount(const QString &accountName)
 {
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {

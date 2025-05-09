@@ -28,7 +28,7 @@ enum class Fields {
 LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     : QWidget{parent}
     , mMessageListView(new MessageListView(new RocketChatAccount(QStringLiteral("test"), this), MessageListView::Mode::Viewing, this))
-    , mLocalMessageDatabase(new LocalMessageDatabase())
+    , mLocalMessageDatabase(new LocalMessagesDatabase())
     , mAccountName(new QLineEdit(this))
     , mRoomName(new QLineEdit(this))
     , mNumberElement(new QSpinBox(this))

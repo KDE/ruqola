@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class LocalAccountDatabaseTest : public QObject
+class LocalAccountsDatabaseTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit LocalAccountDatabaseTest(QObject *parent = nullptr);
-    ~LocalAccountDatabaseTest() override = default;
+    explicit LocalAccountsDatabaseTest(QObject *parent = nullptr);
+    ~LocalAccountsDatabaseTest() override = default;
 private Q_SLOTS:
     void initTestCase();
     void shouldHaveDefaultValues();

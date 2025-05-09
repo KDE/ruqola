@@ -26,7 +26,7 @@ enum class DatabasePath : uint8_t {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString localGlobalDatabasePath();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString databasePath(LocalDatabaseUtils::DatabasePath pathType);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteMessage();
-[[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceMessages();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceMessage();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteRoom();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString jsonRoom();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceRoom();

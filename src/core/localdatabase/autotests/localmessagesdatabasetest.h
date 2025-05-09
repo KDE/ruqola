@@ -8,7 +8,7 @@
 
 #include <QObject>
 
-class LocalMessageDatabaseTest : public QObject
+class LocalMessagesDatabaseTest : public QObject
 {
     Q_OBJECT
 

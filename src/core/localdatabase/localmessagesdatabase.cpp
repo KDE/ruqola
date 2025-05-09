@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "localmessagedatabase.h"
+#include "localmessagesdatabase.h"
 #include "localdatabaseutils.h"
 #include "messages/message.h"
 #include "rocketchataccount.h"
@@ -18,30 +18,30 @@
 #include <QSqlRecord>
 #include <QSqlTableModel>
 
-static const char s_schemaMessageDataBase[] = "CREATE TABLE MESSAGES (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+static const char s_schemaMessagesDataBase[] = "CREATE TABLE MESSAGES (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class MessagesFields {
     MessageId,
     TimeStamp,
     Json,
 }; // in the same order as the table
 
-LocalMessageDatabase::LocalMessageDatabase()
+LocalMessagesDatabase::LocalMessagesDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localMessagesDatabasePath(), LocalDatabaseBase::DatabaseType::Messages)
 {
 }
 
-LocalMessageDatabase::~LocalMessageDatabase() = default;
+LocalMessagesDatabase::~LocalMessagesDatabase() = default;
 
-QString LocalMessageDatabase::schemaDataBase() const
+QString LocalMessagesDatabase::schemaDataBase() const
 {
-    return QString::fromLatin1(s_schemaMessageDataBase);
+    return QString::fromLatin1(s_schemaMessagesDataBase);
 }
 
-void LocalMessageDatabase::addMessage(const QString &accountName, const QString &roomName, const Message &m)
+void LocalMessagesDatabase::addMessage(const QString &accountName, const QString &roomName, const Message &m)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, roomName, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceMessages(), db);
+        QSqlQuery query(LocalDatabaseUtils::insertReplaceMessage(), db);
         query.addBindValue(QString::fromLatin1(m.messageId()));
         query.addBindValue(m.timeStamp());
         // qDebug() << " m.timeStamp() " << m.timeStamp();
@@ -53,7 +53,7 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
     }
 }
 
-void LocalMessageDatabase::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
+void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
 {
     QSqlDatabase db;
     if (!checkDataBase(accountName, roomName, db)) {
@@ -66,7 +66,7 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
     }
 }
 
-QString LocalMessageDatabase::generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements)
+QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements)
 {
     QString query = QStringLiteral("SELECT * FROM MESSAGES");
     if (startId != -1) {
@@ -88,18 +88,18 @@ QString LocalMessageDatabase::generateQueryStr(qint64 startId, qint64 endId, qin
 }
 
 QList<Message>
-LocalMessageDatabase::loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const
+LocalMessagesDatabase::loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const
 {
     Q_ASSERT(account);
     return loadMessages(account->accountName(), _roomName, startId, endId, numberElements, account->emojiManager());
 }
 
-QList<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
-                                                  const QString &_roomName,
-                                                  qint64 startId,
-                                                  qint64 endId,
-                                                  qint64 numberElements,
-                                                  EmojiManager *emojiManager) const
+QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
+                                                   const QString &_roomName,
+                                                   qint64 startId,
+                                                   qint64 endId,
+                                                   qint64 numberElements,
+                                                   EmojiManager *emojiManager) const
 {
 #if 0
     SELECT id, nom, email
@@ -130,7 +130,7 @@ QList<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
 
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
-    const QString query = LocalMessageDatabase::generateQueryStr(startId, endId, numberElements);
+    const QString query = LocalMessagesDatabase::generateQueryStr(startId, endId, numberElements);
     QSqlQuery resultQuery(db);
     resultQuery.prepare(query);
     if (startId != -1) {
@@ -159,14 +159,14 @@ QList<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
     return listMessages;
 }
 
-Message LocalMessageDatabase::convertJsonToMessage(const QString &json, EmojiManager *emojiManager)
+Message LocalMessagesDatabase::convertJsonToMessage(const QString &json, EmojiManager *emojiManager)
 {
     const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
     const Message msg = Message::deserialize(doc.object(), emojiManager);
     return msg;
 }
 
-std::unique_ptr<QSqlTableModel> LocalMessageDatabase::createMessageModel(const QString &accountName, const QString &_roomName) const
+std::unique_ptr<QSqlTableModel> LocalMessagesDatabase::createMessageModel(const QString &accountName, const QString &_roomName) const
 {
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
     const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);

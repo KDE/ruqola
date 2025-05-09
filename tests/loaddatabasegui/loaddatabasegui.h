@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "localdatabase/localmessagedatabase.h"
+#include "localdatabase/localmessagesdatabase.h"
 #include <QWidget>
 #include <memory.h>
 
@@ -24,7 +24,7 @@ public:
 private:
     void slotLoad();
     MessageListView *const mMessageListView;
-    std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
+    std::unique_ptr<LocalMessagesDatabase> mLocalMessageDatabase;
     QLineEdit *const mAccountName;
     QLineEdit *const mRoomName;
     QSpinBox *const mNumberElement;

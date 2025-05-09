@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "localaccountdatabasetest.h"
-#include "localdatabase/localaccountdatabase.h"
+#include "localaccountsdatabasetest.h"
+#include "localdatabase/localaccountsdatabase.h"
 #include <QFile>
 #include <QStandardPaths>
 #include <QTest>
@@ -13,37 +13,37 @@ static QString accountName()
 {
     return QStringLiteral("myAccount");
 }
-QTEST_MAIN(LocalAccountDatabaseTest)
-LocalAccountDatabaseTest::LocalAccountDatabaseTest(QObject *parent)
+QTEST_MAIN(LocalAccountsDatabaseTest)
+LocalAccountsDatabaseTest::LocalAccountsDatabaseTest(QObject *parent)
     : QObject{parent}
 {
 }
 
-void LocalAccountDatabaseTest::initTestCase()
+void LocalAccountsDatabaseTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalAccountDatabase accountDataBase;
+    LocalAccountsDatabase accountDataBase;
     QFile::remove(accountDataBase.dbFileName(accountName()));
 }
 
-void LocalAccountDatabaseTest::shouldHaveDefaultValues()
+void LocalAccountsDatabaseTest::shouldHaveDefaultValues()
 {
-    LocalAccountDatabase accountDataBase;
+    LocalAccountsDatabase accountDataBase;
     QCOMPARE(accountDataBase.schemaDatabaseStr(), QStringLiteral("CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)"));
 }
 
-void LocalAccountDatabaseTest::shouldVerifyDbFileName()
+void LocalAccountsDatabaseTest::shouldVerifyDbFileName()
 {
-    LocalAccountDatabase accountDataBase;
+    LocalAccountsDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/account/myAccount/myAccount.sqlite"));
 }
 
-void LocalAccountDatabaseTest::shouldStoreAccountSettings()
+void LocalAccountsDatabaseTest::shouldStoreAccountSettings()
 {
-    LocalAccountDatabase accountDataBase;
+    LocalAccountsDatabase accountDataBase;
     {
         const QByteArray ba = "{}";
         accountDataBase.updateAccount(accountName(), ba);
@@ -76,10 +76,10 @@ void LocalAccountDatabaseTest::shouldStoreAccountSettings()
     }
 }
 
-void LocalAccountDatabaseTest::shouldRemoveAccountSettings()
+void LocalAccountsDatabaseTest::shouldRemoveAccountSettings()
 {
     {
-        LocalAccountDatabase accountDataBase;
+        LocalAccountsDatabase accountDataBase;
         const QByteArray ba = "{}";
         accountDataBase.updateAccount(accountName(), ba);
 
@@ -98,4 +98,4 @@ void LocalAccountDatabaseTest::shouldRemoveAccountSettings()
     }
 }
 
-#include "moc_localaccountdatabasetest.cpp"
+#include "moc_localaccountsdatabasetest.cpp"

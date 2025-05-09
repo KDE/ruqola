@@ -15,11 +15,11 @@ class QSqlTableModel;
 class Message;
 class RocketChatAccount;
 class EmojiManager;
-class LIBRUQOLACORE_EXPORT LocalMessageDatabase : public LocalDatabaseBase
+class LIBRUQOLACORE_EXPORT LocalMessagesDatabase : public LocalDatabaseBase
 {
 public:
-    LocalMessageDatabase();
-    ~LocalMessageDatabase() override;
+    LocalMessagesDatabase();
+    ~LocalMessagesDatabase() override;
     void deleteMessage(const QString &accountName, const QString &_roomName, const QString &messageId);
     void addMessage(const QString &accountName, const QString &_roomName, const Message &m);
 

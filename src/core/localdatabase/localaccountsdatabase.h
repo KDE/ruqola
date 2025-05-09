@@ -8,11 +8,11 @@
 #include "localdatabasebase.h"
 #pragma once
 
-class LIBRUQOLACORE_EXPORT LocalAccountDatabase : public LocalDatabaseBase
+class LIBRUQOLACORE_EXPORT LocalAccountsDatabase : public LocalDatabaseBase
 {
 public:
-    LocalAccountDatabase();
-    ~LocalAccountDatabase() override;
+    LocalAccountsDatabase();
+    ~LocalAccountsDatabase() override;
 
     void deleteAccount(const QString &accountName);
     void updateAccount(const QString &accountName, const QByteArray &ba);

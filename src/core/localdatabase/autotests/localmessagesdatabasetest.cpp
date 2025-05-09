@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "localmessagedatabasetest.h"
-#include "localdatabase/localmessagedatabase.h"
+#include "localmessagesdatabasetest.h"
+#include "localdatabase/localmessagesdatabase.h"
 #include "messages/message.h"
 
 #include <QSqlRecord>
@@ -13,7 +13,7 @@
 #include <QStandardPaths>
 #include <QTest>
 
-QTEST_GUILESS_MAIN(LocalMessageDatabaseTest)
+QTEST_GUILESS_MAIN(LocalMessagesDatabaseTest)
 
 static QString accountName()
 {
@@ -37,21 +37,21 @@ enum class Fields {
     Json,
 }; // in the same order as the table
 
-void LocalMessageDatabaseTest::initTestCase()
+void LocalMessagesDatabaseTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalMessageDatabase logger;
+    LocalMessagesDatabase logger;
     QFile::remove(logger.dbFileName(accountName(), roomName()));
     QFile::remove(logger.dbFileName(accountName(), otherRoomName()));
     QFile::remove(logger.dbFileName(accountName(), existingRoomName()));
 }
 
-void LocalMessageDatabaseTest::shouldStoreMessages()
+void LocalMessagesDatabaseTest::shouldStoreMessages()
 {
     // GIVEN
-    LocalMessageDatabase logger;
+    LocalMessagesDatabase logger;
 
     Message message1;
     message1.setText(QString::fromUtf8("Message text: €1"));
@@ -92,10 +92,10 @@ void LocalMessageDatabaseTest::shouldStoreMessages()
     QCOMPARE(record1.value(int(Fields::TimeStamp)).toULongLong(), message2.timeStamp());
 }
 
-void LocalMessageDatabaseTest::shouldLoadExistingDb() // this test depends on shouldStoreMessages()
+void LocalMessagesDatabaseTest::shouldLoadExistingDb() // this test depends on shouldStoreMessages()
 {
     // GIVEN
-    LocalMessageDatabase logger;
+    LocalMessagesDatabase logger;
     // Copy an existing db under a new room name, so that there's not yet a QSqlDatabase for it
     QSqlDatabase::database(accountName() + QLatin1Char('-') + otherRoomName()).close();
     const QString srcDb = logger.dbFileName(accountName(), otherRoomName());
@@ -113,10 +113,10 @@ void LocalMessageDatabaseTest::shouldLoadExistingDb() // this test depends on sh
     QCOMPARE(tableModel->rowCount(), 0);
 }
 
-void LocalMessageDatabaseTest::shouldDeleteMessages() // this test depends on shouldStoreMessages()
+void LocalMessagesDatabaseTest::shouldDeleteMessages() // this test depends on shouldStoreMessages()
 {
     // GIVEN
-    LocalMessageDatabase logger;
+    LocalMessagesDatabase logger;
     const QString messageId = (QStringLiteral("msg-other-1"));
 
     // WHEN
@@ -128,20 +128,20 @@ void LocalMessageDatabaseTest::shouldDeleteMessages() // this test depends on sh
     QCOMPARE(tableModel->rowCount(), 0);
 }
 
-void LocalMessageDatabaseTest::shouldReturnNullIfDoesNotExist()
+void LocalMessagesDatabaseTest::shouldReturnNullIfDoesNotExist()
 {
     // GIVEN
-    LocalMessageDatabase logger;
+    LocalMessagesDatabase logger;
     // WHEN
     auto tableModel = logger.createMessageModel(accountName(), QStringLiteral("does not exist"));
     // THEN
     QVERIFY(!tableModel);
 }
 
-void LocalMessageDatabaseTest::shouldExtractMessages()
+void LocalMessagesDatabaseTest::shouldExtractMessages()
 {
     // GIVEN
-    LocalMessageDatabase logger;
+    LocalMessagesDatabase logger;
     for (int i = 0; i < 20; ++i) {
         Message message1;
         message1.setText(QString::fromUtf8("Message text: %1").arg(i));
@@ -157,7 +157,7 @@ void LocalMessageDatabaseTest::shouldExtractMessages()
     QCOMPARE(tableModel->rowCount(), 20);
 }
 
-void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
+void LocalMessagesDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
 {
     QTest::addColumn<qint64>("startId");
     QTest::addColumn<qint64>("endId");
@@ -190,7 +190,7 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
                                     << static_cast<qint64>(5) << (qint64)4;
 }
 
-void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
+void LocalMessagesDatabaseTest::shouldExtractSpecificNumberOfMessages()
 {
     QFETCH(qint64, startId);
     QFETCH(qint64, endId);
@@ -198,7 +198,7 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
     QFETCH(qint64, result);
 
     // GIVEN
-    LocalMessageDatabase logger;
+    LocalMessagesDatabase logger;
     for (int i = 0; i < 20; ++i) {
         Message message1;
         message1.setText(QString::fromUtf8("Message text: %1").arg(i));
@@ -215,7 +215,7 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
     QCOMPARE(messages.count(), result);
 }
 
-void LocalMessageDatabaseTest::shouldGenerateQuery()
+void LocalMessagesDatabaseTest::shouldGenerateQuery()
 {
     QFETCH(qint64, startId);
     QFETCH(qint64, endId);
@@ -224,13 +224,13 @@ void LocalMessageDatabaseTest::shouldGenerateQuery()
 
     // GIVEN
     // WHEN
-    const QString queryStr = LocalMessageDatabase::generateQueryStr(startId, endId, numberElement);
+    const QString queryStr = LocalMessagesDatabase::generateQueryStr(startId, endId, numberElement);
 
     // THEN
     QCOMPARE(queryStr, result);
 }
 
-void LocalMessageDatabaseTest::shouldGenerateQuery_data()
+void LocalMessagesDatabaseTest::shouldGenerateQuery_data()
 {
     QTest::addColumn<qint64>("startId");
     QTest::addColumn<qint64>("endId");
@@ -251,11 +251,11 @@ void LocalMessageDatabaseTest::shouldGenerateQuery_data()
                            << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit");
 }
 
-void LocalMessageDatabaseTest::shouldVerifyDbFileName()
+void LocalMessagesDatabaseTest::shouldVerifyDbFileName()
 {
-    LocalMessageDatabase accountDataBase;
+    LocalMessagesDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/messages/myAccount/myAccount.sqlite"));
 }
 
-#include "moc_localmessagedatabasetest.cpp"
+#include "moc_localmessagesdatabasetest.cpp"

@@ -520,8 +520,8 @@ target_sources(libruqolacore PRIVATE
     localdatabase/localdatabasemanager.h
     localdatabase/localdatabasemanager.cpp
 
-    localdatabase/localmessagedatabase.h
-    localdatabase/localmessagedatabase.cpp
+    localdatabase/localmessagesdatabase.h
+    localdatabase/localmessagesdatabase.cpp
 
     localdatabase/localdatabaseutils.h
     localdatabase/localdatabaseutils.cpp
@@ -532,8 +532,8 @@ target_sources(libruqolacore PRIVATE
     localdatabase/localdatabasebase.h
     localdatabase/localdatabasebase.cpp
 
-    localdatabase/localaccountdatabase.h
-    localdatabase/localaccountdatabase.cpp
+    localdatabase/localaccountsdatabase.h
+    localdatabase/localaccountsdatabase.cpp
 
     localdatabase/globaldatabase.h
     localdatabase/globaldatabase.cpp

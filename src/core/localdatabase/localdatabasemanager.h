@@ -13,9 +13,9 @@
 #include <QString>
 #include <memory>
 class LocalMessageLogger;
-class LocalMessageDatabase;
+class LocalMessagesDatabase;
 class LocalRoomsDatabase;
-class LocalAccountDatabase;
+class LocalAccountsDatabase;
 class Message;
 class Room;
 class LIBRUQOLACORE_EXPORT LocalDatabaseManager
@@ -42,8 +42,8 @@ public:
 
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
-    std::unique_ptr<LocalMessageDatabase> mMessagesDatabase;
+    std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;
     std::unique_ptr<LocalRoomsDatabase> mRoomsDatabase;
-    std::unique_ptr<LocalAccountDatabase> mAccountDatabase;
+    std::unique_ptr<LocalAccountsDatabase> mAccountDatabase;
     std::unique_ptr<GlobalDatabase> mGlobalDatabase;
 };

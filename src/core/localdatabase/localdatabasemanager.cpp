@@ -5,18 +5,18 @@
 */
 
 #include "localdatabasemanager.h"
-#include "localaccountdatabase.h"
-#include "localmessagedatabase.h"
+#include "localaccountsdatabase.h"
 #include "localmessagelogger.h"
+#include "localmessagesdatabase.h"
 #include "localroomsdatabase.h"
 #include "room.h"
 #include "ruqolaglobalconfig.h"
 
 LocalDatabaseManager::LocalDatabaseManager()
     : mMessageLogger(std::make_unique<LocalMessageLogger>())
-    , mMessagesDatabase(std::make_unique<LocalMessageDatabase>())
+    , mMessagesDatabase(std::make_unique<LocalMessagesDatabase>())
     , mRoomsDatabase(std::make_unique<LocalRoomsDatabase>())
-    , mAccountDatabase(std::make_unique<LocalAccountDatabase>())
+    , mAccountDatabase(std::make_unique<LocalAccountsDatabase>())
     , mGlobalDatabase(std::make_unique<GlobalDatabase>())
 {
 }
