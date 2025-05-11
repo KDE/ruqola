@@ -80,7 +80,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     DelegatePaintUtil::drawLighterText(painter, messageStr, QPoint(layout.textRect.left(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     const QString discussionsText = i18n("Open Discussion");
-    painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::LinkText).color());
+    painter->setPen(option.palette.link().color());
     painter->drawText(layout.textRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
 
     // debug

@@ -106,7 +106,7 @@ void MessageListDelegate::slotUpdateColors()
 {
     const KColorScheme scheme = ColorsAndMessageViewStyle::self().schemeView();
     mThreadedMessageBackgroundColor = ColorsAndMessageViewStyle::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
-    mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
+    mOpenDiscussionColorMode = qApp->palette().link().color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
     mHoverHightlightColor = scheme.background(KColorScheme::AlternateBackground).color();
     Q_EMIT updateView();

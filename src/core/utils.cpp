@@ -12,7 +12,7 @@
 #include <KLocalizedString>
 
 #include <KColorScheme>
-#include <QCoreApplication>
+#include <QApplication>
 #include <QCryptographicHash>
 #include <QDateTime>
 #include <QIcon>
@@ -49,7 +49,7 @@ QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
 {
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
     const auto backgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
-    const auto borderColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::LinkText).color().name();
+    const auto borderColor = qApp->palette().link().color().name();
     QString dateTimeInfo;
     if (!info.displayTime.isEmpty()) {
         if (!info.url.isEmpty()) {
