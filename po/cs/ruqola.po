@@ -2028,12 +2028,10 @@ msgid "Modify…"
 msgstr "Změnit…"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove…"
-msgstr "Odstranit"
+msgstr "Odstranit…"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:60
 #, fuzzy, kde-format

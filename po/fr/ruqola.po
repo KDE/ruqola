@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-09 00:41+0000\n"
-"PO-Revision-Date: 2025-05-07 12:53+0200\n"
+"PO-Revision-Date: 2025-05-10 08:31+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -11555,10 +11555,8 @@ msgid "Add AI plugin"
 msgstr "Ajouter un module externe d'intelligence artificielle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Autoriser l'envoi d'un courriel"
+msgstr "Autoriser l'envoi de l'image."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
