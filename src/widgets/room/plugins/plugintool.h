@@ -17,6 +17,7 @@ public:
         Tools,
         Channels,
         MessageViewToolBar,
+        MessageViewHeaderToolBar,
     };
     explicit PluginTool(QObject *parent = nullptr);
     ~PluginTool() override;
