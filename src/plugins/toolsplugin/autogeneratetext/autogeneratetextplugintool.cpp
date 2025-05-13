@@ -53,6 +53,12 @@ int AutoGenerateTextPluginTool::order() const
 {
     return 30;
 }
+
+bool AutoGenerateTextPluginTool::hasMenu() const
+{
+    return false;
+}
+
 #include "autogeneratetextplugintool.moc"
 
 #include "moc_autogeneratetextplugintool.cpp"

@@ -28,6 +28,7 @@ public:
     [[nodiscard]] virtual QString toolTip() const = 0;
     [[nodiscard]] virtual QString description() const = 0;
     [[nodiscard]] virtual int order() const = 0;
+    [[nodiscard]] virtual bool hasMenu() const = 0;
 
     [[nodiscard]] virtual PluginToolInterface *createInterface(QObject *parent) = 0;
 

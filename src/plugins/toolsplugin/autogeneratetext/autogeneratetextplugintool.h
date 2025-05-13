@@ -22,4 +22,5 @@ public:
     [[nodiscard]] QString description() const override;
     [[nodiscard]] PluginToolInterface *createInterface(QObject *parent) override;
     [[nodiscard]] int order() const override;
+    [[nodiscard]] bool hasMenu() const override;
 };

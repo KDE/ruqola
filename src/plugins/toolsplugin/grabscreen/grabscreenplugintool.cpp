@@ -54,6 +54,11 @@ int GrabScreenPluginTool::order() const
 {
     return 20;
 }
+
+bool GrabScreenPluginTool::hasMenu() const
+{
+    return false;
+}
 #include "grabscreenplugintool.moc"
 
 #include "moc_grabscreenplugintool.cpp"

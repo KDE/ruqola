@@ -51,8 +51,13 @@ PluginToolInterface *AiActionsPluginTool::createInterface(QObject *parent)
 
 int AiActionsPluginTool::order() const
 {
-    return 30;
+    return 10;
 }
-#include "aiactionsplugintool.moc"
 
+bool AiActionsPluginTool::hasMenu() const
+{
+    return true;
+}
+
+#include "aiactionsplugintool.moc"
 #include "moc_aiactionsplugintool.cpp"
