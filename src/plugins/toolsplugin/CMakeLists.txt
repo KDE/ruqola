@@ -4,4 +4,5 @@ add_subdirectory(grabscreen)
 
 if(TARGET KF6::TextAutogenerateText)
     add_subdirectory(autogeneratetext)
+    add_subdirectory(aiactions)
 endif()
