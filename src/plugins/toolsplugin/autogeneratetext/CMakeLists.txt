@@ -13,5 +13,5 @@ target_sources(ruqola_autogenerateplugin PRIVATE
 )
 target_link_libraries(ruqola_autogenerateplugin
     libruqolawidgets
-    KF6::TextAutogenerateText
+    KF6::TextAutoGenerateText
 )
