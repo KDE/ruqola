@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-09 00:41+0000\n"
-"PO-Revision-Date: 2025-05-04 18:14+0200\n"
+"PO-Revision-Date: 2025-05-08 08:52+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -8601,11 +8601,10 @@ msgid "License:"
 msgstr "Licenza:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No license"
 msgid "None"
-msgstr "Nessuno"
+msgstr "Nessuna"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format
@@ -11496,10 +11495,8 @@ msgid "Add AI plugin"
 msgstr "Aggiungi estensione IA"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Consenti di inviare un messaggio di posta"
+msgstr "Consente immagine di Non disturbare."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

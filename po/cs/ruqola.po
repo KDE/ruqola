@@ -2034,25 +2034,21 @@ msgid "Remove…"
 msgstr "Odstranit…"
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:60
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Do you want to remove it?"
-msgstr "Přejete si odstranit \"%1\"?"
+msgstr ""
 
 #: plugins/textplugin/aitext/aitextlistview.cpp:61
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove"
-msgstr "Odstranit"
+msgstr ""
 
 #: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure AI text plugins"
-msgstr "Nastavit aktivity"
+msgstr ""
 
 #: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
 #, kde-format
@@ -2060,12 +2056,10 @@ msgid "Ask AI…"
 msgstr ""
 
 #: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Configure Notification…"
+#, kde-format
 msgctxt "@action"
 msgid "Configure…"
-msgstr "Nastavit upozornění…"
+msgstr ""
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
@@ -4992,11 +4986,10 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
-msgstr "Zmínky"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
 #, kde-format
@@ -7025,10 +7018,9 @@ msgid "Search Private Applications"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Aplikace nenalezena"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:98
 #, kde-format
@@ -8377,13 +8369,11 @@ msgstr "Verze serveru:"
 msgid "License:"
 msgstr "Licence:"
 
-# žádné parametry funkce v inspektoru funkcí
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No license"
 msgid "None"
-msgstr "Nic"
+msgstr ""
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format
@@ -8745,11 +8735,10 @@ msgid "Decode Encryption Key"
 msgstr "Dešifrovat šifrovací klíč"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Šifrování"
+msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8769,11 +8758,9 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Dešifrovat šifrovací klíč"
+msgstr ""
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
@@ -8782,18 +8769,16 @@ msgid "Decode Key"
 msgstr ""
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Šifrování"
+msgstr ""
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Click here to enter your e2e password."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Prosím, zadejte své heslo e2e."
+msgstr ""
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
@@ -8818,11 +8803,10 @@ msgid "Save Encryption Key"
 msgstr "Uložit šifrovací klíč"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Aplikace nenalezena"
+msgstr ""
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
 #, kde-format
@@ -10459,18 +10443,15 @@ msgid "Your email has been queued for sending."
 msgstr ""
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgid "Direct Messages can not be archived"
+#, kde-format
 msgid "Encrypted content cannot be searched."
-msgstr "Soukromé zprávy nelze archivovat"
+msgstr ""
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Hledat zprávy"
+msgstr ""
 
 #: widgets/room/roomwidget.cpp:555
 #, kde-format
@@ -10507,10 +10488,9 @@ msgid "Disconnected"
 msgstr "Odpojen"
 
 #: widgets/room/usersinroomcombobox.cpp:29
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owners"
-msgstr "Vlastník"
+msgstr ""
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11215,11 +11195,8 @@ msgid "What's new in %2. %1"
 msgstr "Co je nového v %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Add Autojoin"
 msgid "Add AI plugin"
-msgstr "Přidat automatické připojení"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Allow to dnd image."
@@ -11703,10 +11680,9 @@ msgid "Fix show date info."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:181
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Aplikace nenalezena"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:182
 #, kde-format
@@ -11747,13 +11723,3 @@ msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nějaké opravy chyb:"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Nastavení aplikace Ruqola"
-
-#~ msgid "Loading..."
-#~ msgstr "Probíhá načítání..."
