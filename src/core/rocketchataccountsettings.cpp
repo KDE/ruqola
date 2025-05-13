@@ -69,7 +69,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     // Not sure for other.
     if (mAccountEnabled && !mAccountName.isEmpty()) {
         qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "Load password from QKeychain: accountname " << mAccountName;
-        auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
+        auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"));
         connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
         readJob->setKey(mAccountName);
         readJob->start();
@@ -296,7 +296,7 @@ void RocketChatAccountSettings::setPassword(const QString &password)
     if (mPassword != password) {
         mPassword = password;
 
-        auto writeJob = new WritePasswordJob(QStringLiteral("Ruqola"), this);
+        auto writeJob = new WritePasswordJob(QStringLiteral("Ruqola"));
         connect(writeJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordWritten);
         writeJob->setKey(mAccountName);
         writeJob->setTextData(mPassword);
