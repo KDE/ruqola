@@ -26,7 +26,7 @@ bool AiActionsPluginTool::toolFound() const
 
 PluginTool::ToolType AiActionsPluginTool::toolType() const
 {
-    return PluginTool::ToolType::MessageViewToolBar;
+    return PluginTool::ToolType::MessageViewHeaderToolBar;
 }
 
 QString AiActionsPluginTool::iconName() const
