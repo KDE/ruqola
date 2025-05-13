@@ -36,7 +36,7 @@ QString AiActionsPluginTool::iconName() const
 
 QString AiActionsPluginTool::toolTip() const
 {
-    return i18n("Ask to AI");
+    return i18n("AI Actions");
 }
 
 QString AiActionsPluginTool::description() const
