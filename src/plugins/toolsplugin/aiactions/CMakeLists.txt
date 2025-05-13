@@ -15,5 +15,5 @@ target_sources(ruqola_aiactionsplugin PRIVATE
 )
 target_link_libraries(ruqola_aiactionsplugin
     libruqolawidgets
-    KF6::TextAutogenerateText
+    KF6::TextAutoGenerateText
 )

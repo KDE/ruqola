@@ -5,12 +5,12 @@
 */
 
 #include "aiactionsplugintool.h"
-#include "autogeneratetextplugintoolinterface.h"
+#include "aiactionsplugintoolinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QStandardPaths>
 
-K_PLUGIN_CLASS_WITH_JSON(AiActionsPluginTool, "ruqola_autogeneratetexttoolsplugin.json")
+K_PLUGIN_CLASS_WITH_JSON(AiActionsPluginTool, "ruqola_aiactionstoolsplugin.json")
 
 AiActionsPluginTool::AiActionsPluginTool(QObject *parent, const QVariantList &)
     : PluginTool{parent}
