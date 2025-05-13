@@ -8,6 +8,10 @@ ecm_qt_declare_logging_category(ruqola_aiactionsplugin HEADER aiactionsplugin_de
     DESCRIPTION "ruqola (ai actions plugin)" EXPORT RUQOLA)
 
 target_sources(ruqola_aiactionsplugin PRIVATE
+    aiactionsplugintoolinterface.cpp
+    aiactionsplugintoolinterface.h
+    aiactionsplugintool.cpp
+    aiactionsplugintool.h
 )
 target_link_libraries(ruqola_aiactionsplugin
     libruqolawidgets
