@@ -12,11 +12,6 @@ class AiActionsPluginTool : public PluginTool
 {
     Q_OBJECT
 public:
-    enum class ActionAi : uint8_t {
-        Unknown = 0,
-        SummarizeUnreads,
-    };
-
     explicit AiActionsPluginTool(QObject *parent = nullptr, const QVariantList & = {});
     ~AiActionsPluginTool() override;
 
@@ -28,5 +23,4 @@ public:
     [[nodiscard]] PluginToolInterface *createInterface(QObject *parent) override;
     [[nodiscard]] int order() const override;
     [[nodiscard]] bool hasMenu() const override;
-    [[nodiscard]] QMenu *menu(QWidget *parentWidget) const override;
 };
