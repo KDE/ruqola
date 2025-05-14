@@ -29,6 +29,7 @@ public:
 
 Q_SIGNALS:
     void executed();
+    void activateRequested();
 
 protected:
     PluginToolInfo mInfo;
