@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:41+0000\n"
+"POT-Creation-Date: 2025-05-14 00:43+0000\n"
 "PO-Revision-Date: 2025-05-10 19:51+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2085,6 +2085,13 @@ msgstr "El archivo se ha compartido"
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 "<qt>Puede encontrar la nueva petición en:<br /><a href='%1'>%1</a> </qt>"
+
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
+msgid "AI Actions"
+msgstr "Preguntar a la aplicación"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format

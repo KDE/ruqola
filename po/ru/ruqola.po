@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:41+0000\n"
+"POT-Creation-Date: 2025-05-14 00:43+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -2104,6 +2104,13 @@ msgstr "Файл был опубликован."
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новый запрос доступен здесь:<br /><a href='%1'>%1</a> </qt>"
+
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
+msgid "AI Actions"
+msgstr "Запрос к приложению…"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
