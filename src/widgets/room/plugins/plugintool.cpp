@@ -13,9 +13,4 @@ PluginTool::PluginTool(QObject *parent)
 
 PluginTool::~PluginTool() = default;
 
-QMenu *PluginTool::menu([[maybe_unused]] QWidget *parentWidget) const
-{
-    return nullptr;
-}
-
 #include "moc_plugintool.cpp"
