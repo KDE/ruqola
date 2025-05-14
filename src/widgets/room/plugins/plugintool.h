@@ -29,7 +29,7 @@ public:
     [[nodiscard]] virtual QString description() const = 0;
     [[nodiscard]] virtual int order() const = 0;
     [[nodiscard]] virtual bool hasMenu() const = 0;
-    [[nodiscard]] virtual QMenu *menu() const;
+    [[nodiscard]] virtual QMenu *menu(QWidget *parentWidget) const;
     [[nodiscard]] virtual PluginToolInterface *createInterface(QObject *parent) = 0;
 
 Q_SIGNALS:

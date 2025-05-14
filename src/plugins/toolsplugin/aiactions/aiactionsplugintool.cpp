@@ -8,6 +8,7 @@
 #include "aiactionsplugintoolinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
+#include <QMenu>
 #include <QStandardPaths>
 
 K_PLUGIN_CLASS_WITH_JSON(AiActionsPluginTool, "ruqola_aiactionstoolsplugin.json")
@@ -57,6 +58,12 @@ int AiActionsPluginTool::order() const
 bool AiActionsPluginTool::hasMenu() const
 {
     return true;
+}
+
+QMenu *AiActionsPluginTool::menu(QWidget *parentWidget) const
+{
+    auto menu = new QMenu(parentWidget);
+    return menu;
 }
 
 #include "aiactionsplugintool.moc"

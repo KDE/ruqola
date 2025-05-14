@@ -13,7 +13,7 @@ PluginTool::PluginTool(QObject *parent)
 
 PluginTool::~PluginTool() = default;
 
-QMenu *PluginTool::menu() const
+QMenu *PluginTool::menu([[maybe_unused]] QWidget *parentWidget) const
 {
     return nullptr;
 }
