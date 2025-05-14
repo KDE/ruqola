@@ -8,6 +8,7 @@
 #include "libruqolawidgets_export.h"
 #include <QDebug>
 #include <QObject>
+class QMenu;
 class LIBRUQOLAWIDGETS_EXPORT PluginToolInterface : public QObject
 {
     Q_OBJECT
@@ -27,6 +28,7 @@ public:
     [[nodiscard]] PluginToolInfo info() const;
     void setInfo(const PluginToolInfo &newInfo);
 
+    [[nodiscard]] virtual QMenu *menu(QWidget *parentWidget) const;
 Q_SIGNALS:
     void executed();
     void activateRequested();

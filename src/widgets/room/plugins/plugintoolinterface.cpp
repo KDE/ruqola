@@ -28,6 +28,11 @@ void PluginToolInterface::setInfo(const PluginToolInfo &newInfo)
     mInfo = newInfo;
 }
 
+QMenu *PluginToolInterface::menu([[maybe_unused]] QWidget *parentWidget) const
+{
+    return nullptr;
+}
+
 QDebug operator<<(QDebug d, const PluginToolInterface::PluginToolInfo &t)
 {
     d.space() << "roomId:" << t.roomId;

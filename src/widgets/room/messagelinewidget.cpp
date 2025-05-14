@@ -151,6 +151,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
             auto interface = plugin->createInterface(this);
             mPluginToolInterface.append(interface);
             if (plugin->hasMenu()) {
+                pluginButton->setMenu(interface->menu(this));
+                pluginButton->setPopupMode(QToolButton::InstantPopup);
                 connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
                     const PluginToolInterface::PluginToolInfo info{
                         .roomId = roomId(),

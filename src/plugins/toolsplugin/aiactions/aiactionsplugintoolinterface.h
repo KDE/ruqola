@@ -19,7 +19,7 @@ public:
     explicit AiActionsPluginToolInterface(QObject *parent = nullptr);
     ~AiActionsPluginToolInterface() override;
     void activateTool() override;
-    [[nodiscard]] virtual QMenu *menu(QWidget *parentWidget) const;
+    [[nodiscard]] QMenu *menu(QWidget *parentWidget) const override;
 
 private:
     void slotSummarize();

@@ -25,7 +25,7 @@ void AiActionsPluginToolInterface::activateTool()
     }
 }
 
-QMenu *AiActionsPluginToolInterface::menu([[maybe_unused]] QWidget *parentWidget) const
+QMenu *AiActionsPluginToolInterface::menu(QWidget *parentWidget) const
 {
     auto menu = new QMenu(parentWidget);
     QAction *act = menu->addAction(i18n("Summarize Unreads"));
