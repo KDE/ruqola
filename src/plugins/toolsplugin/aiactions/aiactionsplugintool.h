@@ -12,6 +12,11 @@ class AiActionsPluginTool : public PluginTool
 {
     Q_OBJECT
 public:
+    enum class ActionAi : uint8_t {
+        Unknown = 0,
+        SummarizeUnreads,
+    };
+
     explicit AiActionsPluginTool(QObject *parent = nullptr, const QVariantList & = {});
     ~AiActionsPluginTool() override;
 

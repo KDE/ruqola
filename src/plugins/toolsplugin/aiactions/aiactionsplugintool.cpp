@@ -63,6 +63,8 @@ bool AiActionsPluginTool::hasMenu() const
 QMenu *AiActionsPluginTool::menu(QWidget *parentWidget) const
 {
     auto menu = new QMenu(parentWidget);
+    menu->addAction(i18n("Suammrize Unreads"));
+    // TODO execute
     return menu;
 }
 
