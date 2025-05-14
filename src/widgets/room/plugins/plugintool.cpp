@@ -13,4 +13,9 @@ PluginTool::PluginTool(QObject *parent)
 
 PluginTool::~PluginTool() = default;
 
+QMenu *PluginTool::menu() const
+{
+    return nullptr;
+}
+
 #include "moc_plugintool.cpp"
