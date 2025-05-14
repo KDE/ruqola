@@ -31,7 +31,7 @@ Notification::~Notification()
 
 void Notification::createTrayIcon()
 {
-    setToolTipTitle(QStringLiteral("Ruqola"));
+    setToolTipTitle(i18n("Ruqola"));
     setIconByPixmap(QIcon(QStringLiteral(":/icons/systray.png")));
     setCategory(KStatusNotifierItem::Communications);
 }
