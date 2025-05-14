@@ -150,30 +150,21 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
             pluginButton->setToolTip(plugin->toolTip());
             auto interface = plugin->createInterface(this);
             mPluginToolInterface.append(interface);
+            connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
+                const PluginToolInterface::PluginToolInfo info{
+                    .roomId = roomId(),
+                    .accountName = mCurrentRocketChatAccount->accountName(),
+                    .tmid = mThreadMessageId,
+                    .msgId = mMessageIdBeingEdited,
+                };
+                interface->setInfo(info);
+                interface->activateTool();
+            });
             if (plugin->hasMenu()) {
                 pluginButton->setMenu(interface->menu(this));
                 pluginButton->setPopupMode(QToolButton::InstantPopup);
-                connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
-                    const PluginToolInterface::PluginToolInfo info{
-                        .roomId = roomId(),
-                        .accountName = mCurrentRocketChatAccount->accountName(),
-                        .tmid = mThreadMessageId,
-                        .msgId = mMessageIdBeingEdited,
-                    };
-                    interface->setInfo(info);
-                    interface->activateTool();
-                });
             } else {
-                connect(pluginButton, &QToolButton::clicked, this, [this, interface]() {
-                    const PluginToolInterface::PluginToolInfo info{
-                        .roomId = roomId(),
-                        .accountName = mCurrentRocketChatAccount->accountName(),
-                        .tmid = mThreadMessageId,
-                        .msgId = mMessageIdBeingEdited,
-                    };
-                    interface->setInfo(info);
-                    interface->activateTool();
-                });
+                connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);
             }
             mainLayout->addWidget(pluginButton);
         }
