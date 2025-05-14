@@ -14,6 +14,7 @@ public:
     enum class ActionAi : uint8_t {
         Unknown = 0,
         SummarizeUnreads,
+        // TODO add more action
     };
 
     explicit AiActionsPluginToolInterface(QObject *parent = nullptr);
