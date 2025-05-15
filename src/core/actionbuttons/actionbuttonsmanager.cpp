@@ -67,14 +67,16 @@ QList<ActionButton> ActionButtonsManager::actionButtonsFromFilterActionInfo(cons
     // qDebug() << " mActionButtons *********************** " << mActionButtons;
     QList<ActionButton> lists;
     for (const auto &act : mActionButtons) {
-        if (act.buttonContext() == filterInfo.buttonContext) {
-            if (act.buttonContext() == ActionButton::ButtonContext::MessageAction) {
-                if ((act.messageActionContexts() == ActionButton::MessageActionContext::Unknown)
-                    || (act.messageActionContexts() & filterInfo.messageActionContext)) {
+        if (act.category() == filterInfo.category) {
+            if (act.buttonContext() == filterInfo.buttonContext) {
+                if (act.buttonContext() == ActionButton::ButtonContext::MessageAction) {
+                    if ((act.messageActionContexts() == ActionButton::MessageActionContext::Unknown)
+                        || (act.messageActionContexts() & filterInfo.messageActionContext)) {
+                        lists.append(act);
+                    }
+                } else if ((act.roomTypeFilters() == ActionButton::RoomTypeFilter::Unknown) || (act.roomTypeFilters() & filterInfo.roomTypeFilter)) {
                     lists.append(act);
                 }
-            } else if ((act.roomTypeFilters() == ActionButton::RoomTypeFilter::Unknown) || (act.roomTypeFilters() & filterInfo.roomTypeFilter)) {
-                lists.append(act);
             }
         }
         // TODO check with hasOneRole
