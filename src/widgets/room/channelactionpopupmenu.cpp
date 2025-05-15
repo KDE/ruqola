@@ -172,44 +172,48 @@ void ChannelActionPopupMenu::slotActionButtonChanged()
     // Check list of apps action
     qDeleteAll(mListActionButton);
     mListActionButton.clear();
-    if (mCurrentRocketChatAccount) {
-        ActionButton::FilterActionInfo filterInfo;
-        filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
-        filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
-        const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
-        if (!actionButtons.isEmpty()) {
-            const QString lang = QLocale().name();
-            auto actSeparator = new QAction(this);
-            actSeparator->setSeparator(true);
-            mListActionButton.append(actSeparator);
-            mMenu->addAction(actSeparator);
-            for (const auto &actionButton : actionButtons) {
-                auto act = new QAction(this);
-                const QString translateIdentifier = ActionButtonUtil::generateTranslateIdentifier(actionButton);
-                const QString appId = QString::fromLatin1(actionButton.appId());
-                act->setText(mCurrentRocketChatAccount->getTranslatedIdentifier(lang, translateIdentifier));
-                const QByteArray roomId = mRoom->roomId();
-                connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId]() {
-                    auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
-                    RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
-                    info.methodName = appId;
-                    AutoGenerateInteractionUtil::ActionButtonInfo actionButtonInfo;
-                    actionButtonInfo.actionId = actionButton.actionId();
-                    actionButtonInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
-                    actionButtonInfo.roomId = roomId;
-                    info.messageObj = AutoGenerateInteractionUtil::createRoomActionButton(actionButtonInfo);
-                    job->setAppsUiInteractionJobInfo(info);
 
-                    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-                    connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
-                        Q_EMIT uiInteractionRequested(replyObject);
+    if (mCurrentRocketChatAccount) {
+        // Default actions
+        {
+            ActionButton::FilterActionInfo filterInfo;
+            filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
+            filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
+            const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
+            if (!actionButtons.isEmpty()) {
+                const QString lang = QLocale().name();
+                auto actSeparator = new QAction(this);
+                actSeparator->setSeparator(true);
+                mListActionButton.append(actSeparator);
+                mMenu->addAction(actSeparator);
+                for (const auto &actionButton : actionButtons) {
+                    auto act = new QAction(this);
+                    const QString translateIdentifier = ActionButtonUtil::generateTranslateIdentifier(actionButton);
+                    const QString appId = QString::fromLatin1(actionButton.appId());
+                    act->setText(mCurrentRocketChatAccount->getTranslatedIdentifier(lang, translateIdentifier));
+                    const QByteArray roomId = mRoom->roomId();
+                    connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId]() {
+                        auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
+                        RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+                        info.methodName = appId;
+                        AutoGenerateInteractionUtil::ActionButtonInfo actionButtonInfo;
+                        actionButtonInfo.actionId = actionButton.actionId();
+                        actionButtonInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
+                        actionButtonInfo.roomId = roomId;
+                        info.messageObj = AutoGenerateInteractionUtil::createRoomActionButton(actionButtonInfo);
+                        job->setAppsUiInteractionJobInfo(info);
+
+                        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+                        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
+                            Q_EMIT uiInteractionRequested(replyObject);
+                        });
+                        if (!job->start()) {
+                            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";
+                        }
                     });
-                    if (!job->start()) {
-                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";
-                    }
-                });
-                mListActionButton.append(act);
-                mMenu->addAction(act);
+                    mListActionButton.append(act);
+                    mMenu->addAction(act);
+                }
             }
         }
     }
