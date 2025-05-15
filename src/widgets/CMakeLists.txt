@@ -765,6 +765,9 @@ target_sources(libruqolawidgets PRIVATE
     room/commandpreviewimagedelegate.h
     room/commandpreviewimagedelegate.cpp
 
+    room/actionbuttonsutils.h
+    room/actionbuttonsutils.cpp
+
     loginwidget/ruqolaloginwidget.cpp
     loginwidget/ruqolaloginwidget.h
 
