@@ -707,6 +707,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         ActionButton::FilterActionInfo filterInfo;
         filterInfo.buttonContext = ActionButton::ButtonContext::MessageAction;
         filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
+        // TODO use roles too.
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
         if (!actionButtons.isEmpty()) {
             const QString lang = QLocale().name();
