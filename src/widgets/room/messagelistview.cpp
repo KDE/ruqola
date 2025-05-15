@@ -9,7 +9,6 @@
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "actionbuttons/actionbuttonutil.h"
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
-#include "autogenerateui/autogenerateinteractionutil.h"
 #include "chat/deletemessagejob.h"
 #include "chat/followmessagejob.h"
 #include "chat/pinmessagejob.h"
@@ -19,7 +18,6 @@
 #include "chat/unfollowmessagejob.h"
 
 #include "forwardmessage/forwardmessagedialog.h"
-#include "misc/appsuiinteractionjob.h"
 #include "moderation/moderationdismissreportsjob.h"
 
 #include "connection.h"
@@ -29,6 +27,7 @@
 #include "moderation/moderationreportsjob.h"
 #include "rocketchataccount.h"
 #include "room.h"
+#include "room/actionbuttonsgenerator.h"
 #include "roomutil.h"
 #include "ruqola.h"
 #include "ruqola_translatemessage_debug.h"
@@ -66,10 +65,14 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     , mMode(mode)
     , mMessageListDelegate(new MessageListDelegate(account, this))
     , mCurrentRocketChatAccount(account)
+    , mActionButtonsGenerator(new ActionButtonsGenerator(this))
 {
     if (mCurrentRocketChatAccount) {
         mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
+        mActionButtonsGenerator->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     }
+    connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &MessageListView::uiInteractionRequested);
+
     mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
     mMessageListDelegate->setEnableEmojiMenu(mMode != Mode::Moderation);
     setItemDelegate(mMessageListDelegate);
@@ -710,38 +713,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         // TODO use roles too.
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
         if (!actionButtons.isEmpty()) {
-            const QString lang = QLocale().name();
-            auto actSeparator = new QAction(this);
-            actSeparator->setSeparator(true);
-            menu.addAction(actSeparator);
-            for (const auto &actionButton : actionButtons) {
-                auto act = new QAction(this);
-                const QString translateIdentifier = ActionButtonUtil::generateTranslateIdentifier(actionButton);
-                const QString appId = QString::fromLatin1(actionButton.appId());
-                const QByteArray roomId = mRoom->roomId();
-                act->setText(mCurrentRocketChatAccount->getTranslatedIdentifier(lang, translateIdentifier));
-                connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId, message]() {
-                    auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
-                    RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
-                    info.methodName = appId;
-                    AutoGenerateInteractionUtil::ActionMessageInfo actionMessageInfo;
-                    actionMessageInfo.actionId = actionButton.actionId();
-                    actionMessageInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
-                    actionMessageInfo.roomId = roomId;
-                    actionMessageInfo.messageId = message->messageId();
-                    info.messageObj = AutoGenerateInteractionUtil::createMessageActionButton(actionMessageInfo);
-                    job->setAppsUiInteractionJobInfo(info);
-
-                    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-                    connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
-                        Q_EMIT uiInteractionRequested(replyObject);
-                    });
-                    if (!job->start()) {
-                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";
-                    }
-                });
-                menu.addAction(act);
-            }
+            const QByteArray roomId = mRoom->roomId();
+            mActionButtonsGenerator->generateActionButtons(actionButtons, &menu, roomId);
+        } else {
+            mActionButtonsGenerator->clearActionButtons();
         }
     }
 
@@ -811,6 +786,7 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
 {
     mCurrentRocketChatAccount = currentRocketChatAccount;
     mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
+    mActionButtonsGenerator->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 }
 
 void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIsFollowing)

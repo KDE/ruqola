@@ -13,6 +13,7 @@
 class MessageListDelegate;
 class RocketChatAccount;
 class Room;
+class ActionButtonsGenerator;
 namespace TextTranslator
 {
 class TranslatorMenu;
@@ -107,4 +108,5 @@ private:
     MessageListDelegate *const mMessageListDelegate;
     TextTranslator::TranslatorMenu *mTranslatorMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    ActionButtonsGenerator *const mActionButtonsGenerator;
 };

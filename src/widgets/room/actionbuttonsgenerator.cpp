@@ -4,29 +4,44 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "actionbuttonsutils.h"
+#include "actionbuttonsgenerator.h"
 #include "actionbuttons/actionbuttonutil.h"
 #include "autogenerateui/autogenerateinteractionutil.h"
+#include "connection.h"
 #include "misc/appsuiinteractionjob.h"
+#include "ruqolawidgets_debug.h"
 
 #include <QLocale>
 #include <QMenu>
 #include <QUuid>
-/*
-QList<QAction *> ActionButtonsUtils::generateActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu, QWidget *widget)
+
+ActionButtonsGenerator::ActionButtonsGenerator(QObject *parent)
+    : QObject(parent)
 {
-    QList<QAction *> mListActionButton;
+}
+
+ActionButtonsGenerator::~ActionButtonsGenerator() = default;
+
+void ActionButtonsGenerator::clearActionButtons()
+{
+    // Check list of apps action
+    qDeleteAll(mListActionButton);
+    mListActionButton.clear();
+}
+
+void ActionButtonsGenerator::generateActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu, const QByteArray &roomId)
+{
+    clearActionButtons();
     const QString lang = QLocale().name();
-    auto actSeparator = new QAction(widget);
+    auto actSeparator = new QAction(this);
     actSeparator->setSeparator(true);
     mListActionButton.append(actSeparator);
     menu->addAction(actSeparator);
     for (const auto &actionButton : actionButtons) {
-        auto act = new QAction(widget);
+        auto act = new QAction(this);
         const QString translateIdentifier = ActionButtonUtil::generateTranslateIdentifier(actionButton);
         const QString appId = QString::fromLatin1(actionButton.appId());
         act->setText(mCurrentRocketChatAccount->getTranslatedIdentifier(lang, translateIdentifier));
-        const QByteArray roomId = mRoom->roomId();
         connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId]() {
             auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
             RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
@@ -49,6 +64,9 @@ QList<QAction *> ActionButtonsUtils::generateActionButtons(const QList<ActionBut
         mListActionButton.append(act);
         menu->addAction(act);
     }
-    return mListActionButton;
 }
-*/
+
+void ActionButtonsGenerator::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mCurrentRocketChatAccount = account;
+}

@@ -13,6 +13,7 @@
 class QMenu;
 class QAction;
 class Room;
+class ActionButtonsGenerator;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelActionPopupMenu : public QObject
 {
     Q_OBJECT
@@ -55,5 +56,5 @@ private:
 
     QPointer<Room> mRoom;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
-    QList<QAction *> mListActionButton;
+    ActionButtonsGenerator *const mActionButtonsGenerator;
 };
