@@ -71,8 +71,23 @@ void ActionButton::parseActionButton(const QJsonObject &json)
     mAppId = json["appId"_L1].toString().toLatin1();
     mButtonContext = convertContextFromString(json["context"_L1].toString());
     parseWhen(json["when"_L1].toObject());
+    mCategory = convertCategoryFromString(json["category"_L1].toString());
 
-    // TODO category or variant
+    // TODO variant
+}
+
+ActionButton::Category ActionButton::convertCategoryFromString(const QString &str) const
+{
+    if (str.isEmpty()) {
+        return ActionButton::Category::Unknown;
+    } else if (str == "default"_L1) {
+        return ActionButton::Category::Default;
+    } else if (str == "ai"_L1) {
+        return ActionButton::Category::AI;
+    } else {
+        qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown category action type " << str;
+        return ActionButton::Category::Unknown;
+    }
 }
 
 void ActionButton::parseWhen(const QJsonObject &json)
@@ -124,6 +139,16 @@ ActionButton::MessageActionContext ActionButton::convertMessageActionContextsFro
         qCWarning(RUQOLA_ACTION_BUTTONS_LOG) << "Unknown MessageActionContext type " << str;
     }
     return ActionButton::MessageActionContext::Unknown;
+}
+
+ActionButton::Category ActionButton::category() const
+{
+    return mCategory;
+}
+
+void ActionButton::setCategory(const Category &newCategory)
+{
+    mCategory = newCategory;
 }
 
 ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str) const
@@ -221,7 +246,7 @@ bool ActionButton::operator==(const ActionButton &other) const
     return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilters() == roomTypeFilters()
         && other.hasOneRole() == hasOneRole() && other.buttonContext() == buttonContext() && other.hasAllRoles() == hasAllRoles()
         && other.hasAllPermissions() == hasAllPermissions() && other.hasOnePermission() == hasOnePermission()
-        && other.messageActionContexts() == messageActionContexts();
+        && other.messageActionContexts() == messageActionContexts() && other.category() == category();
 }
 
 ActionButton::ButtonContext ActionButton::buttonContext() const
@@ -244,6 +269,7 @@ QDebug operator<<(QDebug d, const ActionButton &t)
     d.space() << "hasOnePermission:" << t.hasOnePermission();
     d.space() << "hasAllPermissions:" << t.hasAllPermissions();
     d.space() << "buttonContext:" << t.buttonContext();
+    d.space() << "category:" << t.category();
     d.space() << "roomTypeFilters:" << static_cast<int>(t.roomTypeFilters());
     d.space() << "messageActionContexts:" << static_cast<int>(t.messageActionContexts());
     return d;
@@ -254,6 +280,7 @@ QDebug operator<<(QDebug d, const ActionButton::FilterActionInfo &t)
     d.space() << "roomTypeFilter:" << t.roomTypeFilter;
     d.space() << "buttonContext:" << t.buttonContext;
     d.space() << "messageActionContext:" << t.messageActionContext;
+    d.space() << "category:" << t.category;
     return d;
 }
 

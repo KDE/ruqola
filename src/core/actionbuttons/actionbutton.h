@@ -40,6 +40,13 @@ public:
     };
     Q_ENUM(ButtonContext);
 
+    enum class Category : uint8_t {
+        Unknown,
+        Default,
+        AI,
+    };
+    Q_ENUM(Category);
+
     enum class MessageActionContext : uint8_t {
         Unknown = 0,
         Message = 1,
@@ -55,6 +62,7 @@ public:
         RoomTypeFilter roomTypeFilter = RoomTypeFilter::Unknown;
         ButtonContext buttonContext = ButtonContext::Unknown;
         MessageActionContext messageActionContext = MessageActionContext::Unknown;
+        Category category = Category::Unknown;
         // TODO use it
         QStringList roles = {};
     };
@@ -96,8 +104,12 @@ public:
     [[nodiscard]] MessageActionContexts messageActionContexts() const;
     void setMessageActionContexts(const MessageActionContexts &newMessageActionContexts);
 
+    [[nodiscard]] Category category() const;
+    void setCategory(const Category &newCategory);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::Category convertCategoryFromString(const QString &str) const;
     LIBRUQOLACORE_NO_EXPORT void parseWhen(const QJsonObject &json);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::RoomTypeFilter convertRoomTypeFiltersFromString(const QString &str) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::MessageActionContext convertMessageActionContextsFromString(const QString &str) const;
@@ -111,6 +123,7 @@ private:
     QByteArray mActionId;
     QString mLabelI18n;
     ButtonContext mButtonContext = ButtonContext::Unknown;
+    Category mCategory = Category::Unknown;
     RoomTypeFilters mRoomTypeFilters = RoomTypeFilter::Unknown;
     MessageActionContexts mMessageActionContexts = MessageActionContext::Unknown;
 };

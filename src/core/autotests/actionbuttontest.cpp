@@ -27,6 +27,7 @@ void ActionButtonTest::shouldHaveDefaultValues()
     QCOMPARE(b.roomTypeFilters(), ActionButton::RoomTypeFilter::Unknown);
     QCOMPARE(b.buttonContext(), ActionButton::ButtonContext::Unknown);
     QCOMPARE(b.messageActionContexts(), ActionButton::MessageActionContext::Unknown);
+    QCOMPARE(b.category(), ActionButton::Category::Unknown);
 }
 
 void ActionButtonTest::shouldLoadActionButton_data()
@@ -66,6 +67,42 @@ void ActionButtonTest::shouldLoadActionButton_data()
 
         b.setRoomTypeFilters(f);
         QTest::addRow("actionbutton-test2") << QStringLiteral("actionbutton-test2") << b;
+    }
+
+    {
+        ActionButton b;
+        b.setAppId("ec284282-67ed-4401-ab8c-bdbe3c278543");
+        b.setActionId("omni_summarize");
+        b.setLabelI18n("summarize.omni"_L1);
+        b.setButtonContext(ActionButton::ButtonContext::RoomAction);
+        ActionButton::RoomTypeFilters f;
+        f |= ActionButton::RoomTypeFilter::LiveChat;
+        const ActionButton::Category c = ActionButton::Category::AI;
+        b.setCategory(c);
+
+        b.setRoomTypeFilters(f);
+        QTest::addRow("actionbutton-test3") << QStringLiteral("actionbutton-test3") << b;
+    }
+    {
+        ActionButton b;
+        b.setAppId("ec284282-67ed-4401-ab8c-bdbe3c278543");
+        b.setActionId("thread_summarize");
+        b.setLabelI18n("summarize.thread"_L1);
+        b.setButtonContext(ActionButton::ButtonContext::MessageAction);
+        ActionButton::MessageActionContexts actionContexts;
+        actionContexts |= ActionButton::MessageActionContext::Threads;
+        b.setMessageActionContexts(actionContexts);
+        ActionButton::RoomTypeFilters f;
+        f |= ActionButton::RoomTypeFilter::PublicChannel;
+        f |= ActionButton::RoomTypeFilter::PrivateChannel;
+        f |= ActionButton::RoomTypeFilter::PrivateDiscussion;
+        f |= ActionButton::RoomTypeFilter::PrivateTeam;
+        f |= ActionButton::RoomTypeFilter::PublicTeam;
+        const ActionButton::Category c = ActionButton::Category::AI;
+        b.setCategory(c);
+
+        b.setRoomTypeFilters(f);
+        QTest::addRow("actionbutton-test4") << QStringLiteral("actionbutton-test4") << b;
     }
 }
 
