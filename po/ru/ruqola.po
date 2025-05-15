@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:43+0000\n"
+"POT-Creation-Date: 2025-05-15 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: apps/main.cpp:59
+#: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
@@ -2105,12 +2105,17 @@ msgstr "Файл был опубликован."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новый запрос доступен здесь:<br /><a href='%1'>%1</a> </qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:39
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Ask Application"
 msgid "AI Actions"
 msgstr "Запрос к приложению…"
+
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
+#, kde-format
+msgid "Summarize Unreads"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -8834,7 +8839,7 @@ msgid "Video: %1"
 msgstr "Видео: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:470
+#: widgets/room/messagelinewidget.cpp:476
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10416,50 +10421,50 @@ msgstr "Отправить сообщение"
 msgid "Send Message"
 msgstr "Отправить сообщение"
 
-#: widgets/room/messagelinewidget.cpp:192
+#: widgets/room/messagelinewidget.cpp:198
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Не удалось выполнить команду. Скопировать её в буфер обмена?"
 
-#: widgets/room/messagelinewidget.cpp:193
+#: widgets/room/messagelinewidget.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Ошибка команды"
 
-#: widgets/room/messagelinewidget.cpp:250
+#: widgets/room/messagelinewidget.cpp:256
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Преобразовать этот большой текст во вложение?"
 
-#: widgets/room/messagelinewidget.cpp:251
+#: widgets/room/messagelinewidget.cpp:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Слишком большое сообщение"
 
-#: widgets/room/messagelinewidget.cpp:352
+#: widgets/room/messagelinewidget.cpp:358
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Сообщение %1 в ветке"
 
-#: widgets/room/messagelinewidget.cpp:352
+#: widgets/room/messagelinewidget.cpp:358
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Отправить сообщение в %1…"
 
-#: widgets/room/messagelinewidget.cpp:493
+#: widgets/room/messagelinewidget.cpp:499
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Выбранный файл слишком велик (максимальный размер: %1)"
 
-#: widgets/room/messagelinewidget.cpp:494
+#: widgets/room/messagelinewidget.cpp:500
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Отправка файлов"
 
-#: widgets/room/messagelinewidget.cpp:499
+#: widgets/room/messagelinewidget.cpp:505
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Этот файл не разрешён сервером (некорректный тип MIME)"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:43+0000\n"
-"PO-Revision-Date: 2025-05-07 10:34+0200\n"
+"POT-Creation-Date: 2025-05-15 00:42+0000\n"
+"PO-Revision-Date: 2025-05-14 09:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: apps/main.cpp:59
+#: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
@@ -2086,12 +2086,15 @@ msgstr "S'ha compartit el fitxer."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Trobareu la nova sol·licitud a:<br /><a href='%1'>%1</a></qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
+#, kde-format
 msgid "AI Actions"
-msgstr "Demana una aplicació"
+msgstr "Accions d'IA"
+
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
+#, kde-format
+msgid "Summarize Unreads"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -8769,7 +8772,7 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:26
-#: widgets/room/messagelinewidget.cpp:470
+#: widgets/room/messagelinewidget.cpp:476
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10348,50 +10351,50 @@ msgstr "Envia un missatge"
 msgid "Send Message"
 msgstr "Envia un missatge"
 
-#: widgets/room/messagelinewidget.cpp:192
+#: widgets/room/messagelinewidget.cpp:198
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "L'ordre ha fallat. Voleu copiar l'ordre al porta-retalls?"
 
-#: widgets/room/messagelinewidget.cpp:193
+#: widgets/room/messagelinewidget.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Error d'ordre"
 
-#: widgets/room/messagelinewidget.cpp:250
+#: widgets/room/messagelinewidget.cpp:256
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Voleu convertir aquest text llarg en un adjunt?"
 
-#: widgets/room/messagelinewidget.cpp:251
+#: widgets/room/messagelinewidget.cpp:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Missatge massa llarg"
 
-#: widgets/room/messagelinewidget.cpp:352
+#: widgets/room/messagelinewidget.cpp:358
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Missatge %1 del fil"
 
-#: widgets/room/messagelinewidget.cpp:352
+#: widgets/room/messagelinewidget.cpp:358
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Envia un missatge en %1…"
 
-#: widgets/room/messagelinewidget.cpp:493
+#: widgets/room/messagelinewidget.cpp:499
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "El fitxer seleccionat és massa gran (la mida màxima és %1)"
 
-#: widgets/room/messagelinewidget.cpp:494
+#: widgets/room/messagelinewidget.cpp:500
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Pujada de fitxer"
 
-#: widgets/room/messagelinewidget.cpp:499
+#: widgets/room/messagelinewidget.cpp:505
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no ha autoritzat aquest fitxer (tipus MIME no vàlid)"
