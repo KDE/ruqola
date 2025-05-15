@@ -665,13 +665,14 @@ void RoomWidget::storeRoomSettings()
                 mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomWidgetBase->roomId());
             }
         } else {
-            AccountRoomSettings::PendingTypedInfo info;
-            info.text = mRoomWidgetBase->messageLineWidget()->text();
-            info.messageIdBeingEdited = mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited();
-            info.scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value();
-            info.threadMessageId = mRoomWidgetBase->messageLineWidget()->threadMessageId();
-            info.quotePermalink = mRoomWidgetBase->messageLineWidget()->quotePermalink();
-            info.quoteText = mRoomWidgetBase->messageLineWidget()->quoteText();
+            const AccountRoomSettings::PendingTypedInfo info{
+                .text = mRoomWidgetBase->messageLineWidget()->text(),
+                .messageIdBeingEdited = mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited(),
+                .threadMessageId = mRoomWidgetBase->messageLineWidget()->threadMessageId(),
+                .quotePermalink = mRoomWidgetBase->messageLineWidget()->quotePermalink(),
+                .quoteText = mRoomWidgetBase->messageLineWidget()->quoteText(),
+                .scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value(),
+            };
             mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
         }
     }
