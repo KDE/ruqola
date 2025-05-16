@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:42+0000\n"
+"POT-Creation-Date: 2025-05-16 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3532,7 +3532,7 @@ msgstr "Nahlásiť chybu"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:79
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
-#: widgets/room/messagelistview.cpp:287
+#: widgets/room/messagelistview.cpp:290
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
 #, fuzzy, kde-format
 #| msgid "Copy"
@@ -3542,7 +3542,7 @@ msgstr "Kopírovať"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:289
+#: widgets/room/messagelistview.cpp:292
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Message"
@@ -3553,7 +3553,7 @@ msgstr "Správa"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:682
+#: widgets/room/messagelistview.cpp:685
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, fuzzy, kde-format
 #| msgid "Status:"
@@ -3566,7 +3566,7 @@ msgstr "Stav:"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
-#: widgets/room/messagelistview.cpp:322
+#: widgets/room/messagelistview.cpp:325
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:75
 #, fuzzy, kde-format
 #| msgid "Select File..."
@@ -7533,7 +7533,7 @@ msgid "Mark as Unread"
 msgstr "Súkromné adresy"
 
 #: widgets/channellist/channellistview.cpp:133
-#: widgets/room/messagelistview.cpp:308
+#: widgets/room/messagelistview.cpp:311
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgctxt "@action"
@@ -10356,7 +10356,7 @@ msgid "Clear"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:664
+#: widgets/room/messagelistview.cpp:667
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
@@ -10476,100 +10476,100 @@ msgstr "Zadajte užívateľské meno"
 msgid "Reason:"
 msgstr "Série "
 
-#: widgets/room/channelactionpopupmenu.cpp:35
+#: widgets/room/channelactionpopupmenu.cpp:34
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Prune Messages…"
 msgstr "Súkromné adresy"
 
-#: widgets/room/channelactionpopupmenu.cpp:43
+#: widgets/room/channelactionpopupmenu.cpp:42
 #, fuzzy, kde-format
 #| msgid "Rocket Chat Client"
 msgctxt "@action"
 msgid "Show Mentions…"
 msgstr "Chatovací klient Rocket"
 
-#: widgets/room/channelactionpopupmenu.cpp:49
+#: widgets/room/channelactionpopupmenu.cpp:48
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/channelactionpopupmenu.cpp:55
+#: widgets/room/channelactionpopupmenu.cpp:54
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@action"
 msgid "Show Starred Messages…"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/channelactionpopupmenu.cpp:61
+#: widgets/room/channelactionpopupmenu.cpp:60
 #, fuzzy, kde-format
 #| msgid "Delete Attachment"
 msgid "Show File Attachments…"
 msgstr "Vymazať prílohu"
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:66
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@action"
 msgid "Show Discussions…"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:72
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgctxt "@action"
 msgid "Show Threads…"
 msgstr "Vlákna"
 
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:80
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Configure Notification…"
 msgstr "Upozornenia"
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:87
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@action"
 msgid "Configure Auto-Translate…"
 msgstr "Preklad"
 
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:95
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgctxt "@action"
 msgid "Invite Users"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:102
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr "Informácie o serveri"
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:110
 #, kde-format
 msgid "Video Chat"
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:117
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
 msgid "Export Messages…"
 msgstr "Správa"
 
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "OTR"
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:131
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@action"
@@ -10631,7 +10631,7 @@ msgid "User Info"
 msgstr "Informácie o užívateľovi"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:449
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:415
 #, fuzzy, kde-format
 #| msgid "Conversation"
 msgctxt "@action"
@@ -10812,177 +10812,177 @@ msgstr ""
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:116
+#: widgets/room/messagelistview.cpp:119
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "You have joined a new direct message"
 msgstr "Správa"
 
-#: widgets/room/messagelistview.cpp:118
+#: widgets/room/messagelistview.cpp:121
 #, fuzzy, kde-format
 #| msgid "Conversation"
 msgid "Start of conversation"
 msgstr "Konverzácia"
 
-#: widgets/room/messagelistview.cpp:299
+#: widgets/room/messagelistview.cpp:302
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelistview.cpp:299
+#: widgets/room/messagelistview.cpp:302
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelistview.cpp:308
+#: widgets/room/messagelistview.cpp:311
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Obľúbené"
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:319
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "Vymazať"
 
-#: widgets/room/messagelistview.cpp:328
+#: widgets/room/messagelistview.cpp:331
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:336
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Vlákna"
 
-#: widgets/room/messagelistview.cpp:338
+#: widgets/room/messagelistview.cpp:341
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "Upraviť"
 
-#: widgets/room/messagelistview.cpp:343
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:351
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Správa"
 
-#: widgets/room/messagelistview.cpp:353
+#: widgets/room/messagelistview.cpp:356
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Všetky správy"
 
-#: widgets/room/messagelistview.cpp:367
+#: widgets/room/messagelistview.cpp:370
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Všetky správy"
 
-#: widgets/room/messagelistview.cpp:367
+#: widgets/room/messagelistview.cpp:370
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Všetky správy"
 
-#: widgets/room/messagelistview.cpp:380
+#: widgets/room/messagelistview.cpp:383
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopírovať"
 
-#: widgets/room/messagelistview.cpp:403 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:406 widgets/room/usersinroommenu.cpp:124
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informácie o užívateľovi"
 
-#: widgets/room/messagelistview.cpp:449
+#: widgets/room/messagelistview.cpp:452
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/messagelistview.cpp:455
+#: widgets/room/messagelistview.cpp:458
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Správa"
 
-#: widgets/room/messagelistview.cpp:519 widgets/room/messagelistview.cpp:577
+#: widgets/room/messagelistview.cpp:522 widgets/room/messagelistview.cpp:580
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelistview.cpp:519 widgets/room/messagelistview.cpp:577
+#: widgets/room/messagelistview.cpp:522 widgets/room/messagelistview.cpp:580
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelistview.cpp:586
+#: widgets/room/messagelistview.cpp:589
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Nahlásiť chybu"
 
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:612
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Nahlásiť chybu"
 
-#: widgets/room/messagelistview.cpp:691
+#: widgets/room/messagelistview.cpp:694
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Správa"
 
-#: widgets/room/messagelistview.cpp:935
+#: widgets/room/messagelistview.cpp:912
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:936
+#: widgets/room/messagelistview.cpp:913
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Zmazať správu"
 
-#: widgets/room/messagelistview.cpp:1111
+#: widgets/room/messagelistview.cpp:1088
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title:window"

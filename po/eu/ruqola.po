@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:42+0000\n"
+"POT-Creation-Date: 2025-05-16 00:42+0000\n"
 "PO-Revision-Date: 2025-05-01 15:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3395,7 +3395,7 @@ msgstr "Txosten guztiak baztertu"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:79
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
-#: widgets/room/messagelistview.cpp:287
+#: widgets/room/messagelistview.cpp:290
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
 #, kde-format
 msgctxt "@action"
@@ -3404,7 +3404,7 @@ msgstr "Kopiatu hautapena"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:289
+#: widgets/room/messagelistview.cpp:292
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:55
 #, kde-format
 msgctxt "@action"
@@ -3414,7 +3414,7 @@ msgstr "Kopiatu mezua"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
 #: widgets/discussions/discussionlistview.cpp:69
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:682
+#: widgets/room/messagelistview.cpp:685
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgctxt "@action"
@@ -3426,7 +3426,7 @@ msgstr "Esan testua"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:75
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
-#: widgets/room/messagelistview.cpp:322
+#: widgets/room/messagelistview.cpp:325
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:75
 #, kde-format
 msgctxt "@action"
@@ -7328,7 +7328,7 @@ msgid "Mark as Unread"
 msgstr "Markatu irakurri gabeko gisa"
 
 #: widgets/channellist/channellistview.cpp:133
-#: widgets/room/messagelistview.cpp:308
+#: widgets/room/messagelistview.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -9980,7 +9980,7 @@ msgid "Clear"
 msgstr "Garbitu"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:664
+#: widgets/room/messagelistview.cpp:667
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10093,88 +10093,88 @@ msgstr "Erregistratu"
 msgid "Reason:"
 msgstr "Arrazoia:"
 
-#: widgets/room/channelactionpopupmenu.cpp:35
+#: widgets/room/channelactionpopupmenu.cpp:34
 #, kde-format
 msgctxt "@action"
 msgid "Prune Messages…"
 msgstr "Mezuak inausi..."
 
-#: widgets/room/channelactionpopupmenu.cpp:43
+#: widgets/room/channelactionpopupmenu.cpp:42
 #, kde-format
 msgctxt "@action"
 msgid "Show Mentions…"
 msgstr "Erakutsi aipamenak..."
 
-#: widgets/room/channelactionpopupmenu.cpp:49
+#: widgets/room/channelactionpopupmenu.cpp:48
 #, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr "Erakutsi iltzatutako mezuak..."
 
-#: widgets/room/channelactionpopupmenu.cpp:55
+#: widgets/room/channelactionpopupmenu.cpp:54
 #, kde-format
 msgctxt "@action"
 msgid "Show Starred Messages…"
 msgstr "Erakutsi izardun mezuak..."
 
-#: widgets/room/channelactionpopupmenu.cpp:61
+#: widgets/room/channelactionpopupmenu.cpp:60
 #, kde-format
 msgid "Show File Attachments…"
 msgstr "Erakutsi fitxategi-eranskinak..."
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:66
 #, kde-format
 msgctxt "@action"
 msgid "Show Discussions…"
 msgstr "Erakutsi elkarrizketak..."
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:72
 #, kde-format
 msgctxt "@action"
 msgid "Show Threads…"
 msgstr "Erakutsi hariak..."
 
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:80
 #, kde-format
 msgid "Configure Notification…"
 msgstr "Konfiguratu jakinarazpena..."
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:87
 #, kde-format
 msgctxt "@action"
 msgid "Configure Auto-Translate…"
 msgstr "Konfiguratu itzulpen automatikoa..."
 
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:95
 #, kde-format
 msgctxt "@action"
 msgid "Invite Users"
 msgstr "Gonbidatu erabiltzaileak"
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:102
 #, kde-format
 msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr "Gehitu erabiltzaileak kanalean..."
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:110
 #, kde-format
 msgid "Video Chat"
 msgstr "Bideo-berriketa"
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:117
 #, kde-format
 msgctxt "@action"
 msgid "Export Messages…"
 msgstr "Esportatu mezuak..."
 
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "OTR"
 msgstr "OTR"
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Encrypt Messages"
@@ -10233,7 +10233,7 @@ msgid "User Info"
 msgstr "Erabiltzailearen informazioa"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:449
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:415
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
@@ -10391,154 +10391,154 @@ msgstr "Fitxategia zama-igotzea"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Zerbitzariak ez du fitxategi hori baimentzen (MIME-mota baliogabea)"
 
-#: widgets/room/messagelistview.cpp:116
+#: widgets/room/messagelistview.cpp:119
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Zuzeneko mezu berri batera elkartu zara"
 
-#: widgets/room/messagelistview.cpp:118
+#: widgets/room/messagelistview.cpp:121
 #, kde-format
 msgid "Start of conversation"
 msgstr "Elkarrizketararen hasiera"
 
-#: widgets/room/messagelistview.cpp:299
+#: widgets/room/messagelistview.cpp:302
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Mezuari iltzea kendu"
 
-#: widgets/room/messagelistview.cpp:299
+#: widgets/room/messagelistview.cpp:302
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Iltzatu mezua"
 
-#: widgets/room/messagelistview.cpp:308
+#: widgets/room/messagelistview.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Kendu gogokoetatik"
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: widgets/room/messagelistview.cpp:328
+#: widgets/room/messagelistview.cpp:331
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Markatu mezua «Irakurri gabeko» gisa"
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:336
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Erakutsi hari osoa"
 
-#: widgets/room/messagelistview.cpp:338
+#: widgets/room/messagelistview.cpp:341
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Editatu"
 
-#: widgets/room/messagelistview.cpp:343
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Aipua"
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:351
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopiatu mezurako esteka"
 
-#: widgets/room/messagelistview.cpp:353
+#: widgets/room/messagelistview.cpp:356
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Birbidali mezua"
 
-#: widgets/room/messagelistview.cpp:367
+#: widgets/room/messagelistview.cpp:370
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Utzi mezua jarraitzeari"
 
-#: widgets/room/messagelistview.cpp:367
+#: widgets/room/messagelistview.cpp:370
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Jarraitu mezuari"
 
-#: widgets/room/messagelistview.cpp:380
+#: widgets/room/messagelistview.cpp:383
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiatu URLa"
 
-#: widgets/room/messagelistview.cpp:403 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:406 widgets/room/usersinroommenu.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Erabiltzailearen informazioa"
 
-#: widgets/room/messagelistview.cpp:449
+#: widgets/room/messagelistview.cpp:452
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Hasi elkarrizketa bat"
 
-#: widgets/room/messagelistview.cpp:455
+#: widgets/room/messagelistview.cpp:458
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Erantzun harian"
 
-#: widgets/room/messagelistview.cpp:519 widgets/room/messagelistview.cpp:577
+#: widgets/room/messagelistview.cpp:522 widgets/room/messagelistview.cpp:580
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Erakutsi jatorrizko mezua"
 
-#: widgets/room/messagelistview.cpp:519 widgets/room/messagelistview.cpp:577
+#: widgets/room/messagelistview.cpp:522 widgets/room/messagelistview.cpp:580
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Itzuli mezua"
 
-#: widgets/room/messagelistview.cpp:586
+#: widgets/room/messagelistview.cpp:589
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Ikusi txostenak"
 
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:612
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Txostenak baztertu"
 
-#: widgets/room/messagelistview.cpp:691
+#: widgets/room/messagelistview.cpp:694
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Eman mezuaren berri"
 
-#: widgets/room/messagelistview.cpp:935
+#: widgets/room/messagelistview.cpp:912
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Mezu hori ezabatu nahi duzu?"
 
-#: widgets/room/messagelistview.cpp:936
+#: widgets/room/messagelistview.cpp:913
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ezabatu mezua"
 
-#: widgets/room/messagelistview.cpp:1111
+#: widgets/room/messagelistview.cpp:1088
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
