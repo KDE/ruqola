@@ -292,6 +292,7 @@ void RoomHeaderWidget::slotActionButtonChanged()
         ActionButton::FilterActionInfo filterInfo;
         filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
         filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
+        filterInfo.category = ActionButton::Category::AI;
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
         const QByteArray roomId = mRoom->roomId();
         mActionButtonsGenerator->generateActionButtons(actionButtons, mMenu, roomId);
