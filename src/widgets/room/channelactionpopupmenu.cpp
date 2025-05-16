@@ -174,12 +174,8 @@ void ChannelActionPopupMenu::slotActionButtonChanged()
         filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
         filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
-        if (!actionButtons.isEmpty()) {
-            const QByteArray roomId = mRoom->roomId();
-            mActionButtonsGenerator->generateActionButtons(actionButtons, mMenu, roomId);
-        } else {
-            mActionButtonsGenerator->clearActionButtons();
-        }
+        const QByteArray roomId = mRoom->roomId();
+        mActionButtonsGenerator->generateActionButtons(actionButtons, mMenu, roomId);
     }
 }
 

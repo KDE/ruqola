@@ -712,12 +712,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
         // TODO use roles too.
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
-        if (!actionButtons.isEmpty()) {
-            const QByteArray roomId = mRoom->roomId();
-            mActionButtonsGenerator->generateActionButtons(actionButtons, &menu, roomId);
-        } else {
-            mActionButtonsGenerator->clearActionButtons();
-        }
+        const QByteArray roomId = mRoom->roomId();
+        mActionButtonsGenerator->generateActionButtons(actionButtons, &menu, roomId);
     }
 
     if (!menu.actions().isEmpty()) {
