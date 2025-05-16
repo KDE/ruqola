@@ -32,7 +32,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     , mListOfUsersButton(new QToolButton(this))
     , mSearchMessageButton(new QToolButton(this))
     , mEncryptedButton(new QToolButton(this))
-    , mChannelAction(new QToolButton(this))
+    , mChannelActionButton(new QToolButton(this))
+    , mAIActionButton(new QToolButton(this))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
 {
@@ -117,6 +118,15 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->setSpacing(0);
     headerLayout->addLayout(buttonLayout);
 
+    mAIActionButton->setAutoRaise(true);
+    mAIActionButton->setObjectName(QStringLiteral("mAIActionButton"));
+    mAIActionButton->setToolTip(i18nc("@info:tooltip", "AI Actions"));
+    mAIActionButton->setPopupMode(QToolButton::InstantPopup);
+    mAIActionButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-operator")));
+    buttonLayout->addWidget(mAIActionButton, 0, Qt::AlignTop);
+    // Disable by default
+    mAIActionButton->hide();
+
     mCallButton->setAutoRaise(true);
     mCallButton->setObjectName(QStringLiteral("mCallButton"));
     mCallButton->setIcon(QIcon::fromTheme(QStringLiteral("call-start-symbolic")));
@@ -174,15 +184,15 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
 
-    mChannelAction->setAutoRaise(true);
-    mChannelAction->setObjectName(QStringLiteral("mChannelAction"));
-    mChannelAction->setPopupMode(QToolButton::InstantPopup);
-    mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("irc-operator")));
-    buttonLayout->addWidget(mChannelAction, 0, Qt::AlignTop);
+    mChannelActionButton->setAutoRaise(true);
+    mChannelActionButton->setObjectName(QStringLiteral("mChannelAction"));
+    mChannelActionButton->setPopupMode(QToolButton::InstantPopup);
+    mChannelActionButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-operator")));
+    buttonLayout->addWidget(mChannelActionButton, 0, Qt::AlignTop);
 
-    mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelAction);
+    mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelActionButton);
     mChannelActionPopupMenu->setObjectName(QStringLiteral("mChannelActionPopupMenu"));
-    mChannelAction->setMenu(mChannelActionPopupMenu->menu());
+    mChannelActionButton->setMenu(mChannelActionPopupMenu->menu());
     connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::actionRequested, this, &RoomHeaderWidget::actionRequested);
     connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::uiInteractionRequested, this, &RoomHeaderWidget::uiInteractionRequested);
     connect(mTeamName, &TeamNameLabel::openTeam, this, &RoomHeaderWidget::openTeam);

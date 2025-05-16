@@ -90,7 +90,8 @@ private:
     QToolButton *const mSearchMessageButton;
 
     QToolButton *const mEncryptedButton;
-    QToolButton *const mChannelAction;
+    QToolButton *const mChannelActionButton;
+    QToolButton *const mAIActionButton;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
     AvatarCacheManager *const mAvatarCacheManager;
     ActionButtonsGenerator *const mActionButtonsGenerator;

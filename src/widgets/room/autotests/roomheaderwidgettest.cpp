@@ -77,6 +77,14 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mCallButton->icon().isNull());
     QVERIFY(mCallButton->autoRaise());
 
+    auto mAIActionButton = w.findChild<QToolButton *>(QStringLiteral("mAIActionButton"));
+    QVERIFY(mAIActionButton);
+    QCOMPARE(mAIActionButton->popupMode(), QToolButton::InstantPopup);
+    QVERIFY(!mAIActionButton->isCheckable());
+    QVERIFY(!mAIActionButton->toolTip().isEmpty());
+    QVERIFY(!mAIActionButton->icon().isNull());
+    QVERIFY(mAIActionButton->autoRaise());
+
     auto mListOfUsersButton = w.findChild<QToolButton *>(QStringLiteral("mListOfUsersButton"));
     QVERIFY(mListOfUsersButton);
     QVERIFY(mListOfUsersButton->isCheckable());
