@@ -10,6 +10,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "room.h"
+#include <QPointer>
 class QLabel;
 class QToolButton;
 class ChannelActionPopupMenu;
@@ -17,6 +18,7 @@ class RocketChatAccount;
 class TeamNameLabel;
 class RoomHeaderLabel;
 class AvatarCacheManager;
+class ActionButtonsGenerator;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -74,6 +76,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisabledEncryption();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
     QLabel *const mRoomName;
     TeamNameLabel *const mTeamName;
     RoomHeaderLabel *const mRoomHeaderLabel;
@@ -90,4 +93,6 @@ private:
     QToolButton *const mChannelAction;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
     AvatarCacheManager *const mAvatarCacheManager;
+    ActionButtonsGenerator *const mActionButtonsGenerator;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

@@ -5,6 +5,9 @@
 */
 
 #include "roomheaderwidget.h"
+#include "actionbuttons/actionbuttonsmanager.h"
+#include "actionbuttons/actionbuttonutil.h"
+#include "actionbuttonsgenerator.h"
 #include "channelactionpopupmenu.h"
 #include "encryption/e2edisabledialog.h"
 #include "misc/avatarcachemanager.h"
@@ -31,6 +34,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     , mEncryptedButton(new QToolButton(this))
     , mChannelAction(new QToolButton(this))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
+    , mActionButtonsGenerator(new ActionButtonsGenerator(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -182,6 +186,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::actionRequested, this, &RoomHeaderWidget::actionRequested);
     connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::uiInteractionRequested, this, &RoomHeaderWidget::uiInteractionRequested);
     connect(mTeamName, &TeamNameLabel::openTeam, this, &RoomHeaderWidget::openTeam);
+
+    connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &RoomHeaderWidget::uiInteractionRequested);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget() = default;
@@ -260,8 +266,37 @@ void RoomHeaderWidget::setRoom(Room *room)
 
 void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount->actionButtonsManager(),
+                   &ActionButtonsManager::actionButtonsChanged,
+                   this,
+                   &RoomHeaderWidget::slotActionButtonChanged);
+    }
+    mCurrentRocketChatAccount = account;
     mChannelActionPopupMenu->setCurrentRocketChatAccount(account);
     mAvatarCacheManager->setCurrentRocketChatAccount(account);
+    mActionButtonsGenerator->setCurrentRocketChatAccount(account);
+    if (mCurrentRocketChatAccount) {
+        connect(mCurrentRocketChatAccount->actionButtonsManager(),
+                &ActionButtonsManager::actionButtonsChanged,
+                this,
+                &RoomHeaderWidget::slotActionButtonChanged);
+    }
+}
+
+void RoomHeaderWidget::slotActionButtonChanged()
+{
+    // TODO implement it
+#if 0
+    if (mCurrentRocketChatAccount) {
+        ActionButton::FilterActionInfo filterInfo;
+        filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
+        filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
+        const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
+        const QByteArray roomId = mRoom->roomId();
+        mActionButtonsGenerator->generateActionButtons(actionButtons, mMenu, roomId);
+    }
+#endif
 }
 
 void RoomHeaderWidget::slotDisabledEncryption()
