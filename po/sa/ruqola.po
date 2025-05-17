@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-05-17 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4481,7 +4481,7 @@ msgid "Accounts"
 msgstr "लेखा"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:68
+#: widgets/room/roomheaderwidget.cpp:73
 #, kde-format
 msgid "Encryption"
 msgstr "एन्क्रिप्शन"
@@ -10453,18 +10453,18 @@ msgctxt "@action"
 msgid "Report Message"
 msgstr "रिपोर्ट् सन्देशः"
 
-#: widgets/room/messagelistview.cpp:912
+#: widgets/room/messagelistview.cpp:908
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "किं भवान् एतत् सन्देशं विलोपयितुम् इच्छति ?"
 
-#: widgets/room/messagelistview.cpp:913
+#: widgets/room/messagelistview.cpp:909
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "सन्देशं विलोपयन्तु"
 
-#: widgets/room/messagelistview.cpp:1088
+#: widgets/room/messagelistview.cpp:1084
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -10544,79 +10544,87 @@ msgstr "(अधिकं सूचनां दर्शयतु...)"
 msgid "(Show Less Info…)"
 msgstr "(कमाधिकं सूचनां दर्शयतु...)"
 
-#: widgets/room/roomheaderwidget.cpp:48
+#: widgets/room/roomheaderwidget.cpp:53
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "प्रिय"
 
-#: widgets/room/roomheaderwidget.cpp:50
+#: widgets/room/roomheaderwidget.cpp:55
 #, kde-format
 msgid "Favorite"
 msgstr "प्रिय"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:71
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E सक्षमम्"
 
-#: widgets/room/roomheaderwidget.cpp:119
+#: widgets/room/roomheaderwidget.cpp:123
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
+msgctxt "@info:tooltip"
+msgid "AI Actions"
+msgstr "आवेदनम् पृच्छतु"
+
+#: widgets/room/roomheaderwidget.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "आह्वानम्‌"
 
-#: widgets/room/roomheaderwidget.cpp:121
+#: widgets/room/roomheaderwidget.cpp:135
 #, kde-format
 msgid "Call"
 msgstr "आह्वानम्‌"
 
-#: widgets/room/roomheaderwidget.cpp:130
+#: widgets/room/roomheaderwidget.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "चैनलस्य सूचना"
 
-#: widgets/room/roomheaderwidget.cpp:132 widgets/room/roomheaderwidget.cpp:240
+#: widgets/room/roomheaderwidget.cpp:146 widgets/room/roomheaderwidget.cpp:256
 #, kde-format
 msgid "Channel's Information"
 msgstr "चैनलस्य सूचना"
-
-#: widgets/room/roomheaderwidget.cpp:141
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Team Channels"
-msgstr "टीम चैनल्स्"
-
-#: widgets/room/roomheaderwidget.cpp:143
-#, kde-format
-msgid "Team Channels"
-msgstr "टीम चैनल्स्"
-
-#: widgets/room/roomheaderwidget.cpp:153
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Show List of Users"
-msgstr "उपयोक्तृणां सूचीं दर्शयतु"
 
 #: widgets/room/roomheaderwidget.cpp:155
 #, kde-format
+msgctxt "@info:tooltip"
+msgid "Team Channels"
+msgstr "टीम चैनल्स्"
+
+#: widgets/room/roomheaderwidget.cpp:157
+#, kde-format
+msgid "Team Channels"
+msgstr "टीम चैनल्स्"
+
+#: widgets/room/roomheaderwidget.cpp:167
+#, kde-format
+msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "उपयोक्तृणां सूचीं दर्शयतु"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:169
+#, kde-format
+msgid "Show List of Users"
+msgstr "उपयोक्तृणां सूचीं दर्शयतु"
+
+#: widgets/room/roomheaderwidget.cpp:180
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "अन्वेषणसन्देशाः..."
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:182
 #, kde-format
 msgid "Search Messages…"
 msgstr "अन्वेषणसन्देशाः..."
 
-#: widgets/room/roomheaderwidget.cpp:240
+#: widgets/room/roomheaderwidget.cpp:256
 #, kde-format
 msgid "Team's Information"
 msgstr "दलस्य सूचना"

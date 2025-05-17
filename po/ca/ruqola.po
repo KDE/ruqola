@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-05-17 00:41+0000\n"
 "PO-Revision-Date: 2025-05-15 09:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4504,7 +4504,7 @@ msgid "Accounts"
 msgstr "Comptes"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:68
+#: widgets/room/roomheaderwidget.cpp:73
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptatge"
@@ -10535,18 +10535,18 @@ msgctxt "@action"
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: widgets/room/messagelistview.cpp:912
+#: widgets/room/messagelistview.cpp:908
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Voleu suprimir aquest missatge?"
 
-#: widgets/room/messagelistview.cpp:913
+#: widgets/room/messagelistview.cpp:909
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Supressió de missatge"
 
-#: widgets/room/messagelistview.cpp:1088
+#: widgets/room/messagelistview.cpp:1084
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -10626,79 +10626,86 @@ msgstr "(Mostra més informació…)"
 msgid "(Show Less Info…)"
 msgstr "(Mostra menys informació…)"
 
-#: widgets/room/roomheaderwidget.cpp:48
+#: widgets/room/roomheaderwidget.cpp:53
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Preferida"
 
-#: widgets/room/roomheaderwidget.cpp:50
+#: widgets/room/roomheaderwidget.cpp:55
 #, kde-format
 msgid "Favorite"
 msgstr "Preferida"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:71
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "S'ha habilitat E2E"
 
-#: widgets/room/roomheaderwidget.cpp:119
+#: widgets/room/roomheaderwidget.cpp:123
+#, fuzzy, kde-format
+#| msgid "AI Actions"
+msgctxt "@info:tooltip"
+msgid "AI Actions"
+msgstr "Accions d'IA"
+
+#: widgets/room/roomheaderwidget.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Truca"
 
-#: widgets/room/roomheaderwidget.cpp:121
+#: widgets/room/roomheaderwidget.cpp:135
 #, kde-format
 msgid "Call"
 msgstr "Truca"
 
-#: widgets/room/roomheaderwidget.cpp:130
+#: widgets/room/roomheaderwidget.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:132 widgets/room/roomheaderwidget.cpp:240
+#: widgets/room/roomheaderwidget.cpp:146 widgets/room/roomheaderwidget.cpp:256
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informació del canal"
-
-#: widgets/room/roomheaderwidget.cpp:141
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Team Channels"
-msgstr "Canals de l'equip"
-
-#: widgets/room/roomheaderwidget.cpp:143
-#, kde-format
-msgid "Team Channels"
-msgstr "Canals de l'equip"
-
-#: widgets/room/roomheaderwidget.cpp:153
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Show List of Users"
-msgstr "Mostra la llista d'usuaris"
 
 #: widgets/room/roomheaderwidget.cpp:155
 #, kde-format
+msgctxt "@info:tooltip"
+msgid "Team Channels"
+msgstr "Canals de l'equip"
+
+#: widgets/room/roomheaderwidget.cpp:157
+#, kde-format
+msgid "Team Channels"
+msgstr "Canals de l'equip"
+
+#: widgets/room/roomheaderwidget.cpp:167
+#, kde-format
+msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:169
+#, kde-format
+msgid "Show List of Users"
+msgstr "Mostra la llista d'usuaris"
+
+#: widgets/room/roomheaderwidget.cpp:180
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Cerca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:182
 #, kde-format
 msgid "Search Messages…"
 msgstr "Cerca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:240
+#: widgets/room/roomheaderwidget.cpp:256
 #, kde-format
 msgid "Team's Information"
 msgstr "Informació de l'equip"

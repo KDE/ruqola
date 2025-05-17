@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-05-17 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -4482,7 +4482,7 @@ msgid "Accounts"
 msgstr "हिसाब किताब"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:68
+#: widgets/room/roomheaderwidget.cpp:73
 #, kde-format
 msgid "Encryption"
 msgstr "कूटलेखन"
@@ -10472,18 +10472,18 @@ msgctxt "@action"
 msgid "Report Message"
 msgstr "संदेश की रिपोर्ट करें"
 
-#: widgets/room/messagelistview.cpp:912
+#: widgets/room/messagelistview.cpp:908
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "क्या आप यह संदेश हटाना चाहते हैं?"
 
-#: widgets/room/messagelistview.cpp:913
+#: widgets/room/messagelistview.cpp:909
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "संदेश को हटाएं"
 
-#: widgets/room/messagelistview.cpp:1088
+#: widgets/room/messagelistview.cpp:1084
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -10563,79 +10563,87 @@ msgstr "(अधिक जानकारी दिखाएं…)"
 msgid "(Show Less Info…)"
 msgstr "(कम जानकारी दिखाएं…)"
 
-#: widgets/room/roomheaderwidget.cpp:48
+#: widgets/room/roomheaderwidget.cpp:53
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "पसंदीदा"
 
-#: widgets/room/roomheaderwidget.cpp:50
+#: widgets/room/roomheaderwidget.cpp:55
 #, kde-format
 msgid "Favorite"
 msgstr "पसंदीदा"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:71
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E सक्षम"
 
-#: widgets/room/roomheaderwidget.cpp:119
+#: widgets/room/roomheaderwidget.cpp:123
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
+msgctxt "@info:tooltip"
+msgid "AI Actions"
+msgstr "आवेदन पूछें"
+
+#: widgets/room/roomheaderwidget.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "पुकारना"
 
-#: widgets/room/roomheaderwidget.cpp:121
+#: widgets/room/roomheaderwidget.cpp:135
 #, kde-format
 msgid "Call"
 msgstr "पुकारना"
 
-#: widgets/room/roomheaderwidget.cpp:130
+#: widgets/room/roomheaderwidget.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "चैनल की जानकारी"
 
-#: widgets/room/roomheaderwidget.cpp:132 widgets/room/roomheaderwidget.cpp:240
+#: widgets/room/roomheaderwidget.cpp:146 widgets/room/roomheaderwidget.cpp:256
 #, kde-format
 msgid "Channel's Information"
 msgstr "चैनल की जानकारी"
-
-#: widgets/room/roomheaderwidget.cpp:141
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Team Channels"
-msgstr "टीम चैनल"
-
-#: widgets/room/roomheaderwidget.cpp:143
-#, kde-format
-msgid "Team Channels"
-msgstr "टीम चैनल"
-
-#: widgets/room/roomheaderwidget.cpp:153
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Show List of Users"
-msgstr "उपयोगकर्ताओं की सूची दिखाएं"
 
 #: widgets/room/roomheaderwidget.cpp:155
 #, kde-format
+msgctxt "@info:tooltip"
+msgid "Team Channels"
+msgstr "टीम चैनल"
+
+#: widgets/room/roomheaderwidget.cpp:157
+#, kde-format
+msgid "Team Channels"
+msgstr "टीम चैनल"
+
+#: widgets/room/roomheaderwidget.cpp:167
+#, kde-format
+msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "उपयोगकर्ताओं की सूची दिखाएं"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:169
+#, kde-format
+msgid "Show List of Users"
+msgstr "उपयोगकर्ताओं की सूची दिखाएं"
+
+#: widgets/room/roomheaderwidget.cpp:180
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "संदेश खोजें…"
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:182
 #, kde-format
 msgid "Search Messages…"
 msgstr "संदेश खोजें…"
 
-#: widgets/room/roomheaderwidget.cpp:240
+#: widgets/room/roomheaderwidget.cpp:256
 #, kde-format
 msgid "Team's Information"
 msgstr "टीम की जानकारी"
