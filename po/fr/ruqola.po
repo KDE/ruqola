@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-05-15 07:42+0200\n"
+"PO-Revision-Date: 2025-05-16 08:59+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -653,7 +653,7 @@ msgstr "Désarchiver"
 #: core/customsound/customsoundsmanager.cpp:25
 #, kde-format
 msgid "None"
-msgstr "Aucun"
+msgstr "Aucune"
 
 #: core/customsound/customsoundsmanager.cpp:33
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:49
@@ -2097,7 +2097,7 @@ msgstr "Actions de l'IA"
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
 #, kde-format
 msgid "Summarize Unreads"
-msgstr ""
+msgstr "Résumer les messages non lus"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -8664,7 +8664,7 @@ msgstr "Licence :"
 #, kde-format
 msgctxt "No license"
 msgid "None"
-msgstr "Aucun"
+msgstr "Aucune"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
 #, kde-format

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-05-17 00:41+0000\n"
 "PO-Revision-Date: 2024-08-06 05:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -4619,7 +4619,7 @@ msgid "Accounts"
 msgstr "帳戶"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:68
+#: widgets/room/roomheaderwidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgid "Encryption"
@@ -10834,18 +10834,18 @@ msgctxt "@action"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:912
+#: widgets/room/messagelistview.cpp:908
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:913
+#: widgets/room/messagelistview.cpp:909
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "刪除訊息"
 
-#: widgets/room/messagelistview.cpp:1088
+#: widgets/room/messagelistview.cpp:1084
 #, fuzzy, kde-format
 #| msgid "Translator Error"
 msgctxt "@title:window"
@@ -10931,85 +10931,92 @@ msgstr "（顯示更多資訊…"
 msgid "(Show Less Info…)"
 msgstr "（顯示較少資訊…"
 
-#: widgets/room/roomheaderwidget.cpp:48
+#: widgets/room/roomheaderwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Favorite"
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "收藏"
 
-#: widgets/room/roomheaderwidget.cpp:50
+#: widgets/room/roomheaderwidget.cpp:55
 #, kde-format
 msgid "Favorite"
 msgstr "收藏"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:71
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "已啟用"
 
-#: widgets/room/roomheaderwidget.cpp:119
+#: widgets/room/roomheaderwidget.cpp:123
+#, fuzzy, kde-format
+#| msgid "Application ID (iss)"
+msgctxt "@info:tooltip"
+msgid "AI Actions"
+msgstr "應用程式 ID (iss)"
+
+#: widgets/room/roomheaderwidget.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:121
+#: widgets/room/roomheaderwidget.cpp:135
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:130
+#: widgets/room/roomheaderwidget.cpp:144
 #, fuzzy, kde-format
 #| msgid "Channel's Information"
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "頻道資訊"
 
-#: widgets/room/roomheaderwidget.cpp:132 widgets/room/roomheaderwidget.cpp:240
+#: widgets/room/roomheaderwidget.cpp:146 widgets/room/roomheaderwidget.cpp:256
 #, kde-format
 msgid "Channel's Information"
 msgstr "頻道資訊"
 
-#: widgets/room/roomheaderwidget.cpp:141
+#: widgets/room/roomheaderwidget.cpp:155
 #, fuzzy, kde-format
 #| msgid "Team Channels"
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "團隊頻道"
 
-#: widgets/room/roomheaderwidget.cpp:143
+#: widgets/room/roomheaderwidget.cpp:157
 #, kde-format
 msgid "Team Channels"
 msgstr "團隊頻道"
 
-#: widgets/room/roomheaderwidget.cpp:153
+#: widgets/room/roomheaderwidget.cpp:167
 #, fuzzy, kde-format
 #| msgid "Show List of Users"
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "顯示使用者清單"
 
-#: widgets/room/roomheaderwidget.cpp:155
+#: widgets/room/roomheaderwidget.cpp:169
 #, kde-format
 msgid "Show List of Users"
 msgstr "顯示使用者清單"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Search Messages…"
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "搜尋訊息…"
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:182
 #, kde-format
 msgid "Search Messages…"
 msgstr "搜尋訊息…"
 
-#: widgets/room/roomheaderwidget.cpp:240
+#: widgets/room/roomheaderwidget.cpp:256
 #, kde-format
 msgid "Team's Information"
 msgstr "團隊資訊"
