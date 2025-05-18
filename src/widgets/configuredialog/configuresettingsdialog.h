@@ -34,23 +34,12 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAccepted();
     LIBRUQOLAWIDGETS_NO_EXPORT void load();
-    KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
     ConfigureAccountWidget *const mConfigureAccountWidget;
-    KPageWidgetItem *mConfigureSpellCheckingWidgetPage = nullptr;
     ConfigureSpellCheckingWidget *const mConfigureSpellCheckingWidget;
-    KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
     ConfigureGeneralWidget *const mConfigureGeneralWidget;
-
     ConfigureFontWidget *const mConfigureFontWidget;
-    KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
-
     ConfigureAutoCorrectionWidget *const mConfigureAutoCorrectionWidget = nullptr;
-    KPageWidgetItem *mConfigureAutoCorrectionWidgetPage = nullptr;
-
     ConfigureUserFeedbackWidget *mConfigureUserFeedBackWidget = nullptr;
-    KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
-    KPageWidgetItem *mConfigureTranslateWidgetPage = nullptr;
     TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget = nullptr;
-    KPageWidgetItem *mConfigureTextToSpeechWidgetPage = nullptr;
     ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget = nullptr;
 };

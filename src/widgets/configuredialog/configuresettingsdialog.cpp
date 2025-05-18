@@ -65,51 +65,51 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     buttonBox()->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
     const QString generalPageName = i18nc("@title Preferences page name", "General");
-    mConfigureGeneralWidgetPage = new KPageWidgetItem(mConfigureGeneralWidget, generalPageName);
-    mConfigureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
-    addPage(mConfigureGeneralWidgetPage);
+    auto configureGeneralWidgetPage = new KPageWidgetItem(mConfigureGeneralWidget, generalPageName);
+    configureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
+    addPage(configureGeneralWidgetPage);
 
     const QString accountPageName = i18nc("@title Preferences page name", "Accounts");
-    mConfigureAccountWidgetPage = new KPageWidgetItem(mConfigureAccountWidget, accountPageName);
-    mConfigureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
-    addPage(mConfigureAccountWidgetPage);
+    auto configureAccountWidgetPage = new KPageWidgetItem(mConfigureAccountWidget, accountPageName);
+    configureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
+    addPage(configureAccountWidgetPage);
 
     const QString fontPageName = i18nc("@title Preferences page name", "Font");
-    mConfigureFontWidgetPage = new KPageWidgetItem(mConfigureFontWidget, fontPageName);
-    mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
-    addPage(mConfigureFontWidgetPage);
+    auto configureFontWidgetPage = new KPageWidgetItem(mConfigureFontWidget, fontPageName);
+    configureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
+    addPage(configureFontWidgetPage);
 
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "Auto-Correction");
-    mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
-    mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("autocorrection-symbolic")));
-    addPage(mConfigureAutoCorrectionWidgetPage);
+    auto configureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
+    configureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("autocorrection-symbolic")));
+    addPage(configureAutoCorrectionWidgetPage);
 #endif
 
     const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
-    mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
-    mConfigureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
-    addPage(mConfigureSpellCheckingWidgetPage);
+    auto configureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
+    configureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
+    addPage(configureSpellCheckingWidgetPage);
 
 #if HAVE_TEXT_TRANSLATOR
     const QString translatePageName = i18nc("@title Preferences page name", "Translation");
-    mConfigureTranslateWidgetPage = new KPageWidgetItem(mConfigureTranslateWidget, translatePageName);
-    mConfigureTranslateWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
-    addPage(mConfigureTranslateWidgetPage);
+    auto configureTranslateWidgetPage = new KPageWidgetItem(mConfigureTranslateWidget, translatePageName);
+    configureTranslateWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
+    addPage(configureTranslateWidgetPage);
 #endif
 
 #if HAVE_KUSERFEEDBACK
     const QString userFeedBackPageName = i18nc("@title Preferences page name", "User Feedback");
-    mConfigureUserFeedBackWidgetPage = new KPageWidgetItem(mConfigureUserFeedBackWidget, userFeedBackPageName);
-    mConfigureUserFeedBackWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-other")));
-    addPage(mConfigureUserFeedBackWidgetPage);
+    auto configureUserFeedBackWidgetPage = new KPageWidgetItem(mConfigureUserFeedBackWidget, userFeedBackPageName);
+    configureUserFeedBackWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-other")));
+    addPage(configureUserFeedBackWidgetPage);
 #endif
 
 #if HAVE_TEXT_TO_SPEECH
     const QString textToSpeechPageName = i18nc("@title Preferences page name", "Accessibility");
-    mConfigureTextToSpeechWidgetPage = new KPageWidgetItem(mConfigureTextToSpeechWidget, textToSpeechPageName);
-    mConfigureTextToSpeechWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-accessibility")));
-    addPage(mConfigureTextToSpeechWidgetPage);
+    auto configureTextToSpeechWidgetPage = new KPageWidgetItem(mConfigureTextToSpeechWidget, textToSpeechPageName);
+    configureTextToSpeechWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-accessibility")));
+    addPage(configureTextToSpeechWidgetPage);
 #endif
 
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &ConfigureSettingsDialog::slotAccepted);
