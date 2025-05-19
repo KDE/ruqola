@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-05-15 18:11+0400\n"
+"PO-Revision-Date: 2025-05-18 21:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -10639,8 +10639,7 @@ msgid "E2E Enabled"
 msgstr "التعمية من طرف لطرف ممكّنة"
 
 #: widgets/room/roomheaderwidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "إجراءات الذكاء الاصطناعي"
