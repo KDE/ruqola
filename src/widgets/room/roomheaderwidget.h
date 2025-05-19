@@ -96,4 +96,5 @@ private:
     AvatarCacheManager *const mAvatarCacheManager;
     ActionButtonsGenerator *const mActionButtonsGenerator;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QPointer<Room> mRoom;
 };

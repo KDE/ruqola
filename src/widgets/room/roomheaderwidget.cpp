@@ -264,6 +264,7 @@ void RoomHeaderWidget::setIsDiscussion(bool isDiscussion)
 
 void RoomHeaderWidget::setRoom(Room *room)
 {
+    mRoom = room;
     mChannelActionPopupMenu->setRoom(room);
     const auto avatarInfo = room->avatarInfo();
     if (avatarInfo.isValid()) {
@@ -296,18 +297,16 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RoomHeaderWidget::slotActionButtonChanged()
 {
-    // TODO implement it
-#if 0
-    if (mCurrentRocketChatAccount) {
+    if (mCurrentRocketChatAccount && mRoom) {
         ActionButton::FilterActionInfo filterInfo;
         filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
         filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
         filterInfo.category = ActionButton::Category::AI;
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
+        mAIActionButton->setVisible(!actionButtons.isEmpty());
         const QByteArray roomId = mRoom->roomId();
-        mActionButtonsGenerator->generateActionButtons(actionButtons, mMenu, roomId);
+        mActionButtonsGenerator->generateActionButtons(actionButtons, mAIActionButton->menu(), roomId);
     }
-#endif
 }
 
 void RoomHeaderWidget::slotDisabledEncryption()

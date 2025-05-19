@@ -724,8 +724,9 @@ void RoomWidget::slotUpdateRoomCounterInfoWidget()
 void RoomWidget::updateRoomHeader()
 {
     if (mRoom) {
-        mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
         mRoomWidgetBase->messageLineWidget()->setRoomName(mRoom->displayRoomName());
+
+        mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
         mRoomHeaderWidget->setRoomAnnouncement(mRoom->displayAnnouncement());
         mRoomHeaderWidget->setRoomTopic(mRoom->displayTopic());
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
