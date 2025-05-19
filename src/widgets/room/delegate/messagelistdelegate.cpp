@@ -109,6 +109,7 @@ void MessageListDelegate::slotUpdateColors()
     mOpenDiscussionColorMode = qApp->palette().link().color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
     mHoverHightlightColor = scheme.background(KColorScheme::AlternateBackground).color();
+    mTranslatedMessageColor = scheme.background(KColorScheme::ActiveBackground).color();
     Q_EMIT updateView();
 }
 
@@ -527,6 +528,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         painter->fillRect(option.rect, mHoverHightlightColor);
     } else if (mHelperText->showThreadContext() && !message->threadMessageId().isEmpty()) {
         painter->fillRect(option.rect, mThreadedMessageBackgroundColor);
+    } else if (message->showTranslatedMessage() && !message->localTranslation().isEmpty()) {
+        painter->fillRect(option.rect, mTranslatedMessageColor);
     } else {
         drawBackground(painter, option, index);
     }

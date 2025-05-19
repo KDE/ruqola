@@ -143,6 +143,7 @@ private:
     const QIcon mPinIcon;
     const QIcon mTranslatedIcon;
     const QIcon mReplyInThreadIcon;
+    QColor mTranslatedMessageColor;
     QColor mEditColorMode;
     QColor mThreadedMessageBackgroundColor;
     QColor mOpenDiscussionColorMode;
