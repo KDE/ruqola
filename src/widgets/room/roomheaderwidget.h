@@ -19,6 +19,7 @@ class TeamNameLabel;
 class RoomHeaderLabel;
 class AvatarCacheManager;
 class ActionButtonsGenerator;
+class PluginToolInterface;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -77,6 +78,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisabledEncryption();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
+    QList<PluginToolInterface *> mPluginToolInterface;
     QLabel *const mRoomName;
     TeamNameLabel *const mTeamName;
     RoomHeaderLabel *const mRoomHeaderLabel;

@@ -11,8 +11,10 @@
 #include "channelactionpopupmenu.h"
 #include "encryption/e2edisabledialog.h"
 #include "misc/avatarcachemanager.h"
+#include "room/plugins/plugintool.h"
 #include "roomheaderlabel.h"
 #include "teamnamelabel.h"
+#include "toolspluginmanager.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QToolButton>
@@ -37,6 +39,12 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
 {
+    QList<PluginTool *> plugins = ToolsPluginManager::self()->pluginsList();
+    if (plugins.count() > 1) {
+        std::sort(plugins.begin(), plugins.end(), [](PluginTool *left, PluginTool *right) {
+            return left->order() < right->order();
+        });
+    }
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -183,7 +191,42 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 #endif
     buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
-
+#if 0 // Reactivate it
+    for (PluginTool *plugin : plugins) {
+        if (plugin->toolType() == PluginTool::ToolType::MessageViewHeaderToolBar) {
+            auto pluginButton = new QToolButton(this);
+            pluginButton->setAutoRaise(true);
+            const QString desc = plugin->description();
+            if (desc.isEmpty()) {
+                pluginButton->setText(desc);
+            }
+            pluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
+            pluginButton->setToolTip(plugin->toolTip());
+            auto interface = plugin->createInterface(this);
+            mPluginToolInterface.append(interface);
+            connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
+                // TODO
+                /*
+                const PluginToolInterface::PluginToolInfo info{
+                    .roomId = roomId(),
+                    .accountName = mCurrentRocketChatAccount->accountName(),
+                    .tmid = mThreadMessageId,
+                    .msgId = mMessageIdBeingEdited,
+                };
+                interface->setInfo(info);
+                interface->activateTool();
+                */
+            });
+            if (plugin->hasMenu()) {
+                pluginButton->setMenu(interface->menu(this));
+                pluginButton->setPopupMode(QToolButton::InstantPopup);
+            } else {
+                connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);
+            }
+            buttonLayout->addWidget(pluginButton, 0, Qt::AlignTop);
+        }
+    }
+#endif
     mChannelActionButton->setAutoRaise(true);
     mChannelActionButton->setObjectName(QStringLiteral("mChannelAction"));
     mChannelActionButton->setPopupMode(QToolButton::InstantPopup);
@@ -200,7 +243,10 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &RoomHeaderWidget::uiInteractionRequested);
 }
 
-RoomHeaderWidget::~RoomHeaderWidget() = default;
+RoomHeaderWidget::~RoomHeaderWidget()
+{
+    qDeleteAll(mPluginToolInterface);
+}
 
 void RoomHeaderWidget::setCallEnabled(bool b)
 {
