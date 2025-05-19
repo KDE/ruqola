@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore
-    actionbuttons/actionbuttonutil.h actionbuttons/actionbuttonutil.cpp)
+add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
@@ -617,6 +616,9 @@ target_sources(libruqolacore PRIVATE
 
     actionbuttons/actionbuttonsmanager.h
     actionbuttons/actionbuttonsmanager.cpp
+
+    actionbuttons/actionbuttonutil.h
+    actionbuttons/actionbuttonutil.cpp
 )
 
 if(USE_E2E_SUPPORT)
