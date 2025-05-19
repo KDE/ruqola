@@ -5,13 +5,13 @@
 */
 
 #include "aitextinterface.h"
-#include "aitextmenuwidget.h"
+#include <TextAutoGenerateText/TextAutoGenerateMenuWidget>
 
 #include <QMenu>
 
 AiTextInterface::AiTextInterface(QObject *parent)
     : PluginTextInterface(parent)
-    , mMenuWidget(new AiTextMenuWidget(this))
+    , mMenuWidget(new TextAutoGenerateText::TextAutoGenerateMenuWidget(this))
 {
 }
 

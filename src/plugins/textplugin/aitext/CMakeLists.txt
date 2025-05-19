@@ -13,22 +13,6 @@ target_sources(ruqola_aitextplugin PRIVATE
     aitextinterface.h
     aitextplugin.cpp
     aitextplugin.h
-    aitextmenuwidget.h
-    aitextmenuwidget.cpp
-    aitextmenuconfiguredialog.h
-    aitextmenuconfiguredialog.cpp
-    aitextmenuconfigurewidget.h
-    aitextmenuconfigurewidget.cpp
-    aitextinfo.h
-    aitextinfo.cpp
-    aitextmodel.h
-    aitextmodel.cpp
-    aitextmanager.h
-    aitextmanager.cpp
-    aitextlistview.h
-    aitextlistview.cpp
-    aitextlistviewdelegate.h
-    aitextlistviewdelegate.cpp
 )
 
 target_link_libraries(ruqola_aitextplugin
