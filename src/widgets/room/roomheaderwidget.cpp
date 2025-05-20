@@ -191,7 +191,6 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 #endif
     buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
-#if 1 // Reactivate it
     for (PluginTool *plugin : plugins) {
         if (plugin->toolType() == PluginTool::ToolType::MessageViewHeaderToolBar) {
             auto pluginButton = new QToolButton(this);
@@ -223,7 +222,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
             buttonLayout->addWidget(pluginButton, 0, Qt::AlignTop);
         }
     }
-#endif
+
     mChannelActionButton->setAutoRaise(true);
     mChannelActionButton->setObjectName(QStringLiteral("mChannelAction"));
     mChannelActionButton->setPopupMode(QToolButton::InstantPopup);
