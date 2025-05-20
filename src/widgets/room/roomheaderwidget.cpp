@@ -191,7 +191,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 #endif
     buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
-#if 0 // Reactivate it
+#if 1 // Reactivate it
     for (PluginTool *plugin : plugins) {
         if (plugin->toolType() == PluginTool::ToolType::MessageViewHeaderToolBar) {
             auto pluginButton = new QToolButton(this);
@@ -205,17 +205,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
             auto interface = plugin->createInterface(this);
             mPluginToolInterface.append(interface);
             connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
-                // TODO
-                /*
                 const PluginToolInterface::PluginToolInfo info{
                     .roomId = roomId(),
                     .accountName = mCurrentRocketChatAccount->accountName(),
-                    .tmid = mThreadMessageId,
-                    .msgId = mMessageIdBeingEdited,
+                    .tmid = {},
+                    .msgId = {},
                 };
                 interface->setInfo(info);
                 interface->activateTool();
-                */
             });
             if (plugin->hasMenu()) {
                 pluginButton->setMenu(interface->menu(this));
@@ -339,6 +336,11 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
                 this,
                 &RoomHeaderWidget::slotActionButtonChanged);
     }
+}
+
+QByteArray RoomHeaderWidget::roomId() const
+{
+    return mRoom->roomId();
 }
 
 void RoomHeaderWidget::slotActionButtonChanged()
