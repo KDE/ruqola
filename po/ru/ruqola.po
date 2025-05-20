@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:41+0000\n"
+"POT-Creation-Date: 2025-05-20 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -2011,80 +2011,6 @@ msgstr "Маркер:"
 msgid "Personal Access Token"
 msgstr "Личный маркер доступа"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:41
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:295
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
-#, kde-format
-msgctxt "@action"
-msgid "Add…"
-msgstr "Добавить…"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:44
-#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
-#, kde-format
-msgid "Ask to AI"
-msgstr ""
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:50
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
-#: widgets/administratordialog/permissions/permissionswidget.cpp:92
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
-#, kde-format
-msgctxt "@action"
-msgid "Modify…"
-msgstr "Изменить…"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove"
-msgctxt "@action"
-msgid "Remove…"
-msgstr "Удалить"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:60
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
-msgid "Do you want to remove it?"
-msgstr "Удалить «%1»?"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:61
-#, fuzzy, kde-format
-#| msgid "Remove"
-msgctxt "@title"
-msgid "Remove"
-msgstr "Удалить"
-
-#: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Activities"
-msgctxt "@title:window"
-msgid "Configure AI text plugins"
-msgstr "Настройка комнат Plasma"
-
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
-#, kde-format
-msgid "Ask AI…"
-msgstr ""
-
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
-#, fuzzy, kde-format
-msgctxt "@action"
-msgid "Configure…"
-msgstr "Настройка Ruqola"
-
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
 msgid "Share Text…"
@@ -2115,6 +2041,11 @@ msgstr "Запрос к приложению…"
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
 #, kde-format
 msgid "Summarize Unreads"
+msgstr ""
+
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
 msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
@@ -3063,6 +2994,32 @@ msgstr "Удалить этот смайлик?"
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Удаление смайлика"
+
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
+#, kde-format
+msgctxt "@action"
+msgid "Add…"
+msgstr "Добавить…"
+
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
+#: widgets/administratordialog/permissions/permissionswidget.cpp:92
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Modify…"
+msgstr "Изменить…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:174
@@ -4540,7 +4497,7 @@ msgid "Accounts"
 msgstr "Учётные записи"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:73
+#: widgets/room/roomheaderwidget.cpp:81
 #, kde-format
 msgid "Encryption"
 msgstr "Шифрование"
@@ -10301,19 +10258,19 @@ msgstr "Присоединиться"
 msgid "Link Preview"
 msgstr "Предпросмотр ссылки"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:439
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #, kde-format
 msgid "User Info"
 msgstr "Сведения о пользователе"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:449
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:415
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Начать конфиденциальный разговор"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:675
+#: widgets/room/delegate/messagelistdelegate.cpp:678
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10322,7 +10279,7 @@ msgstr[1] "%1 ответа"
 msgstr[2] "%1 ответов"
 msgstr[3] "1 ответ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:685
+#: widgets/room/delegate/messagelistdelegate.cpp:688
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10331,36 +10288,36 @@ msgstr[1] "%1 сообщения"
 msgstr[2] "%1 сообщений"
 msgstr[3] "1 сообщение"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:685
+#: widgets/room/delegate/messagelistdelegate.cpp:688
 #, kde-format
 msgid "No message yet"
 msgstr "Сообщений ещё нет"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:994
+#: widgets/room/delegate/messagelistdelegate.cpp:997
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Отслеживается"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:998
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Сообщение закреплено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1002
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Сообщение отмечено звёздочкой"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1006
+#: widgets/room/delegate/messagelistdelegate.cpp:1009
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Ответить в ветке"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1010
+#: widgets/room/delegate/messagelistdelegate.cpp:1013
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -10698,24 +10655,24 @@ msgstr "(Показать больше сведений…)"
 msgid "(Show Less Info…)"
 msgstr "(Показать меньше сведений…)"
 
-#: widgets/room/roomheaderwidget.cpp:53
+#: widgets/room/roomheaderwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Избранное"
 
-#: widgets/room/roomheaderwidget.cpp:55
+#: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
 msgid "Favorite"
 msgstr "Избранное"
 
-#: widgets/room/roomheaderwidget.cpp:71
+#: widgets/room/roomheaderwidget.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "Сквозное шифрование включено"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:131
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Ask Application"
@@ -10723,62 +10680,62 @@ msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Запрос к приложению…"
 
-#: widgets/room/roomheaderwidget.cpp:133
+#: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Вызов"
 
-#: widgets/room/roomheaderwidget.cpp:135
+#: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Call"
 msgstr "Вызов"
 
-#: widgets/room/roomheaderwidget.cpp:144
+#: widgets/room/roomheaderwidget.cpp:152
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Сведения о канале"
 
-#: widgets/room/roomheaderwidget.cpp:146 widgets/room/roomheaderwidget.cpp:256
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:302
 #, kde-format
 msgid "Channel's Information"
 msgstr "Сведения о канале"
 
-#: widgets/room/roomheaderwidget.cpp:155
+#: widgets/room/roomheaderwidget.cpp:163
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Каналы команды"
 
-#: widgets/room/roomheaderwidget.cpp:157
+#: widgets/room/roomheaderwidget.cpp:165
 #, kde-format
 msgid "Team Channels"
 msgstr "Каналы команды"
 
-#: widgets/room/roomheaderwidget.cpp:167
+#: widgets/room/roomheaderwidget.cpp:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Показать список пользователей"
 
-#: widgets/room/roomheaderwidget.cpp:169
+#: widgets/room/roomheaderwidget.cpp:177
 #, kde-format
 msgid "Show List of Users"
 msgstr "Показать список пользователей"
 
-#: widgets/room/roomheaderwidget.cpp:180
+#: widgets/room/roomheaderwidget.cpp:188
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Поиск сообщений…"
 
-#: widgets/room/roomheaderwidget.cpp:182
+#: widgets/room/roomheaderwidget.cpp:190
 #, kde-format
 msgid "Search Messages…"
 msgstr "Поиск сообщений…"
 
-#: widgets/room/roomheaderwidget.cpp:256
+#: widgets/room/roomheaderwidget.cpp:302
 #, kde-format
 msgid "Team's Information"
 msgstr "Сведения о команде"
@@ -12121,6 +12078,12 @@ msgstr ""
 msgid "Display translate menu in thread dialog."
 msgstr "Исправление перевода сообщений в прямых каналах"
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#, fuzzy, kde-format
+#| msgid "Implement Rocket.Chat application support."
+msgid "Add AI Rocket Chat Actions support."
+msgstr "Реализация поддержки приложения Rocket.Chat"
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -12145,6 +12108,36 @@ msgstr "Некоторые из новых возможностей в этой 
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Исправление некоторых ошибок:"
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Remove"
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Удалить"
+
+#, fuzzy
+#~| msgid "Do you want to remove \"%1\"?"
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Удалить «%1»?"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Удалить"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Activities"
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Настройка комнат Plasma"
+
+#, fuzzy
+#~ msgctxt "@action"
+#~ msgid "Configure…"
+#~ msgstr "Настройка Ruqola"
 
 #, fuzzy
 #~ msgctxt "@title:window"

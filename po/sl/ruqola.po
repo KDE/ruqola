@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:41+0000\n"
+"POT-Creation-Date: 2025-05-20 00:42+0000\n"
 "PO-Revision-Date: 2025-05-17 07:13+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2003,74 +2003,6 @@ msgstr "Žeton:"
 msgid "Personal Access Token"
 msgstr "Žeton osebnega dostopa"
 
-#: plugins/textplugin/aitext/aitextlistview.cpp:41
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
-#: widgets/administratordialog/users/administratoruserswidget.cpp:295
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
-#, kde-format
-msgctxt "@action"
-msgid "Add…"
-msgstr "Dodaj…"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:44
-#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
-#, kde-format
-msgid "Ask to AI"
-msgstr "Vprašaj umetno inteligenco"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:50
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
-#: widgets/administratordialog/permissions/permissionswidget.cpp:92
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
-#, kde-format
-msgctxt "@action"
-msgid "Modify…"
-msgstr "Spremeni…"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:57
-#, kde-format
-msgctxt "@action"
-msgid "Remove…"
-msgstr "Odstrani…"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:60
-#, kde-format
-msgid "Do you want to remove it?"
-msgstr "Ali ga želite odstraniti?"
-
-#: plugins/textplugin/aitext/aitextlistview.cpp:61
-#, kde-format
-msgctxt "@title"
-msgid "Remove"
-msgstr "Odstrani"
-
-#: plugins/textplugin/aitext/aitextmenuconfiguredialog.cpp:23
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure AI text plugins"
-msgstr "Konfiguriraj vtičnike besedila umetne inteligence"
-
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:22
-#, kde-format
-msgid "Ask AI…"
-msgstr "Vprašaj umetno inteligenco…"
-
-#: plugins/textplugin/aitext/aitextmenuwidget.cpp:49
-#, kde-format
-msgctxt "@action"
-msgid "Configure…"
-msgstr "Konfiguriraj…"
-
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
 msgid "Share Text…"
@@ -2100,6 +2032,11 @@ msgstr "Dejavnosti umetne inteligence"
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Povzemi neprebrane"
+
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
+#, kde-format
+msgid "Ask to AI"
+msgstr "Vprašaj umetno inteligenco"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -3036,6 +2973,32 @@ msgstr "Ali želite odstraniti ta čustvenček?"
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Odstrani čustvenčka"
+
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:180
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:168
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:166
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:101
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
+#, kde-format
+msgctxt "@action"
+msgid "Add…"
+msgstr "Dodaj…"
+
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
+#: widgets/administratordialog/permissions/permissionswidget.cpp:92
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
+#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Modify…"
+msgstr "Spremeni…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:174
@@ -4502,7 +4465,7 @@ msgid "Accounts"
 msgstr "Računi"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:73
+#: widgets/room/roomheaderwidget.cpp:81
 #, kde-format
 msgid "Encryption"
 msgstr "Šifriranje"
@@ -10212,19 +10175,19 @@ msgstr "Pridružite se"
 msgid "Link Preview"
 msgstr "Poveži predogled"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:439
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #, kde-format
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:449
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:415
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Začni zasebni pogovor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:675
+#: widgets/room/delegate/messagelistdelegate.cpp:678
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10233,7 +10196,7 @@ msgstr[1] "%1 odgovora"
 msgstr[2] "%1 odgovori"
 msgstr[3] "%1 odgovorov"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:685
+#: widgets/room/delegate/messagelistdelegate.cpp:688
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10242,36 +10205,36 @@ msgstr[1] "%1 sporočili"
 msgstr[2] "%1 sporočila"
 msgstr[3] "%1 sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:685
+#: widgets/room/delegate/messagelistdelegate.cpp:688
 #, kde-format
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:994
+#: widgets/room/delegate/messagelistdelegate.cpp:997
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Sledi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:998
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Sporočilo je bilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1002
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Sporočilo je bilo označeno z zvezdico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1006
+#: widgets/room/delegate/messagelistdelegate.cpp:1009
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1010
+#: widgets/room/delegate/messagelistdelegate.cpp:1013
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -10609,85 +10572,85 @@ msgstr "(Pokaži več informacij…)"
 msgid "(Show Less Info…)"
 msgstr "(Pokaži manj informacij…)"
 
-#: widgets/room/roomheaderwidget.cpp:53
+#: widgets/room/roomheaderwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Priljubljeni"
 
-#: widgets/room/roomheaderwidget.cpp:55
+#: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljeni"
 
-#: widgets/room/roomheaderwidget.cpp:71
+#: widgets/room/roomheaderwidget.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E omogočeno"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:131
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Dejavnosti umetne inteligence"
 
-#: widgets/room/roomheaderwidget.cpp:133
+#: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Klic"
 
-#: widgets/room/roomheaderwidget.cpp:135
+#: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Call"
 msgstr "Klic"
 
-#: widgets/room/roomheaderwidget.cpp:144
+#: widgets/room/roomheaderwidget.cpp:152
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informacije o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:146 widgets/room/roomheaderwidget.cpp:256
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:302
 #, kde-format
 msgid "Channel's Information"
 msgstr "Podatki o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:155
+#: widgets/room/roomheaderwidget.cpp:163
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Kanali ekipe"
 
-#: widgets/room/roomheaderwidget.cpp:157
+#: widgets/room/roomheaderwidget.cpp:165
 #, kde-format
 msgid "Team Channels"
 msgstr "Kanali ekipe"
 
-#: widgets/room/roomheaderwidget.cpp:167
+#: widgets/room/roomheaderwidget.cpp:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Pokaži seznam uporabnikov"
 
-#: widgets/room/roomheaderwidget.cpp:169
+#: widgets/room/roomheaderwidget.cpp:177
 #, kde-format
 msgid "Show List of Users"
 msgstr "Pokaži seznam uporabnikov"
 
-#: widgets/room/roomheaderwidget.cpp:180
+#: widgets/room/roomheaderwidget.cpp:188
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Išči sporočila…"
 
-#: widgets/room/roomheaderwidget.cpp:182
+#: widgets/room/roomheaderwidget.cpp:190
 #, kde-format
 msgid "Search Messages…"
 msgstr "Išči sporočila…"
 
-#: widgets/room/roomheaderwidget.cpp:256
+#: widgets/room/roomheaderwidget.cpp:302
 #, kde-format
 msgid "Team's Information"
 msgstr "Podatki o ekipi"
@@ -12010,6 +11973,12 @@ msgstr "Popravi uporabnika zaslona."
 msgid "Display translate menu in thread dialog."
 msgstr "Prikaži meni prevajanja v pogovornem oknu niti."
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#, fuzzy, kde-format
+#| msgid "Implement Rocket.Chat application support."
+msgid "Add AI Rocket Chat Actions support."
+msgstr "Izvedi podporo aplikacije Rocket.Chat."
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -12034,6 +12003,28 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
+
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Odstrani…"
+
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Ali ga želite odstraniti?"
+
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Odstrani"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Konfiguriraj vtičnike besedila umetne inteligence"
+
+#~ msgid "Ask AI…"
+#~ msgstr "Vprašaj umetno inteligenco…"
+
+#~ msgctxt "@action"
+#~ msgid "Configure…"
+#~ msgstr "Konfiguriraj…"
 
 #~ msgctxt "@title:window"
 #~ msgid "Configure Openai IA"
