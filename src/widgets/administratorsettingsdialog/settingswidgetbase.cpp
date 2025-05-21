@@ -30,6 +30,7 @@ using namespace Qt::Literals::StringLiterals;
 namespace
 {
 const char s_property[] = "settings_name";
+const char s_property_current_value[] = "current_value";
 const char s_property_default_value[] = "default_value";
 }
 
@@ -131,7 +132,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     setTabOrder(toolButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
-        spinBox->setValue(spinBox->property(s_property_default_value).toInt());
+        spinBox->setValue(spinBox->property(s_property_current_value).toInt());
         Q_EMIT changedChanceled(variable);
     });
 
@@ -140,7 +141,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
                             spinBox->value(),
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Integer,
                             toolButton->objectName())) {
-            spinBox->setValue(spinBox->property(s_property_default_value).toInt());
+            spinBox->setValue(spinBox->property(s_property_current_value).toInt());
             Q_EMIT changedChanceled(variable);
         }
     });
@@ -148,11 +149,11 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
-            spinBox->setProperty(s_property_default_value, spinBox->value());
+            spinBox->setProperty(s_property_current_value, spinBox->value());
         }
     });
     connect(spinBox, &QSpinBox::valueChanged, this, [toolButton, spinBox, restoreToolButton](int value) {
-        if (spinBox->property(s_property_default_value).toInt() == value) {
+        if (spinBox->property(s_property_current_value).toInt() == value) {
             toolButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
         } else {
@@ -167,7 +168,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
 QToolButton *SettingsWidgetBase::addRestoreButton(const QString &variable)
 {
     auto restoreToolButton = new QToolButton(this);
-    restoreToolButton->setToolTip(i18nc("@info:tooltip", "Restore"));
+    restoreToolButton->setToolTip(i18nc("@info:tooltip", "Restore to Default Server Value"));
     restoreToolButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
     restoreToolButton->setObjectName(QStringLiteral("restoreToolButton%1").arg(variable));
     restoreToolButton->setProperty(s_property, variable);
@@ -198,7 +199,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     setTabOrder(toolButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
-        lineEdit->setText(lineEdit->property(s_property_default_value).toString());
+        lineEdit->setText(lineEdit->property(s_property_current_value).toString());
         Q_EMIT changedChanceled(variable);
     });
 
@@ -206,7 +207,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
-            lineEdit->setProperty(s_property_default_value, lineEdit->text());
+            lineEdit->setProperty(s_property_current_value, lineEdit->text());
         }
     });
     if (!readOnly) {
@@ -215,12 +216,12 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
                                 lineEdit->text(),
                                 RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                                 toolButton->objectName())) {
-                lineEdit->setText(lineEdit->property(s_property_default_value).toString());
+                lineEdit->setText(lineEdit->property(s_property_current_value).toString());
                 Q_EMIT changedChanceled(variable);
             }
         });
         connect(lineEdit, &QLineEdit::textChanged, this, [toolButton, lineEdit, restoreToolButton](const QString &str) {
-            if (lineEdit->property(s_property_default_value).toString() == str) {
+            if (lineEdit->property(s_property_current_value).toString() == str) {
                 toolButton->setEnabled(false);
                 restoreToolButton->setEnabled(false);
             } else {
@@ -264,7 +265,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     setTabOrder(toolButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, plainTextEdit, this]() {
-        plainTextEdit->setPlainText(plainTextEdit->property(s_property_default_value).toString());
+        plainTextEdit->setPlainText(plainTextEdit->property(s_property_current_value).toString());
         Q_EMIT changedChanceled(variable);
     });
 
@@ -273,12 +274,12 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
                             plainTextEdit->toPlainText(),
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                             toolButton->objectName())) {
-            plainTextEdit->setPlainText(plainTextEdit->property(s_property_default_value).toString());
+            plainTextEdit->setPlainText(plainTextEdit->property(s_property_current_value).toString());
             Q_EMIT changedChanceled(variable);
         }
     });
     connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [toolButton, plainTextEdit, restoreToolButton]() {
-        if (plainTextEdit->toPlainText() != plainTextEdit->property(s_property_default_value).toString()) {
+        if (plainTextEdit->toPlainText() != plainTextEdit->property(s_property_current_value).toString()) {
             toolButton->setEnabled(true);
             restoreToolButton->setEnabled(true);
         } else {
@@ -288,7 +289,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     });
     connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, plainTextEdit, restoreToolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
-            plainTextEdit->setProperty(s_property_default_value, plainTextEdit->toPlainText());
+            plainTextEdit->setProperty(s_property_current_value, plainTextEdit->toPlainText());
             toolButton->setEnabled(false);
             restoreToolButton->setEnabled(true);
         }
@@ -362,7 +363,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     setTabOrder(toolButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, comboBox, this]() {
-        comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_default_value).toString()));
+        comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_current_value).toString()));
         Q_EMIT changedChanceled(variable);
     });
 
@@ -371,7 +372,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
                             comboBox->currentData().toString(),
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                             toolButton->objectName())) {
-            comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_default_value).toString()));
+            comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_current_value).toString()));
             Q_EMIT changedChanceled(variable);
         }
     });
@@ -379,11 +380,11 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
-            comboBox->setProperty(s_property_default_value, comboBox->currentText());
+            comboBox->setProperty(s_property_current_value, comboBox->currentText());
         }
     });
     connect(comboBox, &QComboBox::currentIndexChanged, this, [toolButton, comboBox, restoreToolButton]() {
-        if (comboBox->currentIndex() == comboBox->findData(comboBox->property(s_property_default_value).toString())) {
+        if (comboBox->currentIndex() == comboBox->findData(comboBox->property(s_property_current_value).toString())) {
             toolButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
         } else {
@@ -403,7 +404,8 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
         value = mapSettings.value(variableName).toString();
     }
     lineEdit->setText(value);
-    lineEdit->setProperty(s_property_default_value, value);
+    lineEdit->setProperty(s_property_current_value, value);
+    lineEdit->setProperty(s_property_default_value, defaultValue);
     disableTooButton(variableName);
 }
 
@@ -447,7 +449,8 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
         spinboxValue = mapSettings.value(variableName).toInt();
     }
     spinbox->setValue(spinboxValue);
-    spinbox->setProperty(s_property_default_value, spinboxValue);
+    spinbox->setProperty(s_property_current_value, spinboxValue);
+    spinbox->setProperty(s_property_default_value, defaultValue);
 
     disableTooButton(variableName);
 }
@@ -460,7 +463,8 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
         value = mapSettings.value(variableName).toString();
     }
     comboBox->setCurrentIndex(comboBox->findData(value));
-    comboBox->setProperty(s_property_default_value, value);
+    comboBox->setProperty(s_property_current_value, value);
+    comboBox->setProperty(s_property_default_value, defaultValue);
     disableTooButton(variableName);
 }
 
@@ -472,7 +476,8 @@ void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const Q
         value = mapSettings.value(variableName).toString();
     }
     plainTextEdit->setPlainText(value);
-    plainTextEdit->setProperty(s_property_default_value, value);
+    plainTextEdit->setProperty(s_property_current_value, value);
+    plainTextEdit->setProperty(s_property_default_value, defaultValue);
     disableTooButton(variableName);
 }
 
