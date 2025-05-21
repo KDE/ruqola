@@ -167,6 +167,17 @@ QToolButton *SettingsWidgetBase::addApplyButton(const QString &variable)
     auto toolButton = new QToolButton(this);
     toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
     toolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-ok-apply")));
+    toolButton->setToolTip(i18nc("@info:tooltip", "Apply"));
+    toolButton->setProperty(s_property, variable);
+    return toolButton;
+}
+
+QToolButton *SettingsWidgetBase::addCancelButton(const QString &variable)
+{
+    auto toolButton = new QToolButton(this);
+    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
+    toolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
+    toolButton->setToolTip(i18nc("@info:tooltip", "Cancel"));
     toolButton->setProperty(s_property, variable);
     return toolButton;
 }
