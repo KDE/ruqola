@@ -55,7 +55,7 @@ void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &var
     connect(checkBox, &QCheckBox::clicked, this, [this, variable, checkBox](bool checked) {
         if (!updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Boolean)) {
             checkBox->setChecked(!checked);
-            Q_EMIT changedChanceled(variable);
+            Q_EMIT changedCanceled(variable);
         } else {
             Q_EMIT changedDone(variable);
         }
@@ -135,7 +135,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
         spinBox->setValue(spinBox->property(s_property_current_value).toInt());
-        Q_EMIT changedChanceled(variable);
+        Q_EMIT changedCanceled(variable);
     });
 
     connect(applyButton, &QToolButton::clicked, this, [this, variable, spinBox, applyButton]() {
@@ -144,7 +144,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Integer,
                             applyButton->objectName())) {
             spinBox->setValue(spinBox->property(s_property_current_value).toInt());
-            Q_EMIT changedChanceled(variable);
+            Q_EMIT changedCanceled(variable);
         }
     });
     connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, spinBox, restoreToolButton](const QString &buttonName) {
@@ -180,7 +180,7 @@ QToolButton *SettingsWidgetBase::addApplyButton(const QString &variable)
 QToolButton *SettingsWidgetBase::addCancelButton(const QString &variable)
 {
     auto toolButton = new QToolButton(this);
-    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
+    toolButton->setObjectName(QStringLiteral("cancelToolbutton%1").arg(variable));
     toolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
     toolButton->setToolTip(i18nc("@info:tooltip", "Cancel"));
     toolButton->setProperty(s_property, variable);
@@ -224,14 +224,20 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     setTabOrder(cancelButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
-        lineEdit->setText(lineEdit->property(s_property_current_value).toString());
-        Q_EMIT changedChanceled(variable);
+        lineEdit->setText(lineEdit->property(s_property_default_value).toString());
+        Q_EMIT changedCanceled(variable);
     });
 
-    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, lineEdit, restoreToolButton](const QString &buttonName) {
+    connect(cancelButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
+        lineEdit->setText(lineEdit->property(s_property_current_value).toString());
+        Q_EMIT changedCanceled(variable);
+    });
+
+    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, lineEdit, restoreToolButton, cancelButton](const QString &buttonName) {
         if (applyButton->objectName() == buttonName) {
             applyButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
+            cancelButton->setEnabled(false);
             lineEdit->setProperty(s_property_current_value, lineEdit->text());
         }
     });
@@ -242,16 +248,21 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
                                 RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                                 applyButton->objectName())) {
                 lineEdit->setText(lineEdit->property(s_property_current_value).toString());
-                Q_EMIT changedChanceled(variable);
+                Q_EMIT changedCanceled(variable);
             }
         });
-        connect(lineEdit, &QLineEdit::textChanged, this, [applyButton, lineEdit, restoreToolButton](const QString &str) {
-            if (lineEdit->property(s_property_current_value).toString() == str) {
-                applyButton->setEnabled(false);
+        connect(lineEdit, &QLineEdit::textChanged, this, [applyButton, lineEdit, restoreToolButton, cancelButton](const QString &str) {
+            if (lineEdit->property(s_property_default_value).toString() == str) {
                 restoreToolButton->setEnabled(false);
             } else {
-                applyButton->setEnabled(true);
                 restoreToolButton->setEnabled(true);
+            }
+            if (lineEdit->property(s_property_current_value).toString() == str) {
+                applyButton->setEnabled(false);
+                cancelButton->setEnabled(false);
+            } else {
+                applyButton->setEnabled(true);
+                cancelButton->setEnabled(true);
             }
         });
     }
@@ -294,7 +305,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, plainTextEdit, this]() {
         plainTextEdit->setPlainText(plainTextEdit->property(s_property_current_value).toString());
-        Q_EMIT changedChanceled(variable);
+        Q_EMIT changedCanceled(variable);
     });
 
     connect(applyButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, applyButton]() {
@@ -303,7 +314,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                             applyButton->objectName())) {
             plainTextEdit->setPlainText(plainTextEdit->property(s_property_current_value).toString());
-            Q_EMIT changedChanceled(variable);
+            Q_EMIT changedCanceled(variable);
         }
     });
     connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [applyButton, plainTextEdit, restoreToolButton]() {
@@ -349,7 +360,7 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
                             lineEdit->password(),
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                             applyButton->objectName())) {
-            Q_EMIT changedChanceled(variable);
+            Q_EMIT changedCanceled(variable);
         }
     });
     connect(lineEdit, &KPasswordLineEdit::passwordChanged, this, [applyButton]() {
@@ -398,7 +409,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, comboBox, this]() {
         comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_current_value).toString()));
-        Q_EMIT changedChanceled(variable);
+        Q_EMIT changedCanceled(variable);
     });
 
     connect(applyButton, &QToolButton::clicked, this, [this, variable, comboBox, applyButton]() {
@@ -407,7 +418,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
                             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
                             applyButton->objectName())) {
             comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_current_value).toString()));
-            Q_EMIT changedChanceled(variable);
+            Q_EMIT changedCanceled(variable);
         }
     });
     connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, comboBox, restoreToolButton](const QString &buttonName) {
@@ -440,7 +451,7 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
     lineEdit->setText(value);
     lineEdit->setProperty(s_property_current_value, value);
     lineEdit->setProperty(s_property_default_value, defaultValue);
-    disableTooButton(variableName);
+    disableToolButton(variableName, (value != defaultValue));
 }
 
 void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings)
@@ -449,7 +460,7 @@ void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMa
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
         lineEdit->setPassword(value.toString());
-        disableTooButton(variableName);
+        disableToolButton(variableName, false);
     }
 }
 
@@ -486,7 +497,7 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
     spinbox->setProperty(s_property_current_value, spinboxValue);
     spinbox->setProperty(s_property_default_value, defaultValue);
 
-    disableTooButton(variableName);
+    disableToolButton(variableName, (spinboxValue != defaultValue));
 }
 
 void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
@@ -499,7 +510,7 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
     comboBox->setCurrentIndex(comboBox->findData(value));
     comboBox->setProperty(s_property_current_value, value);
     comboBox->setProperty(s_property_default_value, defaultValue);
-    disableTooButton(variableName);
+    disableToolButton(variableName, (value != defaultValue));
 }
 
 void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
@@ -512,10 +523,10 @@ void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const Q
     plainTextEdit->setPlainText(value);
     plainTextEdit->setProperty(s_property_current_value, value);
     plainTextEdit->setProperty(s_property_default_value, defaultValue);
-    disableTooButton(variableName);
+    disableToolButton(variableName, (value != defaultValue));
 }
 
-void SettingsWidgetBase::disableTooButton(const QString &variableName)
+void SettingsWidgetBase::disableToolButton(const QString &variableName, bool differentFromDefaultValue)
 {
     auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
     if (toolButton) {
@@ -524,7 +535,12 @@ void SettingsWidgetBase::disableTooButton(const QString &variableName)
 
     auto restoreToolButton = findChild<QToolButton *>(QStringLiteral("restoreToolButton%1").arg(variableName));
     if (restoreToolButton) {
-        restoreToolButton->setEnabled(false);
+        restoreToolButton->setEnabled(differentFromDefaultValue);
+    }
+
+    auto cancelToolButton = findChild<QToolButton *>(QStringLiteral("cancelToolbutton%1").arg(variableName));
+    if (cancelToolButton) {
+        cancelToolButton->setEnabled(false);
     }
 }
 

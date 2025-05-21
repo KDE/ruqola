@@ -94,7 +94,7 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
             updateSettingsStatus(mEnablePasswordHistory->isChecked());
         }
     });
-    connect(this, &PasswordSettingsWidget::changedChanceled, this, [this](const QString &variable) {
+    connect(this, &PasswordSettingsWidget::changedCanceled, this, [this](const QString &variable) {
         if (variable == QLatin1String("Accounts_Password_History_Enabled")) {
             updateSettingsStatus(mEnablePasswordHistory->isChecked());
         }

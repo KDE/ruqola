@@ -31,7 +31,7 @@ public:
 
 Q_SIGNALS:
     void changedDone(const QString &buttonObjectName);
-    void changedChanceled(const QString &variableName);
+    void changedCanceled(const QString &variableName);
 
 protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
@@ -67,7 +67,7 @@ private:
                                                                  RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
                                                                  const QString &buttonObjectName = {});
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName);
-    LIBRUQOLAWIDGETS_NO_EXPORT void disableTooButton(const QString &variableName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void disableToolButton(const QString &variableName, bool differentFromDefaultValue);
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addRestoreButton(const QString &variable);
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addApplyButton(const QString &variable);
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addCancelButton(const QString &variable);
