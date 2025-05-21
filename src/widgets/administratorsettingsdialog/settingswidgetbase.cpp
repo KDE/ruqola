@@ -124,9 +124,14 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     applyButton->setEnabled(false);
     setTabOrder(spinBox, applyButton);
 
+    auto cancelButton = addCancelButton(variable);
+    layout->addWidget(cancelButton);
+    cancelButton->setEnabled(false);
+    setTabOrder(applyButton, cancelButton);
+
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
-    setTabOrder(applyButton, restoreToolButton);
+    setTabOrder(cancelButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
         spinBox->setValue(spinBox->property(s_property_current_value).toInt());
@@ -208,9 +213,15 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     layout->addWidget(applyButton);
     applyButton->setEnabled(false);
     applyButton->setVisible(!readOnly);
+
+    auto cancelButton = addCancelButton(variable);
+    layout->addWidget(cancelButton);
+    cancelButton->setEnabled(false);
+    setTabOrder(applyButton, cancelButton);
+
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
-    setTabOrder(applyButton, restoreToolButton);
+    setTabOrder(cancelButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
         lineEdit->setText(lineEdit->property(s_property_current_value).toString());
@@ -271,9 +282,15 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     layout->addWidget(applyButton, 0, Qt::AlignTop);
     applyButton->setEnabled(false);
     setTabOrder(plainTextEdit, applyButton);
+
+    auto cancelButton = addCancelButton(variable);
+    layout->addWidget(cancelButton);
+    cancelButton->setEnabled(false);
+    setTabOrder(applyButton, cancelButton);
+
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton, 0, Qt::AlignTop);
-    setTabOrder(applyButton, restoreToolButton);
+    setTabOrder(cancelButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, plainTextEdit, this]() {
         plainTextEdit->setPlainText(plainTextEdit->property(s_property_current_value).toString());
@@ -321,6 +338,12 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
     layout->addWidget(applyButton);
     applyButton->setEnabled(false);
     setTabOrder(lineEdit, applyButton);
+
+    auto cancelButton = addCancelButton(variable);
+    layout->addWidget(cancelButton);
+    cancelButton->setEnabled(false);
+    setTabOrder(applyButton, cancelButton);
+
     connect(applyButton, &QToolButton::clicked, this, [this, variable, lineEdit, applyButton]() {
         if (!updateSettings(variable,
                             lineEdit->password(),
@@ -363,9 +386,15 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     layout->addWidget(applyButton);
     applyButton->setEnabled(false);
     setTabOrder(comboBox, applyButton);
+
+    auto cancelButton = addCancelButton(variable);
+    layout->addWidget(cancelButton);
+    cancelButton->setEnabled(false);
+    setTabOrder(applyButton, cancelButton);
+
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
-    setTabOrder(applyButton, restoreToolButton);
+    setTabOrder(cancelButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, comboBox, this]() {
         comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_current_value).toString()));
