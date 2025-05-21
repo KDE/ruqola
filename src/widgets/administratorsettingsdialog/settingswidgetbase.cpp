@@ -118,10 +118,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     label->setObjectName(QStringLiteral("label_%1").arg(variable));
     layout->addWidget(label);
     layout->addWidget(spinBox);
-    auto toolButton = new QToolButton(this);
-    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
-    toolButton->setText(i18n("Apply"));
-    toolButton->setProperty(s_property, variable);
+    auto toolButton = addApplyButton(variable);
     spinBox->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
@@ -165,6 +162,15 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     mMainLayout->addRow(layout);
 }
 
+QToolButton *SettingsWidgetBase::addApplyButton(const QString &variable)
+{
+    auto toolButton = new QToolButton(this);
+    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
+    toolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-ok-apply")));
+    toolButton->setProperty(s_property, variable);
+    return toolButton;
+}
+
 QToolButton *SettingsWidgetBase::addRestoreButton(const QString &variable)
 {
     auto restoreToolButton = new QToolButton(this);
@@ -183,11 +189,8 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     label->setObjectName(QStringLiteral("label_%1").arg(variable));
     layout->addWidget(label);
     layout->addWidget(lineEdit);
-    auto toolButton = new QToolButton(this);
+    auto toolButton = addApplyButton(variable);
     setTabOrder(lineEdit, toolButton);
-    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
-    toolButton->setText(i18n("Apply"));
-    toolButton->setProperty(s_property, variable);
     lineEdit->setProperty(s_property, variable);
     KLineEditEventHandler::catchReturnKey(lineEdit);
     lineEdit->setReadOnly(readOnly);
@@ -252,10 +255,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     label->setObjectName(QStringLiteral("label_%1").arg(variable));
     layout->addWidget(label, 0, Qt::AlignTop);
     layout->addWidget(plainTextEdit);
-    auto toolButton = new QToolButton(this);
-    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
-    toolButton->setText(i18n("Apply"));
-    toolButton->setProperty(s_property, variable);
+    auto toolButton = addApplyButton(variable);
     plainTextEdit->setProperty(s_property, variable);
     layout->addWidget(toolButton, 0, Qt::AlignTop);
     toolButton->setEnabled(false);
@@ -305,10 +305,7 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
     label->setObjectName(QStringLiteral("label_%1").arg(variable));
     layout->addWidget(label);
     layout->addWidget(lineEdit);
-    auto toolButton = new QToolButton(this);
-    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
-    toolButton->setText(i18n("Apply"));
-    toolButton->setProperty(s_property, variable);
+    auto toolButton = addApplyButton(variable);
     lineEdit->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
@@ -350,10 +347,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     layout->addWidget(label);
     layout->addWidget(comboBox);
     fillComboBox(comboBox, items);
-    auto toolButton = new QToolButton(this);
-    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
-    toolButton->setText(i18n("Apply"));
-    toolButton->setProperty(s_property, variable);
+    auto toolButton = addApplyButton(variable);
     comboBox->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);

@@ -69,4 +69,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName);
     LIBRUQOLAWIDGETS_NO_EXPORT void disableTooButton(const QString &variableName);
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addRestoreButton(const QString &variable);
+    LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addApplyButton(const QString &variable);
 };
