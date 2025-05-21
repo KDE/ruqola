@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
-"PO-Revision-Date: 2025-05-17 22:54+0300\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"PO-Revision-Date: 2025-05-20 21:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -10563,7 +10563,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Kanalın bilgisi"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Channel's Information"
 msgstr "Kanal Bilgisi"
@@ -10601,7 +10601,7 @@ msgstr "İletiler ara…"
 msgid "Search Messages…"
 msgstr "İletiler Ara…"
 
-#: widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Team's Information"
 msgstr "Takım Bilgisi"
@@ -11921,10 +11921,9 @@ msgid "Display translate menu in thread dialog."
 msgstr "İleti dizisi iletişim kutusunda çeviri menüsünü görüntüle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Rocket.Chat uygulama desteğini gerçekle"
+msgstr "Rocket.Chat yapay zekâ eylemleri desteği ekle"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

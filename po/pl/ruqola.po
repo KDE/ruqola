@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
 "PO-Revision-Date: 2025-02-23 12:34+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -10635,7 +10635,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Szczegóły kanału"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Channel's Information"
 msgstr "Szczegóły kanału"
@@ -10673,7 +10673,7 @@ msgstr "Poszukaj wiadomości…"
 msgid "Search Messages…"
 msgstr "Poszukaj wiadomości…"
 
-#: widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Team's Information"
 msgstr "Szczegóły zespołu"

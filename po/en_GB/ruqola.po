@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -10595,7 +10595,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Channel's Information"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Channel's Information"
 msgstr "Channel's Information"
@@ -10633,7 +10633,7 @@ msgstr "Search Messages…"
 msgid "Search Messages…"
 msgstr "Search Messages…"
 
-#: widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Team's Information"
 msgstr "Team's Information"

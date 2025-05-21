@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
-"PO-Revision-Date: 2025-05-17 04:16+0200\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"PO-Revision-Date: 2025-05-20 03:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -10562,7 +10562,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "ინფორმაცია არხზე"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Channel's Information"
 msgstr "ინფორმაცია არხზე"
@@ -10600,7 +10600,7 @@ msgstr "შეტყობინებებში ძებნა…"
 msgid "Search Messages…"
 msgstr "შეტყობინებებში ძებნა…"
 
-#: widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Team's Information"
 msgstr "გუნდის ინფორმაცია"
@@ -11930,10 +11930,9 @@ msgid "Display translate menu in thread dialog."
 msgstr "თარგმანის მენიუს ჩვენება საუბრის დიალოგში."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Rocket.Chat-ის აპლიკაციის მხარდაჭერის განხორციელება."
+msgstr "დაემატა ხი-ის Rocket.Chat-ის ქმედებების მხარდაჭერა."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
-"PO-Revision-Date: 2025-05-17 09:00+0300\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"PO-Revision-Date: 2025-05-20 09:08+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -10690,7 +10690,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
@@ -10728,7 +10728,7 @@ msgstr "Шукати повідомлення…"
 msgid "Search Messages…"
 msgstr "Шукати повідомлення…"
 
-#: widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Team's Information"
 msgstr "Дані щодо команди"
@@ -12064,10 +12064,9 @@ msgid "Display translate menu in thread dialog."
 msgstr "Реалізовано показ меню перекладу у вікні гілки."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Реалізовано підтримку програм Rocket.Chat."
+msgstr "Додано підтримку дій Rocket Chat з ШІ."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

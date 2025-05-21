@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
-"PO-Revision-Date: 2025-05-17 07:13+0200\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"PO-Revision-Date: 2025-05-20 07:26+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -10612,7 +10612,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informacije o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Channel's Information"
 msgstr "Podatki o kanalu"
@@ -10650,7 +10650,7 @@ msgstr "Išči sporočila…"
 msgid "Search Messages…"
 msgstr "Išči sporočila…"
 
-#: widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:298
 #, kde-format
 msgid "Team's Information"
 msgstr "Podatki o ekipi"
@@ -11974,10 +11974,9 @@ msgid "Display translate menu in thread dialog."
 msgstr "Prikaži meni prevajanja v pogovornem oknu niti."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Izvedi podporo aplikacije Rocket.Chat."
+msgstr "Dodaj podporo umetne inteligence dejavnosti Rocket Chat."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
