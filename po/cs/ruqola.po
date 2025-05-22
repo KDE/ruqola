@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"POT-Creation-Date: 2025-05-22 00:42+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -6467,20 +6467,24 @@ msgstr ""
 msgid "Maximum message age in direct messages"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:188
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
-#, kde-format
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
+#, fuzzy, kde-format
+#| msgid "Apply"
+msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Použít"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:170
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@info:tooltip"
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Restore"
+msgid "Restore to Default Server Value"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
@@ -7001,6 +7005,11 @@ msgstr ""
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušit"
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
+#, kde-format
+msgid "Apply"
+msgstr "Použít"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format

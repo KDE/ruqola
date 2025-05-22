@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-08 08:52+0200\n"
+"POT-Creation-Date: 2025-05-22 00:42+0000\n"
+"PO-Revision-Date: 2025-05-20 14:19+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -2015,16 +2015,14 @@ msgstr ""
 "<qt>Puoi trovare la nuova richiesta qui:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgid "AI Actions"
-msgstr "Richiedi applicazione"
+msgstr "Azioni IA"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
 #, kde-format
 msgid "Summarize Unreads"
-msgstr ""
+msgstr "Riepiloga i messaggi non letti"
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
@@ -6653,21 +6651,25 @@ msgstr "Durata massima del messaggio nei gruppi privati"
 msgid "Maximum message age in direct messages"
 msgstr "Durata massima del messaggio nei messaggi diretti"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:188
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
-#, kde-format
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
+#, fuzzy, kde-format
+#| msgid "Apply"
+msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Applica"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:170
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@info:tooltip"
+msgid "Cancel"
+msgstr "Annulla"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Restore"
-msgstr "Ripristina"
+msgid "Restore to Default Server Value"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7219,6 +7221,11 @@ msgstr "L'applicazione non ha impostazioni."
 #, kde-format
 msgid "Cancel"
 msgstr "Annulla"
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
+#, kde-format
+msgid "Apply"
+msgstr "Applica"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -10610,12 +10617,10 @@ msgid "E2E Enabled"
 msgstr "E2E abilitato"
 
 #: widgets/room/roomheaderwidget.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "Richiedi applicazione"
+msgstr "Azioni IA"
 
 #: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
@@ -12016,10 +12021,9 @@ msgid "Display translate menu in thread dialog."
 msgstr "Visualizza il menu di traduzione nella finestra di della discussione."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Implementa il supporto delle applicazioni Rocket.Chat."
+msgstr "Aggiunge il supporto delle azioni IA di Rocket Chat."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -12046,6 +12050,10 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcune correzioni di bug:"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Restore"
+#~ msgstr "Ripristina"
 
 #~ msgctxt "@action"
 #~ msgid "Remove…"

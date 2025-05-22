@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"POT-Creation-Date: 2025-05-22 00:42+0000\n"
 "PO-Revision-Date: 2025-05-20 09:08+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -6670,21 +6670,25 @@ msgstr "Максимальний вік повідомлень у приватн
 msgid "Maximum message age in direct messages"
 msgstr "Максимальний вік повідомлень у безпосередніх повідомленнях"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:188
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
-#, kde-format
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
+#, fuzzy, kde-format
+#| msgid "Apply"
+msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Застосувати"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:170
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@info:tooltip"
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Restore"
-msgstr "Відновити"
+msgid "Restore to Default Server Value"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7238,6 +7242,11 @@ msgstr "У програми немає параметрів."
 #, kde-format
 msgid "Cancel"
 msgstr "Скасувати"
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
+#, kde-format
+msgid "Apply"
+msgstr "Застосувати"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -12092,6 +12101,10 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Restore"
+#~ msgstr "Відновити"
 
 #~ msgctxt "@action"
 #~ msgid "Remove…"

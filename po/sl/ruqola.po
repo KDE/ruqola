@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"POT-Creation-Date: 2025-05-22 00:42+0000\n"
 "PO-Revision-Date: 2025-05-20 07:26+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -6625,21 +6625,25 @@ msgstr "Največja starost sporočil v zasebnih skupinah"
 msgid "Maximum message age in direct messages"
 msgstr "Največja starost sporočil v neposrednih sporočilih"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:122
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:188
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:309
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:354
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
-#, kde-format
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
+#, fuzzy, kde-format
+#| msgid "Apply"
+msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Uveljavi"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:170
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@info:tooltip"
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Restore"
-msgstr "Obnovi"
+msgid "Restore to Default Server Value"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -7186,6 +7190,11 @@ msgstr "Aplikacija nima nastavitev."
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"
+
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:106
+#, kde-format
+msgid "Apply"
+msgstr "Uveljavi"
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
@@ -12002,6 +12011,10 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Restore"
+#~ msgstr "Obnovi"
 
 #~ msgctxt "@action"
 #~ msgid "Remove…"
