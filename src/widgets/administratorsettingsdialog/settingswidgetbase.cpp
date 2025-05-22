@@ -134,6 +134,11 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     setTabOrder(cancelButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
+        spinBox->setValue(spinBox->property(s_property_default_value).toInt());
+        Q_EMIT changedCanceled(variable);
+    });
+
+    connect(cancelButton, &QToolButton::clicked, this, [variable, spinBox, this]() {
         spinBox->setValue(spinBox->property(s_property_current_value).toInt());
         Q_EMIT changedCanceled(variable);
     });
@@ -147,20 +152,26 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
             Q_EMIT changedCanceled(variable);
         }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, spinBox, restoreToolButton](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, spinBox, restoreToolButton, cancelButton](const QString &buttonName) {
         if (applyButton->objectName() == buttonName) {
             applyButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
+            cancelButton->setEnabled(false);
             spinBox->setProperty(s_property_current_value, spinBox->value());
         }
     });
-    connect(spinBox, &QSpinBox::valueChanged, this, [applyButton, spinBox, restoreToolButton](int value) {
-        if (spinBox->property(s_property_current_value).toInt() == value) {
-            applyButton->setEnabled(false);
+    connect(spinBox, &QSpinBox::valueChanged, this, [applyButton, spinBox, restoreToolButton, cancelButton](int value) {
+        if (spinBox->property(s_property_default_value).toInt() == value) {
             restoreToolButton->setEnabled(false);
         } else {
-            applyButton->setEnabled(true);
             restoreToolButton->setEnabled(true);
+        }
+        if (spinBox->property(s_property_current_value).toInt() == value) {
+            applyButton->setEnabled(false);
+            cancelButton->setEnabled(false);
+        } else {
+            applyButton->setEnabled(true);
+            cancelButton->setEnabled(true);
         }
     });
 
@@ -304,6 +315,11 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     setTabOrder(cancelButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, plainTextEdit, this]() {
+        plainTextEdit->setPlainText(plainTextEdit->property(s_property_default_value).toString());
+        Q_EMIT changedCanceled(variable);
+    });
+
+    connect(cancelButton, &QToolButton::clicked, this, [variable, plainTextEdit, this]() {
         plainTextEdit->setPlainText(plainTextEdit->property(s_property_current_value).toString());
         Q_EMIT changedCanceled(variable);
     });
@@ -317,20 +333,26 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
             Q_EMIT changedCanceled(variable);
         }
     });
-    connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [applyButton, plainTextEdit, restoreToolButton]() {
+    connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [applyButton, plainTextEdit, cancelButton, restoreToolButton]() {
+        if (plainTextEdit->property(s_property_default_value).toString() == plainTextEdit->toPlainText()) {
+            restoreToolButton->setEnabled(false);
+        } else {
+            restoreToolButton->setEnabled(true);
+        }
         if (plainTextEdit->toPlainText() != plainTextEdit->property(s_property_current_value).toString()) {
             applyButton->setEnabled(true);
-            restoreToolButton->setEnabled(true);
+            cancelButton->setEnabled(true);
         } else {
             applyButton->setEnabled(false);
-            restoreToolButton->setEnabled(false);
+            cancelButton->setEnabled(false);
         }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, plainTextEdit, restoreToolButton](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, plainTextEdit, restoreToolButton, cancelButton](const QString &buttonName) {
         if (applyButton->objectName() == buttonName) {
             plainTextEdit->setProperty(s_property_current_value, plainTextEdit->toPlainText());
             applyButton->setEnabled(false);
             restoreToolButton->setEnabled(true);
+            cancelButton->setEnabled(true);
         }
     });
 
@@ -408,6 +430,11 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     setTabOrder(cancelButton, restoreToolButton);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, comboBox, this]() {
+        comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_default_value).toString()));
+        Q_EMIT changedCanceled(variable);
+    });
+
+    connect(cancelButton, &QToolButton::clicked, this, [variable, comboBox, this]() {
         comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_current_value).toString()));
         Q_EMIT changedCanceled(variable);
     });
@@ -421,20 +448,27 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
             Q_EMIT changedCanceled(variable);
         }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, comboBox, restoreToolButton](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, comboBox, restoreToolButton, cancelButton](const QString &buttonName) {
         if (applyButton->objectName() == buttonName) {
             applyButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
+            cancelButton->setEnabled(false);
             comboBox->setProperty(s_property_current_value, comboBox->currentText());
         }
     });
-    connect(comboBox, &QComboBox::currentIndexChanged, this, [applyButton, comboBox, restoreToolButton]() {
-        if (comboBox->currentIndex() == comboBox->findData(comboBox->property(s_property_current_value).toString())) {
-            applyButton->setEnabled(false);
+    connect(comboBox, &QComboBox::currentIndexChanged, this, [applyButton, comboBox, restoreToolButton, cancelButton]() {
+        if (comboBox->currentIndex() == comboBox->findData(comboBox->property(s_property_default_value).toString())) {
             restoreToolButton->setEnabled(false);
         } else {
-            applyButton->setEnabled(true);
             restoreToolButton->setEnabled(true);
+        }
+
+        if (comboBox->currentIndex() == comboBox->findData(comboBox->property(s_property_current_value).toString())) {
+            applyButton->setEnabled(false);
+            cancelButton->setEnabled(false);
+        } else {
+            applyButton->setEnabled(true);
+            cancelButton->setEnabled(true);
         }
     });
 
