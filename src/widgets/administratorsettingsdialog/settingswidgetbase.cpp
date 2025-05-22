@@ -227,10 +227,12 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     auto cancelButton = addCancelButton(variable);
     layout->addWidget(cancelButton);
     setTabOrder(applyButton, cancelButton);
+    cancelButton->setVisible(!readOnly);
 
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
     setTabOrder(cancelButton, restoreToolButton);
+    restoreToolButton->setVisible(!readOnly);
 
     connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
         lineEdit->setText(lineEdit->property(s_property_default_value).toString());
