@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-22 00:42+0000\n"
-"PO-Revision-Date: 2025-05-20 11:42+0200\n"
+"PO-Revision-Date: 2025-05-22 14:05+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6646,15 +6646,13 @@ msgid "Maximum message age in direct messages"
 msgstr "Maximale leeftijd van een direct bericht"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Toepassen"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Annuleren"
@@ -6663,7 +6661,7 @@ msgstr "Annuleren"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Herstellen naar de standaard serverwaarde"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format

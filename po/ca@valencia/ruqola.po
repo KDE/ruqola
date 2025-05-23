@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-22 00:42+0000\n"
-"PO-Revision-Date: 2025-05-07 10:34+0200\n"
+"PO-Revision-Date: 2025-05-22 09:58+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -826,7 +826,7 @@ msgstr "%2 ha canviat la privadesa de la sala a %1"
 #: core/messages/message.cpp:791
 #, kde-format
 msgid "Click to join to video"
-msgstr "Feu clic per a unir-vos al vídeo"
+msgstr "Cliqueu per a unir-vos al vídeo"
 
 #: core/messages/message.cpp:794
 #, kde-format
@@ -2020,16 +2020,14 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Trobareu la nova sol·licitud a:<br /><a href='%1'>%1</a></qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgid "AI Actions"
-msgstr "Demana una aplicació"
+msgstr "Accions d'IA"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
 #, kde-format
 msgid "Summarize Unreads"
-msgstr ""
+msgstr "Resumix els no llegits"
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
@@ -6649,15 +6647,13 @@ msgid "Maximum message age in direct messages"
 msgstr "Antiguitat màxima dels missatges en els missatges directes"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Aplica"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -6666,7 +6662,7 @@ msgstr "Cancel·la"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Restaura al valor predeterminat del servidor"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -6847,8 +6843,8 @@ msgid ""
 "missing information around the system!"
 msgstr ""
 "Esta opció de configuració para el processament de totes les estadístiques "
-"fent que la pàgina d'informació estiga obsoleta fins que algú faça clic en "
-"el botó d'actualització i pot causar que falte informació del sistema!"
+"fent que la pàgina d'informació estiga obsoleta fins que algú clique damunt "
+"del botó «Actualitza» i pot causar que falte informació del sistema!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -8282,7 +8278,7 @@ msgstr ""
 #: widgets/dialogs/createvideomessagewidget.cpp:248
 #, kde-format
 msgid "Recorded %1 sec"
-msgstr "S'han enregistrat %1 s"
+msgstr "S'han gravat %1 s"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:23
 #, kde-format
@@ -8644,7 +8640,7 @@ msgstr[1] "%1 adjunts a la sala (Total: %2)"
 #: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "(Click here for Loading more…)"
-msgstr "(Feu clic ací per a carregar-ne més…)"
+msgstr "(Cliqueu ací per a carregar-ne més…)"
 
 #: widgets/dialogs/showimagedialog.cpp:30
 #, kde-format
@@ -8942,7 +8938,7 @@ msgstr "Desencripta la clau d'encriptació"
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:18
 #, kde-format
 msgid "Click here to enter your e2e password."
-msgstr "Feu clic ací per a introduir la vostra contrasenya «e2e»."
+msgstr "Cliqueu ací per a introduir la vostra contrasenya «e2e»."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:20
 #, kde-format
@@ -9025,7 +9021,7 @@ msgstr ""
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
-"Guardeu la contrasenya d'encriptació. Feu clic ací per a veure i copiar la "
+"Guardeu la contrasenya d'encriptació. Cliqueu ací per a veure i copiar la "
 "contrasenya."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:20
@@ -10618,12 +10614,10 @@ msgid "E2E Enabled"
 msgstr "S'ha habilitat E2E"
 
 #: widgets/room/roomheaderwidget.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "Demana una aplicació"
+msgstr "Accions d'IA"
 
 #: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
@@ -11443,7 +11437,7 @@ msgstr "Comprova si hi ha una versió nova"
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
-"S'ha trobat una versió nova. Feu clic <a href=\"%1\">ací</a> per a baixar-la."
+"S'ha trobat una versió nova. Cliqueu <a href=\"%1\">ací</a> per a baixar-la."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
@@ -12017,10 +12011,9 @@ msgid "Display translate menu in thread dialog."
 msgstr "Mostra el menú de traducció en el diàleg dels fils."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Implementa el suport d'aplicacions Rocket.Chat."
+msgstr "Afig la implementació d'accions d'IA de Rocket Chat."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
@@ -12047,29 +12040,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Restore"
-#~ msgstr "Restaura"
-
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Elimina…"
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Voleu eliminar-ho?"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Elimina"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Configureu els connectors de text d'IA"
-
-#~ msgid "Ask AI…"
-#~ msgstr "Pregunta a la IA…"
-
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Configura…"

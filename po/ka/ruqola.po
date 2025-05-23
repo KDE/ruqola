@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-22 00:42+0000\n"
-"PO-Revision-Date: 2025-05-20 03:46+0200\n"
+"PO-Revision-Date: 2025-05-22 04:08+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6606,15 +6606,13 @@ msgid "Maximum message age in direct messages"
 msgstr "პირად შეტყობინებების მაქსიმალური ასაკი"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
-msgstr "გამოყენება"
+msgstr "გადატარება"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "გაუქმება"
@@ -6623,7 +6621,7 @@ msgstr "გაუქმება"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "აღდგენა ნაგულისხმევი სერვერის მნიშვნელობაზე"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format

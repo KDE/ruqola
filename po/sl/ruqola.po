@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-22 00:42+0000\n"
-"PO-Revision-Date: 2025-05-20 07:26+0200\n"
+"PO-Revision-Date: 2025-05-22 07:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -6626,15 +6626,13 @@ msgid "Maximum message age in direct messages"
 msgstr "Največja starost sporočil v neposrednih sporočilih"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Uveljavi"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Prekliči"
@@ -6643,7 +6641,7 @@ msgstr "Prekliči"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Obnovi na privzeto vrednost"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format

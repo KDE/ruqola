@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-22 00:42+0000\n"
-"PO-Revision-Date: 2025-05-20 09:37+0200\n"
+"PO-Revision-Date: 2025-05-22 09:58+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -6647,15 +6647,13 @@ msgid "Maximum message age in direct messages"
 msgstr "Antiguitat màxima dels missatges als missatges directes"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:175
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Aplica"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:185
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -6664,7 +6662,7 @@ msgstr "Cancel·la"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Restaura al valor predeterminat del servidor"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -12044,29 +12042,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Restore"
-#~ msgstr "Restaura"
-
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Elimina…"
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Voleu eliminar-ho?"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Elimina"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Configuració dels connectors de text d'IA"
-
-#~ msgid "Ask AI…"
-#~ msgstr "Pregunta a la IA…"
-
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Configura…"
