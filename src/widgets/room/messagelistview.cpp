@@ -92,6 +92,7 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     connect(mMessageListDelegate, &MessageListDelegate::updateView, this, &MessageListView::slotUpdateView);
     connect(mMessageListDelegate, &MessageListDelegate::replyToThread, this, &MessageListView::replyInThreadRequested);
     connect(this, &MessageListView::needToClearSizeHintCache, mMessageListDelegate, &MessageListDelegate::clearSizeHintCache);
+    connect(mMessageListDelegate, &MessageListDelegate::translateMessage, this, &MessageListView::slotTranslateMessage);
 }
 
 MessageListView::~MessageListView() = default;

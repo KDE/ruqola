@@ -460,6 +460,16 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
         menu.addAction(userInfoAction);
         menu.exec(info.globalPos);
         return true;
+    } else if (layout.translatedIconRect.contains(info.pos)) {
+        QMenu menu;
+        const bool isTranslated = message->showTranslatedMessage();
+        auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
+        connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
+            Q_EMIT translateMessage(index, !isTranslated);
+        });
+        menu.addAction(translateAction);
+        menu.exec(info.globalPos);
+        return true;
     }
     return false;
 }

@@ -111,6 +111,7 @@ Q_SIGNALS:
     void startPrivateConversation(const QString &userName);
     void updateView();
     void replyToThread(const QByteArray &messageId, const QString &threadPreview);
+    void translateMessage(const QModelIndex &index, bool state);
 
 private:
     struct IndexBackgroundColor {
