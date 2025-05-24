@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-03 02:31+0000\n"
-"PO-Revision-Date: 2025-03-20 07:49+0100\n"
+"PO-Revision-Date: 2025-05-23 10:35+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -7188,10 +7188,9 @@ msgid "Search Private Applications"
 msgstr "Buscar nas aplicacións privadas"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Non se atopou a aplicación"
+msgstr "A aplicación non ten configuración."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:97
 #, kde-format
@@ -10127,8 +10126,7 @@ msgid "Encrypt Messages"
 msgstr "Cifrar as mensaxes"
 
 #: widgets/room/commandpreviewwidget.cpp:140
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading..."
 msgstr "Cargando…"
 
@@ -11482,6 +11480,8 @@ msgstr "Depuración: explorar a tradución do servidor de RC."
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
+"Permitir aos complementos cambiar a interface (crear unha caixa de diálogo "
+"para configurar opcións)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
