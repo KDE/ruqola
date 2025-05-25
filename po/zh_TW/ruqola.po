@@ -5,13 +5,13 @@
 #
 # Automatically generated, 2019.
 # Yi-Jyun Pan <pan93412@gmail.com>, 2020.
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-03 02:31+0000\n"
-"PO-Revision-Date: 2024-08-06 05:33+0900\n"
+"PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -11897,7 +11897,7 @@ msgstr "修正頭貼支援"
 #: widgets/whatsnew/whatsnewtranslations.cpp:48
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-msgstr "修正顏文字支援（使用新的 ktextaddons/textemoticons）"
+msgstr "修正表情符號支援（使用新的 ktextaddons/textemoticons）"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format

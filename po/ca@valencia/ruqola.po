@@ -827,7 +827,7 @@ msgstr "%2 ha canviat la privadesa de la sala a %1"
 #: core/messages/message.cpp:789
 #, kde-format
 msgid "Click to join to video"
-msgstr "Feu clic per a unir-vos al vídeo"
+msgstr "Cliqueu per a unir-vos al vídeo"
 
 #: core/messages/message.cpp:792
 #, kde-format
@@ -2108,7 +2108,7 @@ msgstr "Esta sala està bloquejada"
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
-msgstr "Heu estat silenciat i no podeu parlar en esta sala"
+msgstr "Heu sigut silenciat i no podeu parlar en esta sala"
 
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:136
@@ -6822,8 +6822,8 @@ msgid ""
 "missing information around the system!"
 msgstr ""
 "Esta opció de configuració para el processament de totes les estadístiques "
-"fent que la pàgina d'informació estiga obsoleta fins que algú faça clic en "
-"el botó d'actualització i pot causar que falte informació del sistema!"
+"fent que la pàgina d'informació estiga obsoleta fins que algú clique damunt "
+"del botó «Actualitza» i pot causar que falte informació del sistema!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -8252,7 +8252,7 @@ msgstr ""
 #: widgets/dialogs/createvideomessagewidget.cpp:244
 #, kde-format
 msgid "Recorded %1 sec"
-msgstr "S'han enregistrat %1 s"
+msgstr "S'han gravat %1 s"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:23
 #, kde-format
@@ -8608,7 +8608,7 @@ msgstr[1] "%1 adjunts a la sala (Total: %2)"
 #: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "(Click here for Loading more…)"
-msgstr "(Feu clic ací per a carregar-ne més…)"
+msgstr "(Cliqueu ací per a carregar-ne més…)"
 
 #: widgets/dialogs/showimagedialog.cpp:30
 #, kde-format
@@ -8906,7 +8906,7 @@ msgstr "Desencripta la clau d'encriptació"
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:18
 #, kde-format
 msgid "Click here to enter your e2e password."
-msgstr "Feu clic ací per a introduir la vostra contrasenya «e2e»."
+msgstr "Cliqueu ací per a introduir la vostra contrasenya «e2e»."
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:20
 #, kde-format
@@ -8989,7 +8989,7 @@ msgstr ""
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
-"Guardeu la contrasenya d'encriptació. Feu clic ací per a veure i copiar la "
+"Guardeu la contrasenya d'encriptació. Cliqueu ací per a veure i copiar la "
 "contrasenya."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:20
@@ -11404,7 +11404,7 @@ msgstr "Comprova si hi ha una versió nova"
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 msgstr ""
-"S'ha trobat una versió nova. Feu clic <a href=\"%1\">ací</a> per a baixar-la."
+"S'ha trobat una versió nova. Cliqueu <a href=\"%1\">ací</a> per a baixar-la."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
