@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-24 00:42+0000\n"
-"PO-Revision-Date: 2025-05-22 04:08+0200\n"
+"PO-Revision-Date: 2025-05-24 04:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -11418,10 +11418,8 @@ msgid "Allow to dnd image."
 msgstr "გამოსახულების დაგდების დაშვება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr "აღდგენის ღილაკის დამატება ადმინისტრატორის სერვერის მორგების დიალოგში."
+msgstr "დაემატა აღდგენის ღილაკი ადმინისტრატორის პარამეტრებში."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format

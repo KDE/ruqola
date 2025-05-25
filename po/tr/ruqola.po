@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-24 00:42+0000\n"
-"PO-Revision-Date: 2025-05-20 21:57+0300\n"
+"PO-Revision-Date: 2025-05-24 20:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -6597,15 +6597,13 @@ msgid "Maximum message age in direct messages"
 msgstr "Doğrudan iletilerdeki en yüksek ileti yaşı"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:184
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Uygula"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:195
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "İptal"
@@ -6614,7 +6612,7 @@ msgstr "İptal"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Öntanımlı sunucu değerine geri yükle"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -11418,10 +11416,8 @@ msgid "Allow to dnd image."
 msgstr "Rahatsız etmeyin görseline izin ver"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr "Yönetici sunucu ayarları iletişim kutusuna geri yükle düğmesi ekle"
+msgstr "Yönetim ayarlarına geri yükle düğmesi ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format

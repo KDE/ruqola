@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-24 00:42+0000\n"
-"PO-Revision-Date: 2025-05-22 09:58+0200\n"
+"PO-Revision-Date: 2025-05-24 11:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -11486,12 +11486,8 @@ msgid "Allow to dnd image."
 msgstr "Permet «dnd» una imatge."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr ""
-"Afegeix el botó de restauració en el diàleg de configuració d'administració "
-"del servidor."
+msgstr "Afegeix el botó de restauració a la configuració d'administració."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
