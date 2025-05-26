@@ -110,7 +110,7 @@ bool AppsMarketPlaceFilterProxyModel::filterAcceptsRow(int source_row, const QMo
         break;
     }
 
-    return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
 
 bool AppsMarketPlaceFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
