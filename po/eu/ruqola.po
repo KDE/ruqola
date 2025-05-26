@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-24 00:42+0000\n"
-"PO-Revision-Date: 2025-05-01 15:57+0200\n"
+"PO-Revision-Date: 2025-05-25 23:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -2031,16 +2031,14 @@ msgstr ""
 "<qt>Eskaera berria hemen aurki dezakezu:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgid "AI Actions"
-msgstr "Eskatu aplikazioa"
+msgstr "AA ekintzak"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
 #, kde-format
 msgid "Summarize Unreads"
-msgstr ""
+msgstr "Laburtu irakurri gabekoak"
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
@@ -6645,15 +6643,13 @@ msgid "Maximum message age in direct messages"
 msgstr "Zuzeneko mezuetan mezuen gehienezko adina"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:184
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
-msgstr "Ezarri"
+msgstr "Aplikatu"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:195
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Utzi"
@@ -6662,7 +6658,7 @@ msgstr "Utzi"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Lehengoratu zerbitzariaren balio lehenetsian"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -8576,8 +8572,7 @@ msgid "License:"
 msgstr "Lizentzia:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No license"
 msgid "None"
 msgstr "Bat ere ez"
@@ -10610,12 +10605,10 @@ msgid "E2E Enabled"
 msgstr "E2E gaituta"
 
 #: widgets/room/roomheaderwidget.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "Eskatu aplikazioa"
+msgstr "AA ekintzak"
 
 #: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
@@ -11479,18 +11472,12 @@ msgid "Add AI plugin"
 msgstr "Gehitu AA plugina"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Baimendu e-posta bidaltzea"
+msgstr "Baimendu irudia arrastatu eta jaregitea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr ""
-"Gehitu lehengoratzeko botoia administratzaile zerbitzariaren ezarpenak "
-"elkarrizketa koadroan."
+msgstr "Gehitu lehengoratzeko botoia administrazio ezarpenetan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
@@ -12010,16 +11997,14 @@ msgid "Fix display user."
 msgstr "Erabiltzailea azaldu konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Zuzeneko kanaleko mezua konpontzea."
+msgstr "Azaldu itzuli menua hari elkarrizketan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:186
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Rocket.Chat aplikazioaren euskarria inplementatzea."
+msgstr "Gehitu Rocket.Chat AA ekintzen euskarria."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
