@@ -305,7 +305,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     setTabOrder(plainTextEdit, applyButton);
 
     auto cancelButton = addCancelButton(variable);
-    layout->addWidget(cancelButton);
+    layout->addWidget(cancelButton, 0, Qt::AlignTop);
     setTabOrder(applyButton, cancelButton);
 
     auto restoreToolButton = addRestoreButton(variable);
