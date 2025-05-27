@@ -32,27 +32,23 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     mMainLayout->addWidget(featuresEnabledLabel);
 
     mMessages->setObjectName(QStringLiteral("mMessages"));
-    mMainLayout->addWidget(mMessages);
     mMessages->setToolTip(i18nc("@info:tooltip", "Tracks custom events related to actions a user does on messages."));
-    connectCheckBox(mMessages, QStringLiteral("Analytics_features_messages"));
+    addCheckBox(mMessages, QStringLiteral("Analytics_features_messages"));
 
     mRooms->setObjectName(QStringLiteral("mRooms"));
-    mMainLayout->addWidget(mRooms);
     mRooms->setToolTip(i18nc("@info:tooltip", "Tracks custom events related to actions on a channel or group (create, leave, delete)."));
-    connectCheckBox(mRooms, QStringLiteral("Analytics_features_rooms"));
+    addCheckBox(mRooms, QStringLiteral("Analytics_features_rooms"));
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mMainLayout->addWidget(mUsers);
     mUsers->setToolTip(i18nc("@info:tooltip", "Tracks custom events related to actions related to users (password reset times, profile picture change, etc)."));
-    connectCheckBox(mUsers, QStringLiteral("Analytics_features_users"));
+    addCheckBox(mUsers, QStringLiteral("Analytics_features_users"));
 
     auto googleAnalyticsLabel = createBoldLabel(i18n("Google Analytics"));
     googleAnalyticsLabel->setObjectName(QStringLiteral("googleAnalyticsLabel"));
     mMainLayout->addWidget(googleAnalyticsLabel);
 
     mGoogleEnabled->setObjectName(QStringLiteral("mGoogleEnabled"));
-    mMainLayout->addWidget(mGoogleEnabled);
-    connectCheckBox(mGoogleEnabled, QStringLiteral("GoogleAnalytics_enabled"));
+    addCheckBox(mGoogleEnabled, QStringLiteral("GoogleAnalytics_enabled"));
 
     mGoogleTrackingId->setObjectName(QStringLiteral("mGoogleTrackingId"));
     addLineEdit(i18n("Tracking ID"), mGoogleTrackingId, QStringLiteral("GoogleAnalytics_ID"));
@@ -62,8 +58,7 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     mMainLayout->addWidget(piwikAnalyticsLabel);
 
     mPiwikEnabled->setObjectName(QStringLiteral("mPiwikEnabled"));
-    mMainLayout->addWidget(mPiwikEnabled);
-    connectCheckBox(mPiwikEnabled, QStringLiteral("PiwikAnalytics_enabled"));
+    addCheckBox(mPiwikEnabled, QStringLiteral("PiwikAnalytics_enabled"));
 
     mPiwikUrl->setObjectName(QStringLiteral("mPiwikUrl"));
     mPiwikUrl->setToolTip(i18nc("@info:tooltip", "The url where the Piwik resides, be sure to include the trailing slash. Example: //piwik.rocket.chat/"));
@@ -78,13 +73,11 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
 
     mPrependDomain->setObjectName(QStringLiteral("mPrependDomain"));
     mPrependDomain->setToolTip(i18nc("@info:tooltip", "Prepend the site domain to the page title when tracking"));
-    mMainLayout->addWidget(mPrependDomain);
-    connectCheckBox(mPrependDomain, QStringLiteral("PiwikAnalytics_prependDomain"));
+    addCheckBox(mPrependDomain, QStringLiteral("PiwikAnalytics_prependDomain"));
 
     mAllSubdomains->setObjectName(QStringLiteral("mAllSubdomains"));
     mAllSubdomains->setToolTip(i18nc("@info:tooltip", "Track visitors across all subdomains"));
-    mMainLayout->addWidget(mAllSubdomains);
-    connectCheckBox(mAllSubdomains, QStringLiteral("PiwikAnalytics_cookieDomain"));
+    addCheckBox(mAllSubdomains, QStringLiteral("PiwikAnalytics_cookieDomain"));
 
     mHideOutgoingLinks->setObjectName(QStringLiteral("mHideOutgoingLinks"));
     addPlainTextEdit(i18n("Hide Outgoing Links"), mHideOutgoingLinks, QStringLiteral("PiwikAnalytics_domains"));

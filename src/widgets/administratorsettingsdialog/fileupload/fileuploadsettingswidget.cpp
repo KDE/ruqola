@@ -28,8 +28,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     , mStorageType(new QComboBox(this))
 {
     mFileUploadsEnabled->setObjectName(QStringLiteral("mFileUploadsEnabled"));
-    mMainLayout->addWidget(mFileUploadsEnabled);
-    connectCheckBox(mFileUploadsEnabled, QStringLiteral("FileUpload_Enabled"));
+    addCheckBox(mFileUploadsEnabled, QStringLiteral("FileUpload_Enabled"));
 
     mMaximumFileUploadSize->setObjectName(QStringLiteral("mMaximumFileUploadSize"));
     mMaximumFileUploadSize->setToolTip(i18nc("@info:tooltip", "Set it to -1 to remove the file size limitation."));
@@ -38,22 +37,18 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
 
     mProtectUploadedFiles->setObjectName(QStringLiteral("mProtectUploadedFiles"));
     mProtectUploadedFiles->setToolTip(i18nc("@info:tooltip", "Only authenticated users will have access"));
-    mMainLayout->addWidget(mProtectUploadedFiles);
-    connectCheckBox(mProtectUploadedFiles, QStringLiteral("FileUpload_ProtectFiles"));
+    addCheckBox(mProtectUploadedFiles, QStringLiteral("FileUpload_ProtectFiles"));
 
     mRotateImagesUpload->setObjectName(QStringLiteral("mRotateImagesUpload"));
     mRotateImagesUpload->setToolTip(i18nc("@info:tooltip", "Enabling this setting may cause image quality loss"));
-    mMainLayout->addWidget(mRotateImagesUpload);
-    connectCheckBox(mRotateImagesUpload, QStringLiteral("FileUpload_RotateImages"));
+    addCheckBox(mRotateImagesUpload, QStringLiteral("FileUpload_RotateImages"));
 
     mRestrictFilesToRooms->setObjectName(QStringLiteral("mRestrictFilesToRooms"));
     mRestrictFilesToRooms->setToolTip(i18nc("@info:tooltip", "Restrict the access of files uploaded on rooms to the rooms' members only"));
-    mMainLayout->addWidget(mRestrictFilesToRooms);
-    connectCheckBox(mRestrictFilesToRooms, QStringLiteral("FileUpload_Restrict_to_room_members"));
+    addCheckBox(mRestrictFilesToRooms, QStringLiteral("FileUpload_Restrict_to_room_members"));
 
     mFileUploadsEnabledDirectMessages->setObjectName(QStringLiteral("mFileUploadsEnabledDirectMessages"));
-    mMainLayout->addWidget(mFileUploadsEnabledDirectMessages);
-    connectCheckBox(mFileUploadsEnabledDirectMessages, QStringLiteral("FileUpload_Enabled_Direct"));
+    addCheckBox(mFileUploadsEnabledDirectMessages, QStringLiteral("FileUpload_Enabled_Direct"));
 
     mAcceptedMediaTypes->setObjectName(QStringLiteral("mAcceptedMediaTypes"));
     mAcceptedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. Leave it blank for accepting all media types."));

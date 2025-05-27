@@ -60,8 +60,7 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     addSpinbox(i18n("Port"), mSmtpPort, QStringLiteral("SMTP_Port"));
 
     mSmtpIgnoreTls->setObjectName(QStringLiteral("mIgnoreTls"));
-    mMainLayout->addWidget(mSmtpIgnoreTls);
-    connectCheckBox(mSmtpIgnoreTls, QStringLiteral("SMTP_IgnoreTLS"));
+    addCheckBox(mSmtpIgnoreTls, QStringLiteral("SMTP_IgnoreTLS"));
 
     mSmtpUserName->setObjectName(QStringLiteral("mUserName"));
     addLineEdit(i18n("Username"), mSmtpUserName, QStringLiteral("SMTP_Username"));
@@ -77,30 +76,26 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(privacyLabel);
 
     mShowMessageEmailNotification->setObjectName(QStringLiteral("mShowMessageEmailNotification"));
-    mMainLayout->addWidget(mShowMessageEmailNotification);
-    connectCheckBox(mShowMessageEmailNotification, QStringLiteral("Email_notification_show_message"));
+    addCheckBox(mShowMessageEmailNotification, QStringLiteral("Email_notification_show_message"));
 
     mAddSenderReplyTo->setObjectName(QStringLiteral("mAddSenderReplyTo"));
-    mMainLayout->addWidget(mAddSenderReplyTo);
-    connectCheckBox(mAddSenderReplyTo, QStringLiteral("Add_Sender_To_ReplyTo"));
+    addCheckBox(mAddSenderReplyTo, QStringLiteral("Add_Sender_To_ReplyTo"));
 
     auto directReplyLabel = createBoldLabel(i18n("Direct Reply"));
     directReplyLabel->setObjectName(QStringLiteral("directReplyLabel"));
     mMainLayout->addWidget(directReplyLabel);
 
     mEnableDirectReply->setObjectName(QStringLiteral("mEnableDirectReply"));
-    mMainLayout->addWidget(mEnableDirectReply);
     mEnableDirectReply->setToolTip(
         i18n("[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the configured email mailbox.\n"
              "All unread e-mails are retrieved, marked as read and processed.\n"
              "\"Direct Reply\" should only be activated if the mailbox used is intended exclusively for access by Rocket.Chat\n"
              "and is not read/processed \"in parallel\" by humans."));
-    connectCheckBox(mEnableDirectReply, QStringLiteral("Direct_Reply_Enable"));
+    addCheckBox(mEnableDirectReply, QStringLiteral("Direct_Reply_Enable"));
 
     mDebugDirectReply->setObjectName(QStringLiteral("mDebugDirectReply"));
-    mMainLayout->addWidget(mDebugDirectReply);
     mDebugDirectReply->setToolTip(i18nc("@info:tooltip", "[Beware] Enabling Debug mode would display your 'Plain Text Password' in Admin console."));
-    connectCheckBox(mDebugDirectReply, QStringLiteral("Direct_Reply_Debug"));
+    addCheckBox(mDebugDirectReply, QStringLiteral("Direct_Reply_Debug"));
 
     auto forgotPasswordLabel = createBoldLabel(i18n("Forgot password"));
     forgotPasswordLabel->setObjectName(QStringLiteral("forgotPasswordLabel"));

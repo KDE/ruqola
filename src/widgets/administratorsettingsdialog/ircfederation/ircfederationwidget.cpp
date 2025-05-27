@@ -26,8 +26,7 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18nc("@info:tooltip", "Attempt to integrate IRC support. Changing this value requires restarting Rocket.Chat."));
-    mMainLayout->addWidget(mEnabled);
-    connectCheckBox(mEnabled, QStringLiteral("IRC_Enabled"));
+    addCheckBox(mEnabled, QStringLiteral("IRC_Enabled"));
 
     mProtocol->setObjectName(QStringLiteral("mProtocol"));
     const QMap<QString, QString> maps = {

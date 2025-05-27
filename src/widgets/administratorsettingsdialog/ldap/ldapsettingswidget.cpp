@@ -29,8 +29,7 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18nc("@info:tooltip", "Attempt to utilize LDAP for authentication."));
-    mMainLayout->addWidget(mEnabled);
-    connectCheckBox(mEnabled, QStringLiteral("LDAP_Enable"));
+    addCheckBox(mEnabled, QStringLiteral("LDAP_Enable"));
 
     mPort->setObjectName(QStringLiteral("mPort"));
     mPort->setMaximum(9999);
@@ -42,16 +41,14 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
 
     mReconnect->setObjectName(QStringLiteral("mReconnect"));
     mReconnect->setToolTip(i18nc("@info:tooltip", "Try to reconnect automatically when connection is interrupted by some reason while executing operations."));
-    mMainLayout->addWidget(mReconnect);
-    connectCheckBox(mReconnect, QStringLiteral("LDAP_Reconnect"));
+    addCheckBox(mReconnect, QStringLiteral("LDAP_Reconnect"));
 
     auto authenticationLabel = createBoldLabel(i18n("Authentication"));
     authenticationLabel->setObjectName(QStringLiteral("authenticationLabel"));
     mMainLayout->addWidget(authenticationLabel);
 
     mAuthenticationEnabled->setObjectName(QStringLiteral("mAuthenticationEnabled"));
-    mMainLayout->addWidget(mAuthenticationEnabled);
-    connectCheckBox(mAuthenticationEnabled, QStringLiteral("LDAP_Authentication"));
+    addCheckBox(mAuthenticationEnabled, QStringLiteral("LDAP_Authentication"));
 
     mAuthenticationUserDN->setObjectName(QStringLiteral("mAuthenticationUserDN"));
     addLineEdit(i18n("User DN"), mAuthenticationUserDN, QStringLiteral("LDAP_Authentication_UserDN"));

@@ -38,8 +38,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mUseRestForDDPCalls(new QCheckBox(i18nc("@option:check", "Use REST instead of websocket for Meteor calls"), this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
-    mMainLayout->addWidget(mEnableFavoriteRooms);
-    connectCheckBox(mEnableFavoriteRooms, QStringLiteral("Favorite_Rooms"));
+    addCheckBox(mEnableFavoriteRooms, QStringLiteral("Favorite_Rooms"));
 
     mSiteUrl->setObjectName(QStringLiteral("mSiteUrl"));
     addLineEdit(i18n("Site URL"), mSiteUrl, QStringLiteral("Site_Url"));
@@ -60,8 +59,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     addLineEdit(i18n("UTF8 Channel Names Validation"), mUTF8ChannelNamesValidation, QStringLiteral("UTF8_Channel_Names_Validation"));
 
     mUTF8NamesSlugify->setObjectName(QStringLiteral("mUTF8NamesSlugify"));
-    mMainLayout->addWidget(mUTF8NamesSlugify);
-    connectCheckBox(mUTF8NamesSlugify, QStringLiteral("UTF8_Names_Slugify"));
+    addCheckBox(mUTF8NamesSlugify, QStringLiteral("UTF8_Names_Slugify"));
 
     mFirstChannelAfterLogin->setObjectName(QStringLiteral("mFirstChannelAfterLogin"));
     addLineEdit(i18n("First Channel After Login"), mFirstChannelAfterLogin, QStringLiteral("First_Channel_After_Login"));
@@ -97,8 +95,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     addLineEdit(i18n("Update Latest Available Version"), mUpdateLatestAvailableVersion, QStringLiteral("Update_LatestAvailableVersion"), true);
 
     mEnableUpdateChecker->setObjectName(QStringLiteral("mEnableUpdateChecker"));
-    mMainLayout->addWidget(mEnableUpdateChecker);
-    connectCheckBox(mEnableUpdateChecker, QStringLiteral("Update_EnableChecker"));
+    addCheckBox(mEnableUpdateChecker, QStringLiteral("Update_EnableChecker"));
     mEnableUpdateChecker->setToolTip(
         i18n("Checks automatically for new updates / important messages from the Rocket.Chat developers and receives notifications when available.\n"
              "The notification appears once per new version as a clickable banner and as a message from the Rocket.Cat bot,\n"
@@ -123,8 +120,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(reportingLabel);
 
     mSendStatisticsRocketChat->setObjectName(QStringLiteral("mSendStatisticsRocketChat"));
-    mMainLayout->addWidget(mSendStatisticsRocketChat);
-    connectCheckBox(mSendStatisticsRocketChat, QStringLiteral("Statistics_reporting"));
+    addCheckBox(mSendStatisticsRocketChat, QStringLiteral("Statistics_reporting"));
 
     auto notificationLabel = createBoldLabel(i18n("Notifications"));
     notificationLabel->setObjectName(QStringLiteral("notificationLabel"));
@@ -158,8 +154,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
                QStringLiteral("API_Upper_Count_Limit"));
 
     mUseRestForDDPCalls->setObjectName(QStringLiteral("mUseRestForDDPCalls"));
-    mMainLayout->addWidget(mUseRestForDDPCalls);
-    connectCheckBox(mUseRestForDDPCalls, QStringLiteral("API_Use_REST_For_DDP_Calls"));
+    addCheckBox(mUseRestForDDPCalls, QStringLiteral("API_Use_REST_For_DDP_Calls"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;

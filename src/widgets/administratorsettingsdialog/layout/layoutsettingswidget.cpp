@@ -21,28 +21,23 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     , mNumberUsersAutocompletion(new QSpinBox(this))
 {
     mDisplayRoles->setObjectName(QStringLiteral("mDisplayRoles"));
-    mMainLayout->addWidget(mDisplayRoles);
-    connectCheckBox(mDisplayRoles, QStringLiteral("UI_DisplayRoles"));
+    addCheckBox(mDisplayRoles, QStringLiteral("UI_DisplayRoles"));
 
     mUseRealName->setObjectName(QStringLiteral("mUseRealName"));
-    mMainLayout->addWidget(mUseRealName);
-    connectCheckBox(mUseRealName, QStringLiteral("UI_Use_Real_Name"));
+    addCheckBox(mUseRealName, QStringLiteral("UI_Use_Real_Name"));
 
     mUseFullNameGenerateDefaultAvatar->setObjectName(QStringLiteral("mUseFullNameGenerateDefaultAvatar"));
-    mMainLayout->addWidget(mUseFullNameGenerateDefaultAvatar);
-    connectCheckBox(mUseFullNameGenerateDefaultAvatar, QStringLiteral("UI_Use_Name_Avatar"));
+    addCheckBox(mUseFullNameGenerateDefaultAvatar, QStringLiteral("UI_Use_Name_Avatar"));
 
     mAllowSpecialCharactersRoomNames->setObjectName(QStringLiteral("mAllowSpecialCharactersRoomNames"));
-    mMainLayout->addWidget(mAllowSpecialCharactersRoomNames);
-    connectCheckBox(mAllowSpecialCharactersRoomNames, QStringLiteral("UI_Allow_room_names_with_special_chars"));
+    addCheckBox(mAllowSpecialCharactersRoomNames, QStringLiteral("UI_Allow_room_names_with_special_chars"));
 
     mMergePrivateGroupsWithChannels->setObjectName(QStringLiteral("mMergePrivateGroupsWithChannels"));
     mMainLayout->addWidget(mMergePrivateGroupsWithChannels);
-    connectCheckBox(mMergePrivateGroupsWithChannels, QStringLiteral("UI_Merge_Channels_Groups"));
+    addCheckBox(mMergePrivateGroupsWithChannels, QStringLiteral("UI_Merge_Channels_Groups"));
 
     mGroupChannelsByType->setObjectName(QStringLiteral("mGroupChannelsByType"));
-    mMainLayout->addWidget(mGroupChannelsByType);
-    connectCheckBox(mGroupChannelsByType, QStringLiteral("UI_Group_Channels_By_Type"));
+    addCheckBox(mGroupChannelsByType, QStringLiteral("UI_Group_Channels_By_Type"));
 
     mNumberUsersAutocompletion->setObjectName(QStringLiteral("mNumberUsersAutocompletion"));
     mNumberUsersAutocompletion->setMaximum(99);

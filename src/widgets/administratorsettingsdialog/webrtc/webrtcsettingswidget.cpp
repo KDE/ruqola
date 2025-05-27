@@ -19,20 +19,16 @@ WebRtcSettingsWidget::WebRtcSettingsWidget(RocketChatAccount *account, QWidget *
     , mServer(new QLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    mMainLayout->addWidget(mEnabled);
-    connectCheckBox(mEnabled, QStringLiteral("WebRTC_Enabled"));
+    addCheckBox(mEnabled, QStringLiteral("WebRTC_Enabled"));
 
     mEnablePublicChannels->setObjectName(QStringLiteral("mEnablePublicChannels"));
-    mMainLayout->addWidget(mEnablePublicChannels);
-    connectCheckBox(mEnablePublicChannels, QStringLiteral("WebRTC_Enable_Channel"));
+    addCheckBox(mEnablePublicChannels, QStringLiteral("WebRTC_Enable_Channel"));
 
     mEnablePrivateChannels->setObjectName(QStringLiteral("mEnablePrivateChannels"));
-    mMainLayout->addWidget(mEnablePrivateChannels);
-    connectCheckBox(mEnablePrivateChannels, QStringLiteral("WebRTC_Enable_Private"));
+    addCheckBox(mEnablePrivateChannels, QStringLiteral("WebRTC_Enable_Private"));
 
     mEnableDirectMessages->setObjectName(QStringLiteral("mEnableDirectMessages"));
-    mMainLayout->addWidget(mEnableDirectMessages);
-    connectCheckBox(mEnableDirectMessages, QStringLiteral("WebRTC_Enable_Direct"));
+    addCheckBox(mEnableDirectMessages, QStringLiteral("WebRTC_Enable_Direct"));
 
     mServer->setObjectName(QStringLiteral("mServer"));
     mServer->setToolTip(

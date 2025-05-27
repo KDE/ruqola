@@ -58,9 +58,8 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(appleLabel);
 
     mSignWithApple->setObjectName(QStringLiteral("mSignWithApple"));
-    mMainLayout->addWidget(mSignWithApple);
     mSignWithApple->setToolTip(i18nc("@info:tooltip", "If you want Apple login enabled only on mobile, you can leave all fields empty."));
-    connectCheckBox(mSignWithApple, QStringLiteral("Accounts_OAuth_Apple"));
+    addCheckBox(mSignWithApple, QStringLiteral("Accounts_OAuth_Apple"));
 
     mAccountsOAuthAppleId->setObjectName(QStringLiteral("mAccountsOAuthAppleId"));
     addLineEdit(i18n("OAuth Apple Id"), mAccountsOAuthAppleId, QStringLiteral("Accounts_OAuth_Apple_id"));
@@ -79,8 +78,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("Url"), mDolphinUrl, QStringLiteral("Accounts_OAuth_Dolphin_URL"));
 
     mDolphinEnable->setObjectName(QStringLiteral("mDolphinEnable"));
-    mMainLayout->addWidget(mDolphinEnable);
-    connectCheckBox(mDolphinEnable, QStringLiteral("Accounts_OAuth_Dolphin"));
+    addCheckBox(mDolphinEnable, QStringLiteral("Accounts_OAuth_Dolphin"));
 
     mDolphinId->setObjectName(QStringLiteral("mDolphinId"));
     addLineEdit(i18n("Id"), mDolphinId, QStringLiteral("Accounts_OAuth_Dolphin_id"));
@@ -94,8 +92,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(twitterLabel);
 
     mTwitterLogin->setObjectName(QStringLiteral("mTwitterLogin"));
-    mMainLayout->addWidget(mTwitterLogin);
-    connectCheckBox(mTwitterLogin, QStringLiteral("Accounts_OAuth_Twitter"));
+    addCheckBox(mTwitterLogin, QStringLiteral("Accounts_OAuth_Twitter"));
 
     mTwitterId->setObjectName(QStringLiteral("mTwitterId"));
     addLineEdit(i18n("Twitter Id"), mTwitterId, QStringLiteral("Accounts_OAuth_Twitter_id"));
@@ -111,8 +108,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(linkedInLabel);
 
     mLinkedInLogin->setObjectName(QStringLiteral("mLinkedInLogin"));
-    mMainLayout->addWidget(mLinkedInLogin);
-    connectCheckBox(mLinkedInLogin, QStringLiteral("Accounts_OAuth_Linkedin"));
+    addCheckBox(mLinkedInLogin, QStringLiteral("Accounts_OAuth_Linkedin"));
 
     mLinkedInId->setObjectName(QStringLiteral("mLinkedInId"));
     addLineEdit(i18n("LinkedIn Id"), mLinkedInId, QStringLiteral("Accounts_OAuth_Linkedin_id"));
@@ -139,8 +135,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(meteorLabel);
 
     mMeteorLogin->setObjectName(QStringLiteral("mMeteorLogin"));
-    mMainLayout->addWidget(mMeteorLogin);
-    connectCheckBox(mMeteorLogin, QStringLiteral("Accounts_OAuth_Meteor"));
+    addCheckBox(mMeteorLogin, QStringLiteral("Accounts_OAuth_Meteor"));
 
     mMeteorId->setObjectName(QStringLiteral("mMeteorId"));
     addLineEdit(i18n("Meteor Id"), mMeteorId, QStringLiteral("Accounts_OAuth_Meteor_id"));
@@ -157,8 +152,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(facebookLabel);
 
     mFacebookLogin->setObjectName(QStringLiteral("mFacebookLogin"));
-    mMainLayout->addWidget(mFacebookLogin);
-    connectCheckBox(mFacebookLogin, QStringLiteral("Accounts_OAuth_Facebook"));
+    addCheckBox(mFacebookLogin, QStringLiteral("Accounts_OAuth_Facebook"));
 
     mFacebookId->setObjectName(QStringLiteral("mFacebookId"));
     addLineEdit(i18n("Facebook Id"), mFacebookId, QStringLiteral("Accounts_OAuth_Facebook_id"));
@@ -175,8 +169,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(githubLabel);
 
     mGithubLogin->setObjectName(QStringLiteral("mGithubLogin"));
-    mMainLayout->addWidget(mGithubLogin);
-    connectCheckBox(mGithubLogin, QStringLiteral("Accounts_OAuth_Github"));
+    addCheckBox(mGithubLogin, QStringLiteral("Accounts_OAuth_Github"));
 
     mGithubId->setObjectName(QStringLiteral("mGithubId"));
     addLineEdit(i18n("Github Id"), mGithubId, QStringLiteral("Accounts_OAuth_Github_id"));
@@ -193,8 +186,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(tokenpassLabel);
 
     mTokenpassLogin->setObjectName(QStringLiteral("mTokenpassLogin"));
-    mMainLayout->addWidget(mTokenpassLogin);
-    connectCheckBox(mTokenpassLogin, QStringLiteral("Accounts_OAuth_Tokenpass"));
+    addCheckBox(mTokenpassLogin, QStringLiteral("Accounts_OAuth_Tokenpass"));
 
     mTokenpassServerURL->setObjectName(QStringLiteral("mTokenpassServerURL"));
     mTokenpassServerURL->setToolTip(i18nc("@info:tooltip", "Example: https://domain.com (excluding trailing slash)"));
@@ -215,8 +207,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(googleLabel);
 
     mGoogleLogin->setObjectName(QStringLiteral("mGoogleLogin"));
-    mMainLayout->addWidget(mGoogleLogin);
-    connectCheckBox(mGoogleLogin, QStringLiteral("Accounts_OAuth_Google"));
+    addCheckBox(mGoogleLogin, QStringLiteral("Accounts_OAuth_Google"));
 
     mGoogleId->setObjectName(QStringLiteral("mGoogleId"));
     addLineEdit(i18n("Google Id"), mGoogleId, QStringLiteral("Accounts_OAuth_Google_id"));

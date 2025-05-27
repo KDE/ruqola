@@ -20,8 +20,7 @@ UserDataDownloadWidget::UserDataDownloadWidget(RocketChatAccount *account, QWidg
     , mMessageLimitRequest(new QSpinBox(this))
 {
     mUserDataDownloadEnabled->setObjectName(QStringLiteral("mUserDataDownloadEnabled"));
-    mMainLayout->addWidget(mUserDataDownloadEnabled);
-    connectCheckBox(mUserDataDownloadEnabled, QStringLiteral("UserData_EnableDownload"));
+    addCheckBox(mUserDataDownloadEnabled, QStringLiteral("UserData_EnableDownload"));
 
     mSystemPathExportedFiles->setObjectName(QStringLiteral("mSystemPathExportedFiles"));
     addLineEdit(i18n("System Path (Exported Files)"), mSystemPathExportedFiles, QStringLiteral("UserData_FileSystemPath"));

@@ -18,8 +18,7 @@ MobileSettingsWidget::MobileSettingsWidget(RocketChatAccount *account, QWidget *
     , mForceScreenLockAfter(new QSpinBox(this))
 {
     mAllowSaveMediaGallery->setObjectName(QStringLiteral("mAllowSaveMediaGallery"));
-    mMainLayout->addWidget(mAllowSaveMediaGallery);
-    connectCheckBox(mAllowSaveMediaGallery, QStringLiteral("Allow_Save_Media_to_Gallery"));
+    addCheckBox(mAllowSaveMediaGallery, QStringLiteral("Allow_Save_Media_to_Gallery"));
 
     auto screenLockLabel = createBoldLabel(i18n("Screen Lock"));
     screenLockLabel->setObjectName(QStringLiteral("screenLockLabel"));
@@ -27,8 +26,7 @@ MobileSettingsWidget::MobileSettingsWidget(RocketChatAccount *account, QWidget *
 
     mForceScreenLock->setObjectName(QStringLiteral("mForceScreenLock"));
     mForceScreenLock->setToolTip(i18nc("@info:tooltip", "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock the app."));
-    mMainLayout->addWidget(mForceScreenLock);
-    connectCheckBox(mForceScreenLock, QStringLiteral("Force_Screen_Lock"));
+    addCheckBox(mForceScreenLock, QStringLiteral("Force_Screen_Lock"));
 
     mForceScreenLockAfter->setObjectName(QStringLiteral("mForceScreenLockAfter"));
     mForceScreenLockAfter->setMaximum(99999);

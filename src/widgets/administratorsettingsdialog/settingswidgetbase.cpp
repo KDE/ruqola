@@ -49,19 +49,6 @@ SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *pare
 
 SettingsWidgetBase::~SettingsWidgetBase() = default;
 
-void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &variable)
-{
-    checkBox->setProperty(s_property, variable);
-    connect(checkBox, &QCheckBox::clicked, this, [this, variable, checkBox](bool checked) {
-        if (!updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Boolean)) {
-            checkBox->setChecked(!checked);
-            Q_EMIT changedCanceled(variable);
-        } else {
-            Q_EMIT changedDone(variable);
-        }
-    });
-}
-
 bool SettingsWidgetBase::updateSettings(const QString &settingName,
                                         const QVariant &value,
                                         RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
@@ -116,6 +103,7 @@ void SettingsWidgetBase::addCheckBox(QCheckBox *checkBox, const QString &variabl
     auto layout = new QHBoxLayout;
     auto applyButton = addApplyButton(variable);
     checkBox->setProperty(s_property, variable);
+    layout->addWidget(checkBox);
     layout->addWidget(applyButton);
     setTabOrder(checkBox, applyButton);
 

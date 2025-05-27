@@ -13,8 +13,7 @@ WebDavSettingsWidget::WebDavSettingsWidget(RocketChatAccount *account, QWidget *
     , mEnabled(new QCheckBox(i18nc("@option:check", "Webdav Integration Enabled"), this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    mMainLayout->addWidget(mEnabled);
-    connectCheckBox(mEnabled, QStringLiteral("Webdav_Integration_Enabled"));
+    addCheckBox(mEnabled, QStringLiteral("Webdav_Integration_Enabled"));
 }
 
 WebDavSettingsWidget::~WebDavSettingsWidget() = default;

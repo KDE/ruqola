@@ -41,8 +41,7 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     addSpinbox(i18n("Log View Limit"), mLogViewLimit, QStringLiteral("Log_View_Limit"));
 
     mTraceMethodCalls->setObjectName(QStringLiteral("mTraceMethodCalls"));
-    mMainLayout->addWidget(mTraceMethodCalls);
-    connectCheckBox(mTraceMethodCalls, QStringLiteral("Log_Trace_Methods"));
+    addCheckBox(mTraceMethodCalls, QStringLiteral("Log_Trace_Methods"));
 
     mTraceMethodFilter->setObjectName(QStringLiteral("mTraceMethodFilter"));
     mTraceMethodFilter->setToolTip(
@@ -50,8 +49,7 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     addLineEdit(i18n("Trace method filter"), mTraceMethodFilter, QStringLiteral("Log_Trace_Methods_Filter"));
 
     mTraceSubscriptionCalls->setObjectName(QStringLiteral("mTraceSubscriptionCalls"));
-    mMainLayout->addWidget(mTraceSubscriptionCalls);
-    connectCheckBox(mTraceSubscriptionCalls, QStringLiteral("Log_Trace_Subscriptions"));
+    addCheckBox(mTraceSubscriptionCalls, QStringLiteral("Log_Trace_Subscriptions"));
 
     mTraceSubscriptionFilter->setObjectName(QStringLiteral("mTraceSubscriptionFilter"));
     mTraceSubscriptionFilter->setToolTip(

@@ -38,8 +38,7 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(bigBlueButtonLabel);
 
     mBigBlueEnabled->setObjectName(QStringLiteral("mBigBlueEnabled"));
-    mMainLayout->addWidget(mBigBlueEnabled);
-    connectCheckBox(mBigBlueEnabled, QStringLiteral("bigbluebutton_Enabled"));
+    addCheckBox(mBigBlueEnabled, QStringLiteral("bigbluebutton_Enabled"));
 
     mServer->setObjectName(QStringLiteral("mServer"));
     addLineEdit(i18n("Domain"), mServer, QStringLiteral("bigbluebutton_server"));
@@ -48,16 +47,14 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     addLineEdit(i18n("Shared Secret"), mSharedSecret, QStringLiteral("bigbluebutton_sharedSecret"));
 
     mAlwaysOpenNewWindow->setObjectName(QStringLiteral("mAlwaysOpenNewWindow"));
-    mMainLayout->addWidget(mAlwaysOpenNewWindow);
-    connectCheckBox(mAlwaysOpenNewWindow, QStringLiteral("bigbluebutton_Open_New_Window"));
+    addCheckBox(mAlwaysOpenNewWindow, QStringLiteral("bigbluebutton_Open_New_Window"));
 
     auto jitsiButtonLabel = createBoldLabel(QStringLiteral("Jitsi"));
     jitsiButtonLabel->setObjectName(QStringLiteral("jitsiButtonLabel"));
     mMainLayout->addWidget(jitsiButtonLabel);
 
     mJitsiEnabled->setObjectName(QStringLiteral("mJitsiEnabled"));
-    mMainLayout->addWidget(mJitsiEnabled);
-    connectCheckBox(mJitsiEnabled, QStringLiteral("Jitsi_Enabled"));
+    addCheckBox(mJitsiEnabled, QStringLiteral("Jitsi_Enabled"));
 
     mJitsiDomain->setObjectName(QStringLiteral("mJitsiDomain"));
     addLineEdit(i18n("Domain"), mJitsiDomain, QStringLiteral("Jitsi_Domain"));
@@ -70,31 +67,25 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
 
     mJitsiEnableRoomNameHash->setObjectName(QStringLiteral("mJitsiEnableRoomNameHash"));
     mJitsiEnableRoomNameHash->setToolTip(i18nc("@info:tooltip", "Recommended to enable if the Jitsi instance doesn't use any authentication mechanism."));
-    mMainLayout->addWidget(mJitsiEnableRoomNameHash);
-    connectCheckBox(mJitsiEnableRoomNameHash, QStringLiteral("Jitsi_URL_Room_Hash"));
+    addCheckBox(mJitsiEnableRoomNameHash, QStringLiteral("Jitsi_URL_Room_Hash"));
 
     mJitsiUseSSL->setObjectName(QStringLiteral("mJitsiUseSSL"));
-    mMainLayout->addWidget(mJitsiUseSSL);
-    connectCheckBox(mJitsiUseSSL, QStringLiteral("Jitsi_SSL"));
+    addCheckBox(mJitsiUseSSL, QStringLiteral("Jitsi_SSL"));
 
     mJitsiAlwaysOpenNewWindow->setObjectName(QStringLiteral("mJitsiAlwaysOpenNewWindow"));
-    mMainLayout->addWidget(mJitsiAlwaysOpenNewWindow);
-    connectCheckBox(mJitsiAlwaysOpenNewWindow, QStringLiteral("Jitsi_Open_New_Window"));
+    addCheckBox(mJitsiAlwaysOpenNewWindow, QStringLiteral("Jitsi_Open_New_Window"));
 
     mJitsiEnableInChannels->setObjectName(QStringLiteral("mJitsiEnableInChannels"));
-    mMainLayout->addWidget(mJitsiEnableInChannels);
-    connectCheckBox(mJitsiEnableInChannels, QStringLiteral("Jitsi_Enable_Channels"));
+    addCheckBox(mJitsiEnableInChannels, QStringLiteral("Jitsi_Enable_Channels"));
 
     mJitsiEnableTeams->setObjectName(QStringLiteral("mJitsiEnableTeams"));
-    mMainLayout->addWidget(mJitsiEnableTeams);
-    connectCheckBox(mJitsiEnableTeams, QStringLiteral("Jitsi_Enable_Teams"));
+    addCheckBox(mJitsiEnableTeams, QStringLiteral("Jitsi_Enable_Teams"));
 
     mJitsiChromeExtensionId->setObjectName(QStringLiteral("mJitsiChromeExtensionId"));
     addLineEdit(i18n("Chrome Extension Id"), mJitsiChromeExtensionId, QStringLiteral("Jitsi_Chrome_Extension"));
 
     mJitsiEnableJWTAuth->setObjectName(QStringLiteral("mJitsiEnableJWTAuth"));
-    mMainLayout->addWidget(mJitsiEnableJWTAuth);
-    connectCheckBox(mJitsiEnableJWTAuth, QStringLiteral("Jitsi_Enabled_TokenAuth"));
+    addCheckBox(mJitsiEnableJWTAuth, QStringLiteral("Jitsi_Enabled_TokenAuth"));
 
     mJitsiApplicationID->setObjectName(QStringLiteral("mJitsiApplicationID"));
     addLineEdit(i18n("Application ID (iss)"), mJitsiApplicationID, QStringLiteral("Jitsi_Application_ID"));
@@ -103,8 +94,7 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     addLineEdit(i18n("Application Secret"), mJitsiApplicationSecret, QStringLiteral("Jitsi_Application_Secret"));
 
     mJitsiLimitTokenJitsiRoom->setObjectName(QStringLiteral("mJitsiLimitTokenJitsiRoom"));
-    mMainLayout->addWidget(mJitsiLimitTokenJitsiRoom);
-    connectCheckBox(mJitsiLimitTokenJitsiRoom, QStringLiteral("Jitsi_Limit_Token_To_Room"));
+    addCheckBox(mJitsiLimitTokenJitsiRoom, QStringLiteral("Jitsi_Limit_Token_To_Room"));
 }
 
 VideoConferenceWidget::~VideoConferenceWidget() = default;

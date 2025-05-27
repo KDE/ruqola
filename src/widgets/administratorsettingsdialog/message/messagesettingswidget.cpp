@@ -46,16 +46,14 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mEmbedCacheExpirationDays(new QSpinBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
-    mMainLayout->addWidget(mAllowMessageEditing);
-    connectCheckBox(mAllowMessageEditing, QStringLiteral("Message_AllowEditing"));
+    addCheckBox(mAllowMessageEditing, QStringLiteral("Message_AllowEditing"));
 
     mBlockMessageEditingAfterMinutes->setObjectName(QStringLiteral("mBlockMessageEditingAfterMinutes"));
     mBlockMessageEditingAfterMinutes->setToolTip(i18nc("@info:tooltip", "Enter 0 to disable blocking."));
     addSpinbox(i18n("Block Message Editing After (n) Minutes"), mBlockMessageEditingAfterMinutes, QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
 
     mAllowMessageDeleting->setObjectName(QStringLiteral("mAllowMessageDeleting"));
-    mMainLayout->addWidget(mAllowMessageDeleting);
-    connectCheckBox(mAllowMessageDeleting, QStringLiteral("Message_AllowDeleting"));
+    addCheckBox(mAllowMessageDeleting, QStringLiteral("Message_AllowDeleting"));
 
     mBlockMessageDeletingAfterMinutes->setObjectName(QStringLiteral("mBlockMessageDeletingAfterMinutes"));
     mBlockMessageDeletingAfterMinutes->setToolTip(i18nc("@info:tooltip", "Block Message Deleting After (n) Minutes."));
@@ -65,30 +63,24 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mShowEditedStatus->setObjectName(QStringLiteral("mShowEditedStatus"));
     mShowEditedStatus->setToolTip(i18nc("@info:tooltip", "This is a deprecated feature. It may not work as expected and will not get new updates."));
-    mMainLayout->addWidget(mShowEditedStatus);
-    connectCheckBox(mShowEditedStatus, QStringLiteral("Message_ShowEditedStatus"));
+    addCheckBox(mShowEditedStatus, QStringLiteral("Message_ShowEditedStatus"));
 
     mShowDeletedStatus->setObjectName(QStringLiteral("mShowDeletedStatus"));
-    mMainLayout->addWidget(mShowDeletedStatus);
-    connectCheckBox(mShowDeletedStatus, QStringLiteral("Message_ShowDeletedStatus"));
+    addCheckBox(mShowDeletedStatus, QStringLiteral("Message_ShowDeletedStatus"));
 
     mAllowMessagePinning->setObjectName(QStringLiteral("mAllowMessagePinning"));
     mAllowMessagePinning->setToolTip(i18nc("@info:tooltip", "Allow Message Pinning"));
-    mMainLayout->addWidget(mAllowMessagePinning);
-    connectCheckBox(mAllowMessagePinning, QStringLiteral("Message_AllowPinning"));
+    addCheckBox(mAllowMessagePinning, QStringLiteral("Message_AllowPinning"));
 
     mAllowMessageSnippeting->setObjectName(QStringLiteral("mAllowMessageSnippeting"));
-    mMainLayout->addWidget(mAllowMessageSnippeting);
-    connectCheckBox(mAllowMessageSnippeting, QStringLiteral("Message_AllowSnippeting"));
+    addCheckBox(mAllowMessageSnippeting, QStringLiteral("Message_AllowSnippeting"));
 
     mAllowConvertingLongMessageAttachment->setObjectName(QStringLiteral("mAllowConvertingLongMessageAttachment"));
-    mMainLayout->addWidget(mAllowConvertingLongMessageAttachment);
-    connectCheckBox(mAllowConvertingLongMessageAttachment, QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
+    addCheckBox(mAllowConvertingLongMessageAttachment, QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
 
     mVideoRecorderEnabled->setObjectName(QStringLiteral("mVideoRecorderEnabled"));
     mVideoRecorderEnabled->setToolTip(i18nc("@info:tooltip", "Requires 'video/webm' files to be an accepted media type within 'File Upload' settings."));
-    mMainLayout->addWidget(mVideoRecorderEnabled);
-    connectCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
+    addCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
 
     mMaximumAllowedCharactersPerMessage->setObjectName(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
     mMaximumAllowedCharactersPerMessage->setMaximum(99999);
@@ -130,16 +122,14 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mRemoveEXIFMetadata->setToolTip(i18nc(
         "@info:tooltip",
         "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is not retroactive, so files uploaded while disabled will have EXIF data"));
-    mMainLayout->addWidget(mRemoveEXIFMetadata);
-    connectCheckBox(mRemoveEXIFMetadata, QStringLiteral("Message_Attachments_Strip_Exif"));
+    addCheckBox(mRemoveEXIFMetadata, QStringLiteral("Message_Attachments_Strip_Exif"));
 
     mEnableImageThumbnails->setObjectName(QStringLiteral("mEnableImageThumbnails"));
     mEnableImageThumbnails->setToolTip(i18nc(
         "@info:tooltip",
         "Thumbnails will be served instead of the original image to reduce bandwidth usage. Images at original resolution can be downloaded using the icon "
         "next to the attachment's name."));
-    mMainLayout->addWidget(mEnableImageThumbnails);
-    connectCheckBox(mEnableImageThumbnails, QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
+    addCheckBox(mEnableImageThumbnails, QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
 
     mThumbnailMaxWidth->setObjectName(QStringLiteral("mThumbnailMaxWidth"));
     addSpinbox(i18n("Thumbnail's max width (in pixels)"), mThumbnailMaxWidth, QStringLiteral("Message_Attachments_Thumbnails_Width"));
@@ -152,8 +142,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(audioMessageLabel);
 
     mAudioRecorderEnabled->setObjectName(QStringLiteral("mAudioRecorderEnabled"));
-    mMainLayout->addWidget(mAudioRecorderEnabled);
-    connectCheckBox(mAudioRecorderEnabled, QStringLiteral("Message_AudioRecorderEnabled"));
+    addCheckBox(mAudioRecorderEnabled, QStringLiteral("Message_AudioRecorderEnabled"));
 
     mAudioMessageBitRate->setObjectName(QStringLiteral("mAudioMessageBitRate"));
     mAudioMessageBitRate->setMaximum(1000);
@@ -164,8 +153,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(autoTranslateLabel);
 
     mAutoTranslateEnabled->setObjectName(QStringLiteral("mAutoTranslateEnabled"));
-    mMainLayout->addWidget(mAutoTranslateEnabled);
-    connectCheckBox(mAutoTranslateEnabled, QStringLiteral("AutoTranslate_Enabled"));
+    addCheckBox(mAutoTranslateEnabled, QStringLiteral("AutoTranslate_Enabled"));
 
     mAutoTranslateServiceProvider->setObjectName(QStringLiteral("mAutoTranslateServiceProvider"));
     const QMap<QString, QString> maps = {
@@ -187,7 +175,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mApiEmbed->setObjectName(QStringLiteral("mApiEmbed"));
     mApiEmbed->setToolTip(i18nc("@info:tooltip", "Whether embedded link previews are enabled or not when a user posts a link to a website."));
     mMainLayout->addWidget(mApiEmbed);
-    connectCheckBox(mApiEmbed, QStringLiteral("API_Embed"));
+    addCheckBox(mApiEmbed, QStringLiteral("API_Embed"));
 
     mEmbedCacheExpirationDays->setObjectName(QStringLiteral("mEmbedCacheExpirationDays"));
     addSpinbox(i18n("Embed Cache Expiration Days"), mEmbedCacheExpirationDays, QStringLiteral("API_EmbedCacheExpirationDays"));

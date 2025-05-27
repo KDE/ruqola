@@ -35,16 +35,14 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     mMainLayout->addWidget(apiRateLimiterLabel);
 
     mEnableRateLimiter->setObjectName(QStringLiteral("mEnableRateLimiter"));
-    mMainLayout->addWidget(mEnableRateLimiter);
-    connectCheckBox(mEnableRateLimiter, QStringLiteral("API_Enable_Rate_Limiter"));
+    addCheckBox(mEnableRateLimiter, QStringLiteral("API_Enable_Rate_Limiter"));
 
     auto ddpRateLimiterLabel = createBoldLabel(i18n("DDP Rate Limit"));
     ddpRateLimiterLabel->setObjectName(QStringLiteral("ddpRateLimiterLabel"));
     mMainLayout->addWidget(ddpRateLimiterLabel);
 
     mLimitByIP->setObjectName(QStringLiteral("mLimitByIP"));
-    mMainLayout->addWidget(mLimitByIP);
-    connectCheckBox(mLimitByIP, QStringLiteral("DDP_Rate_Limit_IP_Enabled"));
+    addCheckBox(mLimitByIP, QStringLiteral("DDP_Rate_Limit_IP_Enabled"));
 
     mLimiteByIpRequestsAllowed->setObjectName(QStringLiteral("mLimiteByIpRequestsAllowed"));
     mLimiteByIpRequestsAllowed->setMaximum(9999999);
@@ -55,8 +53,7 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     addSpinbox(i18n("Limit by IP: requests allowed"), mLimiteByIpIntervalTime, QStringLiteral("DDP_Rate_Limit_IP_Interval_Time"));
 
     mLimitByUser->setObjectName(QStringLiteral("mLimitByUser"));
-    mMainLayout->addWidget(mLimitByUser);
-    connectCheckBox(mLimitByUser, QStringLiteral("DDP_Rate_Limit_User_Enabled"));
+    addCheckBox(mLimitByUser, QStringLiteral("DDP_Rate_Limit_User_Enabled"));
 
     mLimiteByUserRequestsAllowed->setObjectName(QStringLiteral("mLimiteByUserRequestsAllowed"));
     mLimiteByUserRequestsAllowed->setMaximum(9999999);
@@ -67,8 +64,7 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     addSpinbox(i18n("Limit by User: interval time"), mLimiteByUserIntervalTime, QStringLiteral("DDP_Rate_Limit_User_Interval_Time"));
 
     mLimitByConnection->setObjectName(QStringLiteral("mLimitByConnection"));
-    mMainLayout->addWidget(mLimitByConnection);
-    connectCheckBox(mLimitByConnection, QStringLiteral("DDP_Rate_Limit_Connection_Enabled"));
+    addCheckBox(mLimitByConnection, QStringLiteral("DDP_Rate_Limit_Connection_Enabled"));
 
     mLimiteByConnectionRequestsAllowed->setObjectName(QStringLiteral("mLimiteByConnectionRequestsAllowed"));
     mLimiteByConnectionRequestsAllowed->setMaximum(9999999);
@@ -79,8 +75,7 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     addSpinbox(i18n("Limit by User: interval time"), mLimiteByConnectionIntervalTime, QStringLiteral("DDP_Rate_Limit_Connection_Interval_Time"));
 
     mLimitByUserPerMethod->setObjectName(QStringLiteral("mLimitByUserPerMethod"));
-    mMainLayout->addWidget(mLimitByUserPerMethod);
-    connectCheckBox(mLimitByUserPerMethod, QStringLiteral("DDP_Rate_Limit_User_By_Method_Enabled"));
+    addCheckBox(mLimitByUserPerMethod, QStringLiteral("DDP_Rate_Limit_User_By_Method_Enabled"));
 
     mLimiteByUserRequestsAllowedPerMethod->setObjectName(QStringLiteral("mLimiteByUserRequestsAllowedPerMethod"));
     mLimiteByUserRequestsAllowedPerMethod->setMaximum(9999999);
@@ -93,8 +88,7 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     addSpinbox(i18n("Limit by User: interval time"), mLimiteByUserIntervalTimePerMethod, QStringLiteral("DDP_Rate_Limit_User_By_Method_Interval_Time"));
 
     mLimitByConnectionPerMethod->setObjectName(QStringLiteral("mLimitByConnectionPerMethod"));
-    mMainLayout->addWidget(mLimitByConnectionPerMethod);
-    connectCheckBox(mLimitByConnectionPerMethod, QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Enabled"));
+    addCheckBox(mLimitByConnectionPerMethod, QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Enabled"));
 
     mLimiteByConnectionRequestsAllowedPerMethod->setObjectName(QStringLiteral("mLimiteByConnectionRequestsAllowedPerMethod"));
     mLimiteByConnectionRequestsAllowedPerMethod->setMaximum(9999999);
