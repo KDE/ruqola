@@ -51,6 +51,10 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
                 case VideoConference::Action::Rejected:
                     Q_EMIT videoConferenceCallRejected(videoConference);
                     break;
+                case VideoConference::Action::Ring:
+                    // TODO
+                    qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << " Ring not implemented yet";
+                    break;
                 }
             }
         }

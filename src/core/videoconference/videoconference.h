@@ -20,6 +20,7 @@ public:
         Confirmed,
         Accepted,
         Rejected,
+        Ring,
     };
     Q_ENUM(Action)
 
