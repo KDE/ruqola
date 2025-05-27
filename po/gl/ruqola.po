@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-24 00:42+0000\n"
-"PO-Revision-Date: 2025-05-23 10:35+0200\n"
+"PO-Revision-Date: 2025-05-26 08:45+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -11484,12 +11484,8 @@ msgid "Allow to dnd image."
 msgstr "Permitir arrastrar e soltar imaxes."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr ""
-"Engada un botón de restaurar no diálogo de configuración do servidor de "
-"administración."
+msgstr "Engada un botón de restaurar na configuración de administración."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
