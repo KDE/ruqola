@@ -111,6 +111,66 @@ void SettingsWidgetBase::slotAdminSettingsDone(const QJsonObject &obj, const QSt
     }
 }
 
+void SettingsWidgetBase::addCheckBox(QCheckBox *checkBox, const QString &variable)
+{
+    auto layout = new QHBoxLayout;
+    auto applyButton = addApplyButton(variable);
+    checkBox->setProperty(s_property, variable);
+    layout->addWidget(applyButton);
+    setTabOrder(checkBox, applyButton);
+
+    auto cancelButton = addCancelButton(variable);
+    layout->addWidget(cancelButton);
+    setTabOrder(applyButton, cancelButton);
+
+    auto restoreToolButton = addRestoreButton(variable);
+    layout->addWidget(restoreToolButton);
+    setTabOrder(cancelButton, restoreToolButton);
+
+    connect(restoreToolButton, &QToolButton::clicked, this, [variable, checkBox, this]() {
+        checkBox->setChecked(checkBox->property(s_property_default_value).toBool());
+        Q_EMIT changedCanceled(variable);
+    });
+
+    connect(cancelButton, &QToolButton::clicked, this, [variable, checkBox, this]() {
+        checkBox->setChecked(checkBox->property(s_property_current_value).toBool());
+        Q_EMIT changedCanceled(variable);
+    });
+    connect(applyButton, &QToolButton::clicked, this, [this, variable, checkBox, applyButton]() {
+        if (!updateSettings(variable,
+                            checkBox->isChecked(),
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Boolean,
+                            applyButton->objectName())) {
+            checkBox->setChecked(checkBox->property(s_property_current_value).toBool());
+            Q_EMIT changedCanceled(variable);
+        }
+    });
+    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, checkBox, restoreToolButton, cancelButton](const QString &buttonName) {
+        if (applyButton->objectName() == buttonName) {
+            applyButton->setEnabled(false);
+            restoreToolButton->setEnabled(false);
+            cancelButton->setEnabled(false);
+            checkBox->setProperty(s_property_current_value, checkBox->isChecked());
+        }
+    });
+    connect(checkBox, &QCheckBox::clicked, this, [applyButton, checkBox, restoreToolButton, cancelButton](bool value) {
+        if (checkBox->property(s_property_default_value).toBool() == value) {
+            restoreToolButton->setEnabled(false);
+        } else {
+            restoreToolButton->setEnabled(true);
+        }
+        if (checkBox->property(s_property_current_value).toBool() == value) {
+            applyButton->setEnabled(false);
+            cancelButton->setEnabled(false);
+        } else {
+            applyButton->setEnabled(true);
+            cancelButton->setEnabled(true);
+        }
+    });
+
+    mMainLayout->addRow(layout);
+}
+
 void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable)
 {
     auto layout = new QHBoxLayout;

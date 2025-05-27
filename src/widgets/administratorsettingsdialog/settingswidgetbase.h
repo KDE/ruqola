@@ -34,6 +34,7 @@ Q_SIGNALS:
     void changedCanceled(const QString &variableName);
 
 protected:
+    void addCheckBox(QCheckBox *checkBox, const QString &variable);
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
     void addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable);
     void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable, bool readOnly = false);
