@@ -43,6 +43,8 @@ VideoConference::Action VideoConference::convertActionToEnum(const QString &str)
         action = Action::Accepted;
     } else if (str == "rejected"_L1) {
         action = Action::Rejected;
+    } else if (str == "ring"_L1) {
+        action = Action::Ring;
     } else {
         qCWarning(RUQOLA_LOG) << "Action not implemented! " << str;
     }

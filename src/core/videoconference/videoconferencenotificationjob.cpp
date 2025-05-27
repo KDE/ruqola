@@ -33,6 +33,7 @@ void VideoConferenceNotificationJob::start()
     case VideoConference::Action::Confirmed:
     case VideoConference::Action::Accepted:
     case VideoConference::Action::Rejected:
+    case VideoConference::Action::Ring:
         break;
     }
     deleteLater();
