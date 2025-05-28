@@ -141,7 +141,7 @@ void SettingsWidgetBase::addCheckBox(QCheckBox *checkBox, const QString &variabl
             checkBox->setProperty(s_property_current_value, checkBox->isChecked());
         }
     });
-    connect(checkBox, &QCheckBox::clicked, this, [applyButton, checkBox, restoreToolButton, cancelButton](bool value) {
+    connect(checkBox, &QCheckBox::toggled, this, [applyButton, checkBox, restoreToolButton, cancelButton](bool value) {
         if (checkBox->property(s_property_default_value).toBool() == value) {
             restoreToolButton->setEnabled(false);
         } else {
