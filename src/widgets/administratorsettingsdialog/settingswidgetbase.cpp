@@ -543,12 +543,14 @@ void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMa
 void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings, bool defaultValue)
 {
     const QString variableName = checkbox->property(s_property).toString();
+    bool value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        const auto value = mapSettings.value(variableName);
-        checkbox->setChecked(value.toBool());
-    } else {
-        checkbox->setChecked(defaultValue);
+        value = mapSettings.value(variableName).toBool();
     }
+    checkbox->setChecked(value);
+    checkbox->setProperty(s_property_current_value, value);
+    checkbox->setProperty(s_property_default_value, defaultValue);
+    disableToolButton(variableName, (value != defaultValue));
 }
 
 void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
