@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 12:16+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -12013,6 +12013,12 @@ msgstr "Vertaalmenu in dialoog van discussiebundeling tonen."
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Ondersteuning voor acties van Rocket Chat toevoegen."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgid "Add restore button in administration settings."
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr "Herstelknop toevoegen in instellingen voor beheer."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

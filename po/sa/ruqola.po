@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -11930,6 +11930,12 @@ msgstr "प्रत्यक्षचैनेल् मध्ये अनु�
 #| msgid "Implement Rocket.Chat Marketplace."
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Rocket.Chat Marketplace कार्यान्वितम्।"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgid "Add restore button in administrator server settings dialog."
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr "प्रशासकसर्वरसेटिंग्स् संवादे पुनर्स्थापनबटनं योजयन्तु ।"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

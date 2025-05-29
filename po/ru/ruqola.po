@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -12102,6 +12102,14 @@ msgstr "Исправление перевода сообщений в прямы
 #| msgid "Implement Rocket.Chat application support."
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Реализация поддержки приложения Rocket.Chat"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgid "Add restore button in administrator server settings dialog."
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr ""
+"Добавление кнопки восстановления параметров в диалоге параметров "
+"администратора сервера"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

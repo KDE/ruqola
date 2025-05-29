@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
 "PO-Revision-Date: 2025-05-26 08:45+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -12025,6 +12025,12 @@ msgstr "Amosar o menú de traducir no diálogo de fío."
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Permitir accións de conversa de Rocket de IA."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgid "Add restore button in administration settings."
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr "Engada un botón de restaurar na configuración de administración."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

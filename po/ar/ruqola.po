@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
 "PO-Revision-Date: 2025-05-27 18:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -11990,6 +11990,12 @@ msgstr "عرض قائمة الترجمة في مربع الحوار."
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "إضافة دعم إجراءات الذكاء الاصطناعي لروكت تشات."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgid "Add restore button in administration settings."
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr "إضافة زر استعادة في إعدادات الإدارة."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

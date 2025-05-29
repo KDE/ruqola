@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -12364,6 +12364,13 @@ msgstr "修正私訊頻道中的翻譯訊息。"
 #| msgid "Implement Application Market Settings."
 msgid "Add AI Rocket Chat Actions support."
 msgstr "實作應用程式商店設定。"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Administrator Server Settings - %1"
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr "管理員伺服器設定 - %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

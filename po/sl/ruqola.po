@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
 "PO-Revision-Date: 2025-05-25 06:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -11990,6 +11990,12 @@ msgstr "Prikaži meni prevajanja v pogovornem oknu niti."
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Dodaj podporo umetne inteligence dejavnosti Rocket Chat."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgid "Add restore button in administration settings."
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr "Dodaj gumb za obnovo v administratorskih nastavitvah."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

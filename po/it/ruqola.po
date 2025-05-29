@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
-"PO-Revision-Date: 2025-05-22 19:07+0200\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
+"PO-Revision-Date: 2025-05-26 16:02+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -11487,12 +11487,9 @@ msgid "Allow to dnd image."
 msgstr "Consente immagine di Non disturbare."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
 msgstr ""
-"Aggiunge il pulsante di ripristino nella finestra delle impostazioni del "
-"server dell'amministratore."
+"Aggiunge il pulsante di ripristino nelle impostazioni di amministrazione."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
@@ -12032,6 +12029,13 @@ msgstr "Visualizza il menu di traduzione nella finestra di della discussione."
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Aggiunge il supporto delle azioni IA di Rocket Chat."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgid "Add restore button in administration settings."
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr ""
+"Aggiunge il pulsante di ripristino nelle impostazioni di amministrazione."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

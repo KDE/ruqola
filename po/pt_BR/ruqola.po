@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:42+0000\n"
+"POT-Creation-Date: 2025-05-29 00:42+0000\n"
 "PO-Revision-Date: 2025-02-27 20:07-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -12641,6 +12641,12 @@ msgstr "Total de mensagens nos canais"
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#, fuzzy, kde-format
+#| msgid "Administrator"
+msgid "Fix apply, restore, cancel buttons in administration dialog."
+msgstr "Administrador"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, fuzzy, kde-format
