@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-29 00:42+0000\n"
-"PO-Revision-Date: 2025-04-17 12:48+0200\n"
+"PO-Revision-Date: 2025-05-31 15:54+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -2011,16 +2011,14 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Den nya begäran finns på:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgid "AI Actions"
-msgstr "Fråga program"
+msgstr "AI-åtgärder"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
 #, kde-format
 msgid "Summarize Unreads"
-msgstr ""
+msgstr "Sammanfatta olästa"
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:39
 #, kde-format
@@ -6609,15 +6607,13 @@ msgid "Maximum message age in direct messages"
 msgstr "Maximal meddelandeålder i direktmeddelanden"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:232
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Verkställ"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:243
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Avbryt"
@@ -6626,7 +6622,7 @@ msgstr "Avbryt"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Återställ till serverns stan&dardvärde"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
@@ -8536,8 +8532,7 @@ msgid "License:"
 msgstr "Licens:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No license"
 msgid "None"
 msgstr "Ingen"
@@ -10557,12 +10552,10 @@ msgid "E2E Enabled"
 msgstr "Kryptering aktiverad"
 
 #: widgets/room/roomheaderwidget.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "Fråga program"
+msgstr "AI-åtgärder"
 
 #: widgets/room/roomheaderwidget.cpp:141
 #, kde-format
@@ -11417,25 +11410,16 @@ msgid "What's new in %2. %1"
 msgstr "Vad är nytt i %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Add Autojoin"
 msgid "Add AI plugin"
-msgstr "Lägg till automatisk anslutning"
+msgstr "Lägg till AI-insticksprogram"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Tillåt att skicka e-post"
+msgstr "Tillåt att dra och släppa bild"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr ""
-"Lägg till återställningsknapp i administratörens dialogruta för "
-"serverinställningar."
+msgstr "Lägg till återställningsknapp i administratörsinställningar."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
@@ -11936,40 +11920,35 @@ msgid "Fix show date info."
 msgstr "Rätta visning av datuminformation."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:182
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "tillåt att programmens marknadsinställningar visas"
+msgstr "Rätta att spara programinställningar."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "Rätta textmarkering i bilaga."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:184
 #, kde-format
 msgid "Fix display user."
-msgstr ""
+msgstr "Rätta visning av användare."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Rätta översätt meddelande i direktkanal."
+msgstr "Visa översatt meny i tråddialogruta."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:186
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Implementera Rocket Chat programsupport."
+msgstr "Lägg till stöd för AI Rocket Chat-åtgärder."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:187
-#, fuzzy, kde-format
-#| msgid "Add restore button in administrator server settings dialog."
+#, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
-"Lägg till återställningsknapp i administratörens dialogruta för "
-"serverinställningar."
+"Rätta knapparna verkställ, återställ, avbryt i administratörsdialogrutan."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
