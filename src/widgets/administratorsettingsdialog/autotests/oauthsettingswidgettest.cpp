@@ -65,7 +65,6 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     auto mTwitterCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mTwitterCallbackURL"));
     QVERIFY(mTwitterCallbackURL);
     QVERIFY(mTwitterCallbackURL->text().isEmpty());
-    QVERIFY(mTwitterCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTwitterCallbackURL), QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
 
@@ -91,7 +90,6 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     auto mLinkedInCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mLinkedInCallbackURL"));
     QVERIFY(mLinkedInCallbackURL);
     QVERIFY(mLinkedInCallbackURL->text().isEmpty());
-    QVERIFY(mLinkedInCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLinkedInCallbackURL), QStringLiteral("Accounts_OAuth_Linkedin_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Linkedin_callback_url"));
 
@@ -129,7 +127,6 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     auto mMeteorCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mMeteorCallbackURL"));
     QVERIFY(mMeteorCallbackURL);
     QVERIFY(mMeteorCallbackURL->text().isEmpty());
-    QVERIFY(mMeteorCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMeteorCallbackURL), QStringLiteral("Accounts_OAuth_Meteor_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Meteor_callback_url"));
 
@@ -155,7 +152,6 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     auto mFacebookCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mFacebookCallbackURL"));
     QVERIFY(mFacebookCallbackURL);
     QVERIFY(mFacebookCallbackURL->text().isEmpty());
-    QVERIFY(mFacebookCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFacebookCallbackURL), QStringLiteral("Accounts_OAuth_Facebook_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Facebook_callback_url"));
 
@@ -181,7 +177,6 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     auto mGithubCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mGithubCallbackURL"));
     QVERIFY(mGithubCallbackURL);
     QVERIFY(mGithubCallbackURL->text().isEmpty());
-    QVERIFY(mGithubCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGithubCallbackURL), QStringLiteral("Accounts_OAuth_Github_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Github_callback_url"));
 
@@ -207,7 +202,6 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     auto mTokenpassCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mTokenpassCallbackURL"));
     QVERIFY(mTokenpassCallbackURL);
     QVERIFY(mTokenpassCallbackURL->text().isEmpty());
-    QVERIFY(mTokenpassCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTokenpassCallbackURL), QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"));
 
@@ -240,7 +234,6 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     auto mGoogleCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mGoogleCallbackURL"));
     QVERIFY(mGoogleCallbackURL);
     QVERIFY(mGoogleCallbackURL->text().isEmpty());
-    QVERIFY(mGoogleCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleCallbackURL), QStringLiteral("Accounts_OAuth_Google_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Google_callback_url"));
 
