@@ -157,9 +157,10 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
         const QJsonObject currentConfObject = currentConfig.toObject();
         const QString id = currentConfObject["_id"_L1].toString();
         const QVariant value = currentConfObject["value"_L1].toVariant();
+        const bool readonly = currentConfObject["readonly"_L1].toBool(false);
         // qDebug() << "id  " << id << " value " << value;
         const SettingsWidgetBase::SettingsInfo settingsInfo{
-            .readOnly = false, // TODO
+            .readOnly = readonly,
             .value = value,
         };
 
