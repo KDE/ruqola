@@ -59,7 +59,7 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
 
 LogsSettingsWidget::~LogsSettingsWidget() = default;
 
-void LogsSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void LogsSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mLogExceptionsChannel, mapSettings, {});
     initializeWidget(mLogViewLimit, mapSettings, 1000);

@@ -36,7 +36,7 @@ MobileSettingsWidget::MobileSettingsWidget(RocketChatAccount *account, QWidget *
 
 MobileSettingsWidget::~MobileSettingsWidget() = default;
 
-void MobileSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void MobileSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mAllowSaveMediaGallery, mapSettings, true);
     initializeWidget(mForceScreenLock, mapSettings, true);

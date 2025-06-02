@@ -26,7 +26,7 @@ ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *ac
 
 ConferenceCallSettingsWidget::~ConferenceCallSettingsWidget() = default;
 
-void ConferenceCallSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void ConferenceCallSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     auto job = new RocketChatRestApi::VideoConferenceProvidersJob(this);
     mAccount->restApi()->initializeRestApiJob(job);

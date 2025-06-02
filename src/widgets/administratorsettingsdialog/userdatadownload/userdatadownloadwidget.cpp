@@ -39,7 +39,7 @@ UserDataDownloadWidget::UserDataDownloadWidget(RocketChatAccount *account, QWidg
 
 UserDataDownloadWidget::~UserDataDownloadWidget() = default;
 
-void UserDataDownloadWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void UserDataDownloadWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mUserDataDownloadEnabled, mapSettings, true);
     initializeWidget(mSystemPathExportedFiles, mapSettings, QString());

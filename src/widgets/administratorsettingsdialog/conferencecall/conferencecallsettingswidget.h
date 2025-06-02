@@ -17,7 +17,7 @@ public:
     explicit ConferenceCallSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceCallSettingsWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QComboBox *const mDefaultProvider;

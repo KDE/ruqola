@@ -18,7 +18,7 @@ public:
     explicit CasSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CasSettingsWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QCheckBox *const mEnabled;

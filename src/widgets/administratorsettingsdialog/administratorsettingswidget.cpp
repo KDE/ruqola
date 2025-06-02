@@ -151,14 +151,19 @@ void AdministratorSettingsWidget::loadSettings()
 void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value("result"_L1).toArray();
-    // qDebug() << " obj " << obj;
-    QMap<QString, QVariant> mapSettings;
+    // qDebug() << " obj XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx" << obj;
+    QMap<QString, SettingsWidgetBase::SettingsInfo> mapSettings;
     for (QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
         const QString id = currentConfObject["_id"_L1].toString();
         const QVariant value = currentConfObject["value"_L1].toVariant();
         // qDebug() << "id  " << id << " value " << value;
-        mapSettings.insert(id, value);
+        const SettingsWidgetBase::SettingsInfo settingsInfo{
+            .readOnly = false, // TODO
+            .value = value,
+        };
+
+        mapSettings.insert(id, settingsInfo);
     }
 
     initializeValues(mAccountSettingsWidget, mapSettings);
@@ -190,7 +195,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     updateState(true);
 }
 
-void AdministratorSettingsWidget::initializeValues(SettingsWidgetBase *widget, const QMap<QString, QVariant> &mapSettings)
+void AdministratorSettingsWidget::initializeValues(SettingsWidgetBase *widget, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     widget->initialize(mapSettings);
 }

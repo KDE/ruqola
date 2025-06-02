@@ -99,7 +99,7 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
 
 VideoConferenceWidget::~VideoConferenceWidget() = default;
 
-void VideoConferenceWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void VideoConferenceWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mBigBlueEnabled, mapSettings);
     initializeWidget(mServer, mapSettings);

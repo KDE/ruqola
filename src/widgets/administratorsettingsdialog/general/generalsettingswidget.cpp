@@ -159,7 +159,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
 
-void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void GeneralSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnableFavoriteRooms, mapSettings, true);
     initializeWidget(mSiteUrl, mapSettings, QString());

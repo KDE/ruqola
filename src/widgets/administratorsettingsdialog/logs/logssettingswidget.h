@@ -18,7 +18,7 @@ public:
     explicit LogsSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~LogsSettingsWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QLineEdit *const mLogExceptionsChannel;

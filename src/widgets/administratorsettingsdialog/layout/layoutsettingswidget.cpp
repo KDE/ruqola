@@ -46,7 +46,7 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
 
 LayoutSettingsWidget::~LayoutSettingsWidget() = default;
 
-void LayoutSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void LayoutSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mDisplayRoles, mapSettings, true);
     initializeWidget(mUseRealName, mapSettings, false);

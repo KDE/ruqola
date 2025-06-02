@@ -110,7 +110,7 @@ void PasswordSettingsWidget::updateSettingsStatus(bool enabled)
     mAtLeastOneSymbol->setEnabled(enabled);
 }
 
-void PasswordSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void PasswordSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnablePasswordHistory, mapSettings, false);
     initializeWidget(mPasswordHistoryLength, mapSettings, 5);

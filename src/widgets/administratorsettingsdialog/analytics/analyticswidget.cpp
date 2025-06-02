@@ -85,7 +85,7 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
 
 AnalyticsWidget::~AnalyticsWidget() = default;
 
-void AnalyticsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void AnalyticsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mMessages, mapSettings, true);
     initializeWidget(mRooms, mapSettings, true);

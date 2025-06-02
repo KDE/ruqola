@@ -17,7 +17,7 @@ public:
     explicit EnterpriseSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~EnterpriseSettingsWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QLineEdit *const mEnterpriseLicense;

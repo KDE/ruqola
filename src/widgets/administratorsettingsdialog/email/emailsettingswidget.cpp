@@ -163,7 +163,7 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
 
-void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void EmailSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mSmtpProtocol, mapSettings, QStringLiteral("smtp"));
     initializeWidget(mSmtpHost, mapSettings, QString());

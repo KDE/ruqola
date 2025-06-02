@@ -221,7 +221,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
 
-void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void OauthSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mSignWithApple, mapSettings, false);
     initializeWidget(mAccountsOAuthAppleId, mapSettings, QString());

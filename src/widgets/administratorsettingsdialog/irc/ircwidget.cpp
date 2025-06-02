@@ -33,7 +33,7 @@ IrcWidget::IrcWidget(RocketChatAccount *account, QWidget *parent)
 
 IrcWidget::~IrcWidget() = default;
 
-void IrcWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void IrcWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mCacheLimitOutBoundMessage, mapSettings, 200);
     initializeWidget(mLoginSuccessful, mapSettings, QStringLiteral("Welcome to the freenode Internet Relay Chat Network"));

@@ -18,7 +18,7 @@ public:
     explicit LDapSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~LDapSettingsWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QCheckBox *const mEnabled;

@@ -21,7 +21,7 @@ public:
     explicit EmailSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~EmailSettingsWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QComboBox *const mSmtpProtocol;

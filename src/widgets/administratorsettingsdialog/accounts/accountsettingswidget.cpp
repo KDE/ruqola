@@ -224,7 +224,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
 
-void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void AccountSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     // qDebug() << " mapSettings " << mapSettings;
     initializeWidget(mAllowChangeName, mapSettings, true);

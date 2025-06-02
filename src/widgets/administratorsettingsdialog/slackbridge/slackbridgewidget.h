@@ -18,7 +18,7 @@ public:
     explicit SlackBridgeWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SlackBridgeWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QCheckBox *const mEnabled;

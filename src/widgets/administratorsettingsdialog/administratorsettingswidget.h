@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "settingswidgetbase.h"
 #include <QWidget>
 
 class RocketChatAccount;
@@ -25,7 +26,6 @@ class WebDavSettingsWidget;
 class LDapSettingsWidget;
 class LayoutSettingsWidget;
 class EnterpriseSettingsWidget;
-class SettingsWidgetBase;
 class UserDataDownloadWidget;
 class SlackBridgeWidget;
 class LogsSettingsWidget;
@@ -50,7 +50,7 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateState(bool state);
-    LIBRUQOLAWIDGETS_NO_EXPORT void initializeValues(SettingsWidgetBase *widget, const QMap<QString, QVariant> &mapSettings);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initializeValues(SettingsWidgetBase *widget, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings);
     QTabWidget *const mTabWidget;
     AccountSettingsWidget *const mAccountSettingsWidget;
     EncryptionSettingsWidget *const mEncryptionSettingsWidget;

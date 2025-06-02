@@ -85,7 +85,7 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
 
 LDapSettingsWidget::~LDapSettingsWidget() = default;
 
-void LDapSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void LDapSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, true);
     initializeWidget(mHost, mapSettings);

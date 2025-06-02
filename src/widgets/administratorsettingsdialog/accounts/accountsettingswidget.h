@@ -18,7 +18,7 @@ public:
     explicit AccountSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AccountSettingsWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QCheckBox *const mAllowChangeName;

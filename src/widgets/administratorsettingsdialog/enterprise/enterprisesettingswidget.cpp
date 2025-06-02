@@ -26,7 +26,7 @@ EnterpriseSettingsWidget::EnterpriseSettingsWidget(RocketChatAccount *account, Q
 
 EnterpriseSettingsWidget::~EnterpriseSettingsWidget() = default;
 
-void EnterpriseSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void EnterpriseSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnterpriseLicense, mapSettings, QString());
     initializeWidget(mStatus, mapSettings, QString());

@@ -71,7 +71,7 @@ TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *accoun
 
 TroubleshootSettingsWidget::~TroubleshootSettingsWidget() = default;
 
-void TroubleshootSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void TroubleshootSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mDisableNotifications, mapSettings, false);
     initializeWidget(mDisablePresenceBroadcast, mapSettings, false);

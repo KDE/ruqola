@@ -58,7 +58,7 @@ SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent
 
 SlackBridgeWidget::~SlackBridgeWidget() = default;
 
-void SlackBridgeWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void SlackBridgeWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mFileUpload, mapSettings, true);

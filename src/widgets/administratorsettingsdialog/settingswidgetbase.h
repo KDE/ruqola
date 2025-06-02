@@ -32,7 +32,7 @@ public:
         QVariant value;
     };
 
-    virtual void initialize(const QMap<QString, QVariant> &mapSettings) = 0;
+    virtual void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) = 0;
 
 Q_SIGNALS:
     void changedDone(const QString &buttonObjectName);
@@ -53,13 +53,14 @@ protected:
     QWidget *const mCurrentWidget;
     QFormLayout *mMainLayout = nullptr;
 
-    void initializeWidget(QPlainTextEdit *lineEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
-    void initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings);
-    void initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
-    void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings, bool defaultValue = false);
-    void initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings, int defaultValue = -1);
-    void initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
-    void initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue);
+    void
+    initializeWidget(QPlainTextEdit *lineEdit, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue = QString());
+    void initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings);
+    void initializeWidget(QLineEdit *lineEdit, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue = QString());
+    void initializeWidget(QCheckBox *checkbox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, bool defaultValue = false);
+    void initializeWidget(QSpinBox *spinbox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, int defaultValue = -1);
+    void initializeWidget(QComboBox *comboBox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue = QString());
+    void initializeWidget(QLabel *label, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue);
 
     [[nodiscard]] QLabel *createBoldLabel(const QString &text);
     [[nodiscard]] QString urlFromRelativePath(const QString &relativePath);

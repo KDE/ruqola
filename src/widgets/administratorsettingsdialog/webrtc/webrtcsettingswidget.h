@@ -16,7 +16,7 @@ public:
     explicit WebRtcSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~WebRtcSettingsWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QCheckBox *const mEnabled;

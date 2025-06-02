@@ -57,7 +57,7 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
 
 IrcFederationWidget::~IrcFederationWidget() = default;
 
-void IrcFederationWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void IrcFederationWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mProtocol, mapSettings, QStringLiteral("RFC2813"));

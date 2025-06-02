@@ -17,7 +17,7 @@ public:
     explicit IrcWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~IrcWidget() override;
 
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     QSpinBox *const mCacheLimitOutBoundMessage;

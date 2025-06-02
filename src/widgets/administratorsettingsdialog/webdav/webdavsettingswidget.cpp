@@ -18,7 +18,7 @@ WebDavSettingsWidget::WebDavSettingsWidget(RocketChatAccount *account, QWidget *
 
 WebDavSettingsWidget::~WebDavSettingsWidget() = default;
 
-void WebDavSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void WebDavSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
 }

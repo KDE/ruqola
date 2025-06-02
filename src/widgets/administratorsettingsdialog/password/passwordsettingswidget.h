@@ -15,7 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordSettingsWidget : public SettingsWidg
 public:
     explicit PasswordSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PasswordSettingsWidget() override;
-    void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings) override;
 
 private:
     void updateSettingsStatus(bool enabled);

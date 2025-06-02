@@ -78,7 +78,7 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
 
 CasSettingsWidget::~CasSettingsWidget() = default;
 
-void CasSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void CasSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mTrustCASUsername, mapSettings, false);

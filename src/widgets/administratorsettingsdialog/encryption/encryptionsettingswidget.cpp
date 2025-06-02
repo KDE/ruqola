@@ -54,7 +54,7 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
 
 EncryptionSettingsWidget::~EncryptionSettingsWidget() = default;
 
-void EncryptionSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void EncryptionSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnableE2E, mapSettings, false);
     initializeWidget(mEnableEncryptionDirectRoomsByDefault, mapSettings, false);

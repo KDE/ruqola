@@ -517,12 +517,12 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     mMainLayout->addRow(layout);
 }
 
-void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
+void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue)
 {
     const QString variableName = lineEdit->property(s_property).toString();
     QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        value = mapSettings.value(variableName).toString();
+        value = mapSettings.value(variableName).value.toString();
     }
     lineEdit->setText(value);
     lineEdit->setProperty(s_property_current_value, value);
@@ -530,22 +530,22 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
     disableToolButton(variableName, (value != defaultValue));
 }
 
-void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings)
+void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     const QString variableName = lineEdit->property(s_property).toString();
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
-        lineEdit->setPassword(value.toString());
+        lineEdit->setPassword(value.value.toString());
         disableToolButton(variableName, false);
     }
 }
 
-void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings, bool defaultValue)
+void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, bool defaultValue)
 {
     const QString variableName = checkbox->property(s_property).toString();
     bool value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        value = mapSettings.value(variableName).toBool();
+        value = mapSettings.value(variableName).value.toBool();
     }
     checkbox->setChecked(value);
     checkbox->setProperty(s_property_current_value, value);
@@ -553,23 +553,23 @@ void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QStrin
     disableToolButton(variableName, (value != defaultValue));
 }
 
-void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
+void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue)
 {
     const QString variableName = label->property(s_property).toString();
     QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        value = mapSettings.value(variableName).toString();
+        value = mapSettings.value(variableName).value.toString();
     }
     label->setText(value);
 }
 
-void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings, int defaultValue)
+void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, int defaultValue)
 {
     const QString variableName = spinbox->property(s_property).toString();
     const bool hasValue = mapSettings.contains(variableName);
     int spinboxValue = defaultValue;
     if (hasValue) {
-        spinboxValue = mapSettings.value(variableName).toInt();
+        spinboxValue = mapSettings.value(variableName).value.toInt();
     }
     spinbox->setValue(spinboxValue);
     spinbox->setProperty(s_property_current_value, spinboxValue);
@@ -578,12 +578,12 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
     disableToolButton(variableName, (spinboxValue != defaultValue));
 }
 
-void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
+void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue)
 {
     const QString variableName = comboBox->property(s_property).toString();
     QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        value = mapSettings.value(variableName).toString();
+        value = mapSettings.value(variableName).value.toString();
     }
     comboBox->setCurrentIndex(comboBox->findData(value));
     comboBox->setProperty(s_property_current_value, value);
@@ -591,12 +591,14 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
     disableToolButton(variableName, (value != defaultValue));
 }
 
-void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
+void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit,
+                                          const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings,
+                                          const QString &defaultValue)
 {
     const QString variableName = plainTextEdit->property(s_property).toString();
     QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        value = mapSettings.value(variableName).toString();
+        value = mapSettings.value(variableName).value.toString();
     }
     plainTextEdit->setPlainText(value);
     plainTextEdit->setProperty(s_property_current_value, value);

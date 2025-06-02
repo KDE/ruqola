@@ -39,7 +39,7 @@ WebRtcSettingsWidget::WebRtcSettingsWidget(RocketChatAccount *account, QWidget *
 
 WebRtcSettingsWidget::~WebRtcSettingsWidget() = default;
 
-void WebRtcSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void WebRtcSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mEnablePublicChannels, mapSettings, false);

@@ -105,7 +105,7 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
 
 RateLimiterWidget::~RateLimiterWidget() = default;
 
-void RateLimiterWidget::initialize(const QMap<QString, QVariant> &mapSettings)
+void RateLimiterWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnableRateLimiter, mapSettings, true);
     initializeWidget(mLimitByIP, mapSettings, true);
