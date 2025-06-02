@@ -131,9 +131,10 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mOauthSettingsWidget, i18n("Oauth"));
     mTabWidget->addTab(mAnalyticsWidget, i18n("Analytics"));
     if (mRocketChatAccount) {
-        connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
-        connect(mRocketChatAccount, &RocketChatAccount::privateSettingLoaded, this, [](const QJsonObject &obj) {
-            qDebug() << " RocketChatAccount::privateSettingLoaded " << obj;
+        // connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
+        connect(mRocketChatAccount, &RocketChatAccount::privateSettingLoaded, this, [this](const QJsonObject &obj) {
+            // qDebug() << " RocketChatAccount::privateSettingLoaded " << obj;
+            initialize(obj);
         });
     }
     updateState(false);
@@ -158,7 +159,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
         const QString id = currentConfObject["_id"_L1].toString();
         const QVariant value = currentConfObject["value"_L1].toVariant();
         const bool readonly = currentConfObject["readonly"_L1].toBool(false);
-        // qDebug() << "id  " << id << " value " << value;
+        // qDebug() << "id  " << id << " value " << value << "readonly " << readonly;
         const SettingsWidgetBase::SettingsInfo settingsInfo{
             .readOnly = readonly,
             .value = value,
