@@ -27,6 +27,11 @@ public:
     explicit SettingsWidgetBase(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SettingsWidgetBase() override;
 
+    struct SettingsInfo {
+        bool readOnly = false;
+        QVariant value;
+    };
+
     virtual void initialize(const QMap<QString, QVariant> &mapSettings) = 0;
 
 Q_SIGNALS:
