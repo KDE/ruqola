@@ -3303,7 +3303,7 @@ void RocketChatAccount::displayLogInfo(const QByteArray &ba, const QJsonObject &
     if (mRuqolaLogger) {
         mRuqolaLogger->dataReceived(ba + ": " + QJsonDocument(obj).toJson());
     } else {
-        qCWarning(RUQOLA_LOG) << "empty_callback " << obj;
+        qCWarning(RUQOLA_LOG) << ba << ": " << obj;
     }
 }
 
