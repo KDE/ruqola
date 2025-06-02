@@ -282,25 +282,25 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     setTabOrder(cancelButton, restoreToolButton);
     restoreToolButton->setVisible(!readOnly);
 
-    connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
-        lineEdit->setText(lineEdit->property(s_property_default_value).toString());
-        Q_EMIT changedCanceled(variable);
-    });
-
-    connect(cancelButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
-        lineEdit->setText(lineEdit->property(s_property_current_value).toString());
-        Q_EMIT changedCanceled(variable);
-    });
-
-    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, lineEdit, restoreToolButton, cancelButton](const QString &buttonName) {
-        if (applyButton->objectName() == buttonName) {
-            applyButton->setEnabled(false);
-            restoreToolButton->setEnabled(false);
-            cancelButton->setEnabled(false);
-            lineEdit->setProperty(s_property_current_value, lineEdit->text());
-        }
-    });
     if (!readOnly) {
+        connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
+            lineEdit->setText(lineEdit->property(s_property_default_value).toString());
+            Q_EMIT changedCanceled(variable);
+        });
+
+        connect(cancelButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
+            lineEdit->setText(lineEdit->property(s_property_current_value).toString());
+            Q_EMIT changedCanceled(variable);
+        });
+
+        connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, lineEdit, restoreToolButton, cancelButton](const QString &buttonName) {
+            if (applyButton->objectName() == buttonName) {
+                applyButton->setEnabled(false);
+                restoreToolButton->setEnabled(false);
+                cancelButton->setEnabled(false);
+                lineEdit->setProperty(s_property_current_value, lineEdit->text());
+            }
+        });
         connect(applyButton, &QToolButton::clicked, this, [this, variable, lineEdit, applyButton]() {
             if (!updateSettings(variable,
                                 lineEdit->text(),
