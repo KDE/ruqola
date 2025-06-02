@@ -527,6 +527,7 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
     lineEdit->setText(value);
     lineEdit->setProperty(s_property_current_value, value);
     lineEdit->setProperty(s_property_default_value, defaultValue);
+    lineEdit->setReadOnly(mapSettings.value(variableName).readOnly);
     disableToolButton(variableName, (value != defaultValue));
 }
 
