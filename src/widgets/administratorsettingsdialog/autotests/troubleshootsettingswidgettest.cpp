@@ -74,6 +74,13 @@ void TroubleshootSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDisableWorkspaceSync->text().isEmpty());
     QVERIFY(!mDisableWorkspaceSync->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDisableWorkspaceSync), QStringLiteral("Troubleshoot_Disable_Workspace_Sync"));
+
+    auto mDisableTeamsMention = w.findChild<QCheckBox *>(QStringLiteral("mDisableTeamsMention"));
+    QVERIFY(mDisableTeamsMention);
+    QVERIFY(!mDisableTeamsMention->isChecked());
+    QVERIFY(!mDisableTeamsMention->text().isEmpty());
+    QVERIFY(!mDisableTeamsMention->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDisableTeamsMention), QStringLiteral("Troubleshoot_Disable_Teams_Mention"));
 }
 
 #include "moc_troubleshootsettingswidgettest.cpp"

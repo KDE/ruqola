@@ -19,6 +19,7 @@ TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *accoun
     , mDisableStatisticsGenerator(new QCheckBox(i18nc("@option:check", "Disable Statistics Generator"), this))
     , mDisableDataExporterProcessor(new QCheckBox(i18nc("@option:check", "Disable Data Exporter Processor"), this))
     , mDisableWorkspaceSync(new QCheckBox(i18nc("@option:check", "Disable Workspace Sync"), this))
+    , mDisableTeamsMention(new QCheckBox(i18nc("@option:check", "Disable Teams Mention"), this))
 {
     mDisableNotifications->setObjectName(QStringLiteral("mDisableNotifications"));
     mDisableNotifications->setToolTip(
@@ -61,6 +62,11 @@ TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *accoun
     mDisableWorkspaceSync->setToolTip(
         i18n("This setting stops the sync of this server with Rocket.Chat's cloud and may cause issues with marketplace and enterprise licenses!"));
     addCheckBox(mDisableWorkspaceSync, QStringLiteral("Troubleshoot_Disable_Workspace_Sync"));
+
+    mDisableTeamsMention->setObjectName(QStringLiteral("mDisableTeamsMention"));
+    mDisableTeamsMention->setToolTip(
+        i18n("This setting disables the teams mention feature. User's won't be able to mention a Team by name in a message and get its members notified."));
+    addCheckBox(mDisableTeamsMention, QStringLiteral("Troubleshoot_Disable_Teams_Mention"));
 }
 
 TroubleshootSettingsWidget::~TroubleshootSettingsWidget() = default;
@@ -75,6 +81,7 @@ void TroubleshootSettingsWidget::initialize(const QMap<QString, QVariant> &mapSe
     initializeWidget(mDisableStatisticsGenerator, mapSettings, false);
     initializeWidget(mDisableDataExporterProcessor, mapSettings, false);
     initializeWidget(mDisableWorkspaceSync, mapSettings, false);
+    initializeWidget(mDisableTeamsMention, mapSettings, false);
 }
 
 #include "moc_troubleshootsettingswidget.cpp"

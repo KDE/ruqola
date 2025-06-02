@@ -27,4 +27,5 @@ private:
     QCheckBox *const mDisableStatisticsGenerator;
     QCheckBox *const mDisableDataExporterProcessor;
     QCheckBox *const mDisableWorkspaceSync;
+    QCheckBox *const mDisableTeamsMention;
 };
