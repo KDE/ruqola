@@ -101,7 +101,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("Twitter Secret"), mTwitterSecret, QStringLiteral("Accounts_OAuth_Twitter_secret"));
 
     mTwitterCallbackURL->setObjectName(QStringLiteral("mTwitterCallbackURL"));
-    addLineEdit(i18n("Twitter Secret"), mTwitterCallbackURL, QStringLiteral("Accounts_OAuth_Twitter_callback_url"), true);
+    addLineEdit(i18n("Twitter Secret"), mTwitterCallbackURL, QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
 
     auto linkedInLabel = createBoldLabel(i18n("LinkedIn"));
     linkedInLabel->setObjectName(QStringLiteral("linkedInLabel"));
@@ -117,7 +117,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("LinkedIn Secret"), mLinkedInSecret, QStringLiteral("Accounts_OAuth_Linkedin_secret"));
 
     mLinkedInCallbackURL->setObjectName(QStringLiteral("mLinkedInCallbackURL"));
-    addLineEdit(i18n("LinkedIn Secret"), mLinkedInCallbackURL, QStringLiteral("Accounts_OAuth_Linkedin_callback_url"), true);
+    addLineEdit(i18n("LinkedIn Secret"), mLinkedInCallbackURL, QStringLiteral("Accounts_OAuth_Linkedin_callback_url"));
 
     auto proxyLabel = createBoldLabel(i18n("Proxy"));
     proxyLabel->setObjectName(QStringLiteral("proxyLabel"));
@@ -144,7 +144,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("Meteor Secret"), mMeteorSecret, QStringLiteral("Accounts_OAuth_Meteor_secret"));
 
     mMeteorCallbackURL->setObjectName(QStringLiteral("mMeteorCallbackURL"));
-    addLineEdit(i18n("Meteor Secret"), mMeteorCallbackURL, QStringLiteral("Accounts_OAuth_Meteor_callback_url"), true);
+    addLineEdit(i18n("Meteor Secret"), mMeteorCallbackURL, QStringLiteral("Accounts_OAuth_Meteor_callback_url"));
 
     // Facebook
     auto facebookLabel = createBoldLabel(i18n("Facebook"));
@@ -161,7 +161,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("Facebook Secret"), mFacebookSecret, QStringLiteral("Accounts_OAuth_Facebook_secret"));
 
     mFacebookCallbackURL->setObjectName(QStringLiteral("mFacebookCallbackURL"));
-    addLineEdit(i18n("Facebook Secret"), mFacebookCallbackURL, QStringLiteral("Accounts_OAuth_Facebook_callback_url"), true);
+    addLineEdit(i18n("Facebook Secret"), mFacebookCallbackURL, QStringLiteral("Accounts_OAuth_Facebook_callback_url"));
 
     // Github
     auto githubLabel = createBoldLabel(i18n("Github"));
@@ -178,7 +178,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("Github Secret"), mGithubSecret, QStringLiteral("Accounts_OAuth_Github_secret"));
 
     mGithubCallbackURL->setObjectName(QStringLiteral("mGithubCallbackURL"));
-    addLineEdit(i18n("Github Secret"), mGithubCallbackURL, QStringLiteral("Accounts_OAuth_Github_callback_url"), true);
+    addLineEdit(i18n("Github Secret"), mGithubCallbackURL, QStringLiteral("Accounts_OAuth_Github_callback_url"));
 
     // Tokenpass
     auto tokenpassLabel = createBoldLabel(i18n("Tokenpass"));
@@ -199,7 +199,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("Tokenpass Secret"), mTokenpassSecret, QStringLiteral("Accounts_OAuth_Tokenpass_secret"));
 
     mTokenpassCallbackURL->setObjectName(QStringLiteral("mTokenpassCallbackURL"));
-    addLineEdit(i18n("Tokenpass Secret"), mTokenpassCallbackURL, QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"), true);
+    addLineEdit(i18n("Tokenpass Secret"), mTokenpassCallbackURL, QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"));
 
     // Google
     auto googleLabel = createBoldLabel(i18n("Google"));
@@ -216,7 +216,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     addLineEdit(i18n("Google Secret"), mGoogleSecret, QStringLiteral("Accounts_OAuth_Google_secret"));
 
     mGoogleCallbackURL->setObjectName(QStringLiteral("mGoogleCallbackURL"));
-    addLineEdit(i18n("Google Secret"), mGoogleCallbackURL, QStringLiteral("Accounts_OAuth_Google_callback_url"), true);
+    addLineEdit(i18n("Google Secret"), mGoogleCallbackURL, QStringLiteral("Accounts_OAuth_Google_callback_url"));
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;

@@ -257,7 +257,7 @@ QToolButton *SettingsWidgetBase::addRestoreButton(const QString &variable)
     return restoreToolButton;
 }
 
-void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable, bool readOnly)
+void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable)
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
@@ -268,63 +268,57 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     setTabOrder(lineEdit, applyButton);
     lineEdit->setProperty(s_property, variable);
     KLineEditEventHandler::catchReturnKey(lineEdit);
-    lineEdit->setReadOnly(readOnly);
     layout->addWidget(applyButton);
-    applyButton->setVisible(!readOnly);
 
     auto cancelButton = addCancelButton(variable);
     layout->addWidget(cancelButton);
     setTabOrder(applyButton, cancelButton);
-    cancelButton->setVisible(!readOnly);
 
     auto restoreToolButton = addRestoreButton(variable);
     layout->addWidget(restoreToolButton);
     setTabOrder(cancelButton, restoreToolButton);
-    restoreToolButton->setVisible(!readOnly);
 
-    if (!readOnly) {
-        connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
-            lineEdit->setText(lineEdit->property(s_property_default_value).toString());
-            Q_EMIT changedCanceled(variable);
-        });
+    connect(restoreToolButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
+        lineEdit->setText(lineEdit->property(s_property_default_value).toString());
+        Q_EMIT changedCanceled(variable);
+    });
 
-        connect(cancelButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
+    connect(cancelButton, &QToolButton::clicked, this, [variable, lineEdit, this]() {
+        lineEdit->setText(lineEdit->property(s_property_current_value).toString());
+        Q_EMIT changedCanceled(variable);
+    });
+
+    connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, lineEdit, restoreToolButton, cancelButton](const QString &buttonName) {
+        if (applyButton->objectName() == buttonName) {
+            applyButton->setEnabled(false);
+            restoreToolButton->setEnabled(false);
+            cancelButton->setEnabled(false);
+            lineEdit->setProperty(s_property_current_value, lineEdit->text());
+        }
+    });
+    connect(applyButton, &QToolButton::clicked, this, [this, variable, lineEdit, applyButton]() {
+        if (!updateSettings(variable,
+                            lineEdit->text(),
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
+                            applyButton->objectName())) {
             lineEdit->setText(lineEdit->property(s_property_current_value).toString());
             Q_EMIT changedCanceled(variable);
-        });
-
-        connect(this, &SettingsWidgetBase::changedDone, this, [applyButton, lineEdit, restoreToolButton, cancelButton](const QString &buttonName) {
-            if (applyButton->objectName() == buttonName) {
-                applyButton->setEnabled(false);
-                restoreToolButton->setEnabled(false);
-                cancelButton->setEnabled(false);
-                lineEdit->setProperty(s_property_current_value, lineEdit->text());
-            }
-        });
-        connect(applyButton, &QToolButton::clicked, this, [this, variable, lineEdit, applyButton]() {
-            if (!updateSettings(variable,
-                                lineEdit->text(),
-                                RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::String,
-                                applyButton->objectName())) {
-                lineEdit->setText(lineEdit->property(s_property_current_value).toString());
-                Q_EMIT changedCanceled(variable);
-            }
-        });
-        connect(lineEdit, &QLineEdit::textChanged, this, [applyButton, lineEdit, restoreToolButton, cancelButton](const QString &str) {
-            if (lineEdit->property(s_property_default_value).toString() == str) {
-                restoreToolButton->setEnabled(false);
-            } else {
-                restoreToolButton->setEnabled(true);
-            }
-            if (lineEdit->property(s_property_current_value).toString() == str) {
-                applyButton->setEnabled(false);
-                cancelButton->setEnabled(false);
-            } else {
-                applyButton->setEnabled(true);
-                cancelButton->setEnabled(true);
-            }
-        });
-    }
+        }
+    });
+    connect(lineEdit, &QLineEdit::textChanged, this, [applyButton, lineEdit, restoreToolButton, cancelButton](const QString &str) {
+        if (lineEdit->property(s_property_default_value).toString() == str) {
+            restoreToolButton->setEnabled(false);
+        } else {
+            restoreToolButton->setEnabled(true);
+        }
+        if (lineEdit->property(s_property_current_value).toString() == str) {
+            applyButton->setEnabled(false);
+            cancelButton->setEnabled(false);
+        } else {
+            applyButton->setEnabled(true);
+            cancelButton->setEnabled(true);
+        }
+    });
 
     mMainLayout->addRow(layout);
 }
@@ -527,8 +521,12 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
     lineEdit->setText(value);
     lineEdit->setProperty(s_property_current_value, value);
     lineEdit->setProperty(s_property_default_value, defaultValue);
-    lineEdit->setReadOnly(mapSettings.value(variableName).readOnly);
+    const bool readOnly = mapSettings.value(variableName).readOnly;
+    lineEdit->setReadOnly(readOnly);
     disableToolButton(variableName, (value != defaultValue));
+    if (readOnly) {
+        hideButtons(variableName);
+    }
 }
 
 void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
@@ -538,6 +536,10 @@ void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMa
         const auto value = mapSettings.value(variableName);
         lineEdit->setPassword(value.value.toString());
         disableToolButton(variableName, false);
+        const bool readOnly = mapSettings.value(variableName).readOnly;
+        if (readOnly) {
+            hideButtons(variableName);
+        }
     }
 }
 
@@ -552,6 +554,11 @@ void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QStrin
     checkbox->setProperty(s_property_current_value, value);
     checkbox->setProperty(s_property_default_value, defaultValue);
     disableToolButton(variableName, (value != defaultValue));
+    const bool readOnly = mapSettings.value(variableName).readOnly;
+    checkbox->setEnabled(!readOnly);
+    if (readOnly) {
+        hideButtons(variableName);
+    }
 }
 
 void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue)
@@ -575,8 +582,12 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
     spinbox->setValue(spinboxValue);
     spinbox->setProperty(s_property_current_value, spinboxValue);
     spinbox->setProperty(s_property_default_value, defaultValue);
-
+    const bool readOnly = mapSettings.value(variableName).readOnly;
+    spinbox->setEnabled(!readOnly);
     disableToolButton(variableName, (spinboxValue != defaultValue));
+    if (readOnly) {
+        hideButtons(variableName);
+    }
 }
 
 void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue)
@@ -590,6 +601,11 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
     comboBox->setProperty(s_property_current_value, value);
     comboBox->setProperty(s_property_default_value, defaultValue);
     disableToolButton(variableName, (value != defaultValue));
+    const bool readOnly = mapSettings.value(variableName).readOnly;
+    comboBox->setEnabled(!readOnly);
+    if (readOnly) {
+        hideButtons(variableName);
+    }
 }
 
 void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit,
@@ -605,6 +621,29 @@ void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit,
     plainTextEdit->setProperty(s_property_current_value, value);
     plainTextEdit->setProperty(s_property_default_value, defaultValue);
     disableToolButton(variableName, (value != defaultValue));
+    const bool readOnly = mapSettings.value(variableName).readOnly;
+    plainTextEdit->setEnabled(!readOnly);
+    if (readOnly) {
+        hideButtons(variableName);
+    }
+}
+
+void SettingsWidgetBase::hideButtons(const QString &variableName)
+{
+    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+    if (toolButton) {
+        toolButton->setVisible(false);
+    }
+
+    auto restoreToolButton = findChild<QToolButton *>(QStringLiteral("restoreToolButton%1").arg(variableName));
+    if (restoreToolButton) {
+        restoreToolButton->setVisible(false);
+    }
+
+    auto cancelToolButton = findChild<QToolButton *>(QStringLiteral("cancelToolbutton%1").arg(variableName));
+    if (cancelToolButton) {
+        cancelToolButton->setVisible(false);
+    }
 }
 
 void SettingsWidgetBase::disableToolButton(const QString &variableName, bool differentFromDefaultValue)

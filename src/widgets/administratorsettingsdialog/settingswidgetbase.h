@@ -41,7 +41,7 @@ Q_SIGNALS:
 protected:
     void addCheckBox(QCheckBox *checkBox, const QString &variable);
     void addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable);
-    void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable, bool readOnly = false);
+    void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable);
 
     void addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable);
     void fillComboBox(QComboBox *comboBox, const QMap<QString, QString> &items);
@@ -77,4 +77,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addRestoreButton(const QString &variable);
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addApplyButton(const QString &variable);
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addCancelButton(const QString &variable);
+    LIBRUQOLAWIDGETS_NO_EXPORT void hideButtons(const QString &variableName);
 };

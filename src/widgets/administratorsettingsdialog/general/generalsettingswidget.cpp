@@ -92,7 +92,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(updateLabel);
 
     mUpdateLatestAvailableVersion->setObjectName(QStringLiteral("mUpdateLatestAvailableVersion"));
-    addLineEdit(i18n("Update Latest Available Version"), mUpdateLatestAvailableVersion, QStringLiteral("Update_LatestAvailableVersion"), true);
+    addLineEdit(i18n("Update Latest Available Version"), mUpdateLatestAvailableVersion, QStringLiteral("Update_LatestAvailableVersion"));
 
     mEnableUpdateChecker->setObjectName(QStringLiteral("mEnableUpdateChecker"));
     addCheckBox(mEnableUpdateChecker, QStringLiteral("Update_EnableChecker"));
