@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-29 00:42+0000\n"
-"PO-Revision-Date: 2025-05-24 11:07+0200\n"
+"PO-Revision-Date: 2025-05-29 09:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -12022,10 +12022,11 @@ msgid "Add AI Rocket Chat Actions support."
 msgstr "Afig la implementació d'accions d'IA de Rocket Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:187
-#, fuzzy, kde-format
-#| msgid "Add restore button in administration settings."
+#, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
-msgstr "Afig el botó de restauració a la configuració d'administració."
+msgstr ""
+"Corregix els botons «aplica», «restaura», «cancel·la» en el diàleg "
+"d'administració."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
