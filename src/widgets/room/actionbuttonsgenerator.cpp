@@ -31,8 +31,8 @@ void ActionButtonsGenerator::clearActionButtons()
 
 void ActionButtonsGenerator::generateActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu, const QByteArray &roomId)
 {
+    clearActionButtons();
     if (actionButtons.isEmpty()) {
-        clearActionButtons();
         return;
     }
     const QString lang = QLocale().name();
