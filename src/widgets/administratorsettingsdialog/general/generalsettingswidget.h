@@ -42,4 +42,5 @@ private:
 
     QSpinBox *const mRestApiUpperCountLimit;
     QCheckBox *const mUseRestForDDPCalls;
+    QSpinBox *const mApiUserLimit;
 };

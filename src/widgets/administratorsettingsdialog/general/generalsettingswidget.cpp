@@ -36,6 +36,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mStreamCastAddress(new QLineEdit(this))
     , mRestApiUpperCountLimit(new QSpinBox(this))
     , mUseRestForDDPCalls(new QCheckBox(i18nc("@option:check", "Use REST instead of websocket for Meteor calls"), this))
+    , mApiUserLimit(new QSpinBox(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     addCheckBox(mEnableFavoriteRooms, QStringLiteral("Favorite_Rooms"));
@@ -155,6 +156,10 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
 
     mUseRestForDDPCalls->setObjectName(QStringLiteral("mUseRestForDDPCalls"));
     addCheckBox(mUseRestForDDPCalls, QStringLiteral("API_Use_REST_For_DDP_Calls"));
+
+    mApiUserLimit->setObjectName(QStringLiteral("mApiUserLimit"));
+    mApiUserLimit->setMaximum(999);
+    addSpinbox(i18n("User Limit for Adding All Users to Channel"), mApiUserLimit, QStringLiteral("API_User_Limit"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -180,6 +185,7 @@ void GeneralSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mStreamCastAddress, mapSettings, QString());
     initializeWidget(mRestApiUpperCountLimit, mapSettings, 100);
     initializeWidget(mUseRestForDDPCalls, mapSettings, true);
+    initializeWidget(mApiUserLimit, mapSettings, 500);
 }
 
 #include "moc_generalsettingswidget.cpp"

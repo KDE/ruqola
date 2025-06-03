@@ -165,6 +165,11 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUseRestForDDPCalls->isChecked());
     QVERIFY(!mUseRestForDDPCalls->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseRestForDDPCalls), QStringLiteral("API_Use_REST_For_DDP_Calls"));
+
+    auto mApiUserLimit = w.findChild<QSpinBox *>(QStringLiteral("mApiUserLimit"));
+    QVERIFY(mApiUserLimit);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mApiUserLimit), QStringLiteral("API_User_Limit"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("API_User_Limit"));
 }
 
 #include "moc_generalsettingswidgettest.cpp"
