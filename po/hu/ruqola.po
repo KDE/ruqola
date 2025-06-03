@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-29 00:42+0000\n"
+"POT-Creation-Date: 2025-06-03 00:42+0000\n"
 "PO-Revision-Date: 2024-10-02 22:38+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -6826,7 +6826,15 @@ msgctxt "@option:check"
 msgid "Disable Workspace Sync"
 msgstr "Munkaterület-szinkronizáció kikapcsolása"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Disable Sessions Monitor"
+msgctxt "@option:check"
+msgid "Disable Teams Mention"
+msgstr "Munkamenetek megfigyelőjének letiltása"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
 msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
@@ -6835,7 +6843,7 @@ msgstr ""
 "Ez a beállítás teljesen letiltja az értesítési rendszert. A hangok, az "
 "asztali értesítések, a mobilértesítések és az e-mailek leállnak!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:31
 #, kde-format
 msgid ""
 "This setting prevents all instances from sending the status changes of the "
@@ -6846,8 +6854,8 @@ msgstr ""
 "felhasználók állapotváltozásait az ügyfeleiknek, megtartva az összes "
 "felhasználót az első betöltésből származó jelenléti állapotával!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:36
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
@@ -6857,7 +6865,7 @@ msgstr ""
 "küldjenek más példányoknak. Ez szinkronizálási problémákat és hibás "
 "viselkedést okozhat!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:47
 #, kde-format
 msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
@@ -6866,7 +6874,7 @@ msgstr ""
 "Ez a beállítás leállítja az élő csevegés látogatók munkameneteinek "
 "feldolgozását, ami a statisztikák megfelelő működésének megszűnését okozza!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:52
 #, kde-format
 msgid ""
 "This setting stops the processing all statistics making the info page "
@@ -6877,7 +6885,7 @@ msgstr ""
 "teszi az információs oldalt, amíg valaki rá nem kattint a frissítés gombra. "
 "Ez okozhat más információhiányt is a rendszerben!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:58
 #, kde-format
 msgid ""
 "This setting stops the processing of all export requests from users, so they "
@@ -6887,7 +6895,7 @@ msgstr ""
 "kérelem feldolgozását, így nem fogják megkapni az adataik letöltéséhez "
 "szükséges hivatkozást!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:63
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
@@ -6896,6 +6904,13 @@ msgstr ""
 "Ez a beállítás leállítja a kiszolgáló szinkronizálását a Rocket.Chat "
 "felhőjével, és lehet, hogy problémákat okozhat a piactér és a vállalati "
 "licencekkel!"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:68
+#, kde-format
+msgid ""
+"This setting disables the teams mention feature. User's won't be able to "
+"mention a Team by name in a message and get its members notified."
+msgstr ""
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format

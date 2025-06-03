@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-29 00:42+0000\n"
+"POT-Creation-Date: 2025-06-03 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -6721,7 +6721,15 @@ msgctxt "@option:check"
 msgid "Disable Workspace Sync"
 msgstr "कार्यक्षेत्र समन्वयनं निष्क्रियं कुर्वन्तु"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Disable Sessions Monitor"
+msgctxt "@option:check"
+msgid "Disable Teams Mention"
+msgstr "सत्रनिरीक्षकं निष्क्रियं कुर्वन्तु"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
 msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
@@ -6730,7 +6738,7 @@ msgstr ""
 "एषा सेटिङ्ग् सूचनाप्रणालीं पूर्णतया निष्क्रियं करोति; ध्वनयः, डेस्कटॉप् सूचनाः, मोबाईल् "
 "सूचनाः, ईमेल च स्थगिताः भविष्यन्ति!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:31
 #, kde-format
 msgid ""
 "This setting prevents all instances from sending the status changes of the "
@@ -6740,8 +6748,8 @@ msgstr ""
 "एषा सेटिंग् सर्वान् उदाहरणान् प्रथमभारात् सर्वान् उपयोक्तृन् स्वस्य उपस्थितिस्थित्या सह "
 "स्थापयित्वा उपयोक्तृणां स्थितिपरिवर्तनं स्वग्राहकेभ्यः प्रेषयितुं निवारयति!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:36
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
@@ -6750,14 +6758,14 @@ msgstr ""
 "एषा सेटिंग् Rocket.Chat दृष्टान्तान् अन्यदृष्टान्तेभ्यः घटनां प्रेषयितुं निवारयति, एतत् "
 "समन्वयनसमस्यां दुर्व्यवहारं च जनयितुं शक्नोति!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:47
 #, kde-format
 msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr "एषा सेटिंग् livechat आगन्तुकसत्रस्य संसाधनं स्थगयति येन आँकडा: सम्यक् कार्यं स्थगयन्ति!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:52
 #, kde-format
 msgid ""
 "This setting stops the processing all statistics making the info page "
@@ -6767,7 +6775,7 @@ msgstr ""
 "एषा सेटिंग् सूचनापृष्ठं पुरातनं कृत्वा सर्वाणि आँकडानि संसाधनं स्थगयति यावत् कोऽपि ताजगीबटनं "
 "क्लिक् न करोति तथा च प्रणाल्याः परितः अन्यसूचनाः गम्यन्ते!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:58
 #, kde-format
 msgid ""
 "This setting stops the processing of all export requests from users, so they "
@@ -6776,7 +6784,7 @@ msgstr ""
 "एषा सेटिङ्ग् उपयोक्तृभ्यः सर्वेषां निर्यात-अनुरोधानाम् संसाधनं स्थगयति, अतः ते स्वदत्तांशं "
 "डाउनलोड् कर्तुं लिङ्कं न प्राप्नुयुः!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:63
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
@@ -6784,6 +6792,13 @@ msgid ""
 msgstr ""
 "एषा सेटिङ्ग् अस्य सर्वरस्य Rocket.Chat इत्यस्य मेघेन सह समन्वयनं स्थगयति तथा च मार्केटप्लेस् "
 "तथा उद्यम-अनुज्ञापत्रेषु समस्यां जनयितुं शक्नोति!"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:68
+#, kde-format
+msgid ""
+"This setting disables the teams mention feature. User's won't be able to "
+"mention a Team by name in a message and get its members notified."
+msgstr ""
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format

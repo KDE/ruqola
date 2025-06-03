@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-29 00:42+0000\n"
-"PO-Revision-Date: 2025-05-30 21:22+0200\n"
+"POT-Creation-Date: 2025-06-03 00:42+0000\n"
+"PO-Revision-Date: 2025-06-02 17:33+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2212,7 +2212,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
 msgid "The bodyParam 'default' is required"
-msgstr "Le bodyParam « default » est nécessaire."
+msgstr "Le paramètre bodyParam « default » est nécessaire."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:253
 #, kde-format
@@ -5115,7 +5115,7 @@ msgid ""
 "between 2 users. OTR messages are not recorded on the server and exchanged "
 "directly and encrypted between the 2 users."
 msgstr ""
-"Activez l'option pour utiliser les messages « OTR » (off-the-record) dans "
+"Activez l'option pour utiliser les messages « OTR » (Off-The-Record) dans "
 "les messages directs entre 2 utilisateurs. Les messages « OTR » ne sont pas "
 "enregistrés sur le serveur. Ils sont échangés directement et chiffrés entre "
 "les 2 utilisateurs."
@@ -6836,7 +6836,15 @@ msgctxt "@option:check"
 msgid "Disable Workspace Sync"
 msgstr "Désactiver la synchronisation d'espaces de travail"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Disable Sessions Monitor"
+msgctxt "@option:check"
+msgid "Disable Teams Mention"
+msgstr "Désactiver la surveillance de sessions"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
 msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
@@ -6846,7 +6854,7 @@ msgstr ""
 "les notifications de bureau, les notifications mobiles et les courriels "
 "s'arrêteront !"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:31
 #, kde-format
 msgid ""
 "This setting prevents all instances from sending the status changes of the "
@@ -6857,8 +6865,8 @@ msgstr ""
 "des utilisateurs vers leurs clients en maintenant l'état de présence de tous "
 "les utilisateurs lors du premier chargement !"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:36
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
@@ -6868,7 +6876,7 @@ msgstr ""
 "aux autres instances. Cela peut provoquer des problèmes de synchronisation "
 "et des comportements incohérents !"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:47
 #, kde-format
 msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
@@ -6878,7 +6886,7 @@ msgstr ""
 "temps réel. Dans ce cas, les statistiques cessent de fonctionner "
 "correctement !"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:52
 #, kde-format
 msgid ""
 "This setting stops the processing all statistics making the info page "
@@ -6890,7 +6898,7 @@ msgstr ""
 "rafraîchissement. Cela peut conduire à d'autres informations manquantes au "
 "sein du système !"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:58
 #, kde-format
 msgid ""
 "This setting stops the processing of all export requests from users, so they "
@@ -6900,7 +6908,7 @@ msgstr ""
 "utilisateurs, de sorte qu'ils ne recevront pas le lien pour télécharger "
 "leurs données !"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:63
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
@@ -6909,6 +6917,13 @@ msgstr ""
 "Ce paramètre arrête la synchronisation de ce serveur avec le cloud de Rocket."
 "Chat. Il peut causer des problèmes avec les licences de marché et "
 "d'entreprise !"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:68
+#, kde-format
+msgid ""
+"This setting disables the teams mention feature. User's won't be able to "
+"mention a Team by name in a message and get its members notified."
+msgstr ""
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-29 00:42+0000\n"
+"POT-Creation-Date: 2025-06-03 00:42+0000\n"
 "PO-Revision-Date: 2025-05-29 06:43+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -6769,7 +6769,15 @@ msgctxt "@option:check"
 msgid "Disable Workspace Sync"
 msgstr "Onemogoči sinhronizacijo delovnega prostora"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Disable Sessions Monitor"
+msgctxt "@option:check"
+msgid "Disable Teams Mention"
+msgstr "Onemogoči monitorja sej"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
 msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
@@ -6778,7 +6786,7 @@ msgstr ""
 "Ta nastavitev popolnoma onemogoča sistem obveščanja: zvoki, obvestila "
 "namizja, mobilna obvestila in elektronska pošta se bodo ustavil!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:31
 #, kde-format
 msgid ""
 "This setting prevents all instances from sending the status changes of the "
@@ -6789,8 +6797,8 @@ msgstr ""
 "uporabnikov njihovim odjemalcem in tako ohranjanje vseh uporabnikov v stanju "
 "začetnega nalaganja!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:36
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:42
 #, kde-format
 msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
@@ -6799,7 +6807,7 @@ msgstr ""
 "Ta nastavitev preprečuje pojavkom Rocket.Chata pošiljanje dogodkov drugi "
 "pojavkom, to lahko povzroča probleme sinhronizacije in čudno obnašanje!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:47
 #, kde-format
 msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
@@ -6808,7 +6816,7 @@ msgstr ""
 "Ta nastavitev ustavi obdelave obiskovalcev klepeta v živo, kar povzroči, da "
 "statistika ne deluje pravilno!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:52
 #, kde-format
 msgid ""
 "This setting stops the processing all statistics making the info page "
@@ -6819,7 +6827,7 @@ msgstr ""
 "informativna stran neažurna dokler nekdo ne klikne gumba za osveževanje in "
 "povzroči druge manjkajoče informacije okoli sistema!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:58
 #, kde-format
 msgid ""
 "This setting stops the processing of all export requests from users, so they "
@@ -6828,7 +6836,7 @@ msgstr ""
 "Ta nastavitev ustavi obdelavo vseh zahtevkov uporabnikov za izvoz, tako da "
 "ne bodo prejeli povezav za prenos njihovih podatkov!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:63
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
@@ -6836,6 +6844,13 @@ msgid ""
 msgstr ""
 "Ta nastavitev ustavi sinhronizacijo tega strežnika z oblakom Rocket.Chat in "
 "lahko povzroči težave z dovoljenji trga in podjetja!"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:68
+#, kde-format
+msgid ""
+"This setting disables the teams mention feature. User's won't be able to "
+"mention a Team by name in a message and get its members notified."
+msgstr ""
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
