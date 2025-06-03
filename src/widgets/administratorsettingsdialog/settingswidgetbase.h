@@ -29,6 +29,8 @@ public:
 
     struct SettingsInfo {
         bool readOnly = false;
+        bool enterprise = false;
+        QStringList modules;
         QVariant value;
     };
 
