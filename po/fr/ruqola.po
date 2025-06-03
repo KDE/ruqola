@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-28 02:37+0000\n"
-"PO-Revision-Date: 2025-05-16 08:59+0200\n"
+"PO-Revision-Date: 2025-06-02 17:33+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2193,7 +2193,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
 msgid "The bodyParam 'default' is required"
-msgstr "Le bodyParam « default » est nécessaire."
+msgstr "Le paramètre bodyParam « default » est nécessaire."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:253
 #, kde-format
@@ -5095,7 +5095,7 @@ msgid ""
 "between 2 users. OTR messages are not recorded on the server and exchanged "
 "directly and encrypted between the 2 users."
 msgstr ""
-"Activez l'option pour utiliser les messages « OTR » (off-the-record) dans "
+"Activez l'option pour utiliser les messages « OTR » (Off-The-Record) dans "
 "les messages directs entre 2 utilisateurs. Les messages « OTR » ne sont pas "
 "enregistrés sur le serveur. Ils sont échangés directement et chiffrés entre "
 "les 2 utilisateurs."
