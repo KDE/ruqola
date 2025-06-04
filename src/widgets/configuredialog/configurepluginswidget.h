@@ -6,12 +6,16 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
-class ConfigurePluginsWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ConfigurePluginsWidget(QWidget *parent = nullptr);
     ~ConfigurePluginsWidget() override;
+
+    void save();
+    void load();
 };

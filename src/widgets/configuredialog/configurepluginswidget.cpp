@@ -5,12 +5,24 @@
 */
 
 #include "configurepluginswidget.h"
-
+#include <QVBoxLayout>
 ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
 ConfigurePluginsWidget::~ConfigurePluginsWidget() = default;
+
+void ConfigurePluginsWidget::save()
+{
+    // TODO
+}
+
+void ConfigurePluginsWidget::load()
+{
+    // TODO
+}
 
 #include "moc_configurepluginswidget.cpp"
