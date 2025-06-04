@@ -7,7 +7,7 @@
 #include "plugintext.h"
 
 PluginText::PluginText(QObject *parent)
-    : QObject(parent)
+    : PluginBase(parent)
 {
 }
 

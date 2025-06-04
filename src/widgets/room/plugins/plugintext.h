@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolawidgets_export.h"
-#include <QObject>
+#include "pluginbase.h"
 class PluginTextInterface;
-class LIBRUQOLAWIDGETS_EXPORT PluginText : public QObject
+class LIBRUQOLAWIDGETS_EXPORT PluginText : public PluginBase
 {
     Q_OBJECT
 public:

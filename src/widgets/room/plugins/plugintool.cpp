@@ -7,7 +7,7 @@
 #include "plugintool.h"
 
 PluginTool::PluginTool(QObject *parent)
-    : QObject{parent}
+    : PluginBase{parent}
 {
 }
 
