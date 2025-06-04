@@ -5,12 +5,17 @@
 */
 
 #include "configurepluginswidget.h"
+#include <QLineEdit>
 #include <QVBoxLayout>
 ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     : QWidget{parent}
+    , mSearchLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mainLayout->addWidget(mSearchLineEdit);
 }
 
 ConfigurePluginsWidget::~ConfigurePluginsWidget() = default;

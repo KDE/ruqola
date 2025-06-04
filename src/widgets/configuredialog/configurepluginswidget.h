@@ -8,7 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public QWidget
 {
     Q_OBJECT
@@ -18,4 +18,7 @@ public:
 
     void save();
     void load();
+
+private:
+    QLineEdit *const mSearchLineEdit;
 };
