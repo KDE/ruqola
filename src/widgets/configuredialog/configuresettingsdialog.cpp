@@ -8,6 +8,7 @@
 #include "configureaccountwidget.h"
 #include "configurefontwidget.h"
 #include "configuregeneralwidget.h"
+#include "configurepluginswidget.h"
 #include "configurespellcheckingwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -58,6 +59,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 #if HAVE_TEXT_TO_SPEECH
     , mConfigureTextToSpeechWidget(new ConfigureAccessibilityWidget(this))
 #endif
+    , mConfigurePluginsWidget(new ConfigurePluginsWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
     setFaceType(KPageDialog::List);
@@ -112,6 +114,11 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(configureTextToSpeechWidgetPage);
 #endif
 
+    const QString pluginsPageName = i18nc("@title Preferences page name", "Plugins");
+    auto configurePluginsWidgetPage = new KPageWidgetItem(mConfigurePluginsWidget, pluginsPageName);
+    configurePluginsWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-plugin")));
+    addPage(configurePluginsWidgetPage);
+
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &ConfigureSettingsDialog::slotAccepted);
     connect(buttonBox()->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &ConfigureSettingsDialog::reject);
     readConfig();
@@ -156,6 +163,7 @@ void ConfigureSettingsDialog::slotAccepted()
 #if HAVE_TEXT_TO_SPEECH
     mConfigureTextToSpeechWidget->save();
 #endif
+    mConfigurePluginsWidget->save();
 }
 
 void ConfigureSettingsDialog::load()
@@ -176,6 +184,7 @@ void ConfigureSettingsDialog::load()
 #if HAVE_TEXT_TO_SPEECH
     mConfigureTextToSpeechWidget->load();
 #endif
+    mConfigurePluginsWidget->load();
 }
 
 #include "moc_configuresettingsdialog.cpp"

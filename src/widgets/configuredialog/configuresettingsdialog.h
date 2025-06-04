@@ -15,6 +15,7 @@ class ConfigureUserFeedbackWidget;
 class ConfigureGeneralWidget;
 class ConfigureFontWidget;
 class ConfigureAccessibilityWidget;
+class ConfigurePluginsWidget;
 
 namespace TextTranslator
 {
@@ -39,7 +40,8 @@ private:
     ConfigureGeneralWidget *const mConfigureGeneralWidget;
     ConfigureFontWidget *const mConfigureFontWidget;
     ConfigureAutoCorrectionWidget *const mConfigureAutoCorrectionWidget = nullptr;
-    ConfigureUserFeedbackWidget *mConfigureUserFeedBackWidget = nullptr;
+    ConfigureUserFeedbackWidget *const mConfigureUserFeedBackWidget = nullptr;
     TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget = nullptr;
     ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget = nullptr;
+    ConfigurePluginsWidget *const mConfigurePluginsWidget;
 };
