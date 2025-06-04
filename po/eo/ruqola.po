@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-03 00:42+0000\n"
+"POT-Creation-Date: 2025-06-04 00:42+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -5243,105 +5243,105 @@ msgctxt "@option:check"
 msgid "Use REST instead of websocket for Meteor calls"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
 #, kde-format
 msgid "Site URL"
 msgstr "Reteja URL"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
 #, kde-format
 msgid "Site Name"
 msgstr "Reteja Nomo"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:50
 #, kde-format
 msgid "UTF8"
 msgstr "UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate usernames"
 msgstr "RegExp kiu estos uzata por validigi uzantnomojn"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:56
 #, kde-format
 msgid "UTF8 Usernames Validation"
 msgstr "Pritaksado de UTF8-Uzantnomoj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:59
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate channel names"
 msgstr "RegExp kiu estos uzata por konfirmi kanalnomojn"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:60
 #, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr "Pritaksado de UTF8-Kanalnomoj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:66
 #, kde-format
 msgid "First Channel After Login"
 msgstr "Unua Kanalo Post Ensaluto"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:69
 #, kde-format
 msgid "Deep Link Url"
 msgstr "Url de Profunda Ligilo"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:72
 #, kde-format
 msgid "CDN Prefix"
 msgstr "CDN-prefikso"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:76
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:86
 #, kde-format
 msgid "All messages"
 msgstr "Ĉiuj mesaĝoj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
 #, kde-format
 msgid "User mentions only"
 msgstr "Nur mencioj de uzantoj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
 #, kde-format
 msgid "Group mentions only"
 msgstr "Grupo mencioj nur"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
 #, kde-format
 msgid "User and group mentions only"
 msgstr "Nur mencioj de uzantoj kaj grupaj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:82
 #, kde-format
 msgid "Unread Count"
 msgstr "Nelegita Kalkulo"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:87
 #, kde-format
 msgid "Mentions only"
 msgstr "Nur mencioj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:89
 #, kde-format
 msgid "Unread Count for Direct Messages"
 msgstr "Nelegita Nombro por Rektaj Mesaĝoj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:91
 #, kde-format
 msgid "Update"
 msgstr "Ĝisdatigi"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid "Update Latest Available Version"
 msgstr "Ĝisdatigi la Plej Disponeblan Version"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:101
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -5356,12 +5356,12 @@ msgstr ""
 "mesaĝo de la roboto Rocket.Cat,\n"
 "ambaŭ videblaj nur por administrantoj."
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
 msgid "TimeZone"
 msgstr "Horzono"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5371,37 +5371,37 @@ msgstr ""
 "Agordas la defaŭltan horzonon, kiu estos uzata dum montrado de paneloj aŭ "
 "sendado de retpoŝtoj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
 #, kde-format
 msgid "Server Timezone"
 msgstr "Servila Horzono"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
 #, kde-format
 msgid "Custom Timezone"
 msgstr "Propra Horzono"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
 msgid "User's current Timezone"
 msgstr "Nuna Horzono de uzanto"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
 msgid "Default timezone for reporting"
 msgstr "Defaŭlta horzono por raportado"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:119
 #, kde-format
 msgid "Reporting"
 msgstr "Raportado"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:125
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:126
 #, kde-format
 msgid "Notifications"
 msgstr "Sciigoj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:132
 #, kde-format
 msgid ""
 "Max number of members in room when notifications for all messages gets "
@@ -5412,22 +5412,22 @@ msgstr ""
 "malŝaltitaj. Uzantoj ankoraŭ povas ŝanĝi laŭĉambran agordon por ricevi ĉiujn "
 "sciigojn individue. (0 por malŝalti)"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:134
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr "Maksimumaj Ĉambraj Membroj Antaŭ Malŝalti Ĉiuj Mesaĝaj Sciigoj"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:139
 #, kde-format
 msgid "Stream Cast"
 msgstr "Rojo Rolantaro"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:144
 #, kde-format
 msgid "Stream Cast Address"
 msgstr "Rolantaro-Adreso"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5437,16 +5437,21 @@ msgstr ""
 "IP aŭ Gastiganto de via Rocket.Chat centra Stream Cast. ekz. "
 "192.168.1.1:3000 aŭ localhost:4000"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:147
 #, kde-format
 msgid "REST API"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:152
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:153
 #, kde-format
 msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
+#, kde-format
+msgid "User Limit for Adding All Users to Channel"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
