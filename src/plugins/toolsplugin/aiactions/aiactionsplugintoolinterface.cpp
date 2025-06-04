@@ -38,3 +38,5 @@ void AiActionsPluginToolInterface::slotSummarize()
     mActionAi = ActionAi::SummarizeUnreads;
     Q_EMIT activateRequested();
 }
+
+#include "moc_aiactionsplugintoolinterface.cpp"

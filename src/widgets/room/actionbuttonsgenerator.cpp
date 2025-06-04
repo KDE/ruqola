@@ -73,3 +73,5 @@ void ActionButtonsGenerator::setCurrentRocketChatAccount(RocketChatAccount *acco
 {
     mCurrentRocketChatAccount = account;
 }
+
+#include "moc_actionbuttonsgenerator.cpp"
