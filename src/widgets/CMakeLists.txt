@@ -692,6 +692,13 @@ target_sources(libruqolawidgets PRIVATE
     room/messagelistview.h
     room/messagetextedit.cpp
     room/messagetextedit.h
+
+    room/plugins/pluginbase.h
+    room/plugins/pluginbase.cpp
+
+    room/plugins/pluginutils.h 
+    room/plugins/pluginutils.cpp
+
     room/plugins/plugintext.cpp
     room/plugins/plugintext.h
     room/plugins/plugintextinterface.cpp
