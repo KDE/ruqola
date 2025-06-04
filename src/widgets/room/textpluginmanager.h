@@ -7,21 +7,11 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "plugins/pluginutils.h"
 #include <KPluginMetaData>
 #include <QList>
 #include <QObject>
-
 class PluginText;
-
-class PluginTextUtilData
-{
-public:
-    PluginTextUtilData() = default;
-
-    QStringList mExtraInfo;
-    QString mIdentifier;
-    QString mName;
-};
 
 class TextPluginManagerInfo
 {
@@ -31,7 +21,7 @@ public:
     KPluginMetaData data;
     QString metaDataFileNameBaseName;
     QString metaDataFileName;
-    PluginTextUtilData pluginData;
+    PluginUtils::PluginUtilData pluginData;
     PluginText *plugin = nullptr;
 };
 
@@ -48,7 +38,6 @@ private:
     explicit TextPluginManager(QObject *parent = nullptr);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadPlugin(TextPluginManagerInfo *item);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT PluginTextUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QList<TextPluginManagerInfo> mPluginList;
-    QList<PluginTextUtilData> mPluginDataList;
+    QList<PluginUtils::PluginUtilData> mPluginDataList;
 };

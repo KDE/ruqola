@@ -38,7 +38,7 @@ void TextPluginManager::initializePluginList()
         const KPluginMetaData data = i.previous();
 
         // 1) get plugin data => name/description etc.
-        info.pluginData = createPluginMetaData(data);
+        info.pluginData = PluginUtils::createPluginMetaData(data);
         // 2) look at if plugin is activated
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
@@ -75,14 +75,6 @@ QList<PluginText *> TextPluginManager::pluginsList() const
         }
     }
     return lst;
-}
-
-PluginTextUtilData TextPluginManager::createPluginMetaData(const KPluginMetaData &metaData)
-{
-    PluginTextUtilData pluginData;
-    pluginData.mName = metaData.name();
-    pluginData.mIdentifier = metaData.pluginId();
-    return pluginData;
 }
 
 #include "moc_textpluginmanager.cpp"

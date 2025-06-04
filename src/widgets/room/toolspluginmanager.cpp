@@ -38,8 +38,9 @@ void ToolsPluginManager::initializePluginList()
         const KPluginMetaData data = i.previous();
 
         // 1) get plugin data => name/description etc.
-        info.pluginData = createPluginMetaData(data);
+        info.pluginData = PluginUtils::createPluginMetaData(data);
         // 2) look at if plugin is activated
+        info.isEnabled = true; // TODO
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
         info.data = data;
@@ -75,16 +76,6 @@ QList<PluginTool *> ToolsPluginManager::pluginsList() const
         }
     }
     return lst;
-}
-
-PluginToolsUtilData ToolsPluginManager::createPluginMetaData(const KPluginMetaData &metaData)
-{
-    const PluginToolsUtilData pluginData{
-        .mExtraInfo = {},
-        .mIdentifier = metaData.pluginId(),
-        .mName = metaData.name(),
-    };
-    return pluginData;
 }
 
 #include "moc_toolspluginmanager.cpp"

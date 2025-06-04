@@ -7,17 +7,12 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "plugins/pluginutils.h"
 #include <KPluginMetaData>
 #include <QList>
 #include <QObject>
 
 class PluginTool;
-
-struct PluginToolsUtilData {
-    QStringList mExtraInfo;
-    QString mIdentifier;
-    QString mName;
-};
 
 class ToolsPluginManagerInfo
 {
@@ -27,8 +22,9 @@ public:
     KPluginMetaData data;
     QString metaDataFileNameBaseName;
     QString metaDataFileName;
-    PluginToolsUtilData pluginData;
+    PluginUtils::PluginUtilData pluginData;
     PluginTool *plugin = nullptr;
+    bool isEnabled = true;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ToolsPluginManager : public QObject
@@ -44,7 +40,6 @@ private:
     explicit ToolsPluginManager(QObject *parent = nullptr);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadPlugin(ToolsPluginManagerInfo *item);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT PluginToolsUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QList<ToolsPluginManagerInfo> mPluginList;
-    QList<PluginToolsUtilData> mPluginDataList;
+    QList<PluginUtils::PluginUtilData> mPluginDataList;
 };
