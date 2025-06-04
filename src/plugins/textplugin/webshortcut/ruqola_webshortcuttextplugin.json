@@ -3,6 +3,7 @@
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
+	"EnabledByDefault": true,
         "Version": "1.0"
     }
 }

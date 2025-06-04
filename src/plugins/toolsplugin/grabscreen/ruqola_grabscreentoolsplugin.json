@@ -3,6 +3,7 @@
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],
+	"EnabledByDefault": true,
         "Version": "1.0"
     }
 }
