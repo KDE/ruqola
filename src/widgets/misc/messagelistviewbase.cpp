@@ -35,9 +35,11 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
         });
     }
     for (PluginText *plugin : plugins) {
-        connect(plugin, &PluginText::errorMessage, this, &MessageListViewBase::errorMessage);
-        connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);
-        mPluginTextInterface.append(plugin->createInterface(this));
+        if (plugin->enabled()) {
+            connect(plugin, &PluginText::errorMessage, this, &MessageListViewBase::errorMessage);
+            connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);
+            mPluginTextInterface.append(plugin->createInterface(this));
+        }
     }
 }
 

@@ -192,34 +192,36 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
     for (PluginTool *plugin : plugins) {
-        if (plugin->toolType() == PluginTool::ToolType::MessageViewHeaderToolBar) {
-            auto pluginButton = new QToolButton(this);
-            pluginButton->setAutoRaise(true);
-            const QString desc = plugin->description();
-            if (desc.isEmpty()) {
-                pluginButton->setText(desc);
+        if (plugin->enabled()) {
+            if (plugin->toolType() == PluginTool::ToolType::MessageViewHeaderToolBar) {
+                auto pluginButton = new QToolButton(this);
+                pluginButton->setAutoRaise(true);
+                const QString desc = plugin->description();
+                if (desc.isEmpty()) {
+                    pluginButton->setText(desc);
+                }
+                pluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
+                pluginButton->setToolTip(plugin->toolTip());
+                auto interface = plugin->createInterface(this);
+                mPluginToolInterface.append(interface);
+                connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
+                    const PluginToolInterface::PluginToolInfo info{
+                        .roomId = roomId(),
+                        .accountName = mCurrentRocketChatAccount->accountName(),
+                        .tmid = {},
+                        .msgId = {},
+                    };
+                    interface->setInfo(info);
+                    interface->activateTool();
+                });
+                if (plugin->hasMenu()) {
+                    pluginButton->setMenu(interface->menu(this));
+                    pluginButton->setPopupMode(QToolButton::InstantPopup);
+                } else {
+                    connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);
+                }
+                buttonLayout->addWidget(pluginButton, 0, Qt::AlignTop);
             }
-            pluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
-            pluginButton->setToolTip(plugin->toolTip());
-            auto interface = plugin->createInterface(this);
-            mPluginToolInterface.append(interface);
-            connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
-                const PluginToolInterface::PluginToolInfo info{
-                    .roomId = roomId(),
-                    .accountName = mCurrentRocketChatAccount->accountName(),
-                    .tmid = {},
-                    .msgId = {},
-                };
-                interface->setInfo(info);
-                interface->activateTool();
-            });
-            if (plugin->hasMenu()) {
-                pluginButton->setMenu(interface->menu(this));
-                pluginButton->setPopupMode(QToolButton::InstantPopup);
-            } else {
-                connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);
-            }
-            buttonLayout->addWidget(pluginButton, 0, Qt::AlignTop);
         }
     }
 
