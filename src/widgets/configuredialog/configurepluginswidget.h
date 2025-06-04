@@ -7,8 +7,10 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QTreeWidgetItem>
 #include <QWidget>
 class QLineEdit;
+class QTreeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public QWidget
 {
     Q_OBJECT
@@ -20,5 +22,20 @@ public:
     void load();
 
 private:
+    class PluginItem : public QTreeWidgetItem
+    {
+    public:
+        explicit PluginItem(QTreeWidgetItem *parent)
+            : QTreeWidgetItem(parent)
+        {
+        }
+
+        QString mIdentifier;
+        bool mEnableByDefault = false;
+        bool mHasConfigureSupport = false;
+        bool mEnableFromUserSettings = false;
+    };
+
     QLineEdit *const mSearchLineEdit;
+    QTreeWidget *const mTreePluginWidget;
 };
