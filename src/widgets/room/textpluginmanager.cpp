@@ -26,9 +26,20 @@ TextPluginManager *TextPluginManager::self()
     return &s_self;
 }
 
+QString TextPluginManager::configGroupName() const
+{
+    return QStringLiteral("RuqolaPlugin-textplugins");
+}
+
+QString TextPluginManager::configPrefixSettingKey() const
+{
+    return QStringLiteral("textpluginsPlugin");
+}
+
 void TextPluginManager::initializePluginList()
 {
     const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/textplugins"));
+    const QPair<QStringList, QStringList> pair = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
 
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
@@ -40,6 +51,8 @@ void TextPluginManager::initializePluginList()
         // 1) get plugin data => name/description etc.
         info.pluginData = PluginUtils::createPluginMetaData(data);
         // 2) look at if plugin is activated
+        const bool isPluginActivated = PluginUtils::isPluginActivated(pair.first, pair.second, info.pluginData.mEnableByDefault, info.pluginData.mIdentifier);
+        info.isEnabled = isPluginActivated;
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
         info.data = data;
@@ -61,6 +74,7 @@ void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
 {
     if (auto plugin = KPluginFactory::instantiatePlugin<PluginText>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
         item->plugin = plugin;
+        item->plugin->setEnabled(item->isEnabled);
         mPluginDataList.append(item->pluginData);
     }
 }

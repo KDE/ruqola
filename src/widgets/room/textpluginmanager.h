@@ -23,6 +23,7 @@ public:
     QString metaDataFileName;
     PluginUtils::PluginUtilData pluginData;
     PluginText *plugin = nullptr;
+    bool isEnabled = true;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextPluginManager : public QObject
@@ -33,6 +34,9 @@ public:
     static TextPluginManager *self();
 
     [[nodiscard]] QList<PluginText *> pluginsList() const;
+
+    [[nodiscard]] QString configGroupName() const;
+    [[nodiscard]] QString configPrefixSettingKey() const;
 
 private:
     explicit TextPluginManager(QObject *parent = nullptr);

@@ -26,10 +26,20 @@ ToolsPluginManager *ToolsPluginManager::self()
     return &s_self;
 }
 
+QString ToolsPluginManager::configGroupName() const
+{
+    return QStringLiteral("RuqolaPlugin-toolsplugins");
+}
+
+QString ToolsPluginManager::configPrefixSettingKey() const
+{
+    return QStringLiteral("toolspluginsPlugin");
+}
+
 void ToolsPluginManager::initializePluginList()
 {
     const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/toolsplugins"));
-
+    const QPair<QStringList, QStringList> pair = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
     QSet<QString> unique;
@@ -40,7 +50,8 @@ void ToolsPluginManager::initializePluginList()
         // 1) get plugin data => name/description etc.
         info.pluginData = PluginUtils::createPluginMetaData(data);
         // 2) look at if plugin is activated
-        info.isEnabled = true; // TODO
+        const bool isPluginActivated = PluginUtils::isPluginActivated(pair.first, pair.second, info.pluginData.mEnableByDefault, info.pluginData.mIdentifier);
+        info.isEnabled = isPluginActivated;
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
         info.data = data;
@@ -62,6 +73,7 @@ void ToolsPluginManager::loadPlugin(ToolsPluginManagerInfo *item)
 {
     if (auto plugin = KPluginFactory::instantiatePlugin<PluginTool>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
         item->plugin = plugin;
+        item->plugin->setEnabled(item->isEnabled);
         mPluginDataList.append(item->pluginData);
     }
 }
