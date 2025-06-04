@@ -29,7 +29,6 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     setMouseTracking(true);
 
     QList<PluginText *> plugins = TextPluginManager::self()->pluginsList();
-    qDebug() << " plugins : " << plugins.count();
     if (plugins.count() > 1) {
         std::sort(plugins.begin(), plugins.end(), [](PluginText *left, PluginText *right) {
             return left->order() < right->order();
