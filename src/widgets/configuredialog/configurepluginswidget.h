@@ -9,7 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QTreeWidgetItem>
 #include <QWidget>
-class QLineEdit;
+class KTreeWidgetSearchLineWidget;
 class QTreeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public QWidget
 {
@@ -36,6 +36,6 @@ private:
         bool mEnableFromUserSettings = false;
     };
 
-    QLineEdit *const mSearchLineEdit;
+    KTreeWidgetSearchLineWidget *mSearchLineEdit = nullptr;
     QTreeWidget *const mTreePluginWidget;
 };

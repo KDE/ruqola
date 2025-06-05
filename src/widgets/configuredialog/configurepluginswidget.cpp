@@ -6,23 +6,22 @@
 
 #include "configurepluginswidget.h"
 #include <KLineEditEventHandler>
+#include <KTreeWidgetSearchLine>
+#include <KTreeWidgetSearchLineWidget>
 #include <QHeaderView>
 #include <QLineEdit>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     : QWidget{parent}
-    , mSearchLineEdit(new QLineEdit(this))
     , mTreePluginWidget(new QTreeWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mainLayout->addWidget(mSearchLineEdit);
+    mainLayout->setContentsMargins({});
+    mainLayout->setSpacing(0);
 
     mTreePluginWidget->setObjectName(QStringLiteral("mTreePluginWidget"));
-    mainLayout->addWidget(mTreePluginWidget);
     mTreePluginWidget->setSortingEnabled(true);
     mTreePluginWidget->sortItems(0, Qt::AscendingOrder);
     mTreePluginWidget->setHeaderHidden(true);
@@ -31,12 +30,13 @@ ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     mTreePluginWidget->header()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
     mTreePluginWidget->header()->setStretchLastSection(false);
 
-    /*
-        mTreeWidgetSearchLineEdit = new KTreeWidgetSearchLineWidget(this, mListWidget);
-    mTreeWidgetSearchLineEdit->setObjectName("mTreeWidgetSearchLineEdit"_L1);
-    mTreeWidgetSearchLineEdit->searchLine()->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::BottomEdge}));
-    KLineEditEventHandler::catchReturnKey(mTreeWidgetSearchLineEdit->searchLine());
-    */
+    mSearchLineEdit = new KTreeWidgetSearchLineWidget(this, mTreePluginWidget);
+    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->searchLine()->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::BottomEdge}));
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit->searchLine());
+
+    mainLayout->addWidget(mSearchLineEdit);
+    mainLayout->addWidget(mTreePluginWidget);
 }
 
 ConfigurePluginsWidget::~ConfigurePluginsWidget() = default;
