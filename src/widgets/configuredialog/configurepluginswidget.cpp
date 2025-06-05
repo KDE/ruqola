@@ -6,6 +6,8 @@
 
 #include "configurepluginswidget.h"
 #include "configurepluginstreewidgetdelegate.h"
+#include "room/plugins/plugintext.h"
+#include "room/plugins/plugintool.h"
 #include "room/textpluginmanager.h"
 #include "room/toolspluginmanager.h"
 #include "ruqolawidgets_debug.h"
@@ -187,9 +189,19 @@ void ConfigurePluginsWidget::slotConfigureClicked(QAction *act)
             const QString identifier = lst.at(1);
             if (!groupName.isEmpty() && !identifier.isEmpty()) {
                 if (groupName == toolsPluginGroupName()) {
-                    // TODO
+                    const auto p = ToolsPluginManager::self()->pluginFromIdentifier(identifier);
+                    if (p) {
+                        p->showConfigureDialog(this);
+                    } else {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find tool plugin " << identifier;
+                    }
                 } else if (groupName == textPluginGroupName()) {
-                    // TODO
+                    const auto p = TextPluginManager::self()->pluginFromIdentifier(identifier);
+                    if (p) {
+                        p->showConfigureDialog(this);
+                    } else {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find text plugin " << identifier;
+                    }
                 } else {
                     qCWarning(RUQOLAWIDGETS_LOG) << "plugin group name not suppported " << groupName;
                 }
