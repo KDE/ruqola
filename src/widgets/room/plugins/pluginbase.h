@@ -5,10 +5,10 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_export.h"
 #include <QObject>
 
-class PluginBase : public QObject
+class LIBRUQOLAWIDGETS_EXPORT PluginBase : public QObject
 {
     Q_OBJECT
 public:
@@ -16,6 +16,9 @@ public:
     ~PluginBase() override;
     [[nodiscard]] bool enabled() const;
     void setEnabled(bool newEnabled);
+
+    [[nodiscard]] virtual bool hasConfigureDialog() const;
+    virtual void showConfigureDialog(QWidget *parent = nullptr) const;
 
 protected:
     bool mEnabled = true;

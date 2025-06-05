@@ -21,3 +21,13 @@ void PluginBase::setEnabled(bool newEnabled)
 {
     mEnabled = newEnabled;
 }
+
+bool PluginBase::hasConfigureDialog() const
+{
+    return false;
+}
+
+void PluginBase::showConfigureDialog(QWidget *parent) const
+{
+    Q_UNUSED(parent);
+}

@@ -40,6 +40,8 @@ public:
 
     [[nodiscard]] QList<PluginUtils::PluginUtilData> pluginDataList() const;
 
+    [[nodiscard]] PluginText *pluginFromIdentifier(const QString &identifier) const;
+
 private:
     explicit TextPluginManager(QObject *parent = nullptr);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();

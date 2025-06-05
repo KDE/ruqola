@@ -85,6 +85,17 @@ QList<PluginUtils::PluginUtilData> TextPluginManager::pluginDataList() const
     return mPluginDataList;
 }
 
+PluginText *TextPluginManager::pluginFromIdentifier(const QString &identifier) const
+{
+    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [identifier](const TextPluginManagerInfo &info) {
+        return info.pluginData.mIdentifier == identifier;
+    });
+    if (it != mPluginList.end()) {
+        return (*it).plugin;
+    }
+    return nullptr;
+}
+
 QList<PluginText *> TextPluginManager::pluginsList() const
 {
     QList<PluginText *> lst;

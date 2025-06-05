@@ -29,7 +29,6 @@ public:
     [[nodiscard]] virtual int order() const = 0;
     [[nodiscard]] virtual bool hasMenu() const = 0;
     [[nodiscard]] virtual PluginToolInterface *createInterface(QObject *parent) = 0;
-    [[nodiscard]] virtual bool hasConfigureDialog() const = 0;
 
 Q_SIGNALS:
     void activated();
