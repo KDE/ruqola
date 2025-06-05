@@ -10,10 +10,14 @@ ecm_qt_declare_logging_category(ruqola_grabscreenplugin HEADER grabscreenplugin_
 kconfig_add_kcfg_files(ruqola_grabscreenplugin grabscreenplugintoolconfig.kcfgc)
 
 target_sources(ruqola_grabscreenplugin PRIVATE
-    grabscreenplugintool.h grabscreenplugintool.cpp
-    grabscreenplugintoolinterface.h grabscreenplugintoolinterface.cpp
-    grabscreenpluginjob.h grabscreenpluginjob.cpp
-    grabscreenplugintoolutil.h grabscreenplugintoolutil.cpp
+    grabscreenplugintool.h
+    grabscreenplugintool.cpp
+    grabscreenplugintoolinterface.h
+    grabscreenplugintoolinterface.cpp
+    grabscreenpluginjob.h
+    grabscreenpluginjob.cpp
+    grabscreenplugintoolutil.h
+    grabscreenplugintoolutil.cpp
     grabscreenplugintoolconfigurewidget.h
     grabscreenplugintoolconfigurewidget.cpp
     grabscreenplugintoolconfiguredialog.h
