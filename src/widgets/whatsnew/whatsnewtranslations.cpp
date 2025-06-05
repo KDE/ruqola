@@ -17,6 +17,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Add AI plugin"),
         kli18n("Allow to dnd image."),
         kli18n("Add restore button in administration settings."),
+        kli18n("Allow to activate plugins."),
     };
     return info;
 }
