@@ -48,18 +48,19 @@ private:
         bool mEnableFromUserSettings = false;
     };
     LIBRUQOLAWIDGETS_NO_EXPORT void savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureClicked(QAction *act);
 
     KTreeWidgetSearchLineWidget *mSearchLineEdit = nullptr;
     QTreeWidget *const mTreePluginWidget;
     KMessageWidget *const mMessageWidget;
     bool mInitializeDone = false;
-    void fillTopItems(const QList<PluginUtils::PluginUtilData> &lst,
-                      const QString &topLevelItemName,
-                      const QString &groupName,
-                      const QString &prefixKey,
-                      QList<PluginItem *> &itemsList,
-                      const QString &configureGroupName,
-                      bool checkable = true);
+    LIBRUQOLAWIDGETS_NO_EXPORT void fillTopItems(const QList<PluginUtils::PluginUtilData> &lst,
+                                                 const QString &topLevelItemName,
+                                                 const QString &groupName,
+                                                 const QString &prefixKey,
+                                                 QList<PluginItem *> &itemsList,
+                                                 const QString &configureGroupName,
+                                                 bool checkable = true);
     QList<PluginItem *> mPluginToolsItems;
     QList<PluginItem *> mPluginTextItems;
 };

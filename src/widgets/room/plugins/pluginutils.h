@@ -14,6 +14,7 @@ struct PluginUtilData {
     QString mName;
     QString mDescription;
     bool mEnableByDefault = false;
+    bool mHasConfigureDialog = false;
 };
 
 [[nodiscard]] PluginUtils::PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);

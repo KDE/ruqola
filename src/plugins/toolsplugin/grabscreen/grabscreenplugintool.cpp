@@ -59,6 +59,11 @@ bool GrabScreenPluginTool::hasMenu() const
 {
     return false;
 }
+
+bool GrabScreenPluginTool::hasConfigureDialog() const
+{
+    return true;
+}
 #include "grabscreenplugintool.moc"
 
 #include "moc_grabscreenplugintool.cpp"

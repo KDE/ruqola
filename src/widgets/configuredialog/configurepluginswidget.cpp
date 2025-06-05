@@ -8,6 +8,7 @@
 #include "configurepluginstreewidgetdelegate.h"
 #include "room/textpluginmanager.h"
 #include "room/toolspluginmanager.h"
+#include "ruqolawidgets_debug.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageWidget>
@@ -15,6 +16,7 @@
 #include <KTreeWidgetSearchLineWidget>
 #include <QHeaderView>
 #include <QLineEdit>
+#include <QToolButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
@@ -41,6 +43,7 @@ ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     mTreePluginWidget->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
     mTreePluginWidget->header()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
     mTreePluginWidget->header()->setStretchLastSection(false);
+    mTreePluginWidget->setColumnCount(2);
 
     mSearchLineEdit = new KTreeWidgetSearchLineWidget(this, mTreePluginWidget);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
@@ -149,15 +152,14 @@ void ConfigurePluginsWidget::fillTopItems(const QList<PluginUtils::PluginUtilDat
             subItem->setText(0, data.mName);
             subItem->mIdentifier = data.mIdentifier;
             subItem->mEnableByDefault = data.mEnableByDefault;
-            // subItem->mHasConfigureSupport = data.mHasConfigureDialog;
+            subItem->mHasConfigureSupport = data.mHasConfigureDialog;
             if (checkable) {
                 const bool isPluginActivated = PluginUtils::isPluginActivated(pair.first, pair.second, data.mEnableByDefault, data.mIdentifier);
                 subItem->mEnableFromUserSettings = isPluginActivated;
                 subItem->setCheckState(0, isPluginActivated ? Qt::Checked : Qt::Unchecked);
             }
-            /*
             if (data.mHasConfigureDialog) {
-                auto but = new QToolButton(mListWidget);
+                auto but = new QToolButton(mTreePluginWidget);
                 auto act = new QAction(but);
                 const QStringList actData{configureGroupName, data.mIdentifier};
                 act->setData(actData);
@@ -168,11 +170,30 @@ void ConfigurePluginsWidget::fillTopItems(const QList<PluginUtils::PluginUtilDat
                 but->setToolTip(i18nc("@info:tooltip", "Configure"));
                 but->setAutoFillBackground(true);
                 but->setEnabled(subItem->mHasConfigureSupport);
-                mListWidget->setItemWidget(subItem, 1, but);
-                connect(but, &QToolButton::triggered, this, &ConfigurePluginsListWidget::slotConfigureClicked);
+                mTreePluginWidget->setItemWidget(subItem, 1, but);
+                connect(but, &QToolButton::triggered, this, &ConfigurePluginsWidget::slotConfigureClicked);
             }
-            */
             itemsList.append(subItem);
+        }
+    }
+}
+
+void ConfigurePluginsWidget::slotConfigureClicked(QAction *act)
+{
+    if (act) {
+        const QStringList lst = act->data().toStringList();
+        if (lst.count() == 2) {
+            const QString groupName = lst.at(0);
+            const QString identifier = lst.at(1);
+            if (!groupName.isEmpty() && !identifier.isEmpty()) {
+                if (groupName == toolsPluginGroupName()) {
+                    // TODO
+                } else if (groupName == textPluginGroupName()) {
+                    // TODO
+                } else {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "plugin group name not suppported " << groupName;
+                }
+            }
         }
     }
 }

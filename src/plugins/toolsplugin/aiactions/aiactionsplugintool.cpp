@@ -60,5 +60,10 @@ bool AiActionsPluginTool::hasMenu() const
     return true;
 }
 
+bool AiActionsPluginTool::hasConfigureDialog() const
+{
+    return false;
+}
+
 #include "aiactionsplugintool.moc"
 #include "moc_aiactionsplugintool.cpp"

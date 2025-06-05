@@ -23,4 +23,5 @@ public:
     [[nodiscard]] PluginToolInterface *createInterface(QObject *parent) override;
     [[nodiscard]] int order() const override;
     [[nodiscard]] bool hasMenu() const override;
+    [[nodiscard]] bool hasConfigureDialog() const override;
 };
