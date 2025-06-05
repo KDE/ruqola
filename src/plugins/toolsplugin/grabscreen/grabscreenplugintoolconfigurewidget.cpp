@@ -12,6 +12,7 @@ GrabScreenPluginToolConfigureWidget::GrabScreenPluginToolConfigureWidget(QWidget
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
     // TODO add more
 }
 
