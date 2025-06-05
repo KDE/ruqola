@@ -12,6 +12,7 @@
 #include <QWidget>
 class KTreeWidgetSearchLineWidget;
 class QTreeWidget;
+class KMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public QWidget
 {
     Q_OBJECT
@@ -50,6 +51,7 @@ private:
 
     KTreeWidgetSearchLineWidget *mSearchLineEdit = nullptr;
     QTreeWidget *const mTreePluginWidget;
+    KMessageWidget *const mMessageWidget;
     bool mInitializeDone = false;
     void fillTopItems(const QList<PluginUtils::PluginUtilData> &lst,
                       const QString &topLevelItemName,

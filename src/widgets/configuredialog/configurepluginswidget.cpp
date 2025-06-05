@@ -10,6 +10,7 @@
 #include "room/toolspluginmanager.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
+#include <KMessageWidget>
 #include <KTreeWidgetSearchLine>
 #include <KTreeWidgetSearchLineWidget>
 #include <QHeaderView>
@@ -19,11 +20,17 @@
 ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     : QWidget{parent}
     , mTreePluginWidget(new QTreeWidget(this))
+    , mMessageWidget(new KMessageWidget(i18n("Restart is necessary for applying the changes."), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
+
+    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mMessageWidget->setCloseButtonVisible(false);
+    mMessageWidget->setVisible(false);
+    mMessageWidget->setPosition(KMessageWidget::Header);
 
     mTreePluginWidget->setItemDelegate(new ConfigurePluginsTreeWidgetDelegate(this));
     mTreePluginWidget->setObjectName(QStringLiteral("mTreePluginWidget"));
@@ -42,6 +49,7 @@ ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
 
     connect(mTreePluginWidget, &QTreeWidget::itemChanged, this, &ConfigurePluginsWidget::slotItemChanged);
 
+    mainLayout->addWidget(mMessageWidget);
     mainLayout->addWidget(mSearchLineEdit);
     mainLayout->addWidget(mTreePluginWidget);
 }
@@ -53,10 +61,11 @@ void ConfigurePluginsWidget::slotItemChanged(QTreeWidgetItem *item, int column)
     Q_UNUSED(item)
     if (mInitializeDone) {
         if (column == 0) {
-            Q_EMIT changed();
+            mMessageWidget->animatedShow();
         }
     }
 }
+
 void ConfigurePluginsWidget::save()
 {
     savePlugins(ToolsPluginManager::self()->configGroupName(), ToolsPluginManager::self()->configPrefixSettingKey(), mPluginToolsItems);
