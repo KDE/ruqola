@@ -3,6 +3,8 @@
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],
+        "Description": "This plugin allows you autogenerating answer.",
+        "Name": "Autogenerating Answer",	
 	"EnabledByDefault": true,
         "Version": "1.0"
     }

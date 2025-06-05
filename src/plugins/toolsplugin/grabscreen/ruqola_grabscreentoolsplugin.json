@@ -3,6 +3,8 @@
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],
+	"Description": "This plugin allows you creating screenshot.",
+	"Name": "Grab Screen",
 	"EnabledByDefault": true,
         "Version": "1.0"
     }

@@ -3,6 +3,8 @@
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
+        "Description": "This plugin allows you asking on web.",
+        "Name": "Web Shortcut",
 	"EnabledByDefault": true,
         "Version": "1.0"
     }

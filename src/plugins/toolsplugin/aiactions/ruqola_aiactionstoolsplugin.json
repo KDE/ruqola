@@ -3,6 +3,8 @@
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],
+        "Description": "This plugin allows you asking to AI engine some questions.",
+        "Name": "AI Actions",	
 	"EnabledByDefault": true,
         "Version": "1.0"
     }
