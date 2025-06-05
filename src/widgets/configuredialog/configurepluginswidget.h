@@ -15,6 +15,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum PluginItemData {
+        Description = Qt::UserRole + 1,
+    };
     explicit ConfigurePluginsWidget(QWidget *parent = nullptr);
     ~ConfigurePluginsWidget() override;
 

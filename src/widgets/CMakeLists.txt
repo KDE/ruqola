@@ -311,6 +311,8 @@ target_sources(libruqolawidgets PRIVATE
     configuredialog/removeaccountwidget.h
     configuredialog/configurepluginswidget.h
     configuredialog/configurepluginswidget.cpp
+    configuredialog/configurepluginstreewidgetdelegate.cpp
+    configuredialog/configurepluginstreewidgetdelegate.h
 
     delegateutils/textuibase.h
     delegateutils/textuibase.cpp
