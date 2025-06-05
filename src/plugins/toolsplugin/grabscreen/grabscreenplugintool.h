@@ -24,4 +24,5 @@ public:
     [[nodiscard]] int order() const override;
     [[nodiscard]] bool hasMenu() const override;
     [[nodiscard]] bool hasConfigureDialog() const override;
+    void showConfigureDialog(QWidget *parent = nullptr) const override;
 };

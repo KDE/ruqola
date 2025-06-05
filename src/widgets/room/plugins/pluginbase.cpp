@@ -31,3 +31,5 @@ void PluginBase::showConfigureDialog(QWidget *parent) const
 {
     Q_UNUSED(parent);
 }
+
+#include "moc_pluginbase.cpp"
