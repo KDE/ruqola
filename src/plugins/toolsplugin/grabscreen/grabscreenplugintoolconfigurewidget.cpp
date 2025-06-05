@@ -5,27 +5,35 @@
 */
 
 #include "grabscreenplugintoolconfigurewidget.h"
-#include <QVBoxLayout>
+#include "grabscreenplugintoolconfig.h"
+#include <KLocalizedString>
+#include <QFormLayout>
+#include <QSpinBox>
 
 GrabScreenPluginToolConfigureWidget::GrabScreenPluginToolConfigureWidget(QWidget *parent)
     : PluginToolConfigureWidget(parent)
+    , mDelay(new QSpinBox(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mDelay->setObjectName(QStringLiteral("mDelay"));
+    mainLayout->addRow(i18n("Delay:"), mDelay);
     // TODO add more
 }
 
 GrabScreenPluginToolConfigureWidget::~GrabScreenPluginToolConfigureWidget() = default;
 
-void GrabScreenPluginToolConfigureWidget::save()
+void GrabScreenPluginToolConfigureWidget::saveSettings()
 {
-    // TODO
+    GrabScreenPluginToolConfig::self()->setDelay(mDelay->value() * 1000);
+    GrabScreenPluginToolConfig::self()->save();
 }
 
-void GrabScreenPluginToolConfigureWidget::read()
+void GrabScreenPluginToolConfigureWidget::loadSettings()
 {
-    // TODO
+    mDelay->setValue(GrabScreenPluginToolConfig::self()->delay() / 1000); // =>second
 }
 
 #include "moc_grabscreenplugintoolconfigurewidget.cpp"

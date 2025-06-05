@@ -15,5 +15,6 @@ public:
     ~GrabScreenPluginToolConfigureDialog() override;
 
 private:
+    void slotAccepted();
     GrabScreenPluginToolConfigureWidget *const mGrabScreenPluginToolConfigureWidget;
 };

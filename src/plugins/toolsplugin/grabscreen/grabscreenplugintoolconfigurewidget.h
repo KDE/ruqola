@@ -6,7 +6,7 @@
 
 #pragma once
 #include "room/plugins/plugintoolconfigurewidget.h"
-
+class QSpinBox;
 class GrabScreenPluginToolConfigureWidget : public PluginToolConfigureWidget
 {
     Q_OBJECT
@@ -14,6 +14,9 @@ public:
     explicit GrabScreenPluginToolConfigureWidget(QWidget *parent = nullptr);
     ~GrabScreenPluginToolConfigureWidget() override;
 
-    void save() override;
-    void read() override;
+    void saveSettings() override;
+    void loadSettings() override;
+
+private:
+    QSpinBox *const mDelay;
 };
