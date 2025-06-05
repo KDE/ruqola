@@ -12,6 +12,7 @@ namespace PluginUtils
 struct PluginUtilData {
     QString mIdentifier;
     QString mName;
+    QString mDescription;
     bool mEnableByDefault = false;
 };
 

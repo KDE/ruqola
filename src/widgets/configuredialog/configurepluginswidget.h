@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "room/plugins/pluginutils.h"
 #include <QTreeWidgetItem>
 #include <QWidget>
 class KTreeWidgetSearchLineWidget;
@@ -24,7 +25,13 @@ public:
     void save();
     void load();
 
+Q_SIGNALS:
+    void changed();
+
 private:
+    void initializeDone();
+    void slotItemChanged(QTreeWidgetItem *item, int column);
+
     class PluginItem : public QTreeWidgetItem
     {
     public:
@@ -38,7 +45,16 @@ private:
         bool mHasConfigureSupport = false;
         bool mEnableFromUserSettings = false;
     };
+    void savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
 
     KTreeWidgetSearchLineWidget *mSearchLineEdit = nullptr;
     QTreeWidget *const mTreePluginWidget;
+    bool mInitializeDone = false;
+    void fillTopItems(const QList<PluginUtils::PluginUtilData> &lst,
+                      const QString &topLevelItemName,
+                      const QString &groupName,
+                      const QString &prefixKey,
+                      QList<PluginItem *> &itemsList,
+                      const QString &configureGroupName,
+                      bool checkable);
 };

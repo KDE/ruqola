@@ -13,6 +13,7 @@ PluginUtils::PluginUtilData PluginUtils::createPluginMetaData(const KPluginMetaD
     const PluginUtils::PluginUtilData pluginData{
         .mIdentifier = metaData.pluginId(),
         .mName = metaData.name(),
+        .mDescription = metaData.description(),
         .mEnableByDefault = metaData.isEnabledByDefault(),
     };
     return pluginData;
