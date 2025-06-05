@@ -5,6 +5,7 @@
 */
 
 #include "grabscreenplugintool.h"
+#include "grabscreenplugintoolconfiguredialog.h"
 #include "grabscreenplugintoolinterface.h"
 #include "utils.h"
 #include <KLocalizedString>
@@ -63,6 +64,13 @@ bool GrabScreenPluginTool::hasMenu() const
 bool GrabScreenPluginTool::hasConfigureDialog() const
 {
     return true;
+}
+
+void GrabScreenPluginTool::showConfigureDialog(QWidget *parent) const
+{
+    GrabScreenPluginToolConfigureDialog d(parent);
+    d.exec();
+    // TODO
 }
 #include "grabscreenplugintool.moc"
 
