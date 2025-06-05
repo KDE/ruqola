@@ -29,8 +29,9 @@ Q_SIGNALS:
     void changed();
 
 private:
-    void initializeDone();
-    void slotItemChanged(QTreeWidgetItem *item, int column);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
+    LIBRUQOLAWIDGETS_NO_EXPORT void initializeDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotItemChanged(QTreeWidgetItem *item, int column);
 
     class PluginItem : public QTreeWidgetItem
     {
@@ -45,7 +46,7 @@ private:
         bool mHasConfigureSupport = false;
         bool mEnableFromUserSettings = false;
     };
-    void savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
+    LIBRUQOLAWIDGETS_NO_EXPORT void savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
 
     KTreeWidgetSearchLineWidget *mSearchLineEdit = nullptr;
     QTreeWidget *const mTreePluginWidget;
@@ -56,5 +57,7 @@ private:
                       const QString &prefixKey,
                       QList<PluginItem *> &itemsList,
                       const QString &configureGroupName,
-                      bool checkable);
+                      bool checkable = true);
+    QList<PluginItem *> mPluginToolsItems;
+    QList<PluginItem *> mPluginTextItems;
 };

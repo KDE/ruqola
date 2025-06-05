@@ -39,6 +39,8 @@ public:
     [[nodiscard]] QString configGroupName() const;
     [[nodiscard]] QString configPrefixSettingKey() const;
 
+    [[nodiscard]] QList<PluginUtils::PluginUtilData> pluginDataList() const;
+
 private:
     explicit ToolsPluginManager(QObject *parent = nullptr);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();

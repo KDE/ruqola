@@ -78,6 +78,11 @@ void ToolsPluginManager::loadPlugin(ToolsPluginManagerInfo *item)
     }
 }
 
+QList<PluginUtils::PluginUtilData> ToolsPluginManager::pluginDataList() const
+{
+    return mPluginDataList;
+}
+
 QList<PluginTool *> ToolsPluginManager::pluginsList() const
 {
     QList<PluginTool *> lst;

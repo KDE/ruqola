@@ -79,6 +79,11 @@ void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
     }
 }
 
+QList<PluginUtils::PluginUtilData> TextPluginManager::pluginDataList() const
+{
+    return mPluginDataList;
+}
+
 QList<PluginText *> TextPluginManager::pluginsList() const
 {
     QList<PluginText *> lst;

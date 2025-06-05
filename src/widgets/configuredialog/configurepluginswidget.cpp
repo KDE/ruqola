@@ -6,8 +6,10 @@
 
 #include "configurepluginswidget.h"
 #include "configurepluginstreewidgetdelegate.h"
-
+#include "room/textpluginmanager.h"
+#include "room/toolspluginmanager.h"
 #include <KLineEditEventHandler>
+#include <KLocalizedString>
 #include <KTreeWidgetSearchLine>
 #include <KTreeWidgetSearchLineWidget>
 #include <QHeaderView>
@@ -57,13 +59,44 @@ void ConfigurePluginsWidget::slotItemChanged(QTreeWidgetItem *item, int column)
 }
 void ConfigurePluginsWidget::save()
 {
-    // TODO
+    savePlugins(ToolsPluginManager::self()->configGroupName(), ToolsPluginManager::self()->configPrefixSettingKey(), mPluginToolsItems);
+    savePlugins(TextPluginManager::self()->configGroupName(), TextPluginManager::self()->configPrefixSettingKey(), mPluginTextItems);
 }
 
 void ConfigurePluginsWidget::load()
 {
+    initialize();
     initializeDone();
-    // TODO
+}
+
+QString toolsPluginGroupName()
+{
+    return QStringLiteral("pluginToolsPluginGroupName");
+}
+
+QString textPluginGroupName()
+{
+    return QStringLiteral("pluginTextPluginGroupName");
+}
+
+void ConfigurePluginsWidget::initialize()
+{
+    mTreePluginWidget->clear();
+    // Load Tools Plugins
+    fillTopItems(ToolsPluginManager::self()->pluginDataList(),
+                 i18n("Tools Plugins"),
+                 ToolsPluginManager::self()->configGroupName(),
+                 ToolsPluginManager::self()->configPrefixSettingKey(),
+                 mPluginToolsItems,
+                 toolsPluginGroupName());
+
+    fillTopItems(TextPluginManager::self()->pluginDataList(),
+                 i18n("Text Plugins"),
+                 TextPluginManager::self()->configGroupName(),
+                 TextPluginManager::self()->configPrefixSettingKey(),
+                 mPluginTextItems,
+                 textPluginGroupName());
+    mTreePluginWidget->expandAll();
 }
 
 void ConfigurePluginsWidget::initializeDone()
