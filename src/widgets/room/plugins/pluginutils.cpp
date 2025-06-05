@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "pluginutils.h"
-
+#include "ruqolawidgets_debug.h"
 #include <KConfigGroup>
 #include <KSharedConfig>
 
@@ -16,6 +16,9 @@ PluginUtils::PluginUtilData PluginUtils::createPluginMetaData(const KPluginMetaD
         .mDescription = metaData.description(),
         .mEnableByDefault = metaData.isEnabledByDefault(),
     };
+    if (pluginData.mName.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Plugin name not define. It's a bug:" << metaData;
+    }
     return pluginData;
 }
 
