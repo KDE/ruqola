@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
-"PO-Revision-Date: 2025-06-03 14:49+0200\n"
+"POT-Creation-Date: 2025-06-05 00:42+0000\n"
+"PO-Revision-Date: 2025-06-04 23:34+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -5480,7 +5480,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Gebruikerslimiet voor toevoegen van alle gebruikers aan kanaal"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -7648,59 +7648,65 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Integratie van activiteiten van Plasma inschakelen"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:62
+#: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Ruqola configureren"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Algemeen"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:74
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:77
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Lettertype"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:83
+#: widgets/configuredialog/configuresettingsdialog.cpp:85
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Autocorrectie"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:89
+#: widgets/configuredialog/configuresettingsdialog.cpp:91
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Spellingcontrole"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:95
+#: widgets/configuredialog/configuresettingsdialog.cpp:97
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Vertaling"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:102
+#: widgets/configuredialog/configuresettingsdialog.cpp:104
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Terugkoppeling van gebruiker"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:109
+#: widgets/configuredialog/configuresettingsdialog.cpp:111
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Toegankelijkheid"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:117
+#, kde-format
+msgctxt "@title Preferences page name"
+msgid "Plugins"
+msgstr ""
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -10652,7 +10658,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informatie over kanaal"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:300
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informatie over kanaal"
@@ -10690,7 +10696,7 @@ msgstr "Berichten doorzoeken…"
 msgid "Search Messages…"
 msgstr "Berichten doorzoeken…"
 
-#: widgets/room/roomheaderwidget.cpp:298
+#: widgets/room/roomheaderwidget.cpp:300
 #, kde-format
 msgid "Team's Information"
 msgstr "Informatie over team"

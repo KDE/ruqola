@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
-"PO-Revision-Date: 2025-06-03 20:35+0300\n"
+"POT-Creation-Date: 2025-06-05 00:42+0000\n"
+"PO-Revision-Date: 2025-06-04 22:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -5508,6 +5508,7 @@ msgstr ""
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
 msgstr ""
+"Обмеження кількості користувачів при додаванні усіх користувачів до каналу"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -7681,59 +7682,65 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Увімкнути інтеграцію із просторами дій Плазми"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:62
+#: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Налаштування Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Загальне"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:74
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Облікові записи"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:77
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Шрифт"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:83
+#: widgets/configuredialog/configuresettingsdialog.cpp:85
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Автовиправлення"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:89
+#: widgets/configuredialog/configuresettingsdialog.cpp:91
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Перевірка правопису"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:95
+#: widgets/configuredialog/configuresettingsdialog.cpp:97
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Переклад"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:102
+#: widgets/configuredialog/configuresettingsdialog.cpp:104
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Відгуки користувача"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:109
+#: widgets/configuredialog/configuresettingsdialog.cpp:111
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Доступність"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:117
+#, kde-format
+msgctxt "@title Preferences page name"
+msgid "Plugins"
+msgstr ""
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -10720,7 +10727,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:300
 #, kde-format
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
@@ -10758,7 +10765,7 @@ msgstr "Шукати повідомлення…"
 msgid "Search Messages…"
 msgstr "Шукати повідомлення…"
 
-#: widgets/room/roomheaderwidget.cpp:298
+#: widgets/room/roomheaderwidget.cpp:300
 #, kde-format
 msgid "Team's Information"
 msgstr "Дані щодо команди"

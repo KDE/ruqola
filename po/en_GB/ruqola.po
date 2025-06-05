@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
+"POT-Creation-Date: 2025-06-05 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7623,59 +7623,65 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Enable Plasma Activities integration"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:62
+#: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configure Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "General"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:74
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:77
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Font"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:83
+#: widgets/configuredialog/configuresettingsdialog.cpp:85
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Auto-Correction"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:89
+#: widgets/configuredialog/configuresettingsdialog.cpp:91
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Spell Checking"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:95
+#: widgets/configuredialog/configuresettingsdialog.cpp:97
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Translation"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:102
+#: widgets/configuredialog/configuresettingsdialog.cpp:104
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "User Feedback"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:109
+#: widgets/configuredialog/configuresettingsdialog.cpp:111
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Accessibility"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:117
+#, kde-format
+msgctxt "@title Preferences page name"
+msgid "Plugins"
+msgstr ""
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -10626,7 +10632,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Channel's Information"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:300
 #, kde-format
 msgid "Channel's Information"
 msgstr "Channel's Information"
@@ -10664,7 +10670,7 @@ msgstr "Search Messages…"
 msgid "Search Messages…"
 msgstr "Search Messages…"
 
-#: widgets/room/roomheaderwidget.cpp:298
+#: widgets/room/roomheaderwidget.cpp:300
 #, kde-format
 msgid "Team's Information"
 msgstr "Team's Information"

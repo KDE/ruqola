@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:42+0000\n"
-"PO-Revision-Date: 2025-05-29 09:08+0200\n"
+"POT-Creation-Date: 2025-06-05 00:42+0000\n"
+"PO-Revision-Date: 2025-06-04 09:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -5487,7 +5487,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Límit d'usuaris per a afegir tots els usuaris al canal"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6800,12 +6800,10 @@ msgid "Disable Workspace Sync"
 msgstr "Desactiva la sincronització de l'espai de treball"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Desactiva el monitoratge de les sessions"
+msgstr "Desactiva la menció dels equips"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6885,6 +6883,9 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"Esta opció de configuració desactiva la característica de menció d'equips. "
+"L'usuari no podrà mencionar un equip pel seu nom en un missatge i fer la "
+"notificació als seus membres."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -7648,59 +7649,65 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Activa la integració de les activitats de Plasma"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:62
+#: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configura Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "General"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:74
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Comptes"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:77
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Lletra"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:83
+#: widgets/configuredialog/configuresettingsdialog.cpp:85
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Correcció automàtica"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:89
+#: widgets/configuredialog/configuresettingsdialog.cpp:91
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Verificació ortogràfica"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:95
+#: widgets/configuredialog/configuresettingsdialog.cpp:97
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Traducció"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:102
+#: widgets/configuredialog/configuresettingsdialog.cpp:104
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Comentaris de l'usuari"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:109
+#: widgets/configuredialog/configuresettingsdialog.cpp:111
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Accessibilitat"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:117
+#, kde-format
+msgctxt "@title Preferences page name"
+msgid "Plugins"
+msgstr ""
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -10658,7 +10665,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:298
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:300
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informació del canal"
@@ -10696,7 +10703,7 @@ msgstr "Busca missatges…"
 msgid "Search Messages…"
 msgstr "Busca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:298
+#: widgets/room/roomheaderwidget.cpp:300
 #, kde-format
 msgid "Team's Information"
 msgstr "Informació de l'equip"
