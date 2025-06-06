@@ -813,12 +813,12 @@ void AccountManager::loadAccount()
     mRocketChatAccountModel->setAccounts(lstAccounts);
 
     QSettings settings;
-    const QString previousAccount = settings.value("currentAccount"_L1, QString()).toString();
-    if (previousAccount.isEmpty()) {
+    const QString currentAccount = settings.value("currentAccount"_L1, QString()).toString();
+    if (currentAccount.isEmpty()) {
         // Use first one
         mCurrentAccount = mRocketChatAccountModel->account(0);
     } else {
-        selectAccount(previousAccount);
+        selectAccount(currentAccount);
         if (!mCurrentAccount) {
             // Use first one
             mCurrentAccount = mRocketChatAccountModel->account(0);
