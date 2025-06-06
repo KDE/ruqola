@@ -71,7 +71,17 @@ RocketChatAccount *RocketChatAccountModel::account(const QString &accountName) c
 
 bool RocketChatAccountModel::isEmpty() const
 {
-    return mRocketChatAccount.isEmpty();
+    if (mRocketChatAccount.isEmpty()) {
+        return true;
+    }
+    for (int i = 0, total = mRocketChatAccount.count(); i < total; ++i) {
+        RocketChatAccount *model = mRocketChatAccount.at(i);
+        if (model->accountEnabled()) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int RocketChatAccountModel::accountNumber() const
