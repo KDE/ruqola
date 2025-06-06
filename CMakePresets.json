@@ -8,7 +8,7 @@
             "binaryDir": "${sourceDir}/build-${presetName}",
             "installDir": "$env{KF6}",
             "hidden": true
-        },	
+        },
         {
             "name": "dev",
             "displayName": "Build against",
@@ -40,7 +40,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "BUILD_WITH_QT6": "ON",
-		"BUILD_TESTING": "OFF"
+                "BUILD_TESTING": "OFF"
             },
             "inherits": [
                 "base"
@@ -51,7 +51,7 @@
             "displayName": "Build as debug + using mold linker",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-		"BUILD_WITH_QT6": "ON",
+                "BUILD_WITH_QT6": "ON",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
                 "CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold"
             },
@@ -59,28 +59,28 @@
                 "base"
             ]
         },
-        {   
+        {
             "name": "asan",
             "displayName": "Build with Asan support .",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "ECM_ENABLE_SANITIZERS" : "'address;undefined'",
-		"CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold",
-		"BUILD_WITH_QT6": "ON"
-            },  
+                "ECM_ENABLE_SANITIZERS": "'address;undefined'",
+                "CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold",
+                "BUILD_WITH_QT6": "ON"
+            },
             "inherits": [
                 "base"
             ]
-        }, 
+        },
         {
             "name": "dev-clang-asan",
             "displayName": "dev-clang-asan",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-		"ECM_ENABLE_SANITIZERS" : "'address;undefined'",
-		"CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold",
-                "BUILD_WITH_QT6": "ON" 
+                "ECM_ENABLE_SANITIZERS": "'address;undefined'",
+                "CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold",
+                "BUILD_WITH_QT6": "ON"
             },
             "environment": {
                 "CXX": "clang++",
@@ -90,7 +90,7 @@
                 "base"
             ]
         },
-        {       
+        {
             "name": "dev-clang",
             "displayName": "dev-clang",
             "cacheVariables": {
@@ -102,11 +102,11 @@
             "environment": {
                 "CXX": "clang++",
                 "CCACHE_DISABLE": "ON"
-            },  
+            },
             "inherits": [
                 "base"
-            ]   
-        }, 
+            ]
+        },
         {
             "name": "ftime-trace",
             "displayName": "ftime-trace",
@@ -130,12 +130,12 @@
             "displayName": "clazy",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-		"BUILD_WITH_QT6": "ON"
+                "BUILD_WITH_QT6": "ON"
             },
             "environment": {
                 "CXX": "clazy",
                 "CCACHE_DISABLE": "ON"
-            },  
+            },
             "inherits": [
                 "base"
             ]
@@ -154,7 +154,7 @@
             "name": "dev-clang",
             "configurePreset": "dev-clang"
         },
-        {   
+        {
             "name": "dev-mold",
             "configurePreset": "dev-mold"
         },
@@ -162,11 +162,11 @@
             "name": "dev",
             "configurePreset": "dev"
         },
-        {       
+        {
             "name": "release",
             "configurePreset": "release"
         },
-        {   
+        {
             "name": "asan",
             "configurePreset": "asan"
         },
@@ -178,9 +178,9 @@
             "name": "clazy",
             "configurePreset": "clazy",
             "environment": {
-                "CLAZY_CHECKS" : "level0,level1,detaching-member,ifndef-define-typo,isempty-vs-count,qrequiredresult-candidates,reserve-candidates,signal-with-return-value,unneeded-cast,function-args-by-ref,function-args-by-value,returning-void-expression,no-ctor-missing-parent-argument,isempty-vs-count,qhash-with-char-pointer-key,raw-environment-function,qproperty-type-mismatch,old-style-connect,qstring-allocations,container-inside-loop,heap-allocated-small-trivial-type,inefficient-qlist,qstring-varargs,level2,detaching-member,heap-allocated-small-trivial-type,isempty-vs-count,qstring-varargs,qvariant-template-instantiation,raw-environment-function,reserve-candidates,signal-with-return-value,thread-with-slots,no-ctor-missing-parent-argument,no-missing-typeinfo,qt6-header-fixes,qt6-qlatin1stringchar-to-u,sanitize-inline-keyword,signal-with-return-value",
-                "CCACHE_DISABLE" : "ON"
+                "CLAZY_CHECKS": "level0,level1,detaching-member,ifndef-define-typo,isempty-vs-count,qrequiredresult-candidates,reserve-candidates,signal-with-return-value,unneeded-cast,function-args-by-ref,function-args-by-value,returning-void-expression,no-ctor-missing-parent-argument,isempty-vs-count,qhash-with-char-pointer-key,raw-environment-function,qproperty-type-mismatch,old-style-connect,qstring-allocations,container-inside-loop,heap-allocated-small-trivial-type,inefficient-qlist,qstring-varargs,level2,detaching-member,heap-allocated-small-trivial-type,isempty-vs-count,qstring-varargs,qvariant-template-instantiation,raw-environment-function,reserve-candidates,signal-with-return-value,thread-with-slots,no-ctor-missing-parent-argument,no-missing-typeinfo,qt6-header-fixes,qt6-qlatin1stringchar-to-u,sanitize-inline-keyword,signal-with-return-value",
+                "CCACHE_DISABLE": "ON"
             }
-        }	
+        }
     ]
 }
