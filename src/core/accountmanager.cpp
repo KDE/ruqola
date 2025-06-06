@@ -815,13 +815,19 @@ void AccountManager::loadAccount()
     QSettings settings;
     const QString currentAccount = settings.value("currentAccount"_L1, QString()).toString();
     if (currentAccount.isEmpty()) {
-        // Use first one
-        mCurrentAccount = mRocketChatAccountModel->account(0);
+        auto account = mRocketChatAccountModel->account(0);
+        if (account && account->accountEnabled()) {
+            // Use first one
+            mCurrentAccount = account;
+        }
     } else {
         selectAccount(currentAccount);
         if (!mCurrentAccount) {
             // Use first one
-            mCurrentAccount = mRocketChatAccountModel->account(0);
+            auto account = mRocketChatAccountModel->account(0);
+            if (account && account->accountEnabled()) {
+                mCurrentAccount = account;
+            }
         }
     }
     mRocketChatAccountProxyModel->setAccountOrder(RuqolaGlobalConfig::self()->accountOrder());
@@ -949,7 +955,7 @@ void AccountManager::addAccount(RocketChatAccount *account)
 void AccountManager::selectAccount(const QString &accountName)
 {
     RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
-    if (account) {
+    if (account && account->accountEnabled()) {
         mCurrentAccount = account;
     } else {
         mCurrentAccount = nullptr;
