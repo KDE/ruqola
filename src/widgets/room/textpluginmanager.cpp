@@ -75,7 +75,7 @@ void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
     if (auto plugin = KPluginFactory::instantiatePlugin<PluginText>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
         item->plugin = plugin;
         item->plugin->setEnabled(item->isEnabled);
-        item->pluginData.mHasConfigureDialog = false;
+        item->pluginData.mHasConfigureDialog = item->plugin->hasConfigureDialog();
         mPluginDataList.append(item->pluginData);
     }
 }
