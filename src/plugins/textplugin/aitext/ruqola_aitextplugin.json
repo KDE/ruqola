@@ -1,11 +1,11 @@
 {
     "KPlugin": {
+        "Description": "This plugin allows you asking to AI.",
+        "EnabledByDefault": true,
+        "Name": "AI Text",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
-        "Description": "This plugin allows you asking to AI.",
-        "Name": "AI Text",
-	"EnabledByDefault": true,
         "Version": "1.0"
     }
 }

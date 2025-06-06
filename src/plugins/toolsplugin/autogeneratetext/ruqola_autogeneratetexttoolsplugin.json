@@ -1,11 +1,11 @@
 {
     "KPlugin": {
+        "Description": "This plugin allows you autogenerating answer.",
+        "EnabledByDefault": true,
+        "Name": "Autogenerating Answer",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],
-        "Description": "This plugin allows you autogenerating answer.",
-        "Name": "Autogenerating Answer",	
-	"EnabledByDefault": true,
         "Version": "1.0"
     }
 }

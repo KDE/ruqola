@@ -1,11 +1,11 @@
 {
     "KPlugin": {
+        "Description": "This plugin allows you sharing text.",
+        "EnabledByDefault": true,
+        "Name": "Share Text",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
-        "Description": "This plugin allows you sharing text.",
-        "Name": "Share Text",
-	"EnabledByDefault": true,
         "Version": "1.0"
     }
 }
