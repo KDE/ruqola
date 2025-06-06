@@ -7,15 +7,21 @@
 #pragma once
 
 #include "room/plugins/plugintextinterface.h"
+#include "textautogeneratetext_version.h"
 namespace TextAutoGenerateText
 {
 class TextAutoGenerateMenuWidget;
+class TextAutoGenerateMenuTextManager;
 }
 class AiTextInterface : public PluginTextInterface
 {
     Q_OBJECT
 public:
+#if TEXTAUTOGENERATETEXT_VERSION >= QT_VERSION_CHECK(1, 6, 1)
+    explicit AiTextInterface(TextAutoGenerateText::TextAutoGenerateMenuTextManager *manager, QObject *parent = nullptr);
+#else
     explicit AiTextInterface(QObject *parent = nullptr);
+#endif
     ~AiTextInterface() override;
 
     void addAction(QMenu *menu) override;

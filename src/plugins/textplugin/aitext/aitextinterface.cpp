@@ -9,11 +9,19 @@
 
 #include <QMenu>
 
+#if TEXTAUTOGENERATETEXT_VERSION >= QT_VERSION_CHECK(1, 6, 1)
+AiTextInterface::AiTextInterface(TextAutoGenerateText::TextAutoGenerateMenuTextManager *manager, QObject *parent)
+    : PluginTextInterface(parent)
+    , mMenuWidget(new TextAutoGenerateText::TextAutoGenerateMenuWidget(manager, this))
+{
+}
+#else
 AiTextInterface::AiTextInterface(QObject *parent)
     : PluginTextInterface(parent)
     , mMenuWidget(new TextAutoGenerateText::TextAutoGenerateMenuWidget(this))
 {
 }
+#endif
 
 AiTextInterface::~AiTextInterface() = default;
 

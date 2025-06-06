@@ -8,7 +8,10 @@
 
 #include "room/plugins/plugintext.h"
 #include <QVariant>
-
+namespace TextAutoGenerateText
+{
+class TextAutoGenerateMenuTextManager;
+}
 class AiTextPlugin : public PluginText
 {
     Q_OBJECT
@@ -18,4 +21,10 @@ public:
 
     [[nodiscard]] PluginTextInterface *createInterface(QObject *parent) override;
     [[nodiscard]] int order() const override;
+
+    [[nodiscard]] bool hasConfigureDialog() const override;
+    void showConfigureDialog(QWidget *parent = nullptr) const override;
+
+private:
+    TextAutoGenerateText::TextAutoGenerateMenuTextManager *mManager = nullptr;
 };
