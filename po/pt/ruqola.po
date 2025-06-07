@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-06 00:43+0000\n"
+"POT-Creation-Date: 2025-06-07 00:42+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -217,13 +217,13 @@ msgstr "Natureza"
 msgid "The following accounts are available:"
 msgstr "Estão disponíveis as seguintes contas:"
 
-#: core/accountmanager.cpp:855
+#: core/accountmanager.cpp:861
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "Código inválido"
 
-#: core/accountmanager.cpp:856
+#: core/accountmanager.cpp:862
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -2144,10 +2144,20 @@ msgctxt "@title:window"
 msgid "Configure Grab Screen"
 msgstr "Configurar a Minha Conta"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:22
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
 msgstr ""
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgctxt "@item %v is a number"
+msgid "%v second"
+msgid_plural "%v seconds"
+msgstr[0] "Um segundo"
+msgstr[1] "%1 segundos"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format

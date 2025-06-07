@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-06 00:43+0000\n"
-"PO-Revision-Date: 2025-06-05 05:33+0200\n"
+"POT-Creation-Date: 2025-06-07 00:42+0000\n"
+"PO-Revision-Date: 2025-06-06 05:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -173,12 +173,12 @@ msgstr "ახალი ფუნქცია"
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
-#: core/accountmanager.cpp:855
+#: core/accountmanager.cpp:861
 #, kde-format
 msgid "Invalid invite token"
 msgstr "არასწორი მოწვევის კოდი"
 
-#: core/accountmanager.cpp:856
+#: core/accountmanager.cpp:862
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "მოწვევის კოდი არასწორია. ანგარიშის შექმნა გაუქმდა."
@@ -2039,17 +2039,25 @@ msgid "This tool allows to create screenshot."
 msgstr "ეს ხელსაწყო ეკრანის ანაბეჭდის შექმნის უფლებას გაძლევთ."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "ჩემი ანგარიშის მორგება"
+msgstr "ეკრანის ჩაჭერის მორგება"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:22
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "დაყოვნება:"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgctxt "@item %v is a number"
+msgid "%v second"
+msgid_plural "%v seconds"
+msgstr[0] "1 წამი"
+msgstr[1] "%1 წამი"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -7618,21 +7626,17 @@ msgstr "Plasma-ის აქტივობების ინტეგრაც
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "ცვლილებების გადასატარებლად გადატვირთვა აუცილებელია."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Tools Plugins"
-msgstr "დამატებები"
+msgstr "ხელსაწყოს დამატებები"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Text Plugins"
-msgstr "დამატებები"
+msgstr "ტექსტის მოდულები"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
@@ -7640,11 +7644,10 @@ msgid "..."
 msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "მორგება..."
+msgstr "მორგება"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -11493,10 +11496,8 @@ msgid "Add restore button in administration settings."
 msgstr "დაემატა აღდგენის ღილაკი ადმინისტრატორის პარამეტრებში."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "როლის ჩაწერის უფლება"
+msgstr "დამატებების გააქტიურების დაშვება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

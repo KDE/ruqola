@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-06 00:43+0000\n"
-"PO-Revision-Date: 2025-06-05 10:38+0200\n"
+"POT-Creation-Date: 2025-06-07 00:42+0000\n"
+"PO-Revision-Date: 2025-06-06 09:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -176,12 +176,12 @@ msgstr "Característica nova"
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:855
+#: core/accountmanager.cpp:861
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Testimoni d'invitació no vàlid"
 
-#: core/accountmanager.cpp:856
+#: core/accountmanager.cpp:862
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -2045,17 +2045,25 @@ msgid "This tool allows to create screenshot."
 msgstr "Esta eina permet crear una captura de pantalla."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Configureu el meu compte"
+msgstr "Configureu la gravació de la pantalla"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:22
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Retard:"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgctxt "@item %v is a number"
+msgid "%v second"
+msgid_plural "%v seconds"
+msgstr[0] "1 segon"
+msgstr[1] "%1 segons"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -7665,34 +7673,28 @@ msgstr "Activa la integració de les activitats de Plasma"
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Cal reiniciar per a aplicar els canvis."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Tools Plugins"
-msgstr "Connectors"
+msgstr "Connectors d'eines"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Text Plugins"
-msgstr "Connectors"
+msgstr "Connectors de text"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Configura Ruqola"
+msgstr "Configura"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -11561,10 +11563,8 @@ msgid "Add restore button in administration settings."
 msgstr "Afig el botó de restauració a la configuració d'administració."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Permetre el rol d'escriptura"
+msgstr "Permet activar els connectors."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

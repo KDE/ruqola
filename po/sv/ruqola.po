@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-06 00:43+0000\n"
-"PO-Revision-Date: 2025-05-31 15:54+0200\n"
+"POT-Creation-Date: 2025-06-07 00:42+0000\n"
+"PO-Revision-Date: 2025-06-06 11:55+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -172,12 +172,12 @@ msgstr "Ny funktion"
 msgid "The following accounts are available:"
 msgstr "Följande konton är tillgängliga:"
 
-#: core/accountmanager.cpp:855
+#: core/accountmanager.cpp:861
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Ogiltig inbjudningssymbol"
 
-#: core/accountmanager.cpp:856
+#: core/accountmanager.cpp:862
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Inbjudningssymbolen är ogiltig. Skapa konto avbröts."
@@ -2036,17 +2036,25 @@ msgid "This tool allows to create screenshot."
 msgstr "Verktyget tillåter att skapa en skärmbild."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Anpassa mitt konto"
+msgstr "Anpassa skärmlagring"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:22
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Fördröjning:"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgctxt "@item %v is a number"
+msgid "%v second"
+msgid_plural "%v seconds"
+msgstr[0] "1 sekund"
+msgstr[1] "%1 sekunder"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -5466,7 +5474,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Användarbegränsning för att lägga till alla användare i en kanal"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6771,12 +6779,10 @@ msgid "Disable Workspace Sync"
 msgstr "Inaktivera synkronisering av arbetsyta"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Inaktivera sessionsövervakning"
+msgstr "Inaktivera omnämnande av lag"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6854,6 +6860,8 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"Inställningen inaktiverar funktionen för att nämna lag. Användare kan inte "
+"nämna ett lag med namn i ett meddelande och få dess medlemmar underrättade."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -7620,30 +7628,28 @@ msgstr "Aktivera integrering med Plasma-aktiviteter"
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Omstart krävs för att ändringarna ska verkställas."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Verktygsinsticksprogram"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "Textinsticksprogram"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "..."
-msgstr "Lägg till..."
+msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Anpassa..."
+msgstr "Anpassa"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -7703,7 +7709,7 @@ msgstr "Handikappstöd"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr ""
+msgstr "Insticksprogram"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -11489,10 +11495,8 @@ msgid "Add restore button in administration settings."
 msgstr "Lägg till återställningsknapp i administratörsinställningar."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Tillåt att skriva roll"
+msgstr "Tillåt att aktivera insticksprogram."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-06 00:43+0000\n"
-"PO-Revision-Date: 2025-06-05 11:58+0300\n"
+"POT-Creation-Date: 2025-06-07 00:42+0000\n"
+"PO-Revision-Date: 2025-06-06 21:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -173,12 +173,12 @@ msgstr "Yeni özellik"
 msgid "The following accounts are available:"
 msgstr "Aşağıdaki hesaplar kullanılabilir:"
 
-#: core/accountmanager.cpp:855
+#: core/accountmanager.cpp:861
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Geçersiz Davet Jetonu"
 
-#: core/accountmanager.cpp:856
+#: core/accountmanager.cpp:862
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Geçersiz davet jetonu. Hesap oluşturma iptal ediliyor."
@@ -2039,17 +2039,25 @@ msgid "This tool allows to create screenshot."
 msgstr "Bu araç, bir ekran görüntüsü almaya olanak tanır."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Hesabımı Yapılandır"
+msgstr "Yakalama Ekranını Yapılandır"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:22
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Gecikme:"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgctxt "@item %v is a number"
+msgid "%v second"
+msgid_plural "%v seconds"
+msgstr[0] "1 saniye"
+msgstr[1] "%1 saniye"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -7605,34 +7613,28 @@ msgstr "Plasma Etkinlikler tümleştirmesini etkinleştir"
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Değişikliklerin uygulanması için yeniden başlatma gereklidir."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Tools Plugins"
-msgstr "Eklentiler"
+msgstr "Araç Eklentileri"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Text Plugins"
-msgstr "Eklentiler"
+msgstr "Metin Eklentileri"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Configure…"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Yapılandır…"
+msgstr "Yapılandır"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -11491,10 +11493,8 @@ msgid "Add restore button in administration settings."
 msgstr "Yönetim ayarlarına geri yükle düğmesi ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Rolü yazmaya izin ver"
+msgstr "Eklentileri etkinleştirmeye izin verin."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

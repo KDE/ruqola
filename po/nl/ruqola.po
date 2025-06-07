@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-06 00:43+0000\n"
-"PO-Revision-Date: 2025-06-05 12:25+0200\n"
+"POT-Creation-Date: 2025-06-07 00:42+0000\n"
+"PO-Revision-Date: 2025-06-06 12:43+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -172,12 +172,12 @@ msgstr "Nieuwe mogelijkheid"
 msgid "The following accounts are available:"
 msgstr "De volgende accounts zijn beschikbaar:"
 
-#: core/accountmanager.cpp:855
+#: core/accountmanager.cpp:861
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Ongeldig uitnodigingstoken"
 
-#: core/accountmanager.cpp:856
+#: core/accountmanager.cpp:862
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Uitnodigingstoken is ongeldig. Aanmaken account geannuleerd."
@@ -2042,17 +2042,25 @@ msgid "This tool allows to create screenshot."
 msgstr "Dit hulpmiddel biedt u het maken van een schermafdruk."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Mijn account configureren"
+msgstr "Scherm pakken configureren"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:22
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Vertraging:"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgctxt "@item %v is a number"
+msgid "%v second"
+msgid_plural "%v seconds"
+msgstr[0] "1 seconde"
+msgstr[1] "%1 seconden"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -7664,21 +7672,17 @@ msgstr "Integratie van activiteiten van Plasma inschakelen"
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Opnieuw opstarten is nodig om de wijzigingen toe te passen."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Tools Plugins"
-msgstr "Plug-ins"
+msgstr "Plug-ins voor hulpmiddelen"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Text Plugins"
-msgstr "Plug-ins"
+msgstr "Tekstplug-ins"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
@@ -7686,11 +7690,10 @@ msgid "..."
 msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Configureren..."
+msgstr "Configureren"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -11553,10 +11556,8 @@ msgid "Add restore button in administration settings."
 msgstr "Herstelknop toevoegen in instellingen voor beheer."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Bied de rol van schrijven"
+msgstr "Sta plug-ins activeren toe."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

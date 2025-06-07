@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-06 00:43+0000\n"
-"PO-Revision-Date: 2025-06-05 20:43+0200\n"
+"POT-Creation-Date: 2025-06-07 00:42+0000\n"
+"PO-Revision-Date: 2025-06-06 07:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -175,12 +175,12 @@ msgstr "Nova zmožnost"
 msgid "The following accounts are available:"
 msgstr "Na voljo so naslednji računi:"
 
-#: core/accountmanager.cpp:855
+#: core/accountmanager.cpp:861
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Neveljaven žeton povabila"
 
-#: core/accountmanager.cpp:856
+#: core/accountmanager.cpp:862
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Žeton povabila je neveljaven. Kreiranje računa preklicano."
@@ -2049,17 +2049,27 @@ msgid "This tool allows to create screenshot."
 msgstr "To orodje dovoljuje ustvarjanje posnetka zaslona."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Prilagodi moj račun"
+msgstr "Konfiguriraj zajem zaslona"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:22
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Zamik:"
+
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgctxt "@item %v is a number"
+msgid "%v second"
+msgid_plural "%v seconds"
+msgstr[0] "%1 sekunda"
+msgstr[1] "%1 sekundi"
+msgstr[2] "%1 sekunde"
+msgstr[3] "%1 sekund"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -7642,21 +7652,17 @@ msgstr "Omogoči integracijo dejavnosti Plasma"
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Za uveljavitev sprememb je potreben ponovni zagon."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Tools Plugins"
-msgstr "Vtičniki"
+msgstr "Vtičniki orodij"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Plugins"
+#, kde-format
 msgid "Text Plugins"
-msgstr "Vtičniki"
+msgstr "Vtičniki besedila"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
@@ -7664,11 +7670,10 @@ msgid "..."
 msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Konfiguriraj..."
+msgstr "Konfiguriraj"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -11541,10 +11546,8 @@ msgid "Add restore button in administration settings."
 msgstr "Dodaj gumb za obnovo v administratorskih nastavitvah."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Dovoli pisanje vloge"
+msgstr "Dovoli aktiviranje vtičnikov."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
