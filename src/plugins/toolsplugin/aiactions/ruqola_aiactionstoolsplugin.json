@@ -1,8 +1,26 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you asking to AI engine some questions.",
+        "Description[ca@valencia]": "Este connector permet preguntar questions al motor d'IA.",
+        "Description[ca]": "Aquest connector permet preguntar questions al motor d'IA.",
+        "Description[ka]": "ეს დამატება აი-ის ძრავისთვის რამდენიმე კითხვის დასმის საშუალებას გაძლევთ.",
+        "Description[nl]": "Deze plug-in biedt u het stellen van enige vragen aan een AI-engine.",
+        "Description[sl]": "Ta vtičnik vam omogoča, da mehanizmu umetne inteligence postavite nekaj vprašanj.",
+        "Description[sv]": "Insticksprogrammet låter dig fråga ett AI-gränssnitt några frågor.",
+        "Description[tr]": "Bu eklenti, yapay zekâ işletkesine sorular sormanıza olanak tanır.",
+        "Description[uk]": "За допомогою цього додатка ви можете ставити певні питання рушію ШІ.",
+        "Description[x-test]": "xxThis plugin allows you asking to AI engine some questions.xx",
         "EnabledByDefault": true,
         "Name": "AI Actions",
+        "Name[ca@valencia]": "Accions d'IA",
+        "Name[ca]": "Accions d'IA",
+        "Name[ka]": "ხი-ის ქმედებები",
+        "Name[nl]": "AI-acties",
+        "Name[sl]": "Dejavnosti umetne inteligece",
+        "Name[sv]": "AI-åtgärder",
+        "Name[tr]": "Yapay Zekâ Eylemleri",
+        "Name[uk]": "Дії ШІ",
+        "Name[x-test]": "xxAI Actionsxx",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],

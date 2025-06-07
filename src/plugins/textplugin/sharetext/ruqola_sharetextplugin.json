@@ -1,8 +1,26 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you sharing text.",
+        "Description[ca@valencia]": "Este connector permet compartir text.",
+        "Description[ca]": "Aquest connector permet compartir text.",
+        "Description[ka]": "ეს დამატება ტექსტის გაზიარების საშუალებას გაძლევთ.",
+        "Description[nl]": "Deze plug-in biedt u het delen van tekst.",
+        "Description[sl]": "Ta vtičnik vam omogoča deljenje besedila.",
+        "Description[sv]": "Insticksprogrammet gör det möjligt att dela text.",
+        "Description[tr]": "Bu eklenti, metin paylaşmanıza olanak tanır.",
+        "Description[uk]": "За допомогою цього додатка ви можете оприлюднювати тексти.",
+        "Description[x-test]": "xxThis plugin allows you sharing text.xx",
         "EnabledByDefault": true,
         "Name": "Share Text",
+        "Name[ca@valencia]": "Compartix el text",
+        "Name[ca]": "Comparteix el text",
+        "Name[ka]": "ტექსტის გაზიარება",
+        "Name[nl]": "Gedeelde tekst",
+        "Name[sl]": "Deli besedilo",
+        "Name[sv]": "Dela text",
+        "Name[tr]": "Metni Paylaş",
+        "Name[uk]": "Оприлюднення тексту",
+        "Name[x-test]": "xxShare Textxx",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
