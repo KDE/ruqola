@@ -4,8 +4,7 @@
         "$date": 1519989937418
     },
     "announcement": "annou!!!!",
-    "customFields": {
-    },
+    "customFields": {},
     "description": "description",
     "fname": "test",
     "jitsiTimeout": {

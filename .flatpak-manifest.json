@@ -5,7 +5,9 @@
     "runtime-version": "6.9",
     "sdk": "org.kde.Sdk",
     "command": "ruqola",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-suffix": " (Nightly)",
     "rename-icon": "ruqola",
     "finish-args": [

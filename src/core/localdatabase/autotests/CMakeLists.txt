@@ -8,10 +8,7 @@ macro(add_ruqola_localdatabase_test _source)
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
     target_link_libraries(${_name} Qt::Test libruqolacore)
-    set_target_properties(${_name} PROPERTIES
-        DISABLE_PRECOMPILE_HEADERS ON
-)
-
+    set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 add_ruqola_localdatabase_test(localmessageloggertest.cpp)
 add_ruqola_localdatabase_test(localmessagesdatabasetest.cpp)

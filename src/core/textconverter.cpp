@@ -443,7 +443,7 @@ static void convertHtmlChar(QString &str)
 
 static QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
 {
-    // Need to escaped text (avoid to interprete html code)
+    // Need to escaped text (avoid to interpret html code)
     const TextConverter::ConvertMessageTextSettings settings{
         quotedMessage + newSettings.str.toHtmlEscaped(),
         newSettings.userName,
@@ -641,7 +641,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
         }
     }
 
-    // Need to escaped text (avoid to interprete html code)
+    // Need to escaped text (avoid to interpret html code)
     const TextConverter::ConvertMessageTextSettings newsettings{
         str,
         settings.userName,

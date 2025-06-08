@@ -1,1 +1,37 @@
-{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"366e6622-f43a-11ef-9cd7-3df7975443e9","elements":[{"actionId":"366e3f1a-f43a-11ef-9cd7-3df7975443e9","text":{"emoji":false,"text":"Upgrade Account","type":"plain_text"},"type":"button","url":"https://appsforchat.com/reminder-bot-license"},{"actionId":"366e6620-f43a-11ef-9cd7-3df7975443e9","text":{"emoji":false,"text":"More Help","type":"plain_text"},"type":"button","url":"https://docs.appsforchat.com/reminder-bot"},{"actionId":"366e6621-f43a-11ef-9cd7-3df7975443e9","text":{"emoji":false,"text":"contact Us","type":"plain_text"},"type":"button","url":"https://appsforchat.com/contact"}],"type":"actions"}
+{
+    "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+    "blockId": "366e6622-f43a-11ef-9cd7-3df7975443e9",
+    "elements": [
+        {
+            "actionId": "366e3f1a-f43a-11ef-9cd7-3df7975443e9",
+            "text": {
+                "emoji": false,
+                "text": "Upgrade Account",
+                "type": "plain_text"
+            },
+            "type": "button",
+            "url": "https://appsforchat.com/reminder-bot-license"
+        },
+        {
+            "actionId": "366e6620-f43a-11ef-9cd7-3df7975443e9",
+            "text": {
+                "emoji": false,
+                "text": "More Help",
+                "type": "plain_text"
+            },
+            "type": "button",
+            "url": "https://docs.appsforchat.com/reminder-bot"
+        },
+        {
+            "actionId": "366e6621-f43a-11ef-9cd7-3df7975443e9",
+            "text": {
+                "emoji": false,
+                "text": "contact Us",
+                "type": "plain_text"
+            },
+            "type": "button",
+            "url": "https://appsforchat.com/contact"
+        }
+    ],
+    "type": "actions"
+}

@@ -30,9 +30,9 @@ MessageAttachments::~MessageAttachments()
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageAttachments deleted " << this;
 }
 
-void MessageAttachments::setMessageAttachments(const QList<MessageAttachment> &attachements)
+void MessageAttachments::setMessageAttachments(const QList<MessageAttachment> &attachments)
 {
-    mMessageAttachments = attachements;
+    mMessageAttachments = attachments;
 }
 
 QList<MessageAttachment> MessageAttachments::messageAttachments() const

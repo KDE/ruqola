@@ -9,13 +9,17 @@ set(ruqola_passwordauthenticationplugin_SRCS
 
 ecm_qt_declare_logging_category(ruqola_passwordauthenticationplugin_SRCS HEADER passwordauthenticationplugin_debug.h
     IDENTIFIER RUQOLA_PASSWORDAUTHENTICATION_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_passwordauthenticationplugin
-    DESCRIPTION "ruqola (password authentication plugin)" EXPORT RUQOLA)
+    DESCRIPTION "ruqola (password authentication plugin)" EXPORT RUQOLA
+)
 
 kcoreaddons_add_plugin(ruqola_passwordauthenticationplugin SOURCES
-    ${ruqola_passwordauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication)
+    ${ruqola_passwordauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication
+)
 
-target_link_libraries(ruqola_passwordauthenticationplugin
-    libruqolacore libruqolawidgets
+target_link_libraries(
+    ruqola_passwordauthenticationplugin
+    libruqolacore
+    libruqolawidgets
 )
 
 if(BUILD_TESTING)

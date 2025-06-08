@@ -1,1 +1,7 @@
-{"enabled":true,"excludePinned":false,"filesOnly":true,"maxAge":32,"overrideGlobal":true}
+{
+    "enabled": true,
+    "excludePinned": false,
+    "filesOnly": true,
+    "maxAge": 32,
+    "overrideGlobal": true
+}

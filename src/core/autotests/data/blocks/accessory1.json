@@ -1,24 +1,24 @@
 {
-            "accessory": {
-                "actionId": "finish",
-                "options": [
-                    {
-                        "text": {
-                            "emoji": false,
-                            "text": "Finish poll",
-                            "type": "plain_text"
-                        },
-                        "value": "finish"
-                    }
-                ],
-                "type": "overflow"
-            },
-            "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
-            "blockId": "136c2440-fadf-11ef-85ff-4bacdd8b2d67",
-            "text": {
-                "emoji": false,
-                "text": "ssdf",
-                "type": "plain_text"
-            },
-            "type": "section"
-        }
+    "accessory": {
+        "actionId": "finish",
+        "options": [
+            {
+                "text": {
+                    "emoji": false,
+                    "text": "Finish poll",
+                    "type": "plain_text"
+                },
+                "value": "finish"
+            }
+        ],
+        "type": "overflow"
+    },
+    "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+    "blockId": "136c2440-fadf-11ef-85ff-4bacdd8b2d67",
+    "text": {
+        "emoji": false,
+        "text": "ssdf",
+        "type": "plain_text"
+    },
+    "type": "section"
+}

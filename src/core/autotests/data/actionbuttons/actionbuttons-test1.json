@@ -1,1 +1,13 @@
-[{"actionId":"auto-reply-room-action-id","labelI18n":"auto-reply-room-action-name","context":"roomAction","when":{"roomTypes":["direct"]},"appId":"821cd5c6-1fb5-4d9e-8e88-e6176463efb6"}]
+[
+    {
+        "actionId": "auto-reply-room-action-id",
+        "labelI18n": "auto-reply-room-action-name",
+        "context": "roomAction",
+        "when": {
+            "roomTypes": [
+                "direct"
+            ]
+        },
+        "appId": "821cd5c6-1fb5-4d9e-8e88-e6176463efb6"
+    }
+]

@@ -1,1 +1,54 @@
-{"success":true,"type":"modal.open","triggerId":"ZRhD8FjdCY37aGK2S","appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","view":{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","type":"modal","id":"reminderListModal-908f58c7-427b-4a0b-a6bf-eab174ccc67a","title":{"type":"plain_text","text":"View Reminders","emoji":false},"close":{"type":"button","text":{"type":"plain_text","text":"Close","emoji":false},"actionId":"136ce642-f018-11ef-ae0c-13ea8ac25a32"},"blocks":[{"type":"section","text":{"type":"mrkdwn","text":"You have no upcoming reminders to view. Try creating one using `/remind` slash command."},"blockId":"136ce640-f018-11ef-ae0c-13ea8ac25a32","appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"},{"type":"actions","elements":[{"type":"button","text":{"type":"plain_text","text":"View Completed Reminders","emoji":false},"actionId":"view-completed-tasks","value":"reminderListModal-908f58c7-427b-4a0b-a6bf-eab174ccc67a"}],"blockId":"136ce641-f018-11ef-ae0c-13ea8ac25a32","appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"}],"showIcon":true}}
+{
+    "success": true,
+    "type": "modal.open",
+    "triggerId": "ZRhD8FjdCY37aGK2S",
+    "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+    "view": {
+        "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+        "type": "modal",
+        "id": "reminderListModal-908f58c7-427b-4a0b-a6bf-eab174ccc67a",
+        "title": {
+            "type": "plain_text",
+            "text": "View Reminders",
+            "emoji": false
+        },
+        "close": {
+            "type": "button",
+            "text": {
+                "type": "plain_text",
+                "text": "Close",
+                "emoji": false
+            },
+            "actionId": "136ce642-f018-11ef-ae0c-13ea8ac25a32"
+        },
+        "blocks": [
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "You have no upcoming reminders to view. Try creating one using `/remind` slash command."
+                },
+                "blockId": "136ce640-f018-11ef-ae0c-13ea8ac25a32",
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"
+            },
+            {
+                "type": "actions",
+                "elements": [
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "View Completed Reminders",
+                            "emoji": false
+                        },
+                        "actionId": "view-completed-tasks",
+                        "value": "reminderListModal-908f58c7-427b-4a0b-a6bf-eab174ccc67a"
+                    }
+                ],
+                "blockId": "136ce641-f018-11ef-ae0c-13ea8ac25a32",
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"
+            }
+        ],
+        "showIcon": true
+    }
+}

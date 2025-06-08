@@ -1,1 +1,87 @@
-{"addonId":"000000000000000000000000","appId":"9408b583-2f0e-4987-a341-daa171d761ce","bundledAppIds":[],"bundledIn":[],"createdAt":"2021-02-05T14:41:32.887Z","isAddon":false,"isBundle":false,"isEnterpriseOnly":false,"isPurchased":false,"isSubscribed":false,"isUsageBased":false,"latest":{"addonId":"000000000000000000000000","author":{"homepage":"https://github.com/zakhar-petrov","name":"Zakhar Petrov","support":"https://github.com/zakhar-petrov/rocketchat-youtrack-linker/issues"},"categories":["Developer Tools","Productivity","Project Management"],"changesNote":"Add linking for message editing","classFile":"YouTrackLinkerApp.ts","compileJobId":"614995e04755340001616bf9","compiled":true,"createdDate":"2021-08-15T12:56:08.129Z","description":"Turns YouTrack references into links.","detailedChangelog":{},"detailedDescription":{},"iconFile":"icon.png","iconFileData":"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","id":"9408b583-2f0e-4987-a341-daa171d761ce","internalId":"61190ee86e6f0f000117867a","isEnterpriseOnly":false,"isPurchased":false,"isSubscribed":false,"isVisible":true,"modifiedDate":"2021-10-01T07:45:21.015Z","name":"YouTrack Linker","nameSlug":"youtrack-linker","requiredApiVersion":"^1.15.0","status":"published","subscriptionInfo":{"endDate":"0001-01-01T00:00:00Z","externallyManaged":false,"isSeatBased":false,"isSubscribedViaBundle":false,"license":{"expireDate":"0001-01-01T00:00:00Z","license":"","version":0},"maxSeats":0,"periodEnd":"0001-01-01T00:00:00Z","seats":0,"startDate":"0001-01-01T00:00:00Z","status":"","statusFromBilling":false,"typeOf":""},"version":"1.2.1"},"modifiedAt":"2021-10-01T07:45:21.015Z","price":0,"purchaseType":"buy","subscriptionInfo":{"endDate":"0001-01-01T00:00:00Z","externallyManaged":false,"isSeatBased":false,"isSubscribedViaBundle":false,"license":{"expireDate":"0001-01-01T00:00:00Z","license":"","version":0},"maxSeats":0,"periodEnd":"0001-01-01T00:00:00Z","seats":0,"startDate":"0001-01-01T00:00:00Z","status":"","statusFromBilling":false,"typeOf":""}}
+{
+    "addonId": "000000000000000000000000",
+    "appId": "9408b583-2f0e-4987-a341-daa171d761ce",
+    "bundledAppIds": [],
+    "bundledIn": [],
+    "createdAt": "2021-02-05T14:41:32.887Z",
+    "isAddon": false,
+    "isBundle": false,
+    "isEnterpriseOnly": false,
+    "isPurchased": false,
+    "isSubscribed": false,
+    "isUsageBased": false,
+    "latest": {
+        "addonId": "000000000000000000000000",
+        "author": {
+            "homepage": "https://github.com/zakhar-petrov",
+            "name": "Zakhar Petrov",
+            "support": "https://github.com/zakhar-petrov/rocketchat-youtrack-linker/issues"
+        },
+        "categories": [
+            "Developer Tools",
+            "Productivity",
+            "Project Management"
+        ],
+        "changesNote": "Add linking for message editing",
+        "classFile": "YouTrackLinkerApp.ts",
+        "compileJobId": "614995e04755340001616bf9",
+        "compiled": true,
+        "createdDate": "2021-08-15T12:56:08.129Z",
+        "description": "Turns YouTrack references into links.",
+        "detailedChangelog": {},
+        "detailedDescription": {},
+        "iconFile": "icon.png",
+        "iconFileData": "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",
+        "id": "9408b583-2f0e-4987-a341-daa171d761ce",
+        "internalId": "61190ee86e6f0f000117867a",
+        "isEnterpriseOnly": false,
+        "isPurchased": false,
+        "isSubscribed": false,
+        "isVisible": true,
+        "modifiedDate": "2021-10-01T07:45:21.015Z",
+        "name": "YouTrack Linker",
+        "nameSlug": "youtrack-linker",
+        "requiredApiVersion": "^1.15.0",
+        "status": "published",
+        "subscriptionInfo": {
+            "endDate": "0001-01-01T00:00:00Z",
+            "externallyManaged": false,
+            "isSeatBased": false,
+            "isSubscribedViaBundle": false,
+            "license": {
+                "expireDate": "0001-01-01T00:00:00Z",
+                "license": "",
+                "version": 0
+            },
+            "maxSeats": 0,
+            "periodEnd": "0001-01-01T00:00:00Z",
+            "seats": 0,
+            "startDate": "0001-01-01T00:00:00Z",
+            "status": "",
+            "statusFromBilling": false,
+            "typeOf": ""
+        },
+        "version": "1.2.1"
+    },
+    "modifiedAt": "2021-10-01T07:45:21.015Z",
+    "price": 0,
+    "purchaseType": "buy",
+    "subscriptionInfo": {
+        "endDate": "0001-01-01T00:00:00Z",
+        "externallyManaged": false,
+        "isSeatBased": false,
+        "isSubscribedViaBundle": false,
+        "license": {
+            "expireDate": "0001-01-01T00:00:00Z",
+            "license": "",
+            "version": 0
+        },
+        "maxSeats": 0,
+        "periodEnd": "0001-01-01T00:00:00Z",
+        "seats": 0,
+        "startDate": "0001-01-01T00:00:00Z",
+        "status": "",
+        "statusFromBilling": false,
+        "typeOf": ""
+    }
+}

@@ -1,21 +1,20 @@
-            {
-                "_id": "Dic5wZD4Zu9ze5gk3",
-                "_updatedAt": {
-                    "$date": 1521116400349
-                },
-                "customFields": {
-                },
-                "description": "d",
-                "fname": "foo",
-                "muted": [
-                ],
-                "name": "foo",
-                "reactWhenReadOnly": false,
-                "ro": false,
-                "t": "p",
-                "topic": "",
-                "u": {
-                    "_id": "uKK39zoewTkdacidH",
-                    "username": "laurent"
-                }
-            }
+{
+    "_id": "Dic5wZD4Zu9ze5gk3",
+    "_updatedAt": {
+        "$date": 1521116400349
+    },
+    "customFields": {},
+    "description": "d",
+    "fname": "foo",
+    "muted": [
+    ],
+    "name": "foo",
+    "reactWhenReadOnly": false,
+    "ro": false,
+    "t": "p",
+    "topic": "",
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    }
+}

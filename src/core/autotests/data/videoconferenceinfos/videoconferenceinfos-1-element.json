@@ -1,1 +1,30 @@
-{"data":[{"_id":"65afecc8b7947e61f4c6253d","type":"videoconference","users":[],"messages":{"started":"gnq2xr3QZDLdhCerk"},"status":2,"anonymousUsers":0,"createdAt":"2024-01-23T16:43:52.737Z","providerName":"jitsi","rid":"655da64d9f6f417425c3e","title":"test-ruqola","createdBy":{"_id":"ssss","name":"foo bla","username":"foo"},"_updatedAt":"2024-01-24T18:00:00.189Z","url":"https://jitsi-foo.com/RocketChat65afe7947e61f4c6253d","endedAt":"2024-01-24T18:00:00.189Z"}],"offset":0,"count":1,"total":1,"success":true}
+{
+    "data": [
+        {
+            "_id": "65afecc8b7947e61f4c6253d",
+            "type": "videoconference",
+            "users": [],
+            "messages": {
+                "started": "gnq2xr3QZDLdhCerk"
+            },
+            "status": 2,
+            "anonymousUsers": 0,
+            "createdAt": "2024-01-23T16:43:52.737Z",
+            "providerName": "jitsi",
+            "rid": "655da64d9f6f417425c3e",
+            "title": "test-ruqola",
+            "createdBy": {
+                "_id": "ssss",
+                "name": "foo bla",
+                "username": "foo"
+            },
+            "_updatedAt": "2024-01-24T18:00:00.189Z",
+            "url": "https://jitsi-foo.com/RocketChat65afe7947e61f4c6253d",
+            "endedAt": "2024-01-24T18:00:00.189Z"
+        }
+    ],
+    "offset": 0,
+    "count": 1,
+    "total": 1,
+    "success": true
+}

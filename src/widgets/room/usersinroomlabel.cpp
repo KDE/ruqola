@@ -72,7 +72,7 @@ void UserLabel::setUserId(const QByteArray &userId)
 
 void UserLabel::slotOpenConversation()
 {
-    Q_EMIT Ruqola::self() -> rocketChatAccount()->openLinkRequested(RoomUtil::generateUserLink(mUserName));
+    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(RoomUtil::generateUserLink(mUserName));
 }
 
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)

@@ -48,7 +48,7 @@ void MessagesModel::activate()
 
 void MessagesModel::deactivate()
 {
-    qCDebug(RUQOLA_LOG) << "Desactivate model";
+    qCDebug(RUQOLA_LOG) << "Deactivate model";
     if (mRocketChatAccount) {
         qCDebug(RUQOLA_LOG) << "DISCONNECT: messages model";
         disconnect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessagesModel::slotFileDownloaded);

@@ -1,1 +1,7 @@
-[{"_id":"blabla","name":"livechat-agent","type":"removed"}]
+[
+    {
+        "_id": "blabla",
+        "name": "livechat-agent",
+        "type": "removed"
+    }
+]

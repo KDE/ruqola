@@ -8,4 +8,3 @@ Build-Depends: debhelper (>= 4.1.16), cdbs, cmake, cmake-data, extra-cmake-modul
 
 Files:
  00000000000000000000000000000000 00000 ruqola-2.2.0.tar.gz
-

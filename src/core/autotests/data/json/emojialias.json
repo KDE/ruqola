@@ -1,10 +1,10 @@
-{   
+{
     "_id": "scSbxNPzm9xWrNqCG",
     "_updatedAt": {
-          "$date": 1514915356313
+        "$date": 1514915356313
     },
     "aliases": [
-       "clap"
+        "clap"
     ],
     "extension": "gif",
     "name": "clapping"

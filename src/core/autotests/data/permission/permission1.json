@@ -1,1 +1,10 @@
-{"_id":"pin-message","_updatedAt":"2021-10-19T03:56:10.401Z","roles":["owner","moderator","admin","global-moderator"]}
+{
+    "_id": "pin-message",
+    "_updatedAt": "2021-10-19T03:56:10.401Z",
+    "roles": [
+        "owner",
+        "moderator",
+        "admin",
+        "global-moderator"
+    ]
+}

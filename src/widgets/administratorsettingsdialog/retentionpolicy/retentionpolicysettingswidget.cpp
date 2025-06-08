@@ -57,7 +57,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     mOnlyDeleteFiles->setToolTip(i18nc("@info:tooltip", "Only files will be deleted, the messages themselves will stay in place."));
     addCheckBox(mOnlyDeleteFiles, QStringLiteral("RetentionPolicy_FilesOnly"));
 
-    // Rentention Channels
+    // Retention Channels
     mAppliesChannels->setObjectName(QStringLiteral("mAppliesChannels"));
     addCheckBox(mAppliesChannels, QStringLiteral("RetentionPolicy_AppliesToChannels"));
 
@@ -66,7 +66,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     mMaximumMessageChannels->setMaximum(9999);
     addSpinbox(i18n("Maximum message age in channels"), mMaximumMessageChannels, QStringLiteral("RetentionPolicy_MaxAge_Channels"));
 
-    // Rentention Groups
+    // Retention Groups
     mAppliesGroups->setObjectName(QStringLiteral("mAppliesGroups"));
     addCheckBox(mAppliesGroups, QStringLiteral("RetentionPolicy_AppliesToGroups"));
 
@@ -75,7 +75,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     mMaximumMessagePrivateGroups->setMaximum(9999);
     addSpinbox(i18n("Maximum message age in private groups"), mMaximumMessagePrivateGroups, QStringLiteral("RetentionPolicy_MaxAge_Groups"));
 
-    // Rentention DM
+    // Retention DM
     mAppliesMessages->setObjectName(QStringLiteral("mAppliesMessages"));
     addCheckBox(mAppliesMessages, QStringLiteral("RetentionPolicy_AppliesToDMs"));
 

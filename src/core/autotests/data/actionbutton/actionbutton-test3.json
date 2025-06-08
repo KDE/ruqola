@@ -1,1 +1,12 @@
-{"actionId":"omni_summarize","labelI18n":"summarize.omni","context":"roomAction","when":{"roomTypes":["livechat"]},"category":"ai","appId":"ec284282-67ed-4401-ab8c-bdbe3c278543"}
+{
+    "actionId": "omni_summarize",
+    "labelI18n": "summarize.omni",
+    "context": "roomAction",
+    "when": {
+        "roomTypes": [
+            "livechat"
+        ]
+    },
+    "category": "ai",
+    "appId": "ec284282-67ed-4401-ab8c-bdbe3c278543"
+}

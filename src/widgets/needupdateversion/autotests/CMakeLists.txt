@@ -8,7 +8,7 @@ macro(add_needupdateversion_unittest _source)
     ecm_add_test(${_source} ${_name}.h
         TEST_NAME ${_name}
         LINK_LIBRARIES Qt::Test Qt::Gui libruqolawidgets
-)
+    )
 endmacro()
 
 add_needupdateversion_unittest(needupdateversionwidgettest.cpp)

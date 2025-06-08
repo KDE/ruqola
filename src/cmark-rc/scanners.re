@@ -327,4 +327,3 @@ bufsize_t _scan_dangerous_url(const unsigned char *p)
   * { return 0; }
 */
 }
-

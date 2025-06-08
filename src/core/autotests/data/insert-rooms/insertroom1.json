@@ -1,19 +1,18 @@
-           {
-                "_id": "fooid",
-                "_updatedAt": {
-                    "$date": 1520409482126
-                },
-                "customFields": {
-                },
-                "jitsiTimeout": {
-                    "$date": 1518524726234
-                },
-                "name": "bla1",
-                "ro": false,
-                "t": "c",
-                "topic": "toto",
-                "u": {
-                    "_id": "hLTrnA5cEFHrZp4",
-                    "username": "owner-channel"
-                }
-            }
+{
+    "_id": "fooid",
+    "_updatedAt": {
+        "$date": 1520409482126
+    },
+    "customFields": {},
+    "jitsiTimeout": {
+        "$date": 1518524726234
+    },
+    "name": "bla1",
+    "ro": false,
+    "t": "c",
+    "topic": "toto",
+    "u": {
+        "_id": "hLTrnA5cEFHrZp4",
+        "username": "owner-channel"
+    }
+}

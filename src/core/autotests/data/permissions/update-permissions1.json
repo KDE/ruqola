@@ -1,1 +1,13 @@
-["updated",{"_id":"access-mailer","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}]
+[
+    "updated",
+    {
+        "_id": "access-mailer",
+        "_updatedAt": {
+            "$date": 1634569746270
+        },
+        "roles": [
+            "admin",
+            "vFXCWG9trXLti6xQm"
+        ]
+    }
+]

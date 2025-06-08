@@ -9,10 +9,7 @@ macro(add_ruqola_test _source)
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
     target_link_libraries(${_name} Qt::Test libruqolacore)
-    set_target_properties(${_name} PROPERTIES
-        DISABLE_PRECOMPILE_HEADERS ON
-)
-
+    set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
 add_ruqola_test(accountschannelsmodeltest.cpp)
@@ -33,7 +30,7 @@ add_ruqola_test(rocketchatcachetest.cpp)
 add_ruqola_test(loadrecenthistorymanagertest.cpp)
 add_ruqola_test(notificationtest.cpp)
 if(NOT TARGET KF6::TextEmoticonsWidgets)
-   add_ruqola_test(customemojitest.cpp)
+    add_ruqola_test(customemojitest.cpp)
 endif()
 add_ruqola_test(emojimanagertest.cpp)
 add_ruqola_test(otrtest.cpp)

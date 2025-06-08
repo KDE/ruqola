@@ -30,7 +30,7 @@
     </entry>
     <entry name="ShowPreviewUrl" type="Bool">
       <default>true</default>
-    </entry>    
+    </entry>
     <entry name="EnableSystemTray" type="Bool">
       <default>true</default>
     </entry>
@@ -55,8 +55,8 @@
 	  <choice name="Normal"/>
 	  <choice name="Cozy"/>
         </choices>
-        <default>Compact</default>	    
-    </entry>    
+        <default>Compact</default>
+    </entry>
   </group>
   <group name="Behavior">
     <entry name="MarkAsReadOnTextClicked" type="Bool">

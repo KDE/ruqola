@@ -1,1 +1,15 @@
-[{"emojiData":{"_id":"HdN28k4PQ6J9xLkZ8","_updatedAt":{"$date":1631885946222},"aliases":["roo"],"extension":"png","name":"ruqola"}}]
+[
+    {
+        "emojiData": {
+            "_id": "HdN28k4PQ6J9xLkZ8",
+            "_updatedAt": {
+                "$date": 1631885946222
+            },
+            "aliases": [
+                "roo"
+            ],
+            "extension": "png",
+            "name": "ruqola"
+        }
+    }
+]

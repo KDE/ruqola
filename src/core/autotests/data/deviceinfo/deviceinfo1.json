@@ -1,1 +1,9 @@
-{"_id":"iy78NiKzd","device":null,"host":"chat.kde.org","ip":"179.4.8.1","loginAt":"2022-08-13T15:53:14.979Z","sessionId":"iKzd","userId":"acidH"}
+{
+    "_id": "iy78NiKzd",
+    "device": null,
+    "host": "chat.kde.org",
+    "ip": "179.4.8.1",
+    "loginAt": "2022-08-13T15:53:14.979Z",
+    "sessionId": "iKzd",
+    "userId": "acidH"
+}

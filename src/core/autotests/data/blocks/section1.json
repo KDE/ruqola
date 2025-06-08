@@ -1,1 +1,8 @@
-{"appId":"mention-core","text":{"text":"You mentioned *foo*, but they're not in this room.","type":"mrkdwn"},"type":"section"}
+{
+    "appId": "mention-core",
+    "text": {
+        "text": "You mentioned *foo*, but they're not in this room.",
+        "type": "mrkdwn"
+    },
+    "type": "section"
+}

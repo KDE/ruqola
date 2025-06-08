@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: 2023-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-
 add_executable(validemoticongui)
 target_sources(validemoticongui PRIVATE validemoticongui.cpp validemoticongui.h)
 
-target_link_libraries(validemoticongui
+target_link_libraries(
+    validemoticongui
     Qt::Widgets
     KF6::ItemViews
     libruqolacore

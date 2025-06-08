@@ -11,17 +11,13 @@
 #
 #
 
-
 set(o2_FIND_REQUIRED ${o2_FIND_REQUIRED})
 
 find_path(o2_INCLUDE_DIRS o2/o2.h)
 
-set(o2_NAMES      ${o2_NAMES}      o2      libo2)
+set(o2_NAMES ${o2_NAMES} o2 libo2)
 
-find_library(o2_LIBRARY
-        NAMES ${o2_NAMES} 
-        ) 
-
+find_library(o2_LIBRARY NAMES ${o2_NAMES})
 
 # Detect libo2 version
 
@@ -29,22 +25,18 @@ find_package(PkgConfig)
 pkg_check_modules(PC_o2 QUIET libo2)
 
 if(PC_o2_FOUND)
-
     set(o2_VERSION_STRING "${PC_o2_VERSION}")
-
 endif()
 
 # handle the QUIETLY and REQUIRED arguments and set o2_FOUND to TRUE if
 # all listed variables are TRUE
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(o2 DEFAULT_MSG
-                                  o2_LIBRARY
-                                  o2_INCLUDE_DIRS)
+find_package_handle_standard_args(o2 DEFAULT_MSG o2_LIBRARY o2_INCLUDE_DIRS)
 
 if(o2_FOUND)
     set(o2_INCLUDE_DIRS ${o2_INCLUDE_DIRS}/o2)
-    set(o2_LIBRARIES    ${o2_LIBRARY} )
+    set(o2_LIBRARIES ${o2_LIBRARY})
 endif()
 
 message(STATUS "libo2 found    : ${o2_FOUND}")

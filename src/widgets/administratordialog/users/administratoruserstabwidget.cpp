@@ -15,7 +15,7 @@ AdministratorUsersTabWidget::AdministratorUsersTabWidget(RocketChatAccount *acco
     , mTabWidget(new QTabWidget(this))
     , mAllUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::All, account, this))
     , mPendingUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::Pending, account, this))
-    , mDeactivatedUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::Desactivated, account, this))
+    , mDeactivatedUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::Deactivated, account, this))
     , mActivatedUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::Activate, account, this))
 {
     auto mainLayout = new QVBoxLayout(this);

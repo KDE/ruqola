@@ -3,7 +3,8 @@
 add_executable(loaddatabasegui)
 target_sources(loaddatabasegui PRIVATE loaddatabasegui.h loaddatabasegui.cpp)
 
-target_link_libraries(loaddatabasegui
+target_link_libraries(
+    loaddatabasegui
     Qt::Widgets
     KF6::ItemViews
     libruqolawidgets

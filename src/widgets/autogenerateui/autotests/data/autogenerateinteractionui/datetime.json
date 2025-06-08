@@ -1,1 +1,876 @@
-{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","success":true,"triggerId":"c3afbd2a5f1646088649559ac1b9f72b","type":"modal.update","view":{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blocks":[{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"43ac4270-0584-11f0-9f18-1735ff3ce6ab","text":{"text":"**When do you want to be reminded?**","type":"mrkdwn"},"type":"section"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"43ac4271-0584-11f0-9f18-1735ff3ce6ab","elements":[{"actionId":"linked-msg-reminder-change-duration-option_msgReminderCreateModal-0c4e4b86-6de8-415e-95e6-de42643f3bcb","initialValue":"custom","options":[{"text":{"emoji":false,"text":"Custom","type":"plain_text"},"value":"custom"},{"text":{"emoji":false,"text":"in 20 minutes","type":"plain_text"},"value":"20"},{"text":{"emoji":false,"text":"in 1 hour","type":"plain_text"},"value":"60"},{"text":{"emoji":false,"text":"Tomorrow at 9AM","type":"plain_text"},"value":"next-day"},{"text":{"emoji":false,"text":"Next week, Mon 9am","type":"plain_text"},"value":"next-week"}],"placeholder":{"emoji":false,"text":"When?","type":"plain_text"},"type":"static_select"}],"type":"actions"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"43ac4272-0584-11f0-9f18-1735ff3ce6ab","type":"divider"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"reminder","element":{"actionId":"date","initialValue":"2025-03-20","placeholder":{"emoji":false,"text":"When?","type":"plain_text"},"type":"datepicker"},"label":{"emoji":false,"text":"When?","type":"plain_text"},"type":"input"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"reminder","element":{"actionId":"time","initialValue":"01:15 PM","options":[{"text":{"text":"12:00 AM (Midnight)","type":"plain_text"},"value":"12:00 AM"},{"text":{"text":"12:15 AM","type":"plain_text"},"value":"12:15 AM"},{"text":{"text":"12:30 AM","type":"plain_text"},"value":"12:30 AM"},{"text":{"text":"12:45 AM","type":"plain_text"},"value":"12:45 AM"},{"text":{"text":"01:00 AM","type":"plain_text"},"value":"01:00 AM"},{"text":{"text":"01:15 AM","type":"plain_text"},"value":"01:15 AM"},{"text":{"text":"01:30 AM","type":"plain_text"},"value":"01:30 AM"},{"text":{"text":"01:45 AM","type":"plain_text"},"value":"01:45 AM"},{"text":{"text":"02:00 AM","type":"plain_text"},"value":"02:00 AM"},{"text":{"text":"02:15 AM","type":"plain_text"},"value":"02:15 AM"},{"text":{"text":"02:30 AM","type":"plain_text"},"value":"02:30 AM"},{"text":{"text":"02:45 AM","type":"plain_text"},"value":"02:45 AM"},{"text":{"text":"03:00 AM","type":"plain_text"},"value":"03:00 AM"},{"text":{"text":"03:15 AM","type":"plain_text"},"value":"03:15 AM"},{"text":{"text":"03:30 AM","type":"plain_text"},"value":"03:30 AM"},{"text":{"text":"03:45 AM","type":"plain_text"},"value":"03:45 AM"},{"text":{"text":"04:00 AM","type":"plain_text"},"value":"04:00 AM"},{"text":{"text":"04:15 AM","type":"plain_text"},"value":"04:15 AM"},{"text":{"text":"04:30 AM","type":"plain_text"},"value":"04:30 AM"},{"text":{"text":"04:45 AM","type":"plain_text"},"value":"04:45 AM"},{"text":{"text":"05:00 AM","type":"plain_text"},"value":"05:00 AM"},{"text":{"text":"05:15 AM","type":"plain_text"},"value":"05:15 AM"},{"text":{"text":"05:30 AM","type":"plain_text"},"value":"05:30 AM"},{"text":{"text":"05:45 AM","type":"plain_text"},"value":"05:45 AM"},{"text":{"text":"06:00 AM","type":"plain_text"},"value":"06:00 AM"},{"text":{"text":"06:15 AM","type":"plain_text"},"value":"06:15 AM"},{"text":{"text":"06:30 AM","type":"plain_text"},"value":"06:30 AM"},{"text":{"text":"06:45 AM","type":"plain_text"},"value":"06:45 AM"},{"text":{"text":"07:00 AM","type":"plain_text"},"value":"07:00 AM"},{"text":{"text":"07:15 AM","type":"plain_text"},"value":"07:15 AM"},{"text":{"text":"07:30 AM","type":"plain_text"},"value":"07:30 AM"},{"text":{"text":"07:45 AM","type":"plain_text"},"value":"07:45 AM"},{"text":{"text":"08:00 AM","type":"plain_text"},"value":"08:00 AM"},{"text":{"text":"08:15 AM","type":"plain_text"},"value":"08:15 AM"},{"text":{"text":"08:30 AM","type":"plain_text"},"value":"08:30 AM"},{"text":{"text":"08:45 AM","type":"plain_text"},"value":"08:45 AM"},{"text":{"text":"09:00 AM","type":"plain_text"},"value":"09:00 AM"},{"text":{"text":"09:15 AM","type":"plain_text"},"value":"09:15 AM"},{"text":{"text":"09:30 AM","type":"plain_text"},"value":"09:30 AM"},{"text":{"text":"09:45 AM","type":"plain_text"},"value":"09:45 AM"},{"text":{"text":"10:00 AM","type":"plain_text"},"value":"10:00 AM"},{"text":{"text":"10:15 AM","type":"plain_text"},"value":"10:15 AM"},{"text":{"text":"10:30 AM","type":"plain_text"},"value":"10:30 AM"},{"text":{"text":"10:45 AM","type":"plain_text"},"value":"10:45 AM"},{"text":{"text":"11:00 AM","type":"plain_text"},"value":"11:00 AM"},{"text":{"text":"11:15 AM","type":"plain_text"},"value":"11:15 AM"},{"text":{"text":"11:30 AM","type":"plain_text"},"value":"11:30 AM"},{"text":{"text":"11:45 AM","type":"plain_text"},"value":"11:45 AM"},{"text":{"text":"12:00 PM (Noon)","type":"plain_text"},"value":"12:00 PM"},{"text":{"text":"12:15 PM","type":"plain_text"},"value":"12:15 PM"},{"text":{"text":"12:30 PM","type":"plain_text"},"value":"12:30 PM"},{"text":{"text":"12:45 PM","type":"plain_text"},"value":"12:45 PM"},{"text":{"text":"01:00 PM","type":"plain_text"},"value":"01:00 PM"},{"text":{"text":"01:15 PM","type":"plain_text"},"value":"01:15 PM"},{"text":{"text":"01:30 PM","type":"plain_text"},"value":"01:30 PM"},{"text":{"text":"01:45 PM","type":"plain_text"},"value":"01:45 PM"},{"text":{"text":"02:00 PM","type":"plain_text"},"value":"02:00 PM"},{"text":{"text":"02:15 PM","type":"plain_text"},"value":"02:15 PM"},{"text":{"text":"02:30 PM","type":"plain_text"},"value":"02:30 PM"},{"text":{"text":"02:45 PM","type":"plain_text"},"value":"02:45 PM"},{"text":{"text":"03:00 PM","type":"plain_text"},"value":"03:00 PM"},{"text":{"text":"03:15 PM","type":"plain_text"},"value":"03:15 PM"},{"text":{"text":"03:30 PM","type":"plain_text"},"value":"03:30 PM"},{"text":{"text":"03:45 PM","type":"plain_text"},"value":"03:45 PM"},{"text":{"text":"04:00 PM","type":"plain_text"},"value":"04:00 PM"},{"text":{"text":"04:15 PM","type":"plain_text"},"value":"04:15 PM"},{"text":{"text":"04:30 PM","type":"plain_text"},"value":"04:30 PM"},{"text":{"text":"04:45 PM","type":"plain_text"},"value":"04:45 PM"},{"text":{"text":"05:00 PM","type":"plain_text"},"value":"05:00 PM"},{"text":{"text":"05:15 PM","type":"plain_text"},"value":"05:15 PM"},{"text":{"text":"05:30 PM","type":"plain_text"},"value":"05:30 PM"},{"text":{"text":"05:45 PM","type":"plain_text"},"value":"05:45 PM"},{"text":{"text":"06:00 PM","type":"plain_text"},"value":"06:00 PM"},{"text":{"text":"06:15 PM","type":"plain_text"},"value":"06:15 PM"},{"text":{"text":"06:30 PM","type":"plain_text"},"value":"06:30 PM"},{"text":{"text":"06:45 PM","type":"plain_text"},"value":"06:45 PM"},{"text":{"text":"07:00 PM","type":"plain_text"},"value":"07:00 PM"},{"text":{"text":"07:15 PM","type":"plain_text"},"value":"07:15 PM"},{"text":{"text":"07:30 PM","type":"plain_text"},"value":"07:30 PM"},{"text":{"text":"07:45 PM","type":"plain_text"},"value":"07:45 PM"},{"text":{"text":"08:00 PM","type":"plain_text"},"value":"08:00 PM"},{"text":{"text":"08:15 PM","type":"plain_text"},"value":"08:15 PM"},{"text":{"text":"08:30 PM","type":"plain_text"},"value":"08:30 PM"},{"text":{"text":"08:45 PM","type":"plain_text"},"value":"08:45 PM"},{"text":{"text":"09:00 PM","type":"plain_text"},"value":"09:00 PM"},{"text":{"text":"09:15 PM","type":"plain_text"},"value":"09:15 PM"},{"text":{"text":"09:30 PM","type":"plain_text"},"value":"09:30 PM"},{"text":{"text":"09:45 PM","type":"plain_text"},"value":"09:45 PM"},{"text":{"text":"10:00 PM","type":"plain_text"},"value":"10:00 PM"},{"text":{"text":"10:15 PM","type":"plain_text"},"value":"10:15 PM"},{"text":{"text":"10:30 PM","type":"plain_text"},"value":"10:30 PM"},{"text":{"text":"10:45 PM","type":"plain_text"},"value":"10:45 PM"},{"text":{"text":"11:00 PM","type":"plain_text"},"value":"11:00 PM"},{"text":{"text":"11:15 PM","type":"plain_text"},"value":"11:15 PM"},{"text":{"text":"11:30 PM","type":"plain_text"},"value":"11:30 PM"},{"text":{"text":"11:45 PM","type":"plain_text"},"value":"11:45 PM"}],"placeholder":{"emoji":false,"text":"Time","type":"plain_text"},"type":"static_select"},"label":{"emoji":false,"text":"Time","type":"plain_text"},"type":"input"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"43ac6980-0584-11f0-9f18-1735ff3ce6ab","type":"divider"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"43ac6981-0584-11f0-9f18-1735ff3ce6ab","text":{"text":"[Connected Message Link](https://srqawj.chat.kdab.com/direct/67b7116fc0984e12f9661a2c?msg=acAmZ9pPwPnucd3hy)","type":"mrkdwn"},"type":"section"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"reminder","element":{"actionId":"description","initialValue":"","multiline":true,"placeholder":{"emoji":false,"text":"Remind me to...","type":"plain_text"},"type":"plain_text_input"},"label":{"emoji":false,"text":"Add a note (optional)","type":"plain_text"},"type":"input"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"43ac6982-0584-11f0-9f18-1735ff3ce6ab","type":"divider"},{"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8","blockId":"43ac6983-0584-11f0-9f18-1735ff3ce6ab","elements":[{"emoji":false,"text":"Note: Your timezone is set to UTC+01:00.","type":"plain_text"}],"type":"context"}],"close":{"actionId":"43ac6985-0584-11f0-9f18-1735ff3ce6ab","text":{"emoji":false,"text":"Cancel","type":"plain_text"},"type":"button"},"id":"msgReminderCreateModal-0c4e4b86-6de8-415e-95e6-de42643f3bcb","showIcon":true,"submit":{"actionId":"43ac6984-0584-11f0-9f18-1735ff3ce6ab","text":{"emoji":false,"text":"Create","type":"plain_text"},"type":"button"},"title":{"emoji":false,"text":"Create Reminder","type":"plain_text"},"type":"modal"}}
+{
+    "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+    "success": true,
+    "triggerId": "c3afbd2a5f1646088649559ac1b9f72b",
+    "type": "modal.update",
+    "view": {
+        "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+        "blocks": [
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "43ac4270-0584-11f0-9f18-1735ff3ce6ab",
+                "text": {
+                    "text": "**When do you want to be reminded?**",
+                    "type": "mrkdwn"
+                },
+                "type": "section"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "43ac4271-0584-11f0-9f18-1735ff3ce6ab",
+                "elements": [
+                    {
+                        "actionId": "linked-msg-reminder-change-duration-option_msgReminderCreateModal-0c4e4b86-6de8-415e-95e6-de42643f3bcb",
+                        "initialValue": "custom",
+                        "options": [
+                            {
+                                "text": {
+                                    "emoji": false,
+                                    "text": "Custom",
+                                    "type": "plain_text"
+                                },
+                                "value": "custom"
+                            },
+                            {
+                                "text": {
+                                    "emoji": false,
+                                    "text": "in 20 minutes",
+                                    "type": "plain_text"
+                                },
+                                "value": "20"
+                            },
+                            {
+                                "text": {
+                                    "emoji": false,
+                                    "text": "in 1 hour",
+                                    "type": "plain_text"
+                                },
+                                "value": "60"
+                            },
+                            {
+                                "text": {
+                                    "emoji": false,
+                                    "text": "Tomorrow at 9AM",
+                                    "type": "plain_text"
+                                },
+                                "value": "next-day"
+                            },
+                            {
+                                "text": {
+                                    "emoji": false,
+                                    "text": "Next week, Mon 9am",
+                                    "type": "plain_text"
+                                },
+                                "value": "next-week"
+                            }
+                        ],
+                        "placeholder": {
+                            "emoji": false,
+                            "text": "When?",
+                            "type": "plain_text"
+                        },
+                        "type": "static_select"
+                    }
+                ],
+                "type": "actions"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "43ac4272-0584-11f0-9f18-1735ff3ce6ab",
+                "type": "divider"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "reminder",
+                "element": {
+                    "actionId": "date",
+                    "initialValue": "2025-03-20",
+                    "placeholder": {
+                        "emoji": false,
+                        "text": "When?",
+                        "type": "plain_text"
+                    },
+                    "type": "datepicker"
+                },
+                "label": {
+                    "emoji": false,
+                    "text": "When?",
+                    "type": "plain_text"
+                },
+                "type": "input"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "reminder",
+                "element": {
+                    "actionId": "time",
+                    "initialValue": "01:15 PM",
+                    "options": [
+                        {
+                            "text": {
+                                "text": "12:00 AM (Midnight)",
+                                "type": "plain_text"
+                            },
+                            "value": "12:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "12:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "12:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "12:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "12:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "12:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "12:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "01:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "01:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "01:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "01:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "01:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "01:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "01:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "01:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "02:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "02:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "02:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "02:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "02:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "02:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "02:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "02:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "03:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "03:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "03:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "03:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "03:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "03:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "03:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "03:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "04:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "04:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "04:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "04:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "04:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "04:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "04:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "04:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "05:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "05:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "05:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "05:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "05:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "05:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "05:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "05:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "06:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "06:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "06:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "06:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "06:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "06:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "06:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "06:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "07:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "07:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "07:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "07:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "07:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "07:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "07:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "07:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "08:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "08:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "08:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "08:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "08:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "08:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "08:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "08:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "09:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "09:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "09:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "09:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "09:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "09:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "09:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "09:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "10:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "10:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "10:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "10:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "10:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "10:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "10:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "10:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "11:00 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "11:00 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "11:15 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "11:15 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "11:30 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "11:30 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "11:45 AM",
+                                "type": "plain_text"
+                            },
+                            "value": "11:45 AM"
+                        },
+                        {
+                            "text": {
+                                "text": "12:00 PM (Noon)",
+                                "type": "plain_text"
+                            },
+                            "value": "12:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "12:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "12:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "12:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "12:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "12:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "12:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "01:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "01:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "01:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "01:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "01:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "01:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "01:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "01:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "02:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "02:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "02:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "02:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "02:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "02:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "02:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "02:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "03:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "03:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "03:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "03:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "03:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "03:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "03:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "03:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "04:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "04:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "04:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "04:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "04:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "04:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "04:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "04:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "05:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "05:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "05:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "05:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "05:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "05:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "05:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "05:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "06:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "06:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "06:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "06:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "06:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "06:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "06:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "06:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "07:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "07:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "07:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "07:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "07:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "07:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "07:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "07:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "08:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "08:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "08:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "08:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "08:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "08:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "08:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "08:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "09:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "09:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "09:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "09:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "09:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "09:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "09:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "09:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "10:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "10:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "10:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "10:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "10:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "10:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "10:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "10:45 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "11:00 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "11:00 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "11:15 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "11:15 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "11:30 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "11:30 PM"
+                        },
+                        {
+                            "text": {
+                                "text": "11:45 PM",
+                                "type": "plain_text"
+                            },
+                            "value": "11:45 PM"
+                        }
+                    ],
+                    "placeholder": {
+                        "emoji": false,
+                        "text": "Time",
+                        "type": "plain_text"
+                    },
+                    "type": "static_select"
+                },
+                "label": {
+                    "emoji": false,
+                    "text": "Time",
+                    "type": "plain_text"
+                },
+                "type": "input"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "43ac6980-0584-11f0-9f18-1735ff3ce6ab",
+                "type": "divider"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "43ac6981-0584-11f0-9f18-1735ff3ce6ab",
+                "text": {
+                    "text": "[Connected Message Link](https://srqawj.chat.kdab.com/direct/67b7116fc0984e12f9661a2c?msg=acAmZ9pPwPnucd3hy)",
+                    "type": "mrkdwn"
+                },
+                "type": "section"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "reminder",
+                "element": {
+                    "actionId": "description",
+                    "initialValue": "",
+                    "multiline": true,
+                    "placeholder": {
+                        "emoji": false,
+                        "text": "Remind me to...",
+                        "type": "plain_text"
+                    },
+                    "type": "plain_text_input"
+                },
+                "label": {
+                    "emoji": false,
+                    "text": "Add a note (optional)",
+                    "type": "plain_text"
+                },
+                "type": "input"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "43ac6982-0584-11f0-9f18-1735ff3ce6ab",
+                "type": "divider"
+            },
+            {
+                "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8",
+                "blockId": "43ac6983-0584-11f0-9f18-1735ff3ce6ab",
+                "elements": [
+                    {
+                        "emoji": false,
+                        "text": "Note: Your timezone is set to UTC+01:00.",
+                        "type": "plain_text"
+                    }
+                ],
+                "type": "context"
+            }
+        ],
+        "close": {
+            "actionId": "43ac6985-0584-11f0-9f18-1735ff3ce6ab",
+            "text": {
+                "emoji": false,
+                "text": "Cancel",
+                "type": "plain_text"
+            },
+            "type": "button"
+        },
+        "id": "msgReminderCreateModal-0c4e4b86-6de8-415e-95e6-de42643f3bcb",
+        "showIcon": true,
+        "submit": {
+            "actionId": "43ac6984-0584-11f0-9f18-1735ff3ce6ab",
+            "text": {
+                "emoji": false,
+                "text": "Create",
+                "type": "plain_text"
+            },
+            "type": "button"
+        },
+        "title": {
+            "emoji": false,
+            "text": "Create Reminder",
+            "type": "plain_text"
+        },
+        "type": "modal"
+    }
+}

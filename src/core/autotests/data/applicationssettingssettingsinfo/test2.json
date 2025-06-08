@@ -1,1 +1,12 @@
-{"id":"filters","type":"string","packageValue":"[{\"search\": \"#(\\\\d+)\", \"replace\": \"[$&](https://www1.example.com/issues/$1)\"}, {\"search\": \"BUG-(\\\\d+)\", \"replace\": \"[$&](https://www2.example.com/issues/$1)\"}]","required":true,"public":false,"multiline":true,"i18nLabel":"WordReplacerApp_Filters","i18nDescription":"WordReplacerApp_Filters_Description","createdAt":"2025-03-14T07:28:47.272Z","updatedAt":"2025-04-09T06:58:49.593Z"}
+{
+    "id": "filters",
+    "type": "string",
+    "packageValue": "[{\"search\": \"#(\\\\d+)\", \"replace\": \"[$&](https://www1.example.com/issues/$1)\"}, {\"search\": \"BUG-(\\\\d+)\", \"replace\": \"[$&](https://www2.example.com/issues/$1)\"}]",
+    "required": true,
+    "public": false,
+    "multiline": true,
+    "i18nLabel": "WordReplacerApp_Filters",
+    "i18nDescription": "WordReplacerApp_Filters_Description",
+    "createdAt": "2025-03-14T07:28:47.272Z",
+    "updatedAt": "2025-04-09T06:58:49.593Z"
+}

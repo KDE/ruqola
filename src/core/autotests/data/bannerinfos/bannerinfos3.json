@@ -1,5 +1,5 @@
 {
-"banners": {
+    "banners": {
         "alert-5fcc1f02f5204d09050943d2": {
             "id": "alert-5fcc1f02f5204d09050943d2",
             "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.1",
@@ -32,5 +32,5 @@
             ],
             "title": "Update_your_RocketChat"
         }
-}
+    }
 }

@@ -203,7 +203,7 @@ void ConfigurePluginsWidget::slotConfigureClicked(QAction *act)
                         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find text plugin " << identifier;
                     }
                 } else {
-                    qCWarning(RUQOLAWIDGETS_LOG) << "plugin group name not suppported " << groupName;
+                    qCWarning(RUQOLAWIDGETS_LOG) << "plugin group name not supported " << groupName;
                 }
             }
         }

@@ -1,1 +1,70 @@
-{"user":{"_id":"sddf5454","createdAt":"2024-01-31T16:08:42.339Z","username":"kde2","emails":[{"address":"foo@kde.org","verified":true}],"roles":["user"],"active":true,"name":"kde2"},"reports":[{"_id":"6638bf943b610b8aa5d35b3f","description":"Test report user in ruqola","reportedBy":{"_id":"H7Q9djXQ4iShzD9T2","name":"bli bli","username":"blu","createdAt":"2018-03-13T16:11:51.761Z"},"reportedUser":{"_id":"sddf5454","createdAt":"2024-01-31T16:08:42.339Z","username":"kde2","emails":[{"address":"foo@kde.org","verified":true}],"name":"kde2"},"ts":"2024-05-06T11:31:32.465Z"},{"_id":"66361aa93b610b8aa5d35b3c","description":"test only !","reportedBy":{"_id":"H7Q9djXQ4iShzD9T2","name":"bli bli","username":"blu","createdAt":"2018-03-13T16:11:51.761Z"},"reportedUser":{"_id":"sddf5454","createdAt":"2024-01-31T16:08:42.339Z","username":"kde2","emails":[{"address":"foo@kde.org","verified":true}],"name":"kde2"},"ts":"2024-05-04T11:23:21.128Z"}],"count":2,"total":2,"offset":0,"success":true}
+{
+    "user": {
+        "_id": "sddf5454",
+        "createdAt": "2024-01-31T16:08:42.339Z",
+        "username": "kde2",
+        "emails": [
+            {
+                "address": "foo@kde.org",
+                "verified": true
+            }
+        ],
+        "roles": [
+            "user"
+        ],
+        "active": true,
+        "name": "kde2"
+    },
+    "reports": [
+        {
+            "_id": "6638bf943b610b8aa5d35b3f",
+            "description": "Test report user in ruqola",
+            "reportedBy": {
+                "_id": "H7Q9djXQ4iShzD9T2",
+                "name": "bli bli",
+                "username": "blu",
+                "createdAt": "2018-03-13T16:11:51.761Z"
+            },
+            "reportedUser": {
+                "_id": "sddf5454",
+                "createdAt": "2024-01-31T16:08:42.339Z",
+                "username": "kde2",
+                "emails": [
+                    {
+                        "address": "foo@kde.org",
+                        "verified": true
+                    }
+                ],
+                "name": "kde2"
+            },
+            "ts": "2024-05-06T11:31:32.465Z"
+        },
+        {
+            "_id": "66361aa93b610b8aa5d35b3c",
+            "description": "test only !",
+            "reportedBy": {
+                "_id": "H7Q9djXQ4iShzD9T2",
+                "name": "bli bli",
+                "username": "blu",
+                "createdAt": "2018-03-13T16:11:51.761Z"
+            },
+            "reportedUser": {
+                "_id": "sddf5454",
+                "createdAt": "2024-01-31T16:08:42.339Z",
+                "username": "kde2",
+                "emails": [
+                    {
+                        "address": "foo@kde.org",
+                        "verified": true
+                    }
+                ],
+                "name": "kde2"
+            },
+            "ts": "2024-05-04T11:23:21.128Z"
+        }
+    ],
+    "count": 2,
+    "total": 2,
+    "offset": 0,
+    "success": true
+}

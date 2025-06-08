@@ -1,1 +1,205 @@
-{"commands":[{"clientOnly":false,"command":"slackbridge-import","providesPreview":false},{"clientOnly":false,"command":"archive","description":"Archive","params":"#channel","permission":"archive-room","providesPreview":false},{"clientOnly":false,"command":"gimme","description":"Slash_Gimme_Description","params":"your_message_optional","providesPreview":false},{"clientOnly":false,"command":"lennyface","description":"Slash_LennyFace_Description","params":"your_message_optional","providesPreview":false},{"clientOnly":false,"command":"shrug","description":"Slash_Shrug_Description","params":"your_message_optional","providesPreview":false},{"clientOnly":false,"command":"tableflip","description":"Slash_Tableflip_Description","params":"your_message_optional","providesPreview":false},{"clientOnly":false,"command":"unflip","description":"Slash_TableUnflip_Description","params":"your_message_optional","providesPreview":false},{"clientOnly":false,"command":"create","description":"Create_A_New_Channel","params":"#channel","permission":["create-c","create-p"],"providesPreview":false},{"clientOnly":false,"command":"help","description":"Show_the_keyboard_shortcut_list","providesPreview":false},{"clientOnly":false,"command":"hide","description":"Hide_room","params":"#room","providesPreview":false},{"clientOnly":false,"command":"invite","description":"Invite_user_to_join_channel","params":"@username","permission":"add-user-to-joined-room","providesPreview":false},{"clientOnly":false,"command":"invite-all-to","description":"Invite_user_to_join_channel_all_to","params":"#room","permission":["add-user-to-joined-room","add-user-to-any-c-room","add-user-to-any-p-room"],"providesPreview":false},{"clientOnly":false,"command":"invite-all-from","description":"Invite_user_to_join_channel_all_from","params":"#room","permission":"add-user-to-joined-room","providesPreview":false},{"clientOnly":false,"command":"join","description":"Join_the_given_channel","params":"#channel","permission":"view-c-room","providesPreview":false},{"clientOnly":false,"command":"kick","description":"Remove_someone_from_room","params":"@username","permission":"remove-user","providesPreview":false},{"clientOnly":false,"command":"leave","description":"Leave_the_current_channel","permission":["leave-c","leave-p"],"providesPreview":false},{"clientOnly":false,"command":"part","description":"Leave_the_current_channel","permission":["leave-c","leave-p"],"providesPreview":false},{"clientOnly":false,"command":"me","description":"Displays_action_text","params":"your_message","providesPreview":false},{"clientOnly":false,"command":"msg","description":"Direct_message_someone","params":"@username <message>","permission":"create-d","providesPreview":false},{"clientOnly":false,"command":"mute","description":"Mute_someone_in_room","params":"@username","permission":"mute-user","providesPreview":false},{"clientOnly":false,"command":"unmute","description":"Unmute_someone_in_room","params":"@username","permission":"mute-user","providesPreview":false},{"clientOnly":false,"command":"status","description":"Slash_Status_Description","params":"Slash_Status_Params","providesPreview":false},{"clientOnly":false,"command":"topic","description":"Slash_Topic_Description","params":"Slash_Topic_Params","permission":"edit-room","providesPreview":false},{"clientOnly":false,"command":"unarchive","description":"Unarchive","params":"#channel","permission":"unarchive-room","providesPreview":false},{"appId":"7e3eae17-747c-4ee3-ae2d-717c9bb9cfc8","command":"confluence-server","description":"apps-7e3eae17-747c-4ee3-ae2d-717c9bb9cfc8-slashcommand_description","params":"apps-7e3eae17-747c-4ee3-ae2d-717c9bb9cfc8-slashcommand_params","providesPreview":false}],"count":25,"offset":0,"success":true,"total":25}
+{
+    "commands": [
+        {
+            "clientOnly": false,
+            "command": "slackbridge-import",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "archive",
+            "description": "Archive",
+            "params": "#channel",
+            "permission": "archive-room",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "gimme",
+            "description": "Slash_Gimme_Description",
+            "params": "your_message_optional",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "lennyface",
+            "description": "Slash_LennyFace_Description",
+            "params": "your_message_optional",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "shrug",
+            "description": "Slash_Shrug_Description",
+            "params": "your_message_optional",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "tableflip",
+            "description": "Slash_Tableflip_Description",
+            "params": "your_message_optional",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "unflip",
+            "description": "Slash_TableUnflip_Description",
+            "params": "your_message_optional",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "create",
+            "description": "Create_A_New_Channel",
+            "params": "#channel",
+            "permission": [
+                "create-c",
+                "create-p"
+            ],
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "help",
+            "description": "Show_the_keyboard_shortcut_list",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "hide",
+            "description": "Hide_room",
+            "params": "#room",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "invite",
+            "description": "Invite_user_to_join_channel",
+            "params": "@username",
+            "permission": "add-user-to-joined-room",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "invite-all-to",
+            "description": "Invite_user_to_join_channel_all_to",
+            "params": "#room",
+            "permission": [
+                "add-user-to-joined-room",
+                "add-user-to-any-c-room",
+                "add-user-to-any-p-room"
+            ],
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "invite-all-from",
+            "description": "Invite_user_to_join_channel_all_from",
+            "params": "#room",
+            "permission": "add-user-to-joined-room",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "join",
+            "description": "Join_the_given_channel",
+            "params": "#channel",
+            "permission": "view-c-room",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "kick",
+            "description": "Remove_someone_from_room",
+            "params": "@username",
+            "permission": "remove-user",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "leave",
+            "description": "Leave_the_current_channel",
+            "permission": [
+                "leave-c",
+                "leave-p"
+            ],
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "part",
+            "description": "Leave_the_current_channel",
+            "permission": [
+                "leave-c",
+                "leave-p"
+            ],
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "me",
+            "description": "Displays_action_text",
+            "params": "your_message",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "msg",
+            "description": "Direct_message_someone",
+            "params": "@username <message>",
+            "permission": "create-d",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "mute",
+            "description": "Mute_someone_in_room",
+            "params": "@username",
+            "permission": "mute-user",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "unmute",
+            "description": "Unmute_someone_in_room",
+            "params": "@username",
+            "permission": "mute-user",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "status",
+            "description": "Slash_Status_Description",
+            "params": "Slash_Status_Params",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "topic",
+            "description": "Slash_Topic_Description",
+            "params": "Slash_Topic_Params",
+            "permission": "edit-room",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "unarchive",
+            "description": "Unarchive",
+            "params": "#channel",
+            "permission": "unarchive-room",
+            "providesPreview": false
+        },
+        {
+            "appId": "7e3eae17-747c-4ee3-ae2d-717c9bb9cfc8",
+            "command": "confluence-server",
+            "description": "apps-7e3eae17-747c-4ee3-ae2d-717c9bb9cfc8-slashcommand_description",
+            "params": "apps-7e3eae17-747c-4ee3-ae2d-717c9bb9cfc8-slashcommand_params",
+            "providesPreview": false
+        }
+    ],
+    "count": 25,
+    "offset": 0,
+    "success": true,
+    "total": 25
+}

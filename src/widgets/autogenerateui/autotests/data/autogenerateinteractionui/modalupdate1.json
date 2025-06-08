@@ -1,1 +1,235 @@
-{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","success":true,"triggerId":"88caafdcad5d48d9b81fb05da1c41ac3","type":"modal.update","view":{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blocks":[{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blockId":"reminderData","element":{"actionId":"whenDate","initialValue":"18/03/2025","placeholder":{"emoji":false,"text":"dd/mm/yyyy","type":"plain_text"},"type":"plain_text_input"},"label":{"text":"**Remind at:**","type":"mrkdwn"},"type":"input"},{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blockId":"reminderData","element":{"actionId":"whenTime","initialValue":"14:00","placeholder":{"emoji":false,"text":"hh:mm","type":"plain_text"},"type":"plain_text_input"},"label":{"emoji":false,"text":"Time","type":"plain_text"},"type":"input"},{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blockId":"reminderData","element":{"actionId":"repeat","initialValue":"once","options":[{"text":{"emoji":false,"text":"No repeat","type":"plain_text"},"value":"once"},{"text":{"emoji":false,"text":"Daily","type":"plain_text"},"value":"daily"},{"text":{"emoji":false,"text":"Weekdays (Mon-Fri)","type":"plain_text"},"value":"weekdays"},{"text":{"emoji":false,"text":"Weekly","type":"plain_text"},"value":"weekly"},{"text":{"emoji":false,"text":"Monthly","type":"plain_text"},"value":"monthly"}],"placeholder":{"emoji":false,"text":"Repeat","type":"plain_text"},"type":"static_select"},"label":{"emoji":false,"text":"Repeat","type":"plain_text"},"type":"input"},{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blockId":"reminderData","element":{"actionId":"message","multiline":true,"placeholder":{"emoji":false,"text":"Happy hour start! :tada: :sushi:","type":"plain_text"},"type":"plain_text_input"},"label":{"emoji":false,"text":"Message","type":"plain_text"},"type":"input"},{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blockId":"49797170-03f2-11f0-8eaa-67e40a603e6c","type":"divider"},{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blockId":"49797171-03f2-11f0-8eaa-67e40a603e6c","text":{"text":"**Remind to:**","type":"mrkdwn"},"type":"section"},{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blockId":"reminderData","elements":[{"actionId":"targetType","initialValue":"channel","options":[{"text":{"emoji":false,"text":"Yourself","type":"plain_text"},"value":"self"},{"text":{"emoji":false,"text":"Other Users","type":"plain_text"},"value":"user"},{"text":{"emoji":false,"text":"Channel","type":"plain_text"},"value":"channel"}],"placeholder":{"emoji":false,"text":"Channel or Users","type":"plain_text"},"type":"static_select"}],"type":"actions"},{"appId":"f3ff06c9-fa92-44eb-be38-61cafb7b7566","blockId":"reminderData","element":{"actionId":"targetChannel","placeholder":{"emoji":false,"text":"#general","type":"plain_text"},"type":"plain_text_input"},"label":{"emoji":false,"text":"Channel name","type":"plain_text"},"type":"input"}],"close":{"actionId":"49797173-03f2-11f0-8eaa-67e40a603e6c","text":{"emoji":false,"text":"Cancel","type":"plain_text"},"type":"button"},"id":"modal-reminder-create--GENERAL","showIcon":true,"submit":{"actionId":"49797172-03f2-11f0-8eaa-67e40a603e6c","style":"primary","text":{"emoji":false,"text":"Confirm","type":"plain_text"},"type":"button"},"title":{"emoji":false,"text":"Create Reminder","type":"plain_text"},"type":"modal"}}
+{
+    "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+    "success": true,
+    "triggerId": "88caafdcad5d48d9b81fb05da1c41ac3",
+    "type": "modal.update",
+    "view": {
+        "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+        "blocks": [
+            {
+                "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+                "blockId": "reminderData",
+                "element": {
+                    "actionId": "whenDate",
+                    "initialValue": "18/03/2025",
+                    "placeholder": {
+                        "emoji": false,
+                        "text": "dd/mm/yyyy",
+                        "type": "plain_text"
+                    },
+                    "type": "plain_text_input"
+                },
+                "label": {
+                    "text": "**Remind at:**",
+                    "type": "mrkdwn"
+                },
+                "type": "input"
+            },
+            {
+                "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+                "blockId": "reminderData",
+                "element": {
+                    "actionId": "whenTime",
+                    "initialValue": "14:00",
+                    "placeholder": {
+                        "emoji": false,
+                        "text": "hh:mm",
+                        "type": "plain_text"
+                    },
+                    "type": "plain_text_input"
+                },
+                "label": {
+                    "emoji": false,
+                    "text": "Time",
+                    "type": "plain_text"
+                },
+                "type": "input"
+            },
+            {
+                "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+                "blockId": "reminderData",
+                "element": {
+                    "actionId": "repeat",
+                    "initialValue": "once",
+                    "options": [
+                        {
+                            "text": {
+                                "emoji": false,
+                                "text": "No repeat",
+                                "type": "plain_text"
+                            },
+                            "value": "once"
+                        },
+                        {
+                            "text": {
+                                "emoji": false,
+                                "text": "Daily",
+                                "type": "plain_text"
+                            },
+                            "value": "daily"
+                        },
+                        {
+                            "text": {
+                                "emoji": false,
+                                "text": "Weekdays (Mon-Fri)",
+                                "type": "plain_text"
+                            },
+                            "value": "weekdays"
+                        },
+                        {
+                            "text": {
+                                "emoji": false,
+                                "text": "Weekly",
+                                "type": "plain_text"
+                            },
+                            "value": "weekly"
+                        },
+                        {
+                            "text": {
+                                "emoji": false,
+                                "text": "Monthly",
+                                "type": "plain_text"
+                            },
+                            "value": "monthly"
+                        }
+                    ],
+                    "placeholder": {
+                        "emoji": false,
+                        "text": "Repeat",
+                        "type": "plain_text"
+                    },
+                    "type": "static_select"
+                },
+                "label": {
+                    "emoji": false,
+                    "text": "Repeat",
+                    "type": "plain_text"
+                },
+                "type": "input"
+            },
+            {
+                "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+                "blockId": "reminderData",
+                "element": {
+                    "actionId": "message",
+                    "multiline": true,
+                    "placeholder": {
+                        "emoji": false,
+                        "text": "Happy hour start! :tada: :sushi:",
+                        "type": "plain_text"
+                    },
+                    "type": "plain_text_input"
+                },
+                "label": {
+                    "emoji": false,
+                    "text": "Message",
+                    "type": "plain_text"
+                },
+                "type": "input"
+            },
+            {
+                "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+                "blockId": "49797170-03f2-11f0-8eaa-67e40a603e6c",
+                "type": "divider"
+            },
+            {
+                "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+                "blockId": "49797171-03f2-11f0-8eaa-67e40a603e6c",
+                "text": {
+                    "text": "**Remind to:**",
+                    "type": "mrkdwn"
+                },
+                "type": "section"
+            },
+            {
+                "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+                "blockId": "reminderData",
+                "elements": [
+                    {
+                        "actionId": "targetType",
+                        "initialValue": "channel",
+                        "options": [
+                            {
+                                "text": {
+                                    "emoji": false,
+                                    "text": "Yourself",
+                                    "type": "plain_text"
+                                },
+                                "value": "self"
+                            },
+                            {
+                                "text": {
+                                    "emoji": false,
+                                    "text": "Other Users",
+                                    "type": "plain_text"
+                                },
+                                "value": "user"
+                            },
+                            {
+                                "text": {
+                                    "emoji": false,
+                                    "text": "Channel",
+                                    "type": "plain_text"
+                                },
+                                "value": "channel"
+                            }
+                        ],
+                        "placeholder": {
+                            "emoji": false,
+                            "text": "Channel or Users",
+                            "type": "plain_text"
+                        },
+                        "type": "static_select"
+                    }
+                ],
+                "type": "actions"
+            },
+            {
+                "appId": "f3ff06c9-fa92-44eb-be38-61cafb7b7566",
+                "blockId": "reminderData",
+                "element": {
+                    "actionId": "targetChannel",
+                    "placeholder": {
+                        "emoji": false,
+                        "text": "#general",
+                        "type": "plain_text"
+                    },
+                    "type": "plain_text_input"
+                },
+                "label": {
+                    "emoji": false,
+                    "text": "Channel name",
+                    "type": "plain_text"
+                },
+                "type": "input"
+            }
+        ],
+        "close": {
+            "actionId": "49797173-03f2-11f0-8eaa-67e40a603e6c",
+            "text": {
+                "emoji": false,
+                "text": "Cancel",
+                "type": "plain_text"
+            },
+            "type": "button"
+        },
+        "id": "modal-reminder-create--GENERAL",
+        "showIcon": true,
+        "submit": {
+            "actionId": "49797172-03f2-11f0-8eaa-67e40a603e6c",
+            "style": "primary",
+            "text": {
+                "emoji": false,
+                "text": "Confirm",
+                "type": "plain_text"
+            },
+            "type": "button"
+        },
+        "title": {
+            "emoji": false,
+            "text": "Create Reminder",
+            "type": "plain_text"
+        },
+        "type": "modal"
+    }
+}

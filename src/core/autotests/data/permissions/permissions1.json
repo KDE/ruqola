@@ -1,1 +1,37 @@
-[{"_id":"access-permissions","_updatedAt":"2018-08-06T10:10:43.852Z","roles":["admin"]},{"_id":"add-oauth-service","_updatedAt":"2018-08-06T10:10:43.860Z","roles":["admin"]},{"_id":"add-user-to-joined-room","_updatedAt":"2018-08-06T10:10:43.869Z","roles":["admin","owner","moderator"]},{"_id":"add-user-to-any-c-room","_updatedAt":"2018-08-06T10:10:43.881Z","roles":["admin"]},{"_id":"add-user-to-any-p-room","_updatedAt":"2018-08-06T10:10:43.889Z","roles":[]}]
+[
+    {
+        "_id": "access-permissions",
+        "_updatedAt": "2018-08-06T10:10:43.852Z",
+        "roles": [
+            "admin"
+        ]
+    },
+    {
+        "_id": "add-oauth-service",
+        "_updatedAt": "2018-08-06T10:10:43.860Z",
+        "roles": [
+            "admin"
+        ]
+    },
+    {
+        "_id": "add-user-to-joined-room",
+        "_updatedAt": "2018-08-06T10:10:43.869Z",
+        "roles": [
+            "admin",
+            "owner",
+            "moderator"
+        ]
+    },
+    {
+        "_id": "add-user-to-any-c-room",
+        "_updatedAt": "2018-08-06T10:10:43.881Z",
+        "roles": [
+            "admin"
+        ]
+    },
+    {
+        "_id": "add-user-to-any-p-room",
+        "_updatedAt": "2018-08-06T10:10:43.889Z",
+        "roles": []
+    }
+]

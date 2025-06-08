@@ -16,7 +16,7 @@ public:
     MessageAttachments();
     ~MessageAttachments();
 
-    void setMessageAttachments(const QList<MessageAttachment> &attachements);
+    void setMessageAttachments(const QList<MessageAttachment> &attachments);
     [[nodiscard]] QList<MessageAttachment> messageAttachments() const;
 
     void parseMessageAttachments(const QJsonArray &attachments, const QByteArray &messageId);

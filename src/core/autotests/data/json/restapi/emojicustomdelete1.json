@@ -1,1 +1,13 @@
-[{"emojiData":{"_id":"RyBauhQqnoE5WeJvZ","_updatedAt":{"$date":1631858916014},"aliases":[],"extension":"png","name":"kdab"}}]
+[
+    {
+        "emojiData": {
+            "_id": "RyBauhQqnoE5WeJvZ",
+            "_updatedAt": {
+                "$date": 1631858916014
+            },
+            "aliases": [],
+            "extension": "png",
+            "name": "kdab"
+        }
+    }
+]

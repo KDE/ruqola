@@ -1,1 +1,20 @@
-{"actionId":"manage_all_reminders_room_action","labelI18n":"manage_all_reminders_room_action","context":"roomAction","when":{"roomTypes":["public_channel","public_team","public_discussion","private_channel","private_team","private_discussion"],"hasOneRole":["admin","owner"]},"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"}
+{
+    "actionId": "manage_all_reminders_room_action",
+    "labelI18n": "manage_all_reminders_room_action",
+    "context": "roomAction",
+    "when": {
+        "roomTypes": [
+            "public_channel",
+            "public_team",
+            "public_discussion",
+            "private_channel",
+            "private_team",
+            "private_discussion"
+        ],
+        "hasOneRole": [
+            "admin",
+            "owner"
+        ]
+    },
+    "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"
+}

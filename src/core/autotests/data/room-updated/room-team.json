@@ -1,22 +1,22 @@
-            {
-                "_id": "BKwMZXmQH67mvMXgj",
-                "_updatedAt": {
-                    "$date": 1620019351097
-                },
-                "broadcast": false,
-                "default": false,
-                "description": "",
-                "encrypted": false,
-                "fname": "ruqola-team21",
-                "name": "ruqola-team21",
-                "ro": false,
-                "sysMes": true,
-                "t": "p",
-                "teamId": "608f8897f3fc7f9ba58bfb08",
-                "teamMain": true,
-                "u": {
-                    "_id": "uKK39zoewTkdacidH",
-                    "username": "laurent"
-                },
-                "usersCount": 1
-            }
+{
+    "_id": "BKwMZXmQH67mvMXgj",
+    "_updatedAt": {
+        "$date": 1620019351097
+    },
+    "broadcast": false,
+    "default": false,
+    "description": "",
+    "encrypted": false,
+    "fname": "ruqola-team21",
+    "name": "ruqola-team21",
+    "ro": false,
+    "sysMes": true,
+    "t": "p",
+    "teamId": "608f8897f3fc7f9ba58bfb08",
+    "teamMain": true,
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "usersCount": 1
+}

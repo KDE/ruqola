@@ -1,1 +1,98 @@
-{"roles":[{"_id":"admin","description":"Admin","mandatory2fa":false,"name":"admin","protected":true,"scope":"Users"},{"_id":"moderator","description":"Moderator","mandatory2fa":false,"name":"moderator","protected":true,"scope":"Subscriptions"},{"_id":"leader","description":"Leader","mandatory2fa":false,"name":"leader","protected":true,"scope":"Subscriptions"},{"_id":"owner","description":"Owner","mandatory2fa":false,"name":"owner","protected":true,"scope":"Subscriptions"},{"_id":"user","description":"","mandatory2fa":false,"name":"user","protected":true,"scope":"Users"},{"_id":"bot","description":"","mandatory2fa":false,"name":"bot","protected":true,"scope":"Users"},{"_id":"guest","description":"","mandatory2fa":false,"name":"guest","protected":true,"scope":"Users"},{"_id":"anonymous","description":"","mandatory2fa":false,"name":"anonymous","protected":true,"scope":"Users"},{"_id":"livechat-agent","description":"Livechat Agent","mandatory2fa":false,"name":"livechat-agent","protected":true,"scope":"Users"},{"_id":"livechat-manager","description":"Livechat Manager","mandatory2fa":false,"name":"livechat-manager","protected":true,"scope":"Users"},{"_id":"livechat-guest","name":"livechat-guest","scope":"Users"},{"_id":"app","description":"","mandatory2fa":false,"name":"app","protected":true,"scope":"Users"}],"success":true}
+{
+    "roles": [
+        {
+            "_id": "admin",
+            "description": "Admin",
+            "mandatory2fa": false,
+            "name": "admin",
+            "protected": true,
+            "scope": "Users"
+        },
+        {
+            "_id": "moderator",
+            "description": "Moderator",
+            "mandatory2fa": false,
+            "name": "moderator",
+            "protected": true,
+            "scope": "Subscriptions"
+        },
+        {
+            "_id": "leader",
+            "description": "Leader",
+            "mandatory2fa": false,
+            "name": "leader",
+            "protected": true,
+            "scope": "Subscriptions"
+        },
+        {
+            "_id": "owner",
+            "description": "Owner",
+            "mandatory2fa": false,
+            "name": "owner",
+            "protected": true,
+            "scope": "Subscriptions"
+        },
+        {
+            "_id": "user",
+            "description": "",
+            "mandatory2fa": false,
+            "name": "user",
+            "protected": true,
+            "scope": "Users"
+        },
+        {
+            "_id": "bot",
+            "description": "",
+            "mandatory2fa": false,
+            "name": "bot",
+            "protected": true,
+            "scope": "Users"
+        },
+        {
+            "_id": "guest",
+            "description": "",
+            "mandatory2fa": false,
+            "name": "guest",
+            "protected": true,
+            "scope": "Users"
+        },
+        {
+            "_id": "anonymous",
+            "description": "",
+            "mandatory2fa": false,
+            "name": "anonymous",
+            "protected": true,
+            "scope": "Users"
+        },
+        {
+            "_id": "livechat-agent",
+            "description": "Livechat Agent",
+            "mandatory2fa": false,
+            "name": "livechat-agent",
+            "protected": true,
+            "scope": "Users"
+        },
+        {
+            "_id": "livechat-manager",
+            "description": "Livechat Manager",
+            "mandatory2fa": false,
+            "name": "livechat-manager",
+            "protected": true,
+            "scope": "Users"
+        },
+        {
+            "_id": "livechat-guest",
+            "name": "livechat-guest",
+            "scope": "Users"
+        },
+        {
+            "_id": "app",
+            "description": "",
+            "mandatory2fa": false,
+            "name": "app",
+            "protected": true,
+            "scope": "Users"
+        }
+    ],
+    "success": true
+}

@@ -1,1 +1,11 @@
-{"createdAt":"2022-08-22T06:33:39.521Z","i18nDescription":"jitsi_application_id_description","i18nLabel":"jitsi_application_id","id":"jitsi_application_id","packageValue":"","public":false,"required":false,"type":"string","updatedAt":"2024-12-05T03:28:05.649Z"}
+{
+    "createdAt": "2022-08-22T06:33:39.521Z",
+    "i18nDescription": "jitsi_application_id_description",
+    "i18nLabel": "jitsi_application_id",
+    "id": "jitsi_application_id",
+    "packageValue": "",
+    "public": false,
+    "required": false,
+    "type": "string",
+    "updatedAt": "2024-12-05T03:28:05.649Z"
+}

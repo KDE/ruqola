@@ -3,16 +3,15 @@
 
 kcoreaddons_add_plugin(ruqola_webshortcuttextplugin INSTALL_NAMESPACE ruqolaplugins/textplugins)
 
-target_sources(ruqola_webshortcuttextplugin PRIVATE
-    webshortcuttextinterface.cpp
-    webshortcuttextplugin.cpp
-    webshortcuttextinterface.h
-    webshortcuttextplugin.h
+target_sources(
+    ruqola_webshortcuttextplugin
+    PRIVATE
+        webshortcuttextinterface.cpp
+        webshortcuttextplugin.cpp
+        webshortcuttextinterface.h
+        webshortcuttextplugin.h
 )
-target_link_libraries(ruqola_webshortcuttextplugin
-    libruqolawidgets
-)
+target_link_libraries(ruqola_webshortcuttextplugin libruqolawidgets)
 if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
-

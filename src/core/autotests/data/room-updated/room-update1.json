@@ -3,8 +3,7 @@
     "_updatedAt": {
         "$date": 1520852203817
     },
-    "customFields": {
-    },
+    "customFields": {},
     "jitsiTimeout": {
         "$date": 1518112532866
     },

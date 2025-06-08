@@ -13,4 +13,3 @@ ecm_install_icons(ICONS ${all_icons}
     DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )
-

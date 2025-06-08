@@ -1,1 +1,14 @@
-[{"_id":"JjymWTKjucPijPNw8","_updatedAt":{"$date":1635177148134},"description":"","mandatory2fa":false,"name":"test1","protected":false,"scope":"Users","type":"changed"}]
+[
+    {
+        "_id": "JjymWTKjucPijPNw8",
+        "_updatedAt": {
+            "$date": 1635177148134
+        },
+        "description": "",
+        "mandatory2fa": false,
+        "name": "test1",
+        "protected": false,
+        "scope": "Users",
+        "type": "changed"
+    }
+]

@@ -1,1 +1,20 @@
-{"accessory":{"actionId":"vote","text":{"emoji":false,"text":"Vote","type":"plain_text"},"type":"button","value":"0"},"appId":"c33fa1a6-68a7-491e-bf49-9d7b99671c48","blockId":"33fec462-fcfb-11ef-85ff-4bacdd8b2d67","text":{"emoji":false,"text":"zz","type":"plain_text"},"type":"section"}
+{
+    "accessory": {
+        "actionId": "vote",
+        "text": {
+            "emoji": false,
+            "text": "Vote",
+            "type": "plain_text"
+        },
+        "type": "button",
+        "value": "0"
+    },
+    "appId": "c33fa1a6-68a7-491e-bf49-9d7b99671c48",
+    "blockId": "33fec462-fcfb-11ef-85ff-4bacdd8b2d67",
+    "text": {
+        "emoji": false,
+        "text": "zz",
+        "type": "plain_text"
+    },
+    "type": "section"
+}

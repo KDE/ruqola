@@ -23,7 +23,6 @@ endif()
 
 set(RUQOLA_VERSION_STRING "${RUQOLA_VERSION}${RUQOLA_DEV_VERSION}")
 
-
 find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
@@ -39,7 +38,19 @@ include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(KDEClangFormat)
-file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/widgets/*.cpp src/widgets/*.h src/rocketchatrestapi-qt/*.cpp src/rocketchatrestapi-qt/*.h  src/core/*.cpp src/core/*.h  src/plugins/*.cpp src/plugins/*.h tests/*.cpp tests/*.h)
+file(
+    GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES
+    src/widgets/*.cpp
+    src/widgets/*.h
+    src/rocketchatrestapi-qt/*.cpp
+    src/rocketchatrestapi-qt/*.h
+    src/core/*.cpp
+    src/core/*.h
+    src/plugins/*.cpp
+    src/plugins/*.h
+    tests/*.cpp
+    tests/*.h
+)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 include(ECMGenerateHeaders)
@@ -49,9 +60,17 @@ option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
 option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
-option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
+option(
+    OPTION_DISABLE_NETWORKMANAGER
+    "Disable Network Manager support (mainly for debugging)"
+    OFF
+)
 
-option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" ON)
+option(
+    OPTION_ADD_AUTOGENERATETEXT
+    "Add support for autogenerate text plugin"
+    ON
+)
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
@@ -59,7 +78,7 @@ if(OPTION_USE_PLASMA_ACTIVITIES)
     else()
         set(OPTION_USE_PLASMA_ACTIVITIES false)
     endif()
-endif()    
+endif()
 
 if(OPTION_USE_E2E_SUPPORT)
     set(USE_E2E_SUPPORT true)
@@ -74,14 +93,22 @@ if(OPTION_USE_SIZEHINT_CACHE_SUPPORT)
     set(USE_SIZEHINT_CACHE_SUPPORT true)
 endif()
 
-option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
+option(
+    USE_UNITY_CMAKE_SUPPORT
+    "Use UNITY cmake support (speedup compile time)"
+    OFF
+)
 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT false)
 if(USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT true)
 endif()
 
-option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" OFF)
+option(
+    PLUGINS_AUTHENTICATION_BASED_ON_O2
+    "Build authentication based on o2 lib (experimental)"
+    OFF
+)
 if(NOT WIN32 AND NOT APPLE)
     option(UNITY_SUPPORT "Build unity support" ON)
 else()
@@ -97,42 +124,63 @@ set(KTEXTADDONS_MIN_VERSION "1.6.0")
 set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "1.6.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
-find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
+find_package(
+    Qt6
+    ${REQUIRED_QT_VERSION}
+    REQUIRED
+    COMPONENTS
+        Core
+        Gui
+        Widgets
+        WebSockets
+        Network
+        NetworkAuth
+        MultimediaWidgets
+        Sql
+)
 
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-    CoreAddons
-    I18n
-    Crash
-    Notifications
-    IconThemes
-    SyntaxHighlighting
-    NotifyConfig
-    ItemViews
-    IdleTime
-    Prison
-    Archive
-    ColorScheme
-    Codecs # KEmailAddress
+find_package(
+    KF6
+    ${KF_MIN_VERSION}
+    REQUIRED
+    COMPONENTS
+        CoreAddons
+        I18n
+        Crash
+        Notifications
+        IconThemes
+        SyntaxHighlighting
+        NotifyConfig
+        ItemViews
+        IdleTime
+        Prison
+        Archive
+        ColorScheme
+        Codecs # KEmailAddress
 )
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
         find_package(PlasmaActivities "6.3.0")
-	set_package_properties(PlasmaActivities PROPERTIES DESCRIPTION
-               "Allow to compile with plasma activities"
+        set_package_properties(
+            PlasmaActivities
+            PROPERTIES
+                DESCRIPTION "Allow to compile with plasma activities"
                 TYPE OPTIONAL
         )
     endif()
-endif()	
+endif()
 
 if(TARGET Plasma::Activities)
     set(HAVE_ACTIVITY_SUPPORT TRUE)
 endif()
 
 find_package(KF6TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF6TextTranslator PROPERTIES DESCRIPTION
-    "Add support for text translation (ktextaddons)"
-    TYPE OPTIONAL
+set_package_properties(
+    KF6TextTranslator
+    PROPERTIES
+        DESCRIPTION "Add support for text translation (ktextaddons)"
+        TYPE OPTIONAL
 )
 
 if(TARGET KF6::TextTranslator)
@@ -140,27 +188,33 @@ if(TARGET KF6::TextTranslator)
 endif()
 
 find_package(KF6TextAutoCorrectionWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF6TextAutoCorrectionWidgets PROPERTIES DESCRIPTION
-    "Add support for text auto correction (ktextaddons)"
-    TYPE OPTIONAL
+set_package_properties(
+    KF6TextAutoCorrectionWidgets
+    PROPERTIES
+        DESCRIPTION "Add support for text auto correction (ktextaddons)"
+        TYPE OPTIONAL
 )
 if(TARGET KF6::TextAutoCorrectionWidgets)
     set(HAVE_TEXT_AUTOCORRECTION_WIDGETS TRUE)
 endif()
 
 find_package(KF6TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF6TextEditTextToSpeech PROPERTIES DESCRIPTION
-    "Add support for text to speech (ktextaddons)"
-    TYPE OPTIONAL
+set_package_properties(
+    KF6TextEditTextToSpeech
+    PROPERTIES
+        DESCRIPTION "Add support for text to speech (ktextaddons)"
+        TYPE OPTIONAL
 )
 if(TARGET KF6::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
 endif()
 
 find_package(KF6TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF6TextEmoticonsWidgets PROPERTIES DESCRIPTION
-    "Add text emoticons support (ktextaddons)"
-    TYPE REQUIRED
+set_package_properties(
+    KF6TextEmoticonsWidgets
+    PROPERTIES
+        DESCRIPTION "Add text emoticons support (ktextaddons)"
+        TYPE REQUIRED
 )
 
 if(${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
@@ -174,20 +228,21 @@ else()
 endif()
 
 find_package(KF6TextUtils ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF6TextUtils PROPERTIES DESCRIPTION
-    "Add utils text functions (ktextaddons)"
-    TYPE OPTIONAL
+set_package_properties(
+    KF6TextUtils
+    PROPERTIES
+        DESCRIPTION "Add utils text functions (ktextaddons)"
+        TYPE OPTIONAL
 )
 
 if(TARGET KF6::TextUtils)
     set(HAVE_TEXT_UTILS TRUE)
 endif()
 
-
 find_package(KF6TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF6TextCustomEditor PROPERTIES DESCRIPTION
-    "Add text custom editor (ktextaddons)"
-    TYPE OPTIONAL
+set_package_properties(
+    KF6TextCustomEditor
+    PROPERTIES DESCRIPTION "Add text custom editor (ktextaddons)" TYPE OPTIONAL
 )
 
 if(TARGET KF6::TextCustomEditor)
@@ -195,11 +250,17 @@ if(TARGET KF6::TextCustomEditor)
 endif()
 
 if(OPTION_ADD_AUTOGENERATETEXT)
-    find_package(KF6TextAutoGenerateText ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION} CONFIG)
-    set_package_properties(KF6TextAutoGenerateText PROPERTIES
-        TYPE OPTIONAL
-        PURPOSE "Required for building AI plugins support"
-        DESCRIPTION "Use AI plugin"
+    find_package(
+        KF6TextAutoGenerateText
+        ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION}
+        CONFIG
+    )
+    set_package_properties(
+        KF6TextAutoGenerateText
+        PROPERTIES
+            TYPE OPTIONAL
+            PURPOSE "Required for building AI plugins support"
+            DESCRIPTION "Use AI plugin"
     )
 endif()
 
@@ -216,10 +277,9 @@ endif()
 
 option(USE_DBUS "Build components using DBus" ${USE_DBUS_DEFAULT})
 if(USE_DBUS)
-   set(WITH_DBUS TRUE)
-   find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+    set(WITH_DBUS TRUE)
+    find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
-
 
 find_package(KF6XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6Config ${KF_MIN_VERSION} CONFIG REQUIRED)
@@ -231,37 +291,49 @@ if(NOT APPLE)
 endif()
 
 find_package(KF6DocTools ${KF_MIN_VERSION})
-set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
-    "Tools to generate documentation"
-    TYPE OPTIONAL
+set_package_properties(
+    KF6DocTools
+    PROPERTIES DESCRIPTION "Tools to generate documentation" TYPE OPTIONAL
 )
 
 find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 
 find_package(Qt6Keychain ${QT6KEYCHAIN_LIB_VERSION} CONFIG)
-set_package_properties(Qt6Keychain PROPERTIES
-    DESCRIPTION "Provides support for secure credentials storage"
-    URL "https://github.com/frankosterfeld/qtkeychain"
-    TYPE REQUIRED)
-
+set_package_properties(
+    Qt6Keychain
+    PROPERTIES
+        DESCRIPTION "Provides support for secure credentials storage"
+        URL "https://github.com/frankosterfeld/qtkeychain"
+        TYPE REQUIRED
+)
 
 find_package(KF6UserFeedback ${KF_MIN_VERSION} CONFIG)
 set(HAVE_KUSERFEEDBACK ${KF6UserFeedback_FOUND})
-set_package_properties(KF6UserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
+set_package_properties(
+    KF6UserFeedback
+    PROPERTIES
+        DESCRIPTION "User Feedback lib"
+        TYPE OPTIONAL
+        PURPOSE "Allow to send Telemetry Information (optional)."
+)
 
 if(OPTION_DISABLE_NETWORKMANAGER)
     set(HAVE_NETWORKMANAGER FALSE)
-else()    
+else()
     find_package(KF6NetworkManagerQt ${KF_MIN_VERSION} CONFIG)
     set(HAVE_NETWORKMANAGER ${KF6NetworkManagerQt_FOUND})
-    set_package_properties(KF6NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
+    set_package_properties(
+        KF6NetworkManagerQt
+        PROPERTIES
+            DESCRIPTION "Network management lib"
+            TYPE OPTIONAL
+            PURPOSE "Allows detecting network state changes."
+    )
 endif()
 
-
-if (NOT USE_DBUS)
+if(NOT USE_DBUS)
     find_package(KDSingleApplication-qt6 CONFIG REQUIRED)
 endif()
-
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.10.0
@@ -270,7 +342,6 @@ ecm_set_disabled_deprecation_versions(QT 6.10.0
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
-
 
 configure_file(config-ruqola.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
 
@@ -302,5 +373,17 @@ if(KF6DocTools_FOUND)
     add_subdirectory(doc)
 endif()
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
-file(GLOB_RECURSE ALL_SOURCE_FILES src/widgets/*.cpp src/widgets/*.h src/rocketchatrestapi-qt/*.cpp src/rocketchatrestapi-qt/*.h  src/core/*.cpp src/core/*.h  src/plugins/*.cpp src/plugins/*.h tests/*.cpp tests/*.h)
+file(
+    GLOB_RECURSE ALL_SOURCE_FILES
+    src/widgets/*.cpp
+    src/widgets/*.h
+    src/rocketchatrestapi-qt/*.cpp
+    src/rocketchatrestapi-qt/*.h
+    src/core/*.cpp
+    src/core/*.h
+    src/plugins/*.cpp
+    src/plugins/*.h
+    tests/*.cpp
+    tests/*.h
+)
 ecm_check_outbound_license(LICENSES GPL-2.0-only  FILES ${ALL_SOURCE_FILES})

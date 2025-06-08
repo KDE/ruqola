@@ -1,1 +1,44 @@
-{"license":{"activeModules":["auditing","canned-responses","ldap-enterprise","livechat-enterprise","voip-enterprise","omnichannel-mobile-enterprise","engagement-dashboard","push-privacy","scalability","teams-mention","saml-enterprise","oauth-enterprise","device-management","federation","videoconference-enterprise","message-read-receipt","outlook-calendar","hide-watermark","custom-roles","accessibility-certification"],"externalModules":[],"limits":{},"preventedActions":{"activeUsers":false,"guestUsers":false,"marketplaceApps":false,"monthlyActiveContacts":false,"privateApps":false,"roomsPerGuest":false},"tags":[{"color":"#F3BE08","name":"Enterprise"}],"trial":false},"success":true}
+{
+    "license": {
+        "activeModules": [
+            "auditing",
+            "canned-responses",
+            "ldap-enterprise",
+            "livechat-enterprise",
+            "voip-enterprise",
+            "omnichannel-mobile-enterprise",
+            "engagement-dashboard",
+            "push-privacy",
+            "scalability",
+            "teams-mention",
+            "saml-enterprise",
+            "oauth-enterprise",
+            "device-management",
+            "federation",
+            "videoconference-enterprise",
+            "message-read-receipt",
+            "outlook-calendar",
+            "hide-watermark",
+            "custom-roles",
+            "accessibility-certification"
+        ],
+        "externalModules": [],
+        "limits": {},
+        "preventedActions": {
+            "activeUsers": false,
+            "guestUsers": false,
+            "marketplaceApps": false,
+            "monthlyActiveContacts": false,
+            "privateApps": false,
+            "roomsPerGuest": false
+        },
+        "tags": [
+            {
+                "color": "#F3BE08",
+                "name": "Enterprise"
+            }
+        ],
+        "trial": false
+    },
+    "success": true
+}

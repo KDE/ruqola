@@ -1,1 +1,25 @@
-{"_id":"BDFj6E7Z9RYucn8C","active":true,"avatarETag":"3NNkzEMaGLwQuDsz","createdAt":"2020-10-04T22:48:01.903Z","emails":[{"address":"foo@kde.com","verified":true}],"name":"name_user","roles":["user"],"services":{"ldap":{"id":"31323132","idAttribute":"uidNumber"}},"status":"offline","type":"user","username":"username"}
+{
+    "_id": "BDFj6E7Z9RYucn8C",
+    "active": true,
+    "avatarETag": "3NNkzEMaGLwQuDsz",
+    "createdAt": "2020-10-04T22:48:01.903Z",
+    "emails": [
+        {
+            "address": "foo@kde.com",
+            "verified": true
+        }
+    ],
+    "name": "name_user",
+    "roles": [
+        "user"
+    ],
+    "services": {
+        "ldap": {
+            "id": "31323132",
+            "idAttribute": "uidNumber"
+        }
+    },
+    "status": "offline",
+    "type": "user",
+    "username": "username"
+}

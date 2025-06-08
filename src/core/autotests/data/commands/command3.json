@@ -1,1 +1,31 @@
-{"commands":[{"clientOnly":false,"command":"slackbridge-import","providesPreview":false},{"clientOnly":false,"command":"archive","description":"Archive","params":"#channel","permission":"archive-room","providesPreview":false},{"clientOnly":false,"command":"leave","description":"Leave_the_current_channel","permission":["leave-c","leave-p"],"providesPreview":false}],"count":3,"offset":0,"success":true,"total":3}
+{
+    "commands": [
+        {
+            "clientOnly": false,
+            "command": "slackbridge-import",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "archive",
+            "description": "Archive",
+            "params": "#channel",
+            "permission": "archive-room",
+            "providesPreview": false
+        },
+        {
+            "clientOnly": false,
+            "command": "leave",
+            "description": "Leave_the_current_channel",
+            "permission": [
+                "leave-c",
+                "leave-p"
+            ],
+            "providesPreview": false
+        }
+    ],
+    "count": 3,
+    "offset": 0,
+    "success": true,
+    "total": 3
+}

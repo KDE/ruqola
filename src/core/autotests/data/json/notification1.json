@@ -2,11 +2,27 @@
     "collection": "stream-notify-user",
     "fields": {
         "args": [
-{"payload":{"_id":"dNYhFAYBhqPFnBwRy","message":{"msg":"@here"},"name":"roomname example","rid":"Fc4EWcQXCkJkJ7QEQ","sender":{"_id":"Gsvg6BGoBfmPLoFie","name":"foo","username":"foo.bla"},"type":"c"},"text":"text s","title":"my title"}
- ],
+            {
+                "payload": {
+                    "_id": "dNYhFAYBhqPFnBwRy",
+                    "message": {
+                        "msg": "@here"
+                    },
+                    "name": "roomname example",
+                    "rid": "Fc4EWcQXCkJkJ7QEQ",
+                    "sender": {
+                        "_id": "Gsvg6BGoBfmPLoFie",
+                        "name": "foo",
+                        "username": "foo.bla"
+                    },
+                    "type": "c"
+                },
+                "text": "text s",
+                "title": "my title"
+            }
+        ],
         "eventName": "uKK39zoewTkdacidH/notification"
     },
     "id": "id",
     "msg": "changed"
 }
-

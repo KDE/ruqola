@@ -4,7 +4,8 @@ include(ECMAddAppIcon)
 
 add_executable(ruqola main.cpp)
 
-target_link_libraries(ruqola
+target_link_libraries(
+    ruqola
     libruqolawidgets
     librocketchatrestapi-qt
     KF6::Crash
@@ -15,12 +16,15 @@ if(USE_DBUS)
     target_link_libraries(ruqola KF6::DBusAddons)
 else()
     target_link_libraries(ruqola KDAB::kdsingleapplication)
-    if (NOT WIN32 AND NOT APPLE)
+    if(NOT WIN32 AND NOT APPLE)
         target_link_libraries(ruqola Qt::GuiPrivate)
     endif()
 endif()
 
-file(GLOB_RECURSE RUQOLA_ICONS "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png")
+file(
+    GLOB_RECURSE RUQOLA_ICONS
+    "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png"
+)
 ecm_add_app_icon(appIcons ICONS "${RUQOLA_ICONS}")
 target_sources(ruqola PRIVATE ${appIcons})
 

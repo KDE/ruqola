@@ -1,1 +1,7 @@
-{"maxMarketplaceApps":-1,"maxPrivateApps":-1,"success":true,"totalMarketplaceEnabled":1,"totalPrivateEnabled":1}
+{
+    "maxMarketplaceApps": -1,
+    "maxPrivateApps": -1,
+    "success": true,
+    "totalMarketplaceEnabled": 1,
+    "totalPrivateEnabled": 1
+}

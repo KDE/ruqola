@@ -1,1 +1,12 @@
-[{"userStatusData":{"_id":"ycbgxsKtP7sv8HNiS","_updatedAt":{"$date":1603108134976},"name":"bla","statusType":"away"}}]
+[
+    {
+        "userStatusData": {
+            "_id": "ycbgxsKtP7sv8HNiS",
+            "_updatedAt": {
+                "$date": 1603108134976
+            },
+            "name": "bla",
+            "statusType": "away"
+        }
+    }
+]

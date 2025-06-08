@@ -1,29 +1,27 @@
-            {
-                "_id": "xTSbA2vjePyNLuywh",
-                "_updatedAt": {
-                    "$date": 1613719008651
-                },
-                "customFields": {
-                },
-                "default": false,
-                "fname": "test-",
-                "lm": {
-                    "$date": 1613681132687
-                },
-                "name": "test-",
-                "retention": {
-                    "enabled": true,
-                    "excludePinned": true,
-                    "filesOnly": true,
-                    "maxAge": 41,
-                    "overrideGlobal": true
-                },
-                "ro": false,
-                "t": "p",
-                "u": {
-                    "_id": "H7Q9djXQ4iShzD9T2",
-                    "username": "laurent"
-                },
-                "usersCount": 1
-            }
-
+{
+    "_id": "xTSbA2vjePyNLuywh",
+    "_updatedAt": {
+        "$date": 1613719008651
+    },
+    "customFields": {},
+    "default": false,
+    "fname": "test-",
+    "lm": {
+        "$date": 1613681132687
+    },
+    "name": "test-",
+    "retention": {
+        "enabled": true,
+        "excludePinned": true,
+        "filesOnly": true,
+        "maxAge": 41,
+        "overrideGlobal": true
+    },
+    "ro": false,
+    "t": "p",
+    "u": {
+        "_id": "H7Q9djXQ4iShzD9T2",
+        "username": "laurent"
+    },
+    "usersCount": 1
+}

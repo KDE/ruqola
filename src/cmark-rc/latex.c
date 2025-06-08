@@ -389,7 +389,7 @@ static int S_render_node(cmark_renderer *renderer, cmark_node *node,
     break;
 
   /* TODO CMAKE_NODE_STRIKE */
-  
+
   case CMARK_NODE_EMPH:
     if (entering) {
       LIT("\\emph{");

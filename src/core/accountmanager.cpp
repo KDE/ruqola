@@ -863,7 +863,7 @@ void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
         notification->sendEvent();
     });
     connect(job, &ValidateInviteServerJob::tokenIsValid, this, [](const AccountManager::AccountManagerInfo &info) {
-        Q_EMIT Ruqola::self() -> addInviteServer(info);
+        Q_EMIT Ruqola::self()->addInviteServer(info);
     });
     job->start();
 }

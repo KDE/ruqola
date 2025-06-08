@@ -1,2 +1,39 @@
-{"appId":"mention-core","elements":[{"actionId":"add-users","appId":"mention-core","blockId":"n6bZuzbjfGstE","text":{"text":"Add them","type":"plain_text"},"type":"button","value":"[{\"_id\":\"FjvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"},{"actionId":"dismiss","appId":"mention-core","blockId":"n6bZuzbjfGstE","text":{"text":"Do nothing","type":"plain_text"},"type":"button","value":"[{\"_id\":\"HvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"},{"actionId":"share-message","appId":"mention-core","blockId":"7bZuzbjfGstE","text":{"text":"Let them know","type":"plain_text"},"type":"button","value":"[{\"_id\":\"jvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"}],"type":"actions"}
-
+{
+    "appId": "mention-core",
+    "elements": [
+        {
+            "actionId": "add-users",
+            "appId": "mention-core",
+            "blockId": "n6bZuzbjfGstE",
+            "text": {
+                "text": "Add them",
+                "type": "plain_text"
+            },
+            "type": "button",
+            "value": "[{\"_id\":\"FjvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"
+        },
+        {
+            "actionId": "dismiss",
+            "appId": "mention-core",
+            "blockId": "n6bZuzbjfGstE",
+            "text": {
+                "text": "Do nothing",
+                "type": "plain_text"
+            },
+            "type": "button",
+            "value": "[{\"_id\":\"HvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"
+        },
+        {
+            "actionId": "share-message",
+            "appId": "mention-core",
+            "blockId": "7bZuzbjfGstE",
+            "text": {
+                "text": "Let them know",
+                "type": "plain_text"
+            },
+            "type": "button",
+            "value": "[{\"_id\":\"jvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"
+        }
+    ],
+    "type": "actions"
+}

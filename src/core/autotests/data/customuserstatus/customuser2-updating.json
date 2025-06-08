@@ -1,1 +1,11 @@
-[{"userStatusData":{"_id":"GZHpA5fENrWHRfaoN","name":"CMs","previousName":"CM","previousStatusType":"away","statusType":"away"}}]
+[
+    {
+        "userStatusData": {
+            "_id": "GZHpA5fENrWHRfaoN",
+            "name": "CMs",
+            "previousName": "CM",
+            "previousStatusType": "away",
+            "statusType": "away"
+        }
+    }
+]

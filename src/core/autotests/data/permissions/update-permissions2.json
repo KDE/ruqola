@@ -1,1 +1,13 @@
-["updated",{"_id":"add-user-to-any-c-room","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}]
+[
+    "updated",
+    {
+        "_id": "add-user-to-any-c-room",
+        "_updatedAt": {
+            "$date": 1634569746270
+        },
+        "roles": [
+            "admin",
+            "vFXCWG9trXLti6xQm"
+        ]
+    }
+]

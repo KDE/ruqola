@@ -6,7 +6,7 @@
   <!ENTITY i18n-kapplication "<application>Ruqola</application>">
   <!ENTITY kappname "&i18n-kapplication;">
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % English "INCLUDE"> 
+  <!ENTITY % English "INCLUDE">
 ]>
 
 <book id="ruqola" lang="&language;">

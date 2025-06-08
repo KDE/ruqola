@@ -1,1 +1,31 @@
-{"_id":"XQZAk3998f9hSNwh","active":true,"avatarETag":"8a6AwTsJyzGFt4K6","createdAt":"2018-01-18T11:52:50.772Z","emails":[{"address":"bla@kde.com","verified":true}],"lastLogin":"2020-10-12T00:26:27.324Z","name":"Bla bla","nickname":"TheReal","roles":["user","admin"],"services":{"ldap":{"id":"31303233","idAttribute":"uidNumber"}},"status":"online","statusConnection":"online","statusText":"","type":"user","username":"steffen","utcOffset":2}
+{
+    "_id": "XQZAk3998f9hSNwh",
+    "active": true,
+    "avatarETag": "8a6AwTsJyzGFt4K6",
+    "createdAt": "2018-01-18T11:52:50.772Z",
+    "emails": [
+        {
+            "address": "bla@kde.com",
+            "verified": true
+        }
+    ],
+    "lastLogin": "2020-10-12T00:26:27.324Z",
+    "name": "Bla bla",
+    "nickname": "TheReal",
+    "roles": [
+        "user",
+        "admin"
+    ],
+    "services": {
+        "ldap": {
+            "id": "31303233",
+            "idAttribute": "uidNumber"
+        }
+    },
+    "status": "online",
+    "statusConnection": "online",
+    "statusText": "",
+    "type": "user",
+    "username": "steffen",
+    "utcOffset": 2
+}

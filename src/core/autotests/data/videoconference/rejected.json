@@ -1,1 +1,8 @@
-{"action":"rejected","params":{"callId":"6398e888fc94d2587faae3c6","rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K","uid":"YbwG4T2uB3wZSZSKB"}}
+{
+    "action": "rejected",
+    "params": {
+        "callId": "6398e888fc94d2587faae3c6",
+        "rid": "YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K",
+        "uid": "YbwG4T2uB3wZSZSKB"
+    }
+}

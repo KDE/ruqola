@@ -1,1 +1,20 @@
-{"actionId":"thread_summarize","labelI18n":"summarize.thread","context":"messageAction","when":{"roomTypes":["public_channel","private_channel","private_discussion","private_team","public_team","private_discussion"],"messageActionContext":["threads"]},"category":"ai","appId":"ec284282-67ed-4401-ab8c-bdbe3c278543"}
+{
+    "actionId": "thread_summarize",
+    "labelI18n": "summarize.thread",
+    "context": "messageAction",
+    "when": {
+        "roomTypes": [
+            "public_channel",
+            "private_channel",
+            "private_discussion",
+            "private_team",
+            "public_team",
+            "private_discussion"
+        ],
+        "messageActionContext": [
+            "threads"
+        ]
+    },
+    "category": "ai",
+    "appId": "ec284282-67ed-4401-ab8c-bdbe3c278543"
+}

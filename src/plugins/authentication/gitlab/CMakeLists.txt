@@ -12,12 +12,15 @@ set(ruqola_gitlabauthenticationplugin_SRCS
 
 ecm_qt_declare_logging_category(ruqola_gitlabauthenticationplugin_SRCS HEADER gitlabauthenticationplugin_debug.h
     IDENTIFIER RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_gitlabauthenticationplugin
-    DESCRIPTION "ruqola (gitlab authentication plugin)" EXPORT RUQOLA)
+    DESCRIPTION "ruqola (gitlab authentication plugin)" EXPORT RUQOLA
+)
 
 kcoreaddons_add_plugin(ruqola_gitlabauthenticationplugin SOURCES
-    ${ruqola_gitlabauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication)
+    ${ruqola_gitlabauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication
+)
 
-target_link_libraries(ruqola_gitlabauthenticationplugin
+target_link_libraries(
+    ruqola_gitlabauthenticationplugin
     libruqolacore
     qt6keychain
 )
@@ -26,4 +29,3 @@ if(BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
 endif()
-

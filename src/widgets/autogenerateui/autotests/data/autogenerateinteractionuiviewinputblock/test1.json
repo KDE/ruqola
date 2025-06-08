@@ -1,1 +1,17 @@
-{"type":"input","blockId":"autoReplySettings","optional":false,"element":{"type":"plain_text_input","actionId":"AutoReplyMessage","initialValue":"Hey, I received your message and will get back to you as soon as possible.","multiline":true},"label":{"type":"plain_text","text":"Auto-reply Message:","emoji":false},"appId":"821cd5c6-1fb5-4d9e-8e88-e6176463efb6"}
+{
+    "type": "input",
+    "blockId": "autoReplySettings",
+    "optional": false,
+    "element": {
+        "type": "plain_text_input",
+        "actionId": "AutoReplyMessage",
+        "initialValue": "Hey, I received your message and will get back to you as soon as possible.",
+        "multiline": true
+    },
+    "label": {
+        "type": "plain_text",
+        "text": "Auto-reply Message:",
+        "emoji": false
+    },
+    "appId": "821cd5c6-1fb5-4d9e-8e88-e6176463efb6"
+}

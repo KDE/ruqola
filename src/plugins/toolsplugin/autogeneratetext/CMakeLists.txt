@@ -5,13 +5,19 @@ kcoreaddons_add_plugin(ruqola_autogenerateplugin INSTALL_NAMESPACE ruqolaplugins
 
 ecm_qt_declare_logging_category(ruqola_autogenerateplugin HEADER autogenerateplugin_debug.h
     IDENTIFIER RUQOLA_AUTOGENERATETEXT_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_autogenerateplugin
-    DESCRIPTION "ruqola (autogenerate plugin)" EXPORT RUQOLA)
-
-target_sources(ruqola_autogenerateplugin PRIVATE
-    autogeneratetextplugintool.cpp autogeneratetextplugintool.h
-    autogeneratetextplugintoolinterface.cpp autogeneratetextplugintoolinterface.h
+    DESCRIPTION "ruqola (autogenerate plugin)" EXPORT RUQOLA
 )
-target_link_libraries(ruqola_autogenerateplugin
+
+target_sources(
+    ruqola_autogenerateplugin
+    PRIVATE
+        autogeneratetextplugintool.cpp
+        autogeneratetextplugintool.h
+        autogeneratetextplugintoolinterface.cpp
+        autogeneratetextplugintoolinterface.h
+)
+target_link_libraries(
+    ruqola_autogenerateplugin
     libruqolawidgets
     KF6::TextAutoGenerateText
 )

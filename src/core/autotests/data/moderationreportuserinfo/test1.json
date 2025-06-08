@@ -1,1 +1,23 @@
-{"_id":"663608573b610aa5d35b3b","description":"test signal user (only test :) )","reportedBy":{"_id":"H7Q9djXQ4iSD9T2","createdAt":"2018-03-13T16:11:51.761Z","name":"bla","username":"doo"},"reportedUser":{"_id":"tXCejybNBEvjHcJ6F","createdAt":"2024-01-31T12:40:12.917Z","emails":[{"address":"foo@kde.org","verified":false}],"name":"test1","username":"test1"},"ts":"2024-05-04T10:05:11.681Z"}
+{
+    "_id": "663608573b610aa5d35b3b",
+    "description": "test signal user (only test :) )",
+    "reportedBy": {
+        "_id": "H7Q9djXQ4iSD9T2",
+        "createdAt": "2018-03-13T16:11:51.761Z",
+        "name": "bla",
+        "username": "doo"
+    },
+    "reportedUser": {
+        "_id": "tXCejybNBEvjHcJ6F",
+        "createdAt": "2024-01-31T12:40:12.917Z",
+        "emails": [
+            {
+                "address": "foo@kde.org",
+                "verified": false
+            }
+        ],
+        "name": "test1",
+        "username": "test1"
+    },
+    "ts": "2024-05-04T10:05:11.681Z"
+}

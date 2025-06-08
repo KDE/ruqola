@@ -870,7 +870,7 @@ void RuqolaMainWindow::slotConfigure()
 
         mAccountOverviewWidget->updateButtons();
         createSystemTray();
-        Q_EMIT Ruqola::self() -> translatorMenuChanged();
+        Q_EMIT Ruqola::self()->translatorMenuChanged();
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     }
     delete dlg;

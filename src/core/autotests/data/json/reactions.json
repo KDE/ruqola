@@ -1,9 +1,9 @@
-        {
-        ":ok_hand:": {
-            "usernames": [
-                "foo",
-                "bla",
-                "bli"
-            ]
-        }
+{
+    ":ok_hand:": {
+        "usernames": [
+            "foo",
+            "bla",
+            "bli"
+        ]
+    }
 }

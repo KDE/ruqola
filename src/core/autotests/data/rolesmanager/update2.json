@@ -1,1 +1,14 @@
-[{"_id":"livechat-guest","_updatedAt":{"$date":1635177148134},"description":"","mandatory2fa":false,"name":"test1","protected":true,"scope":"Users","type":"changed"}]
+[
+    {
+        "_id": "livechat-guest",
+        "_updatedAt": {
+            "$date": 1635177148134
+        },
+        "description": "",
+        "mandatory2fa": false,
+        "name": "test1",
+        "protected": true,
+        "scope": "Users",
+        "type": "changed"
+    }
+]

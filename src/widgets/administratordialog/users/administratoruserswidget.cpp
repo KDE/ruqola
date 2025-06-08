@@ -63,7 +63,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     case UsersType::All:
         adminUsersModel = new AdminUsersAllModel(this);
         break;
-    case UsersType::Desactivated:
+    case UsersType::Deactivated:
     case UsersType::Activate:
         adminUsersModel = new AdminUsersStatusModel(this);
         break;
@@ -380,7 +380,7 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         break;
     }
-    case UsersType::Desactivated: {
+    case UsersType::Deactivated: {
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.status = RocketChatRestApi::UsersListByStatusJob::Status::Deactivated;

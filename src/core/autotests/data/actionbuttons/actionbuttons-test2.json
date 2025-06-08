@@ -1,1 +1,51 @@
-[{"actionId":"auto-reply-room-action-id","labelI18n":"auto-reply-room-action-name","context":"roomAction","when":{"roomTypes":["direct"]},"appId":"821cd5c6-1fb5-4d9e-8e88-e6176463efb6"},{"actionId":"remind_me_about_this_msg_action","labelI18n":"remind_me_about_this_msg_action","context":"messageAction","appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"},{"actionId":"add_reminder_message_box_action","context":"messageBoxAction","labelI18n":"add_reminder_message_box_action","appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"},{"actionId":"show_my_reminders_room_action","context":"roomAction","labelI18n":"show_my_reminders_room_action","appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"},{"actionId":"manage_all_reminders_room_action","labelI18n":"manage_all_reminders_room_action","context":"roomAction","when":{"roomTypes":["public_channel","public_team","public_discussion","private_channel","private_team","private_discussion"],"hasOneRole":["admin","owner"]},"appId":"7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"}]
+[
+    {
+        "actionId": "auto-reply-room-action-id",
+        "labelI18n": "auto-reply-room-action-name",
+        "context": "roomAction",
+        "when": {
+            "roomTypes": [
+                "direct"
+            ]
+        },
+        "appId": "821cd5c6-1fb5-4d9e-8e88-e6176463efb6"
+    },
+    {
+        "actionId": "remind_me_about_this_msg_action",
+        "labelI18n": "remind_me_about_this_msg_action",
+        "context": "messageAction",
+        "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"
+    },
+    {
+        "actionId": "add_reminder_message_box_action",
+        "context": "messageBoxAction",
+        "labelI18n": "add_reminder_message_box_action",
+        "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"
+    },
+    {
+        "actionId": "show_my_reminders_room_action",
+        "context": "roomAction",
+        "labelI18n": "show_my_reminders_room_action",
+        "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"
+    },
+    {
+        "actionId": "manage_all_reminders_room_action",
+        "labelI18n": "manage_all_reminders_room_action",
+        "context": "roomAction",
+        "when": {
+            "roomTypes": [
+                "public_channel",
+                "public_team",
+                "public_discussion",
+                "private_channel",
+                "private_team",
+                "private_discussion"
+            ],
+            "hasOneRole": [
+                "admin",
+                "owner"
+            ]
+        },
+        "appId": "7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"
+    }
+]

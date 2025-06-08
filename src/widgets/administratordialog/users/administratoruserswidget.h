@@ -17,7 +17,7 @@ public:
     enum class UsersType : uint8_t {
         All,
         Pending,
-        Desactivated,
+        Deactivated,
         Activate,
     };
 

@@ -1,1 +1,15 @@
-[{"emojiData":{"_id":"RyBauhQqnoE5WeJvZ","aliases":["rooss"],"extension":"png","name":"ruqola","newFile":true,"previousExtension":"png","previousName":"kdab"}}]
+[
+    {
+        "emojiData": {
+            "_id": "RyBauhQqnoE5WeJvZ",
+            "aliases": [
+                "rooss"
+            ],
+            "extension": "png",
+            "name": "ruqola",
+            "newFile": true,
+            "previousExtension": "png",
+            "previousName": "kdab"
+        }
+    }
+]
