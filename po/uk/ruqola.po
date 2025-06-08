@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 00:42+0000\n"
-"PO-Revision-Date: 2025-06-06 14:00+0300\n"
+"PO-Revision-Date: 2025-06-07 18:08+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2063,16 +2063,14 @@ msgid "Delay:"
 msgstr "Затримка:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "%1 секунда"
-msgstr[1] "%1 секунди"
-msgstr[2] "%1 секунд"
-msgstr[3] "%1 секунда"
+msgstr[0] "%v секунда"
+msgstr[1] "%v секунди"
+msgstr[2] "%v секунд"
+msgstr[3] "%v секунда"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format

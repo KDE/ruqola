@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 00:42+0000\n"
-"PO-Revision-Date: 2025-05-24 21:14+0100\n"
+"PO-Revision-Date: 2025-06-08 00:59+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -2044,27 +2044,23 @@ msgid "This tool allows to create screenshot."
 msgstr "Esta herramienta permite crear capturas de pantalla."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Configurar mi cuenta"
+msgstr "Configurar captura de pantalla"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Retraso:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "1 segundo"
-msgstr[1] "%1 segundos"
+msgstr[0] "%v segundo"
+msgstr[1] "%v segundos"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -5517,7 +5513,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Limite de usuarios al añadir a todos los usuarios al canal"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6828,12 +6824,10 @@ msgid "Disable Workspace Sync"
 msgstr "Desactivar sincronización del espacio de trabajo"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Desactivar monitor de sesiones"
+msgstr "Desactivar menciones a equipos"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6914,6 +6908,9 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"Esta preferencia desactiva la funcionalidad de mencionar equipos. Los "
+"usuarios no podrán mencionar a un equipo por nombre en un mensaje y "
+"notificar a sus miembros."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -7680,30 +7677,28 @@ msgstr "Activar integración con actividades de Plasma"
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Un reinicio es necesario para aplicar los cambios."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Complementos de herramientas"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "Complementos de texto"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Configurar Ruqola"
+msgstr "Configurar"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -7763,7 +7758,7 @@ msgstr "Accesibilidad"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr ""
+msgstr "Complementos"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -11572,10 +11567,8 @@ msgstr ""
 "Se ha añadido el botón de restaurar en las preferencias de administración."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Permitir el papel de escritura"
+msgstr "Permitir la activación de complementos"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -12112,11 +12105,11 @@ msgid "Add AI Rocket Chat Actions support."
 msgstr "Añadidas acciones de IA a Rocket Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:188
-#, fuzzy, kde-format
-#| msgid "Add restore button in administration settings."
+#, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
-"Se ha añadido el botón de restaurar en las preferencias de administración."
+"Arreglos a los botones de aplicar, restaurar y cancelar en los diálogos de "
+"administración."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
