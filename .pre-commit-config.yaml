@@ -39,7 +39,7 @@ repos:
    rev: v2.4.1
    hooks:
     - id: codespell
-      exclude: (textemoticons/core/data/emoji.json|textgrammarcheck/grammalecte/autotests/data/result1.json|texttranslator/translator/plugins/bergamot/autotests/data/modellanguages/models.json|textgrammarcheck/languagetool/autotests/data/test2.json|textautocorrection/core/autotests/data/custom-fr-ref.xml|textgrammarcheck/common/autotests/grammarresultutiltest.cpp|textautocorrection/core/autotests/data/custom-fr.xml)
+      exclude: (.json|org.kde.ruqola.appdata.xml|src/data/ruqola.notifyrc|src/core/autotests/ruqolaktexttohtmltest.cpp)
  - repo: https://github.com/BlankSpruce/gersemi
    rev: 0.19.3
    hooks:
