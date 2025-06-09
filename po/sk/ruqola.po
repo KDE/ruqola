@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:42+0000\n"
+"POT-Creation-Date: 2025-06-09 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -12571,9 +12571,10 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
-#, kde-format
-msgid "Allow to activate/desactivate apps market."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "All Messages"
+msgid "Allow to activate/deactivate apps market."
+msgstr "Všetky správy"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format

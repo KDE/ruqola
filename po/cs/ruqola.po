@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:42+0000\n"
+"POT-Creation-Date: 2025-06-09 00:42+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -11731,7 +11731,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
-msgid "Allow to activate/desactivate apps market."
+msgid "Allow to activate/deactivate apps market."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165

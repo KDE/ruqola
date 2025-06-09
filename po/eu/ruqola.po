@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 00:42+0000\n"
-"PO-Revision-Date: 2025-05-29 21:26+0200\n"
+"POT-Creation-Date: 2025-06-09 00:42+0000\n"
+"PO-Revision-Date: 2025-06-08 10:59+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -2056,27 +2056,23 @@ msgid "This tool allows to create screenshot."
 msgstr "Tresna honek pantaila-argazki bat sortzeko aukera ematen du."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Konfiguratu nire kontua"
+msgstr "Konfiguratu Pantaila grabatu"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Atzerapena:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "segundo 1"
-msgstr[1] "%1 segundo"
+msgstr[0] "segundo %v"
+msgstr[1] "%v segundo"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -5509,7 +5505,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Erabiltzaile guztiak kanalera gehitzeko erabiltzaile muga"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6816,12 +6812,10 @@ msgid "Disable Workspace Sync"
 msgstr "Ezgaitu langunea sinkronizatzea"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Ezgaitu saioen begiralea"
+msgstr "Ezgaitu taldeen aipamena"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6901,6 +6895,8 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"Ezarpen honek taldeen aipamena ezaugarria ezgaitzen du. Erabiltzaileek "
+"ezingo dute talde bat izenarekin aipatu bere partaideak jakinarazteko."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -7669,26 +7665,25 @@ msgstr "Gaitu Plasma Jardueren integrazioa"
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Aldaketak ezartzeko berrabiatu beharra dago."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Tresna pluginak"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "Testu pluginak"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "..."
-msgstr "Gehitu..."
+msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
 msgstr "Konfiguratu"
@@ -7751,7 +7746,7 @@ msgstr "Irisgarritasuna"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr ""
+msgstr "Pluginak"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -11556,10 +11551,8 @@ msgid "Add restore button in administration settings."
 msgstr "Gehitu lehengoratzeko botoia administrazio ezarpenetan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Baimendu eginkizuna idaztea"
+msgstr "Baimendu pluginak aktibatzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -12034,8 +12027,9 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr "Errore bat gertatu denean komando lerroa arbelean jartzen utzi"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
-#, kde-format
-msgid "Allow to activate/desactivate apps market."
+#, fuzzy, kde-format
+#| msgid "Allow to activate/desactivate apps market."
+msgid "Allow to activate/deactivate apps market."
 msgstr "Aplikazioen merkatua aktibatzeko/desaktibatzeko aukera ematen du."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
