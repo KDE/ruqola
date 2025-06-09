@@ -174,8 +174,8 @@
       <li xml:lang="zh-TW">私訊</li>
       <li>group channel</li>
       <li xml:lang="ar">قناة المجموعة</li>
-      <li xml:lang="ca">Canal de group</li>
-      <li xml:lang="ca-valencia">Canal de group</li>
+      <li xml:lang="ca">Canal de grup</li>
+      <li xml:lang="ca-valencia">Canal de grup</li>
       <li xml:lang="en-GB">group channel</li>
       <li xml:lang="eo">grupkanalo</li>
       <li xml:lang="es">canal de grupo</li>
@@ -186,7 +186,7 @@
       <li xml:lang="hi">समूह चैनल</li>
       <li xml:lang="hu">csoportos csatorna</li>
       <li xml:lang="ia">canal de gruppo</li>
-      <li xml:lang="id">kanal kelompok group</li>
+      <li xml:lang="id">kanal kelompok grup</li>
       <li xml:lang="it">canale di gruppo</li>
       <li xml:lang="ka">ჯგუფური არხი</li>
       <li xml:lang="nl">groepskanaal</li>
@@ -196,7 +196,7 @@
       <li xml:lang="sa">समूह चैनल</li>
       <li xml:lang="sl">skupinski kanal</li>
       <li xml:lang="sv">gruppkanal</li>
-      <li xml:lang="tr">group kanalı</li>
+      <li xml:lang="tr">grup kanalı</li>
       <li xml:lang="uk">Групування каналів</li>
       <li xml:lang="x-test">xxgroup channelxx</li>
       <li xml:lang="zh-TW">群組頻道</li>
@@ -635,7 +635,7 @@
       <li xml:lang="hi">OTR का समर्थन (प्रगति पर)</li>
       <li xml:lang="hu">OTR támogatása (folyamatban)</li>
       <li xml:lang="ia">Supporta OTR (in progresso)</li>
-      <li xml:lang="id">Dukungan OTR (dalam progress)</li>
+      <li xml:lang="id">Dukungan OTR (dalam progres)</li>
       <li xml:lang="it">Supporto OTR (in corso)</li>
       <li xml:lang="ka">OTR-ის მხარდაჭერა (დასრულებული არაა)</li>
       <li xml:lang="nl">Ondersteuning van OTR (werk-in-uitvoering)</li>
@@ -714,7 +714,7 @@
       <li xml:lang="es">Mostrar información de mensajes no leídos</li>
       <li xml:lang="eu">Erakutsi irakurri gabeko mezuen gaineko informazioa</li>
       <li xml:lang="fi">Näytä tietoa lukematta olevista viesteistä</li>
-      <li xml:lang="fr">Afficher les information pour les messages non lus</li>
+      <li xml:lang="fr">Afficher les informations pour les messages non lus</li>
       <li xml:lang="gl">Amosar información de mensaxes sen ler.</li>
       <li xml:lang="hi">अपठित संदेश जानकारी दिखाएं</li>
       <li xml:lang="hu">Olvasatlan üzenetek információinak megjelenítése</li>
@@ -799,12 +799,12 @@
       <li xml:lang="es">Autenticación de dos factores a través de TOTP</li>
       <li xml:lang="eu">Bi faktoreko autentifikazioa «TOTP» bidez</li>
       <li xml:lang="fi">Kahden tekijän todennus TOTP:llä</li>
-      <li xml:lang="fr">Authentication à deux facteurs par « TOTP »</li>
+      <li xml:lang="fr">Authentification à deux facteurs par « TOTP »</li>
       <li xml:lang="gl">Autenticación de dous factores mediante pase momentáneo.</li>
       <li xml:lang="hi">TOTP के माध्यम से दो-कारक प्रमाणीकरण</li>
       <li xml:lang="hu">Időalapú, egyszer használatos jelszóval történő kétfaktoros hitelesítés</li>
       <li xml:lang="ia">Authentication a duo factores via TOTP</li>
-      <li xml:lang="id">Dua factor autentikasi via TOTP</li>
+      <li xml:lang="id">Dua faktor autentikasi via TOTP</li>
       <li xml:lang="it">Autenticazione a due fattori tramite TOTP</li>
       <li xml:lang="ka">2FA-ი TOTP-ით</li>
       <li xml:lang="nl">Twee-factor-authenticatie via TOTP</li>
@@ -827,12 +827,12 @@
       <li xml:lang="es">Autenticación de dos factores a través de correo electrónico</li>
       <li xml:lang="eu">Bi faktoreko autentifikazioa e-posta bidez</li>
       <li xml:lang="fi">Kahden tekijän todennus sähköpostitse</li>
-      <li xml:lang="fr">Authentication à deux facteurs par courriel</li>
+      <li xml:lang="fr">Authentification à deux facteurs par courriel</li>
       <li xml:lang="gl">Autenticación de dous factores mediante correo electrónico.</li>
       <li xml:lang="hi">ईमेल के माध्यम से दो-कारक प्रमाणीकरण</li>
       <li xml:lang="hu">E-mailen keresztüli kétfaktoros hitelesítés</li>
       <li xml:lang="ia">Authentication a duo factores via eposta</li>
-      <li xml:lang="id">Dua factor autentikasi via email</li>
+      <li xml:lang="id">Dua faktor autentikasi via email</li>
       <li xml:lang="it">Autenticazione a due fattori tramite posta elettronica</li>
       <li xml:lang="ka">2FA-ი ელფოსტით</li>
       <li xml:lang="nl">Twee-factor-authenticatie via e-mail</li>
@@ -848,14 +848,14 @@
       <li xml:lang="zh-TW">透過電子郵件的兩步驟驗證</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="ar">دعم المسؤول (معلومات الخادم، الغرف، حالة المستخدم المخصصة، الأصوات المخصصة، الرموز التعبيرية المخصصة، المستخدمون، الدعوات، عرض السجل، الأذونات، الأدوار، Oauth)، إعدادات المسؤول (الرسالة، الحساب، سياسة الاحتفاظ، تحميل الملفات، التعمية)</li>
-      <li xml:lang="ca">Support de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
-      <li xml:lang="ca-valencia">Support de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emoji personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
+      <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
+      <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emoji personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
       <li xml:lang="en-GB">Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="eo">Administranto-subteno (Servilo-Informoj, Ĉambroj, Propra Uzanto-Statuso, Propraj Sonoj, Propra Emoji, Uzantoj, Invitoj, Vida Protokolo, Permesoj, Roloj, Aŭto), Administranto-agordoj (Mesaĝo, Konto, Retenpolitiko, Dosiera Alŝuto, Ĉifrado)</li>
       <li xml:lang="es">Soporte de administrador (Información del servidor, salas, estado personalizado de los usuarios, sonidos personalizados, emojis personalizados, usuarios, invitaciones, ver registros, permisos, roles y autenticación), preferencias de administrador (mensajes, cuentas, política de retención, subida de archivos, cifrado)</li>
       <li xml:lang="eu">Administratzaile euskarria (Zerbitzariaren informazioa, Gelak, Erabiltzailearen egoera pertsonalizatua, Neurrira ipinitako soinuak, neurrira ipinitako Emoji, Erabiltzailea, Gonbidatuak, Egunkaria ikustea, Baimenak, Eginkizunak, «Oauth»), Administratzailearen ezarpenak (Mezua, Kontua, Atxikitze gidalerroa, Fitxategia zama-igotzea, Zifratzea)</li>
       <li xml:lang="fi">Ylläpitotuki (palvelintiedot, huoneet, käyttäjän mukautettu tila, mukautetut äänet, mukautettu emoji, käyttäjät, kutsut, lokin näyttö, käyttöoikeudet, roolit, OAuth), ylläpitoasetukset (viesti, tili, säilytyskäytäntö, tiedostojen lähetys, salaus)</li>
-      <li xml:lang="fr">Prise en charge du rôle d'administrateur (Information serveur, Salons, État personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d'affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
+      <li xml:lang="fr">Prise en charge du rôle d'administrateur (Informations serveur, Salons, État personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d'affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
       <li xml:lang="gl">Permitir administración (información de servidor, salas, estado de persoa personalizado, sons personalizados, expresións personalizadas, xente, invitacións, ver o rexistro, permisos, roles, OAuth), configuración de administración (mensaxe, conta, regras de retención, envío de ficheiros, cifraxe).</li>
       <li xml:lang="hi">व्यवस्थापक समर्थन (सर्वर जानकारी, कमरे, कस्टम उपयोगकर्ता स्थिति, कस्टम ध्वनियाँ, कस्टम इमोजी, उपयोगकर्ता, आमंत्रण, लॉग देखें, अनुमतियाँ, भूमिकाएँ, Oauth), व्यवस्थापक सेटिंग्स (संदेश, खाता, अवधारण नीति, फ़ाइल अपलोड, एन्क्रिप्शन)</li>
       <li xml:lang="hu">Adminisztrátori támogatás (kiszolgálóinformáció, szobál, egyéni felhasználóállapot, egyéni hangok, egyéni emodzsik, felhasználók, meghívások, napló megtekintése, jogosultságok szerepek, Oauth), Adminisztrátori beállítások (üzenet, fiók, megőrzési házirend, fájlfeltöltés, titkosítás)</li>
@@ -882,7 +882,7 @@
       <li xml:lang="eo">Eksporti Mesaĝojn</li>
       <li xml:lang="es">Exportar mensajes</li>
       <li xml:lang="eu">Mezuak esportatzea</li>
-      <li xml:lang="fi">Via viestejä</li>
+      <li xml:lang="fi">Vie viestejä</li>
       <li xml:lang="fr">Exporter des messages</li>
       <li xml:lang="gl">Exportar mensaxes.</li>
       <li xml:lang="hi">संदेश निर्यात करें</li>
@@ -1004,12 +1004,12 @@
       <li xml:lang="hu">Képek ejtése fogd és vidd módszerrel Ruqolából weboldalra vagy helyi mappába</li>
       <li xml:lang="it">Trascina e rilascia l'immagine da ruqola al sito web o alla cartella locale</li>
       <li xml:lang="ka">გადაათრიეთ და დააგდეთ გამოსახულება ruqola-დან ვებსაიტზე ან ლოკალურ საქაღალდეში</li>
-      <li xml:lang="nl">Sleep een afbeelding uit ruqola en laat los op een website of locale map</li>
+      <li xml:lang="nl">Sleep een afbeelding uit ruqola en laat los op een website of lokale map</li>
       <li xml:lang="pl">Przeciągnij i upuść obraz ze strony sieciowej ruqoli do katalogu lokalnego</li>
       <li xml:lang="ru">Перетаскивание изображения из Ruqola на веб-сайт или в локальную папку</li>
       <li xml:lang="sa">ruqola तः website अथवा स्थानीय समुच्चय मध्ये चित्रं खींच्य पातयन्तु</li>
       <li xml:lang="sl">Povlecite in spustite sliko iz ruqole na spletno mesto ali lokalno mapo</li>
-      <li xml:lang="sv">Dra och släpp bild from ruqola till webbplats eller local katalog</li>
+      <li xml:lang="sv">Dra och släpp bild from ruqola till webbplats eller lokal katalog</li>
       <li xml:lang="tr">Roka’dan web sitesine veya yerel klasöre görsel sürükleyip bırakın</li>
       <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
       <li xml:lang="x-test">xxDrag and drop image from ruqola to website or local folderxx</li>
@@ -1019,23 +1019,23 @@
       <li xml:lang="ca-valencia">Emmagatzema el missatge en la base de dades local perquè es puga buscar fora de línia</li>
       <li xml:lang="en-GB">Store message in local database so we can search in offline</li>
       <li xml:lang="eo">Konservu mesaĝon en loka datumbazo, por ke ni povu serĉi eksterrete</li>
-      <li xml:lang="es">Almacenar mensaje en la base de datos local para que pueda set buscado sin conexión</li>
+      <li xml:lang="es">Almacenar mensaje en la base de datos local para que pueda ser buscado sin conexión</li>
       <li xml:lang="eu">Mezua datu-base lokalean gordetzea, lerroz kanpo bilatzeko gai izan gaitezen</li>
       <li xml:lang="fi">Talleta viestit paikalliseen tietokantaan, jotta niitä voi etsiä verkotta</li>
       <li xml:lang="fr">Enregistrer un message dans la base de données locale. Ainsi, vous pouvez rechercher en configuration hors ligne.</li>
       <li xml:lang="gl">Almacenar mensaxes nunha base de datos local para buscar nelas sen Internet.</li>
       <li xml:lang="hi">संदेश को स्थानीय डेटाबेस में संग्रहीत करें ताकि हम ऑफ़लाइन खोज सकें</li>
       <li xml:lang="hu">Üzenetek tárolása helyi adatbázisban offline kereséshez</li>
-      <li xml:lang="id">Simpan pesan di database local sehingga kami bisa mencari secara offline</li>
+      <li xml:lang="id">Simpan pesan di database lokal sehingga kami bisa mencari secara offline</li>
       <li xml:lang="it">Memorizza il messaggio nella banca dati locale in modo da poter eseguire ricerche quando non si è in linea</li>
       <li xml:lang="ka">შეტყობინების ლოკალურ ბაზაში შენახვა მისი ინტერნეტის გარეშე წასაკითხად</li>
-      <li xml:lang="nl">Bericht in locale database opslaan zodat we offline kunnen zoeken</li>
+      <li xml:lang="nl">Bericht in lokale database opslaan zodat we offline kunnen zoeken</li>
       <li xml:lang="pl">Przechowywanie wiadomości w miejscowej bazie danych do późniejszego wyszukiwania</li>
-      <li xml:lang="pt">Armazenamento da mensagem na base de dados local, para que possa set pesquisada mesmo sem rede</li>
+      <li xml:lang="pt">Armazenamento da mensagem na base de dados local, para que possa ser pesquisada mesmo sem rede</li>
       <li xml:lang="ru">Хранение сообщений в локальной базе данных (позволяет выполнять поиск в автономном режиме)</li>
       <li xml:lang="sa">सन्देशं स्थानीयदत्तांशकोशे संग्रहयन्तु येन वयं अफलाइनरूपेण अन्वेषणं कर्तुं शक्नुमः</li>
       <li xml:lang="sl">Shrani sporočilo v lokalni bazi podatkov, da jo bomo lahko iskali tudi brez povezave</li>
-      <li xml:lang="sv">Lagra meddelanden i local database så de går att söka i nerkopplad</li>
+      <li xml:lang="sv">Lagra meddelanden i lokal databas så de går att söka i nerkopplad</li>
       <li xml:lang="tr">İletileri yerel bir veritabanında depola, böylece çevrimdışıyken aranabilir</li>
       <li xml:lang="uk">Зберігання повідомлення у локальній базі даних для пошуку в автономному режимі</li>
       <li xml:lang="x-test">xxStore message in local database so we can search in offlinexx</li>
@@ -1057,28 +1057,28 @@
       <li xml:lang="id">Tandai Semua Kanal yang dibaca</li>
       <li xml:lang="it">Marca tutti i canali come letti</li>
       <li xml:lang="ka">ყველა არხის წაკითხულად დაყენება</li>
-      <li xml:lang="nl">Alle kanalen markeren also gelezen</li>
+      <li xml:lang="nl">Alle kanalen markeren als gelezen</li>
       <li xml:lang="pl">Oznacz wszystkie kanały jako przeczytane</li>
       <li xml:lang="pt">Marcação de todos os canais como lidos</li>
       <li xml:lang="ru">Отметка всех каналов как прочитанных</li>
       <li xml:lang="sa">Mark All Channels पठ्यते</li>
       <li xml:lang="sl">Označi vsa sporočila kot prebrana</li>
-      <li xml:lang="sv">Markera alla kanaler some lästa</li>
+      <li xml:lang="sv">Markera alla kanaler som lästa</li>
       <li xml:lang="tr">Tüm kanalları okundu olarak imle</li>
       <li xml:lang="uk">Позначення усіх каналів, як прочитаних</li>
       <li xml:lang="x-test">xxMark All Channels are readxx</li>
       <li xml:lang="zh-TW">將所有頻道標為已讀</li>
       <li>Add notification history</li>
       <li xml:lang="ar">إضافة تاريخ الإخطارات</li>
-      <li xml:lang="ca">Afegeix un historical de notificacions</li>
-      <li xml:lang="ca-valencia">Afig un historical de notificacions</li>
+      <li xml:lang="ca">Afegeix un historial de notificacions</li>
+      <li xml:lang="ca-valencia">Afig un historial de notificacions</li>
       <li xml:lang="en-GB">Add notification history</li>
       <li xml:lang="eo">Aldonu sciigan historion</li>
       <li xml:lang="es">Añadir el histórico de notificaciones</li>
       <li xml:lang="eu">Jakinarazpen-historia bat gehitzea</li>
       <li xml:lang="fi">Lisätty ilmoitushistoria</li>
       <li xml:lang="fr">Ajouter un historique de notifications</li>
-      <li xml:lang="gl">Historical de notificacións.</li>
+      <li xml:lang="gl">Historial de notificacións.</li>
       <li xml:lang="hi">अधिसूचना इतिहास जोड़ें</li>
       <li xml:lang="hu">Értesítési előzmények hozzáadása</li>
       <li xml:lang="ia">Adde chronologia de notification</li>
@@ -1105,7 +1105,7 @@
       <li xml:lang="es">Nuevo soporte de información de servidor RocketChat</li>
       <li xml:lang="eu">RocketChat zerbitzariaren informazio euskarri berria</li>
       <li xml:lang="fi">Uusi RocketChat-palvelintietojen tuki</li>
-      <li xml:lang="fr">Nouvelle prise en charge des information du serveur RocketChat</li>
+      <li xml:lang="fr">Nouvelle prise en charge des informations du serveur RocketChat</li>
       <li xml:lang="gl">Compatibilidade con nova información de servidor de Rocket.Chat.</li>
       <li xml:lang="hi">नया रॉकेटचैट सर्वर सूचना समर्थन</li>
       <li xml:lang="hu">Új Rocket.Chat kiszolgálóinformációk támogatása</li>
@@ -1130,7 +1130,7 @@
       <li xml:lang="cs">Spravovat zařízení (RC &gt;= 5.0)</li>
       <li xml:lang="en-GB">Manage Device (RC &gt;= 5.0)</li>
       <li xml:lang="eo">Administri aparaton (RC &gt;= 5.0)</li>
-      <li xml:lang="es">Administrator dispositivo (RC &gt;= 5.0)</li>
+      <li xml:lang="es">Administrar dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="eu">Kudeatu gailua («RC» &gt;= 5.0)</li>
       <li xml:lang="fi">Laitteen hallinta (RC &gt;= 5.0)</li>
       <li xml:lang="fr">Gérer un périphérique (Version candidate &gt;= 5.0)</li>
@@ -1159,7 +1159,7 @@
       <li xml:lang="cs">Spravovat osobní přístupový token</li>
       <li xml:lang="en-GB">Manage Personal Access Token</li>
       <li xml:lang="eo">Administri Personan Alir-Tokenon</li>
-      <li xml:lang="es">Administrator símbolo de acceso personal</li>
+      <li xml:lang="es">Administrar símbolo de acceso personal</li>
       <li xml:lang="eu">Kudeatu sarbide-token pertsonala</li>
       <li xml:lang="fi">Hallitse henkilökohtaista pääsymerkkiä</li>
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
@@ -1195,16 +1195,16 @@
       <li xml:lang="hi">स्थानीय अनुवाद के लिए समर्थन जोड़ें</li>
       <li xml:lang="hu">Helyi fordítás támogatása</li>
       <li xml:lang="ia">Adde supporto per traduction local</li>
-      <li xml:lang="id">Menambahkan dukungan terjemahan local</li>
+      <li xml:lang="id">Menambahkan dukungan terjemahan lokal</li>
       <li xml:lang="it">Aggiungi il supporto la traduzione locale</li>
       <li xml:lang="ka">ლოკალური თარგმანის მხარდაჭერის დამატება</li>
-      <li xml:lang="nl">Ondersteuning toevoegen voor locale vertalingen</li>
+      <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
       <li xml:lang="pl">Dodanie obsługi dla miejscowych tłumaczeń</li>
       <li xml:lang="pt">Adição do suporte para traduções locais</li>
       <li xml:lang="ru">Добавление поддержки локального перевода</li>
       <li xml:lang="sa">स्थानीयानुवादस्य समर्थनं योजयन्तु</li>
       <li xml:lang="sl">Dodajanje podpore za lokalni prevod</li>
-      <li xml:lang="sv">Lägg till stöd för local översättning</li>
+      <li xml:lang="sv">Lägg till stöd för lokal översättning</li>
       <li xml:lang="tr">Yerel çeviri desteği</li>
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
       <li xml:lang="x-test">xxAdd support for local translationxx</li>
@@ -1227,7 +1227,7 @@
       <li xml:lang="id">Menambahkan dukungan untuk auto koreksi teks</li>
       <li xml:lang="it">Aggiungi il supporto per la correzione automatica del testo</li>
       <li xml:lang="ka">ტექსტის ავტოკორექციის მხარდაჭერის დამატება</li>
-      <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van text</li>
+      <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van tekst</li>
       <li xml:lang="pl">Dodanie obsługi poprawiania tekstu</li>
       <li xml:lang="pt">Adição do suporte para a correcção automática do texto</li>
       <li xml:lang="ru">Добавление поддержки автоматического исправления текста</li>
