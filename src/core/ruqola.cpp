@@ -18,7 +18,7 @@
 #include <TextAutoCorrectionCore/AutoCorrection>
 #endif
 #if HAVE_TEXT_AUTOGENERATE_TEXT
-#include <TextAutoGenerateText/TextAutoGenerateMenuTextManager>
+#include <TextAutoGenerateText/TextAutoGenerateManager>
 #endif
 static Ruqola *s_self = nullptr;
 
@@ -28,7 +28,7 @@ Ruqola::Ruqola(QObject *parent)
     , mAutoCorrection(new TextAutoCorrectionCore::AutoCorrection())
 #endif
 #if HAVE_TEXT_AUTOGENERATE_TEXT
-    , mManager(new TextAutoGenerateText::TextAutoGenerateMenuTextManager(this))
+    , mManager(new TextAutoGenerateText::TextAutoGenerateManager(this))
 #endif
     , mCustomEmojiIconManager(new CustomEmojiIconManager(this))
 
@@ -104,6 +104,12 @@ void Ruqola::setParentWidget(QWidget *newParentWidget)
 {
     mParentWidget = newParentWidget;
 }
+#if HAVE_TEXT_AUTOGENERATE_TEXT
+TextAutoGenerateText::TextAutoGenerateManager *Ruqola::textAutoGenerateManager() const
+{
+    return mManager;
+}
+#endif
 
 void Ruqola::setCurrentAccount(const QString &accountName)
 {

@@ -27,7 +27,7 @@ class AutoCorrection;
 #if HAVE_TEXT_AUTOGENERATE_TEXT
 namespace TextAutoGenerateText
 {
-class TextAutoGenerateMenuTextManager;
+class TextAutoGenerateManager;
 }
 #endif
 
@@ -67,6 +67,9 @@ public:
     [[nodiscard]] QWidget *parentWidget() const;
     void setParentWidget(QWidget *newParentWidget);
 
+#if HAVE_TEXT_AUTOGENERATE_TEXT
+    [[nodiscard]] TextAutoGenerateText::TextAutoGenerateManager *textAutoGenerateManager() const;
+#endif
 Q_SIGNALS:
     void translatorMenuChanged();
     void addInviteServer(const AccountManager::AccountManagerInfo &info);
@@ -77,7 +80,7 @@ private:
     TextAutoCorrectionCore::AutoCorrection *const mAutoCorrection = nullptr;
 #endif
 #if HAVE_TEXT_AUTOGENERATE_TEXT
-    TextAutoGenerateText::TextAutoGenerateMenuTextManager *const mManager = nullptr;
+    TextAutoGenerateText::TextAutoGenerateManager *const mManager = nullptr;
 #endif
     CustomEmojiIconManager *const mCustomEmojiIconManager;
     bool mDebug = false;
