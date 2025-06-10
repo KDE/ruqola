@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-09 00:42+0000\n"
-"PO-Revision-Date: 2025-06-07 18:08+0300\n"
+"PO-Revision-Date: 2025-06-09 09:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -12106,8 +12106,7 @@ msgstr ""
 "помилка"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
-#, fuzzy, kde-format
-#| msgid "Allow to activate/desactivate apps market."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
 msgstr "Надано змогу вмикати і вимикати крамницю програм."
 

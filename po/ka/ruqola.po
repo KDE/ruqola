@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-09 00:42+0000\n"
-"PO-Revision-Date: 2025-06-07 04:43+0200\n"
+"PO-Revision-Date: 2025-06-09 04:59+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -11969,8 +11969,7 @@ msgstr ""
 "დააკოპიროთ"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
-#, fuzzy, kde-format
-#| msgid "Allow to activate/desactivate apps market."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
 msgstr "აპების მაღაზიის აქტივაციის/დეაქტივაციის დაშვება."
 
