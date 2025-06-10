@@ -23,6 +23,14 @@ namespace TextAutoCorrectionCore
 {
 class AutoCorrection;
 }
+
+#if HAVE_TEXT_AUTOGENERATE_TEXT
+namespace TextAutoGenerateText
+{
+class TextAutoGenerateMenuTextManager;
+}
+#endif
+
 class CustomEmojiIconManager;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
@@ -68,7 +76,9 @@ private:
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     TextAutoCorrectionCore::AutoCorrection *const mAutoCorrection = nullptr;
 #endif
-
+#if HAVE_TEXT_AUTOGENERATE_TEXT
+    TextAutoGenerateText::TextAutoGenerateMenuTextManager *const mManager = nullptr;
+#endif
     CustomEmojiIconManager *const mCustomEmojiIconManager;
     bool mDebug = false;
     QWidget *mParentWidget = nullptr;

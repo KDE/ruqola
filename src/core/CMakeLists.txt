@@ -557,6 +557,10 @@ if(HAVE_TEXT_TRANSLATOR)
     )
 endif()
 
+if(TARGET KF6::TextAutoGenerateText)
+    target_link_libraries(libruqolacore KF6::TextAutoGenerateText)
+endif()
+
 if(TARGET Plasma::Activities)
     target_sources(
         libruqolacore

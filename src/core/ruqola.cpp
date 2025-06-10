@@ -17,7 +17,9 @@
 #include "textautocorrectioncore/textautocorrectionsettings.h"
 #include <TextAutoCorrectionCore/AutoCorrection>
 #endif
-
+#if HAVE_TEXT_AUTOGENERATE_TEXT
+#include <TextAutoGenerateText/TextAutoGenerateMenuTextManager>
+#endif
 static Ruqola *s_self = nullptr;
 
 Ruqola::Ruqola(QObject *parent)
@@ -25,7 +27,11 @@ Ruqola::Ruqola(QObject *parent)
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     , mAutoCorrection(new TextAutoCorrectionCore::AutoCorrection())
 #endif
+#if HAVE_TEXT_AUTOGENERATE_TEXT
+    , mManager(new TextAutoGenerateText::TextAutoGenerateMenuTextManager(this))
+#endif
     , mCustomEmojiIconManager(new CustomEmojiIconManager(this))
+
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
     // Initialize paths
