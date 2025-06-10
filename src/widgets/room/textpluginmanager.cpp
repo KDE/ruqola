@@ -99,6 +99,7 @@ PluginText *TextPluginManager::pluginFromIdentifier(const QString &identifier) c
 QList<PluginText *> TextPluginManager::pluginsList() const
 {
     QList<PluginText *> lst;
+    lst.reserve(mPluginList.count());
     QList<TextPluginManagerInfo>::ConstIterator end(mPluginList.constEnd());
     for (QList<TextPluginManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
         if (auto plugin = (*it).plugin) {

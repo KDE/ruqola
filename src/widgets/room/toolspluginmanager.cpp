@@ -98,6 +98,7 @@ QList<PluginUtils::PluginUtilData> ToolsPluginManager::pluginDataList() const
 QList<PluginTool *> ToolsPluginManager::pluginsList() const
 {
     QList<PluginTool *> lst;
+    lst.reserve(mPluginList.count());
     QList<ToolsPluginManagerInfo>::ConstIterator end(mPluginList.constEnd());
     for (QList<ToolsPluginManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
         if (auto plugin = (*it).plugin) {
