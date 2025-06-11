@@ -23,3 +23,5 @@ void AutoGenerateTextPluginToolInterface::activateTool()
 #endif
     d.exec();
 }
+
+#include "moc_autogeneratetextplugintoolinterface.cpp"

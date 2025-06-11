@@ -9,6 +9,7 @@
 
 class AutoGenerateTextPluginToolInterface : public PluginToolInterface
 {
+    Q_OBJECT
 public:
     explicit AutoGenerateTextPluginToolInterface(QObject *parent = nullptr);
     ~AutoGenerateTextPluginToolInterface() override;
