@@ -5,6 +5,7 @@
 */
 
 #include "aitextinterface.h"
+#include "ruqola.h"
 #include <TextAutoGenerateText/TextAutoGenerateMenuWidget>
 
 #include <QMenu>
@@ -14,6 +15,7 @@ AiTextInterface::AiTextInterface(TextAutoGenerateText::TextAutoGenerateMenuTextM
     : PluginTextInterface(parent)
     , mMenuWidget(new TextAutoGenerateText::TextAutoGenerateMenuWidget(manager, this))
 {
+    mMenuWidget->setManager(Ruqola::self()->textAutoGenerateManager());
 }
 #else
 AiTextInterface::AiTextInterface(QObject *parent)
