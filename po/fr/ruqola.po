@@ -7735,8 +7735,7 @@ msgid "Text Plugins"
 msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "..."
+#, kde-format
 msgid "..."
 msgstr "..."
 
