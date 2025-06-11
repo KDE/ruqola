@@ -13,9 +13,9 @@ repos:
     - id: check-added-large-files
     - id: check-case-conflict
     - id: check-xml
-  #- id: check-yaml
-  #  args: [--allow-multiple-documents]
-  #  exclude: ^(.clang-tidy)
+    - id: check-yaml
+      args: [--allow-multiple-documents]
+      exclude: ^(.clang-tidy)
     - id: check-json
     - id: check-symlinks
     - id: destroyed-symlinks
