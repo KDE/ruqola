@@ -124,6 +124,13 @@ void DirectChannelInfoWidget::setUser(const User &user)
     timeZoneLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Timezone:"), timeZoneLabel);
 
+    QDateTime dt = QDateTime::currentDateTimeUtc();
+    dt = dt.addSecs(60 * 60 * user.utcOffset());
+
+    auto localTimeLabel = new QLabel(this);
+    localTimeLabel->setText(dt.time().toString());
+    mMainLayout->addRow(i18n("Local Time:"), localTimeLabel);
+
     const QStringList roles{user.roles()};
 
     if (!roles.isEmpty()) {
