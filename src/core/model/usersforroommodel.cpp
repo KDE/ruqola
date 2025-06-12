@@ -94,8 +94,23 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
 
 UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user) const
 {
-    // TODO
-    return UsersForRoomModel::SectionStatus::Away;
+    const QStringList roles = user.roles();
+    if (roles.contains(QStringLiteral("owner"))) {
+        return UsersForRoomModel::SectionStatus::Owner;
+    }
+    switch (user.status()) {
+    case User::PresenceStatus::Online:
+        return UsersForRoomModel::SectionStatus::Online;
+    case User::PresenceStatus::Busy:
+        return UsersForRoomModel::SectionStatus::Busy;
+    case User::PresenceStatus::Away:
+        return UsersForRoomModel::SectionStatus::Away;
+    case User::PresenceStatus::Offline:
+        return UsersForRoomModel::SectionStatus::Offline;
+    case User::PresenceStatus::Unknown:
+        return UsersForRoomModel::SectionStatus::Unknown;
+    }
+    return UsersForRoomModel::SectionStatus::Unknown;
 }
 
 QString UsersForRoomModel::generateDisplayName(const User &user) const
