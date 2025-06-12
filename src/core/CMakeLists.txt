@@ -320,6 +320,8 @@ target_sources(
         model/appsmarketplacefilterproxymodel.cpp
         model/previewcommandmodel.h
         model/previewcommandmodel.cpp
+        model/usersforroomlistheadingsproxymodel.h
+        model/usersforroomlistheadingsproxymodel.cpp
         notificationinfo.cpp
         notificationinfo.h
         notifications/notification.cpp
