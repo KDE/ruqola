@@ -24,8 +24,7 @@ QVariant UsersForRoomListHeadingsProxyModel::data(const QModelIndex &index, int 
     case IndexType::Section:
         switch (role) {
         case Qt::ItemDataRole::DisplayRole:
-            // TODO return UsersForRoomModel::sectionName(UsersForRoomModel::SectionHistory(index.row()));
-            return {};
+            return UsersForRoomModel::sectionName(UsersForRoomModel::SectionStatus(index.row()));
         case Qt::BackgroundRole:
             return QApplication::palette().brush(QPalette::Window);
         case Qt::FontRole: {
@@ -156,8 +155,9 @@ void UsersForRoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sour
 
 QModelIndex UsersForRoomListHeadingsProxyModel::mapToSource(const QModelIndex &proxyIndex) const
 {
-    if (!sourceModel())
+    if (!sourceModel()) {
         return {};
+    }
 
     switch (type(proxyIndex)) {
     case IndexType::Root:
@@ -172,11 +172,13 @@ QModelIndex UsersForRoomListHeadingsProxyModel::mapToSource(const QModelIndex &p
 
 QModelIndex UsersForRoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceIndex) const
 {
-    if (!sourceModel())
+    if (!sourceModel()) {
         return {};
+    }
 
-    if (!sourceIndex.isValid())
+    if (!sourceIndex.isValid()) {
         return {};
+    }
 
     for (auto sectionId = size_t(0), iMax = mSections.size(); sectionId < iMax; ++sectionId) {
         const auto &section = mSections.at(sectionId);
@@ -191,10 +193,9 @@ QModelIndex UsersForRoomListHeadingsProxyModel::mapFromSource(const QModelIndex 
 
 void UsersForRoomListHeadingsProxyModel::onRowsInserted(const QModelIndex &parent, int first, int last)
 {
-#if 0 // TODO
     for (auto row = first; row <= last; ++row) {
         const QPersistentModelIndex index = sourceModel()->index(row, 0, parent);
-        const auto newSectionId = int(index.data(TextAutoGenerateChatsModel::Section).value<TextAutoGenerateChatsModel::SectionHistory>());
+        const auto newSectionId = int(index.data(UsersForRoomModel::Section).value<UsersForRoomModel::SectionStatus>());
         auto &newSection = mSections.at(newSectionId);
 
         const auto newLocation = std::lower_bound(newSection.cbegin(), newSection.cend(), index);
@@ -206,7 +207,6 @@ void UsersForRoomListHeadingsProxyModel::onRowsInserted(const QModelIndex &paren
 
         endInsertRows();
     }
-#endif
 }
 
 void UsersForRoomListHeadingsProxyModel::onRowsAboutToBeRemoved(const QModelIndex &parent, int first, int last)
@@ -234,17 +234,18 @@ void UsersForRoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLef
         Q_EMIT dataChanged(proxyIndex, proxyIndex, roles);
     }
 
-    /* // TODO
+    /*
     if (!roles.empty()
-        && (!roles.contains(TextAutoGenerateChatsModel::Section) && !roles.contains(TextAutoGenerateChatsModel::Favorite)
+        && (!roles.contains(TextAutoGenerateChatsModel::Section) && !roles.contains(UsersForRoomModel::Favorite)
             && !roles.contains(TextAutoGenerateChatsModel::DateTime)))
         return;
+        */
     for (auto row = topLeft.row(), last = bottomRight.row(); row <= last; ++row) {
         const auto sourceIndex = topLeft.siblingAtRow(row);
         const auto ourOldIndex = mapFromSource(sourceIndex);
 
         const auto oldSectionId = int(ourOldIndex.internalId());
-        const auto newSectionId = int(sourceIndex.data(TextAutoGenerateChatsModel::Section).value<TextAutoGenerateChatsModel::SectionHistory>());
+        const auto newSectionId = int(sourceIndex.data(UsersForRoomModel::Section).value<UsersForRoomModel::SectionStatus>());
 
         if (oldSectionId == newSectionId)
             continue;
@@ -263,35 +264,36 @@ void UsersForRoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLef
 
         endMoveRows();
     }
-    */
 }
 
 void UsersForRoomListHeadingsProxyModel::rebuildSections()
 {
-    for (auto &section : mSections)
+    for (auto &section : mSections) {
         section.clear();
+    }
 
-#if 0
     for (auto row = 0, until = sourceModel()->rowCount(); row < until; ++row) {
         const QPersistentModelIndex index = sourceModel()->index(row, 0);
-        const auto newSectionId = uint(index.data(TextAutoGenerateChatsModel::Section).value<TextAutoGenerateChatsModel::SectionHistory>());
+        const auto newSectionId = uint(index.data(UsersForRoomModel::Section).value<UsersForRoomModel::SectionStatus>());
         auto &newSection = mSections.at(newSectionId);
 
         newSection.push_back(index);
     }
 
-    for (auto &section : mSections)
+    for (auto &section : mSections) {
         std::sort(section.begin(), section.end());
-#endif
+    }
 }
 
 auto UsersForRoomListHeadingsProxyModel::type(const QModelIndex &index) const -> IndexType
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return IndexType::Root;
+    }
 
-    if (index.internalId() == sectionCount)
+    if (index.internalId() == sectionCount) {
         return IndexType::Section;
+    }
 
     return IndexType::Status;
 }

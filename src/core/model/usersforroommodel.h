@@ -26,15 +26,16 @@ public:
         Status,
         AvatarInfo,
         Roles,
+        Section,
     };
     Q_ENUM(UsersForRoomRoles)
 
     enum class SectionStatus : uint8_t {
-        Favorite,
-        Today,
-        LessThanSevenDays,
-        LessThanThirtyDays,
-        Later,
+        Owner,
+        Online,
+        Busy,
+        Away,
+        Offline,
         Unknown,
         NSections,
     };
@@ -63,6 +64,7 @@ public:
 
     void setLoadMoreUsersInProgress(bool inProgress);
     [[nodiscard]] bool loadMoreUsersInProgress() const;
+    [[nodiscard]] static QString sectionName(UsersForRoomModel::SectionStatus sectionId);
 Q_SIGNALS:
     void hasFullListChanged();
     void userStatusChanged(const QByteArray &userId);

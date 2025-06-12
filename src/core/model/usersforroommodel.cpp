@@ -9,6 +9,8 @@
 #include "ruqola_debug.h"
 #include "usersmodel.h"
 
+#include <KLocalizedString>
+
 #include <QIcon>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -83,6 +85,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
         return user.roles();
     case Qt::DecorationRole:
         return QIcon::fromTheme(user.iconFromStatus());
+    case Section:
+        return {}; // TODO
     }
 
     return {};
@@ -252,6 +256,27 @@ void UsersForRoomModel::setLoadMoreUsersInProgress(bool inProgress)
 bool UsersForRoomModel::loadMoreUsersInProgress() const
 {
     return mLoadingInProgress;
+}
+
+QString UsersForRoomModel::sectionName(UsersForRoomModel::SectionStatus sectionId)
+{
+    switch (sectionId) {
+    case UsersForRoomModel::SectionStatus::Owner:
+        return i18n("Owner");
+    case UsersForRoomModel::SectionStatus::Online:
+        return Utils::i18nFromPresenceStatus(User::PresenceStatus::Online);
+    case UsersForRoomModel::SectionStatus::Busy:
+        return Utils::i18nFromPresenceStatus(User::PresenceStatus::Busy);
+    case UsersForRoomModel::SectionStatus::Away:
+        return Utils::i18nFromPresenceStatus(User::PresenceStatus::Away);
+    case UsersForRoomModel::SectionStatus::Offline:
+        return Utils::i18nFromPresenceStatus(User::PresenceStatus::Offline);
+    case UsersForRoomModel::SectionStatus::Unknown:
+        return i18n("Unknown");
+    case UsersForRoomModel::SectionStatus::NSections:
+        break;
+    }
+    return QStringLiteral("ERROR");
 }
 
 #include "moc_usersforroommodel.cpp"
