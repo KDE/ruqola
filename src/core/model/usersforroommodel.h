@@ -29,6 +29,16 @@ public:
     };
     Q_ENUM(UsersForRoomRoles)
 
+    enum class SectionStatus : uint8_t {
+        Favorite,
+        Today,
+        LessThanSevenDays,
+        LessThanThirtyDays,
+        Later,
+        Unknown,
+        NSections,
+    };
+
     explicit UsersForRoomModel(QObject *parent = nullptr);
     ~UsersForRoomModel() override;
 
