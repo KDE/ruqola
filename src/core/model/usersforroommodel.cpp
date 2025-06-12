@@ -86,10 +86,16 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
     case Qt::DecorationRole:
         return QIcon::fromTheme(user.iconFromStatus());
     case Section:
-        return {}; // TODO
+        return QVariant::fromValue(section(user));
     }
 
     return {};
+}
+
+UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user) const
+{
+    // TODO
+    return UsersForRoomModel::SectionStatus::Away;
 }
 
 QString UsersForRoomModel::generateDisplayName(const User &user) const

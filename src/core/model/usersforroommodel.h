@@ -74,6 +74,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const User &user) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDisplayName(const User &user) const;
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT UsersForRoomModel::SectionStatus section(const User &user) const;
     QList<User> mUsers;
     int mTotal = 0;
     int mOffset = 0;
