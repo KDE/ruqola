@@ -128,11 +128,13 @@ QVariant RoomListHeadingsProxyModel::data(const QModelIndex &index, int role) co
 
 QModelIndex RoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceIndex) const
 {
-    if (!sourceModel())
+    if (!sourceModel()) {
         return {};
+    }
 
-    if (!sourceIndex.isValid())
+    if (!sourceIndex.isValid()) {
         return {};
+    }
 
     for (auto sectionId = size_t(0), iMax = mSections.size(); sectionId < iMax; ++sectionId) {
         const auto &section = mSections.at(sectionId);
@@ -147,8 +149,9 @@ QModelIndex RoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceI
 
 QModelIndex RoomListHeadingsProxyModel::mapToSource(const QModelIndex &proxyIndex) const
 {
-    if (!sourceModel())
+    if (!sourceModel()) {
         return {};
+    }
 
     switch (type(proxyIndex)) {
     case IndexType::Root:
@@ -216,8 +219,9 @@ void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const
         Q_EMIT dataChanged(proxyIndex, proxyIndex, roles);
     }
 
-    if (!roles.empty() && !roles.contains(RoomModel::RoomSection))
+    if (!roles.empty() && !roles.contains(RoomModel::RoomSection)) {
         return;
+    }
 
     for (auto row = topLeft.row(), last = bottomRight.row(); row <= last; ++row) {
         const auto sourceIndex = topLeft.siblingAtRow(row);
@@ -247,8 +251,9 @@ void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const
 
 void RoomListHeadingsProxyModel::rebuildSections()
 {
-    for (auto &section : mSections)
+    for (auto &section : mSections) {
         section.clear();
+    }
 
     for (auto row = 0, until = sourceModel()->rowCount(); row < until; ++row) {
         const QPersistentModelIndex index = sourceModel()->index(row, 0);
@@ -258,8 +263,9 @@ void RoomListHeadingsProxyModel::rebuildSections()
         newSection.push_back(index);
     }
 
-    for (auto &section : mSections)
+    for (auto &section : mSections) {
         std::sort(section.begin(), section.end());
+    }
 }
 
 auto RoomListHeadingsProxyModel::type(const QModelIndex &index) const -> IndexType
