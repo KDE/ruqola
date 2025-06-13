@@ -15,6 +15,7 @@ UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
     setFilterRole(UsersForRoomModel::UsersForRoomRoles::UserName);
     setSortRole(UsersForRoomModel::UsersForRoomRoles::UserName);
     sort(0);
+    setRecursiveFilteringEnabled(true);
 }
 
 UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel() = default;
