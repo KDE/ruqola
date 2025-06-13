@@ -39,6 +39,7 @@ public:
         Unknown,
         NSections,
     };
+    Q_ENUM(SectionStatus)
 
     explicit UsersForRoomModel(QObject *parent = nullptr);
     ~UsersForRoomModel() override;
