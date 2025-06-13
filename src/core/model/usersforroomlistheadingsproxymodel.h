@@ -5,10 +5,10 @@
 */
 
 #pragma once
-
+#include "libruqolacore_export.h"
 #include "usersforroommodel.h"
 #include <QAbstractProxyModel>
-class UsersForRoomListHeadingsProxyModel : public QAbstractProxyModel
+class LIBRUQOLACORE_EXPORT UsersForRoomListHeadingsProxyModel : public QAbstractProxyModel
 {
     Q_OBJECT
 public:
