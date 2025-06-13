@@ -23,8 +23,10 @@ QVariant UsersForRoomListHeadingsProxyModel::data(const QModelIndex &index, int 
         return {};
     case IndexType::Section:
         switch (role) {
-        case Qt::ItemDataRole::DisplayRole:
-            return UsersForRoomModel::sectionName(UsersForRoomModel::SectionStatus(index.row()));
+        case Qt::DisplayRole: {
+            const QString sectionName = UsersForRoomModel::sectionName(UsersForRoomModel::SectionStatus(index.row()));
+            return sectionName;
+        }
         case Qt::BackgroundRole:
             return QApplication::palette().brush(QPalette::Window);
         case Qt::FontRole: {
