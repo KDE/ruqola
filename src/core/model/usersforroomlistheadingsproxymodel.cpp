@@ -234,12 +234,9 @@ void UsersForRoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLef
         Q_EMIT dataChanged(proxyIndex, proxyIndex, roles);
     }
 
-    /*
-    if (!roles.empty()
-        && (!roles.contains(TextAutoGenerateChatsModel::Section) && !roles.contains(UsersForRoomModel::Favorite)
-            && !roles.contains(TextAutoGenerateChatsModel::DateTime)))
+    if (!roles.empty() && !roles.contains(UsersForRoomModel::Section)) {
         return;
-        */
+    }
     for (auto row = topLeft.row(), last = bottomRight.row(); row <= last; ++row) {
         const auto sourceIndex = topLeft.siblingAtRow(row);
         const auto ourOldIndex = mapFromSource(sourceIndex);
