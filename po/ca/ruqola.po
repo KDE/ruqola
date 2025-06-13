@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-09 00:42+0000\n"
+"POT-Creation-Date: 2025-06-13 00:42+0000\n"
 "PO-Revision-Date: 2025-06-09 08:53+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1513,7 +1513,7 @@ msgstr "Debats"
 msgid "Private Messages"
 msgstr "Missatges privats"
 
-#: core/model/roommodel.cpp:592
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
 #, kde-format
 msgid "Unknown"
 msgstr "Desconegut"
@@ -1708,6 +1708,11 @@ msgstr "S'ha unit a aquest equip"
 msgid "(Autojoin)"
 msgstr "(Unió automàtica)"
 
+#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#, kde-format
+msgid "Owner"
+msgstr "Propietari"
+
 #: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
 #, kde-format
 msgid "Offline"
@@ -1812,11 +1817,6 @@ msgstr "S'ha afegit un compte"
 #, kde-format
 msgid "A new account was added."
 msgstr "S'ha afegit un compte nou."
-
-#: core/room.cpp:1153
-#, kde-format
-msgid "Owner"
-msgstr "Propietari"
 
 #: core/room.cpp:1156
 #, kde-format
@@ -3422,7 +3422,7 @@ msgstr "Mostra la moderació d'usuaris"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:167
+#: widgets/dialogs/directchannelinfowidget.cpp:174
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
@@ -3431,7 +3431,7 @@ msgstr "Correu electrònic:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:45
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:69
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "Roles:"
 msgstr "Rols:"
@@ -8401,27 +8401,32 @@ msgstr "Estat personalitzat:"
 msgid "Timezone:"
 msgstr "Zona horària:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:132
+#, kde-format
+msgid "Local Time:"
+msgstr ""
+
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Created At:"
 msgstr "Creat:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:163
 #, kde-format
 msgid "Last Login:"
 msgstr "Darrer inici de sessió:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Verified"
 msgstr "Verificat"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Not verified"
 msgstr "No verificat"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"

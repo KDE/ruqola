@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-09 00:42+0000\n"
+"POT-Creation-Date: 2025-06-13 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1511,7 +1511,7 @@ msgstr "चर्चाएँ"
 msgid "Private Messages"
 msgstr "निजी संदेश"
 
-#: core/model/roommodel.cpp:592
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -1706,6 +1706,11 @@ msgstr "इस टीम में शामिल हुए"
 msgid "(Autojoin)"
 msgstr "(ऑटोज्वाइन)"
 
+#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#, kde-format
+msgid "Owner"
+msgstr "मालिक"
+
 #: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
 #, kde-format
 msgid "Offline"
@@ -1810,11 +1815,6 @@ msgstr "खाता जोड़ा गया"
 #, kde-format
 msgid "A new account was added."
 msgstr "एक नया खाता जोड़ा गया."
-
-#: core/room.cpp:1153
-#, kde-format
-msgid "Owner"
-msgstr "मालिक"
 
 #: core/room.cpp:1156
 #, kde-format
@@ -3405,7 +3405,7 @@ msgstr "मॉडरेशन उपयोगकर्ता दिखाएं"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:167
+#: widgets/dialogs/directchannelinfowidget.cpp:174
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
@@ -3414,7 +3414,7 @@ msgstr "ईमेल:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:45
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:69
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "Roles:"
 msgstr "भूमिकाएँ:"
@@ -8351,27 +8351,32 @@ msgstr "कस्टम स्थिति:"
 msgid "Timezone:"
 msgstr "समयक्षेत्र:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:132
+#, kde-format
+msgid "Local Time:"
+msgstr ""
+
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Created At:"
 msgstr "निर्मित स्थान:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:163
 #, kde-format
 msgid "Last Login:"
 msgstr "आखरी लॉगइन:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Verified"
 msgstr "सत्यापित"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Not verified"
 msgstr "सत्यापित नहीं है"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"

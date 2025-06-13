@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-09 00:42+0000\n"
-"PO-Revision-Date: 2025-05-30 17:23+0400\n"
+"POT-Creation-Date: 2025-06-13 00:42+0000\n"
+"PO-Revision-Date: 2025-06-12 13:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1526,7 +1526,7 @@ msgstr "مناقشات"
 msgid "Private Messages"
 msgstr "رسائل خاصة"
 
-#: core/model/roommodel.cpp:592
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
 #, kde-format
 msgid "Unknown"
 msgstr "مجهول"
@@ -1721,6 +1721,11 @@ msgstr "انضمّ  إلى هذا الفريق"
 msgid "(Autojoin)"
 msgstr "(إنضمام آلي)"
 
+#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#, kde-format
+msgid "Owner"
+msgstr "مالك"
+
 #: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
 #, kde-format
 msgid "Offline"
@@ -1825,11 +1830,6 @@ msgstr "أضيف حساب"
 #, kde-format
 msgid "A new account was added."
 msgstr "أضيف حساب جديد"
-
-#: core/room.cpp:1153
-#, kde-format
-msgid "Owner"
-msgstr "مالك"
 
 #: core/room.cpp:1156
 #, kde-format
@@ -2057,31 +2057,27 @@ msgid "This tool allows to create screenshot."
 msgstr "تسمح هذه الأداة بأخذ لقطة للشاشة"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "اضبط حسابك"
+msgstr "اضبط التقاط الشاشة"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "التأخير:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "صفر"
+msgstr[0] "أقل من ثانية"
 msgstr[1] "ثانية واحدة"
 msgstr[2] "ثانيتين"
-msgstr[3] "%1 ثواني"
-msgstr[4] "%1 ثانية"
-msgstr[5] "%1 ثانية"
+msgstr[3] "%v ثواني"
+msgstr[4] "%v ثانية"
+msgstr[5] "%v ثانية"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -3442,7 +3438,7 @@ msgstr "أظهر مستخدمي الإشراف"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:167
+#: widgets/dialogs/directchannelinfowidget.cpp:174
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
@@ -3451,7 +3447,7 @@ msgstr "البريد الإلكترونيّ:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:45
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:69
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "Roles:"
 msgstr "الأدوار:"
@@ -5512,7 +5508,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "حد المستخدم لإضافة جميع المستخدمين إلى القناة"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6798,12 +6794,10 @@ msgid "Disable Workspace Sync"
 msgstr "عطّل مزامنة مساحة العمل"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "عطّل مراقبة الجلسات"
+msgstr "عطّل ذكر الفرق"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6877,6 +6871,8 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"يقوم هذا الإعداد بتعطيل ميزة ذكر الفرق. لن يتمكن المستخدمون من ذكر فريق "
+"بالاسم في رسالة وإشعار أعضائه."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -7652,31 +7648,28 @@ msgstr "مكّن التكامل مع أنشطة بلازما"
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "إعادة التّشغيل مطلوبة لتطبيق التّغييرات."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "ملحقات الأدوات"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "ملحقات النصوص"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "..."
-msgstr "أضف..."
+msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Configure…"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "اضبط…"
+msgstr "اضبط"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -7736,7 +7729,7 @@ msgstr "الإتاحة"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr ""
+msgstr "الملحقات"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -8393,27 +8386,32 @@ msgstr "الحالة المخصصة:"
 msgid "Timezone:"
 msgstr "المنطقة الزمنية:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:132
+#, kde-format
+msgid "Local Time:"
+msgstr ""
+
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Created At:"
 msgstr "أُنشئ في:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:163
 #, kde-format
 msgid "Last Login:"
 msgstr "آخر ولوج:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Verified"
 msgstr "متحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Not verified"
 msgstr "لم يُتحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -11562,10 +11560,8 @@ msgid "Add restore button in administration settings."
 msgstr "إضافة زر استعادة في إعدادات الإدارة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "اسمح بكتابة دور"
+msgstr "اسمح بتفعيل الملحقات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -12025,10 +12021,9 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr "السماح بوضع سطر الأوامر في الحافظة عند حدوث خطأ"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
-#, fuzzy, kde-format
-#| msgid "Allow to activate/desactivate apps market."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
-msgstr "السماح بتنشيط/إلغاء تنشيط سوق التطبيقات."
+msgstr "اسمح بتنشيط/إلغاء تنشيط سوق التطبيقات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format

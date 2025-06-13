@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-09 00:42+0000\n"
+"POT-Creation-Date: 2025-06-13 00:42+0000\n"
 "PO-Revision-Date: 2025-02-04 19:21+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1514,7 +1514,7 @@ msgstr "Keskustelut"
 msgid "Private Messages"
 msgstr "Yksityisviestejä"
 
-#: core/model/roommodel.cpp:592
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
 #, kde-format
 msgid "Unknown"
 msgstr "Tuntematon"
@@ -1709,6 +1709,11 @@ msgstr "Liittyi tähän työryhmään"
 msgid "(Autojoin)"
 msgstr "(Liity automaattisesti)"
 
+#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#, kde-format
+msgid "Owner"
+msgstr "Omistaja"
+
 #: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
 #, kde-format
 msgid "Offline"
@@ -1813,11 +1818,6 @@ msgstr "Tili lisätty"
 #, kde-format
 msgid "A new account was added."
 msgstr "Lisättiin uusi tili."
-
-#: core/room.cpp:1153
-#, kde-format
-msgid "Owner"
-msgstr "Omistaja"
 
 #: core/room.cpp:1156
 #, kde-format
@@ -3413,7 +3413,7 @@ msgstr "Näytä moderointikäyttäjät"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:167
+#: widgets/dialogs/directchannelinfowidget.cpp:174
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:75
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
@@ -3422,7 +3422,7 @@ msgstr "Sähköposti:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:45
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:69
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "Roles:"
 msgstr "Roolit:"
@@ -8347,27 +8347,32 @@ msgstr "Mukautettu tila:"
 msgid "Timezone:"
 msgstr "Aikavyöhyke:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:132
+#, kde-format
+msgid "Local Time:"
+msgstr ""
+
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Created At:"
 msgstr "Luotu:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:163
 #, kde-format
 msgid "Last Login:"
 msgstr "Viimeisin kirjautuminen:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Verified"
 msgstr "Vahvistettu"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Not verified"
 msgstr "Ei vahvistettu"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:162
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
