@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you sharing text.",
+        "Description[ar]": "تتيح لك هذه الملحقة مشاركة النّصوص.",
         "Description[ca@valencia]": "Este connector permet compartir text.",
         "Description[ca]": "Aquest connector permet compartir text.",
         "Description[es]": "Este complemento le permite compartir texto.",
@@ -16,6 +17,7 @@
         "Description[x-test]": "xxThis plugin allows you sharing text.xx",
         "EnabledByDefault": true,
         "Name": "Share Text",
+        "Name[ar]": "شارك النص",
         "Name[ca@valencia]": "Compartix el text",
         "Name[ca]": "Comparteix el text",
         "Name[es]": "Compartir texto",

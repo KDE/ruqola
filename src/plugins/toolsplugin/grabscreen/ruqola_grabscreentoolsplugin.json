@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you creating screenshot.",
+        "Description[ar]": "تتيح لك هذه الملحقة إنشاء لقطة شاشة.",
         "Description[ca@valencia]": "Este connector permet crear una captura de pantalla.",
         "Description[ca]": "Aquest connector permet crear una captura de pantalla.",
         "Description[es]": "Este complemento  le permite capturar la pantalla.",
@@ -16,6 +17,7 @@
         "Description[x-test]": "xxThis plugin allows you creating screenshot.xx",
         "EnabledByDefault": true,
         "Name": "Grab Screen",
+        "Name[ar]": "لقطة شاشة",
         "Name[ca@valencia]": "Gravació de la pantalla",
         "Name[ca]": "Enregistrament de pantalla",
         "Name[es]": "Captura de pantalla",

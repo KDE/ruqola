@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you asking to AI engine some questions.",
+        "Description[ar]": "تسمح لك هذه الملحقة بطرح بعض الأسئلة على محرك الذكاء الاصطناعي.",
         "Description[ca@valencia]": "Este connector permet preguntar questions al motor d'IA.",
         "Description[ca]": "Aquest connector permet preguntar questions al motor d'IA.",
         "Description[es]": "Este complemento  le permite preguntar a un motor IA.",
@@ -16,6 +17,7 @@
         "Description[x-test]": "xxThis plugin allows you asking to AI engine some questions.xx",
         "EnabledByDefault": true,
         "Name": "AI Actions",
+        "Name[ar]": "إجراءات الذكاء الاصطناعي",
         "Name[ca@valencia]": "Accions d'IA",
         "Name[ca]": "Accions d'IA",
         "Name[es]": "Acciones AI",

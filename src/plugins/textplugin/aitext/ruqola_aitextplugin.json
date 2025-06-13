@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you asking to AI.",
+        "Description[ar]": "تتيح لك هذه المحلقة سؤال الذكاء الاصطناعي.",
         "Description[ca@valencia]": "Este connector permet preguntar a la IA.",
         "Description[ca]": "Aquest connector permet preguntar a la IA.",
         "Description[es]": "Este complemento le permite preguntar a una IA",
@@ -16,6 +17,7 @@
         "Description[x-test]": "xxThis plugin allows you asking to AI.xx",
         "EnabledByDefault": true,
         "Name": "AI Text",
+        "Name[ar]": "نص الذكاء الاصطناعي",
         "Name[ca@valencia]": "Text d'IA",
         "Name[ca]": "Text d'IA",
         "Name[es]": "Texto IA",

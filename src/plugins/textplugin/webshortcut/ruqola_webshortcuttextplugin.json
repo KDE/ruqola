@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you asking on web.",
+        "Description[ar]": "تتيح لك هذه الملحقة البحث في الويب.",
         "Description[ca@valencia]": "Este connector permet preguntar a la web.",
         "Description[ca]": "Aquest connector permet preguntar a la web.",
         "Description[es]": "Este complemento  le permite preguntar en la web.",
@@ -16,6 +17,7 @@
         "Description[x-test]": "xxThis plugin allows you asking on web.xx",
         "EnabledByDefault": true,
         "Name": "Web Shortcut",
+        "Name[ar]": "اختصار وبّ",
         "Name[ca@valencia]": "Drecera web",
         "Name[ca]": "Drecera web",
         "Name[es]": "Acceso rápido a web",
