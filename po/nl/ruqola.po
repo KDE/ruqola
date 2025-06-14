@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-13 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 14:37+0200\n"
+"PO-Revision-Date: 2025-06-13 11:42+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -8404,7 +8404,7 @@ msgstr "Tijdzone:"
 #: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Lokale tijd:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-13 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 08:53+0200\n"
+"PO-Revision-Date: 2025-06-13 09:58+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -8404,7 +8404,7 @@ msgstr "Zona horària:"
 #: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Hora local:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format

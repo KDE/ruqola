@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-13 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 06:34+0200\n"
+"PO-Revision-Date: 2025-06-13 06:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -8385,7 +8385,7 @@ msgstr "Časovni pas:"
 #: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Lokalni čas:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
