@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-13 00:42+0000\n"
-"PO-Revision-Date: 2025-06-09 21:28+0200\n"
+"PO-Revision-Date: 2025-06-14 07:21+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -8357,7 +8357,7 @@ msgstr "Tidszon:"
 #: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Lokal tid:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
