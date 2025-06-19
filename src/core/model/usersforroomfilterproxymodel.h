@@ -46,4 +46,5 @@ protected:
 
 private:
     UsersForRoomFilterProxyModel::FilterUserType mStatusType = UsersForRoomFilterProxyModel::FilterUserType::All;
+    QString mFilterString;
 };

@@ -11,8 +11,6 @@ UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    // Filter on alias/username ?
-    setFilterRole(UsersForRoomModel::UsersForRoomRoles::UserName);
     setSortRole(UsersForRoomModel::UsersForRoomRoles::UserName);
     sort(0);
     setRecursiveFilteringEnabled(true);
@@ -22,13 +20,16 @@ UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel() = default;
 
 void UsersForRoomFilterProxyModel::clearFilter()
 {
-    setFilterFixedString({});
+    mFilterString.clear();
     mStatusType = UsersForRoomFilterProxyModel::FilterUserType::All;
 }
 
 void UsersForRoomFilterProxyModel::setFilterString(const QString &string)
 {
-    setFilterFixedString(string);
+    if (mFilterString != string) {
+        mFilterString = string;
+        invalidateFilter();
+    }
 }
 
 bool UsersForRoomFilterProxyModel::hasFullList() const
@@ -75,9 +76,13 @@ int UsersForRoomFilterProxyModel::numberOfUsers() const
 
 bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+    auto match = [&](int role) {
+        return mFilterString.isEmpty() || sourceIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+    };
     switch (mStatusType) {
     case UsersForRoomFilterProxyModel::FilterUserType::All:
-        return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+        return match(UsersForRoomModel::UsersForRoomRoles::UserName) || match(UsersForRoomModel::UsersForRoomRoles::Name);
     case UsersForRoomFilterProxyModel::FilterUserType::Online:
     case UsersForRoomFilterProxyModel::FilterUserType::Offline:
     case UsersForRoomFilterProxyModel::FilterUserType::Away:
@@ -86,7 +91,6 @@ bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
         break;
     }
 
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
     if (mStatusType == UsersForRoomFilterProxyModel::FilterUserType::Owners) {
         const QStringList roles = sourceIndex.data(UsersForRoomModel::Roles).toStringList();
         return roles.contains(QStringLiteral("owner")) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
@@ -109,7 +113,11 @@ bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
         case User::PresenceStatus::Unknown:
             break;
         }
-        return (mStatusType == userStatus) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+
+        if (!match(UsersForRoomModel::UsersForRoomRoles::UserName) && !match(UsersForRoomModel::UsersForRoomRoles::Name)) {
+            return false;
+        }
+        return (mStatusType == userStatus);
     }
 
     return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
