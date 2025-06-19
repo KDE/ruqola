@@ -102,6 +102,9 @@ void RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo::generateReq
     query.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(roomId));
     query.addQueryItem(QStringLiteral("offset"), QString::number(offset));
     query.addQueryItem(QStringLiteral("count"), QString::number(count));
+    if (!filter.isEmpty()) {
+        query.addQueryItem(QStringLiteral("filter"), filter);
+    }
 }
 
 #include "moc_roomsmembersorderedbyrolejob.cpp"

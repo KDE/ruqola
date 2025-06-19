@@ -17,6 +17,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsMembersOrderedByRoleJob : public RestA
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT RoomsMembersOrderedByRoleJobInfo {
         QByteArray roomId;
+        QString filter;
         int offset = 0;
         int count = 0;
         [[nodiscard]] bool isValid() const;
