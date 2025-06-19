@@ -689,6 +689,9 @@ target_sources(
         room/commandpreviewimagedelegate.cpp
         room/actionbuttonsgenerator.h
         room/actionbuttonsgenerator.cpp
+        room/usersinroomtreeview.h
+        room/usersinroomtreeview.cpp
+
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h
