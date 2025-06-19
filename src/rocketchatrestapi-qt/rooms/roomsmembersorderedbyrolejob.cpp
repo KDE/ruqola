@@ -107,4 +107,13 @@ void RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo::generateReq
     }
 }
 
+QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo &t)
+{
+    d.space() << "roomId:" << t.roomId;
+    d.space() << "offset:" << t.offset;
+    d.space() << "count:" << t.count;
+    d.space() << "filter:" << t.filter;
+    return d;
+}
+
 #include "moc_roomsmembersorderedbyrolejob.cpp"

@@ -48,3 +48,5 @@ private:
     RoomsMembersOrderedByRoleJobInfo mRoomsMembersOrderedByRoleJobInfo;
 };
 }
+Q_DECLARE_TYPEINFO(RocketChatRestApi::RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo, Q_RELOCATABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo &t);
