@@ -296,3 +296,5 @@ auto UsersForRoomListHeadingsProxyModel::type(const QModelIndex &index) const ->
 
     return IndexType::Status;
 }
+
+#include "moc_usersforroomlistheadingsproxymodel.cpp"
