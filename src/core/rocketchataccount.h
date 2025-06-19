@@ -189,7 +189,7 @@ public:
     void loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType);
     void loadMoreDiscussions(const QByteArray &roomId);
     void loadThreadMessagesHistory(const QByteArray &threadMessageId);
-    void loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter);
+    bool loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter);
     void loadMoreListMessages(const QByteArray &roomId);
 
     [[nodiscard]] MessagesModel *messageModelForRoom(const QByteArray &roomID);

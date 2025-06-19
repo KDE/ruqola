@@ -1167,7 +1167,7 @@ void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const Rocke
     mFilesModelForRoom->setLoadMoreFilesInProgress(false);
 }
 
-void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter)
+bool RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter)
 {
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     const int offset = usersModelForRoom->usersCount();
@@ -1178,7 +1178,9 @@ void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::Room
         } else {
             restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, usersModelForRoom->total() - offset));
         }
+        return true;
     }
+    return false;
 }
 
 void RocketChatAccount::getMentionsMessages(const QByteArray &roomId)
