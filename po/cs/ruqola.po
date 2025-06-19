@@ -2051,7 +2051,7 @@ msgstr "Nastavit můj účet"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Prodleva:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
 #, fuzzy, kde-format
@@ -7464,12 +7464,12 @@ msgstr ""
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Pro provedení změn je potřeba restartovat."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Moduly nástrojů"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
@@ -7479,15 +7479,13 @@ msgstr ""
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Nastavení aplikace Ruqola"
+msgstr "Nastavit"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -8187,7 +8185,7 @@ msgstr "Časové pásmo:"
 #: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Místní čas:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
