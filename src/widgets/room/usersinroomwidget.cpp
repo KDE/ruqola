@@ -158,7 +158,7 @@ QString UsersInRoomWidget::displayShowMessageInRoom() const
 
 void UsersInRoomWidget::loadMoreUsers()
 {
-    mRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
+    mRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType(), {}); // TODO add filter
 }
 
 #include "moc_usersinroomwidget.cpp"

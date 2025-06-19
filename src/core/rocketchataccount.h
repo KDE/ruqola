@@ -189,7 +189,7 @@ public:
     void loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType);
     void loadMoreDiscussions(const QByteArray &roomId);
     void loadThreadMessagesHistory(const QByteArray &threadMessageId);
-    void loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType);
+    void loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter);
     void loadMoreListMessages(const QByteArray &roomId);
 
     [[nodiscard]] MessagesModel *messageModelForRoom(const QByteArray &roomID);
@@ -503,7 +503,7 @@ private:
 
     LIBRUQOLACORE_NO_EXPORT void threadsInRoom(const QByteArray &roomId, bool onlyUnread);
 
-    LIBRUQOLACORE_NO_EXPORT void membersInRoom(const QByteArray &roomId, Room::RoomType channelType);
+    LIBRUQOLACORE_NO_EXPORT void membersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter);
 
     LIBRUQOLACORE_NO_EXPORT void slotInformTypingStatus(const QByteArray &room, bool typing);
 

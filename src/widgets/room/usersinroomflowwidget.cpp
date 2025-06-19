@@ -143,7 +143,7 @@ void UsersInRoomFlowWidget::loadExternalDialog()
 
 void UsersInRoomFlowWidget::loadMoreUsers()
 {
-    mCurrentRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
+    mCurrentRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType(), {}); // No filter here.
 }
 
 #include "moc_usersinroomflowwidget.cpp"

@@ -462,7 +462,7 @@ void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int 
     }
 }
 
-void Connection::membersInRoomByRole(const QByteArray &roomId, int offset, int count)
+void Connection::membersInRoomByRole(const QByteArray &roomId, const QString &filter, int offset, int count)
 {
     auto job = new RoomsMembersOrderedByRoleJob(this);
     QueryParameters parameters;
@@ -475,6 +475,7 @@ void Connection::membersInRoomByRole(const QByteArray &roomId, int offset, int c
     info.count = count;
     info.offset = offset;
     info.roomId = roomId;
+    info.filter = filter;
     job->setRoomsMembersOrderedByRoleJobInfo(info);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMembersOrderedByRoleJob job";

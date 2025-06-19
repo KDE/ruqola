@@ -985,7 +985,7 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
     }
 }
 
-void RocketChatAccount::membersInRoom(const QByteArray &roomId, Room::RoomType channelType)
+void RocketChatAccount::membersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter)
 {
     // We call it first for initialize all member in rooms.
     // We need to clear it. It can be initialize by "/rooms-changed" signal
@@ -998,7 +998,7 @@ void RocketChatAccount::membersInRoom(const QByteArray &roomId, Room::RoomType c
     }
     if (hasAtLeastVersion(7, 3, 0)) {
         if (channelType != Room::RoomType::Direct) {
-            restApi()->membersInRoomByRole(roomId);
+            restApi()->membersInRoomByRole(roomId, filter);
         } else {
             restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType));
         }
@@ -1167,14 +1167,14 @@ void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const Rocke
     mFilesModelForRoom->setLoadMoreFilesInProgress(false);
 }
 
-void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType)
+void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter)
 {
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     const int offset = usersModelForRoom->usersCount();
     if (offset < usersModelForRoom->total()) {
         usersModelForRoom->setLoadMoreUsersInProgress(true);
         if (hasAtLeastVersion(7, 3, 0)) {
-            restApi()->membersInRoomByRole(roomId, offset, qMin(50, usersModelForRoom->total() - offset));
+            restApi()->membersInRoomByRole(roomId, filter, offset, qMin(50, usersModelForRoom->total() - offset));
         } else {
             restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, usersModelForRoom->total() - offset));
         }
@@ -2149,7 +2149,7 @@ void RocketChatAccount::checkInitializedRoom(const QByteArray &roomId)
         if (ddp()) {
             ddp()->subscribeRoomMessage(roomId);
             if (!r->archived()) {
-                membersInRoom(r->roomId(), r->channelType());
+                membersInRoom(r->roomId(), r->channelType(), {});
                 rolesInRoom(r->roomId(), r->channelType());
                 if (r->channelType() == Room::RoomType::Channel) {
                     restApi()->getChannelsCounter(r->roomId());
