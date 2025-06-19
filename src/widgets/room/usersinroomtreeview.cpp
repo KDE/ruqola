@@ -9,6 +9,12 @@
 UsersInRoomTreeView::UsersInRoomTreeView(QWidget *parent)
     : QTreeView(parent)
 {
+    setHeaderHidden(true);
+    setDragEnabled(false);
+    setIndentation(0);
+    setRootIsDecorated(false);
+    setItemsExpandable(true);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 }
 
 UsersInRoomTreeView::~UsersInRoomTreeView() = default;
