@@ -691,6 +691,8 @@ target_sources(
         room/actionbuttonsgenerator.cpp
         room/usersinroomtreeview.h
         room/usersinroomtreeview.cpp
+        room/usersinroomlistview.h
+        room/usersinroomlistview.cpp
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h
