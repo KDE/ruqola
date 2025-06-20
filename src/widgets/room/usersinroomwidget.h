@@ -18,6 +18,7 @@ class QLabel;
 class UsersForRoomFilterProxyModel;
 class UsersInRoomComboBox;
 class RocketChatAccount;
+class UsersInRoomListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomWidget : public QWidget
 {
     Q_OBJECT
@@ -34,7 +35,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void loadMoreUsers();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeStatusType(int index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowUserInfo(const QModelIndex &index);
-    QListView *const mListView;
+    UsersInRoomListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     QPointer<Room> mRoom;
     UsersInRoomMenu *mMenu = nullptr;

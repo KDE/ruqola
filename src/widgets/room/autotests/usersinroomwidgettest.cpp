@@ -6,6 +6,7 @@
 
 #include "usersinroomwidgettest.h"
 #include "room/usersinroomcombobox.h"
+#include "room/usersinroomlistview.h"
 #include "room/usersinroomwidget.h"
 #include <QLabel>
 #include <QLineEdit>
@@ -27,7 +28,7 @@ void UsersInRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
+    auto mListView = w.findChild<UsersInRoomListView *>(QStringLiteral("mListView"));
     QVERIFY(mListView);
 
     auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));

@@ -10,6 +10,7 @@
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
+#include "room/usersinroomlistview.h"
 #include "usersinroomcombobox.h"
 #include "usersinroommenu.h"
 #include <KLineEditEventHandler>
@@ -21,7 +22,7 @@
 
 UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mListView(new QListView(this))
+    , mListView(new UsersInRoomListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
     , mUsersForRoomFilterProxy(new UsersForRoomFilterProxyModel(this))
