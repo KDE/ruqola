@@ -140,7 +140,7 @@ Q_SIGNALS:
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QJsonObject &data);
     void channelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void channelMembersDone(const QJsonObject &obj, const QByteArray &roomIdentifier);
+    void channelMembersDone(const QJsonObject &obj, const QByteArray &roomIdentifier, const QString &filter);
     void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void permissionListAllDone(const QJsonObject &obj);
     void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);

@@ -50,7 +50,7 @@ public:
     int rowCount(const QModelIndex &parent = {}) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi);
+    void parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi, const QString &filter);
     void setUserStatusChanged(const User &newuser);
 
     [[nodiscard]] int total() const;

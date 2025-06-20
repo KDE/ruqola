@@ -489,7 +489,7 @@ void Connection::membersInRoom(const QByteArray &roomId, const QString &type, in
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
     connect(job, &ChannelMembersJob::channelMembersDone, this, [this](const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &info) {
-        Q_EMIT channelMembersDone(obj, info.identifier.toLatin1());
+        Q_EMIT channelMembersDone(obj, info.identifier.toLatin1(), {});
     });
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;

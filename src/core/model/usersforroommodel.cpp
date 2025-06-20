@@ -170,11 +170,13 @@ Utils::AvatarInfo UsersForRoomModel::avatarInfo(const User &user) const
     return info;
 }
 
-void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi)
+void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi, const QString &filter)
 {
     if (restapi) {
-        mTotal = root["total"_L1].toInt();
-        mOffset = root["offset"_L1].toInt();
+        if (filter.isEmpty()) {
+            mTotal = root["total"_L1].toInt();
+            mOffset = root["offset"_L1].toInt();
+        }
         const QJsonArray members = root["members"_L1].toArray();
         QList<User> users;
         users.reserve(members.count());
@@ -215,8 +217,10 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
         const QJsonObject result = root["result"_L1].toObject();
         if (!result.isEmpty()) {
             const QJsonArray records = result["records"_L1].toArray();
-            mTotal = result["total"_L1].toInt();
-            mOffset = root["offset"_L1].toInt(); // TODO verify if a day we use no rest api
+            if (filter.isEmpty()) {
+                mTotal = result["total"_L1].toInt();
+                mOffset = root["offset"_L1].toInt(); // TODO verify if a day we use no rest api
+            }
 
             QList<User> users;
             users.reserve(records.count());

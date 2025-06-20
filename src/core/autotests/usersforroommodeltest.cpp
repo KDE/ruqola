@@ -142,7 +142,7 @@ void UsersForRoomModelTest::shouldParseUsers()
     UsersForRoomModel w;
     QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
-    w.parseUsersForRooms(loadFile(filename), nullptr, restApi); // We don't have userstatus model here
+    w.parseUsersForRooms(loadFile(filename), nullptr, restApi, {}); // We don't have userstatus model here
     QCOMPARE(rowInsertedSpy.count(), numberOfSignal);
     QCOMPARE(rowABTInserted.count(), numberOfSignal);
     QCOMPARE(w.rowCount(), numberOfUsers);

@@ -41,7 +41,7 @@ public:
     void setRoomsMembersOrderedByRoleJobInfo(const RoomsMembersOrderedByRoleJobInfo &newRoomsMembersOrderedByRoleJobInfo);
 
 Q_SIGNALS:
-    void roomsMembersOrderedByRoleDone(const QJsonObject &obj, const QByteArray &roomId);
+    void roomsMembersOrderedByRoleDone(const QJsonObject &obj, const QByteArray &roomId, const QString &filter);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

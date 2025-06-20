@@ -1024,11 +1024,11 @@ void RocketChatAccount::updateUserInRoom(const QJsonObject &roomData)
     }
 }
 
-void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const QByteArray &channelInfoIdentifier)
+void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const QByteArray &channelInfoIdentifier, const QString &filter)
 {
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
     if (usersModelForRoom) {
-        usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
+        usersModelForRoom->parseUsersForRooms(obj, mUserModel, true, filter);
         usersModelForRoom->setLoadMoreUsersInProgress(false);
     } else {
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << channelInfoIdentifier;
@@ -1167,7 +1167,7 @@ void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const Rocke
     mFilesModelForRoom->setLoadMoreFilesInProgress(false);
 }
 
-bool RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter)
+void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter)
 {
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     const int offset = usersModelForRoom->usersCount();
@@ -1178,9 +1178,7 @@ bool RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::Room
         } else {
             restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, usersModelForRoom->total() - offset));
         }
-        return true;
     }
-    return false;
 }
 
 void RocketChatAccount::getMentionsMessages(const QByteArray &roomId)

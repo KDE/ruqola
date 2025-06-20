@@ -55,7 +55,7 @@ void RoomsMembersOrderedByRoleJob::onGetRequestResponse(const QString &replyErro
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("RoomsMembersOrderedByRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomsMembersOrderedByRoleDone(replyObject, mRoomsMembersOrderedByRoleJobInfo.roomId);
+        Q_EMIT roomsMembersOrderedByRoleDone(replyObject, mRoomsMembersOrderedByRoleJobInfo.roomId, mRoomsMembersOrderedByRoleJobInfo.filter);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("RoomsMembersOrderedByRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));

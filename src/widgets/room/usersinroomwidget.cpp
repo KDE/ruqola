@@ -86,6 +86,7 @@ void UsersInRoomWidget::slotChangeStatusType(int index)
 void UsersInRoomWidget::slotTextChanged(const QString &str)
 {
     mUsersForRoomFilterProxy->setFilterString(str);
+    mRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType(), str);
 }
 
 void UsersInRoomWidget::setRoom(Room *room)
