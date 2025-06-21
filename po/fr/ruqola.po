@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-13 00:42+0000\n"
-"PO-Revision-Date: 2025-06-14 09:39+0200\n"
+"POT-Creation-Date: 2025-06-21 00:42+0000\n"
+"PO-Revision-Date: 2025-06-19 16:56+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1509,7 +1509,7 @@ msgstr "Discussions"
 msgid "Private Messages"
 msgstr "Messages privés"
 
-#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:300
 #, kde-format
 msgid "Unknown"
 msgstr "Inconnu"
@@ -1707,7 +1707,7 @@ msgstr "A rejoint ce groupe"
 msgid "(Autojoin)"
 msgstr "(Rejoindre automatiquement)"
 
-#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:290 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Propriétaire"
@@ -3239,7 +3239,7 @@ msgstr "Afficher les messages de modération"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/commandpreviewwidget.cpp:140
-#: widgets/room/usersinroomwidget.cpp:143
+#: widgets/room/usersinroomwidget.cpp:145
 #, kde-format
 msgid "Loading…"
 msgstr "Chargement en cours..."
@@ -3247,7 +3247,7 @@ msgstr "Chargement en cours..."
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/room/usersinroomwidget.cpp:145
+#: widgets/room/usersinroomwidget.cpp:147
 #, kde-format
 msgid "No Message found"
 msgstr "Aucun message trouvé"
@@ -3608,7 +3608,7 @@ msgstr "Utilisateurs dans un rôle"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:80
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:40
-#: widgets/room/usersinroomwidget.cpp:41
+#: widgets/room/usersinroomwidget.cpp:42
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search users…"
@@ -8769,7 +8769,7 @@ msgstr[1] "%1 pièces jointes dans le salon (Total : %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:122
-#: widgets/room/usersinroomwidget.cpp:154
+#: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Cliquez ici pour en télécharger davantage...)"
@@ -10920,6 +10920,12 @@ msgstr "Utilisateurs"
 msgid "(Open External Dialog…)"
 msgstr "(Ouvrir une boîte de dialogue externe...)"
 
+#: widgets/room/usersinroomlistview.cpp:22
+#, fuzzy, kde-format
+#| msgid "No User found"
+msgid "No Users Found."
+msgstr "Aucun utilisateur trouvé"
+
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
 msgid "Do you want to block this user?"
@@ -11061,12 +11067,12 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Signaler un utilisateur"
 
-#: widgets/room/usersinroomwidget.cpp:152
+#: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
-msgstr[0] "%1 utilisateur(s) dans le salon (Total : %2)"
-msgstr[1] "%1 messages dans le salon (total : %2)"
+msgstr[0] "%1 utilisateur dans le salon (Total : %2)"
+msgstr[1] "%1 utilisateurs dans le salon (Total : %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
@@ -12199,6 +12205,12 @@ msgstr ""
 "Boutons « Appliquer les corrections », « Restaurer », « Annuler » dans la "
 "boîte de dialogue de configuration."
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#, fuzzy, kde-format
+#| msgid "Search users..."
+msgid "Fix search users."
+msgstr "Chercher des utilisateurs..."
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -12456,9 +12468,6 @@ msgstr "Quelques correction de bogues :"
 
 #~ msgid "Add Users In Role..."
 #~ msgstr "Ajouter des utilisateurs dans un rôle..."
-
-#~ msgid "Search users..."
-#~ msgstr "Chercher des utilisateurs..."
 
 #~ msgid "Invite..."
 #~ msgstr "Inviter..."

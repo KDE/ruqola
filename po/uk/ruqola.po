@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-13 00:42+0000\n"
+"POT-Creation-Date: 2025-06-21 00:42+0000\n"
 "PO-Revision-Date: 2025-06-13 09:12+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1520,7 +1520,7 @@ msgstr "Обговорення"
 msgid "Private Messages"
 msgstr "Конфіденційні повідомлення"
 
-#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:300
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -1716,7 +1716,7 @@ msgstr "Долучено до цієї команди"
 msgid "(Autojoin)"
 msgstr "(Автодолучення)"
 
-#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:290 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Власник"
@@ -3240,7 +3240,7 @@ msgstr "Показ повідомлень модерування"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/commandpreviewwidget.cpp:140
-#: widgets/room/usersinroomwidget.cpp:143
+#: widgets/room/usersinroomwidget.cpp:145
 #, kde-format
 msgid "Loading…"
 msgstr "Завантаження…"
@@ -3248,7 +3248,7 @@ msgstr "Завантаження…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/room/usersinroomwidget.cpp:145
+#: widgets/room/usersinroomwidget.cpp:147
 #, kde-format
 msgid "No Message found"
 msgstr "Відповідного повідомлення не знайдено"
@@ -3613,7 +3613,7 @@ msgstr "Користувачі у ролі"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:80
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:40
-#: widgets/room/usersinroomwidget.cpp:41
+#: widgets/room/usersinroomwidget.cpp:42
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search users…"
@@ -8769,7 +8769,7 @@ msgstr[3] "%1 долучення у кімнаті (загалом: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:122
-#: widgets/room/usersinroomwidget.cpp:154
+#: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Натисніть тут, щоб завантажити ще…)"
@@ -10921,6 +10921,12 @@ msgstr "Користувачі"
 msgid "(Open External Dialog…)"
 msgstr "(Відкрити зовнішнє діалогове вікно…)"
 
+#: widgets/room/usersinroomlistview.cpp:22
+#, fuzzy, kde-format
+#| msgid "No User found"
+msgid "No Users Found."
+msgstr "Користувача не знайдено"
+
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
 msgid "Do you want to block this user?"
@@ -11062,7 +11068,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Скарга на користувача"
 
-#: widgets/room/usersinroomwidget.cpp:152
+#: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
@@ -12172,6 +12178,12 @@ msgstr ""
 "Виправлено кнопки застосування, відновлення та скасування у вікні "
 "адміністрування."
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#, fuzzy, kde-format
+#| msgid "Search users..."
+msgid "Fix search users."
+msgstr "Шукати користувачів…"
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -12429,9 +12441,6 @@ msgstr "Виправлення деяких вад:"
 
 #~ msgid "Add Users In Role..."
 #~ msgstr "Додати користувачів до ролі…"
-
-#~ msgid "Search users..."
-#~ msgstr "Шукати користувачів…"
 
 #~ msgid "Invite..."
 #~ msgstr "Запросити…"

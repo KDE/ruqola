@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-13 00:42+0000\n"
+"POT-Creation-Date: 2025-06-21 00:42+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1506,7 +1506,7 @@ msgstr "Diskutoj"
 msgid "Private Messages"
 msgstr "Privataj Mesaĝoj"
 
-#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:300
 #, kde-format
 msgid "Unknown"
 msgstr "Nekonata"
@@ -1701,7 +1701,7 @@ msgstr "Aliĝis al ĉi tiu Teamo"
 msgid "(Autojoin)"
 msgstr "(Aŭtomata aliĝo)"
 
-#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:290 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Posedanto"
@@ -3220,7 +3220,7 @@ msgstr "Montri Administrajn Mesaĝojn"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/commandpreviewwidget.cpp:140
-#: widgets/room/usersinroomwidget.cpp:143
+#: widgets/room/usersinroomwidget.cpp:145
 #, kde-format
 msgid "Loading…"
 msgstr "Ŝargante…"
@@ -3228,7 +3228,7 @@ msgstr "Ŝargante…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/room/usersinroomwidget.cpp:145
+#: widgets/room/usersinroomwidget.cpp:147
 #, kde-format
 msgid "No Message found"
 msgstr "Neniu Mesaĝo trovita"
@@ -3587,7 +3587,7 @@ msgstr "Uzantoj en Rolo"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:80
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:40
-#: widgets/room/usersinroomwidget.cpp:41
+#: widgets/room/usersinroomwidget.cpp:42
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search users…"
@@ -8665,7 +8665,7 @@ msgstr[1] "%1 Kunsendaĵoj en ĉambro (Totalo: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:122
-#: widgets/room/usersinroomwidget.cpp:154
+#: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Alklaku ĉi tie por Ŝargi pli…)"
@@ -10781,6 +10781,12 @@ msgstr "Uzantoj"
 msgid "(Open External Dialog…)"
 msgstr "(Malfermi Eksteran Dialogon…)"
 
+#: widgets/room/usersinroomlistview.cpp:22
+#, fuzzy, kde-format
+#| msgid "No User found"
+msgid "No Users Found."
+msgstr "Neniu uzanto trovita"
+
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
 msgid "Do you want to block this user?"
@@ -10922,7 +10928,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Raporti Uzanton"
 
-#: widgets/room/usersinroomwidget.cpp:152
+#: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
@@ -12020,6 +12026,13 @@ msgstr "Realigi aplikaĵan subtenon por Rocket.Chat."
 #| msgid "Add restore button in administrator server settings dialog."
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr "Aldoni restaŭran butonon en dialogo de administranta servil-agordo"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search users…"
+msgid "Fix search users."
+msgstr "Serĉi uzantojn…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

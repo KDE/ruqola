@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-13 00:42+0000\n"
+"POT-Creation-Date: 2025-06-21 00:42+0000\n"
 "PO-Revision-Date: 2025-06-15 00:48+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1512,7 +1512,7 @@ msgstr "Discusiones"
 msgid "Private Messages"
 msgstr "Mensajes privados"
 
-#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:300
 #, kde-format
 msgid "Unknown"
 msgstr "Desconocido"
@@ -1707,7 +1707,7 @@ msgstr "Se unió a este equipo"
 msgid "(Autojoin)"
 msgstr "(Unirse automáticamente)"
 
-#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:290 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Propietario"
@@ -3226,7 +3226,7 @@ msgstr "Mostrar mensajes de moderación"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/commandpreviewwidget.cpp:140
-#: widgets/room/usersinroomwidget.cpp:143
+#: widgets/room/usersinroomwidget.cpp:145
 #, kde-format
 msgid "Loading…"
 msgstr "Cargando…"
@@ -3234,7 +3234,7 @@ msgstr "Cargando…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/room/usersinroomwidget.cpp:145
+#: widgets/room/usersinroomwidget.cpp:147
 #, kde-format
 msgid "No Message found"
 msgstr "No se encontró ningún mensaje"
@@ -3595,7 +3595,7 @@ msgstr "Usuarios en el rol"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:80
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:40
-#: widgets/room/usersinroomwidget.cpp:41
+#: widgets/room/usersinroomwidget.cpp:42
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search users…"
@@ -8719,7 +8719,7 @@ msgstr[1] "%1 adjuntos en la sala (total: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:122
-#: widgets/room/usersinroomwidget.cpp:154
+#: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Pulse aquí para cargar más…)"
@@ -10862,6 +10862,12 @@ msgstr "Usuarios"
 msgid "(Open External Dialog…)"
 msgstr "(Abrir diálogo externo…)"
 
+#: widgets/room/usersinroomlistview.cpp:22
+#, fuzzy, kde-format
+#| msgid "No User found"
+msgid "No Users Found."
+msgstr "No se encontró ningún usuario"
+
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
 msgid "Do you want to block this user?"
@@ -11003,7 +11009,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Denunciar usuario"
 
-#: widgets/room/usersinroomwidget.cpp:152
+#: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
@@ -12115,6 +12121,12 @@ msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
 "Arreglos a los botones de aplicar, restaurar y cancelar en los diálogos de "
 "administración."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#, fuzzy, kde-format
+#| msgid "Fix display user."
+msgid "Fix search users."
+msgstr "Corrección al mostrar el usuario."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

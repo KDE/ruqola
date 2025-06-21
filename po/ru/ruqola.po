@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-13 00:42+0000\n"
+"POT-Creation-Date: 2025-06-21 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1526,7 +1526,7 @@ msgstr "Обсуждения"
 msgid "Private Messages"
 msgstr "Конфиденциальные сообщения"
 
-#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:296
+#: core/model/roommodel.cpp:592 core/model/usersforroommodel.cpp:300
 #, kde-format
 msgid "Unknown"
 msgstr "Неизвестно"
@@ -1721,7 +1721,7 @@ msgstr "Присоединился к этой команде"
 msgid "(Autojoin)"
 msgstr "(Автоприсоединение)"
 
-#: core/model/usersforroommodel.cpp:286 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:290 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Владелец"
@@ -3250,7 +3250,7 @@ msgstr "Показ сообщений для модерации"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/commandpreviewwidget.cpp:140
-#: widgets/room/usersinroomwidget.cpp:143
+#: widgets/room/usersinroomwidget.cpp:145
 #, kde-format
 msgid "Loading…"
 msgstr "Загрузка…"
@@ -3258,7 +3258,7 @@ msgstr "Загрузка…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
 #: widgets/dialogs/searchmessagewidget.cpp:188
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/room/usersinroomwidget.cpp:145
+#: widgets/room/usersinroomwidget.cpp:147
 #, kde-format
 msgid "No Message found"
 msgstr "Сообщений не найдено"
@@ -3623,7 +3623,7 @@ msgstr "Пользователи в роли"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:80
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:40
-#: widgets/room/usersinroomwidget.cpp:41
+#: widgets/room/usersinroomwidget.cpp:42
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search users…"
@@ -8780,7 +8780,7 @@ msgstr[3] "%1 вложение в комнате (всего: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:78
 #: widgets/room/usersinroomflowwidget.cpp:122
-#: widgets/room/usersinroomwidget.cpp:154
+#: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Нажмите здесь, чтобы загрузить ещё…)"
@@ -10932,6 +10932,12 @@ msgstr "Пользователи"
 msgid "(Open External Dialog…)"
 msgstr "(Открыть внешнее диалоговое окно…)"
 
+#: widgets/room/usersinroomlistview.cpp:22
+#, fuzzy, kde-format
+#| msgid "No User found"
+msgid "No Users Found."
+msgstr "Пользователей не найдено"
+
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
 msgid "Do you want to block this user?"
@@ -11073,7 +11079,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Пожаловаться на пользователя"
 
-#: widgets/room/usersinroomwidget.cpp:152
+#: widgets/room/usersinroomwidget.cpp:154
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
@@ -12200,6 +12206,12 @@ msgstr ""
 "Добавление кнопки восстановления параметров в диалоге параметров "
 "администратора сервера"
 
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#, fuzzy, kde-format
+#| msgid "Search users..."
+msgid "Fix search users."
+msgstr "Поиск пользователей…"
+
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
 msgid "All Version"
@@ -12462,9 +12474,6 @@ msgstr "Исправление некоторых ошибок:"
 
 #~ msgid "Add Users In Role..."
 #~ msgstr "Добавить пользователей в роль…"
-
-#~ msgid "Search users..."
-#~ msgstr "Поиск пользователей…"
 
 #~ msgid "Invite..."
 #~ msgstr "Пригласить..."
