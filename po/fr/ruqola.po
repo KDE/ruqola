@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-06-02 17:33+0200\n"
+"PO-Revision-Date: 2025-06-19 16:56+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -10950,8 +10950,8 @@ msgstr "Signaler un utilisateur"
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
-msgstr[0] "%1 utilisateur(s) dans le salon (Total : %2)"
-msgstr[1] "%1 messages dans le salon (total : %2)"
+msgstr[0] "%1 utilisateur dans le salon (Total : %2)"
+msgstr[1] "%1 utilisateurs dans le salon (Total : %2)"
 
 #: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
