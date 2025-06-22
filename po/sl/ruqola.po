@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2025-06-13 06:31+0200\n"
+"PO-Revision-Date: 2025-06-21 06:43+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -10842,10 +10842,9 @@ msgid "(Open External Dialog…)"
 msgstr "(Odpri zunanje pogovorno okno…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Ni zadetkov med uporabniki"
+msgstr "Ni najdenih uporabnikov."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -12087,10 +12086,9 @@ msgstr ""
 "skrbnike."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
-#, fuzzy, kde-format
-#| msgid "Fix display user."
+#, kde-format
 msgid "Fix search users."
-msgstr "Popravi uporabnika zaslona."
+msgstr "Popravi iskanje uporabnikov."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

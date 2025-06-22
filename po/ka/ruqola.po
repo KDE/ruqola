@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2025-06-13 03:53+0200\n"
+"PO-Revision-Date: 2025-06-21 06:05+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -10791,10 +10791,9 @@ msgid "(Open External Dialog…)"
 msgstr "(გარე ფანჯრის გახსნა…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "მომხმარებელი ვერ ვიპოვე"
+msgstr "მომხმარებლები ვერ მოიძებნა."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -12041,10 +12040,9 @@ msgstr ""
 "დაემატა გადატარების, აღდგენის და გაუქმების ღილაკები ადმინისტრატორის დიალოგში."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
-#, fuzzy, kde-format
-#| msgid "Fix display user."
+#, kde-format
 msgid "Fix search users."
-msgstr "გასწორდა მომხმარებლის ჩვენება."
+msgstr "გასწორდა მომხმარებლების ძებნა."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

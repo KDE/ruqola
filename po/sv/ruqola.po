@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2025-06-14 07:21+0200\n"
+"PO-Revision-Date: 2025-06-21 21:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -10793,10 +10793,9 @@ msgid "(Open External Dialog…)"
 msgstr "(Öppna extern dialogruta…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Ingen användare hittades"
+msgstr "Inga användare hittades."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -12037,10 +12036,9 @@ msgstr ""
 "Rätta knapparna verkställ, återställ, avbryt i administratörsdialogrutan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
-#, fuzzy, kde-format
-#| msgid "Search users..."
+#, kde-format
 msgid "Fix search users."
-msgstr "Sök användare..."
+msgstr "Rätta sökning efter användare."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

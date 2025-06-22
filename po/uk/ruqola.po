@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2025-06-13 09:12+0300\n"
+"PO-Revision-Date: 2025-06-21 19:09+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -10922,10 +10922,9 @@ msgid "(Open External Dialog…)"
 msgstr "(Відкрити зовнішнє діалогове вікно…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Користувача не знайдено"
+msgstr "Не знайдено жодного користувача."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -12179,10 +12178,9 @@ msgstr ""
 "адміністрування."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
-#, fuzzy, kde-format
-#| msgid "Search users..."
+#, kde-format
 msgid "Fix search users."
-msgstr "Шукати користувачів…"
+msgstr "Виправлено пошук користувачів."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-26 08:45+0200\n"
+"PO-Revision-Date: 2025-06-21 12:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -2041,27 +2041,23 @@ msgid "This tool allows to create screenshot."
 msgstr "Esta ferramenta permite facer unha captura de pantalla."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Configurar a conta"
+msgstr "Configurar a captura de pantalla"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:23
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Atraso:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "1 segundo"
-msgstr[1] "%1 segundos"
+msgstr[0] "%v segundo"
+msgstr[1] "%v segundos"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -5516,7 +5512,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Límite de xente para engadir toda á canle"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #, kde-format
@@ -6826,12 +6822,10 @@ msgid "Disable Workspace Sync"
 msgstr "Desactivar a sincronización de espazos de traballo."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Desactivar o seguimento de sesións."
+msgstr "Desactivar a mención de equipos."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6910,6 +6904,8 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"Esta opción desactiva a funcionalidade de mención de equipos. Non se poderá "
+"mencionar equipos por nome nunha mensaxe para notificar á xente do equipo."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -7676,30 +7672,28 @@ msgstr "Activar a integración coas actividades de Plasma."
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Necesítase reiniciar para aplicar os cambios."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Complementos de ferramentas"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "Complementos de texto"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Configure Notification…"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Configurar a notificación…"
+msgstr "Configurar"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -7759,7 +7753,7 @@ msgstr "Accesibilidade"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr ""
+msgstr "Complementos"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:17
 #, kde-format
@@ -8409,7 +8403,7 @@ msgstr "Fuso horario:"
 #: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Hora local:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
@@ -10864,10 +10858,9 @@ msgid "(Open External Dialog…)"
 msgstr "(abrir un diálogo externo…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Non se atopou ningunha persoa usuaria."
+msgstr "Non se atopou a ninguén."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -11576,10 +11569,8 @@ msgid "Add restore button in administration settings."
 msgstr "Engada un botón de restaurar na configuración de administración."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Permitir escribir roles."
+msgstr "Permitir activar complementos."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
@@ -12066,8 +12057,7 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr "Permitir copiar a liña de ordes no portapapeis ao produciuse un erro."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
-#, fuzzy, kde-format
-#| msgid "Allow to activate/desactivate apps market."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
 msgstr "Permitir activar ou desactivar o mercado de aplicacións."
 
@@ -12122,16 +12112,16 @@ msgid "Add AI Rocket Chat Actions support."
 msgstr "Permitir accións de conversa de Rocket de IA."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:188
-#, fuzzy, kde-format
-#| msgid "Add restore button in administration settings."
+#, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
-msgstr "Engada un botón de restaurar na configuración de administración."
+msgstr ""
+"Aquelas os botóns de aplicar, restaurar e cancelar no diálogo de "
+"administración."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
-#, fuzzy, kde-format
-#| msgid "Fix display user."
+#, kde-format
 msgid "Fix search users."
-msgstr "Corrixir como se amosan as persoas usuarias."
+msgstr "Corrixir a busca de xente."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format
