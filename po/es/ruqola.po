@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2025-06-15 00:48+0100\n"
+"PO-Revision-Date: 2025-06-22 18:42+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -10863,10 +10863,9 @@ msgid "(Open External Dialog…)"
 msgstr "(Abrir diálogo externo…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "No se encontró ningún usuario"
+msgstr "No se encontró ningún usuario."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -12123,10 +12122,9 @@ msgstr ""
 "administración."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
-#, fuzzy, kde-format
-#| msgid "Fix display user."
+#, kde-format
 msgid "Fix search users."
-msgstr "Corrección al mostrar el usuario."
+msgstr "Mejoras al buscar usuarios."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:44
 #, kde-format

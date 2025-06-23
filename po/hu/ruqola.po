@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2024-10-02 22:38+0200\n"
+"PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:34
 #, kde-format
@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket.Chat kliens"
 
 #: apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © A Ruqola szerzői, 2020-2024."
+msgstr "Copyright © A Ruqola szerzői, 2020-2025."
 
 #: apps/main.cpp:65
 #, kde-format
@@ -161,14 +160,12 @@ msgstr "Optimalizálás, Windows/Mac támogatás javítása"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
-msgstr ""
+msgstr "Daniele E. Domenichelli"
 
 #: apps/main.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Featured"
+#, kde-format
 msgid "New feature"
-msgstr "Kiemelt"
+msgstr "Új funkció"
 
 #: apps/main.cpp:107
 #, kde-format
@@ -176,10 +173,9 @@ msgid "The following accounts are available:"
 msgstr "A következő fiókok érhetők el:"
 
 #: core/accountmanager.cpp:861
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Érvénytelen token"
+msgstr "Érvénytelen meghívási token"
 
 #: core/accountmanager.cpp:862
 #, kde-format
@@ -189,19 +185,17 @@ msgstr ""
 #: core/apps/appsmarketplaceinfo.cpp:109
 #, kde-format
 msgid "per %1"
-msgstr ""
+msgstr "per %1"
 
 #: core/apps/appsmarketplaceinfo.cpp:158
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "This month"
+#, kde-format
 msgid "month"
-msgstr "Ebben a hónapban"
+msgstr "hónap"
 
 #: core/apps/appsmarketplaceinfo.cpp:160
 #, kde-format
 msgid "year"
-msgstr ""
+msgstr "év"
 
 #: core/apps/appsmarketplaceinfo.cpp:406 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:49
@@ -229,7 +223,7 @@ msgstr "Dokumentáció"
 #: core/apps/appsmarketplaceinfo.cpp:434
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Szerző"
 
 #: core/apps/appsmarketplaceinfo.cpp:447
 #, kde-format
@@ -253,157 +247,149 @@ msgid "Permissions"
 msgstr "Jogosultságok"
 
 #: core/apps/appsmarketplaceinfo.cpp:608
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Access messages"
-msgstr "Összes üzenet"
+msgstr "Üzenetek elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:610
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#, kde-format
 msgid "Send and modify messages"
-msgstr "Moderációs üzenetek keresése…"
+msgstr "Üzenetek küldése és módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:612
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access room information"
-msgstr "Fiókinformációk"
+msgstr "Szobainformációk elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:614
 #, kde-format
 msgid "Create and modify rooms"
-msgstr ""
+msgstr "Szobák létrehozása és módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
 msgid "Access to this server network"
-msgstr ""
+msgstr "Hozzáférés ehhez a kiszolgálóhálózathoz"
 
 #: core/apps/appsmarketplaceinfo.cpp:618
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access user information"
-msgstr "Fiókinformációk"
+msgstr "Felhasználóinformációk elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:620
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Modify user information"
-msgstr "Fiókinformációk"
+msgstr "Felhasználóinformációk módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Register new slash commands"
-msgstr ""
+msgstr "Új perjelparancsok regisztrálása"
 
 #: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Register and maintain scheduled jobs"
-msgstr ""
+msgstr "Ütemezett feladatok regisztrálása és karbantartása"
 
 #: core/apps/appsmarketplaceinfo.cpp:626
 #, kde-format
 msgid "Register new HTTP endpoints"
-msgstr ""
+msgstr "Új HTTP-végpontok regisztrálása"
 
 #: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Access settings in this server"
-msgstr ""
+msgstr "Ezen a kiszolgálón lévő beállítások elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Modify settings in this server"
-msgstr ""
+msgstr "Ezen a kiszolgálón lévő beállítások módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Upload files to this server"
-msgstr ""
+msgstr "Fájlok feltöltése erre a kiszolgálóra"
 
 #: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Access files uploaded to this server"
-msgstr ""
+msgstr "Erre a kiszolgálóra feltöltött fájlok elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
-msgstr ""
+msgstr "Interakció a felhőszolgáltatásokkal a kiszolgáló nevében"
 
 #: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Access minimal information about this server environment"
-msgstr ""
+msgstr "Minimális információk elérése erről a kiszolgálókörnyezetről"
 
 #: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Access to multiple Livechat departments information"
-msgstr ""
+msgstr "Több élő csevegés részleginformációinak elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Access Livechat department information"
-msgstr ""
+msgstr "Az élő csevegés részleginformációinak elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Modify Livechat department information"
-msgstr ""
+msgstr "Az élő csevegés részleginformációinak módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Modify Livechat room information"
-msgstr ""
+msgstr "Az élő csevegés szobainformációinak módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:648
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat room information"
-msgstr "Fiókinformációk"
+msgstr "Az élő csevegés szobainformációinak elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Modify Livechat message information"
-msgstr ""
+msgstr "Az élő csevegés üzenetinformációinak módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Access Livechat message information"
-msgstr ""
+msgstr "Az élő csevegés üzenetinformációinak elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Modify Livechat visitor information"
-msgstr ""
+msgstr "Az élő csevegés látogatóinformációinak módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Access Livechat visitor information"
-msgstr ""
+msgstr "Az élő csevegés látogatóinformációinak elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:658
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat status information"
-msgstr "Fiókinformációk"
+msgstr "Az élő csevegés állapotinformációinak elérése"
 
 #: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Interact with the UI"
-msgstr ""
+msgstr "Interakció a felhasználói felülettel"
 
 #: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Store internal data in the database"
-msgstr ""
+msgstr "Belső adatok tárolása az adatbázisban"
 
 #: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Modify Livechat custom field configuration"
-msgstr ""
+msgstr "Az élő csevegés egyéni mező beállításának módosítása"
 
 #: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
@@ -1793,17 +1779,13 @@ msgid "%1 denied the OTR session."
 msgstr "%1 megtagadta az OTR munkamenetet."
 
 #: core/receivetypingnotificationmanager.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "We need a space between after </strong>"
-#| msgid "<strong>%1</strong> is typing..."
+#, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
 msgstr "<strong>%1</strong> gépel…"
 
 #: core/receivetypingnotificationmanager.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "We need a space between after </strong>"
-#| msgid "<strong>%1</strong> are typing..."
+#, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
@@ -1814,6 +1796,8 @@ msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
+"REST: %1\n"
+"DDP: %2"
 
 #: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
@@ -1862,10 +1846,9 @@ msgid "Channel was blocked."
 msgstr "A csatornát tiltották."
 
 #: core/roominfo/roominfo.cpp:128
-#, fuzzy, kde-format
-#| msgid "Discussions"
+#, kde-format
 msgid "Discussion"
-msgstr "Megbeszélések"
+msgstr "Megbeszélés"
 
 #: core/roominfo/roominfo.cpp:132
 #, kde-format
@@ -3394,12 +3377,10 @@ msgstr "Összes jelentés bezárása"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:291
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Hivatkozás másolása"
+msgstr "Kijelölés másolása"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -4358,23 +4339,25 @@ msgid "Password Reset"
 msgstr "Jelszó visszaállítása"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Log (on console) failed login attempts"
-msgstr "Sikertelen bejelentkezési kísérletek"
+msgstr "Sikertelen bejelentkezési kísérletek naplózása (a konzolon)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Username on failed login attempts logs"
 msgstr ""
+"Felhasználónév megjelenítése a sikertelen bejelentkezési kísérletek naplóiban"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:58
 #, kde-format
 msgctxt "@option:check"
 msgid "Show UserAgent on failed login attempts logs"
 msgstr ""
+"Felhasználói ügynök megjelenítése a sikertelen bejelentkezési kísérletek "
+"naplóiban"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:59
 #, fuzzy, kde-format
@@ -4417,10 +4400,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "Sikertelen kísérletek száma IP-cím szerinti tiltás előtt"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:139
-#, fuzzy, kde-format
-#| msgid "Login At"
+#, kde-format
 msgid "Login Logs"
-msgstr "Bejelentkezés"
+msgstr "Bejelentkezési naplók"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:158
 #, kde-format
@@ -5083,11 +5065,10 @@ msgid "Enable encryption for Private Rooms by default"
 msgstr "Titkosítás engedélyezése alapértelmezetten a személyes szobáknál"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encrypt files"
-msgstr "Titkosítás"
+msgstr "Fájlok titkosítása"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
@@ -5096,8 +5077,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Említések"
@@ -5317,7 +5297,7 @@ msgstr "Statisztikák küldése a Rocket.Chatbe"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use REST instead of websocket for Meteor calls"
-msgstr ""
+msgstr "REST használata WebSocket helyett a Meteor-hívásoknál"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
 #, kde-format
@@ -5519,7 +5499,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:147
 #, kde-format
 msgid "REST API"
-msgstr ""
+msgstr "REST API"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:153
 #, kde-format
@@ -5527,6 +5507,8 @@ msgid ""
 "What is the maximum number of records the REST API should return (when not "
 "unlimited)?"
 msgstr ""
+"Mi a rekordok legnagyobb száma, amennyit a REST API-nak vissza kell adnia "
+"(ha nem korlátlan)?"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:162
 #, kde-format
@@ -7152,23 +7134,20 @@ msgstr[0] "%1 kérés"
 msgstr[1] "%1 kérés"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgctxt "@title:window"
 msgid "Description"
 msgstr "Leírás"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Versions"
-msgstr "Verzió"
+msgstr "Verziók"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings"
-msgstr "&Beállítások"
+msgstr "Beállítások"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
 #, kde-format
@@ -7201,24 +7180,19 @@ msgid "Ask Application…"
 msgstr "Alkalmazás kérése…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Telepítés"
+msgstr "Eltávolítás"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "Letiltva"
+msgstr "Letiltás"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Engedélyezés"
@@ -7346,7 +7320,7 @@ msgstr ""
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
 #, kde-format
 msgid "No release information provided"
-msgstr ""
+msgstr "Nincsenek kiadási információk megadva"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
 #, fuzzy, kde-format
@@ -7388,9 +7362,7 @@ msgid "Mark as Read"
 msgstr "Megjelölés olvasottként"
 
 #: widgets/channellist/channellistview.cpp:123
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark As Unread"
+#, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Megjelölés olvasatlanként"
@@ -7516,11 +7488,9 @@ msgid "Register Account"
 msgstr "Fiók regisztrálása"
 
 #: widgets/common/authenticationloginwidget.cpp:37
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "My Account…"
+#, kde-format
 msgid "My Account"
-msgstr "Saját fiók…"
+msgstr "Saját fiók"
 
 #: widgets/common/authenticationloginwidget.cpp:43
 #, kde-format
@@ -7685,12 +7655,10 @@ msgid "Enable image previews"
 msgstr "Beágyazott hivatkozás előnézetei"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Embed Link Previews"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable URL previews"
-msgstr "Beágyazott hivatkozás előnézetei"
+msgstr "URL előnézetek engedélyezése"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, fuzzy, kde-format
@@ -7733,12 +7701,10 @@ msgid "Enable experimental local database"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Plasma Activities"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
-msgstr "Plasma Aktivitások bekapcsolása"
+msgstr "Plasma Aktivitások integráció bekapcsolása"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:27
 #, kde-format
@@ -7782,8 +7748,7 @@ msgid "General"
 msgstr "Általános"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:74
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Fiókok"
@@ -7795,9 +7760,7 @@ msgid "Font"
 msgstr "Betűtípus"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title AutoCorrection page name"
-#| msgid "AutoCorrection"
+#, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Automatikus javítás"
@@ -7809,9 +7772,7 @@ msgid "Spell Checking"
 msgstr "Helyesírás-ellenőrzés"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:97
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Fordítás"
@@ -7852,15 +7813,13 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Szeretné eltávolítani a(z) „%1” fiókot?"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Connected"
+#, kde-format
 msgctxt "@action:button"
 msgid "Connect"
-msgstr "Kapcsolódva"
+msgstr "Kapcsolódás"
 
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Kiszolgáló URL-je:"
@@ -8891,9 +8850,7 @@ msgid "Show Starred Messages - %1"
 msgstr "Csillagozott üzenetek megjelenítése - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
 msgstr "Követés"
 
@@ -9212,9 +9169,7 @@ msgid "Application Translation"
 msgstr "Az alkalmazás nem található"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgid "Translation"
 msgstr "Fordítás"
 
@@ -9611,11 +9566,10 @@ msgid "Reset E2E Key"
 msgstr "Végpontok közötti titkosítási kulcs visszaállítása"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Módosítás…"
+msgstr "Módosítás"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -10252,10 +10206,9 @@ msgid "Register"
 msgstr "Regisztráció"
 
 #: widgets/registeruser/registeruserwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Seasons"
+#, kde-format
 msgid "Reason:"
-msgstr "Évszakok"
+msgstr "Ok:"
 
 #: widgets/room/channelactionpopupmenu.cpp:34
 #, kde-format
@@ -10517,8 +10470,7 @@ msgid "Add Emoticon"
 msgstr "Hangulatjel hozzáadása"
 
 #: widgets/room/messagelinewidget.cpp:118
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Üzenet küldése"
@@ -10772,9 +10724,7 @@ msgid "Jump to First Unread"
 msgstr "(Ugrás az első olvasatlanra)"
 
 #: widgets/room/roomcounterinfowidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mark as Read"
 msgstr "Megjelölés olvasottként"
@@ -10926,12 +10876,10 @@ msgid "Encrypted content cannot be searched."
 msgstr "Közvetlen üzenetek nem archiválhatók"
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Üzenetek keresése"
+msgstr "Üzenet keresése"
 
 #: widgets/room/roomwidget.cpp:555
 #, kde-format
@@ -10970,10 +10918,9 @@ msgid "Disconnected"
 msgstr "Szétkapcsolva"
 
 #: widgets/room/usersinroomcombobox.cpp:29
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owners"
-msgstr "Tulajdonos"
+msgstr "Tulajdonosok"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11010,26 +10957,21 @@ msgid "Block User"
 msgstr "Felhasználó tiltása"
 
 #: widgets/room/usersinroommenu.cpp:72
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to mute this user?"
-msgstr "Szeretné eltávolítani ezt a felhasználót?"
+msgstr "Szeretné némítani ezt a felhasználót?"
 
 #: widgets/room/usersinroommenu.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@title"
 msgid "Mute User"
-msgstr "Felhasználók meghívása"
+msgstr "Felhasználó némítása"
 
 #: widgets/room/usersinroommenu.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mute User"
-msgstr "Felhasználók meghívása"
+msgstr "Felhasználó némítása"
 
 #: widgets/room/usersinroommenu.cpp:89
 #, kde-format
@@ -11097,48 +11039,40 @@ msgid "Remove from Room"
 msgstr "Eltávolítás a szobából"
 
 #: widgets/room/usersinroommenu.cpp:180
-#, fuzzy, kde-format
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Felhasználó tiltásának feloldása"
 
 #: widgets/room/usersinroommenu.cpp:180
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Felhasználó tiltása"
 
 #: widgets/room/usersinroommenu.cpp:185
-#, fuzzy, kde-format
-#| msgid "Unignore"
+#, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Mellőzés feloldása"
 
 #: widgets/room/usersinroommenu.cpp:185
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Mellőzés"
 
 #: widgets/room/usersinroommenu.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Unmute User"
-msgstr "Felhasználók meghívása"
+msgstr "Felhasználó némításának megszüntetése"
 
 #: widgets/room/usersinroommenu.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Invite Users"
+#, kde-format
 msgctxt "@action"
 msgid "Mute User"
-msgstr "Felhasználók meghívása"
+msgstr "Felhasználó némítása"
 
 #: widgets/room/usersinroommenu.cpp:199
 #, kde-format
@@ -11446,8 +11380,7 @@ msgid "Cannot write to log file %1"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:967
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Csatornanapló megjelenítése"
@@ -11658,8 +11591,7 @@ msgid "Return the number of account."
 msgstr "Visszaadja a fiókok számát."
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Check New Version"
+#, kde-format
 msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Új verzió keresése"
@@ -11667,7 +11599,7 @@ msgstr "Új verzió keresése"
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:71
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
-msgstr ""
+msgstr "Új verzió érhető el. Kattintson <a href=\"%1\">ide</a> a letöltéshez."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
