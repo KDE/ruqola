@@ -32,7 +32,7 @@ void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
     menu.addSeparator();
     menu.addAction(i18nc("@action", "Reset Avatar"), this, &RoomAvatarWidget::slotResetAvatar);
     menu.addSeparator();
-    menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18nc("@action", "Cancel"), this, &RoomAvatarWidget::slotCancel);
+    menu.addAction(QIcon::fromTheme(u"dialog-cancel"_s), i18nc("@action", "Cancel"), this, &RoomAvatarWidget::slotCancel);
     menu.exec(event->globalPos());
 }
 
@@ -42,11 +42,11 @@ void RoomAvatarWidget::slotChangeImage()
     const QList<QByteArray> supportedImage = QImageReader::supportedImageFormats();
     for (const QByteArray &ba : supportedImage) {
         if (!filter.isEmpty()) {
-            filter += QLatin1Char(' ');
+            filter += u' ';
         }
         filter += "*."_L1 + QString::fromLatin1(ba);
     }
-    filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
+    filter = u"%1 (%2)"_s.arg(i18n("Image"), filter);
     const QString fileName = QFileDialog::getOpenFileName(this, i18nc("@title:window", "Select Room Avatar"), QString(), filter);
     if (!fileName.isEmpty()) {
         mRoomAvatarPath = fileName;

@@ -5,6 +5,8 @@
 */
 
 #include "twoauthenticationpasswordwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "2fa/user2fasendemailcodejob.h"
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -22,17 +24,17 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
     , mTwoFactorAuthenticationPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto twoFactorLayout = new QHBoxLayout(this);
-    twoFactorLayout->setObjectName(QStringLiteral("twoFactorLayout"));
+    twoFactorLayout->setObjectName(u"twoFactorLayout"_s);
     twoFactorLayout->setContentsMargins({});
 
-    mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    mTwoFactorAuthenticationPasswordLineEdit->setObjectName(u"mTwoFactorAuthenticationPasswordLineEdit"_s);
     mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18nc("@info:placeholder", "Enter code"));
-    mTwoFactorAuthenticationPasswordLineEdit->setRevealPasswordMode(
-        KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew : KPassword::RevealMode::Never);
+    mTwoFactorAuthenticationPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                                          : KPassword::RevealMode::Never);
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
     auto sendNewEmailCode = new QPushButton(i18nc("@action:button", "Send new code"), this);
-    sendNewEmailCode->setObjectName(QStringLiteral("sendNewEmailCode"));
+    sendNewEmailCode->setObjectName(u"sendNewEmailCode"_s);
     twoFactorLayout->addWidget(sendNewEmailCode);
     connect(sendNewEmailCode, &QPushButton::clicked, this, &TwoAuthenticationPasswordWidget::slotSendNewEmailCode);
     connect(mTwoFactorAuthenticationPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [this](const QString &password) {

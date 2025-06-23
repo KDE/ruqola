@@ -23,7 +23,7 @@ void PermissionsManagerTest::shouldHaveDefaultValues()
 void PermissionsManagerTest::shouldHasRoles()
 {
     PermissionsManager w;
-    QVERIFY(w.roles(QStringLiteral("bla")).isEmpty());
+    QVERIFY(w.roles(u"bla"_s).isEmpty());
 }
 
 void PermissionsManagerTest::shouldLoadPermissions_data()
@@ -38,32 +38,32 @@ void PermissionsManagerTest::shouldLoadPermissions_data()
 
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("access-permissions"));
-            p.setRoles({QStringLiteral("admin")});
+            p.setIdentifier(u"access-permissions"_s);
+            p.setRoles({u"admin"_s});
             p.setUpdatedAt(1533550243852);
             permissions.append(std::move(p));
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-joined-room"));
-            p.setRoles({QStringLiteral("admin"), QStringLiteral("owner"), QStringLiteral("moderator")});
+            p.setIdentifier(u"add-user-to-joined-room"_s);
+            p.setRoles({u"admin"_s, u"owner"_s, QStringLiteral("moderator")});
             p.setUpdatedAt(1533550243869);
             permissions.append(std::move(p));
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-any-c-room"));
-            p.setRoles({QStringLiteral("admin")});
+            p.setIdentifier(u"add-user-to-any-c-room"_s);
+            p.setRoles({u"admin"_s});
             p.setUpdatedAt(1533550243881);
             permissions.append(std::move(p));
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-any-p-room"));
+            p.setIdentifier(u"add-user-to-any-p-room"_s);
             p.setUpdatedAt(1533550243889);
             permissions.append(std::move(p));
         }
-        QTest::addRow("permissions1") << QStringLiteral("permissions1") << 5 << 4 << permissions;
+        QTest::addRow("permissions1") << u"permissions1"_s << 5 << 4 << permissions;
     }
 }
 
@@ -105,32 +105,32 @@ void PermissionsManagerTest::shouldUpdatePermissions_data()
         QList<Permission> permissions;
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("access-permissions"));
-            p.setRoles({QStringLiteral("admin")});
+            p.setIdentifier(u"access-permissions"_s);
+            p.setRoles({u"admin"_s});
             p.setUpdatedAt(1533550243852);
             permissions.append(std::move(p));
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-joined-room"));
-            p.setRoles({QStringLiteral("admin"), QStringLiteral("owner"), QStringLiteral("moderator")});
+            p.setIdentifier(u"add-user-to-joined-room"_s);
+            p.setRoles({u"admin"_s, u"owner"_s, QStringLiteral("moderator")});
             p.setUpdatedAt(1533550243869);
             permissions.append(std::move(p));
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-any-c-room"));
-            p.setRoles({QStringLiteral("admin")});
+            p.setIdentifier(u"add-user-to-any-c-room"_s);
+            p.setRoles({u"admin"_s});
             p.setUpdatedAt(1533550243881);
             permissions.append(std::move(p));
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-any-p-room"));
+            p.setIdentifier(u"add-user-to-any-p-room"_s);
             p.setUpdatedAt(1533550243889);
             permissions.append(std::move(p));
         }
-        QTest::addRow("permissions1") << QStringLiteral("permissions1") << QStringLiteral("update-permissions1") << permissions << permissions << false;
+        QTest::addRow("permissions1") << u"permissions1"_s << u"update-permissions1"_s << permissions << permissions << false;
     }
     {
         // No updated permission as this permission can't be store in manager
@@ -138,40 +138,40 @@ void PermissionsManagerTest::shouldUpdatePermissions_data()
         QList<Permission> updatedPermissions;
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("access-permissions"));
-            p.setRoles({QStringLiteral("admin")});
+            p.setIdentifier(u"access-permissions"_s);
+            p.setRoles({u"admin"_s});
             p.setUpdatedAt(1533550243852);
             permissions.append(p);
             updatedPermissions.append(p);
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-joined-room"));
-            p.setRoles({QStringLiteral("admin"), QStringLiteral("owner"), QStringLiteral("moderator")});
+            p.setIdentifier(u"add-user-to-joined-room"_s);
+            p.setRoles({u"admin"_s, u"owner"_s, QStringLiteral("moderator")});
             p.setUpdatedAt(1533550243869);
             permissions.append(p);
             updatedPermissions.append(p);
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-any-c-room"));
-            p.setRoles({QStringLiteral("admin")});
+            p.setIdentifier(u"add-user-to-any-c-room"_s);
+            p.setRoles({u"admin"_s});
             p.setUpdatedAt(1533550243881);
             permissions.append(p);
 
-            p.setRoles({QStringLiteral("admin"), QStringLiteral("vFXCWG9trXLti6xQm")});
+            p.setRoles({u"admin"_s, u"vFXCWG9trXLti6xQm"_s});
             p.setUpdatedAt(1634569746270);
             updatedPermissions.append(p);
         }
         {
             Permission p;
-            p.setIdentifier(QStringLiteral("add-user-to-any-p-room"));
+            p.setIdentifier(u"add-user-to-any-p-room"_s);
             p.setUpdatedAt(1533550243889);
             permissions.append(p);
             updatedPermissions.append(p);
         }
         // Use permissions1 as ref.
-        QTest::addRow("permissions2") << QStringLiteral("permissions1") << QStringLiteral("update-permissions2") << permissions << updatedPermissions << true;
+        QTest::addRow("permissions2") << u"permissions1"_s << u"update-permissions2"_s << permissions << updatedPermissions << true;
     }
 }
 

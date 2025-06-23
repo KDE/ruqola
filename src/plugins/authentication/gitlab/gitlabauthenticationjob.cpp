@@ -5,6 +5,8 @@
 */
 
 #include "gitlabauthenticationjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "gitlabauthenticationplugin_debug.h"
 #include <QDesktopServices>
 #include <QOAuth2AuthorizationCodeFlow>
@@ -47,9 +49,9 @@ void GitLabAuthenticationJob::start()
     auto replyHandler = new QOAuthHttpServerReplyHandler(11450, mOAuth2);
     mOAuth2->setClientIdentifier(mGitLabInfo.clientId);
     mOAuth2->setReplyHandler(replyHandler);
-    mOAuth2->setAuthorizationUrl(QUrl(QStringLiteral("https://gitlab.com/login/oauth/authorize")));
-    mOAuth2->setAccessTokenUrl(QUrl(QStringLiteral("https://gitlab.com/login/oauth/access_token")));
-    mOAuth2->setScope(QStringLiteral("openid"));
+    mOAuth2->setAuthorizationUrl(QUrl(u"https://gitlab.com/login/oauth/authorize"_s));
+    mOAuth2->setAccessTokenUrl(QUrl(u"https://gitlab.com/login/oauth/access_token"_s));
+    mOAuth2->setScope(u"openid"_s);
 
     mOAuth2->setToken(mGitLabInfo.token);
     mOAuth2->setRefreshToken(mGitLabInfo.refreshToken);

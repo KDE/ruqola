@@ -5,6 +5,8 @@
 */
 
 #include "forwardmessagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <KLocalizedString>
@@ -17,21 +19,21 @@ ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *
     , mFlowLayout(new FlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18nc("@label:textbox", "Select at least one channel to forward the message to."), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 
-    mForwardMessageAddChannelCompletionLineEdit->setObjectName(QStringLiteral("mForwardMessageAddChannelCompletionLineEdit"));
+    mForwardMessageAddChannelCompletionLineEdit->setObjectName(u"mForwardMessageAddChannelCompletionLineEdit"_s);
     mainLayout->addWidget(mForwardMessageAddChannelCompletionLineEdit);
     connect(mForwardMessageAddChannelCompletionLineEdit,
             &ForwardMessageAddChannelCompletionLineEdit::fowardToChannel,
             this,
             &ForwardMessageWidget::slotForwardToChannel);
 
-    mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
+    mFlowLayout->setObjectName(u"mFlowLayout"_s);
     mainLayout->addLayout(mFlowLayout);
     mainLayout->addStretch();
 }

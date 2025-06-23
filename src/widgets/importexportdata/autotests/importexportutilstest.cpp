@@ -5,6 +5,8 @@
 */
 
 #include "importexportutilstest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "importexportdata/importexportutils.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ImportExportUtilsTest)
@@ -15,11 +17,11 @@ ImportExportUtilsTest::ImportExportUtilsTest(QObject *parent)
 
 void ImportExportUtilsTest::shouldReturnValues()
 {
-    QCOMPARE(ImportExportUtils::configPath(), QStringLiteral("config"));
-    QCOMPARE(ImportExportUtils::localPath(), QStringLiteral("local"));
-    QCOMPARE(ImportExportUtils::cachePath(), QStringLiteral("cache"));
-    QCOMPARE(ImportExportUtils::logsPath(), QStringLiteral("logs"));
-    QCOMPARE(ImportExportUtils::databasePath(), QStringLiteral("database"));
+    QCOMPARE(ImportExportUtils::configPath(), u"config"_s);
+    QCOMPARE(ImportExportUtils::localPath(), u"local"_s);
+    QCOMPARE(ImportExportUtils::cachePath(), u"cache"_s);
+    QCOMPARE(ImportExportUtils::logsPath(), u"logs"_s);
+    QCOMPARE(ImportExportUtils::databasePath(), u"database"_s);
 }
 
 #include "moc_importexportutilstest.cpp"

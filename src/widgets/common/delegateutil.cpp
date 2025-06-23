@@ -5,6 +5,8 @@
 */
 
 #include "delegateutil.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -20,7 +22,7 @@
 QString DelegateUtil::querySaveFileName(QWidget *parent, const QString &title, const QUrl &fileToSave)
 {
     QString fileClass;
-    const QUrl startUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///saveattachment")), fileClass);
+    const QUrl startUrl = KFileWidget::getStartUrl(QUrl(u"kfiledialog:///saveattachment"_s), fileClass);
     const auto info = QFileInfo(fileToSave.path());
     auto fileName = info.fileName();
     if (fileToSave.isLocalFile() && info.exists() && info.suffix().isEmpty()) {
@@ -37,12 +39,12 @@ QString DelegateUtil::querySaveFileName(QWidget *parent, const QString &title, c
             }
             const auto suffix = mime.preferredSuffix();
             if (!suffix.isEmpty()) {
-                fileName += QLatin1Char('.') + suffix;
+                fileName += u'.' + suffix;
             }
         }();
     }
     QUrl localUrl;
-    localUrl.setPath(startUrl.path() + QLatin1Char('/') + fileName);
+    localUrl.setPath(startUrl.path() + u'/' + fileName);
     const QString fileStr = QFileDialog::getSaveFileName(parent, title, localUrl.toString());
 
     if (!fileClass.isEmpty() && !fileStr.isEmpty()) {

@@ -5,6 +5,8 @@
 */
 
 #include "userssendwelcomeemailjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "users/userssendwelcomeemailjob.h"
 #include <QJsonDocument>
@@ -30,14 +32,14 @@ void UsersSendWelcomeEmailJobTest::shouldGenerateRequest()
     UsersSendWelcomeEmailJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.sendWelcomeEmail")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.sendWelcomeEmail"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void UsersSendWelcomeEmailJobTest::shouldGenerateJson()
 {
     UsersSendWelcomeEmailJob job;
-    const QString email = QStringLiteral("bla@kde.org");
+    const QString email = u"bla@kde.org"_s;
     job.setEmail(email);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"bla@kde.org"})").toLatin1());
 }
@@ -47,19 +49,19 @@ void UsersSendWelcomeEmailJobTest::shouldNotStarting()
     UsersSendWelcomeEmailJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString email{QStringLiteral("foo")};
+    const QString email{u"foo"_s};
     job.setEmail(email);
     QVERIFY(job.canStart());
 }

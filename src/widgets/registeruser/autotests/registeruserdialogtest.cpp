@@ -5,6 +5,8 @@
 */
 
 #include "registeruserdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "registeruser/registeruserdialog.h"
 #include "registeruser/registeruserwidget.h"
 
@@ -26,13 +28,13 @@ void RegisterUserDialogTest::shouldHaveDefaultValues()
     RegisterUserDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mRegisterUserWidget = w.findChild<RegisterUserWidget *>(QStringLiteral("mRegisterUserWidget"));
+    auto mRegisterUserWidget = w.findChild<RegisterUserWidget *>(u"mRegisterUserWidget"_s);
     QVERIFY(mRegisterUserWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

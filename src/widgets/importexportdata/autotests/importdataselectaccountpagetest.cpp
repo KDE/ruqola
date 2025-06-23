@@ -5,6 +5,8 @@
 */
 
 #include "importdataselectaccountpagetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 #include <KUrlRequester>
 #include <QLabel>
@@ -21,13 +23,13 @@ void ImportDataSelectAccountPageTest::shouldHaveDefaultValues()
 {
     ImportDataSelectAccountPage w;
 
-    auto mUrlRequester = w.findChild<KUrlRequester *>(QStringLiteral("mUrlRequester"));
+    auto mUrlRequester = w.findChild<KUrlRequester *>(u"mUrlRequester"_s);
     QVERIFY(mUrlRequester);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 

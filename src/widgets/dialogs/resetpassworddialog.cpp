@@ -5,6 +5,8 @@
 */
 
 #include "resetpassworddialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "resetpasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -17,13 +19,13 @@ ResetPasswordDialog::ResetPasswordDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Reset Password"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mResetPasswordWidget->setObjectName(QStringLiteral("mResetPasswordWidget"));
+    mResetPasswordWidget->setObjectName(u"mResetPasswordWidget"_s);
     mainLayout->addWidget(mResetPasswordWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &ResetPasswordDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &ResetPasswordDialog::reject);

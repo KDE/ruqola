@@ -5,6 +5,8 @@
 */
 
 #include "usersinroomflowwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/flowlayout.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
@@ -20,7 +22,7 @@ UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     , mFlowLayout(new FlowLayout(this))
     , mUsersForRoomFilterProxyModel(new UsersForRoomFilterProxyModel(this))
 {
-    mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
+    mFlowLayout->setObjectName(u"mFlowLayout"_s);
     mFlowLayout->setSpacing(0);
     mFlowLayout->setContentsMargins({});
     connect(mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::rowsInserted, this, &UsersInRoomFlowWidget::generateListUsersWidget);
@@ -119,13 +121,13 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
         }
         if (count > 0) {
             if (!mUsersForRoomFilterProxyModel->hasFullList()) {
-                auto loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)")), this);
+                auto loadingMoreLabel = new QLabel(u"<a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);
                 loadingMoreLabel->setContextMenuPolicy(Qt::NoContextMenu);
                 connect(loadingMoreLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadMoreUsers);
                 mFlowLayout->addWidget(loadingMoreLabel);
             }
-            auto openExternalDialogLabel = new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog…)")), this);
+            auto openExternalDialogLabel = new QLabel(u"<a href=\"openexternaldialog\">%1</a>"_s.arg(i18n("(Open External Dialog…)")), this);
             openExternalDialogLabel->setTextFormat(Qt::RichText);
             openExternalDialogLabel->setContextMenuPolicy(Qt::NoContextMenu);
             connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);

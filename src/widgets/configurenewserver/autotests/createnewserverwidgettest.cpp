@@ -5,6 +5,8 @@
 */
 
 #include "createnewserverwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/authenticationloginwidget.h"
 #include "common/authenticationoauthwidget.h"
 #include "configurenewserver/createnewserverwidget.h"
@@ -20,7 +22,7 @@ void CreateNewServerWidgetTest::shouldHaveDefaultValues()
 {
     CreateNewServerWidget w;
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
@@ -28,10 +30,10 @@ void CreateNewServerWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.accountInfo().serverUrl.isEmpty());
     QVERIFY(w.accountInfo().accountName.isEmpty());
 
-    auto mAuthenticationWidget = w.findChild<AuthenticationOauthWidget *>(QStringLiteral("mAuthenticationWidget"));
+    auto mAuthenticationWidget = w.findChild<AuthenticationOauthWidget *>(u"mAuthenticationWidget"_s);
     QVERIFY(mAuthenticationWidget);
 
-    auto mAuthenticationLoginWidget = w.findChild<AuthenticationLoginWidget *>(QStringLiteral("mAuthenticationLoginWidget"));
+    auto mAuthenticationLoginWidget = w.findChild<AuthenticationLoginWidget *>(u"mAuthenticationLoginWidget"_s);
     QVERIFY(mAuthenticationLoginWidget);
 }
 

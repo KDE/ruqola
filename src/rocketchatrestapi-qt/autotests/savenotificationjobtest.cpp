@@ -5,6 +5,8 @@
 */
 
 #include "savenotificationjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rooms/savenotificationjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -43,8 +45,8 @@ void SaveNotificationJobTest::shouldGenerateRequest()
     SaveNotificationJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveNotification")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.saveNotification"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void SaveNotificationJobTest::shouldGenerateJson()
@@ -59,7 +61,7 @@ void SaveNotificationJobTest::shouldGenerateJson()
     job.setHideUnreadStatus(hideUnread);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"notifications":{"hideUnreadStatus":"1"},"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
-    const QString mobilePushNotifications = QStringLiteral("all");
+    const QString mobilePushNotifications = u"all"_s;
     job.setMobilePushNotifications(mobilePushNotifications);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral("{\"notifications\":{"
@@ -97,14 +99,14 @@ void SaveNotificationJobTest::shouldNotStarting()
     SaveNotificationJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -114,7 +116,7 @@ void SaveNotificationJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
 
     // We need to change a settings
-    job.setAudioNotificationValue(QStringLiteral("foo"));
+    job.setAudioNotificationValue(u"foo"_s);
     QVERIFY(job.canStart());
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "channelinfoeditablewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channelinfoprunewidget.h"
 #include "connection.h"
 #include "messagetexteditor.h"
@@ -39,51 +41,51 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
     , mPrivate(new QCheckBox(this))
     , mEncrypted(new QCheckBox(this))
     , mSystemMessageCombox(new SystemMessagesComboBox(this))
-    , mDeleteChannel(new QPushButton(QIcon::fromTheme(QStringLiteral("edit-delete-shred")), i18nc("@action:button", "Delete"), this))
+    , mDeleteChannel(new QPushButton(QIcon::fromTheme(u"edit-delete-shred"_s), i18nc("@action:button", "Delete"), this))
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
     , mRoomAvatarWidget(new RoomAvatarWidget(this))
     , mRocketChatAccount(account)
 {
     auto layout = new QFormLayout(this);
-    layout->setObjectName(QStringLiteral("layout"));
+    layout->setObjectName(u"layout"_s);
     layout->setContentsMargins({});
 
-    mRoomAvatarWidget->setObjectName(QStringLiteral("mRoomAvatarWidget"));
-    layout->addRow(QStringLiteral(" "), mRoomAvatarWidget);
+    mRoomAvatarWidget->setObjectName(u"mRoomAvatarWidget"_s);
+    layout->addRow(u" "_s, mRoomAvatarWidget);
     QString str = i18n("Name:");
-    mName->setObjectName(QStringLiteral("mName"));
+    mName->setObjectName(u"mName"_s);
     layout->addRow(str, mName);
     connect(mName, &QLineEdit::textChanged, this, [this](const QString &str) {
         Q_EMIT roomNameValid(!str.trimmed().isEmpty());
     });
 
-    mComment->setObjectName(QStringLiteral("mComment"));
+    mComment->setObjectName(u"mComment"_s);
     str = i18n("Comment:");
     layout->addRow(str, mComment);
 
-    mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
+    mAnnouncement->setObjectName(u"mAnnouncement"_s);
     str = i18n("Announcement:");
     layout->addRow(str, mAnnouncement);
 
-    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setObjectName(u"mDescription"_s);
     str = i18n("Description:");
 
     layout->addRow(str, mDescription);
 
     // Show it if room is not private
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                : KPassword::RevealMode::Never);
+    mPasswordLineEdit->setObjectName(u"mPasswordLineEdit"_s);
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                   : KPassword::RevealMode::Never);
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
 
-    mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
+    mReadOnly->setObjectName(u"mReadOnly"_s);
     layout->addRow(i18n("ReadOnly:"), mReadOnly);
     mReadOnly->setToolTip(i18nc("@info:tooltip", "Messages are end-to-end encrypted, search will not work and notifications may not show message content"));
 
-    mArchive->setObjectName(QStringLiteral("mArchive"));
+    mArchive->setObjectName(u"mArchive"_s);
     layout->addRow(i18n("Archive:"), mArchive);
-    const bool canArchiveOrUnarchive = mRocketChatAccount
-        && (mRocketChatAccount->hasPermission(QStringLiteral("archive-room")) || mRocketChatAccount->hasPermission(QStringLiteral("unarchive-room")));
+    const bool canArchiveOrUnarchive =
+        mRocketChatAccount && (mRocketChatAccount->hasPermission(u"archive-room"_s) || mRocketChatAccount->hasPermission(u"unarchive-room"_s));
     mArchive->setEnabled(canArchiveOrUnarchive);
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
@@ -93,11 +95,11 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
         }
     });
 
-    mPrivate->setObjectName(QStringLiteral("mPrivate"));
+    mPrivate->setObjectName(u"mPrivate"_s);
     layout->addRow(i18n("Private:"), mPrivate);
     mPrivate->setToolTip(i18nc("@info:tooltip", "People can only join by being invited"));
 
-    mEncrypted->setObjectName(QStringLiteral("mEncrypted"));
+    mEncrypted->setObjectName(u"mEncrypted"_s);
     layout->addRow(i18n("Encrypted:"), mEncrypted);
     mEncryptedLabel = layout->labelForField(mEncrypted);
     mEncryptedLabel->setToolTip(
@@ -105,17 +107,17 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
 
     mEncrypted->setEnabled(false);
 
-    mSystemMessageCombox->setObjectName(QStringLiteral("mSystemMessageCombox"));
+    mSystemMessageCombox->setObjectName(u"mSystemMessageCombox"_s);
     layout->addRow(i18n("Hide System Messages:"), mSystemMessageCombox);
 
-    mChannelInfoPruneWidget->setObjectName(QStringLiteral("mChannelInfoPruneWidget"));
+    mChannelInfoPruneWidget->setObjectName(u"mChannelInfoPruneWidget"_s);
     layout->addRow(mChannelInfoPruneWidget);
     auto separator = new KSeparator(this);
-    separator->setObjectName(QStringLiteral("separator"));
+    separator->setObjectName(u"separator"_s);
     layout->addWidget(separator);
 
-    mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
-    layout->addRow(QStringLiteral(" "), mDeleteChannel);
+    mDeleteChannel->setObjectName(u"mDeleteChannel"_s);
+    layout->addRow(u" "_s, mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
         if (mRoom->teamInfo().mainTeam()) {
             if (KMessageBox::ButtonCode::PrimaryAction
@@ -237,7 +239,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
     }
 
     if (/*(mRoom->channelType() == Room::RoomType::Private) != mPrivate->isChecked()*/ 1) { // TODO verify
-        info.roomType = mPrivate->isChecked() ? QStringLiteral("p") : QStringLiteral("c");
+        info.roomType = mPrivate->isChecked() ? u"p"_s : u"c"_s;
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomType;
     }
 
@@ -325,7 +327,7 @@ void ChannelInfoEditableWidget::updateUiFromPermission()
 
 bool ChannelInfoEditableWidget::hasRetentionPermission() const
 {
-    return mRoom->hasPermission(QStringLiteral("edit-room-retention-policy"));
+    return mRoom->hasPermission(u"edit-room-retention-policy"_s);
 }
 
 #include "moc_channelinfoeditablewidget.cpp"

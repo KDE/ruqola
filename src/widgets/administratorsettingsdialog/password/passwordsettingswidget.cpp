@@ -5,6 +5,8 @@
 */
 
 #include "passwordsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFont>
@@ -27,60 +29,60 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     , mAtLeastOneSymbol(new QCheckBox(i18nc("@option:check", "At Least One Symbol"), this))
 {
     auto historyLabel = createBoldLabel(i18n("Password History"));
-    historyLabel->setObjectName(QStringLiteral("historyLabel"));
+    historyLabel->setObjectName(u"historyLabel"_s);
     mMainLayout->addWidget(historyLabel);
 
-    mEnablePasswordHistory->setObjectName(QStringLiteral("mEnablePasswordHistory"));
+    mEnablePasswordHistory->setObjectName(u"mEnablePasswordHistory"_s);
     mEnablePasswordHistory->setToolTip(
         i18nc("@info:tooltip", "When enabled, users won't be able to update their passwords to some of their most recently used passwords."));
-    addCheckBox(mEnablePasswordHistory, QStringLiteral("Accounts_Password_History_Enabled"));
+    addCheckBox(mEnablePasswordHistory, u"Accounts_Password_History_Enabled"_s);
 
-    mPasswordHistoryLength->setObjectName(QStringLiteral("mPasswordHistoryLength"));
+    mPasswordHistoryLength->setObjectName(u"mPasswordHistoryLength"_s);
     mPasswordHistoryLength->setToolTip(i18nc("@info:tooltip", "Amount of most recently used passwords to prevent users from reusing."));
-    addSpinbox(i18n("Password History Length"), mPasswordHistoryLength, QStringLiteral("Accounts_Password_History_Amount"));
+    addSpinbox(i18n("Password History Length"), mPasswordHistoryLength, u"Accounts_Password_History_Amount"_s);
 
     auto passwordPolicyLabel = createBoldLabel(i18n("Password Policy"));
-    passwordPolicyLabel->setObjectName(QStringLiteral("passwordPolicyLabel"));
+    passwordPolicyLabel->setObjectName(u"passwordPolicyLabel"_s);
     mMainLayout->addWidget(passwordPolicyLabel);
 
-    mEnablePasswordPolicy->setObjectName(QStringLiteral("mEnablePasswordPolicy"));
+    mEnablePasswordPolicy->setObjectName(u"mEnablePasswordPolicy"_s);
     mEnablePasswordPolicy->setToolTip(
         i18nc("@info:tooltip", "When enabled, users won't be able to update their passwords to some of their most recently used passwords."));
-    addCheckBox(mEnablePasswordPolicy, QStringLiteral("Accounts_Password_Policy_Enabled"));
+    addCheckBox(mEnablePasswordPolicy, u"Accounts_Password_Policy_Enabled"_s);
 
-    mMinimumLength->setObjectName(QStringLiteral("mMinimumLength"));
+    mMinimumLength->setObjectName(u"mMinimumLength"_s);
     mMinimumLength->setToolTip(i18nc("@info:tooltip", "Ensures that passwords must have at least this amount of characters. Use -1 to disable."));
     mMinimumLength->setMinimum(-1);
-    addSpinbox(i18n("Minimum Length"), mMinimumLength, QStringLiteral("Accounts_Password_Policy_MinLength"));
+    addSpinbox(i18n("Minimum Length"), mMinimumLength, u"Accounts_Password_Policy_MinLength"_s);
 
-    mMaximumLength->setObjectName(QStringLiteral("mMaximumLength"));
+    mMaximumLength->setObjectName(u"mMaximumLength"_s);
     mMaximumLength->setToolTip(i18nc("@info:tooltip", "Ensures that passwords do not have more than this amount of characters. Use -1 to disable."));
     mMaximumLength->setMinimum(-1);
-    addSpinbox(i18n("Maximum Length"), mMaximumLength, QStringLiteral("Accounts_Password_Policy_MaxLength"));
+    addSpinbox(i18n("Maximum Length"), mMaximumLength, u"Accounts_Password_Policy_MaxLength"_s);
 
-    mForbidRepeatingCharacters->setObjectName(QStringLiteral("mForbidRepeatingCharacters"));
+    mForbidRepeatingCharacters->setObjectName(u"mForbidRepeatingCharacters"_s);
     mForbidRepeatingCharacters->setToolTip(i18nc("@info:tooltip", "Ensures passwords do not contain the same character repeating next to each other."));
-    addCheckBox(mForbidRepeatingCharacters, QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharacters"));
+    addCheckBox(mForbidRepeatingCharacters, u"Accounts_Password_Policy_ForbidRepeatingCharacters"_s);
 
-    mMaxRepeatingCharacters->setObjectName(QStringLiteral("mMaxRepeatingCharacters"));
+    mMaxRepeatingCharacters->setObjectName(u"mMaxRepeatingCharacters"_s);
     mMaxRepeatingCharacters->setToolTip(i18nc("@info:tooltip", "The amount of times a character can be repeating before it is not allowed."));
-    addSpinbox(i18n("Max Repeating Characters"), mMaxRepeatingCharacters, QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"));
+    addSpinbox(i18n("Max Repeating Characters"), mMaxRepeatingCharacters, u"Accounts_Password_Policy_ForbidRepeatingCharactersCount"_s);
 
-    mAtLeastOneLowercase->setObjectName(QStringLiteral("mAtLeastOneLowercase"));
+    mAtLeastOneLowercase->setObjectName(u"mAtLeastOneLowercase"_s);
     mAtLeastOneLowercase->setToolTip(i18nc("@info:tooltip", "Enforce that a password contain at least one lowercase character."));
-    addCheckBox(mAtLeastOneLowercase, QStringLiteral("Accounts_Password_Policy_AtLeastOneLowercase"));
+    addCheckBox(mAtLeastOneLowercase, u"Accounts_Password_Policy_AtLeastOneLowercase"_s);
 
-    mAtLeastOneUppercase->setObjectName(QStringLiteral("mAtLeastOneUppercase"));
+    mAtLeastOneUppercase->setObjectName(u"mAtLeastOneUppercase"_s);
     mAtLeastOneUppercase->setToolTip(i18nc("@info:tooltip", "Enforce that a password contain at least one uppercase character."));
-    addCheckBox(mAtLeastOneUppercase, QStringLiteral("Accounts_Password_Policy_AtLeastOneUppercase"));
+    addCheckBox(mAtLeastOneUppercase, u"Accounts_Password_Policy_AtLeastOneUppercase"_s);
 
-    mAtLeastOneNumber->setObjectName(QStringLiteral("mAtLeastOneNumber"));
+    mAtLeastOneNumber->setObjectName(u"mAtLeastOneNumber"_s);
     mAtLeastOneNumber->setToolTip(i18nc("@info:tooltip", "Enforce that a password contain at least one numerical character."));
-    addCheckBox(mAtLeastOneNumber, QStringLiteral("Accounts_Password_Policy_AtLeastOneNumber"));
+    addCheckBox(mAtLeastOneNumber, u"Accounts_Password_Policy_AtLeastOneNumber"_s);
 
-    mAtLeastOneSymbol->setObjectName(QStringLiteral("mAtLeastOneSymbol"));
+    mAtLeastOneSymbol->setObjectName(u"mAtLeastOneSymbol"_s);
     mAtLeastOneSymbol->setToolTip(i18nc("@info:tooltip", "Enforce that a password contain at least one special character."));
-    addCheckBox(mAtLeastOneSymbol, QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"));
+    addCheckBox(mAtLeastOneSymbol, u"Accounts_Password_Policy_AtLeastOneSpecialCharacter"_s);
 
     connect(this, &PasswordSettingsWidget::changedDone, this, [this](const QString &variable) {
         if (variable == QLatin1String("Accounts_Password_History_Enabled")) {

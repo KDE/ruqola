@@ -5,6 +5,8 @@
 */
 
 #include "rocketchataccountmodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "test_model_helpers.h"
@@ -116,7 +118,7 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     QList<RocketChatAccount *> accounts;
     for (int i = 0; i < 10; ++i) {
         auto f = new RocketChatAccount();
-        f->setAccountName(QStringLiteral("foo%1").arg(i));
+        f->setAccountName(u"foo%1"_s.arg(i));
         accounts.append(f);
     }
     QSignalSpy rowInsertedSpy(&w, &RocketChatAccountModel::rowsInserted);
@@ -142,14 +144,14 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     modelResetSpy.clear();
     modelABTReset.clear();
 
-    w.removeAccount(QStringLiteral("foo2"));
+    w.removeAccount(u"foo2"_s);
 
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 1);
     QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("2,2"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("2,2"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), u"2,2"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), u"2,2"_s);
     QCOMPARE(modelResetSpy.count(), 0);
     QCOMPARE(modelABTReset.count(), 0);
 
@@ -160,7 +162,7 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     modelResetSpy.clear();
     modelABTReset.clear();
 
-    w.removeAccount(QStringLiteral("notexist"));
+    w.removeAccount(u"notexist"_s);
 
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);

@@ -38,7 +38,7 @@ void ChannelCounterInfoTest::shouldLoadChannelCounter_data()
     result->setUnreadFrom(t);
 
     // TODO
-    QTest::addRow("test1") << QStringLiteral("test1") << result;
+    QTest::addRow("test1") << u"test1"_s << result;
 }
 
 void ChannelCounterInfoTest::shouldLoadChannelCounter()

@@ -5,6 +5,7 @@
 */
 
 #include "servererrorinfo.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QLocale>
 

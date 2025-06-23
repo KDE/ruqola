@@ -5,6 +5,8 @@
 */
 
 #include "e2ecopypassworddialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2ecopypasswordwidget.h"
 #include <QDialogButtonBox>
@@ -20,14 +22,14 @@ void E2eCopyPasswordDialogTest::shouldHaveDefaultValues()
 {
     E2eCopyPasswordDialog d(nullptr);
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto buttonBox = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
     QCOMPARE(buttonBox->standardButtons(), QDialogButtonBox::StandardButtons{QDialogButtonBox::Cancel | QDialogButtonBox::Ok});
 
-    auto mE2eCopyPasswordWidget = d.findChild<E2eCopyPasswordWidget *>(QStringLiteral("mE2eCopyPasswordWidget"));
+    auto mE2eCopyPasswordWidget = d.findChild<E2eCopyPasswordWidget *>(u"mE2eCopyPasswordWidget"_s);
     QVERIFY(mE2eCopyPasswordWidget);
 }
 

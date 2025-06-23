@@ -5,6 +5,8 @@
 */
 
 #include "createnewchanneldialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewchannelwidget.h"
 #include <QDialogButtonBox>
@@ -25,13 +27,13 @@ void CreateNewChannelDialogTest::shouldHaveDefaultValues()
     CreateNewChannelDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCreateNewChannelWidget = w.findChild<CreateNewChannelWidget *>(QStringLiteral("mCreateNewChannelWidget"));
+    auto mCreateNewChannelWidget = w.findChild<CreateNewChannelWidget *>(u"mCreateNewChannelWidget"_s);
     QVERIFY(mCreateNewChannelWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
     QPushButton *mOkButton = button->button(QDialogButtonBox::Ok);

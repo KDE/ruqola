@@ -65,7 +65,7 @@ QNetworkRequest TeamsAutoCompleteJob::request() const
     // api/v1/teams.autocomplete?name=f
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsAutocomplete);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("name"), mName);
+    queryUrl.addQueryItem(u"name"_s, mName);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

@@ -5,6 +5,8 @@
 */
 
 #include "statusmodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "customusers/customuserstatus.h"
 #include "utils.h"
 #include <KLocalizedString>
@@ -67,13 +69,13 @@ QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status) const
 {
     switch (status) {
     case User::PresenceStatus::Online:
-        return QIcon::fromTheme(QStringLiteral("user-online"));
+        return QIcon::fromTheme(u"user-online"_s);
     case User::PresenceStatus::Busy:
-        return QIcon::fromTheme(QStringLiteral("user-busy"));
+        return QIcon::fromTheme(u"user-busy"_s);
     case User::PresenceStatus::Away:
-        return QIcon::fromTheme(QStringLiteral("user-away"));
+        return QIcon::fromTheme(u"user-away"_s);
     case User::PresenceStatus::Offline:
-        return QIcon::fromTheme(QStringLiteral("user-offline"));
+        return QIcon::fromTheme(u"user-offline"_s);
     case User::PresenceStatus::Unknown:
         return {};
     }

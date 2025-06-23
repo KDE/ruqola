@@ -187,7 +187,7 @@ void PasswordValidateLabel::setText(RuqolaServerConfig::PasswordSettings::Passwo
 
 void PasswordValidateLabel::setValidStatus(bool b)
 {
-    mIconLabel->setPixmap(b ? QIcon::fromTheme(QStringLiteral("data-success")).pixmap(18, 18) : QIcon::fromTheme(QStringLiteral("data-error")).pixmap(18, 18));
+    mIconLabel->setPixmap(b ? QIcon::fromTheme(u"data-success"_s).pixmap(18, 18) : QIcon::fromTheme(u"data-error"_s).pixmap(18, 18));
     QPalette pal = mLabel->palette();
     pal.setColor(mLabel->foregroundRole(),
                  b ? ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color()

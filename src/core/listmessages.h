@@ -6,14 +6,16 @@
 
 #pragma once
 #include "libruqola_private_export.h"
+
 #include "messages/message.h"
 #include <QDebug>
+using namespace Qt::Literals::StringLiterals;
 class LIBRUQOLACORE_TESTS_EXPORT ListMessages
 {
 public:
     ListMessages();
     virtual ~ListMessages();
-    void parseMessages(const QJsonObject &messagesObj, const QString &arrayName = QStringLiteral("messages"));
+    void parseMessages(const QJsonObject &messagesObj, const QString &arrayName = u"messages"_s);
 
     [[nodiscard]] int offset() const;
     void setOffset(int offset);

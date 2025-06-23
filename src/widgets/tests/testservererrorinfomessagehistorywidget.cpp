@@ -5,6 +5,8 @@
 */
 
 #include "testservererrorinfomessagehistorywidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "servererrorinfohistorymanager.h"
 #include <QFormLayout>
 #include <QLineEdit>
@@ -15,12 +17,12 @@ TestServerErrorInfoMessageHistoryWidget::TestServerErrorInfoMessageHistoryWidget
 {
     auto layout = new QFormLayout(this);
     auto accountName = new QLineEdit(this);
-    layout->addRow(QStringLiteral("Account Name:"), accountName);
+    layout->addRow(u"Account Name:"_s, accountName);
 
     auto messageStr = new QLineEdit(this);
-    layout->addRow(QStringLiteral("Message:"), messageStr);
+    layout->addRow(u"Message:"_s, messageStr);
 
-    auto pushButton = new QPushButton(QStringLiteral("Add Error"), this);
+    auto pushButton = new QPushButton(u"Add Error"_s, this);
     layout->addWidget(pushButton);
 
     connect(pushButton, &QPushButton::clicked, this, [accountName, messageStr]() {

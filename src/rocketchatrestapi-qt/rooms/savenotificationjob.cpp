@@ -217,19 +217,19 @@ QJsonDocument SaveNotificationJob::json() const
         notificationsJson["desktopNotificationDuration"_L1] = desktopNotificationDuration();
     }
     if (mSettingsWillBeChanged & DisableNotifications) {
-        notificationsJson["disableNotifications"_L1] = disableNotifications() ? QStringLiteral("1") : QStringLiteral("0");
+        notificationsJson["disableNotifications"_L1] = disableNotifications() ? u"1"_s : u"0"_s;
     }
     if (mSettingsWillBeChanged & HideUnreadStatus) {
-        notificationsJson["hideUnreadStatus"_L1] = hideUnreadStatus() ? QStringLiteral("1") : QStringLiteral("0");
+        notificationsJson["hideUnreadStatus"_L1] = hideUnreadStatus() ? u"1"_s : u"0"_s;
     }
     if (mSettingsWillBeChanged & MuteGroupMentions) {
-        notificationsJson["muteGroupMentions"_L1] = muteGroupMentions() ? QStringLiteral("1") : QStringLiteral("0");
+        notificationsJson["muteGroupMentions"_L1] = muteGroupMentions() ? u"1"_s : u"0"_s;
     }
     if (mSettingsWillBeChanged & DesktopNotification) {
         notificationsJson["desktopNotifications"_L1] = desktopNotifications();
     }
     if (mSettingsWillBeChanged & HideMentionStatus) {
-        notificationsJson["hideMentionStatus"_L1] = hideMentionStatus() ? QStringLiteral("1") : QStringLiteral("0");
+        notificationsJson["hideMentionStatus"_L1] = hideMentionStatus() ? u"1"_s : u"0"_s;
     }
     jsonObj["notifications"_L1] = notificationsJson;
 

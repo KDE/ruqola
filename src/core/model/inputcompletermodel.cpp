@@ -25,12 +25,12 @@ InputCompleterModel::~InputCompleterModel() = default;
 
 QString InputCompleterModel::here()
 {
-    return QStringLiteral("here");
+    return u"here"_s;
 }
 
 QString InputCompleterModel::all()
 {
-    return QStringLiteral("all");
+    return u"all"_s;
 }
 
 ChannelUserCompleter InputCompleterModel::createHereChannel()

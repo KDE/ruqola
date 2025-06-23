@@ -5,6 +5,8 @@
 */
 
 #include "channelsearchwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channelsearchnamelineresultwidget.h"
 #include <KLocalizedString>
 #include <QStackedWidget>
@@ -16,16 +18,16 @@ ChannelSearchWidget::ChannelSearchWidget(RocketChatAccount *account, QWidget *pa
     , mChannelSearchLineResult(new ChannelSearchNameLineResultWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     mainLayout->addWidget(mStackedWidget);
-    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
-    mChannelSearchNameLineEdit->setObjectName(QStringLiteral("mChannelSearchNameLineEdit"));
+    mStackedWidget->setObjectName(u"mStackedWidget"_s);
+    mChannelSearchNameLineEdit->setObjectName(u"mChannelSearchNameLineEdit"_s);
     mChannelSearchNameLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Select a channel"));
     mStackedWidget->addWidget(mChannelSearchNameLineEdit);
 
-    mChannelSearchLineResult->setObjectName(QStringLiteral("mChannelSearchLineResult"));
+    mChannelSearchLineResult->setObjectName(u"mChannelSearchLineResult"_s);
     mStackedWidget->addWidget(mChannelSearchLineResult);
 
     connect(mChannelSearchNameLineEdit, &ChannelSearchNameLineEdit::newRoomName, this, &ChannelSearchWidget::slotSelectedRoom);

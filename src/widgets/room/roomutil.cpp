@@ -5,10 +5,12 @@
 */
 
 #include "roomutil.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolawidgets_debug.h"
 QString RoomUtil::generateUserLink(const QString &userName)
 {
-    return QStringLiteral("ruqola:/user/") + userName;
+    return u"ruqola:/user/"_s + userName;
 }
 
 QString RoomUtil::generatePermalink(const QString &messageId, const QString &roomId, Room::RoomType channelType)
@@ -16,18 +18,18 @@ QString RoomUtil::generatePermalink(const QString &messageId, const QString &roo
     QString prefix;
     switch (channelType) {
     case Room::RoomType::Channel:
-        prefix = QStringLiteral("channel/");
+        prefix = u"channel/"_s;
         break;
     case Room::RoomType::Direct:
-        prefix = QStringLiteral("direct/");
+        prefix = u"direct/"_s;
         break;
     case Room::RoomType::Private:
-        prefix = QStringLiteral("group/");
+        prefix = u"group/"_s;
         break;
     case Room::RoomType::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << " channel type undefined " << channelType;
         break;
     }
-    const QString result = QStringLiteral("%1%2?msg=%3").arg(prefix, roomId, messageId);
+    const QString result = u"%1%2?msg=%3"_s.arg(prefix, roomId, messageId);
     return result;
 }

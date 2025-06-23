@@ -5,6 +5,8 @@
 */
 
 #include "administratorinviteusersdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorinviteuserswidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -17,13 +19,13 @@ AdministratorInviteUsersDialog::AdministratorInviteUsersDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Send Emails Invite"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mInviteUsersWidget->setObjectName(QStringLiteral("mInviteUsersWidget"));
+    mInviteUsersWidget->setObjectName(u"mInviteUsersWidget"_s);
     mainLayout->addWidget(mInviteUsersWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorInviteUsersDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorInviteUsersDialog::accept);

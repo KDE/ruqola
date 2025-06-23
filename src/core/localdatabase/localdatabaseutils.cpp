@@ -5,25 +5,26 @@
 */
 
 #include "localdatabaseutils.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QDateTime>
 #include <QStandardPaths>
 
 QString LocalDatabaseUtils::fixRoomName(QString roomName)
 {
-    roomName.remove(QLatin1Char('/'));
-    roomName.remove(QLatin1Char(':'));
+    roomName.remove(u'/');
+    roomName.remove(u':');
     return roomName;
 }
 
 QString LocalDatabaseUtils::localMessageLoggerPath()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/");
+    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/logs/"_s;
 }
 
 QString LocalDatabaseUtils::localDatabasePath()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/");
+    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/"_s;
 }
 
 QString LocalDatabaseUtils::localMessagesDatabasePath()
@@ -50,13 +51,13 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
 {
     switch (pathType) {
     case LocalDatabaseUtils::DatabasePath::Messages:
-        return QStringLiteral("messages/");
+        return u"messages/"_s;
     case LocalDatabaseUtils::DatabasePath::Rooms:
-        return QStringLiteral("rooms/");
+        return u"rooms/"_s;
     case LocalDatabaseUtils::DatabasePath::Accounts:
-        return QStringLiteral("account/");
+        return u"account/"_s;
     case LocalDatabaseUtils::DatabasePath::Global:
-        return QStringLiteral("global/");
+        return u"global/"_s;
     }
     Q_UNREACHABLE();
     return {};
@@ -64,62 +65,62 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
 
 QString LocalDatabaseUtils::deleteMessage()
 {
-    return QStringLiteral("DELETE FROM MESSAGES WHERE messageId = ?");
+    return u"DELETE FROM MESSAGES WHERE messageId = ?"_s;
 }
 
 QString LocalDatabaseUtils::insertReplaceMessage()
 {
-    return QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)");
+    return u"INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"_s;
 }
 
 QString LocalDatabaseUtils::deleteRoom()
 {
-    return QStringLiteral("DELETE FROM ROOMS WHERE roomId = ?");
+    return u"DELETE FROM ROOMS WHERE roomId = ?"_s;
 }
 
 QString LocalDatabaseUtils::jsonRoom()
 {
-    return QStringLiteral("SELECT json FROM ROOMS WHERE roomId = \"%1\"");
+    return u"SELECT json FROM ROOMS WHERE roomId = \"%1\""_s;
 }
 
 QString LocalDatabaseUtils::insertReplaceRoom()
 {
-    return QStringLiteral("INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)");
+    return u"INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)"_s;
 }
 
 QString LocalDatabaseUtils::deleteAccount()
 {
-    return QStringLiteral("DELETE FROM ACCOUNT WHERE accountName = ?");
+    return u"DELETE FROM ACCOUNT WHERE accountName = ?"_s;
 }
 
 QString LocalDatabaseUtils::updateAccount()
 {
-    return QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?)");
+    return u"INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?)"_s;
 }
 
 QString LocalDatabaseUtils::insertReplaceGlobal()
 {
-    return QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)");
+    return u"INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)"_s;
 }
 
 QString LocalDatabaseUtils::removeGlobal()
 {
-    return QStringLiteral("DELETE FROM GLOBAL WHERE identifier = ?");
+    return u"DELETE FROM GLOBAL WHERE identifier = ?"_s;
 }
 
 QString LocalDatabaseUtils::timestampGlobal()
 {
-    return QStringLiteral("SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\"");
+    return u"SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\""_s;
 }
 
 QString LocalDatabaseUtils::deleteMessageFromLogs()
 {
-    return QStringLiteral("DELETE FROM LOGS WHERE messageId = ?");
+    return u"DELETE FROM LOGS WHERE messageId = ?"_s;
 }
 
 QString LocalDatabaseUtils::insertReplaceMessageFromLogs()
 {
-    return QStringLiteral("INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)");
+    return u"INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"_s;
 }
 
 qint64 LocalDatabaseUtils::currentTimeStamp()
@@ -129,5 +130,5 @@ qint64 LocalDatabaseUtils::currentTimeStamp()
 
 QString LocalDatabaseUtils::jsonAccount()
 {
-    return QStringLiteral("SELECT json FROM ACCOUNT WHERE accountName = \"%1\"");
+    return u"SELECT json FROM ACCOUNT WHERE accountName = \"%1\""_s;
 }

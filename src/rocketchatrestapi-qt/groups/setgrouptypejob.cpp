@@ -81,10 +81,10 @@ QJsonDocument SetGroupTypeJob::json() const
     generateJson(jsonObj);
     switch (mType) {
     case Public:
-        jsonObj["type"_L1] = QStringLiteral("c");
+        jsonObj["type"_L1] = u"c"_s;
         break;
     case Private:
-        jsonObj["type"_L1] = QStringLiteral("p");
+        jsonObj["type"_L1] = u"p"_s;
         break;
     case Unknown:
         break;

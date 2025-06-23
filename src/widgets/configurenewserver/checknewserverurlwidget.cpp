@@ -5,6 +5,8 @@
 */
 
 #include "checknewserverurlwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 
 #include <KBusyIndicatorWidget>
@@ -24,26 +26,26 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     , mConnectionPushButton(new QPushButton(i18nc("@action:button", "Connect"), this))
 {
     auto topLayout = new QVBoxLayout(this);
-    topLayout->setObjectName(QStringLiteral("topLayout"));
+    topLayout->setObjectName(u"topLayout"_s);
     topLayout->setContentsMargins({});
 
     auto serverUrlLayout = new QHBoxLayout;
-    serverUrlLayout->setObjectName(QStringLiteral("serverUrlLayout"));
+    serverUrlLayout->setObjectName(u"serverUrlLayout"_s);
     serverUrlLayout->setContentsMargins({});
     topLayout->addLayout(serverUrlLayout);
 
     auto label = new QLabel(i18nc("@label:textbox", "Server URL:"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     serverUrlLayout->addWidget(label);
 
-    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
-    mServerUrl->setPlaceholderText(QStringLiteral("open.rocket.chat"));
+    mServerUrl->setObjectName(u"mServerUrl"_s);
+    mServerUrl->setPlaceholderText(u"open.rocket.chat"_s);
     serverUrlLayout->addWidget(mServerUrl);
     mServerUrl->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mServerUrl);
 
-    mConnectionPushButton->setIcon(QIcon::fromTheme(QStringLiteral("network-connect-symbolic")));
-    mConnectionPushButton->setObjectName(QStringLiteral("connectionPushButton"));
+    mConnectionPushButton->setIcon(QIcon::fromTheme(u"network-connect-symbolic"_s));
+    mConnectionPushButton->setObjectName(u"connectionPushButton"_s);
     mConnectionPushButton->setEnabled(false);
     serverUrlLayout->addWidget(mConnectionPushButton);
 
@@ -61,10 +63,10 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
         }
     });
 
-    mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
+    mBusyIndicatorWidget->setObjectName(u"mBusyIndicatorWidget"_s);
     serverUrlLayout->addWidget(mBusyIndicatorWidget);
 
-    mFailedError->setObjectName(QStringLiteral("mFailedError"));
+    mFailedError->setObjectName(u"mFailedError"_s);
     mFailedError->setMessageType(KMessageWidget::Error);
     mFailedError->setCloseButtonVisible(false);
 

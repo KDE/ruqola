@@ -65,7 +65,7 @@ void ApplicationsSettingsLogsInfoTest::shouldLoadApplicationLogsInfo_data()
         }
         info.setArguments(args);
 
-        QTest::addRow("test1") << QStringLiteral("test1") << info;
+        QTest::addRow("test1") << u"test1"_s << info;
     }
 }
 

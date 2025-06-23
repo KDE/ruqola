@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomuserstatuscreatewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/statuscombobox.h"
 #include <KLocalizedString>
 #include <QFormLayout>
@@ -16,12 +18,12 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
     , mStatusCombobox(new StatusCombobox(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mName->setObjectName(QStringLiteral("mName"));
+    mName->setObjectName(u"mName"_s);
     mName->setClearButtonEnabled(true);
-    mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
+    mStatusCombobox->setObjectName(u"mStatusCombobox"_s);
     mStatusCombobox->setUseOnlyStandardStatus();
 
     mainLayout->addRow(i18n("Name:"), mName);

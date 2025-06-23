@@ -5,6 +5,8 @@
 */
 
 #include "usersinroomwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "room/usersinroomcombobox.h"
 #include "room/usersinroomlistview.h"
 #include "room/usersinroomwidget.h"
@@ -24,27 +26,27 @@ UsersInRoomWidgetTest::UsersInRoomWidgetTest(QObject *parent)
 void UsersInRoomWidgetTest::shouldHaveDefaultValues()
 {
     UsersInRoomWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mListView = w.findChild<UsersInRoomListView *>(QStringLiteral("mListView"));
+    auto mListView = w.findChild<UsersInRoomListView *>(u"mListView"_s);
     QVERIFY(mListView);
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 
-    auto mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
+    auto mMessageListInfo = w.findChild<QLabel *>(u"mMessageListInfo"_s);
     QVERIFY(mMessageListInfo);
     QCOMPARE(mMessageListInfo->textFormat(), Qt::RichText);
     QCOMPARE(mMessageListInfo->contextMenuPolicy(), Qt::NoContextMenu);
 
-    auto mUsersInRoomComboBox = w.findChild<UsersInRoomComboBox *>(QStringLiteral("mUsersInRoomComboBox"));
+    auto mUsersInRoomComboBox = w.findChild<UsersInRoomComboBox *>(u"mUsersInRoomComboBox"_s);
     QVERIFY(mUsersInRoomComboBox);
 
-    auto hMainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hMainLayout"));
+    auto hMainLayout = w.findChild<QHBoxLayout *>(u"hMainLayout"_s);
     QVERIFY(hMainLayout);
     QCOMPARE(hMainLayout->contentsMargins(), QMargins{});
 }

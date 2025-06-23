@@ -5,6 +5,8 @@
 */
 
 #include "textselectiontest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "delegateutils/textselection.h"
 #include "model/messagesmodel.h"
 
@@ -60,10 +62,10 @@ static QStandardItem *newItem(const QString &text)
 void TextSelectionTest::initTestCase()
 {
     int row = 0;
-    model.setItem(row++, 0, newItem(QStringLiteral("Line 0")));
-    model.setItem(row++, 0, newItem(QStringLiteral("Line 1 <b>bold</b>")));
-    model.setItem(row++, 0, newItem(QStringLiteral("Line 2 <b>bold</b>")));
-    model.setItem(row++, 0, newItem(QStringLiteral("Line 3")));
+    model.setItem(row++, 0, newItem(u"Line 0"_s));
+    model.setItem(row++, 0, newItem(u"Line 1 <b>bold</b>"_s));
+    model.setItem(row++, 0, newItem(u"Line 2 <b>bold</b>"_s));
+    model.setItem(row++, 0, newItem(u"Line 3"_s));
 }
 
 void TextSelectionTest::testChangingSelection()
@@ -86,24 +88,24 @@ void TextSelectionTest::testChangingSelection()
     QCOMPARE(selection.selectedText(TextSelection::Format::Text), QString());
     QVERIFY(!selection.hasSelection());
     selection.setTextSelectionEnd(index1, 4);
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("e"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"e"_s);
     QCOMPARE(spy.count(), 0);
     QVERIFY(selection.hasSelection());
 
     selection.setTextSelectionEnd(index1, 9);
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("e 1 bo"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"e 1 bo"_s);
     QCOMPARE(spy.count(), 0);
 
     spy.clear();
     selection.setTextSelectionEnd(index3, 2);
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("e 1 bold\nLine 2 bold\nLi"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"e 1 bold\nLine 2 bold\nLi"_s);
     QCOMPARE(spy.count(), 2);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 1); // line 1 is now fully selected, needs repaint
     QCOMPARE(spy.at(1).at(0).value<QModelIndex>().row(), 2); // line 2 was selected too, needs repaint
 
     spy.clear();
     selection.setTextSelectionEnd(index2, 2);
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("e 1 bold\nLi"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"e 1 bold\nLi"_s);
     QCOMPARE(spy.count(), 1);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 3); // line 3 is no longer selected
 
@@ -113,8 +115,8 @@ void TextSelectionTest::testChangingSelection()
         return cursor.selection().toPlainText();
     };
     QCOMPARE(selectionForRow(0), QString());
-    QCOMPARE(selectionForRow(1), QStringLiteral("e 1 bold"));
-    QCOMPARE(selectionForRow(2), QStringLiteral("Li"));
+    QCOMPARE(selectionForRow(1), u"e 1 bold"_s);
+    QCOMPARE(selectionForRow(2), u"Li"_s);
     QCOMPARE(selectionForRow(3), QString());
     QVERIFY(!selection.contains(index0, 0));
     QVERIFY(!selection.contains(index1, 2));
@@ -128,12 +130,12 @@ void TextSelectionTest::testChangingSelection()
     // Now move up and reverse selection
     spy.clear();
     selection.setTextSelectionEnd(index0, 1);
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("ine 0\nLin"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"ine 0\nLin"_s);
     QCOMPARE(spy.count(), 2);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 1); // line 1's selection is different
     QCOMPARE(spy.at(1).at(0).value<QModelIndex>().row(), 2); // line 2 is no longer selected
-    QCOMPARE(selectionForRow(0), QStringLiteral("ine 0"));
-    QCOMPARE(selectionForRow(1), QStringLiteral("Lin"));
+    QCOMPARE(selectionForRow(0), u"ine 0"_s);
+    QCOMPARE(selectionForRow(1), u"Lin"_s);
     QCOMPARE(selectionForRow(2), QString());
     QCOMPARE(selectionForRow(3), QString());
     QVERIFY(!selection.contains(index0, 0));
@@ -159,7 +161,7 @@ void TextSelectionTest::testSingleLineReverseSelection()
     selection.setTextSelectionEnd(index1, 1);
 
     // THEN
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("ine"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"ine"_s);
 }
 
 void TextSelectionTest::testSelectWordUnderCursor()
@@ -175,7 +177,7 @@ void TextSelectionTest::testSelectWordUnderCursor()
     selection.selectWordUnderCursor(index1, 2, &factory);
 
     // THEN
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("Line"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"Line"_s);
     QVERIFY(selection.contains(index1, 0));
     QVERIFY(selection.contains(index1, 2));
     QVERIFY(selection.contains(index1, 4));
@@ -190,7 +192,7 @@ void TextSelectionTest::testSelectWordUnderCursor()
     selection.selectWordUnderCursor(index2, 8, &factory);
 
     // THEN
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("bold"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"bold"_s);
     QVERIFY(!selection.contains(index2, 0));
     QVERIFY(!selection.contains(index2, 6));
     QVERIFY(selection.contains(index2, 7));
@@ -217,7 +219,7 @@ void TextSelectionTest::testSelectAll()
     QVERIFY(!selection.hasSelection());
     selection.selectMessage(index1);
     QVERIFY(selection.hasSelection());
-    QCOMPARE(selection.selectedText(TextSelection::Format::Text), QStringLiteral("Line 1 bold"));
+    QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"Line 1 bold"_s);
 }
 
 void TextSelectionTest::textClear()

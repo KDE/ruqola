@@ -5,6 +5,8 @@
 */
 
 #include "localdatabaseutilstest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabase/localdatabaseutils.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(LocalDatabaseUtilsTest)
@@ -16,35 +18,35 @@ LocalDatabaseUtilsTest::LocalDatabaseUtilsTest(QObject *parent)
 
 void LocalDatabaseUtilsTest::shouldAdaptRoomName()
 {
-    QCOMPARE(LocalDatabaseUtils::fixRoomName(QStringLiteral("foo")), QStringLiteral("foo"));
-    QCOMPARE(LocalDatabaseUtils::fixRoomName(QStringLiteral("1236")), QStringLiteral("1236"));
-    QCOMPARE(LocalDatabaseUtils::fixRoomName(QStringLiteral("bla foo")), QStringLiteral("bla foo"));
-    QCOMPARE(LocalDatabaseUtils::fixRoomName(QStringLiteral("bla/foo")), QStringLiteral("blafoo"));
-    QCOMPARE(LocalDatabaseUtils::fixRoomName(QStringLiteral("bla:foo")), QStringLiteral("blafoo"));
+    QCOMPARE(LocalDatabaseUtils::fixRoomName(u"foo"_s), u"foo"_s);
+    QCOMPARE(LocalDatabaseUtils::fixRoomName(u"1236"_s), u"1236"_s);
+    QCOMPARE(LocalDatabaseUtils::fixRoomName(u"bla foo"_s), u"bla foo"_s);
+    QCOMPARE(LocalDatabaseUtils::fixRoomName(u"bla/foo"_s), u"blafoo"_s);
+    QCOMPARE(LocalDatabaseUtils::fixRoomName(u"bla:foo"_s), u"blafoo"_s);
 }
 
 void LocalDatabaseUtilsTest::shouldCheckPath()
 {
-    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Messages), QStringLiteral("messages/"));
-    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Rooms), QStringLiteral("rooms/"));
-    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts), QStringLiteral("account/"));
-    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global), QStringLiteral("global/"));
+    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Messages), u"messages/"_s);
+    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Rooms), u"rooms/"_s);
+    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts), u"account/"_s);
+    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global), u"global/"_s);
 }
 
 void LocalDatabaseUtilsTest::shouldCheckDataBase()
 {
-    QCOMPARE(LocalDatabaseUtils::deleteMessage(), QStringLiteral("DELETE FROM MESSAGES WHERE messageId = ?"));
-    QCOMPARE(LocalDatabaseUtils::insertReplaceMessage(), QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"));
-    QCOMPARE(LocalDatabaseUtils::deleteRoom(), QStringLiteral("DELETE FROM ROOMS WHERE roomId = ?"));
-    QCOMPARE(LocalDatabaseUtils::insertReplaceRoom(), QStringLiteral("INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)"));
-    QCOMPARE(LocalDatabaseUtils::deleteAccount(), QStringLiteral("DELETE FROM ACCOUNT WHERE accountName = ?"));
-    QCOMPARE(LocalDatabaseUtils::updateAccount(), QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?)"));
-    QCOMPARE(LocalDatabaseUtils::insertReplaceGlobal(), QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)"));
-    QCOMPARE(LocalDatabaseUtils::removeGlobal(), QStringLiteral("DELETE FROM GLOBAL WHERE identifier = ?"));
-    QCOMPARE(LocalDatabaseUtils::timestampGlobal(), QStringLiteral("SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\""));
-    QCOMPARE(LocalDatabaseUtils::deleteMessageFromLogs(), QStringLiteral("DELETE FROM LOGS WHERE messageId = ?"));
-    QCOMPARE(LocalDatabaseUtils::insertReplaceMessageFromLogs(), QStringLiteral("INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"));
-    QCOMPARE(LocalDatabaseUtils::jsonAccount(), QStringLiteral("SELECT json FROM ACCOUNT WHERE accountName = \"%1\""));
+    QCOMPARE(LocalDatabaseUtils::deleteMessage(), u"DELETE FROM MESSAGES WHERE messageId = ?"_s);
+    QCOMPARE(LocalDatabaseUtils::insertReplaceMessage(), u"INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"_s);
+    QCOMPARE(LocalDatabaseUtils::deleteRoom(), u"DELETE FROM ROOMS WHERE roomId = ?"_s);
+    QCOMPARE(LocalDatabaseUtils::insertReplaceRoom(), u"INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)"_s);
+    QCOMPARE(LocalDatabaseUtils::deleteAccount(), u"DELETE FROM ACCOUNT WHERE accountName = ?"_s);
+    QCOMPARE(LocalDatabaseUtils::updateAccount(), u"INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?)"_s);
+    QCOMPARE(LocalDatabaseUtils::insertReplaceGlobal(), u"INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)"_s);
+    QCOMPARE(LocalDatabaseUtils::removeGlobal(), u"DELETE FROM GLOBAL WHERE identifier = ?"_s);
+    QCOMPARE(LocalDatabaseUtils::timestampGlobal(), u"SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\""_s);
+    QCOMPARE(LocalDatabaseUtils::deleteMessageFromLogs(), u"DELETE FROM LOGS WHERE messageId = ?"_s);
+    QCOMPARE(LocalDatabaseUtils::insertReplaceMessageFromLogs(), u"INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"_s);
+    QCOMPARE(LocalDatabaseUtils::jsonAccount(), u"SELECT json FROM ACCOUNT WHERE accountName = \"%1\""_s);
 }
 
 #include "moc_localdatabaseutilstest.cpp"

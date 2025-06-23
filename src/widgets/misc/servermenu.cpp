@@ -5,6 +5,8 @@
 */
 
 #include "servermenu.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountmanager.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
@@ -62,7 +64,7 @@ void ServerMenu::slotUpdateAccountMenu()
                 }
                 menu()->addAction(action);
                 if (mActionCollection) {
-                    mActionCollection->setDefaultShortcut(action, QKeySequence(QStringLiteral("CTRL+%1").arg(i)));
+                    mActionCollection->setDefaultShortcut(action, QKeySequence(u"CTRL+%1"_s.arg(i)));
                 }
                 connect(action, &QAction::triggered, this, [accountName, accountManager]() {
                     accountManager->setCurrentAccount(accountName);

@@ -35,13 +35,13 @@ QUrl Utils::generateServerUrl(const QString &url)
     } else {
         serverUrl = "wss://"_L1 + serverUrl;
     }
-    return QUrl(serverUrl + QStringLiteral("/websocket"));
+    return QUrl(serverUrl + u"/websocket"_s);
 }
 
 QString Utils::extractRoomUserFromUrl(QString url)
 {
-    url.remove(QStringLiteral("ruqola:/user/"));
-    url.remove(QStringLiteral("ruqola:/room/"));
+    url.remove(u"ruqola:/user/"_s);
+    url.remove(u"ruqola:/room/"_s);
     return url;
 }
 
@@ -53,26 +53,26 @@ QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
     QString dateTimeInfo;
     if (!info.displayTime.isEmpty()) {
         if (!info.url.isEmpty()) {
-            dateTimeInfo = QLatin1Char('\n') + QStringLiteral("<a href='%1'>%2</a>").arg(info.url, info.displayTime);
+            dateTimeInfo = u'\n' + u"<a href='%1'>%2</a>"_s.arg(info.url, info.displayTime);
         } else {
-            dateTimeInfo = QLatin1Char('\n') + info.displayTime;
+            dateTimeInfo = u'\n' + info.displayTime;
         }
     }
-    return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
-        + info.richText + dateTimeInfo + QStringLiteral("</td></tr></table>");
+    return u"<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>"_s.arg(backgroundColor, borderColor) + info.richText
+        + dateTimeInfo + u"</td></tr></table>"_s;
 }
 
 QString Utils::presenceStatusToString(User::PresenceStatus status)
 {
     switch (status) {
     case User::PresenceStatus::Online:
-        return QStringLiteral("online");
+        return u"online"_s;
     case User::PresenceStatus::Busy:
-        return QStringLiteral("busy");
+        return u"busy"_s;
     case User::PresenceStatus::Away:
-        return QStringLiteral("away");
+        return u"away"_s;
     case User::PresenceStatus::Offline:
-        return QStringLiteral("offline");
+        return u"offline"_s;
     case User::PresenceStatus::Unknown:
         return {};
     }
@@ -101,33 +101,33 @@ QString Utils::iconFromPresenceStatus(User::PresenceStatus status)
 {
     switch (status) {
     case User::PresenceStatus::Online:
-        return QStringLiteral("user-online");
+        return u"user-online"_s;
     case User::PresenceStatus::Busy:
-        return QStringLiteral("user-busy");
+        return u"user-busy"_s;
     case User::PresenceStatus::Away:
-        return QStringLiteral("user-away");
+        return u"user-away"_s;
     case User::PresenceStatus::Offline:
-        return QStringLiteral("user-offline");
+        return u"user-offline"_s;
     case User::PresenceStatus::Unknown:
-        return QStringLiteral("unknown");
+        return u"unknown"_s;
     }
     qCWarning(RUQOLA_LOG) << "Unknown status" << status;
-    return QStringLiteral("unknown");
+    return u"unknown"_s;
 }
 
 QString Utils::iconFromStatus(const QString &status)
 {
     if (status == "online"_L1) {
-        return QStringLiteral("user-online");
+        return u"user-online"_s;
     } else if (status == "busy"_L1) {
-        return QStringLiteral("user-busy");
+        return u"user-busy"_s;
     } else if (status == "away"_L1) {
-        return QStringLiteral("user-away");
+        return u"user-away"_s;
     } else if (status == "offline"_L1) {
-        return QStringLiteral("user-offline");
+        return u"user-offline"_s;
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown status" << status;
-        return QStringLiteral("unknown");
+        return u"unknown"_s;
     }
 }
 
@@ -170,18 +170,18 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
 
 QString Utils::convertTextWithCheckMark(const QString &str)
 {
-    static const QRegularExpression regularUnCheckMark(QStringLiteral("(^|\\n)-\\s\\[\\s\\]\\s"));
-    static const QRegularExpression regularCheckMark(QStringLiteral("(^|\\n)-\\s\\[x]\\s"));
+    static const QRegularExpression regularUnCheckMark(u"(^|\\n)-\\s\\[\\s\\]\\s"_s);
+    static const QRegularExpression regularCheckMark(u"(^|\\n)-\\s\\[x]\\s"_s);
     QString newStr = str;
-    newStr = newStr.replace(regularUnCheckMark, QStringLiteral("\\1:white_medium_square: "));
-    newStr = newStr.replace(regularCheckMark, QStringLiteral("\\1:ballot_box_with_check: "));
+    newStr = newStr.replace(regularUnCheckMark, u"\\1:white_medium_square: "_s);
+    newStr = newStr.replace(regularCheckMark, u"\\1:ballot_box_with_check: "_s);
     return newStr;
 }
 
 QString Utils::convertTextWithUrl(const QString &str)
 {
-    static const QRegularExpression regularExpressionAHref(QStringLiteral("<a href=\"(.*)\">(.*)</a>"));
-    static const QRegularExpression regularExpressionCustomAHref(QStringLiteral("<a href=\"(.*)\\|(.*)\">(.*)</a>"));
+    static const QRegularExpression regularExpressionAHref(u"<a href=\"(.*)\">(.*)</a>"_s);
+    static const QRegularExpression regularExpressionCustomAHref(u"<a href=\"(.*)\\|(.*)\">(.*)</a>"_s);
     QString newStr;
     bool isRef = false;
     bool isUrl = false;
@@ -190,46 +190,46 @@ QString Utils::convertTextWithUrl(const QString &str)
     QString references;
     for (int i = 0; i < str.length(); ++i) {
         const QChar ref = str.at(i);
-        if (ref == QLatin1Char('[')) {
+        if (ref == u'[') {
             if (isRef) {
                 isRef = false;
-                newStr += QLatin1Char('[') + references + QLatin1Char('[');
+                newStr += u'[' + references + u'[';
                 references.clear();
             } else {
                 isRef = true;
             }
 #if 0
-        } else if (isUrl && ref == QLatin1Char(']') && isHasNewRef) {
+        } else if (isUrl && ref == u']' && isHasNewRef) {
             isUrl = false;
             isRef = false;
-            newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+            newStr += u"<a href=\'%1'>%2</a>"_s.arg(url, references);
             references.clear();
             url.clear();
 #endif
-        } else if (isRef && ref == QLatin1Char(']')) {
+        } else if (isRef && ref == u']') {
             isRef = false;
-            if ((i == str.length() - 1) || (str.at(i + 1) != QLatin1Char('('))) {
-                if (references.startsWith(QLatin1Char('<'))) {
-                    newStr += references.replace(regularExpressionCustomAHref, QStringLiteral("<a href=\"\\2\">\\1</a>"));
+            if ((i == str.length() - 1) || (str.at(i + 1) != u'(')) {
+                if (references.startsWith(u'<')) {
+                    newStr += references.replace(regularExpressionCustomAHref, u"<a href=\"\\2\">\\1</a>"_s);
                 } else {
-                    newStr += QLatin1Char('[') + references + QLatin1Char(']');
+                    newStr += u'[' + references + u']';
                 }
                 references.clear();
             }
-        } else if (ref == QLatin1Char('(') && !references.isEmpty()) {
+        } else if (ref == u'(' && !references.isEmpty()) {
             isUrl = true;
-        } else if (isUrl && ref == QLatin1Char(')') && !references.isEmpty()) {
+        } else if (isUrl && ref == u')' && !references.isEmpty()) {
             isUrl = false;
             // detect whether the string already contains HTML <a/> tags
-            if (url.startsWith(QLatin1Char('<'))) {
-                newStr += url.replace(regularExpressionAHref, QStringLiteral("<a href=\"\\1\">%1</a>").arg(references));
+            if (url.startsWith(u'<')) {
+                newStr += url.replace(regularExpressionAHref, u"<a href=\"\\1\">%1</a>"_s.arg(references));
             } else {
-                newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+                newStr += u"<a href=\'%1'>%2</a>"_s.arg(url, references);
             }
             references.clear();
             url.clear();
 #if 0
-        } else if (ref == QLatin1Char('|') && !references.isEmpty()) {
+        } else if (ref == u'|' && !references.isEmpty()) {
             isUrl = true;
             isRef = false;
             isHasNewRef = true;
@@ -245,12 +245,12 @@ QString Utils::convertTextWithUrl(const QString &str)
         }
     }
     if (isRef) {
-        newStr += QLatin1Char('[') + references;
+        newStr += u'[' + references;
     } else if (isUrl) {
-        newStr += QLatin1Char('[') + references + "]("_L1 + url;
+        newStr += u'[' + references + "]("_L1 + url;
     } else if (isHasNewRef) {
         if (!url.isEmpty() && !references.isEmpty()) {
-            newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+            newStr += u"<a href=\'%1'>%2</a>"_s.arg(url, references);
         }
     }
     return newStr;
@@ -309,23 +309,23 @@ QUrl Utils::AvatarInfo::avatarUrl(const QString &serverRcUrl) const
     QString subFolder;
     switch (avatarType) {
     case AvatarType::Room:
-        subFolder = QStringLiteral("/room");
+        subFolder = u"/room"_s;
         break;
     case AvatarType::Unknown:
     case AvatarType::User:
     case AvatarType::UserAndRoom:
         break;
     }
-    subFolder += QLatin1Char('/') + identifier;
-    subFolder += QStringLiteral("?format=png");
+    subFolder += u'/' + identifier;
+    subFolder += u"?format=png"_s;
     if (!etag.isEmpty()) {
-        subFolder += QStringLiteral("&etag=%1").arg(etag);
+        subFolder += u"&etag=%1"_s.arg(etag);
     }
-    subFolder += QStringLiteral("&size=22");
+    subFolder += u"&size=22"_s;
     if (!serverUrl.startsWith(QStringView(u"https://")) && !serverUrl.startsWith(QStringView(u"http://"))) {
-        serverUrl.prepend(QStringLiteral("https://"));
+        serverUrl.prepend(u"https://"_s);
     }
-    return QUrl(serverUrl + QStringLiteral("/avatar") + subFolder);
+    return QUrl(serverUrl + u"/avatar"_s + subFolder);
 }
 
 QDebug operator<<(QDebug d, const Utils::AvatarInfo &t)
@@ -363,7 +363,7 @@ QString Utils::AvatarInfo::generateAvatarIdentifier() const
     if (etag.isEmpty()) {
         return identifier;
     } else {
-        return identifier + QLatin1Char('-') + etag;
+        return identifier + u'-' + etag;
     }
 }
 
@@ -390,7 +390,7 @@ QString Utils::createUniqueAccountName(const QStringList &list, const QString &a
     QString newAccountName = accountName;
     int i = 1;
     while (list.contains(newAccountName)) {
-        newAccountName = QStringLiteral("%1%2").arg(accountName, QString::number(i));
+        newAccountName = u"%1%2"_s.arg(accountName, QString::number(i));
         ++i;
     }
     return newAccountName;
@@ -399,7 +399,7 @@ QString Utils::createUniqueAccountName(const QStringList &list, const QString &a
 QString Utils::findExecutable(const QString &exec)
 {
 #ifdef Q_OS_WIN
-    const QString executableName = exec + QStringLiteral(".exe");
+    const QString executableName = exec + u".exe"_s;
     QString path = QStandardPaths::findExecutable(executableName, {QCoreApplication::applicationDirPath()});
     if (path.isEmpty()) {
         path = QStandardPaths::findExecutable(executableName);

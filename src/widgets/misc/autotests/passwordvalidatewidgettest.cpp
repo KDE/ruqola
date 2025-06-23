@@ -5,6 +5,8 @@
 */
 
 #include "passwordvalidatewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/passwordvalidatewidget.h"
 
 #include <QGridLayout>
@@ -19,20 +21,20 @@ PasswordValidateWidgetTest::PasswordValidateWidgetTest(QObject *parent)
 void PasswordValidateWidgetTest::shouldHaveDefaultValues()
 {
     PasswordValidateWidget w;
-    auto mGridLayout = w.findChild<QGridLayout *>(QStringLiteral("mGridLayout"));
+    auto mGridLayout = w.findChild<QGridLayout *>(u"mGridLayout"_s);
     QVERIFY(mGridLayout);
     QCOMPARE(mGridLayout->contentsMargins(), QMargins{});
 
     PasswordValidateLabel l;
-    auto mainLayout = l.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = l.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     QCOMPARE(mainLayout->spacing(), 0);
 
-    auto mIconLabel = l.findChild<QLabel *>(QStringLiteral("mIconLabel"));
+    auto mIconLabel = l.findChild<QLabel *>(u"mIconLabel"_s);
     QVERIFY(mIconLabel);
 
-    auto mLabel = l.findChild<QLabel *>(QStringLiteral("mLabel"));
+    auto mLabel = l.findChild<QLabel *>(u"mLabel"_s);
     QVERIFY(mLabel);
 }
 

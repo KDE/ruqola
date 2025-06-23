@@ -35,7 +35,7 @@ void RetentionInfoTest::shouldLoadRetention_data()
     info.setExcludePinned(false);
     info.setFilesOnly(true);
     info.setOverrideGlobal(true);
-    QTest::addRow("retention") << QStringLiteral("retention") << info;
+    QTest::addRow("retention") << u"retention"_s << info;
 }
 
 void RetentionInfoTest::shouldLoadRetention()

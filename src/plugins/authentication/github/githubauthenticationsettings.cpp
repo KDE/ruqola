@@ -5,6 +5,7 @@
 */
 
 #include "githubauthenticationsettings.h"
+using namespace Qt::Literals::StringLiterals;
 
 using namespace GitHubAuthenticationSettings;
 
@@ -20,10 +21,10 @@ QString GitHubAuthenticationSettings::clientSecret()
 
 QUrl GitHubAuthenticationSettings::authorizeUrl()
 {
-    return QUrl(QStringLiteral("https://github.com/login/oauth/authorize"));
+    return QUrl(u"https://github.com/login/oauth/authorize"_s);
 }
 
 QUrl GitHubAuthenticationSettings::accessTokenUrl()
 {
-    return QUrl(QStringLiteral("https://github.com/login/oauth/access_token"));
+    return QUrl(u"https://github.com/login/oauth/access_token"_s);
 }

@@ -5,6 +5,8 @@
 */
 
 #include "confirmpasswordwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/confirmpasswordwidget.h"
 #include <KPasswordLineEdit>
 #include <QLabel>
@@ -21,15 +23,15 @@ void ConfirmPasswordWidgetTest::shouldHaveDefaultValues()
 {
     ConfirmPasswordWidget w;
     QVERIFY(w.password().isEmpty());
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
     QVERIFY(mPasswordLineEdit);
     QVERIFY(mPasswordLineEdit->password().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 }

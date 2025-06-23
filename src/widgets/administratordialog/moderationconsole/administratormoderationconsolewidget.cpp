@@ -5,6 +5,8 @@
 */
 
 #include "administratormoderationconsolewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratormoderationreportedmessageconsoletreewidget.h"
 #include "administratormoderationreporteduserconsoletreewidget.h"
 #include "rocketchataccount.h"
@@ -19,18 +21,18 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
     , mAdministratorModerationReportedUserConsoleTreeWidget(new AdministratorModerationReportedUserConsoleTreeWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
     auto tabbar = new QTabWidget(this);
-    tabbar->setObjectName(QStringLiteral("tabbar"));
+    tabbar->setObjectName(u"tabbar"_s);
     mainLayout->addWidget(tabbar);
 
-    mAdministratorModerationReportedMessageConsoleTreeWidget->setObjectName(QStringLiteral("mAdministratorModerationReportedMessageConsoleTreeWidget"));
+    mAdministratorModerationReportedMessageConsoleTreeWidget->setObjectName(u"mAdministratorModerationReportedMessageConsoleTreeWidget"_s);
     tabbar->addTab(mAdministratorModerationReportedMessageConsoleTreeWidget, i18n("Reported Messages"));
 
-    mAdministratorModerationReportedUserConsoleTreeWidget->setObjectName(QStringLiteral("mAdministratorModerationReportedUserConsoleTreeWidget"));
+    mAdministratorModerationReportedUserConsoleTreeWidget->setObjectName(u"mAdministratorModerationReportedUserConsoleTreeWidget"_s);
     tabbar->addTab(mAdministratorModerationReportedUserConsoleTreeWidget, i18n("Reported Users"));
 }
 

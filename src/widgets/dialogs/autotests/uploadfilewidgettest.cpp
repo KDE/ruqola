@@ -5,6 +5,8 @@
 */
 
 #include "uploadfilewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/uploadfilewidget.h"
 #include <QFormLayout>
 #include <QLabel>
@@ -22,31 +24,31 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
 {
     UploadFileWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
+    auto layout = w.findChild<QFormLayout *>(u"layout"_s);
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});
 
-    auto mDescription = w.findChild<QLineEdit *>(QStringLiteral("mDescription"));
+    auto mDescription = w.findChild<QLineEdit *>(u"mDescription"_s);
     QVERIFY(mDescription);
     QVERIFY(mDescription->isClearButtonEnabled());
 
-    auto mFileName = w.findChild<QLineEdit *>(QStringLiteral("mFileName"));
+    auto mFileName = w.findChild<QLineEdit *>(u"mFileName"_s);
     QVERIFY(mFileName);
     QVERIFY(mFileName->isClearButtonEnabled());
 
-    auto mImagePreview = w.findChild<QLabel *>(QStringLiteral("mImagePreview"));
+    auto mImagePreview = w.findChild<QLabel *>(u"mImagePreview"_s);
     QVERIFY(mImagePreview);
     QVERIFY(!mImagePreview->isVisible());
 
-    auto mFileNameInfo = w.findChild<QLabel *>(QStringLiteral("mFileNameInfo"));
+    auto mFileNameInfo = w.findChild<QLabel *>(u"mFileNameInfo"_s);
     QVERIFY(mFileNameInfo);
     QVERIFY(mFileNameInfo->text().isEmpty());
 
-    auto mMimeTypeLabel = w.findChild<QLabel *>(QStringLiteral("mMimeTypeLabel"));
+    auto mMimeTypeLabel = w.findChild<QLabel *>(u"mMimeTypeLabel"_s);
     QVERIFY(mMimeTypeLabel);
     QVERIFY(mMimeTypeLabel->text().isEmpty());
 }

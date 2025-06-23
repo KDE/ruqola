@@ -5,6 +5,8 @@
 */
 
 #include "roomheaderwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "actionbuttons/actionbuttonutil.h"
 #include "actionbuttonsgenerator.h"
@@ -46,17 +48,17 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
         });
     }
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto headerLayout = new QHBoxLayout;
-    headerLayout->setObjectName(QStringLiteral("headerLayout"));
+    headerLayout->setObjectName(u"headerLayout"_s);
     headerLayout->setContentsMargins({});
     mainLayout->addLayout(headerLayout);
 
     mFavoriteButton->setAutoRaise(true);
-    mFavoriteButton->setObjectName(QStringLiteral("mFavoriteButton"));
-    mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
+    mFavoriteButton->setObjectName(u"mFavoriteButton"_s);
+    mFavoriteButton->setIcon(QIcon::fromTheme(u"favorite"_s));
     mFavoriteButton->setCheckable(true);
     mFavoriteButton->setToolTip(i18nc("@info:tooltip", "Favorite"));
 #ifndef QT_NO_ACCESSIBILITY
@@ -66,16 +68,16 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
     mDiscussionBackButton->setAutoRaise(true);
-    mDiscussionBackButton->setObjectName(QStringLiteral("mDiscussionBackButton"));
-    mDiscussionBackButton->setIcon(QIcon::fromTheme(QStringLiteral("draw-arrow-back")));
+    mDiscussionBackButton->setObjectName(u"mDiscussionBackButton"_s);
+    mDiscussionBackButton->setIcon(QIcon::fromTheme(u"draw-arrow-back"_s));
     mDiscussionBackButton->setCheckable(false);
     headerLayout->addWidget(mDiscussionBackButton, 0, Qt::AlignTop);
     connect(mDiscussionBackButton, &QToolButton::clicked, this, &RoomHeaderWidget::goBackToRoom);
     mDiscussionBackButton->setVisible(false);
 
     mEncryptedButton->setAutoRaise(true);
-    mEncryptedButton->setObjectName(QStringLiteral("mEncryptedButton"));
-    mEncryptedButton->setIcon(QIcon::fromTheme(QStringLiteral("encrypted")));
+    mEncryptedButton->setObjectName(u"mEncryptedButton"_s);
+    mEncryptedButton->setIcon(QIcon::fromTheme(u"encrypted"_s));
     mEncryptedButton->setToolTip(i18nc("@info:tooltip", "E2E Enabled"));
 #ifndef QT_NO_ACCESSIBILITY
     mEncryptedButton->setAccessibleName(i18n("Encryption"));
@@ -96,48 +98,48 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addWidget(mRoomIcon, 0, Qt::AlignTop);
 
     auto infoLayout = new QVBoxLayout;
-    infoLayout->setObjectName(QStringLiteral("infoLayout"));
+    infoLayout->setObjectName(u"infoLayout"_s);
     infoLayout->setContentsMargins({});
     infoLayout->setSpacing(0);
     headerLayout->addLayout(infoLayout);
 
     auto roomNameLayout = new QHBoxLayout;
-    roomNameLayout->setObjectName(QStringLiteral("roomNameLayout"));
+    roomNameLayout->setObjectName(u"roomNameLayout"_s);
     roomNameLayout->setContentsMargins({});
     roomNameLayout->setSpacing(0);
     infoLayout->addLayout(roomNameLayout);
 
-    mRoomName->setObjectName(QStringLiteral("mRoomName"));
+    mRoomName->setObjectName(u"mRoomName"_s);
     mRoomName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     roomNameLayout->addWidget(mRoomName);
     mRoomName->setVisible(false);
 
-    mTeamName->setObjectName(QStringLiteral("mTeamName"));
+    mTeamName->setObjectName(u"mTeamName"_s);
     roomNameLayout->addWidget(mTeamName);
     mTeamName->setVisible(false);
     roomNameLayout->addStretch(1);
 
-    mRoomHeaderLabel->setObjectName(QStringLiteral("mRoomHeaderLabel"));
+    mRoomHeaderLabel->setObjectName(u"mRoomHeaderLabel"_s);
     infoLayout->addWidget(mRoomHeaderLabel);
 
     auto buttonLayout = new QHBoxLayout;
-    buttonLayout->setObjectName(QStringLiteral("buttonLayout"));
+    buttonLayout->setObjectName(u"buttonLayout"_s);
     buttonLayout->setContentsMargins({});
     buttonLayout->setSpacing(0);
     headerLayout->addLayout(buttonLayout);
 
     mAIActionButton->setAutoRaise(true);
-    mAIActionButton->setObjectName(QStringLiteral("mAIActionButton"));
+    mAIActionButton->setObjectName(u"mAIActionButton"_s);
     mAIActionButton->setToolTip(i18nc("@info:tooltip", "AI Actions"));
     mAIActionButton->setPopupMode(QToolButton::InstantPopup);
-    mAIActionButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-operator")));
+    mAIActionButton->setIcon(QIcon::fromTheme(u"irc-operator"_s));
     buttonLayout->addWidget(mAIActionButton, 0, Qt::AlignTop);
     // Disable by default
     mAIActionButton->hide();
 
     mCallButton->setAutoRaise(true);
-    mCallButton->setObjectName(QStringLiteral("mCallButton"));
-    mCallButton->setIcon(QIcon::fromTheme(QStringLiteral("call-start-symbolic")));
+    mCallButton->setObjectName(u"mCallButton"_s);
+    mCallButton->setIcon(QIcon::fromTheme(u"call-start-symbolic"_s));
     mCallButton->setToolTip(i18nc("@info:tooltip", "Call"));
 #ifndef QT_NO_ACCESSIBILITY
     mCallButton->setAccessibleName(i18n("Call"));
@@ -147,8 +149,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mCallButton, &QToolButton::clicked, this, &RoomHeaderWidget::callRequested);
 
     mChannelInfoButton->setAutoRaise(true);
-    mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
-    mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
+    mChannelInfoButton->setObjectName(u"mChannelInfoButton"_s);
+    mChannelInfoButton->setIcon(QIcon::fromTheme(u"documentinfo"_s));
     mChannelInfoButton->setToolTip(i18nc("@info:tooltip", "Channel's Information"));
 #ifndef QT_NO_ACCESSIBILITY
     mChannelInfoButton->setAccessibleName(i18n("Channel's Information"));
@@ -158,8 +160,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
 
     mTeamChannelsButton->setAutoRaise(true);
-    mTeamChannelsButton->setObjectName(QStringLiteral("mTeamChannelsButton"));
-    mTeamChannelsButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-channel-active")));
+    mTeamChannelsButton->setObjectName(u"mTeamChannelsButton"_s);
+    mTeamChannelsButton->setIcon(QIcon::fromTheme(u"irc-channel-active"_s));
     mTeamChannelsButton->setToolTip(i18nc("@info:tooltip", "Team Channels"));
 #ifndef QT_NO_ACCESSIBILITY
     mListOfUsersButton->setAccessibleName(i18n("Team Channels"));
@@ -169,8 +171,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mTeamChannelsButton, &QToolButton::clicked, this, &RoomHeaderWidget::teamChannelsRequested);
 
     mListOfUsersButton->setAutoRaise(true);
-    mListOfUsersButton->setObjectName(QStringLiteral("mListOfUsersButton"));
-    mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));
+    mListOfUsersButton->setObjectName(u"mListOfUsersButton"_s);
+    mListOfUsersButton->setIcon(QIcon::fromTheme(u"system-users"_s));
     mListOfUsersButton->setCheckable(true);
     mListOfUsersButton->setToolTip(i18nc("@info:tooltip", "Show List of Users"));
 #ifndef QT_NO_ACCESSIBILITY
@@ -181,8 +183,8 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mListOfUsersButton, &QToolButton::clicked, this, &RoomHeaderWidget::listOfUsersChanged);
 
     mSearchMessageButton->setAutoRaise(true);
-    mSearchMessageButton->setObjectName(QStringLiteral("mSearchMessageButton"));
-    mSearchMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
+    mSearchMessageButton->setObjectName(u"mSearchMessageButton"_s);
+    mSearchMessageButton->setIcon(QIcon::fromTheme(u"edit-find"_s));
     mSearchMessageButton->setCheckable(false);
     mSearchMessageButton->setShortcut(Qt::CTRL | Qt::Key_F);
     mSearchMessageButton->setToolTip(i18nc("@info:tooltip", "Search Messages…"));
@@ -226,13 +228,13 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     }
 
     mChannelActionButton->setAutoRaise(true);
-    mChannelActionButton->setObjectName(QStringLiteral("mChannelAction"));
+    mChannelActionButton->setObjectName(u"mChannelAction"_s);
     mChannelActionButton->setPopupMode(QToolButton::InstantPopup);
-    mChannelActionButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-operator")));
+    mChannelActionButton->setIcon(QIcon::fromTheme(u"irc-operator"_s));
     buttonLayout->addWidget(mChannelActionButton, 0, Qt::AlignTop);
 
     mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelActionButton);
-    mChannelActionPopupMenu->setObjectName(QStringLiteral("mChannelActionPopupMenu"));
+    mChannelActionPopupMenu->setObjectName(u"mChannelActionPopupMenu"_s);
     mChannelActionButton->setMenu(mChannelActionPopupMenu->menu());
     connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::actionRequested, this, &RoomHeaderWidget::actionRequested);
     connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::uiInteractionRequested, this, &RoomHeaderWidget::uiInteractionRequested);

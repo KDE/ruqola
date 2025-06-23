@@ -5,6 +5,8 @@
 */
 
 #include "bannerinfowidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "bannerinfodialog/bannerinfowidget.h"
 #include <QTest>
 #include <QVBoxLayout>
@@ -18,7 +20,7 @@ void BannerInfoWidgetTest::shouldHaveDefaultValues()
 {
     BannerInfoWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }

@@ -5,6 +5,8 @@
 */
 
 #include "showthreadsdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/listmessagesfilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "showtheadscombobox.h"
@@ -25,7 +27,7 @@ ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent
 {
     setWindowTitle(i18nc("@title:window", "Show Threads Messages"));
     readConfig();
-    mShowTheadsComboBox->setObjectName(QStringLiteral("mShowTheadsComboBox"));
+    mShowTheadsComboBox->setObjectName(u"mShowTheadsComboBox"_s);
     addMessageLineWidget(mShowTheadsComboBox);
     connect(mShowTheadsComboBox, &QComboBox::activated, this, [this]() {
         const ShowTheadsComboBox::ThreadType type = mShowTheadsComboBox->currentThreadType();

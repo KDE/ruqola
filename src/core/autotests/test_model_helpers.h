@@ -8,6 +8,8 @@
 #pragma once
 
 #include <QSignalSpy>
+using namespace Qt::Literals::StringLiterals;
+
 #include <QString>
 
 namespace TestModelHelpers
@@ -15,13 +17,13 @@ namespace TestModelHelpers
 inline QString rowSpyToText(const QSignalSpy &spy)
 {
     if (!spy.isValid()) {
-        return QStringLiteral("THE SIGNALSPY IS INVALID!");
+        return u"THE SIGNALSPY IS INVALID!"_s;
     }
     QString str;
     for (int i = 0; i < spy.count(); ++i) {
-        str += spy.at(i).at(1).toString() + QLatin1Char(',') + spy.at(i).at(2).toString();
+        str += spy.at(i).at(1).toString() + u',' + spy.at(i).at(2).toString();
         if (i + 1 < spy.count()) {
-            str += QLatin1Char(';');
+            str += u';';
         }
     }
     return str;

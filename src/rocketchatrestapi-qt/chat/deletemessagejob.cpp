@@ -107,7 +107,7 @@ QNetworkRequest DeleteMessageJob::request() const
 
 QString DeleteMessageJob::jobName() const
 {
-    return QStringLiteral("Delete Message");
+    return u"Delete Message"_s;
 }
 
 QString DeleteMessageJob::errorMessage(const QString &str, const QJsonObject &details)

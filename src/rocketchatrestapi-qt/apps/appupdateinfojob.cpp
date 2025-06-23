@@ -98,16 +98,16 @@ QString AppUpdateInfoJob::generateUrlExtension() const
         }
         break;
     case AppInfoType::Settings:
-        url += QLatin1Char('/') + QStringLiteral("settings");
+        url += u'/' + u"settings"_s;
         break;
     case AppInfoType::Status:
-        url += QLatin1Char('/') + QStringLiteral("status");
+        url += u'/' + u"status"_s;
         break;
     case AppInfoType::ActionButton:
-        url = QStringLiteral("actionButtons");
+        url = u"actionButtons"_s;
         break;
     case AppInfoType::Icon:
-        url += QLatin1Char('/') + QStringLiteral("icon");
+        url += u'/' + u"icon"_s;
         break;
     }
     return url;

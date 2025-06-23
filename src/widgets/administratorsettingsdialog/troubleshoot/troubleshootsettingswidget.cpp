@@ -5,6 +5,8 @@
 */
 
 #include "troubleshootsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -21,52 +23,52 @@ TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *accoun
     , mDisableWorkspaceSync(new QCheckBox(i18nc("@option:check", "Disable Workspace Sync"), this))
     , mDisableTeamsMention(new QCheckBox(i18nc("@option:check", "Disable Teams Mention"), this))
 {
-    mDisableNotifications->setObjectName(QStringLiteral("mDisableNotifications"));
+    mDisableNotifications->setObjectName(u"mDisableNotifications"_s);
     mDisableNotifications->setToolTip(
         i18n("This setting completely disables the notifications system; sounds, desktop notifications, mobile notifications, and emails will stop!"));
-    addCheckBox(mDisableNotifications, QStringLiteral("Troubleshoot_Disable_Notifications"));
+    addCheckBox(mDisableNotifications, u"Troubleshoot_Disable_Notifications"_s);
 
-    mDisablePresenceBroadcast->setObjectName(QStringLiteral("mDisablePresenceBroadcast"));
+    mDisablePresenceBroadcast->setObjectName(u"mDisablePresenceBroadcast"_s);
     mDisablePresenceBroadcast->setToolTip(
         i18n("This setting prevents all instances from sending the status changes of the users to their clients keeping all the users with their presence "
              "status from the first load!"));
-    addCheckBox(mDisablePresenceBroadcast, QStringLiteral("Troubleshoot_Disable_Presence_Broadcast"));
+    addCheckBox(mDisablePresenceBroadcast, u"Troubleshoot_Disable_Presence_Broadcast"_s);
 
-    mDisableInstanceBroadcast->setObjectName(QStringLiteral("mDisableInstanceBroadcast"));
+    mDisableInstanceBroadcast->setObjectName(u"mDisableInstanceBroadcast"_s);
     mDisableInstanceBroadcast->setToolTip(
         i18n("This setting prevents the Rocket.Chat instances from sending events to the other instances, it may cause syncing problems and misbehavior!"));
-    addCheckBox(mDisableInstanceBroadcast, QStringLiteral("Troubleshoot_Disable_Instance_Broadcast"));
+    addCheckBox(mDisableInstanceBroadcast, u"Troubleshoot_Disable_Instance_Broadcast"_s);
 
-    mDisableSessionsMonitor->setObjectName(QStringLiteral("mDisableSessionsMonitor"));
+    mDisableSessionsMonitor->setObjectName(u"mDisableSessionsMonitor"_s);
     mDisableSessionsMonitor->setToolTip(
         i18n("This setting prevents the Rocket.Chat instances from sending events to the other instances, it may cause syncing problems and misbehavior!"));
-    addCheckBox(mDisableSessionsMonitor, QStringLiteral("Troubleshoot_Disable_Sessions_Monitor"));
+    addCheckBox(mDisableSessionsMonitor, u"Troubleshoot_Disable_Sessions_Monitor"_s);
 
-    mDisableLivechatActivityMonitor->setObjectName(QStringLiteral("mDisableLivechatActivityMonitor"));
+    mDisableLivechatActivityMonitor->setObjectName(u"mDisableLivechatActivityMonitor"_s);
     mDisableLivechatActivityMonitor->setToolTip(
         i18n("This setting stops the processing of livechat visitor sessions causing the statistics to stop working correctly!"));
-    addCheckBox(mDisableLivechatActivityMonitor, QStringLiteral("Troubleshoot_Disable_Livechat_Activity_Monitor"));
+    addCheckBox(mDisableLivechatActivityMonitor, u"Troubleshoot_Disable_Livechat_Activity_Monitor"_s);
 
-    mDisableStatisticsGenerator->setObjectName(QStringLiteral("mDisableStatisticsGenerator"));
+    mDisableStatisticsGenerator->setObjectName(u"mDisableStatisticsGenerator"_s);
     mDisableStatisticsGenerator->setToolTip(
         i18n("This setting stops the processing all statistics making the info page outdated until someone clicks on the refresh button and may cause other "
              "missing information around the system!"));
-    addCheckBox(mDisableStatisticsGenerator, QStringLiteral("Troubleshoot_Disable_Statistics_Generator"));
+    addCheckBox(mDisableStatisticsGenerator, u"Troubleshoot_Disable_Statistics_Generator"_s);
 
-    mDisableDataExporterProcessor->setObjectName(QStringLiteral("mDisableDataExporterProcessor"));
+    mDisableDataExporterProcessor->setObjectName(u"mDisableDataExporterProcessor"_s);
     mDisableDataExporterProcessor->setToolTip(
         i18n("This setting stops the processing of all export requests from users, so they will not receive the link to download their data!"));
-    addCheckBox(mDisableDataExporterProcessor, QStringLiteral("Troubleshoot_Disable_Data_Exporter_Processor"));
+    addCheckBox(mDisableDataExporterProcessor, u"Troubleshoot_Disable_Data_Exporter_Processor"_s);
 
-    mDisableWorkspaceSync->setObjectName(QStringLiteral("mDisableWorkspaceSync"));
+    mDisableWorkspaceSync->setObjectName(u"mDisableWorkspaceSync"_s);
     mDisableWorkspaceSync->setToolTip(
         i18n("This setting stops the sync of this server with Rocket.Chat's cloud and may cause issues with marketplace and enterprise licenses!"));
-    addCheckBox(mDisableWorkspaceSync, QStringLiteral("Troubleshoot_Disable_Workspace_Sync"));
+    addCheckBox(mDisableWorkspaceSync, u"Troubleshoot_Disable_Workspace_Sync"_s);
 
-    mDisableTeamsMention->setObjectName(QStringLiteral("mDisableTeamsMention"));
+    mDisableTeamsMention->setObjectName(u"mDisableTeamsMention"_s);
     mDisableTeamsMention->setToolTip(
         i18n("This setting disables the teams mention feature. User's won't be able to mention a Team by name in a message and get its members notified."));
-    addCheckBox(mDisableTeamsMention, QStringLiteral("Troubleshoot_Disable_Teams_Mention"));
+    addCheckBox(mDisableTeamsMention, u"Troubleshoot_Disable_Teams_Mention"_s);
 }
 
 TroubleshootSettingsWidget::~TroubleshootSettingsWidget() = default;

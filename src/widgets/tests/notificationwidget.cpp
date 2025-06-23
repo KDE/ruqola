@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "notificationwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KNotification>
 #include <KNotificationReplyAction>
 #include <QDebug>
@@ -18,7 +20,7 @@ NotificationWidget::NotificationWidget(QWidget *parent)
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->addWidget(mLineEdit);
 
-    auto sendNotification = new QPushButton(QStringLiteral("Send"), this);
+    auto sendNotification = new QPushButton(u"Send"_s, this);
     mainLayout->addWidget(sendNotification);
 
     connect(sendNotification, &QPushButton::clicked, this, &NotificationWidget::slotSendNotification);
@@ -30,10 +32,10 @@ void NotificationWidget::slotSendNotification()
 {
     const QString str = mLineEdit->text();
     if (!str.isEmpty()) {
-        auto notification = new KNotification(QStringLiteral("new-notification"), KNotification::CloseOnTimeout);
-        notification->setTitle(QStringLiteral("test"));
+        auto notification = new KNotification(u"new-notification"_s, KNotification::CloseOnTimeout);
+        notification->setTitle(u"test"_s);
         notification->setText(str);
-        auto action = notification->addDefaultAction(QStringLiteral("Open Channel"));
+        auto action = notification->addDefaultAction(u"Open Channel"_s);
         connect(action, &KNotificationAction::activated, this, []() {
             qDebug() << " default Activated !!!!!!";
         });
@@ -41,8 +43,8 @@ void NotificationWidget::slotSendNotification()
             qDebug() << " CLOSED!!!!!!!!!!!!!!!!!!!!!!!!!";
         });
 
-        std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(QStringLiteral("Reply")));
-        replyAction->setPlaceholderText(QStringLiteral("Reply…"));
+        std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(u"Reply"_s));
+        replyAction->setPlaceholderText(u"Reply…"_s);
         QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [](const QString &text) {
             qDebug() << " reply " << text;
         });

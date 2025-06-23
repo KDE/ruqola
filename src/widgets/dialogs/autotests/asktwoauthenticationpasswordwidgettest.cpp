@@ -5,6 +5,8 @@
 */
 
 #include "asktwoauthenticationpasswordwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/asktwoauthenticationpasswordwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include <QTest>
@@ -20,11 +22,11 @@ void AskTwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
 {
     AskTwoAuthenticationPasswordWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-    auto mTwoFactorAuthenticationPasswordLineEdit = w.findChild<TwoAuthenticationPasswordWidget *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    auto mTwoFactorAuthenticationPasswordLineEdit = w.findChild<TwoAuthenticationPasswordWidget *>(u"mTwoFactorAuthenticationPasswordLineEdit"_s);
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit->code().isEmpty());
     QVERIFY(!mTwoFactorAuthenticationPasswordLineEdit->rocketChatAccount());

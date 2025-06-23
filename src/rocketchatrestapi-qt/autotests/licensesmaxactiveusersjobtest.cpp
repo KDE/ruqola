@@ -5,6 +5,8 @@
 */
 
 #include "licensesmaxactiveusersjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "license/licensesisenterprisejob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -30,7 +32,7 @@ void LicensesMaxActiveUsersJobTest::shouldGenerateRequest()
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.isEnterprise")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/licenses.isEnterprise"_s));
     }
 }
 

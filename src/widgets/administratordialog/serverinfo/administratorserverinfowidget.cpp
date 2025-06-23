@@ -30,27 +30,27 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *
     : QWidget(parent)
     , mTreeWidget(new QTreeWidget(this))
     , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mTreeWidget))
-    , mRefreshButton(new QPushButton(QIcon::fromTheme(QStringLiteral("view-refresh")), {}, this))
+    , mRefreshButton(new QPushButton(QIcon::fromTheme(u"view-refresh"_s), {}, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
     auto hboxLayout = new QHBoxLayout;
-    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setObjectName(u"hboxLayout"_s);
     hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mSearchLineWidget->setObjectName(u"mSearchLineWidget"_s);
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget->searchLine());
     hboxLayout->addWidget(mSearchLineWidget);
-    mRefreshButton->setObjectName(QStringLiteral("mRefreshButton"));
+    mRefreshButton->setObjectName(u"mRefreshButton"_s);
     mRefreshButton->setToolTip(i18nc("@info:tooltip", "Refresh"));
     hboxLayout->addWidget(mRefreshButton);
     connect(mRefreshButton, &QPushButton::clicked, this, &AdministratorServerInfoWidget::slotRefreshInfo);
 
-    mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
+    mTreeWidget->setObjectName(u"mTreeWidget"_s);
     mTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mTreeWidget, &QTreeWidget::customContextMenuRequested, this, &AdministratorServerInfoWidget::slotContextMenu);
 
@@ -65,7 +65,7 @@ void AdministratorServerInfoWidget::slotContextMenu(const QPoint &pos)
 {
     QMenu menu(this);
     const QModelIndex index = mTreeWidget->indexAt(pos);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy"), this, [index]() {
+    menu.addAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy"), this, [index]() {
         const QString currentValue = index.data().toString();
         QClipboard *clip = QApplication::clipboard();
         clip->setText(currentValue, QClipboard::Clipboard);
@@ -108,10 +108,10 @@ void AdministratorServerInfoWidget::slotLicensesListDone(const QJsonObject &obj)
     f.setBold(true);
     licenseItem->setFont(0, f);
     createItemFromLicense(licenseItem, i18n("Omnichannel"), listLicences.contains("livechat-enterprise"_L1));
-    createItemFromLicense(licenseItem, i18n("Auditing"), listLicences.contains(QStringLiteral("auditing")));
-    createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(QStringLiteral("canned-responses")));
-    createItemFromLicense(licenseItem, i18n("Engagement Dashboard"), listLicences.contains(QStringLiteral("engagement-dashboard")));
-    createItemFromLicense(licenseItem, i18n("Read Receipts"), listLicences.contains(QStringLiteral("message-read-receipt")));
+    createItemFromLicense(licenseItem, i18n("Auditing"), listLicences.contains(u"auditing"_s));
+    createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(u"canned-responses"_s));
+    createItemFromLicense(licenseItem, i18n("Engagement Dashboard"), listLicences.contains(u"engagement-dashboard"_s));
+    createItemFromLicense(licenseItem, i18n("Read Receipts"), listLicences.contains(u"message-read-receipt"_s));
     // Load Statistic after loading licenses info
     loadStatisticInfo(false);
 }
@@ -120,7 +120,7 @@ void AdministratorServerInfoWidget::createItemFromLicense(QTreeWidgetItem *licen
 {
     auto item = new QTreeWidgetItem(licenseInfoItem);
     item->setText(0, name);
-    item->setIcon(0, valid ? QIcon::fromTheme(QStringLiteral("dialog-ok-apply")) : QIcon::fromTheme(QStringLiteral("dialog-cancel")));
+    item->setIcon(0, valid ? QIcon::fromTheme(u"dialog-ok-apply"_s) : QIcon::fromTheme(u"dialog-cancel"_s));
     licenseInfoItem->addChild(item);
 }
 
@@ -137,8 +137,8 @@ void AdministratorServerInfoWidget::loadStatisticInfo(bool refresh)
 
 void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj)
 {
-    createItemFromStringValue(serverInfoItem, obj, i18n("Version"), QStringLiteral("version"));
-    createItemFromStringValue(serverInfoItem, obj, i18n("Deployment ID"), QStringLiteral("uniqueId"));
+    createItemFromStringValue(serverInfoItem, obj, i18n("Version"), u"version"_s);
+    createItemFromStringValue(serverInfoItem, obj, i18n("Deployment ID"), u"uniqueId"_s);
 }
 
 void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *parentItem,
@@ -158,33 +158,33 @@ void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *p
 void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    createItemFromIntValue(usageInfoItem, obj, i18n("Rocket.Chat App Users"), QStringLiteral("appUsers"));
-    createItemDisplayFormat(usageInfoItem, obj, i18n("Total Uploads Size"), QStringLiteral("uploadsTotalSize"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads"), QStringLiteral("uploadsTotal"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Rocket.Chat App Users"), u"appUsers"_s);
+    createItemDisplayFormat(usageInfoItem, obj, i18n("Total Uploads Size"), u"uploadsTotalSize"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads"), u"uploadsTotal"_s);
 
-    createItemFromIntValue(usageInfoItem, obj, i18n("Online Users"), QStringLiteral("onlineUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Away Users"), QStringLiteral("awayUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Offline Users"), QStringLiteral("offlineUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Busy Users"), QStringLiteral("busyUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Online Users"), u"onlineUsers"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Away Users"), u"awayUsers"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Offline Users"), u"offlineUsers"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Busy Users"), u"busyUsers"_s);
 
-    createItemFromIntValue(usageInfoItem, obj, i18n("Activated Users"), QStringLiteral("activeUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Activated Guests"), QStringLiteral("activeGuests"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Deactivated Users"), QStringLiteral("nonActiveUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Activated Users"), u"activeUsers"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Activated Guests"), u"activeGuests"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Deactivated Users"), u"nonActiveUsers"_s);
 
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Channels"), QStringLiteral("totalChannels"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Rooms"), QStringLiteral("totalRooms"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Private Groups"), QStringLiteral("totalPrivateGroups"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Direct Message Rooms"), QStringLiteral("totalDirect"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Threads"), QStringLiteral("totalThreads"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Users"), QStringLiteral("totalUsers"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Discussions"), QStringLiteral("totalDiscussions"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Omnichannel Rooms"), QStringLiteral("totalLivechat"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Channels"), u"totalChannels"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Rooms"), u"totalRooms"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Private Groups"), u"totalPrivateGroups"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Direct Message Rooms"), u"totalDirect"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Threads"), u"totalThreads"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Users"), u"totalUsers"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Discussions"), u"totalDiscussions"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Omnichannel Rooms"), u"totalLivechat"_s);
 
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages"), QStringLiteral("totalMessages"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Channels"), QStringLiteral("totalChannelMessages"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Private Groups"), QStringLiteral("totalPrivateGroupMessages"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Direct Messages"), QStringLiteral("totalDirectMessages"));
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Connected Users"), QStringLiteral("totalConnectedUsers"));
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages"), u"totalMessages"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Channels"), u"totalChannelMessages"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Private Groups"), u"totalPrivateGroupMessages"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Messages in Direct Messages"), u"totalDirectMessages"_s);
+    createItemFromIntValue(usageInfoItem, obj, i18n("Total Connected Users"), u"totalConnectedUsers"_s);
 }
 
 void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usageInfoItem,
@@ -218,11 +218,11 @@ void AdministratorServerInfoWidget::createItemDisplayFormat(QTreeWidgetItem *par
 void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj)
 {
     const QJsonObject runtimeObj = obj.value("os"_L1).toObject();
-    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Release"), QStringLiteral("release"));
-    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Type"), QStringLiteral("type"));
-    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Platform"), QStringLiteral("platform"));
-    createItemDisplayFormat(runtimeInfoItem, runtimeObj, i18n("OS Total Memory"), QStringLiteral("totalmem"));
-    createItemDisplayFormat(runtimeInfoItem, runtimeObj, i18n("OS Free Memory"), QStringLiteral("freemem"));
+    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Release"), u"release"_s);
+    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Type"), u"type"_s);
+    createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Platform"), u"platform"_s);
+    createItemDisplayFormat(runtimeInfoItem, runtimeObj, i18n("OS Total Memory"), u"totalmem"_s);
+    createItemDisplayFormat(runtimeInfoItem, runtimeObj, i18n("OS Free Memory"), u"freemem"_s);
 }
 
 void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)

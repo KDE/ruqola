@@ -19,8 +19,8 @@ void DownloadAppsLanguagesParserTest::shouldParseFile_data()
 {
     QTest::addColumn<QString>("filename");
     QTest::addColumn<int>("identifier");
-    QTest::addRow("empty") << QStringLiteral("empty") << 0;
-    QTest::addRow("languages") << QStringLiteral("languages") << 23;
+    QTest::addRow("empty") << u"empty"_s << 0;
+    QTest::addRow("languages") << u"languages"_s << 23;
 }
 
 void DownloadAppsLanguagesParserTest::shouldParseFile()

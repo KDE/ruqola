@@ -95,7 +95,7 @@ QJsonDocument ChangeArchivationStateJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj["rid"_L1] = mRoomId;
-    jsonObj["action"_L1] = mArchive ? QStringLiteral("archive") : QStringLiteral("unarchive");
+    jsonObj["action"_L1] = mArchive ? u"archive"_s : u"unarchive"_s;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

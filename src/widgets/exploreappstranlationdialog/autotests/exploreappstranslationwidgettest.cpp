@@ -5,6 +5,8 @@
 */
 
 #include "exploreappstranslationwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exploreappstranlationdialog/exploreappstranslationwidget.h"
 #include <QTest>
 #include <QTreeWidget>
@@ -19,10 +21,10 @@ ExploreAppsTranslationWidgetTest::ExploreAppsTranslationWidgetTest(QObject *pare
 void ExploreAppsTranslationWidgetTest::shouldHaveDefaultValues()
 {
     ExploreAppsTranslationWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mTreeWidget"));
+    auto mTreeWidget = w.findChild<QTreeWidget *>(u"mTreeWidget"_s);
     QVERIFY(mTreeWidget);
     QCOMPARE(mTreeWidget->columnCount(), 2);
 }

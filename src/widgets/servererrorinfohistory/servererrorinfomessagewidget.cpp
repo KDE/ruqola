@@ -21,7 +21,7 @@ ServerErrorInfoMessageWidget::ServerErrorInfoMessageWidget(QWidget *parent)
     setTextFormat(Qt::RichText);
     setPosition(KMessageWidget::Header);
 
-    setText(i18n("Server errors reported. %1", QStringLiteral("<a href=\"show_errors\">%1</a>").arg(i18n("(Show Errors)"))));
+    setText(i18n("Server errors reported. %1", u"<a href=\"show_errors\">%1</a>"_s.arg(i18n("(Show Errors)"))));
     connect(this, &KMessageWidget::linkActivated, this, &ServerErrorInfoMessageWidget::slotLinkActivated);
 }
 

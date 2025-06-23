@@ -163,7 +163,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     // use /api/v1/method.call/loadHistory directly => restapi
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
-    loadHistoryInfo.methodName = QStringLiteral("loadHistory");
+    loadHistoryInfo.methodName = u"loadHistory"_s;
     loadHistoryInfo.anonymous = false;
     loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
     job->setMethodCallJobInfo(std::move(loadHistoryInfo));

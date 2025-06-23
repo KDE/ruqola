@@ -93,7 +93,7 @@ void SearchMessageJob::setRoomId(const QString &roomId)
 QString SearchMessageJob::convertSearchText() const
 {
     if (mUseRegularExpression) {
-        return QStringLiteral("/%1/i").arg(mSearchText);
+        return u"/%1/i"_s.arg(mSearchText);
     }
     return mSearchText;
 }
@@ -112,13 +112,13 @@ QNetworkRequest SearchMessageJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSearch);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
-    queryUrl.addQueryItem(QStringLiteral("searchText"), convertSearchText());
+    queryUrl.addQueryItem(u"roomId"_s, mRoomId);
+    queryUrl.addQueryItem(u"searchText"_s, convertSearchText());
     if (mCount != -1) {
-        queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mCount));
+        queryUrl.addQueryItem(u"count"_s, QString::number(mCount));
     }
     if (mOffset != -1) {
-        queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mOffset));
+        queryUrl.addQueryItem(u"offset"_s, QString::number(mOffset));
     }
     url.setQuery(queryUrl);
     QNetworkRequest request(url);

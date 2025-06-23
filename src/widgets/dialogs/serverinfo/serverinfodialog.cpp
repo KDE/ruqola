@@ -5,6 +5,8 @@
 */
 
 #include "serverinfodialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "serverinfowidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -16,13 +18,13 @@ ServerInfoDialog::ServerInfoDialog(RocketChatAccount *account, QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Server Info"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mServerInfoWidget->setObjectName(QStringLiteral("mServerInfoWidget"));
+    mServerInfoWidget->setObjectName(u"mServerInfoWidget"_s);
     mainLayout->addWidget(mServerInfoWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ServerInfoDialog::close);
 }

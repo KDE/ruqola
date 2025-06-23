@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomemojicreateorupdatewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLineEditEventHandler>
 #include <QFormLayout>
 #include <QLabel>
@@ -24,7 +26,7 @@ AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUp
     , mWarningLabel(new QLabel(i18nc("@label:textbox", "The custom emoji name and their aliases should be different."), this))
     , mIconLabel(new QLabel(this))
 {
-    mWarningLabel->setObjectName(QStringLiteral("mWarningLabel"));
+    mWarningLabel->setObjectName(u"mWarningLabel"_s);
     const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
     const QColor color = bgBrush.brush(palette()).color();
 
@@ -34,16 +36,16 @@ AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUp
     mWarningLabel->hide();
 
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mIconLabel->setObjectName(QStringLiteral("mIconLabel"));
+    mIconLabel->setObjectName(u"mIconLabel"_s);
 
-    mName->setObjectName(QStringLiteral("mName"));
+    mName->setObjectName(u"mName"_s);
     mName->setClearButtonEnabled(true);
-    mAlias->setObjectName(QStringLiteral("mAlias"));
+    mAlias->setObjectName(u"mAlias"_s);
     mAlias->setClearButtonEnabled(true);
-    mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
+    mSelectFile->setObjectName(u"mSelectFile"_s);
     KLineEditEventHandler::catchReturnKey(mName);
     KLineEditEventHandler::catchReturnKey(mAlias);
     mainLayout->addRow(i18n("Name:"), mName);

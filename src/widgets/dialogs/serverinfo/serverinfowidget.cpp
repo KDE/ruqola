@@ -5,6 +5,8 @@
 */
 
 #include "serverinfowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "serverconfiginfo.h"
 #include <KLocalizedString>
@@ -21,36 +23,36 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     , mRocketChatAccount(account)
 {
     auto layout = new QFormLayout(this);
-    layout->setObjectName(QStringLiteral("layout"));
+    layout->setObjectName(u"layout"_s);
     layout->setContentsMargins({});
 
-    mLogo->setObjectName(QStringLiteral("mLogo"));
+    mLogo->setObjectName(u"mLogo"_s);
     mLogo->hide(); // Hide by default
     layout->addWidget(mLogo);
 
-    mAccountName->setObjectName(QStringLiteral("mAccountName"));
+    mAccountName->setObjectName(u"mAccountName"_s);
     mAccountName->setTextInteractionFlags(Qt::TextSelectableByMouse);
     mAccountName->setTextFormat(Qt::PlainText);
     layout->addRow(i18n("Account name:"), mAccountName);
 
-    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mUserName->setObjectName(u"mUserName"_s);
     mUserName->setTextInteractionFlags(Qt::TextSelectableByMouse);
     mUserName->setTextFormat(Qt::PlainText);
     layout->addRow(i18n("Username:"), mUserName);
 
-    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mServerUrl->setObjectName(u"mServerUrl"_s);
     mServerUrl->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     mServerUrl->setTextFormat(Qt::RichText);
     layout->addRow(i18n("Server URL:"), mServerUrl);
 
-    mServerVersion->setObjectName(QStringLiteral("mServerVersion"));
+    mServerVersion->setObjectName(u"mServerVersion"_s);
     mServerVersion->setTextInteractionFlags(Qt::TextSelectableByMouse);
     mServerVersion->setTextFormat(Qt::PlainText);
     layout->addRow(i18n("Server version:"), mServerVersion);
 
     if (mRocketChatAccount) {
         mEnterpriseLicense = new QLabel(this);
-        mEnterpriseLicense->setObjectName(QStringLiteral("mEnterpriseLicense"));
+        mEnterpriseLicense->setObjectName(u"mEnterpriseLicense"_s);
         mEnterpriseLicense->setTextInteractionFlags(Qt::TextSelectableByMouse);
         mEnterpriseLicense->setTextFormat(Qt::PlainText);
         layout->addRow(i18n("License:"), mEnterpriseLicense);
@@ -67,7 +69,7 @@ void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
         mAccountName->setText(info->accountName());
         mUserName->setText(info->userName());
         mServerVersion->setText(info->serverVersionStr());
-        mServerUrl->setText(QStringLiteral("<a href=\"%1\">%1</a>").arg(info->serverUrl()));
+        mServerUrl->setText(u"<a href=\"%1\">%1</a>"_s.arg(info->serverUrl()));
         const QString logoLocalUrl{mRocketChatAccount->attachmentUrlFromLocalCache(info->logoUrl()).toLocalFile()};
         if (!logoLocalUrl.isEmpty()) {
             const QPixmap pix{logoLocalUrl};

@@ -6,6 +6,8 @@
 */
 
 #include "messagelistdelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
@@ -54,14 +56,14 @@
 
 MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *view)
     : QItemDelegate(view)
-    , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
-    , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
-    , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add")))
-    , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
-    , mFollowingIcon(QIcon::fromTheme(QStringLiteral("notifications")))
-    , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
-    , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("translate")))
-    , mReplyInThreadIcon(QIcon::fromTheme(QStringLiteral("view-conversation-balloon-symbolic")))
+    , mEditedIcon(QIcon::fromTheme(u"document-edit"_s))
+    , mRolesIcon(QIcon::fromTheme(u"documentinfo"_s))
+    , mAddReactionIcon(QIcon::fromTheme(u"smiley-add"_s))
+    , mFavoriteIcon(QIcon::fromTheme(u"favorite"_s))
+    , mFollowingIcon(QIcon::fromTheme(u"notifications"_s))
+    , mPinIcon(QIcon::fromTheme(u"pin"_s))
+    , mTranslatedIcon(QIcon::fromTheme(u"translate"_s))
+    , mReplyInThreadIcon(QIcon::fromTheme(u"view-conversation-balloon-symbolic"_s))
     , mListView(view)
     , mTextSelectionImpl(new TextSelectionImpl)
     , mHelperText(new MessageDelegateHelperText(account, view, mTextSelectionImpl))
@@ -278,7 +280,7 @@ void MessageListDelegate::drawModerationDate(QPainter *painter, const QModelInde
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
-    const QString dateAndRoomNameStr = QStringLiteral("%1 - %2").arg(index.data(MessagesModel::Date).toString(), roomName);
+    const QString dateAndRoomNameStr = u"%1 - %2"_s.arg(index.data(MessagesModel::Date).toString(), roomName);
     const QSize dateSize = option.fontMetrics.size(Qt::TextSingleLine, dateAndRoomNameStr);
     const QRect dateAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), dateSize.height()); // the whole row
     const QRect dateTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, dateSize, dateAreaRect);
@@ -437,17 +439,17 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
     if (layout.senderRect.contains(info.pos) && !layout.sameSenderAsPreviousMessage) {
         QMenu menu;
-        auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("User Info"), &menu);
+        auto userInfoAction = new QAction(QIcon::fromTheme(u"documentinfo"_s), i18n("User Info"), &menu);
         connect(userInfoAction, &QAction::triggered, this, [message, this]() {
             Q_EMIT showUserInfo(message->username());
         });
 
         if (info.editMode) {
             if (info.roomType != Room::RoomType::Direct) {
-                if (mRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
+                if (mRocketChatAccount->hasPermission(u"create-d"_s)) {
                     menu.addSeparator();
                     auto startPrivateConversationAction =
-                        new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18nc("@action", "Start a Private Conversation"), &menu);
+                        new QAction(QIcon::fromTheme(u"document-send-symbolic"_s), i18nc("@action", "Start a Private Conversation"), &menu);
                     connect(startPrivateConversationAction, &QAction::triggered, this, [this, message]() {
                         Q_EMIT startPrivateConversation(message->username());
                     });
@@ -621,7 +623,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     if (MessageDelegateUtils::showIgnoreMessages(index)) {
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? QStringLiteral("visibility") : QStringLiteral("hint"));
+        const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? u"visibility"_s : u"hint"_s);
         hideShowIcon.paint(painter, layout.showIgnoredMessageIconRect);
     }
 
@@ -835,7 +837,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             if (discussionRect.contains(mev->pos())) {
                 // qDebug() << " message->discussionRoomId()*****************" << message->discussionRoomId();
                 // We need to fix rest api first
-                mRocketChatAccount->getRoomByTypeAndName(message->discussionRoomId(), QStringLiteral("c"));
+                mRocketChatAccount->getRoomByTypeAndName(message->discussionRoomId(), u"c"_s);
                 return true;
             }
         }
@@ -985,7 +987,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             QString tooltip = message->name();
 
             if (mRocketChatAccount && mRocketChatAccount->ruqolaServerConfig()->useRealName() && !tooltip.isEmpty()) {
-                tooltip = QLatin1Char('@') + message->username();
+                tooltip = u'@' + message->username();
             }
 
             if (!tooltip.isEmpty()) {

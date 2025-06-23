@@ -23,10 +23,10 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWi
     , mMainLayout(new QFormLayout(this))
     , mRocketChatAccount(account)
 {
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setObjectName(u"mainLayout"_s);
     mMainLayout->setContentsMargins({});
 
-    mAvatar->setObjectName(QStringLiteral("mAvatar"));
+    mAvatar->setObjectName(u"mAvatar"_s);
     mMainLayout->addWidget(mAvatar);
 }
 
@@ -114,9 +114,9 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
 
     auto timeZoneLabel = new QLabel(this);
-    QString urlStr = QStringLiteral("UTC");
+    QString urlStr = u"UTC"_s;
     if (user.utcOffset() > 0) {
-        urlStr += QLatin1Char('+') + QString::number(user.utcOffset());
+        urlStr += u'+' + QString::number(user.utcOffset());
     } else if (user.utcOffset() < 0) {
         urlStr += QString::number(user.utcOffset());
     }
@@ -144,7 +144,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
                 }
             }
         }
-        rolesLabel->setText(newRolesList.join(QStringLiteral(", ")));
+        rolesLabel->setText(newRolesList.join(u", "_s));
         rolesLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
         mMainLayout->addRow(i18n("Roles:"), rolesLabel);
     }
@@ -165,7 +165,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
 
     const auto userEmailsInfo = user.userEmailsInfo();
     if (userEmailsInfo.isValid()) {
-        const QString generateEmail = QStringLiteral("<a href=\'mailto:%1\'>%1</a>").arg(user.userEmailsInfo().email);
+        const QString generateEmail = u"<a href=\'mailto:%1\'>%1</a>"_s.arg(user.userEmailsInfo().email);
         const QString infoStr = i18n("%1 [%2]", generateEmail, user.userEmailsInfo().verified ? i18n("Verified") : i18n("Not verified"));
         auto emailsInfoLabel = new QLabel(infoStr, this);
         emailsInfoLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);

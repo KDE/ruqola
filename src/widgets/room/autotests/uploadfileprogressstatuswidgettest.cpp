@@ -5,6 +5,8 @@
 */
 
 #include "uploadfileprogressstatuswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "room/uploadfileprogressstatuswidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
@@ -21,21 +23,21 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
 {
     UploadFileProgressStatusWidget w;
 
-    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    auto hboxLayout = w.findChild<QHBoxLayout *>(u"hboxLayout"_s);
     QVERIFY(hboxLayout);
     QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
-    auto mProgressBar = w.findChild<QProgressBar *>(QStringLiteral("mProgressBar"));
+    auto mProgressBar = w.findChild<QProgressBar *>(u"mProgressBar"_s);
     QVERIFY(mProgressBar);
     QCOMPARE(mProgressBar->minimum(), 0);
     QCOMPARE(mProgressBar->maximum(), 100);
     QCOMPARE(mProgressBar->value(), -1);
 
-    auto mFileName = w.findChild<QLabel *>(QStringLiteral("mFileName"));
+    auto mFileName = w.findChild<QLabel *>(u"mFileName"_s);
     QVERIFY(mFileName);
     QVERIFY(mFileName->text().isEmpty());
 
-    auto mCancelToolButton = w.findChild<QToolButton *>(QStringLiteral("mCancelToolButton"));
+    auto mCancelToolButton = w.findChild<QToolButton *>(u"mCancelToolButton"_s);
     QVERIFY(mCancelToolButton);
     QVERIFY(!mCancelToolButton->toolTip().isEmpty());
 
@@ -45,8 +47,8 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
 void UploadFileProgressStatusWidgetTest::shouldChangeText()
 {
     UploadFileProgressStatusWidget w;
-    const QString text = QStringLiteral("bla");
-    auto mFileName = w.findChild<QLabel *>(QStringLiteral("mFileName"));
+    const QString text = u"bla"_s;
+    auto mFileName = w.findChild<QLabel *>(u"mFileName"_s);
     QVERIFY(mFileName->text().isEmpty());
 
     w.setUploadFileName(text);

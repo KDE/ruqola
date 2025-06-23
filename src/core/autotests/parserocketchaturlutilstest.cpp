@@ -5,6 +5,8 @@
 */
 
 #include "parserocketchaturlutilstest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "parserocketchaturlutils.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ParseRocketChatUrlUtilsTest)
@@ -39,48 +41,46 @@ void ParseRocketChatUrlUtilsTest::shouldParseUrl_data()
 
     QTest::addRow("empty") << QString() << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString() << QString() << QString()
                            << ParseRocketChatUrlUtils::ChannelType::Unknown << ParseRocketChatUrlUtils::RoomIdType::Unknown;
-    QTest::addRow("kde") << QStringLiteral("http://www.kde.org") << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString() << QString()
-                         << QString() << ParseRocketChatUrlUtils::ChannelType::Unknown << ParseRocketChatUrlUtils::RoomIdType::Unknown;
-    QTest::addRow("kde-1") << QStringLiteral("https://www.kde.org") << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString() << QString()
-                           << QString() << ParseRocketChatUrlUtils::ChannelType::Unknown << ParseRocketChatUrlUtils::RoomIdType::Unknown;
-    QTest::addRow("kde-2") << QStringLiteral("www.kde.org") << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString() << QString() << QString()
+    QTest::addRow("kde") << u"http://www.kde.org"_s << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString() << QString() << QString()
+                         << ParseRocketChatUrlUtils::ChannelType::Unknown << ParseRocketChatUrlUtils::RoomIdType::Unknown;
+    QTest::addRow("kde-1") << u"https://www.kde.org"_s << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString() << QString() << QString()
                            << ParseRocketChatUrlUtils::ChannelType::Unknown << ParseRocketChatUrlUtils::RoomIdType::Unknown;
-    QTest::addRow("gorocketchat") << QStringLiteral("https://go.rocket.chat/") << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString()
-                                  << QString() << QString() << ParseRocketChatUrlUtils::ChannelType::Unknown << ParseRocketChatUrlUtils::RoomIdType::Unknown;
+    QTest::addRow("kde-2") << u"www.kde.org"_s << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString() << QString() << QString()
+                           << ParseRocketChatUrlUtils::ChannelType::Unknown << ParseRocketChatUrlUtils::RoomIdType::Unknown;
+    QTest::addRow("gorocketchat") << u"https://go.rocket.chat/"_s << ParseRocketChatUrlUtils::UrlType::Unknown << QString() << QString() << QString()
+                                  << QString() << ParseRocketChatUrlUtils::ChannelType::Unknown << ParseRocketChatUrlUtils::RoomIdType::Unknown;
     QTest::addRow("gorocketchat-1") << QStringLiteral(
         "https://go.rocket.chat/room?rid=NCrToCewka5MgMcDM&mid=Xope7b8WYWz82yHaq&host=www.kde.org&path=channel%2Ffoo%3Fmsg%3DXope7b8WYWz82yHaq")
-                                    << ParseRocketChatUrlUtils::UrlType::Message << QStringLiteral("Xope7b8WYWz82yHaq") << QStringLiteral("NCrToCewka5MgMcDM")
-                                    << QStringLiteral("www.kde.org") << QStringLiteral("channel/foo?msg=Xope7b8WYWz82yHaq")
-                                    << ParseRocketChatUrlUtils::ChannelType::Channel << ParseRocketChatUrlUtils::RoomIdType::RoomId;
+                                    << ParseRocketChatUrlUtils::UrlType::Message << u"Xope7b8WYWz82yHaq"_s << u"NCrToCewka5MgMcDM"_s << u"www.kde.org"_s
+                                    << u"channel/foo?msg=Xope7b8WYWz82yHaq"_s << ParseRocketChatUrlUtils::ChannelType::Channel
+                                    << ParseRocketChatUrlUtils::RoomIdType::RoomId;
 
     QTest::addRow("gorocketchat-2") << QStringLiteral(
         "https://go.rocket.chat/"
         "room?rid=XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH&mid=Bo8pcAH86LxiYzu98&host=www.kde.org&path=direct%2FXQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH%3Fmsg%"
         "3DBo8pcAH86LxiYzu98") << ParseRocketChatUrlUtils::UrlType::Message
-                                    << QStringLiteral("Bo8pcAH86LxiYzu98") << QStringLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH")
-                                    << QStringLiteral("www.kde.org") << QStringLiteral("direct/XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH?msg=Bo8pcAH86LxiYzu98")
-                                    << ParseRocketChatUrlUtils::ChannelType::Direct << ParseRocketChatUrlUtils::RoomIdType::RoomId;
+                                    << u"Bo8pcAH86LxiYzu98"_s << u"XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH"_s << u"www.kde.org"_s
+                                    << u"direct/XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH?msg=Bo8pcAH86LxiYzu98"_s << ParseRocketChatUrlUtils::ChannelType::Direct
+                                    << ParseRocketChatUrlUtils::RoomIdType::RoomId;
 
     QTest::addRow("rocketchatscheme-1") << QStringLiteral(
         "rocketchat://"
         "room?rid=XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH&mid=Bo8pcAH86LxiYzu98&host=www.kde.org&path=direct%2FXQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH%3Fmsg%"
         "3DBo8pcAH86LxiYzu98") << ParseRocketChatUrlUtils::UrlType::Message
-                                        << QStringLiteral("Bo8pcAH86LxiYzu98") << QStringLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH")
-                                        << QStringLiteral("www.kde.org") << QStringLiteral("direct/XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH?msg=Bo8pcAH86LxiYzu98")
-                                        << ParseRocketChatUrlUtils::ChannelType::Direct << ParseRocketChatUrlUtils::RoomIdType::RoomId;
+                                        << u"Bo8pcAH86LxiYzu98"_s << u"XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH"_s << u"www.kde.org"_s
+                                        << u"direct/XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH?msg=Bo8pcAH86LxiYzu98"_s << ParseRocketChatUrlUtils::ChannelType::Direct
+                                        << ParseRocketChatUrlUtils::RoomIdType::RoomId;
 
-    QTest::addRow("url-1") << QStringLiteral("https://www.kde.org/channel/python?msg=sn3gEQom7NcLxTg5h") << ParseRocketChatUrlUtils::UrlType::Message
-                           << QStringLiteral("sn3gEQom7NcLxTg5h") << QStringLiteral("python") << QStringLiteral("www.kde.org")
-                           << QStringLiteral("/channel/python") << ParseRocketChatUrlUtils::ChannelType::Channel
-                           << ParseRocketChatUrlUtils::RoomIdType::RoomName;
+    QTest::addRow("url-1") << u"https://www.kde.org/channel/python?msg=sn3gEQom7NcLxTg5h"_s << ParseRocketChatUrlUtils::UrlType::Message
+                           << u"sn3gEQom7NcLxTg5h"_s << u"python"_s << QStringLiteral("www.kde.org") << u"/channel/python"_s
+                           << ParseRocketChatUrlUtils::ChannelType::Channel << ParseRocketChatUrlUtils::RoomIdType::RoomName;
 
-    QTest::addRow("url-2") << QStringLiteral("https://www.kde.org/direct/python?msg=sn3gEQom7NcLxTg5h") << ParseRocketChatUrlUtils::UrlType::Message
-                           << QStringLiteral("sn3gEQom7NcLxTg5h") << QStringLiteral("python") << QStringLiteral("www.kde.org")
-                           << QStringLiteral("/direct/python") << ParseRocketChatUrlUtils::ChannelType::Direct << ParseRocketChatUrlUtils::RoomIdType::RoomName;
+    QTest::addRow("url-2") << u"https://www.kde.org/direct/python?msg=sn3gEQom7NcLxTg5h"_s << ParseRocketChatUrlUtils::UrlType::Message
+                           << u"sn3gEQom7NcLxTg5h"_s << u"python"_s << QStringLiteral("www.kde.org") << u"/direct/python"_s
+                           << ParseRocketChatUrlUtils::ChannelType::Direct << ParseRocketChatUrlUtils::RoomIdType::RoomName;
 
-    QTest::addRow("invite1") << QStringLiteral("https://go.rocket.chat/invite?host=foo.chat.kde.com&path=invite%2FQ67r9r")
-                             << ParseRocketChatUrlUtils::UrlType::Invite << QString() << QString() << QStringLiteral("foo.chat.kde.com")
-                             << QStringLiteral("invite/Q67r9r") << ParseRocketChatUrlUtils::ChannelType::Unknown
+    QTest::addRow("invite1") << u"https://go.rocket.chat/invite?host=foo.chat.kde.com&path=invite%2FQ67r9r"_s << ParseRocketChatUrlUtils::UrlType::Invite
+                             << QString() << QString() << u"foo.chat.kde.com"_s << u"invite/Q67r9r"_s << ParseRocketChatUrlUtils::ChannelType::Unknown
                              << ParseRocketChatUrlUtils::RoomIdType::Unknown;
 }
 

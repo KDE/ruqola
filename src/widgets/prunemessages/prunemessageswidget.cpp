@@ -5,6 +5,8 @@
 */
 
 #include "prunemessageswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/adduserswidget.h"
 
 #include <KLocalizedString>
@@ -27,61 +29,61 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
     , mInfoLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto lastestLayout = new QHBoxLayout;
-    lastestLayout->setObjectName(QStringLiteral("lastestLayout"));
+    lastestLayout->setObjectName(u"lastestLayout"_s);
     lastestLayout->setContentsMargins({});
     mainLayout->addLayout(lastestLayout);
 
     auto lastestLabel = new QLabel(i18nc("@label:textbox", "Newer than:"), this);
-    lastestLabel->setObjectName(QStringLiteral("lastestLabel"));
+    lastestLabel->setObjectName(u"lastestLabel"_s);
     lastestLayout->addWidget(lastestLabel);
 
-    mLastestDateTimeEdit->setObjectName(QStringLiteral("mLastestDateTimeEdit"));
+    mLastestDateTimeEdit->setObjectName(u"mLastestDateTimeEdit"_s);
     connect(mLastestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     lastestLayout->addWidget(mLastestDateTimeEdit);
 
     auto oldestLayout = new QHBoxLayout;
-    oldestLayout->setObjectName(QStringLiteral("oldestLayout"));
+    oldestLayout->setObjectName(u"oldestLayout"_s);
     oldestLayout->setContentsMargins({});
     mainLayout->addLayout(oldestLayout);
 
     auto oldestLabel = new QLabel(i18nc("@label:textbox", "Older than:"), this);
-    oldestLabel->setObjectName(QStringLiteral("oldestLabel"));
+    oldestLabel->setObjectName(u"oldestLabel"_s);
     oldestLayout->addWidget(oldestLabel);
 
-    mOldestDateTimeEdit->setObjectName(QStringLiteral("mOldestDateTimeEdit"));
+    mOldestDateTimeEdit->setObjectName(u"mOldestDateTimeEdit"_s);
     connect(mOldestDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &PruneMessagesWidget::slotCheckDateTime);
     oldestLayout->addWidget(mOldestDateTimeEdit);
 
     auto usersLabel = new QLabel(i18nc("@label:textbox", "Only Prune content from these users (Keep empty to prune everyone's content)"), this);
-    usersLabel->setObjectName(QStringLiteral("usersLabel"));
+    usersLabel->setObjectName(u"usersLabel"_s);
     usersLabel->setWordWrap(true);
     usersLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(usersLabel);
 
-    mUsers->setObjectName(QStringLiteral("mUsers"));
+    mUsers->setObjectName(u"mUsers"_s);
     mUsers->setPlaceholderText(i18nc("@info:placeholder", "Select users…"));
     mainLayout->addWidget(mUsers);
 
-    mInclusive->setObjectName(QStringLiteral("mInclusive"));
+    mInclusive->setObjectName(u"mInclusive"_s);
     mainLayout->addWidget(mInclusive);
 
-    mDoNotPrunePinnedMessage->setObjectName(QStringLiteral("mDoNotPrunePinnedMessage"));
+    mDoNotPrunePinnedMessage->setObjectName(u"mDoNotPrunePinnedMessage"_s);
     mainLayout->addWidget(mDoNotPrunePinnedMessage);
 
-    mDoNotPruneDiscussionMessage->setObjectName(QStringLiteral("mDoNotPruneDiscussionMessage"));
+    mDoNotPruneDiscussionMessage->setObjectName(u"mDoNotPruneDiscussionMessage"_s);
     mainLayout->addWidget(mDoNotPruneDiscussionMessage);
 
-    mDoNotPruneThreads->setObjectName(QStringLiteral("mDoNotPruneThreads"));
+    mDoNotPruneThreads->setObjectName(u"mDoNotPruneThreads"_s);
     mainLayout->addWidget(mDoNotPruneThreads);
 
-    mOnlyRemoveAttachedFiles->setObjectName(QStringLiteral("mOnlyRemoveAttachedFiles"));
+    mOnlyRemoveAttachedFiles->setObjectName(u"mOnlyRemoveAttachedFiles"_s);
     mainLayout->addWidget(mOnlyRemoveAttachedFiles);
 
-    mInfoLabel->setObjectName(QStringLiteral("mInfoLabel"));
+    mInfoLabel->setObjectName(u"mInfoLabel"_s);
     mInfoLabel->setWordWrap(true);
     mainLayout->addWidget(mInfoLabel);
 

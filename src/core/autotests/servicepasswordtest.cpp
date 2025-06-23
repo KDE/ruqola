@@ -5,6 +5,8 @@
 */
 
 #include "servicepasswordtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "servicepassword.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ServicePasswordTest)

@@ -5,6 +5,8 @@
 */
 
 #include "createnewdiscussionwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channelsearchwidget.h"
 #include "misc/adduserswidget.h"
 #include <KLineEditEventHandler>
@@ -22,42 +24,42 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     , mMessageTextEdit(new KTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto channelLabel = new QLabel(i18nc("@label:textbox", "Channel or Group parent"), this);
-    channelLabel->setObjectName(QStringLiteral("channelLabel"));
+    channelLabel->setObjectName(u"channelLabel"_s);
     mainLayout->addWidget(channelLabel);
 
-    mChannelSearchWidget->setObjectName(QStringLiteral("mChannelNameLineEdit"));
+    mChannelSearchWidget->setObjectName(u"mChannelNameLineEdit"_s);
     connect(mChannelSearchWidget, &ChannelSearchWidget::updateRoomName, this, &CreateNewDiscussionWidget::updateOkButton);
     mainLayout->addWidget(mChannelSearchWidget);
 
     auto discussionName = new QLabel(i18nc("@label:textbox", "Discussion Name"), this);
-    discussionName->setObjectName(QStringLiteral("discussionName"));
+    discussionName->setObjectName(u"discussionName"_s);
     discussionName->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(discussionName);
 
-    mDiscussionNameLineEdit->setObjectName(QStringLiteral("mDiscussionNameLineEdit"));
+    mDiscussionNameLineEdit->setObjectName(u"mDiscussionNameLineEdit"_s);
     KLineEditEventHandler::catchReturnKey(mDiscussionNameLineEdit);
     mDiscussionNameLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mDiscussionNameLineEdit);
 
     auto usersLabel = new QLabel(i18nc("@label:textbox", "Invite Users"), this);
-    usersLabel->setObjectName(QStringLiteral("usersLabel"));
+    usersLabel->setObjectName(u"usersLabel"_s);
     mainLayout->addWidget(usersLabel);
 
-    mUsers->setObjectName(QStringLiteral("mUsers"));
+    mUsers->setObjectName(u"mUsers"_s);
     mUsers->setPlaceholderText(i18nc("@info:placeholder", "Invite users…"));
     mainLayout->addWidget(mUsers);
 
     auto messageLabel = new QLabel(i18nc("@label:textbox", "Message"), this);
-    messageLabel->setObjectName(QStringLiteral("messageLabel"));
+    messageLabel->setObjectName(u"messageLabel"_s);
     mainLayout->addWidget(messageLabel);
 
     mMessageTextEdit->setAcceptRichText(false);
     mMessageTextEdit->setTabChangesFocus(true);
-    mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
+    mMessageTextEdit->setObjectName(u"mMessageTextEdit"_s);
     mMessageTextEdit->setPlaceholderText(i18nc("@info:placeholder", "Usually a discussion starts with a question, like \"How do I upload a picture?\""));
     mainLayout->addWidget(mMessageTextEdit);
 }

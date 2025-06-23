@@ -5,6 +5,8 @@
 */
 
 #include "userinroleeditdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/roles/userinroleeditdialog.h"
 #include "administratordialog/roles/usersinrolewidget.h"
 #include <QDialogButtonBox>
@@ -24,13 +26,13 @@ void UserInRoleEditDialogTest::shouldHaveDefaultValues()
     QVERIFY(!d.windowTitle().isEmpty());
     QVERIFY(d.roleId().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
-    auto mUserInRoleEditWidget = d.findChild<UsersInRoleWidget *>(QStringLiteral("mUserInRoleEditWidget"));
+    auto mUserInRoleEditWidget = d.findChild<UsersInRoleWidget *>(u"mUserInRoleEditWidget"_s);
     QVERIFY(mUserInRoleEditWidget);
 }
 

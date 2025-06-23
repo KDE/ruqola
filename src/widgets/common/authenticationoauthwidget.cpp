@@ -5,6 +5,8 @@
 */
 
 #include "authenticationoauthwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "authenticationbutton.h"
 #include <QVBoxLayout>
 
@@ -13,10 +15,10 @@ AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
     , mMainLayout(new QVBoxLayout)
 {
     auto topLayout = new QHBoxLayout(this);
-    topLayout->setObjectName(QStringLiteral("topLayout"));
+    topLayout->setObjectName(u"topLayout"_s);
     topLayout->setContentsMargins({});
 
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setObjectName(u"mainLayout"_s);
     mMainLayout->setContentsMargins({});
     topLayout->addStretch(0);
     topLayout->addLayout(mMainLayout);
@@ -30,7 +32,7 @@ AuthenticationOauthWidget::~AuthenticationOauthWidget() = default;
 void AuthenticationOauthWidget::addAuthenticationMethod(const AuthenticationInfo &info)
 {
     auto button = new AuthenticationButton(this);
-    button->setObjectName(QStringLiteral("button_%1").arg(info.name()));
+    button->setObjectName(u"button_%1"_s.arg(info.name()));
     connect(button, &AuthenticationButton::authentication, this, &AuthenticationOauthWidget::authentication);
     button->setAuthenticationInfo(info);
     mMainLayout->addWidget(button);

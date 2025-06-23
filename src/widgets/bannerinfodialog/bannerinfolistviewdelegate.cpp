@@ -5,6 +5,8 @@
 */
 
 #include "bannerinfolistviewdelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #include "model/bannerinfosmodel.h"
 #if USE_SIZEHINT_CACHE_SUPPORT

@@ -5,6 +5,8 @@
 */
 
 #include "authenticationinfotest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "authenticationinfo.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(AuthenticationInfoTest)
@@ -25,8 +27,8 @@ void AuthenticationInfoTest::shouldHaveDefaultValue()
 void AuthenticationInfoTest::shouldAssignValue()
 {
     AuthenticationInfo info;
-    const QString name = QStringLiteral("name1");
-    const QString iconname = QStringLiteral("iconname1");
+    const QString name = u"name1"_s;
+    const QString iconname = u"iconname1"_s;
     info.setName(name);
     info.setIconName(iconname);
     QCOMPARE(info.name(), name);
@@ -39,8 +41,8 @@ void AuthenticationInfoTest::shouldBeValid()
     AuthenticationInfo info;
     QVERIFY(!info.isValid());
 
-    const QString name = QStringLiteral("name1");
-    const QString iconname = QStringLiteral("iconname1");
+    const QString name = u"name1"_s;
+    const QString iconname = u"iconname1"_s;
     info.setName(name);
     QVERIFY(!info.isValid());
     info.setIconName(iconname);

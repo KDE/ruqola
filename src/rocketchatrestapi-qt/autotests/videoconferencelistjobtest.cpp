@@ -5,6 +5,8 @@
 */
 
 #include "videoconferencelistjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "video-conference/videoconferencelistjob.h"
 QTEST_GUILESS_MAIN(VideoConferenceListJobTest)
@@ -30,14 +32,14 @@ void VideoConferenceListJobTest::shouldGenerateRequest()
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.list?roomId")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.list?roomId"_s));
     }
     {
-        const QString roomId = QStringLiteral("foo");
+        const QString roomId = u"foo"_s;
         job.setRoomId(roomId);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.list?roomId=%1").arg(roomId)));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.list?roomId=%1"_s.arg(roomId)));
     }
 }
 

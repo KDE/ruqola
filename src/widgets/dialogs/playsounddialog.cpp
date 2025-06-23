@@ -5,6 +5,8 @@
 */
 
 #include "playsounddialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "playsoundwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -16,14 +18,14 @@ PlaySoundDialog::PlaySoundDialog(RocketChatAccount *account, QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Play Sound"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mSoundWidget->setObjectName(QStringLiteral("mSoundWidget"));
+    mSoundWidget->setObjectName(u"mSoundWidget"_s);
     mainLayout->addWidget(mSoundWidget);
     connect(mSoundWidget, &PlaySoundWidget::updateTitle, this, &PlaySoundDialog::slotUpdateTitle);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &PlaySoundDialog::reject);
     mainLayout->addWidget(buttonBox);
 }

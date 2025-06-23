@@ -5,6 +5,8 @@
 */
 
 #include "showimagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegateutil.h"
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -35,10 +37,10 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mImageGraphicsView->setObjectName(QStringLiteral("mImageGraphicsView"));
+    mImageGraphicsView->setObjectName(u"mImageGraphicsView"_s);
     mainLayout->addWidget(mImageGraphicsView);
     connect(mImageGraphicsView, &ShowImageGraphicsView::zoomChanged, this, [this](qreal zoom) {
         mSlider->setValue(static_cast<int>(zoom * 100));
@@ -47,13 +49,13 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     connect(mImageGraphicsView, &ShowImageGraphicsView::minimumZoomChanged, this, &ShowImageWidget::updateRanges);
     connect(mImageGraphicsView, &ShowImageGraphicsView::maximumZoomChanged, this, &ShowImageWidget::updateRanges);
 
-    mZoomControls->setObjectName(QStringLiteral("zoomControls"));
+    mZoomControls->setObjectName(u"zoomControls"_s);
     auto zoomLayout = new QHBoxLayout;
-    zoomLayout->setObjectName(QStringLiteral("zoomLayout"));
+    zoomLayout->setObjectName(u"zoomLayout"_s);
     mZoomControls->setLayout(zoomLayout);
     mainLayout->addWidget(mZoomControls);
 
-    mShowImagePrevNextImageWidget->setObjectName(QStringLiteral("mShowImagePrevNextImageWidget"));
+    mShowImagePrevNextImageWidget->setObjectName(u"mShowImagePrevNextImageWidget"_s);
     zoomLayout->addWidget(mShowImagePrevNextImageWidget);
     mShowImagePrevNextImageWidget->setVisible(false); // hide by default
 
@@ -61,31 +63,31 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     connect(mShowImagePrevNextImageWidget, &ShowImagePrevNextImageWidget::showPreviousImage, this, &ShowImageWidget::slotShowPreviousImage);
 
     auto label = new QLabel(i18nc("@label:textbox", "Zoom:"), this);
-    label->setObjectName(QStringLiteral("zoomLabel"));
+    label->setObjectName(u"zoomLabel"_s);
     label->setTextFormat(Qt::PlainText);
     zoomLayout->addWidget(label);
 
-    mZoomSpin->setObjectName(QStringLiteral("mZoomSpin"));
+    mZoomSpin->setObjectName(u"mZoomSpin"_s);
 
     mZoomSpin->setValue(1);
     mZoomSpin->setDecimals(1);
     mZoomSpin->setSingleStep(0.1);
     zoomLayout->addWidget(mZoomSpin);
 
-    mSlider->setObjectName(QStringLiteral("mSlider"));
+    mSlider->setObjectName(u"mSlider"_s);
     mSlider->setOrientation(Qt::Horizontal);
     zoomLayout->addWidget(mSlider);
     mSlider->setValue(mZoomSpin->value() * 100.0);
 
     auto resetButton = new QPushButton(i18nc("@action:button", "100%"), this);
-    resetButton->setObjectName(QStringLiteral("resetButton"));
+    resetButton->setObjectName(u"resetButton"_s);
     zoomLayout->addWidget(resetButton);
     connect(resetButton, &QPushButton::clicked, this, [this] {
         mImageGraphicsView->setZoom(1.0);
     });
 
     auto fitToViewButton = new QPushButton(i18nc("@action:button", "Fit to View"), this);
-    fitToViewButton->setObjectName(QStringLiteral("fitToViewButton"));
+    fitToViewButton->setObjectName(u"fitToViewButton"_s);
     zoomLayout->addWidget(fitToViewButton);
     connect(fitToViewButton, &QPushButton::clicked, mImageGraphicsView, &ShowImageGraphicsView::fitToView);
 
@@ -204,7 +206,7 @@ void ShowImageWidget::copyImage()
 {
     auto data = new QMimeData();
     data->setImageData(mImageGraphicsView->pixmap().toImage());
-    data->setData(QStringLiteral("x-kde-force-image-copy"), QByteArray());
+    data->setData(u"x-kde-force-image-copy"_s, QByteArray());
     QApplication::clipboard()->setMimeData(data, QClipboard::Clipboard);
 }
 

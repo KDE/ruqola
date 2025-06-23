@@ -5,6 +5,7 @@
 */
 
 #include "administratoroauthcreatedialog.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,18 +25,18 @@ AdministratorOauthCreateDialog::AdministratorOauthCreateDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Add Oauth Apps"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
+    mCreateWidget->setObjectName(u"mCreateWidget"_s);
     mainLayout->addWidget(mCreateWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorOauthCreateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorOauthCreateDialog::accept);
     mOkButton = button->button(QDialogButtonBox::Ok);
-    mOkButton->setObjectName(QStringLiteral("mOkButton"));
+    mOkButton->setObjectName(u"mOkButton"_s);
     mOkButton->setEnabled(false);
     connect(mCreateWidget, &AdministratorOauthCreateWidget::enableOkButton, mOkButton, &QPushButton::setEnabled);
     readConfig();

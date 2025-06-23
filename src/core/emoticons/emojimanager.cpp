@@ -122,7 +122,7 @@ int EmojiManager::count() const
 
 bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
 {
-    if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
+    if (emojiIdentifier.startsWith(u':') && emojiIdentifier.endsWith(u':')) {
         for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
             const CustomEmoji emoji = mCustomEmojiList.at(i);
             if (emoji.hasEmoji(emojiIdentifier)) {
@@ -183,7 +183,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
     if (mRocketChatAccount && !mRocketChatAccount->ownUserPreferences().convertAsciiEmoji()) {
         return emojiIdentifier;
     }
-    if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
+    if (emojiIdentifier.startsWith(u':') && emojiIdentifier.endsWith(u':')) {
         for (const CustomEmoji &emoji : std::as_const(mCustomEmojiList)) {
             if (emoji.hasEmoji(emojiIdentifier)) {
                 QString cachedHtml = emoji.cachedHtml();
@@ -234,7 +234,7 @@ void EmojiManager::replaceEmojis(QString *str)
         // smileys may come after another...
         const auto commonPattern = ":[\\w\\-]+:"_L1;
         // TODO: use QRegularExpression::anchoredPattern once ruqola depends on Qt 5.15
-        static const QRegularExpression common(QLatin1Char('^') + commonPattern + QLatin1Char('$'));
+        static const QRegularExpression common(u'^' + commonPattern + u'$');
 
         QString pattern;
         QTextStream stream(&pattern);

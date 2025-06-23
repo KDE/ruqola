@@ -5,6 +5,8 @@
 */
 
 #include "e2edecodeencryptionkeyfailedwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
 #include <QAction>
 #include <QTest>
@@ -23,7 +25,7 @@ void E2eDecodeEncryptionKeyFailedWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!w.text().isEmpty());
     QVERIFY(w.isCloseButtonVisible());
 
-    auto decodeEncryptionKeyAction = w.findChild<QAction *>(QStringLiteral("decodeEncryptionKeyAction"));
+    auto decodeEncryptionKeyAction = w.findChild<QAction *>(u"decodeEncryptionKeyAction"_s);
     QVERIFY(decodeEncryptionKeyAction);
 }
 

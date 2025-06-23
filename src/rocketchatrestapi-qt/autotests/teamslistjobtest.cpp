@@ -5,6 +5,8 @@
 */
 
 #include "teamslistjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "teams/teamslistjob.h"
@@ -30,7 +32,7 @@ void TeamsListJobTest::shouldGenerateRequest()
     TeamsListJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.list")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.list"_s));
 }
 
 void TeamsListJobTest::shouldGenerateRequestUsername()
@@ -38,7 +40,7 @@ void TeamsListJobTest::shouldGenerateRequestUsername()
     TeamsListJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.list")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.list"_s));
 }
 
 #include "moc_teamslistjobtest.cpp"

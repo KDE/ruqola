@@ -5,6 +5,8 @@
 */
 
 #include "ircwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/irc/ircwidget.h"
 #include "settingswidgetshelper.h"
 #include <QLineEdit>
@@ -20,18 +22,18 @@ IrcWidgetTest::IrcWidgetTest(QObject *parent)
 void IrcWidgetTest::shouldHaveDefaultValues()
 {
     IrcWidget w(nullptr);
-    auto mCacheLimitOutBoundMessage = w.findChild<QSpinBox *>(QStringLiteral("mCacheLimitOutBoundMessage"));
+    auto mCacheLimitOutBoundMessage = w.findChild<QSpinBox *>(u"mCacheLimitOutBoundMessage"_s);
     QVERIFY(mCacheLimitOutBoundMessage);
     QVERIFY(!mCacheLimitOutBoundMessage->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mCacheLimitOutBoundMessage), QStringLiteral("IRC_Message_Cache_Size"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("IRC_Message_Cache_Size"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mCacheLimitOutBoundMessage), u"IRC_Message_Cache_Size"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"IRC_Message_Cache_Size"_s);
 
-    auto mLoginSuccessful = w.findChild<QLineEdit *>(QStringLiteral("mLoginSuccessful"));
+    auto mLoginSuccessful = w.findChild<QLineEdit *>(u"mLoginSuccessful"_s);
     QVERIFY(mLoginSuccessful);
     QVERIFY(mLoginSuccessful->text().isEmpty());
     QVERIFY(!mLoginSuccessful->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginSuccessful), QStringLiteral("IRC_RegEx_successLogin"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("IRC_RegEx_successLogin"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginSuccessful), u"IRC_RegEx_successLogin"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"IRC_RegEx_successLogin"_s);
     // TODO
 }
 

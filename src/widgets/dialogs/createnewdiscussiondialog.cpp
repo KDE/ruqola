@@ -5,6 +5,8 @@
 */
 
 #include "createnewdiscussiondialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "createnewdiscussionwidget.h"
 #include "rocketchataccount.h"
 #include <KConfigGroup>
@@ -25,15 +27,15 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account,
     , mCreateNewDiscussionWidget(new CreateNewDiscussionWidget(account, this))
     , mCurrentRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Create Discussion - %1", account ? account->accountName() : QStringLiteral("account")));
+    setWindowTitle(i18nc("@title:window", "Create Discussion - %1", account ? account->accountName() : u"account"_s));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateNewDiscussionWidget->setObjectName(QStringLiteral("mCreateNewDiscussionWidget"));
+    mCreateNewDiscussionWidget->setObjectName(u"mCreateNewDiscussionWidget"_s);
     mainLayout->addWidget(mCreateNewDiscussionWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewDiscussionDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewDiscussionDialog::reject);
     mainLayout->addWidget(buttonBox);

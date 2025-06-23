@@ -5,6 +5,8 @@
 */
 
 #include "importdatawizard.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 
@@ -25,8 +27,8 @@ ImportDataWizard::ImportDataWizard(QWidget *parent)
     , mImportDataFinishPage(new ImportDataFinishPage(this))
 {
     setWindowTitle(i18nc("@title:window", "Import Accounts"));
-    mImportDataSelectAccountPage->setObjectName(QStringLiteral("mImportDataSelectAccountPage"));
-    mImportDataFinishPage->setObjectName(QStringLiteral("mImportDataSelectAccountPage"));
+    mImportDataSelectAccountPage->setObjectName(u"mImportDataSelectAccountPage"_s);
+    mImportDataFinishPage->setObjectName(u"mImportDataSelectAccountPage"_s);
 
     setPage(SelectAccountPage, mImportDataSelectAccountPage);
     setPage(FinishPage, mImportDataFinishPage);

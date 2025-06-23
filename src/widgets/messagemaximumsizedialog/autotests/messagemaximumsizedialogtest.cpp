@@ -5,6 +5,8 @@
 */
 
 #include "messagemaximumsizedialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
 #include "messagemaximumsizedialog/messagemaximumsizewidget.h"
 #include <QDialogButtonBox>
@@ -22,12 +24,12 @@ void MessageMaximumSizeDialogTest::shouldHaveDefaultValues()
 {
     MessageMaximumSizeDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
-    auto mMessageMaximumSizeWidget = d.findChild<MessageMaximumSizeWidget *>(QStringLiteral("mMessageMaximumSizeWidget"));
+    auto mMessageMaximumSizeWidget = d.findChild<MessageMaximumSizeWidget *>(u"mMessageMaximumSizeWidget"_s);
     QVERIFY(mMessageMaximumSizeWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
     QPushButton *buttonOk = button->button(QDialogButtonBox::Ok);

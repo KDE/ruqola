@@ -6,6 +6,8 @@
 
 #pragma once
 #include <QCheckBox>
+using namespace Qt::Literals::StringLiterals;
+
 #include <QLabel>
 #include <QString>
 #include <QTest>
@@ -23,11 +25,11 @@ QString widgetSettingsName(QWidget *widget)
 
 void checkLabelToolButton(QWidget *widget, const QString &variableName)
 {
-    auto toolButton = widget->findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+    auto toolButton = widget->findChild<QToolButton *>(u"toolbutton_%1"_s.arg(variableName));
     QVERIFY(toolButton);
     QVERIFY(!toolButton->isEnabled());
 
-    auto label = widget->findChild<QLabel *>(QStringLiteral("label_%1").arg(variableName));
+    auto label = widget->findChild<QLabel *>(u"label_%1"_s.arg(variableName));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 }

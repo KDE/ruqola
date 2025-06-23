@@ -5,6 +5,8 @@
 */
 
 #include "selectedmessagebackgroundanimationtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "room/selectedmessagebackgroundanimation.h"
 #include <QSignalSpy>
 #include <QTest>

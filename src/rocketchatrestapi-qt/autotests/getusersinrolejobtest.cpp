@@ -5,6 +5,8 @@
 */
 
 #include "getusersinrolejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "role/getusersinrolejob.h"
 #include <QTest>
@@ -32,12 +34,12 @@ void GetUsersInRoleJobTest::shouldGenerateRequest()
 {
     GetUsersInRoleJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    const QString roleId{QStringLiteral("bla")};
+    const QString roleId{u"bla"_s};
     job.setRoleId(roleId);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.getUsersInRole?role=%1").arg(roleId)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/roles.getUsersInRole?role=%1"_s.arg(roleId)));
 }
 
 void GetUsersInRoleJobTest::shouldNotStarting()
@@ -45,20 +47,20 @@ void GetUsersInRoleJobTest::shouldNotStarting()
     GetUsersInRoleJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
     QVERIFY(!job.canStart());
-    job.setRoleId(QStringLiteral("ss"));
+    job.setRoleId(u"ss"_s);
     QVERIFY(job.canStart());
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "showimagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/showimagegraphicsview.h"
 #include "dialogs/showimagewidget.h"
 
@@ -27,30 +29,30 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
 {
     ShowImageWidget w(nullptr);
     ShowImageWidget::ImageInfo info;
-    const auto pixmap = QPixmap(QStringLiteral(":/icons/systray.png"));
+    const auto pixmap = QPixmap(u":/icons/systray.png"_s);
     info.pixmap = pixmap;
     w.setImageInfo(info);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto graphicsView = w.findChild<ShowImageGraphicsView *>(QStringLiteral("mImageGraphicsView"));
+    auto graphicsView = w.findChild<ShowImageGraphicsView *>(u"mImageGraphicsView"_s);
     QVERIFY(graphicsView);
 
-    auto zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));
+    auto zoomLayout = w.findChild<QHBoxLayout *>(u"zoomLayout"_s);
     QVERIFY(zoomLayout);
 
-    auto zoomLabel = w.findChild<QLabel *>(QStringLiteral("zoomLabel"));
+    auto zoomLabel = w.findChild<QLabel *>(u"zoomLabel"_s);
     QVERIFY(zoomLabel);
     QVERIFY(!zoomLabel->text().isEmpty());
 
-    auto mZoomSpin = w.findChild<QDoubleSpinBox *>(QStringLiteral("mZoomSpin"));
+    auto mZoomSpin = w.findChild<QDoubleSpinBox *>(u"mZoomSpin"_s);
     QVERIFY(mZoomSpin);
     QCOMPARE(mZoomSpin->value(), 1.0);
     QCOMPARE(mZoomSpin->singleStep(), 0.1);
 
-    auto mSlider = w.findChild<QSlider *>(QStringLiteral("mSlider"));
+    auto mSlider = w.findChild<QSlider *>(u"mSlider"_s);
     QVERIFY(mSlider);
     QCOMPARE(mSlider->orientation(), Qt::Horizontal);
     QCOMPARE(mSlider->value(), 100);
@@ -65,7 +67,7 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mSlider->value(), 300);
     QCOMPARE(graphicsView->zoom(), (qreal)3.0);
 
-    auto resetButton = w.findChild<QPushButton *>(QStringLiteral("resetButton"));
+    auto resetButton = w.findChild<QPushButton *>(u"resetButton"_s);
     QVERIFY(resetButton);
     resetButton->click();
     QCOMPARE(graphicsView->zoom(), (qreal)1.0);

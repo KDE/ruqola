@@ -5,6 +5,8 @@
 */
 
 #include "ruqolamainwindowtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/statuscombobox.h"
 #include "ruqolamainwindow.h"
 
@@ -25,9 +27,9 @@ RuqolaMainWindowTest::RuqolaMainWindowTest(QObject *parent)
 
 static void switchToMainWidget(RuqolaMainWindow &w)
 {
-    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
-    auto mRuqolaMainWidget = mStackedWidget->findChild<QWidget *>(QStringLiteral("mRuqolaMainWidget"));
+    auto mRuqolaMainWidget = mStackedWidget->findChild<QWidget *>(u"mRuqolaMainWidget"_s);
     QVERIFY(mRuqolaMainWidget);
     mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
     QCOMPARE(mStackedWidget->currentWidget(), mRuqolaMainWidget);
@@ -36,18 +38,18 @@ static void switchToMainWidget(RuqolaMainWindow &w)
 void RuqolaMainWindowTest::shouldHaveDefaultValues()
 {
     RuqolaMainWindow w;
-    auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+    auto mSplitter = w.findChild<QSplitter *>(u"mSplitter"_s);
     QVERIFY(mSplitter);
     switchToMainWidget(w);
 
-    auto mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
+    auto mStatusComboBox = w.findChild<StatusCombobox *>(u"mStatusComboBox"_s);
     QVERIFY(mStatusComboBox);
 
-    auto mStatusBarTypingMessage = w.findChild<QLabel *>(QStringLiteral("mStatusBarTypingMessage"));
+    auto mStatusBarTypingMessage = w.findChild<QLabel *>(u"mStatusBarTypingMessage"_s);
     QVERIFY(mStatusBarTypingMessage);
     QCOMPARE(mStatusBarTypingMessage->textFormat(), Qt::RichText);
 
-    auto mNotificationToolButton = w.findChild<QToolButton *>(QStringLiteral("mNotificationToolButton"));
+    auto mNotificationToolButton = w.findChild<QToolButton *>(u"mNotificationToolButton"_s);
     QVERIFY(mNotificationToolButton);
     QVERIFY(!mNotificationToolButton->toolTip().isEmpty());
     QVERIFY(mNotificationToolButton->isHidden());
@@ -64,7 +66,7 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
         w.resize(800, 800);
         w.show();
 
-        auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+        auto mSplitter = w.findChild<QSplitter *>(u"mSplitter"_s);
         QVERIFY(mSplitter);
         mSplitter->setSizes({100, 400});
         actualSizes = mSplitter->sizes(); // not exactly {100, 400} but more something like {167, 308}
@@ -76,7 +78,7 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
         QCOMPARE(w.size(), QSize(800, 800));
         w.show();
 
-        auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+        auto mSplitter = w.findChild<QSplitter *>(u"mSplitter"_s);
         QVERIFY(mSplitter);
         QCOMPARE(mSplitter->sizes(), actualSizes);
     }

@@ -5,6 +5,8 @@
 */
 
 #include "e2epassworddecodekeywidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "encryption/e2epassworddecodekeywidget.h"
 #include <KPasswordLineEdit>
 #include <QLabel>
@@ -21,16 +23,16 @@ void E2ePasswordDecodeKeyWidgetTest::shouldHaveDefaultValues()
 {
     E2ePasswordDecodeKeyWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
     QVERIFY(label->wordWrap());
 
-    auto mPassword = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPassword"));
+    auto mPassword = w.findChild<KPasswordLineEdit *>(u"mPassword"_s);
     QVERIFY(mPassword);
     QVERIFY(mPassword->password().isEmpty());
 }

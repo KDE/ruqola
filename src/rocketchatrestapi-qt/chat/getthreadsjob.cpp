@@ -91,18 +91,18 @@ QNetworkRequest GetThreadsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadsList);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("rid"), mRoomId);
+    queryUrl.addQueryItem(u"rid"_s, mRoomId);
     switch (mSearchType) {
     case TheadSearchType::All:
         if (!mUseSyntaxRc70) {
-            queryUrl.addQueryItem(QStringLiteral("type"), QStringLiteral("all"));
+            queryUrl.addQueryItem(u"type"_s, u"all"_s);
         }
         break;
     case TheadSearchType::Following:
-        queryUrl.addQueryItem(QStringLiteral("type"), QStringLiteral("following"));
+        queryUrl.addQueryItem(u"type"_s, u"following"_s);
         break;
     case TheadSearchType::Unread:
-        queryUrl.addQueryItem(QStringLiteral("type"), QStringLiteral("unread"));
+        queryUrl.addQueryItem(u"type"_s, u"unread"_s);
         break;
     }
 

@@ -5,6 +5,8 @@
 */
 
 #include "enterprisesettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
@@ -15,13 +17,13 @@ EnterpriseSettingsWidget::EnterpriseSettingsWidget(RocketChatAccount *account, Q
     , mEnterpriseLicense(new QLineEdit(this))
     , mStatus(new QLabel(this))
 {
-    mEnterpriseLicense->setObjectName(QStringLiteral("mEnterpriseLicense"));
+    mEnterpriseLicense->setObjectName(u"mEnterpriseLicense"_s);
     mEnterpriseLicense->setToolTip(
         i18n("If your workspace is registered and license is provided by Rocket.Chat Cloud you don't need to manually update the license here."));
-    addLineEdit(i18n("Enterprise License"), mEnterpriseLicense, QStringLiteral("Enterprise_License"));
+    addLineEdit(i18n("Enterprise License"), mEnterpriseLicense, u"Enterprise_License"_s);
 
-    mStatus->setObjectName(QStringLiteral("mStatus"));
-    addLabel(i18n("Status"), mStatus, QStringLiteral("Enterprise_License_Status"));
+    mStatus->setObjectName(u"mStatus"_s);
+    addLabel(i18n("Status"), mStatus, u"Enterprise_License_Status"_s);
 }
 
 EnterpriseSettingsWidget::~EnterpriseSettingsWidget() = default;

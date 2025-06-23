@@ -5,6 +5,8 @@
 */
 
 #include "servererrorinfohistorydelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"

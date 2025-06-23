@@ -5,6 +5,8 @@
 */
 
 #include "directorycontainerwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directorystackedwidget.h"
 #include "rocketchataccount.h"
 #include <QVBoxLayout>
@@ -15,21 +17,21 @@ DirectoryContainerWidget::DirectoryContainerWidget(RocketChatAccount *account, D
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mDirectoryStackedWidget->setObjectName(QStringLiteral("mDirectoryStackedWidget"));
+    mDirectoryStackedWidget->setObjectName(u"mDirectoryStackedWidget"_s);
     mainLayout->addWidget(mDirectoryStackedWidget);
 
     switch (type) {
     case DirectoryWidget::DirectoryType::Room:
     case DirectoryWidget::DirectoryType::Team: {
-        if (account && !account->hasPermission(QStringLiteral("view-c-room"))) {
+        if (account && !account->hasPermission(u"view-c-room"_s)) {
             mDirectoryStackedWidget->setIsAutorized(false);
         }
         break;
     }
     case DirectoryWidget::DirectoryType::User: {
-        if (account && (!account->hasPermission(QStringLiteral("view-outside-room")) || !account->hasPermission(QStringLiteral("view-d-room")))) {
+        if (account && (!account->hasPermission(u"view-outside-room"_s) || !account->hasPermission(u"view-d-room"_s))) {
             mDirectoryStackedWidget->setIsAutorized(false);
         }
         break;

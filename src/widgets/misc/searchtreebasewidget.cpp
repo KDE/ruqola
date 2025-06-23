@@ -5,6 +5,8 @@
 */
 
 #include "searchtreebasewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/searchwithdelaylineedit.h"
 #include "model/custombasemodel.h"
 #include <KLineEditEventHandler>
@@ -23,7 +25,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     mSearchLayout = new QVBoxLayout;
@@ -32,14 +34,14 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
     mSearchLineLayout = new QHBoxLayout;
     mSearchLineLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mSearchLineLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setDelayMs(500ms);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
     mSearchLayout->addLayout(mSearchLineLayout);
 
-    mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
+    mLabelResultSearch->setObjectName(u"mLabelResultSearch"_s);
     mSearchLayout->addWidget(mLabelResultSearch);
     mLabelResultSearch->setTextFormat(Qt::RichText);
     mLabelResultSearch->setContextMenuPolicy(Qt::NoContextMenu);
@@ -52,7 +54,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
     treeViewLayout->setContentsMargins({});
     mainLayout->addLayout(treeViewLayout);
 
-    mTreeView->setObjectName(QStringLiteral("mTreeView"));
+    mTreeView->setObjectName(u"mTreeView"_s);
     mTreeView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
 
     mTreeView->setRootIsDecorated(false);
@@ -75,7 +77,7 @@ SearchTreeBaseWidget::~SearchTreeBaseWidget() = default;
 
 QString SearchTreeBaseWidget::clickableStr() const
 {
-    return QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
+    return u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
 }
 
 void SearchTreeBaseWidget::refreshLoadElements()

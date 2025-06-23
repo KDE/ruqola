@@ -5,6 +5,8 @@
 */
 
 #include "myaccountpersonalaccesstokenconfigurewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "myaccount/myaccountpersonalaccesstokenconfigurewidget.h"
 #include "myaccount/myaccountpersonalaccesstokentreeview.h"
 #include <QLineEdit>
@@ -20,15 +22,15 @@ void MyAccountPersonalAccessTokenConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountPersonalAccessTokenConfigureWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
+    auto mSearchLineWidget = w.findChild<QLineEdit *>(u"mSearchLineWidget"_s);
     QVERIFY(mSearchLineWidget);
     QVERIFY(mSearchLineWidget->text().isEmpty());
     QVERIFY(!mSearchLineWidget->placeholderText().isEmpty());
 
-    auto mPersonalAccessTokenTreeView = w.findChild<MyAccountPersonalAccessTokenTreeView *>(QStringLiteral("mPersonalAccessTokenTreeView"));
+    auto mPersonalAccessTokenTreeView = w.findChild<MyAccountPersonalAccessTokenTreeView *>(u"mPersonalAccessTokenTreeView"_s);
     QVERIFY(mPersonalAccessTokenTreeView);
 }
 

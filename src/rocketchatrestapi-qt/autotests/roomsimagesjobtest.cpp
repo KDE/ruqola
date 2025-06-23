@@ -5,6 +5,8 @@
 */
 
 #include "roomsimagesjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rooms/roomsimagesjob.h"
 #include <QTest>
@@ -32,7 +34,7 @@ void RoomsImagesJobTest::shouldGenerateRequest()
 {
     RoomsImagesJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QByteArray roomId("bla");
     RoomsImagesJob::RoomsImagesJobInfo info;
@@ -42,7 +44,7 @@ void RoomsImagesJobTest::shouldGenerateRequest()
     info.offset = 0;
     job.setRoomsImagesJobInfo(info);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.images?roomId=room_id&startingFromId=start_Id&offset=0&count=5")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.images?roomId=room_id&startingFromId=start_Id&offset=0&count=5"_s));
 }
 
 void RoomsImagesJobTest::shouldNotStarting()
@@ -50,14 +52,14 @@ void RoomsImagesJobTest::shouldNotStarting()
     RoomsImagesJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);

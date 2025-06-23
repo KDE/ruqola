@@ -18,7 +18,7 @@ QString RestApiUtil::adaptUrl(const QString &url)
         return url;
     } else {
         // Default to https
-        return QStringLiteral("https://") + url;
+        return u"https://"_s + url;
     }
 }
 
@@ -26,611 +26,611 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
 {
     switch (type) {
     case RestApiUtil::RestApiUrlType::Login:
-        return QStringLiteral("login");
+        return u"login"_s;
     case RestApiUtil::RestApiUrlType::Logout:
-        return QStringLiteral("logout");
+        return u"logout"_s;
     case RestApiUtil::RestApiUrlType::Me:
-        return QStringLiteral("me");
+        return u"me"_s;
     case RestApiUtil::RestApiUrlType::UsersGetAvatar:
-        return QStringLiteral("users.getAvatar");
+        return u"users.getAvatar"_s;
     case RestApiUtil::RestApiUrlType::UsersDelete:
-        return QStringLiteral("users.delete");
+        return u"users.delete"_s;
     case RestApiUtil::RestApiUrlType::UsersCreate:
-        return QStringLiteral("users.create");
+        return u"users.create"_s;
     case RestApiUtil::RestApiUrlType::UsersCreateToken:
-        return QStringLiteral("users.createToken");
+        return u"users.createToken"_s;
     case RestApiUtil::RestApiUrlType::UsersGetPresence:
-        return QStringLiteral("users.getPresence");
+        return u"users.getPresence"_s;
     case RestApiUtil::RestApiUrlType::UsersInfo:
-        return QStringLiteral("users.info");
+        return u"users.info"_s;
     case RestApiUtil::RestApiUrlType::UsersList:
-        return QStringLiteral("users.list");
+        return u"users.list"_s;
     case RestApiUtil::RestApiUrlType::UsersRegister:
-        return QStringLiteral("users.register");
+        return u"users.register"_s;
     case RestApiUtil::RestApiUrlType::UsersResetAvatar:
-        return QStringLiteral("users.resetAvatar");
+        return u"users.resetAvatar"_s;
     case RestApiUtil::RestApiUrlType::UsersSetAvatar:
-        return QStringLiteral("users.setAvatar");
+        return u"users.setAvatar"_s;
     case RestApiUtil::RestApiUrlType::UsersUpdate:
-        return QStringLiteral("users.update");
+        return u"users.update"_s;
     case RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion:
-        return QStringLiteral("users.getUsernameSuggestion");
+        return u"users.getUsernameSuggestion"_s;
 
     case RestApiUtil::RestApiUrlType::UsersRemovePersonalAccessToken:
-        return QStringLiteral("users.removePersonalAccessToken");
+        return u"users.removePersonalAccessToken"_s;
     case RestApiUtil::RestApiUrlType::UsersGeneratePersonalAccessToken:
-        return QStringLiteral("users.generatePersonalAccessToken");
+        return u"users.generatePersonalAccessToken"_s;
     case RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken:
-        return QStringLiteral("users.regeneratePersonalAccessToken");
+        return u"users.regeneratePersonalAccessToken"_s;
     case RestApiUtil::RestApiUrlType::UsersGetPersonalAccessTokens:
-        return QStringLiteral("users.getPersonalAccessTokens");
+        return u"users.getPersonalAccessTokens"_s;
 
     case RestApiUtil::RestApiUrlType::UsersPresence:
-        return QStringLiteral("users.presence");
+        return u"users.presence"_s;
     case RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo:
-        return QStringLiteral("users.updateOwnBasicInfo");
+        return u"users.updateOwnBasicInfo"_s;
     case RestApiUtil::RestApiUrlType::UsersSetStatus:
-        return QStringLiteral("users.setStatus");
+        return u"users.setStatus"_s;
     case RestApiUtil::RestApiUrlType::UsersGetStatus:
-        return QStringLiteral("users.getStatus");
+        return u"users.getStatus"_s;
     case RestApiUtil::RestApiUrlType::UsersAutocomplete:
-        return QStringLiteral("users.autocomplete");
+        return u"users.autocomplete"_s;
     case RestApiUtil::RestApiUrlType::UsersRemoveOtherTokens:
-        return QStringLiteral("users.removeOtherTokens");
+        return u"users.removeOtherTokens"_s;
     case RestApiUtil::RestApiUrlType::UsersSetActiveStatus:
-        return QStringLiteral("users.setActiveStatus");
+        return u"users.setActiveStatus"_s;
     case RestApiUtil::RestApiUrlType::UsersResetTOTP:
-        return QStringLiteral("users.resetTOTP");
+        return u"users.resetTOTP"_s;
     case RestApiUtil::RestApiUrlType::UsersResetE2EKey:
-        return QStringLiteral("users.resetE2EKey");
+        return u"users.resetE2EKey"_s;
 
     case RestApiUtil::RestApiUrlType::ChatDelete:
-        return QStringLiteral("chat.delete");
+        return u"chat.delete"_s;
     case RestApiUtil::RestApiUrlType::ChatGetMessage:
-        return QStringLiteral("chat.getMessage");
+        return u"chat.getMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatPinMessage:
-        return QStringLiteral("chat.pinMessage");
+        return u"chat.pinMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatPostMessage:
-        return QStringLiteral("chat.postMessage");
+        return u"chat.postMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatReact:
-        return QStringLiteral("chat.react");
+        return u"chat.react"_s;
     case RestApiUtil::RestApiUrlType::ChatStarMessage:
-        return QStringLiteral("chat.starMessage");
+        return u"chat.starMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatUnPinMessage:
-        return QStringLiteral("chat.unPinMessage");
+        return u"chat.unPinMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatUnStarMessage:
-        return QStringLiteral("chat.unStarMessage");
+        return u"chat.unStarMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatUpdate:
-        return QStringLiteral("chat.update");
+        return u"chat.update"_s;
     case RestApiUtil::RestApiUrlType::ChatSearch:
-        return QStringLiteral("chat.search");
+        return u"chat.search"_s;
     case RestApiUtil::RestApiUrlType::ChatIgnoreUser:
-        return QStringLiteral("chat.ignoreUser");
+        return u"chat.ignoreUser"_s;
     case RestApiUtil::RestApiUrlType::ChatReportMessage:
-        return QStringLiteral("chat.reportMessage");
+        return u"chat.reportMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatFollowMessage:
-        return QStringLiteral("chat.followMessage");
+        return u"chat.followMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatUnFollowMessage:
-        return QStringLiteral("chat.unfollowMessage");
+        return u"chat.unfollowMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatGetDeletedMessage:
-        return QStringLiteral("chat.getDeletedMessages");
+        return u"chat.getDeletedMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatMessageReadReceipts:
-        return QStringLiteral("chat.getMessageReadReceipts");
+        return u"chat.getMessageReadReceipts"_s;
     case RestApiUtil::RestApiUrlType::ChatSyncThreadsList:
-        return QStringLiteral("chat.syncThreadsList");
+        return u"chat.syncThreadsList"_s;
     case RestApiUtil::RestApiUrlType::ChatGetThreadsList:
-        return QStringLiteral("chat.getThreadsList");
+        return u"chat.getThreadsList"_s;
     case RestApiUtil::RestApiUrlType::ChatSyncThreadMessages:
-        return QStringLiteral("chat.syncThreadMessages");
+        return u"chat.syncThreadMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatGetThreadMessages:
-        return QStringLiteral("chat.getThreadMessages");
+        return u"chat.getThreadMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatSendMessage:
-        return QStringLiteral("chat.sendMessage");
+        return u"chat.sendMessage"_s;
     case RestApiUtil::RestApiUrlType::ChatGetPinnedMessages:
-        return QStringLiteral("chat.getPinnedMessages");
+        return u"chat.getPinnedMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatGetMentionedMessages:
-        return QStringLiteral("chat.getMentionedMessages");
+        return u"chat.getMentionedMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatGetStarredMessages:
-        return QStringLiteral("chat.getStarredMessages");
+        return u"chat.getStarredMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages:
-        return QStringLiteral("chat.getSnippetedMessages");
+        return u"chat.getSnippetedMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatSyncMessages:
-        return QStringLiteral("chat.syncMessages");
+        return u"chat.syncMessages"_s;
     case RestApiUtil::RestApiUrlType::ChannelsAddAll:
-        return QStringLiteral("channels.addAll");
+        return u"channels.addAll"_s;
     case RestApiUtil::RestApiUrlType::ChannelsAddModerator:
-        return QStringLiteral("channels.addModerator");
+        return u"channels.addModerator"_s;
     case RestApiUtil::RestApiUrlType::ChannelsAddOwner:
-        return QStringLiteral("channels.addOwner");
+        return u"channels.addOwner"_s;
     case RestApiUtil::RestApiUrlType::ChannelsAddLeader:
-        return QStringLiteral("channels.addLeader");
+        return u"channels.addLeader"_s;
     case RestApiUtil::RestApiUrlType::ChannelsArchive:
-        return QStringLiteral("channels.archive");
+        return u"channels.archive"_s;
     case RestApiUtil::RestApiUrlType::ChannelsModerators:
-        return QStringLiteral("channels.moderators");
+        return u"channels.moderators"_s;
     case RestApiUtil::RestApiUrlType::ChannelsClose:
-        return QStringLiteral("channels.close");
+        return u"channels.close"_s;
     case RestApiUtil::RestApiUrlType::ChannelsCreate:
-        return QStringLiteral("channels.create");
+        return u"channels.create"_s;
     case RestApiUtil::RestApiUrlType::ChannelsGetIntegrations:
-        return QStringLiteral("channels.getIntegrations");
+        return u"channels.getIntegrations"_s;
     case RestApiUtil::RestApiUrlType::ChannelsHistory:
-        return QStringLiteral("channels.history");
+        return u"channels.history"_s;
     case RestApiUtil::RestApiUrlType::ChannelsInfo:
-        return QStringLiteral("channels.info");
+        return u"channels.info"_s;
     case RestApiUtil::RestApiUrlType::ChannelsInvite:
-        return QStringLiteral("channels.invite");
+        return u"channels.invite"_s;
     case RestApiUtil::RestApiUrlType::ChannelsKick:
-        return QStringLiteral("channels.kick");
+        return u"channels.kick"_s;
     case RestApiUtil::RestApiUrlType::ChannelsLeave:
-        return QStringLiteral("channels.leave");
+        return u"channels.leave"_s;
     case RestApiUtil::RestApiUrlType::ChannelsList:
-        return QStringLiteral("channels.list");
+        return u"channels.list"_s;
     case RestApiUtil::RestApiUrlType::ChannelsListJoined:
-        return QStringLiteral("channels.list.joined");
+        return u"channels.list.joined"_s;
     case RestApiUtil::RestApiUrlType::ChannelsOpen:
-        return QStringLiteral("channels.open");
+        return u"channels.open"_s;
     case RestApiUtil::RestApiUrlType::ChannelsRemoveModerator:
-        return QStringLiteral("channels.removeModerator");
+        return u"channels.removeModerator"_s;
     case RestApiUtil::RestApiUrlType::ChannelsRemoveOwner:
-        return QStringLiteral("channels.removeOwner");
+        return u"channels.removeOwner"_s;
     case RestApiUtil::RestApiUrlType::ChannelsRemoveLeader:
-        return QStringLiteral("channels.removeLeader");
+        return u"channels.removeLeader"_s;
     case RestApiUtil::RestApiUrlType::ChannelsRename:
-        return QStringLiteral("channels.rename");
+        return u"channels.rename"_s;
     case RestApiUtil::RestApiUrlType::ChannelsSetDescription:
-        return QStringLiteral("channels.setDescription");
+        return u"channels.setDescription"_s;
     case RestApiUtil::RestApiUrlType::ChannelsSetJoinCode:
-        return QStringLiteral("channels.setJoinCode");
+        return u"channels.setJoinCode"_s;
     case RestApiUtil::RestApiUrlType::ChannelsSetPurpose:
-        return QStringLiteral("channels.setPurpose");
+        return u"channels.setPurpose"_s;
     case RestApiUtil::RestApiUrlType::ChannelsSetReadOnly:
-        return QStringLiteral("channels.setReadOnly");
+        return u"channels.setReadOnly"_s;
     case RestApiUtil::RestApiUrlType::ChannelsSetTopic:
-        return QStringLiteral("channels.setTopic");
+        return u"channels.setTopic"_s;
     case RestApiUtil::RestApiUrlType::ChannelsSetAnnouncement:
-        return QStringLiteral("channels.setAnnouncement");
+        return u"channels.setAnnouncement"_s;
     case RestApiUtil::RestApiUrlType::ChannelsFiles:
-        return QStringLiteral("channels.files");
+        return u"channels.files"_s;
     case RestApiUtil::RestApiUrlType::ChannelsSetType:
-        return QStringLiteral("channels.setType");
+        return u"channels.setType"_s;
     case RestApiUtil::RestApiUrlType::ChannelsUnarchive:
-        return QStringLiteral("channels.unarchive");
+        return u"channels.unarchive"_s;
     case RestApiUtil::RestApiUrlType::ChannelsRoles:
-        return QStringLiteral("channels.roles");
+        return u"channels.roles"_s;
     case RestApiUtil::RestApiUrlType::ChannelsCounters:
-        return QStringLiteral("channels.counters");
+        return u"channels.counters"_s;
     case RestApiUtil::RestApiUrlType::ChannelsJoin:
-        return QStringLiteral("channels.join");
+        return u"channels.join"_s;
     case RestApiUtil::RestApiUrlType::ChannelsMembers:
-        return QStringLiteral("channels.members");
+        return u"channels.members"_s;
     case RestApiUtil::RestApiUrlType::ChannelsDelete:
-        return QStringLiteral("channels.delete");
+        return u"channels.delete"_s;
     case RestApiUtil::RestApiUrlType::ChannelsOnline:
-        return QStringLiteral("channels.online");
+        return u"channels.online"_s;
     case RestApiUtil::RestApiUrlType::ChannelsGetAllUserMentionsByChannel:
-        return QStringLiteral("channels.getAllUserMentionsByChannel");
+        return u"channels.getAllUserMentionsByChannel"_s;
     case RestApiUtil::RestApiUrlType::GroupsAddAll:
-        return QStringLiteral("groups.addAll");
+        return u"groups.addAll"_s;
     case RestApiUtil::RestApiUrlType::GroupsAddModerator:
-        return QStringLiteral("groups.addModerator");
+        return u"groups.addModerator"_s;
     case RestApiUtil::RestApiUrlType::GroupsAddOwner:
-        return QStringLiteral("groups.addOwner");
+        return u"groups.addOwner"_s;
     case RestApiUtil::RestApiUrlType::GroupsArchive:
-        return QStringLiteral("groups.archive");
+        return u"groups.archive"_s;
     case RestApiUtil::RestApiUrlType::GroupsClose:
-        return QStringLiteral("groups.close");
+        return u"groups.close"_s;
     case RestApiUtil::RestApiUrlType::GroupsCreate:
-        return QStringLiteral("groups.create");
+        return u"groups.create"_s;
     case RestApiUtil::RestApiUrlType::GroupsGetIntegrations:
-        return QStringLiteral("groups.getIntegrations");
+        return u"groups.getIntegrations"_s;
     case RestApiUtil::RestApiUrlType::GroupsHistory:
-        return QStringLiteral("groups.history");
+        return u"groups.history"_s;
     case RestApiUtil::RestApiUrlType::GroupsInfo:
-        return QStringLiteral("groups.info");
+        return u"groups.info"_s;
     case RestApiUtil::RestApiUrlType::GroupsInvite:
-        return QStringLiteral("groups.invite");
+        return u"groups.invite"_s;
     case RestApiUtil::RestApiUrlType::GroupsKick:
-        return QStringLiteral("groups.kick");
+        return u"groups.kick"_s;
     case RestApiUtil::RestApiUrlType::GroupsLeave:
-        return QStringLiteral("groups.leave");
+        return u"groups.leave"_s;
     case RestApiUtil::RestApiUrlType::GroupsList:
-        return QStringLiteral("groups.list");
+        return u"groups.list"_s;
     case RestApiUtil::RestApiUrlType::GroupsOpen:
-        return QStringLiteral("groups.open");
+        return u"groups.open"_s;
     case RestApiUtil::RestApiUrlType::GroupsRemoveModerator:
-        return QStringLiteral("groups.removeModerator");
+        return u"groups.removeModerator"_s;
     case RestApiUtil::RestApiUrlType::GroupsRemoveOwner:
-        return QStringLiteral("groups.removeOwner");
+        return u"groups.removeOwner"_s;
     case RestApiUtil::RestApiUrlType::GroupsRename:
-        return QStringLiteral("groups.rename");
+        return u"groups.rename"_s;
     case RestApiUtil::RestApiUrlType::GroupsSetDescription:
-        return QStringLiteral("groups.setDescription");
+        return u"groups.setDescription"_s;
     case RestApiUtil::RestApiUrlType::GroupsSetPurpose:
-        return QStringLiteral("groups.setPurpose");
+        return u"groups.setPurpose"_s;
     case RestApiUtil::RestApiUrlType::GroupsSetReadOnly:
-        return QStringLiteral("groups.setReadOnly");
+        return u"groups.setReadOnly"_s;
     case RestApiUtil::RestApiUrlType::GroupsSetTopic:
-        return QStringLiteral("groups.setTopic");
+        return u"groups.setTopic"_s;
     case RestApiUtil::RestApiUrlType::GroupsSetType:
-        return QStringLiteral("groups.setType");
+        return u"groups.setType"_s;
     case RestApiUtil::RestApiUrlType::GroupsUnarchive:
-        return QStringLiteral("groups.unarchive");
+        return u"groups.unarchive"_s;
     case RestApiUtil::RestApiUrlType::GroupsSetAnnouncement:
-        return QStringLiteral("groups.setAnnouncement");
+        return u"groups.setAnnouncement"_s;
     case RestApiUtil::RestApiUrlType::GroupsFiles:
-        return QStringLiteral("groups.files");
+        return u"groups.files"_s;
     case RestApiUtil::RestApiUrlType::GroupsRoles:
-        return QStringLiteral("groups.roles");
+        return u"groups.roles"_s;
     case RestApiUtil::RestApiUrlType::GroupsCounters:
-        return QStringLiteral("groups.counters");
+        return u"groups.counters"_s;
     case RestApiUtil::RestApiUrlType::GroupsRemoveLeader:
-        return QStringLiteral("groups.removeLeader");
+        return u"groups.removeLeader"_s;
     case RestApiUtil::RestApiUrlType::GroupsAddLeader:
-        return QStringLiteral("groups.addLeader");
+        return u"groups.addLeader"_s;
     case RestApiUtil::RestApiUrlType::GroupsDelete:
-        return QStringLiteral("groups.delete");
+        return u"groups.delete"_s;
     case RestApiUtil::RestApiUrlType::GroupsListAll:
-        return QStringLiteral("groups.listAll");
+        return u"groups.listAll"_s;
     case RestApiUtil::RestApiUrlType::GroupsMembers:
-        return QStringLiteral("groups.members");
+        return u"groups.members"_s;
     case RestApiUtil::RestApiUrlType::GroupsSetEncrypted:
-        return QStringLiteral("groups.setEncrypted");
+        return u"groups.setEncrypted"_s;
     case RestApiUtil::RestApiUrlType::ServerInfo:
-        return QStringLiteral("info");
+        return u"info"_s;
     case RestApiUtil::RestApiUrlType::Settings:
-        return QStringLiteral("settings");
+        return u"settings"_s;
     case RestApiUtil::RestApiUrlType::SettingsPublic:
-        return QStringLiteral("settings.public");
+        return u"settings.public"_s;
     case RestApiUtil::RestApiUrlType::UpdateAdminSettings:
-        return QStringLiteral("settings");
+        return u"settings"_s;
     case RestApiUtil::RestApiUrlType::RoomsUpload:
-        return QStringLiteral("rooms.upload");
+        return u"rooms.upload"_s;
     case RestApiUtil::RestApiUrlType::RoomsSaveNotification:
-        return QStringLiteral("rooms.saveNotification");
+        return u"rooms.saveNotification"_s;
     case RestApiUtil::RestApiUrlType::RoomsSaveSettings:
-        return QStringLiteral("rooms.saveRoomSettings");
+        return u"rooms.saveRoomSettings"_s;
     case RestApiUtil::RestApiUrlType::RoomsAdminRooms:
-        return QStringLiteral("rooms.adminRooms");
+        return u"rooms.adminRooms"_s;
     case RestApiUtil::RestApiUrlType::RoomsAdminRoomsGetRoom:
-        return QStringLiteral("rooms.adminRooms.getRoom");
+        return u"rooms.adminRooms.getRoom"_s;
     case RestApiUtil::RestApiUrlType::Spotlight:
-        return QStringLiteral("spotlight");
+        return u"spotlight"_s;
     case RestApiUtil::RestApiUrlType::ImClose:
-        return QStringLiteral("im.close");
+        return u"im.close"_s;
     case RestApiUtil::RestApiUrlType::ImCreate:
-        return QStringLiteral("im.create");
+        return u"im.create"_s;
     case RestApiUtil::RestApiUrlType::ImOpen:
-        return QStringLiteral("im.open");
+        return u"im.open"_s;
     case RestApiUtil::RestApiUrlType::ImSetTopic:
-        return QStringLiteral("im.setTopic");
+        return u"im.setTopic"_s;
     case RestApiUtil::RestApiUrlType::ImHistory:
-        return QStringLiteral("im.history");
+        return u"im.history"_s;
     case RestApiUtil::RestApiUrlType::ImFiles:
-        return QStringLiteral("im.files");
+        return u"im.files"_s;
     case RestApiUtil::RestApiUrlType::ImDelete:
-        return QStringLiteral("im.delete");
+        return u"im.delete"_s;
     case RestApiUtil::RestApiUrlType::ImMessages:
-        return QStringLiteral("im.messages");
+        return u"im.messages"_s;
     case RestApiUtil::RestApiUrlType::ImMembers:
-        return QStringLiteral("im.members");
+        return u"im.members"_s;
     case RestApiUtil::RestApiUrlType::LoadEmojiCustom:
-        return QStringLiteral("emoji-custom.list");
+        return u"emoji-custom.list"_s;
     case RestApiUtil::RestApiUrlType::EmojiCustomDelete:
-        return QStringLiteral("emoji-custom.delete");
+        return u"emoji-custom.delete"_s;
     case RestApiUtil::RestApiUrlType::EmojiCustomCreate:
-        return QStringLiteral("emoji-custom.create");
+        return u"emoji-custom.create"_s;
     case RestApiUtil::RestApiUrlType::EmojiCustomUpdate:
-        return QStringLiteral("emoji-custom.update");
+        return u"emoji-custom.update"_s;
     case RestApiUtil::RestApiUrlType::EmojiCustomAll:
-        return QStringLiteral("emoji-custom.all");
+        return u"emoji-custom.all"_s;
     case RestApiUtil::RestApiUrlType::SubscriptionsRead:
-        return QStringLiteral("subscriptions.read");
+        return u"subscriptions.read"_s;
     case RestApiUtil::RestApiUrlType::SubscriptionsUnRead:
-        return QStringLiteral("subscriptions.unread");
+        return u"subscriptions.unread"_s;
     case RestApiUtil::RestApiUrlType::RoomsGet:
-        return QStringLiteral("rooms.get");
+        return u"rooms.get"_s;
     case RestApiUtil::RestApiUrlType::RoomsFavorite:
-        return QStringLiteral("rooms.favorite");
+        return u"rooms.favorite"_s;
     case RestApiUtil::RestApiUrlType::RoomsCleanHistory:
-        return QStringLiteral("rooms.cleanHistory");
+        return u"rooms.cleanHistory"_s;
     // since 1.0.0
     case RestApiUtil::RestApiUrlType::RoomsCreateDiscussion:
-        return QStringLiteral("rooms.createDiscussion");
+        return u"rooms.createDiscussion"_s;
     case RestApiUtil::RestApiUrlType::RoomsGetDiscussions:
-        return QStringLiteral("rooms.getDiscussions");
+        return u"rooms.getDiscussions"_s;
 
     // since 3.8.0
     case RestApiUtil::RestApiUrlType::RoomsExport:
-        return QStringLiteral("rooms.export");
+        return u"rooms.export"_s;
     case RestApiUtil::RestApiUrlType::RoomsChangeArchivactionState:
-        return QStringLiteral("rooms.changeArchivationState");
+        return u"rooms.changeArchivationState"_s;
     // since 0.72 ? Need to implement it
     case RestApiUtil::RestApiUrlType::RoomsInfo:
-        return QStringLiteral("rooms.info");
+        return u"rooms.info"_s;
     case RestApiUtil::RestApiUrlType::RoomsLeave:
-        return QStringLiteral("rooms.leave");
+        return u"rooms.leave"_s;
         // Since 5.4.0
     case RestApiUtil::RestApiUrlType::RoomsDelete:
-        return QStringLiteral("rooms.delete");
+        return u"rooms.delete"_s;
 
     //
     case RestApiUtil::RestApiUrlType::ForgotPassword:
-        return QStringLiteral("users.forgotPassword");
+        return u"users.forgotPassword"_s;
     case RestApiUtil::RestApiUrlType::CommandsList:
-        return QStringLiteral("commands.list");
+        return u"commands.list"_s;
     case RestApiUtil::RestApiUrlType::CommandsGet:
-        return QStringLiteral("commands.get");
+        return u"commands.get"_s;
     case RestApiUtil::RestApiUrlType::CommandsRun:
-        return QStringLiteral("commands.run");
+        return u"commands.run"_s;
     case RestApiUtil::RestApiUrlType::CommandsPreview:
-        return QStringLiteral("commands.preview");
+        return u"commands.preview"_s;
     case RestApiUtil::RestApiUrlType::E2EfetchMyKeys:
-        return QStringLiteral("e2e.fetchMyKeys");
+        return u"e2e.fetchMyKeys"_s;
     case RestApiUtil::RestApiUrlType::E2EupdateGroupKey:
-        return QStringLiteral("e2e.updateGroupKey");
+        return u"e2e.updateGroupKey"_s;
 
     case RestApiUtil::RestApiUrlType::E2ESetRoomKeyID:
-        return QStringLiteral("e2e.setRoomKeyID");
+        return u"e2e.setRoomKeyID"_s;
     case RestApiUtil::RestApiUrlType::E2ESetUserPublicAndPrivateKeys:
-        return QStringLiteral("e2e.setUserPublicAndPrivateKeys");
+        return u"e2e.setUserPublicAndPrivateKeys"_s;
     case RestApiUtil::RestApiUrlType::E2EGetUsersOfRoomWithoutKey:
-        return QStringLiteral("e2e.getUsersOfRoomWithoutKey");
+        return u"e2e.getUsersOfRoomWithoutKey"_s;
     case RestApiUtil::RestApiUrlType::E2ERequestSubscriptionKeys:
-        return QStringLiteral("e2e.requestSubscriptionKeys");
+        return u"e2e.requestSubscriptionKeys"_s;
     case RestApiUtil::RestApiUrlType::E2EResetOwnE2EKey:
-        return QStringLiteral("e2e.resetOwnE2EKey");
+        return u"e2e.resetOwnE2EKey"_s;
 
     case RestApiUtil::RestApiUrlType::E2EAcceptSuggestedGroupKey:
-        return QStringLiteral("e2e.acceptSuggestedGroupKey");
+        return u"e2e.acceptSuggestedGroupKey"_s;
     case RestApiUtil::RestApiUrlType::E2ERejectSuggestedGroupKey:
-        return QStringLiteral("e2e.rejectSuggestedGroupKey");
+        return u"e2e.rejectSuggestedGroupKey"_s;
     case RestApiUtil::RestApiUrlType::E2EProvideUsersWithSuggestedGroupKeys:
-        return QStringLiteral("e2e.provideUsersWithSuggestedGroupKeys");
+        return u"e2e.provideUsersWithSuggestedGroupKeys"_s;
     case RestApiUtil::RestApiUrlType::E2EResetRoomKey:
-        return QStringLiteral("e2e.resetRoomKey");
+        return u"e2e.resetRoomKey"_s;
     case RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey:
-        return QStringLiteral("e2e.provideUsersSuggestedGroupKeys");
+        return u"e2e.provideUsersSuggestedGroupKeys"_s;
 
     case RestApiUtil::RestApiUrlType::RolesList:
-        return QStringLiteral("roles.list");
+        return u"roles.list"_s;
     case RestApiUtil::RestApiUrlType::RolesCreate:
-        return QStringLiteral("roles.create");
+        return u"roles.create"_s;
     case RestApiUtil::RestApiUrlType::RolesSync:
-        return QStringLiteral("roles.sync");
+        return u"roles.sync"_s;
     case RestApiUtil::RestApiUrlType::RolesUpdate:
-        return QStringLiteral("roles.update");
+        return u"roles.update"_s;
     case RestApiUtil::RestApiUrlType::RolesGetUsersInRole:
-        return QStringLiteral("roles.getUsersInRole");
+        return u"roles.getUsersInRole"_s;
     case RestApiUtil::RestApiUrlType::RolesAddUserToRole:
-        return QStringLiteral("roles.addUserToRole");
+        return u"roles.addUserToRole"_s;
     case RestApiUtil::RestApiUrlType::RolesRemoveUserFromRole:
-        return QStringLiteral("roles.removeUserFromRole");
+        return u"roles.removeUserFromRole"_s;
 
     case RestApiUtil::RestApiUrlType::RolesDelete:
-        return QStringLiteral("roles.delete");
+        return u"roles.delete"_s;
 
     case RestApiUtil::RestApiUrlType::VideoConfJitsi:
-        return QStringLiteral("video-conference/jitsi.update-timeout");
+        return u"video-conference/jitsi.update-timeout"_s;
 
     case RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages:
-        return QStringLiteral("autotranslate.getSupportedLanguages");
+        return u"autotranslate.getSupportedLanguages"_s;
     case RestApiUtil::RestApiUrlType::AutoTranslateSaveSettings:
-        return QStringLiteral("autotranslate.saveSettings");
+        return u"autotranslate.saveSettings"_s;
     case RestApiUtil::RestApiUrlType::AutoTranslateTranslateMessage:
-        return QStringLiteral("autotranslate.translateMessage");
+        return u"autotranslate.translateMessage"_s;
 
     case RestApiUtil::RestApiUrlType::CustomUserStatusList:
-        return QStringLiteral("custom-user-status.list");
+        return u"custom-user-status.list"_s;
     case RestApiUtil::RestApiUrlType::CustomUserStatusCreate:
-        return QStringLiteral("custom-user-status.create");
+        return u"custom-user-status.create"_s;
     case RestApiUtil::RestApiUrlType::CustomUserStatusDelete:
-        return QStringLiteral("custom-user-status.delete");
+        return u"custom-user-status.delete"_s;
     case RestApiUtil::RestApiUrlType::CustomUserStatusUpdate:
-        return QStringLiteral("custom-user-status.update");
+        return u"custom-user-status.update"_s;
 
     case RestApiUtil::RestApiUrlType::CustomSoundsList:
-        return QStringLiteral("custom-sounds.list");
+        return u"custom-sounds.list"_s;
     case RestApiUtil::RestApiUrlType::FindOrCreateInvite:
-        return QStringLiteral("findOrCreateInvite");
+        return u"findOrCreateInvite"_s;
     case RestApiUtil::RestApiUrlType::ListInvites:
-        return QStringLiteral("listInvites");
+        return u"listInvites"_s;
     case RestApiUtil::RestApiUrlType::RemoveInvite:
-        return QStringLiteral("removeInvite");
+        return u"removeInvite"_s;
     case RestApiUtil::RestApiUrlType::UseInviteToken:
-        return QStringLiteral("useInviteToken");
+        return u"useInviteToken"_s;
     case RestApiUtil::RestApiUrlType::ValidateInviteToken:
-        return QStringLiteral("validateInviteToken");
+        return u"validateInviteToken"_s;
     case RestApiUtil::RestApiUrlType::SendInvitationEmails:
-        return QStringLiteral("sendInvitationEmail");
+        return u"sendInvitationEmail"_s;
     case RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate:
-        return QStringLiteral("rooms.autocomplete.channelAndPrivate");
+        return u"rooms.autocomplete.channelAndPrivate"_s;
     case RestApiUtil::RestApiUrlType::Users2FASendEmailCode:
-        return QStringLiteral("users.2fa.sendEmailCode");
+        return u"users.2fa.sendEmailCode"_s;
     case RestApiUtil::RestApiUrlType::Users2FAEnableEmail:
-        return QStringLiteral("users.2fa.enableEmail");
+        return u"users.2fa.enableEmail"_s;
     case RestApiUtil::RestApiUrlType::Users2FADisableEmail:
-        return QStringLiteral("users.2fa.disableEmail");
+        return u"users.2fa.disableEmail"_s;
 
     case RestApiUtil::RestApiUrlType::UsersDeleteOwnAccount:
-        return QStringLiteral("users.deleteOwnAccount");
+        return u"users.deleteOwnAccount"_s;
     case RestApiUtil::RestApiUrlType::UsersSetPreferences:
-        return QStringLiteral("users.setPreferences");
+        return u"users.setPreferences"_s;
     case RestApiUtil::RestApiUrlType::PermissionsListAll:
-        return QStringLiteral("permissions.listAll");
+        return u"permissions.listAll"_s;
     case RestApiUtil::RestApiUrlType::PermissionsUpdate:
-        return QStringLiteral("permissions.update");
+        return u"permissions.update"_s;
     case RestApiUtil::RestApiUrlType::Statistics:
-        return QStringLiteral("statistics");
+        return u"statistics"_s;
     case RestApiUtil::RestApiUrlType::Directory:
-        return QStringLiteral("directory");
+        return u"directory"_s;
 
     case RestApiUtil::RestApiUrlType::TeamsList:
-        return QStringLiteral("teams.list");
+        return u"teams.list"_s;
     case RestApiUtil::RestApiUrlType::TeamsListAll:
-        return QStringLiteral("teams.listAll");
+        return u"teams.listAll"_s;
     case RestApiUtil::RestApiUrlType::TeamsCreate:
-        return QStringLiteral("teams.create");
+        return u"teams.create"_s;
     case RestApiUtil::RestApiUrlType::TeamsAddRooms:
-        return QStringLiteral("teams.addRooms");
+        return u"teams.addRooms"_s;
     case RestApiUtil::RestApiUrlType::TeamsRemoveRoom:
-        return QStringLiteral("teams.removeRoom");
+        return u"teams.removeRoom"_s;
     case RestApiUtil::RestApiUrlType::TeamsUpdateRoom:
-        return QStringLiteral("teams.updateRoom");
+        return u"teams.updateRoom"_s;
     case RestApiUtil::RestApiUrlType::TeamsListRooms:
-        return QStringLiteral("teams.listRooms");
+        return u"teams.listRooms"_s;
     case RestApiUtil::RestApiUrlType::TeamsListRoomsOfUser:
-        return QStringLiteral("teams.listRoomsOfUser");
+        return u"teams.listRoomsOfUser"_s;
     case RestApiUtil::RestApiUrlType::TeamsMembers:
-        return QStringLiteral("teams.members");
+        return u"teams.members"_s;
     case RestApiUtil::RestApiUrlType::TeamsAddMembers:
-        return QStringLiteral("teams.addMembers");
+        return u"teams.addMembers"_s;
     case RestApiUtil::RestApiUrlType::TeamsUpdateMember:
-        return QStringLiteral("teams.updateMember");
+        return u"teams.updateMember"_s;
     case RestApiUtil::RestApiUrlType::TeamsRemoveMember:
-        return QStringLiteral("teams.removeMember");
+        return u"teams.removeMember"_s;
     case RestApiUtil::RestApiUrlType::TeamsLeave:
-        return QStringLiteral("teams.leave");
+        return u"teams.leave"_s;
     case RestApiUtil::RestApiUrlType::TeamsInfo:
-        return QStringLiteral("teams.info");
+        return u"teams.info"_s;
     case RestApiUtil::RestApiUrlType::TeamsDelete:
-        return QStringLiteral("teams.delete");
+        return u"teams.delete"_s;
     case RestApiUtil::RestApiUrlType::TeamsAutocomplete:
-        return QStringLiteral("teams.autocomplete");
+        return u"teams.autocomplete"_s;
     case RestApiUtil::RestApiUrlType::TeamsConvertToChannel:
-        return QStringLiteral("teams.convertToChannel");
+        return u"teams.convertToChannel"_s;
     case RestApiUtil::RestApiUrlType::RoomsAutocompleteAvailableForTeams:
-        return QStringLiteral("rooms.autocomplete.availableForTeams");
+        return u"rooms.autocomplete.availableForTeams"_s;
     case RestApiUtil::RestApiUrlType::ChannelsConvertToTeam:
-        return QStringLiteral("channels.convertToTeam");
+        return u"channels.convertToTeam"_s;
     case RestApiUtil::RestApiUrlType::GroupsConvertToTeam:
-        return QStringLiteral("groups.convertToTeam");
+        return u"groups.convertToTeam"_s;
     case RestApiUtil::RestApiUrlType::StdoutQueue:
-        return QStringLiteral("stdout.queue");
+        return u"stdout.queue"_s;
     case RestApiUtil::RestApiUrlType::OauthAppsList:
-        return QStringLiteral("oauth-apps.list");
+        return u"oauth-apps.list"_s;
     case RestApiUtil::RestApiUrlType::OauthAppsGet:
-        return QStringLiteral("oauth-apps.get");
+        return u"oauth-apps.get"_s;
     case RestApiUtil::RestApiUrlType::OauthAppsCreate:
-        return QStringLiteral("oauth-apps.create");
+        return u"oauth-apps.create"_s;
     case RestApiUtil::RestApiUrlType::OauthAppsUpdate:
-        return QStringLiteral("oauth-apps.update");
+        return u"oauth-apps.update"_s;
     case RestApiUtil::RestApiUrlType::OauthAppsDelete:
-        return QStringLiteral("oauth-apps.delete");
+        return u"oauth-apps.delete"_s;
 
     case RestApiUtil::RestApiUrlType::SettingsOauth:
-        return QStringLiteral("settings.oauth");
+        return u"settings.oauth"_s;
     case RestApiUtil::RestApiUrlType::SettingsAddCustomOauth:
-        return QStringLiteral("settings.addCustomOAuth");
+        return u"settings.addCustomOAuth"_s;
 
     case RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers:
-        return QStringLiteral("licenses.maxActiveUsers");
+        return u"licenses.maxActiveUsers"_s;
     case RestApiUtil::RestApiUrlType::LicensesAdd:
-        return QStringLiteral("licenses.add");
+        return u"licenses.add"_s;
     case RestApiUtil::RestApiUrlType::LicensesIsEntreprise:
-        return QStringLiteral("licenses.isEnterprise");
+        return u"licenses.isEnterprise"_s;
     case RestApiUtil::RestApiUrlType::LicensesInfo:
-        return QStringLiteral("licenses.info");
+        return u"licenses.info"_s;
 
     case RestApiUtil::RestApiUrlType::BannersDismiss:
-        return QStringLiteral("banners.dismiss");
+        return u"banners.dismiss"_s;
     case RestApiUtil::RestApiUrlType::Banners:
-        return QStringLiteral("banners");
+        return u"banners"_s;
 
     // RC 5.0
     case RestApiUtil::RestApiUrlType::SessionsList:
-        return QStringLiteral("sessions/list");
+        return u"sessions/list"_s;
     case RestApiUtil::RestApiUrlType::SessionsInfo:
-        return QStringLiteral("sessions/info");
+        return u"sessions/info"_s;
     case RestApiUtil::RestApiUrlType::SessionsListAll:
-        return QStringLiteral("sessions/list.all");
+        return u"sessions/list.all"_s;
     case RestApiUtil::RestApiUrlType::SessionsLogoutMe:
-        return QStringLiteral("sessions/logout.me");
+        return u"sessions/logout.me"_s;
     case RestApiUtil::RestApiUrlType::SessionsLogout:
-        return QStringLiteral("sessions/logout");
+        return u"sessions/logout"_s;
     case RestApiUtil::RestApiUrlType::SessionsInfoAdmin:
-        return QStringLiteral("sessions/info.admin");
+        return u"sessions/info.admin"_s;
 
     case RestApiUtil::RestApiUrlType::UserRequestDataDownload:
-        return QStringLiteral("users.requestDataDownload");
+        return u"users.requestDataDownload"_s;
 
     case RestApiUtil::RestApiUrlType::VideoConferenceStart:
-        return QStringLiteral("video-conference.start");
+        return u"video-conference.start"_s;
     case RestApiUtil::RestApiUrlType::VideoConferenceJoin:
-        return QStringLiteral("video-conference.join");
+        return u"video-conference.join"_s;
     case RestApiUtil::RestApiUrlType::VideoConferenceCancel:
-        return QStringLiteral("video-conference.cancel");
+        return u"video-conference.cancel"_s;
     case RestApiUtil::RestApiUrlType::VideoConferenceInfo:
-        return QStringLiteral("video-conference.info");
+        return u"video-conference.info"_s;
     case RestApiUtil::RestApiUrlType::VideoConferenceList:
-        return QStringLiteral("video-conference.list");
+        return u"video-conference.list"_s;
     case RestApiUtil::RestApiUrlType::VideoConferenceProviders:
-        return QStringLiteral("video-conference.providers");
+        return u"video-conference.providers"_s;
     case RestApiUtil::RestApiUrlType::VideoConferenceCapabilities:
-        return QStringLiteral("video-conference.capabilities");
+        return u"video-conference.capabilities"_s;
     case RestApiUtil::RestApiUrlType::ModerationReportsByUsers:
-        return QStringLiteral("moderation.reportsByUsers");
+        return u"moderation.reportsByUsers"_s;
     case RestApiUtil::RestApiUrlType::ModerationDismissReports:
-        return QStringLiteral("moderation.dismissReports");
+        return u"moderation.dismissReports"_s;
     case RestApiUtil::RestApiUrlType::ModerationUserReportedMessages:
-        return QStringLiteral("moderation.user.reportedMessages");
+        return u"moderation.user.reportedMessages"_s;
     case RestApiUtil::RestApiUrlType::ModerationUserDeleteReportedMessages:
-        return QStringLiteral("moderation.user.deleteReportedMessages");
+        return u"moderation.user.deleteReportedMessages"_s;
     case RestApiUtil::RestApiUrlType::ModerationReports:
-        return QStringLiteral("moderation.reports");
+        return u"moderation.reports"_s;
     case RestApiUtil::RestApiUrlType::ModerationReportInfo:
-        return QStringLiteral("moderation.reportInfo");
+        return u"moderation.reportInfo"_s;
     case RestApiUtil::RestApiUrlType::ModerationUserReports:
-        return QStringLiteral("moderation.userReports");
+        return u"moderation.userReports"_s;
     case RestApiUtil::RestApiUrlType::ModerationUserReportsByUserId:
-        return QStringLiteral("moderation.user.reportsByUserId");
+        return u"moderation.user.reportsByUserId"_s;
     case RestApiUtil::RestApiUrlType::ModerationDismissUserReports:
-        return QStringLiteral("moderation.dismissUserReports");
+        return u"moderation.dismissUserReports"_s;
     case RestApiUtil::RestApiUrlType::ModerationReportUser:
-        return QStringLiteral("moderation.reportUser");
+        return u"moderation.reportUser"_s;
 
     case RestApiUtil::RestApiUrlType::RoomsNameExists:
-        return QStringLiteral("rooms.nameExists");
+        return u"rooms.nameExists"_s;
     case RestApiUtil::RestApiUrlType::MethodCall:
-        return QStringLiteral("method.call");
+        return u"method.call"_s;
     case RestApiUtil::RestApiUrlType::MethodCallAnon:
-        return QStringLiteral("method.callAnon");
+        return u"method.callAnon"_s;
     case RestApiUtil::RestApiUrlType::AppsUiInteraction:
-        return QStringLiteral("ui.interaction");
+        return u"ui.interaction"_s;
 
     case RestApiUtil::RestApiUrlType::UsersLogoutOtherClients:
-        return QStringLiteral("users.logoutOtherClients");
+        return u"users.logoutOtherClients"_s;
 
     // 6.8.0
     case RestApiUtil::RestApiUrlType::RoomsMuteUser:
-        return QStringLiteral("rooms.muteUser");
+        return u"rooms.muteUser"_s;
     case RestApiUtil::RestApiUrlType::RoomsUnmuteUser:
-        return QStringLiteral("rooms.unmuteUser");
+        return u"rooms.unmuteUser"_s;
 
     case RestApiUtil::RestApiUrlType::FeaturedApps:
-        return QStringLiteral("featured-apps");
+        return u"featured-apps"_s;
     case RestApiUtil::RestApiUrlType::CategoriesApps:
-        return QStringLiteral("categories");
+        return u"categories"_s;
     case RestApiUtil::RestApiUrlType::CountApps:
-        return QStringLiteral("count");
+        return u"count"_s;
     case RestApiUtil::RestApiUrlType::NotifyAdminsApps:
-        return QStringLiteral("notify-admins");
+        return u"notify-admins"_s;
     case RestApiUtil::RestApiUrlType::InstalledApps:
-        return QStringLiteral("installed");
+        return u"installed"_s;
     case RestApiUtil::RestApiUrlType::MarketplaceApps:
-        return QStringLiteral("marketplace");
+        return u"marketplace"_s;
 
     case RestApiUtil::RestApiUrlType::UsersListByStatus:
-        return QStringLiteral("users.listByStatus");
+        return u"users.listByStatus"_s;
 
     case RestApiUtil::RestApiUrlType::UsersSendWelcomeEmail:
-        return QStringLiteral("users.sendWelcomeEmail");
+        return u"users.sendWelcomeEmail"_s;
     case RestApiUtil::RestApiUrlType::Empty:
         return {};
     case RestApiUtil::RestApiUrlType::RoomsImages:
-        return QStringLiteral("rooms.images");
+        return u"rooms.images"_s;
     case RestApiUtil::RestApiUrlType::RoomsMembersOrderedByRole:
-        return QStringLiteral("rooms.membersOrderedByRole");
+        return u"rooms.membersOrderedByRole"_s;
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
@@ -646,11 +646,11 @@ QString RestApiUtil::restApiUrlExtensionType(RestApiUrlExtensionType type)
 {
     switch (type) {
     case RestApiUrlExtensionType::V1:
-        return QStringLiteral("/api/v1/");
+        return u"/api/v1/"_s;
     case RestApiUrlExtensionType::Apps:
-        return QStringLiteral("/api/apps/");
+        return u"/api/apps/"_s;
     case RestApiUtil::RestApiUrlExtensionType::NoExtension:
-        return QStringLiteral("/api/");
+        return u"/api/"_s;
     }
     return {};
 }

@@ -5,6 +5,8 @@
 */
 
 #include "directorystackedwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directory/directorynotauthorizedwidget.h"
 #include "directory/directorystackedwidget.h"
 #include "directory/directorywidget.h"
@@ -20,10 +22,10 @@ void DirectoryStackedWidgetTest::shouldHaveDefaultValues()
 {
     DirectoryStackedWidget w(nullptr, DirectoryWidget::DirectoryType::Unknown);
 
-    auto mDirectoryWidget = w.findChild<DirectoryWidget *>(QStringLiteral("mDirectoryWidget"));
+    auto mDirectoryWidget = w.findChild<DirectoryWidget *>(u"mDirectoryWidget"_s);
     QVERIFY(mDirectoryWidget);
 
-    auto mDirectoryNotAutorizedWidget = w.findChild<DirectoryNotAuthorizedWidget *>(QStringLiteral("mDirectoryNotAutorizedWidget"));
+    auto mDirectoryNotAutorizedWidget = w.findChild<DirectoryNotAuthorizedWidget *>(u"mDirectoryNotAutorizedWidget"_s);
     QVERIFY(mDirectoryNotAutorizedWidget);
 
     QCOMPARE(w.currentWidget(), mDirectoryWidget);

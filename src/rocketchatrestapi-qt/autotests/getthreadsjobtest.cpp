@@ -5,6 +5,8 @@
 */
 
 #include "getthreadsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/getthreadsjob.h"
 #include "restapimethod.h"
 #include <QTest>
@@ -33,24 +35,24 @@ void GetThreadsJobTest::shouldGenerateRequest()
 {
     GetThreadsJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    const QString roomId = QStringLiteral("bla");
+    const QString roomId = u"bla"_s;
     job.setRoomId(roomId);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=all").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=all"_s.arg(roomId)));
 
     job.setSearchType(GetThreadsJob::TheadSearchType::Following);
     request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=following").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=following"_s.arg(roomId)));
 
     job.setSearchType(GetThreadsJob::TheadSearchType::Unread);
     request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=unread").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=unread"_s.arg(roomId)));
 
     job.setSearchType(GetThreadsJob::TheadSearchType::All);
     request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=all").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=all"_s.arg(roomId)));
 }
 
 void GetThreadsJobTest::shouldNotStarting()
@@ -58,19 +60,19 @@ void GetThreadsJobTest::shouldNotStarting()
     GetThreadsJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }

@@ -40,7 +40,7 @@ RocketChatCache::~RocketChatCache()
 {
     QSettings settings(ManagerDataPaths::self()->accountAvatarConfigPath(mAccount->accountName()), QSettings::IniFormat);
 
-    settings.beginGroup(QStringLiteral("Avatar"));
+    settings.beginGroup(u"Avatar"_s);
     QHash<QString, QUrl>::const_iterator i = mAvatarUrl.constBegin();
     while (i != mAvatarUrl.constEnd()) {
         if (!i.value().toString().isEmpty()) {
@@ -68,15 +68,15 @@ QString RocketChatCache::fileCachePath(const QUrl &url, ManagerDataPaths::PathTy
     QString relativePathInCache = url.path();
     const QString host = url.host();
     if (!host.isEmpty() && host != mAccountServerHost) {
-        relativePathInCache.prepend(host + QLatin1Char('/'));
+        relativePathInCache.prepend(host + u'/');
     }
     if (type == ManagerDataPaths::PathType::PreviewUrl) {
-        relativePathInCache = relativePathInCache.replace(QLatin1Char('/'), QLatin1Char('_'));
+        relativePathInCache = relativePathInCache.replace(u'/', u'_');
     }
-    cachePath += QLatin1Char('/') + relativePathInCache;
+    cachePath += u'/' + relativePathInCache;
     if (url.hasQuery()) {
         const QUrlQuery query(url);
-        cachePath += query.queryItemValue(QStringLiteral("etag"));
+        cachePath += query.queryItemValue(u"etag"_s);
     }
     return cachePath;
 }
@@ -91,7 +91,7 @@ void RocketChatCache::slotDataDownloaded(const QUrl &url, const QUrl &localFileU
 void RocketChatCache::loadAvatarCache()
 {
     QSettings settings(ManagerDataPaths::self()->accountAvatarConfigPath(mAccount->accountName()), QSettings::IniFormat);
-    settings.beginGroup(QStringLiteral("Avatar"));
+    settings.beginGroup(u"Avatar"_s);
     const QStringList keys = settings.childKeys();
     for (const QString &key : keys) {
         mAvatarUrl[key] = QUrl(settings.value(key).toString());
@@ -202,8 +202,7 @@ void RocketChatCache::removeCache()
     if (mAccount->accountName().isEmpty()) {
         return;
     }
-    const QString storeCachePath =
-        QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + mAccount->accountName() + QLatin1Char('/');
+    const QString storeCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/' + mAccount->accountName() + u'/';
     QDir dir(storeCachePath);
     if (dir.exists()) {
         qDebug() << "Deleting old cache dir" << storeCachePath;
@@ -294,7 +293,7 @@ QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
         // qDebug() << " valueUrl " << valueUrl;
 #if 0
         const QUrlQuery query{valueUrl};
-        const QString etagValue = query.queryItemValue(QStringLiteral("etag"));
+        const QString etagValue = query.queryItemValue(u"etag"_s);
         if (info.etag.isEmpty() && !etagValue.isEmpty()) {
             insertAvatarUrl(avatarIdentifier, QUrl());
             downloadAvatarFromServer(info);
@@ -336,7 +335,7 @@ QString RocketChatCache::recordingVideoPath(const QString &accountName) const
         qCWarning(RUQOLA_LOG) << "Unable to create video folder: " << path;
         return {};
     }
-    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + ".mp4"_L1;
+    const QString filePath = path + u'/' + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + ".mp4"_L1;
     return filePath;
 }
 
@@ -347,7 +346,7 @@ QString RocketChatCache::recordingImagePath(const QString &accountName) const
         qCWarning(RUQOLA_LOG) << "Unable to create picture folder: " << path;
         return {};
     }
-    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + ".jpg"_L1;
+    const QString filePath = path + u'/' + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + ".jpg"_L1;
     return filePath;
 }
 

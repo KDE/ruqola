@@ -5,6 +5,8 @@
 */
 
 #include "showattachmentwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "attachment/listattachmentdelegate.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "showattachmentcombobox.h"
@@ -23,26 +25,26 @@ ShowAttachmentWidget::ShowAttachmentWidget(RocketChatAccount *account, QWidget *
     , mListAttachment(new QListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto searchAttachmentLayout = new QHBoxLayout;
-    searchAttachmentLayout->setObjectName(QStringLiteral("searchAttachmentLayout"));
+    searchAttachmentLayout->setObjectName(u"searchAttachmentLayout"_s);
     searchAttachmentLayout->setContentsMargins({});
     mainLayout->addLayout(searchAttachmentLayout);
 
-    mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
+    mSearchAttachmentFileLineEdit->setObjectName(u"mSearchAttachmentFileLineEdit"_s);
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchAttachmentFileLineEdit);
     mSearchAttachmentFileLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search attachments…"));
     connect(mSearchAttachmentFileLineEdit, &QLineEdit::textChanged, this, &ShowAttachmentWidget::slotSearchMessageTextChanged);
     searchAttachmentLayout->addWidget(mSearchAttachmentFileLineEdit);
 
-    mAttachmentCombobox->setObjectName(QStringLiteral("mAttachmentCombobox"));
+    mAttachmentCombobox->setObjectName(u"mAttachmentCombobox"_s);
     searchAttachmentLayout->addWidget(mAttachmentCombobox);
     connect(mAttachmentCombobox, &ShowAttachmentComboBox::currentIndexChanged, this, &ShowAttachmentWidget::slotChangeAttachmentType);
 
-    mInfo->setObjectName(QStringLiteral("mInfo"));
+    mInfo->setObjectName(u"mInfo"_s);
     mInfo->setTextFormat(Qt::RichText);
     mInfo->setContextMenuPolicy(Qt::NoContextMenu);
     mainLayout->addWidget(mInfo);
@@ -51,7 +53,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(RocketChatAccount *account, QWidget *
     mInfo->setFont(labFont);
     connect(mInfo, &QLabel::linkActivated, this, &ShowAttachmentWidget::loadMoreFileAttachment);
 
-    mListAttachment->setObjectName(QStringLiteral("mListAttachment"));
+    mListAttachment->setObjectName(u"mListAttachment"_s);
     mainLayout->addWidget(mListAttachment);
     auto delegate = new ListAttachmentDelegate(account, this);
     connect(delegate, &ListAttachmentDelegate::deleteAttachment, this, &ShowAttachmentWidget::deleteAttachment);
@@ -98,7 +100,7 @@ QString ShowAttachmentWidget::displayShowMessageInRoom() const
 {
     QString displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Attachments in room (Total: %2)", mModel->attachmentCount(), mModel->total());
     if (!mModel->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
+        displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
 }

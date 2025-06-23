@@ -5,6 +5,8 @@
 */
 
 #include "fetchmykeysjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "e2e/fetchmykeysjob.h"
 #include "restapimethod.h"
 #include <QTest>
@@ -30,10 +32,10 @@ void FetchMyKeysJobTest::shouldGenerateRequest()
 {
     FetchMyKeysJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.fetchMyKeys")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.fetchMyKeys"_s));
 }
 
 #include "moc_fetchmykeysjobtest.cpp"

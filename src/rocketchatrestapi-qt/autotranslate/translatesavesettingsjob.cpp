@@ -123,11 +123,11 @@ QJsonDocument TranslateSaveSettingsJob::json() const
     jsonObj["roomId"_L1] = mRoomId;
     switch (mType) {
     case SettingType::AutoTranslateSetting:
-        jsonObj["field"_L1] = QStringLiteral("autoTranslate");
+        jsonObj["field"_L1] = u"autoTranslate"_s;
         jsonObj["value"_L1] = mAutoTranslate;
         break;
     case SettingType::LanguageSetting:
-        jsonObj["field"_L1] = QStringLiteral("autoTranslateLanguage");
+        jsonObj["field"_L1] = u"autoTranslateLanguage"_s;
         jsonObj["value"_L1] = mLanguage;
         break;
     case SettingType::Undefined:

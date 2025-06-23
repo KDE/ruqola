@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratormoderationrangewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QAction>
 #include <QDateEdit>
@@ -19,21 +21,21 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
     , mFilterDate(new QToolButton(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mFromDate->setObjectName(QStringLiteral("mFromDate"));
-    mToDate->setObjectName(QStringLiteral("mToDate"));
+    mFromDate->setObjectName(u"mFromDate"_s);
+    mToDate->setObjectName(u"mToDate"_s);
 
-    mFilterDate->setObjectName(QStringLiteral("mFilterDate"));
+    mFilterDate->setObjectName(u"mFilterDate"_s);
     mFilterDate->setAutoRaise(true);
     mFilterDate->setPopupMode(QToolButton::InstantPopup);
-    mFilterDate->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
+    mFilterDate->setIcon(QIcon::fromTheme(u"application-menu"_s));
 
     auto fromLabel = new QLabel(i18nc("@label:textbox", "From:"), this);
-    fromLabel->setObjectName(QStringLiteral("fromLabel"));
+    fromLabel->setObjectName(u"fromLabel"_s);
 
     auto toLabel = new QLabel(i18nc("@label:textbox", "To:"), this);
-    toLabel->setObjectName(QStringLiteral("toLabel"));
+    toLabel->setObjectName(u"toLabel"_s);
 
     mainLayout->addWidget(fromLabel);
     mainLayout->addWidget(mFromDate);

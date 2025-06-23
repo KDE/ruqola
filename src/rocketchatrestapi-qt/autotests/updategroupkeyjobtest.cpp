@@ -5,6 +5,8 @@
 */
 
 #include "updategroupkeyjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "e2e/updategroupkeyjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,16 +31,16 @@ void UpdateGroupKeyJobTest::shouldGenerateRequest()
     UpdateGroupKeyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.updateGroupKey")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.updateGroupKey"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void UpdateGroupKeyJobTest::shouldGenerateJson()
 {
     //    UpdateGroupKeyJob job;
-    //    const QString rsapublic = QStringLiteral("foo1");
+    //    const QString rsapublic = u"foo1"_s;
     //    job.setRsaPublicKey(rsapublic);
-    //    const QString rsaprivate = QStringLiteral("private");
+    //    const QString rsaprivate = u"private"_s;
     //    job.setRsaPrivateKey(rsaprivate);
     //    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"private_key":"%2","public_key":"%1"})").arg(rsapublic,
     //    rsaprivate).toLatin1());
@@ -49,14 +51,14 @@ void UpdateGroupKeyJobTest::shouldNotStarting()
     UpdateGroupKeyJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);

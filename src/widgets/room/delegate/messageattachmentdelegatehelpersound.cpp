@@ -5,6 +5,8 @@
 */
 
 #include "messageattachmentdelegatehelpersound.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/playsounddialog.h"
@@ -21,8 +23,8 @@
 
 MessageAttachmentDelegateHelperSound::MessageAttachmentDelegateHelperSound(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
-    , mPlayerVolumeIcon(QIcon::fromTheme(QStringLiteral("player-volume")))
-    , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
+    , mPlayerVolumeIcon(QIcon::fromTheme(u"player-volume"_s))
+    , mDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
 {
 }
 

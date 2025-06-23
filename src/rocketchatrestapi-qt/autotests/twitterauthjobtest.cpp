@@ -5,6 +5,8 @@
 */
 
 #include "twitterauthjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "authentication/twitterauthjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -32,26 +34,26 @@ void TwitterAuthJobTest::shouldGenerateRequest()
     TwitterAuthJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/login")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/login"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void TwitterAuthJobTest::shouldGenerateJson()
 {
     TwitterAuthJob job;
-    const QString secret = QStringLiteral("secret:");
+    const QString secret = u"secret:"_s;
     job.setSecret(secret);
 
-    const QString accessToken = QStringLiteral("accessToken");
+    const QString accessToken = u"accessToken"_s;
     job.setAccessToken(accessToken);
 
-    const QString appId = QStringLiteral("appid");
+    const QString appId = u"appid"_s;
     job.setAppId(appId);
 
-    const QString appSecret = QStringLiteral("appSecret");
+    const QString appSecret = u"appSecret"_s;
     job.setAppSecret(appSecret);
 
     const int expireToken = 300;
@@ -67,23 +69,23 @@ void TwitterAuthJobTest::shouldNotStarting()
     TwitterAuthJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString secret = QStringLiteral("secret:");
+    const QString secret = u"secret:"_s;
     job.setSecret(secret);
     QVERIFY(!job.canStart());
 
-    const QString accessToken = QStringLiteral("accessToken");
+    const QString accessToken = u"accessToken"_s;
     job.setAccessToken(accessToken);
     QVERIFY(!job.canStart());
 
@@ -91,11 +93,11 @@ void TwitterAuthJobTest::shouldNotStarting()
     job.setExpireTokenInSeconds(expireToken);
     QVERIFY(!job.canStart());
 
-    const QString appId = QStringLiteral("appid");
+    const QString appId = u"appid"_s;
     job.setAppId(appId);
     QVERIFY(!job.canStart());
 
-    const QString appSecret = QStringLiteral("appSecret");
+    const QString appSecret = u"appSecret"_s;
     job.setAppSecret(appSecret);
     QVERIFY(job.canStart());
 }

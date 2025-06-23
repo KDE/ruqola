@@ -5,6 +5,8 @@
 */
 
 #include "saveroomsettingsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rooms/saveroomsettingsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -32,8 +34,8 @@ void SaveRoomSettingsJobTest::shouldGenerateRequest()
     SaveRoomSettingsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveRoomSettings")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.saveRoomSettings"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void SaveRoomSettingsJobTest::shouldGenerateJson()
@@ -46,20 +48,20 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"favorite":{},"rid":"%1","roomType":""})").arg(QLatin1StringView(roomId)).toLatin1());
 
-    const QString roomAnnouncement = QStringLiteral("announcement");
+    const QString roomAnnouncement = u"announcement"_s;
     info.mSettingsWillBeChanged |= SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAnnouncement;
     info.roomAnnouncement = roomAnnouncement;
     job.setSaveRoomSettingsInfo(info);
-    const QStringList systemMessages{QStringLiteral("ua"), QStringLiteral("ca")};
+    const QStringList systemMessages{u"ua"_s, u"ca"_s};
     info.mSettingsWillBeChanged |= SaveRoomSettingsJob::SaveRoomSettingsInfo::SystemMessages;
     info.systemMessages = systemMessages;
     job.setSaveRoomSettingsInfo(info);
     QString res;
     for (const QString &s : systemMessages) {
         if (!res.isEmpty()) {
-            res += QLatin1Char(',');
+            res += u',';
         }
-        res += QStringLiteral("\"%1\"").arg(s);
+        res += u"\"%1\""_s.arg(s);
     }
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"favorite":{},"rid":"%1","roomAnnouncement":"%2","roomType":"","systemMessages":[%3]})")
@@ -72,14 +74,14 @@ void SaveRoomSettingsJobTest::shouldNotStarting()
     SaveRoomSettingsJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);

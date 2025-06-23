@@ -5,6 +5,8 @@
 */
 
 #include "usersforroomfilterproxymodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include <QTest>
@@ -36,10 +38,10 @@ void UsersForRoomFilterProxyModelTest::shouldAssignValue()
     QList<User> users;
     for (int i = 0; i < 10; i++) {
         User user;
-        user.setName(QStringLiteral("name%1").arg(i));
+        user.setName(u"name%1"_s.arg(i));
         user.setStatus(User::PresenceStatus::Offline);
-        user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        user.setUserId(u"userId%1"_s.arg(i).toLatin1());
+        user.setUserName(u"username%1"_s.arg(i));
         users.append(std::move(user));
     }
     model.setUsers(users);

@@ -30,8 +30,8 @@ void OtrTest::shouldParseOtr_data()
 {
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<Otr::OtrType>("otrtype");
-    QTest::newRow("otrend") << QStringLiteral("otrend") << Otr::OtrType::End;
-    QTest::newRow("otrbegin") << QStringLiteral("otrbegin") << Otr::OtrType::Handshake;
+    QTest::newRow("otrend") << u"otrend"_s << Otr::OtrType::End;
+    QTest::newRow("otrbegin") << u"otrbegin"_s << Otr::OtrType::Handshake;
 }
 
 void OtrTest::shouldParseOtr()

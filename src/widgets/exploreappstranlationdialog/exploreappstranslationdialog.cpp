@@ -5,6 +5,8 @@
 */
 
 #include "exploreappstranslationdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exploreappstranslationwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -23,13 +25,13 @@ ExploreAppsTranslationDialog::ExploreAppsTranslationDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Application Translation"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mExploreAppsTranslationWidget->setObjectName(QStringLiteral("mExploreAppsTranslationWidget"));
+    mExploreAppsTranslationWidget->setObjectName(u"mExploreAppsTranslationWidget"_s);
     mainLayout->addWidget(mExploreAppsTranslationWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ExploreAppsTranslationDialog::reject);
 

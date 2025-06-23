@@ -5,6 +5,8 @@
 */
 
 #include "myaccount2faconfigurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "2fa/user2fadisableemailjob.h"
 #include "2fa/user2faenableemailjob.h"
 #include "connection.h"
@@ -29,21 +31,21 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
     , mStackedWidget(new QStackedWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mActivate2FAViaEmailCheckbox->setObjectName(QStringLiteral("mActivate2FAViaEmailCheckbox"));
+    mActivate2FAViaEmailCheckbox->setObjectName(u"mActivate2FAViaEmailCheckbox"_s);
     mainLayout->addWidget(mActivate2FAViaEmailCheckbox);
 
-    mActivate2FAViaTOTPCheckbox->setObjectName(QStringLiteral("mActivate2FAViaTOTPCheckbox"));
+    mActivate2FAViaTOTPCheckbox->setObjectName(u"mActivate2FAViaTOTPCheckbox"_s);
     mainLayout->addWidget(mActivate2FAViaTOTPCheckbox);
     connect(mActivate2FAViaTOTPCheckbox, &QCheckBox::clicked, this, &MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated);
 
-    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mStackedWidget->setObjectName(u"mStackedWidget"_s);
     mainLayout->addWidget(mStackedWidget);
 
-    mMyAccountDisable2FaTotpWidget->setObjectName(QStringLiteral("mMyAccountDisable2FaTotpWidget"));
-    mMyAccount2FaTotpWidget->setObjectName(QStringLiteral("mMyAccount2FaTotpWidget"));
-    mMyAccount2FaEmpty->setObjectName(QStringLiteral("mMyAccount2FaEmpty"));
+    mMyAccountDisable2FaTotpWidget->setObjectName(u"mMyAccountDisable2FaTotpWidget"_s);
+    mMyAccount2FaTotpWidget->setObjectName(u"mMyAccount2FaTotpWidget"_s);
+    mMyAccount2FaEmpty->setObjectName(u"mMyAccount2FaEmpty"_s);
 
     connect(mMyAccount2FaTotpWidget, &MyAccount2FaTotpWidget::show2FaEnabledWidget, this, [this]() {
         mStackedWidget->setCurrentIndex(Enable2FaPage);

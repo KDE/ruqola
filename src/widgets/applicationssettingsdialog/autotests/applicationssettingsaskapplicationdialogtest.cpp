@@ -5,6 +5,8 @@
 */
 
 #include "applicationssettingsaskapplicationdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingsdialog/applicationssettingsaskapplicationdialog.h"
 #include "applicationssettingsdialog/applicationssettingsaskapplicationwidget.h"
 #include <QDialogButtonBox>
@@ -24,13 +26,12 @@ void ApplicationsSettingsAskApplicationDialogTest::shouldHaveDefaultValues()
     ApplicationsSettingsAskApplicationDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
-    auto mApplicationsSettingsAskApplicationWidget =
-        d.findChild<ApplicationsSettingsAskApplicationWidget *>(QStringLiteral("mApplicationsSettingsAskApplicationWidget"));
+    auto mApplicationsSettingsAskApplicationWidget = d.findChild<ApplicationsSettingsAskApplicationWidget *>(u"mApplicationsSettingsAskApplicationWidget"_s);
     QVERIFY(mApplicationsSettingsAskApplicationWidget);
 }
 

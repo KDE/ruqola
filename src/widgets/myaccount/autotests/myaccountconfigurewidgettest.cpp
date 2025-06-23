@@ -5,6 +5,8 @@
 */
 
 #include "myaccountconfigurewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "myaccount/myaccount2faconfigurewidget.h"
 #include "myaccount/myaccountconfigurewidget.h"
 #include "myaccount/myaccountpersonalaccesstokenconfigurewidget.h"
@@ -25,27 +27,27 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountConfigureWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto tabWidget = w.findChild<QTabWidget *>(QStringLiteral("tabWidget"));
+    auto tabWidget = w.findChild<QTabWidget *>(u"tabWidget"_s);
     QVERIFY(tabWidget);
 
-    auto mMyAccount2ProfileConfigureWidget = w.findChild<MyAccountProfileConfigureWidget *>(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
+    auto mMyAccount2ProfileConfigureWidget = w.findChild<MyAccountProfileConfigureWidget *>(u"mMyAccount2ProfileConfigureWidget"_s);
     QVERIFY(mMyAccount2ProfileConfigureWidget);
 
-    auto mMyAccount2FaConfigureWidget = w.findChild<MyAccount2FaConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    auto mMyAccount2FaConfigureWidget = w.findChild<MyAccount2FaConfigureWidget *>(u"mMyAccount2FaConfigureWidget"_s);
     QVERIFY(mMyAccount2FaConfigureWidget);
 
-    auto mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(QStringLiteral("mMyAccountPreferenceConfigureWidget"));
+    auto mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(u"mMyAccountPreferenceConfigureWidget"_s);
     QVERIFY(mMyAccountPreferenceConfigureWidget);
 
     auto mMyAccountPersonalAccessTokenConfigureWidget =
-        w.findChild<MyAccountPersonalAccessTokenConfigureWidget *>(QStringLiteral("mMyAccountPersonalAccessTokenConfigureWidget"));
+        w.findChild<MyAccountPersonalAccessTokenConfigureWidget *>(u"mMyAccountPersonalAccessTokenConfigureWidget"_s);
     QVERIFY(mMyAccountPersonalAccessTokenConfigureWidget);
 
-    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
 }
 

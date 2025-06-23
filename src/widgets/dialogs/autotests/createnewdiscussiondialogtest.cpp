@@ -5,6 +5,8 @@
 */
 
 #include "createnewdiscussiondialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/createnewdiscussiondialog.h"
 #include "dialogs/createnewdiscussionwidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void CreateNewDiscussionDialogTest::shouldHaveDefaultValues()
     CreateNewDiscussionDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCreateNewDiscussionWidget = w.findChild<CreateNewDiscussionWidget *>(QStringLiteral("mCreateNewDiscussionWidget"));
+    auto mCreateNewDiscussionWidget = w.findChild<CreateNewDiscussionWidget *>(u"mCreateNewDiscussionWidget"_s);
     QVERIFY(mCreateNewDiscussionWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

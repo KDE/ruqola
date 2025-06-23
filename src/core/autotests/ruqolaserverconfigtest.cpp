@@ -58,10 +58,10 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(defaultValue.defaultUrl.isEmpty());
     QVERIFY(defaultValue.isEmpty());
 
-    defaultValue.url = QStringLiteral("dd");
+    defaultValue.url = u"dd"_s;
     QVERIFY(defaultValue.isEmpty());
 
-    defaultValue.defaultUrl = QStringLiteral("dd1");
+    defaultValue.defaultUrl = u"dd1"_s;
     QVERIFY(!defaultValue.isEmpty());
 
     QVERIFY(!config.previewEmbed());
@@ -87,20 +87,20 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
 
 void RuqolaServerConfigTest::shouldAssignValues()
 {
-    const QString jitsimeetprefix = QStringLiteral("test 1");
-    const QString jitsimeeturl = QStringLiteral("test 2");
-    const QString uniqueId = QStringLiteral("test 3");
-    const QString filestoragetype = QStringLiteral("test 4");
-    const QString googleKey = QStringLiteral("Google12");
+    const QString jitsimeetprefix = u"test 1"_s;
+    const QString jitsimeeturl = u"test 2"_s;
+    const QString uniqueId = u"test 3"_s;
+    const QString filestoragetype = u"test 4"_s;
+    const QString googleKey = u"Google12"_s;
     const int minutes = 12;
     const int minutesDeletingMessage = 15;
-    const QString siteName = QStringLiteral("sitename");
-    const QString siteUrl = QStringLiteral("siteurl");
+    const QString siteName = u"sitename"_s;
+    const QString siteUrl = u"siteurl"_s;
 
     RuqolaServerConfig::ConfigWithDefaultValue logoUrl;
-    logoUrl.url = QStringLiteral("path/to/logo");
+    logoUrl.url = u"path/to/logo"_s;
     RuqolaServerConfig::ConfigWithDefaultValue faviconUrl;
-    faviconUrl.url = QStringLiteral("path/to/favicon");
+    faviconUrl.url = u"path/to/favicon"_s;
 
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
@@ -151,25 +151,25 @@ void RuqolaServerConfigTest::shouldVerifyOauthType_data()
         QTest::newRow("empty") << lst << types;
     }
     {
-        const QStringList lst = {QStringLiteral("Accounts_OAuth_FaceBook")};
+        const QStringList lst = {u"Accounts_OAuth_FaceBook"_s};
         AuthenticationManager::AuthMethodTypes types;
         types |= AuthenticationManager::AuthMethodType::FaceBook;
         QTest::newRow("fb") << lst << types;
     }
     {
-        const QStringList lst = {QStringLiteral("Accounts_OAuth_Twitter")};
+        const QStringList lst = {u"Accounts_OAuth_Twitter"_s};
         AuthenticationManager::AuthMethodTypes types;
         types |= AuthenticationManager::AuthMethodType::Twitter;
         QTest::newRow("tw") << lst << types;
     }
     {
-        const QStringList lst = {QStringLiteral("Accounts_OAuth_Google")};
+        const QStringList lst = {u"Accounts_OAuth_Google"_s};
         AuthenticationManager::AuthMethodTypes types;
         types |= AuthenticationManager::AuthMethodType::Google;
         QTest::newRow("go") << lst << types;
     }
     {
-        const QStringList lst = {QStringLiteral("Accounts_OAuth_Google"), QStringLiteral("Accounts_OAuth_Twitter"), QStringLiteral("Accounts_OAuth_FaceBook")};
+        const QStringList lst = {u"Accounts_OAuth_Google"_s, u"Accounts_OAuth_Twitter"_s, QStringLiteral("Accounts_OAuth_FaceBook")};
         AuthenticationManager::AuthMethodTypes types;
         types |= AuthenticationManager::AuthMethodType::Google;
         types |= AuthenticationManager::AuthMethodType::FaceBook;
@@ -177,13 +177,13 @@ void RuqolaServerConfigTest::shouldVerifyOauthType_data()
         QTest::newRow("go-tw-fb") << lst << types;
     }
     {
-        const QStringList lst = {QStringLiteral("Accounts_OAuth_Blable")};
+        const QStringList lst = {u"Accounts_OAuth_Blable"_s};
         AuthenticationManager::AuthMethodTypes types;
         types |= AuthenticationManager::AuthMethodType::Unknown;
         QTest::newRow("unknown") << lst << types;
     }
     {
-        const QStringList lst = {QStringLiteral("Accounts_OAuth_Blable"), QStringLiteral("Accounts_OAuth_Twitter")};
+        const QStringList lst = {u"Accounts_OAuth_Blable"_s, u"Accounts_OAuth_Twitter"_s};
         AuthenticationManager::AuthMethodTypes types;
         types |= AuthenticationManager::AuthMethodType::Twitter;
         QTest::newRow("unknown-2") << lst << types;
@@ -205,14 +205,14 @@ void RuqolaServerConfigTest::shouldVerifyThatServerSupportService()
 {
     RuqolaServerConfig config;
     QVERIFY(!config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Twitter));
-    config.addOauthService(QStringLiteral("Accounts_OAuth_Twitter"));
+    config.addOauthService(u"Accounts_OAuth_Twitter"_s);
     QVERIFY(config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Twitter));
 
     QVERIFY(!config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::FaceBook));
-    config.addOauthService(QStringLiteral("Accounts_OAuth_Google"));
+    config.addOauthService(u"Accounts_OAuth_Google"_s);
     QVERIFY(config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Google));
 
-    config.addOauthService(QStringLiteral("Accounts_OAuth_FaceBook"));
+    config.addOauthService(u"Accounts_OAuth_FaceBook"_s);
     QVERIFY(config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::FaceBook));
 }
 
@@ -259,12 +259,12 @@ void RuqolaServerConfigTest::shouldTestVersion_data()
     QTest::addColumn<int>("minor");
     QTest::addColumn<int>("patch");
     QTest::addColumn<bool>("hasCorrectVersion");
-    QTest::newRow("0.60.0") << QStringLiteral("0.60.0") << 0 << 60 << 0 << true;
-    QTest::newRow("0.59.0-incorrect") << QStringLiteral("0.59.0") << 0 << 60 << 0 << false;
-    QTest::newRow("0.60.0-supperior") << QStringLiteral("0.61.0") << 0 << 60 << 0 << true;
-    QTest::newRow("0.60.0-supperior-2") << QStringLiteral("0.60.1") << 0 << 60 << 0 << true;
-    QTest::newRow("1.0.0-develop") << QStringLiteral("1.0.0-develop") << 0 << 60 << 0 << true;
-    QTest::newRow("4.0") << QStringLiteral("4.0") << 4 << 0 << 0 << true;
+    QTest::newRow("0.60.0") << u"0.60.0"_s << 0 << 60 << 0 << true;
+    QTest::newRow("0.59.0-incorrect") << u"0.59.0"_s << 0 << 60 << 0 << false;
+    QTest::newRow("0.60.0-supperior") << u"0.61.0"_s << 0 << 60 << 0 << true;
+    QTest::newRow("0.60.0-supperior-2") << u"0.60.1"_s << 0 << 60 << 0 << true;
+    QTest::newRow("1.0.0-develop") << u"1.0.0-develop"_s << 0 << 60 << 0 << true;
+    QTest::newRow("4.0") << u"4.0"_s << 4 << 0 << 0 << true;
 }
 
 void RuqolaServerConfigTest::shouldTestVersion()
@@ -287,26 +287,26 @@ void RuqolaServerConfigTest::shouldSerializeConfig_data()
 
     {
         AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::Unknown;
-        QTest::newRow("empty") << QStringLiteral("empty.json") << type;
+        QTest::newRow("empty") << u"empty.json"_s << type;
     }
     {
         AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::Password;
-        QTest::newRow("test1") << QStringLiteral("test1.json") << type;
+        QTest::newRow("test1") << u"test1.json"_s << type;
     }
     {
         AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::GitHub;
-        QTest::newRow("onlygithub") << QStringLiteral("onlygithub.json") << type;
+        QTest::newRow("onlygithub") << u"onlygithub.json"_s << type;
     }
     {
         AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::GitHub;
         type |= AuthenticationManager::AuthMethodType::GitLab;
-        QTest::newRow("github-gitlab") << QStringLiteral("github-gitlab.json") << type;
+        QTest::newRow("github-gitlab") << u"github-gitlab.json"_s << type;
     }
     {
         AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::GitHub;
         type |= AuthenticationManager::AuthMethodType::GitLab;
         type |= AuthenticationManager::AuthMethodType::Password;
-        QTest::newRow("github-gitlab-password") << QStringLiteral("github-gitlab-password.json") << type;
+        QTest::newRow("github-gitlab-password") << u"github-gitlab-password.json"_s << type;
     }
 }
 
@@ -360,7 +360,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
         RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
         const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks passwordOk = RuqolaServerConfig::PasswordSettings::None;
-        QTest::newRow("disable") << QStringLiteral("sdfsdfDdd2") << settings << check << true << passwordOk;
+        QTest::newRow("disable") << u"sdfsdfDdd2"_s << settings << check << true << passwordOk;
     }
 
     {
@@ -383,7 +383,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
 
-        QTest::newRow("test1") << QStringLiteral("A") << settings << check << false << passwordOk;
+        QTest::newRow("test1") << u"A"_s << settings << check << false << passwordOk;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -401,7 +401,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test2") << QStringLiteral("AAAAA") << settings << check << false << passwordOk;
+        QTest::newRow("test2") << u"AAAAA"_s << settings << check << false << passwordOk;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -422,7 +422,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test3") << QStringLiteral("Aqsdfsdfsdf") << settings << check << false << passwordOk;
+        QTest::newRow("test3") << u"Aqsdfsdfsdf"_s << settings << check << false << passwordOk;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -446,7 +446,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test4") << QStringLiteral("Aqsdfsdfsdf") << settings << check << false << passwordOk;
+        QTest::newRow("test4") << u"Aqsdfsdfsdf"_s << settings << check << false << passwordOk;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -471,7 +471,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test5") << QStringLiteral("Aq1444") << settings << check << false << passwordOk;
+        QTest::newRow("test5") << u"Aq1444"_s << settings << check << false << passwordOk;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -498,7 +498,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test6") << QStringLiteral("Aq1444") << settings << check << false << passwordOk;
+        QTest::newRow("test6") << u"Aq1444"_s << settings << check << false << passwordOk;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -524,7 +524,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
 
-        QTest::newRow("test7") << QStringLiteral("Aq144444") << settings << check << false << passwordOk;
+        QTest::newRow("test7") << u"Aq144444"_s << settings << check << false << passwordOk;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -552,37 +552,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test7 (less than max)") << QStringLiteral("Aq1444") << settings << check << false << passwordOk;
-    }
-
-    {
-        RuqolaServerConfig::PasswordSettings settings;
-        settings.accountsPasswordPolicyEnabled = true;
-        settings.accountsPasswordPolicyAtLeastOneUppercase = true;
-        settings.accountsPasswordPolicyAtLeastOneLowercase = true;
-        settings.accountsPasswordPolicyAtLeastOneNumber = true;
-        settings.accountsPasswordPolicyMinLength = 6;
-        settings.accountsPasswordPolicyMaxLength = 8;
-        settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
-            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
-            RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
-            RuqolaServerConfig::PasswordSettings::MinLengh,
-            RuqolaServerConfig::PasswordSettings::MaxLengh,
-            RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
-            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
-        };
-        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks passwordOk = {
-            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-            RuqolaServerConfig::PasswordSettings::MaxLengh,
-            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
-            RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
-            RuqolaServerConfig::PasswordSettings::MinLengh,
-            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
-            RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
-        };
-        QTest::newRow("test8") << QStringLiteral("Aq1444@") << settings << check << true << passwordOk;
+        QTest::newRow("test7 (less than max)") << u"Aq1444"_s << settings << check << false << passwordOk;
     }
 
     {
@@ -612,7 +582,37 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test8-1") << QStringLiteral("Aq1444;;") << settings << check << true << passwordOk;
+        QTest::newRow("test8") << u"Aq1444@"_s << settings << check << true << passwordOk;
+    }
+
+    {
+        RuqolaServerConfig::PasswordSettings settings;
+        settings.accountsPasswordPolicyEnabled = true;
+        settings.accountsPasswordPolicyAtLeastOneUppercase = true;
+        settings.accountsPasswordPolicyAtLeastOneLowercase = true;
+        settings.accountsPasswordPolicyAtLeastOneNumber = true;
+        settings.accountsPasswordPolicyMinLength = 6;
+        settings.accountsPasswordPolicyMaxLength = 8;
+        settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
+        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
+            RuqolaServerConfig::PasswordSettings::MinLengh,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+        };
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks passwordOk = {
+            RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+            RuqolaServerConfig::PasswordSettings::MaxLengh,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
+            RuqolaServerConfig::PasswordSettings::MinLengh,
+            RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
+            RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
+        };
+        QTest::newRow("test8-1") << u"Aq1444;;"_s << settings << check << true << passwordOk;
     }
     {
         RuqolaServerConfig::PasswordSettings settings;
@@ -641,7 +641,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test8-2") << QStringLiteral("Aq1444_") << settings << check << true << passwordOk;
+        QTest::newRow("test8-2") << u"Aq1444_"_s << settings << check << true << passwordOk;
     }
 
     {
@@ -671,7 +671,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
             RuqolaServerConfig::PasswordSettings::AtLeastOneSpecialCharacter,
         };
-        QTest::newRow("test9") << QStringLiteral("Aq1444_") << settings << check << true << passwordOk;
+        QTest::newRow("test9") << u"Aq1444_"_s << settings << check << true << passwordOk;
     }
 }
 

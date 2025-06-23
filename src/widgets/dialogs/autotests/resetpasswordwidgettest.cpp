@@ -5,6 +5,8 @@
 */
 
 #include "resetpasswordwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/resetpasswordwidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
@@ -20,15 +22,15 @@ void ResetPasswordWidgetTest::shouldHaveDefaultValues()
 {
     ResetPasswordWidget w;
 
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    auto mEmail = w.findChild<QLineEdit *>(u"mEmail"_s);
     QVERIFY(mEmail);
     QVERIFY(mEmail->text().isEmpty());
 }

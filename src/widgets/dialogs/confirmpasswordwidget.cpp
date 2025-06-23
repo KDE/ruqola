@@ -5,6 +5,7 @@
 */
 
 #include "confirmpasswordwidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KAuthorized>
 #include <KLocalizedString>
@@ -17,17 +18,17 @@ ConfirmPasswordWidget::ConfirmPasswordWidget(QWidget *parent)
     , mPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18nc("@label:textbox", "For your security, you must enter your current password to continue"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setObjectName(u"mPasswordLineEdit"_s);
     mainLayout->addWidget(mPasswordLineEdit);
-    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                : KPassword::RevealMode::Never);
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                   : KPassword::RevealMode::Never);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [this](const QString &password) {
         Q_EMIT enabledOkButton(!password.isEmpty());
     });

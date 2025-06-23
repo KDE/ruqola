@@ -5,6 +5,8 @@
 */
 
 #include "channelactionpopupmenu.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "actionbuttons/actionbuttonutil.h"
 #include "actionbuttonsgenerator.h"
@@ -18,7 +20,7 @@ ChannelActionPopupMenu::ChannelActionPopupMenu(QObject *parent)
     , mMenu(new QMenu)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
 {
-    mMenu->setObjectName(QStringLiteral("mMenu"));
+    mMenu->setObjectName(u"mMenu"_s);
     connect(mMenu, &QMenu::aboutToShow, this, &ChannelActionPopupMenu::slotUpdateMenu);
     createMenu();
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &ChannelActionPopupMenu::uiInteractionRequested);
@@ -57,7 +59,7 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::ShowStarred);
     });
 
-    mShowFileAttachments = new QAction(QIcon::fromTheme(QStringLiteral("download-symbolic")), i18n("Show File Attachments…"), this);
+    mShowFileAttachments = new QAction(QIcon::fromTheme(u"download-symbolic"_s), i18n("Show File Attachments…"), this);
     mMenu->addAction(mShowFileAttachments);
     connect(mShowFileAttachments, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::ShowAttachment);
@@ -77,7 +79,7 @@ void ChannelActionPopupMenu::createMenu()
 
     mMenu->addSeparator();
 
-    mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("notifications-symbolic")), i18n("Configure Notification…"), this);
+    mConfigureNotification = new QAction(QIcon::fromTheme(u"notifications-symbolic"_s), i18n("Configure Notification…"), this);
     mMenu->addAction(mConfigureNotification);
     connect(mConfigureNotification, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::Notification);
@@ -107,7 +109,7 @@ void ChannelActionPopupMenu::createMenu()
     mMenu->addAction(mAddUserInRooms);
 
     mMenu->addSeparator();
-    mStartVideoChat = new QAction(QIcon::fromTheme(QStringLiteral("camera-video")), i18n("Video Chat"), this);
+    mStartVideoChat = new QAction(QIcon::fromTheme(u"camera-video"_s), i18n("Video Chat"), this);
     mMenu->addAction(mStartVideoChat);
     connect(mStartVideoChat, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::VideoChat);
@@ -187,7 +189,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
         mAutoTranslate->setVisible(mCurrentRocketChatAccount->hasAutotranslateSupport());
         mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->autoTranslateEnabled());
 
-        const bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(QStringLiteral("create-invite-links"));
+        const bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(u"create-invite-links"_s);
         mInviteUsersGenerateUrl->setVisible(hasPermissionInviteUserSupport);
         mInviteUsersGenerateUrlSeparator->setVisible(hasPermissionInviteUserSupport);
         mStartVideoChat->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->jitsiEnabled());
@@ -195,11 +197,11 @@ void ChannelActionPopupMenu::slotUpdateMenu()
         mAddUserInRoomsSeparator->setVisible(mRoom && mRoom->canBeModify());
         mAddUserInRooms->setVisible(mRoom && mRoom->canBeModify());
 
-        const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(QStringLiteral("clean-channel-history"));
+        const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(u"clean-channel-history"_s);
         mPruneMessages->setVisible(showPruneMessage);
         mPruneMessagesSeparator->setVisible(showPruneMessage);
 
-        mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(QStringLiteral("mail-messages")));
+        mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(u"mail-messages"_s));
 
         // FIXME Disable for the moment
         mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->ruqolaServerConfig()->otrEnabled()

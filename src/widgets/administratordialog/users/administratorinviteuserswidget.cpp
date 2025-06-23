@@ -5,6 +5,8 @@
 */
 
 #include "administratorinviteuserswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -16,12 +18,12 @@ AdministratorInviteUsersWidget::AdministratorInviteUsersWidget(QWidget *parent)
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("formLayout"));
+    mainLayout->setObjectName(u"formLayout"_s);
 
     auto label = new QLabel(i18nc("@label:textbox", "Emails:"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
 
-    mListEmails->setObjectName(QStringLiteral("mListEmails"));
+    mListEmails->setObjectName(u"mListEmails"_s);
     mListEmails->setPlaceholderText(i18nc("@info:placeholder", "Use ',' for separate emails"));
 
     mainLayout->addWidget(label);
@@ -35,7 +37,7 @@ AdministratorInviteUsersWidget::~AdministratorInviteUsersWidget() = default;
 
 QStringList AdministratorInviteUsersWidget::emails() const
 {
-    return mListEmails->text().split(QLatin1Char(','), Qt::SkipEmptyParts);
+    return mListEmails->text().split(u',', Qt::SkipEmptyParts);
 }
 
 #include "moc_administratorinviteuserswidget.cpp"

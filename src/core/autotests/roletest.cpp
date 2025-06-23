@@ -59,14 +59,14 @@ void RoleTest::shouldLoadRoles_data()
     r.setIsOwner(true);
     r.setIsModerator(true);
     r.setIsLeader(true);
-    r.setUserName(QStringLiteral("bla"));
-    QTest::addRow("role1") << QStringLiteral("role1") << r;
+    r.setUserName(u"bla"_s);
+    QTest::addRow("role1") << u"role1"_s << r;
     Role r2;
     r2.setUserId("id2"_ba);
     r2.setIsOwner(true);
     r2.setIsLeader(true);
-    r2.setUserName(QStringLiteral("bla"));
-    QTest::addRow("role2") << QStringLiteral("role2") << r2;
+    r2.setUserName(u"bla"_s);
+    QTest::addRow("role2") << u"role2"_s << r2;
 }
 
 void RoleTest::shouldLoadRoles()

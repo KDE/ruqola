@@ -5,6 +5,8 @@
 */
 
 #include "webrtcsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -18,23 +20,23 @@ WebRtcSettingsWidget::WebRtcSettingsWidget(RocketChatAccount *account, QWidget *
     , mEnableDirectMessages(new QCheckBox(i18nc("@option:check", "Enable for Direct Messages"), this))
     , mServer(new QLineEdit(this))
 {
-    mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    addCheckBox(mEnabled, QStringLiteral("WebRTC_Enabled"));
+    mEnabled->setObjectName(u"mEnabled"_s);
+    addCheckBox(mEnabled, u"WebRTC_Enabled"_s);
 
-    mEnablePublicChannels->setObjectName(QStringLiteral("mEnablePublicChannels"));
-    addCheckBox(mEnablePublicChannels, QStringLiteral("WebRTC_Enable_Channel"));
+    mEnablePublicChannels->setObjectName(u"mEnablePublicChannels"_s);
+    addCheckBox(mEnablePublicChannels, u"WebRTC_Enable_Channel"_s);
 
-    mEnablePrivateChannels->setObjectName(QStringLiteral("mEnablePrivateChannels"));
-    addCheckBox(mEnablePrivateChannels, QStringLiteral("WebRTC_Enable_Private"));
+    mEnablePrivateChannels->setObjectName(u"mEnablePrivateChannels"_s);
+    addCheckBox(mEnablePrivateChannels, u"WebRTC_Enable_Private"_s);
 
-    mEnableDirectMessages->setObjectName(QStringLiteral("mEnableDirectMessages"));
-    addCheckBox(mEnableDirectMessages, QStringLiteral("WebRTC_Enable_Direct"));
+    mEnableDirectMessages->setObjectName(u"mEnableDirectMessages"_s);
+    addCheckBox(mEnableDirectMessages, u"WebRTC_Enable_Direct"_s);
 
-    mServer->setObjectName(QStringLiteral("mServer"));
+    mServer->setObjectName(u"mServer"_s);
     mServer->setToolTip(
         i18n("A list of STUN and TURN servers separated by comma.\nUsername, password and port are allowed in the format username:password@stun:host:port or "
              "username:password@turn:host:port."));
-    addLineEdit(i18n("STUN/TURN Servers"), mServer, QStringLiteral("WebRTC_Servers"));
+    addLineEdit(i18n("STUN/TURN Servers"), mServer, u"WebRTC_Servers"_s);
 }
 
 WebRtcSettingsWidget::~WebRtcSettingsWidget() = default;

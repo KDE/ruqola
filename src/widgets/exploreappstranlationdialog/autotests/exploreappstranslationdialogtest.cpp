@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exploreappstranslationdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exploreappstranlationdialog/exploreappstranslationdialog.h"
 #include "exploreappstranlationdialog/exploreappstranslationwidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void ExploreAppsTranslationDialogTest::shouldHaveDefaultValues()
     ExploreAppsTranslationDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mExploreAppsTranslationWidget = d.findChild<ExploreAppsTranslationWidget *>(QStringLiteral("mExploreAppsTranslationWidget"));
+    auto mExploreAppsTranslationWidget = d.findChild<ExploreAppsTranslationWidget *>(u"mExploreAppsTranslationWidget"_s);
     QVERIFY(mExploreAppsTranslationWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

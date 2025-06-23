@@ -5,6 +5,8 @@
 */
 
 #include "roomsautocompletechannelandprivatejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include <QTest>
@@ -31,13 +33,13 @@ void RoomsAutocompleteChannelAndPrivateJobTest::shouldGenerateRequest()
 {
     RoomsAutocompleteChannelAndPrivateJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo info;
-    info.name = QStringLiteral("foo");
+    info.name = u"foo"_s;
     job.setRoomsCompleterInfo(info);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/rooms.autocomplete.channelAndPrivate?selector=%7B%22name%22: %22foo%22%7D"));
+    QCOMPARE(request.url().toString(), u"http://www.kde.org/api/v1/rooms.autocomplete.channelAndPrivate?selector=%7B%22name%22: %22foo%22%7D"_s);
 }
 
 #include "moc_roomsautocompletechannelandprivatejobtest.cpp"

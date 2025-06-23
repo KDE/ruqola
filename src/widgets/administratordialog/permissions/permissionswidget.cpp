@@ -5,6 +5,8 @@
 */
 
 #include "permissionswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "model/permissionsmodel.h"
 #include "permissions/permissions.h"
@@ -30,19 +32,19 @@ PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent
     , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
     , mRocketChatAccount(account)
 {
-    mPermissionFilterProxyModel->setObjectName(QStringLiteral("permissionFilterProxyModel"));
+    mPermissionFilterProxyModel->setObjectName(u"permissionFilterProxyModel"_s);
 
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mSearchLineWidget->setObjectName(u"mSearchLineWidget"_s);
     mSearchLineWidget->setPlaceholderText(i18nc("@info:placeholder", "Search permissions…"));
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
     mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);
-    mTreeView->setObjectName(QStringLiteral("mTreeView"));
+    mTreeView->setObjectName(u"mTreeView"_s);
     mainLayout->addWidget(mTreeView);
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
@@ -86,10 +88,10 @@ void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
 void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
-    if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) {
+    if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) {
         if (index.isValid()) {
             QMenu menu(this);
-            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, index]() {
                 modifyRoles(index);
             });
             menu.exec(mTreeView->viewport()->mapToGlobal(pos));
@@ -100,7 +102,7 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 void PermissionsWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 {
     if (index.isValid()) {
-        if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) {
+        if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) {
             modifyRoles(index);
         }
     }
@@ -137,7 +139,7 @@ void PermissionsWidget::slotPermissionUpdateDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
     Permissions p;
-    p.parsePermissions(obj, QStringLiteral("permissions"), mRoleInfo);
+    p.parsePermissions(obj, u"permissions"_s, mRoleInfo);
     mAdminPermissionsModel->setPermissions(p);
 }
 

@@ -121,7 +121,7 @@ void RestApiAbstractJob::addRequestAttribute(QNetworkRequest &request, bool addC
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
     if (addContentTypeHeader) {
-        request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, u"application/json"_s);
     }
 }
 
@@ -197,7 +197,7 @@ void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, cons
     if (replyObject.isEmpty())
         Q_EMIT failed(replyErrorString);
     else
-        Q_EMIT failed(replyErrorString + QLatin1Char('\n') + errorStr(replyObject));
+        Q_EMIT failed(replyErrorString + u'\n' + errorStr(replyObject));
 }
 
 QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)

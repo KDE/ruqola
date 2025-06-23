@@ -5,6 +5,8 @@
 */
 
 #include "adminroomsgetroomjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rooms/adminroomsgetroomjob.h"
 #include <QTest>
@@ -29,13 +31,13 @@ void AdminRoomsGetRoomJobTest::shouldHaveDefaultValue()
 void AdminRoomsGetRoomJobTest::shouldGenerateRequest()
 {
     AdminRoomsGetRoomJob job;
-    const QString roomId{QStringLiteral("foo")};
+    const QString roomId{u"foo"_s};
     job.setRoomId(roomId);
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms.getRoom?rid=%1").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.adminRooms.getRoom?rid=%1"_s.arg(roomId)));
 }
 
 #include "moc_adminroomsgetroomjobtest.cpp"

@@ -5,6 +5,8 @@
 */
 
 #include "createnewserverwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/authenticationloginwidget.h"
 #include "common/authenticationoauthwidget.h"
 
@@ -19,11 +21,11 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     // TODO add icon from server
     // TODO add info from server ?
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mAuthenticationLoginWidget->setObjectName(QStringLiteral("mAuthenticationLoginWidget"));
-    mAuthenticationWidget->setObjectName(QStringLiteral("mAuthenticationWidget"));
+    mAuthenticationLoginWidget->setObjectName(u"mAuthenticationLoginWidget"_s);
+    mAuthenticationWidget->setObjectName(u"mAuthenticationWidget"_s);
     mainLayout->addWidget(mAuthenticationLoginWidget);
     mainLayout->addWidget(mAuthenticationWidget);
     mainLayout->addStretch(10);

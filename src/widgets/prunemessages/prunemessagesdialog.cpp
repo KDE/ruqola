@@ -5,6 +5,8 @@
 */
 
 #include "prunemessagesdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "prunemessageswidget.h"
 
 #include <KConfigGroup>
@@ -27,13 +29,13 @@ PruneMessagesDialog::PruneMessagesDialog(RocketChatAccount *account, QWidget *pa
 {
     setWindowTitle(i18nc("@title:window", "Prune Messages"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mPruneMessageWidget->setObjectName(QStringLiteral("mPruneMessageWidget"));
+    mPruneMessageWidget->setObjectName(u"mPruneMessageWidget"_s);
     mainLayout->addWidget(mPruneMessageWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &PruneMessagesDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &PruneMessagesDialog::accept);

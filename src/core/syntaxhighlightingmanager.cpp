@@ -5,6 +5,8 @@
 */
 
 #include "syntaxhighlightingmanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 namespace
@@ -25,7 +27,7 @@ SyntaxHighlightingManager::SyntaxHighlightingManager()
 
 void SyntaxHighlightingManager::initialize()
 {
-    mDefaultDef = mRepo.definitionForName(QStringLiteral("C++"));
+    mDefaultDef = mRepo.definitionForName(u"C++"_s);
     if (mDefaultDef.isValid()) {
         mSyntaxHighlightingInitialized = true;
         const auto definitions = mRepo.definitions();

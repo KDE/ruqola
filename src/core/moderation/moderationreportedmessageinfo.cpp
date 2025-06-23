@@ -54,7 +54,7 @@ void ModerationReportedMessageInfo::parseModerationInfo(const QJsonObject &o)
     mCount = o["count"_L1].toInt();
     mIsUserDeleted = o["isUserDeleted"_L1].toBool();
     mMessage = o["message"_L1].toString();
-    setCreatedAt(Utils::parseIsoDate(QStringLiteral("ts"), o));
+    setCreatedAt(Utils::parseIsoDate(u"ts"_s, o));
     parseRoomList(o["rooms"_L1].toArray());
 }
 

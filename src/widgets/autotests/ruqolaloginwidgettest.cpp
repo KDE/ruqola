@@ -5,6 +5,8 @@
 */
 
 #include "ruqolaloginwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "loginwidget/ruqolaloginstackwidget.h"
 #include "loginwidget/ruqolaloginwidget.h"
 #include <KBusyIndicatorWidget>
@@ -25,42 +27,42 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaLoginWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mRuqolaLoginStackWidget = w.findChild<RuqolaLoginStackWidget *>(QStringLiteral("mRuqolaLoginStackWidget"));
+    auto mRuqolaLoginStackWidget = w.findChild<RuqolaLoginStackWidget *>(u"mRuqolaLoginStackWidget"_s);
     QVERIFY(mRuqolaLoginStackWidget);
 
-    auto mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
+    auto mLoginButton = w.findChild<QPushButton *>(u"mLoginButton"_s);
     QVERIFY(mLoginButton);
     QVERIFY(!mLoginButton->text().isEmpty());
 
-    auto mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
+    auto mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(u"mBusyIndicatorWidget"_s);
     QVERIFY(mBusyIndicatorWidget);
 
-    auto mFailedError = w.findChild<QLabel *>(QStringLiteral("mFailedError"));
+    auto mFailedError = w.findChild<QLabel *>(u"mFailedError"_s);
     QVERIFY(mFailedError);
     QVERIFY(mFailedError->text().isEmpty());
     QVERIFY(mFailedError->isHidden());
     QFont font = mFailedError->font();
     QVERIFY(font.bold());
 
-    auto mTwoFactorAuthenticationWidget = w.findChild<QWidget *>(QStringLiteral("mTwoFactorAuthenticationWidget"));
+    auto mTwoFactorAuthenticationWidget = w.findChild<QWidget *>(u"mTwoFactorAuthenticationWidget"_s);
     QVERIFY(mTwoFactorAuthenticationWidget);
     QVERIFY(!mTwoFactorAuthenticationWidget->isVisible());
 
-    auto twoFactorAuthenticationLayout = w.findChild<QVBoxLayout *>(QStringLiteral("twoFactorAuthenticationLayout"));
+    auto twoFactorAuthenticationLayout = w.findChild<QVBoxLayout *>(u"twoFactorAuthenticationLayout"_s);
     QVERIFY(twoFactorAuthenticationLayout);
     QCOMPARE(twoFactorAuthenticationLayout->contentsMargins(), QMargins{});
 
-    auto twoFactorAuthenticationLabel = w.findChild<QLabel *>(QStringLiteral("twoFactorAuthenticationLabel"));
+    auto twoFactorAuthenticationLabel = w.findChild<QLabel *>(u"twoFactorAuthenticationLabel"_s);
     QVERIFY(twoFactorAuthenticationLabel);
     QVERIFY(!twoFactorAuthenticationLabel->text().isEmpty());
 
-    auto mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    auto mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mTwoFactorAuthenticationPasswordLineEdit"_s);
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
 
-    auto sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
+    auto sendNewEmailCode = w.findChild<QPushButton *>(u"sendNewEmailCode"_s);
     QVERIFY(sendNewEmailCode);
     QVERIFY(!sendNewEmailCode->text().isEmpty());
 }
@@ -68,11 +70,11 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 void RuqolaLoginWidgetTest::shouldShowLabelError()
 {
     RuqolaLoginWidget w;
-    auto mFailedError = w.findChild<QLabel *>(QStringLiteral("mFailedError"));
+    auto mFailedError = w.findChild<QLabel *>(u"mFailedError"_s);
     QVERIFY(mFailedError);
-    w.showError(QStringLiteral("bla"));
+    w.showError(u"bla"_s);
 
-    QCOMPARE(mFailedError->text(), QStringLiteral("bla"));
+    QCOMPARE(mFailedError->text(), u"bla"_s);
     QVERIFY(!mFailedError->isHidden());
 }
 

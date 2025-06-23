@@ -5,6 +5,8 @@
 */
 
 #include "setavatarjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "users/setavatarjob.h"
 #include <QJsonDocument>
@@ -31,27 +33,27 @@ void SetAvatarJobTest::shouldGenerateRequest()
         SetAvatarJob job;
 
         // We need it otherwise application/json is not defined as we can send as json or multipart
-        const QString avatarurl = QStringLiteral("http://www.kde.org");
+        const QString avatarurl = u"http://www.kde.org"_s;
         SetAvatarJob::SetAvatarInfo avatarInfo;
         avatarInfo.mAvatarUrl = avatarurl;
         job.setAvatarInfo(avatarInfo);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
-        QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.setAvatar"_s));
+        QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
     }
     {
         SetAvatarJob job;
 
         // We need it otherwise application/json is not defined as we can send as json or multipart
-        const QString avatarurl = QStringLiteral("http://www.kde.org");
+        const QString avatarurl = u"http://www.kde.org"_s;
         SetAvatarJob::SetAvatarInfo avatarInfo;
         avatarInfo.mImageUrl = QUrl::fromUserInput(avatarurl);
         job.setAvatarInfo(avatarInfo);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
-        QVERIFY(request.header(QNetworkRequest::ContentTypeHeader).toString() != QStringLiteral("application/json"));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.setAvatar"_s));
+        QVERIFY(request.header(QNetworkRequest::ContentTypeHeader).toString() != u"application/json"_s);
     }
 }
 
@@ -59,14 +61,14 @@ void SetAvatarJobTest::shouldGenerateJson()
 {
     SetAvatarJob job;
 
-    const QString avatarurl = QStringLiteral("foo1");
+    const QString avatarurl = u"foo1"_s;
 
     SetAvatarJob::SetAvatarInfo avatarInfo;
     avatarInfo.mAvatarUrl = avatarurl;
     job.setAvatarInfo(avatarInfo);
 
     UserBaseJob::UserInfo info;
-    info.userIdentifier = QStringLiteral("foo");
+    info.userIdentifier = u"foo"_s;
     info.userInfoType = UserBaseJob::UserInfoType::UserId;
     job.setUserInfo(info);
 
@@ -78,27 +80,27 @@ void SetAvatarJobTest::shouldNotStarting()
     SetAvatarJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
-    const QString avatarurl = QStringLiteral("foo1");
+    const QString avatarurl = u"foo1"_s;
     SetAvatarJob::SetAvatarInfo avatarInfo;
     avatarInfo.mAvatarUrl = avatarurl;
     job.setAvatarInfo(avatarInfo);
 
     QVERIFY(!job.canStart());
     UserBaseJob::UserInfo info;
-    info.userIdentifier = QStringLiteral("foo");
+    info.userIdentifier = u"foo"_s;
     info.userInfoType = UserBaseJob::UserInfoType::UserId;
     job.setUserInfo(info);
     QVERIFY(job.canStart());

@@ -5,6 +5,8 @@
 */
 
 #include "createnewserverstackwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "checknewserverurlwidget.h"
 #include "config-ruqola.h"
 #if HAVE_ACTIVITY_SUPPORT
@@ -23,10 +25,10 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     , mCheckNewServerUrlWidget(new CheckNewServerUrlWidget(this))
     , mCreateNewServerWidget(new CreateNewServerWidget(this))
 {
-    mCheckNewServerUrlWidget->setObjectName(QStringLiteral("mCheckNewServerUrlWidget"));
+    mCheckNewServerUrlWidget->setObjectName(u"mCheckNewServerUrlWidget"_s);
     addWidget(mCheckNewServerUrlWidget);
 
-    mCreateNewServerWidget->setObjectName(QStringLiteral("mCreateNewServerWidget"));
+    mCreateNewServerWidget->setObjectName(u"mCreateNewServerWidget"_s);
     addWidget(mCreateNewServerWidget);
     setCurrentWidget(mCheckNewServerUrlWidget);
     connect(mCheckNewServerUrlWidget, &CheckNewServerUrlWidget::serverUrlFound, this, [this](const ExtractServerInfoJob::ServerInfo &serverInfo) {

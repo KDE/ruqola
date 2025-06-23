@@ -5,6 +5,8 @@
 */
 
 #include "authenticationloginwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/authenticationloginwidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -22,34 +24,34 @@ void AuthenticationLoginWidgetTest::shouldHaveDefaultValues()
 {
     AuthenticationLoginWidget w;
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
+    auto mAccountName = w.findChild<QLineEdit *>(u"mAccountName"_s);
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
     QVERIFY(mAccountName->isClearButtonEnabled());
 
-    auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
+    auto mServerUrl = w.findChild<QLineEdit *>(u"mServerUrl"_s);
     QVERIFY(mServerUrl);
     QVERIFY(mServerUrl->text().isEmpty());
 
-    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
     QVERIFY(mUserName->isClearButtonEnabled());
     QVERIFY(!mUserName->placeholderText().isEmpty());
 
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
     QVERIFY(mPasswordLineEdit);
 }
 
 void AuthenticationLoginWidgetTest::shouldEmitSignalWhenPressEnter()
 {
     AuthenticationLoginWidget w;
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
-    mPasswordLineEdit->setPassword(QStringLiteral("ddd"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
+    mPasswordLineEdit->setPassword(u"ddd"_s);
     QSignalSpy spyTryLogin(&w, &AuthenticationLoginWidget::tryLogin);
     QVERIFY(mPasswordLineEdit);
     QTest::keyClick(mPasswordLineEdit->lineEdit(), Qt::Key_Enter);

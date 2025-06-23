@@ -5,6 +5,8 @@
 */
 
 #include "moderationmessageinfowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "moderationreportinfowidget.h"
 
 #include <KLocalizedString>
@@ -16,9 +18,9 @@ ModerationMessageInfoWidget::ModerationMessageInfoWidget(RocketChatAccount *acco
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mModerationReportInfoWidget->setObjectName(QStringLiteral("mModerationReportInfoWidget"));
+    mModerationReportInfoWidget->setObjectName(u"mModerationReportInfoWidget"_s);
     mainLayout->addWidget(mModerationReportInfoWidget);
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "userandchannelcompletiondelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
 #include "model/inputcompletermodel.h"
@@ -72,7 +74,7 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
             painter->setFont(oldFont);
             fontMetrics = QFontMetrics(oldFont);
             nameWidth = fontMetrics.horizontalAdvance(userName);
-            DelegatePaintUtil::drawLighterText(painter, QStringLiteral("(%1)").arg(userName), QPoint(xPos + margin * 2, defaultCharHeight));
+            DelegatePaintUtil::drawLighterText(painter, u"(%1)"_s.arg(userName), QPoint(xPos + margin * 2, defaultCharHeight));
             xPos += nameWidth;
         }
     }

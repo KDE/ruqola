@@ -5,6 +5,8 @@
 */
 
 #include "dialogs/showvideodialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QApplication>
 #include <QCommandLineParser>
 int main(int argc, char **argv)
@@ -13,7 +15,7 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("+[file]"), QStringLiteral("Video file")));
+    parser.addOption(QCommandLineOption(QStringList() << u"+[file]"_s, u"Video file"_s));
 
     parser.process(app);
     QString filename;

@@ -5,6 +5,8 @@
 */
 
 #include "moderationmessageinfowidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/moderationconsole/moderationmessageinfowidget.h"
 #include "administratordialog/moderationconsole/moderationreportinfowidget.h"
 #include <QTest>
@@ -19,11 +21,11 @@ ModerationMessageInfoWidgetTest::ModerationMessageInfoWidgetTest(QObject *parent
 void ModerationMessageInfoWidgetTest::shouldHaveDefaultValues()
 {
     ModerationMessageInfoWidget d(nullptr);
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mModerationReportInfoWidget = d.findChild<ModerationReportInfoWidget *>(QStringLiteral("mModerationReportInfoWidget"));
+    auto mModerationReportInfoWidget = d.findChild<ModerationReportInfoWidget *>(u"mModerationReportInfoWidget"_s);
     QVERIFY(mModerationReportInfoWidget);
 }
 

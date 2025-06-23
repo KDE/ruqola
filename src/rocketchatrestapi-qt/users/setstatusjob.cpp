@@ -111,16 +111,16 @@ QJsonDocument SetStatusJob::json() const
     QString statusType;
     switch (mStatus) {
     case StatusType::OnLine:
-        statusType = QStringLiteral("online");
+        statusType = u"online"_s;
         break;
     case StatusType::Away:
-        statusType = QStringLiteral("away");
+        statusType = u"away"_s;
         break;
     case StatusType::Offline:
-        statusType = QStringLiteral("offline");
+        statusType = u"offline"_s;
         break;
     case StatusType::Busy:
-        statusType = QStringLiteral("busy");
+        statusType = u"busy"_s;
         break;
     case StatusType::Unknown:
         break;

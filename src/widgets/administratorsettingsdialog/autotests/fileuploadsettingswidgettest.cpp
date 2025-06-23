@@ -5,6 +5,8 @@
 */
 
 #include "fileuploadsettingswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QComboBox>
@@ -23,71 +25,71 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
     FileUploadSettingsWidget w(nullptr);
     QVERIFY(w.widgetResizable());
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mFileUploadsEnabled = w.findChild<QCheckBox *>(QStringLiteral("mFileUploadsEnabled"));
+    auto mFileUploadsEnabled = w.findChild<QCheckBox *>(u"mFileUploadsEnabled"_s);
     QVERIFY(mFileUploadsEnabled);
     QVERIFY(!mFileUploadsEnabled->isChecked());
     QVERIFY(!mFileUploadsEnabled->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUploadsEnabled), QStringLiteral("FileUpload_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUploadsEnabled), u"FileUpload_Enabled"_s);
 
-    auto mProtectUploadedFiles = w.findChild<QCheckBox *>(QStringLiteral("mProtectUploadedFiles"));
+    auto mProtectUploadedFiles = w.findChild<QCheckBox *>(u"mProtectUploadedFiles"_s);
     QVERIFY(mProtectUploadedFiles);
     QVERIFY(!mProtectUploadedFiles->isChecked());
     QVERIFY(!mProtectUploadedFiles->text().isEmpty());
     QVERIFY(!mProtectUploadedFiles->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mProtectUploadedFiles), QStringLiteral("FileUpload_ProtectFiles"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mProtectUploadedFiles), u"FileUpload_ProtectFiles"_s);
 
-    auto mRotateImagesUpload = w.findChild<QCheckBox *>(QStringLiteral("mRotateImagesUpload"));
+    auto mRotateImagesUpload = w.findChild<QCheckBox *>(u"mRotateImagesUpload"_s);
     QVERIFY(mRotateImagesUpload);
     QVERIFY(!mRotateImagesUpload->isChecked());
     QVERIFY(!mRotateImagesUpload->text().isEmpty());
     QVERIFY(!mRotateImagesUpload->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRotateImagesUpload), QStringLiteral("FileUpload_RotateImages"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRotateImagesUpload), u"FileUpload_RotateImages"_s);
 
-    auto mRestrictFilesToRooms = w.findChild<QCheckBox *>(QStringLiteral("mRestrictFilesToRooms"));
+    auto mRestrictFilesToRooms = w.findChild<QCheckBox *>(u"mRestrictFilesToRooms"_s);
     QVERIFY(mRestrictFilesToRooms);
     QVERIFY(!mRestrictFilesToRooms->isChecked());
     QVERIFY(!mRestrictFilesToRooms->text().isEmpty());
     QVERIFY(!mRestrictFilesToRooms->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRestrictFilesToRooms), QStringLiteral("FileUpload_Restrict_to_room_members"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRestrictFilesToRooms), u"FileUpload_Restrict_to_room_members"_s);
 
-    auto mMaximumFileUploadSize = w.findChild<QSpinBox *>(QStringLiteral("mMaximumFileUploadSize"));
+    auto mMaximumFileUploadSize = w.findChild<QSpinBox *>(u"mMaximumFileUploadSize"_s);
     QVERIFY(mMaximumFileUploadSize);
     QVERIFY(!mMaximumFileUploadSize->toolTip().isEmpty());
     QCOMPARE(mMaximumFileUploadSize->maximum(), 1215752191);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumFileUploadSize), QStringLiteral("FileUpload_MaxFileSize"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("FileUpload_MaxFileSize"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumFileUploadSize), u"FileUpload_MaxFileSize"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"FileUpload_MaxFileSize"_s);
 
-    auto mFileUploadsEnabledDirectMessages = w.findChild<QCheckBox *>(QStringLiteral("mFileUploadsEnabledDirectMessages"));
+    auto mFileUploadsEnabledDirectMessages = w.findChild<QCheckBox *>(u"mFileUploadsEnabledDirectMessages"_s);
     QVERIFY(mFileUploadsEnabledDirectMessages);
     QVERIFY(!mFileUploadsEnabledDirectMessages->isChecked());
     QVERIFY(!mFileUploadsEnabledDirectMessages->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUploadsEnabledDirectMessages), QStringLiteral("FileUpload_Enabled_Direct"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUploadsEnabledDirectMessages), u"FileUpload_Enabled_Direct"_s);
 
-    auto mAcceptedMediaTypes = w.findChild<QLineEdit *>(QStringLiteral("mAcceptedMediaTypes"));
+    auto mAcceptedMediaTypes = w.findChild<QLineEdit *>(u"mAcceptedMediaTypes"_s);
     QVERIFY(mAcceptedMediaTypes);
     QVERIFY(mAcceptedMediaTypes->text().isEmpty());
     QVERIFY(!mAcceptedMediaTypes->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAcceptedMediaTypes), QStringLiteral("FileUpload_MediaTypeWhiteList"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAcceptedMediaTypes), u"FileUpload_MediaTypeWhiteList"_s);
 
-    auto mBlockedMediaTypes = w.findChild<QLineEdit *>(QStringLiteral("mBlockedMediaTypes"));
+    auto mBlockedMediaTypes = w.findChild<QLineEdit *>(u"mBlockedMediaTypes"_s);
     QVERIFY(mBlockedMediaTypes);
     QVERIFY(mBlockedMediaTypes->text().isEmpty());
     QVERIFY(!mBlockedMediaTypes->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockedMediaTypes), QStringLiteral("FileUpload_MediaTypeBlackList"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockedMediaTypes), u"FileUpload_MediaTypeBlackList"_s);
 
-    auto mFileUploadJsonWebTokenSecret = w.findChild<QLineEdit *>(QStringLiteral("mFileUploadJsonWebTokenSecret"));
+    auto mFileUploadJsonWebTokenSecret = w.findChild<QLineEdit *>(u"mFileUploadJsonWebTokenSecret"_s);
     QVERIFY(mFileUploadJsonWebTokenSecret);
     QVERIFY(mFileUploadJsonWebTokenSecret->text().isEmpty());
     QVERIFY(!mFileUploadJsonWebTokenSecret->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUploadJsonWebTokenSecret), QStringLiteral("FileUpload_json_web_token_secret_for_files"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUploadJsonWebTokenSecret), u"FileUpload_json_web_token_secret_for_files"_s);
 
-    auto mStorageType = w.findChild<QComboBox *>(QStringLiteral("mStorageType"));
+    auto mStorageType = w.findChild<QComboBox *>(u"mStorageType"_s);
     QVERIFY(mStorageType);
     QCOMPARE(mStorageType->count(), 5);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mStorageType), QStringLiteral("FileUpload_Storage_Type"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mStorageType), u"FileUpload_Storage_Type"_s);
 }
 
 #include "moc_fileuploadsettingswidgettest.cpp"

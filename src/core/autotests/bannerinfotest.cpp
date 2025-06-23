@@ -46,27 +46,27 @@ void BannerInfoTest::shouldBannerInfo_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<BannerInfo>("bannerInfo");
-    QTest::addRow("bannerinfoempty") << QStringLiteral("bannerinfoempty") << BannerInfo();
+    QTest::addRow("bannerinfoempty") << u"bannerinfoempty"_s << BannerInfo();
     {
         BannerInfo info;
         info.setIdentifier("alert-5fcc1f02f5204d09050943d2"_ba);
-        info.setLink(QStringLiteral("https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.1"));
+        info.setLink(u"https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.1"_s);
         info.setPriority(10);
         info.setRead(true);
-        info.setText(QStringLiteral("For all installations using SAML Please upgrade as soon as possible.  3.9.1 / 3.8.3 / 3.7.3 / 2.4.13 / 1.3.4 / 0.74.4"));
-        info.setTitle(QStringLiteral("Attn: Important Security fix"));
-        QTest::addRow("bannerinfo1") << QStringLiteral("bannerinfo1") << info;
+        info.setText(u"For all installations using SAML Please upgrade as soon as possible.  3.9.1 / 3.8.3 / 3.7.3 / 2.4.13 / 1.3.4 / 0.74.4"_s);
+        info.setTitle(u"Attn: Important Security fix"_s);
+        QTest::addRow("bannerinfo1") << u"bannerinfo1"_s << info;
     }
     {
         BannerInfo info;
         info.setIdentifier("versionUpdate-4_4_1"_ba);
-        info.setLink(QStringLiteral("https://github.com/RocketChat/Rocket.Chat/releases/tag/4.4.1"));
+        info.setLink(u"https://github.com/RocketChat/Rocket.Chat/releases/tag/4.4.1"_s);
         info.setPriority(10);
-        info.setText(QStringLiteral("New_version_available_(s)"));
-        info.setTextArguments(QStringList({QStringLiteral("4.4.1")}));
-        info.setTitle(QStringLiteral("Update_your_RocketChat"));
+        info.setText(u"New_version_available_(s)"_s);
+        info.setTextArguments(QStringList({u"4.4.1"_s}));
+        info.setTitle(u"Update_your_RocketChat"_s);
         info.setRead(false);
-        QTest::addRow("bannerinfo2") << QStringLiteral("bannerinfo2") << info;
+        QTest::addRow("bannerinfo2") << u"bannerinfo2"_s << info;
     }
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "sharetextplugin.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "sharetextinterface.h"
 #include <KPluginFactory>
 

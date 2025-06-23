@@ -5,6 +5,8 @@
 */
 
 #include "channeljoinjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channels/channeljoinjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,19 +31,19 @@ void ChannelJoinJobTest::shouldGenerateRequest()
     ChannelJoinJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.join")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.join"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void ChannelJoinJobTest::shouldGenerateJson()
 {
     ChannelJoinJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
-    const QString joinCode = QStringLiteral("bli");
+    const QString joinCode = u"bli"_s;
     job.setJoinCode(joinCode);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"joinCode":"%2","roomId":"%1"})").arg(roomId, joinCode).toLatin1());
 }
@@ -51,19 +53,19 @@ void ChannelJoinJobTest::shouldNotStarting()
     ChannelJoinJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;
@@ -71,7 +73,7 @@ void ChannelJoinJobTest::shouldNotStarting()
     QVERIFY(job.canStart());
 
     // Join code is optional
-    const QString joinCode = QStringLiteral("fd1");
+    const QString joinCode = u"fd1"_s;
     job.setJoinCode(joinCode);
     QVERIFY(job.canStart());
 }

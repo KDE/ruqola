@@ -5,6 +5,7 @@
 */
 
 #include "otrwidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QAction>
@@ -19,12 +20,12 @@ OtrWidget::OtrWidget(QWidget *parent)
     setText(i18n("Otr Activated"));
     setTextFormat(Qt::PlainText);
     auto endOtrAction = new QAction(i18nc("@action", "End OTR"), this);
-    endOtrAction->setObjectName(QStringLiteral("endOtrAction"));
+    endOtrAction->setObjectName(u"endOtrAction"_s);
     connect(endOtrAction, &QAction::triggered, this, &OtrWidget::closeOtr);
     addAction(endOtrAction);
 
     auto refreshKeysAction = new QAction(i18nc("@action", "Refresh Keys"), this);
-    refreshKeysAction->setObjectName(QStringLiteral("refreshKeysAction"));
+    refreshKeysAction->setObjectName(u"refreshKeysAction"_s);
     connect(refreshKeysAction, &QAction::triggered, this, &OtrWidget::refreshKeys);
     addAction(refreshKeysAction);
 }

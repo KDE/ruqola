@@ -5,6 +5,8 @@
 */
 
 #include "showtheadscombobox.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 ShowTheadsComboBox::ShowTheadsComboBox(QWidget *parent)

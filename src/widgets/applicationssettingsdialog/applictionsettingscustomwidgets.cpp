@@ -5,6 +5,8 @@
 */
 
 #include "applictionsettingscustomwidgets.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
@@ -34,8 +36,7 @@ QString ApplictionSettingsCustomWidgetsBase::getTranslatedIdentifier(const QStri
     if (id.isEmpty()) {
         return {};
     }
-    const QString translatedString =
-        mRocketChatAccount->getTranslatedIdentifier(lang, QStringLiteral("app-") + QString::fromLatin1(mAppId) + QLatin1Char('.') + id);
+    const QString translatedString = mRocketChatAccount->getTranslatedIdentifier(lang, u"app-"_s + QString::fromLatin1(mAppId) + u'.' + id);
     if (translatedString.isEmpty()) {
         qCWarning(RUQOLAWIDGETS_LOG) << " Translated string not found: " << QString::fromLatin1(mAppId) + id;
         return id;
@@ -78,7 +79,7 @@ ApplictionSettingsCustomWidgetsCheckBox::~ApplictionSettingsCustomWidgetsCheckBo
 
 QString ApplictionSettingsCustomWidgetsCheckBox::value() const
 {
-    return mCheckBox->isChecked() ? QStringLiteral("true") : QStringLiteral("false");
+    return mCheckBox->isChecked() ? u"true"_s : u"false"_s;
 }
 
 ApplictionSettingsCustomWidgetsSpinBox::ApplictionSettingsCustomWidgetsSpinBox(const QByteArray &appId,

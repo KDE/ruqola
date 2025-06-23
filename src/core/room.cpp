@@ -27,7 +27,7 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     , mUsersModelForRoom(new UsersForRoomModel(this))
     , mRocketChatAccount(account)
 {
-    mUsersModelForRoom->setObjectName(QStringLiteral("usersforroommodel"));
+    mUsersModelForRoom->setObjectName(u"usersforroommodel"_s);
     mMessageModel = new MessagesModel(QByteArray(), mRocketChatAccount, this, this);
 }
 
@@ -50,11 +50,11 @@ QString Room::roomFromRoomType(Room::RoomType type)
 {
     switch (type) {
     case Room::RoomType::Private:
-        return QStringLiteral("p");
+        return u"p"_s;
     case Room::RoomType::Channel:
-        return QStringLiteral("c");
+        return u"c"_s;
     case Room::RoomType::Direct:
-        return QStringLiteral("d");
+        return u"d"_s;
     case Room::RoomType::Unknown:
         qCDebug(RUQOLA_LOG) << "void Room::roomFromRoomType : unknown type";
         return {};
@@ -87,9 +87,9 @@ QString Room::displayRoomName() const
 {
     const QString displayName = mFName.isEmpty() ? mName : mFName;
     if (channelType() == RoomType::Direct) {
-        return QLatin1Char('@') + displayName;
+        return u'@' + displayName;
     } else {
-        return QLatin1Char('#') + displayName;
+        return u'#' + displayName;
     }
 }
 
@@ -205,7 +205,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains("rid"_L1)) {
         setRoomId(json.value("rid"_L1).toString().toLatin1());
     }
-    setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
+    setJitsiTimeout(Utils::parseDate(u"jitsiTimeout"_s, json));
     if (json.contains("alert"_L1)) {
         setAlert(json["alert"_L1].toBool());
     }
@@ -271,11 +271,11 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setBroadcast(false);
     }
     setReadOnly(json["ro"_L1].toBool());
-    const qint64 result = Utils::parseDate(QStringLiteral("ls"), json);
+    const qint64 result = Utils::parseDate(u"ls"_s, json);
     if (result != -1) {
         setLastSeenAt(result);
     }
-    const qint64 lm = Utils::parseDate(QStringLiteral("lm"), json);
+    const qint64 lm = Utils::parseDate(u"lm"_s, json);
     if (lm != -1) {
         setLastMessageAt(lm);
     }
@@ -621,7 +621,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     setFName(json["fname"_L1].toString());
     setAutoTranslateLanguage(json["autoTranslateLanguage"_L1].toString());
     setAutoTranslate(json["autoTranslate"_L1].toBool());
-    setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
+    setJitsiTimeout(Utils::parseDate(u"jitsiTimeout"_s, json));
     // topic/announcement/description is not part of update subscription
     const QString roomType = json.value("t"_L1).toString();
     setChannelType(Room::roomTypeFromString(roomType));
@@ -645,9 +645,9 @@ void Room::parseInsertRoom(const QJsonObject &json)
     if (json.contains("tunread"_L1)) {
         setThreadUnread(extractStringList(json, "tunread"_L1));
     }
-    setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
-    setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
-    setLastMessageAt(Utils::parseDate(QStringLiteral("lm"), json));
+    setUpdatedAt(Utils::parseDate(u"_updatedAt"_s, json));
+    setLastSeenAt(Utils::parseDate(u"ls"_s, json));
+    setLastMessageAt(Utils::parseDate(u"lm"_s, json));
     setUnread(json["unread"_L1].toInt());
     setOpen(json["open"_L1].toBool());
     setAlert(json["alert"_L1].toBool());
@@ -710,7 +710,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setFName(json["fname"_L1].toString());
     setAutoTranslateLanguage(json["autoTranslateLanguage"_L1].toString());
     setAutoTranslate(json["autoTranslate"_L1].toBool());
-    setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
+    setJitsiTimeout(Utils::parseDate(u"jitsiTimeout"_s, json));
     // topic/announcement/description is not part of update subscription
     const QString roomType = json.value("t"_L1).toString();
     setChannelType(Room::roomTypeFromString(roomType));
@@ -721,8 +721,8 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setE2EKey(json["E2EKey"_L1].toString());
     setReadOnly(json["ro"_L1].toBool());
 
-    setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
-    setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
+    setUpdatedAt(Utils::parseDate(u"_updatedAt"_s, json));
+    setLastSeenAt(Utils::parseDate(u"ls"_s, json));
     setUnread(json["unread"_L1].toInt());
     setUserMentions(json["userMentions"_L1].toInt());
     setGroupMentions(json["groupMentions"_L1].toInt());
@@ -1140,7 +1140,7 @@ bool Room::hasPermission(const QString &permission) const
 
 bool Room::allowToPinMessage() const
 {
-    return hasPermission(QStringLiteral("pin-message"));
+    return hasPermission(u"pin-message"_s);
 }
 
 QStringList Room::rolesForUserId(const QByteArray &userId)
@@ -1527,7 +1527,7 @@ QString Room::roomMessageInfo() const
 
 bool Room::canChangeRoles() const
 {
-    return mRoles.contains(QStringLiteral("owner"));
+    return mRoles.contains(u"owner"_s);
 }
 
 bool Room::userHasOwnerRole(const QByteArray &userId) const
@@ -1624,31 +1624,31 @@ void Room::assignRoomStateValue(RoomState type, bool status)
 QIcon Room::icon() const
 {
     if (teamInfo().mainTeam()) {
-        return QIcon::fromTheme(QStringLiteral("group"));
+        return QIcon::fromTheme(u"group"_s);
     }
 
     // TODO add team icon support.
     switch (channelType()) {
     case Room::RoomType::Private:
         if (parentRid().isEmpty()) {
-            return QIcon::fromTheme(QStringLiteral("lock"));
+            return QIcon::fromTheme(u"lock"_s);
         } else {
             // TODO use a specific icon for discussion
         }
         break;
     case Room::RoomType::Channel:
         if (unread() > 0 || alert()) {
-            return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
+            return QIcon::fromTheme(u"irc-channel-active"_s);
         } else {
-            return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
+            return QIcon::fromTheme(u"irc-channel-inactive"_s);
         }
     case Room::RoomType::Direct: {
         if (mUids.count() > 2) {
-            return QIcon::fromTheme(QStringLiteral("view-conversation-balloon-symbolic"));
+            return QIcon::fromTheme(u"view-conversation-balloon-symbolic"_s);
         }
         const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(name()) : QString();
         if (userStatusIconFileName.isEmpty()) {
-            return QIcon::fromTheme(QStringLiteral("user-available"));
+            return QIcon::fromTheme(u"user-available"_s);
         } else {
             return QIcon::fromTheme(userStatusIconFileName);
         }

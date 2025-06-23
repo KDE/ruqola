@@ -5,6 +5,8 @@
 */
 
 #include "createnewserverdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #include "configurenewserver/createnewserverstackwidget.h"
 #include "ruqolaglobalconfig.h"
@@ -28,13 +30,13 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Add Server"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateNewServerStackWidget->setObjectName(QStringLiteral("mCreateNewServerStackWidget"));
+    mCreateNewServerStackWidget->setObjectName(u"mCreateNewServerStackWidget"_s);
     mainLayout->addWidget(mCreateNewServerStackWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewServerDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewServerDialog::reject);
     mainLayout->addWidget(buttonBox);

@@ -5,6 +5,8 @@
 */
 
 #include "teamconverttochanneldialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teamconverttochannelwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -23,13 +25,13 @@ TeamConvertToChannelDialog::TeamConvertToChannelDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Convert Team to Channel"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mTeamConvertToChannelWidget->setObjectName(QStringLiteral("mTeamConvertToChannelWidget"));
+    mTeamConvertToChannelWidget->setObjectName(u"mTeamConvertToChannelWidget"_s);
     mainLayout->addWidget(mTeamConvertToChannelWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &TeamConvertToChannelDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &TeamConvertToChannelDialog::accept);

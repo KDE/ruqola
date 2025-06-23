@@ -5,6 +5,8 @@
 */
 
 #include "listcommandsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "commands/listcommandsjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -28,7 +30,7 @@ void ListCommandsJobTest::shouldGenerateRequest()
     ListCommandsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/commands.list")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/commands.list"_s));
 }
 
 #include "moc_listcommandsjobtest.cpp"

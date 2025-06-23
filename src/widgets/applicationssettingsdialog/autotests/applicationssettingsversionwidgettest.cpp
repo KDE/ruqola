@@ -20,7 +20,7 @@ void ApplicationsSettingsVersionWidgetTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsVersionWidget d(nullptr);
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 

@@ -28,7 +28,7 @@ QByteArray RESTAuthenticationManager::authenticationName() const
 QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
-    json["msg"_L1] = QStringLiteral("method");
+    json["msg"_L1] = u"method"_s;
     json["method"_L1] = method;
     json["id"_L1] = QString::number(id);
 

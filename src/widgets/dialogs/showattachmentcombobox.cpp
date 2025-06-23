@@ -5,6 +5,8 @@
 */
 
 #include "showattachmentcombobox.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 ShowAttachmentComboBox::ShowAttachmentComboBox(QWidget *parent)
     : QComboBox(parent)
@@ -17,11 +19,11 @@ ShowAttachmentComboBox::~ShowAttachmentComboBox() = default;
 void ShowAttachmentComboBox::fillCombobox()
 {
     addItem(i18n("All"), QString());
-    addItem(i18n("Videos"), QStringLiteral("video"));
-    addItem(i18n("Images"), QStringLiteral("image"));
-    addItem(i18n("Audios"), QStringLiteral("audio"));
-    addItem(i18n("Texts"), QStringLiteral("text"));
-    addItem(i18n("Files"), QStringLiteral("application"));
+    addItem(i18n("Videos"), u"video"_s);
+    addItem(i18n("Images"), u"image"_s);
+    addItem(i18n("Audios"), u"audio"_s);
+    addItem(i18n("Texts"), u"text"_s);
+    addItem(i18n("Files"), u"application"_s);
 }
 
 #include "moc_showattachmentcombobox.cpp"

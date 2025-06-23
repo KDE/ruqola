@@ -5,13 +5,15 @@
 */
 
 #include "accountinfosource.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountmanager.h"
 #include "ruqola.h"
 #include <KLocalizedString>
 #include <QVariant>
 
 AccountInfoSource::AccountInfoSource()
-    : KUserFeedback::AbstractDataSource(QStringLiteral("accounts"), KUserFeedback::Provider::DetailedSystemInformation)
+    : KUserFeedback::AbstractDataSource(u"accounts"_s, KUserFeedback::Provider::DetailedSystemInformation)
 {
 }
 
@@ -29,6 +31,6 @@ QString AccountInfoSource::description() const
 
 QVariant AccountInfoSource::data()
 {
-    const QVariantMap m{{QStringLiteral("value"), Ruqola::self()->accountManager()->accountNumber()}};
+    const QVariantMap m{{u"value"_s, Ruqola::self()->accountManager()->accountNumber()}};
     return m;
 }

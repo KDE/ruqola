@@ -5,6 +5,8 @@
 */
 
 #include "myaccount2fadisabletotpwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
 #include <KLineEditEventHandler>
@@ -21,25 +23,25 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     , mDisableCodeLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18nc("@label:textbox", "Open your authentication app and enter the code.\nYou can also use one of your backup codes."), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 
     auto hboxLayout = new QHBoxLayout;
-    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setObjectName(u"hboxLayout"_s);
     hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
 
-    mDisableCodeLineEdit->setObjectName(QStringLiteral("mDisableCodeLineEdit"));
+    mDisableCodeLineEdit->setObjectName(u"mDisableCodeLineEdit"_s);
     mDisableCodeLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Enter authentication code"));
     KLineEditEventHandler::catchReturnKey(mDisableCodeLineEdit);
     hboxLayout->addWidget(mDisableCodeLineEdit);
 
     auto verifyButton = new QPushButton(i18nc("@action:button", "Verify"), this);
-    verifyButton->setObjectName(QStringLiteral("verifyButton"));
+    verifyButton->setObjectName(u"verifyButton"_s);
     hboxLayout->addWidget(verifyButton);
     verifyButton->setEnabled(false);
     connect(verifyButton, &QPushButton::clicked, this, &MyAccount2FaDisableTotpWidget::slotVerify);
@@ -48,7 +50,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     });
 
     auto regenerateCode = new QPushButton(i18nc("@action:button", "Regenerate Code"), this);
-    regenerateCode->setObjectName(QStringLiteral("regenerateCode"));
+    regenerateCode->setObjectName(u"regenerateCode"_s);
     mainLayout->addWidget(regenerateCode);
     connect(regenerateCode, &QPushButton::clicked, this, &MyAccount2FaDisableTotpWidget::slotRegenerateCode);
     mainLayout->addStretch(1);

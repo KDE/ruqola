@@ -5,6 +5,8 @@
 */
 
 #include "directorydialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directory/directorycontainerwidget.h"
 #include "directory/directorydialog.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void DirectoryDialogTest::shouldHaveDefaultValues()
     DirectoryDialog d(nullptr, DirectoryWidget::DirectoryType::Room);
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mDirectoryContainerWidget = d.findChild<DirectoryContainerWidget *>(QStringLiteral("mDirectoryContainerWidget"));
+    auto mDirectoryContainerWidget = d.findChild<DirectoryContainerWidget *>(u"mDirectoryContainerWidget"_s);
     QVERIFY(mDirectoryContainerWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

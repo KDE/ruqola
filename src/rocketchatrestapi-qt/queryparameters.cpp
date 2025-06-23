@@ -5,6 +5,8 @@
 */
 
 #include "queryparameters.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchatqtrestapi_debug.h"
 
 namespace RocketChatRestApi
@@ -78,13 +80,13 @@ void QueryParameters::setCustom(const QMap<QString, QString> &custom)
 void QueryParameters::generateQueryParameter(const QueryParameters &queryParameters, QUrlQuery &urlQuery)
 {
     if (queryParameters.count() >= 0) {
-        urlQuery.addQueryItem(QStringLiteral("count"), QString::number(queryParameters.count()));
+        urlQuery.addQueryItem(u"count"_s, QString::number(queryParameters.count()));
     }
     if (queryParameters.offset() >= 0) {
-        urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(queryParameters.offset()));
+        urlQuery.addQueryItem(u"offset"_s, QString::number(queryParameters.offset()));
     }
     if (!queryParameters.filter().isEmpty()) {
-        urlQuery.addQueryItem(QStringLiteral("filter"), queryParameters.filter());
+        urlQuery.addQueryItem(u"filter"_s, queryParameters.filter());
     }
 
     const QMap<QString, QString> custom = queryParameters.custom();
@@ -100,14 +102,14 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
             while (i.hasNext()) {
                 i.next();
                 if (!str.isEmpty()) {
-                    str += QLatin1Char(',');
+                    str += u',';
                 }
-                str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
-                str += QLatin1Char('"') + i.value() + QLatin1Char('"');
+                str += QLatin1Char('"') + i.key() + u'"' + u':';
+                str += u'"' + i.value() + u'"';
             }
-            str = QStringLiteral("{%1}").arg(str);
+            str = u"{%1}"_s.arg(str);
 
-            urlQuery.addQueryItem(QStringLiteral("query"), str);
+            urlQuery.addQueryItem(u"query"_s, str);
         }
     }
     if (!queryParameters.searchString().isEmpty()) {
@@ -115,7 +117,7 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
             urlQuery.addQueryItem(QLatin1String("name"), queryParameters.searchString());
         } else {
             const QString str = QStringLiteral(R"({"name":{"$regex":"%1","$options":"i"}})").arg(queryParameters.searchString());
-            urlQuery.addQueryItem(QStringLiteral("query"), str);
+            urlQuery.addQueryItem(u"query"_s, str);
         }
     }
 
@@ -126,9 +128,9 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
         while (i.hasNext()) {
             i.next();
             if (!str.isEmpty()) {
-                str += QLatin1Char(',');
+                str += u',';
             }
-            str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
+            str += QLatin1Char('"') + i.key() + u'"' + u':';
             switch (i.value()) {
             case QueryParameters::SortOrder::Ascendant:
                 str += QString::number(1);
@@ -141,10 +143,10 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
                 break;
             }
         }
-        str = QStringLiteral("{%1}").arg(str);
+        str = u"{%1}"_s.arg(str);
 
         // It's ok for getAllMentions....
-        urlQuery.addQueryItem(QStringLiteral("sort"), str);
+        urlQuery.addQueryItem(u"sort"_s, str);
     }
 }
 

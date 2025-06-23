@@ -5,6 +5,8 @@
 */
 
 #include "userinroleeditdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "usersinrolewidget.h"
 
 #include <KConfigGroup>
@@ -26,12 +28,12 @@ UserInRoleEditDialog::UserInRoleEditDialog(RocketChatAccount *account, QWidget *
 {
     setWindowTitle(i18nc("@title:window", "Users in Role"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mUserInRoleEditWidget->setObjectName(QStringLiteral("mUserInRoleEditWidget"));
+    mainLayout->setObjectName(u"mainLayout"_s);
+    mUserInRoleEditWidget->setObjectName(u"mUserInRoleEditWidget"_s);
     mainLayout->addWidget(mUserInRoleEditWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &UserInRoleEditDialog::reject);
     readConfig();

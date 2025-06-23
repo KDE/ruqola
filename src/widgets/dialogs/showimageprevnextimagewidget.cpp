@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "showimageprevnextimagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QToolButton>
@@ -13,19 +15,19 @@ ShowImagePrevNextImageWidget::ShowImagePrevNextImageWidget(QWidget *parent)
     , mPreviousButton(new QToolButton(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mPreviousButton->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
+    mPreviousButton->setIcon(QIcon::fromTheme(u"go-previous"_s));
     mPreviousButton->setEnabled(false);
     mPreviousButton->setToolTip(i18n("Show previous image"));
-    mPreviousButton->setObjectName(QStringLiteral("mPreviousButton"));
+    mPreviousButton->setObjectName(u"mPreviousButton"_s);
     connect(mPreviousButton, &QToolButton::clicked, this, &ShowImagePrevNextImageWidget::showPreviousImage);
 
-    mNextButton->setIcon(QIcon::fromTheme(QStringLiteral("nextButton")));
+    mNextButton->setIcon(QIcon::fromTheme(u"nextButton"_s));
     mNextButton->setEnabled(false);
-    mNextButton->setObjectName(QStringLiteral("mNextButton"));
-    mNextButton->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
+    mNextButton->setObjectName(u"mNextButton"_s);
+    mNextButton->setIcon(QIcon::fromTheme(u"go-next"_s));
     mNextButton->setToolTip(i18n("Show next image"));
     connect(mNextButton, &QToolButton::clicked, this, &ShowImagePrevNextImageWidget::showNextImage);
 

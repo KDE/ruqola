@@ -5,6 +5,8 @@
 */
 
 #include "settingsoauthjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/settingsoauthjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -29,7 +31,7 @@ void SettingsOauthJobTest::shouldGenerateRequest()
     SettingsOauthJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.oauth")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/settings.oauth"_s));
 }
 
 #include "moc_settingsoauthjobtest.cpp"

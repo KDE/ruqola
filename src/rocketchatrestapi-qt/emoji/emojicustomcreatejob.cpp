@@ -48,7 +48,7 @@ bool EmojiCustomCreateJob::start()
     if (!mEmojiInfo.fileNameUrl.isEmpty()) {
         QHttpPart filePart;
         filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
-        const QString filePartInfo = QStringLiteral("form-data; name=\"emoji\"; filename=\"%1\"").arg(mEmojiInfo.fileNameUrl.fileName());
+        const QString filePartInfo = u"form-data; name=\"emoji\"; filename=\"%1\""_s.arg(mEmojiInfo.fileNameUrl.fileName());
         filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
 
         filePart.setBodyDevice(file);

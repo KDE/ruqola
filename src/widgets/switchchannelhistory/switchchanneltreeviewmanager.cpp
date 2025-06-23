@@ -5,6 +5,8 @@
 */
 
 #include "switchchanneltreeviewmanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"

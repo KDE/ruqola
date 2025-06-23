@@ -5,6 +5,8 @@
 */
 
 #include "removeaccountwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QLabel>
@@ -16,13 +18,13 @@ RemoveAccountWidget::RemoveAccountWidget(QWidget *parent)
     , mInfo(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mInfo->setObjectName(QStringLiteral("mInfo"));
+    mInfo->setObjectName(u"mInfo"_s);
     mainLayout->addWidget(mInfo);
 
-    mRemoveLogs->setObjectName(QStringLiteral("mRemoveLogs"));
+    mRemoveLogs->setObjectName(u"mRemoveLogs"_s);
     mainLayout->addWidget(mRemoveLogs);
 }
 

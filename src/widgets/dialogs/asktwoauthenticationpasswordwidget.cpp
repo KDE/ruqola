@@ -5,6 +5,8 @@
 */
 
 #include "asktwoauthenticationpasswordwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/twoauthenticationpasswordwidget.h"
 #include <QVBoxLayout>
 
@@ -13,9 +15,9 @@ AskTwoAuthenticationPasswordWidget::AskTwoAuthenticationPasswordWidget(QWidget *
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
-    mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    mTwoFactorAuthenticationPasswordLineEdit->setObjectName(u"mTwoFactorAuthenticationPasswordLineEdit"_s);
     mainLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
     connect(mTwoFactorAuthenticationPasswordLineEdit,
             &TwoAuthenticationPasswordWidget::updateButtonOk,

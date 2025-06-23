@@ -5,6 +5,8 @@
 */
 
 #include "e2edecodeencryptionkeyfailedwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 E2eDecodeEncryptionKeyFailedWidget::E2eDecodeEncryptionKeyFailedWidget(QWidget *parent)
@@ -18,7 +20,7 @@ E2eDecodeEncryptionKeyFailedWidget::E2eDecodeEncryptionKeyFailedWidget(QWidget *
     setText(i18n("It was not possible to decode your encryption key to be imported. Your encryption password seems wrong."));
 
     auto decodeEncryptionKeyAction = new QAction(i18nc("@action", "Decrypt Encryption Key"), this);
-    decodeEncryptionKeyAction->setObjectName(QStringLiteral("decodeEncryptionKeyAction"));
+    decodeEncryptionKeyAction->setObjectName(u"decodeEncryptionKeyAction"_s);
     connect(decodeEncryptionKeyAction, &QAction::triggered, this, &E2eDecodeEncryptionKeyFailedWidget::decodeEncrytionKey);
     addAction(decodeEncryptionKeyAction);
 }

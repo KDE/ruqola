@@ -42,18 +42,18 @@ TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *pare
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto hboxLayout = new QHBoxLayout;
-    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setObjectName(u"hboxLayout"_s);
     hboxLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     hboxLayout->addWidget(mSearchLineEdit);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &TeamChannelsWidget::slotTextChanged);
 
-    mTeamChannelsCombobox->setObjectName(QStringLiteral("mTeamChannelsCombobox"));
+    mTeamChannelsCombobox->setObjectName(u"mTeamChannelsCombobox"_s);
     hboxLayout->addWidget(mTeamChannelsCombobox);
 
     mainLayout->addLayout(hboxLayout);
@@ -62,7 +62,7 @@ TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *pare
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
-    mListView->setObjectName(QStringLiteral("mListView"));
+    mListView->setObjectName(u"mListView"_s);
     mainLayout->addWidget(mListView);
 
     mListView->setModel(mTeamRoomFilterProxyModel);
@@ -112,14 +112,14 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(this);
     QModelIndex index = mListView->indexAt(pos);
     // TODO Remove add-team-channel when we will depend against RC 7.0
-    if (mRoom->hasPermission(QStringLiteral("add-team-channel")) || mRoom->hasPermission(QStringLiteral("move-room-to-team"))
-        || mRoom->hasPermission(QStringLiteral("create-team-channel")) || mRoom->hasPermission(QStringLiteral("create-team-group"))) {
+    if (mRoom->hasPermission(u"add-team-channel"_s) || mRoom->hasPermission(u"move-room-to-team"_s) || mRoom->hasPermission(u"create-team-channel"_s)
+        || mRoom->hasPermission(u"create-team-group"_s)) {
         menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18nc("@action", "Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
+        menu.addAction(QIcon::fromTheme(u"irc-join-channel"_s), i18nc("@action", "Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     }
     if (index.isValid()) {
-        if (mRoom->hasPermission(QStringLiteral("edit-team-channel"))) {
+        if (mRoom->hasPermission(u"edit-team-channel"_s)) {
             menu.addSeparator();
             const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
             menu.addAction(autojoin ? i18nc("@action", "Remove Autojoin") : i18nc("@action", "Add Autojoin"), this, [this, index, autojoin]() {
@@ -127,9 +127,9 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 updateAutojoin(roomId, autojoin);
             });
         }
-        if (mRoom->hasPermission(QStringLiteral("remove-team-channel"))) {
+        if (mRoom->hasPermission(u"remove-team-channel"_s)) {
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18nc("@action", "Remove from Team"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(u"dialog-cancel"_s), i18nc("@action", "Remove from Team"), this, [this, index]() {
                 const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
                 removeRoomFromTeam(roomId);
             });

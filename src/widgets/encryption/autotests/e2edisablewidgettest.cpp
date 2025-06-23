@@ -5,6 +5,8 @@
 */
 
 #include "e2edisablewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "encryption/e2edisablewidget.h"
 #include <KSeparator>
 #include <QLabel>
@@ -25,22 +27,22 @@ void E2eDisableWidgetTest::shouldHaveDefaultValues()
 {
     E2eDisableWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
+    auto separator = w.findChild<KSeparator *>(u"separator"_s);
     QVERIFY(separator);
 
-    auto labelReset = w.findChild<QLabel *>(QStringLiteral("labelReset"));
+    auto labelReset = w.findChild<QLabel *>(u"labelReset"_s);
     QVERIFY(labelReset);
     QVERIFY(!labelReset->text().isEmpty());
 
-    auto pushButton = w.findChild<QPushButton *>(QStringLiteral("pushButton"));
+    auto pushButton = w.findChild<QPushButton *>(u"pushButton"_s);
     QVERIFY(pushButton);
     QVERIFY(!pushButton->text().isEmpty());
 }

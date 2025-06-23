@@ -5,6 +5,8 @@
 */
 
 #include "directorywidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directory/directorywidget.h"
 #include "misc/searchwithdelaylineedit.h"
 #include <QHeaderView>
@@ -21,18 +23,18 @@ DirectoryWidgetTest::DirectoryWidgetTest(QObject *parent)
 void DirectoryWidgetTest::shouldHaveDefaultValues()
 {
     DirectoryWidget w(nullptr, DirectoryWidget::DirectoryType::Unknown);
-    auto mLabelResultSearch = w.findChild<QLabel *>(QStringLiteral("mLabelResultSearch"));
+    auto mLabelResultSearch = w.findChild<QLabel *>(u"mLabelResultSearch"_s);
     QVERIFY(mLabelResultSearch);
     QVERIFY(mLabelResultSearch->text().isEmpty());
 
-    auto mSearchLineEdit = w.findChild<SearchWithDelayLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<SearchWithDelayLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
+    auto mTreeView = w.findChild<QTreeView *>(u"mTreeView"_s);
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());
     QVERIFY(mTreeView->isSortingEnabled());

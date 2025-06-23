@@ -19,7 +19,7 @@ void LicensesManagerTest::shouldHaveDefaultValues()
 {
     LicensesManager w;
     QVERIFY(w.licenses().isEmpty());
-    QVERIFY(!w.hasLicense(QStringLiteral("bla")));
+    QVERIFY(!w.hasLicense(u"bla"_s));
 }
 
 void LicensesManagerTest::shouldParseLicenses_data()
@@ -47,7 +47,7 @@ void LicensesManagerTest::shouldParseLicenses_data()
                                    "hide-watermark"_L1,
                                    "custom-roles"_L1,
                                    "accessibility-certification"_L1};
-        QTest::newRow("test1.json") << QStringLiteral("test1") << licenses;
+        QTest::newRow("test1.json") << u"test1"_s << licenses;
     }
 }
 

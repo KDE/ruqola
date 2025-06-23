@@ -6,6 +6,7 @@
  */
 
 #include "accountsoverviewwidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "colorsandmessageviewstyle.h"
@@ -48,10 +49,10 @@ struct UnreadAlert {
     if (account->loginStatus() == AuthenticationManager::LoggedIn) {
         auto unreadAlert = currentUnreadAlert(account);
         if (int unread = unreadAlert.unread) {
-            text += QStringLiteral(" (%1)").arg(unread);
+            text += u" (%1)"_s.arg(unread);
         }
         if (unreadAlert.mentions) {
-            text += QStringLiteral(" @");
+            text += u" @"_s;
         }
     }
 
@@ -84,10 +85,10 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     , mAccountManager(Ruqola::self()->accountManager())
 {
     mTabBar->setShape(QTabBar::RoundedSouth);
-    mTabBar->setObjectName(QStringLiteral("mTabBar"));
+    mTabBar->setObjectName(u"mTabBar"_s);
 
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mTabBar);
 
@@ -141,12 +142,12 @@ void AccountsOverviewWidget::updateButtons()
             QIcon icon;
             if (account->accountEnabled() && account->loginStatus() == AuthenticationManager::LoggedIn) {
                 if (currentUnreadAlert(account).alert) {
-                    icon = QIcon::fromTheme(QStringLiteral("message-new"));
+                    icon = QIcon::fromTheme(u"message-new"_s);
                 } else {
                     icon = Utils::iconFromAccount(account);
                 }
             } else {
-                icon = QIcon::fromTheme(QStringLiteral("data-error"));
+                icon = QIcon::fromTheme(u"data-error"_s);
             }
             mTabBar->setTabIcon(i, icon);
         };

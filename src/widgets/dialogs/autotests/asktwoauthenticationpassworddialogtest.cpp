@@ -5,6 +5,8 @@
 */
 
 #include "asktwoauthenticationpassworddialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/asktwoauthenticationpassworddialog.h"
 #include "dialogs/asktwoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
@@ -23,21 +25,21 @@ void AskTwoAuthenticationPasswordDialogTest::shouldHaveDefaultValues()
 {
     AskTwoAuthenticationPasswordDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mAskTwoAuthicationPasswordWidget = w.findChild<AskTwoAuthenticationPasswordWidget *>(QStringLiteral("mAskTwoAuthicationPasswordWidget"));
+    auto mAskTwoAuthicationPasswordWidget = w.findChild<AskTwoAuthenticationPasswordWidget *>(u"mAskTwoAuthicationPasswordWidget"_s);
     QVERIFY(mAskTwoAuthicationPasswordWidget);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
 
     QVERIFY(!w.rocketChatAccount());
     RocketChatAccount account;
-    account.setAccountName(QStringLiteral("bla"));
+    account.setAccountName(u"bla"_s);
     w.setRocketChatAccount(&account);
     QVERIFY(w.rocketChatAccount());
-    QCOMPARE(w.rocketChatAccount()->accountName(), QStringLiteral("bla"));
+    QCOMPARE(w.rocketChatAccount()->accountName(), u"bla"_s);
 }
 
 #include "moc_asktwoauthenticationpassworddialogtest.cpp"

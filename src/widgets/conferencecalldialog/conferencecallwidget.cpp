@@ -5,6 +5,8 @@
 */
 
 #include "conferencecallwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QToolButton>
@@ -16,22 +18,22 @@ ConferenceCallWidget::ConferenceCallWidget(QWidget *parent)
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mMicroButton->setObjectName(QStringLiteral("mMicroButton"));
+    mMicroButton->setObjectName(u"mMicroButton"_s);
     mMicroButton->setCheckable(true);
     mMicroButton->setAutoRaise(true);
-    mMicroButton->setIcon(QIcon::fromTheme(QStringLiteral("mic-off")));
-    mCameraButton->setObjectName(QStringLiteral("mCameraButton"));
+    mMicroButton->setIcon(QIcon::fromTheme(u"mic-off"_s));
+    mCameraButton->setObjectName(u"mCameraButton"_s);
     mCameraButton->setCheckable(true);
     mCameraButton->setAutoRaise(true);
-    mCameraButton->setIcon(QIcon::fromTheme(QStringLiteral("camera-on")));
+    mCameraButton->setIcon(QIcon::fromTheme(u"camera-on"_s));
     connect(mCameraButton, &QToolButton::toggled, this, [this](bool clicked) {
-        mCameraButton->setIcon(clicked ? QIcon::fromTheme(QStringLiteral("camera-on")) : QIcon::fromTheme(QStringLiteral("camera-off")));
+        mCameraButton->setIcon(clicked ? QIcon::fromTheme(u"camera-on"_s) : QIcon::fromTheme(u"camera-off"_s));
         mCameraButton->setToolTip(clicked ? i18n("Camera On") : i18n("Camera Off"));
     });
     connect(mMicroButton, &QToolButton::toggled, this, [this](bool clicked) {
-        mMicroButton->setIcon(clicked ? QIcon::fromTheme(QStringLiteral("mic-on")) : QIcon::fromTheme(QStringLiteral("mic-off")));
+        mMicroButton->setIcon(clicked ? QIcon::fromTheme(u"mic-on"_s) : QIcon::fromTheme(u"mic-off"_s));
         mMicroButton->setToolTip(clicked ? i18n("Micro On") : i18n("Micro Off"));
     });
 

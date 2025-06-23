@@ -5,6 +5,8 @@
 */
 
 #include "changefontsizemenu.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -16,13 +18,13 @@ ChangeFontSizeMenu::ChangeFontSizeMenu(QObject *parent)
 {
     setText(i18n("Font Size"));
 
-    auto increaseFontSizeAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-in")), i18nc("@action", "Increase Font"), this);
+    auto increaseFontSizeAction = new QAction(QIcon::fromTheme(u"zoom-in"_s), i18nc("@action", "Increase Font"), this);
     increaseFontSizeAction->setShortcut(Qt::CTRL | Qt::Key_Plus);
     menu()->addAction(increaseFontSizeAction);
     connect(increaseFontSizeAction, &QAction::triggered, this, [this]() {
         changeFontSize(+1);
     });
-    auto decreaseFontSizeAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-out")), i18nc("@action", "Decrease Font"), this);
+    auto decreaseFontSizeAction = new QAction(QIcon::fromTheme(u"zoom-out"_s), i18nc("@action", "Decrease Font"), this);
     decreaseFontSizeAction->setShortcut(Qt::CTRL | Qt::Key_Minus);
     menu()->addAction(decreaseFontSizeAction);
     connect(decreaseFontSizeAction, &QAction::triggered, this, [this]() {

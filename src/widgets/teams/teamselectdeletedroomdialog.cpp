@@ -5,6 +5,8 @@
 */
 
 #include "teamselectdeletedroomdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teamselectdeletedroomwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -23,13 +25,13 @@ TeamSelectDeletedRoomDialog::TeamSelectDeletedRoomDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Delete Rooms"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mTeamSelectDeletedRoomWidget->setObjectName(QStringLiteral("mTeamSelectDeletedRoomWidget"));
+    mTeamSelectDeletedRoomWidget->setObjectName(u"mTeamSelectDeletedRoomWidget"_s);
     mainLayout->addWidget(mTeamSelectDeletedRoomWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &TeamSelectDeletedRoomDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &TeamSelectDeletedRoomDialog::accept);

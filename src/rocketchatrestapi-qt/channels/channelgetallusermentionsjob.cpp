@@ -50,7 +50,7 @@ QNetworkRequest ChannelGetAllUserMentionsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsGetAllUserMentionsByChannel);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(u"roomId"_s, mRoomId);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);

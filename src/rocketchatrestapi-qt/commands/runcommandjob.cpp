@@ -67,12 +67,12 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
     RunCommandJob::RunCommandInfo info;
     if (str.length() > 1) {
         const QString newStr = str.sliced(1);
-        QStringList lst = newStr.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+        QStringList lst = newStr.split(u' ', Qt::SkipEmptyParts);
         info.commandName = lst.takeAt(0);
         info.roomId = QLatin1StringView(roomId);
         info.threadMessageId = QLatin1StringView(tmid);
         if (!lst.isEmpty()) {
-            info.params = lst.join(QLatin1Char(' '));
+            info.params = lst.join(u' ');
         }
         if (forceUuid.isEmpty()) {
             info.triggerId = QString::fromLatin1(QUuid::createUuid().toByteArray(QUuid::Id128));

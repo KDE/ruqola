@@ -5,6 +5,8 @@
 */
 
 #include "usersinroomdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "usersinroomwidget.h"
 
 #include <KConfigGroup>
@@ -26,13 +28,13 @@ UsersInRoomDialog::UsersInRoomDialog(RocketChatAccount *account, QWidget *parent
 {
     setWindowTitle(i18nc("@title:window", "Users"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mUsersInRoomWidget->setObjectName(QStringLiteral("mUsersInRoomWidget"));
+    mUsersInRoomWidget->setObjectName(u"mUsersInRoomWidget"_s);
     mainLayout->addWidget(mUsersInRoomWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &UsersInRoomDialog::reject);
     mainLayout->addWidget(buttonBox);
     readConfig();

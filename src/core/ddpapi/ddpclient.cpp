@@ -93,9 +93,9 @@ qint64 DDPClient::loadPublicSettings(qint64 timeStamp)
         // "params": [ { "$date": 1480377601 } ]
         params["$date"_L1] = timeStamp;
         // qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
-        return method(QStringLiteral("public-settings/get"), params, DDPClient::MethodRequestedType::UpdatePublicsettings);
+        return method(u"public-settings/get"_s, params, DDPClient::MethodRequestedType::UpdatePublicsettings);
     } else {
-        return method(QStringLiteral("public-settings/get"), params, DDPClient::MethodRequestedType::PublicSettings);
+        return method(u"public-settings/get"_s, params, DDPClient::MethodRequestedType::PublicSettings);
     }
 }
 
@@ -142,16 +142,16 @@ void DDPClient::subscribeRoomMessage(const QByteArray &roomId)
     const QString rId = QString::fromLatin1(roomId);
     QJsonArray params;
     params.append(QJsonValue(rId));
-    mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-room-messages"), params));
+    mSubscribeIdentifiers.append(subscribe(u"stream-room-messages"_s, params));
 
     const QStringList listStreamNotifierRoom{
-        QStringLiteral("deleteMessage"),
-        QStringLiteral("deleteMessageBulk"),
-        QStringLiteral("user-activity"),
+        u"deleteMessage"_s,
+        u"deleteMessageBulk"_s,
+        u"user-activity"_s,
     };
     for (const QString &str : listStreamNotifierRoom) {
-        const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(rId, str))};
-        mSubscribeIdentifiers.append(subscribe(QStringLiteral("stream-notify-room"), params2));
+        const QJsonArray params2{QJsonValue(u"%1/%2"_s.arg(rId, str))};
+        mSubscribeIdentifiers.append(subscribe(u"stream-notify-room"_s, params2));
     }
 }
 
@@ -175,7 +175,7 @@ quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
 
 quint64 DDPClient::getRooms(const QJsonObject &params)
 {
-    return method(QStringLiteral("rooms/get"), params, MethodRequestedType::RoomsParsing, DDPClient::MessageType::Persistent);
+    return method(u"rooms/get"_s, params, MethodRequestedType::RoomsParsing, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QByteArray &roomId)
@@ -411,7 +411,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 {
     quint64 registerId = mUid;
     QJsonObject json;
-    json["msg"_L1] = QStringLiteral("sub");
+    json["msg"_L1] = u"sub"_s;
     json["id"_L1] = QString::number(mUid);
     json["name"_L1] = collection;
 
@@ -566,8 +566,8 @@ void DDPClient::onWSConnected()
     QJsonArray supportedVersions;
     supportedVersions.append("1"_L1);
     QJsonObject protocol;
-    protocol["msg"_L1] = QStringLiteral("connect");
-    protocol["version"_L1] = QStringLiteral("1");
+    protocol["msg"_L1] = u"connect"_s;
+    protocol["version"_L1] = u"1"_s;
     protocol["support"_L1] = supportedVersions;
     const QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
@@ -617,7 +617,7 @@ void DDPClient::onWSclosed()
 void DDPClient::pong()
 {
     QJsonObject pong;
-    pong["msg"_L1] = QStringLiteral("pong");
+    pong["msg"_L1] = u"pong"_s;
     mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
 }
 
@@ -646,7 +646,7 @@ void DDPClient::loadPermissionsAdministrator(qint64 timeStamp)
         params["$date"_L1] = timeStamp;
     }
     qDebug() << " params " << params;
-    method(QStringLiteral("permissions/get"), params, MethodRequestedType::PermissionsAdministrator);
+    method(u"permissions/get"_s, params, MethodRequestedType::PermissionsAdministrator);
 }
 
 void DDPClient::loadPrivateSettingsAdministrator(qint64 timeStamp)
@@ -661,7 +661,7 @@ void DDPClient::loadPrivateSettingsAdministrator(qint64 timeStamp)
         params["$date"_L1] = timeStamp;
     }
     // qDebug() << " params " << params;
-    method(QStringLiteral("private-settings/get"), params, MethodRequestedType::PrivatesettingsAdministrator);
+    method(u"private-settings/get"_s, params, MethodRequestedType::PrivatesettingsAdministrator);
 }
 
 void DDPClient::loadPublicSettingsAdministrator(qint64 timeStamp)
@@ -676,7 +676,7 @@ void DDPClient::loadPublicSettingsAdministrator(qint64 timeStamp)
         params["$date"_L1] = timeStamp;
     }
     // qDebug() << " params " << params;
-    method(QStringLiteral("public-settings/get"), params, MethodRequestedType::PublicsettingsAdministrator);
+    method(u"public-settings/get"_s, params, MethodRequestedType::PublicsettingsAdministrator);
 }
 
 void DDPClient::initializeSubscription()
@@ -685,12 +685,12 @@ void DDPClient::initializeSubscription()
     // TODO use timeStamp too
     params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
 
-    method(QStringLiteral("subscriptions/get"), params, MethodRequestedType::GetsubscriptionParsing);
+    method(u"subscriptions/get"_s, params, MethodRequestedType::GetsubscriptionParsing);
 }
 
 quint64 DDPClient::getThreadMessages(const QJsonObject &params)
 {
-    return method(QStringLiteral("getThreadMessages"), params, DDPClient::MethodRequestedType::GetThreadMessages);
+    return method(u"getThreadMessages"_s, params, DDPClient::MethodRequestedType::GetThreadMessages);
 }
 
 #include "moc_ddpclient.cpp"

@@ -5,6 +5,8 @@
 */
 
 #include "configureaccountwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configureaccountserverwidget.h"
 #include <QVBoxLayout>
 
@@ -13,9 +15,9 @@ ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)
     , mConfigureAccountServerWidget(new ConfigureAccountServerWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mConfigureAccountServerWidget->setObjectName(QStringLiteral("mConfigureAccountServerWidget"));
+    mConfigureAccountServerWidget->setObjectName(u"mConfigureAccountServerWidget"_s);
     mainLayout->addWidget(mConfigureAccountServerWidget);
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "administratordialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorwidget.h"
 
 #include <KConfigGroup>
@@ -26,13 +28,13 @@ AdministratorDialog::AdministratorDialog(RocketChatAccount *account, QWidget *pa
 {
     setWindowTitle(i18nc("@title:window", "Administrator"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mAdministratorWidget->setObjectName(QStringLiteral("mAdministratorWidget"));
+    mAdministratorWidget->setObjectName(u"mAdministratorWidget"_s);
     mainLayout->addWidget(mAdministratorWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorDialog::reject);
 

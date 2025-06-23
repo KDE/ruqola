@@ -5,6 +5,8 @@
 */
 
 #include "accountsoverviewwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/accountsoverviewwidget.h"
 #include <QHBoxLayout>
 #include <QStandardPaths>
@@ -20,11 +22,11 @@ AccountsOverviewWidgetTest::AccountsOverviewWidgetTest(QObject *parent)
 void AccountsOverviewWidgetTest::shouldHaveDefaultValues()
 {
     AccountsOverviewWidget w;
-    auto mTabBar = w.findChild<QTabBar *>(QStringLiteral("mTabBar"));
+    auto mTabBar = w.findChild<QTabBar *>(u"mTabBar"_s);
     QVERIFY(mTabBar);
     QCOMPARE(mTabBar->shape(), QTabBar::RoundedSouth);
 
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }

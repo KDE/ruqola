@@ -5,6 +5,8 @@
 */
 
 #include "showvideodialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "showvideowidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -25,14 +27,14 @@ ShowVideoDialog::ShowVideoDialog(RocketChatAccount *account, QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Video"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mShowVideoWidget->setObjectName(QStringLiteral("mShowVideoWidget"));
+    mShowVideoWidget->setObjectName(u"mShowVideoWidget"_s);
     mainLayout->addWidget(mShowVideoWidget);
     connect(mShowVideoWidget, &ShowVideoWidget::updateTitle, this, &ShowVideoDialog::slotUpdateTitle);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowVideoDialog::reject);
     mainLayout->addWidget(buttonBox);
     readConfig();

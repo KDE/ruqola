@@ -5,6 +5,8 @@
 */
 
 #include "roleeditdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/roles/roleeditdialog.h"
 #include "administratordialog/roles/roleeditwidget.h"
 #include <QDialogButtonBox>
@@ -21,13 +23,13 @@ void RoleEditDialogTest::shouldHaveDefaultValues()
     RoleEditDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
-    auto mRoleEditWidget = d.findChild<RoleEditWidget *>(QStringLiteral("mRoleEditWidget"));
+    auto mRoleEditWidget = d.findChild<RoleEditWidget *>(u"mRoleEditWidget"_s);
     QVERIFY(mRoleEditWidget);
 
     QVERIFY(!d.roleEditDialogInfo().isValid());

@@ -5,6 +5,8 @@
 */
 
 #include "searchmessagedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "room.h"
 #include "searchmessagewidget.h"
@@ -27,14 +29,14 @@ SearchMessageDialog::SearchMessageDialog(RocketChatAccount *account, QWidget *pa
 {
     setWindowTitle(i18nc("@title:window", "Search Messages"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mSearchMessageWidget->setObjectName(QStringLiteral("mSearchMessageWidget"));
+    mSearchMessageWidget->setObjectName(u"mSearchMessageWidget"_s);
     mainLayout->addWidget(mSearchMessageWidget);
     connect(mSearchMessageWidget, &SearchMessageWidget::goToMessageRequested, this, &SearchMessageDialog::goToMessageRequested);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &SearchMessageDialog::reject);
     readConfig();
@@ -68,11 +70,10 @@ void SearchMessageDialog::writeConfig()
 void SearchMessageDialog::setRoom(Room *room)
 {
     mSearchMessageWidget->setRoom(room);
-    setWindowTitle(
-        i18nc("@title:window",
-              "Search Messages in '%1' (%2)",
-              room->displayRoomName(),
-              mSearchMessageWidget->currentRocketChatAccount() ? mSearchMessageWidget->currentRocketChatAccount()->accountName() : QStringLiteral("account")));
+    setWindowTitle(i18nc("@title:window",
+                         "Search Messages in '%1' (%2)",
+                         room->displayRoomName(),
+                         mSearchMessageWidget->currentRocketChatAccount() ? mSearchMessageWidget->currentRocketChatAccount()->accountName() : u"account"_s));
 }
 
 #include "moc_searchmessagedialog.cpp"

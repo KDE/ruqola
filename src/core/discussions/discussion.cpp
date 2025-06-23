@@ -125,8 +125,8 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mFname = o.value("fname"_L1).toString();
     mNumberMessages = o.value("msgs"_L1).toInt();
     mDiscussionRoomId = o.value("_id"_L1).toString().toLatin1();
-    setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
-    setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
+    setLastMessage(Utils::parseIsoDate(u"lm"_s, o));
+    setTimeStamp(Utils::parseIsoDate(u"ts"_s, o));
     const QJsonValue ownerValue = o.value("u"_L1);
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();

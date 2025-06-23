@@ -58,14 +58,14 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             QMenu menu(this);
-            menu.addAction(QIcon::fromTheme(QStringLiteral("description-symbolic")), i18nc("@action", "Show Description…"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(u"description-symbolic"_s), i18nc("@action", "Show Description…"), this, [this, index]() {
                 slotShowApplicationDescription(index);
             });
 
             if (!index.data(AppsMarketPlaceModel::Private).toBool() && !index.data(AppsMarketPlaceModel::Installed).toBool()) {
                 if (mRocketChatAccount->isAdministrator()) {
                     menu.addSeparator();
-                    menu.addAction(QIcon::fromTheme(QStringLiteral("install")), i18nc("@action", "Install"), this, [this, index]() {
+                    menu.addAction(QIcon::fromTheme(u"install"_s), i18nc("@action", "Install"), this, [this, index]() {
                         slotInstallApplication(index);
                     });
                 } else {
@@ -78,7 +78,7 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
             if (index.data(AppsMarketPlaceModel::Installed).toBool()) {
                 if (mRocketChatAccount->isAdministrator()) {
                     menu.addSeparator();
-                    menu.addAction(QIcon::fromTheme(QStringLiteral("uninstall")), i18nc("@action", "Uninstall"), this, [this, index]() {
+                    menu.addAction(QIcon::fromTheme(u"uninstall"_s), i18nc("@action", "Uninstall"), this, [this, index]() {
                         slotUninstallApplication(index);
                     });
 
@@ -100,7 +100,7 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
 
             if (mApplicationsSettingsListDelegate->hasSelection()) {
                 menu.addSeparator();
-                auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18nc("@action", "Copy Text"), &menu);
+                auto copyAction = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy Text"), &menu);
                 copyAction->setShortcut(QKeySequence::Copy);
                 connect(copyAction, &QAction::triggered, this, [this, index]() {
                     copyMessageToClipboard(index);
@@ -109,7 +109,7 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
                 addTextPlugins(&menu, mApplicationsSettingsListDelegate->selectedText());
             }
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
             menu.exec(viewport()->mapToGlobal(pos));

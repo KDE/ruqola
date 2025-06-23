@@ -42,7 +42,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<AppsMarketPlaceInfo>("appsmaketplaceinfo");
 
-    QTest::addRow("empty") << QStringLiteral("empty") << AppsMarketPlaceInfo();
+    QTest::addRow("empty") << u"empty"_s << AppsMarketPlaceInfo();
 
     {
         AppsMarketPlaceInfo appsMarketPlaceInfo;
@@ -61,7 +61,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setHomePage("https://github.com/zakhar-petrov"_L1);
         appsMarketPlaceInfo.setSupport("https://github.com/zakhar-petrov/rocketchat-youtrack-linker/issues"_L1);
 
-        QTest::addRow("apps1") << QStringLiteral("apps1") << appsMarketPlaceInfo;
+        QTest::addRow("apps1") << u"apps1"_s << appsMarketPlaceInfo;
     }
     {
         AppsMarketPlaceInfo appsMarketPlaceInfo;
@@ -82,7 +82,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setPrivacyPolicySummary(
             "We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.\n"_L1);
 
-        QTest::addRow("apps2") << QStringLiteral("apps2") << appsMarketPlaceInfo;
+        QTest::addRow("apps2") << u"apps2"_s << appsMarketPlaceInfo;
     }
 
     {
@@ -103,7 +103,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
         appsMarketPlaceInfo.setRequested(1);
         appsMarketPlaceInfo.setAuthorName("Murtaza Patrawala"_L1);
 
-        QTest::addRow("apps3-requested") << QStringLiteral("apps3-requested") << appsMarketPlaceInfo;
+        QTest::addRow("apps3-requested") << u"apps3-requested"_s << appsMarketPlaceInfo;
     }
 }
 

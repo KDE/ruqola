@@ -5,6 +5,8 @@
 */
 
 #include "administratoroauthcreatedialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/oauth/administratoroauthcreatedialog.h"
 
 #include <QDialogButtonBox>
@@ -24,14 +26,14 @@ void AdministratorOauthCreateDialogTest::shouldHaveDefaultValues()
 {
     AdministratorOauthCreateDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
     QCOMPARE(buttonBox->standardButtons(), QDialogButtonBox::StandardButtons{QDialogButtonBox::Ok | QDialogButtonBox::Cancel});
 
-    auto mCreateWidget = w.findChild<AdministratorOauthCreateWidget *>(QStringLiteral("mCreateWidget"));
+    auto mCreateWidget = w.findChild<AdministratorOauthCreateWidget *>(u"mCreateWidget"_s);
     QVERIFY(mCreateWidget);
 
     auto mOkButton = buttonBox->button(QDialogButtonBox::Ok);

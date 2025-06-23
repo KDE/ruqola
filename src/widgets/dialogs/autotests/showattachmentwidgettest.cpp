@@ -5,6 +5,8 @@
 */
 
 #include "showattachmentwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/showattachmentcombobox.h"
 #include "dialogs/showattachmentwidget.h"
 #include <QLabel>
@@ -21,28 +23,28 @@ ShowAttachmentWidgetTest::ShowAttachmentWidgetTest(QObject *parent)
 void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
 {
     ShowAttachmentWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto searchAttachmentLayout = w.findChild<QHBoxLayout *>(QStringLiteral("searchAttachmentLayout"));
+    auto searchAttachmentLayout = w.findChild<QHBoxLayout *>(u"searchAttachmentLayout"_s);
     QVERIFY(searchAttachmentLayout);
     QCOMPARE(searchAttachmentLayout->contentsMargins(), QMargins{});
 
-    auto mSearchAttachmentFileLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchAttachmentFileLineEdit"));
+    auto mSearchAttachmentFileLineEdit = w.findChild<QLineEdit *>(u"mSearchAttachmentFileLineEdit"_s);
     QVERIFY(mSearchAttachmentFileLineEdit);
     QVERIFY(mSearchAttachmentFileLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchAttachmentFileLineEdit->placeholderText().isEmpty());
 
-    auto mAttachmentCombobox = w.findChild<ShowAttachmentComboBox *>(QStringLiteral("mAttachmentCombobox"));
+    auto mAttachmentCombobox = w.findChild<ShowAttachmentComboBox *>(u"mAttachmentCombobox"_s);
     QVERIFY(mAttachmentCombobox);
 
-    auto mInfo = w.findChild<QLabel *>(QStringLiteral("mInfo"));
+    auto mInfo = w.findChild<QLabel *>(u"mInfo"_s);
     QVERIFY(mInfo);
     QVERIFY(mInfo->text().isEmpty());
     QCOMPARE(mInfo->contextMenuPolicy(), Qt::NoContextMenu);
 
-    auto mListAttachment = w.findChild<QListView *>(QStringLiteral("mListAttachment"));
+    auto mListAttachment = w.findChild<QListView *>(u"mListAttachment"_s);
     QVERIFY(mListAttachment);
 }
 

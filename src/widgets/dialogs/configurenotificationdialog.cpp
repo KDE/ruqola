@@ -5,6 +5,8 @@
 */
 
 #include "configurenotificationdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configurenotificationwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -16,13 +18,13 @@ ConfigureNotificationDialog::ConfigureNotificationDialog(RocketChatAccount *acco
 {
     setWindowTitle(i18nc("@title:window", "Configure Notification"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mConfigureNoticationWidget->setObjectName(QStringLiteral("mConfigureNoticationWidget"));
+    mConfigureNoticationWidget->setObjectName(u"mConfigureNoticationWidget"_s);
     mainLayout->addWidget(mConfigureNoticationWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    buttonBox->setObjectName(QStringLiteral("buttonBox"));
+    buttonBox->setObjectName(u"buttonBox"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureNotificationDialog::reject);
     mainLayout->addWidget(buttonBox);
     resize(300, 400);

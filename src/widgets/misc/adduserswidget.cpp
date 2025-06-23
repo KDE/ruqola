@@ -5,6 +5,8 @@
 */
 
 #include "adduserswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <QVBoxLayout>
@@ -15,14 +17,14 @@ AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
     , mFlowLayout(new FlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));
+    mSearchUserLineEdit->setObjectName(u"mSearchUserLineEdit"_s);
     connect(mSearchUserLineEdit, &AddUsersCompletionLineEdit::newUserName, this, &AddUsersWidget::slotAddNewName);
     mainLayout->addWidget(mSearchUserLineEdit);
 
-    mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
+    mFlowLayout->setObjectName(u"mFlowLayout"_s);
     mainLayout->addLayout(mFlowLayout);
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "roomtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "room.h"
@@ -97,13 +99,13 @@ void RoomTest::shouldSerialized()
     {
         Room input(nullptr);
         input.setRoomId("foo"_ba);
-        input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
-        input.setName(QStringLiteral("d"));
-        input.setAnnouncement(QStringLiteral("AA"));
-        input.setRoomCreatorUserName(QStringLiteral("pp"));
+        input.setChannelType(Room::roomTypeFromString(u"p"_s));
+        input.setName(u"d"_s);
+        input.setAnnouncement(u"AA"_s);
+        input.setRoomCreatorUserName(u"pp"_s);
         input.setRoomCreatorUserId("sdfsdfs"_ba);
-        input.setTopic(QStringLiteral("topic"));
-        input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+        input.setTopic(u"topic"_s);
+        input.setMutedUsers(QStringList{u"mutedUsers"_s, u"muted2"_s});
         input.setJitsiTimeout(55);
         input.setReadOnly(true);
         input.setUnread(66);
@@ -114,12 +116,12 @@ void RoomTest::shouldSerialized()
         input.setBlocker(true);
         input.setBlocked(true);
         input.setArchived(true);
-        input.setDescription(QStringLiteral("dd"));
+        input.setDescription(u"dd"_s);
         input.setUserMentions(3);
-        input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
-        input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
+        input.setRoles({u"foo"_s, u"bla"_s});
+        input.setIgnoredUsers({u"gg"_s, u"gg2"_s});
         input.setJoinCodeRequired(true);
-        input.setAutoTranslateLanguage(QStringLiteral("blss"));
+        input.setAutoTranslateLanguage(u"blss"_s);
         input.setAutoTranslate(true);
         input.setLastSeenAt(253);
 
@@ -144,13 +146,13 @@ void RoomTest::shouldSerialized()
     {
         Room input(nullptr);
         input.setRoomId("foo"_ba);
-        input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
-        input.setName(QStringLiteral("p"));
-        input.setAnnouncement(QStringLiteral("AA"));
-        input.setRoomCreatorUserName(QStringLiteral("pp"));
+        input.setChannelType(Room::roomTypeFromString(u"p"_s));
+        input.setName(u"p"_s);
+        input.setAnnouncement(u"AA"_s);
+        input.setRoomCreatorUserName(u"pp"_s);
         input.setRoomCreatorUserId("sdfsdfs"_ba);
-        input.setTopic(QStringLiteral("topic"));
-        input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+        input.setTopic(u"topic"_s);
+        input.setMutedUsers(QStringList{u"mutedUsers"_s, u"muted2"_s});
         input.setJitsiTimeout(55);
         input.setReadOnly(true);
         input.setUnread(66);
@@ -161,12 +163,12 @@ void RoomTest::shouldSerialized()
         input.setBlocker(true);
         input.setBlocked(true);
         input.setArchived(true);
-        input.setDescription(QStringLiteral("dd"));
+        input.setDescription(u"dd"_s);
         input.setUserMentions(3);
-        input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
-        input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
+        input.setRoles({u"foo"_s, u"bla"_s});
+        input.setIgnoredUsers({u"gg"_s, u"gg2"_s});
         input.setJoinCodeRequired(true);
-        input.setAutoTranslateLanguage(QStringLiteral("blss"));
+        input.setAutoTranslateLanguage(u"blss"_s);
         input.setAutoTranslate(true);
         input.setLastSeenAt(253);
 
@@ -198,7 +200,7 @@ void RoomTest::shouldSerialized()
         NotificationOptions::NotificationValue w3;
         w3.value = "notification3"_ba;
         w.setEmailNotifications(w3);
-        w.setUnreadTrayIconAlert(QStringLiteral("ssssf"));
+        w.setUnreadTrayIconAlert(u"ssssf"_s);
         w.setDisableNotifications(false);
         w.setHideUnreadStatus(true);
         w.setMuteGroupMentions(true);
@@ -212,8 +214,8 @@ void RoomTest::shouldSerialized()
         input.setAvatarETag("avatar1"_ba);
 
         // setE2EKey
-        input.setE2EKey(QStringLiteral("e2ekey-1"));
-        input.setE2eKeyId(QStringLiteral("e2ekey-id-1"));
+        input.setE2EKey(u"e2ekey-1"_s);
+        input.setE2eKeyId(u"e2ekey-id-1"_s);
 
         // setEncrypted
         input.setEncrypted(true);
@@ -222,7 +224,7 @@ void RoomTest::shouldSerialized()
         input.setBroadcast(true);
 
         // setDisplaySystemMessageTypes
-        input.setDisplaySystemMessageTypes({QStringLiteral("bla"), QStringLiteral("foo")});
+        input.setDisplaySystemMessageTypes({u"bla"_s, u"foo"_s});
 
         // setNumberMessages
         input.setNumberMessages(5);
@@ -231,10 +233,10 @@ void RoomTest::shouldSerialized()
         input.setUpdatedAt(5555);
 
         // setHighlightsWord
-        input.setHighlightsWord({QStringLiteral("highlight-bla"), QStringLiteral("highlight-foo")});
+        input.setHighlightsWord({u"highlight-bla"_s, u"highlight-foo"_s});
 
         // uids
-        input.setUids({QStringLiteral("uids-bla"), QStringLiteral("uids-foo")});
+        input.setUids({u"uids-bla"_s, u"uids-foo"_s});
 
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
@@ -274,13 +276,13 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spylastMessageAtChanged(&input, &Room::lastMessageAtChanged);
 
     input.setRoomId("foo"_ba);
-    input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
-    input.setName(QStringLiteral("d"));
-    input.setAnnouncement(QStringLiteral("AA"));
-    input.setRoomCreatorUserName(QStringLiteral("pp"));
+    input.setChannelType(Room::roomTypeFromString(u"p"_s));
+    input.setName(u"d"_s);
+    input.setAnnouncement(u"AA"_s);
+    input.setRoomCreatorUserName(u"pp"_s);
     input.setRoomCreatorUserId("sdfsdfs"_ba);
-    input.setTopic(QStringLiteral("topic"));
-    input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+    input.setTopic(u"topic"_s);
+    input.setMutedUsers(QStringList{u"mutedUsers"_s, u"muted2"_s});
     input.setJitsiTimeout(55);
     input.setReadOnly(true);
     input.setUnread(66);
@@ -293,11 +295,11 @@ void RoomTest::shouldEmitSignals()
     input.setArchived(true);
     input.setEncrypted(true);
     input.setJoinCodeRequired(true);
-    input.setDescription(QStringLiteral("ddd"));
-    input.setRoles({QStringLiteral("bla"), QStringLiteral("blu")});
-    input.setIgnoredUsers({QStringLiteral("bla"), QStringLiteral("blu3")});
+    input.setDescription(u"ddd"_s);
+    input.setRoles({u"bla"_s, u"blu"_s});
+    input.setIgnoredUsers({u"bla"_s, u"blu3"_s});
     input.setParentRid("bla"_ba);
-    input.setAutoTranslateLanguage(QStringLiteral("bli"));
+    input.setAutoTranslateLanguage(u"bli"_s);
     input.setAutoTranslate(true);
     input.setDirectChannelUserId("naninani"_ba);
     input.setLastMessageAt(QDateTime::currentMSecsSinceEpoch());
@@ -334,7 +336,7 @@ void RoomTest::shoudUserIsMuted()
         QVERIFY(!input.userIsMuted("foo"_L1));
 
         QStringList lst;
-        lst << QStringLiteral("bla") << QStringLiteral("foo");
+        lst << u"bla"_s << u"foo"_s;
         input.setMutedUsers(lst);
         QVERIFY(input.userIsMuted("foo"_L1));
     }
@@ -344,15 +346,15 @@ void RoomTest::shouldParseRoom_data()
 {
     QTest::addColumn<QString>("fileName");
     // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-room") << QStringLiteral("notification-room");
+    QTest::newRow("notification-room") << u"notification-room"_s;
 
-    QTest::newRow("unread-usermentions-room") << QStringLiteral("unread-usermentions-room");
-    QTest::newRow("muted-users") << QStringLiteral("muted-users");
-    QTest::newRow("userignored-room") << QStringLiteral("userignored-room");
-    QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage");
-    QTest::newRow("direct-room") << QStringLiteral("direct-room");
-    QTest::newRow("retention-room") << QStringLiteral("retention-room");
-    QTest::newRow("team-room") << QStringLiteral("team-room");
+    QTest::newRow("unread-usermentions-room") << u"unread-usermentions-room"_s;
+    QTest::newRow("muted-users") << u"muted-users"_s;
+    QTest::newRow("userignored-room") << u"userignored-room"_s;
+    QTest::newRow("autotranslatelanguage") << u"autotranslatelanguage"_s;
+    QTest::newRow("direct-room") << u"direct-room"_s;
+    QTest::newRow("retention-room") << u"retention-room"_s;
+    QTest::newRow("team-room") << u"team-room"_s;
 }
 
 void RoomTest::shouldParseRoom()
@@ -371,7 +373,7 @@ void RoomTest::shouldParseRoom()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    AutoTestHelper::compareFile(QStringLiteral("/room/"), jsonIndented, fileName);
+    AutoTestHelper::compareFile(u"/room/"_s, jsonIndented, fileName);
 
     auto m = Room::deserialize(docSerialized.object());
     QCOMPARE(r, *m);
@@ -382,18 +384,16 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::addColumn<QString>("fileNameinit");
     QTest::addColumn<QStringList>("fileNameupdate");
     // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() << QStringLiteral("notification-roomupdate1"));
-    QTest::newRow("room-update") << QStringLiteral("room-update") << (QStringList() << QStringLiteral("room-update1"));
-    QTest::newRow("room-without-owner") << QStringLiteral("room-without-owner") << (QStringList() << QStringLiteral("room-without-owner1"));
-    QTest::newRow("room-mute-unmute") << QStringLiteral("room-mute-unmute")
-                                      << (QStringList() << QStringLiteral("muted-users") << QStringLiteral("unmuted-users"));
-    QTest::newRow("userignored-room") << QStringLiteral("userignored-room") << (QStringList() << QStringLiteral("userignored-room-update"));
-    QTest::newRow("room-requiredjoincode-owner") << QStringLiteral("room-requiredjoincode-owner")
-                                                 << (QStringList() << QStringLiteral("room-requiredjoincode-update"));
-    QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage") << (QStringList() << QStringLiteral("autotranslatelanguage-update"));
-    QTest::newRow("direct-room") << QStringLiteral("direct-room") << (QStringList() << QStringLiteral("direct-room-update"));
-    QTest::newRow("room-retention") << QStringLiteral("room-retention") << (QStringList() << QStringLiteral("room-retention-update"));
-    QTest::newRow("room-team") << QStringLiteral("room-team") << (QStringList() << QStringLiteral("room-team"));
+    QTest::newRow("notification-roomupdate") << u"notification-room"_s << (QStringList() << u"notification-roomupdate1"_s);
+    QTest::newRow("room-update") << u"room-update"_s << (QStringList() << u"room-update1"_s);
+    QTest::newRow("room-without-owner") << u"room-without-owner"_s << (QStringList() << u"room-without-owner1"_s);
+    QTest::newRow("room-mute-unmute") << u"room-mute-unmute"_s << (QStringList() << u"muted-users"_s << u"unmuted-users"_s);
+    QTest::newRow("userignored-room") << u"userignored-room"_s << (QStringList() << u"userignored-room-update"_s);
+    QTest::newRow("room-requiredjoincode-owner") << u"room-requiredjoincode-owner"_s << (QStringList() << u"room-requiredjoincode-update"_s);
+    QTest::newRow("autotranslatelanguage") << u"autotranslatelanguage"_s << (QStringList() << u"autotranslatelanguage-update"_s);
+    QTest::newRow("direct-room") << u"direct-room"_s << (QStringList() << u"direct-room-update"_s);
+    QTest::newRow("room-retention") << u"room-retention"_s << (QStringList() << u"room-retention-update"_s);
+    QTest::newRow("room-team") << u"room-team"_s << (QStringList() << u"room-team"_s);
 }
 
 void RoomTest::shouldParseRoomAndUpdate()
@@ -432,7 +432,7 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    AutoTestHelper::compareFile(QStringLiteral("/room-updated/"), jsonIndented, fileNameinit);
+    AutoTestHelper::compareFile(u"/room-updated/"_s, jsonIndented, fileNameinit);
 
     auto m = Room::deserialize(docSerialized.object());
     QCOMPARE(r, *m);
@@ -444,14 +444,14 @@ void RoomTest::shouldParseRoomAndUpdateSubscription_data()
     QTest::addColumn<QStringList>("UpdateRoomfileNames");
     QTest::addColumn<QStringList>("UpdateSubscriptionFileNames");
     // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() << QStringLiteral("notification-roomupdate1"))
-                                             << (QStringList() << QStringLiteral("notification-roomsubscription1"));
+    QTest::newRow("notification-roomupdate") << u"notification-room"_s << (QStringList() << u"notification-roomupdate1"_s)
+                                             << (QStringList() << u"notification-roomsubscription1"_s);
 
-    QTest::newRow("room-blocked") << QStringLiteral("room-blocked") << (QStringList() << QStringLiteral("room-blockedupdate1")) << QStringList();
+    QTest::newRow("room-blocked") << u"room-blocked"_s << (QStringList() << u"room-blockedupdate1"_s) << QStringList();
 
-    QTest::newRow("room-encryption") << QStringLiteral("room-encryption") << (QStringList() << QStringLiteral("room-encryptionupdate1")) << QStringList();
+    QTest::newRow("room-encryption") << u"room-encryption"_s << (QStringList() << u"room-encryptionupdate1"_s) << QStringList();
 
-    QTest::newRow("room-broadcasted") << QStringLiteral("room-broadcasted") << (QStringList() << QStringLiteral("room-broadcastedupdate1")) << QStringList();
+    QTest::newRow("room-broadcasted") << u"room-broadcasted"_s << (QStringList() << u"room-broadcastedupdate1"_s) << QStringList();
 }
 
 void RoomTest::shouldParseRoomAndUpdateSubscription()
@@ -497,7 +497,7 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    AutoTestHelper::compareFile(QStringLiteral("/room-update-subscription/"), jsonIndented, fileNameinit);
+    AutoTestHelper::compareFile(u"/room-update-subscription/"_s, jsonIndented, fileNameinit);
 
     auto m = Room::deserialize(docSerialized.object());
     QCOMPARE(r, *m);

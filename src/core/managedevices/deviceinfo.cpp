@@ -35,11 +35,11 @@ void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
     if (!deviceObj.isEmpty()) {
         const QJsonObject osObj = deviceObj["os"_L1].toObject();
         if (!osObj.isEmpty()) {
-            mOs = osObj["name"_L1].toString() + QLatin1Char(' ') + osObj["version"_L1].toString();
+            mOs = osObj["name"_L1].toString() + u' ' + osObj["version"_L1].toString();
         }
         mClient = deviceObj["name"_L1].toString();
     }
-    setLoginAt(Utils::parseIsoDate(QStringLiteral("loginAt"), obj));
+    setLoginAt(Utils::parseIsoDate(u"loginAt"_s, obj));
     //"device":{"longVersion":"103.0","name":"Firefox","os":{"name":"Linux","version":"x86_64"},"type":"browser","version":"103.0"}
     // TODO LoginAt
     // TODO

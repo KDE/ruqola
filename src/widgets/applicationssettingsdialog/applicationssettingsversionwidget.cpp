@@ -48,7 +48,7 @@ void ApplicationsSettingsVersionWidget::showEvent(QShowEvent *event)
 void ApplicationsSettingsVersionWidget::initialize()
 {
     if (mRocketChatAccount) {
-        mTextBrowser->setText(QStringLiteral("<b><i>%1</i></b>").arg(i18n("Fetching version information in progress...")));
+        mTextBrowser->setText(u"<b><i>%1</i></b>"_s.arg(i18n("Fetching version information in progress...")));
         auto job = new RocketChatRestApi::AppInfoJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Versions);
@@ -63,7 +63,7 @@ void ApplicationsSettingsVersionWidget::initialize()
 void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
 {
     QString message;
-    const QJsonArray array = obj[QStringLiteral("apps")].toArray();
+    const QJsonArray array = obj[u"apps"_s].toArray();
     for (const auto &info : array) {
         const QString version = info["version"_L1].toString();
         QString changesNote = info["changesNote"_L1].toString();
@@ -73,12 +73,12 @@ void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
         }
         // qDebug() << " version " << version << " changesNote " << changesNote << " createdDate " << createdDate;
 
-        message += QStringLiteral("<b>%1</b><br/>").arg(version);
-        message += changesNote + QStringLiteral("<br/><br/>");
+        message += u"<b>%1</b><br/>"_s.arg(version);
+        message += changesNote + u"<br/><br/>"_s;
         // TODO add createdDate
     }
     if (message.isEmpty()) {
-        message = QStringLiteral("<b><i>%1</i></b>").arg(i18n("No version info found."));
+        message = u"<b><i>%1</i></b>"_s.arg(i18n("No version info found."));
     }
     mTextBrowser->setText(message);
 }

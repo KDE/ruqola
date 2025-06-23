@@ -5,6 +5,7 @@
 */
 
 #include "ldapsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -27,60 +28,60 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
     , mConnectionTimeouts(new QSpinBox(this))
     , mIdleTimeouts(new QSpinBox(this))
 {
-    mEnabled->setObjectName(QStringLiteral("mEnabled"));
+    mEnabled->setObjectName(u"mEnabled"_s);
     mEnabled->setToolTip(i18nc("@info:tooltip", "Attempt to utilize LDAP for authentication."));
-    addCheckBox(mEnabled, QStringLiteral("LDAP_Enable"));
+    addCheckBox(mEnabled, u"LDAP_Enable"_s);
 
-    mPort->setObjectName(QStringLiteral("mPort"));
+    mPort->setObjectName(u"mPort"_s);
     mPort->setMaximum(9999);
     mPort->setToolTip(i18nc("@info:tooltip", "Port to access LDAP. eg: 389 or 636 for LDAPS"));
-    addSpinbox(i18n("Port"), mPort, QStringLiteral("LDAP_Port"));
+    addSpinbox(i18n("Port"), mPort, u"LDAP_Port"_s);
 
-    mHost->setObjectName(QStringLiteral("mHost"));
-    addLineEdit(i18n("Host"), mHost, QStringLiteral("LDAP_Host"));
+    mHost->setObjectName(u"mHost"_s);
+    addLineEdit(i18n("Host"), mHost, u"LDAP_Host"_s);
 
-    mReconnect->setObjectName(QStringLiteral("mReconnect"));
+    mReconnect->setObjectName(u"mReconnect"_s);
     mReconnect->setToolTip(i18nc("@info:tooltip", "Try to reconnect automatically when connection is interrupted by some reason while executing operations."));
-    addCheckBox(mReconnect, QStringLiteral("LDAP_Reconnect"));
+    addCheckBox(mReconnect, u"LDAP_Reconnect"_s);
 
     auto authenticationLabel = createBoldLabel(i18n("Authentication"));
-    authenticationLabel->setObjectName(QStringLiteral("authenticationLabel"));
+    authenticationLabel->setObjectName(u"authenticationLabel"_s);
     mMainLayout->addWidget(authenticationLabel);
 
-    mAuthenticationEnabled->setObjectName(QStringLiteral("mAuthenticationEnabled"));
-    addCheckBox(mAuthenticationEnabled, QStringLiteral("LDAP_Authentication"));
+    mAuthenticationEnabled->setObjectName(u"mAuthenticationEnabled"_s);
+    addCheckBox(mAuthenticationEnabled, u"LDAP_Authentication"_s);
 
-    mAuthenticationUserDN->setObjectName(QStringLiteral("mAuthenticationUserDN"));
-    addLineEdit(i18n("User DN"), mAuthenticationUserDN, QStringLiteral("LDAP_Authentication_UserDN"));
+    mAuthenticationUserDN->setObjectName(u"mAuthenticationUserDN"_s);
+    addLineEdit(i18n("User DN"), mAuthenticationUserDN, u"LDAP_Authentication_UserDN"_s);
     mAuthenticationUserDN->setToolTip(
         i18n("The LDAP user that performs user lookups to authenticate other users when they sign in. This is typically a service account created specifically "
              "for third-party integrations. Use a fully qualified name, such as cn=Administrator,cn=Users,dc=Example,dc=com."));
 
-    mAuthenticationPassword->setObjectName(QStringLiteral("mAuthenticationPassword"));
-    addPasswordEdit(i18n("Password"), mAuthenticationPassword, QStringLiteral("LDAP_Authentication_Password"));
+    mAuthenticationPassword->setObjectName(u"mAuthenticationPassword"_s);
+    addPasswordEdit(i18n("Password"), mAuthenticationPassword, u"LDAP_Authentication_Password"_s);
 
     // Add password
 
     auto timeoutLabel = createBoldLabel(i18n("Timeouts"));
-    timeoutLabel->setObjectName(QStringLiteral("timeoutLabel"));
+    timeoutLabel->setObjectName(u"timeoutLabel"_s);
     mMainLayout->addWidget(timeoutLabel);
 
     // Add timeouts
-    mTimeouts->setObjectName(QStringLiteral("mTimeouts"));
+    mTimeouts->setObjectName(u"mTimeouts"_s);
     mTimeouts->setMaximum(99999);
     mTimeouts->setToolTip(i18nc("@info:tooltip", "How many milliseconds wait for a search result before return an error"));
-    addSpinbox(i18n("Timeout (ms)"), mTimeouts, QStringLiteral("LDAP_Timeout"));
+    addSpinbox(i18n("Timeout (ms)"), mTimeouts, u"LDAP_Timeout"_s);
 
-    mConnectionTimeouts->setObjectName(QStringLiteral("mConnectionTimeouts"));
+    mConnectionTimeouts->setObjectName(u"mConnectionTimeouts"_s);
     mConnectionTimeouts->setMaximum(99999);
     mConnectionTimeouts->setToolTip(i18nc("@info:tooltip", "How many milliseconds wait for a search result before return an error"));
-    addSpinbox(i18n("Connection Timeout (ms)"), mConnectionTimeouts, QStringLiteral("LDAP_Connect_Timeout"));
+    addSpinbox(i18n("Connection Timeout (ms)"), mConnectionTimeouts, u"LDAP_Connect_Timeout"_s);
 
-    mIdleTimeouts->setObjectName(QStringLiteral("mIdleTimeouts"));
+    mIdleTimeouts->setObjectName(u"mIdleTimeouts"_s);
     mIdleTimeouts->setMaximum(99999);
     mIdleTimeouts->setToolTip(
         i18n("How many milliseconds wait after the latest LDAP operation until close the connection. (Each operation will open a new connection)"));
-    addSpinbox(i18n("Idle Timeout (ms)"), mIdleTimeouts, QStringLiteral("LDAP_Idle_Timeout"));
+    addSpinbox(i18n("Idle Timeout (ms)"), mIdleTimeouts, u"LDAP_Idle_Timeout"_s);
 }
 
 LDapSettingsWidget::~LDapSettingsWidget() = default;

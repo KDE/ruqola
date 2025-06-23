@@ -5,6 +5,8 @@
 */
 
 #include "userrequestdatadownloadjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "users/userrequestdatadownloadjob.h"
 #include <QTest>
@@ -30,14 +32,14 @@ void UserRequestDataDownloadJobTest::shouldGenerateRequest()
 {
     UserRequestDataDownloadJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.requestDataDownload?fullExport=false")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.requestDataDownload?fullExport=false"_s));
 
     job.setFullExport(true);
     request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.requestDataDownload?fullExport=true")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.requestDataDownload?fullExport=true"_s));
 }
 
 #include "moc_userrequestdatadownloadjobtest.cpp"

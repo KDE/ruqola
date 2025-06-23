@@ -5,6 +5,8 @@
 */
 
 #include "moderationmessageswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/commonmessagefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
@@ -28,16 +30,16 @@ ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, Q
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
-    mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
+    mResultListWidget->setObjectName(u"mResultListWidget"_s);
     mainLayout->addWidget(mResultListWidget);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &ModerationMessagesWidget::goToMessageRequested);
 }

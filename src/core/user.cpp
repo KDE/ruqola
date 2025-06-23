@@ -148,10 +148,10 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
     }
     setRoles(roles, roleInfo);
     if (object.contains("createdAt"_L1)) {
-        setCreatedAt(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), object), QTimeZone::UTC));
+        setCreatedAt(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(u"createdAt"_s, object), QTimeZone::UTC));
     }
     if (object.contains("lastLogin"_L1)) {
-        setLastLogin(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("lastLogin"), object), QTimeZone::UTC));
+        setLastLogin(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(u"lastLogin"_s, object), QTimeZone::UTC));
     }
     if (object.contains("emails"_L1)) {
         const QJsonArray emails = object.value("emails"_L1).toArray();

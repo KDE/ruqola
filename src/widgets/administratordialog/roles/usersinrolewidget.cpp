@@ -5,6 +5,8 @@
 */
 
 #include "usersinrolewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "misc/searchwithdelaylineedit.h"
@@ -29,10 +31,10 @@ UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent
     // Remove duplicate margins
     layout()->setContentsMargins({});
     mModel = new UsersInRoleModel(this);
-    mModel->setObjectName(QStringLiteral("mAdminUsersModel"));
+    mModel->setObjectName(u"mAdminUsersModel"_s);
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
-    mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
+    mProxyModelModel->setObjectName(u"mAdminUsersProxyModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
@@ -103,11 +105,11 @@ void UsersInRoleWidget::slotRemoveUsersFromRoleDone(const QJsonObject &replyObje
 void UsersInRoleWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &UsersInRoleWidget::slotAddUser);
+    menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &UsersInRoleWidget::slotAddUser);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, index]() {
             slotRemoveUser(index);
         });
     }
@@ -161,7 +163,7 @@ void UsersInRoleWidget::slotLoadElements(int offset, int count, const QString &s
     job->setRoleId(mRoleId);
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);

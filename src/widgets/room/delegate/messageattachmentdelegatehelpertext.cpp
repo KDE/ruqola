@@ -5,6 +5,8 @@
 */
 
 #include "messageattachmentdelegatehelpertext.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
@@ -46,7 +48,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         painter->setFont(layout.textFont);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         painter->setFont(oldFont);
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
+        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? u"visibility"_s : u"hint"_s);
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
         nextY += layout.titleRect.height() + DelegatePaintUtil::margin();
     }
@@ -185,7 +187,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
             }
         } else {
             // Add support for icon_author too
-            const QString contextString = QStringLiteral("<a href=\"%1\">%2</a>").arg(msgAttach.link(), authorName) + msgAttach.attachmentFieldsText();
+            const QString contextString = u"<a href=\"%1\">%2</a>"_s.arg(msgAttach.link(), authorName) + msgAttach.attachmentFieldsText();
             auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
             auto ret = doc.get();
             mDocumentCache.insert(attachmentId, std::move(doc));

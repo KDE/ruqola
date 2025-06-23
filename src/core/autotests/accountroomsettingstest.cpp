@@ -38,7 +38,7 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
     {
         AccountRoomSettings::PendingTypedInfo info;
         QVERIFY(!info.isValid());
-        info.text = QStringLiteral("foo");
+        info.text = u"foo"_s;
         QVERIFY(info.isValid());
     }
     {

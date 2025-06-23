@@ -5,6 +5,8 @@
 */
 
 #include "showdiscussionswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "discussionlistview.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "rocketchataccount.h"
@@ -30,17 +32,17 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mSearchDiscussionLineEdit->setObjectName(QStringLiteral("mSearchDiscussionLineEdit"));
+    mSearchDiscussionLineEdit->setObjectName(u"mSearchDiscussionLineEdit"_s);
     mSearchDiscussionLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchDiscussionLineEdit);
     mSearchDiscussionLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search discussion…"));
     connect(mSearchDiscussionLineEdit, &QLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchDiscussionLineEdit);
 
-    mDiscussionInfoLabel->setObjectName(QStringLiteral("mInfo"));
+    mDiscussionInfoLabel->setObjectName(u"mInfo"_s);
     mDiscussionInfoLabel->setTextFormat(Qt::RichText);
     mainLayout->addWidget(mDiscussionInfoLabel);
     QFont labFont = mDiscussionInfoLabel->font();
@@ -49,12 +51,12 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     connect(mDiscussionInfoLabel, &QLabel::linkActivated, this, &ShowDiscussionsWidget::loadMoreDiscussion);
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
-    mListDiscussionsListView->setObjectName(QStringLiteral("mListDiscussions"));
+    mListDiscussionsListView->setObjectName(u"mListDiscussions"_s);
     mainLayout->addWidget(mListDiscussionsListView);
 }
 
@@ -96,7 +98,7 @@ QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
     QString displayMessageStr =
         i18np("%1 Discussion in room (Total: %2)", "%1 Discussions in room (Total: %2)", mDiscussionModel->rowCount(), mDiscussionModel->total());
     if (!mDiscussionModel->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
+        displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
 }

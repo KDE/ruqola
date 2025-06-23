@@ -5,6 +5,8 @@
 */
 
 #include "createdirectmessagesdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/createdirectmessagesdialog.h"
 #include "dialogs/createdirectmessageswidget.h"
 #include <QStandardPaths>
@@ -22,10 +24,10 @@ void CreateDirectMessagesDialogTest::shouldHaveDefaultValues()
     CreateDirectMessagesDialog w(nullptr);
 
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCreateDirectMessagesWidget = w.findChild<CreateDirectMessagesWidget *>(QStringLiteral("mCreateDirectMessagesWidget"));
+    auto mCreateDirectMessagesWidget = w.findChild<CreateDirectMessagesWidget *>(u"mCreateDirectMessagesWidget"_s);
     QVERIFY(mCreateDirectMessagesWidget);
 }
 

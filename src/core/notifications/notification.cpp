@@ -8,6 +8,8 @@
  */
 
 #include "notification.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_notification_debug.h"
 #if HAVE_UNITY_SUPPORT
 #include "unityservicemanager.h"
@@ -32,7 +34,7 @@ Notification::~Notification()
 void Notification::createTrayIcon()
 {
     setToolTipTitle(i18n("Ruqola"));
-    setIconByPixmap(QIcon(QStringLiteral(":/icons/systray.png")));
+    setIconByPixmap(QIcon(u":/icons/systray.png"_s));
     setCategory(KStatusNotifierItem::Communications);
 }
 
@@ -71,7 +73,7 @@ void Notification::createToolTip()
         i.next();
         if (firstElement && !str.isEmpty()) {
             firstElement = false;
-            str += QLatin1Char('\n');
+            str += u'\n';
         }
         const TrayInfo trayInfo = i.value();
         if (trayInfo.hasAlert) {

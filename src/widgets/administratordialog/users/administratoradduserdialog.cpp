@@ -5,6 +5,8 @@
 */
 
 #include "administratoradduserdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratoradduserwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -17,13 +19,13 @@ AdministratorAddUserDialog::AdministratorAddUserDialog(RocketChatAccount *accoun
 {
     setWindowTitle(i18nc("@title:window", "Create New User"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mAdministratorWidget->setObjectName(QStringLiteral("mAdministratorWidget"));
+    mAdministratorWidget->setObjectName(u"mAdministratorWidget"_s);
     mainLayout->addWidget(mAdministratorWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorAddUserDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorAddUserDialog::accept);

@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportedmessagemodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 ModerationReportedMessageModel::ModerationReportedMessageModel(QObject *parent)
@@ -86,7 +88,7 @@ QVariant ModerationReportedMessageModel::data(const QModelIndex &index, int role
     case ModerationReportedMessageRoles::ReportDateDisplay:
         return moderationReportedMessageInfo.createAtDisplayDateTime();
     case ModerationReportedMessageRoles::RoomName:
-        return moderationReportedMessageInfo.roomList().join(QLatin1Char(','));
+        return moderationReportedMessageInfo.roomList().join(u',');
     }
     return {};
 }

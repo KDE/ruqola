@@ -5,6 +5,8 @@
 */
 
 #include "channelinforeadonlywidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/channelinforeadonlywidget.h"
 #include <QFormLayout>
 #include <QLabel>
@@ -19,29 +21,29 @@ ChannelInfoReadOnlyWidgetTest::ChannelInfoReadOnlyWidgetTest(QObject *parent)
 void ChannelInfoReadOnlyWidgetTest::shouldHaveDefaultValues()
 {
     ChannelInfoReadOnlyWidget w(nullptr);
-    auto layoutReadOnly = w.findChild<QFormLayout *>(QStringLiteral("layoutReadOnly"));
+    auto layoutReadOnly = w.findChild<QFormLayout *>(u"layoutReadOnly"_s);
     QVERIFY(layoutReadOnly);
     QCOMPARE(layoutReadOnly->contentsMargins(), QMargins{});
 
-    auto mNameReadOnly = w.findChild<QLabel *>(QStringLiteral("mNameReadOnly"));
+    auto mNameReadOnly = w.findChild<QLabel *>(u"mNameReadOnly"_s);
     QVERIFY(mNameReadOnly);
     QCOMPARE(mNameReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mNameReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
     QVERIFY(mNameReadOnly->openExternalLinks());
 #if 0 // Now it's loaded on demand
-    auto mCommentReadOnly = w.findChild<QLabel *>(QStringLiteral("mCommentReadOnly"));
+    auto mCommentReadOnly = w.findChild<QLabel *>(u"mCommentReadOnly"_s);
     QVERIFY(mCommentReadOnly);
     QCOMPARE(mCommentReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mCommentReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
     QVERIFY(mCommentReadOnly->openExternalLinks());
 
-    auto mAnnouncementReadOnly = w.findChild<QLabel *>(QStringLiteral("mAnnouncementReadOnly"));
+    auto mAnnouncementReadOnly = w.findChild<QLabel *>(u"mAnnouncementReadOnly"_s);
     QVERIFY(mAnnouncementReadOnly);
     QCOMPARE(mAnnouncementReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mAnnouncementReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
     QVERIFY(mAnnouncementReadOnly->openExternalLinks());
 
-    auto mDescriptionReadOnly = w.findChild<QLabel *>(QStringLiteral("mDescriptionReadOnly"));
+    auto mDescriptionReadOnly = w.findChild<QLabel *>(u"mDescriptionReadOnly"_s);
     QVERIFY(mDescriptionReadOnly);
     QCOMPARE(mDescriptionReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mDescriptionReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);

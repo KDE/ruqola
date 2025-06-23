@@ -42,24 +42,24 @@ void OwnUserTest::shouldLoadOwnUser_data()
     QTest::addColumn<OwnUser>("ownuser");
     OwnUser result;
     result.setUserId("YbwG4T2uB3wZSZSKB"_ba);
-    result.setStatus(QStringLiteral("online"));
-    result.setUserName(QStringLiteral("foo-bla"));
-    result.setEmail(QStringLiteral("bla@kde.org"));
-    result.setName(QStringLiteral("foo-name"));
-    result.setAvatarUrl(QStringLiteral("https://open.rocket.chat/avatar/fooblabla"));
-    result.setStatusDefault(QStringLiteral("online"));
-    result.setNickName(QStringLiteral("tests"));
-    result.setRoles({QStringLiteral("user")});
+    result.setStatus(u"online"_s);
+    result.setUserName(u"foo-bla"_s);
+    result.setEmail(u"bla@kde.org"_s);
+    result.setName(u"foo-name"_s);
+    result.setAvatarUrl(u"https://open.rocket.chat/avatar/fooblabla"_s);
+    result.setStatusDefault(u"online"_s);
+    result.setNickName(u"tests"_s);
+    result.setRoles({u"user"_s});
     result.setUtcOffset(2);
     ServicePassword pwd;
     pwd.setEmail2faEnabled(true);
     pwd.setTotp(false);
-    pwd.setPassword(QStringLiteral("$2BNmO77i"));
+    pwd.setPassword(u"$2BNmO77i"_s);
     result.setServicePassword(pwd);
 
     OwnUserPreferences ownUser;
-    ownUser.setDesktopNotifications(QStringLiteral("all"));
-    ownUser.setEmailNotificationMode(QStringLiteral("mentions"));
+    ownUser.setDesktopNotifications(u"all"_s);
+    ownUser.setEmailNotificationMode(u"mentions"_s);
     ownUser.setIdleTimeLimit(300);
     ownUser.setEnableAutoAway(true);
     ownUser.setDisplayAvatars(false);
@@ -74,7 +74,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
 
     result.setOwnUserPreferences(ownUser);
 
-    QTest::addRow("example1") << QStringLiteral("example1") << result;
+    QTest::addRow("example1") << u"example1"_s << result;
 }
 
 void OwnUserTest::shouldLoadOwnUser()

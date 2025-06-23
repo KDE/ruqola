@@ -5,6 +5,8 @@
 */
 
 #include "uploadfileprogressstatuslistwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolawidgets_debug.h"
 #include "uploadfileprogressstatuswidget.h"
 #include <QScrollBar>
@@ -82,7 +84,7 @@ void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi:
     if (item) {
         if (info.bytesSent > 0 && info.bytesTotal > 0) {
             item->setVisible(true);
-            item->setUploadFileName(info.fileName + QStringLiteral(" (%1)").arg(accountName));
+            item->setUploadFileName(info.fileName + u" (%1)"_s.arg(accountName));
             item->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
             setVisible(true);
         } else {

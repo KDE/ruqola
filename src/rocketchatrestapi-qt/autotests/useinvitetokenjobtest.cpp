@@ -5,6 +5,8 @@
 */
 
 #include "useinvitetokenjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "invite/useinvitetokenjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -30,14 +32,14 @@ void UseInviteTokenJobTest::shouldGenerateRequest()
     UseInviteTokenJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/useInviteToken")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/useInviteToken"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void UseInviteTokenJobTest::shouldGenerateJson()
 {
     UseInviteTokenJob job;
-    job.setToken(QStringLiteral("bla"));
+    job.setToken(u"bla"_s);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"token":"bla"})").toLatin1());
 }
 
@@ -46,19 +48,19 @@ void UseInviteTokenJobTest::shouldNotStarting()
     UseInviteTokenJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    job.setToken(QStringLiteral("bla"));
+    job.setToken(u"bla"_s);
     QVERIFY(job.canStart());
 }
 

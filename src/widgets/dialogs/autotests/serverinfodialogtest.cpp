@@ -5,6 +5,8 @@
 */
 
 #include "serverinfodialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/serverinfo/serverinfodialog.h"
 #include "dialogs/serverinfo/serverinfowidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void ServerInfoDialogTest::shouldHaveDefaultValues()
     ServerInfoDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mServerInfoWidget = w.findChild<ServerInfoWidget *>(QStringLiteral("mServerInfoWidget"));
+    auto mServerInfoWidget = w.findChild<ServerInfoWidget *>(u"mServerInfoWidget"_s);
     QVERIFY(mServerInfoWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

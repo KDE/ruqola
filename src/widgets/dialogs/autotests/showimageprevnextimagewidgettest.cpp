@@ -5,6 +5,8 @@
 */
 
 #include "showimageprevnextimagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/showimageprevnextimagewidget.h"
 #include <QHBoxLayout>
 #include <QTest>
@@ -19,16 +21,16 @@ ShowImagePrevNextImageWidgetTest::ShowImagePrevNextImageWidgetTest(QObject *pare
 void ShowImagePrevNextImageWidgetTest::shouldHaveDefaultValues()
 {
     ShowImagePrevNextImageWidget d;
-    auto mainLayout = d.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mNextButton = d.findChild<QToolButton *>(QStringLiteral("mNextButton"));
+    auto mNextButton = d.findChild<QToolButton *>(u"mNextButton"_s);
     QVERIFY(mNextButton);
     QVERIFY(!mNextButton->isEnabled());
     QVERIFY(!mNextButton->toolTip().isEmpty());
 
-    auto mPreviousButton = d.findChild<QToolButton *>(QStringLiteral("mPreviousButton"));
+    auto mPreviousButton = d.findChild<QToolButton *>(u"mPreviousButton"_s);
     QVERIFY(mPreviousButton);
     QVERIFY(!mPreviousButton->isEnabled());
     QVERIFY(!mPreviousButton->toolTip().isEmpty());

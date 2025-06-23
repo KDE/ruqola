@@ -79,7 +79,7 @@ QNetworkRequest VideoConferenceInfoJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceInfo);
 
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("callId"), mCallId);
+    queryUrl.addQueryItem(u"callId"_s, mCallId);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

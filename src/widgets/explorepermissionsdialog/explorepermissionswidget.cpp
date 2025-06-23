@@ -5,6 +5,8 @@
 */
 
 #include "explorepermissionswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "explorepermissionswidgetfilterproxymodel.h"
 #include "model/permissionsmodel.h"
 #include <KLineEditEventHandler>
@@ -23,23 +25,23 @@ ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     , mPermissionFilterProxyModel(new ExplorePermissionsWidgetFilterProxyModel(this))
     , mOwnRoles(new QLabel(this))
 {
-    mPermissionFilterProxyModel->setObjectName(QStringLiteral("permissionFilterProxyModel"));
+    mPermissionFilterProxyModel->setObjectName(u"permissionFilterProxyModel"_s);
     mTreeView->setRootIsDecorated(false);
     mTreeView->setSortingEnabled(true);
     mTreeView->sortByColumn(0, Qt::AscendingOrder);
     mTreeView->header()->setSectionsClickable(true);
 
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mOwnRoles->setObjectName(QStringLiteral("mOwnRoles"));
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mOwnRoles->setObjectName(u"mOwnRoles"_s);
+    mSearchLineWidget->setObjectName(u"mSearchLineWidget"_s);
     mSearchLineWidget->setPlaceholderText(i18nc("@info:placeholder", "Search permissions…"));
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
     mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);
-    mTreeView->setObjectName(QStringLiteral("mTreeView"));
+    mTreeView->setObjectName(u"mTreeView"_s);
     mainLayout->addWidget(mTreeView);
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
@@ -67,7 +69,7 @@ void ExplorePermissionsWidget::setPermissions(const QList<Permission> &permissio
 
 void ExplorePermissionsWidget::setOWnRoles(const QStringList &roleStr)
 {
-    mOwnRoles->setText(QStringLiteral("<qt><b>%1</b> %2</qt>").arg(i18n("Own Roles:"), roleStr.join(QLatin1Char(','))));
+    mOwnRoles->setText(u"<qt><b>%1</b> %2</qt>"_s.arg(i18n("Own Roles:"), roleStr.join(u',')));
 }
 
 #include "moc_explorepermissionswidget.cpp"

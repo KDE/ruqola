@@ -5,6 +5,8 @@
 */
 
 #include "administratoroauthcreatewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -17,16 +19,16 @@ AdministratorOauthCreateWidget::AdministratorOauthCreateWidget(QWidget *parent)
     , mRedirectUrl(new QLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mActiveCheckBox->setObjectName(QStringLiteral("mActiveCheckBox"));
+    mActiveCheckBox->setObjectName(u"mActiveCheckBox"_s);
     mainLayout->addWidget(mActiveCheckBox);
     mActiveCheckBox->setChecked(false);
 
-    mApplicationName->setObjectName(QStringLiteral("mApplicationName"));
+    mApplicationName->setObjectName(u"mApplicationName"_s);
     mainLayout->addRow(i18n("Name:"), mApplicationName);
 
-    mRedirectUrl->setObjectName(QStringLiteral("mRedirectUrl"));
+    mRedirectUrl->setObjectName(u"mRedirectUrl"_s);
     mainLayout->addRow(i18n("Redirect Url:"), mRedirectUrl);
     connect(mApplicationName, &QLineEdit::textEdited, this, &AdministratorOauthCreateWidget::slotTextChanged);
     connect(mRedirectUrl, &QLineEdit::textEdited, this, &AdministratorOauthCreateWidget::slotTextChanged);

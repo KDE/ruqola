@@ -5,6 +5,8 @@
 */
 
 #include "soundconfigurewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/soundconfigurewidget.h"
 #include <QTest>
 QTEST_MAIN(SoundConfigureWidgetTest)

@@ -5,6 +5,8 @@
 */
 
 #include "connection.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "restapimethod.h"
 #include "rooms/roomsmembersorderedbyrolejob.h"
@@ -119,7 +121,7 @@ void Connection::initializeCookies()
     const QString url = serverUrl();
     if (!url.isEmpty()) {
         QString host;
-        const QList<QStringView> lsthost = QStringView(url).split(QStringLiteral("//"));
+        const QList<QStringView> lsthost = QStringView(url).split(u"//"_s);
         if (lsthost.count() < 2) {
             host = url;
         } else {
@@ -382,10 +384,10 @@ void Connection::reactOnMessage(const QByteArray &messageId, const QString &emoj
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     QString fixedEmoji = emoji;
-    if (fixedEmoji.startsWith(QLatin1Char(':'))) {
+    if (fixedEmoji.startsWith(u':')) {
         fixedEmoji.remove(0, 1);
     }
-    if (fixedEmoji.endsWith(QLatin1Char(':'))) {
+    if (fixedEmoji.endsWith(u':')) {
         fixedEmoji.chop(1);
     }
 
@@ -415,15 +417,15 @@ void Connection::historyChannel(const QString &roomId, const QString &type)
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
-    if (type == QLatin1Char('d')) {
+    if (type == u'd') {
         ChannelHistoryJob::ChannelHistoryInfo historyInfo;
         historyInfo.channelType = ChannelHistoryJob::ChannelType::Direct;
         job->setChannelHistoryInfo(historyInfo);
-    } else if (type == QLatin1Char('p')) {
+    } else if (type == u'p') {
         ChannelHistoryJob::ChannelHistoryInfo historyInfo;
         historyInfo.channelType = ChannelHistoryJob::ChannelType::Groups;
         job->setChannelHistoryInfo(historyInfo);
-    } else if (type == QLatin1Char('c')) {
+    } else if (type == u'c') {
         ChannelHistoryJob::ChannelHistoryInfo historyInfo;
         historyInfo.channelType = ChannelHistoryJob::ChannelType::Channel;
         job->setChannelHistoryInfo(historyInfo);
@@ -446,15 +448,15 @@ void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int 
     parameters.setCount(count);
     parameters.setOffset(offset);
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("uploadedAt"), QueryParameters::SortOrder::Descendant);
+    map.insert(u"uploadedAt"_s, QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
     job->setQueryParameters(parameters);
 
-    if (type == QLatin1Char('d')) {
+    if (type == u'd') {
         job->setChannelType(ChannelFilesJob::ChannelType::Direct);
-    } else if (type == QLatin1Char('p')) {
+    } else if (type == u'p') {
         job->setChannelType(ChannelFilesJob::ChannelType::Groups);
-    } else if (type == QLatin1Char('c')) {
+    } else if (type == u'c') {
         job->setChannelType(ChannelFilesJob::ChannelType::Channel);
     }
     if (!job->start()) {
@@ -496,11 +498,11 @@ void Connection::membersInRoom(const QByteArray &roomId, const QString &type, in
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    if (type == QLatin1Char('d')) {
+    if (type == u'd') {
         job->setChannelType(ChannelMembersJob::ChannelType::Direct);
-    } else if (type == QLatin1Char('p')) {
+    } else if (type == u'p') {
         job->setChannelType(ChannelMembersJob::ChannelType::Groups);
-    } else if (type == QLatin1Char('c')) {
+    } else if (type == u'c') {
         job->setChannelType(ChannelMembersJob::ChannelType::Channel);
     }
     if (!job->start()) {
@@ -1026,7 +1028,7 @@ void Connection::getThreadsList(const Utils::ListMessagesInfo &info)
     job->setSearchType(info.type);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
     parameters.setCount(info.count);
     parameters.setOffset(info.offset);
@@ -1049,7 +1051,7 @@ void Connection::getPinnedMessages(const Utils::ListMessagesInfo &info)
     parameters.setCount(info.count);
     parameters.setOffset(info.offset);
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
 
     job->setQueryParameters(parameters);
     connect(job, &GetPinnedMessagesJob::getPinnedMessagesDone, this, &Connection::getPinnedMessagesDone);
@@ -1065,7 +1067,7 @@ void Connection::getMentionedMessages(const Utils::ListMessagesInfo &info)
     job->setRoomId(info.roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
     parameters.setCount(info.count);
     parameters.setOffset(info.offset);
@@ -1084,7 +1086,7 @@ void Connection::getStarredMessages(const Utils::ListMessagesInfo &info)
     job->setRoomId(info.roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
     parameters.setCount(info.count);
     parameters.setOffset(info.offset);
@@ -1106,7 +1108,7 @@ void Connection::getSnippetedMessages(const Utils::ListMessagesInfo &info)
     parameters.setOffset(info.offset);
 
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
     job->setQueryParameters(parameters);
     connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &Connection::getSnippetedMessagesDone);
     if (!job->start()) {

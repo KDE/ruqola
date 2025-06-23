@@ -37,7 +37,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
 
     {
         ActionButton b;
-        QTest::addRow("actionbutton-empty") << QStringLiteral("actionbutton-empty") << b;
+        QTest::addRow("actionbutton-empty") << u"actionbutton-empty"_s << b;
     }
 
     {
@@ -47,7 +47,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
         b.setLabelI18n("auto-reply-room-action-name"_L1);
         b.setButtonContext(ActionButton::ButtonContext::RoomAction);
         b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
-        QTest::addRow("actionbutton-test1") << QStringLiteral("actionbutton-test1") << b;
+        QTest::addRow("actionbutton-test1") << u"actionbutton-test1"_s << b;
     }
 
     {
@@ -66,7 +66,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
         f |= ActionButton::RoomTypeFilter::PrivateDiscussion;
 
         b.setRoomTypeFilters(f);
-        QTest::addRow("actionbutton-test2") << QStringLiteral("actionbutton-test2") << b;
+        QTest::addRow("actionbutton-test2") << u"actionbutton-test2"_s << b;
     }
 
     {
@@ -81,7 +81,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
         b.setCategory(c);
 
         b.setRoomTypeFilters(f);
-        QTest::addRow("actionbutton-test3") << QStringLiteral("actionbutton-test3") << b;
+        QTest::addRow("actionbutton-test3") << u"actionbutton-test3"_s << b;
     }
     {
         ActionButton b;
@@ -102,7 +102,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
         b.setCategory(c);
 
         b.setRoomTypeFilters(f);
-        QTest::addRow("actionbutton-test4") << QStringLiteral("actionbutton-test4") << b;
+        QTest::addRow("actionbutton-test4") << u"actionbutton-test4"_s << b;
     }
 }
 

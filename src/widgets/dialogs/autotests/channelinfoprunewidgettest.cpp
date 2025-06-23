@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "channelinfoprunewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/channelinfoprunewidget.h"
 #include <QCheckBox>
 #include <QLabel>
@@ -20,30 +22,30 @@ ChannelInfoPruneWidgetTest::ChannelInfoPruneWidgetTest(QObject *parent)
 void ChannelInfoPruneWidgetTest::shouldHaveDefaultValues()
 {
     ChannelInfoPruneWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mAutomaticPruneOldMessages = w.findChild<QCheckBox *>(QStringLiteral("mAutomaticPruneOldMessages"));
+    auto mAutomaticPruneOldMessages = w.findChild<QCheckBox *>(u"mAutomaticPruneOldMessages"_s);
     QVERIFY(mAutomaticPruneOldMessages);
     QVERIFY(!mAutomaticPruneOldMessages->text().isEmpty());
 
-    auto mOverrideGlobalRetentionPolicy = w.findChild<QCheckBox *>(QStringLiteral("mOverrideGlobalRetentionPolicy"));
+    auto mOverrideGlobalRetentionPolicy = w.findChild<QCheckBox *>(u"mOverrideGlobalRetentionPolicy"_s);
     QVERIFY(mOverrideGlobalRetentionPolicy);
     QVERIFY(!mOverrideGlobalRetentionPolicy->text().isEmpty());
 
-    auto mExcludePinnedMessages = w.findChild<QCheckBox *>(QStringLiteral("mExcludePinnedMessages"));
+    auto mExcludePinnedMessages = w.findChild<QCheckBox *>(u"mExcludePinnedMessages"_s);
     QVERIFY(mExcludePinnedMessages);
     QVERIFY(!mExcludePinnedMessages->text().isEmpty());
 
-    auto mPruneFileOnlyKeepMessages = w.findChild<QCheckBox *>(QStringLiteral("mPruneFileOnlyKeepMessages"));
+    auto mPruneFileOnlyKeepMessages = w.findChild<QCheckBox *>(u"mPruneFileOnlyKeepMessages"_s);
     QVERIFY(mPruneFileOnlyKeepMessages);
     QVERIFY(!mPruneFileOnlyKeepMessages->text().isEmpty());
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
 
-    auto mMaximumAgeInDay = w.findChild<QSpinBox *>(QStringLiteral("mMaximumAgeInDay"));
+    auto mMaximumAgeInDay = w.findChild<QSpinBox *>(u"mMaximumAgeInDay"_s);
     QVERIFY(mMaximumAgeInDay);
     QCOMPARE(mMaximumAgeInDay->value(), 30);
     QCOMPARE(mMaximumAgeInDay->minimum(), 1);

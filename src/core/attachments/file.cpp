@@ -26,9 +26,9 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     setPath(fields.value("path"_L1).toString());
     setRoomId(fields.value("rid"_L1).toString().toLatin1());
     if (restApi) {
-        setUploadedAt(Utils::parseIsoDate(QStringLiteral("uploadedAt"), fields));
+        setUploadedAt(Utils::parseIsoDate(u"uploadedAt"_s, fields));
     } else {
-        setUploadedAt(Utils::parseDate(QStringLiteral("uploadedAt"), fields));
+        setUploadedAt(Utils::parseDate(u"uploadedAt"_s, fields));
     }
 
     const QJsonObject user = object.value("user"_L1).toObject();

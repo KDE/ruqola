@@ -5,13 +5,15 @@
 */
 
 #include "notificationwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QApplication>
 #include <QCommandLineParser>
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
     // Use specific ruqola name for database path
-    app.setApplicationName(QStringLiteral("ruqola"));
+    app.setApplicationName(u"ruqola"_s);
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();

@@ -5,6 +5,8 @@
 */
 
 #include "deleteownaccountjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "users/deleteownaccountjob.h"
 #include <QJsonDocument>
@@ -29,14 +31,14 @@ void DeleteOwnAccountJobTest::shouldGenerateRequest()
     DeleteOwnAccountJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.deleteOwnAccount")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.deleteOwnAccount"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void DeleteOwnAccountJobTest::shouldGenerateJson()
 {
     DeleteOwnAccountJob job;
-    const QString password = QStringLiteral("foo1");
+    const QString password = u"foo1"_s;
     job.setPassword(password);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"password":"bb4eca334f61af3b67b5d528907d30285151610200539302f4c8cabe66225b53"})").toLatin1());
@@ -47,19 +49,19 @@ void DeleteOwnAccountJobTest::shouldNotStarting()
     DeleteOwnAccountJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString password = QStringLiteral("foo1");
+    const QString password = u"foo1"_s;
     job.setPassword(password);
     QVERIFY(job.canStart());
 }

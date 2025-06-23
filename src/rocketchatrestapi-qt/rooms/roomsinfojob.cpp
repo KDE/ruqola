@@ -77,7 +77,7 @@ QNetworkRequest RoomsInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsInfo);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(u"roomId"_s, mRoomId);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

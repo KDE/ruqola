@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "ircfederationwidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
@@ -24,35 +25,35 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
     , mPeerPassword(new QLineEdit(this))
 
 {
-    mEnabled->setObjectName(QStringLiteral("mEnabled"));
+    mEnabled->setObjectName(u"mEnabled"_s);
     mEnabled->setToolTip(i18nc("@info:tooltip", "Attempt to integrate IRC support. Changing this value requires restarting Rocket.Chat."));
-    addCheckBox(mEnabled, QStringLiteral("IRC_Enabled"));
+    addCheckBox(mEnabled, u"IRC_Enabled"_s);
 
-    mProtocol->setObjectName(QStringLiteral("mProtocol"));
+    mProtocol->setObjectName(u"mProtocol"_s);
     const QMap<QString, QString> maps = {
-        {QStringLiteral("RFC2813"), i18n("RFC2813")},
+        {u"RFC2813"_s, i18n("RFC2813")},
     };
-    addComboBox(i18n("Protocol"), maps, mProtocol, QStringLiteral("IRC_Protocol"));
+    addComboBox(i18n("Protocol"), maps, mProtocol, u"IRC_Protocol"_s);
 
-    mHost->setObjectName(QStringLiteral("mHost"));
-    addLineEdit(i18n("Host"), mHost, QStringLiteral("IRC_Host"));
+    mHost->setObjectName(u"mHost"_s);
+    addLineEdit(i18n("Host"), mHost, u"IRC_Host"_s);
 
-    mPort->setObjectName(QStringLiteral("mPort"));
+    mPort->setObjectName(u"mPort"_s);
     mPort->setToolTip(i18nc("@info:tooltip", "The port to bind to on the IRC host server."));
     mPort->setMaximum(99999);
-    addSpinbox(i18n("Port"), mPort, QStringLiteral("IRC_Port"));
+    addSpinbox(i18n("Port"), mPort, u"IRC_Port"_s);
 
-    mName->setObjectName(QStringLiteral("mName"));
-    addLineEdit(i18n("Name"), mName, QStringLiteral("IRC_Name"));
+    mName->setObjectName(u"mName"_s);
+    addLineEdit(i18n("Name"), mName, u"IRC_Name"_s);
 
-    mDescription->setObjectName(QStringLiteral("mDescription"));
-    addLineEdit(i18n("Description"), mDescription, QStringLiteral("IRC_Description"));
+    mDescription->setObjectName(u"mDescription"_s);
+    addLineEdit(i18n("Description"), mDescription, u"IRC_Description"_s);
 
-    mLocalPassword->setObjectName(QStringLiteral("mLocalPassword"));
-    addLineEdit(i18n("Local Password"), mLocalPassword, QStringLiteral("IRC_Local_Password"));
+    mLocalPassword->setObjectName(u"mLocalPassword"_s);
+    addLineEdit(i18n("Local Password"), mLocalPassword, u"IRC_Local_Password"_s);
 
-    mPeerPassword->setObjectName(QStringLiteral("mPeerPassword"));
-    addLineEdit(i18n("Peer Password"), mPeerPassword, QStringLiteral("IRC_Peer_Password"));
+    mPeerPassword->setObjectName(u"mPeerPassword"_s);
+    addLineEdit(i18n("Peer Password"), mPeerPassword, u"IRC_Peer_Password"_s);
 }
 
 IrcFederationWidget::~IrcFederationWidget() = default;
@@ -60,13 +61,13 @@ IrcFederationWidget::~IrcFederationWidget() = default;
 void IrcFederationWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
-    initializeWidget(mProtocol, mapSettings, QStringLiteral("RFC2813"));
-    initializeWidget(mHost, mapSettings, QStringLiteral("localhost"));
+    initializeWidget(mProtocol, mapSettings, u"RFC2813"_s);
+    initializeWidget(mHost, mapSettings, u"localhost"_s);
     initializeWidget(mPort, mapSettings, 6667);
-    initializeWidget(mName, mapSettings, QStringLiteral("irc.rocket.chat"));
-    initializeWidget(mDescription, mapSettings, QStringLiteral("Rocket.Chat IRC Bridge"));
-    initializeWidget(mLocalPassword, mapSettings, QStringLiteral("password"));
-    initializeWidget(mPeerPassword, mapSettings, QStringLiteral("password"));
+    initializeWidget(mName, mapSettings, u"irc.rocket.chat"_s);
+    initializeWidget(mDescription, mapSettings, u"Rocket.Chat IRC Bridge"_s);
+    initializeWidget(mLocalPassword, mapSettings, u"password"_s);
+    initializeWidget(mPeerPassword, mapSettings, u"password"_s);
 }
 
 #include "moc_ircfederationwidget.cpp"

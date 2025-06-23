@@ -7,6 +7,8 @@
 #pragma once
 
 #include "restapiabstractjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 
 #include <QNetworkRequest>
@@ -14,12 +16,12 @@
 using namespace RocketChatRestApi;
 void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
 {
-    const QString authToken = QStringLiteral("foo");
-    const QString userId = QStringLiteral("user");
+    const QString authToken = u"foo"_s;
+    const QString userId = u"user"_s;
     job->setUserId(userId);
     job->setAuthToken(authToken);
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job->setRestApiMethod(&method);
     request = job->request();
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);

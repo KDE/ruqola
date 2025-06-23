@@ -54,7 +54,7 @@ QNetworkRequest RoomsAutocompleteAvailableForTeamsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAutocompleteAvailableForTeams);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("name"), mRoomsAutocompleteInfo.name);
+    queryUrl.addQueryItem(u"name"_s, mRoomsAutocompleteInfo.name);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

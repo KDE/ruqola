@@ -5,6 +5,8 @@
 */
 
 #include "resettotpjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "users/resettotpjob.h"
 #include <QJsonDocument>
@@ -33,10 +35,10 @@ void ResetTOTPJobTest::shouldGenerateRequest()
 {
     ResetTOTPJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetTOTP")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.resetTOTP"_s));
 }
 
 void ResetTOTPJobTest::shouldGenerateJson()
@@ -52,14 +54,14 @@ void ResetTOTPJobTest::shouldNotStarting()
     ResetTOTPJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -68,10 +70,10 @@ void ResetTOTPJobTest::shouldNotStarting()
     job.setResetUserId("ss"_ba);
     QVERIFY(!job.canStart());
 
-    job.setAuthCode(QStringLiteral("bla"));
+    job.setAuthCode(u"bla"_s);
     QVERIFY(!job.canStart());
 
-    job.setAuthMethod(QStringLiteral("method"));
+    job.setAuthMethod(u"method"_s);
     QVERIFY(job.canStart());
 }
 

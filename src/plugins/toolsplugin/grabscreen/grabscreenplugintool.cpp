@@ -5,6 +5,8 @@
 */
 
 #include "grabscreenplugintool.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "grabscreenplugintoolconfiguredialog.h"
 #include "grabscreenplugintoolinterface.h"
 #include "utils.h"
@@ -23,7 +25,7 @@ GrabScreenPluginTool::~GrabScreenPluginTool() = default;
 
 bool GrabScreenPluginTool::toolFound() const
 {
-    return Utils::executableFound(QStringLiteral("spectacle"));
+    return Utils::executableFound(u"spectacle"_s);
 }
 
 PluginTool::ToolType GrabScreenPluginTool::toolType() const
@@ -33,7 +35,7 @@ PluginTool::ToolType GrabScreenPluginTool::toolType() const
 
 QString GrabScreenPluginTool::iconName() const
 {
-    return QStringLiteral("transform-crop");
+    return u"transform-crop"_s;
 }
 
 QString GrabScreenPluginTool::toolTip() const

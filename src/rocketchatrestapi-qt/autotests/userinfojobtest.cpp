@@ -5,6 +5,8 @@
 */
 
 #include "userinfojobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/userinfojob.h"
@@ -28,24 +30,24 @@ void UserInfoJobTest::shouldGenerateRequest()
 {
     UserInfoJob job;
     UserInfoJob::UserInfo info;
-    info.userIdentifier = QStringLiteral("foo1");
+    info.userIdentifier = u"foo1"_s;
     info.userInfoType = UserInfoJob::UserInfoType::UserId;
     job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?userId=foo1")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.info?userId=foo1"_s));
 }
 
 void UserInfoJobTest::shouldGenerateRequestUsername()
 {
     UserInfoJob job;
     UserInfoJob::UserInfo info;
-    info.userIdentifier = QStringLiteral("foo1");
+    info.userIdentifier = u"foo1"_s;
     info.userInfoType = UserInfoJob::UserInfoType::UserName;
     job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?username=foo1")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.info?username=foo1"_s));
 }
 
 #include "moc_userinfojobtest.cpp"

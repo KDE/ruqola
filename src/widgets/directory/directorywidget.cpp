@@ -150,11 +150,11 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
     if (!searchName.isEmpty()) {
         QString str = searchName;
         if (mType == DirectoryType::User) {
-            if (str.startsWith(QLatin1Char('@'))) {
+            if (str.startsWith(u'@')) {
                 str.removeFirst();
             }
         } else {
-            if (str.startsWith(QLatin1Char('#'))) {
+            if (str.startsWith(u'#')) {
                 str.removeFirst();
             }
         }
@@ -164,7 +164,7 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
     RocketChatRestApi::QueryParameters parameters;
 
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);

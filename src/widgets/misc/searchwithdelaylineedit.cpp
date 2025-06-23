@@ -5,6 +5,8 @@
 */
 
 #include "searchwithdelaylineedit.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QTimer>
 

@@ -5,6 +5,8 @@
 */
 
 #include "resete2ekeyjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "users/resete2ekeyjob.h"
 #include <QJsonDocument>
@@ -33,10 +35,10 @@ void ResetE2EKeyJobTest::shouldGenerateRequest()
 {
     ResetE2EKeyJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetE2EKey")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.resetE2EKey"_s));
 }
 
 void ResetE2EKeyJobTest::shouldGenerateJson()
@@ -52,14 +54,14 @@ void ResetE2EKeyJobTest::shouldNotStarting()
     ResetE2EKeyJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -68,10 +70,10 @@ void ResetE2EKeyJobTest::shouldNotStarting()
     job.setResetUserId("ss"_ba);
     QVERIFY(!job.canStart());
 
-    job.setAuthCode(QStringLiteral("bla"));
+    job.setAuthCode(u"bla"_s);
     QVERIFY(!job.canStart());
 
-    job.setAuthMethod(QStringLiteral("method"));
+    job.setAuthMethod(u"method"_s);
     QVERIFY(job.canStart());
 }
 

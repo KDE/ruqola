@@ -5,6 +5,8 @@
 */
 
 #include "changechanneltopicjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channels/changechanneltopicjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,15 +31,15 @@ void ChangeChannelTopicJobTest::shouldGenerateRequest()
     ChangeChannelTopicJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setTopic")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.setTopic"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void ChangeChannelTopicJobTest::shouldGenerateJson()
 {
     ChangeChannelTopicJob job;
-    const QString roomId = QStringLiteral("foo1");
-    const QString topic = QStringLiteral("topic1");
+    const QString roomId = u"foo1"_s;
+    const QString topic = u"topic1"_s;
     job.setRoomId(roomId);
     job.setTopic(topic);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","topic":"%2"})").arg(roomId, topic).toLatin1());

@@ -5,6 +5,8 @@
 */
 
 #include "adduserscompletionlineedit.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/completionlistview.h"
 #include "common/usercompletiondelegate.h"
 #include "model/usercompleterfilterproxymodel.h"
@@ -51,7 +53,7 @@ void AddUsersCompletionLineEdit::slotSearchTimerFired()
     mSearchTimer->stop();
     QString str = text();
     if (!str.trimmed().isEmpty()) {
-        if (str.startsWith(QLatin1Char('@'))) {
+        if (str.startsWith(u'@')) {
             str.removeFirst();
         }
         if (!str.isEmpty()) {

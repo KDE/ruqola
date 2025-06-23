@@ -5,6 +5,8 @@
 */
 
 #include "administratorwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/administratorwidget.h"
 #include "administratordialog/customemoji/administratorcustomemojiwidget.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
@@ -33,47 +35,47 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
+    auto mTabWidget = w.findChild<QTabWidget *>(u"mTabWidget"_s);
     QVERIFY(mTabWidget);
 
-    auto mAdministratorRoomsWidget = w.findChild<AdministratorRoomsWidget *>(QStringLiteral("mAdministratorRoomsWidget"));
+    auto mAdministratorRoomsWidget = w.findChild<AdministratorRoomsWidget *>(u"mAdministratorRoomsWidget"_s);
     QVERIFY(mAdministratorRoomsWidget);
 
-    auto mAdministratorCustomUserStatusWidget = w.findChild<AdministratorCustomUserStatusWidget *>(QStringLiteral("mAdministratorCustomUserStatusWidget"));
+    auto mAdministratorCustomUserStatusWidget = w.findChild<AdministratorCustomUserStatusWidget *>(u"mAdministratorCustomUserStatusWidget"_s);
     QVERIFY(mAdministratorCustomUserStatusWidget);
 
-    auto mAdministratorCustomSoundsWidget = w.findChild<AdministratorCustomSoundsWidget *>(QStringLiteral("mAdministratorCustomSoundsWidget"));
+    auto mAdministratorCustomSoundsWidget = w.findChild<AdministratorCustomSoundsWidget *>(u"mAdministratorCustomSoundsWidget"_s);
     QVERIFY(mAdministratorCustomSoundsWidget);
 
-    auto mAdministratorServerInfoWidget = w.findChild<AdministratorServerInfoWidget *>(QStringLiteral("mAdministratorServerInfoWidget"));
+    auto mAdministratorServerInfoWidget = w.findChild<AdministratorServerInfoWidget *>(u"mAdministratorServerInfoWidget"_s);
     QVERIFY(mAdministratorServerInfoWidget);
 
-    auto mAdministratorUsersWidget = w.findChild<AdministratorUsersTabWidget *>(QStringLiteral("mAdministratorUsersWidget"));
+    auto mAdministratorUsersWidget = w.findChild<AdministratorUsersTabWidget *>(u"mAdministratorUsersWidget"_s);
     QVERIFY(mAdministratorUsersWidget);
 
-    auto mAdministratorInvitesWidget = w.findChild<AdministratorInvitesWidget *>(QStringLiteral("mAdministratorInvitesWidget"));
+    auto mAdministratorInvitesWidget = w.findChild<AdministratorInvitesWidget *>(u"mAdministratorInvitesWidget"_s);
     QVERIFY(mAdministratorInvitesWidget);
 
-    auto mViewLogWidget = w.findChild<ViewLogWidget *>(QStringLiteral("mViewLogWidget"));
+    auto mViewLogWidget = w.findChild<ViewLogWidget *>(u"mViewLogWidget"_s);
     QVERIFY(mViewLogWidget);
 
-    auto mAdministratorCustomEmojiWidget = w.findChild<AdministratorCustomEmojiWidget *>(QStringLiteral("mAdministratorCustomEmojiWidget"));
+    auto mAdministratorCustomEmojiWidget = w.findChild<AdministratorCustomEmojiWidget *>(u"mAdministratorCustomEmojiWidget"_s);
     QVERIFY(mAdministratorCustomEmojiWidget);
 
-    auto mPermissionsWidget = w.findChild<PermissionsWidget *>(QStringLiteral("mPermissionsWidget"));
+    auto mPermissionsWidget = w.findChild<PermissionsWidget *>(u"mPermissionsWidget"_s);
     QVERIFY(mPermissionsWidget);
 
-    auto mRolesWidget = w.findChild<AdministratorRolesWidget *>(QStringLiteral("mRolesWidget"));
+    auto mRolesWidget = w.findChild<AdministratorRolesWidget *>(u"mRolesWidget"_s);
     QVERIFY(mRolesWidget);
 
-    auto mOauthWidget = w.findChild<AdministratorOauthWidget *>(QStringLiteral("mOauthWidget"));
+    auto mOauthWidget = w.findChild<AdministratorOauthWidget *>(u"mOauthWidget"_s);
     QVERIFY(mOauthWidget);
 
-    auto mAdministratorModerationConsoleWidget = w.findChild<AdministratorModerationConsoleWidget *>(QStringLiteral("mAdministratorModerationConsoleWidget"));
+    auto mAdministratorModerationConsoleWidget = w.findChild<AdministratorModerationConsoleWidget *>(u"mAdministratorModerationConsoleWidget"_s);
     QVERIFY(mAdministratorModerationConsoleWidget);
 }
 

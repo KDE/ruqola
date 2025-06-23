@@ -5,6 +5,8 @@
 */
 
 #include "permissionseditdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "permissionseditwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -15,12 +17,12 @@ PermissionsEditDialog::PermissionsEditDialog(QWidget *parent, const QString &per
 {
     setWindowTitle(i18nc("@title:window", "Edit \'%1\' Permission", permission));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mPermissionsWidget->setObjectName(QStringLiteral("mPermissionsWidget"));
+    mainLayout->setObjectName(u"mainLayout"_s);
+    mPermissionsWidget->setObjectName(u"mPermissionsWidget"_s);
     mainLayout->addWidget(mPermissionsWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &PermissionsEditDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &PermissionsEditDialog::accept);

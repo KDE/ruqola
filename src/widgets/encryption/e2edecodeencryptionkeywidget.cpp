@@ -5,6 +5,8 @@
 */
 
 #include "e2edecodeencryptionkeywidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 E2eDecodeEncryptionKeyWidget::E2eDecodeEncryptionKeyWidget(QWidget *parent)
@@ -18,7 +20,7 @@ E2eDecodeEncryptionKeyWidget::E2eDecodeEncryptionKeyWidget(QWidget *parent)
     setText(i18n("Click here to enter your e2e password."));
 
     auto decodeEncryptionKeyAction = new QAction(i18nc("@action", "Decode Encryption Key"), this);
-    decodeEncryptionKeyAction->setObjectName(QStringLiteral("decodeEncryptionKeyAction"));
+    decodeEncryptionKeyAction->setObjectName(u"decodeEncryptionKeyAction"_s);
     connect(decodeEncryptionKeyAction, &QAction::triggered, this, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey);
     addAction(decodeEncryptionKeyAction);
 }

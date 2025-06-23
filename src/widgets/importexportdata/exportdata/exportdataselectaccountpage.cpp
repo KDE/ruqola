@@ -5,6 +5,8 @@
 */
 
 #include "exportdataselectaccountpage.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exportdataselectaccountlistwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
@@ -15,14 +17,14 @@ ExportDataSelectAccountPage::ExportDataSelectAccountPage(QWidget *parent)
     , mExportDataSelectAccountListWidget(new ExportDataSelectAccountListWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
     auto label = new QLabel(i18nc("@label:textbox", "Select Accounts:"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
-    mExportDataSelectAccountListWidget->setObjectName(QStringLiteral("mExportDataSelectAccountListWidget"));
+    mExportDataSelectAccountListWidget->setObjectName(u"mExportDataSelectAccountListWidget"_s);
     mainLayout->addWidget(mExportDataSelectAccountListWidget);
     connect(mExportDataSelectAccountListWidget, &ExportDataSelectAccountListWidget::selectedItemChanged, this, [this]() {
         Q_EMIT completeChanged();

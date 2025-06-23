@@ -23,7 +23,7 @@ MultiStaticSelectWidget::MultiStaticSelectWidget(QWidget *parent)
     mLineEdit->setObjectName("mLineEdit"_L1);
     mainLayout->addWidget(mLineEdit);
 
-    mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
+    mFlowLayout->setObjectName(u"mFlowLayout"_s);
     mainLayout->addLayout(mFlowLayout);
     connect(mLineEdit, &MultiStaticSelectLineEdit::addSelectedItem, this, &MultiStaticSelectWidget::slotAddNewName);
 }

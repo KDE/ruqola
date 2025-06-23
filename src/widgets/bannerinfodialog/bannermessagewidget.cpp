@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "bannermessagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolautils.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -20,7 +22,7 @@ BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     setPosition(KMessageWidget::Header);
 
     auto readAction = new QAction(i18nc("@action", "Mark as Read"), this);
-    readAction->setObjectName(QStringLiteral("read_action"));
+    readAction->setObjectName(u"read_action"_s);
     connect(readAction, &QAction::triggered, this, &BannerMessageWidget::slotReadInfo);
     addAction(readAction);
     connect(this, &BannerMessageWidget::linkActivated, this, &BannerMessageWidget::slotOpenUrl);

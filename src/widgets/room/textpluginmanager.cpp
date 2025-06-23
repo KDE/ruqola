@@ -5,6 +5,8 @@
 */
 
 #include "textpluginmanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "plugins/plugintext.h"
 
 #include <KPluginFactory>
@@ -28,17 +30,17 @@ TextPluginManager *TextPluginManager::self()
 
 QString TextPluginManager::configGroupName() const
 {
-    return QStringLiteral("RuqolaPlugin-textplugins");
+    return u"RuqolaPlugin-textplugins"_s;
 }
 
 QString TextPluginManager::configPrefixSettingKey() const
 {
-    return QStringLiteral("textpluginsPlugin");
+    return u"textpluginsPlugin"_s;
 }
 
 void TextPluginManager::initializePluginList()
 {
-    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/textplugins"));
+    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(u"ruqolaplugins/textplugins"_s);
     const QPair<QStringList, QStringList> pair = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
 
     QListIterator<KPluginMetaData> i(plugins);

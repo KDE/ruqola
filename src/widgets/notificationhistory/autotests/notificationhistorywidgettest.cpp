@@ -5,6 +5,8 @@
 */
 
 #include "notificationhistorywidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/serverscombobox.h"
 #include "notificationhistory/notificationhistorydelegate.h"
 #include "notificationhistory/notificationhistorywidget.h"
@@ -25,31 +27,31 @@ void NotificationHistoryWidgetTest::shouldHaveDefaultValues()
 {
     NotificationHistoryWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mListNotifications = w.findChild<QListView *>(QStringLiteral("mListNotifications"));
+    auto mListNotifications = w.findChild<QListView *>(u"mListNotifications"_s);
     QVERIFY(mListNotifications);
     QCOMPARE(mListNotifications->horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
     QCOMPARE(mListNotifications->horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
     QVERIFY(mListNotifications->wordWrap());
     QCOMPARE(mListNotifications->verticalScrollMode(), QAbstractItemView::ScrollPerPixel);
 
-    auto listNotificationsDelegate = w.findChild<NotificationHistoryDelegate *>(QStringLiteral("listNotificationsDelegate"));
+    auto listNotificationsDelegate = w.findChild<NotificationHistoryDelegate *>(u"listNotificationsDelegate"_s);
     QVERIFY(listNotificationsDelegate);
     QCOMPARE(mListNotifications->itemDelegate(), listNotificationsDelegate);
 
-    auto searchLayout = w.findChild<QHBoxLayout *>(QStringLiteral("searchLayout"));
+    auto searchLayout = w.findChild<QHBoxLayout *>(u"searchLayout"_s);
     QVERIFY(searchLayout);
     QCOMPARE(searchLayout->contentsMargins(), QMargins{});
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 
-    auto mServersComboBox = w.findChild<ServersComboBox *>(QStringLiteral("mServersComboBox"));
+    auto mServersComboBox = w.findChild<ServersComboBox *>(u"mServersComboBox"_s);
     QVERIFY(mServersComboBox);
 }
 

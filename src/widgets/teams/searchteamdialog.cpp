@@ -5,6 +5,8 @@
 */
 
 #include "searchteamdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "searchteamwidget.h"
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -18,13 +20,13 @@ SearchTeamDialog::SearchTeamDialog(RocketChatAccount *account, QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Search Team"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mSearchTeamWidget->setObjectName(QStringLiteral("mSearchTeamWidget"));
+    mSearchTeamWidget->setObjectName(u"mSearchTeamWidget"_s);
     mainLayout->addWidget(mSearchTeamWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &SearchTeamDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &SearchTeamDialog::accept);

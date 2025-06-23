@@ -5,6 +5,8 @@
 */
 
 #include "translatesavesettingsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "autotranslate/translatesavesettingsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -33,30 +35,27 @@ void TranslateSaveSettingsJobTest::shouldGenerateRequest()
     TranslateSaveSettingsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.saveSettings")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/autotranslate.saveSettings"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void TranslateSaveSettingsJobTest::shouldGenerateJson()
 {
     TranslateSaveSettingsJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     job.setRoomId(roomId);
-    const QString targetLanguage = QStringLiteral("bla");
+    const QString targetLanguage = u"bla"_s;
     job.setLanguage(targetLanguage);
     TranslateSaveSettingsJob::SettingType type = TranslateSaveSettingsJob::SettingType::AutoTranslateSetting;
     job.setType(type);
     bool autoTranslate = true;
     job.setAutoTranslate(autoTranslate);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":true}").arg(QStringLiteral("autoTranslate"), roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), u"{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":true}"_s.arg(u"autoTranslate"_s, roomId).toLatin1());
     type = TranslateSaveSettingsJob::SettingType::LanguageSetting;
     job.setType(type);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":\"%3\"}")
-                 .arg(QStringLiteral("autoTranslateLanguage"), roomId, targetLanguage)
-                 .toLatin1());
+             u"{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":\"%3\"}"_s.arg(u"autoTranslateLanguage"_s, roomId, targetLanguage).toLatin1());
 }
 
 void TranslateSaveSettingsJobTest::shouldNotStarting()
@@ -64,14 +63,14 @@ void TranslateSaveSettingsJobTest::shouldNotStarting()
     TranslateSaveSettingsJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -79,13 +78,13 @@ void TranslateSaveSettingsJobTest::shouldNotStarting()
     TranslateSaveSettingsJob::SettingType type = TranslateSaveSettingsJob::SettingType::AutoTranslateSetting;
     job.setType(type);
 
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
     type = TranslateSaveSettingsJob::SettingType::LanguageSetting;
     job.setType(type);
     QVERIFY(!job.canStart());
-    const QString targetLanguage = QStringLiteral("bla");
+    const QString targetLanguage = u"bla"_s;
     job.setLanguage(targetLanguage);
     QVERIFY(job.canStart());
 }

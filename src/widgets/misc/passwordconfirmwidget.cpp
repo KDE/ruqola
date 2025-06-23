@@ -5,6 +5,8 @@
 */
 
 #include "passwordconfirmwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/passwordvalidatewidget.h"
 
 #include <KAuthorized>
@@ -28,24 +30,24 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     mInvalidPassword->setPalette(pal);
 
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));
+    mNewPasswordLineEdit->setObjectName(u"mNewPasswordLineEdit"_s);
 
     mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
-    mNewPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                   : KPassword::RevealMode::Never);
-    mPasswordValidateWidget->setObjectName(QStringLiteral("mPasswordValidateWidget"));
+    mNewPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                      : KPassword::RevealMode::Never);
+    mPasswordValidateWidget->setObjectName(u"mPasswordValidateWidget"_s);
     mainLayout->addWidget(mPasswordValidateWidget);
     connect(mNewPasswordLineEdit, &KPasswordLineEdit::passwordChanged, mPasswordValidateWidget, &PasswordValidateWidget::validatePassword);
     connect(mPasswordValidateWidget, &PasswordValidateWidget::passwordIsValid, mConfirmPasswordLineEdit, &KPasswordLineEdit::setEnabled);
 
-    mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
+    mConfirmPasswordLineEdit->setObjectName(u"mConfirmPasswordLineEdit"_s);
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
-    mConfirmPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                       : KPassword::RevealMode::Never);
-    mInvalidPassword->setObjectName(QStringLiteral("mInvalidPassword"));
+    mConfirmPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                          : KPassword::RevealMode::Never);
+    mInvalidPassword->setObjectName(u"mInvalidPassword"_s);
     mInvalidPassword->setVisible(false);
     mainLayout->addWidget(mInvalidPassword);
     connect(mConfirmPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &PasswordConfirmWidget::slotVerifyPassword);

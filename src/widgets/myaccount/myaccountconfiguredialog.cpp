@@ -5,6 +5,8 @@
 */
 
 #include "myaccountconfiguredialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "myaccountconfigurewidget.h"
 
 #include <KConfigGroup>
@@ -25,13 +27,13 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(RocketChatAccount *account, Q
 {
     setWindowTitle(i18nc("@title:window", "Configure my Account"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mMyAccountConfigWidget->setObjectName(QStringLiteral("mMyAccountConfigWidget"));
+    mMyAccountConfigWidget->setObjectName(u"mMyAccountConfigWidget"_s);
     mainLayout->addWidget(mMyAccountConfigWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &MyAccountConfigureDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &MyAccountConfigureDialog::slotAccept);

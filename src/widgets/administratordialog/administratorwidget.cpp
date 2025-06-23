@@ -5,6 +5,8 @@
 */
 
 #include "administratorwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/logs/viewlogwidget.h"
 #include "administratordialog/moderationconsole/administratormoderationconsolewidget.h"
 #include "administratordialog/oauth/administratoroauthwidget.h"
@@ -40,46 +42,46 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
+    mTabWidget->setObjectName(u"mTabWidget"_s);
     mainLayout->addWidget(mTabWidget);
 
-    mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
+    mAdministratorServerInfoWidget->setObjectName(u"mAdministratorServerInfoWidget"_s);
     mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
 
-    mAdministratorRoomsWidget->setObjectName(QStringLiteral("mAdministratorRoomsWidget"));
+    mAdministratorRoomsWidget->setObjectName(u"mAdministratorRoomsWidget"_s);
     mTabWidget->addTab(mAdministratorRoomsWidget, i18n("Rooms"));
 
-    mAdministratorCustomUserStatusWidget->setObjectName(QStringLiteral("mAdministratorCustomUserStatusWidget"));
+    mAdministratorCustomUserStatusWidget->setObjectName(u"mAdministratorCustomUserStatusWidget"_s);
     mTabWidget->addTab(mAdministratorCustomUserStatusWidget, i18n("Custom User Status"));
 
-    mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
+    mAdministratorCustomSoundsWidget->setObjectName(u"mAdministratorCustomSoundsWidget"_s);
     mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
 
-    mAdministratorCustomEmojiWidget->setObjectName(QStringLiteral("mAdministratorCustomEmojiWidget"));
+    mAdministratorCustomEmojiWidget->setObjectName(u"mAdministratorCustomEmojiWidget"_s);
     mTabWidget->addTab(mAdministratorCustomEmojiWidget, i18n("Custom Emojis"));
 
-    mAdministratorUsersWidget->setObjectName(QStringLiteral("mAdministratorUsersWidget"));
+    mAdministratorUsersWidget->setObjectName(u"mAdministratorUsersWidget"_s);
     mTabWidget->addTab(mAdministratorUsersWidget, i18n("Users"));
 
-    mAdministratorInvitesWidget->setObjectName(QStringLiteral("mAdministratorInvitesWidget"));
+    mAdministratorInvitesWidget->setObjectName(u"mAdministratorInvitesWidget"_s);
     mTabWidget->addTab(mAdministratorInvitesWidget, i18n("Invites"));
 
-    mViewLogWidget->setObjectName(QStringLiteral("mViewLogWidget"));
+    mViewLogWidget->setObjectName(u"mViewLogWidget"_s);
     mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
 
-    mPermissionsWidget->setObjectName(QStringLiteral("mPermissionsWidget"));
+    mPermissionsWidget->setObjectName(u"mPermissionsWidget"_s);
     mTabWidget->addTab(mPermissionsWidget, i18n("Permissions"));
 
-    mRolesWidget->setObjectName(QStringLiteral("mRolesWidget"));
+    mRolesWidget->setObjectName(u"mRolesWidget"_s);
     mTabWidget->addTab(mRolesWidget, i18n("Roles"));
 
-    mOauthWidget->setObjectName(QStringLiteral("mOauthWidget"));
+    mOauthWidget->setObjectName(u"mOauthWidget"_s);
     mTabWidget->addTab(mOauthWidget, i18n("Oauth"));
 
-    mAdministratorModerationConsoleWidget->setObjectName(QStringLiteral("mAdministratorModerationConsoleWidget"));
+    mAdministratorModerationConsoleWidget->setObjectName(u"mAdministratorModerationConsoleWidget"_s);
     mTabWidget->addTab(mAdministratorModerationConsoleWidget, i18n("Moderation Console"));
 }
 
@@ -87,62 +89,62 @@ AdministratorWidget::~AdministratorWidget() = default;
 
 void AdministratorWidget::initialize()
 {
-    if (mRocketChatAccount->hasPermission(QStringLiteral("view-user-administration"))) {
+    if (mRocketChatAccount->hasPermission(u"view-user-administration"_s)) {
         mAdministratorUsersWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(QStringLiteral("view-room-administration"))) {
+    if (mRocketChatAccount->hasPermission(u"view-room-administration"_s)) {
         mAdministratorRoomsWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(QStringLiteral("manage-sounds"))) {
+    if (mRocketChatAccount->hasPermission(u"manage-sounds"_s)) {
         mAdministratorCustomSoundsWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(QStringLiteral("manage-emoji"))) {
+    if (mRocketChatAccount->hasPermission(u"manage-emoji"_s)) {
         mAdministratorCustomEmojiWidget->initialize();
     }
     mPermissionsWidget->initialize();
     mAdministratorCustomUserStatusWidget->initialize();
     mRolesWidget->initialize();
-    if (mRocketChatAccount->hasPermission(QStringLiteral("view-statistics"))) {
+    if (mRocketChatAccount->hasPermission(u"view-statistics"_s)) {
         mAdministratorServerInfoWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(QStringLiteral("create-invite-links"))) {
+    if (mRocketChatAccount->hasPermission(u"create-invite-links"_s)) {
         mAdministratorInvitesWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
+    if (mRocketChatAccount->hasPermission(u"manage-oauth-apps"_s)) {
         mOauthWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(QStringLiteral("view-moderation-console"))) {
+    if (mRocketChatAccount->hasPermission(u"view-moderation-console"_s)) {
         mAdministratorModerationConsoleWidget->initialize();
     }
 }
 
 void AdministratorWidget::updateUiFromPermission()
 {
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-sounds"))) {
+    if (!mRocketChatAccount->hasPermission(u"manage-sounds"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorCustomSoundsWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-statistics"))) {
+    if (!mRocketChatAccount->hasPermission(u"view-statistics"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorServerInfoWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-logs"))) {
+    if (!mRocketChatAccount->hasPermission(u"view-logs"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mViewLogWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
+    if (!mRocketChatAccount->hasPermission(u"manage-oauth-apps"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mOauthWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-moderation-console"))) {
+    if (!mRocketChatAccount->hasPermission(u"view-moderation-console"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorModerationConsoleWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-emoji"))) {
+    if (!mRocketChatAccount->hasPermission(u"manage-emoji"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorCustomEmojiWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("create-invite-links"))) {
+    if (!mRocketChatAccount->hasPermission(u"create-invite-links"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorInvitesWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-room-administration"))) {
+    if (!mRocketChatAccount->hasPermission(u"view-room-administration"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorRoomsWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-user-administration"))) {
+    if (!mRocketChatAccount->hasPermission(u"view-user-administration"_s)) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorUsersWidget), false);
     }
 }

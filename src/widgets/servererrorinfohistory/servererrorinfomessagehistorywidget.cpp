@@ -5,6 +5,8 @@
 */
 
 #include "servererrorinfomessagehistorywidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/serverscombobox.h"
 #include "model/servererrorinfohistoryfilterproxymodel.h"
 #include "model/servererrorinfohistorymodel.h"
@@ -32,29 +34,29 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     , mServersComboBox(new ServersComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto searchLayout = new QHBoxLayout;
-    searchLayout->setObjectName(QStringLiteral("searchLayout"));
+    searchLayout->setObjectName(u"searchLayout"_s);
     searchLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search…"));
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
-    mServersComboBox->setObjectName(QStringLiteral("mServersComboBox"));
+    mServersComboBox->setObjectName(u"mServersComboBox"_s);
     searchLayout->addWidget(mServersComboBox);
 
     mainLayout->addLayout(searchLayout);
 
     auto model = ServerErrorInfoHistoryManager::self()->serverErrorInfoHistoryModel();
 
-    mListServerInfosListView->setObjectName(QStringLiteral("mListServerInfosListView"));
+    mListServerInfosListView->setObjectName(u"mListServerInfosListView"_s);
 
-    mServerErrorInfoHistoryFilterProxyModel->setObjectName(QStringLiteral("mServerErrorInfoHistoryFilterProxyModel"));
+    mServerErrorInfoHistoryFilterProxyModel->setObjectName(u"mServerErrorInfoHistoryFilterProxyModel"_s);
     mServerErrorInfoHistoryFilterProxyModel->setSourceModel(model);
     mListServerInfosListView->setModel(mServerErrorInfoHistoryFilterProxyModel);
 
@@ -63,7 +65,7 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListServerInfosListView, &MessageListViewBase::checkIfAtBottom);
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mListServerInfosListView,
             &ServerErrorInfoMessageHistoryListView::textToSpeech,
@@ -71,7 +73,7 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
             &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
-    mListServerInfosListView->setObjectName(QStringLiteral("mListServerInfosListView"));
+    mListServerInfosListView->setObjectName(u"mListServerInfosListView"_s);
     mainLayout->addWidget(mListServerInfosListView);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ServerErrorInfoMessageHistoryWidget::slotTextChanged);

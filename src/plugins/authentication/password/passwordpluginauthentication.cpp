@@ -5,6 +5,8 @@
 */
 
 #include "passwordpluginauthentication.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "passwordauthenticationinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -35,7 +37,7 @@ QString PasswordPluginAuthentication::name() const
 
 QString PasswordPluginAuthentication::iconName() const
 {
-    return QStringLiteral("dialog-password");
+    return u"dialog-password"_s;
 }
 
 #include "passwordpluginauthentication.moc"

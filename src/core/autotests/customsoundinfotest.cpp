@@ -30,18 +30,18 @@ void CustomSoundInfoTest::shouldGenerateUrl()
     {
         CustomSoundInfo info;
         info.setDefaultSound(true);
-        info.setExtension(QStringLiteral("jjj"));
-        info.setName(QStringLiteral("bla"));
+        info.setExtension(u"jjj"_s);
+        info.setName(u"bla"_s);
         info.setIdentifier("foo"_ba);
-        QCOMPARE(info.generateUrl(), QStringLiteral("/sounds/foo.jjj"));
+        QCOMPARE(info.generateUrl(), u"/sounds/foo.jjj"_s);
     }
     {
         CustomSoundInfo info;
         info.setDefaultSound(false);
-        info.setExtension(QStringLiteral("bbb"));
-        info.setName(QStringLiteral("bla"));
+        info.setExtension(u"bbb"_s);
+        info.setName(u"bla"_s);
         info.setIdentifier("kde"_ba);
-        QCOMPARE(info.generateUrl(), QStringLiteral("/custom-sounds/kde.bbb"));
+        QCOMPARE(info.generateUrl(), u"/custom-sounds/kde.bbb"_s);
     }
 }
 

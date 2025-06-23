@@ -5,6 +5,8 @@
 */
 
 #include "exploredatabasewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exploredatabaselineedit.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
@@ -26,37 +28,37 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     , mLocalMessageDatabase(new LocalMessagesDatabase())
     , mRoomName(new ExploreDatabaseLineEdit(account, this))
     , mNumberOfMessages(new QSpinBox(this))
-    , mUseStartDateTime(new QCheckBox(QStringLiteral("Start"), this))
+    , mUseStartDateTime(new QCheckBox(u"Start"_s, this))
     , mStartDateTime(new QDateTimeEdit(this))
-    , mUseEndDateTime(new QCheckBox(QStringLiteral("End"), this))
+    , mUseEndDateTime(new QCheckBox(u"End"_s, this))
     , mEndDateTime(new QDateTimeEdit(this))
     , mMessageModel(new MessagesModel("no_room"_ba, account, nullptr, this))
 {
-    mNumberOfMessages->setObjectName(QStringLiteral("mNumberOfMessages"));
+    mNumberOfMessages->setObjectName(u"mNumberOfMessages"_s);
     mNumberOfMessages->setRange(-1, 9999);
     mNumberOfMessages->setValue(-1);
-    mNumberOfMessages->setSpecialValueText(QStringLiteral("All messages"));
+    mNumberOfMessages->setSpecialValueText(u"All messages"_s);
 
-    mUseStartDateTime->setObjectName(QStringLiteral("mUseStartDateTime"));
-    mStartDateTime->setObjectName(QStringLiteral("mStartDateTime"));
-    mUseEndDateTime->setObjectName(QStringLiteral("mUseEndDateTime"));
-    mEndDateTime->setObjectName(QStringLiteral("mEndDateTime"));
+    mUseStartDateTime->setObjectName(u"mUseStartDateTime"_s);
+    mStartDateTime->setObjectName(u"mStartDateTime"_s);
+    mUseEndDateTime->setObjectName(u"mUseEndDateTime"_s);
+    mEndDateTime->setObjectName(u"mEndDateTime"_s);
 
-    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
+    mMessageListView->setObjectName(u"mMessageListView"_s);
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setContentsMargins({});
-    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setObjectName(u"hboxLayout"_s);
     mainLayout->addLayout(hboxLayout);
 
-    mRoomName->setObjectName(QStringLiteral("mRoomName"));
+    mRoomName->setObjectName(u"mRoomName"_s);
     mRoomName->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mRoomName);
-    auto label = new QLabel(QStringLiteral("Room name:"), this);
-    label->setObjectName(QStringLiteral("label"));
+    auto label = new QLabel(u"Room name:"_s, this);
+    label->setObjectName(u"label"_s);
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mRoomName);
 
@@ -71,11 +73,11 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     connect(mUseStartDateTime, &QCheckBox::clicked, mStartDateTime, &QDateTimeEdit::setEnabled);
     connect(mUseEndDateTime, &QCheckBox::clicked, mEndDateTime, &QDateTimeEdit::setEnabled);
 
-    hboxLayout->addWidget(new QLabel(QStringLiteral("Number Of Elements"), this));
+    hboxLayout->addWidget(new QLabel(u"Number Of Elements"_s, this));
     hboxLayout->addWidget(mNumberOfMessages);
 
-    auto pushButton = new QPushButton(QStringLiteral("Load"), this);
-    pushButton->setObjectName(QStringLiteral("pushButton"));
+    auto pushButton = new QPushButton(u"Load"_s, this);
+    pushButton->setObjectName(u"pushButton"_s);
     hboxLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, &ExploreDatabaseWidget::slotLoad);
     connect(mRoomName, &QLineEdit::returnPressed, this, &ExploreDatabaseWidget::slotLoad);
@@ -102,10 +104,10 @@ void ExploreDatabaseWidget::slotLoad()
         mMessageModel->clear();
         mMessageModel->addMessages(listMessages);
         if (listMessages.isEmpty()) {
-            KMessageBox::error(this, QStringLiteral("Room '%1' does not have database").arg(roomName), QStringLiteral("Database empty"));
+            KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
         }
     } else {
-        KMessageBox::error(this, QStringLiteral("Room '%1' does not have database").arg(roomName), QStringLiteral("Database empty"));
+        KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
     }
 }
 

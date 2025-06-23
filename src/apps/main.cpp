@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 {
     KIconTheme::initTheme();
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
+    app.setWindowIcon(QIcon::fromTheme(u"ruqola"_s));
 
     KStyleManager::initStyle();
 #if !WITH_DBUS
@@ -55,30 +55,30 @@ int main(int argc, char *argv[])
 #endif
     KLocalizedString::setApplicationDomain("ruqola"_ba);
 
-    KAboutData aboutData(QStringLiteral("ruqola"),
+    KAboutData aboutData(u"ruqola"_s,
                          i18n("Ruqola"),
                          QStringLiteral(RUQOLA_VERSION),
                          i18n("Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
                          i18n("Copyright © 2020-2025 Ruqola authors"));
 
-    aboutData.addAuthor(i18nc("@info:credit", "Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
-    aboutData.addAuthor(i18nc("@info:credit", "Riccardo Iaconelli"), i18n("Original Author"), QStringLiteral("riccardo@kde.org"));
+    aboutData.addAuthor(i18nc("@info:credit", "Laurent Montel"), i18n("Maintainer"), u"montel@kde.org"_s);
+    aboutData.addAuthor(i18nc("@info:credit", "Riccardo Iaconelli"), i18n("Original Author"), u"riccardo@kde.org"_s);
 
     aboutData.setOrganizationDomain("kde.org"_ba);
     aboutData.setProductName("ruqola"_ba);
-    aboutData.addCredit(i18nc("@info:credit", "David Faure"), i18n("Bug fixing, delegates etc."), QStringLiteral("faure@kde.org"));
-    aboutData.addCredit(i18nc("@info:credit", "Kevin Funk"), i18n("Bug fixing"), QStringLiteral("kfunk@kde.org"));
-    aboutData.addCredit(i18nc("@info:credit", "Olivier JG"), i18n("Bug fixing"), QStringLiteral("olivier.de.gaalon@kdab.com"));
-    aboutData.addCredit(i18nc("@info:credit", "Milian Wolff"), i18n("Bug fixing"), QStringLiteral("mail@milianw.de"));
-    aboutData.addCredit(i18nc("@info:credit", "Till Adam"), i18n("Windows compile bug fixing"), QStringLiteral("adam@kde.org"));
-    aboutData.addCredit(i18nc("@info:credit", "Shantanu Tushar"), i18n("Bug fixing"), QStringLiteral("shantanu@kde.org"));
-    aboutData.addCredit(i18nc("@info:credit", "Alessandro Ambrosano"), i18n("Bug fixing"), QStringLiteral("alessandro.ambrosano@gmail.com"));
-    aboutData.addCredit(i18nc("@info:credit", "Hannah von Reth"), i18n("Bug fixing for Windows/Mac"), QStringLiteral("vonreth@kde.org"));
-    aboutData.addCredit(i18nc("@info:credit", "Allen Winter"), i18n("Packaging"), QStringLiteral("allen.winter@kdab.com"));
-    aboutData.addCredit(i18nc("@info:credit", "Waqar Ahmed"), i18n("Bug fixing (compile, network crash...)"), QStringLiteral("waqar.17a@gmail.com"));
-    aboutData.addCredit(i18nc("@info:credit", "Nicolas Fella"), i18n("Optimization, fix windows/mac support"), QStringLiteral("nicolas.fella@gmx.de"));
-    aboutData.addCredit(i18nc("@info:credit", "Daniele E. Domenichelli"), i18n("New feature"), QStringLiteral("daniele.domenichelli@kdab.com"));
+    aboutData.addCredit(i18nc("@info:credit", "David Faure"), i18n("Bug fixing, delegates etc."), u"faure@kde.org"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Kevin Funk"), i18n("Bug fixing"), u"kfunk@kde.org"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Olivier JG"), i18n("Bug fixing"), u"olivier.de.gaalon@kdab.com"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Milian Wolff"), i18n("Bug fixing"), u"mail@milianw.de"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Till Adam"), i18n("Windows compile bug fixing"), u"adam@kde.org"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Shantanu Tushar"), i18n("Bug fixing"), u"shantanu@kde.org"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Alessandro Ambrosano"), i18n("Bug fixing"), u"alessandro.ambrosano@gmail.com"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Hannah von Reth"), i18n("Bug fixing for Windows/Mac"), u"vonreth@kde.org"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Allen Winter"), i18n("Packaging"), u"allen.winter@kdab.com"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Waqar Ahmed"), i18n("Bug fixing (compile, network crash...)"), u"waqar.17a@gmail.com"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Nicolas Fella"), i18n("Optimization, fix windows/mac support"), u"nicolas.fella@gmx.de"_s);
+    aboutData.addCredit(i18nc("@info:credit", "Daniele E. Domenichelli"), i18n("New feature"), u"daniele.domenichelli@kdab.com"_s);
 
     KAboutData::setApplicationData(aboutData);
 
@@ -101,14 +101,14 @@ int main(int argc, char *argv[])
     if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListAccount))) {
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
         QDirIterator it(configPath,
-                        QStringList() << QStringLiteral("ruqola.conf"),
+                        QStringList() << u"ruqola.conf"_s,
                         QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                         QDirIterator::Subdirectories);
         std::cout << qPrintable(i18n("The following accounts are available:")) << std::endl;
         while (it.hasNext()) {
             QString result = it.next();
-            result.remove(configPath + QLatin1Char('/'));
-            result.remove(QStringLiteral("/ruqola.conf"));
+            result.remove(configPath + u'/');
+            result.remove(u"/ruqola.conf"_s);
             std::cout << "   " << result.toLocal8Bit().data() << std::endl;
         }
         return 0;
@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
         qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
     } else {
 #ifdef Q_OS_WIN
-        qApp->setFont(QFont(QStringLiteral("Segoe UI Emoji")));
+        qApp->setFont(QFont(u"Segoe UI Emoji"_s));
 #endif
     }
 #if WITH_DBUS

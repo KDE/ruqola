@@ -65,7 +65,7 @@ QNetworkRequest TeamsListRoomsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsListRooms);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("teamId"), QLatin1StringView(mTeamId));
+    queryUrl.addQueryItem(u"teamId"_s, QLatin1StringView(mTeamId));
     // TODO add offset/count for the future
     // Add filter
     url.setQuery(queryUrl);

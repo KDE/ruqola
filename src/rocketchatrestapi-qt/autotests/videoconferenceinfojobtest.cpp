@@ -5,6 +5,8 @@
 */
 
 #include "videoconferenceinfojobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "video-conference/videoconferenceinfojob.h"
@@ -31,14 +33,14 @@ void VideoConferenceInfoJobTest::shouldGenerateRequest()
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.info?callId")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.info?callId"_s));
     }
     {
-        const QString callId = QStringLiteral("foo");
+        const QString callId = u"foo"_s;
         job.setCallId(callId);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.info?callId=%1").arg(callId)));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.info?callId=%1"_s.arg(callId)));
     }
 }
 

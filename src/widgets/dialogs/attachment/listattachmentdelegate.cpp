@@ -19,8 +19,8 @@ using namespace Qt::Literals::StringLiterals;
 
 ListAttachmentDelegate::ListAttachmentDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
-    , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
-    , mDeleteIcon(QIcon::fromTheme(QStringLiteral("delete")))
+    , mDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
+    , mDeleteIcon(QIcon::fromTheme(u"delete"_s))
     , mRocketChatAccount(account)
 {
 }
@@ -42,7 +42,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const bool fileComplete = file->complete();
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForName(file->mimeType());
-    const QPixmap pix = QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(QStringLiteral("application-octet-stream"))).pixmap(layout.mimetypeHeight);
+    const QPixmap pix = QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(u"application-octet-stream"_s)).pixmap(layout.mimetypeHeight);
 
     painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
 

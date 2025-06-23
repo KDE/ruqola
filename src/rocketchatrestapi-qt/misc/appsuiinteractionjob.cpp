@@ -109,24 +109,24 @@ void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QS
                                                                         const QByteArray &messageId)
 {
     QJsonObject o;
-    o.insert(QStringLiteral("type"), QStringLiteral("blockAction"));
-    o.insert(QStringLiteral("actionId"), actionId);
+    o.insert(u"type"_s, u"blockAction"_s);
+    o.insert(u"actionId"_s, actionId);
 
     QJsonObject payload;
-    payload.insert(QStringLiteral("blockId"), blockId);
-    payload.insert(QStringLiteral("value"), value);
+    payload.insert(u"blockId"_s, blockId);
+    payload.insert(u"value"_s, value);
 
-    o.insert(QStringLiteral("payload"), payload);
-    o.insert(QStringLiteral("rid"), QLatin1StringView(roomId));
-    o.insert(QStringLiteral("mid"), QLatin1StringView(messageId));
+    o.insert(u"payload"_s, payload);
+    o.insert(u"rid"_s, QLatin1StringView(roomId));
+    o.insert(u"mid"_s, QLatin1StringView(messageId));
 
     QJsonObject container;
-    container.insert(QStringLiteral("type"), QStringLiteral("message"));
-    container.insert(QStringLiteral("id"), QLatin1StringView(messageId));
-    o.insert(QStringLiteral("container"), container);
+    container.insert(u"type"_s, u"message"_s);
+    container.insert(u"id"_s, QLatin1StringView(messageId));
+    o.insert(u"container"_s, container);
 
     // TODO fix me.
-    o.insert(QStringLiteral("triggerId"), QStringLiteral("foo"));
+    o.insert(u"triggerId"_s, u"foo"_s);
     messageObj = o;
 }
 

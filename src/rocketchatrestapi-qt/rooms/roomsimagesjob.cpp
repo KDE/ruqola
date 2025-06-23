@@ -99,10 +99,10 @@ bool RoomsImagesJob::RoomsImagesJobInfo::isValid() const
 
 void RoomsImagesJob::RoomsImagesJobInfo::generateRequest(QUrlQuery &query) const
 {
-    query.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(roomId));
-    query.addQueryItem(QStringLiteral("startingFromId"), QLatin1StringView(startingFromId));
-    query.addQueryItem(QStringLiteral("offset"), QString::number(offset));
-    query.addQueryItem(QStringLiteral("count"), QString::number(count));
+    query.addQueryItem(u"roomId"_s, QLatin1StringView(roomId));
+    query.addQueryItem(u"startingFromId"_s, QLatin1StringView(startingFromId));
+    query.addQueryItem(u"offset"_s, QString::number(offset));
+    query.addQueryItem(u"count"_s, QString::number(count));
 }
 
 #include "moc_roomsimagesjob.cpp"

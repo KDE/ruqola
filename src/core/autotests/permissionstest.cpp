@@ -29,7 +29,7 @@ void PermissionsTest::shouldLoadPermissions_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("permissionsCount");
 
-    QTest::addRow("permissions1") << QStringLiteral("permissions1") << 3;
+    QTest::addRow("permissions1") << u"permissions1"_s << 3;
 }
 
 void PermissionsTest::shouldLoadPermissions()

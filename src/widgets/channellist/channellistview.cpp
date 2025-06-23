@@ -41,8 +41,8 @@ ChannelListView::ChannelListView(QWidget *parent)
     , mRoomListHeadingsProxyModel(new RoomListHeadingsProxyModel(this))
     , mRoomFilterProxyModel(new RoomFilterProxyModel(this))
 {
-    mChannelListDelegate->setObjectName(QStringLiteral("mChannelListDelegate"));
-    mRoomFilterProxyModel->setObjectName(QStringLiteral("mRoomFilterProxyModel"));
+    mChannelListDelegate->setObjectName(u"mChannelListDelegate"_s);
+    mRoomFilterProxyModel->setObjectName(u"mRoomFilterProxyModel"_s);
     setItemDelegate(mChannelListDelegate);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mRoomFilterProxyModel->setSourceModel(mRoomListHeadingsProxyModel);
@@ -121,7 +121,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
     const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
     const QString actionMarkAsText = isUnRead ? i18nc("@action", "Mark as Read") : i18nc("@action", "Mark as Unread");
-    auto markAsChannel = new QAction(QIcon::fromTheme(QStringLiteral("checkmark-symbolic")), actionMarkAsText, &menu);
+    auto markAsChannel = new QAction(QIcon::fromTheme(u"checkmark-symbolic"_s), actionMarkAsText, &menu);
     connect(markAsChannel, &QAction::triggered, this, [this, index, isUnRead]() {
         if (index.isValid()) {
             slotMarkAsChannel(index, isUnRead);
@@ -131,7 +131,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
     const bool isFavorite = index.data(RoomModel::RoomFavorite).toBool();
     const QString actionFavoriteText = isFavorite ? i18nc("@action", "Unset as Favorite") : i18nc("@action", "Set as Favorite");
-    auto favoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), actionFavoriteText, &menu);
+    auto favoriteAction = new QAction(QIcon::fromTheme(u"favorite"_s), actionFavoriteText, &menu);
     connect(favoriteAction, &QAction::triggered, this, [this, index, isFavorite]() {
         if (index.isValid()) {
             slotChangeFavorite(index, isFavorite);
@@ -139,7 +139,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(favoriteAction);
 
-    auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18nc("@action", "Hide Channel"), &menu);
+    auto hideChannel = new QAction(QIcon::fromTheme(u"hide_table_row"_s), i18nc("@action", "Hide Channel"), &menu);
     connect(hideChannel, &QAction::triggered, this, [this, index, roomType]() {
         if (index.isValid()) {
             slotHideChannel(index, roomType);
@@ -154,7 +154,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
                 if (!mainTeam) {
                     const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
-                    if (mainTeamId.isEmpty() && room->hasPermission(QStringLiteral("convert-team"))) {
+                    if (mainTeamId.isEmpty() && room->hasPermission(u"convert-team"_s)) {
                         menu.addSeparator();
                         auto convertToTeam = new QAction(i18nc("@action", "Convert to Team"), &menu);
                         connect(convertToTeam, &QAction::triggered, this, [this, index, roomType]() {
@@ -185,8 +185,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                     }
                 }
                 const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
-                if (mainTeamId.isEmpty() && !mainTeam
-                    && (room->hasPermission(QStringLiteral("add-team-channel")) || room->hasPermission(QStringLiteral("move-room-to-team")))) {
+                if (mainTeamId.isEmpty() && !mainTeam && (room->hasPermission(u"add-team-channel"_s) || room->hasPermission(u"move-room-to-team"_s))) {
                     menu.addSeparator();
                     auto moveToTeam = new QAction(i18nc("@action", "Move to Team"), &menu);
                     connect(moveToTeam, &QAction::triggered, this, [this, index]() {
@@ -204,15 +203,14 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
         if (room) {
             menu.addSeparator();
-            auto configureNotificationChannel =
-                new QAction(QIcon::fromTheme(QStringLiteral("notifications-symbolic")), i18nc("@action", "Configure Notification…"), &menu);
+            auto configureNotificationChannel = new QAction(QIcon::fromTheme(u"notifications-symbolic"_s), i18nc("@action", "Configure Notification…"), &menu);
             connect(configureNotificationChannel, &QAction::triggered, this, [this, room]() {
                 slotConfigureNotification(room);
             });
             menu.addAction(configureNotificationChannel);
         }
         menu.addSeparator();
-        auto quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18nc("@action", "Quit Channel"), &menu);
+        auto quitChannel = new QAction(QIcon::fromTheme(u"dialog-close"_s), i18nc("@action", "Quit Channel"), &menu);
         connect(quitChannel, &QAction::triggered, this, [this, index, roomType]() {
             if (index.isValid()) {
                 slotLeaveChannel(index, roomType);
@@ -380,11 +378,11 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     const QString type = Room::roomFromRoomType(roomType);
-    if (type == QLatin1Char('d')) {
+    if (type == u'd') {
         job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Direct);
-    } else if (type == QLatin1Char('p')) {
+    } else if (type == u'p') {
         job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Groups);
-    } else if (type == QLatin1Char('c')) {
+    } else if (type == u'c') {
         job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Channel);
     }
     if (!job->start()) {

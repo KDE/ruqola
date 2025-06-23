@@ -5,6 +5,8 @@
 */
 
 #include "messagetextedittest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "room/messagetextedit.h"
 #include <QTest>
@@ -21,8 +23,8 @@ void MessageTextEditTest::shouldHaveDefautValues()
     MessageTextEdit w;
     RocketChatAccount account;
     w.setCurrentRocketChatAccount(&account, false);
-    w.insertEmoji(QStringLiteral(":emoji:"));
-    QCOMPARE(w.text(), QStringLiteral(":emoji: "));
+    w.insertEmoji(u":emoji:"_s);
+    QCOMPARE(w.text(), u":emoji: "_s);
     QVERIFY(!w.acceptRichText());
 }
 

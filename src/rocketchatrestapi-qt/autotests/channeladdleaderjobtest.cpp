@@ -5,6 +5,8 @@
 */
 
 #include "channeladdleaderjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channels/channeladdleaderjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,15 +31,15 @@ void ChannelAddLeaderJobTest::shouldGenerateRequest()
     ChannelAddLeaderJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addLeader")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.addLeader"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void ChannelAddLeaderJobTest::shouldGenerateJson()
 {
     ChannelAddLeaderJob job;
-    const QString roomId = QStringLiteral("foo1");
-    const QString removeUserId = QStringLiteral("topic1");
+    const QString roomId = u"foo1"_s;
+    const QString removeUserId = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;

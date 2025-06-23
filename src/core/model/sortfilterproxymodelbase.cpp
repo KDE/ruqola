@@ -5,6 +5,8 @@
 */
 
 #include "sortfilterproxymodelbase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #if HAVE_TEXT_UTILS
 #include <TextUtils/ConvertText>

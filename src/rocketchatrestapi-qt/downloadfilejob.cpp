@@ -44,7 +44,7 @@ void DownloadFileJob::slotDownloadDone()
 
             // Split between image/video/audio
             const QString newFilePath = mLocalFileUrl.toLocalFile();
-            QFileInfo(newFilePath).absoluteDir().mkpath(QStringLiteral("."));
+            QFileInfo(newFilePath).absoluteDir().mkpath(u"."_s);
             QFile file(newFilePath);
             if (file.open(QIODevice::WriteOnly)) {
                 file.write(data);

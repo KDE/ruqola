@@ -5,6 +5,8 @@
 */
 
 #include "customsoundslistjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "custom/customsoundslistjob.h"
 #include "restapimethod.h"
 #include <QTest>
@@ -35,40 +37,40 @@ void CustomSoundsListJobTest::shouldGenerateRequest()
 {
     {
         CustomSoundsListJob job;
-        const QString authToken = QStringLiteral("foo");
-        const QString userId = QStringLiteral("user");
+        const QString authToken = u"foo"_s;
+        const QString userId = u"user"_s;
         job.setUserId(userId);
         job.setAuthToken(authToken);
         RestApiMethod method;
-        method.setServerUrl(QStringLiteral("http://www.kde.org"));
+        method.setServerUrl(u"http://www.kde.org"_s);
         job.setRestApiMethod(&method);
         const QNetworkRequest request = job.request();
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-sounds.list")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/custom-sounds.list"_s));
         QCOMPARE(request.rawHeader("X-Auth-Token"_ba), authToken.toLocal8Bit());
         QCOMPARE(request.rawHeader("X-User-Id"_ba), userId.toLocal8Bit());
     }
     {
         CustomSoundsListJob job;
-        const QString authToken = QStringLiteral("foo");
-        const QString userId = QStringLiteral("user");
+        const QString authToken = u"foo"_s;
+        const QString userId = u"user"_s;
         job.setUserId(userId);
         job.setAuthToken(authToken);
         RestApiMethod method;
-        method.setServerUrl(QStringLiteral("http://www.kde.org"));
+        method.setServerUrl(u"http://www.kde.org"_s);
         job.setRestApiMethod(&method);
 
         QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-        map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+        map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
         RocketChatRestApi::QueryParameters parameters;
         parameters.setSorting(map);
         parameters.setOffset(1);
         parameters.setCount(3);
-        parameters.setSearchString(QStringLiteral("bla"));
+        parameters.setSearchString(u"bla"_s);
 
         job.setQueryParameters(parameters);
         const QNetworkRequest request = job.request();
         QCOMPARE(request.url().query(),
-                 QStringLiteral("count=3&offset=1&query=%7B%22name%22:%7B%22$regex%22:%22bla%22,%22$options%22:%22i%22%7D%7D&sort=%7B%22name%22:1%7D"));
+                 u"count=3&offset=1&query=%7B%22name%22:%7B%22$regex%22:%22bla%22,%22$options%22:%22i%22%7D%7D&sort=%7B%22name%22:1%7D"_s);
         QCOMPARE(request.rawHeader("X-Auth-Token"_ba), authToken.toLocal8Bit());
         QCOMPARE(request.rawHeader("X-User-Id"_ba), userId.toLocal8Bit());
     }

@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "grabscreenplugintoolconfiguredialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "grabscreenplugintoolconfigurewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -15,12 +17,12 @@ GrabScreenPluginToolConfigureDialog::GrabScreenPluginToolConfigureDialog(QWidget
 {
     setWindowTitle(i18nc("@title:window", "Configure Grab Screen"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mGrabScreenPluginToolConfigureWidget->setObjectName(QStringLiteral("mGrabScreenPluginToolConfigureWidget"));
+    mainLayout->setObjectName(u"mainLayout"_s);
+    mGrabScreenPluginToolConfigureWidget->setObjectName(u"mGrabScreenPluginToolConfigureWidget"_s);
     mainLayout->addWidget(mGrabScreenPluginToolConfigureWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     mGrabScreenPluginToolConfigureWidget->loadSettings();
     connect(button, &QDialogButtonBox::rejected, this, &GrabScreenPluginToolConfigureDialog::reject);

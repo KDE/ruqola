@@ -5,6 +5,8 @@
 */
 
 #include "moderationmessageinfodialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "moderationmessageinfowidget.h"
 
 #include <KConfigGroup>
@@ -25,13 +27,13 @@ ModerationMessageInfoDialog::ModerationMessageInfoDialog(RocketChatAccount *acco
 {
     setWindowTitle(i18nc("@title:window", "Show Moderation Report"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mModerationMessageInfoWidget->setObjectName(QStringLiteral("mModerationMessageInfoWidget"));
+    mModerationMessageInfoWidget->setObjectName(u"mModerationMessageInfoWidget"_s);
     mainLayout->addWidget(mModerationMessageInfoWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ModerationMessageInfoDialog::reject);
     readConfig();

@@ -5,6 +5,7 @@
 */
 
 #include "whatsnewtranslations.h"
+using namespace Qt::Literals::StringLiterals;
 
 WhatsNewTranslations::WhatsNewTranslations() = default;
 
@@ -42,7 +43,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
                             i18n("Fix emoji support (use new ktextaddons/textemoticons)"),
                             i18n("Fix animated gif in reactions"),
                             i18n("Fix kf6 support")});
-        info.setVersion(QStringLiteral("2.0"));
+        info.setVersion(u"2.0"_s);
         listInfo.append(std::move(info));
     }
     {
@@ -58,7 +59,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix list of authentication method."),
             i18n("Fix show avatar url."),
         });
-        info.setVersion(QStringLiteral("2.1"));
+        info.setVersion(u"2.1"_s);
         listInfo.append(std::move(info));
     }
     {
@@ -87,7 +88,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Allow to send multi files."),
             i18n("Fix preview url."),
         });
-        info.setVersion(QStringLiteral("2.2"));
+        info.setVersion(u"2.2"_s);
         listInfo.append(std::move(info));
     }
     {
@@ -102,7 +103,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."),
             i18n("Delete oldest files from some cache directories (file-upload and media) so it doesn't grow forever."),
         });
-        info.setVersion(QStringLiteral("2.3"));
+        info.setVersion(u"2.3"_s);
         info.setBugFixings({
             i18n("Clean market application model after 30 minutes (reduce memory footprint)."),
             i18n("Fix show discussion name in completion."),
@@ -114,7 +115,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
     }
     {
         WhatsNewInfo info;
-        info.setVersion(QStringLiteral("2.4"));
+        info.setVersion(u"2.4"_s);
         info.setNewFeatures({
             i18n("Allow to clean up room history when room was not opened from long time."),
             i18n("Add restore button in administrator server settings dialog."),
@@ -155,7 +156,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Debug: explore translation from RC server."),
             i18n("Implement plugin UI support (Create dialog box for configure settings)."),
         });
-        info.setVersion(QStringLiteral("2.5"));
+        info.setVersion(u"2.5"_s);
         info.setBugFixings({
             i18n("Allow to search file from username and filename."),
             i18n("Fix copy action text when we copy a text selection."),
@@ -178,7 +179,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             lst += l.toString();
         }
         info.setNewFeatures(lst);
-        info.setVersion(QStringLiteral("2.6"));
+        info.setVersion(u"2.6"_s);
         info.setBugFixings({i18n("Fix show date info."),
                             i18n("Fix save application settings."),
                             i18n("Fix text selection in attachment."),

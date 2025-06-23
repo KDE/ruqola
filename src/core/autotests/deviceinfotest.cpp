@@ -48,28 +48,28 @@ void DeviceInfoTest::shouldDeviceInfo_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<DeviceInfo>("deviceInfo");
-    QTest::addRow("deviceinfoempty") << QStringLiteral("deviceinfoempty") << DeviceInfo();
+    QTest::addRow("deviceinfoempty") << u"deviceinfoempty"_s << DeviceInfo();
     {
         DeviceInfo info;
-        info.setHost(QStringLiteral("chat.kde.org"));
+        info.setHost(u"chat.kde.org"_s);
         info.setIdentifier("iy78NiKzd"_ba);
-        info.setIp(QStringLiteral("179.4.8.1"));
+        info.setIp(u"179.4.8.1"_s);
         info.setSessionId("iKzd"_ba);
         info.setUserId("acidH"_ba);
         info.setLoginAt(1660405994979);
-        QTest::addRow("deviceinfo1") << QStringLiteral("deviceinfo1") << info;
+        QTest::addRow("deviceinfo1") << u"deviceinfo1"_s << info;
     }
     {
         DeviceInfo info;
-        info.setHost(QStringLiteral("chat.kde.org"));
+        info.setHost(u"chat.kde.org"_s);
         info.setIdentifier("87pMW"_ba);
-        info.setIp(QStringLiteral("1.7.6.11"));
+        info.setIp(u"1.7.6.11"_s);
         info.setSessionId("87pMW"_ba);
         info.setUserId("dacidH"_ba);
-        info.setClient(QStringLiteral("Firefox"));
-        info.setOs(QStringLiteral("Linux x86_64"));
+        info.setClient(u"Firefox"_s);
+        info.setOs(u"Linux x86_64"_s);
         info.setLoginAt(1660404361954);
-        QTest::addRow("deviceinfo2") << QStringLiteral("deviceinfo2") << info;
+        QTest::addRow("deviceinfo2") << u"deviceinfo2"_s << info;
     }
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "configureactivitiesdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configurenewserver/configureactivitiesdialog.h"
 #include "configurenewserver/configureactivitieswidget.h"
 #include <QDialogButtonBox>
@@ -22,13 +24,13 @@ void ConfigureActivitiesDialogTest::shouldHaveDefaultValues()
 {
     ConfigureActivitiesDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mConfigureActivitiesWidget = d.findChild<ConfigureActivitiesWidget *>(QStringLiteral("mConfigureActivitiesWidget"));
+    auto mConfigureActivitiesWidget = d.findChild<ConfigureActivitiesWidget *>(u"mConfigureActivitiesWidget"_s);
     QVERIFY(mConfigureActivitiesWidget);
 
-    auto buttonBox = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
 }
 

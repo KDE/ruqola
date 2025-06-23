@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exploreappstranslationwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QTreeWidget>
 #include <QVBoxLayout>
@@ -13,10 +15,10 @@ ExploreAppsTranslationWidget::ExploreAppsTranslationWidget(QWidget *parent)
     , mTreeWidget(new QTreeWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
+    mTreeWidget->setObjectName(u"mTreeWidget"_s);
     mTreeWidget->setColumnCount(2);
     mainLayout->addWidget(mTreeWidget);
 

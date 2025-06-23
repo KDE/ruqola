@@ -5,6 +5,8 @@
 */
 
 #include "modifystatusdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "modifystatuswidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -16,13 +18,13 @@ ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Modify Status"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mModifyStatusWidget->setObjectName(QStringLiteral("mModifyStatusWidget"));
+    mModifyStatusWidget->setObjectName(u"mModifyStatusWidget"_s);
     mainLayout->addWidget(mModifyStatusWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &ModifyStatusDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &ModifyStatusDialog::reject);

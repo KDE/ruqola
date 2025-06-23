@@ -5,6 +5,8 @@
 */
 
 #include "myaccount2e2configurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "misc/methodcalljob.h"
@@ -25,7 +27,7 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
     auto changePasswordLabel =
         new QLabel(i18nc("@label:textbox",
@@ -34,12 +36,12 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
                          "store your password somewhere safe. You will be required to enter it on other devices you wish to use e2e encryption on."),
                    this);
     changePasswordLabel->setWordWrap(true);
-    changePasswordLabel->setObjectName(QStringLiteral("changePasswordLabel"));
+    changePasswordLabel->setObjectName(u"changePasswordLabel"_s);
     mainLayout->addWidget(changePasswordLabel);
 
-    mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
+    mPasswordConfirmWidget->setObjectName(u"mPasswordConfirmWidget"_s);
     mainLayout->addWidget(mPasswordConfirmWidget);
-    mModifyE2ePassword->setObjectName(QStringLiteral("mModifyE2ePassword"));
+    mModifyE2ePassword->setObjectName(u"mModifyE2ePassword"_s);
     mainLayout->addWidget(mModifyE2ePassword);
     connect(mModifyE2ePassword, &QPushButton::clicked, this, &MyAccount2e2ConfigureWidget::slotModifyPassword);
     mModifyE2ePassword->setEnabled(false);
@@ -51,11 +53,11 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
              "When you login again, Rocket.Chat will generate you a new key and restore your access to any encrypted room that has one or more members online."
              " Due to the nature of the E2E encryption, Rocket.Chat will not be able to restore access to any encrypted room that has no member online."),
         this);
-    removePasswordlabel->setObjectName(QStringLiteral("removePasswordlabel"));
+    removePasswordlabel->setObjectName(u"removePasswordlabel"_s);
     removePasswordlabel->setWordWrap(true);
     mainLayout->addWidget(removePasswordlabel);
 
-    mResetE2eKey->setObjectName(QStringLiteral("mResetE2eKey"));
+    mResetE2eKey->setObjectName(u"mResetE2eKey"_s);
     mainLayout->addWidget(mResetE2eKey);
     connect(mResetE2eKey, &QPushButton::clicked, this, &MyAccount2e2ConfigureWidget::slotResetE2EKey);
     mainLayout->addStretch(1);
@@ -75,7 +77,7 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
     // => use restapi for calling ddp method
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-    info.methodName = QStringLiteral("e2e.resetOwnE2EKey");
+    info.methodName = u"e2e.resetOwnE2EKey"_s;
     const QJsonArray params;
     info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
     info.anonymous = false;

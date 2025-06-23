@@ -5,6 +5,8 @@
 */
 
 #include "messagemaximumsizewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QFormLayout>
@@ -16,14 +18,14 @@ MessageMaximumSizeWidget::MessageMaximumSizeWidget(QWidget *parent)
     , mDescription(new QLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mFileName->setObjectName(QStringLiteral("mFileName"));
+    mFileName->setObjectName(u"mFileName"_s);
     mainLayout->addRow(i18n("Filename:"), mFileName);
     KLineEditEventHandler::catchReturnKey(mFileName);
 
-    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setObjectName(u"mDescription"_s);
     mainLayout->addRow(i18n("Description:"), mDescription);
     KLineEditEventHandler::catchReturnKey(mDescription);
 

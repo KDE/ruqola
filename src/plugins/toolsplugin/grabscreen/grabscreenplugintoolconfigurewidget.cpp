@@ -5,6 +5,8 @@
 */
 
 #include "grabscreenplugintoolconfigurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "grabscreenplugintoolconfig.h"
 #include <KLocalization>
 #include <KLocalizedString>
@@ -16,10 +18,10 @@ GrabScreenPluginToolConfigureWidget::GrabScreenPluginToolConfigureWidget(QWidget
     , mDelay(new QSpinBox(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mDelay->setObjectName(QStringLiteral("mDelay"));
+    mDelay->setObjectName(u"mDelay"_s);
     mainLayout->addRow(i18n("Delay:"), mDelay);
     KLocalization::setupSpinBoxFormatString(mDelay, ki18ncp("@item %v is a number", "%v second", "%v seconds"));
 }

@@ -37,22 +37,22 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     , mPersonalAccessTokenFilterProxyModel(new PersonalAccessTokenInfosFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mSearchLineWidget->setObjectName(u"mSearchLineWidget"_s);
     mainLayout->addWidget(mSearchLineWidget);
     mSearchLineWidget->setPlaceholderText(i18nc("@info:placeholder", "Search Personal Access Token…"));
-    mPersonalAccessTokenTreeView->setObjectName(QStringLiteral("mPersonalAccessTokenTreeView"));
+    mPersonalAccessTokenTreeView->setObjectName(u"mPersonalAccessTokenTreeView"_s);
     mPersonalAccessTokenTreeView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
     mainLayout->addWidget(mPersonalAccessTokenTreeView);
 
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
 
-    mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
+    mPersonalAccessTokenModel->setObjectName(u"mPersonalAccessTokenModel"_s);
 
-    mPersonalAccessTokenFilterProxyModel->setObjectName(QStringLiteral("proxyModel"));
+    mPersonalAccessTokenFilterProxyModel->setObjectName(u"proxyModel"_s);
     mPersonalAccessTokenFilterProxyModel->setSourceModel(mPersonalAccessTokenModel);
     mPersonalAccessTokenTreeView->setModel(mPersonalAccessTokenFilterProxyModel);
     mPersonalAccessTokenTreeView->setColumnHidden(PersonalAccessTokenInfosModel::CreateAtDateTime, true);
@@ -112,7 +112,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
             if (!password.isEmpty()) {
                 auto job = new RocketChatRestApi::GeneratePersonalAccessTokenJob(this);
                 if (twoFactorAuthenticationEnforcePasswordFallback) {
-                    job->setAuthMethod(QStringLiteral("password"));
+                    job->setAuthMethod(u"password"_s);
                     job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
                 }
                 job->setTokenName(createDialog->tokenName());
@@ -156,7 +156,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken(const QString 
             auto job = new RocketChatRestApi::RemovePersonalAccessTokenJob(this);
             job->setTokenName(tokenName);
             if (twoFactorAuthenticationEnforcePasswordFallback) {
-                job->setAuthMethod(QStringLiteral("password"));
+                job->setAuthMethod(u"password"_s);
                 job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
             }
 
@@ -188,7 +188,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QStr
         if (!password.isEmpty()) {
             auto job = new RocketChatRestApi::RegeneratePersonalAccessTokenJob(this);
             if (twoFactorAuthenticationEnforcePasswordFallback) {
-                job->setAuthMethod(QStringLiteral("password"));
+                job->setAuthMethod(u"password"_s);
                 job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
             }
             job->setTokenName(tokenName);

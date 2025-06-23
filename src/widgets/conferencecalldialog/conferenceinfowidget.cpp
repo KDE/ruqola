@@ -5,6 +5,8 @@
 */
 
 #include "conferenceinfowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/flowlayout.h"
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -23,7 +25,7 @@ ConferenceInfoWidget::ConferenceInfoWidget(RocketChatAccount *account, QWidget *
     , mRocketChatAccount(account)
 {
     mFormLayout->setContentsMargins({});
-    mFormLayout->setObjectName(QStringLiteral("mFormLayout"));
+    mFormLayout->setObjectName(u"mFormLayout"_s);
 }
 
 ConferenceInfoWidget::~ConferenceInfoWidget() = default;
@@ -37,7 +39,7 @@ void ConferenceInfoWidget::initializeInfo()
         VideoConferenceInfo info;
         info.parse(obj);
         auto meetingUrlLabel = new QLabel(this);
-        meetingUrlLabel->setText(QStringLiteral("<a href=\"%1\">%1</a>").arg(info.url()));
+        meetingUrlLabel->setText(u"<a href=\"%1\">%1</a>"_s.arg(info.url()));
         meetingUrlLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
         meetingUrlLabel->setOpenExternalLinks(true);
 

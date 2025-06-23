@@ -5,6 +5,8 @@
 */
 
 #include "authenticationmanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
@@ -28,7 +30,7 @@ AuthenticationManager *AuthenticationManager::self()
 
 void AuthenticationManager::initializePluginList()
 {
-    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/authentication"));
+    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(u"ruqolaplugins/authentication"_s);
 
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();

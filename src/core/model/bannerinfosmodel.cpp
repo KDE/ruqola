@@ -5,6 +5,8 @@
 */
 
 #include "bannerinfosmodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 BannerInfosModel::BannerInfosModel(QObject *parent)
@@ -50,7 +52,7 @@ QString BannerInfosModel::text(const BannerInfo &info) const
     QString str = BannerInfo::defaultText(info);
     if (!info.link().isEmpty()) {
         // Use markdown url
-        str += QStringLiteral(" [%1](%2)").arg(i18n("link"), info.link());
+        str += u" [%1](%2)"_s.arg(i18n("link"), info.link());
     }
     return str;
 }

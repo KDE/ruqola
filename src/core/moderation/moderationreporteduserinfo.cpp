@@ -30,7 +30,7 @@ bool ModerationReportedUserInfo::operator==(const ModerationReportedUserInfo &ot
 void ModerationReportedUserInfo::parseModerationReportedUserInfo(const QJsonObject &o)
 {
     mCount = o["count"_L1].toInt();
-    setCreatedAt(Utils::parseIsoDate(QStringLiteral("ts"), o));
+    setCreatedAt(Utils::parseIsoDate(u"ts"_s, o));
     parseReportedUser(o["reportedUser"_L1].toObject());
 }
 

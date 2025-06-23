@@ -5,6 +5,7 @@
 */
 
 #include "messageattachmentdelegatehelperfiletest.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QStyleOptionViewItem>
 #include <QTest>
@@ -28,19 +29,19 @@ void MessageDelegateHelperFileTest::shouldLayoutMultipleFiles()
 
     // One attachment
     MessageAttachment msgAttach1;
-    const QString title1 = QStringLiteral("This is the title");
+    const QString title1 = u"This is the title"_s;
     msgAttach1.setTitle(title1);
-    const QString description1 = QStringLiteral("A description");
+    const QString description1 = u"A description"_s;
     msgAttach1.setDescription(description1);
-    msgAttach1.setLink(QStringLiteral("http://www.kde.org"));
+    msgAttach1.setLink(u"http://www.kde.org"_s);
 
     // A second attachment
     MessageAttachment msgAttach2;
-    const QString title2 = QStringLiteral("Another title");
+    const QString title2 = u"Another title"_s;
     msgAttach2.setTitle(title2);
-    const QString description2 = QStringLiteral("Another description");
+    const QString description2 = u"Another description"_s;
     msgAttach2.setDescription(description2);
-    msgAttach2.setLink(QStringLiteral("http://www.kdab.com"));
+    msgAttach2.setLink(u"http://www.kdab.com"_s);
 
     message.setAttachements({msgAttach1, msgAttach2});
 

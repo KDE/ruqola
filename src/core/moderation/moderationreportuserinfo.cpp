@@ -23,7 +23,7 @@ void ModerationReportUserInfo::parseModerationReportUserInfo(const QJsonObject &
     mDescription = o["description"_L1].toString();
     mReportedBy.parseUserRestApi(o["reportedBy"_L1].toObject(), {}); // TODO use role ???
     mReportedUser.parseUserRestApi(o["reportedUser"_L1].toObject(), {}); // TODO use role ???
-    setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
+    setTimeStamp(Utils::parseIsoDate(u"ts"_s, o));
 }
 
 QString ModerationReportUserInfo::description() const

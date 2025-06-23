@@ -5,6 +5,8 @@
 */
 
 #include "showvideodialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/showvideodialog.h"
 #include "dialogs/showvideowidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void ShowVideoDialogTest::shouldHaveDefaultValues()
     ShowVideoDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mShowVideoWidget = w.findChild<ShowVideoWidget *>(QStringLiteral("mShowVideoWidget"));
+    auto mShowVideoWidget = w.findChild<ShowVideoWidget *>(u"mShowVideoWidget"_s);
     QVERIFY(mShowVideoWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

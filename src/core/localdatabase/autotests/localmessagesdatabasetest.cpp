@@ -5,6 +5,8 @@
 */
 
 #include "localmessagesdatabasetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabase/localmessagesdatabase.h"
 #include "messages/message.h"
 
@@ -17,19 +19,19 @@ QTEST_GUILESS_MAIN(LocalMessagesDatabaseTest)
 
 static QString accountName()
 {
-    return QStringLiteral("myAccount");
+    return u"myAccount"_s;
 }
 static QString roomName()
 {
-    return QStringLiteral("myRoom");
+    return u"myRoom"_s;
 }
 static QString otherRoomName()
 {
-    return QStringLiteral("otherRoom");
+    return u"otherRoom"_s;
 }
 static QString existingRoomName()
 {
-    return QStringLiteral("existingRoom");
+    return u"existingRoom"_s;
 }
 enum class Fields {
     MessageId,
@@ -97,7 +99,7 @@ void LocalMessagesDatabaseTest::shouldLoadExistingDb() // this test depends on s
     // GIVEN
     LocalMessagesDatabase logger;
     // Copy an existing db under a new room name, so that there's not yet a QSqlDatabase for it
-    QSqlDatabase::database(accountName() + QLatin1Char('-') + otherRoomName()).close();
+    QSqlDatabase::database(accountName() + u'-' + otherRoomName()).close();
     const QString srcDb = logger.dbFileName(accountName(), otherRoomName());
     const QString destDb = logger.dbFileName(accountName(), existingRoomName());
     QVERIFY(QFileInfo::exists(srcDb));
@@ -117,7 +119,7 @@ void LocalMessagesDatabaseTest::shouldDeleteMessages() // this test depends on s
 {
     // GIVEN
     LocalMessagesDatabase logger;
-    const QString messageId = (QStringLiteral("msg-other-1"));
+    const QString messageId = (u"msg-other-1"_s);
 
     // WHEN
     logger.deleteMessage(accountName(), otherRoomName(), messageId);
@@ -133,7 +135,7 @@ void LocalMessagesDatabaseTest::shouldReturnNullIfDoesNotExist()
     // GIVEN
     LocalMessagesDatabase logger;
     // WHEN
-    auto tableModel = logger.createMessageModel(accountName(), QStringLiteral("does not exist"));
+    auto tableModel = logger.createMessageModel(accountName(), u"does not exist"_s);
     // THEN
     QVERIFY(!tableModel);
 }
@@ -147,7 +149,7 @@ void LocalMessagesDatabaseTest::shouldExtractMessages()
         message1.setText(QString::fromUtf8("Message text: %1").arg(i));
         message1.setUsername(QString::fromUtf8("Hervé %1").arg(i));
         message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50 + i, 50)).toMSecsSinceEpoch());
-        message1.setMessageId(QStringLiteral("msg-%1").arg(i).toLatin1());
+        message1.setMessageId(u"msg-%1"_s.arg(i).toLatin1());
         logger.addMessage(accountName(), roomName(), message1);
     }
     // WHEN
@@ -205,7 +207,7 @@ void LocalMessagesDatabaseTest::shouldExtractSpecificNumberOfMessages()
         message1.setUsername(QString::fromUtf8("Hervé %1").arg(i));
         const auto value = QDateTime(QDate(2021, 6, 7), QTime(23, 1 + i, 50), QTimeZone::UTC).toMSecsSinceEpoch();
         message1.setTimeStamp(value);
-        message1.setMessageId(QStringLiteral("msg-%1").arg(i).toLatin1());
+        message1.setMessageId(u"msg-%1"_s.arg(i).toLatin1());
         logger.addMessage(accountName(), roomName(), message1);
     }
     // WHEN
@@ -238,24 +240,24 @@ void LocalMessagesDatabaseTest::shouldGenerateQuery_data()
     QTest::addColumn<QString>("result");
 
     QTest::addRow("test1") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(5)
-                           << QStringLiteral("SELECT * FROM MESSAGES ORDER BY timestamp DESC LIMIT :limit");
+                           << u"SELECT * FROM MESSAGES ORDER BY timestamp DESC LIMIT :limit"_s;
     QTest::addRow("test2") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
-                           << QStringLiteral("SELECT * FROM MESSAGES ORDER BY timestamp DESC");
+                           << u"SELECT * FROM MESSAGES ORDER BY timestamp DESC"_s;
     QTest::addRow("test3") << static_cast<qint64>(5) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
-                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId ORDER BY timestamp DESC");
+                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId ORDER BY timestamp DESC"_s;
     QTest::addRow("test4") << static_cast<qint64>(-1) << static_cast<qint64>(5) << static_cast<qint64>(-1)
-                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp <= :endId ORDER BY timestamp DESC");
+                           << u"SELECT * FROM MESSAGES WHERE timestamp <= :endId ORDER BY timestamp DESC"_s;
     QTest::addRow("test5") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(-1)
-                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC");
+                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC"_s;
     QTest::addRow("test6") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(30)
-                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit");
+                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit"_s;
 }
 
 void LocalMessagesDatabaseTest::shouldVerifyDbFileName()
 {
     LocalMessagesDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
-             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/messages/myAccount/myAccount.sqlite"));
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/messages/myAccount/myAccount.sqlite"_s);
 }
 
 #include "moc_localmessagesdatabasetest.cpp"

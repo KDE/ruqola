@@ -33,7 +33,7 @@ void FileAttachmentsTest::shouldLoadThreads_data()
     QTest::addColumn<int>("total");
     QTest::addColumn<int>("offset");
 
-    QTest::addRow("empty") << QStringLiteral("threads-empty") << 0 << 0 << 0;
+    QTest::addRow("empty") << u"threads-empty"_s << 0 << 0 << 0;
 }
 
 void FileAttachmentsTest::shouldLoadThreads()

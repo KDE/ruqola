@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "ratelimiterwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -31,76 +33,70 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     , mLimiteByConnectionIntervalTimePerMethod(new QSpinBox(this))
 {
     auto apiRateLimiterLabel = createBoldLabel(i18n("API Rate Limiter"));
-    apiRateLimiterLabel->setObjectName(QStringLiteral("apiRateLimiterLabel"));
+    apiRateLimiterLabel->setObjectName(u"apiRateLimiterLabel"_s);
     mMainLayout->addWidget(apiRateLimiterLabel);
 
-    mEnableRateLimiter->setObjectName(QStringLiteral("mEnableRateLimiter"));
-    addCheckBox(mEnableRateLimiter, QStringLiteral("API_Enable_Rate_Limiter"));
+    mEnableRateLimiter->setObjectName(u"mEnableRateLimiter"_s);
+    addCheckBox(mEnableRateLimiter, u"API_Enable_Rate_Limiter"_s);
 
     auto ddpRateLimiterLabel = createBoldLabel(i18n("DDP Rate Limit"));
-    ddpRateLimiterLabel->setObjectName(QStringLiteral("ddpRateLimiterLabel"));
+    ddpRateLimiterLabel->setObjectName(u"ddpRateLimiterLabel"_s);
     mMainLayout->addWidget(ddpRateLimiterLabel);
 
-    mLimitByIP->setObjectName(QStringLiteral("mLimitByIP"));
-    addCheckBox(mLimitByIP, QStringLiteral("DDP_Rate_Limit_IP_Enabled"));
+    mLimitByIP->setObjectName(u"mLimitByIP"_s);
+    addCheckBox(mLimitByIP, u"DDP_Rate_Limit_IP_Enabled"_s);
 
-    mLimiteByIpRequestsAllowed->setObjectName(QStringLiteral("mLimiteByIpRequestsAllowed"));
+    mLimiteByIpRequestsAllowed->setObjectName(u"mLimiteByIpRequestsAllowed"_s);
     mLimiteByIpRequestsAllowed->setMaximum(9999999);
-    addSpinbox(i18n("Limit by IP: interval time"), mLimiteByIpRequestsAllowed, QStringLiteral("DDP_Rate_Limit_IP_Requests_Allowed"));
+    addSpinbox(i18n("Limit by IP: interval time"), mLimiteByIpRequestsAllowed, u"DDP_Rate_Limit_IP_Requests_Allowed"_s);
 
-    mLimiteByIpIntervalTime->setObjectName(QStringLiteral("mLimiteByIpIntervalTime"));
+    mLimiteByIpIntervalTime->setObjectName(u"mLimiteByIpIntervalTime"_s);
     mLimiteByIpIntervalTime->setMaximum(9999999);
-    addSpinbox(i18n("Limit by IP: requests allowed"), mLimiteByIpIntervalTime, QStringLiteral("DDP_Rate_Limit_IP_Interval_Time"));
+    addSpinbox(i18n("Limit by IP: requests allowed"), mLimiteByIpIntervalTime, u"DDP_Rate_Limit_IP_Interval_Time"_s);
 
-    mLimitByUser->setObjectName(QStringLiteral("mLimitByUser"));
-    addCheckBox(mLimitByUser, QStringLiteral("DDP_Rate_Limit_User_Enabled"));
+    mLimitByUser->setObjectName(u"mLimitByUser"_s);
+    addCheckBox(mLimitByUser, u"DDP_Rate_Limit_User_Enabled"_s);
 
-    mLimiteByUserRequestsAllowed->setObjectName(QStringLiteral("mLimiteByUserRequestsAllowed"));
+    mLimiteByUserRequestsAllowed->setObjectName(u"mLimiteByUserRequestsAllowed"_s);
     mLimiteByUserRequestsAllowed->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByUserRequestsAllowed, QStringLiteral("DDP_Rate_Limit_User_Requests_Allowed"));
+    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByUserRequestsAllowed, u"DDP_Rate_Limit_User_Requests_Allowed"_s);
 
-    mLimiteByUserIntervalTime->setObjectName(QStringLiteral("mLimiteByUserIntervalTime"));
+    mLimiteByUserIntervalTime->setObjectName(u"mLimiteByUserIntervalTime"_s);
     mLimiteByUserIntervalTime->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: interval time"), mLimiteByUserIntervalTime, QStringLiteral("DDP_Rate_Limit_User_Interval_Time"));
+    addSpinbox(i18n("Limit by User: interval time"), mLimiteByUserIntervalTime, u"DDP_Rate_Limit_User_Interval_Time"_s);
 
-    mLimitByConnection->setObjectName(QStringLiteral("mLimitByConnection"));
-    addCheckBox(mLimitByConnection, QStringLiteral("DDP_Rate_Limit_Connection_Enabled"));
+    mLimitByConnection->setObjectName(u"mLimitByConnection"_s);
+    addCheckBox(mLimitByConnection, u"DDP_Rate_Limit_Connection_Enabled"_s);
 
-    mLimiteByConnectionRequestsAllowed->setObjectName(QStringLiteral("mLimiteByConnectionRequestsAllowed"));
+    mLimiteByConnectionRequestsAllowed->setObjectName(u"mLimiteByConnectionRequestsAllowed"_s);
     mLimiteByConnectionRequestsAllowed->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByConnectionRequestsAllowed, QStringLiteral("DDP_Rate_Limit_Connection_Requests_Allowed"));
+    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByConnectionRequestsAllowed, u"DDP_Rate_Limit_Connection_Requests_Allowed"_s);
 
-    mLimiteByConnectionIntervalTime->setObjectName(QStringLiteral("mLimiteByConnectionIntervalTime"));
+    mLimiteByConnectionIntervalTime->setObjectName(u"mLimiteByConnectionIntervalTime"_s);
     mLimiteByConnectionIntervalTime->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: interval time"), mLimiteByConnectionIntervalTime, QStringLiteral("DDP_Rate_Limit_Connection_Interval_Time"));
+    addSpinbox(i18n("Limit by User: interval time"), mLimiteByConnectionIntervalTime, u"DDP_Rate_Limit_Connection_Interval_Time"_s);
 
-    mLimitByUserPerMethod->setObjectName(QStringLiteral("mLimitByUserPerMethod"));
-    addCheckBox(mLimitByUserPerMethod, QStringLiteral("DDP_Rate_Limit_User_By_Method_Enabled"));
+    mLimitByUserPerMethod->setObjectName(u"mLimitByUserPerMethod"_s);
+    addCheckBox(mLimitByUserPerMethod, u"DDP_Rate_Limit_User_By_Method_Enabled"_s);
 
-    mLimiteByUserRequestsAllowedPerMethod->setObjectName(QStringLiteral("mLimiteByUserRequestsAllowedPerMethod"));
+    mLimiteByUserRequestsAllowedPerMethod->setObjectName(u"mLimiteByUserRequestsAllowedPerMethod"_s);
     mLimiteByUserRequestsAllowedPerMethod->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: requests allowed"),
-               mLimiteByUserRequestsAllowedPerMethod,
-               QStringLiteral("DDP_Rate_Limit_User_By_Method_Requests_Allowed"));
+    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByUserRequestsAllowedPerMethod, u"DDP_Rate_Limit_User_By_Method_Requests_Allowed"_s);
 
-    mLimiteByUserIntervalTimePerMethod->setObjectName(QStringLiteral("mLimiteByUserIntervalTimePerMethod"));
+    mLimiteByUserIntervalTimePerMethod->setObjectName(u"mLimiteByUserIntervalTimePerMethod"_s);
     mLimiteByUserIntervalTimePerMethod->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: interval time"), mLimiteByUserIntervalTimePerMethod, QStringLiteral("DDP_Rate_Limit_User_By_Method_Interval_Time"));
+    addSpinbox(i18n("Limit by User: interval time"), mLimiteByUserIntervalTimePerMethod, u"DDP_Rate_Limit_User_By_Method_Interval_Time"_s);
 
-    mLimitByConnectionPerMethod->setObjectName(QStringLiteral("mLimitByConnectionPerMethod"));
-    addCheckBox(mLimitByConnectionPerMethod, QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Enabled"));
+    mLimitByConnectionPerMethod->setObjectName(u"mLimitByConnectionPerMethod"_s);
+    addCheckBox(mLimitByConnectionPerMethod, u"DDP_Rate_Limit_Connection_By_Method_Enabled"_s);
 
-    mLimiteByConnectionRequestsAllowedPerMethod->setObjectName(QStringLiteral("mLimiteByConnectionRequestsAllowedPerMethod"));
+    mLimiteByConnectionRequestsAllowedPerMethod->setObjectName(u"mLimiteByConnectionRequestsAllowedPerMethod"_s);
     mLimiteByConnectionRequestsAllowedPerMethod->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: requests allowed"),
-               mLimiteByConnectionRequestsAllowedPerMethod,
-               QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"));
+    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByConnectionRequestsAllowedPerMethod, u"DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"_s);
 
-    mLimiteByConnectionIntervalTimePerMethod->setObjectName(QStringLiteral("mLimiteByConnectionIntervalTimePerMethod"));
+    mLimiteByConnectionIntervalTimePerMethod->setObjectName(u"mLimiteByConnectionIntervalTimePerMethod"_s);
     mLimiteByConnectionIntervalTimePerMethod->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: interval time"),
-               mLimiteByConnectionIntervalTimePerMethod,
-               QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Interval_Time"));
+    addSpinbox(i18n("Limit by User: interval time"), mLimiteByConnectionIntervalTimePerMethod, u"DDP_Rate_Limit_Connection_By_Method_Interval_Time"_s);
 }
 
 RateLimiterWidget::~RateLimiterWidget() = default;

@@ -5,6 +5,8 @@
 */
 
 #include "exploredatabasedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exploredatabasewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,13 +26,13 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mExploreDatabaseWidget->setObjectName(QStringLiteral("mExploreDatabaseWidget"));
+    mExploreDatabaseWidget->setObjectName(u"mExploreDatabaseWidget"_s);
     mainLayout->addWidget(mExploreDatabaseWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ExploreDatabaseDialog::reject);
 

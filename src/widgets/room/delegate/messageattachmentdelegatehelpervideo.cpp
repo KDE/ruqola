@@ -5,6 +5,8 @@
 */
 
 #include "messageattachmentdelegatehelpervideo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/showvideodialog.h"
@@ -21,8 +23,8 @@
 
 MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
-    , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
-    , mVisibilityIcon(QIcon::fromTheme(QStringLiteral("visibility")))
+    , mDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
+    , mVisibilityIcon(QIcon::fromTheme(u"visibility"_s))
 {
 }
 

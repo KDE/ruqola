@@ -5,6 +5,8 @@
 */
 
 #include "modifystatuswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/statuscombobox.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -17,14 +19,14 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     , mStatusLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
+    mStatusCombobox->setObjectName(u"mStatusCombobox"_s);
 
     mStatusCombobox->setUseOnlyStandardStatus();
 
-    mStatusLineEdit->setObjectName(QStringLiteral("mStatusLineEdit"));
+    mStatusLineEdit->setObjectName(u"mStatusLineEdit"_s);
     mStatusLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mStatusLineEdit);
 

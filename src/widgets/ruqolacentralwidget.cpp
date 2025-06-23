@@ -5,6 +5,8 @@
 */
 
 #include "ruqolacentralwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountmanager.h"
 #include "loginwidget/ruqolaloginwidget.h"
 #include "rocketchataccount.h"
@@ -30,7 +32,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     , mMainLayout(new QVBoxLayout(this))
 {
     mMainLayout->setContentsMargins({});
-    mMainLayout->setObjectName(QStringLiteral("mainlayout"));
+    mMainLayout->setObjectName(u"mainlayout"_s);
     mMainLayout->setSpacing(0);
 
     WhatsNewTranslations translations;
@@ -39,23 +41,23 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
         const bool hasNewFeature = (RuqolaGlobalConfig::self()->previousNewFeaturesMD5() != newFeaturesMD5);
         if (hasNewFeature) {
             auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
-            whatsNewMessageWidget->setObjectName(QStringLiteral("whatsNewMessageWidget"));
+            whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
             mMainLayout->addWidget(whatsNewMessageWidget);
             RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
             whatsNewMessageWidget->animatedShow();
         }
     }
 
-    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mStackedWidget->setObjectName(u"mStackedWidget"_s);
     mMainLayout->addWidget(mStackedWidget);
 
-    mRuqolaMainWidget->setObjectName(QStringLiteral("mRuqolaMainWidget"));
+    mRuqolaMainWidget->setObjectName(u"mRuqolaMainWidget"_s);
     mStackedWidget->addWidget(mRuqolaMainWidget);
 
-    mRuqolaLoginWidget->setObjectName(QStringLiteral("mRuqolaLoginWidget"));
+    mRuqolaLoginWidget->setObjectName(u"mRuqolaLoginWidget"_s);
     mStackedWidget->addWidget(mRuqolaLoginWidget);
 
-    mRuqolaWelcomeWidget->setObjectName(QStringLiteral("mRuqolaWelcomeWidget"));
+    mRuqolaWelcomeWidget->setObjectName(u"mRuqolaWelcomeWidget"_s);
     mStackedWidget->addWidget(mRuqolaWelcomeWidget);
     connect(mRuqolaWelcomeWidget, &WelcomeWidget::createNewAccount, this, &RuqolaCentralWidget::createNewAccount);
 
@@ -73,7 +75,7 @@ RuqolaCentralWidget::~RuqolaCentralWidget() = default;
 void RuqolaCentralWidget::createServerErrorInfoMessageWidget()
 {
     mServerErrorInfoMessageWidget = new ServerErrorInfoMessageWidget(this);
-    mServerErrorInfoMessageWidget->setObjectName(QStringLiteral("mServerErrorInfoMessageWidget"));
+    mServerErrorInfoMessageWidget->setObjectName(u"mServerErrorInfoMessageWidget"_s);
     mMainLayout->insertWidget(0, mServerErrorInfoMessageWidget);
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "localdatabasebasetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabase/localdatabasebase.h"
 #include <QTest>
 
@@ -31,24 +33,24 @@ LocalDatabaseBaseTest::LocalDatabaseBaseTest(QObject *parent)
 void LocalDatabaseBaseTest::shouldHaveDefaultValues()
 {
     {
-        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Accounts);
-        QCOMPARE(w.currentDatabaseName(QStringLiteral("kde")), QStringLiteral("accounts-kde"));
+        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Accounts);
+        QCOMPARE(w.currentDatabaseName(u"kde"_s), u"accounts-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Rooms);
-        QCOMPARE(w.currentDatabaseName(QStringLiteral("kde")), QStringLiteral("rooms-kde"));
+        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Rooms);
+        QCOMPARE(w.currentDatabaseName(u"kde"_s), u"rooms-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Messages);
-        QCOMPARE(w.currentDatabaseName(QStringLiteral("kde")), QStringLiteral("messages-kde"));
+        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Messages);
+        QCOMPARE(w.currentDatabaseName(u"kde"_s), u"messages-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Logger);
-        QCOMPARE(w.currentDatabaseName(QStringLiteral("kde")), QStringLiteral("kde"));
+        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Logger);
+        QCOMPARE(w.currentDatabaseName(u"kde"_s), u"kde"_s);
     }
     {
-        TestLocalDatabaseBase w(QStringLiteral("foo/bla/"), LocalDatabaseBase::DatabaseType::Global);
-        QCOMPARE(w.currentDatabaseName(QStringLiteral("kde")), QStringLiteral("global-kde"));
+        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Global);
+        QCOMPARE(w.currentDatabaseName(u"kde"_s), u"global-kde"_s);
     }
 }
 #include "moc_localdatabasebasetest.cpp"

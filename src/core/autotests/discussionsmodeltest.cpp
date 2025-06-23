@@ -32,7 +32,7 @@ void DiscussionsModelTest::shouldAssignValues()
     Discussions discussionList;
     for (int i = 0; i < 10; ++i) {
         Discussion c;
-        c.setDescription(QStringLiteral("roomid%1").arg(i));
+        c.setDescription(u"roomid%1"_s.arg(i));
         c.setNumberMessages(i);
         c.setParentRoomId("online"_ba);
         discussionList.append(std::move(c));
@@ -42,8 +42,8 @@ void DiscussionsModelTest::shouldAssignValues()
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
     QCOMPARE(modelAboutToBeResetSpy.count(), 0);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,9"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,9"_s);
 
     // add Empty list
     discussionList.clear();
@@ -80,7 +80,7 @@ void DiscussionsModelTest::shouldAssignValues()
 
     for (int i = 0; i < 5; ++i) {
         Discussion c;
-        c.setDescription(QStringLiteral("roomid%1").arg(i));
+        c.setDescription(u"roomid%1"_s.arg(i));
         c.setNumberMessages(i);
         c.setParentRoomId("online"_ba);
         discussionList.append(std::move(c));
@@ -90,8 +90,8 @@ void DiscussionsModelTest::shouldAssignValues()
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
     QCOMPARE(modelAboutToBeResetSpy.count(), 0);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,4"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,4"_s);
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
@@ -101,8 +101,8 @@ void DiscussionsModelTest::shouldAssignValues()
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
     QCOMPARE(modelAboutToBeResetSpy.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,4"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,4"_s);
 }
 
 #include "moc_discussionsmodeltest.cpp"

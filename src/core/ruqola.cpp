@@ -7,6 +7,8 @@
  */
 
 #include "ruqola.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "customemojiiconmanager.h"
 #include "managerdatapaths.h"
 #include "rocketchataccount.h"

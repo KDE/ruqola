@@ -5,6 +5,8 @@
 */
 
 #include "channelinforeadonlywidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomavatarreadonlywidget.h"
@@ -19,14 +21,14 @@ ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account,
     , mRocketChatAccount(account)
     , mLayoutReadOnly(new QFormLayout(this))
 {
-    mLayoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
+    mLayoutReadOnly->setObjectName(u"layoutReadOnly"_s);
     mLayoutReadOnly->setContentsMargins({});
 
-    mRoomAvatarWidget->setObjectName(QStringLiteral("mRoomAvatarWidget"));
-    mLayoutReadOnly->addRow(QStringLiteral(" "), mRoomAvatarWidget);
+    mRoomAvatarWidget->setObjectName(u"mRoomAvatarWidget"_s);
+    mLayoutReadOnly->addRow(u" "_s, mRoomAvatarWidget);
 
     mNameReadOnly->setTextFormat(Qt::RichText);
-    mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
+    mNameReadOnly->setObjectName(u"mNameReadOnly"_s);
     mNameReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mNameReadOnly->setOpenExternalLinks(true);
     mNameReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -39,7 +41,7 @@ void ChannelInfoReadOnlyWidget::createDescriptionReadOnly()
 {
     mDescriptionReadOnly = new QLabel(this);
     mDescriptionReadOnly->setTextFormat(Qt::RichText);
-    mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
+    mDescriptionReadOnly->setObjectName(u"mDescriptionReadOnly"_s);
     mDescriptionReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mDescriptionReadOnly->setOpenExternalLinks(true);
     mDescriptionReadOnly->setWordWrap(true);
@@ -51,7 +53,7 @@ void ChannelInfoReadOnlyWidget::createCommentReadOnly()
 {
     mCommentReadOnly = new QLabel(this);
     mCommentReadOnly->setTextFormat(Qt::RichText);
-    mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
+    mCommentReadOnly->setObjectName(u"mCommentReadOnly"_s);
     mCommentReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mCommentReadOnly->setOpenExternalLinks(true);
     mCommentReadOnly->setWordWrap(true);
@@ -63,7 +65,7 @@ void ChannelInfoReadOnlyWidget::createAnnouncementReadOnly()
 {
     mAnnouncementReadOnly = new QLabel(this);
     mAnnouncementReadOnly->setTextFormat(Qt::RichText);
-    mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
+    mAnnouncementReadOnly->setObjectName(u"mAnnouncementReadOnly"_s);
     mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mAnnouncementReadOnly->setOpenExternalLinks(true);
     mAnnouncementReadOnly->setWordWrap(true);

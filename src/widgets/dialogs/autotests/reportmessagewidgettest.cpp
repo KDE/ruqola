@@ -5,6 +5,8 @@
 */
 
 #include "reportmessagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/reportuserwidget.h"
 #include <KTextEdit>
 #include <QLabel>
@@ -19,20 +21,20 @@ ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)
 void ReportMessageWidgetTest::shouldHaveDefaultValues()
 {
     ReportUserWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto lab = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto lab = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(lab);
     QVERIFY(!lab->text().isEmpty());
 
-    auto mUserName = w.findChild<QLabel *>(QStringLiteral("mUserName"));
+    auto mUserName = w.findChild<QLabel *>(u"mUserName"_s);
     QVERIFY(mUserName);
     QVERIFY(mUserName->wordWrap());
     QVERIFY(mUserName->text().isEmpty());
 
-    auto mMessageLineEdit = w.findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto mMessageLineEdit = w.findChild<KTextEdit *>(u"mMessageLineEdit"_s);
     QVERIFY(mMessageLineEdit);
     QVERIFY(!mMessageLineEdit->placeholderText().isEmpty());
     QVERIFY(!mMessageLineEdit->acceptRichText());

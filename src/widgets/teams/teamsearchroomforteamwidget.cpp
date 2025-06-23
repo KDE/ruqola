@@ -5,6 +5,8 @@
 */
 
 #include "teamsearchroomforteamwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <QVBoxLayout>
@@ -15,14 +17,14 @@ TeamSearchRoomForTeamWidget::TeamSearchRoomForTeamWidget(RocketChatAccount *acco
     , mFlowLayout(new FlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoomLineEdit"));
+    mSearchRoomLineEdit->setObjectName(u"mSearchRoomLineEdit"_s);
     connect(mSearchRoomLineEdit, &AddTeamRoomCompletionLineEdit::newRoomName, this, &TeamSearchRoomForTeamWidget::slotAddNewName);
     mainLayout->addWidget(mSearchRoomLineEdit);
 
-    mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
+    mFlowLayout->setObjectName(u"mFlowLayout"_s);
     mainLayout->addLayout(mFlowLayout);
     mainLayout->addStretch();
 }

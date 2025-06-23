@@ -19,7 +19,7 @@ void ApplicationsSettingsSettingsWidgetTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsSettingsWidget d(nullptr);
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 }
 

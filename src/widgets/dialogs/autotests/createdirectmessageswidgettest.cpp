@@ -5,6 +5,8 @@
 */
 
 #include "createdirectmessageswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/createdirectmessageswidget.h"
 #include "misc/adduserswidget.h"
 #include <QLabel>
@@ -20,22 +22,22 @@ void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()
 {
     CreateDirectMessagesWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-    auto mUsers = w.findChild<AddUsersWidget *>(QStringLiteral("mUsers"));
+    auto mUsers = w.findChild<AddUsersWidget *>(u"mUsers"_s);
     QVERIFY(mUsers);
     QVERIFY(!mUsers->placeHolderText().isEmpty());
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
     QVERIFY(label->wordWrap());
 
     QVERIFY(w.userNames().isEmpty());
 
-    auto mTooManyUsers = w.findChild<QLabel *>(QStringLiteral("mTooManyUsers"));
+    auto mTooManyUsers = w.findChild<QLabel *>(u"mTooManyUsers"_s);
     QVERIFY(mTooManyUsers);
     QVERIFY(!mTooManyUsers->text().isEmpty());
     QVERIFY(!mTooManyUsers->isVisible());

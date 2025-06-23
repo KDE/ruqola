@@ -5,6 +5,8 @@
 */
 
 #include "searchteamwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teams/searchteamwidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
@@ -21,14 +23,14 @@ void SearchTeamWidgetTest::shouldHaveDefaultValues()
 {
     SearchTeamWidget d(nullptr);
 
-    auto mainLayout = d.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto label = d.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = d.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto mSearchLine = d.findChild<QLineEdit *>(QStringLiteral("mSearchLine"));
+    auto mSearchLine = d.findChild<QLineEdit *>(u"mSearchLine"_s);
     QVERIFY(mSearchLine);
     QVERIFY(mSearchLine->text().isEmpty());
 }

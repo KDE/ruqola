@@ -65,8 +65,8 @@ bool UploadFileJob::start()
 
     QHttpPart filePart;
     filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
-    const QString filePartInfo = QStringLiteral("form-data; name=\"file\"; filename=\"%1\"")
-                                     .arg(mUploadFileInfo.fileName.isEmpty() ? mUploadFileInfo.filenameUrl.fileName() : mUploadFileInfo.fileName);
+    const QString filePartInfo = u"form-data; name=\"file\"; filename=\"%1\""_s.arg(mUploadFileInfo.fileName.isEmpty() ? mUploadFileInfo.filenameUrl.fileName()
+                                                                                                                       : mUploadFileInfo.fileName);
     filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
 
     filePart.setBodyDevice(file);
@@ -144,7 +144,7 @@ void UploadFileJob::slotUploadFinished()
                     return;
                 }
                 // TODO verify it !
-                Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(replyObject));
+                Q_EMIT failed(mReply->errorString() + u'\n' + errorStr(replyObject));
             } else {
                 emitFailedMessage(reply->errorString(), replyObject);
                 addLoggerWarning("UploadFileJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));

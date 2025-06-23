@@ -5,6 +5,8 @@
 */
 
 #include "personalaccesstokenpluginauthentication.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "personalaccesstokenauthenticationinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -35,7 +37,7 @@ QString PersonalAccessTokenPluginAuthentication::name() const
 
 QString PersonalAccessTokenPluginAuthentication::iconName() const
 {
-    return QStringLiteral("dialog-password");
+    return u"dialog-password"_s;
 }
 
 #include "moc_personalaccesstokenpluginauthentication.cpp"

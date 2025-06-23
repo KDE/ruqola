@@ -61,7 +61,7 @@ QString BannerInfos::generateText(const BannerInfo &info) const
 {
     QString str = BannerInfo::defaultText(info);
     if (!info.link().isEmpty()) {
-        str += QStringLiteral(" <a href=\"%1\">%2</a>").arg(info.link(), i18n("(link)"));
+        str += u" <a href=\"%1\">%2</a>"_s.arg(info.link(), i18n("(link)"));
     }
     return str;
 }

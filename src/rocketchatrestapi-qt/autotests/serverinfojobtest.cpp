@@ -5,6 +5,8 @@
 */
 
 #include "serverinfojobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "serverinfojob.h"
@@ -27,10 +29,10 @@ void ServerInfoJobTest::shouldGenerateRequest()
 {
     ServerInfoJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/info")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/info"_s));
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::Http2AllowedAttribute).toBool(), true);
 }

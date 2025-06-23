@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "importdatawizardtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 #include "importexportdata/importdata/importdatawizard.h"
@@ -19,10 +21,10 @@ void ImportDataWizardTest::shouldHaveDefaultValues()
 {
     ImportDataWizard w;
 
-    auto mImportDataSelectAccountPage = w.findChild<ImportDataSelectAccountPage *>(QStringLiteral("mImportDataSelectAccountPage"));
+    auto mImportDataSelectAccountPage = w.findChild<ImportDataSelectAccountPage *>(u"mImportDataSelectAccountPage"_s);
     QVERIFY(mImportDataSelectAccountPage);
 
-    auto mImportDataFinishPage = w.findChild<ImportDataFinishPage *>(QStringLiteral("mImportDataSelectAccountPage"));
+    auto mImportDataFinishPage = w.findChild<ImportDataFinishPage *>(u"mImportDataSelectAccountPage"_s);
     QVERIFY(mImportDataFinishPage);
 }
 

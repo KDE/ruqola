@@ -5,6 +5,8 @@
 */
 
 #include "myaccountconfiguredialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "myaccount/myaccountconfiguredialog.h"
 #include "myaccount/myaccountconfigurewidget.h"
 #include <QDialogButtonBox>
@@ -24,13 +26,13 @@ void MyAccountConfigureDialogTest::shouldHaveDefaultValue()
     MyAccountConfigureDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mMyAccountConfigWidget = w.findChild<MyAccountConfigureWidget *>(QStringLiteral("mMyAccountConfigWidget"));
+    auto mMyAccountConfigWidget = w.findChild<MyAccountConfigureWidget *>(u"mMyAccountConfigWidget"_s);
     QVERIFY(mMyAccountConfigWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

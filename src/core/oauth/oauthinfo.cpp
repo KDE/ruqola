@@ -43,9 +43,9 @@ void OauthInfo::parseOauthInfo(const QJsonObject &replyObject, bool restApi)
     // {"_id":"system","username":"system"}
     if (replyObject.contains("_createdAt"_L1)) {
         if (restApi) {
-            setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), replyObject)));
+            setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(u"_createdAt"_s, replyObject)));
         } else {
-            setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseDate(QStringLiteral("_createdAt"), replyObject)));
+            setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseDate(u"_createdAt"_s, replyObject)));
         }
     }
 }

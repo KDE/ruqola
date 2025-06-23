@@ -5,6 +5,8 @@
 */
 
 #include "postmessagejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/postmessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -30,15 +32,15 @@ void PostMessageJobTest::shouldGenerateRequest()
     PostMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.postMessage")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.postMessage"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void PostMessageJobTest::shouldGenerateJson()
 {
     PostMessageJob job;
     const QByteArray roomId("foo1");
-    const QString text = QStringLiteral("topic1");
+    const QString text = u"topic1"_s;
     job.setRoomIds({roomId});
     job.setText(text);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","text":"%2"})").arg(QLatin1StringView(roomId), text).toLatin1());
@@ -49,14 +51,14 @@ void PostMessageJobTest::shouldNotStarting()
     PostMessageJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -64,7 +66,7 @@ void PostMessageJobTest::shouldNotStarting()
     const QByteArray roomId("foo1");
     job.setRoomIds({roomId});
     QVERIFY(!job.canStart());
-    const QString text = QStringLiteral("topic1");
+    const QString text = u"topic1"_s;
     job.setText(text);
     QVERIFY(job.canStart());
 }

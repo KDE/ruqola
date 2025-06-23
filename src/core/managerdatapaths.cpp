@@ -5,6 +5,8 @@
 */
 
 #include "managerdatapaths.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QStandardPaths>
 
@@ -21,7 +23,7 @@ ManagerDataPaths *ManagerDataPaths::self()
 
 QString ManagerDataPaths::accountAvatarConfigPath(const QString &accountName) const
 {
-    const QString accountPath = accountConfigPath(accountName) + QStringLiteral("/avatar.conf");
+    const QString accountPath = accountConfigPath(accountName) + u"/avatar.conf"_s;
     return accountPath;
 }
 
@@ -33,7 +35,7 @@ QString ManagerDataPaths::accountConfigPath(const QString &accountName) const
 
 QString ManagerDataPaths::accountConfigFileName(const QString &accountName) const
 {
-    const QString accountPath = accountConfigPath(accountName) + QStringLiteral("/ruqola.conf");
+    const QString accountPath = accountConfigPath(accountName) + u"/ruqola.conf"_s;
     return accountPath;
 }
 
@@ -42,27 +44,27 @@ QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &a
     QString path = mPathTypeHash.value(type);
     Q_ASSERT(!path.isEmpty());
     if (!accountName.isEmpty()) {
-        path += QLatin1Char('/') + accountName;
+        path += u'/' + accountName;
     }
     switch (type) {
     case PathType::Picture:
     case PathType::Video:
-        path += QStringLiteral("/Ruqola/recordings");
+        path += u"/Ruqola/recordings"_s;
         break;
     case PathType::PreviewUrl:
-        path += QStringLiteral("/PreviewUrl");
+        path += u"/PreviewUrl"_s;
         break;
     case PathType::CustomSound:
-        path += QStringLiteral("/CustomSound");
+        path += u"/CustomSound"_s;
         break;
     case PathType::Cache:
-        path += QStringLiteral("/MainCache");
+        path += u"/MainCache"_s;
         break;
     case PathType::Config:
         break;
     }
     if (!subdirectory.isEmpty()) {
-        path += QLatin1Char('/') + subdirectory;
+        path += u'/' + subdirectory;
     }
     return path;
 }

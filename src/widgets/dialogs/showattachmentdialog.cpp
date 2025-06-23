@@ -5,6 +5,8 @@
 */
 
 #include "showattachmentdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "attachments/fileattachments.h"
 #include "connection.h"
 #include "dialogs/showimagedialog.h"
@@ -31,16 +33,16 @@ ShowAttachmentDialog::ShowAttachmentDialog(RocketChatAccount *account, QWidget *
     , mShowAttachmentWidget(new ShowAttachmentWidget(account, this))
     , mRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Show Attachments - %1", account ? account->accountName() : QStringLiteral("account")));
+    setWindowTitle(i18nc("@title:window", "Show Attachments - %1", account ? account->accountName() : u"account"_s));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    mShowAttachmentWidget->setObjectName(QStringLiteral("mShowAttachmentWidget"));
+    mShowAttachmentWidget->setObjectName(u"mShowAttachmentWidget"_s);
     mainLayout->addWidget(mShowAttachmentWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowAttachmentDialog::reject);
     connect(mShowAttachmentWidget, &ShowAttachmentWidget::loadMoreFileAttachment, this, &ShowAttachmentDialog::slotLoadMoreAttachment);
@@ -66,7 +68,7 @@ void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
 {
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-    info.methodName = QStringLiteral("deleteFileMessage");
+    info.methodName = u"deleteFileMessage"_s;
     info.anonymous = false;
     const QJsonArray params{{QString::fromLatin1(fileId)}};
     info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);

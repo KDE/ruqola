@@ -5,6 +5,8 @@
 */
 
 #include "ruqolamainwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
 #include "config-ruqola.h"
@@ -39,33 +41,33 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     , mTopLayout(new QVBoxLayout(this))
 {
     mTopLayout->setContentsMargins({});
-    mTopLayout->setObjectName(QStringLiteral("topLayout"));
+    mTopLayout->setObjectName(u"topLayout"_s);
 
     auto mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainlayout"));
+    mainLayout->setObjectName(u"mainlayout"_s);
 
     mTopLayout->addLayout(mainLayout);
 
-    mSplitter->setObjectName(QStringLiteral("mSplitter"));
+    mSplitter->setObjectName(u"mSplitter"_s);
     mSplitter->setChildrenCollapsible(false);
     mainLayout->addWidget(mSplitter);
 
-    mChannelList->setObjectName(QStringLiteral("mChannelList"));
+    mChannelList->setObjectName(u"mChannelList"_s);
     mChannelList->setLayoutSpacing(mSplitter->handleWidth());
     mSplitter->addWidget(mChannelList);
 
-    mStackedRoomWidget->setObjectName(QStringLiteral("mStackedRoomWidget"));
+    mStackedRoomWidget->setObjectName(u"mStackedRoomWidget"_s);
     mSplitter->addWidget(mStackedRoomWidget);
 
-    mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
+    mRoomWidget->setObjectName(u"mRoomWidget"_s);
     mRoomWidget->setLayoutSpacing(mSplitter->handleWidth());
     mStackedRoomWidget->addWidget(mRoomWidget);
     connect(mRoomWidget, &RoomWidget::selectChannelRequested, this, [this](const QByteArray &channelId) {
         mChannelList->channelListView()->selectChannelRequested(channelId, QByteArray());
     });
 
-    mEmptyRoomWidget->setObjectName(QStringLiteral("mEmptyRoomWidget"));
+    mEmptyRoomWidget->setObjectName(u"mEmptyRoomWidget"_s);
     mStackedRoomWidget->addWidget(mEmptyRoomWidget);
 
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
@@ -81,7 +83,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
         const auto status = NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1StringView(RUQOLA_RELEASE_VERSION), QDate::currentDate());
         if (status != NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
             auto needUpdateVersionWidget = new NeedUpdateVersionWidget(this);
-            needUpdateVersionWidget->setObjectName(QStringLiteral("needUpdateVersionWidget"));
+            needUpdateVersionWidget->setObjectName(u"needUpdateVersionWidget"_s);
             mTopLayout->insertWidget(0, needUpdateVersionWidget);
             needUpdateVersionWidget->setObsoleteVersion(status);
         }
@@ -100,7 +102,7 @@ RuqolaMainWidget::~RuqolaMainWidget()
 void RuqolaMainWidget::createBannerMessageWidget()
 {
     mBannerMessageWidget = new BannerMessageWidget(this);
-    mBannerMessageWidget->setObjectName(QStringLiteral("mBannerMessageWidget"));
+    mBannerMessageWidget->setObjectName(u"mBannerMessageWidget"_s);
     mTopLayout->insertWidget(0, mBannerMessageWidget);
     connect(mBannerMessageWidget, &BannerMessageWidget::infoWasRead, this, &RuqolaMainWidget::slotMarkBannerAsRead);
 }
@@ -194,13 +196,13 @@ void RuqolaMainWidget::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
 
     // HACK: beautify the GUI by aligning a couple of items
-    auto searchRoom = mChannelList->findChild<QWidget *>(QStringLiteral("mSearchRoom"));
+    auto searchRoom = mChannelList->findChild<QWidget *>(u"mSearchRoom"_s);
     if (!searchRoom) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mSearchRoom" << searchRoom;
         return;
     }
 
-    auto messageLine = mRoomWidget->findChild<QWidget *>(QStringLiteral("mMessageLineWidget"));
+    auto messageLine = mRoomWidget->findChild<QWidget *>(u"mMessageLineWidget"_s);
     if (!messageLine) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mMessageLineWidget" << messageLine;
         return;

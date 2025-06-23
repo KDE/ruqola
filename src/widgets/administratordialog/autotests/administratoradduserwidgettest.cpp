@@ -5,6 +5,8 @@
 */
 
 #include "administratoradduserwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/users/administratoradduserwidget.h"
 #include "misc/rolescombobox.h"
 #include <KPasswordLineEdit>
@@ -21,51 +23,51 @@ AdministratorAddUserWidgetTest::AdministratorAddUserWidgetTest(QObject *parent)
 void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorAddUserWidget w(nullptr);
-    auto formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
+    auto formLayout = w.findChild<QFormLayout *>(u"formLayout"_s);
     QVERIFY(formLayout);
-    auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    auto mName = w.findChild<QLineEdit *>(u"mName"_s);
     QVERIFY(mName);
     QVERIFY(mName->text().isEmpty());
 
-    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
 
-    auto mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    auto mEmail = w.findChild<QLineEdit *>(u"mEmail"_s);
     QVERIFY(mEmail);
     QVERIFY(mEmail->text().isEmpty());
 
-    auto mStatusText = w.findChild<QLineEdit *>(QStringLiteral("mStatusText"));
+    auto mStatusText = w.findChild<QLineEdit *>(u"mStatusText"_s);
     QVERIFY(mStatusText);
     QVERIFY(mStatusText->text().isEmpty());
 
-    auto mNickName = w.findChild<QLineEdit *>(QStringLiteral("mNickName"));
+    auto mNickName = w.findChild<QLineEdit *>(u"mNickName"_s);
     QVERIFY(mNickName);
     QVERIFY(mNickName->text().isEmpty());
 
-    auto mSendWelcomeEmails = w.findChild<QCheckBox *>(QStringLiteral("mSendWelcomeEmails"));
+    auto mSendWelcomeEmails = w.findChild<QCheckBox *>(u"mSendWelcomeEmails"_s);
     QVERIFY(mSendWelcomeEmails);
     QVERIFY(!mSendWelcomeEmails->text().isEmpty());
     QVERIFY(!mSendWelcomeEmails->isChecked());
 
-    auto mRequirePassword = w.findChild<QCheckBox *>(QStringLiteral("mRequirePassword"));
+    auto mRequirePassword = w.findChild<QCheckBox *>(u"mRequirePassword"_s);
     QVERIFY(mRequirePassword);
     QVERIFY(!mRequirePassword->text().isEmpty());
     QVERIFY(!mRequirePassword->isChecked());
 
-    auto mSetRandowPassword = w.findChild<QCheckBox *>(QStringLiteral("mSetRandowPassword"));
+    auto mSetRandowPassword = w.findChild<QCheckBox *>(u"mSetRandowPassword"_s);
     QVERIFY(mSetRandowPassword);
     QVERIFY(!mSetRandowPassword->text().isEmpty());
     QVERIFY(!mSetRandowPassword->isChecked());
 
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
     QVERIFY(mPasswordLineEdit);
     QVERIFY(mPasswordLineEdit->password().isEmpty());
 
-    auto mRolesComboBox = w.findChild<RolesComboBox *>(QStringLiteral("mRolesComboBox"));
+    auto mRolesComboBox = w.findChild<RolesComboBox *>(u"mRolesComboBox"_s);
     QVERIFY(mRolesComboBox);
 
-    auto mEmailVerified = w.findChild<QCheckBox *>(QStringLiteral("mEmailVerified"));
+    auto mEmailVerified = w.findChild<QCheckBox *>(u"mEmailVerified"_s);
     QVERIFY(mEmailVerified);
     QVERIFY(!mEmailVerified->text().isEmpty());
     QVERIFY(!mEmailVerified->isChecked());

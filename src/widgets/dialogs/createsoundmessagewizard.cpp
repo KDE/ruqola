@@ -5,6 +5,8 @@
 */
 
 #include "createsoundmessagewizard.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "createsoundmessagewidget.h"
 #include "playsoundwidget.h"
 #include <KLineEditEventHandler>
@@ -58,9 +60,9 @@ CreateSoundMessagePage::CreateSoundMessagePage(QWidget *parent)
     , mCreateSoundMessageWidget(new CreateSoundMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateSoundMessageWidget->setObjectName(QStringLiteral("mCreateSoundMessageWidget"));
+    mCreateSoundMessageWidget->setObjectName(u"mCreateSoundMessageWidget"_s);
     mainLayout->addWidget(mCreateSoundMessageWidget);
     connect(mCreateSoundMessageWidget, &CreateSoundMessageWidget::recordDone, this, &CreateSoundMessagePage::completeChanged);
 }
@@ -99,18 +101,18 @@ GenerateSoundMessagePage::GenerateSoundMessagePage(RocketChatAccount *account, Q
     , mDescription(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mShowSoundWidget->setObjectName(QStringLiteral("mShowSoundWidget"));
+    mShowSoundWidget->setObjectName(u"mShowSoundWidget"_s);
     mainLayout->addWidget(mShowSoundWidget);
 
     auto label = new QLabel(i18nc("@label:textbox", "Filename:"), this);
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
-    mFileName->setObjectName(QStringLiteral("mFileName"));
+    mFileName->setObjectName(u"mFileName"_s);
 
-    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setObjectName(u"mDescription"_s);
 
     mainLayout->addWidget(mFileName);
 

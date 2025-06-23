@@ -5,6 +5,8 @@
 */
 
 #include "commandpreviewwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "commandpreviewimagedelegate.h"
 #include "commands/previewcommandutils.h"
 #include "connection.h"
@@ -27,15 +29,15 @@ CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
     , mCommandPreviewLoadingWidget(new CommandPreviewLoadingWidget(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mStackWidget->setObjectName(QStringLiteral("mStackWidget"));
+    mStackWidget->setObjectName(u"mStackWidget"_s);
     mainLayout->addWidget(mStackWidget);
 
-    mCommandPreviewLoadingWidget->setObjectName(QStringLiteral("mCommandPreviewLoadingWidget"));
+    mCommandPreviewLoadingWidget->setObjectName(u"mCommandPreviewLoadingWidget"_s);
 
-    mListView->setObjectName(QStringLiteral("mListView"));
+    mListView->setObjectName(u"mListView"_s);
     mListView->setViewMode(QListView::IconMode);
     mListView->setFlow(QListView::LeftToRight);
     mListView->setResizeMode(QListView::Adjust);
@@ -130,15 +132,15 @@ CommandPreviewLoadingWidget::CommandPreviewLoadingWidget(QWidget *parent)
     , mBusyIndicator(new KBusyIndicatorWidget(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mBusyIndicator->setMaximumHeight(30);
 
-    mBusyIndicator->setObjectName(QStringLiteral("mBusyIndicator"));
+    mBusyIndicator->setObjectName(u"mBusyIndicator"_s);
     mainLayout->addWidget(mBusyIndicator, 0, Qt::AlignTop);
 
     auto label = new QLabel(i18n("Loading…"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     QFont f = label->font();
     f.setBold(true);
     f.setItalic(true);

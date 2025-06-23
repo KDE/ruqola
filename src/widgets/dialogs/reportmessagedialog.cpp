@@ -5,6 +5,8 @@
 */
 
 #include "reportmessagedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "reportmessagewidget.h"
 
 #include <KConfigGroup>
@@ -25,14 +27,14 @@ ReportMessageDialog::ReportMessageDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Report Message"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mReportMessageWidget->setObjectName(QStringLiteral("mReportMessageWidget"));
+    mReportMessageWidget->setObjectName(u"mReportMessageWidget"_s);
     mainLayout->addWidget(mReportMessageWidget);
     mainLayout->addStretch(1);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &ReportMessageDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &ReportMessageDialog::reject);

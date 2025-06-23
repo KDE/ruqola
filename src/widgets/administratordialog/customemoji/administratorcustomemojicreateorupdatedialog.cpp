@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomemojicreateorupdatedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -24,13 +26,13 @@ AdministratorCustomEmojiCreateOrUpdateDialog::AdministratorCustomEmojiCreateOrUp
 {
     setWindowTitle(i18nc("@title:window", "Configure Custom Emoji"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
+    mCreateWidget->setObjectName(u"mCreateWidget"_s);
     mainLayout->addWidget(mCreateWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomEmojiCreateOrUpdateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomEmojiCreateOrUpdateDialog::accept);

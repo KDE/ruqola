@@ -5,6 +5,8 @@
 */
 
 #include "administratorinviteswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/invites/administratorinviteswidget.h"
 #include "administratordialog/invites/invitetreeview.h"
 #include <QLineEdit>
@@ -19,14 +21,14 @@ AdministratorInvitesWidgetTest::AdministratorInvitesWidgetTest(QObject *parent)
 void AdministratorInvitesWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorInvitesWidget d(nullptr);
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
-    auto mSearchLineWidget = d.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
+    auto mSearchLineWidget = d.findChild<QLineEdit *>(u"mSearchLineWidget"_s);
     QVERIFY(mSearchLineWidget);
     QVERIFY(mSearchLineWidget->text().isEmpty());
     QVERIFY(!mSearchLineWidget->placeholderText().isEmpty());
 
-    auto mInviteTreeView = d.findChild<InviteTreeView *>(QStringLiteral("mInviteTreeWidget"));
+    auto mInviteTreeView = d.findChild<InviteTreeView *>(u"mInviteTreeWidget"_s);
     QVERIFY(mInviteTreeView);
 }
 

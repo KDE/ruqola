@@ -5,6 +5,8 @@
 */
 
 #include "videoconferencenotificationjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "ruqola_videoconference_core_debug.h"
 #include <KLocalizedString>
@@ -41,16 +43,16 @@ void VideoConferenceNotificationJob::start()
 
 QString VideoConferenceNotificationJob::generateText() const
 {
-    const QString str = mRocketChatAccount->accountName() + QLatin1Char('\n');
+    const QString str = mRocketChatAccount->accountName() + u'\n';
     // Add user name!
     return str;
 }
 
 void VideoConferenceNotificationJob::inComingCall()
 {
-    auto notification = new KNotification(QStringLiteral("VideoConference-Incoming"), KNotification::CloseOnTimeout);
+    auto notification = new KNotification(u"VideoConference-Incoming"_s, KNotification::CloseOnTimeout);
     notification->setTitle(i18n("InComing Call"));
-    // notification->setIconName(QStringLiteral("network-connect"));
+    // notification->setIconName(u"network-connect"_s);
     notification->setText(generateText());
 
     auto acceptAction = notification->addAction(i18n("Accept"));

@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "webdavsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -12,8 +14,8 @@ WebDavSettingsWidget::WebDavSettingsWidget(RocketChatAccount *account, QWidget *
     : SettingsWidgetBase(account, parent)
     , mEnabled(new QCheckBox(i18nc("@option:check", "Webdav Integration Enabled"), this))
 {
-    mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    addCheckBox(mEnabled, QStringLiteral("Webdav_Integration_Enabled"));
+    mEnabled->setObjectName(u"mEnabled"_s);
+    addCheckBox(mEnabled, u"Webdav_Integration_Enabled"_s);
 }
 
 WebDavSettingsWidget::~WebDavSettingsWidget() = default;

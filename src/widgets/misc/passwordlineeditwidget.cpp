@@ -5,6 +5,8 @@
 */
 
 #include "passwordlineeditwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/resetpassworddialog.h"
 #include <KAuthorized>
 #include <KLineEditEventHandler>
@@ -20,15 +22,15 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     , mResetPasswordButton(new QPushButton(i18nc("@action:button", "Reset Password"), this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                : KPassword::RevealMode::Never);
+    mPasswordLineEdit->setObjectName(u"mPasswordLineEdit"_s);
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                   : KPassword::RevealMode::Never);
     mainLayout->addWidget(mPasswordLineEdit);
 
-    mResetPasswordButton->setObjectName(QStringLiteral("mResetPasswordButton"));
+    mResetPasswordButton->setObjectName(u"mResetPasswordButton"_s);
     mainLayout->addWidget(mPasswordLineEdit);
     mainLayout->addWidget(mResetPasswordButton);
     KLineEditEventHandler::catchReturnKey(mPasswordLineEdit->lineEdit());

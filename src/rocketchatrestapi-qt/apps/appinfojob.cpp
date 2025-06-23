@@ -92,7 +92,7 @@ QString AppInfoJob::generateUrlExtension() const
 {
     QString url;
     if (!mAppsId.isEmpty()) {
-        url += QString::fromLatin1(mAppsId) + QLatin1Char('/');
+        url += QString::fromLatin1(mAppsId) + u'/';
     }
 
     switch (mAppInfoType) {
@@ -100,22 +100,22 @@ QString AppInfoJob::generateUrlExtension() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown type";
         break;
     case AppInfoType::Versions:
-        url += QStringLiteral("versions");
+        url += u"versions"_s;
         break;
     case AppInfoType::Logs:
-        url += QStringLiteral("logs");
+        url += u"logs"_s;
         break;
     case AppInfoType::Apis:
-        url += QStringLiteral("apis");
+        url += u"apis"_s;
         break;
     case AppInfoType::Languages:
-        url += QStringLiteral("languages");
+        url += u"languages"_s;
         break;
     case AppInfoType::ScreenShots:
-        url += QStringLiteral("screenshots");
+        url += u"screenshots"_s;
         break;
     case AppInfoType::Settings:
-        url += QStringLiteral("settings");
+        url += u"settings"_s;
         break;
     }
     return url;

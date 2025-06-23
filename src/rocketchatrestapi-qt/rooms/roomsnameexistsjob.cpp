@@ -76,7 +76,7 @@ QNetworkRequest RoomsNameExistsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsNameExists);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomName"), mRoomName);
+    queryUrl.addQueryItem(u"roomName"_s, mRoomName);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

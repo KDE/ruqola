@@ -91,8 +91,8 @@ QNetworkRequest OauthAppsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::OauthAppsGet);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("clientId"), mClientId);
-    queryUrl.addQueryItem(QStringLiteral("appId"), mAppId);
+    queryUrl.addQueryItem(u"clientId"_s, mClientId);
+    queryUrl.addQueryItem(u"appId"_s, mAppId);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

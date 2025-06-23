@@ -5,6 +5,8 @@
 */
 
 #include "moderationusersdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "moderationuserswidget.h"
 #include "rocketchataccount.h"
 
@@ -26,13 +28,13 @@ ModerationUsersDialog::ModerationUsersDialog(RocketChatAccount *account, QWidget
 {
     setWindowTitle(i18nc("@title:window", "Show Moderation Users"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mModerationUsersWidget->setObjectName(QStringLiteral("mModerationUsersWidget"));
+    mModerationUsersWidget->setObjectName(u"mModerationUsersWidget"_s);
     mainLayout->addWidget(mModerationUsersWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ModerationUsersDialog::reject);
     readConfig();

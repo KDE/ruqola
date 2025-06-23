@@ -5,6 +5,8 @@
 */
 
 #include "roleupdatejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "role/roleupdatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -28,18 +30,18 @@ void RoleUpdateJobTest::shouldGenerateRequest()
     RoleUpdateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.update")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/roles.update"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void RoleUpdateJobTest::shouldGenerateJson()
 {
     RoleUpdateJob job;
 
-    const QString name = QStringLiteral("foo1");
-    const QString description = QStringLiteral("topic1");
-    const QString scope = QStringLiteral("Users");
-    const QString roleId = QStringLiteral("BLABLA");
+    const QString name = u"foo1"_s;
+    const QString description = u"topic1"_s;
+    const QString scope = u"Users"_s;
+    const QString roleId = u"BLABLA"_s;
     RoleUpdateJob::RoleUpdateInfo info;
     info.name = name;
     info.description = description;
@@ -56,29 +58,29 @@ void RoleUpdateJobTest::shouldNotStarting()
     RoleUpdateJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
     RoleUpdateJob::RoleUpdateInfo info;
-    info.name = QStringLiteral("foo");
+    info.name = u"foo"_s;
     job.setUpdateRoleInfo(info);
     QVERIFY(!job.canStart());
-    info.description = QStringLiteral("bla");
+    info.description = u"bla"_s;
     job.setUpdateRoleInfo(info);
     QVERIFY(!job.canStart());
-    info.scope = QStringLiteral("bli");
+    info.scope = u"bli"_s;
     job.setUpdateRoleInfo(info);
     QVERIFY(!job.canStart());
-    info.identifier = QStringLiteral("bl");
+    info.identifier = u"bl"_s;
     job.setUpdateRoleInfo(info);
     QVERIFY(job.canStart());
 }

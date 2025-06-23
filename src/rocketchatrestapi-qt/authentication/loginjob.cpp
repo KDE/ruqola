@@ -91,13 +91,13 @@ QJsonDocument LoginJob::json() const
 {
     QVariantMap loginMap;
     if (mResume.isEmpty()) {
-        loginMap.insert(QStringLiteral("user"), mUserName);
-        loginMap.insert(QStringLiteral("password"), mPassword);
+        loginMap.insert(u"user"_s, mUserName);
+        loginMap.insert(u"password"_s, mPassword);
         if (!mCode.isEmpty()) {
-            loginMap.insert(QStringLiteral("code"), mCode);
+            loginMap.insert(u"code"_s, mCode);
         }
     } else {
-        loginMap.insert(QStringLiteral("resume"), mResume);
+        loginMap.insert(u"resume"_s, mResume);
     }
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
@@ -107,7 +107,7 @@ QNetworkRequest LoginJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Login);
     QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, u"application/json"_s);
     return request;
 }
 

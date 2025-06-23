@@ -5,6 +5,8 @@
 */
 
 #include "teamconverttochannelwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teams/teamconverttochannelwidget.h"
 #include <QLabel>
 #include <QTest>
@@ -19,11 +21,11 @@ void TeamConvertToChannelWidgetTest::shouldHaveDefaultValues()
 {
     TeamConvertToChannelWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto deleteLabel = w.findChild<QLabel *>(QStringLiteral("deleteLabel"));
+    auto deleteLabel = w.findChild<QLabel *>(u"deleteLabel"_s);
     QVERIFY(deleteLabel);
     QVERIFY(!deleteLabel->text().isEmpty());
     QVERIFY(deleteLabel->wordWrap());

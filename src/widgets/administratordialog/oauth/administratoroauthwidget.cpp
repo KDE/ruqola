@@ -28,18 +28,18 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     , mAdminOauthModel(new AdminOauthModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mSearchLineWidget->setObjectName(u"mSearchLineWidget"_s);
     mainLayout->addWidget(mSearchLineWidget);
     mSearchLineWidget->setPlaceholderText(i18nc("@info:placeholder", "Search Oauth apps…"));
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
-    mOauthTreeWidget->setObjectName(QStringLiteral("mOauthTreeWidget"));
+    mOauthTreeWidget->setObjectName(u"mOauthTreeWidget"_s);
     mainLayout->addWidget(mOauthTreeWidget);
     mAdminInviteFilterProxyModel = new AdministratorOauthFilterProxyModel(mAdminOauthModel, this);
-    mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
+    mAdminInviteFilterProxyModel->setObjectName(u"mAdminInviteFilterProxyModel"_s);
     mOauthTreeWidget->setModel(mAdminInviteFilterProxyModel);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorOauthWidget::slotTextChanged);
     connect(mOauthTreeWidget, &OauthTreeView::removeOauth, this, &AdministratorOauthWidget::slotRemoveOauth);

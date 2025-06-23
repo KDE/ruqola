@@ -5,6 +5,7 @@
 */
 
 #include "uploadfileprogressstatuswidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
@@ -20,18 +21,18 @@ UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
     , mCancelToolButton(new QToolButton(this))
 {
     auto hboxLayout = new QHBoxLayout(this);
-    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setObjectName(u"hboxLayout"_s);
     hboxLayout->setContentsMargins({});
 
-    mFileName->setObjectName(QStringLiteral("mFileName"));
+    mFileName->setObjectName(u"mFileName"_s);
     hboxLayout->addWidget(mFileName);
 
-    mProgressBar->setObjectName(QStringLiteral("mProgressBar"));
+    mProgressBar->setObjectName(u"mProgressBar"_s);
     mProgressBar->setRange(0, 100);
     mProgressBar->setFormat(i18nc("Percent value; %p is the value, % is the percent sign", "%p%"));
 
-    mCancelToolButton->setObjectName(QStringLiteral("mCancelToolButton"));
-    mCancelToolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
+    mCancelToolButton->setObjectName(u"mCancelToolButton"_s);
+    mCancelToolButton->setIcon(QIcon::fromTheme(u"dialog-cancel"_s));
     mCancelToolButton->setToolTip(i18nc("@info:tooltip", "Cancel Upload"));
     connect(mCancelToolButton, &QToolButton::clicked, this, [this] {
         Q_EMIT cancelUpload(mIdentifier);

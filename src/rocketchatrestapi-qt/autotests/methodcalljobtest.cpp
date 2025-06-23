@@ -5,6 +5,8 @@
 */
 
 #include "methodcalljobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/methodcalljob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -32,37 +34,37 @@ void MethodCallJobTest::shouldGenerateRequest()
     MethodCallJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.call")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/method.call"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
     MethodCallJob::MethodCallJobInfo info;
-    info.methodName = QStringLiteral("login");
+    info.methodName = u"login"_s;
     info.anonymous = true;
     job.setMethodCallJobInfo(info);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.callAnon/login")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/method.callAnon/login"_s));
 }
 
 void MethodCallJobTest::shouldGenerateJson()
 {
     MethodCallJob job;
     MethodCallJob::MethodCallJobInfo info;
-    info.methodName = QStringLiteral("login");
+    info.methodName = u"login"_s;
     info.anonymous = true;
     job.setMethodCallJobInfo(info);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"{}"})").toLatin1());
 
     QVariantMap map;
-    map.insert(QStringLiteral("msg"), QStringLiteral("method"));
-    map.insert(QStringLiteral("id"), QStringLiteral("52"));
-    map.insert(QStringLiteral("method"), QStringLiteral("login"));
+    map.insert(u"msg"_s, u"method"_s);
+    map.insert(u"id"_s, u"52"_s);
+    map.insert(u"method"_s, u"login"_s);
     info.messageObj = QJsonObject::fromVariantMap(map);
-    info.methodName = QStringLiteral("login");
+    info.methodName = u"login"_s;
     info.anonymous = true;
     job.setMethodCallJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"message\":\"{\\\"id\\\":\\\"52\\\",\\\"method\\\":\\\"login\\\",\\\"msg\\\":\\\"method\\\"}\"}").toLatin1());
+             u"{\"message\":\"{\\\"id\\\":\\\"52\\\",\\\"method\\\":\\\"login\\\",\\\"msg\\\":\\\"method\\\"}\"}"_s.toLatin1());
 }
 
 void MethodCallJobTest::shouldNotStarting()
@@ -70,14 +72,14 @@ void MethodCallJobTest::shouldNotStarting()
     MethodCallJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);

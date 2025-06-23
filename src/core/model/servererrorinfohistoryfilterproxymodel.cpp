@@ -5,6 +5,8 @@
 */
 
 #include "servererrorinfohistoryfilterproxymodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #include "servererrorinfohistorymodel.h"
 

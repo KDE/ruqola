@@ -5,6 +5,8 @@
 */
 
 #include "previewscommandjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "commands/previewscommandjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -30,16 +32,16 @@ void PreviewsCommandJobTest::shouldGenerateRequest()
     PreviewsCommandJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/commands.preview")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/commands.preview"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void PreviewsCommandJobTest::shouldGenerateJson()
 {
     PreviewsCommandJob job;
     PreviewsCommandJob::PreviewsCommandInfo info;
-    info.commandName = QStringLiteral("command1");
-    info.roomId = QStringLiteral("room1");
+    info.commandName = u"command1"_s;
+    info.roomId = u"room1"_s;
     job.setPreviewsCommandInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"command":"%1","roomId":"%2"})").arg(info.commandName, info.roomId).toLatin1());
 }
@@ -49,23 +51,23 @@ void PreviewsCommandJobTest::shouldNotStarting()
     PreviewsCommandJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     PreviewsCommandJob::PreviewsCommandInfo info;
-    info.commandName = QStringLiteral("command1");
+    info.commandName = u"command1"_s;
     job.setPreviewsCommandInfo(info);
     QVERIFY(!job.canStart());
-    info.roomId = QStringLiteral("room1");
+    info.roomId = u"room1"_s;
     job.setPreviewsCommandInfo(info);
     QVERIFY(job.canStart());
 }

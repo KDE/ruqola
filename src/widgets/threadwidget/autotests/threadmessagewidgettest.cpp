@@ -5,6 +5,8 @@
 */
 
 #include "threadmessagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
 #include "room/roomwidgetbase.h"
@@ -31,24 +33,24 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!info.room);
 
     ThreadMessageWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
+    auto mThreadPreview = w.findChild<QLabel *>(u"mThreadPreview"_s);
     QVERIFY(mThreadPreview);
     QVERIFY(mThreadPreview->wordWrap());
     QCOMPARE(mThreadPreview->contextMenuPolicy(), Qt::NoContextMenu);
     QVERIFY(mThreadPreview->text().isEmpty());
 
-    auto mRoomWidgetBase = w.findChild<RoomWidgetBase *>(QStringLiteral("mRoomWidgetBase"));
+    auto mRoomWidgetBase = w.findChild<RoomWidgetBase *>(u"mRoomWidgetBase"_s);
     QVERIFY(mRoomWidgetBase);
 
-    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    auto hboxLayout = w.findChild<QHBoxLayout *>(u"hboxLayout"_s);
     QVERIFY(hboxLayout);
     QCOMPARE(hboxLayout->contentsMargins(), QMargins());
 
-    auto mFollowButton = w.findChild<QToolButton *>(QStringLiteral("mFollowButton"));
+    auto mFollowButton = w.findChild<QToolButton *>(u"mFollowButton"_s);
     QVERIFY(mFollowButton);
     QVERIFY(mFollowButton->autoRaise());
     QVERIFY(mFollowButton->isCheckable());
@@ -57,8 +59,8 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 void ThreadMessageWidgetTest::shouldChangeThreadPreview()
 {
     ThreadMessageWidget w(nullptr);
-    auto mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
-    const QString threadPreview{QStringLiteral("bla")};
+    auto mThreadPreview = w.findChild<QLabel *>(u"mThreadPreview"_s);
+    const QString threadPreview{u"bla"_s};
     ThreadMessageWidget::ThreadMessageInfo info;
     info.threadMessagePreview = threadPreview;
 

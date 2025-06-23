@@ -5,6 +5,8 @@
 */
 
 #include "configuregeneralwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolaglobalconfig.h"
 #include <KLocalizedString>
 #include <QCheckBox>
@@ -26,37 +28,37 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mSetOnlineForAllAccount->setObjectName(QStringLiteral("mSetOnlineForAllAccount"));
+    mSetOnlineForAllAccount->setObjectName(u"mSetOnlineForAllAccount"_s);
     mainLayout->addWidget(mSetOnlineForAllAccount);
 
-    mShowImageByDefault->setObjectName(QStringLiteral("mShowImageByDefault"));
+    mShowImageByDefault->setObjectName(u"mShowImageByDefault"_s);
     mainLayout->addWidget(mShowImageByDefault);
 
-    mShowPreviewUrlByDefault->setObjectName(QStringLiteral("mShowPreviewUrlByDefault"));
+    mShowPreviewUrlByDefault->setObjectName(u"mShowPreviewUrlByDefault"_s);
     mainLayout->addWidget(mShowPreviewUrlByDefault);
 
-    mMarkAsReadOnTextClicked->setObjectName(QStringLiteral("mMarkAsReadOnTextClicked"));
+    mMarkAsReadOnTextClicked->setObjectName(u"mMarkAsReadOnTextClicked"_s);
     mainLayout->addWidget(mMarkAsReadOnTextClicked);
 
-    mEnableSystemTray->setObjectName(QStringLiteral("mEnableSystemTray"));
+    mEnableSystemTray->setObjectName(u"mEnableSystemTray"_s);
     mainLayout->addWidget(mEnableSystemTray);
 
-    mEnableLogging->setObjectName(QStringLiteral("mEnableLogging"));
+    mEnableLogging->setObjectName(u"mEnableLogging"_s);
     mainLayout->addWidget(mEnableLogging);
 
-    mShowHoverHightLights->setObjectName(QStringLiteral("mShowHoverHightLights"));
+    mShowHoverHightLights->setObjectName(u"mShowHoverHightLights"_s);
     mainLayout->addWidget(mShowHoverHightLights);
 
-    mAnimateGif->setObjectName(QStringLiteral("mAnimateGif"));
+    mAnimateGif->setObjectName(u"mAnimateGif"_s);
     mainLayout->addWidget(mAnimateGif);
 
-    mStoreMessageInDataBase->setObjectName(QStringLiteral("mStoreMessageInDataBase"));
+    mStoreMessageInDataBase->setObjectName(u"mStoreMessageInDataBase"_s);
     mainLayout->addWidget(mStoreMessageInDataBase);
 
 #if HAVE_ACTIVITY_SUPPORT
-    mEnabledActivitySupport->setObjectName(QStringLiteral("mEnabledActivitySupport"));
+    mEnabledActivitySupport->setObjectName(u"mEnabledActivitySupport"_s);
     mainLayout->addWidget(mEnabledActivitySupport);
 #endif
 

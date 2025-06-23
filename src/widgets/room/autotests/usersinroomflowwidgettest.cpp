@@ -5,6 +5,8 @@
 */
 
 #include "usersinroomflowwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/flowlayout.h"
 #include "room/usersinroomflowwidget.h"
 #include <QTest>
@@ -18,7 +20,7 @@ UsersInRoomFlowWidgetTest::UsersInRoomFlowWidgetTest(QObject *parent)
 void UsersInRoomFlowWidgetTest::shouldHaveDefaultValues()
 {
     UsersInRoomFlowWidget w;
-    auto mFlowLayout = w.findChild<FlowLayout *>(QStringLiteral("mFlowLayout"));
+    auto mFlowLayout = w.findChild<FlowLayout *>(u"mFlowLayout"_s);
     QVERIFY(mFlowLayout);
     QCOMPARE(mFlowLayout->spacing(), 0);
     QCOMPARE(mFlowLayout->contentsMargins(), QMargins{});

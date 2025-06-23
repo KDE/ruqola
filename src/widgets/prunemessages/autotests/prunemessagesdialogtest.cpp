@@ -5,6 +5,8 @@
 */
 
 #include "prunemessagesdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "prunemessages/prunemessagesdialog.h"
 #include "prunemessages/prunemessageswidget.h"
 #include <QDialogButtonBox>
@@ -24,13 +26,13 @@ void PruneMessagesDialogTest::shouldHaveDefaultValues()
     PruneMessagesDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mPruneMessageWidget = d.findChild<PruneMessagesWidget *>(QStringLiteral("mPruneMessageWidget"));
+    auto mPruneMessageWidget = d.findChild<PruneMessagesWidget *>(u"mPruneMessageWidget"_s);
     QVERIFY(mPruneMessageWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

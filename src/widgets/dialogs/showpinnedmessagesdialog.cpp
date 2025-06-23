@@ -5,6 +5,8 @@
 */
 
 #include "showpinnedmessagesdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 
 #include <KConfigGroup>
@@ -20,7 +22,7 @@ static const char myShowPinnedMessagesDialogGroupName[] = "ShowPinnedMessagesDia
 ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : ShowListMessageBaseDialog(account, parent)
 {
-    setWindowTitle(i18nc("@title:window", "Show Pinned Messages - %1", account ? account->accountName() : QStringLiteral("AccountName")));
+    setWindowTitle(i18nc("@title:window", "Show Pinned Messages - %1", account ? account->accountName() : u"AccountName"_s));
     readConfig();
 }
 

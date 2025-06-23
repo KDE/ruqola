@@ -5,6 +5,8 @@
 */
 
 #include "invitetreeview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/admininvitemodel.h"
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -36,7 +38,7 @@ void InviteTreeView::slotCustomContextMenuRequested(const QPoint &pos)
     const QModelIndex index = indexAt(pos);
     if (index.isValid()) {
         QMenu menu(this);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, index]() {
             const QModelIndex modelIndex = model()->index(index.row(), AdminInviteModel::Identifier);
             removeClicked(modelIndex.data().toByteArray());
         });

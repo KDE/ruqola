@@ -5,6 +5,8 @@
 */
 
 #include "myaccount2fatotpwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
 #include <KLineEditEventHandler>
@@ -27,35 +29,35 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTotpQrCode->setObjectName(QStringLiteral("mTotpQrCode"));
+    mTotpQrCode->setObjectName(u"mTotpQrCode"_s);
     mainLayout->addWidget(mTotpQrCode);
     auto label = new QLabel(i18nc("@label:textbox",
                                   "Scan the QR code. It will display a 6 digit code which you need to enter below."
                                   "\n If you can't scan the QR code, you may enter code manually instead:"),
                             this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 
-    mQrCoreLabel->setObjectName(QStringLiteral("mQrCoreLabel"));
+    mQrCoreLabel->setObjectName(u"mQrCoreLabel"_s);
     mainLayout->addWidget(mQrCoreLabel);
     mQrCoreLabel->setTextFormat(Qt::PlainText);
     mQrCoreLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
     auto hboxLayout = new QHBoxLayout;
-    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setObjectName(u"hboxLayout"_s);
     hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
 
-    mVerifyQrCode->setObjectName(QStringLiteral("mVerifyQrCode"));
+    mVerifyQrCode->setObjectName(u"mVerifyQrCode"_s);
     mVerifyQrCode->setPlaceholderText(i18nc("@info:placeholder", "Enter authentication code"));
     KLineEditEventHandler::catchReturnKey(mVerifyQrCode);
     hboxLayout->addWidget(mVerifyQrCode);
 
     auto verifyButton = new QPushButton(i18nc("@action:button", "Verify"), this);
-    verifyButton->setObjectName(QStringLiteral("verifyButton"));
+    verifyButton->setObjectName(u"verifyButton"_s);
     hboxLayout->addWidget(verifyButton);
     verifyButton->setEnabled(false);
     connect(verifyButton, &QPushButton::clicked, this, &MyAccount2FaTotpWidget::slotVerify);
@@ -78,7 +80,7 @@ void MyAccount2FaTotpWidget::slotTotpValid(const QStringList &listCodes)
     KMessageBox::information(
         this,
         i18n("Make sure you have a copy of your codes:\n%1\nIf you lose access to your authenticator app, you can use one of these codes to log in.",
-             listCodes.join(QLatin1Char('\n'))),
+             listCodes.join(u'\n')),
         i18nc("@title:window", "Backup Codes"));
     setVisible(false); // Hide it.
 }

@@ -32,22 +32,22 @@ void RoleInfoTest::shouldLoadRoles_data()
         RoleInfo r;
         r.setMandatory2fa(false);
         r.setRoleProtected(true);
-        r.setName(QStringLiteral("app"));
-        r.setScope(QStringLiteral("Users"));
-        r.setIdentifier(QStringLiteral("app"));
+        r.setName(u"app"_s);
+        r.setScope(u"Users"_s);
+        r.setIdentifier(u"app"_s);
 
-        QTest::addRow("roleinfo1") << QStringLiteral("roleinfo1") << r;
+        QTest::addRow("roleinfo1") << u"roleinfo1"_s << r;
     }
     {
         RoleInfo r;
         r.setMandatory2fa(false);
         r.setRoleProtected(true);
-        r.setDescription(QStringLiteral("Livechat Manager"));
-        r.setName(QStringLiteral("livechat-manager"));
-        r.setScope(QStringLiteral("Users"));
-        r.setIdentifier(QStringLiteral("livechat-manager"));
+        r.setDescription(u"Livechat Manager"_s);
+        r.setName(u"livechat-manager"_s);
+        r.setScope(u"Users"_s);
+        r.setIdentifier(u"livechat-manager"_s);
 
-        QTest::addRow("roleinfo2") << QStringLiteral("roleinfo2") << r;
+        QTest::addRow("roleinfo2") << u"roleinfo2"_s << r;
     }
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "exportmessagesdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exportmessages/exportmessagesdialog.h"
 #include "exportmessages/exportmessageswidget.h"
 #include <QDialogButtonBox>
@@ -24,13 +26,13 @@ void ExportMessagesDialogTest::shouldHaveDefaultValues()
     ExportMessagesDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mExportMessagesWidget = d.findChild<ExportMessagesWidget *>(QStringLiteral("mExportMessagesWidget"));
+    auto mExportMessagesWidget = d.findChild<ExportMessagesWidget *>(u"mExportMessagesWidget"_s);
     QVERIFY(mExportMessagesWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
     QVERIFY(!d.roomExportInfo().isValid());

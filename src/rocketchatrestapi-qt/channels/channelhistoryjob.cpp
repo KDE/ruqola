@@ -100,22 +100,22 @@ QNetworkRequest ChannelHistoryJob::request() const
 
     QUrlQuery queryUrl;
     if (!mChannelHistoryInfo.roomId.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(mChannelHistoryInfo.roomId));
+        queryUrl.addQueryItem(u"roomId"_s, QLatin1StringView(mChannelHistoryInfo.roomId));
     }
     if (!mChannelHistoryInfo.latestMessage.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("latest"), mChannelHistoryInfo.latestMessage);
+        queryUrl.addQueryItem(u"latest"_s, mChannelHistoryInfo.latestMessage);
     }
     if (!mChannelHistoryInfo.oldestMessage.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("oldest"), mChannelHistoryInfo.oldestMessage);
+        queryUrl.addQueryItem(u"oldest"_s, mChannelHistoryInfo.oldestMessage);
     }
     if (mChannelHistoryInfo.offset > 0) {
-        queryUrl.addQueryItem(QStringLiteral("offset"), QString::number(mChannelHistoryInfo.offset));
+        queryUrl.addQueryItem(u"offset"_s, QString::number(mChannelHistoryInfo.offset));
     }
     if (mChannelHistoryInfo.count > 0) {
-        queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mChannelHistoryInfo.count));
+        queryUrl.addQueryItem(u"count"_s, QString::number(mChannelHistoryInfo.count));
     }
-    queryUrl.addQueryItem(QStringLiteral("inclusive"), mChannelHistoryInfo.inclusive ? QStringLiteral("true") : QStringLiteral("false"));
-    queryUrl.addQueryItem(QStringLiteral("unreads"), mChannelHistoryInfo.unreads ? QStringLiteral("true") : QStringLiteral("false"));
+    queryUrl.addQueryItem(u"inclusive"_s, mChannelHistoryInfo.inclusive ? u"true"_s : QStringLiteral("false"));
+    queryUrl.addQueryItem(u"unreads"_s, mChannelHistoryInfo.unreads ? u"true"_s : QStringLiteral("false"));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

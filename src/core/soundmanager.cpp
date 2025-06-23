@@ -5,6 +5,7 @@
 */
 
 #include "soundmanager.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QAudioOutput>
 #include <QMediaPlayer>

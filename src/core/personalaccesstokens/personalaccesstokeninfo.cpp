@@ -27,7 +27,7 @@ void PersonalAccessTokenInfo::parsePersonalAccessTokenInfo(const QJsonObject &re
     mName = replyObject.value("name"_L1).toString();
     mLastTokenPart = replyObject.value("lastTokenPart"_L1).toString();
     mBypassTwoFactor = replyObject.value("bypassTwoFactor"_L1).toBool();
-    setCreatedAt(Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject));
+    setCreatedAt(Utils::parseIsoDate(u"createdAt"_s, replyObject));
 }
 
 qint64 PersonalAccessTokenInfo::createdAt() const

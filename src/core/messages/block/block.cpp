@@ -57,23 +57,23 @@ QString Block::convertEnumToStr(BlockType newBlockType)
     case BlockType::Unknown:
         return {};
     case BlockType::VideoConf:
-        return QStringLiteral("video_conf");
+        return u"video_conf"_s;
     case BlockType::Context:
-        return QStringLiteral("context");
+        return u"context"_s;
     case BlockType::Section:
-        return QStringLiteral("section");
+        return u"section"_s;
     case BlockType::Actions:
-        return QStringLiteral("actions");
+        return u"actions"_s;
     case BlockType::Divider:
-        return QStringLiteral("divider");
+        return u"divider"_s;
     case BlockType::Overflow:
-        return QStringLiteral("overflow");
+        return u"overflow"_s;
     case BlockType::Image:
-        return QStringLiteral("image");
+        return u"image"_s;
     case BlockType::Preview:
-        return QStringLiteral("preview");
+        return u"preview"_s;
     case BlockType::Callout:
-        return QStringLiteral("callout");
+        return u"callout"_s;
     }
     return {};
 }

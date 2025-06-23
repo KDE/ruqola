@@ -5,6 +5,8 @@
 */
 
 #include "notifierjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <KNotification>
@@ -21,7 +23,7 @@ NotifierJob::~NotifierJob() = default;
 void NotifierJob::start()
 {
     if (mInfo.isValid()) {
-        auto notification = new KNotification(QStringLiteral("new-notification"), KNotification::CloseOnTimeout);
+        auto notification = new KNotification(u"new-notification"_s, KNotification::CloseOnTimeout);
         notification->setTitle(mInfo.title());
         const QString userName = mInfo.senderName().isEmpty() ? mInfo.senderUserName() : mInfo.senderName();
         notification->setText(i18n("%1: %2", userName, mInfo.message().toHtmlEscaped()));

@@ -5,6 +5,8 @@
 */
 
 #include "createsoundmessagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/createsoundmessagewidget.h"
 #include <QComboBox>
 #include <QLabel>
@@ -23,23 +25,23 @@ void CreateSoundMessageWidgetTest::shouldHaveDefaultValues()
 #if 0
     CreateSoundMessageWidget *w = new CreateSoundMessageWidget(nullptr);
 
-    auto mainLayout = w->findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w->findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mDeviceComboBox = w->findChild<QComboBox *>(QStringLiteral("mDeviceComboBox"));
+    auto mDeviceComboBox = w->findChild<QComboBox *>(u"mDeviceComboBox"_s);
     QVERIFY(mDeviceComboBox);
 
-    auto mRecordButton = w->findChild<QToolButton *>(QStringLiteral("mRecordButton"));
+    auto mRecordButton = w->findChild<QToolButton *>(u"mRecordButton"_s);
     QVERIFY(mRecordButton);
 
-    auto mPauseButton = w->findChild<QToolButton *>(QStringLiteral("mPauseButton"));
+    auto mPauseButton = w->findChild<QToolButton *>(u"mPauseButton"_s);
     QVERIFY(mPauseButton);
 
-    auto mStopButton = w->findChild<QToolButton *>(QStringLiteral("mStopButton"));
+    auto mStopButton = w->findChild<QToolButton *>(u"mStopButton"_s);
     QVERIFY(mStopButton);
 
-    auto mLabelDuration = w->findChild<QLabel *>(QStringLiteral("mLabelDuration"));
+    auto mLabelDuration = w->findChild<QLabel *>(u"mLabelDuration"_s);
     QVERIFY(mLabelDuration);
     QCOMPARE(mLabelDuration->textFormat(), Qt::PlainText);
     w->deleteLater();

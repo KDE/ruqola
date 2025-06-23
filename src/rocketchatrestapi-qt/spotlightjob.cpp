@@ -63,7 +63,7 @@ QNetworkRequest SpotlightJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Spotlight);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("query"), mSearchPattern);
+    queryUrl.addQueryItem(u"query"_s, mSearchPattern);
     url.setQuery(queryUrl);
     QNetworkRequest req(url);
     addAuthRawHeader(req);

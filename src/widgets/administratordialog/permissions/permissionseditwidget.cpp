@@ -5,6 +5,8 @@
 */
 
 #include "permissionseditwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/rolescombobox.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
@@ -14,11 +16,11 @@ PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     , mRolesCombobox(new RolesComboBox(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     auto label = new QLabel(i18nc("@label:textbox", "Roles:"), this);
-    label->setObjectName(QStringLiteral("label"));
-    mRolesCombobox->setObjectName(QStringLiteral("mRolesCombobox"));
+    label->setObjectName(u"label"_s);
+    mRolesCombobox->setObjectName(u"mRolesCombobox"_s);
     mainLayout->addWidget(label);
     mainLayout->addWidget(mRolesCombobox, 1);
 }

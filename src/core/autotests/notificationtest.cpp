@@ -5,6 +5,8 @@
 */
 
 #include "notificationtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "notifications/notification.h"
 #include <QTest>
 QTEST_MAIN(NotificationTest)
@@ -24,21 +26,21 @@ void NotificationTest::shouldChangeStatus()
 {
     Notification w;
     // Notification
-    w.updateNotification(true, 3, QStringLiteral("foo"));
+    w.updateNotification(true, 3, u"foo"_s);
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
     // Clear it.
-    w.updateNotification(false, 0, QStringLiteral("foo"));
+    w.updateNotification(false, 0, u"foo"_s);
     QCOMPARE(w.status(), KStatusNotifierItem::Passive);
 
-    w.updateNotification(false, 0, QStringLiteral("Bla"));
+    w.updateNotification(false, 0, u"Bla"_s);
     QCOMPARE(w.status(), KStatusNotifierItem::Passive);
-    w.updateNotification(true, 0, QStringLiteral("Bla"));
+    w.updateNotification(true, 0, u"Bla"_s);
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
-    w.updateNotification(true, 3, QStringLiteral("Bla"));
+    w.updateNotification(true, 3, u"Bla"_s);
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
-    w.updateNotification(false, 3, QStringLiteral("Bla"));
+    w.updateNotification(false, 3, u"Bla"_s);
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
-    w.updateNotification(false, 0, QStringLiteral("Bla"));
+    w.updateNotification(false, 0, u"Bla"_s);
     QCOMPARE(w.status(), KStatusNotifierItem::Passive);
 }
 

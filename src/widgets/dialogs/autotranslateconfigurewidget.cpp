@@ -5,6 +5,8 @@
 */
 
 #include "autotranslateconfigurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "autotranslate/translatesavesettingsjob.h"
 #include "model/autotranslatelanguagesmodel.h"
 #include "rocketchataccount.h"
@@ -26,24 +28,24 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(RocketChatAccount *ac
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mAutoTranslate->setObjectName(QStringLiteral("mAutoTranslate"));
+    mAutoTranslate->setObjectName(u"mAutoTranslate"_s);
     mainLayout->addWidget(mAutoTranslate);
     connect(mAutoTranslate, &QCheckBox::clicked, this, &AutoTranslateConfigureWidget::slotChangeAutoTranslate);
 
     auto horizontalLayout = new QHBoxLayout;
-    horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+    horizontalLayout->setObjectName(u"horizontalLayout"_s);
     horizontalLayout->setContentsMargins({});
     mainLayout->addLayout(horizontalLayout);
 
     auto label = new QLabel(i18nc("@label:textbox", "Language:"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     label->setTextFormat(Qt::PlainText);
     horizontalLayout->addWidget(label);
 
-    mLanguageComboBox->setObjectName(QStringLiteral("mLanguage"));
+    mLanguageComboBox->setObjectName(u"mLanguage"_s);
     if (mRocketChatAccount) {
         mLanguageComboBox->setModel(mRocketChatAccount->autoTranslateLanguagesModel());
     }

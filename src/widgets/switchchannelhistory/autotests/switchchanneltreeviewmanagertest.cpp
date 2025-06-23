@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "switchchanneltreeviewmanagertest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include <QTest>
 QTEST_MAIN(SwitchChannelTreeViewManagerTest)

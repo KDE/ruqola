@@ -60,7 +60,7 @@ QNetworkRequest GetBannersJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Banners);
 
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("platform"), QStringLiteral("web"));
+    queryUrl.addQueryItem(u"platform"_s, u"web"_s);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

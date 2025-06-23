@@ -5,6 +5,8 @@
 */
 
 #include "creategroupsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "groups/creategroupsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -32,14 +34,14 @@ void CreateGroupsJobTest::shouldGenerateRequest()
     CreateGroupsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.create")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.create"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void CreateGroupsJobTest::shouldGenerateJson()
 {
     CreateGroupsJob job;
-    const QString channelname = QStringLiteral("foo1");
+    const QString channelname = u"foo1"_s;
     CreateChannelTeamInfo info;
     info.name = channelname;
     job.setCreateGroupsInfo(info);
@@ -55,7 +57,7 @@ void CreateGroupsJobTest::shouldGenerateJson()
     job.setCreateGroupsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"extraData":{},"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 
-    const QStringList members = {QStringLiteral("foo"), QStringLiteral("bla")};
+    const QStringList members = {u"foo"_s, u"bla"_s};
     info.members = members;
     job.setCreateGroupsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
@@ -75,19 +77,19 @@ void CreateGroupsJobTest::shouldNotStarting()
     CreateGroupsJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     CreateChannelTeamInfo info;
     info.name = roomId;
     job.setCreateGroupsInfo(info);

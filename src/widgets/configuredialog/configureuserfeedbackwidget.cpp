@@ -5,6 +5,8 @@
 */
 
 #include "configureuserfeedbackwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QVBoxLayout>
 
 #if HAVE_KUSERFEEDBACK
@@ -20,10 +22,10 @@ ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)
 #endif
 {
     auto userFeedBackLayout = new QVBoxLayout(this);
-    userFeedBackLayout->setObjectName(QStringLiteral("userFeedBackLayout"));
+    userFeedBackLayout->setObjectName(u"userFeedBackLayout"_s);
     userFeedBackLayout->setContentsMargins({});
 #if HAVE_KUSERFEEDBACK
-    mUserFeedbackWidget->setObjectName(QStringLiteral("mUserFeedbackWidget"));
+    mUserFeedbackWidget->setObjectName(u"mUserFeedbackWidget"_s);
     userFeedBackLayout->addWidget(mUserFeedbackWidget);
 #endif
 }

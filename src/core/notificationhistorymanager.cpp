@@ -5,6 +5,8 @@
 */
 
 #include "notificationhistorymanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/notificationhistorymodel.h"
 
 NotificationHistoryManager::NotificationHistoryManager(QObject *parent)

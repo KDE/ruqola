@@ -5,6 +5,7 @@
 */
 
 #include "localmessagelogger.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabaseutils.h"
 #include "messages/message.h"
@@ -75,7 +76,7 @@ void LocalMessageLogger::deleteMessage(const QString &accountName, const QString
 std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QString &accountName, const QString &_roomName) const
 {
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    const QString dbName = databaseName(accountName + u'-' + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
@@ -83,7 +84,7 @@ std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QSt
         if (!QFileInfo::exists(fileName)) {
             return {};
         }
-        db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
         db.setDatabaseName(fileName);
         if (!db.open()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
@@ -94,7 +95,7 @@ std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QSt
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
-    model->setTable(QStringLiteral("LOGS"));
+    model->setTable(u"LOGS"_s);
     model->setSort(int(Fields::TimeStamp), Qt::AscendingOrder);
     model->select();
     return model;

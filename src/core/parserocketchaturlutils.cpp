@@ -51,17 +51,17 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
             }
             return ParseRocketChatUrlUtils::UrlType::Message;
         } else if (urlPath == "/auth"_L1) {
-            mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
-            mParsingInfo.token = query.queryItemValue(QStringLiteral("token"));
-            mParsingInfo.userId = query.queryItemValue(QStringLiteral("userId")).toLatin1();
+            mParsingInfo.serverHost = query.queryItemValue(u"host"_s);
+            mParsingInfo.token = query.queryItemValue(u"token"_s);
+            mParsingInfo.userId = query.queryItemValue(u"userId"_s).toLatin1();
             return ParseRocketChatUrlUtils::UrlType::Server;
         } else if (urlPath == "/invite"_L1) {
-            mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
-            mParsingInfo.path = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
+            mParsingInfo.serverHost = query.queryItemValue(u"host"_s);
+            mParsingInfo.path = query.queryItemValue(u"path"_s, QUrl::FullyDecoded);
             return ParseRocketChatUrlUtils::UrlType::Invite;
         } else if (urlPath == "/conference"_L1) {
-            mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
-            mParsingInfo.path = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
+            mParsingInfo.serverHost = query.queryItemValue(u"host"_s);
+            mParsingInfo.path = query.queryItemValue(u"path"_s, QUrl::FullyDecoded);
             // TODO
             return ParseRocketChatUrlUtils::UrlType::ConferenceCall;
         } else {
@@ -70,7 +70,7 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
         }
     } else {
         // Example https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
-        mParsingInfo.messageId = query.queryItemValue(QStringLiteral("msg"));
+        mParsingInfo.messageId = query.queryItemValue(u"msg"_s);
         mParsingInfo.serverHost = url.host();
         mParsingInfo.path = url.path(QUrl::FullyDecoded);
         mParsingInfo.roomIdType = RoomIdType::RoomName;
@@ -80,10 +80,10 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
             mParsingInfo.roomId = urlPathDecoded.remove("/channel/"_L1);
             mParsingInfo.channelType = ChannelType::Channel;
         } else if (urlPathDecoded.contains("/direct/"_L1)) {
-            mParsingInfo.roomId = urlPathDecoded.remove(QStringLiteral("/direct/"));
+            mParsingInfo.roomId = urlPathDecoded.remove(u"/direct/"_s);
             mParsingInfo.channelType = ChannelType::Direct;
         } else if (urlPathDecoded.contains("/group/"_L1)) {
-            mParsingInfo.roomId = urlPathDecoded.remove(QStringLiteral("/group/"));
+            mParsingInfo.roomId = urlPathDecoded.remove(u"/group/"_s);
             mParsingInfo.channelType = ChannelType::Group;
         } else {
             mParsingInfo.serverHost.clear();

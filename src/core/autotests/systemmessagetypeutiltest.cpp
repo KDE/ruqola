@@ -5,6 +5,8 @@
 */
 
 #include "systemmessagetypeutiltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messages/systemmessagetypeutil.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(SystemMessageTypeUtilTest)

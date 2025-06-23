@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagesettingswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
@@ -24,188 +26,188 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     MessageSettingsWidget w(nullptr);
     QVERIFY(w.widgetResizable());
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mAllowMessageEditing = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageEditing"));
+    auto mAllowMessageEditing = w.findChild<QCheckBox *>(u"mAllowMessageEditing"_s);
     QVERIFY(mAllowMessageEditing);
     QVERIFY(!mAllowMessageEditing->isChecked());
     QVERIFY(!mAllowMessageEditing->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageEditing), QStringLiteral("Message_AllowEditing"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageEditing), u"Message_AllowEditing"_s);
 
-    auto mAllowMessageDeleting = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageDeleting"));
+    auto mAllowMessageDeleting = w.findChild<QCheckBox *>(u"mAllowMessageDeleting"_s);
     QVERIFY(mAllowMessageDeleting);
     QVERIFY(!mAllowMessageDeleting->isChecked());
     QVERIFY(!mAllowMessageDeleting->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageDeleting), QStringLiteral("Message_AllowDeleting"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageDeleting), u"Message_AllowDeleting"_s);
 
-    auto mShowEditedStatus = w.findChild<QCheckBox *>(QStringLiteral("mShowEditedStatus"));
+    auto mShowEditedStatus = w.findChild<QCheckBox *>(u"mShowEditedStatus"_s);
     QVERIFY(mShowEditedStatus);
     QVERIFY(!mShowEditedStatus->isChecked());
     QVERIFY(!mShowEditedStatus->text().isEmpty());
     QVERIFY(!mShowEditedStatus->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mShowEditedStatus), QStringLiteral("Message_ShowEditedStatus"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mShowEditedStatus), u"Message_ShowEditedStatus"_s);
 
-    auto mShowDeletedStatus = w.findChild<QCheckBox *>(QStringLiteral("mShowDeletedStatus"));
+    auto mShowDeletedStatus = w.findChild<QCheckBox *>(u"mShowDeletedStatus"_s);
     QVERIFY(mShowDeletedStatus);
     QVERIFY(!mShowDeletedStatus->isChecked());
     QVERIFY(!mShowDeletedStatus->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mShowDeletedStatus), QStringLiteral("Message_ShowDeletedStatus"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mShowDeletedStatus), u"Message_ShowDeletedStatus"_s);
 
-    auto mAllowMessagePinning = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessagePinning"));
+    auto mAllowMessagePinning = w.findChild<QCheckBox *>(u"mAllowMessagePinning"_s);
     QVERIFY(mAllowMessagePinning);
     QVERIFY(!mAllowMessagePinning->isChecked());
     QVERIFY(!mAllowMessagePinning->text().isEmpty());
     QVERIFY(!mAllowMessagePinning->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessagePinning), QStringLiteral("Message_AllowPinning"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessagePinning), u"Message_AllowPinning"_s);
 
-    auto mAllowMessageSnippeting = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageSnippeting"));
+    auto mAllowMessageSnippeting = w.findChild<QCheckBox *>(u"mAllowMessageSnippeting"_s);
     QVERIFY(mAllowMessageSnippeting);
     QVERIFY(!mAllowMessageSnippeting->isChecked());
     QVERIFY(!mAllowMessageSnippeting->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageSnippeting), QStringLiteral("Message_AllowSnippeting"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageSnippeting), u"Message_AllowSnippeting"_s);
 
-    auto mAllowConvertingLongMessageAttachment = w.findChild<QCheckBox *>(QStringLiteral("mAllowConvertingLongMessageAttachment"));
+    auto mAllowConvertingLongMessageAttachment = w.findChild<QCheckBox *>(u"mAllowConvertingLongMessageAttachment"_s);
     QVERIFY(mAllowConvertingLongMessageAttachment);
     QVERIFY(!mAllowConvertingLongMessageAttachment->isChecked());
     QVERIFY(!mAllowConvertingLongMessageAttachment->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowConvertingLongMessageAttachment), QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowConvertingLongMessageAttachment), u"Message_AllowConvertLongMessagesToAttachment"_s);
 
-    auto mVideoRecorderEnabled = w.findChild<QCheckBox *>(QStringLiteral("mVideoRecorderEnabled"));
+    auto mVideoRecorderEnabled = w.findChild<QCheckBox *>(u"mVideoRecorderEnabled"_s);
     QVERIFY(mVideoRecorderEnabled);
     QVERIFY(!mVideoRecorderEnabled->isChecked());
     QVERIFY(!mVideoRecorderEnabled->text().isEmpty());
     QVERIFY(!mVideoRecorderEnabled->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mVideoRecorderEnabled), QStringLiteral("Message_VideoRecorderEnabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mVideoRecorderEnabled), u"Message_VideoRecorderEnabled"_s);
 
-    auto mBlockMessageEditingAfterMinutes = w.findChild<QSpinBox *>(QStringLiteral("mBlockMessageEditingAfterMinutes"));
+    auto mBlockMessageEditingAfterMinutes = w.findChild<QSpinBox *>(u"mBlockMessageEditingAfterMinutes"_s);
     QVERIFY(mBlockMessageEditingAfterMinutes);
     QVERIFY(!mBlockMessageEditingAfterMinutes->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageEditingAfterMinutes), QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageEditingAfterMinutes), u"Message_AllowEditing_BlockEditInMinutes"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Message_AllowEditing_BlockEditInMinutes"_s);
 
-    auto mBlockMessageDeletingAfterMinutes = w.findChild<QSpinBox *>(QStringLiteral("mBlockMessageDeletingAfterMinutes"));
+    auto mBlockMessageDeletingAfterMinutes = w.findChild<QSpinBox *>(u"mBlockMessageDeletingAfterMinutes"_s);
     QVERIFY(mBlockMessageDeletingAfterMinutes);
     QVERIFY(!mBlockMessageDeletingAfterMinutes->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageDeletingAfterMinutes), QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageDeletingAfterMinutes), u"Message_AllowDeleting_BlockDeleteInMinutes"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Message_AllowDeleting_BlockDeleteInMinutes"_s);
 
-    auto mMaximumAllowedCharactersPerMessage = w.findChild<QSpinBox *>(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
+    auto mMaximumAllowedCharactersPerMessage = w.findChild<QSpinBox *>(u"mMaximumAllowedCharactersPerMessage"_s);
     QVERIFY(mMaximumAllowedCharactersPerMessage);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumAllowedCharactersPerMessage), QStringLiteral("Message_MaxAllowedSize"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumAllowedCharactersPerMessage), u"Message_MaxAllowedSize"_s);
     QCOMPARE(mMaximumAllowedCharactersPerMessage->maximum(), 99999);
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_MaxAllowedSize"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Message_MaxAllowedSize"_s);
 
-    auto mSafePort = w.findChild<QLineEdit *>(QStringLiteral("mSafePort"));
+    auto mSafePort = w.findChild<QLineEdit *>(u"mSafePort"_s);
     QVERIFY(mSafePort);
     QVERIFY(mSafePort->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSafePort), QStringLiteral("API_EmbedSafePorts"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSafePort), u"API_EmbedSafePorts"_s);
 
-    auto messageAttachmentsLabel = w.findChild<QLabel *>(QStringLiteral("messageAttachmentsLabel"));
+    auto messageAttachmentsLabel = w.findChild<QLabel *>(u"messageAttachmentsLabel"_s);
     QVERIFY(messageAttachmentsLabel);
     QVERIFY(!messageAttachmentsLabel->text().isEmpty());
 
-    auto mRemoveEXIFMetadata = w.findChild<QCheckBox *>(QStringLiteral("mRemoveEXIFMetadata"));
+    auto mRemoveEXIFMetadata = w.findChild<QCheckBox *>(u"mRemoveEXIFMetadata"_s);
     QVERIFY(mRemoveEXIFMetadata);
     QVERIFY(!mRemoveEXIFMetadata->isChecked());
     QVERIFY(!mRemoveEXIFMetadata->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRemoveEXIFMetadata), QStringLiteral("Message_Attachments_Strip_Exif"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRemoveEXIFMetadata), u"Message_Attachments_Strip_Exif"_s);
 
-    auto mEnableImageThumbnails = w.findChild<QCheckBox *>(QStringLiteral("mEnableImageThumbnails"));
+    auto mEnableImageThumbnails = w.findChild<QCheckBox *>(u"mEnableImageThumbnails"_s);
     QVERIFY(mEnableImageThumbnails);
     QVERIFY(!mEnableImageThumbnails->isChecked());
     QVERIFY(!mEnableImageThumbnails->text().isEmpty());
     QVERIFY(!mEnableImageThumbnails->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableImageThumbnails), QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableImageThumbnails), u"Message_Attachments_Thumbnails_Enabled"_s);
 
-    auto audioMessageLabel = w.findChild<QLabel *>(QStringLiteral("audioMessageLabel"));
+    auto audioMessageLabel = w.findChild<QLabel *>(u"audioMessageLabel"_s);
     QVERIFY(audioMessageLabel);
     QVERIFY(!audioMessageLabel->text().isEmpty());
 
-    auto mThumbnailMaxWidth = w.findChild<QSpinBox *>(QStringLiteral("mThumbnailMaxWidth"));
+    auto mThumbnailMaxWidth = w.findChild<QSpinBox *>(u"mThumbnailMaxWidth"_s);
     QVERIFY(mThumbnailMaxWidth);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mThumbnailMaxWidth), QStringLiteral("Message_Attachments_Thumbnails_Width"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_Attachments_Thumbnails_Width"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mThumbnailMaxWidth), u"Message_Attachments_Thumbnails_Width"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Message_Attachments_Thumbnails_Width"_s);
 
-    auto mThumbnailMaxHeight = w.findChild<QSpinBox *>(QStringLiteral("mThumbnailMaxHeight"));
+    auto mThumbnailMaxHeight = w.findChild<QSpinBox *>(u"mThumbnailMaxHeight"_s);
     QVERIFY(mThumbnailMaxHeight);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mThumbnailMaxHeight), QStringLiteral("Message_Attachments_Thumbnails_Height"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_Attachments_Thumbnails_Height"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mThumbnailMaxHeight), u"Message_Attachments_Thumbnails_Height"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Message_Attachments_Thumbnails_Height"_s);
 
-    auto mAudioRecorderEnabled = w.findChild<QCheckBox *>(QStringLiteral("mAudioRecorderEnabled"));
+    auto mAudioRecorderEnabled = w.findChild<QCheckBox *>(u"mAudioRecorderEnabled"_s);
     QVERIFY(mAudioRecorderEnabled);
     QVERIFY(!mAudioRecorderEnabled->isChecked());
     QVERIFY(!mAudioRecorderEnabled->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAudioRecorderEnabled), QStringLiteral("Message_AudioRecorderEnabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAudioRecorderEnabled), u"Message_AudioRecorderEnabled"_s);
 
-    auto mAudioMessageBitRate = w.findChild<QSpinBox *>(QStringLiteral("mAudioMessageBitRate"));
+    auto mAudioMessageBitRate = w.findChild<QSpinBox *>(u"mAudioMessageBitRate"_s);
     QVERIFY(mAudioMessageBitRate);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAudioMessageBitRate), QStringLiteral("Message_Audio_bitRate"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_Audio_bitRate"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAudioMessageBitRate), u"Message_Audio_bitRate"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Message_Audio_bitRate"_s);
 
-    auto autoTranslateLabel = w.findChild<QLabel *>(QStringLiteral("autoTranslateLabel"));
+    auto autoTranslateLabel = w.findChild<QLabel *>(u"autoTranslateLabel"_s);
     QVERIFY(autoTranslateLabel);
     QVERIFY(!autoTranslateLabel->text().isEmpty());
 
-    auto mAutoTranslateEnabled = w.findChild<QCheckBox *>(QStringLiteral("mAutoTranslateEnabled"));
+    auto mAutoTranslateEnabled = w.findChild<QCheckBox *>(u"mAutoTranslateEnabled"_s);
     QVERIFY(mAutoTranslateEnabled);
     QVERIFY(!mAutoTranslateEnabled->isChecked());
     QVERIFY(!mAutoTranslateEnabled->text().isEmpty());
     QVERIFY(mAutoTranslateEnabled->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateEnabled), QStringLiteral("AutoTranslate_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateEnabled), u"AutoTranslate_Enabled"_s);
 
-    auto mAutoTranslateServiceProvider = w.findChild<QComboBox *>(QStringLiteral("mAutoTranslateServiceProvider"));
+    auto mAutoTranslateServiceProvider = w.findChild<QComboBox *>(u"mAutoTranslateServiceProvider"_s);
     QVERIFY(mAutoTranslateServiceProvider);
     QCOMPARE(mAutoTranslateServiceProvider->count(), 3);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateServiceProvider), QStringLiteral("AutoTranslate_ServiceProvider"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateServiceProvider), u"AutoTranslate_ServiceProvider"_s);
 
-    auto mDeeplApiKey = w.findChild<QLineEdit *>(QStringLiteral("mDeeplApiKey"));
+    auto mDeeplApiKey = w.findChild<QLineEdit *>(u"mDeeplApiKey"_s);
     QVERIFY(mDeeplApiKey);
     QVERIFY(mDeeplApiKey->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDeeplApiKey), QStringLiteral("AutoTranslate_DeepLAPIKey"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDeeplApiKey), u"AutoTranslate_DeepLAPIKey"_s);
 
-    auto mGoogleApiKey = w.findChild<QLineEdit *>(QStringLiteral("mGoogleApiKey"));
+    auto mGoogleApiKey = w.findChild<QLineEdit *>(u"mGoogleApiKey"_s);
     QVERIFY(mGoogleApiKey);
     QVERIFY(mGoogleApiKey->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleApiKey), QStringLiteral("AutoTranslate_GoogleAPIKey"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleApiKey), u"AutoTranslate_GoogleAPIKey"_s);
 
-    auto mMicrosoftApiKey = w.findChild<QLineEdit *>(QStringLiteral("mMicrosoftApiKey"));
+    auto mMicrosoftApiKey = w.findChild<QLineEdit *>(u"mMicrosoftApiKey"_s);
     QVERIFY(mMicrosoftApiKey);
     QVERIFY(mMicrosoftApiKey->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMicrosoftApiKey), QStringLiteral("AutoTranslate_MicrosoftAPIKey"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMicrosoftApiKey), u"AutoTranslate_MicrosoftAPIKey"_s);
 
-    auto mGroupingPeriod = w.findChild<QSpinBox *>(QStringLiteral("mGroupingPeriod"));
+    auto mGroupingPeriod = w.findChild<QSpinBox *>(u"mGroupingPeriod"_s);
     QVERIFY(mGroupingPeriod);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGroupingPeriod), QStringLiteral("Message_GroupingPeriod"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_GroupingPeriod"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGroupingPeriod), u"Message_GroupingPeriod"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Message_GroupingPeriod"_s);
 
-    auto mDirectMessageMaxUsers = w.findChild<QSpinBox *>(QStringLiteral("mDirectMessageMaxUsers"));
+    auto mDirectMessageMaxUsers = w.findChild<QSpinBox *>(u"mDirectMessageMaxUsers"_s);
     QVERIFY(mDirectMessageMaxUsers);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDirectMessageMaxUsers), QStringLiteral("DirectMesssage_maxUsers"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DirectMesssage_maxUsers"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDirectMessageMaxUsers), u"DirectMesssage_maxUsers"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DirectMesssage_maxUsers"_s);
 
-    auto mMaximumNumberChainedQuotes = w.findChild<QSpinBox *>(QStringLiteral("mMaximumNumberChainedQuotes"));
+    auto mMaximumNumberChainedQuotes = w.findChild<QSpinBox *>(u"mMaximumNumberChainedQuotes"_s);
     QVERIFY(mMaximumNumberChainedQuotes);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumNumberChainedQuotes), QStringLiteral("Message_QuoteChainLimit"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_QuoteChainLimit"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumNumberChainedQuotes), u"Message_QuoteChainLimit"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Message_QuoteChainLimit"_s);
 
-    auto mMessageErasureType = w.findChild<QComboBox *>(QStringLiteral("mMessageErasureType"));
+    auto mMessageErasureType = w.findChild<QComboBox *>(u"mMessageErasureType"_s);
     QVERIFY(mMessageErasureType);
     QCOMPARE(mMessageErasureType->count(), 3);
     QVERIFY(!mMessageErasureType->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMessageErasureType), QStringLiteral("Message_ErasureType"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMessageErasureType), u"Message_ErasureType"_s);
 
-    auto mApiEmbed = w.findChild<QCheckBox *>(QStringLiteral("mApiEmbed"));
+    auto mApiEmbed = w.findChild<QCheckBox *>(u"mApiEmbed"_s);
     QVERIFY(mApiEmbed);
     QVERIFY(!mApiEmbed->isChecked());
     QVERIFY(!mApiEmbed->text().isEmpty());
     QVERIFY(!mApiEmbed->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mApiEmbed), QStringLiteral("API_Embed"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mApiEmbed), u"API_Embed"_s);
 
-    auto mEmbedCacheExpirationDays = w.findChild<QSpinBox *>(QStringLiteral("mEmbedCacheExpirationDays"));
+    auto mEmbedCacheExpirationDays = w.findChild<QSpinBox *>(u"mEmbedCacheExpirationDays"_s);
     QVERIFY(mEmbedCacheExpirationDays);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEmbedCacheExpirationDays), QStringLiteral("API_EmbedCacheExpirationDays"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("API_EmbedCacheExpirationDays"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEmbedCacheExpirationDays), u"API_EmbedCacheExpirationDays"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"API_EmbedCacheExpirationDays"_s);
 }
 
 #include "moc_messagesettingswidgettest.cpp"

@@ -5,6 +5,8 @@
 */
 
 #include "threadmessagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/followmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 #include "connection.h"
@@ -41,35 +43,35 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
     auto hboxLayout = new QHBoxLayout;
-    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setObjectName(u"hboxLayout"_s);
     hboxLayout->setContentsMargins(QMargins());
 
     mainLayout->addLayout(hboxLayout);
 
-    mFollowButton->setObjectName(QStringLiteral("mFollowButton"));
+    mFollowButton->setObjectName(u"mFollowButton"_s);
     mFollowButton->setCheckable(true);
     mFollowButton->setAutoRaise(true);
     hboxLayout->addWidget(mFollowButton);
     connect(mFollowButton, &QToolButton::clicked, this, &ThreadMessageWidget::slotFollowThreadChanged);
 
-    mThreadPreview->setObjectName(QStringLiteral("mThreadPreview"));
+    mThreadPreview->setObjectName(u"mThreadPreview"_s);
     mThreadPreview->setContextMenuPolicy(Qt::NoContextMenu);
     mThreadPreview->setWordWrap(true);
     mThreadPreview->setTextInteractionFlags(Qt::TextBrowserInteraction);
     hboxLayout->addWidget(mThreadPreview);
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
-    mRoomWidgetBase->setObjectName(QStringLiteral("mRoomWidgetBase"));
+    mRoomWidgetBase->setObjectName(u"mRoomWidgetBase"_s);
     mainLayout->addWidget(mRoomWidgetBase);
     mRoomWidgetBase->messageLineWidget()->setFocus();
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &ThreadMessageWidget::slotCreateNewDiscussion);
@@ -113,7 +115,7 @@ void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
 
 void ThreadMessageWidget::updateFollowThreadIcon(bool followThread)
 {
-    mFollowButton->setIcon(followThread ? QIcon::fromTheme(QStringLiteral("notifications")) : QIcon::fromTheme(QStringLiteral("notifications-disabled")));
+    mFollowButton->setIcon(followThread ? QIcon::fromTheme(u"notifications"_s) : QIcon::fromTheme(u"notifications-disabled"_s));
     mFollowButton->setToolTip(followThread ? i18n("Follow Message") : i18n("Unfollow Message"));
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "e2epassworddecodekeydialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "encryption/e2epassworddecodekeydialog.h"
 #include "encryption/e2epassworddecodekeywidget.h"
 #include <QDialogButtonBox>
@@ -21,13 +23,13 @@ void E2ePasswordDecodeKeyDialogTest::shouldHaveDefaultValues()
     E2ePasswordDecodeKeyDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mE2ePasswordDecodeKeyWidget = d.findChild<E2ePasswordDecodeKeyWidget *>(QStringLiteral("mE2ePasswordDecodeKeyWidget"));
+    auto mE2ePasswordDecodeKeyWidget = d.findChild<E2ePasswordDecodeKeyWidget *>(u"mE2ePasswordDecodeKeyWidget"_s);
     QVERIFY(mE2ePasswordDecodeKeyWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
     QVERIFY(d.password().isEmpty());

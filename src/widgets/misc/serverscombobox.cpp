@@ -5,6 +5,8 @@
 */
 
 #include "serverscombobox.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 ServersComboBox::ServersComboBox(QWidget *parent)

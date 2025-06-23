@@ -28,10 +28,10 @@ void BannerInfosTest::shouldLoadBannerInfos_data()
     QTest::addColumn<int>("bannersCount");
     QTest::addColumn<bool>("hasUnreadBanner");
 
-    QTest::addRow("bannerinfos-empty") << QStringLiteral("bannerinfos-empty") << 0 << false;
-    QTest::addRow("bannerinfos1") << QStringLiteral("bannerinfos1") << 3 << false;
-    QTest::addRow("bannerinfos2") << QStringLiteral("bannerinfos2") << 3 << true;
-    QTest::addRow("bannerinfos3") << QStringLiteral("bannerinfos3") << 3 << true;
+    QTest::addRow("bannerinfos-empty") << u"bannerinfos-empty"_s << 0 << false;
+    QTest::addRow("bannerinfos1") << u"bannerinfos1"_s << 3 << false;
+    QTest::addRow("bannerinfos2") << u"bannerinfos2"_s << 3 << true;
+    QTest::addRow("bannerinfos3") << u"bannerinfos3"_s << 3 << true;
 }
 
 void BannerInfosTest::shouldLoadBannerInfos()

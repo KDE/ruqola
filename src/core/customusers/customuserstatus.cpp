@@ -25,9 +25,9 @@ void CustomUserStatus::parseCustomStatus(const QJsonObject &customStatusObj, boo
     mStatusType = Utils::presenceStatusFromString(customStatusObj["statusType"_L1].toString());
     if (customStatusObj.contains("_updatedAt"_L1)) {
         if (useRestApi) {
-            mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), customStatusObj);
+            mUpdatedAt = Utils::parseIsoDate(u"_updatedAt"_s, customStatusObj);
         } else {
-            mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), customStatusObj);
+            mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, customStatusObj);
         }
     }
 }

@@ -5,6 +5,8 @@
 */
 
 #include "passwordlineeditwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/passwordlineeditwidget.h"
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
@@ -19,14 +21,14 @@ PasswordLineEditWidgetTest::PasswordLineEditWidgetTest(QObject *parent)
 void PasswordLineEditWidgetTest::shouldHaveDefaultValues()
 {
     PasswordLineEditWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
     QVERIFY(mPasswordLineEdit);
 
-    auto mResetPasswordButton = w.findChild<QPushButton *>(QStringLiteral("mResetPasswordButton"));
+    auto mResetPasswordButton = w.findChild<QPushButton *>(u"mResetPasswordButton"_s);
     QVERIFY(mResetPasswordButton);
     QVERIFY(!mResetPasswordButton->text().isEmpty());
 }

@@ -5,6 +5,8 @@
 */
 
 #include "exportdatafinishpagetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "importexportdata/exportdata/exportdatafinishpage.h"
 #include <KMessageWidget>
 #include <QLabel>
@@ -21,21 +23,21 @@ ExportDataFinishPageTest::ExportDataFinishPageTest(QObject *parent)
 void ExportDataFinishPageTest::shouldHaveDefaultValues()
 {
     ExportDataFinishPage w;
-    auto mInfos = w.findChild<QLabel *>(QStringLiteral("mInfos"));
+    auto mInfos = w.findChild<QLabel *>(u"mInfos"_s);
     QVERIFY(mInfos);
     QVERIFY(mInfos->text().isEmpty());
 
-    auto mMessageWidget = w.findChild<KMessageWidget *>(QStringLiteral("mMessageWidget"));
+    auto mMessageWidget = w.findChild<KMessageWidget *>(u"mMessageWidget"_s);
     QVERIFY(mMessageWidget);
     QVERIFY(!mMessageWidget->isCloseButtonVisible());
     QCOMPARE(mMessageWidget->messageType(), KMessageWidget::Information);
     QVERIFY(!mMessageWidget->text().isEmpty());
     QVERIFY(mMessageWidget->wordWrap());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mDetails = w.findChild<QPlainTextEdit *>(QStringLiteral("mDetails"));
+    auto mDetails = w.findChild<QPlainTextEdit *>(u"mDetails"_s);
     QVERIFY(mDetails);
     QVERIFY(mDetails->toPlainText().isEmpty());
     QVERIFY(mDetails->isReadOnly());

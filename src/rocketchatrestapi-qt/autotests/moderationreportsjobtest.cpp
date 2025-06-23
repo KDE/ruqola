@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "moderation/moderationreportsjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -30,7 +32,7 @@ void ModerationReportsJobTest::shouldGenerateRequest()
     QNetworkRequest request = QNetworkRequest(QUrl());
     job.setMessageId("foo"_ba);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reports?msgId=foo")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.reports?msgId=foo"_s));
 }
 
 #include "moc_moderationreportsjobtest.cpp"

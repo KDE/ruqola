@@ -19,7 +19,7 @@ ModerationUsersWidget::ModerationUsersWidget(RocketChatAccount *account, QWidget
     , mCurrentRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     mainLayout->addWidget(mTextBrowser);
@@ -34,29 +34,26 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     QString html;
     const User user = infos.user();
     if (!infos.user().userEmailsInfo().email.isEmpty()) {
-        html += QStringLiteral("<div><b>") + QStringLiteral("%1 (@%2)").arg(user.name(), user.userName()) + QStringLiteral("</div>");
-        html += QStringLiteral("<br/>");
-        html += QStringLiteral("<div><b>") + i18n("Email:") + QStringLiteral("</b>") + QStringLiteral(" %1").arg(infos.user().userEmailsInfo().email)
-            + QStringLiteral("</div>");
-        html += QStringLiteral("<br/>");
+        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name(), user.userName()) + QStringLiteral("</div>");
+        html += u"<br/>"_s;
+        html += u"<div><b>"_s + i18n("Email:") + u"</b>"_s + QStringLiteral(" %1").arg(infos.user().userEmailsInfo().email) + u"</div>"_s;
+        html += u"<br/>"_s;
     }
 
     if (!user.roles().isEmpty()) {
-        html += QStringLiteral("<div><b>") + i18n("Roles:") + QStringLiteral("</b>") + QStringLiteral(" %1").arg(infos.user().roles().join(", "_L1))
-            + QStringLiteral("</div>");
-        html += QStringLiteral("<br/>");
+        html += u"<div><b>"_s + i18n("Roles:") + u"</b>"_s + QStringLiteral(" %1").arg(infos.user().roles().join(", "_L1)) + u"</div>"_s;
+        html += u"<br/>"_s;
     }
 
     const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.moderationReportUserInfosList();
     int i = 1;
     for (const auto &info : moderationReportUserInfosList) {
-        html +=
-            QStringLiteral("<div><a style='background-color:") + codeBackgroundColor.name() + "'>"_L1 + i18n("Report #%1", i) + QStringLiteral("</a></div>");
-        html += QStringLiteral("<div>") + info.description() + QStringLiteral("</div>");
+        html += u"<div><a style='background-color:"_s + codeBackgroundColor.name() + "'>"_L1 + i18n("Report #%1", i) + u"</a></div>"_s;
+        html += u"<div>"_s + info.description() + u"</div>"_s;
         QLocale l;
         const QString createAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(info.timeStamp()), QLocale::ShortFormat);
-        html += QStringLiteral("<div><i>") + info.reportedBy().userName() + QLatin1Char(' ') + createAtDisplayDateTime + QStringLiteral("</i></div>");
-        html += QStringLiteral("<br/>");
+        html += u"<div><i>"_s + info.reportedBy().userName() + u' ' + createAtDisplayDateTime + u"</i></div>"_s;
+        html += u"<br/>"_s;
         ++i;
     }
 

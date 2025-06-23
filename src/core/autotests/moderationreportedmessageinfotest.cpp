@@ -47,22 +47,22 @@ void ModerationReportedMessageInfoTest::shouldModerationInfo_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<ModerationReportedMessageInfo>("moderationInfo");
-    QTest::addRow("moderationempty") << QStringLiteral("moderationempty") << ModerationReportedMessageInfo();
+    QTest::addRow("moderationempty") << u"moderationempty"_s << ModerationReportedMessageInfo();
     {
         ModerationReportedMessageInfo info;
         info.setUserId("SSSSSQ4iShzD9T2"_ba);
-        info.setName(QStringLiteral("Name Laur"));
-        info.setUserName(QStringLiteral("laurent"));
+        info.setName(u"Name Laur"_s);
+        info.setUserName(u"laurent"_s);
         info.setMsgId("XBHe3ocWiDApCc"_ba);
         info.setCount(3);
         info.setIsUserDeleted(false);
-        info.setMessage(QStringLiteral("H"));
+        info.setMessage(u"H"_s);
         qint64 val = 1695363298494;
         info.setCreatedAt(val);
         QStringList list;
-        list << QStringLiteral("test1") << QStringLiteral("test-team1");
+        list << u"test1"_s << u"test-team1"_s;
         info.setRoomList(list);
-        QTest::addRow("moderation1") << QStringLiteral("moderation1") << info;
+        QTest::addRow("moderation1") << u"moderation1"_s << info;
     }
 }
 

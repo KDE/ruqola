@@ -5,6 +5,8 @@
 */
 
 #include "administratorroomswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorroomseditdialog.h"
 #include "channels/channeldeletejob.h"
 #include "connection.h"
@@ -31,14 +33,14 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(RocketChatAccount *account, Q
     : SearchTreeBaseWidget(account, parent)
     , mSelectRoomType(new AdministratorRoomsSelectRoomTypeWidget(this))
 {
-    mSelectRoomType->setObjectName(QStringLiteral("mSelectRoomType"));
+    mSelectRoomType->setObjectName(u"mSelectRoomType"_s);
     connect(mSelectRoomType, &AdministratorRoomsSelectRoomTypeWidget::filterChanged, this, &AdministratorRoomsWidget::slotFilterChanged);
 
     mModel = new AdminRoomsModel(this);
-    mModel->setObjectName(QStringLiteral("mAdminRoomsModel"));
+    mModel->setObjectName(u"mAdminRoomsModel"_s);
 
     mProxyModelModel = new AdminRoomsFilterProxyModel(mModel, this);
-    mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
+    mProxyModelModel->setObjectName(u"mAdminUsersProxyModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search rooms"));
     mTreeView->setModel(mProxyModelModel);
     mSearchLayout->addWidget(mSelectRoomType);
@@ -60,11 +62,11 @@ void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     const QModelIndex parentIndex = mTreeView->indexAt(pos);
     if (parentIndex.isValid()) {
         const QModelIndex index = mProxyModelModel->mapToSource(parentIndex);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, index]() {
             slotModifyRoom(index);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, index]() {
             slotRemoveRoom(index);
         });
     }
@@ -292,7 +294,7 @@ void AdministratorRoomsWidget::slotLoadElements(int offset, int count, const QSt
 
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);

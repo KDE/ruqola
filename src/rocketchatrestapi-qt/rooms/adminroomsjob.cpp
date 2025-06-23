@@ -69,30 +69,30 @@ void AdminRoomsJob::initialUrlParameters(QUrlQuery &urlQuery) const
 {
     // https://<server>/api/v1/rooms.adminRooms?filter=&types[]=d,p,c,teams&sort={"name":1}&count=25&offset=25
     if (!mRoomsAdminInfo.filter.isEmpty()) {
-        urlQuery.addQueryItem(QStringLiteral("filter"), mRoomsAdminInfo.filter);
+        urlQuery.addQueryItem(u"filter"_s, mRoomsAdminInfo.filter);
     }
     QStringList types;
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Direct) {
-        types << QStringLiteral("d");
+        types << u"d"_s;
     }
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Private) {
-        types << QStringLiteral("p");
+        types << u"p"_s;
     }
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Channel) {
-        types << QStringLiteral("c");
+        types << u"c"_s;
     }
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Team) {
-        types << QStringLiteral("teams");
+        types << u"teams"_s;
     }
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::OmniChannel) {
-        types << QStringLiteral("l");
+        types << u"l"_s;
     }
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Discussion) {
-        types << QStringLiteral("discussions");
+        types << u"discussions"_s;
     }
     if (!types.isEmpty()) {
         for (const QString &str : std::as_const(types)) {
-            urlQuery.addQueryItem(QStringLiteral("types[]"), str);
+            urlQuery.addQueryItem(u"types[]"_s, str);
         }
     }
 }

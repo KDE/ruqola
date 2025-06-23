@@ -5,6 +5,8 @@
 */
 
 #include "explorepermissionsdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
 #include "explorepermissionsdialog/explorepermissionswidget.h"
 #include <QDialogButtonBox>
@@ -25,16 +27,16 @@ void ExplorePermissionsDialogTest::shouldHaveDefaultValues()
     ExplorePermissionsDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mExplorePermissionWidget = d.findChild<ExplorePermissionsWidget *>(QStringLiteral("mExplorePermissionWidget"));
+    auto mExplorePermissionWidget = d.findChild<ExplorePermissionsWidget *>(u"mExplorePermissionWidget"_s);
     QVERIFY(mExplorePermissionWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
-    auto mOwnRoles = d.findChild<QLabel *>(QStringLiteral("mOwnRoles"));
+    auto mOwnRoles = d.findChild<QLabel *>(u"mOwnRoles"_s);
     QVERIFY(mOwnRoles);
     QVERIFY(mOwnRoles->text().isEmpty());
 }

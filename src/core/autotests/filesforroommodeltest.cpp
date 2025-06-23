@@ -5,6 +5,8 @@
 */
 
 #include "filesforroommodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/filesforroommodel.h"
 #include <QSignalSpy>
 #include <QTest>
@@ -33,9 +35,9 @@ void FilesForRoomModelTest::shouldAddFiles()
     QList<File> mFiles;
     for (int i = 0; i < 10; ++i) {
         File f;
-        f.setFileName(QStringLiteral("name%1").arg(i));
-        f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
+        f.setFileName(u"name%1"_s.arg(i));
+        f.setDescription(u"description%1"_s.arg(i));
+        f.setUserId(u"userid%1"_s.arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
@@ -47,9 +49,9 @@ void FilesForRoomModelTest::shouldAddFiles()
     mFiles.clear();
     for (int i = 0; i < 3; ++i) {
         File f;
-        f.setFileName(QStringLiteral("name%1").arg(i));
-        f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
+        f.setFileName(u"name%1"_s.arg(i));
+        f.setDescription(u"description%1"_s.arg(i));
+        f.setUserId(u"userid%1"_s.arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     w.setFiles(mFiles);
@@ -63,32 +65,32 @@ void FilesForRoomModelTest::shouldVerifyData()
     QList<File> mFiles;
     for (int i = 0; i < 10; ++i) {
         File f;
-        f.setFileName(QStringLiteral("name%1").arg(i));
-        f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
+        f.setFileName(u"name%1"_s.arg(i));
+        f.setDescription(u"description%1"_s.arg(i));
+        f.setUserId(u"userid%1"_s.arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
 
     w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 10);
     for (int i = 0; i < 10; ++i) {
-        QCOMPARE(w.data(w.index(i), FilesForRoomModel::FileName).toString(), QStringLiteral("name%1").arg(i));
-        QCOMPARE(w.data(w.index(i), FilesForRoomModel::Description).toString(), QStringLiteral("description%1").arg(i));
-        QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserId).toString(), QStringLiteral("userid%1").arg(i));
+        QCOMPARE(w.data(w.index(i), FilesForRoomModel::FileName).toString(), u"name%1"_s.arg(i));
+        QCOMPARE(w.data(w.index(i), FilesForRoomModel::Description).toString(), u"description%1"_s.arg(i));
+        QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserId).toString(), u"userid%1"_s.arg(i));
     }
     mFiles.clear();
     for (int i = 0; i < 3; ++i) {
         File f;
-        f.setFileName(QStringLiteral("name%1").arg(i));
-        f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
+        f.setFileName(u"name%1"_s.arg(i));
+        f.setDescription(u"description%1"_s.arg(i));
+        f.setUserId(u"userid%1"_s.arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     w.setFiles(mFiles);
     for (int i = 0; i < 3; ++i) {
-        QCOMPARE(w.data(w.index(i), FilesForRoomModel::FileName).toString(), QStringLiteral("name%1").arg(i));
-        QCOMPARE(w.data(w.index(i), FilesForRoomModel::Description).toString(), QStringLiteral("description%1").arg(i));
-        QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserId).toString(), QStringLiteral("userid%1").arg(i));
+        QCOMPARE(w.data(w.index(i), FilesForRoomModel::FileName).toString(), u"name%1"_s.arg(i));
+        QCOMPARE(w.data(w.index(i), FilesForRoomModel::Description).toString(), u"description%1"_s.arg(i));
+        QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserId).toString(), u"userid%1"_s.arg(i));
     }
 }
 

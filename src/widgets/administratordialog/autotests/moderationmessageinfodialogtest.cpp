@@ -5,6 +5,8 @@
 */
 
 #include "moderationmessageinfodialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "administratordialog/moderationconsole/moderationmessageinfowidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void ModerationMessageInfoDialogTest::shouldHaveDefaultValues()
     ModerationMessageInfoDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mModerationMessageInfoWidget = d.findChild<ModerationMessageInfoWidget *>(QStringLiteral("mModerationMessageInfoWidget"));
+    auto mModerationMessageInfoWidget = d.findChild<ModerationMessageInfoWidget *>(u"mModerationMessageInfoWidget"_s);
     QVERIFY(mModerationMessageInfoWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

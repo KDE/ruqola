@@ -5,6 +5,8 @@
 */
 
 #include "configureautocorrectionwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configuredialog/configureautocorrectionwidget.h"
 #include <QStandardPaths>
 #include <QTest>
@@ -19,7 +21,7 @@ ConfigureAutoCorrectionWidgetTest::ConfigureAutoCorrectionWidgetTest(QObject *pa
 void ConfigureAutoCorrectionWidgetTest::shouldHaveDefaultValues()
 {
     ConfigureAutoCorrectionWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     mainLayout->setContentsMargins({});

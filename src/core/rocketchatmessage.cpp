@@ -23,77 +23,77 @@ void RocketChatMessage::setJsonFormat(QJsonDocument::JsonFormat jsonFormat)
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(const QString &username, quint64 id)
 {
     const QJsonArray params{QJsonValue(username)};
-    return generateMethod(QStringLiteral("createDirectMessage"), params, id);
+    return generateMethod(u"createDirectMessage"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
-    return generateVideoConferenceAction(QStringLiteral("confirmed"), roomId, callId, userId, id);
+    return generateVideoConferenceAction(u"confirmed"_s, roomId, callId, userId, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
-    return generateVideoConferenceAction(QStringLiteral("rejected"), roomId, callId, userId, id);
+    return generateVideoConferenceAction(u"rejected"_s, roomId, callId, userId, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
-    return generateVideoConferenceAction(QStringLiteral("call"), roomId, callId, userId, id);
+    return generateVideoConferenceAction(u"call"_s, roomId, callId, userId, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
-    return generateVideoConferenceAction(QStringLiteral("accepted"), roomId, callId, userId, id);
+    return generateVideoConferenceAction(u"accepted"_s, roomId, callId, userId, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
     const QJsonObject actionParamsObj{
-        {QStringLiteral("callId"), callId},
-        {QStringLiteral("uid"), userId},
-        {QStringLiteral("rid"), roomId},
+        {u"callId"_s, callId},
+        {u"uid"_s, userId},
+        {u"rid"_s, roomId},
     };
     const QJsonObject actionObj{
-        {QStringLiteral("action"), action},
-        {QStringLiteral("params"), actionParamsObj},
+        {u"action"_s, action},
+        {u"params"_s, actionParamsObj},
     };
 
     QString videoConferenceId = roomId;
     videoConferenceId.remove(userId);
-    const QJsonArray params{QStringLiteral("%1/video-conference").arg(videoConferenceId), actionObj};
-    return generateMethod(QStringLiteral("stream-notify-user"), params, id);
+    const QJsonArray params{u"%1/video-conference"_s.arg(videoConferenceId), actionObj};
+    return generateMethod(u"stream-notify-user"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::bannerDismiss(const QByteArray &bannerId, quint64 id)
 {
     const QJsonObject obj{
-        {QStringLiteral("id"), QString::fromLatin1(bannerId)},
+        {u"id"_s, QString::fromLatin1(bannerId)},
     };
 
     const QJsonArray params{obj};
-    return generateMethod(QStringLiteral("banner/dismiss"), params, id);
+    return generateMethod(u"banner/dismiss"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &rid, const QString &userId, quint64 id)
 {
     const QJsonObject obj{
-        {QStringLiteral("rid"), rid},
-        {QStringLiteral("blocked"), userId},
+        {u"rid"_s, rid},
+        {u"blocked"_s, userId},
     };
     const QJsonArray params{{obj}};
 
-    return generateMethod(QStringLiteral("blockUser"), params, id);
+    return generateMethod(u"blockUser"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setAdminStatus(const QByteArray &userId, bool admin, quint64 id)
 {
     const QJsonArray params{{QString::fromLatin1(userId)}, {admin}};
-    return generateMethod(QStringLiteral("setAdminStatus"), params, id);
+    return generateMethod(u"setAdminStatus"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadCustomSound(const QByteArray &sound, quint64 id)
@@ -101,71 +101,71 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadCustomSound(
     // TODO fix me
     const QJsonArray params{{}};
 
-    return generateMethod(QStringLiteral("uploadCustomSound"), params, id);
+    return generateMethod(u"uploadCustomSound"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteCustomSound(const QByteArray &identifier, quint64 id)
 {
     const QJsonArray params{{QString::fromLatin1(identifier)}};
 
-    return generateMethod(QStringLiteral("deleteCustomSound"), params, id);
+    return generateMethod(u"deleteCustomSound"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::listCustomSounds(quint64 id)
 {
     const QJsonArray params{{}};
 
-    return generateMethod(QStringLiteral("listCustomSounds"), params, id);
+    return generateMethod(u"listCustomSounds"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &rid, const QString &userId, quint64 id)
 {
     const QJsonObject obj{
-        {QStringLiteral("rid"), rid},
-        {QStringLiteral("blocked"), userId},
+        {u"rid"_s, rid},
+        {u"blocked"_s, userId},
     };
     const QJsonArray params{{obj}};
 
-    return generateMethod(QStringLiteral("unblockUser"), params, id);
+    return generateMethod(u"unblockUser"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType, quint64 id)
 {
     const QJsonArray params{{roomType}, {QString::fromLatin1(roomId)}};
-    return generateMethod(QStringLiteral("getRoomByTypeAndName"), params, id);
+    return generateMethod(u"getRoomByTypeAndName"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QByteArray &roomId, quint64 id)
 {
     const QJsonArray params{{QString::fromLatin1(roomId)}};
-    return generateMethod(QStringLiteral("openRoom"), params, id);
+    return generateMethod(u"openRoom"_s, params, id);
 }
 
 // Verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteFileMessage(const QByteArray &fileId, quint64 id)
 {
     const QJsonArray params{{QString::fromLatin1(fileId)}};
-    return generateMethod(QStringLiteral("deleteFileMessage"), params, id);
+    return generateMethod(u"deleteFileMessage"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QByteArray &roomId, const QString &userId, bool typingStatus, quint64 id)
 {
-    const QString eventName = QString::fromLatin1(roomId) + QStringLiteral("/user-activity");
+    const QString eventName = QString::fromLatin1(roomId) + u"/user-activity"_s;
     const QJsonArray params{{eventName}, {userId}, {typingStatus}};
-    return generateMethod(QStringLiteral("stream-notify-room"), params, id);
+    return generateMethod(u"stream-notify-room"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(User::PresenceStatus status, quint64 id)
 {
     const QString strPresence = Utils::presenceStatusToString(status);
     const QJsonArray params{{strPresence}};
-    return generateMethod(QStringLiteral("UserPresence:setDefaultStatus"), params, id);
+    return generateMethod(u"UserPresence:setDefaultStatus"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCall(const QByteArray &roomId, quint64 id)
 {
     const QJsonArray params{{QJsonValue(QString::fromLatin1(roomId))}};
-    return generateMethod(QStringLiteral("jitsi:updateTimeout"), params, id);
+    return generateMethod(u"jitsi:updateTimeout"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
@@ -186,7 +186,7 @@ RocketChatMessage::searchRoomUsers(const QByteArray &roomId, const QString &patt
     QJsonArray params;
     params.append(pattern);
 
-    const QJsonArray exceptionJson = QJsonArray::fromStringList(exceptions.split(QLatin1Char(',')));
+    const QJsonArray exceptionJson = QJsonArray::fromStringList(exceptions.split(u','));
     params.append(std::move(exceptionJson));
 
     QJsonObject secondParams;
@@ -201,14 +201,14 @@ RocketChatMessage::searchRoomUsers(const QByteArray &roomId, const QString &patt
     if (!roomId.isEmpty()) {
         params.append(QString::fromLatin1(roomId));
     }
-    return generateMethod(QStringLiteral("spotlight"), params, id);
+    return generateMethod(u"spotlight"_s, params, id);
 }
 
 // Verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(quint64 id)
 {
     QJsonObject json;
-    json["msg"_L1] = QStringLiteral("unsub");
+    json["msg"_L1] = u"unsub"_s;
     json["id"_L1] = QString::number(id);
     const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
     RocketChatMessageResult result;
@@ -228,7 +228,7 @@ QJsonObject RocketChatMessage::generateJsonObject(const QString &method, const Q
 QJsonObject RocketChatMessage::generateJsonObject(const QString &method, const QJsonArray &params, quint64 id)
 {
     QJsonObject json;
-    json["msg"_L1] = QStringLiteral("method");
+    json["msg"_L1] = u"method"_s;
     json["method"_L1] = method;
     json["id"_L1] = QString::number(id);
     json["params"_L1] = params;
@@ -259,57 +259,53 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(con
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::streamNotifyUserOtrEnd(const QString &roomId, const QString &userId, quint64 id)
 {
-    const QJsonObject endObject{{QStringLiteral("roomId"), roomId}, {QStringLiteral("userId"), userId}};
+    const QJsonObject endObject{{u"roomId"_s, roomId}, {u"userId"_s, userId}};
     QString otrId = roomId;
     otrId = otrId.remove(userId);
-    const QJsonArray params{QStringLiteral("%1/otr").arg(otrId), QStringLiteral("end"), endObject};
-    return generateMethod(QStringLiteral("stream-notify-user"), params, id);
+    const QJsonArray params{u"%1/otr"_s.arg(otrId), u"end"_s, endObject};
+    return generateMethod(u"stream-notify-user"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::enable2fa(quint64 id)
 {
     const QJsonArray params;
-    return generateMethod(QStringLiteral("2fa:enable"), params, id);
+    return generateMethod(u"2fa:enable"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::disable2fa(const QString &code, quint64 id)
 {
     const QJsonArray params{code};
-    return generateMethod(QStringLiteral("2fa:disable"), params, id);
+    return generateMethod(u"2fa:disable"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::regenerateCodes2fa(const QString &code, quint64 id)
 {
     const QJsonArray params{code};
-    return generateMethod(QStringLiteral("2fa:regenerateCodes"), params, id);
+    return generateMethod(u"2fa:regenerateCodes"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::validateTempToken2fa(const QString &code, quint64 id)
 {
     const QJsonArray params{code};
-    return generateMethod(QStringLiteral("2fa:validateTempToken"), params, id);
+    return generateMethod(u"2fa:validateTempToken"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id)
 {
-    const QJsonObject endObject{{QStringLiteral("roomId"), QStringLiteral("%1%2").arg(userTo, userFrom)},
-                                {QStringLiteral("userId"), userTo},
-                                {QStringLiteral("publicKey"), publicKeys}};
-    const QJsonArray params{QStringLiteral("%1/otr").arg(userFrom), QStringLiteral("handshake"), endObject};
-    return generateMethod(QStringLiteral("stream-notify-user"), params, id);
+    const QJsonObject endObject{{u"roomId"_s, u"%1%2"_s.arg(userTo, userFrom)}, {u"userId"_s, userTo}, {u"publicKey"_s, publicKeys}};
+    const QJsonArray params{u"%1/otr"_s.arg(userFrom), u"handshake"_s, endObject};
+    return generateMethod(u"stream-notify-user"_s, params, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKeys, quint64 id)
 {
-    const QJsonObject acknowledgeObject{{QStringLiteral("roomId"), QString::fromLatin1(roomId)},
-                                        {QStringLiteral("userId"), QString::fromLatin1(userId)},
-                                        {QStringLiteral("publicKey"), publicKeys}};
+    const QJsonObject acknowledgeObject{{u"roomId"_s, QString::fromLatin1(roomId)}, {u"userId"_s, QString::fromLatin1(userId)}, {u"publicKey"_s, publicKeys}};
     QString otrId = QString::fromLatin1(roomId);
     otrId = otrId.remove(QString::fromLatin1(userId));
-    const QJsonArray params{QStringLiteral("%1/otr").arg(otrId), QStringLiteral("acknowledge"), acknowledgeObject};
-    return generateMethod(QStringLiteral("stream-notify-user"), params, id);
+    const QJsonArray params{u"%1/otr"_s.arg(otrId), u"acknowledge"_s, acknowledgeObject};
+    return generateMethod(u"stream-notify-user"_s, params, id);
 #if 0
     {\"id\":\"30\",\"method\":\"stream-notify-user\",\"msg\":\"method\",\"params\":[\"4faACeGzSvG7xMcTy/otr\",\"acknowledge\",{\"publicKey\":\"{\\\"crv\\\":\\\"P-256\\\",\\\"ext\\\":true,\\\"key_ops\\\":[],\\\"kty\\\":\\\"EC\\\",\\\"x\\\":\\\"Jg7HgVygchsJSpGc1N36I7-4xlIF2Y4kBB0cKoT5rW8\\\",\\\"y\\\":\\\"rhdmHfXGihoZI0eBL1lADOm3FGrQ3qO6y2rXuV9YNC8\\\"}\",\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\"}]}"
     {\"id\":\"30\",\"method\":\"stream-notify-user\",\"msg\":\"method\",\"params\":[\"4faACeGzSvG7xMcTy/otr\",\"acknowledge\",{\"publicKey\":\"{}\",\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB4faACeGzSvG7xMcTy\",\"userId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\"}]}

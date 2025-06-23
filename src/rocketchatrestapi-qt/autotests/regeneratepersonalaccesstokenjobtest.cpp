@@ -5,6 +5,8 @@
 */
 
 #include "regeneratepersonalaccesstokenjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "personalaccesstoken/regeneratepersonalaccesstokenjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -30,14 +32,14 @@ void RegeneratePersonalAccessTokenJobTest::shouldGenerateRequest()
     RegeneratePersonalAccessTokenJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.regeneratePersonalAccessToken")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.regeneratePersonalAccessToken"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void RegeneratePersonalAccessTokenJobTest::shouldGenerateJson()
 {
     RegeneratePersonalAccessTokenJob job;
-    const QString tokenName = QStringLiteral("foo1");
+    const QString tokenName = u"foo1"_s;
     job.setTokenName(tokenName);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"tokenName":"%1"})").arg(tokenName).toLatin1());
@@ -48,26 +50,26 @@ void RegeneratePersonalAccessTokenJobTest::shouldNotStarting()
     RegeneratePersonalAccessTokenJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
-    job.setAuthCode(QStringLiteral("bla"));
+    job.setAuthCode(u"bla"_s);
     QVERIFY(!job.canStart());
 
-    job.setAuthMethod(QStringLiteral("method"));
+    job.setAuthMethod(u"method"_s);
     QVERIFY(!job.canStart());
 
-    const QString tokenName = QStringLiteral("foo1");
+    const QString tokenName = u"foo1"_s;
     job.setTokenName(tokenName);
     QVERIFY(job.canStart());
 }

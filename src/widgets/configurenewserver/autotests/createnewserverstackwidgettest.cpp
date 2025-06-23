@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "createnewserverstackwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configurenewserver/checknewserverurlwidget.h"
 #include "configurenewserver/createnewserverstackwidget.h"
 #include "configurenewserver/createnewserverwidget.h"
@@ -18,10 +20,10 @@ void CreateNewServerStackWidgetTest::shouldHaveDefaultValues()
 {
     CreateNewServerStackWidget w;
 
-    auto mCheckNewServerUrlWidget = w.findChild<CheckNewServerUrlWidget *>(QStringLiteral("mCheckNewServerUrlWidget"));
+    auto mCheckNewServerUrlWidget = w.findChild<CheckNewServerUrlWidget *>(u"mCheckNewServerUrlWidget"_s);
     QVERIFY(mCheckNewServerUrlWidget);
 
-    auto mCreateNewServerWidget = w.findChild<CreateNewServerWidget *>(QStringLiteral("mCreateNewServerWidget"));
+    auto mCreateNewServerWidget = w.findChild<CreateNewServerWidget *>(u"mCreateNewServerWidget"_s);
     QVERIFY(mCreateNewServerWidget);
 }
 

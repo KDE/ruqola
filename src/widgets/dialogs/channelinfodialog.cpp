@@ -5,6 +5,8 @@
 */
 
 #include "channelinfodialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channelinfowidget.h"
 #include "room.h"
 
@@ -29,9 +31,9 @@ ChannelInfoDialog::ChannelInfoDialog(Room *room, RocketChatAccount *account, QWi
 {
     setWindowTitle(i18nc("@title:window", "Channel Info"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mChannelInfoWidget->setObjectName(QStringLiteral("mChannelInfoWidget"));
+    mChannelInfoWidget->setObjectName(u"mChannelInfoWidget"_s);
     mainLayout->addWidget(mChannelInfoWidget);
     mChannelInfoWidget->updateUiFromPermission();
 

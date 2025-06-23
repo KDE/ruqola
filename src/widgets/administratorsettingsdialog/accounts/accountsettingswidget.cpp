@@ -5,6 +5,8 @@
 */
 
 #include "accountsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -59,167 +61,167 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mLoginLogsClientIp(new QCheckBox(i18nc("@option:check", "Show Client IP on failed login attempts logs"), this))
     , mLoginLogsForwardedForIp(new QCheckBox(i18nc("@option:check", "Show Forwarded IP on failed login attempts logs"), this))
 {
-    mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
-    addCheckBox(mAllowChangeName, QStringLiteral("Accounts_AllowRealNameChange"));
+    mAllowChangeName->setObjectName(u"mAllowChangeName"_s);
+    addCheckBox(mAllowChangeName, u"Accounts_AllowRealNameChange"_s);
 
-    mAllowCustomStatusMessage->setObjectName(QStringLiteral("mAllowCustomStatusMessage"));
-    addCheckBox(mAllowCustomStatusMessage, QStringLiteral("Accounts_AllowUserStatusMessageChange"));
+    mAllowCustomStatusMessage->setObjectName(u"mAllowCustomStatusMessage"_s);
+    addCheckBox(mAllowCustomStatusMessage, u"Accounts_AllowUserStatusMessageChange"_s);
 
-    mAllowChangeUserProfile->setObjectName(QStringLiteral("mAllowChangeUserProfile"));
-    addCheckBox(mAllowChangeUserProfile, QStringLiteral("Accounts_AllowUserProfileChange"));
+    mAllowChangeUserProfile->setObjectName(u"mAllowChangeUserProfile"_s);
+    addCheckBox(mAllowChangeUserProfile, u"Accounts_AllowUserProfileChange"_s);
 
-    mAllowChangeUserAvatar->setObjectName(QStringLiteral("mAllowChangeUserAvatar"));
-    addCheckBox(mAllowChangeUserAvatar, QStringLiteral("Accounts_AllowUserAvatarChange"));
+    mAllowChangeUserAvatar->setObjectName(u"mAllowChangeUserAvatar"_s);
+    addCheckBox(mAllowChangeUserAvatar, u"Accounts_AllowUserAvatarChange"_s);
 
-    mAllowChangeEmail->setObjectName(QStringLiteral("mAllowChangeEmail"));
-    addCheckBox(mAllowChangeEmail, QStringLiteral("Accounts_AllowEmailChange"));
+    mAllowChangeEmail->setObjectName(u"mAllowChangeEmail"_s);
+    addCheckBox(mAllowChangeEmail, u"Accounts_AllowEmailChange"_s);
 
-    mAllowChangePassword->setObjectName(QStringLiteral("mAllowChangePassword"));
-    addCheckBox(mAllowChangePassword, QStringLiteral("Accounts_AllowPasswordChange"));
+    mAllowChangePassword->setObjectName(u"mAllowChangePassword"_s);
+    addCheckBox(mAllowChangePassword, u"Accounts_AllowPasswordChange"_s);
 
-    mAllowChangeEmailNotifications->setObjectName(QStringLiteral("mAllowChangeEmailNotifications"));
-    addCheckBox(mAllowChangeEmailNotifications, QStringLiteral("Accounts_AllowEmailNotifications"));
+    mAllowChangeEmailNotifications->setObjectName(u"mAllowChangeEmailNotifications"_s);
+    addCheckBox(mAllowChangeEmailNotifications, u"Accounts_AllowEmailNotifications"_s);
 
-    mAllowUsersToDeleteOwnAccount->setObjectName(QStringLiteral("mAllowUsersToDeleteOwnAccount"));
-    addCheckBox(mAllowUsersToDeleteOwnAccount, QStringLiteral("Accounts_AllowDeleteOwnAccount"));
+    mAllowUsersToDeleteOwnAccount->setObjectName(u"mAllowUsersToDeleteOwnAccount"_s);
+    addCheckBox(mAllowUsersToDeleteOwnAccount, u"Accounts_AllowDeleteOwnAccount"_s);
 
-    mAllowAnonymousWrite->setObjectName(QStringLiteral("mAllowAnonymousWrite"));
-    addCheckBox(mAllowAnonymousWrite, QStringLiteral("Accounts_AllowAnonymousWrite"));
+    mAllowAnonymousWrite->setObjectName(u"mAllowAnonymousWrite"_s);
+    addCheckBox(mAllowAnonymousWrite, u"Accounts_AllowAnonymousWrite"_s);
 
-    mAllowAnonymousRead->setObjectName(QStringLiteral("mAllowAnonymousRead"));
-    addCheckBox(mAllowAnonymousRead, QStringLiteral("Accounts_AllowAnonymousRead"));
+    mAllowAnonymousRead->setObjectName(u"mAllowAnonymousRead"_s);
+    addCheckBox(mAllowAnonymousRead, u"Accounts_AllowAnonymousRead"_s);
 
-    mAllowUsersDeleteOwnAccount->setObjectName(QStringLiteral("mAllowUsersDeleteOwnAccount"));
-    addCheckBox(mAllowUsersDeleteOwnAccount, QStringLiteral("Accounts_AllowDeleteOwnAccount"));
+    mAllowUsersDeleteOwnAccount->setObjectName(u"mAllowUsersDeleteOwnAccount"_s);
+    addCheckBox(mAllowUsersDeleteOwnAccount, u"Accounts_AllowDeleteOwnAccount"_s);
 
-    mAllowPasswordChangeOauthUsers->setObjectName(QStringLiteral("mAllowPasswordChangeOauthUsers"));
-    addCheckBox(mAllowPasswordChangeOauthUsers, QStringLiteral("Accounts_AllowPasswordChangeForOAuthUsers"));
+    mAllowPasswordChangeOauthUsers->setObjectName(u"mAllowPasswordChangeOauthUsers"_s);
+    addCheckBox(mAllowPasswordChangeOauthUsers, u"Accounts_AllowPasswordChangeForOAuthUsers"_s);
 
-    mAllowFeaturePreview->setObjectName(QStringLiteral("mAllowFeaturePreview"));
-    addCheckBox(mAllowFeaturePreview, QStringLiteral("Accounts_AllowFeaturePreview"));
+    mAllowFeaturePreview->setObjectName(u"mAllowFeaturePreview"_s);
+    addCheckBox(mAllowFeaturePreview, u"Accounts_AllowFeaturePreview"_s);
 
-    mLoginExpirationInDays->setObjectName(QStringLiteral("mLoginExpirationInDays"));
-    addSpinbox(i18n("Login Expiration in Days"), mLoginExpirationInDays, QStringLiteral("Accounts_LoginExpiration"));
+    mLoginExpirationInDays->setObjectName(u"mLoginExpirationInDays"_s);
+    addSpinbox(i18n("Login Expiration in Days"), mLoginExpirationInDays, u"Accounts_LoginExpiration"_s);
 
-    mAllowInvisibleStatusOption->setObjectName(QStringLiteral("mAllowInvisibleStatusOption"));
-    addCheckBox(mAllowInvisibleStatusOption, QStringLiteral("Accounts_AllowInvisibleStatusOption"));
+    mAllowInvisibleStatusOption->setObjectName(u"mAllowInvisibleStatusOption"_s);
+    addCheckBox(mAllowInvisibleStatusOption, u"Accounts_AllowInvisibleStatusOption"_s);
 
-    mForgetUserSessionWindowClose->setObjectName(QStringLiteral("mForgetUserSessionWindowClose"));
-    addCheckBox(mForgetUserSessionWindowClose, QStringLiteral("Accounts_ForgetUserSessionOnWindowClose"));
+    mForgetUserSessionWindowClose->setObjectName(u"mForgetUserSessionWindowClose"_s);
+    addCheckBox(mForgetUserSessionWindowClose, u"Accounts_ForgetUserSessionOnWindowClose"_s);
 
     auto failedLoginAttemptsLabel = createBoldLabel(i18n("Failed Login Attempts"));
-    failedLoginAttemptsLabel->setObjectName(QStringLiteral("failedLoginAttemptsLabel"));
+    failedLoginAttemptsLabel->setObjectName(u"failedLoginAttemptsLabel"_s);
     mMainLayout->addWidget(failedLoginAttemptsLabel);
 
-    mEnableCollectLog->setObjectName(QStringLiteral("mEnableCollectLog"));
-    addCheckBox(mEnableCollectLog, QStringLiteral("Block_Multiple_Failed_Logins_Enabled"));
+    mEnableCollectLog->setObjectName(u"mEnableCollectLog"_s);
+    addCheckBox(mEnableCollectLog, u"Block_Multiple_Failed_Logins_Enabled"_s);
 
-    mBlockFailedLoginAttemptsUsername->setObjectName(QStringLiteral("mBlockFailedLoginAttemptsUsername"));
-    addCheckBox(mBlockFailedLoginAttemptsUsername, QStringLiteral("Block_Multiple_Failed_Logins_By_User"));
+    mBlockFailedLoginAttemptsUsername->setObjectName(u"mBlockFailedLoginAttemptsUsername"_s);
+    addCheckBox(mBlockFailedLoginAttemptsUsername, u"Block_Multiple_Failed_Logins_By_User"_s);
 
-    mHowManyFailedAttemptsUntilBlockUser->setObjectName(QStringLiteral("mHowManyFailedAttemptsUntilBlockUser"));
+    mHowManyFailedAttemptsUntilBlockUser->setObjectName(u"mHowManyFailedAttemptsUntilBlockUser"_s);
     addSpinbox(i18n("How Many Failed Attempts Until Block by User"),
                mHowManyFailedAttemptsUntilBlockUser,
-               QStringLiteral("Block_Multiple_Failed_Logins_Attempts_Until_Block_by_User"));
+               u"Block_Multiple_Failed_Logins_Attempts_Until_Block_by_User"_s);
 
-    mTimeUnblockUser->setObjectName(QStringLiteral("mTimeUnblockUser"));
-    addSpinbox(i18n("Time to unblock User (In Minutes)"), mTimeUnblockUser, QStringLiteral("Block_Multiple_Failed_Logins_Time_To_Unblock_By_User_In_Minutes"));
+    mTimeUnblockUser->setObjectName(u"mTimeUnblockUser"_s);
+    addSpinbox(i18n("Time to unblock User (In Minutes)"), mTimeUnblockUser, u"Block_Multiple_Failed_Logins_Time_To_Unblock_By_User_In_Minutes"_s);
 
-    mHowManyFailedAttemptsUntilBlockByIP->setObjectName(QStringLiteral("mHowManyFailedAttemptsUntilBlockByIP"));
+    mHowManyFailedAttemptsUntilBlockByIP->setObjectName(u"mHowManyFailedAttemptsUntilBlockByIP"_s);
     addSpinbox(i18n("How many failed attempts until block by IP"),
                mHowManyFailedAttemptsUntilBlockByIP,
-               QStringLiteral("Block_Multiple_Failed_Logins_Attempts_Until_Block_By_Ip"));
+               u"Block_Multiple_Failed_Logins_Attempts_Until_Block_By_Ip"_s);
 
     // TODO add missing settings
-    mHowManyFailedAttemptsUntilBlockByIPinMinutes->setObjectName(QStringLiteral("mHowManyFailedAttemptsUntilBlockByIPinMinutes"));
+    mHowManyFailedAttemptsUntilBlockByIPinMinutes->setObjectName(u"mHowManyFailedAttemptsUntilBlockByIPinMinutes"_s);
     addSpinbox(i18n("How many failed attempts until block by IP"),
                mHowManyFailedAttemptsUntilBlockByIPinMinutes,
-               QStringLiteral("Block_Multiple_Failed_Logins_Time_To_Unblock_By_Ip_In_Minutes"));
+               u"Block_Multiple_Failed_Logins_Time_To_Unblock_By_Ip_In_Minutes"_s);
 
     auto loginLogsLabel = createBoldLabel(i18n("Login Logs"));
-    loginLogsLabel->setObjectName(QStringLiteral("loginLogsLabel"));
+    loginLogsLabel->setObjectName(u"loginLogsLabel"_s);
     mMainLayout->addWidget(loginLogsLabel);
 
-    mLoginLogs->setObjectName(QStringLiteral("mLoginLogs"));
-    addCheckBox(mLoginLogs, QStringLiteral("Login_Logs_Enabled"));
+    mLoginLogs->setObjectName(u"mLoginLogs"_s);
+    addCheckBox(mLoginLogs, u"Login_Logs_Enabled"_s);
 
-    mLoginLogsUsername->setObjectName(QStringLiteral("mLoginLogsUsername"));
-    addCheckBox(mLoginLogsUsername, QStringLiteral("Login_Logs_Username"));
+    mLoginLogsUsername->setObjectName(u"mLoginLogsUsername"_s);
+    addCheckBox(mLoginLogsUsername, u"Login_Logs_Username"_s);
 
-    mLoginLogsUseragent->setObjectName(QStringLiteral("mLoginLogsUseragent"));
-    addCheckBox(mLoginLogsUseragent, QStringLiteral("Login_Logs_UserAgent"));
+    mLoginLogsUseragent->setObjectName(u"mLoginLogsUseragent"_s);
+    addCheckBox(mLoginLogsUseragent, u"Login_Logs_UserAgent"_s);
 
-    mLoginLogsClientIp->setObjectName(QStringLiteral("mLoginLogsClientIp"));
-    addCheckBox(mLoginLogsClientIp, QStringLiteral("Login_Logs_ClientIp"));
+    mLoginLogsClientIp->setObjectName(u"mLoginLogsClientIp"_s);
+    addCheckBox(mLoginLogsClientIp, u"Login_Logs_ClientIp"_s);
 
-    mLoginLogsForwardedForIp->setObjectName(QStringLiteral("mLoginLogsForwardedForIp"));
-    addCheckBox(mLoginLogsForwardedForIp, QStringLiteral("mLoginLogsForwardedForIp"));
+    mLoginLogsForwardedForIp->setObjectName(u"mLoginLogsForwardedForIp"_s);
+    addCheckBox(mLoginLogsForwardedForIp, u"mLoginLogsForwardedForIp"_s);
 
     auto regislationLabel = createBoldLabel(i18n("Registration"));
-    regislationLabel->setObjectName(QStringLiteral("regislationLabel"));
+    regislationLabel->setObjectName(u"regislationLabel"_s);
     mMainLayout->addWidget(regislationLabel);
 
-    mSendEmailUserWhenUserActivated->setObjectName(QStringLiteral("mSendEmailUserWhenUserActivated"));
-    addCheckBox(mSendEmailUserWhenUserActivated, QStringLiteral("Accounts_Send_Email_When_Activating"));
+    mSendEmailUserWhenUserActivated->setObjectName(u"mSendEmailUserWhenUserActivated"_s);
+    addCheckBox(mSendEmailUserWhenUserActivated, u"Accounts_Send_Email_When_Activating"_s);
 
-    mSendEmailUserWhenUserDeactivated->setObjectName(QStringLiteral("mSendEmailUserWhenUserDeactivated"));
-    addCheckBox(mSendEmailUserWhenUserDeactivated, QStringLiteral("Accounts_Send_Email_When_Deactivating"));
+    mSendEmailUserWhenUserDeactivated->setObjectName(u"mSendEmailUserWhenUserDeactivated"_s);
+    addCheckBox(mSendEmailUserWhenUserDeactivated, u"Accounts_Send_Email_When_Deactivating"_s);
 
-    mRequireNameSignup->setObjectName(QStringLiteral("mRequireNameSignup"));
-    addCheckBox(mRequireNameSignup, QStringLiteral("Accounts_RequireNameForSignUp"));
+    mRequireNameSignup->setObjectName(u"mRequireNameSignup"_s);
+    addCheckBox(mRequireNameSignup, u"Accounts_RequireNameForSignUp"_s);
 
-    mRequirePasswordConfirmation->setObjectName(QStringLiteral("mRequirePasswordConfirmation"));
-    addCheckBox(mRequirePasswordConfirmation, QStringLiteral("Accounts_RequirePasswordConfirmation"));
+    mRequirePasswordConfirmation->setObjectName(u"mRequirePasswordConfirmation"_s);
+    addCheckBox(mRequirePasswordConfirmation, u"Accounts_RequirePasswordConfirmation"_s);
 
-    mOnlyAllowVerifiedUsersLogin->setObjectName(QStringLiteral("mOnlyAllowVerifiedUsersLogin"));
+    mOnlyAllowVerifiedUsersLogin->setObjectName(u"mOnlyAllowVerifiedUsersLogin"_s);
     mOnlyAllowVerifiedUsersLogin->setToolTip(i18nc("@info:tooltip", "Make sure you have correct SMTP settings to use this feature"));
-    addCheckBox(mOnlyAllowVerifiedUsersLogin, QStringLiteral("Accounts_EmailVerification"));
+    addCheckBox(mOnlyAllowVerifiedUsersLogin, u"Accounts_EmailVerification"_s);
 
-    mMarkEmailExternalAccountsVerified->setObjectName(QStringLiteral("mMarkEmailExternalAccountsVerified"));
-    addCheckBox(mMarkEmailExternalAccountsVerified, QStringLiteral("Accounts_Verify_Email_For_External_Accounts"));
+    mMarkEmailExternalAccountsVerified->setObjectName(u"mMarkEmailExternalAccountsVerified"_s);
+    addCheckBox(mMarkEmailExternalAccountsVerified, u"Accounts_Verify_Email_For_External_Accounts"_s);
 
-    mManualApproveNewUser->setObjectName(QStringLiteral("mManualApproveNewUser"));
-    addCheckBox(mManualApproveNewUser, QStringLiteral("Accounts_ManuallyApproveNewUsers"));
+    mManualApproveNewUser->setObjectName(u"mManualApproveNewUser"_s);
+    addCheckBox(mManualApproveNewUser, u"Accounts_ManuallyApproveNewUsers"_s);
 
-    mDefaultUsernamePrefixSuggestion->setObjectName(QStringLiteral("mDefaultUsernamePrefixSuggestion"));
-    addLineEdit(i18n("Default Username Prefix Suggestion"), mDefaultUsernamePrefixSuggestion, QStringLiteral("Accounts_DefaultUsernamePrefixSuggestion"));
+    mDefaultUsernamePrefixSuggestion->setObjectName(u"mDefaultUsernamePrefixSuggestion"_s);
+    addLineEdit(i18n("Default Username Prefix Suggestion"), mDefaultUsernamePrefixSuggestion, u"Accounts_DefaultUsernamePrefixSuggestion"_s);
 
-    mAllowedDomainsList->setObjectName(QStringLiteral("mAllowedDomainsList"));
+    mAllowedDomainsList->setObjectName(u"mAllowedDomainsList"_s);
     mAllowedDomainsList->setToolTip(i18nc("@info:tooltip", "Comma-separated list of allowed domains"));
-    addLineEdit(i18n("Allowed Domains List"), mAllowedDomainsList, QStringLiteral("Accounts_AllowedDomainsList"));
+    addLineEdit(i18n("Allowed Domains List"), mAllowedDomainsList, u"Accounts_AllowedDomainsList"_s);
 
-    mBlockedDomainsList->setObjectName(QStringLiteral("mBlockedDomainsList"));
+    mBlockedDomainsList->setObjectName(u"mBlockedDomainsList"_s);
     mBlockedDomainsList->setToolTip(i18nc("@info:tooltip", "Comma-separated list of blocked domains"));
-    addLineEdit(i18n("Blocked Domains List"), mBlockedDomainsList, QStringLiteral("Accounts_BlockedDomainsList"));
+    addLineEdit(i18n("Blocked Domains List"), mBlockedDomainsList, u"Accounts_BlockedDomainsList"_s);
 
-    mBlockedUsernameList->setObjectName(QStringLiteral("mBlockedUsernameList"));
+    mBlockedUsernameList->setObjectName(u"mBlockedUsernameList"_s);
     mBlockedUsernameList->setToolTip(i18nc("@info:tooltip", "Comma-separated list of blocked usernames (case-insensitive)"));
-    addLineEdit(i18n("Blocked Username List"), mBlockedUsernameList, QStringLiteral("Accounts_BlockedUsernameList"));
+    addLineEdit(i18n("Blocked Username List"), mBlockedUsernameList, u"Accounts_BlockedUsernameList"_s);
 
-    mUseDefaultBlockedDomainsList->setObjectName(QStringLiteral("mUseDefaultBlockedDomainsList"));
-    addCheckBox(mUseDefaultBlockedDomainsList, QStringLiteral("Accounts_UseDefaultBlockedDomainsList"));
+    mUseDefaultBlockedDomainsList->setObjectName(u"mUseDefaultBlockedDomainsList"_s);
+    addCheckBox(mUseDefaultBlockedDomainsList, u"Accounts_UseDefaultBlockedDomainsList"_s);
 
-    mUseDNSDomainCheck->setObjectName(QStringLiteral("mUseDNSDomainCheck"));
-    addCheckBox(mUseDNSDomainCheck, QStringLiteral("Accounts_UseDNSDomainCheck"));
+    mUseDNSDomainCheck->setObjectName(u"mUseDNSDomainCheck"_s);
+    addCheckBox(mUseDNSDomainCheck, u"Accounts_UseDNSDomainCheck"_s);
 
-    mRegistrationAuthenticationServices->setObjectName(QStringLiteral("mRegistrationAuthenticationServices"));
+    mRegistrationAuthenticationServices->setObjectName(u"mRegistrationAuthenticationServices"_s);
     mMainLayout->addWidget(mRegistrationAuthenticationServices);
-    addCheckBox(mRegistrationAuthenticationServices, QStringLiteral("Accounts_Registration_AuthenticationServices_Enabled"));
+    addCheckBox(mRegistrationAuthenticationServices, u"Accounts_Registration_AuthenticationServices_Enabled"_s);
 
-    mRegistrationAuthenticationServicesDefaultRoles->setObjectName(QStringLiteral("mRegistrationAuthenticationServicesDefaultRoles"));
+    mRegistrationAuthenticationServicesDefaultRoles->setObjectName(u"mRegistrationAuthenticationServicesDefaultRoles"_s);
     mRegistrationAuthenticationServicesDefaultRoles->setToolTip(
         i18n("Default roles (comma-separated) users will be given when registering through authentication services"));
     addLineEdit(i18n("Default Roles for Authentication Services"),
                 mRegistrationAuthenticationServicesDefaultRoles,
-                QStringLiteral("Accounts_Registration_AuthenticationServices_Default_Roles"));
+                u"Accounts_Registration_AuthenticationServices_Default_Roles"_s);
 
-    mRegistrationUsersDefaultRoles->setObjectName(QStringLiteral("mRegistrationUsersDefaultRoles"));
+    mRegistrationUsersDefaultRoles->setObjectName(u"mRegistrationUsersDefaultRoles"_s);
     mRegistrationUsersDefaultRoles->setToolTip(
         i18n("Default roles (comma-separated) users will be given when registering through manual registration (including via API)"));
-    addLineEdit(i18n("Default Roles for Users"), mRegistrationUsersDefaultRoles, QStringLiteral("Accounts_Registration_Users_Default_Roles"));
+    addLineEdit(i18n("Default Roles for Users"), mRegistrationUsersDefaultRoles, u"Accounts_Registration_Users_Default_Roles"_s);
 
-    mPasswordReset->setObjectName(QStringLiteral("mPasswordReset"));
-    addCheckBox(mPasswordReset, QStringLiteral("Accounts_PasswordReset"));
+    mPasswordReset->setObjectName(u"mPasswordReset"_s);
+    addCheckBox(mPasswordReset, u"Accounts_PasswordReset"_s);
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -255,7 +257,7 @@ void AccountSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mOnlyAllowVerifiedUsersLogin, mapSettings, false);
     initializeWidget(mMarkEmailExternalAccountsVerified, mapSettings, true);
     initializeWidget(mManualApproveNewUser, mapSettings, false);
-    initializeWidget(mDefaultUsernamePrefixSuggestion, mapSettings, QStringLiteral("user"));
+    initializeWidget(mDefaultUsernamePrefixSuggestion, mapSettings, u"user"_s);
     initializeWidget(mAllowedDomainsList, mapSettings, QString());
     initializeWidget(mBlockedDomainsList, mapSettings, QString());
     initializeWidget(mBlockedUsernameList, mapSettings, QString());
@@ -263,8 +265,8 @@ void AccountSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mUseDNSDomainCheck, mapSettings, false);
     initializeWidget(mAllowFeaturePreview, mapSettings, false);
     initializeWidget(mRegistrationAuthenticationServices, mapSettings, true);
-    initializeWidget(mRegistrationAuthenticationServicesDefaultRoles, mapSettings, QStringLiteral("user"));
-    initializeWidget(mRegistrationUsersDefaultRoles, mapSettings, QStringLiteral("user"));
+    initializeWidget(mRegistrationAuthenticationServicesDefaultRoles, mapSettings, u"user"_s);
+    initializeWidget(mRegistrationUsersDefaultRoles, mapSettings, u"user"_s);
     initializeWidget(mPasswordReset, mapSettings, true);
     initializeWidget(mLoginLogs, mapSettings, true);
     initializeWidget(mLoginLogsUsername, mapSettings, false);

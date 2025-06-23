@@ -5,6 +5,8 @@
 */
 
 #include "teamsearchroomwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teamsearchroomforteamwidget.h"
 #include <QVBoxLayout>
 
@@ -13,10 +15,10 @@ TeamSearchRoomWidget::TeamSearchRoomWidget(RocketChatAccount *account, QWidget *
     , mTeamSearchRoomForTeamWidget(new TeamSearchRoomForTeamWidget(account, this))
 {
     auto vboxLayout = new QVBoxLayout(this);
-    vboxLayout->setObjectName(QStringLiteral("vboxLayout"));
+    vboxLayout->setObjectName(u"vboxLayout"_s);
     vboxLayout->setContentsMargins({});
 
-    mTeamSearchRoomForTeamWidget->setObjectName(QStringLiteral("mTeamSearchRoomForTeamWidget"));
+    mTeamSearchRoomForTeamWidget->setObjectName(u"mTeamSearchRoomForTeamWidget"_s);
     vboxLayout->addWidget(mTeamSearchRoomForTeamWidget);
     connect(mTeamSearchRoomForTeamWidget, &TeamSearchRoomForTeamWidget::roomListChanged, this, &TeamSearchRoomWidget::enableOkButton);
 }

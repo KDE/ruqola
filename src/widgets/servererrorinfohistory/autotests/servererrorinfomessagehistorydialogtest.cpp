@@ -5,6 +5,8 @@
 */
 
 #include "servererrorinfomessagehistorydialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 #include "servererrorinfohistory/servererrorinfomessagehistorywidget.h"
 #include <QDialogButtonBox>
@@ -23,12 +25,12 @@ void ServerErrorInfoMessageHistoryDialogTest::shouldHaveDefaultValues()
 {
     ServerErrorInfoMessageHistoryDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
-    auto mServerErrorInfoMessageHistoryWidget = d.findChild<ServerErrorInfoMessageHistoryWidget *>(QStringLiteral("mServerErrorInfoMessageHistoryWidget"));
+    auto mServerErrorInfoMessageHistoryWidget = d.findChild<ServerErrorInfoMessageHistoryWidget *>(u"mServerErrorInfoMessageHistoryWidget"_s);
     QVERIFY(mServerErrorInfoMessageHistoryWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

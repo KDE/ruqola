@@ -5,6 +5,8 @@
 */
 
 #include "emojicustomcreatejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "emoji/emojicustomcreatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -28,14 +30,14 @@ void EmojiCustomCreateJobTest::shouldGenerateRequest()
     EmojiCustomCreateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.create")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/emoji-custom.create"_s));
 }
 
 void EmojiCustomCreateJobTest::shouldGenerateJson()
 {
     EmojiCustomCreateJob job;
     // TODO
-    //    const QString emojiId = QStringLiteral("foo1");
+    //    const QString emojiId = u"foo1"_s;
     //    job.setEmojiId(emojiId);
     //    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"emojiId":"%1"})").arg(emojiId).toLatin1());
 }

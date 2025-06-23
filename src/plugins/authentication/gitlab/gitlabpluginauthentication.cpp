@@ -5,6 +5,8 @@
 */
 
 #include "gitlabpluginauthentication.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "gitlabauthenticationinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -35,7 +37,7 @@ QString GitLabPluginAuthentication::name() const
 
 QString GitLabPluginAuthentication::iconName() const
 {
-    return QStringLiteral("dialog-password");
+    return u"dialog-password"_s;
 }
 
 #include "gitlabpluginauthentication.moc"

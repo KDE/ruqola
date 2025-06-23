@@ -5,6 +5,8 @@
 */
 
 #include "administratorroomsselectroomtypewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QHBoxLayout>
@@ -19,15 +21,15 @@ AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(Q
     , mOmniChannel(new QCheckBox(i18nc("@option:check", "Omnichannel"), this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mDirectRooms->setObjectName(QStringLiteral("mDirectRooms"));
-    mPublicRooms->setObjectName(QStringLiteral("mPublicRooms"));
-    mPrivateRooms->setObjectName(QStringLiteral("mPrivateRooms"));
-    mDiscussionRooms->setObjectName(QStringLiteral("mDiscussionRooms"));
-    mTeamRooms->setObjectName(QStringLiteral("mTeamRooms"));
-    mOmniChannel->setObjectName(QStringLiteral("mOmniChannel"));
+    mDirectRooms->setObjectName(u"mDirectRooms"_s);
+    mPublicRooms->setObjectName(u"mPublicRooms"_s);
+    mPrivateRooms->setObjectName(u"mPrivateRooms"_s);
+    mDiscussionRooms->setObjectName(u"mDiscussionRooms"_s);
+    mTeamRooms->setObjectName(u"mTeamRooms"_s);
+    mOmniChannel->setObjectName(u"mOmniChannel"_s);
 
     mainLayout->addWidget(mDirectRooms);
     mainLayout->addWidget(mPublicRooms);

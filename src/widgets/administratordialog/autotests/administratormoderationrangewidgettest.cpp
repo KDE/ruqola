@@ -5,6 +5,8 @@
 */
 
 #include "administratormoderationrangewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/moderationconsole/administratormoderationrangewidget.h"
 #include <QDateEdit>
 #include <QHBoxLayout>
@@ -21,23 +23,23 @@ void AdministratorModerationRangeWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorModerationRangeWidget w;
 
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto fromLabel = w.findChild<QLabel *>(QStringLiteral("fromLabel"));
+    auto fromLabel = w.findChild<QLabel *>(u"fromLabel"_s);
     QVERIFY(fromLabel);
     QVERIFY(!fromLabel->text().isEmpty());
 
-    auto toLabel = w.findChild<QLabel *>(QStringLiteral("toLabel"));
+    auto toLabel = w.findChild<QLabel *>(u"toLabel"_s);
     QVERIFY(toLabel);
     QVERIFY(!toLabel->text().isEmpty());
 
-    auto mFromDate = w.findChild<QDateEdit *>(QStringLiteral("mFromDate"));
+    auto mFromDate = w.findChild<QDateEdit *>(u"mFromDate"_s);
     QVERIFY(mFromDate);
-    auto mToDate = w.findChild<QDateEdit *>(QStringLiteral("mToDate"));
+    auto mToDate = w.findChild<QDateEdit *>(u"mToDate"_s);
     QVERIFY(mToDate);
 
-    auto mFilterDate = w.findChild<QToolButton *>(QStringLiteral("mFilterDate"));
+    auto mFilterDate = w.findChild<QToolButton *>(u"mFilterDate"_s);
     QVERIFY(mFilterDate);
     QVERIFY(mFilterDate->autoRaise());
 }

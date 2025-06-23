@@ -5,6 +5,8 @@
 */
 
 #include "accountmanagertest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountmanager.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
@@ -42,23 +44,23 @@ void AccountManagerTest::shouldAddAccount()
 void AccountManagerTest::shouldReturnAccountFromAccountName()
 {
     AccountManager w;
-    QVERIFY(!w.accountFromName(QStringLiteral("DDDD")));
+    QVERIFY(!w.accountFromName(u"DDDD"_s));
 
     auto c = new RocketChatAccount();
-    QString accountName = QStringLiteral("bla");
+    QString accountName = u"bla"_s;
     c->setAccountName(accountName);
     w.addAccount(c);
     QVERIFY(w.accountFromName(accountName));
 
-    QVERIFY(!w.accountFromName(QStringLiteral("DDDD")));
+    QVERIFY(!w.accountFromName(u"DDDD"_s));
 
-    accountName = QStringLiteral("bli");
+    accountName = u"bli"_s;
     c = new RocketChatAccount();
     c->setAccountName(accountName);
     w.addAccount(c);
     QVERIFY(w.accountFromName(accountName));
-    w.removeAccount(QStringLiteral("bla"));
-    w.removeAccount(QStringLiteral("bli"));
+    w.removeAccount(u"bla"_s);
+    w.removeAccount(u"bli"_s);
 }
 
 #include "moc_accountmanagertest.cpp"

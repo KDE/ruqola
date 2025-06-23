@@ -5,6 +5,8 @@
 */
 
 #include "usercompletermodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/usercompletermodel.h"
 #include "test_model_helpers.h"
 #include <QSignalSpy>
@@ -35,34 +37,34 @@ void UserCompleterModelTest::shouldAddValues()
     QSignalSpy rowABTInserted(&w, &UserCompleterModel::rowsAboutToBeInserted);
     for (int i = 0; i < 10; i++) {
         User user;
-        user.setName(QStringLiteral("name%1").arg(i));
+        user.setName(u"name%1"_s.arg(i));
         user.setStatus(User::PresenceStatus::Offline);
-        user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        user.setUserId(u"userId%1"_s.arg(i).toLatin1());
+        user.setUserName(u"username%1"_s.arg(i));
         users.append(std::move(user));
     }
     w.addUsers(users);
     QCOMPARE(w.rowCount(), 10);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,9"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,9"_s);
 
     users.clear();
     for (int i = 0; i < 3; ++i) {
         User user;
-        user.setName(QStringLiteral("name%1").arg(i));
+        user.setName(u"name%1"_s.arg(i));
         user.setStatus(User::PresenceStatus::Offline);
-        user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        user.setUserId(u"userId%1"_s.arg(i).toLatin1());
+        user.setUserName(u"username%1"_s.arg(i));
         users.append(std::move(user));
     }
     w.addUsers(users);
     QCOMPARE(w.rowCount(), 3);
     QCOMPARE(rowInsertedSpy.count(), 2);
     QCOMPARE(rowABTInserted.count(), 2);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9;0,2"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9;0,2"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,9;0,2"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,9;0,2"_s);
 }
 
 void UserCompleterModelTest::shouldVerifyData()
@@ -71,18 +73,18 @@ void UserCompleterModelTest::shouldVerifyData()
     QList<User> users;
     for (int i = 0; i < 10; i++) {
         User user;
-        user.setName(QStringLiteral("name%1").arg(i));
+        user.setName(u"name%1"_s.arg(i));
         user.setStatus(User::PresenceStatus::Offline);
-        user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        user.setUserId(u"userId%1"_s.arg(i).toLatin1());
+        user.setUserName(u"username%1"_s.arg(i));
         users.append(std::move(user));
     }
     w.addUsers(users);
     QCOMPARE(w.rowCount(), 10);
 
     for (int i = 0; i < 10; ++i) {
-        QCOMPARE(w.data(w.index(i), UserCompleterModel::UserId).toString(), QStringLiteral("userId%1").arg(i));
-        QCOMPARE(w.data(w.index(i), UserCompleterModel::UserName).toString(), QStringLiteral("username%1").arg(i));
+        QCOMPARE(w.data(w.index(i), UserCompleterModel::UserId).toString(), u"userId%1"_s.arg(i));
+        QCOMPARE(w.data(w.index(i), UserCompleterModel::UserName).toString(), u"username%1"_s.arg(i));
     }
 }
 

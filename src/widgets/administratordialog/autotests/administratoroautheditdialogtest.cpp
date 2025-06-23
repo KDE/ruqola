@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoroautheditdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/oauth/administratoroautheditdialog.h"
 #include "administratordialog/oauth/administratoroautheditwidget.h"
 #include <QDialogButtonBox>
@@ -22,14 +24,14 @@ void AdministratorOauthEditDialogTest::shouldHaveDefaultValues()
 {
     AdministratorOauthEditDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
     QCOMPARE(buttonBox->standardButtons(), QDialogButtonBox::StandardButtons{QDialogButtonBox::Ok | QDialogButtonBox::Cancel});
 
-    auto mOauthEditWidget = w.findChild<AdministratorOauthEditWidget *>(QStringLiteral("mOauthEditWidget"));
+    auto mOauthEditWidget = w.findChild<AdministratorOauthEditWidget *>(u"mOauthEditWidget"_s);
     QVERIFY(mOauthEditWidget);
 
     auto mOkButton = buttonBox->button(QDialogButtonBox::Ok);

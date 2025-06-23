@@ -5,6 +5,8 @@
 */
 
 #include "channelinfowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channelinfoeditablewidget.h"
 #include "channelinforeadonlywidget.h"
 #include "channelrolesinfowidget.h"
@@ -24,10 +26,10 @@ ChannelInfoWidget::ChannelInfoWidget(Room *room, RocketChatAccount *account, QWi
     , mChannelRolesInfoWidget(new ChannelRolesInfoWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mStackedWidget->setObjectName(u"mStackedWidget"_s);
     mainLayout->addWidget(mStackedWidget);
     mChannelInfoEditableWidget->setVisible(false);
     mChannelInfoReadOnlyWidget->setVisible(false);

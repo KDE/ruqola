@@ -5,6 +5,8 @@
 */
 
 #include "directchannelinfodialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directchannelinfowidget.h"
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -17,13 +19,13 @@ DirectChannelInfoDialog::DirectChannelInfoDialog(RocketChatAccount *account, QWi
 {
     setWindowTitle(i18nc("@title:window", "User Info"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mDirectChannelInfoWidget->setObjectName(QStringLiteral("mDirectChannelInfoWidget"));
+    mDirectChannelInfoWidget->setObjectName(u"mDirectChannelInfoWidget"_s);
     mainLayout->addWidget(mDirectChannelInfoWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    buttonBox->setObjectName(QStringLiteral("buttonBox"));
+    buttonBox->setObjectName(u"buttonBox"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &DirectChannelInfoDialog::reject);
     mainLayout->addWidget(buttonBox);
 }

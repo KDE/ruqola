@@ -5,6 +5,8 @@
 */
 
 #include "addusersinroomwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "adduserscompletionlineedit.h"
 #include "misc/adduserswidget.h"
 
@@ -16,10 +18,10 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(RocketChatAccount *account, QWidget *
     , mAddUsersWidget(new AddUsersWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mAddUsersWidget->setObjectName(QStringLiteral("mAddUsersWidget"));
+    mAddUsersWidget->setObjectName(u"mAddUsersWidget"_s);
     mAddUsersWidget->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     connect(mAddUsersWidget, &AddUsersWidget::userListChanged, this, &AddUsersInRoomWidget::updateOkButton);
     mainLayout->addWidget(mAddUsersWidget);

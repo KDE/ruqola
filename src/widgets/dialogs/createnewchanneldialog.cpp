@@ -5,6 +5,7 @@
 */
 
 #include "createnewchanneldialog.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -25,13 +26,13 @@ CreateNewChannelDialog::CreateNewChannelDialog(RocketChatAccount *account, QWidg
 {
     setWindowTitle(i18nc("@title:window", "Create Channel"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateNewChannelWidget->setObjectName(QStringLiteral("mCreateNewChannelWidget"));
+    mCreateNewChannelWidget->setObjectName(u"mCreateNewChannelWidget"_s);
     mainLayout->addWidget(mCreateNewChannelWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &CreateNewChannelDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &CreateNewChannelDialog::reject);

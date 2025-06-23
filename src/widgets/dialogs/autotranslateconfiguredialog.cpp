@@ -5,6 +5,8 @@
 */
 
 #include "autotranslateconfiguredialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "autotranslateconfigurewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -16,13 +18,13 @@ AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(RocketChatAccount *ac
 {
     setWindowTitle(i18nc("@title:window", "Configure Auto-Translate"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mAutoTranslateConfigureWidget->setObjectName(QStringLiteral("mAutoTranslateConfigureWidget"));
+    mAutoTranslateConfigureWidget->setObjectName(u"mAutoTranslateConfigureWidget"_s);
     mainLayout->addWidget(mAutoTranslateConfigureWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AutoTranslateConfigureDialog::reject);
 }

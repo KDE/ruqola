@@ -593,7 +593,7 @@ QString RoomModel::sectionName(Section sectionId)
     case RoomModel::Section::NSections:
         break;
     }
-    return QStringLiteral("ERROR");
+    return u"ERROR"_s;
 }
 
 #include "moc_roommodel.cpp"

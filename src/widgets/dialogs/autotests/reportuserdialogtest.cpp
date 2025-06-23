@@ -5,6 +5,8 @@
 */
 
 #include "reportuserdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/reportuserdialog.h"
 #include "dialogs/reportuserwidget.h"
 #include <KTextEdit>
@@ -27,13 +29,13 @@ void ReportUserDialogTest::shouldHaveDefaultValues()
     ReportUserDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mReportUserWidget = w.findChild<ReportUserWidget *>(QStringLiteral("mReportUserWidget"));
+    auto mReportUserWidget = w.findChild<ReportUserWidget *>(u"mReportUserWidget"_s);
     QVERIFY(mReportUserWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
     QVERIFY(w.message().isEmpty());
@@ -45,12 +47,12 @@ void ReportUserDialogTest::shouldHaveDefaultValues()
 void ReportUserDialogTest::shouldUpdateOkButton()
 {
     ReportUserDialog w;
-    auto mReportUserWidget = w.findChild<ReportUserWidget *>(QStringLiteral("mReportUserWidget"));
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto mReportUserWidget = w.findChild<ReportUserWidget *>(u"mReportUserWidget"_s);
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
 
-    auto mMessageLineEdit = mReportUserWidget->findChild<KTextEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto mMessageLineEdit = mReportUserWidget->findChild<KTextEdit *>(u"mMessageLineEdit"_s);
     QVERIFY(mMessageLineEdit);
-    mMessageLineEdit->setText(QStringLiteral("foo"));
+    mMessageLineEdit->setText(u"foo"_s);
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
     QVERIFY(okButton->isEnabled());
 }

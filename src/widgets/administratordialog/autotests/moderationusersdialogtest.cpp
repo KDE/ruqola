@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "moderationusersdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/moderationconsole/moderationusersdialog.h"
 #include "administratordialog/moderationconsole/moderationuserswidget.h"
 #include <QDialogButtonBox>
@@ -22,13 +24,13 @@ void ModerationUsersDialogTest::shouldHaveDefaultValues()
     ModerationUsersDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mModerationUsersWidget = d.findChild<ModerationUsersWidget *>(QStringLiteral("mModerationUsersWidget"));
+    auto mModerationUsersWidget = d.findChild<ModerationUsersWidget *>(u"mModerationUsersWidget"_s);
     QVERIFY(mModerationUsersWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

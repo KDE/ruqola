@@ -5,6 +5,8 @@
 */
 
 #include "channelpassworddialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channelpasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -17,13 +19,13 @@ ChannelPasswordDialog::ChannelPasswordDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Add Password"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mChannelPasswordWidget->setObjectName(QStringLiteral("mChannelPasswordWidget"));
+    mChannelPasswordWidget->setObjectName(u"mChannelPasswordWidget"_s);
     mainLayout->addWidget(mChannelPasswordWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ChannelPasswordDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelPasswordDialog::reject);
     mainLayout->addWidget(buttonBox);

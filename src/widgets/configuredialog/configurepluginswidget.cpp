@@ -5,6 +5,8 @@
 */
 
 #include "configurepluginswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configurepluginstreewidgetdelegate.h"
 #include "room/plugins/plugintext.h"
 #include "room/plugins/plugintool.h"
@@ -27,17 +29,17 @@ ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     , mMessageWidget(new KMessageWidget(i18n("Restart is necessary for applying the changes."), this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mMessageWidget->setCloseButtonVisible(false);
     mMessageWidget->setVisible(false);
     mMessageWidget->setPosition(KMessageWidget::Header);
 
     mTreePluginWidget->setItemDelegate(new ConfigurePluginsTreeWidgetDelegate(this));
-    mTreePluginWidget->setObjectName(QStringLiteral("mTreePluginWidget"));
+    mTreePluginWidget->setObjectName(u"mTreePluginWidget"_s);
     mTreePluginWidget->setSortingEnabled(true);
     mTreePluginWidget->sortItems(0, Qt::AscendingOrder);
     mTreePluginWidget->setHeaderHidden(true);
@@ -48,7 +50,7 @@ ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     mTreePluginWidget->setColumnCount(2);
 
     mSearchLineEdit = new KTreeWidgetSearchLineWidget(this, mTreePluginWidget);
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mSearchLineEdit->searchLine()->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::BottomEdge}));
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit->searchLine());
 
@@ -85,12 +87,12 @@ void ConfigurePluginsWidget::load()
 
 QString toolsPluginGroupName()
 {
-    return QStringLiteral("pluginToolsPluginGroupName");
+    return u"pluginToolsPluginGroupName"_s;
 }
 
 QString textPluginGroupName()
 {
-    return QStringLiteral("pluginTextPluginGroupName");
+    return u"pluginTextPluginGroupName"_s;
 }
 
 void ConfigurePluginsWidget::initialize()
@@ -166,7 +168,7 @@ void ConfigurePluginsWidget::fillTopItems(const QList<PluginUtils::PluginUtilDat
                 const QStringList actData{configureGroupName, data.mIdentifier};
                 act->setData(actData);
                 but->setDefaultAction(act);
-                but->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
+                but->setIcon(QIcon::fromTheme(u"configure"_s));
                 but->setText(i18n("..."));
                 but->setFixedWidth(28);
                 but->setToolTip(i18nc("@info:tooltip", "Configure"));

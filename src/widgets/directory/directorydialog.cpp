@@ -5,6 +5,8 @@
 */
 
 #include "directorydialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directorycontainerwidget.h"
 #include "rocketchataccount.h"
 
@@ -27,13 +29,13 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
 {
     switch (type) {
     case DirectoryWidget::DirectoryType::Room:
-        setWindowTitle(i18nc("@title:window", "Join Room - %1", account ? account->accountName() : QStringLiteral("account")));
+        setWindowTitle(i18nc("@title:window", "Join Room - %1", account ? account->accountName() : u"account"_s));
         break;
     case DirectoryWidget::DirectoryType::User:
-        setWindowTitle(i18nc("@title:window", "Open Private Conversation - %1", account ? account->accountName() : QStringLiteral("account")));
+        setWindowTitle(i18nc("@title:window", "Open Private Conversation - %1", account ? account->accountName() : u"account"_s));
         break;
     case DirectoryWidget::DirectoryType::Team:
-        setWindowTitle(i18nc("@title:window", "Join Team - %1", account ? account->accountName() : QStringLiteral("account")));
+        setWindowTitle(i18nc("@title:window", "Join Team - %1", account ? account->accountName() : u"account"_s));
         break;
     case DirectoryWidget::DirectoryType::Unknown:
         Q_UNREACHABLE();
@@ -41,13 +43,13 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
     }
 
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mDirectoryContainerWidget->setObjectName(QStringLiteral("mDirectoryContainerWidget"));
+    mDirectoryContainerWidget->setObjectName(u"mDirectoryContainerWidget"_s);
     mainLayout->addWidget(mDirectoryContainerWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &DirectoryDialog::reject);
 

@@ -5,6 +5,8 @@
 */
 
 #include "channelpasswordwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -16,17 +18,17 @@ ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     , mPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18nc("@label:textbox", "Channel Password:"), this);
     label->setTextFormat(Qt::PlainText);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                : KPassword::RevealMode::Never);
+    mPasswordLineEdit->setObjectName(u"mPasswordLineEdit"_s);
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                   : KPassword::RevealMode::Never);
     mainLayout->addWidget(mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &ChannelPasswordWidget::slotPasswordChanged);
 }

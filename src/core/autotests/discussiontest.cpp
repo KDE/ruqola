@@ -34,14 +34,14 @@ void DiscussionTest::shouldLoadDiscussion_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<Discussion>("discussion");
 
-    QTest::addRow("empty") << QStringLiteral("discussion-empty") << Discussion();
+    QTest::addRow("empty") << u"discussion-empty"_s << Discussion();
     Discussion discussion;
 
     discussion.setNumberMessages(0);
     discussion.setDiscussionRoomId("652e69986a344bea24b4ce55"_ba);
     discussion.setTimeStamp(1697540504599);
-    discussion.setUserName(QStringLiteral("bla"));
-    QTest::addRow("one-discussion") << QStringLiteral("one-discussion") << discussion;
+    discussion.setUserName(u"bla"_s);
+    QTest::addRow("one-discussion") << u"one-discussion"_s << discussion;
 }
 
 void DiscussionTest::shouldLoadDiscussion()

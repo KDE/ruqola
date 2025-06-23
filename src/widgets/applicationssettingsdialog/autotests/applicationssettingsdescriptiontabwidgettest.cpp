@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationssettingsdescriptiontabwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingsdialog/applicationssettingsdescriptiontabwidget.h"
 #include "applicationssettingsdialog/applicationssettingsdescriptionwidget.h"
 #include "applicationssettingsdialog/applicationssettingslogswidget.h"
@@ -24,23 +26,23 @@ ApplicationsSettingsDescriptionTabWidgetTest::ApplicationsSettingsDescriptionTab
 void ApplicationsSettingsDescriptionTabWidgetTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsDescriptionTabWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
+    auto mTabWidget = w.findChild<QTabWidget *>(u"mTabWidget"_s);
     QVERIFY(mTabWidget);
 
-    auto mDescriptionWidget = mTabWidget->findChild<ApplicationsSettingsDescriptionWidget *>(QStringLiteral("mDescriptionWidget"));
+    auto mDescriptionWidget = mTabWidget->findChild<ApplicationsSettingsDescriptionWidget *>(u"mDescriptionWidget"_s);
     QVERIFY(mDescriptionWidget);
 
-    auto mVersionWidget = mTabWidget->findChild<ApplicationsSettingsVersionWidget *>(QStringLiteral("mVersionWidget"));
+    auto mVersionWidget = mTabWidget->findChild<ApplicationsSettingsVersionWidget *>(u"mVersionWidget"_s);
     QVERIFY(mVersionWidget);
 
-    auto mLogsWidget = mTabWidget->findChild<ApplicationsSettingsLogsWidget *>(QStringLiteral("mLogsWidget"));
+    auto mLogsWidget = mTabWidget->findChild<ApplicationsSettingsLogsWidget *>(u"mLogsWidget"_s);
     QVERIFY(mLogsWidget);
 
-    auto mSettingsWidget = mTabWidget->findChild<ApplicationsSettingsSettingsWidget *>(QStringLiteral("mSettingsWidget"));
+    auto mSettingsWidget = mTabWidget->findChild<ApplicationsSettingsSettingsWidget *>(u"mSettingsWidget"_s);
     QVERIFY(mSettingsWidget);
 }
 

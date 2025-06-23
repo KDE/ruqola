@@ -5,6 +5,8 @@
 */
 
 #include "appfeaturedappsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "apps/appfeaturedappsjob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(AppFeaturedAppsJobTest)
@@ -27,7 +29,7 @@ void AppFeaturedAppsJobTest::shouldGenerateRequest()
     AppFeaturedAppsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/featured-apps")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/featured-apps"_s));
 }
 
 #include "moc_appfeaturedappsjobtest.cpp"

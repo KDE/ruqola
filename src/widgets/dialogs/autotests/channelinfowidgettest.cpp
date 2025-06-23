@@ -5,6 +5,8 @@
 */
 
 #include "channelinfowidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/channelinfowidget.h"
 #include <QStackedWidget>
 #include <QTest>
@@ -19,11 +21,11 @@ ChannelInfoWidgetTest::ChannelInfoWidgetTest(QObject *parent)
 void ChannelInfoWidgetTest::shouldHaveDefaultValues()
 {
     ChannelInfoWidget w(nullptr, nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
 }
 

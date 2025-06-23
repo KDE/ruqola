@@ -4,6 +4,8 @@
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "e2edisabledialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "e2edisablewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -15,13 +17,13 @@ E2eDisableDialog::E2eDisableDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Disable Encryption"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mE2eDisableWidget->setObjectName(QStringLiteral("mE2eDisableWidget"));
+    mE2eDisableWidget->setObjectName(u"mE2eDisableWidget"_s);
     mainLayout->addWidget(mE2eDisableWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &E2eDisableDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &E2eDisableDialog::reject);
     mainLayout->addWidget(buttonBox);

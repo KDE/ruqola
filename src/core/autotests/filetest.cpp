@@ -34,11 +34,11 @@ void FileTest::shouldHaveDefaultValue()
 void FileTest::shouldAssignValue()
 {
     File f;
-    const QString url = QStringLiteral("foo");
-    const QString name = QStringLiteral("bla");
-    const QString description = QStringLiteral("des");
+    const QString url = u"foo"_s;
+    const QString name = u"bla"_s;
+    const QString description = u"des"_s;
     const QByteArray userId = "ble"_ba;
-    const QString mimetype = QStringLiteral("ble1");
+    const QString mimetype = u"ble1"_s;
     const qint64 timeUploaded = 55;
     const QByteArray fileId("blabla");
     bool complete = false;
@@ -68,11 +68,11 @@ void FileTest::shouldAssignValue()
 void FileTest::shouldCopyValue()
 {
     File f;
-    const QString url = QStringLiteral("foo");
-    const QString name = QStringLiteral("bla");
-    const QString description = QStringLiteral("des");
+    const QString url = u"foo"_s;
+    const QString name = u"bla"_s;
+    const QString description = u"des"_s;
     const QByteArray userId = "ble"_ba;
-    const QString mimetype = QStringLiteral("ble1");
+    const QString mimetype = u"ble1"_s;
     const QByteArray fileId("blabla");
     const qint64 timeUploaded = 55;
     bool complete = true;
@@ -96,31 +96,31 @@ void FileTest::shouldParseFile_data()
     QTest::addColumn<bool>("usingRestApi");
     {
         File expected;
-        expected.setFileName(QStringLiteral("191135.jpg"));
-        expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg"));
+        expected.setFileName(u"191135.jpg"_s);
+        expected.setUrl(u"/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg"_s);
         expected.setUserId("aX7va58FuNuq4bcti"_ba);
         expected.setDescription(QString());
-        expected.setMimeType(QStringLiteral("image/jpeg"));
+        expected.setMimeType(u"image/jpeg"_s);
         expected.setUploadedAt(1507828418338);
         expected.setFileId("ybWLKB4FepCkzQXsa"_ba);
         expected.setRoomId("GENERAL"_ba);
-        QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
+        QTest::newRow("roomfile1") << u"roomfile1"_s << expected << false;
     }
     {
         // RestAPI
         File expected;
-        expected.setFileName(QStringLiteral("Clipboard - February 7, 2018 8:59 AM"));
-        expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));
+        expected.setFileName(u"Clipboard - February 7, 2018 8:59 AM"_s);
+        expected.setUrl(u"/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"_s);
         expected.setUserId("vEETYfDxakqpM88Zt"_ba);
         expected.setDescription(QString());
-        expected.setMimeType(QStringLiteral("image/png"));
+        expected.setMimeType(u"image/png"_s);
         expected.setUploadedAt(1517990371911);
         expected.setFileId("AoqRSa6GMt3wXCeSo"_ba);
-        expected.setUserName(QStringLiteral("bli"));
-        expected.setPath(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));
+        expected.setUserName(u"bli"_s);
+        expected.setPath(u"/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"_s);
         expected.setComplete(true);
         expected.setRoomId("GENERAL"_ba);
-        QTest::newRow("roomfile1-restapi") << QStringLiteral("roomfile1") << expected << true;
+        QTest::newRow("roomfile1-restapi") << u"roomfile1"_s << expected << true;
     }
 }
 

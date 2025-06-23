@@ -5,6 +5,8 @@
 */
 
 #include "commonmessagesmodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 
 #include "listmessages.h"
@@ -26,7 +28,7 @@ void CommonMessagesModel::clearModel()
 QList<Message> CommonMessagesModel::extractMessages(const QJsonObject &obj)
 {
     ListMessages messages;
-    messages.parseMessages(obj, QStringLiteral("messages"));
+    messages.parseMessages(obj, u"messages"_s);
     return messages.listMessages();
 }
 

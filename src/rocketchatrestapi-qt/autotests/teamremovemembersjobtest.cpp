@@ -5,6 +5,8 @@
 */
 
 #include "teamremovemembersjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "teams/teamremovemembersjob.h"
 #include <QJsonDocument>
@@ -30,16 +32,16 @@ void TeamRemoveMembersJobTest::shouldGenerateRequest()
     TeamRemoveMembersJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.removeMember")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.removeMember"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void TeamRemoveMembersJobTest::shouldGenerateJson()
 {
     TeamRemoveMembersJob job;
-    const QString teamId = QStringLiteral("foo2");
+    const QString teamId = u"foo2"_s;
     job.setTeamId(teamId);
-    const QStringList rooms = {QStringLiteral("bla"), QStringLiteral("bla1")};
+    const QStringList rooms = {u"bla"_s, u"bla1"_s};
     job.setRoomsId(rooms);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rooms":["bla","bla1"],"teamId":"%1"})").arg(teamId).toLatin1());
 }
@@ -49,22 +51,22 @@ void TeamRemoveMembersJobTest::shouldNotStarting()
     TeamRemoveMembersJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     QVERIFY(!job.canStart());
-    const QString teamId = QStringLiteral("foo2");
+    const QString teamId = u"foo2"_s;
     job.setTeamId(teamId);
-    const QStringList rooms = {QStringLiteral("bb"), QStringLiteral("aa")};
+    const QStringList rooms = {u"bb"_s, u"aa"_s};
     job.setRoomsId(rooms);
     QVERIFY(job.canStart());
 }

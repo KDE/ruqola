@@ -5,6 +5,8 @@
 */
 
 #include "teamchannelsdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teamchannelswidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -23,13 +25,13 @@ TeamChannelsDialog::TeamChannelsDialog(RocketChatAccount *account, QWidget *pare
 {
     setWindowTitle(i18nc("@title:window", "Team Channels"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mTeamChannelsWidget->setObjectName(QStringLiteral("mTeamChannelsWidget"));
+    mTeamChannelsWidget->setObjectName(u"mTeamChannelsWidget"_s);
     mainLayout->addWidget(mTeamChannelsWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &TeamChannelsDialog::reject);
     readConfig();

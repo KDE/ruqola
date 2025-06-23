@@ -5,6 +5,8 @@
 */
 
 #include "administratorroomswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/rooms/administratorroomsselectroomtypewidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
 #include <QLineEdit>
@@ -20,20 +22,20 @@ AdministratorRoomsWidgetTest::AdministratorRoomsWidgetTest(QObject *parent)
 void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorRoomsWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 
-    auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
+    auto mTreeView = w.findChild<QTreeView *>(u"mTreeView"_s);
     QVERIFY(mTreeView);
     QVERIFY(mTreeView->isSortingEnabled());
     QCOMPARE(mTreeView->selectionMode(), QAbstractItemView::SelectionMode::SingleSelection);
     QVERIFY(!mTreeView->rootIsDecorated());
 
-    auto mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(QStringLiteral("mSelectRoomType"));
+    auto mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(u"mSelectRoomType"_s);
     QVERIFY(mSelectRoomType);
 }
 

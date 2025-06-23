@@ -5,6 +5,8 @@
 */
 
 #include "logssettingswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/logs/logssettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QComboBox>
@@ -20,46 +22,46 @@ LogsSettingsWidgetTest::LogsSettingsWidgetTest(QObject *parent)
 void LogsSettingsWidgetTest::shouldHaveDefaultValues()
 {
     LogsSettingsWidget w(nullptr);
-    auto mLogExceptionsChannel = w.findChild<QLineEdit *>(QStringLiteral("mLogExceptionsChannel"));
+    auto mLogExceptionsChannel = w.findChild<QLineEdit *>(u"mLogExceptionsChannel"_s);
     QVERIFY(mLogExceptionsChannel);
     QVERIFY(mLogExceptionsChannel->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogExceptionsChannel), QStringLiteral("Log_Exceptions_to_Channel"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_Exceptions_to_Channel"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogExceptionsChannel), u"Log_Exceptions_to_Channel"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Log_Exceptions_to_Channel"_s);
 
-    auto mLogViewLimit = w.findChild<QSpinBox *>(QStringLiteral("mLogViewLimit"));
+    auto mLogViewLimit = w.findChild<QSpinBox *>(u"mLogViewLimit"_s);
     QVERIFY(mLogViewLimit);
     QVERIFY(mLogViewLimit->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogViewLimit), QStringLiteral("Log_View_Limit"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_View_Limit"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogViewLimit), u"Log_View_Limit"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Log_View_Limit"_s);
 
-    auto mLogLevel = w.findChild<QComboBox *>(QStringLiteral("mLogLevel"));
+    auto mLogLevel = w.findChild<QComboBox *>(u"mLogLevel"_s);
     QVERIFY(mLogLevel);
     QCOMPARE(mLogLevel->count(), 3);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogLevel), QStringLiteral("Log_Level"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogLevel), u"Log_Level"_s);
 
-    auto mTraceMethodCalls = w.findChild<QCheckBox *>(QStringLiteral("mTraceMethodCalls"));
+    auto mTraceMethodCalls = w.findChild<QCheckBox *>(u"mTraceMethodCalls"_s);
     QVERIFY(mTraceMethodCalls);
     QVERIFY(!mTraceMethodCalls->isChecked());
     QVERIFY(!mTraceMethodCalls->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceMethodCalls), QStringLiteral("Log_Trace_Methods"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceMethodCalls), u"Log_Trace_Methods"_s);
 
-    auto mTraceSubscriptionCalls = w.findChild<QCheckBox *>(QStringLiteral("mTraceSubscriptionCalls"));
+    auto mTraceSubscriptionCalls = w.findChild<QCheckBox *>(u"mTraceSubscriptionCalls"_s);
     QVERIFY(mTraceSubscriptionCalls);
     QVERIFY(!mTraceSubscriptionCalls->isChecked());
     QVERIFY(!mTraceSubscriptionCalls->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceSubscriptionCalls), QStringLiteral("Log_Trace_Subscriptions"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceSubscriptionCalls), u"Log_Trace_Subscriptions"_s);
 
-    auto mTraceMethodFilter = w.findChild<QLineEdit *>(QStringLiteral("mTraceMethodFilter"));
+    auto mTraceMethodFilter = w.findChild<QLineEdit *>(u"mTraceMethodFilter"_s);
     QVERIFY(mTraceMethodFilter);
     QVERIFY(mTraceMethodFilter->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceMethodFilter), QStringLiteral("Log_Trace_Methods_Filter"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_Trace_Methods_Filter"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceMethodFilter), u"Log_Trace_Methods_Filter"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Log_Trace_Methods_Filter"_s);
 
-    auto mTraceSubscriptionFilter = w.findChild<QLineEdit *>(QStringLiteral("mTraceSubscriptionFilter"));
+    auto mTraceSubscriptionFilter = w.findChild<QLineEdit *>(u"mTraceSubscriptionFilter"_s);
     QVERIFY(mTraceSubscriptionFilter);
     QVERIFY(mTraceSubscriptionFilter->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceSubscriptionFilter), QStringLiteral("Log_Trace_Subscriptions_Filter"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_Trace_Subscriptions_Filter"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceSubscriptionFilter), u"Log_Trace_Subscriptions_Filter"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"Log_Trace_Subscriptions_Filter"_s);
 }
 
 #include "moc_logssettingswidgettest.cpp"

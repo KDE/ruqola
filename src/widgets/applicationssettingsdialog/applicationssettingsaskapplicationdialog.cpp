@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationssettingsaskapplicationdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingsaskapplicationwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,13 +26,13 @@ ApplicationsSettingsAskApplicationDialog::ApplicationsSettingsAskApplicationDial
 {
     setWindowTitle(i18nc("@title:window", "Ask Application"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mApplicationsSettingsAskApplicationWidget->setObjectName(QStringLiteral("mApplicationsSettingsAskApplicationWidget"));
+    mApplicationsSettingsAskApplicationWidget->setObjectName(u"mApplicationsSettingsAskApplicationWidget"_s);
     mainLayout->addWidget(mApplicationsSettingsAskApplicationWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
 
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);

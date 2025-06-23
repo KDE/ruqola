@@ -5,6 +5,8 @@
 */
 
 #include "roomwidgetbasetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "room/messagelinewidget.h"
 #include "room/readonlylineeditwidget.h"
 #include "room/roomquotemessagewidget.h"
@@ -27,32 +29,32 @@ void RoomWidgetBaseTest::shouldHaveDefaultValues()
 {
     RoomWidgetBase w(MessageListView::Mode::Editing);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mUploadFileProgressStatusListWidget = w.findChild<UploadFileProgressStatusListWidget *>(QStringLiteral("mUploadFileProgressStatusListWidget"));
+    auto mUploadFileProgressStatusListWidget = w.findChild<UploadFileProgressStatusListWidget *>(u"mUploadFileProgressStatusListWidget"_s);
     QVERIFY(mUploadFileProgressStatusListWidget);
 
-    auto mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
+    auto mMessageListView = w.findChild<MessageListView *>(u"mMessageListView"_s);
     QVERIFY(mMessageListView);
 
-    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
     QCOMPARE(mStackedWidget->count(), 2);
 
-    auto mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
+    auto mMessageLineWidget = w.findChild<MessageLineWidget *>(u"mMessageLineWidget"_s);
     QVERIFY(mMessageLineWidget);
 
-    auto mReadOnlyLineEditWidget = w.findChild<ReadOnlyLineEditWidget *>(QStringLiteral("mReadOnlyLineEditWidget"));
+    auto mReadOnlyLineEditWidget = w.findChild<ReadOnlyLineEditWidget *>(u"mReadOnlyLineEditWidget"_s);
     QVERIFY(mReadOnlyLineEditWidget);
     QCOMPARE(mStackedWidget->currentWidget(), mMessageLineWidget);
 
-    auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(QStringLiteral("mRoomReplyThreadWidget"));
+    auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(u"mRoomReplyThreadWidget"_s);
     QVERIFY(mRoomReplyThreadWidget);
     QVERIFY(!mRoomReplyThreadWidget->isVisible());
 
-    auto mRoomQuoteMessageWidget = w.findChild<RoomQuoteMessageWidget *>(QStringLiteral("mRoomQuoteMessageWidget"));
+    auto mRoomQuoteMessageWidget = w.findChild<RoomQuoteMessageWidget *>(u"mRoomQuoteMessageWidget"_s);
     QVERIFY(mRoomQuoteMessageWidget);
     QVERIFY(!mRoomQuoteMessageWidget->isVisible());
 }

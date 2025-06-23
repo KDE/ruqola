@@ -38,18 +38,18 @@ void UsersForRoomModelTest::shouldAddValues()
     QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
     for (int i = 0; i < 10; i++) {
         User user;
-        user.setName(QStringLiteral("name%1").arg(i));
+        user.setName(u"name%1"_s.arg(i));
         user.setStatus(User::PresenceStatus::Away);
-        user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        user.setUserId(u"userId%1"_s.arg(i).toLatin1());
+        user.setUserName(u"username%1"_s.arg(i));
         users.append(std::move(user));
     }
     w.setUsers(users);
     QCOMPARE(w.rowCount(), 10);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,9"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,9"_s);
     rowABTInserted.clear();
     rowInsertedSpy.clear();
 
@@ -57,10 +57,10 @@ void UsersForRoomModelTest::shouldAddValues()
 
     for (int i = 0; i < 3; ++i) {
         User user;
-        user.setName(QStringLiteral("name%1").arg(i));
+        user.setName(u"name%1"_s.arg(i));
         user.setStatus(User::PresenceStatus::Offline);
-        user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        user.setUserId(u"userId%1"_s.arg(i).toLatin1());
+        user.setUserName(u"username%1"_s.arg(i));
         users.append(std::move(user));
     }
     w.clear();
@@ -68,8 +68,8 @@ void UsersForRoomModelTest::shouldAddValues()
     QCOMPARE(w.rowCount(), 3);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,2"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,2"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,2"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,2"_s);
 
     rowABTInserted.clear();
     rowInsertedSpy.clear();
@@ -90,20 +90,20 @@ void UsersForRoomModelTest::shouldVerifyData()
     QList<User> users;
     for (int i = 0; i < 10; i++) {
         User user;
-        user.setName(QStringLiteral("name%1").arg(i));
+        user.setName(u"name%1"_s.arg(i));
         user.setStatus(User::PresenceStatus::Online);
-        user.setUserId(QStringLiteral("userId%1").arg(i).toLatin1());
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        user.setUserId(u"userId%1"_s.arg(i).toLatin1());
+        user.setUserName(u"username%1"_s.arg(i));
         users.append(std::move(user));
     }
     w.setUsers(users);
     QCOMPARE(w.rowCount(), 10);
 
     for (int i = 0; i < 10; ++i) {
-        QCOMPARE(w.data(w.index(i), UsersForRoomModel::Name).toString(), QStringLiteral("name%1").arg(i));
-        QCOMPARE(w.data(w.index(i), UsersForRoomModel::IconStatus).toString(), QStringLiteral("user-online"));
-        QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserId).toString(), QStringLiteral("userId%1").arg(i));
-        QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserName).toString(), QStringLiteral("username%1").arg(i));
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::Name).toString(), u"name%1"_s.arg(i));
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::IconStatus).toString(), u"user-online"_s);
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserId).toString(), u"userId%1"_s.arg(i));
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserName).toString(), u"username%1"_s.arg(i));
     }
 }
 
@@ -113,9 +113,9 @@ void UsersForRoomModelTest::shouldParseUsers_data()
     QTest::addColumn<int>("numberOfUsers");
     QTest::addColumn<int>("numberOfSignal");
     QTest::addColumn<bool>("restApi");
-    QTest::newRow("oneuser") << QStringLiteral("oneuser.json") << 1 << 1 << false;
-    QTest::newRow("severalusers") << QStringLiteral("severalusers.json") << 14 << 1 << false;
-    QTest::newRow("severalusers1-restapi") << QStringLiteral("severalusers1-restapi.json") << 2 << 1 << true;
+    QTest::newRow("oneuser") << u"oneuser.json"_s << 1 << 1 << false;
+    QTest::newRow("severalusers") << u"severalusers.json"_s << 14 << 1 << false;
+    QTest::newRow("severalusers1-restapi") << u"severalusers1-restapi.json"_s << 2 << 1 << true;
 }
 
 static QJsonObject loadFile(const QString &file)

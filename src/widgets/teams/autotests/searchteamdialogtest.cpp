@@ -5,6 +5,8 @@
 */
 
 #include "searchteamdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teams/searchteamdialog.h"
 #include "teams/searchteamwidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void SearchTeamDialogTest::shouldHaveDefaultValues()
     SearchTeamDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
-    auto mSearchTeamWidget = d.findChild<SearchTeamWidget *>(QStringLiteral("mSearchTeamWidget"));
+    auto mSearchTeamWidget = d.findChild<SearchTeamWidget *>(u"mSearchTeamWidget"_s);
     QVERIFY(mSearchTeamWidget);
 }
 

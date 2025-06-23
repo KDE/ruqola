@@ -5,6 +5,8 @@
 */
 
 #include "ruqolauserfeedbackprovider.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountinfosource.h"
 
 #include <KUserFeedback/ApplicationVersionSource>
@@ -18,8 +20,8 @@
 RuqolaUserFeedbackProvider::RuqolaUserFeedbackProvider(QObject *parent)
     : KUserFeedback::Provider(parent)
 {
-    setProductIdentifier(QStringLiteral("org.kde.ruqola"));
-    setFeedbackServer(QUrl(QStringLiteral("https://telemetry.kde.org/")));
+    setProductIdentifier(u"org.kde.ruqola"_s);
+    setFeedbackServer(QUrl(u"https://telemetry.kde.org/"_s));
     setSubmissionInterval(7);
     setApplicationStartsUntilEncouragement(5);
     setEncouragementDelay(30);

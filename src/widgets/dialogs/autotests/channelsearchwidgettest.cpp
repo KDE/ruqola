@@ -5,6 +5,8 @@
 */
 
 #include "channelsearchwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/channelsearchnamelineedit.h"
 #include "dialogs/channelsearchwidget.h"
 #include <QStackedWidget>
@@ -20,14 +22,14 @@ void ChannelSearchWidgetTest::shouldHaveDefaultValues()
 {
     ChannelSearchWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
 
-    auto mChannelSearchNameLineEdit = w.findChild<ChannelSearchNameLineEdit *>(QStringLiteral("mChannelSearchNameLineEdit"));
+    auto mChannelSearchNameLineEdit = w.findChild<ChannelSearchNameLineEdit *>(u"mChannelSearchNameLineEdit"_s);
     QVERIFY(mChannelSearchNameLineEdit);
     // TODO
 }

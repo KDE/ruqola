@@ -5,6 +5,8 @@
 */
 
 #include "bannerinfolistsearchlinewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "bannerinfodialog/bannerinfolistsearchlinewidget.h"
 #include <QCheckBox>
 #include <QHBoxLayout>
@@ -22,17 +24,17 @@ void BannerInfoListSearchLineWidgetTest::shouldHaveDefaultValues()
 {
     BannerInfoListSearchLineWidget w;
 
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 
-    auto mOnlyUnReadCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mOnlyUnReadCheckBox"));
+    auto mOnlyUnReadCheckBox = w.findChild<QCheckBox *>(u"mOnlyUnReadCheckBox"_s);
     QVERIFY(mOnlyUnReadCheckBox);
     QVERIFY(!mOnlyUnReadCheckBox->isChecked());
 
@@ -45,8 +47,8 @@ void BannerInfoListSearchLineWidgetTest::shouldEmitFilterChanged()
     BannerInfoListSearchLineWidget w;
     QSignalSpy filterChanged(&w, &BannerInfoListSearchLineWidget::filterChanged);
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setText(QStringLiteral("bla"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);
+    mSearchLineEdit->setText(u"bla"_s);
     QCOMPARE(filterChanged.count(), 1);
 
     filterChanged.clear();
@@ -54,7 +56,7 @@ void BannerInfoListSearchLineWidgetTest::shouldEmitFilterChanged()
     QCOMPARE(filterChanged.count(), 1);
 
     filterChanged.clear();
-    auto mOnlyUnReadCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mOnlyUnReadCheckBox"));
+    auto mOnlyUnReadCheckBox = w.findChild<QCheckBox *>(u"mOnlyUnReadCheckBox"_s);
     QTest::mouseClick(mOnlyUnReadCheckBox, Qt::LeftButton);
     QCOMPARE(filterChanged.count(), 1);
 }

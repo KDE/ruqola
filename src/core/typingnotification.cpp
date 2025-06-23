@@ -5,6 +5,8 @@
 */
 
 #include "typingnotification.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QTimer>
 
 extern LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs;
@@ -14,7 +16,7 @@ TypingNotification::TypingNotification(QObject *parent)
     : QObject(parent)
     , mTimer(new QTimer(this))
 {
-    mTimer->setObjectName(QStringLiteral("typingnotificationtimer"));
+    mTimer->setObjectName(u"typingnotificationtimer"_s);
     mTimer->setInterval(timerTimeOutValueMs);
     mTimer->setSingleShot(true);
     connect(mTimer, &QTimer::timeout, this, &TypingNotification::slotTimeout);

@@ -38,7 +38,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 
 bool OwnUser::isAdministrator() const
 {
-    return mRoles.contains(QStringLiteral("admin"));
+    return mRoles.contains(u"admin"_s);
 }
 
 ServicePassword OwnUser::servicePassword() const

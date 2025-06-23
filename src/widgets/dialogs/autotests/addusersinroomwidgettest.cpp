@@ -5,6 +5,8 @@
 */
 
 #include "addusersinroomwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/addusersinroomwidget.h"
 #include "misc/adduserswidget.h"
 #include <QTest>
@@ -20,11 +22,11 @@ void AddUsersInRoomWidgetTest::shouldHaveDefaultValues()
 {
     AddUsersInRoomWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mAddUsersWidget = w.findChild<AddUsersWidget *>(QStringLiteral("mAddUsersWidget"));
+    auto mAddUsersWidget = w.findChild<AddUsersWidget *>(u"mAddUsersWidget"_s);
     QVERIFY(mAddUsersWidget);
 
     QVERIFY(w.userIds().isEmpty());

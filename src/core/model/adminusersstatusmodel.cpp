@@ -69,11 +69,11 @@ QVariant AdminUsersStatusModel::data(const QModelIndex &index, int role) const
     case AdminUsersAllRoles::Email:
         return user.userEmailsInfo().email;
     case AdminUsersAllRoles::Roles:
-        return user.i18nRoles().join(QLatin1Char(','));
+        return user.i18nRoles().join(u',');
     case AdminUsersAllRoles::UserId:
         return user.userId();
     case AdminUsersAllRoles::Administrator:
-        return user.roles().contains(QStringLiteral("admin"));
+        return user.roles().contains(u"admin"_s);
     }
     return {};
 }

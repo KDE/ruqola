@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomsoundswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
 #include "model/admincustomsoundmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
@@ -20,13 +22,13 @@ AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject
 void AdministratorCustomSoundsWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomSoundsWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mModel = w.findChild<AdminCustomSoundModel *>(QStringLiteral("mAdminCustomSoundModel"));
+    auto mModel = w.findChild<AdminCustomSoundModel *>(u"mAdminCustomSoundModel"_s);
     QVERIFY(mModel);
 
-    auto mProxyModelModel = w.findChild<SearchTreeBaseFilterProxyModel *>(QStringLiteral("mCustomSoundProxyModel"));
+    auto mProxyModelModel = w.findChild<SearchTreeBaseFilterProxyModel *>(u"mCustomSoundProxyModel"_s);
     QVERIFY(mProxyModelModel);
 }
 

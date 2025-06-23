@@ -26,10 +26,10 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     mUrl = content["url"_L1].toString();
     mRoomId = content["rid"_L1].toString();
     if (content.contains("createdAt"_L1)) {
-        setCreatedAtDateTime(Utils::parseIsoDate(QStringLiteral("createdAt"), content));
+        setCreatedAtDateTime(Utils::parseIsoDate(u"createdAt"_s, content));
     }
     if (content.contains("endedAt"_L1)) {
-        setEndedAtDateTime(Utils::parseIsoDate(QStringLiteral("endedAt"), content));
+        setEndedAtDateTime(Utils::parseIsoDate(u"endedAt"_s, content));
     }
     const QJsonObject messageObj = content["messages"_L1].toObject();
     mMessageId = messageObj["started"_L1].toString();
@@ -69,9 +69,9 @@ QString VideoConferenceInfo::convertEnumToString(const VideoConferenceInfo &info
 {
     switch (info.conferenceType()) {
     case VideoConferenceInfo::VideoConferenceType::Conference:
-        return QStringLiteral("videoconference");
+        return u"videoconference"_s;
     case VideoConferenceInfo::VideoConferenceType::Direct:
-        return QStringLiteral("direct");
+        return u"direct"_s;
     case VideoConferenceInfo::VideoConferenceType::Unknown:
         return {};
     }

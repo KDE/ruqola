@@ -5,6 +5,8 @@
 */
 
 #include "configurepluginswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configuredialog/configurepluginswidget.h"
 #include <KTreeWidgetSearchLine>
 #include <KTreeWidgetSearchLineWidget>
@@ -21,18 +23,18 @@ void ConfigurePluginsWidgetTest::shouldHaveDefaultValues()
 {
     ConfigurePluginsWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     QCOMPARE(mainLayout->spacing(), 0);
 
-    auto mTreePluginWidget = w.findChild<QTreeWidget *>(QStringLiteral("mTreePluginWidget"));
+    auto mTreePluginWidget = w.findChild<QTreeWidget *>(u"mTreePluginWidget"_s);
     QVERIFY(mTreePluginWidget);
     QVERIFY(mTreePluginWidget->isSortingEnabled());
     QVERIFY(mTreePluginWidget->isHeaderHidden());
     QCOMPARE(mTreePluginWidget->selectionMode(), QAbstractItemView::SingleSelection);
 
-    auto mSearchLineEdit = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<KTreeWidgetSearchLineWidget *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->searchLine()->text().isEmpty());
 }

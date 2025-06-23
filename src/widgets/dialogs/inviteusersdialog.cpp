@@ -5,6 +5,8 @@
 */
 
 #include "inviteusersdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "inviteuserswidget.h"
 
 #include <KConfigGroup>
@@ -25,13 +27,13 @@ InviteUsersDialog::InviteUsersDialog(RocketChatAccount *account, QWidget *parent
 {
     setWindowTitle(i18nc("@title:window", "Invite Users"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mInviteUsersWidget->setObjectName(QStringLiteral("mInviteUsersWidget"));
+    mInviteUsersWidget->setObjectName(u"mInviteUsersWidget"_s);
     mainLayout->addWidget(mInviteUsersWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &InviteUsersDialog::reject);
     mainLayout->addWidget(buttonBox);
     readConfig();

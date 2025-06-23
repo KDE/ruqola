@@ -31,10 +31,10 @@ void CustomEmojiTest::shouldHaveDefaultValue()
 void CustomEmojiTest::shouldAssignValue()
 {
     CustomEmoji j;
-    const QString ext{QStringLiteral("foo")};
-    const QString id{QStringLiteral("bla")};
-    const QString name{QStringLiteral("bli")};
-    const QStringList aliases{QStringLiteral(":foo:"), QStringLiteral(":bla:")};
+    const QString ext{u"foo"_s};
+    const QString id{u"bla"_s};
+    const QString name{u"bli"_s};
+    const QStringList aliases{u":foo:"_s, u":bla:"_s};
     const qint64 updatedAt = 500;
 
     j.setExtension(ext);
@@ -43,7 +43,7 @@ void CustomEmojiTest::shouldAssignValue()
     j.setAliases(aliases);
     j.setUpdatedAt(updatedAt);
 
-    const QString emojiId = QLatin1Char(':') + name + QLatin1Char(':');
+    const QString emojiId = u':' + name + u':';
     j.setEmojiIdentifier(emojiId);
 
     QCOMPARE(j.extension(), ext);
@@ -57,10 +57,10 @@ void CustomEmojiTest::shouldAssignValue()
 void CustomEmojiTest::shouldCopyValue()
 {
     CustomEmoji j;
-    const QString ext{QStringLiteral("foo")};
-    const QString id{QStringLiteral("bla")};
-    const QString name{QStringLiteral("bli")};
-    const QStringList aliases{QStringLiteral(":foo:"), QStringLiteral(":bla:")};
+    const QString ext{u"foo"_s};
+    const QString id{u"bla"_s};
+    const QString name{u"bli"_s};
+    const QStringList aliases{u":foo:"_s, u":bla:"_s};
     const qint64 updatedAt = 500;
 
     j.setExtension(ext);
@@ -68,7 +68,7 @@ void CustomEmojiTest::shouldCopyValue()
     j.setIdentifier(id);
     j.setAliases(aliases);
     j.setUpdatedAt(updatedAt);
-    const QString emojiId = QLatin1Char(':') + name + QLatin1Char(':');
+    const QString emojiId = u':' + name + u':';
     j.setEmojiIdentifier(emojiId);
 
     CustomEmoji copy = j;
@@ -78,19 +78,19 @@ void CustomEmojiTest::shouldCopyValue()
 // void CustomEmojiTest::shouldClearCachedHtml()
 //{
 //    CustomEmoji emojiRef;
-//    emojiRef.setExtension(QStringLiteral("gif"));
-//    emojiRef.setName(QStringLiteral("clapping"));
-//    emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
-//    emojiRef.setAliases(QStringList{QStringLiteral(":clap:")});
-//    emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
+//    emojiRef.setExtension(u"gif"_s);
+//    emojiRef.setName(u"clapping"_s);
+//    emojiRef.setIdentifier(u"scSbxNPzm9xWrNqCG"_s);
+//    emojiRef.setAliases(QStringList{u":clap:"_s});
+//    emojiRef.setEmojiIdentifier(u":clapping:"_s);
 //    emojiRef.setUpdatedAt(50);
 
-//    const QString cachedHtml = emojiRef.generateHtmlFromCustomEmoji(QStringLiteral("www.kde.org"));
+//    const QString cachedHtml = emojiRef.generateHtmlFromCustomEmoji(u"www.kde.org"_s);
 //    QVERIFY(!cachedHtml.isEmpty());
 //    QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
 //    emojiRef.clearCachedHtml();
 //    QVERIFY(emojiRef.cachedHtml().isEmpty());
-//    QCOMPARE(emojiRef.generateHtmlFromCustomEmoji(QStringLiteral("www.kde.org")), cachedHtml);
+//    QCOMPARE(emojiRef.generateHtmlFromCustomEmoji(u"www.kde.org"_s), cachedHtml);
 //    QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
 //}
 
@@ -100,13 +100,13 @@ void CustomEmojiTest::shouldParseEmoji_data()
     QTest::addColumn<CustomEmoji>("expectedEmoji");
     {
         CustomEmoji emojiRef;
-        emojiRef.setExtension(QStringLiteral("jpg"));
-        emojiRef.setName(QStringLiteral("troll"));
-        emojiRef.setIdentifier(QStringLiteral("2cgzHwKP6Cq3iZCob"));
-        emojiRef.setEmojiIdentifier(QStringLiteral(":troll:"));
+        emojiRef.setExtension(u"jpg"_s);
+        emojiRef.setName(u"troll"_s);
+        emojiRef.setIdentifier(u"2cgzHwKP6Cq3iZCob"_s);
+        emojiRef.setEmojiIdentifier(u":troll:"_s);
         emojiRef.setUpdatedAt(1485546740427);
 
-        QTest::addRow("emoji") << QStringLiteral("emoji") << emojiRef;
+        QTest::addRow("emoji") << u"emoji"_s << emojiRef;
     }
 }
 
@@ -136,16 +136,16 @@ void CustomEmojiTest::shouldParseEmoji()
 
 //    {
 //        CustomEmoji emojiRef;
-//        emojiRef.setExtension(QStringLiteral("gif"));
-//        emojiRef.setName(QStringLiteral("clapping"));
-//        emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
-//        emojiRef.setAliases(QStringList{QStringLiteral("clap")});
-//        emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
+//        emojiRef.setExtension(u"gif"_s);
+//        emojiRef.setName(u"clapping"_s);
+//        emojiRef.setIdentifier(u"scSbxNPzm9xWrNqCG"_s);
+//        emojiRef.setAliases(QStringList{u"clap"_s});
+//        emojiRef.setEmojiIdentifier(u":clapping:"_s);
 //        emojiRef.setUpdatedAt(1514915356313);
-//        QTest::addRow("emoji") << emojiRef << QStringLiteral("www.kde.org")
-//                               << QStringLiteral("/emoji-custom/clapping.gif")
-//                               << QStringLiteral("http://www.kde.org/emoji-custom/clapping.gif")
-//                               << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif' title=':clapping:'/>");
+//        QTest::addRow("emoji") << emojiRef << u"www.kde.org"_s
+//                               << u"/emoji-custom/clapping.gif"_s
+//                               << u"http://www.kde.org/emoji-custom/clapping.gif"_s
+//                               << u"<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif' title=':clapping:'/>"_s;
 //    }
 //}
 

@@ -38,9 +38,9 @@ void UserBaseJob::addQueryUrl(QUrl &url) const
 {
     QUrlQuery queryUrl;
     if (mUserInfo.userInfoType == UserBaseJob::UserInfoType::UserName) {
-        queryUrl.addQueryItem(QStringLiteral("username"), mUserInfo.userIdentifier);
+        queryUrl.addQueryItem(u"username"_s, mUserInfo.userIdentifier);
     } else {
-        queryUrl.addQueryItem(QStringLiteral("userId"), mUserInfo.userIdentifier);
+        queryUrl.addQueryItem(u"userId"_s, mUserInfo.userIdentifier);
     }
     url.setQuery(queryUrl);
 }

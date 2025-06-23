@@ -5,6 +5,8 @@
 */
 
 #include "bannerinfodialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "bannerinfodialog/bannerinfodialog.h"
 #include "bannerinfodialog/bannerinfowidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void BannerInfoDialogTest::shouldHaveDefaultValues()
 {
     BannerInfoDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mBannerInfoWidget = d.findChild<BannerInfoWidget *>(QStringLiteral("mBannerInfoWidget"));
+    auto mBannerInfoWidget = d.findChild<BannerInfoWidget *>(u"mBannerInfoWidget"_s);
     QVERIFY(mBannerInfoWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

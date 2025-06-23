@@ -5,6 +5,8 @@
 */
 
 #include "servererrorinfomessagehistorydialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "servererrorinfomessagehistorywidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,13 +26,13 @@ ServerErrorInfoMessageHistoryDialog::ServerErrorInfoMessageHistoryDialog(QWidget
 {
     setWindowTitle(i18nc("@title:window", "Server Error Information"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mServerErrorInfoMessageHistoryWidget->setObjectName(QStringLiteral("mServerErrorInfoMessageHistoryWidget"));
+    mServerErrorInfoMessageHistoryWidget->setObjectName(u"mServerErrorInfoMessageHistoryWidget"_s);
     mainLayout->addWidget(mServerErrorInfoMessageHistoryWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ServerErrorInfoMessageHistoryDialog::reject);
     readConfig();

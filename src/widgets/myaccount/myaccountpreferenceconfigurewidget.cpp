@@ -46,20 +46,20 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mNotificationsSoundVolume(new QSpinBox(this))
     , mRocketChatAccount(account)
 {
-    mUseEmojis->setObjectName(QStringLiteral("mUseEmojis"));
-    mConvertAsciiEmoji->setObjectName(QStringLiteral("mConvertAsciiEmoji"));
-    mHideRoles->setObjectName(QStringLiteral("mHideRoles"));
-    mDisplayAvatars->setObjectName(QStringLiteral("mDisplayAvatars"));
-    mSoundNewRoomNotification->setObjectName(QStringLiteral("mSoundNewRoomNotification"));
-    mSoundNewMessageNotification->setObjectName(QStringLiteral("mSoundNewMessageNotification"));
+    mUseEmojis->setObjectName(u"mUseEmojis"_s);
+    mConvertAsciiEmoji->setObjectName(u"mConvertAsciiEmoji"_s);
+    mHideRoles->setObjectName(u"mHideRoles"_s);
+    mDisplayAvatars->setObjectName(u"mDisplayAvatars"_s);
+    mSoundNewRoomNotification->setObjectName(u"mSoundNewRoomNotification"_s);
+    mSoundNewMessageNotification->setObjectName(u"mSoundNewMessageNotification"_s);
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
     auto highlightWordsLabel = new QLabel(i18nc("@label:textbox", "Highlight words:"), this);
-    highlightWordsLabel->setObjectName(QStringLiteral("highlightWordsLabel"));
+    highlightWordsLabel->setObjectName(u"highlightWordsLabel"_s);
     highlightWordsLabel->setTextFormat(Qt::PlainText);
 
-    mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
+    mHighlightWords->setObjectName(u"mHighlightWords"_s);
     KLineEditEventHandler::catchReturnKey(mHighlightWords);
     mHighlightWords->setPlaceholderText(i18nc("@info:placeholder", "Use \',\' for separating words"));
     mHighlightWords->setToolTip(i18nc("@info:tooltip", "Separate each word with \',\'."));
@@ -67,29 +67,29 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     createLayout(highlightWordsLabel, mHighlightWords, mainLayout);
 
-    mDesktopNotification->setObjectName(QStringLiteral("mDesktopNotification"));
-    mEmailNotification->setObjectName(QStringLiteral("mEmailNotification"));
-    mPushNotification->setObjectName(QStringLiteral("mPushNotification"));
+    mDesktopNotification->setObjectName(u"mDesktopNotification"_s);
+    mEmailNotification->setObjectName(u"mEmailNotification"_s);
+    mPushNotification->setObjectName(u"mPushNotification"_s);
 
     auto desktopNotificationLabel = new QLabel(i18nc("@label:textbox", "Desktop notification:"), this);
-    desktopNotificationLabel->setObjectName(QStringLiteral("desktopNotificationLabel"));
+    desktopNotificationLabel->setObjectName(u"desktopNotificationLabel"_s);
     desktopNotificationLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(desktopNotificationLabel);
 
     mainLayout->addWidget(mDesktopNotification);
     createLayout(desktopNotificationLabel, mDesktopNotification, mainLayout);
 
-    mEmailNotificationLabel->setObjectName(QStringLiteral("emailNotificationLabel"));
+    mEmailNotificationLabel->setObjectName(u"emailNotificationLabel"_s);
     mEmailNotificationLabel->setTextFormat(Qt::PlainText);
     createLayout(mEmailNotificationLabel, mEmailNotification, mainLayout);
 
     auto pushNotificationLabel = new QLabel(i18nc("@label:textbox", "Push notification:"), this);
-    pushNotificationLabel->setObjectName(QStringLiteral("pushNotificationLabel"));
+    pushNotificationLabel->setObjectName(u"pushNotificationLabel"_s);
     pushNotificationLabel->setTextFormat(Qt::PlainText);
 
     createLayout(pushNotificationLabel, mPushNotification, mainLayout);
 
-    mReceiveLoginDetectionEmails->setObjectName(QStringLiteral("mReceiveLoginDetectionEmails"));
+    mReceiveLoginDetectionEmails->setObjectName(u"mReceiveLoginDetectionEmails"_s);
     mReceiveLoginDetectionEmails->setToolTip(i18nc("@info:tooltip", "Receive an email each time a new login is detected on your account."));
     connect(mReceiveLoginDetectionEmails, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mReceiveLoginDetectionEmails);
@@ -105,15 +105,15 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mainLayout->addWidget(new KSeparator(this));
 
-    mAutomaticAway->setObjectName(QStringLiteral("mAutomaticAways"));
+    mAutomaticAway->setObjectName(u"mAutomaticAways"_s);
     connect(mAutomaticAway, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mAutomaticAway);
 
     auto idleTimeLimitLabel = new QLabel(i18nc("@label:textbox", "Idle Time Limit:"), this);
-    idleTimeLimitLabel->setObjectName(QStringLiteral("idleTimeLimitLabel"));
+    idleTimeLimitLabel->setObjectName(u"idleTimeLimitLabel"_s);
     idleTimeLimitLabel->setTextFormat(Qt::PlainText);
 
-    mIdleTimeLimit->setObjectName(QStringLiteral("mIdleTimeLimit"));
+    mIdleTimeLimit->setObjectName(u"mIdleTimeLimit"_s);
     mIdleTimeLimit->setMaximum(9999);
     mIdleTimeLimit->setToolTip(i18nc("@info:tooltip", "Period of time until status changes to away. Value needs to be in seconds."));
     connect(mIdleTimeLimit, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
@@ -121,35 +121,35 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     createLayout(idleTimeLimitLabel, mIdleTimeLimit, mainLayout);
 
     QWidget *soundWidget = new QWidget(this);
-    soundWidget->setObjectName(QStringLiteral("soundWidget"));
+    soundWidget->setObjectName(u"soundWidget"_s);
     auto soundWidgetLayout = new QVBoxLayout(soundWidget);
-    soundWidgetLayout->setObjectName(QStringLiteral("soundWidgetLayout"));
+    soundWidgetLayout->setObjectName(u"soundWidgetLayout"_s);
     soundWidgetLayout->setContentsMargins({});
 
     soundWidgetLayout->addWidget(new KSeparator(this));
 
     auto newRoomNotificationLabel = new QLabel(i18nc("@label:textbox", "New Room Notification:"), this);
-    newRoomNotificationLabel->setObjectName(QStringLiteral("newRoomNotificationLabel"));
+    newRoomNotificationLabel->setObjectName(u"newRoomNotificationLabel"_s);
     newRoomNotificationLabel->setTextFormat(Qt::PlainText);
 
     createLayout(newRoomNotificationLabel, mSoundNewRoomNotification, soundWidgetLayout);
 
     auto newMessageNotificationLabel = new QLabel(i18nc("@label:textbox", "New Message Notification:"), this);
-    newMessageNotificationLabel->setObjectName(QStringLiteral("newMessageNotificationLabel"));
+    newMessageNotificationLabel->setObjectName(u"newMessageNotificationLabel"_s);
     newMessageNotificationLabel->setTextFormat(Qt::PlainText);
 
     createLayout(newMessageNotificationLabel, mSoundNewMessageNotification, soundWidgetLayout);
 
-    mMuteFocusedConversations->setObjectName(QStringLiteral("mMuteFocusedConversations"));
+    mMuteFocusedConversations->setObjectName(u"mMuteFocusedConversations"_s);
     soundWidgetLayout->addWidget(mMuteFocusedConversations);
     connect(mMuteFocusedConversations, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 
     auto notificationsSoundVolumeLabel = new QLabel(i18nc("@label:textbox", "Notifications sound volume:"), this);
-    notificationsSoundVolumeLabel->setObjectName(QStringLiteral("notificationsSoundVolumeLabel"));
+    notificationsSoundVolumeLabel->setObjectName(u"notificationsSoundVolumeLabel"_s);
     notificationsSoundVolumeLabel->setTextFormat(Qt::PlainText);
 
     mNotificationsSoundVolume->setRange(0, 100);
-    mNotificationsSoundVolume->setObjectName(QStringLiteral("mNotificationsSoundVolume"));
+    mNotificationsSoundVolume->setObjectName(u"mNotificationsSoundVolume"_s);
     connect(mNotificationsSoundVolume, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     createLayout(notificationsSoundVolumeLabel, mNotificationsSoundVolume, soundWidgetLayout);
 
@@ -162,28 +162,28 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mainLayout->addWidget(soundWidget);
 
     QWidget *downloadWidget = new QWidget(this);
-    downloadWidget->setObjectName(QStringLiteral("downloadWidget"));
+    downloadWidget->setObjectName(u"downloadWidget"_s);
     auto downloadWidgetLayout = new QVBoxLayout(downloadWidget);
-    downloadWidgetLayout->setObjectName(QStringLiteral("downloadWidgetLayout"));
+    downloadWidgetLayout->setObjectName(u"downloadWidgetLayout"_s);
     downloadWidgetLayout->setContentsMargins({});
 
     downloadWidgetLayout->addWidget(new KSeparator(this));
 
     auto downloadLayout = new QHBoxLayout;
-    downloadLayout->setObjectName(QStringLiteral("downloadLayout"));
+    downloadLayout->setObjectName(u"downloadLayout"_s);
     downloadLayout->setContentsMargins({});
 
     downloadWidgetLayout->addLayout(downloadLayout);
 
     auto downloadDataButton = new QPushButton(i18nc("@action:button", "Download my Data (HTML)"), this);
-    downloadDataButton->setObjectName(QStringLiteral("downloadDataButton"));
+    downloadDataButton->setObjectName(u"downloadDataButton"_s);
     downloadLayout->addWidget(downloadDataButton);
     connect(downloadDataButton, &QPushButton::clicked, this, [this]() {
         downloadData(false);
     });
 
     auto exportDataButton = new QPushButton(i18nc("@action:button", "Export my Data (JSON)"), this);
-    exportDataButton->setObjectName(QStringLiteral("exportDataButton"));
+    exportDataButton->setObjectName(u"exportDataButton"_s);
     downloadLayout->addWidget(exportDataButton);
     connect(exportDataButton, &QPushButton::clicked, this, [this]() {
         downloadData(true);
@@ -255,23 +255,23 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     const QString desktopNotificationDefaultValue = mRocketChatAccount
         ? i18n("Default (%1)", desktopPushNotificationI18n(mRocketChatAccount->ruqolaServerConfig()->accountsDefaultUserPreferencesDesktopNotifications()))
         : i18n("Default");
-    mDesktopNotification->addItem(desktopNotificationDefaultValue, QStringLiteral("default"));
-    mDesktopNotification->addItem(desktopPushNotificationI18n(QStringLiteral("all")), QStringLiteral("all"));
-    mDesktopNotification->addItem(desktopPushNotificationI18n(QStringLiteral("mentions")), QStringLiteral("mentions"));
-    mDesktopNotification->addItem(desktopPushNotificationI18n(QStringLiteral("nothing")), QStringLiteral("nothing"));
+    mDesktopNotification->addItem(desktopNotificationDefaultValue, u"default"_s);
+    mDesktopNotification->addItem(desktopPushNotificationI18n(u"all"_s), u"all"_s);
+    mDesktopNotification->addItem(desktopPushNotificationI18n(u"mentions"_s), u"mentions"_s);
+    mDesktopNotification->addItem(desktopPushNotificationI18n(u"nothing"_s), u"nothing"_s);
 
     const QString pushNotificationDefaultValue = mRocketChatAccount
         ? i18n("Default (%1)", desktopPushNotificationI18n(mRocketChatAccount->ruqolaServerConfig()->accountsDefaultUserPreferencesPushNotifications()))
         : i18n("Default");
-    mPushNotification->addItem(pushNotificationDefaultValue, QStringLiteral("default"));
-    mPushNotification->addItem(desktopPushNotificationI18n(QStringLiteral("all")), QStringLiteral("all"));
-    mPushNotification->addItem(desktopPushNotificationI18n(QStringLiteral("mentions")), QStringLiteral("mentions"));
-    mPushNotification->addItem(desktopPushNotificationI18n(QStringLiteral("nothing")), QStringLiteral("nothing"));
+    mPushNotification->addItem(pushNotificationDefaultValue, u"default"_s);
+    mPushNotification->addItem(desktopPushNotificationI18n(u"all"_s), u"all"_s);
+    mPushNotification->addItem(desktopPushNotificationI18n(u"mentions"_s), u"mentions"_s);
+    mPushNotification->addItem(desktopPushNotificationI18n(u"nothing"_s), u"nothing"_s);
 
     // TODO default value from server
-    mEmailNotification->addItem(i18n("Default (Every Mention/DM)"), QStringLiteral("default"));
-    mEmailNotification->addItem(i18n("Every Mention/DM"), QStringLiteral("mentions"));
-    mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
+    mEmailNotification->addItem(i18n("Default (Every Mention/DM)"), u"default"_s);
+    mEmailNotification->addItem(i18n("Every Mention/DM"), u"mentions"_s);
+    mEmailNotification->addItem(i18n("Disabled"), u"nothing"_s);
     if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->allowEmailNotifications()) {
         mEmailNotification->setEnabled(false);
         mEmailNotificationLabel->setText(i18n("Your Rocket.Chat administrator has disabled email notifications"));
@@ -287,7 +287,7 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
 void MyAccountPreferenceConfigureWidget::save()
 {
     if (mChanged) {
-        const QStringList highlightWords = mHighlightWords->text().split(QLatin1Char(','));
+        const QStringList highlightWords = mHighlightWords->text().split(u',');
         QStringList listWords;
         for (QString word : highlightWords) {
             word = word.trimmed();
@@ -327,7 +327,7 @@ void MyAccountPreferenceConfigureWidget::save()
 void MyAccountPreferenceConfigureWidget::load()
 {
     const OwnUserPreferences ownUserPreferences = mRocketChatAccount->ownUserPreferences();
-    mHighlightWords->setText(ownUserPreferences.highlightWords().join(QLatin1Char(',')));
+    mHighlightWords->setText(ownUserPreferences.highlightWords().join(u','));
     mPushNotification->setCurrentIndex(mPushNotification->findData(ownUserPreferences.pushNotifications()));
     mEmailNotification->setCurrentIndex(mEmailNotification->findData(ownUserPreferences.emailNotificationMode()));
     mDesktopNotification->setCurrentIndex(mDesktopNotification->findData(ownUserPreferences.desktopNotifications()));

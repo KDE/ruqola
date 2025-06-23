@@ -5,6 +5,8 @@
 */
 
 #include "getcommandsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "commands/getcommandsjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -28,9 +30,9 @@ void GetCommandsJobTest::shouldGenerateRequest()
 {
     GetCommandsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    job.setCommandName(QStringLiteral("foo"));
+    job.setCommandName(u"foo"_s);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/commands.get?command=foo")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/commands.get?command=foo"_s));
 }
 
 void GetCommandsJobTest::shouldNotStarting()
@@ -38,19 +40,19 @@ void GetCommandsJobTest::shouldNotStarting()
     GetCommandsJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString commandName = QStringLiteral("foo1");
+    const QString commandName = u"foo1"_s;
     job.setCommandName(commandName);
     QVERIFY(job.canStart());
 }

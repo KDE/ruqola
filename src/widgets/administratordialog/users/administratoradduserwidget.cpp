@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoradduserwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/rolescombobox.h"
 #include "rocketchataccount.h"
 #include "user.h"
@@ -33,28 +35,28 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     , mRocketChatAccount(account)
 {
     auto formLayout = new QFormLayout(this);
-    formLayout->setObjectName(QStringLiteral("formLayout"));
-    mName->setObjectName(QStringLiteral("mName"));
-    mUserName->setObjectName(QStringLiteral("mUserName"));
-    mEmail->setObjectName(QStringLiteral("mEmail"));
-    mStatusText->setObjectName(QStringLiteral("mStatusText"));
-    mBioPlainTextEdit->setObjectName(QStringLiteral("mBioPlainTextEdit"));
-    mNickName->setObjectName(QStringLiteral("mNickName"));
+    formLayout->setObjectName(u"formLayout"_s);
+    mName->setObjectName(u"mName"_s);
+    mUserName->setObjectName(u"mUserName"_s);
+    mEmail->setObjectName(u"mEmail"_s);
+    mStatusText->setObjectName(u"mStatusText"_s);
+    mBioPlainTextEdit->setObjectName(u"mBioPlainTextEdit"_s);
+    mNickName->setObjectName(u"mNickName"_s);
     KLineEditEventHandler::catchReturnKey(mName);
     KLineEditEventHandler::catchReturnKey(mUserName);
     KLineEditEventHandler::catchReturnKey(mEmail);
     KLineEditEventHandler::catchReturnKey(mStatusText);
     KLineEditEventHandler::catchReturnKey(mNickName);
 
-    mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                                : KPassword::RevealMode::Never);
-    mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
-    mRequirePasswordChange->setObjectName(QStringLiteral("mRequirePassword"));
-    mSetRandowPassword->setObjectName(QStringLiteral("mSetRandowPassword"));
+    mSendWelcomeEmails->setObjectName(u"mSendWelcomeEmails"_s);
+    mPasswordLineEdit->setObjectName(u"mPasswordLineEdit"_s);
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                   : KPassword::RevealMode::Never);
+    mRolesComboBox->setObjectName(u"mRolesComboBox"_s);
+    mRequirePasswordChange->setObjectName(u"mRequirePassword"_s);
+    mSetRandowPassword->setObjectName(u"mSetRandowPassword"_s);
     // TODO use RuqolaServerConfig::allowEmailVerification
-    mEmailVerified->setObjectName(QStringLiteral("mEmailVerified"));
+    mEmailVerified->setObjectName(u"mEmailVerified"_s);
     formLayout->addRow(i18n("Name:"), mName);
     formLayout->addRow(i18n("Username:"), mUserName);
     formLayout->addRow(i18n("Status Message:"), mStatusText);
@@ -127,7 +129,7 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mUserName = mUserName->text();
     info.mStatusText = mStatusText->text().trimmed();
     info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
-    if (mRocketChatAccount && mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-password"))) {
+    if (mRocketChatAccount && mRocketChatAccount->hasPermission(u"edit-other-user-password"_s)) {
         info.mPassword = mPasswordLineEdit->password();
     }
     info.mRequirePasswordChange = mRequirePasswordChange->isChecked();
@@ -156,7 +158,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     // mSetRandowPassword
     // TODO add mSendWelcomeEmail
     if (mRocketChatAccount) {
-        mPasswordLineEdit->setEnabled(mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-password")));
+        mPasswordLineEdit->setEnabled(mRocketChatAccount->hasPermission(u"edit-other-user-password"_s));
     }
 }
 

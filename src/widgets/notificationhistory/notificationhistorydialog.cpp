@@ -5,6 +5,8 @@
 */
 
 #include "notificationhistorydialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "notificationhistorywidget.h"
 
 #include <KConfigGroup>
@@ -26,14 +28,14 @@ NotificationHistoryDialog::NotificationHistoryDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Notification"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mNotificationHistoryWidget->setObjectName(QStringLiteral("mNotificationHistoryWidget"));
+    mNotificationHistoryWidget->setObjectName(u"mNotificationHistoryWidget"_s);
     mainLayout->addWidget(mNotificationHistoryWidget);
     connect(mNotificationHistoryWidget, &NotificationHistoryWidget::showNotifyMessage, this, &NotificationHistoryDialog::showNotifyMessage);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &NotificationHistoryDialog::reject);
     readConfig();

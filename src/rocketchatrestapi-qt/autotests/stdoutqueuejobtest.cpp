@@ -5,6 +5,8 @@
 */
 
 #include "stdoutqueuejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/stdoutqueuejob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -30,7 +32,7 @@ void StdoutQueueJobTest::shouldGenerateRequest()
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/stdout.queue")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/stdout.queue"_s));
     }
 }
 

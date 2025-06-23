@@ -5,6 +5,8 @@
 */
 
 #include "twoauthenticationpasswordwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/twoauthenticationpasswordwidget.h"
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
@@ -21,14 +23,14 @@ void TwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
 {
     TwoAuthenticationPasswordWidget w;
 
-    auto twoFactorLayout = w.findChild<QHBoxLayout *>(QStringLiteral("twoFactorLayout"));
+    auto twoFactorLayout = w.findChild<QHBoxLayout *>(u"twoFactorLayout"_s);
     QVERIFY(twoFactorLayout);
     QCOMPARE(twoFactorLayout->contentsMargins(), QMargins());
 
-    auto mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    auto mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mTwoFactorAuthenticationPasswordLineEdit"_s);
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
 
-    auto sendNewEmailCode = w.findChild<QPushButton *>(QStringLiteral("sendNewEmailCode"));
+    auto sendNewEmailCode = w.findChild<QPushButton *>(u"sendNewEmailCode"_s);
     QVERIFY(sendNewEmailCode);
     QVERIFY(!sendNewEmailCode->text().isEmpty());
 }

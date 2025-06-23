@@ -64,7 +64,7 @@ QNetworkRequest TeamInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsInfo);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("teamId"), mTeamId);
+    queryUrl.addQueryItem(u"teamId"_s, mTeamId);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

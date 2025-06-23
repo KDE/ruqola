@@ -5,6 +5,8 @@
 */
 
 #include "asktwoauthenticationpassworddialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "asktwoauthenticationpasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -17,13 +19,13 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
 {
     setWindowTitle(i18nc("@title:window", "Channel Info"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mAskTwoAuthicationPasswordWidget->setObjectName(QStringLiteral("mAskTwoAuthicationPasswordWidget"));
+    mAskTwoAuthicationPasswordWidget->setObjectName(u"mAskTwoAuthicationPasswordWidget"_s);
     mainLayout->addWidget(mAskTwoAuthicationPasswordWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Close, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &AskTwoAuthenticationPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &AskTwoAuthenticationPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);

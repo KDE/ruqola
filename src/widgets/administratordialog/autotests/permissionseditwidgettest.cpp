@@ -5,6 +5,8 @@
 */
 
 #include "permissionseditwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/permissions/permissionseditwidget.h"
 #include "misc/rolescombobox.h"
 #include <QHBoxLayout>
@@ -19,15 +21,15 @@ PermissionsEditWidgetTest::PermissionsEditWidgetTest(QObject *parent)
 void PermissionsEditWidgetTest::shouldHaveDefaultValues()
 {
     PermissionsEditWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto mRolesCombobox = w.findChild<RolesComboBox *>(QStringLiteral("mRolesCombobox"));
+    auto mRolesCombobox = w.findChild<RolesComboBox *>(u"mRolesCombobox"_s);
     QVERIFY(mRolesCombobox);
 }
 

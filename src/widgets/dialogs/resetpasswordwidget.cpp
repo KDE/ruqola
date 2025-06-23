@@ -5,6 +5,8 @@
 */
 
 #include "resetpasswordwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KEmailAddress>
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -17,15 +19,15 @@ ResetPasswordWidget::ResetPasswordWidget(QWidget *parent)
     , mEmail(new QLineEdit(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18nc("@label:textbox", "Email:"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
-    mEmail->setObjectName(QStringLiteral("mEmail"));
+    mEmail->setObjectName(u"mEmail"_s);
     mainLayout->addWidget(mEmail);
     KLineEditEventHandler::catchReturnKey(mEmail);
     connect(mEmail, &QLineEdit::textChanged, this, &ResetPasswordWidget::slotEmailChanged);

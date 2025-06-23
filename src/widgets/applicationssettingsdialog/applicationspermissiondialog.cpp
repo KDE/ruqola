@@ -5,6 +5,8 @@
 */
 
 #include "applicationspermissiondialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationspermissionwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -25,13 +27,13 @@ ApplicationsPermissionDialog::ApplicationsPermissionDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Permissions"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mApplicationsPermissionWidget->setObjectName(QStringLiteral("mApplicationsPermissionWidget"));
+    mApplicationsPermissionWidget->setObjectName(u"mApplicationsPermissionWidget"_s);
     mainLayout->addWidget(mApplicationsPermissionWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
 
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsPermissionDialog::reject);

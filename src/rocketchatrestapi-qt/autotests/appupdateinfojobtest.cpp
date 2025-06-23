@@ -5,6 +5,8 @@
 */
 
 #include "appupdateinfojobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "apps/appupdateinfojob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(AppUpdateInfoJobTest)
@@ -35,7 +37,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
 
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/foo"_s));
     }
 
     {
@@ -48,7 +50,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
 
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo/settings")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/foo/settings"_s));
     }
 
     {
@@ -61,7 +63,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
 
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/foo/icon")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/foo/icon"_s));
     }
 
     {
@@ -74,7 +76,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
 
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/actionButtons")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/actionButtons"_s));
     }
 }
 

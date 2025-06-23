@@ -56,18 +56,18 @@ void AutoGenerateInteractionUiTest::shouldLoadJson_data()
     QTest::addColumn<QString>("fileNameinit");
     QTest::addColumn<QByteArray>("serializeState");
 
-    QTest::addRow("contextbaropen1") << QStringLiteral("contextbaropen1")
+    QTest::addRow("contextbaropen1") << u"contextbaropen1"_s
                                      << QByteArray(
                                             "{\n    \"autoReplySettings\": {\n        \"AutoReplyMessage\": \"Hey, I received your message and will get back "
                                             "to you as soon as possible.\"\n    }\n}\n");
     QTest::addRow("modalupdate1")
-        << QStringLiteral("modalupdate1")
+        << u"modalupdate1"_s
         << QByteArray(
                "{\n    \"reminderData\": {\n        \"message\": \"\",\n        \"repeat\": \"once\",\n        \"targetChannel\": \"\",\n        "
                "\"targetType\": \"channel\",\n        \"whenDate\": \"18/03/2025\",\n        \"whenTime\": \"14:00\"\n    }\n}\n");
 
     QTest::addRow("datetime")
-        << QStringLiteral("datetime")
+        << u"datetime"_s
         << QByteArray(
                "{\n    \"43ac4271-0584-11f0-9f18-1735ff3ce6ab\": {\n        "
                "\"linked-msg-reminder-change-duration-option_msgReminderCreateModal-0c4e4b86-6de8-415e-95e6-de42643f3bcb\": \"custom\"\n    },\n    "

@@ -5,6 +5,8 @@
 */
 
 #include "applicationssettingsdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingswidget.h"
 #include "rocketchataccount.h"
 #include <KConfigGroup>
@@ -26,13 +28,13 @@ ApplicationsSettingsDialog::ApplicationsSettingsDialog(RocketChatAccount *accoun
 {
     setWindowTitle(i18nc("@title:window", "Applications"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mApplicationsSettingsWidget->setObjectName(QStringLiteral("mApplicationsSettingsWidget"));
+    mApplicationsSettingsWidget->setObjectName(u"mApplicationsSettingsWidget"_s);
     mainLayout->addWidget(mApplicationsSettingsWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsDialog::reject);
 

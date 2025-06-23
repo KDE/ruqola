@@ -5,6 +5,8 @@
 */
 
 #include "configurespellcheckingwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QVBoxLayout>
 #include <Sonnet/ConfigWidget>
 
@@ -13,9 +15,9 @@ ConfigureSpellCheckingWidget::ConfigureSpellCheckingWidget(QWidget *parent)
     , mConfigWidget(new Sonnet::ConfigWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
-    mConfigWidget->setObjectName(QStringLiteral("mConfigWidget"));
+    mConfigWidget->setObjectName(u"mConfigWidget"_s);
     mainLayout->addWidget(mConfigWidget);
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "ruqolalogger.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 #include <QCoreApplication>
 #include <QDateTime>
@@ -16,15 +18,15 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
     static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;
 
-    const QString filename = QLatin1StringView(qgetenv("RUQOLA_LOGFILE")) + QLatin1Char('-') + accountName + QLatin1Char('.')
-        + QString::number(QCoreApplication::applicationPid()) + QLatin1Char('.') + QString::number(mIdentifier);
+    const QString filename = QLatin1StringView(qgetenv("RUQOLA_LOGFILE")) + u'-' + accountName + u'.' + QString::number(QCoreApplication::applicationPid())
+        + u'.' + QString::number(mIdentifier);
 
     mLoggerFile.setFileName(filename);
     if (!mLoggerFile.open(QFile::WriteOnly)) {
         qCWarning(RUQOLA_LOG) << "Could not open log file for writing:" << mLoggerFile.fileName();
     }
 
-    mRestApiLogFile.setFileName(QStringLiteral("RESTAPI_") + filename);
+    mRestApiLogFile.setFileName(u"RESTAPI_"_s + filename);
     if (!mRestApiLogFile.open(QFile::WriteOnly)) {
         qCWarning(RUQOLA_LOG) << "Could not open log file for restapi:" << mRestApiLogFile.fileName();
     }

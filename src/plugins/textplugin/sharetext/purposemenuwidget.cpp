@@ -17,8 +17,8 @@ PurposeMenuWidget::PurposeMenuWidget(QObject *parent)
     , mShareMenu(new Purpose::Menu)
 {
     mShareMenu->setTitle(i18n("Share Text…"));
-    mShareMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
-    mShareMenu->setObjectName(QStringLiteral("purposesharemenu"));
+    mShareMenu->setIcon(QIcon::fromTheme(u"document-share"_s));
+    mShareMenu->setObjectName(u"purposesharemenu"_s);
     connect(mShareMenu, &Purpose::Menu::aboutToShow, this, &PurposeMenuWidget::slotInitializeShareMenu);
     connect(mShareMenu, &Purpose::Menu::finished, this, &PurposeMenuWidget::slotShareActionFinished);
 }
@@ -52,9 +52,9 @@ void PurposeMenuWidget::slotInitializeShareMenu()
     mTemporaryShareFile->setPermissions(QFile::ReadUser);
     mTemporaryShareFile->write(text());
     mTemporaryShareFile->close();
-    mShareMenu->model()->setInputData(QJsonObject{{QStringLiteral("urls"), QJsonArray{{QUrl::fromLocalFile(mTemporaryShareFile->fileName()).toString()}}},
-                                                  {QStringLiteral("mimeType"), {QStringLiteral("text/plain")}}});
-    mShareMenu->model()->setPluginType(QStringLiteral("Export"));
+    mShareMenu->model()->setInputData(
+        QJsonObject{{u"urls"_s, QJsonArray{{QUrl::fromLocalFile(mTemporaryShareFile->fileName()).toString()}}}, {u"mimeType"_s, {u"text/plain"_s}}});
+    mShareMenu->model()->setPluginType(u"Export"_s);
     mShareMenu->reload();
 }
 

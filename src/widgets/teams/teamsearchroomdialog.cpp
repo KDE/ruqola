@@ -5,6 +5,8 @@
 */
 
 #include "teamsearchroomdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teamsearchroomwidget.h"
 
 #include <KConfigGroup>
@@ -25,13 +27,13 @@ TeamSearchRoomDialog::TeamSearchRoomDialog(RocketChatAccount *account, QWidget *
 {
     setWindowTitle(i18nc("@title:window", "Search Rooms"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mTeamSearchRoomWidget->setObjectName(QStringLiteral("mTeamSearchRoomWidget"));
+    mTeamSearchRoomWidget->setObjectName(u"mTeamSearchRoomWidget"_s);
     mainLayout->addWidget(mTeamSearchRoomWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &TeamSearchRoomDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &TeamSearchRoomDialog::accept);

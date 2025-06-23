@@ -44,43 +44,43 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     , mMediaDevices(new QMediaDevices(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mainLayout->addWidget(mMessageWidget);
     mMessageWidget->setVisible(false);
     mMessageWidget->setCloseButtonVisible(true);
     mMessageWidget->setMessageType(KMessageWidget::Error);
     mMessageWidget->setWordWrap(true);
 
-    mListCamera->setObjectName(QStringLiteral("mListCamera"));
+    mListCamera->setObjectName(u"mListCamera"_s);
     mainLayout->addWidget(mListCamera);
 
-    mVideoWidget->setObjectName(QStringLiteral("mVideoWidget"));
+    mVideoWidget->setObjectName(u"mVideoWidget"_s);
     mainLayout->addWidget(mVideoWidget, 1);
 
     auto hboxLayout = new QHBoxLayout;
-    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setObjectName(u"hboxLayout"_s);
     hboxLayout->setContentsMargins({});
 
-    mStopButton->setObjectName(QStringLiteral("mStopButton"));
-    mStopButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-stop")));
+    mStopButton->setObjectName(u"mStopButton"_s);
+    mStopButton->setIcon(QIcon::fromTheme(u"media-playback-stop"_s));
     hboxLayout->addWidget(mStopButton);
     connect(mStopButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::stop);
 
-    mPauseButton->setObjectName(QStringLiteral("mPauseButton"));
-    mPauseButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
+    mPauseButton->setObjectName(u"mPauseButton"_s);
+    mPauseButton->setIcon(QIcon::fromTheme(u"media-playback-pause"_s));
     hboxLayout->addWidget(mPauseButton);
     connect(mPauseButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::pause);
 
-    mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
-    mRecordButton->setIcon(QIcon::fromTheme(QStringLiteral("media-record")));
+    mRecordButton->setObjectName(u"mRecordButton"_s);
+    mRecordButton->setIcon(QIcon::fromTheme(u"media-record"_s));
     hboxLayout->addWidget(mRecordButton);
     mRecordButton->setEnabled(false);
     connect(mRecordButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::record);
 
-    mDurationLabel->setObjectName(QStringLiteral("mDurationLabel"));
+    mDurationLabel->setObjectName(u"mDurationLabel"_s);
     hboxLayout->addWidget(mDurationLabel);
     mainLayout->addLayout(hboxLayout);
 

@@ -5,6 +5,8 @@
 */
 
 #include "deletedmjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directmessage/deletedmjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -28,14 +30,14 @@ void DeleteDmJobTest::shouldGenerateRequest()
     DeleteDmJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.delete")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/im.delete"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void DeleteDmJobTest::shouldGenerateUserIdJson()
 {
     DeleteDmJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;
@@ -46,7 +48,7 @@ void DeleteDmJobTest::shouldGenerateUserIdJson()
 void DeleteDmJobTest::shouldGenerateUserNameJson()
 {
     DeleteDmJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;

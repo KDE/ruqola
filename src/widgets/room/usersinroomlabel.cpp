@@ -5,6 +5,8 @@
 */
 
 #include "usersinroomlabel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomutil.h"
@@ -19,13 +21,13 @@ UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     , mUserNameLabel(new UserLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
-    mIconLabel->setObjectName(QStringLiteral("mIconLabel"));
+    mIconLabel->setObjectName(u"mIconLabel"_s);
     mainLayout->addWidget(mIconLabel);
 
-    mUserNameLabel->setObjectName(QStringLiteral("mUserNameLabel"));
+    mUserNameLabel->setObjectName(u"mUserNameLabel"_s);
     mainLayout->addWidget(mUserNameLabel);
 }
 

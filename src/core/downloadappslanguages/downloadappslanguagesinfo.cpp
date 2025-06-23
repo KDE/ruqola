@@ -23,7 +23,7 @@ bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language, const QString
         QMap<QString, QVariant>::const_iterator i = map.constBegin();
         QMap<QString, QString> translatedMap;
         while (i != map.constEnd()) {
-            translatedMap.insert(QStringLiteral("app-%1.%2").arg(id, i.key()), i.value().toString());
+            translatedMap.insert(u"app-%1.%2"_s.arg(id, i.key()), i.value().toString());
             ++i;
         }
         mLanguageMap.insert(lang, translatedMap);

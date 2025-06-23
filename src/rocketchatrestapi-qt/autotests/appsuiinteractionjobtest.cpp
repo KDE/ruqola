@@ -5,6 +5,8 @@
 */
 
 #include "appsuiinteractionjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/appsuiinteractionjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -30,33 +32,33 @@ void AppsUiInteractionJobTest::shouldGenerateRequest()
     AppsUiInteractionJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/ui.interaction")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/ui.interaction"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
     AppsUiInteractionJob::AppsUiInteractionJobInfo info;
-    info.methodName = QStringLiteral("login");
+    info.methodName = u"login"_s;
     job.setAppsUiInteractionJobInfo(info);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/ui.interaction/login")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/ui.interaction/login"_s));
 }
 
 void AppsUiInteractionJobTest::shouldGenerateJson()
 {
     AppsUiInteractionJob job;
     AppsUiInteractionJob::AppsUiInteractionJobInfo info;
-    info.methodName = QStringLiteral("login");
+    info.methodName = u"login"_s;
     job.setAppsUiInteractionJobInfo(info);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({})").toLatin1());
 
     QVariantMap map;
-    map.insert(QStringLiteral("msg"), QStringLiteral("method"));
-    map.insert(QStringLiteral("id"), QStringLiteral("52"));
-    map.insert(QStringLiteral("method"), QStringLiteral("login"));
+    map.insert(u"msg"_s, u"method"_s);
+    map.insert(u"id"_s, u"52"_s);
+    map.insert(u"method"_s, u"login"_s);
     info.messageObj = QJsonObject::fromVariantMap(map);
-    info.methodName = QStringLiteral("login");
+    info.methodName = u"login"_s;
     job.setAppsUiInteractionJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"id\":\"52\",\"method\":\"login\",\"msg\":\"method\"}").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), u"{\"id\":\"52\",\"method\":\"login\",\"msg\":\"method\"}"_s.toLatin1());
 }
 
 void AppsUiInteractionJobTest::shouldNotStarting()
@@ -64,14 +66,14 @@ void AppsUiInteractionJobTest::shouldNotStarting()
     AppsUiInteractionJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -107,14 +109,13 @@ void AppsUiInteractionJobTest::shouldTestGenerateMessageObj_data()
                                   "{\"actionId\":\"\",\"container\":{\"id\":\"\",\"type\":\"message\"},\"mid\":\"\",\"payload\":{\"blockId\":\"\",\"value\":"
                                   "\"\"},\"rid\":\"\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
 
-    QTest::addRow("test1") << QStringLiteral("act1") << QString() << QStringLiteral("blo1") << QByteArrayLiteral("room1") << "message1"_ba
+    QTest::addRow("test1") << u"act1"_s << QString() << u"blo1"_s << QByteArrayLiteral("room1") << "message1"_ba
                            << QStringLiteral(
                                   "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
                                   "\"blockId\":\"blo1\",\"value\":\"\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
 
-    QTest::addRow("test2") << QStringLiteral("act1")
-                           << QStringLiteral("[{\"_id\":\"HJ4EFjvEjYT73X\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]")
-                           << QStringLiteral("blo1") << QByteArrayLiteral("room1") << "message1"_ba
+    QTest::addRow("test2") << u"act1"_s << u"[{\"_id\":\"HJ4EFjvEjYT73X\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"_s << u"blo1"_s
+                           << QByteArrayLiteral("room1") << "message1"_ba
                            << QStringLiteral(
                                   "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
                                   "\"blockId\":\"blo1\",\"value\":\"[{\\\"_id\\\":\\\"HJ4EFjvEjYT73X\\\",\\\"username\\\":\\\"service\\\",\\\"name\\\":"

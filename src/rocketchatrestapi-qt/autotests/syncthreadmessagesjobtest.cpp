@@ -5,6 +5,8 @@
 */
 
 #include "syncthreadmessagesjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/syncthreadmessagesjob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(SyncThreadMessagesJobTest)
@@ -31,16 +33,16 @@ void SyncThreadMessagesJobTest::shouldGenerateRequest()
 {
     SyncThreadMessagesJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    const QString threadMessageId = QStringLiteral("bla");
+    const QString threadMessageId = u"bla"_s;
     job.setThreadMessageId(threadMessageId);
 
-    const QString timestamp = QStringLiteral("blu");
+    const QString timestamp = u"blu"_s;
     job.setTimeStamp(timestamp);
 
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncThreadMessages?tmid=%1&updatedSince=%2").arg(threadMessageId, timestamp)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.syncThreadMessages?tmid=%1&updatedSince=%2"_s.arg(threadMessageId, timestamp)));
 }
 
 void SyncThreadMessagesJobTest::shouldNotStarting()
@@ -48,23 +50,23 @@ void SyncThreadMessagesJobTest::shouldNotStarting()
     SyncThreadMessagesJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString threadMessageId = QStringLiteral("foo1");
+    const QString threadMessageId = u"foo1"_s;
     job.setThreadMessageId(threadMessageId);
     QVERIFY(!job.canStart());
 
-    const QString timestamp = QStringLiteral("blu");
+    const QString timestamp = u"blu"_s;
     job.setTimeStamp(timestamp);
     QVERIFY(job.canStart());
 }

@@ -5,6 +5,8 @@
 */
 
 #include "resetroomkeyjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "e2e/resetroomkeyjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -28,8 +30,8 @@ void ResetRoomKeyJobTest::shouldGenerateRequest()
     ResetRoomKeyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.resetRoomKey")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.resetRoomKey"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void ResetRoomKeyJobTest::shouldGenerateJson()
@@ -44,14 +46,14 @@ void ResetRoomKeyJobTest::shouldNotStarting()
     ResetRoomKeyJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);

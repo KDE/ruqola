@@ -5,6 +5,8 @@
 */
 
 #include "ruqolaloginwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "colorsandmessageviewstyle.h"
 #include "common/authenticationoauthwidget.h"
 #include "misc/passwordlineeditwidget.h"
@@ -30,30 +32,30 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     , mTwoFactorAuthenticationWidget(new QWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mRuqolaLoginStackWidget->setObjectName(QStringLiteral("mRuqolaLoginStackWidget"));
+    mRuqolaLoginStackWidget->setObjectName(u"mRuqolaLoginStackWidget"_s);
     mainLayout->addWidget(mRuqolaLoginStackWidget);
 
     // Two Factor authentication
-    mTwoFactorAuthenticationWidget->setObjectName(QStringLiteral("mTwoFactorAuthenticationWidget"));
+    mTwoFactorAuthenticationWidget->setObjectName(u"mTwoFactorAuthenticationWidget"_s);
     mTwoFactorAuthenticationWidget->setVisible(false);
 
     auto twoFactorAuthenticationLayout = new QVBoxLayout(mTwoFactorAuthenticationWidget);
-    twoFactorAuthenticationLayout->setObjectName(QStringLiteral("twoFactorAuthenticationLayout"));
+    twoFactorAuthenticationLayout->setObjectName(u"twoFactorAuthenticationLayout"_s);
     twoFactorAuthenticationLayout->setContentsMargins(QMargins{});
 
     auto twoFactorAuthenticationLabel =
         new QLabel(i18nc("@label:textbox", "You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
-    twoFactorAuthenticationLabel->setObjectName(QStringLiteral("twoFactorAuthenticationLabel"));
+    twoFactorAuthenticationLabel->setObjectName(u"twoFactorAuthenticationLabel"_s);
     twoFactorAuthenticationLayout->addWidget(twoFactorAuthenticationLabel);
 
-    mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    mTwoFactorAuthenticationPasswordLineEdit->setObjectName(u"mTwoFactorAuthenticationPasswordLineEdit"_s);
     twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
     mainLayout->addWidget(mTwoFactorAuthenticationWidget);
 
-    mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
+    mLoginButton->setObjectName(u"mLoginButton"_s);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
     connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::tryLogin, this, &RuqolaLoginWidget::slotLogin);
     auto loginButtonLayout = new QHBoxLayout;
@@ -64,12 +66,12 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mainLayout->addLayout(loginButtonLayout);
 
-    mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
+    mBusyIndicatorWidget->setObjectName(u"mBusyIndicatorWidget"_s);
     mainLayout->addWidget(mBusyIndicatorWidget);
     // Hide by default
     mBusyIndicatorWidget->hide();
 
-    mFailedError->setObjectName(QStringLiteral("mFailedError"));
+    mFailedError->setObjectName(u"mFailedError"_s);
     QPalette pal = mFailedError->palette();
     pal.setColor(foregroundRole(), ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
     mFailedError->setPalette(pal);

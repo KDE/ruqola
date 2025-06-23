@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "showimagegraphicspixmapitem.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QApplication>
 #include <QDrag>
@@ -45,7 +46,7 @@ void ShowImageGraphicsPixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event
         QByteArray itemData;
         QDataStream dataStream(&itemData, QIODevice::WriteOnly);
         dataStream << pixmap().toImage();
-        mimeData->setData(QStringLiteral("application/x-dnditemdata"), itemData);
+        mimeData->setData(u"application/x-dnditemdata"_s, itemData);
 
         drag->setMimeData(mimeData);
         // TODO verify it

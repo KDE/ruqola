@@ -5,6 +5,8 @@
 */
 
 #include "modifystatuswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/modifystatuswidget.h"
 #include "misc/statuscombobox.h"
 #include <QFormLayout>
@@ -20,14 +22,14 @@ ModifyStatusWidgetTest::ModifyStatusWidgetTest(QObject *parent)
 void ModifyStatusWidgetTest::shouldHaveDefaultValues()
 {
     ModifyStatusWidget w;
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
+    auto mStatusCombobox = w.findChild<StatusCombobox *>(u"mStatusCombobox"_s);
     QVERIFY(mStatusCombobox);
 
-    auto mStatusLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mStatusLineEdit"));
+    auto mStatusLineEdit = w.findChild<QLineEdit *>(u"mStatusLineEdit"_s);
     QVERIFY(mStatusLineEdit);
     QVERIFY(mStatusLineEdit->isClearButtonEnabled());
 
@@ -37,7 +39,7 @@ void ModifyStatusWidgetTest::shouldHaveDefaultValues()
 void ModifyStatusWidgetTest::changeStatusMessage()
 {
     ModifyStatusWidget w;
-    const QString messages = QStringLiteral("messages");
+    const QString messages = u"messages"_s;
     w.setMessageStatus(messages);
     QCOMPARE(w.messageStatus(), messages);
 }

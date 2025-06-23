@@ -7,6 +7,8 @@
 #pragma once
 
 #include <QDebug>
+using namespace Qt::Literals::StringLiterals;
+
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -20,10 +22,9 @@ void diffFile(const QString &refFile, const QString &generatedFile)
 {
     QProcess proc;
 #ifdef _WIN32
-    QStringList args = QStringList() << QStringLiteral("Compare-Object") << QString(QStringLiteral("(Get-Content %1)")).arg(refFile)
-                                     << QString(QStringLiteral("(Get-Content %1)")).arg(generatedFile);
+    QStringList args = QStringList() << u"Compare-Object"_s << QString(u"(Get-Content %1)"_s).arg(refFile) << QString(u"(Get-Content %1)"_s).arg(generatedFile);
 
-    proc.start(QStringLiteral("powershell"), args);
+    proc.start(u"powershell"_s, args);
     QVERIFY(proc.waitForFinished());
 
     auto pStdOut = proc.readAllStandardOutput();
@@ -34,10 +35,10 @@ void diffFile(const QString &refFile, const QString &generatedFile)
     QCOMPARE(pStdOut.size(), 0);
 #else
     // compare to reference file
-    const QStringList args = QStringList() << QStringLiteral("-u") << refFile << generatedFile;
+    const QStringList args = QStringList() << u"-u"_s << refFile << generatedFile;
 
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
-    proc.start(QStringLiteral("diff"), args);
+    proc.start(u"diff"_s, args);
     QVERIFY(proc.waitForFinished());
     QCOMPARE(proc.exitCode(), 0);
 #endif

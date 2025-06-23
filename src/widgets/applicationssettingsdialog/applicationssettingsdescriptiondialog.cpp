@@ -24,13 +24,13 @@ ApplicationsSettingsDescriptionDialog::ApplicationsSettingsDescriptionDialog(Roc
 {
     setWindowTitle(i18nc("@title:window", "Description"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
     mApplicationsSettingsDescriptionTabWidget->setObjectName("mApplicationsSettingsDescriptionWidget"_L1);
     mainLayout->addWidget(mApplicationsSettingsDescriptionTabWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsSettingsDescriptionDialog::reject);
     readConfig();

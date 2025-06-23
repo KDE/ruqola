@@ -101,10 +101,10 @@ void FacebookAuthJob::setAccessToken(const QString &accessToken)
 QJsonDocument FacebookAuthJob::json() const
 {
     QVariantMap loginMap;
-    loginMap.insert(QStringLiteral("serviceName"), QStringLiteral("facebook"));
-    loginMap.insert(QStringLiteral("accessToken"), mAccessToken);
-    loginMap.insert(QStringLiteral("secret"), mSecret);
-    loginMap.insert(QStringLiteral("expiresIn"), mExpireTokenInSeconds);
+    loginMap.insert(u"serviceName"_s, u"facebook"_s);
+    loginMap.insert(u"accessToken"_s, mAccessToken);
+    loginMap.insert(u"secret"_s, mSecret);
+    loginMap.insert(u"expiresIn"_s, mExpireTokenInSeconds);
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
 }
@@ -113,7 +113,7 @@ QNetworkRequest FacebookAuthJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Login);
     QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, u"application/json"_s);
     return request;
 }
 

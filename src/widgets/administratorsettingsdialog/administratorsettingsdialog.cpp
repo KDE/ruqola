@@ -5,6 +5,8 @@
 */
 
 #include "administratorsettingsdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingswidget.h"
 
 #include "rocketchataccount.h"
@@ -27,15 +29,15 @@ AdministratorSettingsDialog::AdministratorSettingsDialog(RocketChatAccount *acco
     , mAdministratorSettingsWidget(new AdministratorSettingsWidget(account, this))
 {
     // Use "account-name" for autotest only when account is empty
-    setWindowTitle(i18nc("@title:window", "Administrator Server Settings - %1", account ? account->accountName() : QStringLiteral("account-name")));
+    setWindowTitle(i18nc("@title:window", "Administrator Server Settings - %1", account ? account->accountName() : u"account-name"_s));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mAdministratorSettingsWidget->setObjectName(QStringLiteral("mAdministratorSettingsWidget"));
+    mAdministratorSettingsWidget->setObjectName(u"mAdministratorSettingsWidget"_s);
     mainLayout->addWidget(mAdministratorSettingsWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorSettingsDialog::reject);
 

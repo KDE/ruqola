@@ -37,7 +37,7 @@ void DiscussionsFilterProxyModelTest::shouldAssignValue()
     Discussions discussionList;
     for (int i = 0; i < 10; ++i) {
         Discussion c;
-        c.setDescription(QStringLiteral("roomid%1").arg(i));
+        c.setDescription(u"roomid%1"_s.arg(i));
         c.setNumberMessages(i);
         c.setParentRoomId("online"_ba);
         discussionList.append(std::move(c));
@@ -50,7 +50,7 @@ void DiscussionsFilterProxyModelTest::shouldAssignValue()
     discussionList.clear();
     for (int i = 0; i < 3; ++i) {
         Discussion c;
-        c.setDescription(QStringLiteral("roomid%1").arg(i));
+        c.setDescription(u"roomid%1"_s.arg(i));
         c.setNumberMessages(i);
         c.setParentRoomId("online"_ba);
         discussionList.append(std::move(c));

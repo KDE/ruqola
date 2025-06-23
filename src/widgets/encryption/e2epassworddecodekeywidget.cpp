@@ -5,6 +5,8 @@
 */
 
 #include "e2epassworddecodekeywidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KAuthorized>
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -17,11 +19,10 @@ E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     , mPassword(new KPasswordLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mPassword->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                        : KPassword::RevealMode::Never);
+    mPassword->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew : KPassword::RevealMode::Never);
 
     mPassword->lineEdit()->setPlaceholderText(i18nc("@info:placeholder", "Please enter your E2EE password"));
     KLineEditEventHandler::catchReturnKey(mPassword->lineEdit());
@@ -30,10 +31,10 @@ E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
                          "To access your encrypted private groups and direct messages, enter your encryption password.\n"
                          "You need to enter this password to encode/decode your messages on every client you use, since the key is not stored on the server."),
                    this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     label->setWordWrap(true);
     mainLayout->addWidget(label);
-    mPassword->setObjectName(QStringLiteral("mPassword"));
+    mPassword->setObjectName(u"mPassword"_s);
     mainLayout->addWidget(mPassword);
     mainLayout->addStretch(1);
 }

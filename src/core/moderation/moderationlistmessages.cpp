@@ -15,7 +15,7 @@ ModerationListMessages::~ModerationListMessages() = default;
 
 void ModerationListMessages::parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName)
 {
-    const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? QStringLiteral("messages") : arrayName].toArray();
+    const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? u"messages"_s : arrayName].toArray();
     mListMessages.reserve(messagesArray.count());
     for (const QJsonValue &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {

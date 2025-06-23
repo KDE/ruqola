@@ -81,10 +81,10 @@ QJsonDocument SetChannelTypeJob::json() const
     generateJson(jsonObj);
     switch (mType) {
     case GroupType::Public:
-        jsonObj["type"_L1] = QStringLiteral("c");
+        jsonObj["type"_L1] = u"c"_s;
         break;
     case GroupType::Private:
-        jsonObj["type"_L1] = QStringLiteral("p");
+        jsonObj["type"_L1] = u"p"_s;
         break;
     case GroupType::Unknown:
         break;

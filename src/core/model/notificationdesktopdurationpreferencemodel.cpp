@@ -5,6 +5,8 @@
 */
 
 #include "notificationdesktopdurationpreferencemodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 NotificationDesktopDurationPreferenceModel::NotificationDesktopDurationPreferenceModel(QObject *parent)
@@ -47,7 +49,7 @@ void NotificationDesktopDurationPreferenceModel::fillModel()
         // Default ???? Verify it. Perhaps 0 ? Don't know
         NotificationDesktopDurationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
-        preferenceInfo.preference = QStringLiteral("default");
+        preferenceInfo.preference = u"default"_s;
         mNotificationDestktopDurationPreferenceList.append(std::move(preferenceInfo));
     }
     for (int i = 1; i <= 5; ++i) {

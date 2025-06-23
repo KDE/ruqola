@@ -7,6 +7,8 @@
  */
 
 #include "ruqolautils.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #include "ruqola_debug.h"
 #include "utils.h"

@@ -5,6 +5,8 @@
 */
 
 #include "messagelistdelegatebase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 

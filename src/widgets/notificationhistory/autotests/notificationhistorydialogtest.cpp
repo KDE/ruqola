@@ -5,6 +5,8 @@
 */
 
 #include "notificationhistorydialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "notificationhistory/notificationhistorydialog.h"
 #include "notificationhistory/notificationhistorywidget.h"
 #include <QDialogButtonBox>
@@ -23,12 +25,12 @@ void NotificationHistoryDialogTest::shouldHaveDefaultValues()
 {
     NotificationHistoryDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
-    auto mNotificationHistoryWidget = d.findChild<NotificationHistoryWidget *>(QStringLiteral("mNotificationHistoryWidget"));
+    auto mNotificationHistoryWidget = d.findChild<NotificationHistoryWidget *>(u"mNotificationHistoryWidget"_s);
     QVERIFY(mNotificationHistoryWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

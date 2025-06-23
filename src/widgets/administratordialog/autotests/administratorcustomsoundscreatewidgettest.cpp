@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomsoundscreatewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/customsounds/administratorcustomsoundscreatewidget.h"
 #include <KUrlRequester>
 #include <QFormLayout>
@@ -20,14 +22,14 @@ void AdministratorCustomSoundsCreateWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomSoundsCreateWidget w;
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    auto mName = w.findChild<QLineEdit *>(u"mName"_s);
     QVERIFY(mName);
 
-    auto mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
+    auto mSelectFile = w.findChild<KUrlRequester *>(u"mSelectFile"_s);
     QVERIFY(mSelectFile);
 }
 

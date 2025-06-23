@@ -20,10 +20,10 @@ void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)
     mUses = replyObject["uses"_L1].toInt();
     mMaxUses = replyObject["maxUses"_L1].toInt();
     if (replyObject.contains("createdAt"_L1)) {
-        setCreateDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject)));
+        setCreateDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(u"createdAt"_s, replyObject)));
     }
     if (replyObject.contains("expires"_L1)) {
-        setExpireDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("expires"), replyObject)));
+        setExpireDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(u"expires"_s, replyObject)));
     }
 }
 

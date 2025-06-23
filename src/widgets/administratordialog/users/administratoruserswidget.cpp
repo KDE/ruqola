@@ -211,7 +211,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
         auto job = new RocketChatRestApi::UsersUpdateJob(this);
         job->setUpdateInfo(info);
         if (twoFactorAuthenticationEnforcePasswordFallback) {
-            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthMethod(u"password"_s);
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
         }
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -285,27 +285,27 @@ void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyO
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    if (mRocketChatAccount->hasPermission(QStringLiteral("bulk-register-user"))) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Invite…"), this, &AdministratorUsersWidget::slotInviteUsers);
+    if (mRocketChatAccount->hasPermission(u"bulk-register-user"_s)) {
+        menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Invite…"), this, &AdministratorUsersWidget::slotInviteUsers);
     }
-    if (mRocketChatAccount->hasPermission(QStringLiteral("create-user"))) {
+    if (mRocketChatAccount->hasPermission(u"create-user"_s)) {
         if (!menu.isEmpty()) {
             menu.addSeparator();
         }
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &AdministratorUsersWidget::slotAddUser);
+        menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &AdministratorUsersWidget::slotAddUser);
     }
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
 
-        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-info"))) {
-            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, newModelIndex]() {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-info"_s)) {
+            menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotModifyUser(modelIndex);
             });
             menu.addSeparator();
         }
-        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-active-status"))) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-active-status"_s)) {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::ActiveUser);
             const bool activateUser = modelIndex.data().toBool();
             menu.addAction(activateUser ? i18nc("@action", "Deactivate") : i18nc("@action", "Active"), this, [this, newModelIndex, activateUser]() {
@@ -313,7 +313,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             });
             menu.addSeparator();
         }
-        if (mRocketChatAccount->hasPermission(QStringLiteral("assign-admin-role"))) {
+        if (mRocketChatAccount->hasPermission(u"assign-admin-role"_s)) {
             const QModelIndex administratorIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::Administrator);
             const bool isAdministrator = administratorIndex.data().toBool();
 
@@ -322,22 +322,21 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 slotChangeAdmin(modelIndex, !isAdministrator);
             });
         }
-        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-e2ee"))) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-e2ee"_s)) {
             menu.addAction(i18nc("@action", "Reset E2E Key"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetE2EKey(modelIndex);
             });
         }
-        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-totp"))
-            && mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-totp"_s) && mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
             menu.addAction(i18nc("@action", "Reset Totp"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetTOTPKey(modelIndex);
             });
         }
-        if (mRocketChatAccount->hasPermission(QStringLiteral("delete-user"))) {
+        if (mRocketChatAccount->hasPermission(u"delete-user"_s)) {
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, newModelIndex]() {
+            menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, newModelIndex]() {
                 const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotRemoveUser(i);
             });
@@ -400,7 +399,7 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     job->setUsersListByStatusJobInfo(info);
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);
@@ -461,7 +460,7 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         job->setResetUserId(userId);
 
         if (twoFactorAuthenticationEnforcePasswordFallback) {
-            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthMethod(u"password"_s);
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
         }
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -506,7 +505,7 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
         job->setResetUserId(userId);
 
         if (twoFactorAuthenticationEnforcePasswordFallback) {
-            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthMethod(u"password"_s);
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
         }
         mRocketChatAccount->restApi()->initializeRestApiJob(job);

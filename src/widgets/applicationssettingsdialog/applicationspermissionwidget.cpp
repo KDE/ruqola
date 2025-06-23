@@ -5,6 +5,8 @@
 */
 
 #include "applicationspermissionwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QTextEdit>
 #include <QVBoxLayout>
@@ -13,10 +15,10 @@ ApplicationsPermissionWidget::ApplicationsPermissionWidget(QWidget *parent)
     , mTextEdit(new QTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTextEdit->setObjectName(QStringLiteral("mTextEdit"));
+    mTextEdit->setObjectName(u"mTextEdit"_s);
     mTextEdit->setReadOnly(true);
     mainLayout->addWidget(mTextEdit);
 }
@@ -26,7 +28,7 @@ ApplicationsPermissionWidget::~ApplicationsPermissionWidget() = default;
 void ApplicationsPermissionWidget::setApplicationPermission(const QString &desc)
 {
     if (desc.isEmpty()) {
-        mTextEdit->setHtml(QStringLiteral("<i>%1</i>").arg(i18n("No permissions information found.")));
+        mTextEdit->setHtml(u"<i>%1</i>"_s.arg(i18n("No permissions information found.")));
     } else {
         mTextEdit->setHtml(desc);
     }

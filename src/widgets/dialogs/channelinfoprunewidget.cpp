@@ -5,6 +5,8 @@
 */
 
 #include "channelinfoprunewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "retentioninfo.h"
 #include "room.h"
 #include <KLocalizedString>
@@ -23,34 +25,34 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     , mMaximumAgeInDay(new QSpinBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     auto groupBox = new QGroupBox(i18n("Prune"), this);
-    groupBox->setObjectName(QStringLiteral("groupBox"));
+    groupBox->setObjectName(u"groupBox"_s);
     mainLayout->addWidget(groupBox);
 
     auto groupBoxLayout = new QVBoxLayout(groupBox);
 
-    mAutomaticPruneOldMessages->setObjectName(QStringLiteral("mAutomaticPruneOldMessages"));
+    mAutomaticPruneOldMessages->setObjectName(u"mAutomaticPruneOldMessages"_s);
     groupBoxLayout->addWidget(mAutomaticPruneOldMessages);
-    mOverrideGlobalRetentionPolicy->setObjectName(QStringLiteral("mOverrideGlobalRetentionPolicy"));
+    mOverrideGlobalRetentionPolicy->setObjectName(u"mOverrideGlobalRetentionPolicy"_s);
     groupBoxLayout->addWidget(mOverrideGlobalRetentionPolicy);
     connect(mOverrideGlobalRetentionPolicy, &QCheckBox::clicked, this, &ChannelInfoPruneWidget::setOverrideGlobalSettings);
 
-    mExcludePinnedMessages->setObjectName(QStringLiteral("mExcludePinnedMessages"));
+    mExcludePinnedMessages->setObjectName(u"mExcludePinnedMessages"_s);
     groupBoxLayout->addWidget(mExcludePinnedMessages);
-    mPruneFileOnlyKeepMessages->setObjectName(QStringLiteral("mPruneFileOnlyKeepMessages"));
+    mPruneFileOnlyKeepMessages->setObjectName(u"mPruneFileOnlyKeepMessages"_s);
     groupBoxLayout->addWidget(mPruneFileOnlyKeepMessages);
 
     auto maxAgeLayout = new QHBoxLayout;
-    maxAgeLayout->setObjectName(QStringLiteral("maxAgeLayout"));
+    maxAgeLayout->setObjectName(u"maxAgeLayout"_s);
     maxAgeLayout->setContentsMargins({});
     groupBoxLayout->addLayout(maxAgeLayout);
 
     auto label = new QLabel(i18nc("@label:textbox", "Maximum message age in days (default: 30):"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     label->setTextFormat(Qt::PlainText);
-    mMaximumAgeInDay->setObjectName(QStringLiteral("mMaximumAgeInDay"));
+    mMaximumAgeInDay->setObjectName(u"mMaximumAgeInDay"_s);
     maxAgeLayout->addWidget(label);
     maxAgeLayout->addWidget(mMaximumAgeInDay);
     mMaximumAgeInDay->setValue(30);

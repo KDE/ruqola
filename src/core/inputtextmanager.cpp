@@ -5,6 +5,8 @@
 */
 
 #include "inputtextmanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/commandsmodelfilterproxymodel.h"
 #include "model/emoticonfilterproxymodel.h"
 #include "model/inputcompletermodel.h"
@@ -72,7 +74,7 @@ QString InputTextManager::applyCompletion(const QString &newWord, const QString 
     for (int i = position; i < text.length(); i++) {
         if (text.at(i).isSpace()) {
             end = i;
-            if (!newWord.endsWith(QLatin1Char(' '))) {
+            if (!newWord.endsWith(u' ')) {
                 --end;
             }
             break;
@@ -146,7 +148,7 @@ void InputTextManager::setInputTextChanged(const QByteArray &roomId, const QStri
     if (word.isEmpty() || position != start + word.length()) { // only trigger completion at the end of the word
         clearCompleter();
     } else {
-        if (word.startsWith(QLatin1Char('@'))) {
+        if (word.startsWith(u'@')) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             setCompletionType(InputTextManager::CompletionForType::User);
             mCurrentCompletionPattern = str;
@@ -159,7 +161,7 @@ void InputTextManager::setInputTextChanged(const QByteArray &roomId, const QStri
                 mInputCompleterModel->setSearchInfo(std::move(searchInfo)); // necessary for make sure to show @here or @all
                 Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::User);
             }
-        } else if (word.startsWith(QLatin1Char('#'))) {
+        } else if (word.startsWith(u'#')) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             mCurrentCompletionPattern = str;
             InputCompleterModel::SearchInfo searchInfo;
@@ -169,12 +171,12 @@ void InputTextManager::setInputTextChanged(const QByteArray &roomId, const QStri
             Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::Channel);
             // slotCompletionChannels(str);
             setCompletionType(InputTextManager::CompletionForType::Channel);
-        } else if (word.startsWith(QLatin1Char(':'))) {
+        } else if (word.startsWith(u':')) {
             if (mRocketChatAccount && mRocketChatAccount->ownUserPreferences().useEmojis()) {
                 mEmoticonFilterProxyModel->setFilterFixedString(word);
                 setCompletionType(InputTextManager::CompletionForType::Emoji);
             }
-        } else if (word.startsWith(QLatin1Char('/')) && position == word.length()) { // "/" must be at beginning of text
+        } else if (word.startsWith(u'/') && position == word.length()) { // "/" must be at beginning of text
             mCommandFilterProxyModel->setRoomId(roomId);
             mCommandFilterProxyModel->setFilterFixedString(word);
             setCompletionType(InputTextManager::CompletionForType::Command);

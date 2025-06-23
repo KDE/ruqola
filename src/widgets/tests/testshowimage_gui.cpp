@@ -5,6 +5,8 @@
 */
 
 #include "dialogs/showimagedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QApplication>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
@@ -16,9 +18,8 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.addPositionalArgument({QStringLiteral("file")}, QStringLiteral("Image file"));
-    const QCommandLineOption isAnimatedImageOption({QStringLiteral("isAnimatedImage")},
-                                                   QStringLiteral("Whether the image file contains animation (e.g. for GIF files)"));
+    parser.addPositionalArgument({u"file"_s}, u"Image file"_s);
+    const QCommandLineOption isAnimatedImageOption({u"isAnimatedImage"_s}, u"Whether the image file contains animation (e.g. for GIF files)"_s);
     parser.addOption(isAnimatedImageOption);
     parser.process(app);
 

@@ -5,6 +5,8 @@
 */
 
 #include "toolspluginmanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "plugins/plugintool.h"
 
 #include <KPluginFactory>
@@ -28,17 +30,17 @@ ToolsPluginManager *ToolsPluginManager::self()
 
 QString ToolsPluginManager::configGroupName() const
 {
-    return QStringLiteral("RuqolaPlugin-toolsplugins");
+    return u"RuqolaPlugin-toolsplugins"_s;
 }
 
 QString ToolsPluginManager::configPrefixSettingKey() const
 {
-    return QStringLiteral("toolspluginsPlugin");
+    return u"toolspluginsPlugin"_s;
 }
 
 void ToolsPluginManager::initializePluginList()
 {
-    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/toolsplugins"));
+    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(u"ruqolaplugins/toolsplugins"_s);
     const QPair<QStringList, QStringList> pair = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();

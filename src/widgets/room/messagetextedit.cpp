@@ -72,14 +72,14 @@ MessageTextEdit::~MessageTextEdit()
 void MessageTextEdit::slotSpellCheckingEnableChanged(bool b)
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    KConfigGroup group(config, QStringLiteral("Spelling"));
+    KConfigGroup group(config, u"Spelling"_s);
     group.writeEntry("checkerEnabledByDefault", b);
 }
 
 void MessageTextEdit::slotLanguageChanged(const QString &lang)
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    KConfigGroup group(config, QStringLiteral("Spelling"));
+    KConfigGroup group(config, u"Spelling"_s);
     group.writeEntry("Language", lang);
     switchAutoCorrectionLanguage(lang);
 }
@@ -100,7 +100,7 @@ void MessageTextEdit::loadSpellCheckingSettings()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     if (config->hasGroup("Spelling"_L1)) {
-        KConfigGroup group(config, QStringLiteral("Spelling"));
+        KConfigGroup group(config, u"Spelling"_s);
         setCheckSpellingEnabled(group.readEntry("checkerEnabledByDefault", false));
         const QString language = group.readEntry("Language", QString());
         setSpellCheckingLanguage(language);
@@ -145,7 +145,7 @@ void MessageTextEdit::slotLoginChanged()
 
 void MessageTextEdit::insertEmoji(const QString &text)
 {
-    textCursor().insertText(text + QLatin1Char(' '));
+    textCursor().insertText(text + u' ');
     Q_EMIT textEditing(false);
 }
 
@@ -197,9 +197,9 @@ QMenu *MessageTextEdit::mousePopupMenu()
     auto formatMenu = new QMenu(menu);
     formatMenu->setTitle(i18n("Change Text Format"));
     menu->addMenu(formatMenu);
-    formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-bold")), i18n("Bold"), this, &MessageTextEdit::slotSetAsBold);
-    formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-italic")), i18n("Italic"), this, &MessageTextEdit::slotSetAsItalic);
-    formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-strikethrough")), i18n("Strike-out"), this, &MessageTextEdit::slotSetAsStrikeOut);
+    formatMenu->addAction(QIcon::fromTheme(u"format-text-bold"_s), i18n("Bold"), this, &MessageTextEdit::slotSetAsBold);
+    formatMenu->addAction(QIcon::fromTheme(u"format-text-italic"_s), i18n("Italic"), this, &MessageTextEdit::slotSetAsItalic);
+    formatMenu->addAction(QIcon::fromTheme(u"format-text-strikethrough"_s), i18n("Strike-out"), this, &MessageTextEdit::slotSetAsStrikeOut);
     formatMenu->addSeparator();
     formatMenu->addAction(i18n("Code Block"), this, &MessageTextEdit::slotInsertCodeBlock);
     formatMenu->addSeparator();
@@ -221,11 +221,11 @@ void MessageTextEdit::slotInsertMarkdownUrl()
 {
     QTextCursor cursor = textCursor();
     if (cursor.hasSelection()) {
-        const QString mardownUrlStr{QStringLiteral("[text](%1)").arg(cursor.selectedText())};
+        const QString mardownUrlStr{u"[text](%1)"_s.arg(cursor.selectedText())};
         cursor.insertText(mardownUrlStr);
         cursor.setPosition(cursor.position() - mardownUrlStr.length() + 1);
     } else {
-        const QString mardownUrlStr{QStringLiteral("[text](url)")};
+        const QString mardownUrlStr{u"[text](url)"_s};
         cursor.insertText(mardownUrlStr);
         cursor.setPosition(cursor.position() - mardownUrlStr.length() + 1);
     }
@@ -234,13 +234,13 @@ void MessageTextEdit::slotInsertMarkdownUrl()
 
 void MessageTextEdit::slotInsertCodeBlock()
 {
-    const QString textCodeBlock{QStringLiteral("```")};
+    const QString textCodeBlock{u"```"_s};
     QTextCursor cursor = textCursor();
     if (cursor.hasSelection()) {
-        const QString text = textCodeBlock + QLatin1Char('\n') + cursor.selectedText() + QLatin1Char('\n') + textCodeBlock;
+        const QString text = textCodeBlock + u'\n' + cursor.selectedText() + u'\n' + textCodeBlock;
         cursor.insertText(text);
     } else {
-        cursor.insertText(QString(textCodeBlock + QStringLiteral("\n\n") + textCodeBlock));
+        cursor.insertText(QString(textCodeBlock + u"\n\n"_s + textCodeBlock));
     }
     cursor.setPosition(cursor.position() - 4);
     setTextCursor(cursor);
@@ -248,17 +248,17 @@ void MessageTextEdit::slotInsertCodeBlock()
 
 void MessageTextEdit::slotSetAsStrikeOut()
 {
-    insertFormat(QLatin1Char('~'));
+    insertFormat(u'~');
 }
 
 void MessageTextEdit::slotSetAsBold()
 {
-    insertFormat(QLatin1Char('*'));
+    insertFormat(u'*');
 }
 
 void MessageTextEdit::slotSetAsItalic()
 {
-    insertFormat(QLatin1Char('_'));
+    insertFormat(u'_');
 }
 
 void MessageTextEdit::insertFormat(QChar formatChar)
@@ -289,7 +289,7 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
                 cur.setPosition(position);
                 if (key == Qt::Key_Space) {
                     if (addSpace) {
-                        cur.insertText(QStringLiteral(" "));
+                        cur.insertText(u" "_s);
                         setTextCursor(cur);
                     }
                     return;
@@ -416,7 +416,7 @@ void MessageTextEdit::slotComplete(const QModelIndex &index)
         return;
     }
     int textPos = textCursor().position();
-    const QString newText = mCurrentInputTextManager->applyCompletion(completerName + QLatin1Char(' '), text(), &textPos);
+    const QString newText = mCurrentInputTextManager->applyCompletion(completerName + u' ', text(), &textPos);
 
     mUserAndChannelCompletionListView->hide();
     mEmojiCompletionListView->hide();

@@ -5,6 +5,8 @@
 */
 
 #include "applicationssettingsdelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"
@@ -199,9 +201,9 @@ QTextDocument *ApplicationsSettingsDelegate::documentForModelIndex(const QModelI
     const QString shortDescription = index.data(AppsMarketPlaceModel::ShortDescription).toString();
     const QString appName = index.data(AppsMarketPlaceModel::AppName).toString();
 
-    QString fullDescription = QStringLiteral("*%1*").arg(appName);
+    QString fullDescription = u"*%1*"_s.arg(appName);
     if (!shortDescription.isEmpty()) {
-        fullDescription += QStringLiteral("\n*%2*").arg(shortDescription);
+        fullDescription += u"\n*%2*"_s.arg(shortDescription);
     }
 
     return documentForDelegate(mRocketChatAccount, appsId, fullDescription, width);

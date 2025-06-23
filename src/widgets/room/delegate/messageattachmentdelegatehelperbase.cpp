@@ -5,6 +5,8 @@
 */
 
 #include "messageattachmentdelegatehelperbase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"

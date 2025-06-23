@@ -5,6 +5,8 @@
 */
 
 #include "localmessageloggertest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabase/localmessagelogger.h"
 #include "messages/message.h"
 
@@ -17,19 +19,19 @@ QTEST_GUILESS_MAIN(LocalMessageLoggerTest)
 
 static QString accountName()
 {
-    return QStringLiteral("myAccount");
+    return u"myAccount"_s;
 }
 static QString roomName()
 {
-    return QStringLiteral("myRoom");
+    return u"myRoom"_s;
 }
 static QString otherRoomName()
 {
-    return QStringLiteral("otherRoom");
+    return u"otherRoom"_s;
 }
 static QString existingRoomName()
 {
-    return QStringLiteral("existingRoom");
+    return u"existingRoom"_s;
 }
 enum class Fields {
     MessageId,
@@ -100,7 +102,7 @@ void LocalMessageLoggerTest::shouldLoadExistingDb() // this test depends on shou
     // GIVEN
     LocalMessageLogger logger;
     // Copy an existing db under a new room name, so that there's not yet a QSqlDatabase for it
-    QSqlDatabase::database(accountName() + QLatin1Char('-') + otherRoomName()).close();
+    QSqlDatabase::database(accountName() + u'-' + otherRoomName()).close();
     const QString srcDb = logger.dbFileName(accountName(), otherRoomName());
     const QString destDb = logger.dbFileName(accountName(), existingRoomName());
     QVERIFY(QFileInfo::exists(srcDb));
@@ -114,15 +116,15 @@ void LocalMessageLoggerTest::shouldLoadExistingDb() // this test depends on shou
     QVERIFY(tableModel);
     QCOMPARE(tableModel->rowCount(), 1);
     const QSqlRecord record0 = tableModel->record(0);
-    QCOMPARE(record0.value(int(Fields::Text)).toString(), QStringLiteral("Message other room"));
-    QCOMPARE(record0.value(int(Fields::UserName)).toString(), QStringLiteral("Joe"));
+    QCOMPARE(record0.value(int(Fields::Text)).toString(), u"Message other room"_s);
+    QCOMPARE(record0.value(int(Fields::UserName)).toString(), u"Joe"_s);
 }
 
 void LocalMessageLoggerTest::shouldDeleteMessages() // this test depends on shouldStoreMessages()
 {
     // GIVEN
     LocalMessageLogger logger;
-    const QString messageId = (QStringLiteral("msg-other-1"));
+    const QString messageId = (u"msg-other-1"_s);
 
     // WHEN
     logger.deleteMessage(accountName(), otherRoomName(), messageId);
@@ -138,7 +140,7 @@ void LocalMessageLoggerTest::shouldReturnNullIfDoesNotExist()
     // GIVEN
     LocalMessageLogger logger;
     // WHEN
-    auto tableModel = logger.createMessageModel(accountName(), QStringLiteral("does not exist"));
+    auto tableModel = logger.createMessageModel(accountName(), u"does not exist"_s);
     // THEN
     QVERIFY(!tableModel);
 }
@@ -146,8 +148,7 @@ void LocalMessageLoggerTest::shouldReturnNullIfDoesNotExist()
 void LocalMessageLoggerTest::shouldDefaultValues()
 {
     LocalMessageLogger logger;
-    QCOMPARE(logger.schemaDatabaseStr(),
-             QStringLiteral("CREATE TABLE LOGS (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, userName TEXT, text TEXT)"));
+    QCOMPARE(logger.schemaDatabaseStr(), u"CREATE TABLE LOGS (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, userName TEXT, text TEXT)"_s);
 }
 
 #include "moc_localmessageloggertest.cpp"

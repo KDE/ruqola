@@ -5,6 +5,8 @@
 */
 
 #include "administratorroomseditwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/messagetexteditor.h"
 #include "dialogs/roomavatarwidget.h"
 #include <KLineEditEventHandler>
@@ -30,34 +32,34 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     , mDescription(new MessageTextEditor(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mRoomAvatarWidget->setObjectName(QStringLiteral("mRoomAvatarWidget"));
+    mRoomAvatarWidget->setObjectName(u"mRoomAvatarWidget"_s);
     mainLayout->addWidget(mRoomAvatarWidget);
 
-    mOwnerName->setObjectName(QStringLiteral("mOwnerName"));
+    mOwnerName->setObjectName(u"mOwnerName"_s);
     mainLayout->addRow(i18n("Room's Creator:"), mOwnerName);
 
-    mLineEdit->setObjectName(QStringLiteral("mLineEdit"));
+    mLineEdit->setObjectName(u"mLineEdit"_s);
     mainLayout->addRow(i18n("Name:"), mLineEdit);
     KLineEditEventHandler::catchReturnKey(mLineEdit);
 
-    mTopic->setObjectName(QStringLiteral("mComment"));
+    mTopic->setObjectName(u"mComment"_s);
     mainLayout->addRow(i18n("Comment:"), mTopic);
 
-    mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
+    mAnnouncement->setObjectName(u"mAnnouncement"_s);
     mainLayout->addRow(i18n("Announcement:"), mAnnouncement);
 
-    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setObjectName(u"mDescription"_s);
     mainLayout->addRow(i18n("Description:"), mDescription);
 
-    mDefaultCheckBox->setObjectName(QStringLiteral("mDefaultCheckBox"));
-    mFavoriteCheckBox->setObjectName(QStringLiteral("mFavoriteCheckBox"));
-    mFeaturedCheckBox->setObjectName(QStringLiteral("mFeaturedCheckBox"));
-    mPrivateCheckBox->setObjectName(QStringLiteral("mPrivateCheckBox"));
-    mReadOnlyCheckBox->setObjectName(QStringLiteral("mReadOnlyCheckBox"));
-    mArchivedCheckBox->setObjectName(QStringLiteral("mArchivedCheckBox"));
+    mDefaultCheckBox->setObjectName(u"mDefaultCheckBox"_s);
+    mFavoriteCheckBox->setObjectName(u"mFavoriteCheckBox"_s);
+    mFeaturedCheckBox->setObjectName(u"mFeaturedCheckBox"_s);
+    mPrivateCheckBox->setObjectName(u"mPrivateCheckBox"_s);
+    mReadOnlyCheckBox->setObjectName(u"mReadOnlyCheckBox"_s);
+    mArchivedCheckBox->setObjectName(u"mArchivedCheckBox"_s);
 
     mainLayout->addWidget(mReadOnlyCheckBox);
     auto label = new QLabel(i18nc("@label:textbox", "Only authorized users can write new messages"), this);

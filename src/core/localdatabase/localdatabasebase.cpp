@@ -5,6 +5,8 @@
 */
 
 #include "localdatabasebase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 
@@ -25,13 +27,13 @@ LocalDatabaseBase::~LocalDatabaseBase() = default;
 QString LocalDatabaseBase::dbFileName(const QString &accountName, const QString &roomName) const
 {
     const QString dirPath = mBasePath + accountName;
-    return dirPath + QLatin1Char('/') + roomName + QStringLiteral(".sqlite");
+    return dirPath + u'/' + roomName + u".sqlite"_s;
 }
 
 QString LocalDatabaseBase::dbFileName(const QString &accountName) const
 {
     const QString dirPath = mBasePath + accountName;
-    return dirPath + QLatin1Char('/') + accountName + QStringLiteral(".sqlite");
+    return dirPath + u'/' + accountName + u".sqlite"_s;
 }
 
 QString LocalDatabaseBase::schemaDatabaseStr() const
@@ -53,16 +55,16 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
         qCWarning(RUQOLA_DATABASE_LOG) << "Unknown data base it's a bug";
         break;
     case DatabaseType::Accounts:
-        prefix = QStringLiteral("accounts-");
+        prefix = u"accounts-"_s;
         break;
     case DatabaseType::Rooms:
-        prefix = QStringLiteral("rooms-");
+        prefix = u"rooms-"_s;
         break;
     case DatabaseType::Messages:
-        prefix = QStringLiteral("messages-");
+        prefix = u"messages-"_s;
         break;
     case DatabaseType::Global:
-        prefix = QStringLiteral("global-");
+        prefix = u"global-"_s;
         break;
     case DatabaseType::Logger:
         break;
@@ -99,7 +101,7 @@ bool LocalDatabaseBase::checkDataBase(const QString &accountName, QSqlDatabase &
 
 QString LocalDatabaseBase::generateDatabaseName(const QString &accountName, const QString &roomName) const
 {
-    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    const QString dbName = databaseName(accountName + u'-' + roomName);
     return dbName;
 }
 
@@ -109,7 +111,7 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QSt
     const QString dbName = generateDatabaseName(accountName, roomName);
     db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
-        db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
         const QString dirPath = mBasePath + accountName;
         if (!QDir().mkpath(dirPath)) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << dirPath;
@@ -132,9 +134,9 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QSt
         }
         // Using the write-ahead log and sync = NORMAL for faster writes
         // (idea taken from kactivities-stat)
-        query.exec(QStringLiteral("PRAGMA synchronous = 1"));
+        query.exec(u"PRAGMA synchronous = 1"_s);
         // use the write-ahead log (requires sqlite > 3.7.0)
-        query.exec(QStringLiteral("PRAGMA journal_mode = WAL"));
+        query.exec(u"PRAGMA journal_mode = WAL"_s);
     }
 
     Q_ASSERT(db.isValid());
@@ -147,7 +149,7 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, QSqlDatab
     const QString dbName = databaseName(accountName);
     db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
-        db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
         const QString dirPath = mBasePath + accountName;
         if (!QDir().mkpath(dirPath)) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << dirPath;
@@ -170,9 +172,9 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, QSqlDatab
         }
         // Using the write-ahead log and sync = NORMAL for faster writes
         // (idea taken from kactivities-stat)
-        query.exec(QStringLiteral("PRAGMA synchronous = 1"));
+        query.exec(u"PRAGMA synchronous = 1"_s);
         // use the write-ahead log (requires sqlite > 3.7.0)
-        query.exec(QStringLiteral("PRAGMA journal_mode = WAL"));
+        query.exec(u"PRAGMA journal_mode = WAL"_s);
     }
 
     Q_ASSERT(db.isValid());

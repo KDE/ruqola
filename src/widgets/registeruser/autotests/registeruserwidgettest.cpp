@@ -5,6 +5,8 @@
 */
 
 #include "registeruserwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/passwordconfirmwidget.h"
 #include "registeruser/registeruserwidget.h"
 #include <KPasswordLineEdit>
@@ -23,30 +25,30 @@ RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
 void RegisterUserWidgetTest::shouldHaveDefaultValues()
 {
     RegisterUserWidget w(nullptr);
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
 
-    auto mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    auto mEmail = w.findChild<QLineEdit *>(u"mEmail"_s);
     QVERIFY(mEmail);
     QVERIFY(mEmail->text().isEmpty());
 
-    auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
+    auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(u"mPasswordConfirmWidget"_s);
     QVERIFY(mPasswordConfirmWidget);
 
-    auto mRegisterButton = w.findChild<QPushButton *>(QStringLiteral("mRegisterButton"));
+    auto mRegisterButton = w.findChild<QPushButton *>(u"mRegisterButton"_s);
     QVERIFY(mRegisterButton);
     QVERIFY(!mRegisterButton->isEnabled());
     QVERIFY(!mRegisterButton->text().isEmpty());
 
-    auto mReasonTextEdit = w.findChild<QPlainTextEdit *>(QStringLiteral("mReasonTextEdit"));
+    auto mReasonTextEdit = w.findChild<QPlainTextEdit *>(u"mReasonTextEdit"_s);
     QVERIFY(mReasonTextEdit);
     QVERIFY(mReasonTextEdit->document()->isEmpty());
 
-    auto mReasonLabel = w.findChild<QLabel *>(QStringLiteral("mReasonLabel"));
+    auto mReasonLabel = w.findChild<QLabel *>(u"mReasonLabel"_s);
     QVERIFY(mReasonLabel);
     QVERIFY(!mReasonLabel->text().isEmpty());
 }

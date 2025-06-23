@@ -5,6 +5,8 @@
 */
 
 #include "accountservertreewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "activities/activitiesmanager.h"
 #include "configurenewserver/createnewserverdialog.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -146,7 +148,7 @@ void AccountServerTreeWidget::addAccountConfig()
         QString newAccountName = info.accountName;
         int i = 1;
         while (accountList.contains(newAccountName)) {
-            newAccountName = QStringLiteral("%1_%2").arg(newAccountName).arg(i);
+            newAccountName = u"%1_%2"_s.arg(newAccountName).arg(i);
         }
         info.accountName = newAccountName;
         auto accountServeritem = new AccountServerListWidgetItem(this);

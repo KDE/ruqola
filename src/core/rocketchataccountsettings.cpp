@@ -69,7 +69,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     // Not sure for other.
     if (mAccountEnabled && !mAccountName.isEmpty()) {
         qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "Load password from QKeychain: accountname " << mAccountName;
-        auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"));
+        auto readJob = new ReadPasswordJob(u"Ruqola"_s);
         connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
         readJob->setKey(mAccountName);
         readJob->start();
@@ -123,7 +123,7 @@ void RocketChatAccountSettings::setActivityEnabled(bool newActivityEnabled)
         return;
     }
 
-    mSetting->setValue(QStringLiteral("ActivityEnabled"), newActivityEnabled);
+    mSetting->setValue(u"ActivityEnabled"_s, newActivityEnabled);
     mSetting->sync();
     mActivityEnabled = newActivityEnabled;
     Q_EMIT activitiesChanged();
@@ -151,7 +151,7 @@ void RocketChatAccountSettings::setActivities(const QStringList &newActivities)
         return;
     }
 
-    mSetting->setValue(QStringLiteral("activities"), newActivities);
+    mSetting->setValue(u"activities"_s, newActivities);
     mSetting->sync();
     mActivities = newActivities;
     Q_EMIT activitiesChanged();
@@ -296,7 +296,7 @@ void RocketChatAccountSettings::setPassword(const QString &password)
     if (mPassword != password) {
         mPassword = password;
 
-        auto writeJob = new WritePasswordJob(QStringLiteral("Ruqola"));
+        auto writeJob = new WritePasswordJob(u"Ruqola"_s);
         connect(writeJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordWritten);
         writeJob->setKey(mAccountName);
         writeJob->setTextData(mPassword);
@@ -371,7 +371,7 @@ void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
 void RocketChatAccountSettings::removeSettings()
 {
     // Delete password
-    auto deleteJob = new DeletePasswordJob(QStringLiteral("Ruqola"));
+    auto deleteJob = new DeletePasswordJob(u"Ruqola"_s);
     deleteJob->setKey(mAccountName);
     deleteJob->start();
     QFile f(mSetting->fileName());

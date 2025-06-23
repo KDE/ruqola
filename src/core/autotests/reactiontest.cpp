@@ -5,6 +5,8 @@
 */
 
 #include "reactiontest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messages/reaction.h"
 
 #include <QTest>
@@ -27,27 +29,27 @@ void ReactionTest::shouldHaveDefaultValue()
 void ReactionTest::shouldReturnCount()
 {
     Reaction r;
-    r.setReactionName(QStringLiteral("bla"));
-    QCOMPARE(r.reactionName(), QStringLiteral("bla"));
-    r.setUserNames({QStringLiteral("dd"), QStringLiteral("dd2")});
+    r.setReactionName(u"bla"_s);
+    QCOMPARE(r.reactionName(), u"bla"_s);
+    r.setUserNames({u"dd"_s, u"dd2"_s});
     QCOMPARE(r.count(), 2);
 }
 
 void ReactionTest::shouldShowReactionsToolTip()
 {
     Reaction r;
-    r.setReactionName(QStringLiteral(":foo:"));
+    r.setReactionName(u":foo:"_s);
     QCOMPARE(r.convertedUsersNameAsToolTip(), QString());
     QStringList userNames;
-    userNames.append(QStringLiteral("bla"));
+    userNames.append(u"bla"_s);
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAsToolTip(), QStringLiteral("bla reacted with :foo:"));
-    userNames.append(QStringLiteral("blo"));
+    QCOMPARE(r.convertedUsersNameAsToolTip(), u"bla reacted with :foo:"_s);
+    userNames.append(u"blo"_s);
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAsToolTip(), QStringLiteral("bla and blo reacted with :foo:"));
-    userNames.append(QStringLiteral("bli"));
+    QCOMPARE(r.convertedUsersNameAsToolTip(), u"bla and blo reacted with :foo:"_s);
+    userNames.append(u"bli"_s);
     r.setUserNames(userNames);
-    QCOMPARE(r.convertedUsersNameAsToolTip(), QStringLiteral("bla, blo and bli reacted with :foo:"));
+    QCOMPARE(r.convertedUsersNameAsToolTip(), u"bla, blo and bli reacted with :foo:"_s);
 }
 
 #include "moc_reactiontest.cpp"

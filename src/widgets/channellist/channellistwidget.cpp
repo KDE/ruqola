@@ -32,11 +32,11 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     , mSearchRoomLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainlayout"));
+    mainLayout->setObjectName(u"mainlayout"_s);
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins({});
 
-    mChannelView->setObjectName(QStringLiteral("mChannelView"));
+    mChannelView->setObjectName(u"mChannelView"_s);
     mChannelView->setProperty("_breeze_force_frame", false);
     mainLayout->addWidget(mChannelView);
     connect(mChannelView, &ChannelListView::selectMessageIdRequested, this, &ChannelListWidget::selectMessageIdRequested);
@@ -53,8 +53,8 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     });
 
     // dummy action just for getting the icon)
-    mSearchRoomLineEdit->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
-    mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoom"));
+    mSearchRoomLineEdit->addAction(QIcon::fromTheme(u"view-filter"_s), QLineEdit::LeadingPosition);
+    mSearchRoomLineEdit->setObjectName(u"mSearchRoom"_s);
     const auto shortcut = QKeySequence(Qt::CTRL | Qt::Key_K);
     mSearchRoomLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Filter channels (%1)", shortcut.toString(QKeySequence::NativeText)));
     mSearchRoomLineEdit->setClearButtonEnabled(true);
@@ -301,7 +301,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
             if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
                 if (roomOrUserId != mCurrentRocketChatAccount->userName()) {
-                    if (mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
+                    if (mCurrentRocketChatAccount->hasPermission(u"create-d"_s)) {
                         // Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
                         mCurrentRocketChatAccount->ddp()->openDirectChannel(roomOrUserId);
                     }

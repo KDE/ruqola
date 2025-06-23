@@ -5,6 +5,8 @@
 */
 
 #include "e2edecodeencryptionkeywidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "encryption/e2edecodeencryptionkeywidget.h"
 #include <QAction>
 #include <QSignalSpy>
@@ -24,7 +26,7 @@ void E2eDecodeEncryptionKeyWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!w.text().isEmpty());
     QVERIFY(!w.isCloseButtonVisible());
 
-    auto decodeEncryptionKeyAction = w.findChild<QAction *>(QStringLiteral("decodeEncryptionKeyAction"));
+    auto decodeEncryptionKeyAction = w.findChild<QAction *>(u"decodeEncryptionKeyAction"_s);
     QVERIFY(decodeEncryptionKeyAction);
 }
 
@@ -32,7 +34,7 @@ void E2eDecodeEncryptionKeyWidgetTest::shouldEmitSaveSignal()
 {
     E2eDecodeEncryptionKeyWidget w;
     QSignalSpy saveSignal(&w, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey);
-    auto decodeEncryptionKeyAction = w.findChild<QAction *>(QStringLiteral("decodeEncryptionKeyAction"));
+    auto decodeEncryptionKeyAction = w.findChild<QAction *>(u"decodeEncryptionKeyAction"_s);
     decodeEncryptionKeyAction->trigger();
     QCOMPARE(saveSignal.count(), 1);
 }

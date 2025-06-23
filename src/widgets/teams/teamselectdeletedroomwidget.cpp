@@ -5,6 +5,8 @@
 */
 
 #include "teamselectdeletedroomwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
 #include <KLineEditEventHandler>
@@ -21,10 +23,10 @@ TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
     , mTeamSelectProxyModel(new TeamRoomsFilterProxyModel(mTeamRoomsModel, this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &TeamSelectDeletedRoomWidget::slotTextChanged);
 
     mainLayout->addWidget(mSearchLineEdit);
@@ -33,7 +35,7 @@ TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
-    mListView->setObjectName(QStringLiteral("mListView"));
+    mListView->setObjectName(u"mListView"_s);
     mainLayout->addWidget(mListView);
 
     mTeamRoomsModel->setIsCheckable(true);

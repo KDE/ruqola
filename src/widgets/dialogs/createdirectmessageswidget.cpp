@@ -5,6 +5,8 @@
 */
 
 #include "createdirectmessageswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/adduserswidget.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
@@ -19,21 +21,21 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *accoun
     , mTooManyUsers(new QLabel(i18nc("@label:textbox", "Too many users selected."), this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18nc("@label:textbox",
                                   "You are about to create a chat with multiple users. Add the ones you would like to talk, "
                                   "everyone in the same place, using direct messages."),
                             this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     label->setWordWrap(true);
     mainLayout->addWidget(label);
 
-    mUsers->setObjectName(QStringLiteral("mUsers"));
+    mUsers->setObjectName(u"mUsers"_s);
     mUsers->setPlaceholderText(i18nc("@info:placeholder", "Select users…"));
 
-    mTooManyUsers->setObjectName(QStringLiteral("mTooManyUsers"));
+    mTooManyUsers->setObjectName(u"mTooManyUsers"_s);
     mainLayout->addWidget(mUsers);
     mainLayout->addWidget(mTooManyUsers);
     mainLayout->addStretch(1);
@@ -41,7 +43,7 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *accoun
     mTooManyUsers->setVisible(false);
 
     const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
-    const QString negativeTextColor = QStringLiteral("QLabel{ color:%1 }").arg(bgBrush.brush(palette()).color().name());
+    const QString negativeTextColor = u"QLabel{ color:%1 }"_s.arg(bgBrush.brush(palette()).color().name());
     mTooManyUsers->setStyleSheet(negativeTextColor);
 }
 

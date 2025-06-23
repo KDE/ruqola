@@ -5,6 +5,8 @@
 */
 
 #include "showlistmessagebasewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/searchmessagelinewidget.h"
 #include "room/messagelistview.h"
 #include <KLineEditEventHandler>
@@ -30,14 +32,14 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mSearchMessageLineWidget->setObjectName(QStringLiteral("mSearchMessageLineWidget"));
+    mSearchMessageLineWidget->setObjectName(u"mSearchMessageLineWidget"_s);
     connect(mSearchMessageLineWidget, &SearchMessageLineWidget::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchMessageLineWidget);
 
-    mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
+    mMessageListInfo->setObjectName(u"mMessageListInfo"_s);
     mMessageListInfo->setTextFormat(Qt::RichText);
     mMessageListInfo->setContextMenuPolicy(Qt::NoContextMenu);
     mMessageListView->setProperty("_breeze_borders_sides", QVariant{});
@@ -47,10 +49,10 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     connect(mMessageListInfo, &QLabel::linkActivated, this, &ShowListMessageBaseWidget::loadMoreElements);
     mainLayout->addWidget(mMessageListInfo);
 
-    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
+    mMessageListView->setObjectName(u"mMessageListView"_s);
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mMessageListView, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
@@ -110,7 +112,7 @@ QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
 {
     QString displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mModel->numberOfMessages(), mModel->total());
     if (!mModel->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
+        displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
 }

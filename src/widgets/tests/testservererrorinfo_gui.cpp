@@ -5,6 +5,8 @@
 */
 
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "servererrorinfohistorymanager.h"
 #include "testservererrorinfomessagehistorywidget.h"
 #include <QApplication>
@@ -27,9 +29,9 @@ int main(int argc, char **argv)
     QList<AccountManager::AccountDisplayInfo> infos;
     for (int i = 0; i < 10; ++i) {
         ServerErrorInfo info;
-        const QString accountName = QStringLiteral("account %1").arg(QString::number(i));
+        const QString accountName = u"account %1"_s.arg(QString::number(i));
         info.setAccountName(accountName);
-        const QString str = QStringLiteral("Message: %1").arg(QString::number(i));
+        const QString str = u"Message: %1"_s.arg(QString::number(i));
         info.setMessage(str);
         ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
         AccountManager::AccountDisplayInfo serverInfo;

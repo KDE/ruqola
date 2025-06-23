@@ -44,10 +44,10 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     setBelongsTo(object["belongsTo"_L1].toString());
     setDefaultRoom(object["default"_L1].toBool(false));
     if (object.contains("lastMessage"_L1)) {
-        setLastMessage(Utils::parseIsoDate(QStringLiteral("_updatedAt"), object["lastMessage"_L1].toObject()));
+        setLastMessage(Utils::parseIsoDate(u"_updatedAt"_s, object["lastMessage"_L1].toObject()));
     }
     if (object.contains("ts"_L1)) {
-        setCreatedRoom(Utils::parseIsoDate(QStringLiteral("ts"), object));
+        setCreatedRoom(Utils::parseIsoDate(u"ts"_s, object));
     }
     setIdentifier(object["_id"_L1].toString().toLatin1());
     setReadOnly(object["ro"_L1].toBool());
@@ -127,21 +127,21 @@ static QString convertChannelType(const QString &str, bool mainTeam, bool isDisc
     if (isDiscussion) {
         return i18n("Discussion");
     }
-    if (str == QLatin1Char('p')) {
+    if (str == u'p') {
         if (mainTeam) {
             return i18n("Private Team");
         } else {
             return i18n("Group");
         }
-    } else if (str == QLatin1Char('c')) {
+    } else if (str == u'c') {
         if (mainTeam) {
             return i18n("Public Team");
         } else {
             return i18n("Channel");
         }
-    } else if (str == QLatin1Char('d')) {
+    } else if (str == u'd') {
         return i18n("Direct message");
-    } else if (str == QLatin1Char('l')) {
+    } else if (str == u'l') {
         return i18n("Omnichannel");
     } else {
         qCWarning(RUQOLA_LOG) << " Unkwnon channel type " << str;
@@ -293,7 +293,7 @@ QString RoomInfo::roomName() const
         return mFName;
     }
     if (mName.isEmpty()) {
-        return mUserNames.join(QStringLiteral(" x "));
+        return mUserNames.join(u" x "_s);
     }
     return mName;
 }

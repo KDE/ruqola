@@ -5,6 +5,8 @@
 */
 
 #include "applicationssettingsdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingsdialog/applicationssettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingswidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void ApplicationsSettingsDialogTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mBannerInfoWidget = d.findChild<ApplicationsSettingsWidget *>(QStringLiteral("mApplicationsSettingsWidget"));
+    auto mBannerInfoWidget = d.findChild<ApplicationsSettingsWidget *>(u"mApplicationsSettingsWidget"_s);
     QVERIFY(mBannerInfoWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

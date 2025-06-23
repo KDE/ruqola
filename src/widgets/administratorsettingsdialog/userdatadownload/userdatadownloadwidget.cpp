@@ -5,6 +5,8 @@
 */
 
 #include "userdatadownloadwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -19,22 +21,22 @@ UserDataDownloadWidget::UserDataDownloadWidget(RocketChatAccount *account, QWidg
     , mProcessingFrequency(new QSpinBox(this))
     , mMessageLimitRequest(new QSpinBox(this))
 {
-    mUserDataDownloadEnabled->setObjectName(QStringLiteral("mUserDataDownloadEnabled"));
-    addCheckBox(mUserDataDownloadEnabled, QStringLiteral("UserData_EnableDownload"));
+    mUserDataDownloadEnabled->setObjectName(u"mUserDataDownloadEnabled"_s);
+    addCheckBox(mUserDataDownloadEnabled, u"UserData_EnableDownload"_s);
 
-    mSystemPathExportedFiles->setObjectName(QStringLiteral("mSystemPathExportedFiles"));
-    addLineEdit(i18n("System Path (Exported Files)"), mSystemPathExportedFiles, QStringLiteral("UserData_FileSystemPath"));
+    mSystemPathExportedFiles->setObjectName(u"mSystemPathExportedFiles"_s);
+    addLineEdit(i18n("System Path (Exported Files)"), mSystemPathExportedFiles, u"UserData_FileSystemPath"_s);
 
-    mSystemPathCompressedFile->setObjectName(QStringLiteral("mSystemPathCompressedFile"));
-    addLineEdit(i18n("System Path (Compressed File)"), mSystemPathCompressedFile, QStringLiteral("UserData_FileSystemZipPath"));
+    mSystemPathCompressedFile->setObjectName(u"mSystemPathCompressedFile"_s);
+    addLineEdit(i18n("System Path (Compressed File)"), mSystemPathCompressedFile, u"UserData_FileSystemZipPath"_s);
 
-    mProcessingFrequency->setObjectName(QStringLiteral("mProcessingFrequency"));
+    mProcessingFrequency->setObjectName(u"mProcessingFrequency"_s);
     mProcessingFrequency->setMaximum(1000);
-    addSpinbox(i18n("Processing Frequency (Minutes)"), mProcessingFrequency, QStringLiteral("UserData_ProcessingFrequency"));
+    addSpinbox(i18n("Processing Frequency (Minutes)"), mProcessingFrequency, u"UserData_ProcessingFrequency"_s);
 
-    mMessageLimitRequest->setObjectName(QStringLiteral("mMessageLimitRequest"));
+    mMessageLimitRequest->setObjectName(u"mMessageLimitRequest"_s);
     mMessageLimitRequest->setMaximum(99999);
-    addSpinbox(i18n("Message Limit per Request"), mMessageLimitRequest, QStringLiteral("UserData_MessageLimitPerRequest"));
+    addSpinbox(i18n("Message Limit per Request"), mMessageLimitRequest, u"UserData_MessageLimitPerRequest"_s);
 }
 
 UserDataDownloadWidget::~UserDataDownloadWidget() = default;

@@ -5,13 +5,15 @@
 */
 
 #include "localaccountsdatabasetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabase/localaccountsdatabase.h"
 #include <QFile>
 #include <QStandardPaths>
 #include <QTest>
 static QString accountName()
 {
-    return QStringLiteral("myAccount");
+    return u"myAccount"_s;
 }
 QTEST_MAIN(LocalAccountsDatabaseTest)
 LocalAccountsDatabaseTest::LocalAccountsDatabaseTest(QObject *parent)
@@ -31,14 +33,14 @@ void LocalAccountsDatabaseTest::initTestCase()
 void LocalAccountsDatabaseTest::shouldHaveDefaultValues()
 {
     LocalAccountsDatabase accountDataBase;
-    QCOMPARE(accountDataBase.schemaDatabaseStr(), QStringLiteral("CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)"));
+    QCOMPARE(accountDataBase.schemaDatabaseStr(), u"CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)"_s);
 }
 
 void LocalAccountsDatabaseTest::shouldVerifyDbFileName()
 {
     LocalAccountsDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
-             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/account/myAccount/myAccount.sqlite"));
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/account/myAccount/myAccount.sqlite"_s);
 }
 
 void LocalAccountsDatabaseTest::shouldStoreAccountSettings()

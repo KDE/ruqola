@@ -5,6 +5,8 @@
 */
 
 #include "localmessagesdatabase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabaseutils.h"
 #include "messages/message.h"
 #include "rocketchataccount.h"
@@ -68,21 +70,21 @@ void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QStr
 
 QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements)
 {
-    QString query = QStringLiteral("SELECT * FROM MESSAGES");
+    QString query = u"SELECT * FROM MESSAGES"_s;
     if (startId != -1) {
-        query += QStringLiteral(" WHERE timestamp >= :startId");
+        query += u" WHERE timestamp >= :startId"_s;
         if (endId != -1) {
-            query += QStringLiteral(" AND timestamp <= :endId");
+            query += u" AND timestamp <= :endId"_s;
         }
     } else {
         if (endId != -1) {
-            query += QStringLiteral(" WHERE timestamp <= :endId");
+            query += u" WHERE timestamp <= :endId"_s;
         }
     }
-    query += QStringLiteral(" ORDER BY timestamp DESC");
+    query += u" ORDER BY timestamp DESC"_s;
 
     if (numberElements != -1) {
-        query += QStringLiteral(" LIMIT :limit");
+        query += u" LIMIT :limit"_s;
     }
     return query;
 }
@@ -110,7 +112,7 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
 #endif
 
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    const QString dbName = databaseName(accountName + u'-' + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
@@ -120,7 +122,7 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
             qCWarning(RUQOLA_DATABASE_LOG) << "Filename doesn't exist: " << fileName;
             return {};
         }
-        db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
         db.setDatabaseName(fileName);
         if (!db.open()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
@@ -134,17 +136,17 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
     QSqlQuery resultQuery(db);
     resultQuery.prepare(query);
     if (startId != -1) {
-        resultQuery.bindValue(QStringLiteral(":startId"), startId);
+        resultQuery.bindValue(u":startId"_s, startId);
         if (endId != -1) {
-            resultQuery.bindValue(QStringLiteral(":endId"), endId);
+            resultQuery.bindValue(u":endId"_s, endId);
         }
     } else {
         if (endId != -1) {
-            resultQuery.bindValue(QStringLiteral(":endId"), endId);
+            resultQuery.bindValue(u":endId"_s, endId);
         }
     }
     if (numberElements != -1) {
-        resultQuery.bindValue(QStringLiteral(":limit"), numberElements);
+        resultQuery.bindValue(u":limit"_s, numberElements);
     }
     if (!resultQuery.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Impossible to execute query: " << resultQuery.lastError() << " query: " << query;
@@ -153,7 +155,7 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
 
     QList<Message> listMessages;
     while (resultQuery.next()) {
-        const QString json = resultQuery.value(QStringLiteral("json")).toString();
+        const QString json = resultQuery.value(u"json"_s).toString();
         listMessages.append(convertJsonToMessage(json, emojiManager));
     }
     return listMessages;
@@ -169,7 +171,7 @@ Message LocalMessagesDatabase::convertJsonToMessage(const QString &json, EmojiMa
 std::unique_ptr<QSqlTableModel> LocalMessagesDatabase::createMessageModel(const QString &accountName, const QString &_roomName) const
 {
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    const QString dbName = databaseName(accountName + u'-' + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
@@ -178,7 +180,7 @@ std::unique_ptr<QSqlTableModel> LocalMessagesDatabase::createMessageModel(const 
         if (!QFileInfo::exists(fileName)) {
             return {};
         }
-        db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
         db.setDatabaseName(fileName);
         if (!db.open()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
@@ -189,7 +191,7 @@ std::unique_ptr<QSqlTableModel> LocalMessagesDatabase::createMessageModel(const 
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
-    model->setTable(QStringLiteral("MESSAGES"));
+    model->setTable(u"MESSAGES"_s);
     model->setSort(int(MessagesFields::TimeStamp), Qt::AscendingOrder);
     model->select();
     return model;

@@ -5,6 +5,8 @@
 */
 
 #include "usersinroomcombobox.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/usersforroomfilterproxymodel.h"
 #include <KLocalizedString>
 
@@ -20,10 +22,10 @@ void UsersInRoomComboBox::fillCombobox(bool hasOwnerSupport)
 {
     addItem(i18n("All"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::All));
     insertSeparator(1);
-    addItem(QIcon::fromTheme(QStringLiteral("user-online")), i18n("Connected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Online));
-    addItem(QIcon::fromTheme(QStringLiteral("user-offline")), i18n("Disconnected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Offline));
-    addItem(QIcon::fromTheme(QStringLiteral("user-away")), i18n("Away"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Away));
-    addItem(QIcon::fromTheme(QStringLiteral("user-busy")), i18n("Busy"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Busy));
+    addItem(QIcon::fromTheme(u"user-online"_s), i18n("Connected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Online));
+    addItem(QIcon::fromTheme(u"user-offline"_s), i18n("Disconnected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Offline));
+    addItem(QIcon::fromTheme(u"user-away"_s), i18n("Away"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Away));
+    addItem(QIcon::fromTheme(u"user-busy"_s), i18n("Busy"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Busy));
     insertSeparator(6);
     if (hasOwnerSupport) {
         addItem(i18n("Owners"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Owners));

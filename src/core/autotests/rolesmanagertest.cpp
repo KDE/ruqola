@@ -27,7 +27,7 @@ void RolesManagerTest::shouldLoadRoles_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("numberOfRoles");
     {
-        QTest::addRow("test1") << QStringLiteral("test1") << 12;
+        QTest::addRow("test1") << u"test1"_s << 12;
     }
 }
 
@@ -52,19 +52,19 @@ void RolesManagerTest::shouldUpdateRoles_data()
     QTest::addColumn<int>("numberOfEmitSignal");
     {
         // Add new element
-        QTest::addRow("add-element") << QStringLiteral("initialstate1") << QStringLiteral("update1") << 12 << 13 << 1;
+        QTest::addRow("add-element") << u"initialstate1"_s << u"update1"_s << 12 << 13 << 1;
     }
     {
         // Update an element
-        QTest::addRow("update-element") << QStringLiteral("initialstate1") << QStringLiteral("update2") << 12 << 12 << 1;
+        QTest::addRow("update-element") << u"initialstate1"_s << u"update2"_s << 12 << 12 << 1;
     }
     {
         // Remove an element
-        QTest::addRow("remove-element") << QStringLiteral("initialstate1") << QStringLiteral("remove1") << 12 << 11 << 1;
+        QTest::addRow("remove-element") << u"initialstate1"_s << u"remove1"_s << 12 << 11 << 1;
     }
     {
         // Invalid remove element
-        QTest::addRow("remove-element-not-existing") << QStringLiteral("initialstate1") << QStringLiteral("remove-not-existing") << 12 << 12 << 0;
+        QTest::addRow("remove-element-not-existing") << u"initialstate1"_s << u"remove-not-existing"_s << 12 << 12 << 0;
     }
 }
 

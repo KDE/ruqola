@@ -19,9 +19,9 @@ bool Permission::parsePermission(const QJsonObject &replyObject, const QList<Rol
     }
     mIdentifier = replyObject.value("_id"_L1).toString();
     if (restApi) {
-        mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), replyObject);
+        mUpdatedAt = Utils::parseIsoDate(u"_updatedAt"_s, replyObject);
     } else {
-        mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), replyObject);
+        mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, replyObject);
     }
     const QJsonArray roleArray = replyObject.value("roles"_L1).toArray();
     const auto roleArrayCount{roleArray.count()};

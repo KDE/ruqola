@@ -5,6 +5,8 @@
 */
 
 #include "licensesinfojobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "license/licensesinfojob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(LicensesInfoJobTest)
@@ -29,7 +31,7 @@ void LicensesInfoJobTest::shouldGenerateRequest()
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.info")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/licenses.info"_s));
     }
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "permissions.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
@@ -50,7 +52,7 @@ void Permissions::parsePermissions(const QJsonObject &obj, const QString &str, c
 {
     mPermissions.clear();
 
-    const QJsonArray permissionArray = obj[str.isEmpty() ? QStringLiteral("update") : str].toArray();
+    const QJsonArray permissionArray = obj[str.isEmpty() ? u"update"_s : str].toArray();
     const auto roleArrayCount = permissionArray.count();
     mPermissions.reserve(roleArrayCount);
     for (auto i = 0; i < roleArrayCount; ++i) {

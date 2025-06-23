@@ -53,7 +53,7 @@ void AutoGenerateInteractionUiViewInputBlockTest::shouldLoadJson_data()
         text.setText("Auto-reply Message:"_L1);
         text.setType(AutoGenerateInteractionUiViewText::TextType::PlainText);
         textElement->setLabel(text);
-        QTest::addRow("test1") << QStringLiteral("test1") << textElement;
+        QTest::addRow("test1") << u"test1"_s << textElement;
     }
 }
 

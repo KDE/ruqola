@@ -5,6 +5,8 @@
 */
 
 #include "switchchanneltreeviewtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "switchchannelhistory/switchchanneltreeview.h"
 #include <QTest>
 QTEST_MAIN(SwitchChannelTreeViewTest)

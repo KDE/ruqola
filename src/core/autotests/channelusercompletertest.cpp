@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "channelusercompletertest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channelusercompleter.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ChannelUserCompleterTest)
@@ -30,8 +32,8 @@ void ChannelUserCompleterTest::shouldHaveDefaultValues()
 void ChannelUserCompleterTest::shouldReturnCompleterName()
 {
     ChannelUserCompleter w;
-    const QString name{QStringLiteral("name")};
-    const QString userName{QStringLiteral("userName")};
+    const QString name{u"name"_s};
+    const QString userName{u"userName"_s};
     w.setName(name);
     w.setUserName(userName);
     w.setType(ChannelUserCompleter::ChannelUserCompleterType::Notification);

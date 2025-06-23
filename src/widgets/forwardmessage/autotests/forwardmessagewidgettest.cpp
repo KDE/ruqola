@@ -5,6 +5,8 @@
 */
 
 #include "forwardmessagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/flowlayout.h"
 #include "forwardmessage/forwardmessagewidget.h"
 #include <QLabel>
@@ -21,19 +23,19 @@ void ForwardMessageWidgetTest::shouldHaveDefaultValues()
 {
     ForwardMessageWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto mFlowLayout = w.findChild<FlowLayout *>(QStringLiteral("mFlowLayout"));
+    auto mFlowLayout = w.findChild<FlowLayout *>(u"mFlowLayout"_s);
     QVERIFY(mFlowLayout);
 
     auto mForwardMessageAddChannelCompletionLineEdit =
-        w.findChild<ForwardMessageAddChannelCompletionLineEdit *>(QStringLiteral("mForwardMessageAddChannelCompletionLineEdit"));
+        w.findChild<ForwardMessageAddChannelCompletionLineEdit *>(u"mForwardMessageAddChannelCompletionLineEdit"_s);
     QVERIFY(mForwardMessageAddChannelCompletionLineEdit);
 }
 

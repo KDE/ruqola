@@ -5,6 +5,8 @@
 */
 
 #include "statuscombobox.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/statusmodel.h"
 #include "model/statusmodelfilterproxymodel.h"
 

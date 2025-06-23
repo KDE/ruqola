@@ -5,6 +5,8 @@
 */
 
 #include "registeruserjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "users/registeruserjob.h"
 #include <QJsonDocument>
@@ -36,10 +38,10 @@ void RegisterUserJobTest::shouldGenerateRequest()
 {
     RegisterUserJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.register")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.register"_s));
 }
 
 void RegisterUserJobTest::shouldGenerateJson()
@@ -47,10 +49,10 @@ void RegisterUserJobTest::shouldGenerateJson()
     {
         RegisterUserJob job;
         RegisterUserJob::RegisterUserInfo info;
-        const QString password = QStringLiteral("foo1");
-        const QString email = QStringLiteral("bla@bli.com");
-        const QString name = QStringLiteral("name");
-        const QString username = QStringLiteral("username");
+        const QString password = u"foo1"_s;
+        const QString email = u"bla@bli.com"_s;
+        const QString name = u"name"_s;
+        const QString username = u"username"_s;
         info.email = email;
         info.username = username;
         info.name = name;
@@ -62,11 +64,11 @@ void RegisterUserJobTest::shouldGenerateJson()
     {
         RegisterUserJob job;
         RegisterUserJob::RegisterUserInfo info;
-        const QString password = QStringLiteral("foo1");
-        const QString email = QStringLiteral("bla@bli.com");
-        const QString name = QStringLiteral("name");
-        const QString username = QStringLiteral("username");
-        const QString reason = QStringLiteral("DDDD");
+        const QString password = u"foo1"_s;
+        const QString email = u"bla@bli.com"_s;
+        const QString name = u"name"_s;
+        const QString username = u"username"_s;
+        const QString reason = u"DDDD"_s;
         info.email = email;
         info.username = username;
         info.name = name;
@@ -84,23 +86,23 @@ void RegisterUserJobTest::shouldNotStarting()
     RegisterUserJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     RegisterUserJob::RegisterUserInfo info;
-    const QString password = QStringLiteral("foo1");
-    const QString email = QStringLiteral("bla@bli.com");
-    const QString name = QStringLiteral("name");
-    const QString username = QStringLiteral("username");
+    const QString password = u"foo1"_s;
+    const QString email = u"bla@bli.com"_s;
+    const QString name = u"name"_s;
+    const QString username = u"username"_s;
     info.email = email;
     job.setRegisterUserInfo(info);
     QVERIFY(!job.canStart());

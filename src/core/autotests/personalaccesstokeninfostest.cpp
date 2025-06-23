@@ -29,7 +29,7 @@ void PersonalAccessTokenInfosTest::shouldLoadPersonalAccessTokenInfos_data()
     QTest::addColumn<PersonalAccessTokenInfos>("personalAccessTokenInfos");
     {
         PersonalAccessTokenInfos info;
-        QTest::addRow("empty-token") << QStringLiteral("empty-token") << info;
+        QTest::addRow("empty-token") << u"empty-token"_s << info;
     }
     {
         PersonalAccessTokenInfos info;
@@ -67,7 +67,7 @@ void PersonalAccessTokenInfosTest::shouldLoadPersonalAccessTokenInfos_data()
             lst.append(i);
         }
         info.setPersonalAccessTokenInfos(std::move(lst));
-        QTest::addRow("four-tokens") << QStringLiteral("four-tokens") << info;
+        QTest::addRow("four-tokens") << u"four-tokens"_s << info;
     }
 }
 

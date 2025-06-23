@@ -5,6 +5,8 @@
 */
 
 #include "administratorinviteusersdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/users/administratorinviteusersdialog.h"
 #include "administratordialog/users/administratorinviteuserswidget.h"
 
@@ -24,13 +26,13 @@ void AdministratorInviteUsersDialogTest::shouldHaveDefaultValues()
     QVERIFY(w.emails().isEmpty());
 
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCreateWidget = w.findChild<AdministratorInviteUsersWidget *>(QStringLiteral("mInviteUsersWidget"));
+    auto mCreateWidget = w.findChild<AdministratorInviteUsersWidget *>(u"mInviteUsersWidget"_s);
     QVERIFY(mCreateWidget);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
 }
 

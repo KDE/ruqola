@@ -91,24 +91,24 @@ RoomWidget::RoomWidget(QWidget *parent)
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
+    mRoomHeaderWidget->setObjectName(u"mRoomHeaderWidget"_s);
     mainLayout->addWidget(mRoomHeaderWidget);
 
     auto roomWidget = new QWidget(this);
     mainLayout->addWidget(roomWidget);
     mRoomWidgetLayout = new QVBoxLayout(roomWidget);
-    mRoomWidgetLayout->setObjectName(QStringLiteral("roomWidgetLayout"));
+    mRoomWidgetLayout->setObjectName(u"roomWidgetLayout"_s);
     mRoomWidgetLayout->setContentsMargins({});
     mRoomWidgetLayout->setSpacing(0);
 
-    mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
+    mUsersInRoomFlowWidget->setObjectName(u"mUsersInRoomFlowWidget"_s);
     mRoomWidgetLayout->addWidget(mUsersInRoomFlowWidget);
     mUsersInRoomFlowWidget->setVisible(false);
 
-    mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
+    mRoomCounterInfoWidget->setObjectName(u"mRoomCounterInfoWidget"_s);
 
     connect(mRoomWidgetBase, &RoomWidgetBase::errorMessage, this, [this](const QString &message) {
         if (!mPluginTextMessageWidget) {
@@ -126,7 +126,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomWidgetLayout->addWidget(mRoomCounterInfoWidget);
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mRoomWidgetLayout->addWidget(mTextToSpeechWidget);
     connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
@@ -157,14 +157,14 @@ RoomWidget::~RoomWidget() = default;
 void RoomWidget::createPluginTextMessageWidget()
 {
     mPluginTextMessageWidget = new PluginTextMessageWidget(this);
-    mPluginTextMessageWidget->setObjectName(QStringLiteral("mPluginTextMessageWidget"));
+    mPluginTextMessageWidget->setObjectName(u"mPluginTextMessageWidget"_s);
     mRoomWidgetLayout->insertWidget(1, mPluginTextMessageWidget);
 }
 
 void RoomWidget::createRoomReconnectInfoWidget()
 {
     mRoomReconnectInfoWidget = new ReconnectInfoWidget(this);
-    mRoomReconnectInfoWidget->setObjectName(QStringLiteral("mRoomReconnectInfoWidget"));
+    mRoomReconnectInfoWidget->setObjectName(u"mRoomReconnectInfoWidget"_s);
     connect(mRoomReconnectInfoWidget, &ReconnectInfoWidget::tryReconnect, this, &RoomWidget::slotTryReconnect);
     // After mUsersInRoomFlowWidget
     mRoomWidgetLayout->insertWidget(1, mRoomReconnectInfoWidget);
@@ -174,7 +174,7 @@ void RoomWidget::createRoomReconnectInfoWidget()
 void RoomWidget::createOffLineWidget()
 {
     mOffLineWidget = new OffLineWidget(this);
-    mOffLineWidget->setObjectName(QStringLiteral("mOffLineWidget"));
+    mOffLineWidget->setObjectName(u"mOffLineWidget"_s);
     // After mUsersInRoomFlowWidget
     mRoomWidgetLayout->insertWidget(1, mOffLineWidget);
 }
@@ -183,7 +183,7 @@ void RoomWidget::createOffLineWidget()
 void RoomWidget::createOtrWidget()
 {
     mOtrWidget = new OtrWidget(this);
-    mOtrWidget->setObjectName(QStringLiteral("mOtrWidget"));
+    mOtrWidget->setObjectName(u"mOtrWidget"_s);
     connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
     connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
     // After mUsersInRoomFlowWidget
@@ -194,7 +194,7 @@ void RoomWidget::createE2eSaveEncryptionKeyWidget()
 {
     if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {
         mE2eSaveEncryptionKeyWidget = new E2eSaveEncryptionKeyWidget(this);
-        mE2eSaveEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
+        mE2eSaveEncryptionKeyWidget->setObjectName(u"mE2eDecodeEncryptionKeyWidget"_s);
         connect(mE2eSaveEncryptionKeyWidget, &E2eSaveEncryptionKeyWidget::saveEncrytionKey, this, &RoomWidget::slotGenerateNewPassword);
         // After mUsersInRoomFlowWidget
         mRoomWidgetLayout->insertWidget(1, mE2eSaveEncryptionKeyWidget);
@@ -205,7 +205,7 @@ void RoomWidget::createE2eSaveEncryptionKeyWidget()
 void RoomWidget::createE2eDecodeEncryptionKeyFailedWidget()
 {
     mE2eDecodeEncryptionKeyFailedWidget = new E2eDecodeEncryptionKeyFailedWidget(this);
-    mE2eDecodeEncryptionKeyFailedWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyFailedWidget"));
+    mE2eDecodeEncryptionKeyFailedWidget->setObjectName(u"mE2eDecodeEncryptionKeyFailedWidget"_s);
     connect(mE2eDecodeEncryptionKeyFailedWidget, &E2eDecodeEncryptionKeyFailedWidget::decodeEncrytionKey, this, &RoomWidget::slotDecodeEncryptionKey);
     // After mUsersInRoomFlowWidget
     mRoomWidgetLayout->insertWidget(1, mE2eDecodeEncryptionKeyFailedWidget);
@@ -225,7 +225,7 @@ void RoomWidget::slotDecodeEncryptionKey()
 void RoomWidget::createE2eDecodeEncryptionKeyWidget()
 {
     mE2eDecodeEncryptionKeyWidget = new E2eDecodeEncryptionKeyWidget(this);
-    mE2eDecodeEncryptionKeyWidget->setObjectName(QStringLiteral("mE2eDecodeEncryptionKeyWidget"));
+    mE2eDecodeEncryptionKeyWidget->setObjectName(u"mE2eDecodeEncryptionKeyWidget"_s);
     connect(mE2eDecodeEncryptionKeyWidget, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey, this, &RoomWidget::slotDecodeEncryptionKey);
     // After mUsersInRoomFlowWidget
     mRoomWidgetLayout->insertWidget(1, mE2eDecodeEncryptionKeyWidget);
@@ -371,7 +371,7 @@ void RoomWidget::slotExportMessages()
 
 void RoomWidget::slotRoomExportDone()
 {
-    auto notification = new KNotification(QStringLiteral("export-message"), KNotification::CloseOnTimeout);
+    auto notification = new KNotification(u"export-message"_s, KNotification::CloseOnTimeout);
     notification->setTitle(i18n("Export Messages"));
     notification->setText(i18n("Your email has been queued for sending."));
     notification->sendEvent();
@@ -573,7 +573,7 @@ void RoomWidget::slotCallRequested()
             auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
             RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
             startInfo.roomId = mRoomWidgetBase->roomId();
-            startInfo.allowRinging = mRoom->hasPermission(QStringLiteral("videoconf-ring-users"));
+            startInfo.allowRinging = mRoom->hasPermission(u"videoconf-ring-users"_s);
             job->setInfo(startInfo);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, conferenceCallInfo](const QJsonObject &obj) {
@@ -730,7 +730,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomAnnouncement(mRoom->displayAnnouncement());
         mRoomHeaderWidget->setRoomTopic(mRoom->displayTopic());
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
-        mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(QStringLiteral("edit-room")));
+        mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(u"edit-room"_s));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());

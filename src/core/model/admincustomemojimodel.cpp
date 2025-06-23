@@ -5,6 +5,8 @@
 */
 
 #include "admincustomemojimodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
@@ -68,15 +70,15 @@ QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const
     case CustomEmojiRoles::Identifier:
         return customEmoji.identifier();
     case CustomEmojiRoles::Aliases:
-        return customEmoji.aliases().join(QLatin1Char(','));
+        return customEmoji.aliases().join(u',');
     case CustomEmojiRoles::AliasesWithoutDoublePoint: {
         const QStringList aliases = customEmoji.aliases();
         QString aliasStr;
         for (QString alias : aliases) {
             if (!aliasStr.isEmpty()) {
-                aliasStr += QLatin1Char(',');
+                aliasStr += u',';
             }
-            aliasStr += alias.remove(QLatin1Char(':'));
+            aliasStr += alias.remove(u':');
         }
         return aliasStr;
     }

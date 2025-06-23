@@ -5,6 +5,8 @@
 */
 
 #include "administratoroauthcreatewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/oauth/administratoroauthcreatewidget.h"
 #include <QCheckBox>
 #include <QFormLayout>
@@ -19,19 +21,19 @@ AdministratorOauthCreateWidgetTest::AdministratorOauthCreateWidgetTest(QObject *
 void AdministratorOauthCreateWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorOauthCreateWidget w;
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mActiveCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mActiveCheckBox"));
+    auto mActiveCheckBox = w.findChild<QCheckBox *>(u"mActiveCheckBox"_s);
     QVERIFY(mActiveCheckBox);
     QVERIFY(!mActiveCheckBox->text().isEmpty());
     QVERIFY(!mActiveCheckBox->isChecked());
 
-    auto mApplicationName = w.findChild<QLineEdit *>(QStringLiteral("mApplicationName"));
+    auto mApplicationName = w.findChild<QLineEdit *>(u"mApplicationName"_s);
     QVERIFY(mApplicationName);
     QVERIFY(mApplicationName->text().isEmpty());
 
-    auto mRedirectUrl = w.findChild<QLineEdit *>(QStringLiteral("mRedirectUrl"));
+    auto mRedirectUrl = w.findChild<QLineEdit *>(u"mRedirectUrl"_s);
     QVERIFY(mRedirectUrl);
     QVERIFY(mRedirectUrl->text().isEmpty());
 }

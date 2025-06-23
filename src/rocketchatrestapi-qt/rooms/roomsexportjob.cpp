@@ -72,11 +72,11 @@ QJsonDocument RoomsExportJob::json() const
         // Nothing it's a bug here.
         break;
     case RoomsExportInfo::ExportAs::File:
-        jsonObj["type"_L1] = QStringLiteral("file");
+        jsonObj["type"_L1] = u"file"_s;
         createJsonForFile(jsonObj);
         break;
     case RoomsExportInfo::ExportAs::Email:
-        jsonObj["type"_L1] = QStringLiteral("email");
+        jsonObj["type"_L1] = u"email"_s;
         createJsonForEmail(jsonObj);
         break;
     }
@@ -92,10 +92,10 @@ void RoomsExportJob::createJsonForFile(QJsonObject &jsonObj) const
         // It's a bug
         break;
     case RoomsExportInfo::FileFormat::Html:
-        jsonObj["format"_L1] = QStringLiteral("html");
+        jsonObj["format"_L1] = u"html"_s;
         break;
     case RoomsExportInfo::FileFormat::Json:
-        jsonObj["format"_L1] = QStringLiteral("json");
+        jsonObj["format"_L1] = u"json"_s;
         break;
     }
     jsonObj["dateTo"_L1] = mRoomExportInfo.dateTo.date().toString(Qt::ISODate);

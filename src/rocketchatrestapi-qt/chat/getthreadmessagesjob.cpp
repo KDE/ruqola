@@ -77,7 +77,7 @@ QNetworkRequest GetThreadMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("tmid"), QLatin1StringView(mThreadMessageId));
+    queryUrl.addQueryItem(u"tmid"_s, QLatin1StringView(mThreadMessageId));
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

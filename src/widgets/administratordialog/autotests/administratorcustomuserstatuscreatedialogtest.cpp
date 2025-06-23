@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomuserstatuscreatedialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"
 #include <QDialogButtonBox>
@@ -24,13 +26,13 @@ void AdministratorCustomUserStatusCreateDialogTest::shouldHaveDefaultValues()
 {
     AdministratorCustomUserStatusCreateDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCreateWidget = w.findChild<AdministratorCustomUserStatusCreateWidget *>(QStringLiteral("mCreateWidget"));
+    auto mCreateWidget = w.findChild<AdministratorCustomUserStatusCreateWidget *>(u"mCreateWidget"_s);
     QVERIFY(mCreateWidget);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
 
     QVERIFY(!w.userStatusInfo().isValid());

@@ -124,7 +124,7 @@ QVariant AdminUsersPendingModel::data(const QModelIndex &index, int role) const
     case AdminUsersPendingRoles::Email:
         return user.userEmailsInfo().email;
     case AdminUsersPendingRoles::Roles:
-        return user.i18nRoles().join(QLatin1Char(','));
+        return user.i18nRoles().join(u',');
     case AdminUsersPendingRoles::Status:
         return Utils::displaytextFromPresenceStatus(user.status());
     case AdminUsersPendingRoles::ActiveUserDisplay:
@@ -134,7 +134,7 @@ QVariant AdminUsersPendingModel::data(const QModelIndex &index, int role) const
     case AdminUsersPendingRoles::UserId:
         return user.userId();
     case AdminUsersPendingRoles::Administrator:
-        return user.roles().contains(QStringLiteral("admin"));
+        return user.roles().contains(u"admin"_s);
     case AdminUsersPendingRoles::PendingActionInfo:
         return createPendingAction(user);
     case AdminUsersPendingRoles::PendingActionButton:

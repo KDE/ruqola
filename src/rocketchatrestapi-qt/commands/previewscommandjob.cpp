@@ -78,12 +78,12 @@ PreviewsCommandJob::PreviewsCommandInfo PreviewsCommandJob::parseString(const QS
     PreviewsCommandJob::PreviewsCommandInfo info;
     if (str.length() > 1) {
         const QString newStr = str.mid(1);
-        QStringList lst = newStr.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+        QStringList lst = newStr.split(u' ', Qt::SkipEmptyParts);
         const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
         info.roomId = QLatin1StringView(roomId);
         if (numberElement > 1) {
-            info.params = lst.join(QLatin1Char(' '));
+            info.params = lst.join(u' ');
         }
     }
     return info;
@@ -112,13 +112,13 @@ QNetworkRequest PreviewsCommandJob::request() const
     if (!mPreviewsCommandInfo.itemInfo.isValid()) {
         QUrlQuery queryUrl;
         if (!mPreviewsCommandInfo.commandName.isEmpty()) {
-            queryUrl.addQueryItem(QStringLiteral("command"), mPreviewsCommandInfo.commandName);
+            queryUrl.addQueryItem(u"command"_s, mPreviewsCommandInfo.commandName);
         }
         if (!mPreviewsCommandInfo.roomId.isEmpty()) {
-            queryUrl.addQueryItem(QStringLiteral("roomId"), mPreviewsCommandInfo.roomId);
+            queryUrl.addQueryItem(u"roomId"_s, mPreviewsCommandInfo.roomId);
         }
         if (!mPreviewsCommandInfo.params.isEmpty()) {
-            queryUrl.addQueryItem(QStringLiteral("params"), mPreviewsCommandInfo.params);
+            queryUrl.addQueryItem(u"params"_s, mPreviewsCommandInfo.params);
         }
         addQueryParameter(queryUrl);
         url.setQuery(queryUrl);

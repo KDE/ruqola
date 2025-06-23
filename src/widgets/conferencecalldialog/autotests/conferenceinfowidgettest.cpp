@@ -5,6 +5,8 @@
 */
 
 #include "conferenceinfowidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "conferencecalldialog/conferenceinfowidget.h"
 #include <QFormLayout>
 #include <QTest>
@@ -19,7 +21,7 @@ void ConferenceInfoWidgetTest::shouldHaveDefaultValues()
 {
     ConferenceInfoWidget w(nullptr);
     QVERIFY(w.conferenceId().isEmpty());
-    auto mFormLayout = w.findChild<QFormLayout *>(QStringLiteral("mFormLayout"));
+    auto mFormLayout = w.findChild<QFormLayout *>(u"mFormLayout"_s);
     QVERIFY(mFormLayout);
     QCOMPARE(mFormLayout->contentsMargins(), QMargins{});
 }

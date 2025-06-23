@@ -100,13 +100,13 @@ QString AppsMarketPlaceInfo::generatePriceInfo() const
     QString pricingStr;
     for (const auto &p : mPricePlan) {
         if (!pricingStr.isEmpty()) {
-            pricingStr += QStringLiteral("<br/>");
+            pricingStr += u"<br/>"_s;
         }
         QString value;
         const QString strategy = p.strategyToI18n();
-        value = QStringLiteral("$") + QString::number(p.price);
+        value = u"$"_s + QString::number(p.price);
         if (!strategy.isEmpty()) {
-            value += QLatin1Char(' ') + i18n("per %1", strategy);
+            value += u' ' + i18n("per %1", strategy);
         }
         pricingStr += value;
     }
@@ -384,16 +384,16 @@ void AppsMarketPlaceInfo::setModifiedDate(qint64 newModifiedDate)
 
 QString AppsMarketPlaceInfo::applicationInformations() const
 {
-    QString str = QStringLiteral("<b>%1</b><br/>").arg(mAppName);
+    QString str = u"<b>%1</b><br/>"_s.arg(mAppName);
     if (!mShortDescription.isEmpty()) {
-        str += mShortDescription + QStringLiteral("<br/><br/>");
+        str += mShortDescription + u"<br/><br/>"_s;
     } else {
-        str += QStringLiteral("<br/>");
+        str += u"<br/>"_s;
     }
 
     const QString pricingInfo = generatePriceInfo();
     if (!pricingInfo.isEmpty()) {
-        str += pricingInfo + QStringLiteral("<br/><br/>");
+        str += pricingInfo + u"<br/><br/>"_s;
     }
 
     QString newDescription;
@@ -403,7 +403,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         newDescription = mAuthorName;
     }
 
-    str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Description")) + newDescription + QStringLiteral("<br/><br/>");
+    str += u"<b>%1</b><br/>"_s.arg(i18n("Description")) + newDescription + u"<br/><br/>"_s;
 
     QString version;
     if (mInstalledInfo.isValid() && !mInstalledInfo.version().isEmpty()) {
@@ -412,15 +412,14 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         version = mVersion;
     }
 
-    str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Version")) + version + QStringLiteral("<br/><br/>");
+    str += u"<b>%1</b><br/>"_s.arg(i18n("Version")) + version + u"<br/><br/>"_s;
 
     if (!mCategories.isEmpty()) {
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Categories")) + mCategories.join(QStringLiteral(", ")) + QStringLiteral("<br/><br/>");
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Categories")) + mCategories.join(u", "_s) + QStringLiteral("<br/><br/>");
     }
     if (!mDocumentationUrl.isEmpty()) {
-        const QString url = mDocumentationUrl.startsWith(QStringLiteral("http")) ? mDocumentationUrl : QStringLiteral("https://%1").arg(mDocumentationUrl);
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Documentation")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(mDocumentationUrl, url)
-            + QStringLiteral("<br/><br/>");
+        const QString url = mDocumentationUrl.startsWith(u"http"_s) ? mDocumentationUrl : u"https://%1"_s.arg(mDocumentationUrl);
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Documentation")) + u"<a href=\"%2\">%1</a>"_s.arg(mDocumentationUrl, url) + u"<br/><br/>"_s;
     }
 
     QString authorName;
@@ -431,7 +430,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!authorName.isEmpty()) {
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Author")) + authorName + QStringLiteral("<br/><br/>");
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Author")) + authorName + u"<br/><br/>"_s;
     }
 
     QString homePage;
@@ -442,9 +441,8 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!homePage.isEmpty()) {
-        const QString url = homePage.startsWith(QStringLiteral("http")) ? homePage : QStringLiteral("https://%1").arg(homePage);
-        str +=
-            QStringLiteral("<b>%1</b><br/>").arg(i18n("Homepage")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(homePage, url) + QStringLiteral("<br/><br/>");
+        const QString url = homePage.startsWith(u"http"_s) ? homePage : u"https://%1"_s.arg(homePage);
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Homepage")) + u"<a href=\"%2\">%1</a>"_s.arg(homePage, url) + QStringLiteral("<br/><br/>");
     }
 
     QString support;
@@ -455,14 +453,13 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!support.isEmpty()) {
-        const QString url = support.startsWith(QStringLiteral("http")) ? support : QStringLiteral("mailto://%1").arg(support);
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Support")) + QStringLiteral("<a href=\"%2\">%1</a>").arg(support, url) + QStringLiteral("<br/><br/>");
+        const QString url = support.startsWith(u"http"_s) ? support : u"mailto://%1"_s.arg(support);
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Support")) + u"<a href=\"%2\">%1</a>"_s.arg(support, url) + QStringLiteral("<br/><br/>");
     }
 
     if (!mPrivacyPolicySummary.isEmpty()) {
         const RuqolaKTextToHTML::Options convertFlags = RuqolaKTextToHTML::HighlightText | RuqolaKTextToHTML::ConvertPhoneNumbers;
-        str += QStringLiteral("<b>%1</b><br/>").arg(i18n("Privacy Summary")) + RuqolaKTextToHTML::convertToHtml(mPrivacyPolicySummary, convertFlags)
-            + QStringLiteral("<br/><br/>");
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Privacy Summary")) + RuqolaKTextToHTML::convertToHtml(mPrivacyPolicySummary, convertFlags) + u"<br/><br/>"_s;
     }
 
     str += permissionsDescription();
@@ -473,12 +470,12 @@ QString AppsMarketPlaceInfo::permissionsDescription() const
 {
     QString str;
     if (!mPermissions.isEmpty()) {
-        str = QStringLiteral("<b>%1</b><br/>").arg(i18n("Permissions"));
-        str += QStringLiteral("<ol>");
+        str = u"<b>%1</b><br/>"_s.arg(i18n("Permissions"));
+        str += u"<ol>"_s;
         for (const Permission &p : mPermissions) {
-            str += QStringLiteral("<li>%1</li>").arg(p.convertTypeToI18n());
+            str += u"<li>%1</li>"_s.arg(p.convertTypeToI18n());
         }
-        str += QStringLiteral("</ol>");
+        str += u"</ol>"_s;
     }
     return str;
 }

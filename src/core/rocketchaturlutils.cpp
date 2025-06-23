@@ -5,6 +5,8 @@
 */
 
 #include "rocketchaturlutils.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountmanager.h"
 #include "parserocketchaturlutils.h"
 #include "ruqola.h"
@@ -28,7 +30,7 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         AccountManager::AccountManagerInfo info;
         info.serverUrl = parseInfo.serverHost;
         info.enabled = true;
-        info.accountName = QStringLiteral("importaccount");
+        info.accountName = u"importaccount"_s;
         // Add authentication support
         if (!parseInfo.token.isEmpty() && !parseInfo.userId.isEmpty()) {
             info.token = parseInfo.token;
@@ -37,7 +39,7 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         }
         Ruqola::self()->accountManager()->addAccount(std::move(info));
 
-        auto notification = new KNotification(QStringLiteral("Account-Added"), KNotification::CloseOnTimeout);
+        auto notification = new KNotification(u"Account-Added"_s, KNotification::CloseOnTimeout);
         notification->setTitle(i18n("Account Added"));
         notification->setText(i18n("A new account was added."));
         notification->sendEvent();
@@ -47,9 +49,9 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         AccountManager::AccountManagerInfo info;
         info.serverUrl = parseUrl.parsingInfo().serverHost;
         info.enabled = true;
-        info.accountName = QStringLiteral("inviteaccount");
+        info.accountName = u"inviteaccount"_s;
         info.authMethodType = AuthenticationManager::AuthMethodType::Password;
-        info.inviteToken = parseUrl.parsingInfo().path.remove(QStringLiteral("invite/"));
+        info.inviteToken = parseUrl.parsingInfo().path.remove(u"invite/"_s);
         Ruqola::self()->accountManager()->addInvitedAccount(std::move(info));
         return true;
     }

@@ -29,9 +29,9 @@ void ManageLoadHistoryParseSyncMessagesUtilsTest::shouldParseSyncMessages_data()
     QTest::addColumn<int>("deleted");
     QTest::addColumn<int>("update");
 
-    QTest::addRow("empty") << QStringLiteral("empty.json") << 0 << 0;
-    QTest::addRow("test1") << QStringLiteral("test1.json") << 1 << 0;
-    QTest::addRow("test2") << QStringLiteral("test2.json") << 1 << 2;
+    QTest::addRow("empty") << u"empty.json"_s << 0 << 0;
+    QTest::addRow("test1") << u"test1.json"_s << 1 << 0;
+    QTest::addRow("test2") << u"test2.json"_s << 1 << 2;
 }
 
 void ManageLoadHistoryParseSyncMessagesUtilsTest::shouldParseSyncMessages()

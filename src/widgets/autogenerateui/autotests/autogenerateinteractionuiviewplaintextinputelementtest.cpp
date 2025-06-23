@@ -54,7 +54,7 @@ void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldLoadJson_data
         textElement->setMultiLine(true);
         textElement->setType("plain_text_input");
         textElement->setActionId("AutoReplyMessage");
-        QTest::addRow("plaintextinput") << QStringLiteral("plaintextinput") << textElement;
+        QTest::addRow("plaintextinput") << u"plaintextinput"_s << textElement;
     }
 }
 

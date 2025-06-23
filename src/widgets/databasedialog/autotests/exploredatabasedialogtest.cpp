@@ -5,6 +5,8 @@
 */
 
 #include "exploredatabasedialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "databasedialog/exploredatabasedialog.h"
 #include "databasedialog/exploredatabasewidget.h"
 #include <QDialogButtonBox>
@@ -22,12 +24,12 @@ void ExploreDatabaseDialogTest::shouldHaveDefaultValues()
 {
     ExploreDatabaseDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
-    auto mExploreDatabaseWidget = d.findChild<ExploreDatabaseWidget *>(QStringLiteral("mExploreDatabaseWidget"));
+    auto mExploreDatabaseWidget = d.findChild<ExploreDatabaseWidget *>(u"mExploreDatabaseWidget"_s);
     QVERIFY(mExploreDatabaseWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

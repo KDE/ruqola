@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "roomlistheadingsproxymodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 
@@ -141,14 +143,7 @@ void RoomListHeadingsProxyModelTest::shouldMapSourceRows()
 
 static QStringList initialExpectedList()
 {
-    return QStringList{QStringLiteral("Teams"),
-                       QStringLiteral("Team 1"),
-                       QStringLiteral("Team 2"),
-                       QStringLiteral("Private Messages"),
-                       QStringLiteral("PM 1"),
-                       QStringLiteral("Discussions"),
-                       QStringLiteral("Discuss 1"),
-                       QStringLiteral("Discuss 2")};
+    return QStringList{u"Teams"_s, u"Team 1"_s, u"Team 2"_s, u"Private Messages"_s, u"PM 1"_s, u"Discussions"_s, u"Discuss 1"_s, u"Discuss 2"_s};
 }
 
 static QStringList extractTexts(QAbstractItemModel *model)
@@ -206,15 +201,8 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnSectionUpdates()
     mSourceModel.item(0)->setData(QVariant::fromValue(RoomModel::Section::Favorites), RoomModel::RoomSection);
 
     // THEN
-    const QStringList newExpected{QStringLiteral("Favorites"),
-                                  QStringLiteral("Team 1"),
-                                  QStringLiteral("Teams"),
-                                  QStringLiteral("Team 2"),
-                                  QStringLiteral("Private Messages"),
-                                  QStringLiteral("PM 1"),
-                                  QStringLiteral("Discussions"),
-                                  QStringLiteral("Discuss 1"),
-                                  QStringLiteral("Discuss 2")};
+    const QStringList
+        newExpected{u"Favorites"_s, u"Team 1"_s, u"Teams"_s, u"Team 2"_s, u"Private Messages"_s, u"PM 1"_s, u"Discussions"_s, u"Discuss 1"_s, u"Discuss 2"_s};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
 }
 

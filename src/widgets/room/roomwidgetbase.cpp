@@ -5,6 +5,8 @@
 */
 
 #include "roomwidgetbase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "commandpreviewwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
 #include "messagelinewidget.h"
@@ -34,27 +36,27 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     , mReadOnlyLineEditWidget(new ReadOnlyLineEditWidget(this))
     , mMainLayout(new QVBoxLayout(this))
 {
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setObjectName(u"mainLayout"_s);
     mMainLayout->setContentsMargins({});
     mMainLayout->setSpacing(0);
 
-    mUploadFileProgressStatusListWidget->setObjectName(QStringLiteral("mUploadFileProgressStatusListWidget"));
+    mUploadFileProgressStatusListWidget->setObjectName(u"mUploadFileProgressStatusListWidget"_s);
     mUploadFileProgressStatusListWidget->setVisible(false);
     mMainLayout->addWidget(mUploadFileProgressStatusListWidget);
     connect(mUploadFileProgressStatusListWidget, &UploadFileProgressStatusListWidget::cancelUpload, this, &RoomWidgetBase::slotCancelUpload);
 
-    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
+    mMessageListView->setObjectName(u"mMessageListView"_s);
     mMessageListView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge | Qt::BottomEdge}));
     mMainLayout->addWidget(mMessageListView, 1);
 
-    mRoomReplyThreadWidget->setObjectName(QStringLiteral("mRoomReplyThreadWidget"));
+    mRoomReplyThreadWidget->setObjectName(u"mRoomReplyThreadWidget"_s);
     mRoomReplyThreadWidget->setVisible(false);
 
     connect(mRoomReplyThreadWidget, &RoomReplyThreadWidget::cancelReplyingInThread, this, [this] {
         mMessageLineWidget->setThreadMessageId({});
     });
 
-    mRoomQuoteMessageWidget->setObjectName(QStringLiteral("mRoomQuoteMessageWidget"));
+    mRoomQuoteMessageWidget->setObjectName(u"mRoomQuoteMessageWidget"_s);
     mRoomQuoteMessageWidget->setVisible(false);
 
     connect(mRoomQuoteMessageWidget, &RoomQuoteMessageWidget::cancelQuoteMessage, this, [this] {
@@ -64,21 +66,21 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     mMainLayout->addWidget(mRoomReplyThreadWidget);
     mMainLayout->addWidget(mRoomQuoteMessageWidget);
 
-    mCommandPreviewWidget->setObjectName(QStringLiteral("mCommandPreviewWidget"));
+    mCommandPreviewWidget->setObjectName(u"mCommandPreviewWidget"_s);
     mCommandPreviewWidget->setVisible(false);
     mMainLayout->addWidget(mCommandPreviewWidget);
 
     connect(mMessageLineWidget, &MessageLineWidget::showCommandPreview, mCommandPreviewWidget, &CommandPreviewWidget::setPreviewCommandInfo);
     connect(mCommandPreviewWidget, &CommandPreviewWidget::sendPreviewCommandInfo, mMessageLineWidget, &MessageLineWidget::setSendPreviewCommandInfo);
 
-    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mStackedWidget->setObjectName(u"mStackedWidget"_s);
     mMainLayout->addWidget(mStackedWidget);
 
-    mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
+    mMessageLineWidget->setObjectName(u"mMessageLineWidget"_s);
     mMessageLineWidget->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
     mStackedWidget->addWidget(mMessageLineWidget);
 
-    mReadOnlyLineEditWidget->setObjectName(QStringLiteral("mReadOnlyLineEditWidget"));
+    mReadOnlyLineEditWidget->setObjectName(u"mReadOnlyLineEditWidget"_s);
     mStackedWidget->addWidget(mReadOnlyLineEditWidget);
 
     mStackedWidget->setCurrentWidget(mMessageLineWidget);

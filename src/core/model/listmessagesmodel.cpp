@@ -5,6 +5,7 @@
 */
 
 #include "listmessagesmodel.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "listmessages.h"
 
@@ -22,13 +23,13 @@ void ListMessagesModel::parse(const QJsonObject &obj)
     switch (mListMessageType) {
     case ThreadsMessages:
     case UnreadThreadsMessages:
-        parseMessageName = QStringLiteral("threads");
+        parseMessageName = u"threads"_s;
         break;
     case Unknown:
     case StarredMessages:
     case PinnedMessages:
     case MentionsMessages:
-        parseMessageName = QStringLiteral("messages");
+        parseMessageName = u"messages"_s;
         break;
     }
 

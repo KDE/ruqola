@@ -5,6 +5,8 @@
 */
 
 #include "threadmessagedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -26,11 +28,11 @@ ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *pa
 {
     setWindowTitle(i18nc("@title:window", "Thread"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins({});
 
-    mThreadMessageWidget->setObjectName(QStringLiteral("mThreadMessageWidget"));
+    mThreadMessageWidget->setObjectName(u"mThreadMessageWidget"_s);
     mainLayout->addWidget(mThreadMessageWidget);
 
     auto separator = new QFrame(this);
@@ -44,7 +46,7 @@ ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *pa
                                style()->pixelMetric(QStyle::PM_LayoutTopMargin),
                                style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ThreadMessageDialog::reject);
     readConfig();

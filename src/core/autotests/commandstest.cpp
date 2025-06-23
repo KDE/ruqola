@@ -28,9 +28,9 @@ void CommandsTest::shouldLoadCommands_data()
     QTest::addColumn<int>("commandsCount");
     QTest::addColumn<int>("total");
 
-    QTest::addRow("command1") << QStringLiteral("command1") << 0 << 0;
-    QTest::addRow("command2") << QStringLiteral("command2") << 25 << 25;
-    QTest::addRow("command3") << QStringLiteral("command3") << 3 << 3;
+    QTest::addRow("command1") << u"command1"_s << 0 << 0;
+    QTest::addRow("command2") << u"command2"_s << 25 << 25;
+    QTest::addRow("command3") << u"command3"_s << 3 << 3;
 }
 
 void CommandsTest::shouldLoadCommands()
@@ -59,22 +59,22 @@ void CommandsTest::shouldLoadPermissions()
     QList<Command> result;
     {
         Command d;
-        d.setCommandName(QStringLiteral("/slackbridge-import"));
+        d.setCommandName(u"/slackbridge-import"_s);
         result.append(std::move(d));
     }
     {
         Command d;
-        d.setCommandName(QStringLiteral("/archive"));
-        d.setDescription(QStringLiteral("Archive"));
-        d.setPermissions({QStringLiteral("archive-room")});
-        d.setParams(QStringLiteral("#channel"));
+        d.setCommandName(u"/archive"_s);
+        d.setDescription(u"Archive"_s);
+        d.setPermissions({u"archive-room"_s});
+        d.setParams(u"#channel"_s);
         result.append(std::move(d));
     }
     {
         Command d;
-        d.setCommandName(QStringLiteral("/leave"));
-        d.setDescription(QStringLiteral("Leave_the_current_channel"));
-        d.setPermissions({{QStringLiteral("leave-c")}, {QStringLiteral("leave-p")}});
+        d.setCommandName(u"/leave"_s);
+        d.setDescription(u"Leave_the_current_channel"_s);
+        d.setPermissions({{u"leave-c"_s}, {u"leave-p"_s}});
         result.append(std::move(d));
     }
 

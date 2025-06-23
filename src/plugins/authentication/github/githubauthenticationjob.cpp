@@ -5,6 +5,8 @@
 */
 
 #include "githubauthenticationjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "githubauthenticationplugin_debug.h"
 #include "githubauthenticationsettings.h"
 #include <QDesktopServices>
@@ -110,7 +112,7 @@ void GitHubAuthenticationJob::start()
     mOAuth2->setReplyHandler(replyHandler);
     mOAuth2->setAuthorizationUrl(GitHubAuthenticationSettings::authorizeUrl());
     mOAuth2->setAccessTokenUrl(GitHubAuthenticationSettings::accessTokenUrl());
-    mOAuth2->setScope(QStringLiteral("openid"));
+    mOAuth2->setScope(u"openid"_s);
     mOAuth2->setToken(mGitHubInfo.token);
     mOAuth2->setRefreshToken(mGitHubInfo.refreshToken);
 

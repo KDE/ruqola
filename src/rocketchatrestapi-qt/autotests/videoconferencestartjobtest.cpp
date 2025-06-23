@@ -5,6 +5,8 @@
 */
 
 #include "videoconferencestartjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "video-conference/videoconferencestartjob.h"
 #include <QJsonDocument>
@@ -29,8 +31,8 @@ void VideoConferenceStartJobTest::shouldGenerateRequest()
     VideoConferenceStartJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.start")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.start"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void VideoConferenceStartJobTest::shouldGenerateJson()
@@ -39,7 +41,7 @@ void VideoConferenceStartJobTest::shouldGenerateJson()
     VideoConferenceStartJob::VideoConferenceStartInfo info;
     info.allowRinging = false;
     info.roomId = "foo"_ba;
-    info.title = QStringLiteral("bla");
+    info.title = u"bla"_s;
     job.setInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"allowRinging":false,"roomId":"foo","title":"bla"})").toLatin1());
 }
@@ -49,14 +51,14 @@ void VideoConferenceStartJobTest::shouldNotStarting()
     VideoConferenceStartJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -64,7 +66,7 @@ void VideoConferenceStartJobTest::shouldNotStarting()
     VideoConferenceStartJob::VideoConferenceStartInfo info;
     info.allowRinging = false;
     info.roomId = "foo"_ba;
-    info.title = QStringLiteral("bla");
+    info.title = u"bla"_s;
     job.setInfo(info);
     QVERIFY(job.canStart());
 }

@@ -40,8 +40,8 @@ void ApplicationsSettingsSettingsInfoTest::shouldLoadApplicationSettingsInfo_dat
         info.setI18nLabel("jitsi_application_id"_L1);
         info.setId("jitsi_application_id"_L1);
         info.setSettingType(ApplicationsSettingsSettingsInfo::SettingType::String);
-        info.setPackageValue(QStringLiteral(""));
-        QTest::addRow("test1") << QStringLiteral("test1") << info;
+        info.setPackageValue(u""_s);
+        QTest::addRow("test1") << u"test1"_s << info;
     }
 
     {
@@ -55,7 +55,7 @@ void ApplicationsSettingsSettingsInfoTest::shouldLoadApplicationSettingsInfo_dat
         info.setPackageValue(
             QStringLiteral("[{\"search\": \"#(\\\\d+)\", \"replace\": \"[$&](https://www1.example.com/issues/$1)\"}, {\"search\": \"BUG-(\\\\d+)\", "
                            "\"replace\": \"[$&](https://www2.example.com/issues/$1)\"}]"));
-        QTest::addRow("test2") << QStringLiteral("test2") << info;
+        QTest::addRow("test2") << u"test2"_s << info;
     }
 }
 

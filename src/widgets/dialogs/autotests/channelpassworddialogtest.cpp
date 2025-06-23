@@ -5,6 +5,8 @@
 */
 
 #include "channelpassworddialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/channelpasswordwidget.h"
 #include <QDialogButtonBox>
@@ -22,13 +24,13 @@ void ChannelPasswordDialogTest::shouldHaveDefaultValues()
 {
     ChannelPasswordDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mChannelPasswordWidget = w.findChild<ChannelPasswordWidget *>(QStringLiteral("mChannelPasswordWidget"));
+    auto mChannelPasswordWidget = w.findChild<ChannelPasswordWidget *>(u"mChannelPasswordWidget"_s);
     QVERIFY(mChannelPasswordWidget);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
 }
 

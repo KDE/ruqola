@@ -5,6 +5,8 @@
 */
 
 #include "administratorroleswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "model/adminrolesmodel.h"
 #include "rocketchataccount.h"
@@ -37,12 +39,12 @@ AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, Q
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mTreeView->setObjectName(QStringLiteral("mTreeView"));
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mTreeView->setObjectName(u"mTreeView"_s);
+    mSearchLineWidget->setObjectName(u"mSearchLineWidget"_s);
     mSearchLineWidget->setPlaceholderText(i18nc("@info:placeholder", "Search roles…"));
     mSearchLineWidget->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
@@ -50,7 +52,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, Q
     mainLayout->addWidget(mSearchLineWidget);
     mainLayout->addWidget(mTreeView);
 
-    mRoleFilterProxyModel->setObjectName(QStringLiteral("mRoleFilterProxyModel"));
+    mRoleFilterProxyModel->setObjectName(u"mRoleFilterProxyModel"_s);
     mRoleFilterProxyModel->setSourceModel(mAdminRolesModel);
     mTreeView->setModel(mRoleFilterProxyModel);
 
@@ -66,7 +68,7 @@ AdministratorRolesWidget::~AdministratorRolesWidget() = default;
 void AdministratorRolesWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 {
     if (index.isValid()) {
-        if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) {
+        if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) {
             modifyRole(index);
         }
     }
@@ -94,22 +96,22 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
 
-    if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) { // For delete
+    if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) { // For delete
         QMenu menu(this);
         const bool hasEntrepriseSupport = mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport();
         if (mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport()) {
-            menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &AdministratorRolesWidget::addRole);
+            menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &AdministratorRolesWidget::addRole);
         }
         if (index.isValid()) {
             if (hasEntrepriseSupport) {
-                menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, index]() {
+                menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, index]() {
                     const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
                     modifyRole(modelIndex);
                 });
                 menu.addSeparator();
             }
 
-            menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add Users In Role…"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add Users In Role…"), this, [this, index]() {
                 const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
                 addUserInRole(modelIndex);
             });
@@ -117,7 +119,7 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
             const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Protected);
             if (!modelIndex.data().toBool()) { // Not protected we can delete it.
                 menu.addSeparator();
-                menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
+                menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, index]() {
                     const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
                     deleteRole(modelIndex);
                 });

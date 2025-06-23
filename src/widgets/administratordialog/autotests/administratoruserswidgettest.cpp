@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoruserswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/users/administratoruserswidget.h"
 #include <QLineEdit>
 #include <QTest>
@@ -19,14 +21,14 @@ AdministratorUsersWidgetTest::AdministratorUsersWidgetTest(QObject *parent)
 void AdministratorUsersWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorUsersWidget w(AdministratorUsersWidget::UsersType::All, nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
-    auto mResultTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
+    auto mResultTreeView = w.findChild<QTreeView *>(u"mTreeView"_s);
     QVERIFY(mResultTreeView);
     QVERIFY(!mResultTreeView->rootIsDecorated());
     QVERIFY(mResultTreeView->isSortingEnabled());
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());

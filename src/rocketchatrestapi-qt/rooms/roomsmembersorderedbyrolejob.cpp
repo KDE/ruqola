@@ -99,11 +99,11 @@ bool RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo::isValid() c
 
 void RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo::generateRequest(QUrlQuery &query) const
 {
-    query.addQueryItem(QStringLiteral("roomId"), QLatin1StringView(roomId));
-    query.addQueryItem(QStringLiteral("offset"), QString::number(offset));
-    query.addQueryItem(QStringLiteral("count"), QString::number(count));
+    query.addQueryItem(u"roomId"_s, QLatin1StringView(roomId));
+    query.addQueryItem(u"offset"_s, QString::number(offset));
+    query.addQueryItem(u"count"_s, QString::number(count));
     if (!filter.isEmpty()) {
-        query.addQueryItem(QStringLiteral("filter"), filter);
+        query.addQueryItem(u"filter"_s, filter);
     }
 }
 

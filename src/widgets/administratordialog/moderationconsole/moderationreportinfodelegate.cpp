@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportinfodelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
@@ -110,7 +112,7 @@ ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(cons
     ModerationReportInfoDelegate::Layout layout;
     const QString userName = index.data(ModerationReportInfoModel::ReportUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
-    layout.senderText = QLatin1Char('@') + userName;
+    layout.senderText = u'@' + userName;
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
 
@@ -196,7 +198,7 @@ bool ModerationReportInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractIte
             QString tooltip = senderName;
             if (account->useRealName() && !tooltip.isEmpty()) {
                 const QString senderUserName = index.data(ModerationReportInfoModel::SenderUserName).toString();
-                tooltip = QLatin1Char('@') + senderUserName;
+                tooltip = u'@' + senderUserName;
             }
             if (!tooltip.isEmpty()) {
                 QToolTip::showText(helpEvent->globalPos(), tooltip, view);

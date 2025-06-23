@@ -5,6 +5,8 @@
 */
 
 #include "messagesmodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountmanager.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
@@ -42,15 +44,15 @@ void MessagesModelTest::shouldHaveDefaultValue()
 static void fillTestMessage(Message &input)
 {
     input.setRoomId("room2"_ba);
-    input.setText(QStringLiteral("message1"));
+    input.setText(u"message1"_s);
     input.setTimeStamp(QDateTime::currentMSecsSinceEpoch());
-    input.setUsername(QStringLiteral("user1"));
+    input.setUsername(u"user1"_s);
     input.setUserId("userid1"_ba);
     input.setUpdatedAt(45);
     input.setEditedAt(89);
-    input.setEditedByUsername(QStringLiteral("editeduser1"));
-    input.setAlias(QStringLiteral("ali"));
-    input.setAvatar(QStringLiteral("avatar1"));
+    input.setEditedByUsername(u"editeduser1"_s);
+    input.setAlias(u"ali"_s);
+    input.setAvatar(u"avatar1"_s);
     input.setSystemMessageType(SystemMessageTypeUtil::MessageDeleted);
     input.setGroupable(true);
     input.setParseUrls(true);
@@ -114,8 +116,8 @@ void MessagesModelTest::shouldRemoveMessage()
     QCOMPARE(rowABTInserted.count(), 1);
     QCOMPARE(rowRemovedSpy.count(), 0);
     QCOMPARE(rowABTRemoved.count(), 0);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,0"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,0"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,0"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,0"_s);
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
@@ -128,8 +130,8 @@ void MessagesModelTest::shouldRemoveMessage()
     QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 1);
     QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,0"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,0"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), u"0,0"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), u"0,0"_s);
 
     QCOMPARE(w.rowCount(), 0);
 
@@ -143,8 +145,8 @@ void MessagesModelTest::shouldRemoveMessage()
     QCOMPARE(rowABTInserted.count(), 1);
     QCOMPARE(rowRemovedSpy.count(), 0);
     QCOMPARE(rowABTRemoved.count(), 0);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,0"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,0"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,0"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,0"_s);
 }
 
 void MessagesModelTest::shouldRemoveNotExistingMessage()
@@ -238,7 +240,7 @@ void MessagesModelTest::shouldAddMessages()
     messages << makeMessage("msgF", 3);
     messages << makeMessage("msgG", 9);
     messages << makeMessage("msgH", 5);
-    input.setText(QStringLiteral("modified"));
+    input.setText(u"modified"_s);
     messages << makeMessage("msgA", 8); // update
     model.addMessages(messages);
     QCOMPARE(model.rowCount(), 8);
@@ -251,7 +253,7 @@ void MessagesModelTest::shouldAddMessages()
                               << "msgC"
                               << "msgA"
                               << "msgG");
-    QCOMPARE(model.index(6, 0).data(MessagesModel::OriginalMessage).toString(), QStringLiteral("modified"));
+    QCOMPARE(model.index(6, 0).data(MessagesModel::OriginalMessage).toString(), u"modified"_s);
 }
 
 void MessagesModelTest::shouldUpdateFirstMessage()
@@ -261,9 +263,9 @@ void MessagesModelTest::shouldUpdateFirstMessage()
     fillTestMessage(input);
     model.addMessages({input});
     QCOMPARE(model.rowCount(), 1);
-    input.setText(QStringLiteral("modified"));
+    input.setText(u"modified"_s);
     model.addMessages({input});
-    QCOMPARE(model.index(0, 0).data(MessagesModel::OriginalMessage).toString(), QStringLiteral("modified"));
+    QCOMPARE(model.index(0, 0).data(MessagesModel::OriginalMessage).toString(), u"modified"_s);
 }
 
 void MessagesModelTest::shouldAllowEditing()

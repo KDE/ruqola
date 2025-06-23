@@ -5,6 +5,8 @@
 */
 
 #include "showlistmessagebasewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/searchmessagelinewidget.h"
 #include "dialogs/showlistmessagebasewidget.h"
 #include "room/messagelistview.h"
@@ -22,20 +24,20 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
 {
     ShowListMessageBaseWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mSearchMessageLineWidget = w.findChild<SearchMessageLineWidget *>(QStringLiteral("mSearchMessageLineWidget"));
+    auto mSearchMessageLineWidget = w.findChild<SearchMessageLineWidget *>(u"mSearchMessageLineWidget"_s);
     QVERIFY(mSearchMessageLineWidget);
 
-    auto mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
+    auto mMessageListInfo = w.findChild<QLabel *>(u"mMessageListInfo"_s);
     QVERIFY(mMessageListInfo);
     QVERIFY(mMessageListInfo->text().isEmpty());
     QCOMPARE(mMessageListInfo->textFormat(), Qt::RichText);
     QCOMPARE(mMessageListInfo->contextMenuPolicy(), Qt::NoContextMenu);
 
-    auto mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
+    auto mMessageListView = w.findChild<MessageListView *>(u"mMessageListView"_s);
     QVERIFY(mMessageListView);
     QCOMPARE(mMessageListView->mode(), MessageListView::Mode::Viewing);
 }

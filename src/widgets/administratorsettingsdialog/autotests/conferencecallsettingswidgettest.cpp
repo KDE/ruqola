@@ -5,6 +5,8 @@
 */
 
 #include "conferencecallsettingswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/conferencecall/conferencecallsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QComboBox>
@@ -19,11 +21,11 @@ ConferenceCallSettingsWidgetTest::ConferenceCallSettingsWidgetTest(QObject *pare
 void ConferenceCallSettingsWidgetTest::shouldHaveDefaultValues()
 {
     ConferenceCallSettingsWidget w(nullptr);
-    auto mDefaultProvider = w.findChild<QComboBox *>(QStringLiteral("mDefaultProvider"));
+    auto mDefaultProvider = w.findChild<QComboBox *>(u"mDefaultProvider"_s);
     QVERIFY(mDefaultProvider);
     QVERIFY(mDefaultProvider->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDefaultProvider), QStringLiteral("VideoConf_Default_Provider"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("VideoConf_Default_Provider"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDefaultProvider), u"VideoConf_Default_Provider"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"VideoConf_Default_Provider"_s);
 }
 
 #include "moc_conferencecallsettingswidgettest.cpp"

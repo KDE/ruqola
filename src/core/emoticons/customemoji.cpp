@@ -39,18 +39,18 @@ void CustomEmoji::parseEmoji(const QJsonObject &emoji, bool useIsoDate)
     mIdentifier = emoji.value("_id"_L1).toString().toLatin1();
     mExtension = emoji.value("extension"_L1).toString();
     mName = emoji.value("name"_L1).toString();
-    mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
+    mEmojiIdentifier = u':' + mName + u':';
     if (useIsoDate) {
-        mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), emoji);
+        mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, emoji);
     } else {
-        mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), emoji);
+        mUpdatedAt = Utils::parseIsoDate(u"_updatedAt"_s, emoji);
     }
     const QJsonArray array = emoji.value("aliases"_L1).toArray();
     const auto arrayCount = array.count();
     QStringList lst;
     lst.reserve(arrayCount);
     for (auto i = 0; i < arrayCount; ++i) {
-        lst.append(QLatin1Char(':') + array.at(i).toString() + QLatin1Char(':'));
+        lst.append(u':' + array.at(i).toString() + u':');
     }
     mAliases = lst;
 }
@@ -73,7 +73,7 @@ QString CustomEmoji::emojiUrl(const QString &serverUrl) const
 
 QString CustomEmoji::emojiFileName() const
 {
-    return QStringLiteral("/emoji-custom/%1.%2").arg(mName, mExtension);
+    return u"/emoji-custom/%1.%2"_s.arg(mName, mExtension);
 }
 
 QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const
@@ -93,7 +93,7 @@ QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl
 QString CustomEmoji::generateHtmlFromCustomEmojiLocalPath(const QString &emojiLocalPath) const
 {
     if (mCachedHtml.isEmpty()) {
-        mCachedHtml = QStringLiteral("<img height='22' width='22' src='%1' title='%2'/>").arg(emojiLocalPath, mEmojiIdentifier);
+        mCachedHtml = u"<img height='22' width='22' src='%1' title='%2'/>"_s.arg(emojiLocalPath, mEmojiIdentifier);
     }
     return mCachedHtml;
 }

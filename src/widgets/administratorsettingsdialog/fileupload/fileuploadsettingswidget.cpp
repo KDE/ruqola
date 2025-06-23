@@ -5,6 +5,7 @@
 */
 
 #include "fileuploadsettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QFormLayout>
 
@@ -27,51 +28,51 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     , mFileUploadJsonWebTokenSecret(new QLineEdit(this))
     , mStorageType(new QComboBox(this))
 {
-    mFileUploadsEnabled->setObjectName(QStringLiteral("mFileUploadsEnabled"));
-    addCheckBox(mFileUploadsEnabled, QStringLiteral("FileUpload_Enabled"));
+    mFileUploadsEnabled->setObjectName(u"mFileUploadsEnabled"_s);
+    addCheckBox(mFileUploadsEnabled, u"FileUpload_Enabled"_s);
 
-    mMaximumFileUploadSize->setObjectName(QStringLiteral("mMaximumFileUploadSize"));
+    mMaximumFileUploadSize->setObjectName(u"mMaximumFileUploadSize"_s);
     mMaximumFileUploadSize->setToolTip(i18nc("@info:tooltip", "Set it to -1 to remove the file size limitation."));
     mMaximumFileUploadSize->setMaximum(1215752191);
-    addSpinbox(i18n("Maximum File Upload Size (in bytes)"), mMaximumFileUploadSize, QStringLiteral("FileUpload_MaxFileSize"));
+    addSpinbox(i18n("Maximum File Upload Size (in bytes)"), mMaximumFileUploadSize, u"FileUpload_MaxFileSize"_s);
 
-    mProtectUploadedFiles->setObjectName(QStringLiteral("mProtectUploadedFiles"));
+    mProtectUploadedFiles->setObjectName(u"mProtectUploadedFiles"_s);
     mProtectUploadedFiles->setToolTip(i18nc("@info:tooltip", "Only authenticated users will have access"));
-    addCheckBox(mProtectUploadedFiles, QStringLiteral("FileUpload_ProtectFiles"));
+    addCheckBox(mProtectUploadedFiles, u"FileUpload_ProtectFiles"_s);
 
-    mRotateImagesUpload->setObjectName(QStringLiteral("mRotateImagesUpload"));
+    mRotateImagesUpload->setObjectName(u"mRotateImagesUpload"_s);
     mRotateImagesUpload->setToolTip(i18nc("@info:tooltip", "Enabling this setting may cause image quality loss"));
-    addCheckBox(mRotateImagesUpload, QStringLiteral("FileUpload_RotateImages"));
+    addCheckBox(mRotateImagesUpload, u"FileUpload_RotateImages"_s);
 
-    mRestrictFilesToRooms->setObjectName(QStringLiteral("mRestrictFilesToRooms"));
+    mRestrictFilesToRooms->setObjectName(u"mRestrictFilesToRooms"_s);
     mRestrictFilesToRooms->setToolTip(i18nc("@info:tooltip", "Restrict the access of files uploaded on rooms to the rooms' members only"));
-    addCheckBox(mRestrictFilesToRooms, QStringLiteral("FileUpload_Restrict_to_room_members"));
+    addCheckBox(mRestrictFilesToRooms, u"FileUpload_Restrict_to_room_members"_s);
 
-    mFileUploadsEnabledDirectMessages->setObjectName(QStringLiteral("mFileUploadsEnabledDirectMessages"));
-    addCheckBox(mFileUploadsEnabledDirectMessages, QStringLiteral("FileUpload_Enabled_Direct"));
+    mFileUploadsEnabledDirectMessages->setObjectName(u"mFileUploadsEnabledDirectMessages"_s);
+    addCheckBox(mFileUploadsEnabledDirectMessages, u"FileUpload_Enabled_Direct"_s);
 
-    mAcceptedMediaTypes->setObjectName(QStringLiteral("mAcceptedMediaTypes"));
+    mAcceptedMediaTypes->setObjectName(u"mAcceptedMediaTypes"_s);
     mAcceptedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. Leave it blank for accepting all media types."));
-    addLineEdit(i18n("Accepted Media Types"), mAcceptedMediaTypes, QStringLiteral("FileUpload_MediaTypeWhiteList"));
+    addLineEdit(i18n("Accepted Media Types"), mAcceptedMediaTypes, u"FileUpload_MediaTypeWhiteList"_s);
 
-    mBlockedMediaTypes->setObjectName(QStringLiteral("mBlockedMediaTypes"));
+    mBlockedMediaTypes->setObjectName(u"mBlockedMediaTypes"_s);
     mBlockedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. This setting has priority over the Accepted Media Types."));
-    addLineEdit(i18n("Accepted Media Types"), mBlockedMediaTypes, QStringLiteral("FileUpload_MediaTypeBlackList"));
+    addLineEdit(i18n("Accepted Media Types"), mBlockedMediaTypes, u"FileUpload_MediaTypeBlackList"_s);
 
-    mFileUploadJsonWebTokenSecret->setObjectName(QStringLiteral("mFileUploadJsonWebTokenSecret"));
+    mFileUploadJsonWebTokenSecret->setObjectName(u"mFileUploadJsonWebTokenSecret"_s);
     mFileUploadJsonWebTokenSecret->setToolTip(
         i18nc("@info:tooltip", "File Upload Json Web Token Secret (Used to be able to access uploaded files without authentication)."));
-    addLineEdit(i18n("Accepted Media Types"), mFileUploadJsonWebTokenSecret, QStringLiteral("FileUpload_json_web_token_secret_for_files"));
+    addLineEdit(i18n("Accepted Media Types"), mFileUploadJsonWebTokenSecret, u"FileUpload_json_web_token_secret_for_files"_s);
 
-    mStorageType->setObjectName(QStringLiteral("mStorageType"));
+    mStorageType->setObjectName(u"mStorageType"_s);
     const QMap<QString, QString> maps = {
-        {QStringLiteral("GridFS"), i18n("GridFS")},
-        {QStringLiteral("AmazonS3"), i18n("AmazonS3")},
-        {QStringLiteral("GoogleCloudStorage"), i18n("GoogleCloudStorage")},
-        {QStringLiteral("Webdav"), i18n("WebDAV")},
-        {QStringLiteral("FileSystem"), i18n("FileSystem")},
+        {u"GridFS"_s, i18n("GridFS")},
+        {u"AmazonS3"_s, i18n("AmazonS3")},
+        {u"GoogleCloudStorage"_s, i18n("GoogleCloudStorage")},
+        {u"Webdav"_s, i18n("WebDAV")},
+        {u"FileSystem"_s, i18n("FileSystem")},
     };
-    addComboBox(i18n("Storage Type"), maps, mStorageType, QStringLiteral("FileUpload_Storage_Type"));
+    addComboBox(i18n("Storage Type"), maps, mStorageType, u"FileUpload_Storage_Type"_s);
 }
 
 FileUploadSettingsWidget::~FileUploadSettingsWidget() = default;
@@ -85,9 +86,9 @@ void FileUploadSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase
     initializeWidget(mMaximumFileUploadSize, mapSettings, 104857600);
     initializeWidget(mFileUploadsEnabledDirectMessages, mapSettings, true);
     initializeWidget(mAcceptedMediaTypes, mapSettings, QString());
-    initializeWidget(mBlockedMediaTypes, mapSettings, QStringLiteral("image/svg+xml"));
+    initializeWidget(mBlockedMediaTypes, mapSettings, u"image/svg+xml"_s);
     initializeWidget(mFileUploadJsonWebTokenSecret, mapSettings, QString());
-    initializeWidget(mStorageType, mapSettings, QStringLiteral("GridFS"));
+    initializeWidget(mStorageType, mapSettings, u"GridFS"_s);
 }
 
 #include "moc_fileuploadsettingswidget.cpp"

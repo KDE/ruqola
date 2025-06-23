@@ -5,6 +5,8 @@
 */
 
 #include "searchmessagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/searchmessagewidget.h"
 #include "dialogs/searchmessagewithdelaylineedit.h"
 #include "room/messagelistview.h"
@@ -21,21 +23,21 @@ void SearchMessageWidgetTest::shouldHaveDefaultValues()
 {
     SearchMessageWidget w(nullptr);
 
-    auto mSearchLineEdit = w.findChild<SearchMessageWithDelayLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<SearchMessageWithDelayLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 
-    auto mResultListWidget = w.findChild<MessageListView *>(QStringLiteral("mResultListWidget"));
+    auto mResultListWidget = w.findChild<MessageListView *>(u"mResultListWidget"_s);
     QVERIFY(mResultListWidget);
     QCOMPARE(mResultListWidget->mode(), MessageListView::Mode::Viewing);
 
-    auto mSearchLabel = w.findChild<QLabel *>(QStringLiteral("mSearchLabel"));
+    auto mSearchLabel = w.findChild<QLabel *>(u"mSearchLabel"_s);
     QVERIFY(mSearchLabel);
     QVERIFY(mSearchLabel->text().isEmpty());
 
-    auto labelRegularExpression = w.findChild<QLabel *>(QStringLiteral("labelRegularExpression"));
+    auto labelRegularExpression = w.findChild<QLabel *>(u"labelRegularExpression"_s);
     QVERIFY(labelRegularExpression);
     QVERIFY(!labelRegularExpression->text().isEmpty());
     QVERIFY(labelRegularExpression->openExternalLinks());

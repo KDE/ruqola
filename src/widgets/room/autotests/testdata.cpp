@@ -21,23 +21,23 @@ void initTestAccount()
 {
     QStandardPaths::setTestModeEnabled(true);
     Ruqola::self()->accountManager()->addAccount(new RocketChatAccount());
-    Ruqola::self()->rocketChatAccount()->setAccountName(QStringLiteral("accountName"));
+    Ruqola::self()->rocketChatAccount()->setAccountName(u"accountName"_s);
 }
 
 MessageAttachment testAttachment()
 {
     MessageAttachment msgAttach;
     msgAttach.setAttachmentType(MessageAttachment::AttachmentType::Image);
-    const QString title = QStringLiteral("This is the title");
+    const QString title = u"This is the title"_s;
     msgAttach.setTitle(title);
-    const QString description = QStringLiteral("A description");
+    const QString description = u"A description"_s;
     msgAttach.setDescription(description);
     QPixmap pix(50, 100);
     pix.fill(Qt::white);
     // Save the pixmap directly into the cache so that no download happens
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
     QDir().mkpath(cachePath);
-    const QString link = QStringLiteral("/testfile.png");
+    const QString link = u"/testfile.png"_s;
     const QString pixFileName = cachePath + link;
     pix.save(pixFileName, "png");
     msgAttach.setLink(link);
@@ -51,7 +51,7 @@ QUrl avatarLink()
     // Save the pixmap directly into the cache so that no download happens
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
     QDir().mkpath(cachePath);
-    const QString link = QStringLiteral("/avatarpix.png");
+    const QString link = u"/avatarpix.png"_s;
     const QString pixFileName = cachePath + link;
 
     if (!QFileInfo::exists(pixFileName)) {

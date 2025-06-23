@@ -5,6 +5,7 @@
 */
 
 #include "showimagedialog.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -29,28 +30,28 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Display Image"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mShowImageWidget->setObjectName(QStringLiteral("mShowImageWidget"));
+    mShowImageWidget->setObjectName(u"mShowImageWidget"_s);
     mainLayout->addWidget(mShowImageWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close | QDialogButtonBox::Save, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
 
     mClipboardImageAction = KStandardActions::copy(mShowImageWidget, &ShowImageWidget::copyImage, this);
-    mClipboardImageAction->setObjectName(QStringLiteral("clipboardLocationAction"));
+    mClipboardImageAction->setObjectName(u"clipboardLocationAction"_s);
     mClipboardImageAction->setText(i18n("Copy Image to Clipboard"));
 
-    auto clipboardLocationAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Location to Clipboard"), this);
-    clipboardLocationAction->setObjectName(QStringLiteral("clipboardLocationAction"));
+    auto clipboardLocationAction = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18n("Copy Location to Clipboard"), this);
+    clipboardLocationAction->setObjectName(u"clipboardLocationAction"_s);
     connect(clipboardLocationAction, &QAction::triggered, mShowImageWidget, &ShowImageWidget::copyLocation);
 
-    mClipboardMenu->setObjectName(QStringLiteral("mClipboardMenu"));
+    mClipboardMenu->setObjectName(u"mClipboardMenu"_s);
     mClipboardMenu->addAction(mClipboardImageAction);
     mClipboardMenu->addAction(clipboardLocationAction);
 
     auto clipboardButton = new QToolButton(this);
-    clipboardButton->setObjectName(QStringLiteral("clipboardButton"));
+    clipboardButton->setObjectName(u"clipboardButton"_s);
 
     clipboardButton->setMenu(mClipboardMenu);
     clipboardButton->setPopupMode(QToolButton::MenuButtonPopup);

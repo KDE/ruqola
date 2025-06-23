@@ -5,6 +5,8 @@
 */
 
 #include "usersupdatejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "users/usersupdatejob.h"
 #include <QJsonDocument>
@@ -29,8 +31,8 @@ void UsersUpdateJobTest::shouldGenerateRequest()
     UsersUpdateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.update")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.update"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void UsersUpdateJobTest::shouldGenerateJson()
@@ -39,12 +41,12 @@ void UsersUpdateJobTest::shouldGenerateJson()
     UpdateUserInfo info;
     info.mTypeInfo = CreateUpdateUserInfo::Update;
 
-    const QString mUserId = QStringLiteral("foo");
+    const QString mUserId = u"foo"_s;
 
-    const QString mEmail = QStringLiteral("bla@kde.org");
-    const QString mName = QStringLiteral("name_bla");
-    const QString mUserName = QStringLiteral("username_bla");
-    const QString mPassword = QStringLiteral("password_bla");
+    const QString mEmail = u"bla@kde.org"_s;
+    const QString mName = u"name_bla"_s;
+    const QString mUserName = u"username_bla"_s;
+    const QString mPassword = u"password_bla"_s;
 
     job.setUpdateInfo(info);
     info.mUserId = mUserId;
@@ -68,35 +70,35 @@ void UsersUpdateJobTest::shouldNotStarting()
     UsersUpdateJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
     UpdateUserInfo info;
-    info.mUserId = QStringLiteral("userid");
+    info.mUserId = u"userid"_s;
     job.setUpdateInfo(info);
     QVERIFY(!job.canStart());
 
-    info.mName = QStringLiteral("mname");
+    info.mName = u"mname"_s;
     job.setUpdateInfo(info);
     QVERIFY(!job.canStart());
 
-    info.mEmail = QStringLiteral("emil");
+    info.mEmail = u"emil"_s;
     job.setUpdateInfo(info);
     QVERIFY(!job.canStart());
 
-    job.setAuthCode(QStringLiteral("bla"));
+    job.setAuthCode(u"bla"_s);
     QVERIFY(!job.canStart());
 
-    job.setAuthMethod(QStringLiteral("method"));
+    job.setAuthMethod(u"method"_s);
     QVERIFY(job.canStart());
 }
 

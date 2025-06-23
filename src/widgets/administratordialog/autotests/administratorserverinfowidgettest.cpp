@@ -5,6 +5,8 @@
 */
 
 #include "administratorserverinfowidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include <KTreeWidgetSearchLineWidget>
 #include <QHeaderView>
@@ -21,23 +23,23 @@ AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *pa
 void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorServerInfoWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mTreeWidget"));
+    auto mTreeWidget = w.findChild<QTreeWidget *>(u"mTreeWidget"_s);
     QVERIFY(mTreeWidget);
     QCOMPARE(mTreeWidget->columnCount(), 2);
     QCOMPARE(mTreeWidget->contextMenuPolicy(), Qt::CustomContextMenu);
     QVERIFY(mTreeWidget->header()->isHidden());
 
-    auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
+    auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(u"mSearchLineWidget"_s);
     QVERIFY(mSearchLineWidget);
 
-    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    auto hboxLayout = w.findChild<QHBoxLayout *>(u"hboxLayout"_s);
     QVERIFY(hboxLayout);
     QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
-    auto mRefreshButton = w.findChild<QPushButton *>(QStringLiteral("mRefreshButton"));
+    auto mRefreshButton = w.findChild<QPushButton *>(u"mRefreshButton"_s);
     QVERIFY(mRefreshButton);
     QVERIFY(mRefreshButton->text().isEmpty());
     QVERIFY(!mRefreshButton->toolTip().isEmpty());

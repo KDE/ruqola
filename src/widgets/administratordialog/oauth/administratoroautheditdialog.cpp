@@ -5,6 +5,7 @@
 */
 
 #include "administratoroautheditdialog.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,13 +25,13 @@ AdministratorOauthEditDialog::AdministratorOauthEditDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Edit Oauth Apps"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mOauthEditWidget->setObjectName(QStringLiteral("mOauthEditWidget"));
+    mOauthEditWidget->setObjectName(u"mOauthEditWidget"_s);
     mainLayout->addWidget(mOauthEditWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
 
     mOkButton = button->button(QDialogButtonBox::Ok);

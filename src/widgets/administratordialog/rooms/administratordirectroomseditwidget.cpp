@@ -5,6 +5,8 @@
 */
 
 #include "administratordirectroomseditwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -18,15 +20,15 @@ AdministratorDirectRoomsEditWidget::AdministratorDirectRoomsEditWidget(QWidget *
     , mFeaturedCheckBox(new QCheckBox(i18nc("@option:check", "Featured"), this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
-    mLineEdit->setObjectName(QStringLiteral("mLineEdit"));
+    mLineEdit->setObjectName(u"mLineEdit"_s);
     mainLayout->addRow(i18n("Name:"), mLineEdit);
     mLineEdit->setReadOnly(true);
 
-    mDefaultCheckBox->setObjectName(QStringLiteral("mDefaultCheckBox"));
-    mFavoriteCheckBox->setObjectName(QStringLiteral("mFavoriteCheckBox"));
-    mFeaturedCheckBox->setObjectName(QStringLiteral("mFeaturedCheckBox"));
+    mDefaultCheckBox->setObjectName(u"mDefaultCheckBox"_s);
+    mFavoriteCheckBox->setObjectName(u"mFavoriteCheckBox"_s);
+    mFeaturedCheckBox->setObjectName(u"mFeaturedCheckBox"_s);
 
     mainLayout->addWidget(mDefaultCheckBox);
     mainLayout->addWidget(mFavoriteCheckBox);

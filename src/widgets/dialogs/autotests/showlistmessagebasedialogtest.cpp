@@ -5,6 +5,8 @@
 */
 
 #include "showlistmessagebasedialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/showlistmessagebasedialog.h"
 #include <QStandardPaths>
 #include <QTest>

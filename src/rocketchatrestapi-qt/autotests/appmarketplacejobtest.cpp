@@ -5,6 +5,8 @@
 */
 
 #include "appmarketplacejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "apps/appmarketplacejob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(AppMarketPlaceJobTest)
@@ -28,13 +30,13 @@ void AppMarketPlaceJobTest::shouldGenerateRequest()
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/marketplace?isAdminUser=false")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/marketplace?isAdminUser=false"_s));
     }
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         job.setIsAdminUser(true);
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/marketplace?isAdminUser=true")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/marketplace?isAdminUser=true"_s));
     }
 }
 

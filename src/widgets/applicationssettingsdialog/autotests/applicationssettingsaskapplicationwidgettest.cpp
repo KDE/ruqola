@@ -5,6 +5,8 @@
 */
 
 #include "applicationssettingsaskapplicationwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingsdialog/applicationssettingsaskapplicationwidget.h"
 #include <KTextEdit>
 #include <QLabel>
@@ -19,19 +21,19 @@ ApplicationsSettingsAskApplicationWidgetTest::ApplicationsSettingsAskApplication
 void ApplicationsSettingsAskApplicationWidgetTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsAskApplicationWidget d;
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = d.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = d.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto mTextAppLabel = d.findChild<QLabel *>(QStringLiteral("mTextAppLabel"));
+    auto mTextAppLabel = d.findChild<QLabel *>(u"mTextAppLabel"_s);
     QVERIFY(mTextAppLabel);
     QVERIFY(mTextAppLabel->text().isEmpty());
 
-    auto mMessage = d.findChild<KTextEdit *>(QStringLiteral("mMessage"));
+    auto mMessage = d.findChild<KTextEdit *>(u"mMessage"_s);
     QVERIFY(mMessage);
     QVERIFY(mMessage->toPlainText().isEmpty());
     QVERIFY(!mMessage->placeholderText().isEmpty());

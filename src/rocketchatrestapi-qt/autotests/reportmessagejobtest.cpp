@@ -5,6 +5,8 @@
 */
 
 #include "reportmessagejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/reportmessagejob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -32,19 +34,19 @@ void ReportMessageJobTest::shouldHaveMessageId()
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     QVERIFY(!job.canStart());
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    job.setReportMessage(QStringLiteral("bla"));
+    job.setReportMessage(u"bla"_s);
     QVERIFY(!job.canStart());
     job.setMessageId("sbla"_ba);
     QVERIFY(job.canStart());
@@ -55,7 +57,7 @@ void ReportMessageJobTest::shouldGenerateJobRequest()
     ReportMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.reportMessage")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.reportMessage"_s));
 }
 
 void ReportMessageJobTest::shouldGenerateJson()
@@ -63,7 +65,7 @@ void ReportMessageJobTest::shouldGenerateJson()
     ReportMessageJob job;
     const QByteArray messageId("foo1");
     job.setMessageId(messageId);
-    const QString reportMessage = QStringLiteral("foo2");
+    const QString reportMessage = u"foo2"_s;
     job.setReportMessage(reportMessage);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"description":"%2","messageId":"%1"})").arg(QLatin1StringView(messageId), reportMessage).toLatin1());

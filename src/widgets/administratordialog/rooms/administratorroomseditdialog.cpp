@@ -5,6 +5,8 @@
 */
 
 #include "administratorroomseditdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordirectroomseditwidget.h"
 #include "administratorroomseditwidget.h"
 
@@ -18,7 +20,7 @@ AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QW
     , mRoomType(roomType)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
     switch (mRoomType) {
     case RoomType::DirectRoom:
@@ -35,11 +37,11 @@ AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QW
         Q_ASSERT(false);
         break;
     }
-    mAdministratorRoomEditWidget->setObjectName(QStringLiteral("mAdministratorRoomEditWidget"));
+    mAdministratorRoomEditWidget->setObjectName(u"mAdministratorRoomEditWidget"_s);
     mainLayout->addWidget(mAdministratorRoomEditWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
 
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorRoomsEditDialog::reject);

@@ -22,7 +22,7 @@ SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QStri
         return RoomTopicChanged;
     } else if (str == "au"_L1) {
         return UserAdded;
-    } else if (str == QLatin1Char('r')) {
+    } else if (str == u'r') {
         return RoomNameChanged;
     } else if (str == "ru"_L1) {
         return UserRemoved;

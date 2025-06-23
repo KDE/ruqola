@@ -36,7 +36,7 @@ void AutoGenerateInteractionUiViewOverflowElement::parseElement(const QJsonObjec
 ActionElementWidget *AutoGenerateInteractionUiViewOverflowElement::generateWidget(QWidget *parent)
 {
     auto toolButton = new QToolButton(parent);
-    toolButton->setIcon(QIcon::fromTheme(QStringLiteral("menu_new")));
+    toolButton->setIcon(QIcon::fromTheme(u"menu_new"_s));
     mActionElementWidget = new ActionElementWidget(toolButton, actionId(), parent);
     toolButton->setPopupMode(QToolButton::InstantPopup);
     auto menu = new QMenu(parent);

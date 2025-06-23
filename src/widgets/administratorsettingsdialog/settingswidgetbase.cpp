@@ -39,12 +39,12 @@ SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *pare
     , mCurrentWidget(new QWidget(parent))
     , mAccount(account)
 {
-    mCurrentWidget->setObjectName(QStringLiteral("mCurrentWidget"));
+    mCurrentWidget->setObjectName(u"mCurrentWidget"_s);
     setWidgetResizable(true);
     setWidget(mCurrentWidget);
 
     mMainLayout = new QFormLayout(mCurrentWidget);
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setObjectName(u"mainLayout"_s);
 }
 
 SettingsWidgetBase::~SettingsWidgetBase() = default;
@@ -66,7 +66,7 @@ bool SettingsWidgetBase::updateSettings(const QString &settingName,
             info.settingName = settingName;
             info.valueType = typeValue;
             job->setUpdateAdminSettingsInfo(info);
-            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthMethod(u"password"_s);
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
             mAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::UpdateAdminSettingsJob::updateAdminSettingsDone, this, [this, buttonObjectName](const QJsonObject &obj) {
@@ -163,7 +163,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
-    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    label->setObjectName(u"label_%1"_s.arg(variable));
     layout->addWidget(label);
     layout->addWidget(spinBox);
     auto applyButton = addApplyButton(variable);
@@ -227,8 +227,8 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
 QToolButton *SettingsWidgetBase::addApplyButton(const QString &variable)
 {
     auto toolButton = new QToolButton(this);
-    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
-    toolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-ok-apply")));
+    toolButton->setObjectName(u"toolbutton_%1"_s.arg(variable));
+    toolButton->setIcon(QIcon::fromTheme(u"dialog-ok-apply"_s));
     toolButton->setToolTip(i18nc("@info:tooltip", "Apply"));
     toolButton->setProperty(s_property, variable);
     toolButton->setEnabled(false);
@@ -238,8 +238,8 @@ QToolButton *SettingsWidgetBase::addApplyButton(const QString &variable)
 QToolButton *SettingsWidgetBase::addCancelButton(const QString &variable)
 {
     auto toolButton = new QToolButton(this);
-    toolButton->setObjectName(QStringLiteral("cancelToolbutton%1").arg(variable));
-    toolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
+    toolButton->setObjectName(u"cancelToolbutton%1"_s.arg(variable));
+    toolButton->setIcon(QIcon::fromTheme(u"dialog-cancel"_s));
     toolButton->setToolTip(i18nc("@info:tooltip", "Cancel"));
     toolButton->setProperty(s_property, variable);
     toolButton->setEnabled(false);
@@ -250,8 +250,8 @@ QToolButton *SettingsWidgetBase::addRestoreButton(const QString &variable)
 {
     auto restoreToolButton = new QToolButton(this);
     restoreToolButton->setToolTip(i18nc("@info:tooltip", "Restore to Default Server Value"));
-    restoreToolButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
-    restoreToolButton->setObjectName(QStringLiteral("restoreToolButton%1").arg(variable));
+    restoreToolButton->setIcon(QIcon::fromTheme(u"edit-undo"_s));
+    restoreToolButton->setObjectName(u"restoreToolButton%1"_s.arg(variable));
     restoreToolButton->setProperty(s_property, variable);
     restoreToolButton->setEnabled(false);
     return restoreToolButton;
@@ -261,7 +261,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
-    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    label->setObjectName(u"label_%1"_s.arg(variable));
     layout->addWidget(label);
     layout->addWidget(lineEdit);
     auto applyButton = addApplyButton(variable);
@@ -327,7 +327,7 @@ void SettingsWidgetBase::addLabel(const QString &labelStr, QLabel *labelElement,
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
-    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    label->setObjectName(u"label_%1"_s.arg(variable));
     layout->addWidget(label);
     layout->addWidget(labelElement);
     labelElement->setProperty(s_property, variable);
@@ -338,7 +338,7 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
-    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    label->setObjectName(u"label_%1"_s.arg(variable));
     layout->addWidget(label, 0, Qt::AlignTop);
     layout->addWidget(plainTextEdit);
     auto applyButton = addApplyButton(variable);
@@ -403,7 +403,7 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
-    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    label->setObjectName(u"label_%1"_s.arg(variable));
     layout->addWidget(label);
     layout->addWidget(lineEdit);
     auto applyButton = addApplyButton(variable);
@@ -448,7 +448,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
-    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    label->setObjectName(u"label_%1"_s.arg(variable));
     layout->addWidget(label);
     layout->addWidget(comboBox);
     fillComboBox(comboBox, items);
@@ -630,17 +630,17 @@ void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit,
 
 void SettingsWidgetBase::hideButtons(const QString &variableName)
 {
-    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+    auto toolButton = findChild<QToolButton *>(u"toolbutton_%1"_s.arg(variableName));
     if (toolButton) {
         toolButton->setVisible(false);
     }
 
-    auto restoreToolButton = findChild<QToolButton *>(QStringLiteral("restoreToolButton%1").arg(variableName));
+    auto restoreToolButton = findChild<QToolButton *>(u"restoreToolButton%1"_s.arg(variableName));
     if (restoreToolButton) {
         restoreToolButton->setVisible(false);
     }
 
-    auto cancelToolButton = findChild<QToolButton *>(QStringLiteral("cancelToolbutton%1").arg(variableName));
+    auto cancelToolButton = findChild<QToolButton *>(u"cancelToolbutton%1"_s.arg(variableName));
     if (cancelToolButton) {
         cancelToolButton->setVisible(false);
     }
@@ -648,17 +648,17 @@ void SettingsWidgetBase::hideButtons(const QString &variableName)
 
 void SettingsWidgetBase::disableToolButton(const QString &variableName, bool differentFromDefaultValue)
 {
-    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+    auto toolButton = findChild<QToolButton *>(u"toolbutton_%1"_s.arg(variableName));
     if (toolButton) {
         toolButton->setEnabled(false);
     }
 
-    auto restoreToolButton = findChild<QToolButton *>(QStringLiteral("restoreToolButton%1").arg(variableName));
+    auto restoreToolButton = findChild<QToolButton *>(u"restoreToolButton%1"_s.arg(variableName));
     if (restoreToolButton) {
         restoreToolButton->setEnabled(differentFromDefaultValue);
     }
 
-    auto cancelToolButton = findChild<QToolButton *>(QStringLiteral("cancelToolbutton%1").arg(variableName));
+    auto cancelToolButton = findChild<QToolButton *>(u"cancelToolbutton%1"_s.arg(variableName));
     if (cancelToolButton) {
         cancelToolButton->setEnabled(false);
     }
@@ -676,7 +676,7 @@ QLabel *SettingsWidgetBase::createBoldLabel(const QString &text)
 QString SettingsWidgetBase::urlFromRelativePath(const QString &relativePath)
 {
     if (mAccount) {
-        return mAccount->serverUrl() + QLatin1Char('/') + relativePath;
+        return mAccount->serverUrl() + u'/' + relativePath;
     }
     return {};
 }

@@ -5,6 +5,8 @@
 */
 
 #include "forgotpasswordjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "users/forgotpasswordjob.h"
 #include <QJsonDocument>
@@ -32,17 +34,17 @@ void ForgotPasswordJobTest::shouldGenerateRequest()
 {
     ForgotPasswordJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    job.setEmail(QStringLiteral("foo"));
+    job.setEmail(u"foo"_s);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.forgotPassword")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.forgotPassword"_s));
 }
 
 void ForgotPasswordJobTest::shouldGenerateJson()
 {
     ForgotPasswordJob job;
-    const QString email = QStringLiteral("foo");
+    const QString email = u"foo"_s;
     job.setEmail(email);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"%1"})").arg(email).toLatin1());
 }

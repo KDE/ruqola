@@ -104,11 +104,11 @@ void PreviewCommandUtilsTest::shouldParsePreviewCommandUtils_data()
             command.setType(PreviewCommand::TypePreview::Image);
             commands.append(std::move(command));
         }
-        QTest::addRow("test1") << QStringLiteral("test1") << commands;
+        QTest::addRow("test1") << u"test1"_s << commands;
     }
     {
         QList<PreviewCommand> commands;
-        QTest::addRow("empty") << QStringLiteral("empty") << commands;
+        QTest::addRow("empty") << u"empty"_s << commands;
     }
 }
 

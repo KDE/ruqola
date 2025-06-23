@@ -16,7 +16,7 @@
 using namespace Qt::Literals::StringLiterals;
 NeedUpdateVersionUtils::ObsoleteVersion NeedUpdateVersionUtils::obsoleteVersionStatus(const QString &str, const QDate &currentDate)
 {
-    static const QRegularExpression regular{QStringLiteral("\\((.*)\\)")};
+    static const QRegularExpression regular{u"\\((.*)\\)"_s};
     QRegularExpressionMatch match;
     QString captured;
     if (str.contains(regular, &match)) {
@@ -25,7 +25,7 @@ NeedUpdateVersionUtils::ObsoleteVersion NeedUpdateVersionUtils::obsoleteVersionS
         captured = str;
     }
     if (!captured.isEmpty()) {
-        const QStringList version = captured.split(QLatin1Char('.'));
+        const QStringList version = captured.split(u'.');
         if (version.size() > 2) {
             bool ok;
             int year = version.at(0).toInt(&ok);
@@ -57,20 +57,20 @@ NeedUpdateVersionUtils::ObsoleteVersion NeedUpdateVersionUtils::obsoleteVersionS
 void NeedUpdateVersionUtils::disableCheckVersion()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    KConfigGroup group(config, QStringLiteral("Check Version"));
+    KConfigGroup group(config, u"Check Version"_s);
     group.writeEntry("checkerVersionEnabled", false);
 }
 
 bool NeedUpdateVersionUtils::checkVersion()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    KConfigGroup group(config, QStringLiteral("Check Version"));
+    KConfigGroup group(config, u"Check Version"_s);
     return group.readEntry("checkerVersionEnabled", true);
 }
 
 QDate NeedUpdateVersionUtils::compileDate()
 {
-    return QDate::fromString(QString::fromLatin1(__DATE__), QStringLiteral("MMM dd yyyy"));
+    return QDate::fromString(QString::fromLatin1(__DATE__), u"MMM dd yyyy"_s);
 }
 
 QUrl NeedUpdateVersionUtils::nextVersionUrl()

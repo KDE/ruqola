@@ -5,6 +5,8 @@
 */
 
 #include "directoryjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/directoryjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -30,7 +32,7 @@ void DirectoryJobTest::shouldGenerateRequest()
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/directory")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/directory"_s));
     }
 }
 
@@ -38,13 +40,13 @@ void DirectoryJobTest::shouldNotStarting()
 {
     DirectoryJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager networkAccessManager;
     job.setNetworkAccessManager(&networkAccessManager);
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     job.setUserId(userId);
     QVERIFY(!job.canStart());

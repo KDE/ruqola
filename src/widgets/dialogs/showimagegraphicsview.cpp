@@ -5,6 +5,8 @@
 */
 
 #include "showimagegraphicsview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "ruqolawidgets_showimage_debug.h"
 #include "showimagegraphicsimagelabel.h"
@@ -45,12 +47,12 @@ ShowImageGraphicsView::ShowImageGraphicsView(RocketChatAccount *account, QWidget
     auto scene = new QGraphicsScene(this);
     setScene(scene);
 
-    mAnimatedLabel->setObjectName(QStringLiteral("mAnimatedLabel"));
+    mAnimatedLabel->setObjectName(u"mAnimatedLabel"_s);
     mAnimatedLabel->setBackgroundRole(QPalette::Base);
     mAnimatedLabel->setAlignment(Qt::AlignCenter);
 
     mGraphicsProxyWidget = scene->addWidget(mAnimatedLabel);
-    mGraphicsProxyWidget->setObjectName(QStringLiteral("mGraphicsProxyWidget"));
+    mGraphicsProxyWidget->setObjectName(u"mGraphicsProxyWidget"_s);
     mGraphicsProxyWidget->setFlag(QGraphicsItem::ItemIsMovable, true);
 
     scene->addItem(mGraphicsPixmapItem);

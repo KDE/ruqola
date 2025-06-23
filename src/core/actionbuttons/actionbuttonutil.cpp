@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "actionbuttonutil.h"
+using namespace Qt::Literals::StringLiterals;
 
 ActionButton::RoomTypeFilter ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(Room *r)
 {
@@ -44,6 +45,6 @@ ActionButton::RoomTypeFilter ActionButtonUtil::convertRoomTypeToActionButtonRoom
 QString ActionButtonUtil::generateTranslateIdentifier(const ActionButton &actionButton)
 {
     const QString appId = QString::fromLatin1(actionButton.appId());
-    const QString translateIdentifier = QStringLiteral("app-") + appId + QLatin1Char('.') + actionButton.labelI18n();
+    const QString translateIdentifier = u"app-"_s + appId + u'.' + actionButton.labelI18n();
     return translateIdentifier;
 }

@@ -5,6 +5,8 @@
 */
 
 #include "exportmessageswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QComboBox>
 #include <QDateEdit>
@@ -18,15 +20,15 @@ ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mFromDate->setObjectName(QStringLiteral("mFromDate"));
+    mFromDate->setObjectName(u"mFromDate"_s);
     mainLayout->addRow(i18n("From:"), mFromDate);
 
-    mToDate->setObjectName(QStringLiteral("mToDate"));
+    mToDate->setObjectName(u"mToDate"_s);
     mainLayout->addRow(i18n("To:"), mToDate);
 
-    mFormat->setObjectName(QStringLiteral("mFormat"));
+    mFormat->setObjectName(u"mFormat"_s);
     mainLayout->addRow(i18n("Output Format:"), mFormat);
     fillFormat();
 }

@@ -30,11 +30,9 @@ void UnityServiceManager::updateCount()
     if (mUnityServiceAvailable) {
         const QString launcherId = qApp->desktopFileName() + ".desktop"_L1;
 
-        const QVariantMap properties{{QStringLiteral("count-visible"), mCount > 0}, {QStringLiteral("count"), mCount}};
+        const QVariantMap properties{{u"count-visible"_s, mCount > 0}, {u"count"_s, mCount}};
 
-        QDBusMessage message = QDBusMessage::createSignal(QStringLiteral("/org/ruqola/UnityLauncher"),
-                                                          QStringLiteral("com.canonical.Unity.LauncherEntry"),
-                                                          QStringLiteral("Update"));
+        QDBusMessage message = QDBusMessage::createSignal(u"/org/ruqola/UnityLauncher"_s, u"com.canonical.Unity.LauncherEntry"_s, u"Update"_s);
         message.setArguments({launcherId, properties});
         QDBusConnection::sessionBus().send(message);
     }
@@ -52,7 +50,7 @@ void UnityServiceManager::initUnity()
 {
     mUnityServiceWatcher->setConnection(QDBusConnection::sessionBus());
     mUnityServiceWatcher->setWatchMode(QDBusServiceWatcher::WatchForUnregistration | QDBusServiceWatcher::WatchForRegistration);
-    mUnityServiceWatcher->addWatchedService(QStringLiteral("com.canonical.Unity"));
+    mUnityServiceWatcher->addWatchedService(u"com.canonical.Unity"_s);
     connect(mUnityServiceWatcher, &QDBusServiceWatcher::serviceRegistered, this, [this](const QString &service) {
         Q_UNUSED(service)
         mUnityServiceAvailable = true;
@@ -65,7 +63,7 @@ void UnityServiceManager::initUnity()
     });
 
     // QDBusConnectionInterface::isServiceRegistered blocks
-    QDBusPendingCall listNamesCall = QDBusConnection::sessionBus().interface()->asyncCall(QStringLiteral("ListNames"));
+    QDBusPendingCall listNamesCall = QDBusConnection::sessionBus().interface()->asyncCall(u"ListNames"_s);
     auto callWatcher = new QDBusPendingCallWatcher(listNamesCall, this);
     connect(callWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QStringList> reply = *watcher;

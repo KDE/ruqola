@@ -43,12 +43,12 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setReceiveLoginDetectionEmail(true);
         preferences.setNotificationsSoundVolume(0);
         preferences.setMuteFocusedConversations(false);
-        QTest::addRow("empty") << QStringLiteral("empty") << preferences;
+        QTest::addRow("empty") << u"empty"_s << preferences;
     }
     {
         OwnUserPreferences preferences;
-        preferences.setEmailNotificationMode(QStringLiteral("mentions"));
-        preferences.setDesktopNotifications(QStringLiteral("mentions"));
+        preferences.setEmailNotificationMode(u"mentions"_s);
+        preferences.setDesktopNotifications(u"mentions"_s);
         preferences.setConvertAsciiEmoji(false);
         preferences.setUseEmojis(false);
         preferences.setIdleTimeLimit(300);
@@ -62,7 +62,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setNotificationsSoundVolume(100);
         preferences.setMuteFocusedConversations(true);
 
-        QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
+        QTest::addRow("ownuserpreferences1") << u"ownuserpreferences1"_s << preferences;
     }
 }
 

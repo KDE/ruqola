@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagesettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QCheckBox>
 #include <QFormLayout>
 
@@ -45,140 +47,138 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mApiEmbed(new QCheckBox(i18nc("@option:check", "Embed Link Previews"), this))
     , mEmbedCacheExpirationDays(new QSpinBox(this))
 {
-    mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
-    addCheckBox(mAllowMessageEditing, QStringLiteral("Message_AllowEditing"));
+    mAllowMessageEditing->setObjectName(u"mAllowMessageEditing"_s);
+    addCheckBox(mAllowMessageEditing, u"Message_AllowEditing"_s);
 
-    mBlockMessageEditingAfterMinutes->setObjectName(QStringLiteral("mBlockMessageEditingAfterMinutes"));
+    mBlockMessageEditingAfterMinutes->setObjectName(u"mBlockMessageEditingAfterMinutes"_s);
     mBlockMessageEditingAfterMinutes->setToolTip(i18nc("@info:tooltip", "Enter 0 to disable blocking."));
-    addSpinbox(i18n("Block Message Editing After (n) Minutes"), mBlockMessageEditingAfterMinutes, QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
+    addSpinbox(i18n("Block Message Editing After (n) Minutes"), mBlockMessageEditingAfterMinutes, u"Message_AllowEditing_BlockEditInMinutes"_s);
 
-    mAllowMessageDeleting->setObjectName(QStringLiteral("mAllowMessageDeleting"));
-    addCheckBox(mAllowMessageDeleting, QStringLiteral("Message_AllowDeleting"));
+    mAllowMessageDeleting->setObjectName(u"mAllowMessageDeleting"_s);
+    addCheckBox(mAllowMessageDeleting, u"Message_AllowDeleting"_s);
 
-    mBlockMessageDeletingAfterMinutes->setObjectName(QStringLiteral("mBlockMessageDeletingAfterMinutes"));
+    mBlockMessageDeletingAfterMinutes->setObjectName(u"mBlockMessageDeletingAfterMinutes"_s);
     mBlockMessageDeletingAfterMinutes->setToolTip(i18nc("@info:tooltip", "Block Message Deleting After (n) Minutes."));
-    addSpinbox(i18n("Block Message Deleting After (n) Minutes"),
-               mBlockMessageDeletingAfterMinutes,
-               QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
+    addSpinbox(i18n("Block Message Deleting After (n) Minutes"), mBlockMessageDeletingAfterMinutes, u"Message_AllowDeleting_BlockDeleteInMinutes"_s);
 
-    mShowEditedStatus->setObjectName(QStringLiteral("mShowEditedStatus"));
+    mShowEditedStatus->setObjectName(u"mShowEditedStatus"_s);
     mShowEditedStatus->setToolTip(i18nc("@info:tooltip", "This is a deprecated feature. It may not work as expected and will not get new updates."));
-    addCheckBox(mShowEditedStatus, QStringLiteral("Message_ShowEditedStatus"));
+    addCheckBox(mShowEditedStatus, u"Message_ShowEditedStatus"_s);
 
-    mShowDeletedStatus->setObjectName(QStringLiteral("mShowDeletedStatus"));
-    addCheckBox(mShowDeletedStatus, QStringLiteral("Message_ShowDeletedStatus"));
+    mShowDeletedStatus->setObjectName(u"mShowDeletedStatus"_s);
+    addCheckBox(mShowDeletedStatus, u"Message_ShowDeletedStatus"_s);
 
-    mAllowMessagePinning->setObjectName(QStringLiteral("mAllowMessagePinning"));
+    mAllowMessagePinning->setObjectName(u"mAllowMessagePinning"_s);
     mAllowMessagePinning->setToolTip(i18nc("@info:tooltip", "Allow Message Pinning"));
-    addCheckBox(mAllowMessagePinning, QStringLiteral("Message_AllowPinning"));
+    addCheckBox(mAllowMessagePinning, u"Message_AllowPinning"_s);
 
-    mAllowMessageSnippeting->setObjectName(QStringLiteral("mAllowMessageSnippeting"));
-    addCheckBox(mAllowMessageSnippeting, QStringLiteral("Message_AllowSnippeting"));
+    mAllowMessageSnippeting->setObjectName(u"mAllowMessageSnippeting"_s);
+    addCheckBox(mAllowMessageSnippeting, u"Message_AllowSnippeting"_s);
 
-    mAllowConvertingLongMessageAttachment->setObjectName(QStringLiteral("mAllowConvertingLongMessageAttachment"));
-    addCheckBox(mAllowConvertingLongMessageAttachment, QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
+    mAllowConvertingLongMessageAttachment->setObjectName(u"mAllowConvertingLongMessageAttachment"_s);
+    addCheckBox(mAllowConvertingLongMessageAttachment, u"Message_AllowConvertLongMessagesToAttachment"_s);
 
-    mVideoRecorderEnabled->setObjectName(QStringLiteral("mVideoRecorderEnabled"));
+    mVideoRecorderEnabled->setObjectName(u"mVideoRecorderEnabled"_s);
     mVideoRecorderEnabled->setToolTip(i18nc("@info:tooltip", "Requires 'video/webm' files to be an accepted media type within 'File Upload' settings."));
-    addCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
+    addCheckBox(mVideoRecorderEnabled, u"Message_VideoRecorderEnabled"_s);
 
-    mMaximumAllowedCharactersPerMessage->setObjectName(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
+    mMaximumAllowedCharactersPerMessage->setObjectName(u"mMaximumAllowedCharactersPerMessage"_s);
     mMaximumAllowedCharactersPerMessage->setMaximum(99999);
-    addSpinbox(i18n("Maximum Allowed Characters Per Message"), mMaximumAllowedCharactersPerMessage, QStringLiteral("Message_MaxAllowedSize"));
+    addSpinbox(i18n("Maximum Allowed Characters Per Message"), mMaximumAllowedCharactersPerMessage, u"Message_MaxAllowedSize"_s);
 
-    mSafePort->setObjectName(QStringLiteral("mSafePort"));
-    addLineEdit(i18n("Safe Ports"), mSafePort, QStringLiteral("API_EmbedSafePorts"));
+    mSafePort->setObjectName(u"mSafePort"_s);
+    addLineEdit(i18n("Safe Ports"), mSafePort, u"API_EmbedSafePorts"_s);
 
-    mMaximumNumberChainedQuotes->setObjectName(QStringLiteral("mMaximumNumberChainedQuotes"));
-    addSpinbox(i18n("Maximum Number of Chained Quotes"), mMaximumNumberChainedQuotes, QStringLiteral("Message_QuoteChainLimit"));
+    mMaximumNumberChainedQuotes->setObjectName(u"mMaximumNumberChainedQuotes"_s);
+    addSpinbox(i18n("Maximum Number of Chained Quotes"), mMaximumNumberChainedQuotes, u"Message_QuoteChainLimit"_s);
 
-    mMessageErasureType->setObjectName(QStringLiteral("mMessageErasureType"));
+    mMessageErasureType->setObjectName(u"mMessageErasureType"_s);
     const QMap<QString, QString> messageErasureTypeMaps = {
-        {QStringLiteral("Keep"), i18n("Keep Messages and User Name")},
-        {QStringLiteral("Delete"), i18n("Delete All Messages")},
-        {QStringLiteral("Unlink"), i18n("Remove Link Between User and Messages")},
+        {u"Keep"_s, i18n("Keep Messages and User Name")},
+        {u"Delete"_s, i18n("Delete All Messages")},
+        {u"Unlink"_s, i18n("Remove Link Between User and Messages")},
     };
     mMessageErasureType->setToolTip(
         i18n("Determine what to do with messages of users who remove their account. Keep Messages and User Name: The message and files history of the user "
              "will be deleted from Direct Messages and will be kept in other rooms. Delete All Messages: All messages and files from the user will be deleted "
              "from the database and it will not be possible to locate the user anymore. Remove link between user and messages: This option will assign all "
              "messages and files of the user to Rocket.Chat bot and Direct Messages are going to be deleted."));
-    addComboBox(i18n("Message Erasure Type"), messageErasureTypeMaps, mMessageErasureType, QStringLiteral("Message_ErasureType"));
+    addComboBox(i18n("Message Erasure Type"), messageErasureTypeMaps, mMessageErasureType, u"Message_ErasureType"_s);
 
-    mGroupingPeriod->setObjectName(QStringLiteral("mGroupingPeriod"));
+    mGroupingPeriod->setObjectName(u"mGroupingPeriod"_s);
     mGroupingPeriod->setToolTip(
         i18n("Messages will be grouped with previous message if both are from the same user and the elapsed time was less than the informed time in seconds."));
-    addSpinbox(i18n("Grouping Period (in seconds)"), mGroupingPeriod, QStringLiteral("Message_GroupingPeriod"));
+    addSpinbox(i18n("Grouping Period (in seconds)"), mGroupingPeriod, u"Message_GroupingPeriod"_s);
 
-    mDirectMessageMaxUsers->setObjectName(QStringLiteral("mDirectMessageMaxUsers"));
+    mDirectMessageMaxUsers->setObjectName(u"mDirectMessageMaxUsers"_s);
     // Typo in RC => 3 "s"
-    addSpinbox(i18n("Direct Message Maximum Users"), mDirectMessageMaxUsers, QStringLiteral("DirectMesssage_maxUsers"));
+    addSpinbox(i18n("Direct Message Maximum Users"), mDirectMessageMaxUsers, u"DirectMesssage_maxUsers"_s);
 
     auto messageAttachmentsLabel = createBoldLabel(i18n("Message Attachments"));
-    messageAttachmentsLabel->setObjectName(QStringLiteral("messageAttachmentsLabel"));
+    messageAttachmentsLabel->setObjectName(u"messageAttachmentsLabel"_s);
     mMainLayout->addWidget(messageAttachmentsLabel);
 
-    mRemoveEXIFMetadata->setObjectName(QStringLiteral("mRemoveEXIFMetadata"));
+    mRemoveEXIFMetadata->setObjectName(u"mRemoveEXIFMetadata"_s);
     mRemoveEXIFMetadata->setToolTip(i18nc(
         "@info:tooltip",
         "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is not retroactive, so files uploaded while disabled will have EXIF data"));
-    addCheckBox(mRemoveEXIFMetadata, QStringLiteral("Message_Attachments_Strip_Exif"));
+    addCheckBox(mRemoveEXIFMetadata, u"Message_Attachments_Strip_Exif"_s);
 
-    mEnableImageThumbnails->setObjectName(QStringLiteral("mEnableImageThumbnails"));
+    mEnableImageThumbnails->setObjectName(u"mEnableImageThumbnails"_s);
     mEnableImageThumbnails->setToolTip(i18nc(
         "@info:tooltip",
         "Thumbnails will be served instead of the original image to reduce bandwidth usage. Images at original resolution can be downloaded using the icon "
         "next to the attachment's name."));
-    addCheckBox(mEnableImageThumbnails, QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
+    addCheckBox(mEnableImageThumbnails, u"Message_Attachments_Thumbnails_Enabled"_s);
 
-    mThumbnailMaxWidth->setObjectName(QStringLiteral("mThumbnailMaxWidth"));
-    addSpinbox(i18n("Thumbnail's max width (in pixels)"), mThumbnailMaxWidth, QStringLiteral("Message_Attachments_Thumbnails_Width"));
+    mThumbnailMaxWidth->setObjectName(u"mThumbnailMaxWidth"_s);
+    addSpinbox(i18n("Thumbnail's max width (in pixels)"), mThumbnailMaxWidth, u"Message_Attachments_Thumbnails_Width"_s);
 
-    mThumbnailMaxHeight->setObjectName(QStringLiteral("mThumbnailMaxHeight"));
-    addSpinbox(i18n("Thumbnail's max height (in pixels)"), mThumbnailMaxHeight, QStringLiteral("Message_Attachments_Thumbnails_Height"));
+    mThumbnailMaxHeight->setObjectName(u"mThumbnailMaxHeight"_s);
+    addSpinbox(i18n("Thumbnail's max height (in pixels)"), mThumbnailMaxHeight, u"Message_Attachments_Thumbnails_Height"_s);
 
     auto audioMessageLabel = createBoldLabel(i18n("Audio Message"));
-    audioMessageLabel->setObjectName(QStringLiteral("audioMessageLabel"));
+    audioMessageLabel->setObjectName(u"audioMessageLabel"_s);
     mMainLayout->addWidget(audioMessageLabel);
 
-    mAudioRecorderEnabled->setObjectName(QStringLiteral("mAudioRecorderEnabled"));
-    addCheckBox(mAudioRecorderEnabled, QStringLiteral("Message_AudioRecorderEnabled"));
+    mAudioRecorderEnabled->setObjectName(u"mAudioRecorderEnabled"_s);
+    addCheckBox(mAudioRecorderEnabled, u"Message_AudioRecorderEnabled"_s);
 
-    mAudioMessageBitRate->setObjectName(QStringLiteral("mAudioMessageBitRate"));
+    mAudioMessageBitRate->setObjectName(u"mAudioMessageBitRate"_s);
     mAudioMessageBitRate->setMaximum(1000);
-    addSpinbox(i18n("Audio Message Bit Rate"), mAudioMessageBitRate, QStringLiteral("Message_Audio_bitRate"));
+    addSpinbox(i18n("Audio Message Bit Rate"), mAudioMessageBitRate, u"Message_Audio_bitRate"_s);
 
     auto autoTranslateLabel = createBoldLabel(i18n("Auto-Translate"));
-    autoTranslateLabel->setObjectName(QStringLiteral("autoTranslateLabel"));
+    autoTranslateLabel->setObjectName(u"autoTranslateLabel"_s);
     mMainLayout->addWidget(autoTranslateLabel);
 
-    mAutoTranslateEnabled->setObjectName(QStringLiteral("mAutoTranslateEnabled"));
-    addCheckBox(mAutoTranslateEnabled, QStringLiteral("AutoTranslate_Enabled"));
+    mAutoTranslateEnabled->setObjectName(u"mAutoTranslateEnabled"_s);
+    addCheckBox(mAutoTranslateEnabled, u"AutoTranslate_Enabled"_s);
 
-    mAutoTranslateServiceProvider->setObjectName(QStringLiteral("mAutoTranslateServiceProvider"));
+    mAutoTranslateServiceProvider->setObjectName(u"mAutoTranslateServiceProvider"_s);
     const QMap<QString, QString> maps = {
-        {QStringLiteral("google-translate"), i18n("Google")},
-        {QStringLiteral("deepl-translate"), i18n("Deepl")},
-        {QStringLiteral("microsoft-translate"), i18n("Microsoft")},
+        {u"google-translate"_s, i18n("Google")},
+        {u"deepl-translate"_s, i18n("Deepl")},
+        {u"microsoft-translate"_s, i18n("Microsoft")},
     };
-    addComboBox(i18n("Service Provider"), maps, mAutoTranslateServiceProvider, QStringLiteral("AutoTranslate_ServiceProvider"));
+    addComboBox(i18n("Service Provider"), maps, mAutoTranslateServiceProvider, u"AutoTranslate_ServiceProvider"_s);
 
-    mDeeplApiKey->setObjectName(QStringLiteral("mDeeplApiKey"));
-    addLineEdit(i18n("DeepL API Key"), mDeeplApiKey, QStringLiteral("AutoTranslate_DeepLAPIKey"));
+    mDeeplApiKey->setObjectName(u"mDeeplApiKey"_s);
+    addLineEdit(i18n("DeepL API Key"), mDeeplApiKey, u"AutoTranslate_DeepLAPIKey"_s);
 
-    mGoogleApiKey->setObjectName(QStringLiteral("mGoogleApiKey"));
-    addLineEdit(i18n("Google API Key"), mGoogleApiKey, QStringLiteral("AutoTranslate_GoogleAPIKey"));
+    mGoogleApiKey->setObjectName(u"mGoogleApiKey"_s);
+    addLineEdit(i18n("Google API Key"), mGoogleApiKey, u"AutoTranslate_GoogleAPIKey"_s);
 
-    mMicrosoftApiKey->setObjectName(QStringLiteral("mMicrosoftApiKey"));
-    addLineEdit(i18n("Microsoft API Key"), mMicrosoftApiKey, QStringLiteral("AutoTranslate_MicrosoftAPIKey"));
+    mMicrosoftApiKey->setObjectName(u"mMicrosoftApiKey"_s);
+    addLineEdit(i18n("Microsoft API Key"), mMicrosoftApiKey, u"AutoTranslate_MicrosoftAPIKey"_s);
 
-    mApiEmbed->setObjectName(QStringLiteral("mApiEmbed"));
+    mApiEmbed->setObjectName(u"mApiEmbed"_s);
     mApiEmbed->setToolTip(i18nc("@info:tooltip", "Whether embedded link previews are enabled or not when a user posts a link to a website."));
     mMainLayout->addWidget(mApiEmbed);
-    addCheckBox(mApiEmbed, QStringLiteral("API_Embed"));
+    addCheckBox(mApiEmbed, u"API_Embed"_s);
 
-    mEmbedCacheExpirationDays->setObjectName(QStringLiteral("mEmbedCacheExpirationDays"));
-    addSpinbox(i18n("Embed Cache Expiration Days"), mEmbedCacheExpirationDays, QStringLiteral("API_EmbedCacheExpirationDays"));
+    mEmbedCacheExpirationDays->setObjectName(u"mEmbedCacheExpirationDays"_s);
+    addSpinbox(i18n("Embed Cache Expiration Days"), mEmbedCacheExpirationDays, u"API_EmbedCacheExpirationDays"_s);
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -196,7 +196,7 @@ void MessageSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mBlockMessageEditingAfterMinutes, mapSettings, 0);
     initializeWidget(mBlockMessageDeletingAfterMinutes, mapSettings, 0);
     initializeWidget(mMaximumAllowedCharactersPerMessage, mapSettings, 5000);
-    initializeWidget(mSafePort, mapSettings, QStringLiteral("80, 443"));
+    initializeWidget(mSafePort, mapSettings, u"80, 443"_s);
     initializeWidget(mThumbnailMaxHeight, mapSettings, false);
     initializeWidget(mEnableImageThumbnails, mapSettings, true);
     initializeWidget(mThumbnailMaxWidth, mapSettings, 480);
@@ -204,14 +204,14 @@ void MessageSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mAudioRecorderEnabled, mapSettings, true);
     initializeWidget(mAudioMessageBitRate, mapSettings, 32);
     initializeWidget(mAutoTranslateEnabled, mapSettings, false);
-    initializeWidget(mAutoTranslateServiceProvider, mapSettings, QStringLiteral("google-translate"));
+    initializeWidget(mAutoTranslateServiceProvider, mapSettings, u"google-translate"_s);
     initializeWidget(mDeeplApiKey, mapSettings, {});
     initializeWidget(mGoogleApiKey, mapSettings, {});
     initializeWidget(mMicrosoftApiKey, mapSettings, {});
     initializeWidget(mGroupingPeriod, mapSettings, 300);
     initializeWidget(mDirectMessageMaxUsers, mapSettings, 8);
     initializeWidget(mMaximumNumberChainedQuotes, mapSettings, 2);
-    initializeWidget(mMessageErasureType, mapSettings, QStringLiteral("Delete"));
+    initializeWidget(mMessageErasureType, mapSettings, u"Delete"_s);
     initializeWidget(mApiEmbed, mapSettings, true);
     initializeWidget(mEmbedCacheExpirationDays, mapSettings, 30);
 }

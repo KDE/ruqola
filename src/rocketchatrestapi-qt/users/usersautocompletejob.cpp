@@ -64,9 +64,9 @@ QNetworkRequest UsersAutocompleteJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersAutocomplete);
     QUrlQuery queryUrl;
     // TODO add support for exception.
-    // const QString val = QStringLiteral("{\"term\": \"%1\", \"exception\": \"%2\"}").arg(mUsersCompleterInfo.pattern).arg(mUsersCompleterInfo.exception);
-    const QString val = QStringLiteral("{\"term\": \"%1\"}").arg(mUsersCompleterInfo.pattern);
-    queryUrl.addQueryItem(QStringLiteral("selector"), val);
+    // const QString val = u"{\"term\": \"%1\", \"exception\": \"%2\"}"_s.arg(mUsersCompleterInfo.pattern).arg(mUsersCompleterInfo.exception);
+    const QString val = u"{\"term\": \"%1\"}"_s.arg(mUsersCompleterInfo.pattern);
+    queryUrl.addQueryItem(u"selector"_s, val);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

@@ -5,6 +5,8 @@
 */
 
 #include "myaccountpersonalaccesscreatewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QCheckBox>
@@ -17,10 +19,10 @@ MyAccountPersonalAccessCreateWidget::MyAccountPersonalAccessCreateWidget(QWidget
     , mTokenName(new QLineEdit(this))
 {
     auto formLayout = new QFormLayout(this);
-    formLayout->setObjectName(QStringLiteral("formLayout"));
+    formLayout->setObjectName(u"formLayout"_s);
 
-    mBypassTwoFactor->setObjectName(QStringLiteral("mBypassTwoFactor"));
-    mTokenName->setObjectName(QStringLiteral("mTokenName"));
+    mBypassTwoFactor->setObjectName(u"mBypassTwoFactor"_s);
+    mTokenName->setObjectName(u"mTokenName"_s);
     mTokenName->setClearButtonEnabled(true);
 
     KLineEditEventHandler::catchReturnKey(mTokenName);

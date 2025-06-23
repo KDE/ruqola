@@ -5,6 +5,8 @@
 */
 
 #include "spotlightjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "spotlightjob.h"
 #include <QTest>
@@ -32,12 +34,12 @@ void SpotlightJobTest::shouldGenerateRequest()
 {
     SpotlightJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    const QString avatarUserId = QStringLiteral("avat");
+    const QString avatarUserId = u"avat"_s;
     job.setSearchPattern(avatarUserId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/spotlight?query=avat")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/spotlight?query=avat"_s));
 }
 
 #include "moc_spotlightjobtest.cpp"

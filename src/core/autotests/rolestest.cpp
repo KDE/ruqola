@@ -57,7 +57,7 @@ void RolesTest::shouldLoadRoles_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("rolesCount");
 
-    QTest::addRow("roles1") << QStringLiteral("roles1") << 3;
+    QTest::addRow("roles1") << u"roles1"_s << 3;
 }
 
 void RolesTest::shouldLoadRoles()

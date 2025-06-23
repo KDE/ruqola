@@ -5,6 +5,8 @@
 */
 
 #include "listoauthappsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/listoauthappsjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -29,7 +31,7 @@ void ListOauthAppsJobTest::shouldGenerateRequest()
     ListOauthAppsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.list")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/oauth-apps.list"_s));
 }
 
 #include "moc_listoauthappsjobtest.cpp"

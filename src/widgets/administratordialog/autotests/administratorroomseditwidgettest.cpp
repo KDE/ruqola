@@ -5,6 +5,8 @@
 */
 
 #include "administratorroomseditwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/rooms/administratorroomseditwidget.h"
 #include "dialogs/messagetexteditor.h"
 #include "dialogs/roomavatarwidget.h"
@@ -23,57 +25,57 @@ AdministratorRoomsEditWidgetTest::AdministratorRoomsEditWidgetTest(QObject *pare
 void AdministratorRoomsEditWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorRoomsEditWidget w;
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mLineEdit"));
+    auto mLineEdit = w.findChild<QLineEdit *>(u"mLineEdit"_s);
     QVERIFY(mLineEdit);
     QVERIFY(mLineEdit->text().isEmpty());
 
-    auto mOwnerName = w.findChild<QLabel *>(QStringLiteral("mOwnerName"));
+    auto mOwnerName = w.findChild<QLabel *>(u"mOwnerName"_s);
     QVERIFY(mOwnerName);
     QVERIFY(mOwnerName->text().isEmpty());
 
-    auto mDefaultCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mDefaultCheckBox"));
+    auto mDefaultCheckBox = w.findChild<QCheckBox *>(u"mDefaultCheckBox"_s);
     QVERIFY(mDefaultCheckBox);
     QVERIFY(!mDefaultCheckBox->isChecked());
     QVERIFY(!mDefaultCheckBox->text().isEmpty());
 
-    auto mFavoriteCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mFavoriteCheckBox"));
+    auto mFavoriteCheckBox = w.findChild<QCheckBox *>(u"mFavoriteCheckBox"_s);
     QVERIFY(mFavoriteCheckBox);
     QVERIFY(!mFavoriteCheckBox->isChecked());
     QVERIFY(!mFavoriteCheckBox->text().isEmpty());
 
-    auto mFeaturedCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mFeaturedCheckBox"));
+    auto mFeaturedCheckBox = w.findChild<QCheckBox *>(u"mFeaturedCheckBox"_s);
     QVERIFY(mFeaturedCheckBox);
     QVERIFY(!mFeaturedCheckBox->isChecked());
     QVERIFY(!mFeaturedCheckBox->text().isEmpty());
 
-    auto mPrivateCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mPrivateCheckBox"));
+    auto mPrivateCheckBox = w.findChild<QCheckBox *>(u"mPrivateCheckBox"_s);
     QVERIFY(mPrivateCheckBox);
     QVERIFY(!mPrivateCheckBox->isChecked());
     QVERIFY(!mPrivateCheckBox->text().isEmpty());
 
-    auto mReadOnlyCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mReadOnlyCheckBox"));
+    auto mReadOnlyCheckBox = w.findChild<QCheckBox *>(u"mReadOnlyCheckBox"_s);
     QVERIFY(mReadOnlyCheckBox);
     QVERIFY(!mReadOnlyCheckBox->isChecked());
     QVERIFY(!mReadOnlyCheckBox->text().isEmpty());
 
-    auto mArchivedCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mArchivedCheckBox"));
+    auto mArchivedCheckBox = w.findChild<QCheckBox *>(u"mArchivedCheckBox"_s);
     QVERIFY(mArchivedCheckBox);
     QVERIFY(!mArchivedCheckBox->isChecked());
     QVERIFY(!mArchivedCheckBox->text().isEmpty());
 
-    auto mComment = w.findChild<MessageTextEditor *>(QStringLiteral("mComment"));
+    auto mComment = w.findChild<MessageTextEditor *>(u"mComment"_s);
     QVERIFY(mComment);
 
-    auto mAnnouncement = w.findChild<MessageTextEditor *>(QStringLiteral("mAnnouncement"));
+    auto mAnnouncement = w.findChild<MessageTextEditor *>(u"mAnnouncement"_s);
     QVERIFY(mAnnouncement);
 
-    auto mDescription = w.findChild<MessageTextEditor *>(QStringLiteral("mDescription"));
+    auto mDescription = w.findChild<MessageTextEditor *>(u"mDescription"_s);
     QVERIFY(mDescription);
 
-    auto mRoomAvatarWidget = w.findChild<RoomAvatarWidget *>(QStringLiteral("mRoomAvatarWidget"));
+    auto mRoomAvatarWidget = w.findChild<RoomAvatarWidget *>(u"mRoomAvatarWidget"_s);
     QVERIFY(mRoomAvatarWidget);
 }
 

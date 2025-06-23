@@ -5,6 +5,8 @@
 */
 
 #include "ignoreuserjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/ignoreuserjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -35,7 +37,7 @@ void IgnoreUserJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     // TODO verify
     // TODO add ignore == false
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.ignoreUser?rid=foo&userId=bla&ignore=true")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.ignoreUser?rid=foo&userId=bla&ignore=true"_s));
 }
 
 #include "moc_ignoreuserjobtest.cpp"

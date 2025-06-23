@@ -5,6 +5,8 @@
 */
 
 #include "emojimanagertest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "emoticons/customemoji.h"
 #include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
@@ -33,7 +35,7 @@ void EmojiManagerTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("number");
-    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3827;
+    QTest::addRow("emojiparent") << u"emojiparent"_s << 3827;
 }
 
 void EmojiManagerTest::shouldParseEmoji()
@@ -57,48 +59,48 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
     {
         QList<CustomEmoji> emojiList;
         CustomEmoji val;
-        val.setName(QStringLiteral("kdab"));
+        val.setName(u"kdab"_s);
         val.setIdentifier("RyBauhQqnoE5WeJvZ"_ba);
-        val.setExtension(QStringLiteral("png"));
-        val.setEmojiIdentifier(QStringLiteral(":kdab:"));
+        val.setExtension(u"png"_s);
+        val.setEmojiIdentifier(u":kdab:"_s);
         val.setUpdatedAt(1529303015003);
         emojiList.append(std::move(val));
 
         CustomEmoji val1;
-        val1.setName(QStringLiteral("vader"));
+        val1.setName(u"vader"_s);
         val1.setIdentifier("fAiQmJnJPAaEFmps6"_ba);
-        val1.setExtension(QStringLiteral("png"));
-        val1.setEmojiIdentifier(QStringLiteral(":vader:"));
+        val1.setExtension(u"png"_s);
+        val1.setEmojiIdentifier(u":vader:"_s);
         val1.setUpdatedAt(1560497261506);
-        val1.setAliases({QStringLiteral(":darth:")});
+        val1.setAliases({u":darth:"_s});
         emojiList.append(std::move(val1));
 
         QList<CustomEmoji> emojiListAfterDeleting;
         emojiListAfterDeleting.append(val1);
 
-        QTest::addRow("delete1") << QStringLiteral("emojiparent2") << 3822 << QStringLiteral("emojicustomdelete1") << emojiList << emojiListAfterDeleting;
+        QTest::addRow("delete1") << u"emojiparent2"_s << 3822 << u"emojicustomdelete1"_s << emojiList << emojiListAfterDeleting;
     }
     {
         QList<CustomEmoji> emojiList;
         CustomEmoji val;
-        val.setName(QStringLiteral("kdab"));
+        val.setName(u"kdab"_s);
         val.setIdentifier("RyBauhQqnoE5WeJvZ"_ba);
-        val.setExtension(QStringLiteral("png"));
-        val.setEmojiIdentifier(QStringLiteral(":kdab:"));
+        val.setExtension(u"png"_s);
+        val.setEmojiIdentifier(u":kdab:"_s);
         val.setUpdatedAt(1529303015003);
 
         CustomEmoji val1;
-        val1.setName(QStringLiteral("vader"));
+        val1.setName(u"vader"_s);
         val1.setIdentifier("fAiQmJnJPAaEFmps6"_ba);
-        val1.setExtension(QStringLiteral("png"));
-        val1.setEmojiIdentifier(QStringLiteral(":vader:"));
+        val1.setExtension(u"png"_s);
+        val1.setEmojiIdentifier(u":vader:"_s);
         val1.setUpdatedAt(1560497261506);
-        val1.setAliases({QStringLiteral(":darth:")});
+        val1.setAliases({u":darth:"_s});
 
         emojiList.append(std::move(val));
         emojiList.append(std::move(val1));
         // We can't delete emoji which is not in liste.
-        QTest::addRow("delete2") << QStringLiteral("emojiparent2") << 3822 << QStringLiteral("emojicustomdelete2") << emojiList << emojiList;
+        QTest::addRow("delete2") << u"emojiparent2"_s << 3822 << u"emojicustomdelete2"_s << emojiList << emojiList;
     }
 }
 
@@ -134,33 +136,33 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
     {
         QList<CustomEmoji> emojiList;
         CustomEmoji val;
-        val.setName(QStringLiteral("kdab"));
+        val.setName(u"kdab"_s);
         val.setIdentifier("RyBauhQqnoE5WeJvZ"_ba);
-        val.setExtension(QStringLiteral("png"));
-        val.setEmojiIdentifier(QStringLiteral(":kdab:"));
+        val.setExtension(u"png"_s);
+        val.setEmojiIdentifier(u":kdab:"_s);
         val.setUpdatedAt(1529303015003);
 
         CustomEmoji val1;
-        val1.setName(QStringLiteral("vader"));
+        val1.setName(u"vader"_s);
         val1.setIdentifier("fAiQmJnJPAaEFmps6"_ba);
-        val1.setExtension(QStringLiteral("png"));
-        val1.setEmojiIdentifier(QStringLiteral(":vader:"));
+        val1.setExtension(u"png"_s);
+        val1.setEmojiIdentifier(u":vader:"_s);
         val1.setUpdatedAt(1560497261506);
-        val1.setAliases({QStringLiteral(":darth:")});
+        val1.setAliases({u":darth:"_s});
 
         emojiList.append(std::move(val));
         emojiList.append(std::move(val1));
 
         QList<CustomEmoji> emojiListAfterDeleting = emojiList;
         CustomEmoji val2;
-        val2.setName(QStringLiteral("ruqola"));
+        val2.setName(u"ruqola"_s);
         val2.setIdentifier("HdN28k4PQ6J9xLkZ8"_ba);
-        val2.setExtension(QStringLiteral("png"));
-        val2.setEmojiIdentifier(QStringLiteral(":ruqola:"));
+        val2.setExtension(u"png"_s);
+        val2.setEmojiIdentifier(u":ruqola:"_s);
         val2.setUpdatedAt(1631885946222);
-        val2.setAliases({QStringLiteral(":roo:")});
+        val2.setAliases({u":roo:"_s});
         emojiList.append(std::move(val2));
-        QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3822 << QStringLiteral("addemojicustom1") << emojiListAfterDeleting << emojiList;
+        QTest::addRow("emojiparent2") << u"emojiparent2"_s << 3822 << u"addemojicustom1"_s << emojiListAfterDeleting << emojiList;
     }
 }
 
@@ -201,34 +203,34 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
     {
         QList<CustomEmoji> emojiList;
         CustomEmoji val;
-        val.setName(QStringLiteral("kdab"));
+        val.setName(u"kdab"_s);
         val.setIdentifier("RyBauhQqnoE5WeJvZ"_ba);
-        val.setExtension(QStringLiteral("png"));
-        val.setEmojiIdentifier(QStringLiteral(":kdab:"));
+        val.setExtension(u"png"_s);
+        val.setEmojiIdentifier(u":kdab:"_s);
         val.setUpdatedAt(1529303015003);
 
         CustomEmoji val1;
-        val1.setName(QStringLiteral("vader"));
+        val1.setName(u"vader"_s);
         val1.setIdentifier("fAiQmJnJPAaEFmps6"_ba);
-        val1.setExtension(QStringLiteral("png"));
-        val1.setEmojiIdentifier(QStringLiteral(":vader:"));
+        val1.setExtension(u"png"_s);
+        val1.setEmojiIdentifier(u":vader:"_s);
         val1.setUpdatedAt(1560497261506);
-        val1.setAliases({QStringLiteral(":darth:")});
+        val1.setAliases({u":darth:"_s});
 
         emojiList.append(std::move(val));
         emojiList.append(std::move(val1));
 
         QList<CustomEmoji> emojiListAfterDeleting;
         CustomEmoji val2;
-        val2.setName(QStringLiteral("ruqola"));
+        val2.setName(u"ruqola"_s);
         val2.setIdentifier("RyBauhQqnoE5WeJvZ"_ba);
-        val2.setExtension(QStringLiteral("png"));
-        val2.setEmojiIdentifier(QStringLiteral(":ruqola:"));
+        val2.setExtension(u"png"_s);
+        val2.setEmojiIdentifier(u":ruqola:"_s);
         val2.setUpdatedAt(1631885946222);
-        val2.setAliases({QStringLiteral("rooss")});
+        val2.setAliases({u"rooss"_s});
         emojiListAfterDeleting.append(std::move(val));
         emojiListAfterDeleting.append(std::move(val2));
-        QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3822 << QStringLiteral("updateemojicustom1") << emojiList << emojiList;
+        QTest::addRow("emojiparent2") << u"emojiparent2"_s << 3822 << u"updateemojicustom1"_s << emojiList << emojiList;
     }
 }
 
@@ -264,29 +266,29 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
     grinning += QChar(0xd800 + 61);
     grinning += QChar(0xDC00 + 512);
     // A basic emoji that was already there in the initial emoji.json from fairchat
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":grinning:")).unicode(), grinning);
+    QCOMPARE(manager.unicodeEmoticonForEmoji(u":grinning:"_s).unicode(), grinning);
     // The one that made me use https://raw.githubusercontent.com/joypixels/emoji-toolkit/master/emoji.json instead
-    QVERIFY(manager.unicodeEmoticonForEmoji(QStringLiteral(":zany_face:")).isValid());
+    QVERIFY(manager.unicodeEmoticonForEmoji(u":zany_face:"_s).isValid());
     // A "shortname alternate"
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":water_polo_tone5:")).key(), QStringLiteral("1f93d-1f3ff"));
+    QCOMPARE(manager.unicodeEmoticonForEmoji(u":water_polo_tone5:"_s).key(), u"1f93d-1f3ff"_s);
     // One with multiple values below 0x10000, to catch += vs = bug.
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":woman_climbing_tone4:")).unicode().length(), 7);
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":man_health_worker_tone1:")).unicode().length(), 7);
+    QCOMPARE(manager.unicodeEmoticonForEmoji(u":woman_climbing_tone4:"_s).unicode().length(), 7);
+    QCOMPARE(manager.unicodeEmoticonForEmoji(u":man_health_worker_tone1:"_s).unicode().length(), 7);
 
     // a smiley with shortname alternates and ascii versions
     QString slightSmile;
     slightSmile += QChar(0xD83D);
     slightSmile += QChar(0xDE42);
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":slight_smile:")).unicode(), slightSmile);
+    QCOMPARE(manager.unicodeEmoticonForEmoji(u":slight_smile:"_s).unicode(), slightSmile);
     // alternate
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":slightly_smiling_face:")).unicode(), slightSmile);
+    QCOMPARE(manager.unicodeEmoticonForEmoji(u":slightly_smiling_face:"_s).unicode(), slightSmile);
     // ascii
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":)")).unicode(), slightSmile);
-    QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":-)")).unicode(), slightSmile);
+    QCOMPARE(manager.unicodeEmoticonForEmoji(u":)"_s).unicode(), slightSmile);
+    QCOMPARE(manager.unicodeEmoticonForEmoji(u":-)"_s).unicode(), slightSmile);
 
     QCOMPARE(manager.categories().count(), 9);
-    QCOMPARE(manager.categories().at(0).category(), QStringLiteral("people"));
-    QCOMPARE(manager.emojisForCategory(QStringLiteral("people")).count(), 2158);
+    QCOMPARE(manager.categories().at(0).category(), u"people"_s);
+    QCOMPARE(manager.emojisForCategory(u"people"_s).count(), 2158);
 }
 
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
@@ -301,18 +303,18 @@ void EmojiManagerTest::shouldOrderUnicodeEmojis()
         };
     };
     // Check what's the first emoji in the category "symbols"
-    auto it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("symbols")));
+    auto it = std::find_if(list.begin(), list.end(), hasCategory(u"symbols"_s));
     QVERIFY(it != list.end());
     const TextEmoticonsCore::UnicodeEmoticon firstSymbol = *it;
     QCOMPARE(firstSymbol.order(), 3207);
-    QCOMPARE(firstSymbol.category(), QStringLiteral("symbols"));
-    QCOMPARE(firstSymbol.identifier(), QStringLiteral(":pink_heart:"));
+    QCOMPARE(firstSymbol.category(), u"symbols"_s);
+    QCOMPARE(firstSymbol.identifier(), u":pink_heart:"_s);
 
     // Check what's the first emoji in the category "regional"
-    it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("regional")));
+    it = std::find_if(list.begin(), list.end(), hasCategory(u"regional"_s));
     QVERIFY(it != list.end());
     const TextEmoticonsCore::UnicodeEmoticon firstRegional = *it;
-    QCOMPARE(firstRegional.identifier(), QStringLiteral(":regional_indicator_z:")); // letters are reversed, weird
+    QCOMPARE(firstRegional.identifier(), u":regional_indicator_z:"_s); // letters are reversed, weird
 }
 
 void EmojiManagerTest::shouldGenerateHtml()
@@ -327,24 +329,24 @@ void EmojiManagerTest::shouldGenerateHtml()
     EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
     // No serverUrl set.
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
+    QCOMPARE(manager.replaceEmojiIdentifier(u":foo:"_s), u":foo:"_s);
 
-    const QString serverUrl = QStringLiteral("www.kde.org");
+    const QString serverUrl = u"www.kde.org"_s;
     manager.setServerUrl(serverUrl);
 
     // :foo: doesn't exist
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
-    QCOMPARE(manager.customEmojiFileName(QStringLiteral(":foo:")), QString());
+    QCOMPARE(manager.replaceEmojiIdentifier(u":foo:"_s), u":foo:"_s);
+    QCOMPARE(manager.customEmojiFileName(u":foo:"_s), QString());
 
     //    // Existing emoji
-    //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22'
-    //    src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>")); QCOMPARE(manager.customEmojiFileName(QStringLiteral(":vader:")),
-    //    QStringLiteral("/emoji-custom/vader.png"));
+    //    QCOMPARE(manager.replaceEmojiIdentifier(u":vader:"_s), QStringLiteral("<img height='22' width='22'
+    //    src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>")); QCOMPARE(manager.customEmojiFileName(u":vader:"_s),
+    //    u"/emoji-custom/vader.png"_s);
 
     //    // Alias
-    //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22'
-    //    src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>")); QCOMPARE(manager.customEmojiFileName(QStringLiteral(":darth:")),
-    //    QStringLiteral("/emoji-custom/vader.png"));
+    //    QCOMPARE(manager.replaceEmojiIdentifier(u":darth:"_s), QStringLiteral("<img height='22' width='22'
+    //    src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/>")); QCOMPARE(manager.customEmojiFileName(u":darth:"_s),
+    //    u"/emoji-custom/vader.png"_s);
 }
 
 void EmojiManagerTest::shouldChangeServerUrl()
@@ -358,17 +360,17 @@ void EmojiManagerTest::shouldChangeServerUrl()
     //    const QJsonObject obj = doc.object();
     //    EmojiManager manager(nullptr);
     //    manager.loadCustomEmoji(obj);
-    //    QString serverUrl = QStringLiteral("www.kde.org");
+    //    QString serverUrl = u"www.kde.org"_s;
     //    manager.setServerUrl(serverUrl);
 
     //    //It exists
-    //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'
+    //    QCOMPARE(manager.replaceEmojiIdentifier(u":vader:"_s), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'
     //    title=':vader:'/>").arg(serverUrl));
 
     //    //Change server url => clear cache
-    //    serverUrl = QStringLiteral("www.bla.org");
+    //    serverUrl = u"www.bla.org"_s;
     //    manager.setServerUrl(serverUrl);
-    //    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'
+    //    QCOMPARE(manager.replaceEmojiIdentifier(u":vader:"_s), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'
     //    title=':vader:'/>").arg(serverUrl));
 }
 
@@ -419,7 +421,7 @@ void EmojiManagerTest::replaceAsciiEmoji()
     RocketChatAccount account;
     account.ownUserPreferences().setConvertAsciiEmoji(true);
     EmojiManager manager(&account);
-    manager.setServerUrl(QStringLiteral("blah blah"));
+    manager.setServerUrl(u"blah blah"_s);
     manager.replaceEmojis(&input);
 
     QCOMPARE(input != original, replaced);

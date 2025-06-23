@@ -5,6 +5,8 @@
 */
 
 #include "myaccount2e2configurewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/passwordconfirmwidget.h"
 #include "myaccount/myaccount2e2configurewidget.h"
 #include <QLabel>
@@ -21,27 +23,27 @@ MyAccount2e2ConfigureWidgetTest::MyAccount2e2ConfigureWidgetTest(QObject *parent
 void MyAccount2e2ConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccount2e2ConfigureWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto changePasswordLabel = w.findChild<QLabel *>(QStringLiteral("removePasswordlabel"));
+    auto changePasswordLabel = w.findChild<QLabel *>(u"removePasswordlabel"_s);
     QVERIFY(changePasswordLabel);
     QVERIFY(!changePasswordLabel->text().isEmpty());
     QVERIFY(changePasswordLabel->wordWrap());
 
-    auto mResetE2eKey = w.findChild<QPushButton *>(QStringLiteral("mResetE2eKey"));
+    auto mResetE2eKey = w.findChild<QPushButton *>(u"mResetE2eKey"_s);
     QVERIFY(mResetE2eKey);
     QVERIFY(!mResetE2eKey->text().isEmpty());
 
-    auto removePasswordlabel = w.findChild<QLabel *>(QStringLiteral("removePasswordlabel"));
+    auto removePasswordlabel = w.findChild<QLabel *>(u"removePasswordlabel"_s);
     QVERIFY(removePasswordlabel);
     QVERIFY(!removePasswordlabel->text().isEmpty());
     QVERIFY(removePasswordlabel->wordWrap());
 
-    auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
+    auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(u"mPasswordConfirmWidget"_s);
     QVERIFY(mPasswordConfirmWidget);
 
-    auto mModifyE2ePassword = w.findChild<QPushButton *>(QStringLiteral("mModifyE2ePassword"));
+    auto mModifyE2ePassword = w.findChild<QPushButton *>(u"mModifyE2ePassword"_s);
     QVERIFY(mModifyE2ePassword);
     QVERIFY(!mModifyE2ePassword->text().isEmpty());
 }

@@ -5,6 +5,8 @@
 */
 
 #include "authenticationloginwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "misc/passwordlineeditwidget.h"
 #include "registeruser/registeruserdialog.h"
@@ -25,29 +27,29 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     , mRegisterAccount(new QPushButton(i18nc("@action:button", "Register Account"), this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mServerUrl->setObjectName(u"mServerUrl"_s);
     mServerUrl->setReadOnly(true);
     mainLayout->addRow(i18n("Server URL:"), mServerUrl);
 
-    mAccountName->setObjectName(QStringLiteral("mAccountName"));
+    mAccountName->setObjectName(u"mAccountName"_s);
     mAccountName->setClearButtonEnabled(true);
     mAccountName->setPlaceholderText(i18n("My Account"));
     KLineEditEventHandler::catchReturnKey(mAccountName);
     mainLayout->addRow(i18n("Account name:"), mAccountName);
 
-    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mUserName->setObjectName(u"mUserName"_s);
     mUserName->setClearButtonEnabled(true);
     mUserName->setPlaceholderText(i18nc("@info:placeholder", "Username or email"));
     KLineEditEventHandler::catchReturnKey(mUserName);
     mainLayout->addRow(i18n("Username or email:"), mUserName);
 
-    mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEditWidget->setObjectName(u"mPasswordLineEdit"_s);
     mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
 
-    mRegisterAccount->setObjectName(QStringLiteral("mRegisterAccount"));
+    mRegisterAccount->setObjectName(u"mRegisterAccount"_s);
     mainLayout->addRow(QString(), mRegisterAccount);
     connect(mRegisterAccount, &QPushButton::clicked, this, &AuthenticationLoginWidget::slotRegisterAccount);
 
@@ -112,7 +114,7 @@ AccountManager::AccountManagerInfo AuthenticationLoginWidget::accountInfo()
     }
     mAccountInfo.displayName = accountName;
     mAccountInfo.serverUrl = mServerUrl->text().trimmed();
-    if (mAccountInfo.serverUrl.endsWith(QLatin1Char('/'))) {
+    if (mAccountInfo.serverUrl.endsWith(u'/')) {
         mAccountInfo.serverUrl.chop(1);
     }
     mAccountInfo.userName = mUserName->text().trimmed();

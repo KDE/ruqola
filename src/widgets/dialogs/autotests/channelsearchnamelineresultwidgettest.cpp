@@ -5,6 +5,8 @@
 */
 
 #include "channelsearchnamelineresultwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/channelsearchnamelineresultwidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
@@ -20,15 +22,15 @@ ChannelSearchNameLineResultWidgetTest::ChannelSearchNameLineResultWidgetTest(QOb
 void ChannelSearchNameLineResultWidgetTest::shouldHaveDefaultValues()
 {
     ChannelSearchNameLineResultWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
+    auto mLabel = w.findChild<QLabel *>(u"mLabel"_s);
     QVERIFY(mLabel);
     QVERIFY(mLabel->text().isEmpty());
 
-    auto mClearToolButton = w.findChild<QToolButton *>(QStringLiteral("mClearToolButton"));
+    auto mClearToolButton = w.findChild<QToolButton *>(u"mClearToolButton"_s);
     QVERIFY(mClearToolButton);
     QVERIFY(!mClearToolButton->toolTip().isEmpty());
 }

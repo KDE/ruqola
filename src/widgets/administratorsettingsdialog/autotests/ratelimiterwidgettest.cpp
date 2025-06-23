@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "ratelimiterwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "settingswidgetshelper.h"
 #include <QLabel>
@@ -18,101 +20,99 @@ void RateLimiterWidgetTest::shouldHaveDefaultValues()
 {
     RateLimiterWidget w(nullptr);
 
-    auto apiRateLimiterLabel = w.findChild<QLabel *>(QStringLiteral("apiRateLimiterLabel"));
+    auto apiRateLimiterLabel = w.findChild<QLabel *>(u"apiRateLimiterLabel"_s);
     QVERIFY(apiRateLimiterLabel);
     QVERIFY(!apiRateLimiterLabel->text().isEmpty());
 
-    auto mEnableRateLimiter = w.findChild<QCheckBox *>(QStringLiteral("mEnableRateLimiter"));
+    auto mEnableRateLimiter = w.findChild<QCheckBox *>(u"mEnableRateLimiter"_s);
     QVERIFY(mEnableRateLimiter);
     QVERIFY(!mEnableRateLimiter->isChecked());
     QVERIFY(!mEnableRateLimiter->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableRateLimiter), QStringLiteral("API_Enable_Rate_Limiter"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableRateLimiter), u"API_Enable_Rate_Limiter"_s);
 
-    auto ddpRateLimiterLabel = w.findChild<QLabel *>(QStringLiteral("ddpRateLimiterLabel"));
+    auto ddpRateLimiterLabel = w.findChild<QLabel *>(u"ddpRateLimiterLabel"_s);
     QVERIFY(ddpRateLimiterLabel);
     QVERIFY(!ddpRateLimiterLabel->text().isEmpty());
 
-    auto mLimitByIP = w.findChild<QCheckBox *>(QStringLiteral("mLimitByIP"));
+    auto mLimitByIP = w.findChild<QCheckBox *>(u"mLimitByIP"_s);
     QVERIFY(mLimitByIP);
     QVERIFY(!mLimitByIP->isChecked());
     QVERIFY(!mLimitByIP->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByIP), QStringLiteral("DDP_Rate_Limit_IP_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByIP), u"DDP_Rate_Limit_IP_Enabled"_s);
 
-    auto mLimitByUser = w.findChild<QCheckBox *>(QStringLiteral("mLimitByUser"));
+    auto mLimitByUser = w.findChild<QCheckBox *>(u"mLimitByUser"_s);
     QVERIFY(mLimitByUser);
     QVERIFY(!mLimitByUser->isChecked());
     QVERIFY(!mLimitByUser->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByUser), QStringLiteral("DDP_Rate_Limit_User_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByUser), u"DDP_Rate_Limit_User_Enabled"_s);
 
-    auto mLimitByConnection = w.findChild<QCheckBox *>(QStringLiteral("mLimitByConnection"));
+    auto mLimitByConnection = w.findChild<QCheckBox *>(u"mLimitByConnection"_s);
     QVERIFY(mLimitByConnection);
     QVERIFY(!mLimitByConnection->isChecked());
     QVERIFY(!mLimitByConnection->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByConnection), QStringLiteral("DDP_Rate_Limit_Connection_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByConnection), u"DDP_Rate_Limit_Connection_Enabled"_s);
 
-    auto mLimiteByIpRequestsAllowed = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByIpRequestsAllowed"));
+    auto mLimiteByIpRequestsAllowed = w.findChild<QSpinBox *>(u"mLimiteByIpRequestsAllowed"_s);
     QVERIFY(mLimiteByIpRequestsAllowed);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByIpRequestsAllowed), QStringLiteral("DDP_Rate_Limit_IP_Requests_Allowed"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_IP_Requests_Allowed"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByIpRequestsAllowed), u"DDP_Rate_Limit_IP_Requests_Allowed"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_IP_Requests_Allowed"_s);
 
-    auto mLimiteByIpIntervalTime = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByIpIntervalTime"));
+    auto mLimiteByIpIntervalTime = w.findChild<QSpinBox *>(u"mLimiteByIpIntervalTime"_s);
     QVERIFY(mLimiteByIpIntervalTime);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByIpIntervalTime), QStringLiteral("DDP_Rate_Limit_IP_Interval_Time"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_IP_Interval_Time"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByIpIntervalTime), u"DDP_Rate_Limit_IP_Interval_Time"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_IP_Interval_Time"_s);
 
-    auto mLimiteByUserRequestsAllowed = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByUserRequestsAllowed"));
+    auto mLimiteByUserRequestsAllowed = w.findChild<QSpinBox *>(u"mLimiteByUserRequestsAllowed"_s);
     QVERIFY(mLimiteByUserRequestsAllowed);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByUserRequestsAllowed), QStringLiteral("DDP_Rate_Limit_User_Requests_Allowed"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_User_Requests_Allowed"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByUserRequestsAllowed), u"DDP_Rate_Limit_User_Requests_Allowed"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_User_Requests_Allowed"_s);
 
-    auto mLimiteByUserIntervalTime = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByUserIntervalTime"));
+    auto mLimiteByUserIntervalTime = w.findChild<QSpinBox *>(u"mLimiteByUserIntervalTime"_s);
     QVERIFY(mLimiteByUserIntervalTime);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByUserIntervalTime), QStringLiteral("DDP_Rate_Limit_User_Interval_Time"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_User_Interval_Time"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByUserIntervalTime), u"DDP_Rate_Limit_User_Interval_Time"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_User_Interval_Time"_s);
 
-    auto mLimiteByConnectionRequestsAllowed = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByConnectionRequestsAllowed"));
+    auto mLimiteByConnectionRequestsAllowed = w.findChild<QSpinBox *>(u"mLimiteByConnectionRequestsAllowed"_s);
     QVERIFY(mLimiteByConnectionRequestsAllowed);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByConnectionRequestsAllowed), QStringLiteral("DDP_Rate_Limit_Connection_Requests_Allowed"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_Connection_Requests_Allowed"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByConnectionRequestsAllowed), u"DDP_Rate_Limit_Connection_Requests_Allowed"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_Connection_Requests_Allowed"_s);
 
-    auto mLimiteByConnectionIntervalTime = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByConnectionIntervalTime"));
+    auto mLimiteByConnectionIntervalTime = w.findChild<QSpinBox *>(u"mLimiteByConnectionIntervalTime"_s);
     QVERIFY(mLimiteByConnectionIntervalTime);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByConnectionIntervalTime), QStringLiteral("DDP_Rate_Limit_Connection_Interval_Time"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_Connection_Interval_Time"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByConnectionIntervalTime), u"DDP_Rate_Limit_Connection_Interval_Time"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_Connection_Interval_Time"_s);
 
-    auto mLimitByUserPerMethod = w.findChild<QCheckBox *>(QStringLiteral("mLimitByUserPerMethod"));
+    auto mLimitByUserPerMethod = w.findChild<QCheckBox *>(u"mLimitByUserPerMethod"_s);
     QVERIFY(mLimitByUserPerMethod);
     QVERIFY(!mLimitByUserPerMethod->isChecked());
     QVERIFY(!mLimitByUserPerMethod->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByUserPerMethod), QStringLiteral("DDP_Rate_Limit_User_By_Method_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByUserPerMethod), u"DDP_Rate_Limit_User_By_Method_Enabled"_s);
 
-    auto mLimiteByUserRequestsAllowedPerMethod = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByUserRequestsAllowedPerMethod"));
+    auto mLimiteByUserRequestsAllowedPerMethod = w.findChild<QSpinBox *>(u"mLimiteByUserRequestsAllowedPerMethod"_s);
     QVERIFY(mLimiteByUserRequestsAllowedPerMethod);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByUserRequestsAllowedPerMethod), QStringLiteral("DDP_Rate_Limit_User_By_Method_Requests_Allowed"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_User_By_Method_Requests_Allowed"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByUserRequestsAllowedPerMethod), u"DDP_Rate_Limit_User_By_Method_Requests_Allowed"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_User_By_Method_Requests_Allowed"_s);
 
-    auto mLimiteByUserIntervalTimePerMethod = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByUserIntervalTimePerMethod"));
+    auto mLimiteByUserIntervalTimePerMethod = w.findChild<QSpinBox *>(u"mLimiteByUserIntervalTimePerMethod"_s);
     QVERIFY(mLimiteByUserIntervalTimePerMethod);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByUserIntervalTimePerMethod), QStringLiteral("DDP_Rate_Limit_User_By_Method_Interval_Time"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_User_By_Method_Interval_Time"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByUserIntervalTimePerMethod), u"DDP_Rate_Limit_User_By_Method_Interval_Time"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_User_By_Method_Interval_Time"_s);
 
-    auto mLimitByConnectionPerMethod = w.findChild<QCheckBox *>(QStringLiteral("mLimitByConnectionPerMethod"));
+    auto mLimitByConnectionPerMethod = w.findChild<QCheckBox *>(u"mLimitByConnectionPerMethod"_s);
     QVERIFY(mLimitByConnectionPerMethod);
     QVERIFY(!mLimitByConnectionPerMethod->isChecked());
     QVERIFY(!mLimitByConnectionPerMethod->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByConnectionPerMethod), QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByConnectionPerMethod), u"DDP_Rate_Limit_Connection_By_Method_Enabled"_s);
 
-    auto mLimiteByConnectionRequestsAllowedPerMethod = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByConnectionRequestsAllowedPerMethod"));
+    auto mLimiteByConnectionRequestsAllowedPerMethod = w.findChild<QSpinBox *>(u"mLimiteByConnectionRequestsAllowedPerMethod"_s);
     QVERIFY(mLimiteByConnectionRequestsAllowedPerMethod);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByConnectionRequestsAllowedPerMethod),
-             QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByConnectionRequestsAllowedPerMethod), u"DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"_s);
 
-    auto mLimiteByConnectionIntervalTimePerMethod = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByConnectionIntervalTimePerMethod"));
+    auto mLimiteByConnectionIntervalTimePerMethod = w.findChild<QSpinBox *>(u"mLimiteByConnectionIntervalTimePerMethod"_s);
     QVERIFY(mLimiteByConnectionIntervalTimePerMethod);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByConnectionIntervalTimePerMethod),
-             QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Interval_Time"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Interval_Time"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByConnectionIntervalTimePerMethod), u"DDP_Rate_Limit_Connection_By_Method_Interval_Time"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"DDP_Rate_Limit_Connection_By_Method_Interval_Time"_s);
 }
 
 #include "moc_ratelimiterwidgettest.cpp"

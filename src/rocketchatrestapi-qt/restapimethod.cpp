@@ -5,6 +5,8 @@
 */
 
 #include "restapimethod.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchatqtrestapi_debug.h"
 using namespace RocketChatRestApi;
 RestApiMethod::RestApiMethod() = default;
@@ -29,7 +31,7 @@ QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, RestApiUtil::R
     QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::restApiUrlExtensionType(restApiUrlExtensionType) + restUrl;
     if (!urlExtension.isEmpty()) {
         if (!restUrl.isEmpty()) {
-            urlStr += QLatin1Char('/');
+            urlStr += u'/';
         }
         urlStr += urlExtension;
     }

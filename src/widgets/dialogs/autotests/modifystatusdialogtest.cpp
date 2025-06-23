@@ -5,6 +5,8 @@
 */
 
 #include "modifystatusdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/modifystatuswidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void ModifyStatusDialogTest::shouldHaveDefaultValues()
     ModifyStatusDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mModifyStatusWidget = w.findChild<ModifyStatusWidget *>(QStringLiteral("mModifyStatusWidget"));
+    auto mModifyStatusWidget = w.findChild<ModifyStatusWidget *>(u"mModifyStatusWidget"_s);
     QVERIFY(mModifyStatusWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
     QVERIFY(w.messageStatus().isEmpty());

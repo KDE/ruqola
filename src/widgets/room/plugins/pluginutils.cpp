@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "pluginutils.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolawidgets_debug.h"
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -46,8 +48,8 @@ QPair<QStringList, QStringList> PluginUtils::loadPluginSetting(const QString &gr
     QStringList disabledPlugins;
     if (config->hasGroup(groupName)) {
         KConfigGroup grp = config->group(groupName);
-        enabledPlugins = grp.readEntry(QStringLiteral("%1Enabled").arg(prefixSettingKey), QStringList());
-        disabledPlugins = grp.readEntry(QStringLiteral("%1Disabled").arg(prefixSettingKey), QStringList());
+        enabledPlugins = grp.readEntry(u"%1Enabled"_s.arg(prefixSettingKey), QStringList());
+        disabledPlugins = grp.readEntry(u"%1Disabled"_s.arg(prefixSettingKey), QStringList());
     }
 
     pair.first = enabledPlugins;
@@ -62,6 +64,6 @@ void PluginUtils::savePluginSettings(const QString &groupName,
 {
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup grp = config->group(groupName);
-    grp.writeEntry(QStringLiteral("%1Enabled").arg(prefixSettingKey), enabledPluginsList);
-    grp.writeEntry(QStringLiteral("%1Disabled").arg(prefixSettingKey), disabledPluginsList);
+    grp.writeEntry(u"%1Enabled"_s.arg(prefixSettingKey), enabledPluginsList);
+    grp.writeEntry(u"%1Disabled"_s.arg(prefixSettingKey), disabledPluginsList);
 }

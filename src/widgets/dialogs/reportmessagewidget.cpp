@@ -5,6 +5,7 @@
 */
 
 #include "reportmessagewidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KTextEdit>
 #include <QHBoxLayout>
@@ -18,10 +19,10 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     , mMessagePreview(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mMessagePreview->setObjectName(QStringLiteral("mMessagePreview"));
+    mMessagePreview->setObjectName(u"mMessagePreview"_s);
     mMessagePreview->setWordWrap(true);
     QFont messagePreviewFont = mMessagePreview->font();
     messagePreviewFont.setBold(true);
@@ -29,17 +30,17 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     mainLayout->addWidget(mMessagePreview);
 
     auto messageLayout = new QHBoxLayout;
-    messageLayout->setObjectName(QStringLiteral("messageLayout"));
+    messageLayout->setObjectName(u"messageLayout"_s);
     messageLayout->setContentsMargins({});
 
     mainLayout->addLayout(messageLayout);
 
     auto lab = new QLabel(i18nc("@label:textbox", "Message:"), this);
     lab->setTextFormat(Qt::PlainText);
-    lab->setObjectName(QStringLiteral("label"));
+    lab->setObjectName(u"label"_s);
     messageLayout->addWidget(lab, 0, Qt::AlignTop);
 
-    mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
+    mMessageLineEdit->setObjectName(u"mMessageLineEdit"_s);
     mMessageLineEdit->setAcceptRichText(false);
     mMessageLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Why you signal this message?"));
     messageLayout->addWidget(mMessageLineEdit);

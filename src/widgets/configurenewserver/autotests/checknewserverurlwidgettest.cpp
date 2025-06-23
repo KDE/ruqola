@@ -5,6 +5,8 @@
 */
 
 #include "checknewserverurlwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configurenewserver/checknewserverurlwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KMessageWidget>
@@ -24,24 +26,24 @@ void CheckNewServerUrlWidgetTest::shouldHaveDefaultValues()
 {
     CheckNewServerUrlWidget w;
 
-    auto topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
+    auto topLayout = w.findChild<QVBoxLayout *>(u"topLayout"_s);
     QVERIFY(topLayout);
     QCOMPARE(topLayout->contentsMargins(), QMargins{});
 
-    auto serverUrlLayout = w.findChild<QHBoxLayout *>(QStringLiteral("serverUrlLayout"));
+    auto serverUrlLayout = w.findChild<QHBoxLayout *>(u"serverUrlLayout"_s);
     QVERIFY(serverUrlLayout);
     QCOMPARE(serverUrlLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(!label->text().isEmpty());
 
-    auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
+    auto mServerUrl = w.findChild<QLineEdit *>(u"mServerUrl"_s);
     QVERIFY(mServerUrl->text().isEmpty());
 
-    auto mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
+    auto mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(u"mBusyIndicatorWidget"_s);
     QVERIFY(mBusyIndicatorWidget);
 
-    auto mFailedError = w.findChild<KMessageWidget *>(QStringLiteral("mFailedError"));
+    auto mFailedError = w.findChild<KMessageWidget *>(u"mFailedError"_s);
     QVERIFY(mFailedError);
     QCOMPARE(mFailedError->messageType(), KMessageWidget::Error);
 }

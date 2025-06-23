@@ -66,23 +66,23 @@ QNetworkRequest UsersListByStatusJob::request() const
     QUrlQuery queryUrl;
     const QString loggedStr = mUsersListByStatusJobInfo.loggedInToString();
     if (!loggedStr.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("hasLoggedIn"), loggedStr);
+        queryUrl.addQueryItem(u"hasLoggedIn"_s, loggedStr);
     }
     const QString statusStr = mUsersListByStatusJobInfo.statusToString();
     if (!statusStr.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("status"), statusStr);
+        queryUrl.addQueryItem(u"status"_s, statusStr);
     }
     const QString typeStr = mUsersListByStatusJobInfo.typeToString();
     if (!typeStr.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("type"), typeStr);
+        queryUrl.addQueryItem(u"type"_s, typeStr);
     }
     if (!mUsersListByStatusJobInfo.roles.isEmpty()) {
         for (const auto &str : std::as_const(mUsersListByStatusJobInfo.roles)) {
-            queryUrl.addQueryItem(QStringLiteral("roles[]"), str);
+            queryUrl.addQueryItem(u"roles[]"_s, str);
         }
     }
     if (!mUsersListByStatusJobInfo.searchName.isEmpty()) {
-        queryUrl.addQueryItem(QStringLiteral("searchTerm"), mUsersListByStatusJobInfo.searchName);
+        queryUrl.addQueryItem(u"searchTerm"_s, mUsersListByStatusJobInfo.searchName);
     }
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);

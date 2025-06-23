@@ -5,6 +5,8 @@
 */
 
 #include "administratorinviteswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorinvitesfilterproxymodel.h"
 #include "connection.h"
 #include "invite/inviteinfo.h"
@@ -27,18 +29,18 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *accoun
     , mRocketChatAccount(account)
 {
     mAdminInviteFilterProxyModel = new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this);
-    mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
+    mAdminInviteFilterProxyModel->setObjectName(u"mAdminInviteFilterProxyModel"_s);
     mAdminInviteFilterProxyModel->setFilterKeyColumn(AdminInviteModel::AdminInviteRoles::Identifier);
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mSearchLineWidget->setObjectName(u"mSearchLineWidget"_s);
     mainLayout->addWidget(mSearchLineWidget);
     mSearchLineWidget->setPlaceholderText(i18nc("@info:placeholder", "Search invite…"));
 
-    mInviteTreeView->setObjectName(QStringLiteral("mInviteTreeWidget"));
+    mInviteTreeView->setObjectName(u"mInviteTreeWidget"_s);
     mainLayout->addWidget(mInviteTreeView);
     mInviteTreeView->setModel(mAdminInviteFilterProxyModel);
     connect(mInviteTreeView, &InviteTreeView::removeInvite, this, &AdministratorInvitesWidget::slotRemoveInvite);

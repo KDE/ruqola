@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomemojiwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorcustomemojicreateorupdatedialog.h"
 #include "connection.h"
 #include "emoji/emojicustomalljob.h"
@@ -28,11 +30,11 @@ AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount
     : SearchTreeBaseWidget(account, parent)
 {
     mModel = new AdminCustomEmojiModel(account, this);
-    mModel->setObjectName(QStringLiteral("mModel"));
+    mModel->setObjectName(u"mModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search custom emojis"));
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
-    mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
+    mProxyModelModel->setObjectName(u"mProxyModelModel"_s);
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
@@ -63,7 +65,7 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
 
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);
@@ -177,15 +179,15 @@ void AdministratorCustomEmojiWidget::slotCustomContextMenuRequested(const QPoint
 {
     QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &AdministratorCustomEmojiWidget::slotAddCustomEmoji);
+    menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &AdministratorCustomEmojiWidget::slotAddCustomEmoji);
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminCustomEmojiModel::Identifier);
             slotModifyCustomEmoji(modelIndex);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminCustomEmojiModel::Identifier);
             slotRemoveCustomEmoji(modelIndex);
         });

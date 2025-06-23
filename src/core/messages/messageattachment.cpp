@@ -315,7 +315,7 @@ QString MessageAttachment::fixTitle(const QString &title) const
 {
     QString newTitle = title;
     if (newTitle.length() > 80) {
-        newTitle = newTitle.left(80) + QStringLiteral("...");
+        newTitle = newTitle.left(80) + u"..."_s;
     }
     return newTitle;
 }
@@ -327,7 +327,7 @@ void MessageAttachment::generateTitle()
             if (mAttachmentSize == -1) {
                 mAttachmentGeneratedTitle = fixTitle(mTitle);
             } else {
-                mAttachmentGeneratedTitle = QStringLiteral("%1 (%2)").arg(fixTitle(mTitle), KIO::convertSize(mAttachmentSize));
+                mAttachmentGeneratedTitle = u"%1 (%2)"_s.arg(fixTitle(mTitle), KIO::convertSize(mAttachmentSize));
             }
         }
     }
@@ -344,14 +344,14 @@ void MessageAttachment::generateAttachmentFieldsText()
     QStringList values;
     values.reserve(mAttachmentFields.count());
     for (const MessageAttachmentField &field : std::as_const(mAttachmentFields)) {
-        result += QStringLiteral("<th><b>%1</b></th>").arg(field.title());
+        result += u"<th><b>%1</b></th>"_s.arg(field.title());
         values << field.value();
     }
-    result += QStringLiteral("</tr><tr>");
+    result += u"</tr><tr>"_s;
     for (const QString &res : std::as_const(values)) {
-        result += QStringLiteral("<td>%1</td>").arg(res);
+        result += u"<td>%1</td>"_s.arg(res);
     }
-    result += QStringLiteral("</tr></table></qt>");
+    result += u"</tr></table></qt>"_s;
     mAttachmentFieldsText += result;
 }
 

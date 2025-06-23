@@ -5,6 +5,8 @@
 */
 
 #include "createnewchannelwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channelnamevalidlineedit.h"
 #include "channelnamevalidlinewidget.h"
 #include "misc/adduserswidget.h"
@@ -28,22 +30,22 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     , mFederated(new QCheckBox(this))
     , mMainLayout(new QFormLayout(this))
 {
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setObjectName(u"mainLayout"_s);
     mMainLayout->setContentsMargins({});
 
-    mChannelName->setObjectName(QStringLiteral("mChannelName"));
+    mChannelName->setObjectName(u"mChannelName"_s);
     mMainLayout->addRow(i18n("Name:"), mChannelName);
 
-    mTopicLineEdit->setObjectName(QStringLiteral("mTopicLineEdit"));
+    mTopicLineEdit->setObjectName(u"mTopicLineEdit"_s);
     mTopicLineEdit->setClearButtonEnabled(true);
     mMainLayout->addRow(i18n("Topic:"), mTopicLineEdit);
     KLineEditEventHandler::catchReturnKey(mTopicLineEdit);
 
-    mUsers->setObjectName(QStringLiteral("mUsers"));
+    mUsers->setObjectName(u"mUsers"_s);
     mUsers->setPlaceholderText(i18nc("@info:placeholder", "Invite users…"));
     mMainLayout->addRow(i18n("Users:"), mUsers);
 
-    mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
+    mReadOnly->setObjectName(u"mReadOnly"_s);
     mReadOnly->setChecked(false);
     mReadOnly->setToolTip(i18nc("@info:tooltip", "Anyone can send new messages"));
     mMainLayout->addRow(i18n("Read-Only:"), mReadOnly);
@@ -54,12 +56,12 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     });
     mMainLayout->addWidget(label);
 
-    mBroadcast->setObjectName(QStringLiteral("mBroadcast"));
+    mBroadcast->setObjectName(u"mBroadcast"_s);
     mBroadcast->setChecked(false);
     mBroadcast->setToolTip(i18nc("@info:tooltip", "Only authorized users can write new messages, but the other users will be able to reply"));
     mMainLayout->addRow(i18n("Broadcast:"), mBroadcast);
 
-    mPrivate->setObjectName(QStringLiteral("mPrivate"));
+    mPrivate->setObjectName(u"mPrivate"_s);
     mPrivate->setChecked(false);
     mPrivate->setToolTip(i18nc("@info:tooltip", "Only invited people can join"));
 
@@ -67,7 +69,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     label = new QLabel(i18nc("@label:textbox", "Just invited people can access this channel."), this);
     mMainLayout->addWidget(label);
 
-    mEncryptedRoom->setObjectName(QStringLiteral("mEncryptedRoom"));
+    mEncryptedRoom->setObjectName(u"mEncryptedRoom"_s);
     mEncryptedRoom->setChecked(false);
     mEncryptedRoom->setToolTip(
         i18nc("@label:textbox",
@@ -82,7 +84,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     connect(mPrivate, &QCheckBox::clicked, this, [this](bool clicked) {
         mEncryptedRoom->setEnabled(clicked);
     });
-    mFederated->setObjectName(QStringLiteral("mFederated"));
+    mFederated->setObjectName(u"mFederated"_s);
     mFederated->setChecked(false);
     mMainLayout->addRow(i18n("Federated:"), mFederated);
 

@@ -5,6 +5,8 @@
 */
 
 #include "configureactivitiesdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configureactivitieswidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,13 +26,13 @@ ConfigureActivitiesDialog::ConfigureActivitiesDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Configure Activities"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mConfigureActivitiesWidget->setObjectName(QStringLiteral("mConfigureActivitiesWidget"));
+    mConfigureActivitiesWidget->setObjectName(u"mConfigureActivitiesWidget"_s);
     mainLayout->addWidget(mConfigureActivitiesWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfigureActivitiesDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureActivitiesDialog::reject);
     mainLayout->addWidget(buttonBox);

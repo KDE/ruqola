@@ -5,6 +5,8 @@
 */
 
 #include "customuserstatustreewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorcustomuserstatuscreatedialog.h"
 #include "connection.h"
 #include "custom/customuserstatuscreatejob.h"
@@ -163,12 +165,12 @@ void CustomUserStatusTreeWidget::removeClicked()
 void CustomUserStatusTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &CustomUserStatusTreeWidget::addClicked);
+    menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &CustomUserStatusTreeWidget::addClicked);
     QTreeWidgetItem *item = itemAt(pos);
     if (item) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, &CustomUserStatusTreeWidget::editClicked);
+        menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, &CustomUserStatusTreeWidget::editClicked);
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, &CustomUserStatusTreeWidget::removeClicked);
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, &CustomUserStatusTreeWidget::removeClicked);
     }
     menu.exec(viewport()->mapToGlobal(pos));
 }

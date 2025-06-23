@@ -5,6 +5,7 @@
 */
 
 #include "administratorcustomuserstatuscreatedialog.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,13 +25,13 @@ AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDi
 {
     setWindowTitle(i18nc("@title:window", "Create New User Status"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
+    mCreateWidget->setObjectName(u"mCreateWidget"_s);
     mainLayout->addWidget(mCreateWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomUserStatusCreateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomUserStatusCreateDialog::accept);

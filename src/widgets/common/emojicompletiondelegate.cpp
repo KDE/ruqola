@@ -5,6 +5,8 @@
 */
 
 #include "emojicompletiondelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "model/emoticonmodel.h"
 #include "utils.h"
@@ -29,7 +31,7 @@ void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     const QIcon icon = index.data(EmoticonModel::IconRole).value<QIcon>();
     const QString emojiText = index.data(EmoticonModel::UnicodeEmojiRole).toString();
     if (!icon.isNull()) {
-        const int emojiWidth = emojiFontMetrics.horizontalAdvance(QStringLiteral("MM"));
+        const int emojiWidth = emojiFontMetrics.horizontalAdvance(u"MM"_s);
         const QRect displayRect(margin, option.rect.y(), emojiWidth, option.rect.height());
         drawDecoration(painter, option, displayRect, icon.pixmap(emojiWidth, option.rect.height()));
         painter->drawText(margin + emojiWidth, option.rect.y() + emojiFontMetrics.ascent(), emojiText);

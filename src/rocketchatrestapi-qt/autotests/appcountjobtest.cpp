@@ -5,6 +5,8 @@
 */
 
 #include "appcountjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "apps/appcountjob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(AppCountJobTest)
@@ -27,7 +29,7 @@ void AppCountJobTest::shouldGenerateRequest()
     AppCountJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/count")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/count"_s));
 }
 
 #include "moc_appcountjobtest.cpp"

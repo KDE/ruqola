@@ -5,6 +5,8 @@
 */
 
 #include "groupsinvitejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "groups/groupsinvitejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -30,15 +32,15 @@ void GroupsInviteJobTest::shouldGenerateRequest()
     GroupsInviteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.invite")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.invite"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void GroupsInviteJobTest::shouldGenerateUsernameJson()
 {
     GroupsInviteJob job;
-    const QString roomId = QStringLiteral("foo1");
-    const QString userId = QStringLiteral("topic1");
+    const QString roomId = u"foo1"_s;
+    const QString userId = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;
@@ -50,8 +52,8 @@ void GroupsInviteJobTest::shouldGenerateUsernameJson()
 void GroupsInviteJobTest::shouldGenerateUserIdJson()
 {
     GroupsInviteJob job;
-    const QString roomId = QStringLiteral("foo1");
-    const QString userId = QStringLiteral("topic1");
+    const QString roomId = u"foo1"_s;
+    const QString userId = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;

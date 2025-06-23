@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "searchmessagewithdelaylineedit.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include <QCompleter>
 #include <QStringListModel>
@@ -14,8 +16,8 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
     , mCompleterListModel(new QStringListModel(this))
     , mCurrentRocketChatAccount(account)
 {
-    mCompleter->setObjectName(QStringLiteral("mCompleter"));
-    mCompleterListModel->setObjectName(QStringLiteral("mCompleterListModel"));
+    mCompleter->setObjectName(u"mCompleter"_s);
+    mCompleterListModel->setObjectName(u"mCompleterListModel"_s);
 
     mCompleter->setModel(mCompleterListModel);
     setCompleter(mCompleter);

@@ -5,6 +5,8 @@
 */
 
 #include "showdiscussionsdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "showdiscussionswidget.h"
@@ -27,15 +29,15 @@ ShowDiscussionsDialog::ShowDiscussionsDialog(RocketChatAccount *account, QWidget
     , mShowDiscussionsWidget(new ShowDiscussionsWidget(account, this))
     , mRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Show Discussions - %1", account ? account->accountName() : QStringLiteral("account")));
+    setWindowTitle(i18nc("@title:window", "Show Discussions - %1", account ? account->accountName() : u"account"_s));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mShowDiscussionsWidget->setObjectName(QStringLiteral("mShowDiscussionsWidget"));
+    mShowDiscussionsWidget->setObjectName(u"mShowDiscussionsWidget"_s);
     mainLayout->addWidget(mShowDiscussionsWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowDiscussionsDialog::reject);
     connect(mShowDiscussionsWidget, &ShowDiscussionsWidget::loadMoreDiscussion, this, &ShowDiscussionsDialog::slotLoadMoreDiscussions);

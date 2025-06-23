@@ -5,6 +5,8 @@
 */
 
 #include "verifynewversionwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #include "needupdateversion/needupdatecheckexistingnewversionjob.h"
 #include "needupdateversion/needupdateversionutils.h"
@@ -19,10 +21,10 @@ VerifyNewVersionWidget::VerifyNewVersionWidget(QWidget *parent)
     , mCheckVersionResultLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mCheckVersionResultLabel->setObjectName(QStringLiteral("mCheckVersionResultLabel"));
+    mCheckVersionResultLabel->setObjectName(u"mCheckVersionResultLabel"_s);
     mCheckVersionResultLabel->setWordWrap(true);
     mCheckVersionResultLabel->setOpenExternalLinks(true);
     mCheckVersionResultLabel->setTextFormat(Qt::RichText);

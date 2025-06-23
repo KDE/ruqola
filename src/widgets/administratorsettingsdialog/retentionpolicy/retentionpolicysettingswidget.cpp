@@ -5,6 +5,7 @@
 */
 
 #include "retentionpolicysettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
@@ -29,60 +30,60 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     , mAppliesMessages(new QCheckBox(i18nc("@option:check", "Applies to direct messages"), this))
     , mMaximumMessageDirectMessages(new QSpinBox(this))
 {
-    mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    addCheckBox(mEnabled, QStringLiteral("RetentionPolicy_Enabled"));
+    mEnabled->setObjectName(u"mEnabled"_s);
+    addCheckBox(mEnabled, u"RetentionPolicy_Enabled"_s);
 
-    mTimerPrecision->setObjectName(QStringLiteral("mTimerPrecision"));
+    mTimerPrecision->setObjectName(u"mTimerPrecision"_s);
     const QMap<QString, QString> maps = {
-        {QStringLiteral("0"), i18n("Once every 30 minutes")},
-        {QStringLiteral("1"), i18n("Once every hour")},
-        {QStringLiteral("2"), i18n("Once every six hours")},
-        {QStringLiteral("3"), i18n("Once every day")},
+        {u"0"_s, i18n("Once every 30 minutes")},
+        {u"1"_s, i18n("Once every hour")},
+        {u"2"_s, i18n("Once every six hours")},
+        {u"3"_s, i18n("Once every day")},
     };
-    addComboBox(i18n("Timer Precision"), maps, mTimerPrecision, QStringLiteral("RetentionPolicy_Precision"));
+    addComboBox(i18n("Timer Precision"), maps, mTimerPrecision, u"RetentionPolicy_Precision"_s);
 
-    mUseAdvancedRetentionPolicyConfiguration->setObjectName(QStringLiteral("mUseAdvancedRetentionPolicyConfiguration"));
-    addCheckBox(mUseAdvancedRetentionPolicyConfiguration, QStringLiteral("RetentionPolicy_Advanced_Precision"));
+    mUseAdvancedRetentionPolicyConfiguration->setObjectName(u"mUseAdvancedRetentionPolicyConfiguration"_s);
+    addCheckBox(mUseAdvancedRetentionPolicyConfiguration, u"RetentionPolicy_Advanced_Precision"_s);
 
-    mDontPruneThreads->setObjectName(QStringLiteral("mDontPruneThreads"));
-    addCheckBox(mDontPruneThreads, QStringLiteral("RetentionPolicy_DoNotPruneThreads"));
+    mDontPruneThreads->setObjectName(u"mDontPruneThreads"_s);
+    addCheckBox(mDontPruneThreads, u"RetentionPolicy_DoNotPruneThreads"_s);
 
-    mDontPruneDiscussion->setObjectName(QStringLiteral("mDontPruneDiscussion"));
-    addCheckBox(mDontPruneDiscussion, QStringLiteral("RetentionPolicy_DoNotPruneDiscussion"));
+    mDontPruneDiscussion->setObjectName(u"mDontPruneDiscussion"_s);
+    addCheckBox(mDontPruneDiscussion, u"RetentionPolicy_DoNotPruneDiscussion"_s);
 
-    mDontPrunePinnedMessages->setObjectName(QStringLiteral("mDontPrunePinnedMessages"));
-    addCheckBox(mDontPrunePinnedMessages, QStringLiteral("RetentionPolicy_DoNotPrunePinned"));
+    mDontPrunePinnedMessages->setObjectName(u"mDontPrunePinnedMessages"_s);
+    addCheckBox(mDontPrunePinnedMessages, u"RetentionPolicy_DoNotPrunePinned"_s);
 
-    mOnlyDeleteFiles->setObjectName(QStringLiteral("mOnlyDeleteFiles"));
+    mOnlyDeleteFiles->setObjectName(u"mOnlyDeleteFiles"_s);
     mOnlyDeleteFiles->setToolTip(i18nc("@info:tooltip", "Only files will be deleted, the messages themselves will stay in place."));
-    addCheckBox(mOnlyDeleteFiles, QStringLiteral("RetentionPolicy_FilesOnly"));
+    addCheckBox(mOnlyDeleteFiles, u"RetentionPolicy_FilesOnly"_s);
 
     // Retention Channels
-    mAppliesChannels->setObjectName(QStringLiteral("mAppliesChannels"));
-    addCheckBox(mAppliesChannels, QStringLiteral("RetentionPolicy_AppliesToChannels"));
+    mAppliesChannels->setObjectName(u"mAppliesChannels"_s);
+    addCheckBox(mAppliesChannels, u"RetentionPolicy_AppliesToChannels"_s);
 
-    mMaximumMessageChannels->setObjectName(QStringLiteral("mMaximumMessageChannels"));
+    mMaximumMessageChannels->setObjectName(u"mMaximumMessageChannels"_s);
     mMaximumMessageChannels->setToolTip(i18nc("@info:tooltip", "Prune all messages older than this value, in days."));
     mMaximumMessageChannels->setMaximum(9999);
-    addSpinbox(i18n("Maximum message age in channels"), mMaximumMessageChannels, QStringLiteral("RetentionPolicy_MaxAge_Channels"));
+    addSpinbox(i18n("Maximum message age in channels"), mMaximumMessageChannels, u"RetentionPolicy_MaxAge_Channels"_s);
 
     // Retention Groups
-    mAppliesGroups->setObjectName(QStringLiteral("mAppliesGroups"));
-    addCheckBox(mAppliesGroups, QStringLiteral("RetentionPolicy_AppliesToGroups"));
+    mAppliesGroups->setObjectName(u"mAppliesGroups"_s);
+    addCheckBox(mAppliesGroups, u"RetentionPolicy_AppliesToGroups"_s);
 
-    mMaximumMessagePrivateGroups->setObjectName(QStringLiteral("mMaximumMessagePrivateGroups"));
+    mMaximumMessagePrivateGroups->setObjectName(u"mMaximumMessagePrivateGroups"_s);
     mMaximumMessagePrivateGroups->setToolTip(i18nc("@info:tooltip", "Prune all messages older than this value, in days."));
     mMaximumMessagePrivateGroups->setMaximum(9999);
-    addSpinbox(i18n("Maximum message age in private groups"), mMaximumMessagePrivateGroups, QStringLiteral("RetentionPolicy_MaxAge_Groups"));
+    addSpinbox(i18n("Maximum message age in private groups"), mMaximumMessagePrivateGroups, u"RetentionPolicy_MaxAge_Groups"_s);
 
     // Retention DM
-    mAppliesMessages->setObjectName(QStringLiteral("mAppliesMessages"));
-    addCheckBox(mAppliesMessages, QStringLiteral("RetentionPolicy_AppliesToDMs"));
+    mAppliesMessages->setObjectName(u"mAppliesMessages"_s);
+    addCheckBox(mAppliesMessages, u"RetentionPolicy_AppliesToDMs"_s);
 
-    mMaximumMessageDirectMessages->setObjectName(QStringLiteral("mMaximumMessageDirectMessages"));
+    mMaximumMessageDirectMessages->setObjectName(u"mMaximumMessageDirectMessages"_s);
     mMaximumMessageDirectMessages->setToolTip(i18nc("@info:tooltip", "Prune all messages older than this value, in days."));
     mMaximumMessageDirectMessages->setMaximum(9999);
-    addSpinbox(i18n("Maximum message age in direct messages"), mMaximumMessageDirectMessages, QStringLiteral("RetentionPolicy_MaxAge_DMs"));
+    addSpinbox(i18n("Maximum message age in direct messages"), mMaximumMessageDirectMessages, u"RetentionPolicy_MaxAge_DMs"_s);
 }
 
 RetentionPolicySettingsWidget::~RetentionPolicySettingsWidget() = default;
@@ -101,7 +102,7 @@ void RetentionPolicySettingsWidget::initialize(const QMap<QString, SettingsWidge
     initializeWidget(mMaximumMessageDirectMessages, mapSettings, 30);
     initializeWidget(mMaximumMessagePrivateGroups, mapSettings, 30);
     initializeWidget(mMaximumMessageChannels, mapSettings, 30);
-    initializeWidget(mTimerPrecision, mapSettings, QStringLiteral("0"));
+    initializeWidget(mTimerPrecision, mapSettings, u"0"_s);
 }
 
 #include "moc_retentionpolicysettingswidget.cpp"

@@ -5,6 +5,8 @@
 */
 
 #include "serverinfowidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/serverinfo/serverinfowidget.h"
 #include <QFormLayout>
 #include <QLabel>
@@ -18,29 +20,29 @@ ServerInfoWidgetTest::ServerInfoWidgetTest(QWidget *parent)
 void ServerInfoWidgetTest::shouldHaveDefaultValues()
 {
     ServerInfoWidget w(nullptr);
-    auto layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
+    auto layout = w.findChild<QFormLayout *>(u"layout"_s);
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});
 
-    auto mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
+    auto mAccountName = w.findChild<QLabel *>(u"mAccountName"_s);
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
     QCOMPARE(mAccountName->textFormat(), Qt::PlainText);
     QCOMPARE(mAccountName->textInteractionFlags(), Qt::TextSelectableByMouse);
 
-    auto mUserName = w.findChild<QLabel *>(QStringLiteral("mUserName"));
+    auto mUserName = w.findChild<QLabel *>(u"mUserName"_s);
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
     QCOMPARE(mUserName->textFormat(), Qt::PlainText);
     QCOMPARE(mUserName->textInteractionFlags(), Qt::TextSelectableByMouse);
 
-    auto mServerVersion = w.findChild<QLabel *>(QStringLiteral("mServerVersion"));
+    auto mServerVersion = w.findChild<QLabel *>(u"mServerVersion"_s);
     QVERIFY(mServerVersion);
     QVERIFY(mServerVersion->text().isEmpty());
     QCOMPARE(mServerVersion->textFormat(), Qt::PlainText);
     QCOMPARE(mServerVersion->textInteractionFlags(), Qt::TextSelectableByMouse);
 
-    auto mServerUrl = w.findChild<QLabel *>(QStringLiteral("mServerUrl"));
+    auto mServerUrl = w.findChild<QLabel *>(u"mServerUrl"_s);
     QVERIFY(mServerUrl);
     QVERIFY(mServerUrl->text().isEmpty());
     QCOMPARE(mServerUrl->textFormat(), Qt::RichText);

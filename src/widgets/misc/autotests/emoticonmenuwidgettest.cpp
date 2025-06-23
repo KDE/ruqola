@@ -5,6 +5,8 @@
 */
 
 #include "emoticonmenuwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/emoticonmenuwidget.h"
 #include "misc/emoticonrecentusedfilterproxymodel.h"
 #include "misc/recentusedemoticonview.h"
@@ -25,30 +27,30 @@ EmoticonMenuWidgetTest::EmoticonMenuWidgetTest(QObject *parent)
 void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
 {
     EmoticonMenuWidget w;
-    auto layout = w.findChild<QVBoxLayout *>(QStringLiteral("layout"));
+    auto layout = w.findChild<QVBoxLayout *>(u"layout"_s);
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});
 
-    auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
+    auto mTabWidget = w.findChild<QTabWidget *>(u"mTabWidget"_s);
     QVERIFY(mTabWidget);
 
-    auto mSearchLineEdit = w.findChild<SearchWithDelayLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<SearchWithDelayLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 
-    auto mRecentUsedFilterProxyModel = w.findChild<EmoticonRecentUsedFilterProxyModel *>(QStringLiteral("mRecentUsedFilterProxyModel"));
+    auto mRecentUsedFilterProxyModel = w.findChild<EmoticonRecentUsedFilterProxyModel *>(u"mRecentUsedFilterProxyModel"_s);
     QVERIFY(mRecentUsedFilterProxyModel);
-    auto mEmoticonFilterProxyModel = w.findChild<EmoticonModelFilterProxyModel *>(QStringLiteral("mEmoticonFilterProxyModel"));
+    auto mEmoticonFilterProxyModel = w.findChild<EmoticonModelFilterProxyModel *>(u"mEmoticonFilterProxyModel"_s);
     QVERIFY(mEmoticonFilterProxyModel);
-    auto mEmoticonCustomFilterProxyModel = w.findChild<EmoticonCustomModelFilterProxyModel *>(QStringLiteral("mEmoticonCustomFilterProxyModel"));
+    auto mEmoticonCustomFilterProxyModel = w.findChild<EmoticonCustomModelFilterProxyModel *>(u"mEmoticonCustomFilterProxyModel"_s);
     QVERIFY(mEmoticonCustomFilterProxyModel);
 
-    auto mSearchEmojisView = w.findChild<QListView *>(QStringLiteral("mSearchEmojisView"));
+    auto mSearchEmojisView = w.findChild<QListView *>(u"mSearchEmojisView"_s);
     QVERIFY(mSearchEmojisView);
-    auto mRecentUsedEmoticonView = w.findChild<RecentUsedEmoticonView *>(QStringLiteral("mRecentUsedEmoticonView"));
+    auto mRecentUsedEmoticonView = w.findChild<RecentUsedEmoticonView *>(u"mRecentUsedEmoticonView"_s);
     QVERIFY(mRecentUsedEmoticonView);
-    auto mCustomEmojiView = w.findChild<QListView *>(QStringLiteral("mCustomEmojiView"));
+    auto mCustomEmojiView = w.findChild<QListView *>(u"mCustomEmojiView"_s);
     QVERIFY(mCustomEmojiView);
 }
 

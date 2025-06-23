@@ -5,6 +5,8 @@
 */
 
 #include "uploadfilewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KUrlRequester>
@@ -26,31 +28,31 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     , mMimeTypeLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mImagePreview->setObjectName(QStringLiteral("mImagePreview"));
+    mImagePreview->setObjectName(u"mImagePreview"_s);
     mainLayout->addWidget(mImagePreview, 0, Qt::AlignCenter);
     mImagePreview->hide(); // Hide by default
 
     mainLayout->addStretch(1);
 
     auto layout = new QFormLayout;
-    layout->setObjectName(QStringLiteral("layout"));
+    layout->setObjectName(u"layout"_s);
     layout->setContentsMargins({});
     mainLayout->addLayout(layout);
 
-    mMimeTypeLabel->setObjectName(QStringLiteral("mMimeTypeLabel"));
+    mMimeTypeLabel->setObjectName(u"mMimeTypeLabel"_s);
 
-    mFileNameInfo->setObjectName(QStringLiteral("mFileNameInfo"));
+    mFileNameInfo->setObjectName(u"mFileNameInfo"_s);
     layout->addRow(mMimeTypeLabel, mFileNameInfo);
 
-    mFileName->setObjectName(QStringLiteral("mFileName"));
+    mFileName->setObjectName(u"mFileName"_s);
     mFileName->setClearButtonEnabled(true);
     layout->addRow(i18n("File Name:"), mFileName);
     KLineEditEventHandler::catchReturnKey(mFileName);
 
-    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setObjectName(u"mDescription"_s);
     mDescription->setClearButtonEnabled(true);
     mDescription->setFocus();
     layout->addRow(i18n("Description:"), mDescription);
@@ -79,12 +81,11 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
     mUrl = url;
     const QFileInfo fileInfo(mUrl.toLocalFile());
     mFileName->setText(fileInfo.fileName());
-    mFileNameInfo->setText(QStringLiteral("%1 - %2").arg(fileInfo.fileName(), KFormat().formatByteSize(fileInfo.size())));
+    mFileNameInfo->setText(u"%1 - %2"_s.arg(fileInfo.fileName(), KFormat().formatByteSize(fileInfo.size())));
 
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(fileInfo);
-    const QPixmap pixmapMimetype =
-        QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(QStringLiteral("unknown"))).pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize));
+    const QPixmap pixmapMimetype = QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(u"unknown"_s)).pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize));
     mMimeTypeLabel->setPixmap(pixmapMimetype);
     const QPixmap pixmap(mUrl.toLocalFile());
     if (!pixmap.isNull()) {

@@ -5,6 +5,8 @@
 */
 
 #include "myaccountpersonalaccesscreatewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "myaccount/myaccountpersonalaccesscreatewidget.h"
 #include <QCheckBox>
 #include <QFormLayout>
@@ -20,15 +22,15 @@ MyAccountPersonalAccessCreateWidgetTest::MyAccountPersonalAccessCreateWidgetTest
 void MyAccountPersonalAccessCreateWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountPersonalAccessCreateWidget w;
-    auto formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
+    auto formLayout = w.findChild<QFormLayout *>(u"formLayout"_s);
     QVERIFY(formLayout);
 
-    auto mBypassTwoFactor = w.findChild<QCheckBox *>(QStringLiteral("mBypassTwoFactor"));
+    auto mBypassTwoFactor = w.findChild<QCheckBox *>(u"mBypassTwoFactor"_s);
     QVERIFY(mBypassTwoFactor);
     QVERIFY(!mBypassTwoFactor->isChecked());
     QVERIFY(!mBypassTwoFactor->text().isEmpty());
 
-    auto mTokenName = w.findChild<QLineEdit *>(QStringLiteral("mTokenName"));
+    auto mTokenName = w.findChild<QLineEdit *>(u"mTokenName"_s);
     QVERIFY(mTokenName);
     QVERIFY(mTokenName->text().isEmpty());
     QVERIFY(mTokenName->isClearButtonEnabled());

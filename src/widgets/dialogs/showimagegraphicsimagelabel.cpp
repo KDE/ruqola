@@ -5,6 +5,7 @@
 */
 
 #include "showimagegraphicsimagelabel.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <QApplication>
 #include <QDrag>
@@ -43,7 +44,7 @@ void ShowImageGraphicsImageLabel::mouseMoveEvent(QMouseEvent *event)
         QByteArray itemData;
         QDataStream dataStream(&itemData, QIODevice::WriteOnly);
         dataStream << pixmap().toImage();
-        mimeData->setData(QStringLiteral("application/x-dnditemdata"), itemData);
+        mimeData->setData(u"application/x-dnditemdata"_s, itemData);
 
         drag->setMimeData(mimeData);
         drag->setPixmap(pixmap());

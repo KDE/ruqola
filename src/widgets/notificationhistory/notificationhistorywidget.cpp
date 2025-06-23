@@ -5,6 +5,8 @@
 */
 
 #include "notificationhistorywidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/serverscombobox.h"
 #include "model/notificationhistorymodel.h"
 #include "model/notificationhistorymodelfilterproxymodel.h"
@@ -34,25 +36,25 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     , mServersComboBox(new ServersComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto searchLayout = new QHBoxLayout;
-    searchLayout->setObjectName(QStringLiteral("searchLayout"));
+    searchLayout->setObjectName(u"searchLayout"_s);
     searchLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search…"));
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
-    mServersComboBox->setObjectName(QStringLiteral("mServersComboBox"));
+    mServersComboBox->setObjectName(u"mServersComboBox"_s);
     searchLayout->addWidget(mServersComboBox);
 
     mainLayout->addLayout(searchLayout);
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mListNotificationsListView,
             &NotificationHistoryListView::textToSpeech,
@@ -60,12 +62,12 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
             &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
-    mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
+    mListNotificationsListView->setObjectName(u"mListNotifications"_s);
     mainLayout->addWidget(mListNotificationsListView);
 
     auto model = NotificationHistoryManager::self()->notificationHistoryModel();
 
-    mNotificationFilterProxyModel->setObjectName(QStringLiteral("mNotificationFilterProxyModel"));
+    mNotificationFilterProxyModel->setObjectName(u"mNotificationFilterProxyModel"_s);
     mNotificationFilterProxyModel->setSourceModel(model);
     mListNotificationsListView->setModel(mNotificationFilterProxyModel);
 

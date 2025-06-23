@@ -64,7 +64,7 @@ QNetworkRequest GetCommandsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CommandsGet);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("command"), mCommandName);
+    queryUrl.addQueryItem(u"command"_s, mCommandName);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

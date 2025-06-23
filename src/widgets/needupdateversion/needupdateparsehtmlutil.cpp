@@ -5,6 +5,8 @@
 */
 
 #include "needupdateparsehtmlutil.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QRegularExpression>
 QString NeedUpdateParseHtmlUtil::extractDate(const QString &dataHtml)
 {
@@ -12,7 +14,7 @@ QString NeedUpdateParseHtmlUtil::extractDate(const QString &dataHtml)
         return {};
     }
     // By default generated html page will not changed in the future
-    static const QRegularExpression reg(QStringLiteral("<td align=\"right\">(\\d+\\-\\d\\d\\-\\d\\d).*<"));
+    static const QRegularExpression reg(u"<td align=\"right\">(\\d+\\-\\d\\d\\-\\d\\d).*<"_s);
 
     const QRegularExpressionMatch match = reg.match(dataHtml);
     if (match.hasMatch()) {

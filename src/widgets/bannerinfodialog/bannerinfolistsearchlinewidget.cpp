@@ -5,6 +5,8 @@
 */
 
 #include "bannerinfolistsearchlinewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QCheckBox>
@@ -18,16 +20,16 @@ BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search…"));
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     mainLayout->addWidget(mSearchLineEdit);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &BannerInfoListSearchLineWidget::filterChanged);
 
-    mOnlyUnReadCheckBox->setObjectName(QStringLiteral("mOnlyUnReadCheckBox"));
+    mOnlyUnReadCheckBox->setObjectName(u"mOnlyUnReadCheckBox"_s);
     mainLayout->addWidget(mOnlyUnReadCheckBox);
     connect(mOnlyUnReadCheckBox, &QCheckBox::clicked, this, &BannerInfoListSearchLineWidget::filterChanged);
 }

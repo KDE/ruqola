@@ -5,6 +5,8 @@
 */
 
 #include "clickablewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/clickablewidget.h"
 #include <QTest>
 QTEST_MAIN(ClickableWidgetTest)
@@ -15,7 +17,7 @@ ClickableWidgetTest::ClickableWidgetTest(QObject *parent)
 
 void ClickableWidgetTest::shouldHaveDefaultValues()
 {
-    ClickableWidget w(QStringLiteral("foo"));
+    ClickableWidget w(u"foo"_s);
     QVERIFY(!w.name().isEmpty()); // See foo in constructor
     QVERIFY(w.identifier().isEmpty());
 }

@@ -65,7 +65,7 @@ QNetworkRequest GetSupportedLanguagesJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages);
     if (mNeedTargetLanguage) {
         QUrlQuery queryUrl;
-        queryUrl.addQueryItem(QStringLiteral("targetLanguage"), QStringLiteral("en"));
+        queryUrl.addQueryItem(u"targetLanguage"_s, u"en"_s);
         url.setQuery(queryUrl);
     }
     QNetworkRequest request(url);

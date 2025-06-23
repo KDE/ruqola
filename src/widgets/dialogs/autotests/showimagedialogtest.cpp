@@ -5,6 +5,8 @@
 */
 
 #include "showimagedialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/showimagedialog.h"
 #include "dialogs/showimagewidget.h"
 #include <QDialogButtonBox>
@@ -26,27 +28,27 @@ void ShowImageDialogTest::shouldHaveDefaultValues()
     ShowImageDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mShowImageWidget = w.findChild<ShowImageWidget *>(QStringLiteral("mShowImageWidget"));
+    auto mShowImageWidget = w.findChild<ShowImageWidget *>(u"mShowImageWidget"_s);
     QVERIFY(mShowImageWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
     QCOMPARE(button->standardButtons(), QDialogButtonBox::Close | QDialogButtonBox::Save);
 
-    auto clipboardButton = w.findChild<QToolButton *>(QStringLiteral("clipboardButton"));
+    auto clipboardButton = w.findChild<QToolButton *>(u"clipboardButton"_s);
     QVERIFY(clipboardButton);
 
-    auto mClipboardMenu = w.findChild<QMenu *>(QStringLiteral("mClipboardMenu"));
+    auto mClipboardMenu = w.findChild<QMenu *>(u"mClipboardMenu"_s);
     QVERIFY(mClipboardMenu);
 
-    auto clipboardImageAction = w.findChild<QAction *>(QStringLiteral("clipboardLocationAction"));
+    auto clipboardImageAction = w.findChild<QAction *>(u"clipboardLocationAction"_s);
     QVERIFY(clipboardImageAction);
     QVERIFY(!clipboardImageAction->text().isEmpty());
 
-    auto clipboardLocationAction = w.findChild<QAction *>(QStringLiteral("clipboardLocationAction"));
+    auto clipboardLocationAction = w.findChild<QAction *>(u"clipboardLocationAction"_s);
     QVERIFY(clipboardLocationAction);
     QVERIFY(!clipboardLocationAction->text().isEmpty());
 }

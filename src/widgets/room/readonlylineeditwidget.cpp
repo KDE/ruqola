@@ -5,6 +5,8 @@
 */
 
 #include "readonlylineeditwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QLabel>
 #include <QVBoxLayout>
 ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
@@ -12,10 +14,10 @@ ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
     , mLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mLabel->setObjectName(QStringLiteral("label"));
+    mLabel->setObjectName(u"label"_s);
     mainLayout->addWidget(mLabel);
     QFont font = mLabel->font();
     font.setBold(true);

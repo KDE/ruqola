@@ -5,30 +5,31 @@
 */
 
 #include "importexportutils.h"
+using namespace Qt::Literals::StringLiterals;
 
 QString ImportExportUtils::configPath()
 {
-    return QStringLiteral("config");
+    return u"config"_s;
 }
 
 QString ImportExportUtils::localPath()
 {
-    return QStringLiteral("local");
+    return u"local"_s;
 }
 
 QString ImportExportUtils::cachePath()
 {
-    return QStringLiteral("cache");
+    return u"cache"_s;
 }
 
 QString ImportExportUtils::logsPath()
 {
-    return QStringLiteral("logs");
+    return u"logs"_s;
 }
 
 QString ImportExportUtils::databasePath()
 {
-    return QStringLiteral("database");
+    return u"database"_s;
 }
 
 QDebug operator<<(QDebug d, const ImportExportUtils::AccountImportExportInfo &t)

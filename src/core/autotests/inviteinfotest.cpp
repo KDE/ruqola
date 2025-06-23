@@ -52,7 +52,7 @@ void InviteInfoTest::shouldParseInviteInfo_data()
         createDateTime.setTime(QTime(6, 49, 04, 571));
         createDateTime.setTimeZone(QTimeZone::UTC);
         expected.setCreateDateTime(createDateTime);
-        QTest::newRow("inviteinfo") << QStringLiteral("inviteinfo") << expected;
+        QTest::newRow("inviteinfo") << u"inviteinfo"_s << expected;
     }
 }
 

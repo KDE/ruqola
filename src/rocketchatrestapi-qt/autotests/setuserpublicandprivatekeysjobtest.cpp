@@ -5,6 +5,8 @@
 */
 
 #include "setuserpublicandprivatekeysjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "e2e/setuserpublicandprivatekeysjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -30,16 +32,16 @@ void SetUserPublicAndPrivateKeysJobTest::shouldGenerateRequest()
     SetUserPublicAndPrivateKeysJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.setUserPublicAndPrivateKeys")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.setUserPublicAndPrivateKeys"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void SetUserPublicAndPrivateKeysJobTest::shouldGenerateJson()
 {
     SetUserPublicAndPrivateKeysJob job;
     SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo info;
-    const QString rsapublic = QStringLiteral("foo1");
-    const QString rsaprivate = QStringLiteral("private");
+    const QString rsapublic = u"foo1"_s;
+    const QString rsaprivate = u"private"_s;
     info.rsaPrivateKey = rsaprivate;
     info.rsaPublicKey = rsapublic;
     job.setSetUserPublicAndPrivateKeysInfo(info);
@@ -57,22 +59,22 @@ void SetUserPublicAndPrivateKeysJobTest::shouldNotStarting()
     SetUserPublicAndPrivateKeysJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
     SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo info;
-    const QString rsapublic = QStringLiteral("foo1");
-    const QString rsaprivate = QStringLiteral("private");
+    const QString rsapublic = u"foo1"_s;
+    const QString rsaprivate = u"private"_s;
     info.rsaPrivateKey = rsaprivate;
     job.setSetUserPublicAndPrivateKeysInfo(info);
     QVERIFY(!job.canStart());

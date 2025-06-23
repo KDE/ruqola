@@ -30,10 +30,10 @@ void ChannelGroupBaseJob::addQueryItem(QUrl &url) const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
     case ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
-        queryUrl.addQueryItem(QStringLiteral("roomId"), mChannelGroupInfo.identifier);
+        queryUrl.addQueryItem(u"roomId"_s, mChannelGroupInfo.identifier);
         break;
     case ChannelGroupBaseJob::ChannelGroupInfoType::Name:
-        queryUrl.addQueryItem(QStringLiteral("roomName"), mChannelGroupInfo.identifier);
+        queryUrl.addQueryItem(u"roomName"_s, mChannelGroupInfo.identifier);
         break;
     }
     addQueryParameter(queryUrl);

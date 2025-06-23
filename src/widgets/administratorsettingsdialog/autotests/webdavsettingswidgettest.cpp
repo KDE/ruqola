@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "webdavsettingswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/webdav/webdavsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
@@ -17,11 +19,11 @@ WebDavSettingsWidgetTest::WebDavSettingsWidgetTest(QObject *parent)
 void WebDavSettingsWidgetTest::shouldHaveDefaultValues()
 {
     WebDavSettingsWidget w(nullptr);
-    auto mEnabled = w.findChild<QCheckBox *>(QStringLiteral("mEnabled"));
+    auto mEnabled = w.findChild<QCheckBox *>(u"mEnabled"_s);
     QVERIFY(mEnabled);
     QVERIFY(!mEnabled->isChecked());
     QVERIFY(!mEnabled->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("Webdav_Integration_Enabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), u"Webdav_Integration_Enabled"_s);
 }
 
 #include "moc_webdavsettingswidgettest.cpp"

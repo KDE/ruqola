@@ -5,6 +5,8 @@
 */
 
 #include "searchteamwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "searchteamcompletionlineedit.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
@@ -15,14 +17,14 @@ SearchTeamWidget::SearchTeamWidget(RocketChatAccount *account, QWidget *parent)
     , mSearchLine(new SearchTeamCompletionLineEdit(account, this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
     auto label = new QLabel(i18nc("@label:textbox", "Team Name:"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
-    mSearchLine->setObjectName(QStringLiteral("mSearchLine"));
+    mSearchLine->setObjectName(u"mSearchLine"_s);
     mainLayout->addWidget(mSearchLine);
     mainLayout->addStretch(1);
     connect(mSearchLine, &SearchTeamCompletionLineEdit::teamIdChanged, this, [this](bool isEmpty) {

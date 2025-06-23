@@ -5,6 +5,8 @@
 */
 
 #include "searchmessagewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/searchmessagejob.h"
 #include "connection.h"
 #include "model/commonmessagefilterproxymodel.h"
@@ -40,17 +42,17 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search messages"));
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     mainLayout->addWidget(mSearchLineEdit);
     auto labelRegularExpression = new QLabel(i18n("You can search using <a href=\"https://en.wikipedia.org/wiki/Regular_expression\">Regular "
                                                   "Expression</a>. e.g. <code>/^text$/i</code>"),
                                              this);
-    labelRegularExpression->setObjectName(QStringLiteral("labelRegularExpression"));
+    labelRegularExpression->setObjectName(u"labelRegularExpression"_s);
     labelRegularExpression->setOpenExternalLinks(true);
 
     QFont font = labelRegularExpression->font();
@@ -61,19 +63,19 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &SearchMessageWidget::slotSearchMessages);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &SearchMessageWidget::slotClearedMessages);
 
-    mSearchLabel->setObjectName(QStringLiteral("mSearchLabel"));
+    mSearchLabel->setObjectName(u"mSearchLabel"_s);
     QFont labFont = mSearchLabel->font();
     labFont.setBold(true);
     mSearchLabel->setFont(labFont);
     mainLayout->addWidget(mSearchLabel);
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
-    mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
+    mResultListWidget->setObjectName(u"mResultListWidget"_s);
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);

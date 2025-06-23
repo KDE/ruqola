@@ -5,6 +5,8 @@
 */
 
 #include "configurefontwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolaglobalconfig.h"
 #include <KFontChooser>
 #include <KLocalizedString>
@@ -19,12 +21,12 @@ ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
 {
     mFontChooser->setMinVisibleItems(4);
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCustomFontCheck->setObjectName(QStringLiteral("mCustomFontCheck"));
+    mCustomFontCheck->setObjectName(u"mCustomFontCheck"_s);
     mainLayout->addWidget(mCustomFontCheck);
 
-    mFontChooser->setObjectName(QStringLiteral("mFontChooser"));
+    mFontChooser->setObjectName(u"mFontChooser"_s);
     mFontChooser->setEnabled(false); // since !mCustomFontCheck->isChecked()
     mainLayout->addWidget(mFontChooser);
     connect(mCustomFontCheck, &QCheckBox::toggled, mFontChooser, &KFontChooser::setEnabled);

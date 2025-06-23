@@ -5,6 +5,8 @@
 */
 
 #include "serverconfiginfo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqolaserverconfig.h"
@@ -56,7 +58,7 @@ QString ServerConfigInfo::logoUrl() const
         if (logoUrl.isEmpty()) {
             return {};
         }
-        return mAccount->settings()->serverUrl() + QLatin1Char('/') + logoUrl;
+        return mAccount->settings()->serverUrl() + u'/' + logoUrl;
     }
     return {};
 }
@@ -68,7 +70,7 @@ QString ServerConfigInfo::faviconUrl() const
         if (faviconUrl.isEmpty()) {
             return {};
         }
-        return mAccount->settings()->serverUrl() + QLatin1Char('/') + faviconUrl;
+        return mAccount->settings()->serverUrl() + u'/' + faviconUrl;
     }
     return {};
 }

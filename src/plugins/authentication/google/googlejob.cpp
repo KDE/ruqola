@@ -8,6 +8,8 @@
  */
 
 #include "googlejob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "googleauthenticationplugin_debug.h"
 #include "ruqola_debug.h"
 
@@ -34,11 +36,11 @@ GoogleJob::GoogleJob(QObject *parent)
     mO2Google->setClientSecret(m_clientSecret);
     mO2Google->setLocalPort(8888); // it is from redirect url(http://127.0.0.1:8888/)
     mO2Google->setRequestUrl(m_authUri); // Use the desktop login UI
-    mO2Google->setScope(QStringLiteral("email"));
+    mO2Google->setScope(u"email"_s);
 
     // Create a store object for writing the received tokens
     O0SettingsStore *store = new O0SettingsStore(QLatin1StringView(O2_ENCRYPTION_KEY), this);
-    store->setGroupKey(QStringLiteral("Google"));
+    store->setGroupKey(u"Google"_s);
     mO2Google->setStore(store);
 
     connect(mO2Google, &O2Google::linkedChanged, this, &GoogleJob::onLinkedChanged);
@@ -57,7 +59,7 @@ GoogleJob::~GoogleJob()
 
 void GoogleJob::getDataFromJson()
 {
-    QFile f(QStringLiteral(":/client_secret.json"));
+    QFile f(u":/client_secret.json"_s);
 
     QString val;
     if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -75,15 +77,15 @@ void GoogleJob::getDataFromJson()
     // https://github.com/login/oauth/access_token
     const QJsonDocument document = QJsonDocument::fromJson(val.toUtf8());
     const QJsonObject object = document.object();
-    const auto settingsObject = object[QStringLiteral("web")].toObject();
-    const auto authUri(settingsObject[QStringLiteral("auth_uri")].toString());
-    const auto clientID = settingsObject[QStringLiteral("client_id")].toString();
-    const auto clientSecret(settingsObject[QStringLiteral("client_secret")].toString());
+    const auto settingsObject = object[u"web"_s].toObject();
+    const auto authUri(settingsObject[u"auth_uri"_s].toString());
+    const auto clientID = settingsObject[u"client_id"_s].toString();
+    const auto clientSecret(settingsObject[u"client_secret"_s].toString());
 
     m_clientID = clientID;
     m_clientSecret = clientSecret;
     m_authUri = authUri;
-    m_tokenUri = QStringLiteral("https://accounts.google.com/o/oauth2/token");
+    m_tokenUri = u"https://accounts.google.com/o/oauth2/token"_s;
 }
 
 void GoogleJob::doOAuth(O2::GrantFlow grantFlowType)
@@ -116,7 +118,7 @@ void GoogleJob::validateToken()
     QNetworkAccessManager *mgr = new QNetworkAccessManager(this);
     QNetworkReply *reply = mgr->get(request);
     connect(reply, &QNetworkReply::finished, this, &GoogleJob::onFinished);
-    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Validating user token. Please wait...");
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << u"Validating user token. Please wait..."_s;
 }
 
 void GoogleJob::onOpenBrowser(const QUrl &url)
@@ -131,7 +133,7 @@ void GoogleJob::onCloseBrowser()
 
 void GoogleJob::onLinkedChanged()
 {
-    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Link changed!");
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << u"Link changed!"_s;
 }
 
 void GoogleJob::onLinkingSucceeded()
@@ -144,10 +146,9 @@ void GoogleJob::onLinkingSucceeded()
     const QVariantMap extraTokens = o1t->extraTokens();
     if (!extraTokens.isEmpty()) {
         Q_EMIT extraTokensReady(extraTokens);
-        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Extra tokens in response:");
+        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << u"Extra tokens in response:"_s;
         foreach (const QString &key, extraTokens.keys()) {
-            qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG)
-                << key << QStringLiteral(":") << (extraTokens.value(key).toString().left(3) + QStringLiteral("..."));
+            qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << key << u":"_s << (extraTokens.value(key).toString().left(3) + u"..."_s);
         }
     }
 }
@@ -164,8 +165,8 @@ void GoogleJob::onFinished()
 
     reply->deleteLater();
     if (reply->error() != QNetworkReply::NoError) {
-        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Reply error:") << reply->error();
-        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Reason:") << reply->errorString();
+        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << u"Reply error:"_s << reply->error();
+        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << u"Reason:"_s << reply->errorString();
         Q_EMIT linkingFailed(QString());
         return;
     }
@@ -173,11 +174,11 @@ void GoogleJob::onFinished()
     const QByteArray replyData = reply->readAll();
     bool valid = !replyData.contains("error");
     if (valid) {
-        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Token is valid");
+        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << u"Token is valid"_s;
         Q_EMIT linkingSucceeded();
         m_isValidToken = true;
     } else {
-        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Token is invalid");
+        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << u"Token is invalid"_s;
         // TODO
         Q_EMIT linkingFailed(QString());
     }

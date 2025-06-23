@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "switchchanneltreeview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
 #include "switchchanneldelegate.h"
@@ -21,7 +23,7 @@ SwitchChannelTreeView::SwitchChannelTreeView(QWidget *parent)
 
     setHeaderHidden(true);
     setRootIsDecorated(false);
-    mSwitchChannelDelegate->setObjectName(QStringLiteral("mSwitchChannelDelegate"));
+    mSwitchChannelDelegate->setObjectName(u"mSwitchChannelDelegate"_s);
     setItemDelegate(mSwitchChannelDelegate);
 }
 

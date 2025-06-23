@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportuserjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "moderation/moderationreportuserjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -30,8 +32,8 @@ void ModerationReportUserJobTest::shouldGenerateRequest()
     ModerationReportUserJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reportUser")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.reportUser"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void ModerationReportUserJobTest::shouldGenerateJson()
@@ -48,7 +50,7 @@ void ModerationReportUserJobTest::shouldGenerateJson()
         ModerationReportUserJob job;
         const QByteArray reportedUserId("foo7");
         job.setReportedUserId(reportedUserId);
-        const QString description(QStringLiteral("test"));
+        const QString description(u"test"_s);
         job.setDescription(description);
 
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
@@ -61,14 +63,14 @@ void ModerationReportUserJobTest::shouldNotStarting()
     ModerationReportUserJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -76,7 +78,7 @@ void ModerationReportUserJobTest::shouldNotStarting()
     const QByteArray reportedUserId("foo2");
     job.setReportedUserId(reportedUserId);
     QVERIFY(!job.canStart());
-    const QString description(QStringLiteral("test"));
+    const QString description(u"test"_s);
     job.setDescription(description);
     QVERIFY(job.canStart());
 }

@@ -5,6 +5,8 @@
 */
 
 #include "appscountinfowidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingsdialog/appscountinfowidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
@@ -21,18 +23,18 @@ AppsCountInfoWidgetTest::AppsCountInfoWidgetTest(QObject *parent)
 void AppsCountInfoWidgetTest::shouldHaveDefaultValues()
 {
     AppsCountInfoWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mProgressBar = w.findChild<QProgressBar *>(QStringLiteral("mProgressBar"));
+    auto mProgressBar = w.findChild<QProgressBar *>(u"mProgressBar"_s);
     QVERIFY(mProgressBar);
 
-    auto mApplicationInfo = w.findChild<QLabel *>(QStringLiteral("mApplicationInfo"));
+    auto mApplicationInfo = w.findChild<QLabel *>(u"mApplicationInfo"_s);
     QVERIFY(mApplicationInfo);
     QVERIFY(mApplicationInfo->text().isEmpty());
 
-    auto mEnableAppsLabel = w.findChild<QLabel *>(QStringLiteral("mEnableAppsLabel"));
+    auto mEnableAppsLabel = w.findChild<QLabel *>(u"mEnableAppsLabel"_s);
     QVERIFY(mEnableAppsLabel);
     QVERIFY(mEnableAppsLabel->text().isEmpty());
 

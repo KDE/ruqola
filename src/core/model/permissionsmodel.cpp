@@ -5,6 +5,8 @@
 */
 
 #include "permissionsmodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 PermissionsModel::PermissionsModel(QObject *parent)
@@ -79,7 +81,7 @@ QVariant PermissionsModel::data(const QModelIndex &index, int role) const
     case PermissionsModel::Roles:
         return permissionInfo.roles();
     case PermissionsModel::RolesStr:
-        return permissionInfo.rolesStr().join(QLatin1Char(','));
+        return permissionInfo.rolesStr().join(u',');
     }
     return {};
 }

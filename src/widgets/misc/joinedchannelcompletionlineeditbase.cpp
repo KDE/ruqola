@@ -5,6 +5,8 @@
 */
 
 #include "joinedchannelcompletionlineeditbase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/completionlistview.h"
 #include "joinedchannelcompletiondelegate.h"
 #include "model/joinedchannelmodel.h"
@@ -30,7 +32,7 @@ JoinedChannelCompletionLineEditBase::JoinedChannelCompletionLineEditBase(RocketC
     connect(this, &QLineEdit::textChanged, this, &JoinedChannelCompletionLineEditBase::slotSearchTextEdited);
 
     auto joinedChannelCompletionDelegate = new JoinedChannelCompletionDelegate(mCompletionListView);
-    joinedChannelCompletionDelegate->setObjectName(QStringLiteral("joinedChannelCompletionDelegate"));
+    joinedChannelCompletionDelegate->setObjectName(u"joinedChannelCompletionDelegate"_s);
     joinedChannelCompletionDelegate->setRocketChatAccount(account);
     mCompletionListView->setItemDelegate(joinedChannelCompletionDelegate);
     mCompletionListView->setTextWidget(this);

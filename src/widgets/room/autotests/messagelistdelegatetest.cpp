@@ -5,6 +5,8 @@
 */
 
 #include "messagelistdelegatetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messages/message.h"
 #include "messages/messageattachment.h"
 #include "rocketchataccount.h"
@@ -24,7 +26,7 @@ MessageListDelegateTest::MessageListDelegateTest(QObject *parent)
 {
     initTestAccount();
 
-    const QString userId = QStringLiteral("dfaureUserId");
+    const QString userId = u"dfaureUserId"_s;
     Ruqola::self()->rocketChatAccount()->insertAvatarUrl(userId, avatarLink());
 }
 
@@ -36,7 +38,7 @@ void MessageListDelegateTest::layoutChecks_data()
     Message message;
     message.setMessageId("someNonEmptyId"_ba);
     message.setUserId("dfaureUserId"_ba);
-    message.setUsername(QStringLiteral("dfaure"));
+    message.setUsername(u"dfaure"_s);
     message.setTimeStamp(QDateTime(QDate(2020, 2, 1), QTime(4, 7, 15)).toMSecsSinceEpoch());
     message.setMessageType(Message::NormalText);
 
@@ -57,7 +59,7 @@ void MessageListDelegateTest::layoutChecks_data()
     QTest::newRow("attachment_no_text_no_date") << message << false;
     QTest::newRow("attachment_no_text_with_date") << message << true;
 
-    message.setText(QStringLiteral("The <b>text</b>"));
+    message.setText(u"The <b>text</b>"_s);
 
     QTest::newRow("attachment_with_text_no_date") << message << false;
     QTest::newRow("attachment_with_text_with_date") << message << true;
@@ -107,8 +109,8 @@ void MessageListDelegateTest::layoutChecks()
     const MessageListLayoutBase::Layout layout = delegate.doLayout(option, index);
 
     // THEN
-    QCOMPARE(layout.senderText, QStringLiteral("@dfaure"));
-    QCOMPARE(layout.timeStampText, QStringLiteral("04:07"));
+    QCOMPARE(layout.senderText, u"@dfaure"_s);
+    QCOMPARE(layout.timeStampText, u"04:07"_s);
     QVERIFY(option.rect.contains(layout.usableRect));
     // FIXME: reactivate
     // QVERIFY(option.rect.contains(layout.senderRect.toRect()));

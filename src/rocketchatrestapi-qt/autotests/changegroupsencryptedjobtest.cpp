@@ -5,6 +5,8 @@
 */
 
 #include "changegroupsencryptedjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "groups/changegroupsencryptedjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,14 +31,14 @@ void ChangeGroupsEncryptedJobTest::shouldGenerateRequest()
     ChangeGroupsEncryptedJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setEncrypted")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.setEncrypted"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void ChangeGroupsEncryptedJobTest::shouldGenerateJson()
 {
     ChangeGroupsEncryptedJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     bool encrypted = true;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;

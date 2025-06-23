@@ -5,6 +5,8 @@
 */
 
 #include "registrationwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/registration/registrationwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
@@ -18,7 +20,7 @@ void RegistrationWidgetTest::shouldHaveDefaultValues()
 {
     RegistrationWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }

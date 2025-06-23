@@ -5,6 +5,8 @@
 */
 
 #include "changegroupsdescriptionjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "groups/changegroupsdescriptionjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,15 +31,15 @@ void ChangeGroupsDescriptionJobTest::shouldGenerateRequest()
     ChangeGroupsDescriptionJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setDescription")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.setDescription"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void ChangeGroupsDescriptionJobTest::shouldGenerateJson()
 {
     ChangeGroupsDescriptionJob job;
-    const QString roomId = QStringLiteral("foo1");
-    const QString description = QStringLiteral("topic1");
+    const QString roomId = u"foo1"_s;
+    const QString description = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;

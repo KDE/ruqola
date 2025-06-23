@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomuserstatuswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include <KTreeWidgetSearchLineWidget>
 #include <QTest>
@@ -20,13 +22,13 @@ AdministratorCustomUserStatusWidgetTest::AdministratorCustomUserStatusWidgetTest
 void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomUserStatusWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCustomUserStatusTreeWidget = w.findChild<QTreeWidget *>(QStringLiteral("mCustomUserStatusTreeWidget"));
+    auto mCustomUserStatusTreeWidget = w.findChild<QTreeWidget *>(u"mCustomUserStatusTreeWidget"_s);
     QVERIFY(mCustomUserStatusTreeWidget);
 
-    auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
+    auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(u"mSearchLineWidget"_s);
     QVERIFY(mSearchLineWidget);
 }
 

@@ -6,6 +6,8 @@
 */
 
 #include "channellistdelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
@@ -197,7 +199,7 @@ QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
     QString unreadText;
     if (unreadCount > 0) {
         if (unreadCount > 99) {
-            unreadText = QStringLiteral("99+");
+            unreadText = u"99+"_s;
         } else {
             unreadText = QString::number(unreadCount);
         }

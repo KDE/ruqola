@@ -87,17 +87,17 @@ QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
                     tw = textSize(tmp).width();
                 }
             } else {
-                tmp = tmp.split(QStringLiteral("\n")).at(0);
+                tmp = tmp.split(u"\n"_s).at(0);
             }
-            if (!tmp.endsWith(QLatin1Char('\n'))) {
-                tmp.append(QLatin1Char('\n'));
+            if (!tmp.endsWith(u'\n')) {
+                tmp.append(u'\n');
             }
-            return tmp.append(QStringLiteral("<a href=\"showmoretext\"> %1</a>").arg(showMoreText));
+            return tmp.append(u"<a href=\"showmoretext\"> %1</a>"_s.arg(showMoreText));
         } else {
-            if (!tmp.endsWith(QLatin1Char('\n'))) {
-                tmp.append(QLatin1Char('\n'));
+            if (!tmp.endsWith(u'\n')) {
+                tmp.append(u'\n');
             }
-            return tmp.append(QStringLiteral("<a href=\"showlesstext\"> %1</a>").arg(i18n("(Show Less Info…)")));
+            return tmp.append(u"<a href=\"showlesstext\"> %1</a>"_s.arg(i18n("(Show Less Info…)")));
         }
     }
     return text;
@@ -137,7 +137,7 @@ void RoomHeaderLabel::updateHeaderText()
     }
     if (!mAnnouncement.isEmpty()) {
         if (!mFullText.isEmpty()) {
-            mFullText += QLatin1Char('\n');
+            mFullText += u'\n';
         }
         mFullText += mAnnouncement;
     }

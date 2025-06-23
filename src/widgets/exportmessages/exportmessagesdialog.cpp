@@ -5,6 +5,8 @@
 */
 
 #include "exportmessagesdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exportmessageswidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,13 +26,13 @@ ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Export Messages"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mExportMessagesWidget->setObjectName(QStringLiteral("mExportMessagesWidget"));
+    mExportMessagesWidget->setObjectName(u"mExportMessagesWidget"_s);
     mainLayout->addWidget(mExportMessagesWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ExportMessagesDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &ExportMessagesDialog::accept);

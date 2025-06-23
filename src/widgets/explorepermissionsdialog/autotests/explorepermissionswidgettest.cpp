@@ -5,6 +5,8 @@
 */
 
 #include "explorepermissionswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "explorepermissionsdialog/explorepermissionswidget.h"
 
 #include <QLabel>
@@ -25,22 +27,22 @@ ExplorePermissionsWidgetTest::ExplorePermissionsWidgetTest(QObject *parent)
 void ExplorePermissionsWidgetTest::shouldHaveDefaultValues()
 {
     ExplorePermissionsWidget w;
-    auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
+    auto mTreeView = w.findChild<QTreeView *>(u"mTreeView"_s);
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());
 
-    auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
+    auto mSearchLineWidget = w.findChild<QLineEdit *>(u"mSearchLineWidget"_s);
     QVERIFY(mSearchLineWidget);
     QVERIFY(mSearchLineWidget->text().isEmpty());
 
-    auto mPermissionFilterProxyModel = w.findChild<QSortFilterProxyModel *>(QStringLiteral("permissionFilterProxyModel"));
+    auto mPermissionFilterProxyModel = w.findChild<QSortFilterProxyModel *>(u"permissionFilterProxyModel"_s);
     QVERIFY(mPermissionFilterProxyModel);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mOwnRoles = w.findChild<QLabel *>(QStringLiteral("mOwnRoles"));
+    auto mOwnRoles = w.findChild<QLabel *>(u"mOwnRoles"_s);
     QVERIFY(mOwnRoles);
     QVERIFY(mOwnRoles->text().isEmpty());
     QCOMPARE(mOwnRoles->textInteractionFlags(), Qt::TextBrowserInteraction);

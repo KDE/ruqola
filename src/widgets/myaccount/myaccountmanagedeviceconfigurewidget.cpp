@@ -5,6 +5,8 @@
 */
 
 #include "myaccountmanagedeviceconfigurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/deviceinfomodel.h"
@@ -25,11 +27,11 @@ MyAccountManageDeviceConfigureWidget::MyAccountManageDeviceConfigureWidget(Rocke
     : SearchTreeBaseWidget(account, parent)
 {
     mModel = new DeviceInfoModel(this);
-    mModel->setObjectName(QStringLiteral("mModel"));
+    mModel->setObjectName(u"mModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search device…"));
 
     mProxyModelModel = new DeviceInfoProxyModel(mModel, this);
-    mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
+    mProxyModelModel->setObjectName(u"mProxyModelModel"_s);
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
@@ -57,7 +59,7 @@ void MyAccountManageDeviceConfigureWidget::slotLoadElements(int offset, int coun
 
     RocketChatRestApi::QueryParameters parameters;
     //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    //    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    //    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     //    parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);
@@ -93,7 +95,7 @@ void MyAccountManageDeviceConfigureWidget::slotCustomContextMenuRequested(const 
     if (index.isValid()) {
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Disconnect"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Disconnect"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
             slotDisconnectDevice(modelIndex);
         });

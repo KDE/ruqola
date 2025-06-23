@@ -5,6 +5,8 @@
 */
 
 #include "messagedelegatehelperconferencevideo.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "conferencecalldialog/conferenceinfodialog.h"
 #include "config-ruqola.h"
@@ -23,7 +25,7 @@
 
 MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageBlockDelegateHelperBase(account, view, textSelectionImpl)
-    , mInfoIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
+    , mInfoIcon(QIcon::fromTheme(u"documentinfo"_s))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
 }

@@ -129,7 +129,7 @@ bool MessageCache::startJob(RocketChatRestApi::RestApiAbstractJob *job)
 RocketChatRestApi::MethodCallJob::MethodCallJobInfo MessageCache::generateMethodCallInfo(const QByteArray &messageId)
 {
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-    info.methodName = QStringLiteral("getSingleMessage");
+    info.methodName = u"getSingleMessage"_s;
     const QJsonArray params{QString::fromLatin1(messageId)};
     info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
     info.anonymous = false;

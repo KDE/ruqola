@@ -526,7 +526,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // Move code in rocketChatAccount ?
 
             QString roomId = eventname;
-            roomId.remove(QStringLiteral("/deleteMessage"));
+            roomId.remove(u"/deleteMessage"_s);
             MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1());
             if (messageModel) {
                 const QByteArray messageId = contents.at(0).toObject()["_id"_L1].toString().toLatin1();
@@ -551,7 +551,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
 
             QString roomId = eventname;
-            roomId.remove(QStringLiteral("/user-activity"));
+            roomId.remove(u"/user-activity"_s);
             // TODO Perhaps not necessary to convert to variantlist. Need to investigate
             qCWarning(RUQOLA_LOG) << "stream-notify-room: typing event ? " << eventname << " content  " << contents.toVariantList() << " object " << object;
             const QString typingUserName = contents.toVariantList().at(0).toString();
@@ -569,7 +569,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             qDebug() << " DELETE MESSAGE Bulk not IMPLEMENTED yet";
             QString roomId = eventname;
-            roomId.remove(QStringLiteral("/deleteMessageBulk"));
+            roomId.remove(u"/deleteMessageBulk"_s);
             qDebug() << "UNIMPLEMENT!!!!!! deleteMessageBulk " << collection << " object " << object;
             // QJsonObject({"collection":"stream-notify-room","fields":{"args":[{"excludePinned":false,"ignoreDiscussion":true,"rid":"QgCf8GcnXYW5QXiHN","ts":{"$gt":{"$date":946681200000},"$lt":{"$date":1599602400000}},"users":[]}],"eventName":"QgCf8GcnXYW5QXiHN/deleteMessageBulk"},"id":"id","msg":"changed"})
         } else {
@@ -677,72 +677,72 @@ void RocketChatBackend::subscribeRegistration()
     qCDebug(RUQOLA_LOG) << "subscribe registration";
     const QString userId{QString::fromLatin1(mRocketChatAccount->settings()->userId())};
     const QStringList listStreamNotifierUser{
-        QStringLiteral("notification"),
-        QStringLiteral("rooms-changed"),
-        QStringLiteral("subscriptions-changed"),
-        QStringLiteral("message"),
-        QStringLiteral("otr"),
-        QStringLiteral("webrtc"),
-        QStringLiteral("video-conference"),
-        QStringLiteral("userData"),
-        QStringLiteral("banners"),
-        QStringLiteral("force_logout"),
-        QStringLiteral("uiInteraction"),
+        u"notification"_s,
+        u"rooms-changed"_s,
+        u"subscriptions-changed"_s,
+        u"message"_s,
+        u"otr"_s,
+        u"webrtc"_s,
+        u"video-conference"_s,
+        u"userData"_s,
+        u"banners"_s,
+        u"force_logout"_s,
+        u"uiInteraction"_s,
     };
     for (const QString &str : listStreamNotifierUser) {
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, str)));
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+        params.append(QJsonValue(u"%1/%2"_s.arg(userId, str)));
+        mRocketChatAccount->ddp()->subscribe(u"stream-notify-user"_s, params);
     }
 
     const QStringList listStreamNotifierAll{
-        QStringLiteral("deleteCustomSound"),
-        QStringLiteral("updateCustomSound"),
-        QStringLiteral("deleteEmojiCustom"),
-        QStringLiteral("public-settings-changed"),
-        QStringLiteral("permissions-changed"),
-        QStringLiteral("license"),
-        QStringLiteral("public-info"),
-        QStringLiteral("userData"),
-        QStringLiteral("banners"),
-        QStringLiteral("force_logout"),
+        u"deleteCustomSound"_s,
+        u"updateCustomSound"_s,
+        u"deleteEmojiCustom"_s,
+        u"public-settings-changed"_s,
+        u"permissions-changed"_s,
+        u"license"_s,
+        u"public-info"_s,
+        u"userData"_s,
+        u"banners"_s,
+        u"force_logout"_s,
     };
     for (const QString &str : listStreamNotifierUser) {
         QJsonArray params;
         params.append(QJsonValue(str));
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+        mRocketChatAccount->ddp()->subscribe(u"stream-notify-all"_s, params);
     }
 
     const QStringList listStreamNotifierLogged{
-        QStringLiteral("updateEmojiCustom"),
-        QStringLiteral("deleteEmojiCustom"),
-        QStringLiteral("roles-change"),
-        QStringLiteral("roles-change"),
-        QStringLiteral("updateAvatar"),
-        QStringLiteral("Users:NameChanged"),
-        QStringLiteral("Users:Deleted"),
-        QStringLiteral("banner-changed"),
-        QStringLiteral("deleteCustomUserStatus"),
-        QStringLiteral("updateCustomUserStatus"),
-        QStringLiteral("voip.statuschanged"),
-        QStringLiteral("user-status"),
-        QStringLiteral("permissions-changed"),
-        QStringLiteral("private-settings-changed"),
+        u"updateEmojiCustom"_s,
+        u"deleteEmojiCustom"_s,
+        u"roles-change"_s,
+        u"roles-change"_s,
+        u"updateAvatar"_s,
+        u"Users:NameChanged"_s,
+        u"Users:Deleted"_s,
+        u"banner-changed"_s,
+        u"deleteCustomUserStatus"_s,
+        u"updateCustomUserStatus"_s,
+        u"voip.statuschanged"_s,
+        u"user-status"_s,
+        u"permissions-changed"_s,
+        u"private-settings-changed"_s,
     };
     for (const QString &str : listStreamNotifierLogged) {
         QJsonArray params;
         params.append(QJsonValue(str));
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+        mRocketChatAccount->ddp()->subscribe(u"stream-notify-logged"_s, params);
     }
 
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("roles"))};
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-roles"), params);
+        const QJsonArray params{QJsonValue(u"roles"_s)};
+        mRocketChatAccount->ddp()->subscribe(u"stream-roles"_s, params);
     }
 
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("apps"))};
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-apps"), params);
+        const QJsonArray params{QJsonValue(u"apps"_s)};
+        mRocketChatAccount->ddp()->subscribe(u"stream-apps"_s, params);
     }
 }
 

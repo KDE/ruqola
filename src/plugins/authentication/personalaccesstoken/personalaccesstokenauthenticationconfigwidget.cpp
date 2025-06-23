@@ -5,6 +5,8 @@
 */
 
 #include "personalaccesstokenauthenticationconfigwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QFormLayout>
@@ -18,15 +20,15 @@ PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthentication
     , mPersonalAccessTokenLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mServerNameLineEdit->setObjectName(QStringLiteral("mServerNameLineEdit"));
-    mAccountNameLineEdit->setObjectName(QStringLiteral("mAccountNameLineEdit"));
+    mainLayout->setObjectName(u"mainLayout"_s);
+    mServerNameLineEdit->setObjectName(u"mServerNameLineEdit"_s);
+    mAccountNameLineEdit->setObjectName(u"mAccountNameLineEdit"_s);
     mAccountNameLineEdit->setClearButtonEnabled(true);
     mUserLineEdit->setClearButtonEnabled(true);
     mPersonalAccessTokenLineEdit->setClearButtonEnabled(true);
 
-    mUserLineEdit->setObjectName(QStringLiteral("mUserLineEdit"));
-    mPersonalAccessTokenLineEdit->setObjectName(QStringLiteral("mPersonalAccessTokenLineEdit"));
+    mUserLineEdit->setObjectName(u"mUserLineEdit"_s);
+    mPersonalAccessTokenLineEdit->setObjectName(u"mPersonalAccessTokenLineEdit"_s);
 
     KLineEditEventHandler::catchReturnKey(mUserLineEdit);
     KLineEditEventHandler::catchReturnKey(mPersonalAccessTokenLineEdit);

@@ -39,7 +39,7 @@ void UserTest::shouldBeValid()
 {
     User u;
 
-    u.setName(QStringLiteral("foo"));
+    u.setName(u"foo"_s);
     QVERIFY(u.isValid());
 
     User u2;
@@ -47,29 +47,29 @@ void UserTest::shouldBeValid()
     QVERIFY(!u2.isValid());
 
     User u3;
-    u3.setUserName(QStringLiteral("dd"));
+    u3.setUserName(u"dd"_s);
     QVERIFY(u3.isValid());
 
     User u4;
     u4.setUserId("d"_ba);
-    u4.setUserName(QStringLiteral("dd"));
-    u4.setName(QStringLiteral("foo"));
+    u4.setUserName(u"dd"_s);
+    u4.setName(u"foo"_s);
     QVERIFY(u4.isValid());
 }
 
 void UserTest::shouldSetAndGetName()
 {
     User sampleUser;
-    QString name = QStringLiteral("Maxwell");
+    QString name = u"Maxwell"_s;
     sampleUser.setName(name);
 
     QCOMPARE(sampleUser.name(), name);
 
-    name = QStringLiteral("Maxwell_NEW");
+    name = u"Maxwell_NEW"_s;
     sampleUser.setName(name);
     QCOMPARE(sampleUser.name(), name);
 
-    name = QStringLiteral("Maxwell_NEW");
+    name = u"Maxwell_NEW"_s;
     sampleUser.setName(name);
     QCOMPARE(sampleUser.name(), name);
 }
@@ -111,12 +111,12 @@ void UserTest::shouldParseUser()
     User sampleUser;
     QJsonObject object;
     QJsonObject fields;
-    const QString name = QStringLiteral("Newton");
-    const QString status = QStringLiteral("offline");
-    fields.insert(QStringLiteral("name"), QJsonValue(name));
-    fields.insert(QStringLiteral("status"), QJsonValue(status));
-    object.insert(QStringLiteral("id"), QJsonValue("RA151100ECE"_L1));
-    object.insert(QStringLiteral("fields"), fields);
+    const QString name = u"Newton"_s;
+    const QString status = u"offline"_s;
+    fields.insert(u"name"_s, QJsonValue(name));
+    fields.insert(u"status"_s, QJsonValue(status));
+    object.insert(u"id"_s, QJsonValue("RA151100ECE"_L1));
+    object.insert(u"fields"_s, fields);
 
     sampleUser.parseUser(object);
     QCOMPARE(sampleUser.name(), name);
@@ -128,7 +128,7 @@ void UserTest::checkEqualsAndUnequalsOperator()
     User sampleuser;
     User sampleuserOther;
     QByteArray Id = "RA151100ECE"_ba;
-    QString name = QStringLiteral("Robert Segwick");
+    QString name = u"Robert Segwick"_s;
 
     sampleuser.setUserId(Id);
     sampleuser.setName(name);
@@ -140,7 +140,7 @@ void UserTest::checkEqualsAndUnequalsOperator()
     sampleuserOther.setStatus(User::PresenceStatus::Offline);
     QVERIFY(sampleuser == sampleuserOther);
 
-    sampleuserOther.setName(QStringLiteral("Robert Segwick_NEW"));
+    sampleuserOther.setName(u"Robert Segwick_NEW"_s);
     QVERIFY(sampleuser != sampleuserOther);
 }
 
@@ -149,12 +149,12 @@ void UserTest::shouldParseJson_data()
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<User>("expectedUser");
     User expected;
-    expected.setName(QStringLiteral("Laurent M"));
+    expected.setName(u"Laurent M"_s);
     expected.setStatus(User::PresenceStatus::Away);
     expected.setUserId("yi2ucvqkdkxiTkyZ5"_ba);
-    expected.setUserName(QStringLiteral("laurent"));
+    expected.setUserName(u"laurent"_s);
     expected.setUtcOffset(1);
-    QTest::newRow("user1") << QStringLiteral("adduser") << expected;
+    QTest::newRow("user1") << u"adduser"_s << expected;
 }
 
 void UserTest::shouldParseJson()
@@ -179,12 +179,12 @@ void UserTest::shouldParseRestApiJson_data()
     QTest::addColumn<User>("expectedUser");
     {
         User expected;
-        expected.setName(QStringLiteral("name_user"));
+        expected.setName(u"name_user"_s);
         expected.setStatus(User::PresenceStatus::Offline);
         expected.setUserId("BDFj6E7Z9RYucn8C"_ba);
-        expected.setUserName(QStringLiteral("username"));
+        expected.setUserName(u"username"_s);
         expected.setUtcOffset(0);
-        expected.setRoles({QStringLiteral("user")}, {});
+        expected.setRoles({u"user"_s}, {});
         expected.setType("user"_L1);
         QDateTime createdTime;
         createdTime.setDate(QDate(2020, 10, 04));
@@ -192,17 +192,17 @@ void UserTest::shouldParseRestApiJson_data()
         createdTime.setTimeZone(QTimeZone::UTC);
         expected.setCreatedAt(createdTime);
         expected.setLastLogin(QDateTime());
-        QTest::newRow("userrestapi1") << QStringLiteral("userrestapi") << expected;
+        QTest::newRow("userrestapi1") << u"userrestapi"_s << expected;
     }
     {
         User expected;
-        expected.setName(QStringLiteral("Bla bla"));
+        expected.setName(u"Bla bla"_s);
         expected.setStatus(User::PresenceStatus::Online);
         expected.setUserId("XQZAk3998f9hSNwh"_ba);
-        expected.setUserName(QStringLiteral("steffen"));
+        expected.setUserName(u"steffen"_s);
         expected.setUtcOffset(2);
         expected.setType("user"_L1);
-        expected.setRoles({QStringLiteral("user"), QStringLiteral("admin")}, {});
+        expected.setRoles({u"user"_s, u"admin"_s}, {});
         QDateTime createdTime;
         createdTime.setTimeZone(QTimeZone::UTC);
         createdTime.setDate(QDate(2018, 01, 18));
@@ -215,11 +215,11 @@ void UserTest::shouldParseRestApiJson_data()
         lastLogin.setTime(QTime(00, 26, 27, 324));
         expected.setLastLogin(lastLogin);
         User::UserEmailsInfo info;
-        info.email = QStringLiteral("bla@kde.com");
+        info.email = u"bla@kde.com"_s;
         info.verified = true;
         expected.setUserEmailsInfo(info);
-        expected.setNickName(QStringLiteral("TheReal"));
-        QTest::newRow("userrestapi2") << QStringLiteral("userrestapi2") << expected;
+        expected.setNickName(u"TheReal"_s);
+        QTest::newRow("userrestapi2") << u"userrestapi2"_s << expected;
     }
 }
 
@@ -243,11 +243,11 @@ void UserTest::shouldGetStatusIcon_data()
 {
     QTest::addColumn<User::PresenceStatus>("status");
     QTest::addColumn<QString>("iconFileName");
-    QTest::newRow("online") << User::PresenceStatus::Online << QStringLiteral("user-online");
-    QTest::newRow("busy") << User::PresenceStatus::Busy << QStringLiteral("user-busy");
-    QTest::newRow("away") << User::PresenceStatus::Away << QStringLiteral("user-away");
-    QTest::newRow("offline") << User::PresenceStatus::Offline << QStringLiteral("user-offline");
-    QTest::newRow("unknown") << User::PresenceStatus::Unknown << QStringLiteral("unknown");
+    QTest::newRow("online") << User::PresenceStatus::Online << u"user-online"_s;
+    QTest::newRow("busy") << User::PresenceStatus::Busy << u"user-busy"_s;
+    QTest::newRow("away") << User::PresenceStatus::Away << u"user-away"_s;
+    QTest::newRow("offline") << User::PresenceStatus::Offline << u"user-offline"_s;
+    QTest::newRow("unknown") << User::PresenceStatus::Unknown << u"unknown"_s;
 }
 
 void UserTest::shouldGetStatusIcon()

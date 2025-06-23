@@ -5,6 +5,8 @@
 */
 
 #include "teamconverttochannelwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teamselectdeletedroomwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
@@ -15,7 +17,7 @@ TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
     , mTeamSelectDeletedRoomWidget(new TeamSelectDeletedRoomWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto deleteLabel =
@@ -23,11 +25,11 @@ TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
                          "Select the Team’s Channels you would like to delete, the ones you do not select will be moved to the Workspace. Notice "
                          "that public Channels will be public and visible to everyone."),
                    this);
-    deleteLabel->setObjectName(QStringLiteral("deleteLabel"));
+    deleteLabel->setObjectName(u"deleteLabel"_s);
     deleteLabel->setWordWrap(true);
     mainLayout->addWidget(deleteLabel);
 
-    mTeamSelectDeletedRoomWidget->setObjectName(QStringLiteral("mTeamSelectDeletedRoomWidget"));
+    mTeamSelectDeletedRoomWidget->setObjectName(u"mTeamSelectDeletedRoomWidget"_s);
     mainLayout->addWidget(mTeamSelectDeletedRoomWidget);
 }
 

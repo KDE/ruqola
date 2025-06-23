@@ -25,9 +25,9 @@ ViewLogWidget::ViewLogWidget(RocketChatAccount *account, QWidget *parent)
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
-    mPlainTextEdit->setObjectName(QStringLiteral("mPlainTextEdit"));
+    mPlainTextEdit->setObjectName(u"mPlainTextEdit"_s);
     mPlainTextEdit->setReadOnly(true);
     mainLayout->addWidget(mPlainTextEdit);
 }
@@ -52,8 +52,8 @@ void ViewLogWidget::initialize()
 {
     {
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("stdout")));
-        mStdoutIdentifier = mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-stdout"), params);
+        params.append(QJsonValue(u"stdout"_s));
+        mStdoutIdentifier = mRocketChatAccount->ddp()->subscribe(u"stream-stdout"_s, params);
     }
     connect(mRocketChatAccount, &RocketChatAccount::insertStdOutInfo, this, &ViewLogWidget::slotInsertStdOutInfo);
 
@@ -77,9 +77,9 @@ void ViewLogWidget::slotInsertStdOutInfo(const QString &str)
 void ViewLogWidget::insertLine(const QString &str)
 {
 #if HAVE_TEXT_CUSTOM_EDITOR
-    mPlainTextEdit->editor()->appendHtml(QStringLiteral("<p white-space:pre\">%1</p>").arg(str));
+    mPlainTextEdit->editor()->appendHtml(u"<p white-space:pre\">%1</p>"_s.arg(str));
 #else
-    mPlainTextEdit->appendHtml(QStringLiteral("<p white-space:pre\">%1</p>").arg(str));
+    mPlainTextEdit->appendHtml(u"<p white-space:pre\">%1</p>"_s.arg(str));
 #endif
 }
 

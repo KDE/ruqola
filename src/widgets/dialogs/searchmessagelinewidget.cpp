@@ -5,6 +5,8 @@
 */
 
 #include "searchmessagelinewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QHBoxLayout>
@@ -15,9 +17,9 @@ SearchMessageLineWidget::SearchMessageLineWidget(QWidget *parent)
     , mMainLayout(new QHBoxLayout(this))
     , mSearchMessageLineEdit(new QLineEdit(this))
 {
-    mMainLayout->setObjectName(QStringLiteral("mMainLayout"));
+    mMainLayout->setObjectName(u"mMainLayout"_s);
     mMainLayout->setContentsMargins({});
-    mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
+    mSearchMessageLineEdit->setObjectName(u"mSearchMessageLineEdit"_s);
     mMainLayout->addWidget(mSearchMessageLineEdit);
     mSearchMessageLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchMessageLineEdit);

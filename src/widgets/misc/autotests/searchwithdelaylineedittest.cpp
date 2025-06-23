@@ -5,6 +5,8 @@
 */
 
 #include "searchwithdelaylineedittest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/searchwithdelaylineedit.h"
 #include <QTest>
 QTEST_MAIN(SearchWithDelayLineEditTest)

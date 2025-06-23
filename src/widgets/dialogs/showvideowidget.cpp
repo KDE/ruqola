@@ -5,6 +5,8 @@
 */
 
 #include "showvideowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
@@ -43,26 +45,26 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     mMediaPlayer->setAudioOutput(mAudioOutput);
 
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
-    mSoundDeviceComboBox->setObjectName(QStringLiteral("mSoundDeviceComboBox"));
+    mSoundDeviceComboBox->setObjectName(u"mSoundDeviceComboBox"_s);
     mainLayout->addWidget(mSoundDeviceComboBox);
     // TODO initialize it.
 
-    mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
+    mLabelDuration->setObjectName(u"mLabelDuration"_s);
 
-    mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
+    mMediaPlayer->setObjectName(u"mMediaPlayer"_s);
     auto videoWidget = new QVideoWidget(this);
-    videoWidget->setObjectName(QStringLiteral("videoWidget"));
+    videoWidget->setObjectName(u"videoWidget"_s);
 
     mainLayout->addWidget(videoWidget, 1);
 
     QBoxLayout *controlLayout = new QHBoxLayout;
-    controlLayout->setObjectName(QStringLiteral("controlLayout"));
+    controlLayout->setObjectName(u"controlLayout"_s);
     controlLayout->setContentsMargins({});
     mainLayout->addLayout(controlLayout);
 
-    mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
+    mPlayButton->setObjectName(u"mPlayButton"_s);
     mPlayButton->setEnabled(false);
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
 
@@ -72,7 +74,7 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     controlLayout->addWidget(mPlayButton);
     connect(mPlayButton, &QAbstractButton::clicked, this, &ShowVideoWidget::play);
 
-    mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
+    mPositionSlider->setObjectName(u"mPositionSlider"_s);
     mPositionSlider->setRange(0, 0);
     controlLayout->addWidget(mPositionSlider);
     controlLayout->addWidget(mLabelDuration);
@@ -80,7 +82,7 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::setPosition);
     connect(mPositionSlider, &QAbstractSlider::valueChanged, this, &ShowVideoWidget::setPosition);
 
-    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mainLayout->addWidget(mMessageWidget);
     mMessageWidget->setVisible(false);
     mMessageWidget->setCloseButtonVisible(false);
@@ -93,12 +95,12 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::slotDurationChanged);
     connect(mMediaPlayer, &QMediaPlayer::errorChanged, this, &ShowVideoWidget::handleError);
     mSoundButton->setCheckable(true);
-    mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
-    mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
+    mSoundButton->setObjectName(u"mSoundButton"_s);
+    mSoundButton->setIcon(QIcon::fromTheme(u"player-volume"_s));
     connect(mSoundButton, &QToolButton::clicked, mAudioOutput, &QAudioOutput::setMuted);
     connect(mAudioOutput, &QAudioOutput::mutedChanged, this, &ShowVideoWidget::slotMuteChanged);
     controlLayout->addWidget(mSoundButton);
-    mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
+    mSoundSlider->setObjectName(u"mSoundSlider"_s);
     mSoundSlider->setRange(0, 100);
     mSoundSlider->setValue(RuqolaGlobalConfig::self()->soundVolume());
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
@@ -106,7 +108,7 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     controlLayout->addWidget(mSoundSlider);
     controlLayout->addWidget(mLabelPercentSound);
     QFontMetrics f(font());
-    mLabelPercentSound->setFixedWidth(f.horizontalAdvance(QStringLiteral("MMM")));
+    mLabelPercentSound->setFixedWidth(f.horizontalAdvance(u"MMM"_s));
     slotVolumeChanged(mSoundSlider->value());
     initializeAudioOutput();
 }
@@ -145,7 +147,7 @@ void ShowVideoWidget::slotPositionChanged(qint64 progress)
 void ShowVideoWidget::slotVolumeChanged(int position)
 {
     mAudioOutput->setVolume(position / 100.0);
-    mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
+    mLabelPercentSound->setText(u"%1%"_s.arg(position));
 }
 
 void ShowVideoWidget::updateDurationInfo(qint64 currentInfo)
@@ -154,17 +156,17 @@ void ShowVideoWidget::updateDurationInfo(qint64 currentInfo)
     if (currentInfo || mDuration) {
         const QTime currentTime((currentInfo / 3600) % 60, (currentInfo / 60) % 60, currentInfo % 60, (currentInfo * 1000) % 1000);
         const QTime totalTime((mDuration / 3600) % 60, (mDuration / 60) % 60, mDuration % 60, (mDuration * 1000) % 1000);
-        QString format = QStringLiteral("mm:ss");
+        QString format = u"mm:ss"_s;
         if (mDuration > 3600)
-            format = QStringLiteral("hh:mm:ss");
-        tStr = currentTime.toString(format) + QStringLiteral(" / ") + totalTime.toString(format);
+            format = u"hh:mm:ss"_s;
+        tStr = currentTime.toString(format) + u" / "_s + totalTime.toString(format);
     }
     mLabelDuration->setText(tStr);
 }
 
 void ShowVideoWidget::slotMuteChanged(bool state)
 {
-    mSoundButton->setIcon(state ? QIcon::fromTheme(QStringLiteral("player-volume-muted")) : QIcon::fromTheme(QStringLiteral("player-volume")));
+    mSoundButton->setIcon(state ? QIcon::fromTheme(u"player-volume-muted"_s) : QIcon::fromTheme(u"player-volume"_s));
 }
 
 void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url)
@@ -243,7 +245,7 @@ void ShowVideoWidget::handleError()
     const QString errorString = mMediaPlayer->errorString();
     QString message = i18n("Error: ");
     if (errorString.isEmpty()) {
-        message += QStringLiteral(" #") + QString::number(int(mMediaPlayer->error()));
+        message += u" #"_s + QString::number(int(mMediaPlayer->error()));
     } else {
         message += errorString;
     }

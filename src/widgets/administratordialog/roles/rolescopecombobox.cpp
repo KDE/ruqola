@@ -5,13 +5,15 @@
 */
 
 #include "rolescopecombobox.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 RoleScopeComboBox::RoleScopeComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-    addItem(i18n("Rooms"), QStringLiteral("Subscriptions"));
-    addItem(i18n("Global"), QStringLiteral("Users"));
+    addItem(i18n("Rooms"), u"Subscriptions"_s);
+    addItem(i18n("Global"), u"Users"_s);
 }
 
 RoleScopeComboBox::~RoleScopeComboBox() = default;

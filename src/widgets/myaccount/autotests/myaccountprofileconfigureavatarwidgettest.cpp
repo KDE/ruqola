@@ -5,6 +5,8 @@
 */
 
 #include "myaccountprofileconfigureavatarwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "myaccount/myaccountprofileconfigureavatarwidget.h"
 #include <QHBoxLayout>
 #include <QTest>
@@ -18,11 +20,11 @@ void MyAccountProfileConfigureAvatarWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountProfileConfigureAvatarWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mAvatarImage = w.findChild<AvatarImage *>(QStringLiteral("mAvatarImage"));
+    auto mAvatarImage = w.findChild<AvatarImage *>(u"mAvatarImage"_s);
     QVERIFY(mAvatarImage);
 }
 

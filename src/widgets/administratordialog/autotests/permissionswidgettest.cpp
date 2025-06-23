@@ -5,6 +5,8 @@
 */
 
 #include "permissionswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/permissions/permissionstreeview.h"
 #include "administratordialog/permissions/permissionswidget.h"
 #include <QHeaderView>
@@ -24,22 +26,22 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
 {
     PermissionsWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mTreeView = w.findChild<PermissionsTreeView *>(QStringLiteral("mTreeView"));
+    auto mTreeView = w.findChild<PermissionsTreeView *>(u"mTreeView"_s);
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());
     QVERIFY(mTreeView->isSortingEnabled());
     QVERIFY(mTreeView->header()->sectionsClickable());
 
-    auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
+    auto mSearchLineWidget = w.findChild<QLineEdit *>(u"mSearchLineWidget"_s);
     QVERIFY(mSearchLineWidget);
     QVERIFY(mSearchLineWidget->text().isEmpty());
     QVERIFY(mSearchLineWidget->isClearButtonEnabled());
     QVERIFY(!mSearchLineWidget->placeholderText().isEmpty());
 
-    auto permissionFilterProxyModel = w.findChild<QSortFilterProxyModel *>(QStringLiteral("permissionFilterProxyModel"));
+    auto permissionFilterProxyModel = w.findChild<QSortFilterProxyModel *>(u"permissionFilterProxyModel"_s);
     QVERIFY(permissionFilterProxyModel);
 }
 

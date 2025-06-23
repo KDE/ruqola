@@ -5,6 +5,8 @@
 */
 
 #include "cassettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -26,46 +28,46 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
     , mAlwaysSyncUserData(new QCheckBox(i18nc("@option:check", "Always Sync User Data"), this))
     , mAttributeMap(new QLineEdit(this))
 {
-    mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    addCheckBox(mEnabled, QStringLiteral("CAS_enabled"));
+    mEnabled->setObjectName(u"mEnabled"_s);
+    addCheckBox(mEnabled, u"CAS_enabled"_s);
 
-    mSSOBaseURL->setObjectName(QStringLiteral("mSSOBaseURL"));
-    addLineEdit(i18n("SSO Base URL"), mSSOBaseURL, QStringLiteral("CAS_base_url"));
+    mSSOBaseURL->setObjectName(u"mSSOBaseURL"_s);
+    addLineEdit(i18n("SSO Base URL"), mSSOBaseURL, u"CAS_base_url"_s);
     mSSOBaseURL->setToolTip(i18nc("@info:tooltip", "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"));
 
-    mSSOLoginURL->setObjectName(QStringLiteral("mSSOLoginURL"));
-    addLineEdit(i18n("SSO Login URL"), mSSOLoginURL, QStringLiteral("CAS_login_url"));
+    mSSOLoginURL->setObjectName(u"mSSOLoginURL"_s);
+    addLineEdit(i18n("SSO Login URL"), mSSOLoginURL, u"CAS_login_url"_s);
     mSSOLoginURL->setToolTip(i18nc("@info:tooltip", "The login URL of your external SSO service e.g: https://sso.example.undef/sso/login"));
 
-    mCASVersion->setObjectName(QStringLiteral("mCASVersion"));
+    mCASVersion->setObjectName(u"mCASVersion"_s);
     const QMap<QString, QString> maps = {
-        {QStringLiteral("1.0"), QStringLiteral("1.0")},
-        {QStringLiteral("2.0"), QStringLiteral("2.0")},
+        {u"1.0"_s, u"1.0"_s},
+        {u"2.0"_s, u"2.0"_s},
     };
-    addComboBox(i18n("Protocol"), maps, mCASVersion, QStringLiteral("CAS_version"));
+    addComboBox(i18n("Protocol"), maps, mCASVersion, u"CAS_version"_s);
 
-    mTrustCASUsername->setObjectName(QStringLiteral("mTrustCASUsername"));
+    mTrustCASUsername->setObjectName(u"mTrustCASUsername"_s);
     mTrustCASUsername->setToolTip(
         i18n("When enabled, Rocket.Chat will trust that any username from CAS belongs to the same user on Rocket.Chat.\nThis may be needed if a user is "
              "renamed on CAS, but may also allow people to take control of Rocket.Chat accounts by renaming their own CAS users."));
-    addCheckBox(mTrustCASUsername, QStringLiteral("CAS_trust_username"));
+    addCheckBox(mTrustCASUsername, u"CAS_trust_username"_s);
 
-    mAllowUserCreation->setObjectName(QStringLiteral("mAllowUserCreation"));
+    mAllowUserCreation->setObjectName(u"mAllowUserCreation"_s);
     mAllowUserCreation->setToolTip(i18nc("@info:tooltip", "Allow CAS User creation from data provided by the CAS ticket."));
-    addCheckBox(mAllowUserCreation, QStringLiteral("CAS_Creation_User_Enabled"));
+    addCheckBox(mAllowUserCreation, u"CAS_Creation_User_Enabled"_s);
 
     auto attributeHandlingLabel = createBoldLabel(i18n("Attribute handling"));
-    attributeHandlingLabel->setObjectName(QStringLiteral("attributeHandlingLabel"));
+    attributeHandlingLabel->setObjectName(u"attributeHandlingLabel"_s);
     mMainLayout->addWidget(attributeHandlingLabel);
 
-    mAlwaysSyncUserData->setObjectName(QStringLiteral("mAlwaysSyncUserData"));
+    mAlwaysSyncUserData->setObjectName(u"mAlwaysSyncUserData"_s);
     mAlwaysSyncUserData->setToolTip(i18nc(
         "@info:tooltip",
         "Always synchronize external CAS User data into available attributes upon login.\nNote: Attributes are always synced upon account creation anyway."));
-    addCheckBox(mAlwaysSyncUserData, QStringLiteral("CAS_Sync_User_Data_Enabled"));
+    addCheckBox(mAlwaysSyncUserData, u"CAS_Sync_User_Data_Enabled"_s);
 
-    mAttributeMap->setObjectName(QStringLiteral("mAttributeMap"));
-    addLineEdit(i18n("Attribute Map"), mAttributeMap, QStringLiteral("CAS_Sync_User_Data_FieldMap"));
+    mAttributeMap->setObjectName(u"mAttributeMap"_s);
+    addLineEdit(i18n("Attribute Map"), mAttributeMap, u"CAS_Sync_User_Data_FieldMap"_s);
     mAttributeMap->setToolTip(
         i18n("Use this JSON input to build internal attributes (key) from external attributes (value).\n"
              "External attribute names enclosed with '%' will interpolated in value strings.<br/>Example, {\"email\":\"%email%\", \"name\":\"%firstname%, "
@@ -85,9 +87,9 @@ void CasSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::Setti
     initializeWidget(mAllowUserCreation, mapSettings, true);
     initializeWidget(mSSOBaseURL, mapSettings, QString());
     initializeWidget(mSSOLoginURL, mapSettings, QString());
-    initializeWidget(mCASVersion, mapSettings, QStringLiteral("1.0"));
+    initializeWidget(mCASVersion, mapSettings, u"1.0"_s);
     initializeWidget(mAlwaysSyncUserData, mapSettings, true);
-    initializeWidget(mAttributeMap, mapSettings, QStringLiteral("{}"));
+    initializeWidget(mAttributeMap, mapSettings, u"{}"_s);
 }
 
 #include "moc_cassettingswidget.cpp"

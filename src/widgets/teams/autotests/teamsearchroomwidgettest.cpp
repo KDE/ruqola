@@ -5,6 +5,8 @@
 */
 
 #include "teamsearchroomwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teams/teamsearchroomforteamwidget.h"
 #include "teams/teamsearchroomwidget.h"
 #include <QTest>
@@ -20,10 +22,10 @@ void TeamSearchRoomWidgetTest::shouldHaveDefaultValues()
     TeamSearchRoomWidget w(nullptr);
     QVERIFY(w.roomIds().isEmpty());
 
-    auto mTeamSearchRoomForTeamWidget = w.findChild<TeamSearchRoomForTeamWidget *>(QStringLiteral("mTeamSearchRoomForTeamWidget"));
+    auto mTeamSearchRoomForTeamWidget = w.findChild<TeamSearchRoomForTeamWidget *>(u"mTeamSearchRoomForTeamWidget"_s);
     QVERIFY(mTeamSearchRoomForTeamWidget);
 
-    auto vboxLayout = w.findChild<QVBoxLayout *>(QStringLiteral("vboxLayout"));
+    auto vboxLayout = w.findChild<QVBoxLayout *>(u"vboxLayout"_s);
     QVERIFY(vboxLayout);
     QCOMPARE(vboxLayout->contentsMargins(), QMargins{});
 }

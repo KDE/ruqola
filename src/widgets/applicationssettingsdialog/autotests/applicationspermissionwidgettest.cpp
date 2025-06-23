@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationspermissionwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingsdialog/applicationspermissionwidget.h"
 
 #include <QTest>
@@ -18,11 +20,11 @@ ApplicationsPermissionWidgetTest::ApplicationsPermissionWidgetTest(QObject *pare
 void ApplicationsPermissionWidgetTest::shouldHaveDefaultValues()
 {
     ApplicationsPermissionWidget d;
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mTextEdit = d.findChild<QTextEdit *>(QStringLiteral("mTextEdit"));
+    auto mTextEdit = d.findChild<QTextEdit *>(u"mTextEdit"_s);
     QVERIFY(mTextEdit);
     QVERIFY(mTextEdit->toPlainText().isEmpty());
 }

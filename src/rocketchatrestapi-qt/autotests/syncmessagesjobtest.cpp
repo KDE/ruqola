@@ -5,6 +5,8 @@
 */
 
 #include "syncmessagesjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/syncmessagesjob.h"
 #include "restapimethod.h"
 #include <QTest>
@@ -32,7 +34,7 @@ void SyncMessagesJobTest::shouldGenerateRequest()
 {
     SyncMessagesJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QByteArray roomId = "bla"_ba;
     job.setRoomId(roomId);
@@ -40,8 +42,7 @@ void SyncMessagesJobTest::shouldGenerateRequest()
     job.setLastUpdate(lastUpdate);
     QNetworkRequest request = job.request();
     QCOMPARE(request.url(),
-             QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncMessages?roomId=%1&lastUpdate=%2")
-                      .arg(QLatin1StringView(roomId))
+             QUrl(u"http://www.kde.org/api/v1/chat.syncMessages?roomId=%1&lastUpdate=%2"_s.arg(QLatin1StringView(roomId))
                       .arg(lastUpdate.toUTC().toString(Qt::ISODateWithMs))));
 }
 
@@ -50,14 +51,14 @@ void SyncMessagesJobTest::shouldNotStarting()
     SyncMessagesJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);

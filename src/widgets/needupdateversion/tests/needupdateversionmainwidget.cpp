@@ -6,6 +6,8 @@
 */
 
 #include "needupdateversionmainwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "needupdateversion/needupdateversionutils.h"
 #include "needupdateversion/needupdateversionwidget.h"
 #include <QTextEdit>
@@ -30,6 +32,6 @@ NeedUpdateVersionMainWidget::~NeedUpdateVersionMainWidget() = default;
 
 void NeedUpdateVersionMainWidget::checkVersion()
 {
-    mNeedUpdateVersionWidget->setObsoleteVersion(NeedUpdateVersionUtils::obsoleteVersionStatus(QStringLiteral("22.04.1"), QDate::currentDate()));
+    mNeedUpdateVersionWidget->setObsoleteVersion(NeedUpdateVersionUtils::obsoleteVersionStatus(u"22.04.1"_s, QDate::currentDate()));
 }
 #include "moc_needupdateversionmainwidget.cpp"

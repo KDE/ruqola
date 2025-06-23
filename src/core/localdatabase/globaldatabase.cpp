@@ -5,6 +5,8 @@
 */
 
 #include "globaldatabase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 
@@ -39,13 +41,13 @@ QString GlobalDatabase::generateIdentifier(const QString &accountName, const QSt
     }
     switch (type) {
     case TimeStampType::MessageTimeStamp:
-        identifier = QStringLiteral("messages-");
+        identifier = u"messages-"_s;
         break;
     case TimeStampType::RoomTimeStamp:
-        identifier = QStringLiteral("rooms-");
+        identifier = u"rooms-"_s;
         break;
     case TimeStampType::AccountTimeStamp:
-        identifier = QStringLiteral("account-");
+        identifier = u"account-"_s;
         break;
     }
     identifier += accountName;
@@ -53,7 +55,7 @@ QString GlobalDatabase::generateIdentifier(const QString &accountName, const QSt
         qCWarning(RUQOLA_DATABASE_LOG) << "Missing roomName! It's a bug!!!";
     }
     if (!roomName.isEmpty()) {
-        identifier += QLatin1Char('-') + LocalDatabaseUtils::fixRoomName(roomName);
+        identifier += u'-' + LocalDatabaseUtils::fixRoomName(roomName);
     }
     return identifier;
 }

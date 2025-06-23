@@ -50,7 +50,7 @@ QJsonObject AuthenticationManagerUtils::hashPassword(const QString &password)
 {
     QJsonObject passwordObject;
     const QByteArray sha256pw = Utils::convertSha256Password(password);
-    passwordObject["algorithm"_L1] = QStringLiteral("sha-256");
+    passwordObject["algorithm"_L1] = u"sha-256"_s;
     passwordObject["digest"_L1] = QLatin1StringView(sha256pw);
     return passwordObject;
 }
@@ -61,7 +61,7 @@ QJsonArray AuthenticationManagerUtils::login(const QString &user, const QString 
     QJsonObject loginObject;
 
     QJsonObject userObject;
-    if (user.contains(QLatin1Char('@'))) {
+    if (user.contains(u'@')) {
         userObject["email"_L1] = user;
     } else {
         userObject["username"_L1] = user;

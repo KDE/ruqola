@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "listdiscussiondelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "config-ruqola.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
@@ -76,7 +78,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     }
 
     // Draw the number of message + timestamp (below the sender)
-    const QString messageStr = i18np("%1 message", "%1 messages", layout.numberOfMessages) + QLatin1Char(' ') + layout.lastMessageTimeText;
+    const QString messageStr = i18np("%1 message", "%1 messages", layout.numberOfMessages) + u' ' + layout.lastMessageTimeText;
     DelegatePaintUtil::drawLighterText(painter, messageStr, QPoint(layout.textRect.left(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     const QString discussionsText = i18n("Open Discussion");
@@ -199,7 +201,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     Layout layout;
     const QString userName = index.data(DiscussionsModel::UserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
-    layout.senderText = QLatin1Char('@') + userName;
+    layout.senderText = u'@' + userName;
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
 

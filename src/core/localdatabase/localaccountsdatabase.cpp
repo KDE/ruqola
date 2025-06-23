@@ -5,6 +5,8 @@
 */
 
 #include "localaccountsdatabase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 #include <QSqlDatabase>

@@ -5,6 +5,8 @@
 */
 
 #include "messagelistlayoutbase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messagelistdelegate.h"
@@ -63,9 +65,9 @@ QString MessageListLayoutBase::senderText(const Message *message) const
                 displayName = message->username();
             }
         }
-        return QLatin1Char('@') + displayName;
+        return u'@' + displayName;
     } else {
-        return QLatin1Char('@') + message->username();
+        return u'@' + message->username();
     }
 }
 

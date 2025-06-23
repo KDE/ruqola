@@ -5,6 +5,8 @@
 */
 
 #include "getusernamesuggestionjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "users/getusernamesuggestionjob.h"
 #include <QTest>
@@ -30,10 +32,10 @@ void GetUsernameSuggestionJobTest::shouldGenerateRequest()
 {
     GetUsernameSuggestionJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getUsernameSuggestion")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.getUsernameSuggestion"_s));
 }
 
 #include "moc_getusernamesuggestionjobtest.cpp"

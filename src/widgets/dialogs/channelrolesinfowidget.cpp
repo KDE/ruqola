@@ -5,6 +5,8 @@
 */
 
 #include "channelrolesinfowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "roles/roles.h"
 #include "room.h"
 
@@ -17,12 +19,12 @@ ChannelRolesInfoWidget::ChannelRolesInfoWidget(QWidget *parent)
     : QWidget{parent}
     , mFormLayout(new QFormLayout())
 {
-    mFormLayout->setObjectName(QStringLiteral("mFormLayout"));
+    mFormLayout->setObjectName(u"mFormLayout"_s);
     auto box = new QGroupBox(i18n("Roles"), this);
-    box->setObjectName(QStringLiteral("box"));
+    box->setObjectName(u"box"_s);
     box->setLayout(mFormLayout);
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(box);
 }
@@ -75,12 +77,12 @@ void ChannelRolesInfoWidget::generateInfo(const QString &labelStr, const QString
 {
     auto label = new QLabel(this);
     label->setTextFormat(Qt::PlainText);
-    label->setText(list.join(QLatin1Char(',')));
+    label->setText(list.join(u','));
     label->setTextInteractionFlags(Qt::TextBrowserInteraction);
     label->setWordWrap(true);
     auto labelInfo = new QLabel(this);
     labelInfo->setTextFormat(Qt::RichText);
-    labelInfo->setText(QStringLiteral("<qt><b>%1</b></qt>").arg(labelStr));
+    labelInfo->setText(u"<qt><b>%1</b></qt>"_s.arg(labelStr));
     mFormLayout->addRow(labelInfo, label);
 }
 

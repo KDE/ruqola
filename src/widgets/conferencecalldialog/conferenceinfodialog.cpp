@@ -5,6 +5,8 @@
 */
 
 #include "conferenceinfodialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "conferenceinfowidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -16,13 +18,13 @@ ConferenceInfoDialog::ConferenceInfoDialog(RocketChatAccount *account, QWidget *
 {
     setWindowTitle(i18nc("@title:window", "Conference Call Information"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mConferenceInfoWidget->setObjectName(QStringLiteral("mConferenceInfoWidget"));
+    mConferenceInfoWidget->setObjectName(u"mConferenceInfoWidget"_s);
     mainLayout->addWidget(mConferenceInfoWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ConferenceInfoDialog::accept);
 }

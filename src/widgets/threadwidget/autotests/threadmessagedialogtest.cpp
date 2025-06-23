@@ -5,6 +5,8 @@
 */
 
 #include "threadmessagedialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "threadwidget/threadmessagedialog.h"
 #include "threadwidget/threadmessagewidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void ThreadMessageDialogTest::shouldHaveDefaultValues()
 {
     ThreadMessageDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mThreadMessageWidget = w.findChild<ThreadMessageWidget *>(QStringLiteral("mThreadMessageWidget"));
+    auto mThreadMessageWidget = w.findChild<ThreadMessageWidget *>(u"mThreadMessageWidget"_s);
     QVERIFY(mThreadMessageWidget);
 
-    auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

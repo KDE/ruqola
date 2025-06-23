@@ -5,6 +5,8 @@
 */
 
 #include "previewurlcachemanagertest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "previewurlcachemanager.h"
 #include <QStandardPaths>
 #include <QTemporaryDir>
@@ -30,7 +32,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
     {
         QTemporaryDir accountFileTmp;
         const QString cachePath{accountFileTmp.path()};
-        QFile file(cachePath + QStringLiteral("/foo1"));
+        QFile file(cachePath + u"/foo1"_s);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             qWarning() << " Impossible to create file";
         }
@@ -59,7 +61,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
         const QString cachePath{accountFileTmp.path()};
         QStringList firstList;
         for (int i = 0; i < 10; ++i) {
-            QFile file(cachePath + QStringLiteral("/foo%1").arg(QString::number(i)));
+            QFile file(cachePath + u"/foo%1"_s.arg(QString::number(i)));
             if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
                 qWarning() << " Impossible to create file";
             }
@@ -96,7 +98,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
         const QString cachePath{accountFileTmp.path()};
         QStringList firstList;
         for (int i = 0; i < 10; ++i) {
-            QFile file(cachePath + QStringLiteral("/foo%1").arg(QString::number(i)));
+            QFile file(cachePath + u"/foo%1"_s.arg(QString::number(i)));
             if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
                 qWarning() << " Impossible to create file";
             }
@@ -120,11 +122,11 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
         QDir dir2(cachePath);
         const QFileInfoList infoLists2 = dir2.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
         QStringList lst;
-        lst.append(QStringLiteral("foo6"));
-        lst.append(QStringLiteral("foo7"));
-        lst.append(QStringLiteral("foo8"));
-        lst.append(QStringLiteral("foo9"));
-        lst.append(QStringLiteral("foo10"));
+        lst.append(u"foo6"_s);
+        lst.append(u"foo7"_s);
+        lst.append(u"foo8"_s);
+        lst.append(u"foo9"_s);
+        lst.append(u"foo10"_s);
         // qDebug() << "after clean infoLists2 " << infoLists2.count();
         QVERIFY(!infoLists2.isEmpty());
         QCOMPARE(infoLists2.count(), 5);

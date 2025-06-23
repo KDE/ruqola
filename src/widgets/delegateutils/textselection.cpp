@@ -5,6 +5,8 @@
 */
 
 #include "textselection.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messages/message.h"
 #include "model/messagesmodel.h"
 #include "ruqolawidgets_selection_debug.h"
@@ -47,7 +49,7 @@ void TextSelection::selectionText(const OrderedPositions ordered,
     const QTextDocumentFragment fragment(cursor);
     str += format == Format::Text ? fragment.toPlainText() : fragment.toHtml();
     if (row < ordered.toRow) {
-        str += QLatin1Char('\n');
+        str += u'\n';
     }
 }
 
@@ -102,8 +104,8 @@ QString TextSelection::selectedText(Format format) const
                     for (auto factory : std::as_const(mAttachmentFactories)) {
                         doc = factory->documentForAttachement(att);
                         if (doc) {
-                            if (!str.endsWith(QLatin1Char('\n'))) {
-                                str += QLatin1Char('\n');
+                            if (!str.endsWith(u'\n')) {
+                                str += u'\n';
                             }
                             selectionText(ordered, format, row, index, doc, str, att);
                             break;
@@ -118,8 +120,8 @@ QString TextSelection::selectedText(Format format) const
                     if (url.showPreview()) {
                         doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
                         if (doc) {
-                            if (!str.endsWith(QLatin1Char('\n'))) {
-                                str += QLatin1Char('\n');
+                            if (!str.endsWith(u'\n')) {
+                                str += u'\n';
                             }
                             selectionText(ordered, format, row, index, doc, str, {}, url);
                             break;

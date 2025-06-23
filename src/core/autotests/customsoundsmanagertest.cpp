@@ -59,8 +59,8 @@ void CustomSoundsManagerTest::shouldDeleteCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds1") << 22 << 21 << 1;
-    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds2") << 22 << 22 << 0;
+    QTest::addRow("customSounds1") << u"customSounds1"_s << u"deleteCustomSounds1"_s << 22 << 21 << 1;
+    QTest::addRow("customSounds1") << u"customSounds1"_s << u"deleteCustomSounds2"_s << 22 << 22 << 0;
 }
 
 void CustomSoundsManagerTest::shouldAddCustomSounds()
@@ -100,7 +100,7 @@ void CustomSoundsManagerTest::shouldAddCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("addCustomSounds1") << 22 << 23 << 1;
+    QTest::addRow("customSounds1") << u"customSounds1"_s << u"addCustomSounds1"_s << 22 << 23 << 1;
 }
 
 void CustomSoundsManagerTest::shouldUpdateCustomSounds()
@@ -140,7 +140,7 @@ void CustomSoundsManagerTest::shouldUpdateCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("updateCustomSounds1") << 22 << 22 << 1;
+    QTest::addRow("customSounds1") << u"customSounds1"_s << u"updateCustomSounds1"_s << 22 << 22 << 1;
 }
 
 void CustomSoundsManagerTest::shouldParseCustomSounds()
@@ -166,7 +166,7 @@ void CustomSoundsManagerTest::shouldParseCustomSounds_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("numberOfSounds");
     {
-        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << 22;
+        QTest::addRow("customSounds1") << u"customSounds1"_s << 22;
     }
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "directorynotauthorizedwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directory/directorynotauthorizedwidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
@@ -19,11 +21,11 @@ void DirectoryNotAuthorizedWidgetTest::shouldHaveDefaultValues()
 {
     DirectoryNotAuthorizedWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
     QCOMPARE(label->textFormat(), Qt::RichText);

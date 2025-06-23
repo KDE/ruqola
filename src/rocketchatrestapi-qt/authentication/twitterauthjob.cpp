@@ -128,12 +128,12 @@ void TwitterAuthJob::setAccessToken(const QString &accessToken)
 QJsonDocument TwitterAuthJob::json() const
 {
     QVariantMap loginMap;
-    loginMap.insert(QStringLiteral("serviceName"), QStringLiteral("twitter"));
-    loginMap.insert(QStringLiteral("accessToken"), mAccessToken);
-    loginMap.insert(QStringLiteral("accessTokenSecret"), mSecret);
-    loginMap.insert(QStringLiteral("appSecret"), mAppSecret);
-    loginMap.insert(QStringLiteral("appId"), mAppId);
-    loginMap.insert(QStringLiteral("expiresIn"), mExpireTokenInSeconds);
+    loginMap.insert(u"serviceName"_s, u"twitter"_s);
+    loginMap.insert(u"accessToken"_s, mAccessToken);
+    loginMap.insert(u"accessTokenSecret"_s, mSecret);
+    loginMap.insert(u"appSecret"_s, mAppSecret);
+    loginMap.insert(u"appId"_s, mAppId);
+    loginMap.insert(u"expiresIn"_s, mExpireTokenInSeconds);
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
 }
@@ -142,7 +142,7 @@ QNetworkRequest TwitterAuthJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Login);
     QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, u"application/json"_s);
     return request;
 }
 

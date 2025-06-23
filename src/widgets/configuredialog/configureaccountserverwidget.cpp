@@ -5,6 +5,8 @@
 */
 
 #include "configureaccountserverwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountmanager.h"
 #include "activities/activitiesmanager.h"
 #include "config-ruqola.h"
@@ -25,13 +27,13 @@ ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     connect(ui->accountServerTreeWidget, &AccountServerTreeWidget::itemSelectionChanged, this, &ConfigureAccountServerWidget::slotItemSelectionChanged);
     connect(ui->accountServerTreeWidget->model(), &QAbstractItemModel::rowsMoved, this, &ConfigureAccountServerWidget::slotItemSelectionChanged);
 
-    ui->moveUpServer->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
+    ui->moveUpServer->setIcon(QIcon::fromTheme(u"go-up"_s));
     ui->moveUpServer->setToolTip(i18nc("Move selected account up.", "Up"));
     ui->moveUpServer->setEnabled(false); // b/c no item is selected yet
     ui->moveUpServer->setFocusPolicy(Qt::StrongFocus);
     ui->moveUpServer->setAutoRepeat(true);
 
-    ui->moveDownServer->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
+    ui->moveDownServer->setIcon(QIcon::fromTheme(u"go-down"_s));
     ui->moveDownServer->setToolTip(i18nc("Move selected account down.", "Down"));
     ui->moveDownServer->setEnabled(false); // b/c no item is selected yet
     ui->moveDownServer->setFocusPolicy(Qt::StrongFocus);

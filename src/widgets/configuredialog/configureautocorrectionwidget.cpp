@@ -5,6 +5,8 @@
 */
 
 #include "configureautocorrectionwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola.h"
 
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
@@ -22,7 +24,7 @@ ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mAutoCorrectionWidget);
     // We don't have html support here.

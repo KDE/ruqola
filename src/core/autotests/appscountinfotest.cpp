@@ -35,7 +35,7 @@ void AppsCountInfoTest::shouldLoadAppsCountInfo_data()
         appsCountInfo.setMaxPrivateApps(-1);
         appsCountInfo.setTotalMarketplaceEnabled(1);
         appsCountInfo.setTotalPrivateEnabled(1);
-        QTest::addRow("test1") << QStringLiteral("test1") << appsCountInfo;
+        QTest::addRow("test1") << u"test1"_s << appsCountInfo;
     }
 
     {
@@ -44,7 +44,7 @@ void AppsCountInfoTest::shouldLoadAppsCountInfo_data()
         appsCountInfo.setMaxPrivateApps(6);
         appsCountInfo.setTotalMarketplaceEnabled(2);
         appsCountInfo.setTotalPrivateEnabled(3);
-        QTest::addRow("test2") << QStringLiteral("test2") << appsCountInfo;
+        QTest::addRow("test2") << u"test2"_s << appsCountInfo;
     }
 }
 

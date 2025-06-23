@@ -46,7 +46,7 @@ void ApplicationsSettingsSettingsWidget::showEvent(QShowEvent *event)
 
 void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj)
 {
-    const QJsonObject settings = obj[QStringLiteral("settings")].toObject();
+    const QJsonObject settings = obj[u"settings"_s].toObject();
     for (const QJsonValue &current : settings) {
         // TODO store json => update it when widget settings change
         ApplicationsSettingsSettingsInfo i;
@@ -95,7 +95,7 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
     auto hLayout = new QHBoxLayout;
     hLayout->setContentsMargins({});
     hLayout->addStretch(1);
-    auto cancelButton = new QPushButton(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Cancel"), this);
+    auto cancelButton = new QPushButton(QIcon::fromTheme(u"dialog-cancel"_s), i18n("Cancel"), this);
     connect(cancelButton, &QPushButton::clicked, this, [this]() {
         Q_EMIT resetValue();
         Q_EMIT dataChanged(false);
@@ -103,7 +103,7 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
     cancelButton->setEnabled(false);
     hLayout->addWidget(cancelButton);
 
-    auto applyButton = new QPushButton(QIcon::fromTheme(QStringLiteral("dialog-ok-apply")), i18n("Apply"), this);
+    auto applyButton = new QPushButton(QIcon::fromTheme(u"dialog-ok-apply"_s), i18n("Apply"), this);
     connect(applyButton, &QPushButton::clicked, this, [this]() {
         QJsonArray array;
         for (ApplictionSettingsCustomWidgetsBase *widget : std::as_const(mCustomWidgets)) {
@@ -138,8 +138,7 @@ QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QStrin
     if (id.isEmpty()) {
         return {};
     }
-    const QString translatedString =
-        mRocketChatAccount->getTranslatedIdentifier(lang, QStringLiteral("app-") + QString::fromLatin1(mAppId) + QLatin1Char('.') + id);
+    const QString translatedString = mRocketChatAccount->getTranslatedIdentifier(lang, u"app-"_s + QString::fromLatin1(mAppId) + u'.' + id);
     if (translatedString.isEmpty()) {
         qCWarning(RUQOLAWIDGETS_LOG) << " Translated string not found: " << QString::fromLatin1(mAppId) + id;
         return id;

@@ -5,6 +5,8 @@
 */
 
 #include "configurefontwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configuredialog/configurefontwidget.h"
 #include <KFontChooser>
 #include <QCheckBox>
@@ -22,14 +24,14 @@ ConfigureFontWidgetTest::ConfigureFontWidgetTest(QObject *parent)
 void ConfigureFontWidgetTest::shouldHaveDefaultValues()
 {
     ConfigureFontWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCustomFontCheck = w.findChild<QCheckBox *>(QStringLiteral("mCustomFontCheck"));
+    auto mCustomFontCheck = w.findChild<QCheckBox *>(u"mCustomFontCheck"_s);
     QVERIFY(mCustomFontCheck);
     QVERIFY(!mCustomFontCheck->isChecked());
 
-    auto mFontChooser = w.findChild<KFontChooser *>(QStringLiteral("mFontChooser"));
+    auto mFontChooser = w.findChild<KFontChooser *>(u"mFontChooser"_s);
     QVERIFY(mFontChooser);
     QVERIFY(!mFontChooser->isEnabled());
 }

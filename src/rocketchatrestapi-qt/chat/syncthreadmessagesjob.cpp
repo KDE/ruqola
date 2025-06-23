@@ -90,8 +90,8 @@ QNetworkRequest SyncThreadMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSyncThreadMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("tmid"), mThreadMessageId);
-    queryUrl.addQueryItem(QStringLiteral("updatedSince"), mTimeStamp);
+    queryUrl.addQueryItem(u"tmid"_s, mThreadMessageId);
+    queryUrl.addQueryItem(u"updatedSince"_s, mTimeStamp);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

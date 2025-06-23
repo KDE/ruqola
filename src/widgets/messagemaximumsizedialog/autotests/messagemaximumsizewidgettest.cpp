@@ -5,6 +5,8 @@
 */
 
 #include "messagemaximumsizewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messagemaximumsizedialog/messagemaximumsizewidget.h"
 #include <QFormLayout>
 #include <QLineEdit>
@@ -20,15 +22,15 @@ void MessageMaximumSizeWidgetTest::shouldHaveDefaultValues()
 {
     MessageMaximumSizeWidget d;
 
-    auto mainLayout = d.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mFileName = d.findChild<QLineEdit *>(QStringLiteral("mFileName"));
+    auto mFileName = d.findChild<QLineEdit *>(u"mFileName"_s);
     QVERIFY(mFileName);
     QVERIFY(mFileName->text().isEmpty());
 
-    auto mDescription = d.findChild<QLineEdit *>(QStringLiteral("mDescription"));
+    auto mDescription = d.findChild<QLineEdit *>(u"mDescription"_s);
     QVERIFY(mDescription);
     QVERIFY(mDescription->text().isEmpty());
 
@@ -40,14 +42,14 @@ void MessageMaximumSizeWidgetTest::shouldEmitSignal()
 {
     MessageMaximumSizeWidget d;
     QSignalSpy spyUpdateButton(&d, &MessageMaximumSizeWidget::updateOkButton);
-    auto mFileName = d.findChild<QLineEdit *>(QStringLiteral("mFileName"));
-    auto mDescription = d.findChild<QLineEdit *>(QStringLiteral("mDescription"));
-    mFileName->setText(QStringLiteral("foo"));
+    auto mFileName = d.findChild<QLineEdit *>(u"mFileName"_s);
+    auto mDescription = d.findChild<QLineEdit *>(u"mDescription"_s);
+    mFileName->setText(u"foo"_s);
     QCOMPARE(spyUpdateButton.count(), 1);
     QVERIFY(!spyUpdateButton.at(0).at(0).toBool());
 
     spyUpdateButton.clear();
-    mDescription->setText(QStringLiteral("bla"));
+    mDescription->setText(u"bla"_s);
     QCOMPARE(spyUpdateButton.count(), 1);
     QVERIFY(spyUpdateButton.at(0).at(0).toBool());
 
@@ -59,12 +61,12 @@ void MessageMaximumSizeWidgetTest::shouldEmitSignal()
 
     // a trimmed text empty
     spyUpdateButton.clear();
-    mDescription->setText(QStringLiteral(" "));
+    mDescription->setText(u" "_s);
     QCOMPARE(spyUpdateButton.count(), 1);
     QVERIFY(!spyUpdateButton.at(0).at(0).toBool());
 
     spyUpdateButton.clear();
-    mFileName->setText(QStringLiteral(" "));
+    mFileName->setText(u" "_s);
     QCOMPARE(spyUpdateButton.count(), 1);
     QVERIFY(!spyUpdateButton.at(0).at(0).toBool());
 }

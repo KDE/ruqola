@@ -5,6 +5,8 @@
 */
 
 #include "messagemaximumsizedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messagemaximumsizewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -17,13 +19,13 @@ MessageMaximumSizeDialog::MessageMaximumSizeDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Convert Message As Attachment"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mMessageMaximumSizeWidget->setObjectName(QStringLiteral("mMessageMaximumSizeWidget"));
+    mMessageMaximumSizeWidget->setObjectName(u"mMessageMaximumSizeWidget"_s);
     mainLayout->addWidget(mMessageMaximumSizeWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &MessageMaximumSizeDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &MessageMaximumSizeDialog::accept);

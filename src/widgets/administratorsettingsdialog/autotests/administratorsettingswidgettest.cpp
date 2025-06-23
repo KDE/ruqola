@@ -5,6 +5,8 @@
 */
 
 #include "administratorsettingswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
 #include "administratorsettingsdialog/analytics/analyticswidget.h"
@@ -46,89 +48,89 @@ AdministratorSettingsWidgetTest::AdministratorSettingsWidgetTest(QObject *parent
 void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorSettingsWidget w(nullptr);
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
+    auto mTabWidget = w.findChild<QTabWidget *>(u"mTabWidget"_s);
     QVERIFY(mTabWidget);
 
-    auto mAccountSettingsWidget = w.findChild<AccountSettingsWidget *>(QStringLiteral("mAccountSettingsWidget"));
+    auto mAccountSettingsWidget = w.findChild<AccountSettingsWidget *>(u"mAccountSettingsWidget"_s);
     QVERIFY(mAccountSettingsWidget);
 
-    auto mEncryptionSettingsWidget = w.findChild<EncryptionSettingsWidget *>(QStringLiteral("mEncryptionSettingsWidget"));
+    auto mEncryptionSettingsWidget = w.findChild<EncryptionSettingsWidget *>(u"mEncryptionSettingsWidget"_s);
     QVERIFY(mEncryptionSettingsWidget);
 
-    auto mMessageSettingsWidget = w.findChild<MessageSettingsWidget *>(QStringLiteral("mMessageSettingsWidget"));
+    auto mMessageSettingsWidget = w.findChild<MessageSettingsWidget *>(u"mMessageSettingsWidget"_s);
     QVERIFY(mMessageSettingsWidget);
 
-    auto mUploadFileSettingsWidget = w.findChild<FileUploadSettingsWidget *>(QStringLiteral("mUploadFileSettingsWidget"));
+    auto mUploadFileSettingsWidget = w.findChild<FileUploadSettingsWidget *>(u"mUploadFileSettingsWidget"_s);
     QVERIFY(mUploadFileSettingsWidget);
 
-    auto mRetentionPolicySettingsWidget = w.findChild<RetentionPolicySettingsWidget *>(QStringLiteral("mRetentionPolicySettingsWidget"));
+    auto mRetentionPolicySettingsWidget = w.findChild<RetentionPolicySettingsWidget *>(u"mRetentionPolicySettingsWidget"_s);
     QVERIFY(mRetentionPolicySettingsWidget);
 
-    auto mGeneralSettingsWidget = w.findChild<GeneralSettingsWidget *>(QStringLiteral("mGeneralSettingsWidget"));
+    auto mGeneralSettingsWidget = w.findChild<GeneralSettingsWidget *>(u"mGeneralSettingsWidget"_s);
     QVERIFY(mGeneralSettingsWidget);
 
-    auto mRateLimiterWidget = w.findChild<RateLimiterWidget *>(QStringLiteral("mRateLimiterWidget"));
+    auto mRateLimiterWidget = w.findChild<RateLimiterWidget *>(u"mRateLimiterWidget"_s);
     QVERIFY(mRateLimiterWidget);
 
-    auto mPasswordSettingsWidget = w.findChild<PasswordSettingsWidget *>(QStringLiteral("mPasswordSettingsWidget"));
+    auto mPasswordSettingsWidget = w.findChild<PasswordSettingsWidget *>(u"mPasswordSettingsWidget"_s);
     QVERIFY(mPasswordSettingsWidget);
 
-    auto mVideoConferenceWidget = w.findChild<VideoConferenceWidget *>(QStringLiteral("mVideoConferenceWidget"));
+    auto mVideoConferenceWidget = w.findChild<VideoConferenceWidget *>(u"mVideoConferenceWidget"_s);
     QVERIFY(mVideoConferenceWidget);
 
-    auto mIrcFederationWidget = w.findChild<IrcFederationWidget *>(QStringLiteral("mIrcFederationWidget"));
+    auto mIrcFederationWidget = w.findChild<IrcFederationWidget *>(u"mIrcFederationWidget"_s);
     QVERIFY(mIrcFederationWidget);
 
-    auto mWebDavSettingsWidget = w.findChild<WebDavSettingsWidget *>(QStringLiteral("mWebDavSettingsWidget"));
+    auto mWebDavSettingsWidget = w.findChild<WebDavSettingsWidget *>(u"mWebDavSettingsWidget"_s);
     QVERIFY(mWebDavSettingsWidget);
 
-    auto mLDapSettingsWidget = w.findChild<LDapSettingsWidget *>(QStringLiteral("mLDapSettingsWidget"));
+    auto mLDapSettingsWidget = w.findChild<LDapSettingsWidget *>(u"mLDapSettingsWidget"_s);
     QVERIFY(mLDapSettingsWidget);
 
-    auto mLayoutSettingsWidget = w.findChild<LayoutSettingsWidget *>(QStringLiteral("mLayoutSettingsWidget"));
+    auto mLayoutSettingsWidget = w.findChild<LayoutSettingsWidget *>(u"mLayoutSettingsWidget"_s);
     QVERIFY(mLayoutSettingsWidget);
 
-    auto mEnterpriseSettingsWidget = w.findChild<EnterpriseSettingsWidget *>(QStringLiteral("mEnterpriseSettingsWidget"));
+    auto mEnterpriseSettingsWidget = w.findChild<EnterpriseSettingsWidget *>(u"mEnterpriseSettingsWidget"_s);
     QVERIFY(mEnterpriseSettingsWidget);
 
-    auto mUserDataDownloadWidget = w.findChild<UserDataDownloadWidget *>(QStringLiteral("mUserDataDownloadWidget"));
+    auto mUserDataDownloadWidget = w.findChild<UserDataDownloadWidget *>(u"mUserDataDownloadWidget"_s);
     QVERIFY(mUserDataDownloadWidget);
 
-    auto mSlackBridgeWidget = w.findChild<SlackBridgeWidget *>(QStringLiteral("mSlackBridgeWidget"));
+    auto mSlackBridgeWidget = w.findChild<SlackBridgeWidget *>(u"mSlackBridgeWidget"_s);
     QVERIFY(mSlackBridgeWidget);
 
-    auto mLogsSettingsWidget = w.findChild<LogsSettingsWidget *>(QStringLiteral("mLogsSettingsWidget"));
+    auto mLogsSettingsWidget = w.findChild<LogsSettingsWidget *>(u"mLogsSettingsWidget"_s);
     QVERIFY(mLogsSettingsWidget);
 
-    auto mEmailSettingsWidget = w.findChild<EmailSettingsWidget *>(QStringLiteral("mEmailSettingsWidget"));
+    auto mEmailSettingsWidget = w.findChild<EmailSettingsWidget *>(u"mEmailSettingsWidget"_s);
     QVERIFY(mEmailSettingsWidget);
 
-    auto mMobileSettingsWidget = w.findChild<MobileSettingsWidget *>(QStringLiteral("mMobileSettingsWidget"));
+    auto mMobileSettingsWidget = w.findChild<MobileSettingsWidget *>(u"mMobileSettingsWidget"_s);
     QVERIFY(mMobileSettingsWidget);
 
-    auto mTroubleshootSettingsWidget = w.findChild<TroubleshootSettingsWidget *>(QStringLiteral("mTroubleshootSettingsWidget"));
+    auto mTroubleshootSettingsWidget = w.findChild<TroubleshootSettingsWidget *>(u"mTroubleshootSettingsWidget"_s);
     QVERIFY(mTroubleshootSettingsWidget);
 
-    auto mConferenceCallSettingsWidget = w.findChild<ConferenceCallSettingsWidget *>(QStringLiteral("mConferenceCallSettingsWidget"));
+    auto mConferenceCallSettingsWidget = w.findChild<ConferenceCallSettingsWidget *>(u"mConferenceCallSettingsWidget"_s);
     QVERIFY(mConferenceCallSettingsWidget);
 
-    auto mWebRtcSettingsWidget = w.findChild<WebRtcSettingsWidget *>(QStringLiteral("mWebRtcSettingsWidget"));
+    auto mWebRtcSettingsWidget = w.findChild<WebRtcSettingsWidget *>(u"mWebRtcSettingsWidget"_s);
     QVERIFY(mWebRtcSettingsWidget);
 
-    auto mCasSettingsWidget = w.findChild<CasSettingsWidget *>(QStringLiteral("mCasSettingsWidget"));
+    auto mCasSettingsWidget = w.findChild<CasSettingsWidget *>(u"mCasSettingsWidget"_s);
     QVERIFY(mCasSettingsWidget);
 
-    auto mOauthSettingsWidget = w.findChild<OauthSettingsWidget *>(QStringLiteral("mOauthSettingsWidget"));
+    auto mOauthSettingsWidget = w.findChild<OauthSettingsWidget *>(u"mOauthSettingsWidget"_s);
     QVERIFY(mOauthSettingsWidget);
 
-    auto mAnalyticsWidget = w.findChild<AnalyticsWidget *>(QStringLiteral("mAnalyticsWidget"));
+    auto mAnalyticsWidget = w.findChild<AnalyticsWidget *>(u"mAnalyticsWidget"_s);
     QVERIFY(mAnalyticsWidget);
 
-    auto mIrcWidget = w.findChild<IrcWidget *>(QStringLiteral("mIrcWidget"));
+    auto mIrcWidget = w.findChild<IrcWidget *>(u"mIrcWidget"_s);
     QVERIFY(mIrcWidget);
 }
 

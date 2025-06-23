@@ -5,6 +5,8 @@
 */
 
 #include "selectedmessagebackgroundanimationwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "room/selectedmessagebackgroundanimation.h"
 #include <QPaintEvent>
 #include <QPainter>
@@ -17,7 +19,7 @@ SelectedMessageBackgroundAnimationWidget::SelectedMessageBackgroundAnimationWidg
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mLabel);
 
-    auto pushButton = new QPushButton(QStringLiteral("Activate"), this);
+    auto pushButton = new QPushButton(u"Activate"_s, this);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, [this] {
         auto animation = new SelectedMessageBackgroundAnimation(this);

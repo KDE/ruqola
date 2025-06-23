@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomsoundscreatewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KUrlRequester>
@@ -17,13 +19,13 @@ AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWi
     , mSelectFile(new KUrlRequester(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mName->setObjectName(QStringLiteral("mName"));
+    mName->setObjectName(u"mName"_s);
     KLineEditEventHandler::catchReturnKey(mName);
 
-    mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
+    mSelectFile->setObjectName(u"mSelectFile"_s);
 
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("File:"), mSelectFile);

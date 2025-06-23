@@ -5,6 +5,8 @@
 */
 
 #include "roleeditwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rolescopecombobox.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -20,16 +22,16 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
     , mRoleScopeComboBox(new RoleScopeComboBox(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mName->setObjectName(QStringLiteral("mName"));
+    mName->setObjectName(u"mName"_s);
     KLineEditEventHandler::catchReturnKey(mName);
-    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setObjectName(u"mDescription"_s);
     KLineEditEventHandler::catchReturnKey(mDescription);
-    mTwoFactor->setObjectName(QStringLiteral("mTwoFactor"));
+    mTwoFactor->setObjectName(u"mTwoFactor"_s);
 
-    mRoleScopeComboBox->setObjectName(QStringLiteral("mRoleScopeComboBox"));
+    mRoleScopeComboBox->setObjectName(u"mRoleScopeComboBox"_s);
 
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Description:"), mDescription);

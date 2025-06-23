@@ -5,6 +5,8 @@
 */
 
 #include "autogeneratetextplugintool.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "autogeneratetextplugintoolinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -31,7 +33,7 @@ PluginTool::ToolType AutoGenerateTextPluginTool::toolType() const
 
 QString AutoGenerateTextPluginTool::iconName() const
 {
-    return QStringLiteral("question"); // TODO change it
+    return u"question"_s; // TODO change it
 }
 
 QString AutoGenerateTextPluginTool::toolTip() const

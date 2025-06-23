@@ -5,6 +5,7 @@
 */
 
 #include "messagedelegatehelperurlpreview.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
@@ -48,7 +49,7 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
     painter->setFont(oldFont);
     painter->setPen(origPen);
 
-    const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
+    const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? u"visibility"_s : u"hint"_s);
     hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
     if (layout.isShown) {
         int nextY = previewRect.y() + option.fontMetrics.ascent() + DelegatePaintUtil::margin();

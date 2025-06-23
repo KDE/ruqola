@@ -77,7 +77,7 @@ QJsonDocument CreateDmJob::json() const
     if (mUserNames.count() == 1) {
         jsonObj["username"_L1] = mUserNames.at(0);
     } else {
-        jsonObj["usernames"_L1] = mUserNames.join(QLatin1Char(','));
+        jsonObj["usernames"_L1] = mUserNames.join(u',');
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

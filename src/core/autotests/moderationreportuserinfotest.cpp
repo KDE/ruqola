@@ -33,7 +33,7 @@ void ModerationReportUserInfoTest::shouldLoadReportUserInfo_data()
         user.setStatus(User::PresenceStatus::Unknown);
         moderationReportUserInfo.setReportedUser(user);
         moderationReportUserInfo.setReportedBy(user);
-        QTest::addRow("empty") << QStringLiteral("empty") << moderationReportUserInfo;
+        QTest::addRow("empty") << u"empty"_s << moderationReportUserInfo;
     }
     {
         ModerationReportUserInfo moderationReportUserInfo;
@@ -59,7 +59,7 @@ void ModerationReportUserInfoTest::shouldLoadReportUserInfo_data()
         moderationReportUserInfo.setReportId("663608573b610aa5d35b3b"_ba);
         moderationReportUserInfo.setTimeStamp(1714817111681);
 
-        QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfo;
+        QTest::addRow("test1") << u"test1"_s << moderationReportUserInfo;
     }
 }
 

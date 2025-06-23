@@ -5,6 +5,8 @@
 */
 
 #include "otrnotificationjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 
@@ -41,9 +43,9 @@ void OtrNotificationJob::start()
         deleteLater();
         break;
     case Otr::OtrType::End: {
-        auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
+        auto notification = new KNotification(u"Otr-end"_s, KNotification::CloseOnTimeout);
         notification->setTitle(i18n("OTR"));
-        notification->setIconName(QStringLiteral("network-connect"));
+        notification->setIconName(u"network-connect"_s);
         notification->setText(generateText());
         notification->sendEvent();
         Q_EMIT endOtr(mOtr);
@@ -51,9 +53,9 @@ void OtrNotificationJob::start()
         break;
     }
     case Otr::OtrType::Handshake: {
-        auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
+        auto notification = new KNotification(u"Otr-handshake"_s, KNotification::CloseOnTimeout);
         notification->setTitle(i18n("OTR"));
-        notification->setIconName(QStringLiteral("network-connect"));
+        notification->setIconName(u"network-connect"_s);
         notification->setText(generateText());
 
         auto rejectAction = notification->addAction(i18n("Reject"));
@@ -66,9 +68,9 @@ void OtrNotificationJob::start()
         break;
     }
     case Otr::OtrType::Deny: {
-        auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
+        auto notification = new KNotification(u"Otr-deny"_s, KNotification::CloseOnTimeout);
         notification->setTitle(i18n("OTR"));
-        notification->setIconName(QStringLiteral("network-connect"));
+        notification->setIconName(u"network-connect"_s);
         notification->setText(generateText());
         notification->sendEvent();
         deleteLater();
@@ -91,16 +93,15 @@ QString OtrNotificationJob::generateText()
     case Otr::OtrType::Unknown:
         break;
     case Otr::OtrType::End: {
-        str = mRocketChatAccount->accountName() + QLatin1Char('\n') + i18n("%1 ended the OTR session.", QStringLiteral("test")); // FIXME use correct name
+        str = mRocketChatAccount->accountName() + u'\n' + i18n("%1 ended the OTR session.", u"test"_s); // FIXME use correct name
         break;
     }
     case Otr::OtrType::Handshake: {
-        str = mRocketChatAccount->accountName() + QLatin1Char('\n')
-            + i18n("%1 wants to start OTR. Do you want to accept?", QStringLiteral("test")); // FIXME use correct name
+        str = mRocketChatAccount->accountName() + u'\n' + i18n("%1 wants to start OTR. Do you want to accept?", u"test"_s); // FIXME use correct name
         break;
     }
     case Otr::OtrType::Deny: {
-        str = mRocketChatAccount->accountName() + QLatin1Char('\n') + i18n("%1 denied the OTR session.", QStringLiteral("test")); // FIXME use correct name
+        str = mRocketChatAccount->accountName() + u'\n' + i18n("%1 denied the OTR session.", u"test"_s); // FIXME use correct name
         break;
     }
     case Otr::OtrType::AcknowLedge:

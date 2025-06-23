@@ -5,6 +5,8 @@
 */
 
 #include "clickablewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QHBoxLayout>
 #include <QIcon>
 
@@ -15,13 +17,13 @@ ClickableWidget::ClickableWidget(const QString &userName, QWidget *parent)
     , mClickableLabel(new ClickableLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mLabel->setObjectName(QStringLiteral("mUserLabel"));
+    mLabel->setObjectName(u"mUserLabel"_s);
     mainLayout->addWidget(mLabel);
 
-    mClickableLabel->setObjectName(QStringLiteral("mClickableLabel"));
+    mClickableLabel->setObjectName(u"mClickableLabel"_s);
     mainLayout->addWidget(mClickableLabel);
     connect(mClickableLabel, &ClickableLabel::clicked, this, &ClickableWidget::slotRemove);
 }
@@ -56,7 +58,7 @@ void ClickableWidget::setIdentifier(const QByteArray &userId)
 ClickableLabel::ClickableLabel(QWidget *parent)
     : QLabel(parent)
 {
-    setPixmap(QIcon::fromTheme(QStringLiteral("delete")).pixmap(18, 18));
+    setPixmap(QIcon::fromTheme(u"delete"_s).pixmap(18, 18));
 }
 
 ClickableLabel::~ClickableLabel() = default;

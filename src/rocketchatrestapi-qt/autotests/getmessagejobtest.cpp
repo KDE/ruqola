@@ -5,6 +5,8 @@
 */
 
 #include "getmessagejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/getmessagejob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(GetMessageJobTest)
@@ -29,7 +31,7 @@ void GetMessageJobTest::shouldGenerateRequest()
     QNetworkRequest request = QNetworkRequest(QUrl());
     job.setMessageId("foo"_ba);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessage?msgId=foo")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getMessage?msgId=foo"_s));
 }
 
 #include "moc_getmessagejobtest.cpp"

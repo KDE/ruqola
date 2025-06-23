@@ -5,6 +5,8 @@
 */
 
 #include "notificationhistorydelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountmanager.h"
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
@@ -47,7 +49,7 @@ void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const Q
     const qreal margin = MessageDelegateUtils::basicMargin();
     const RoomAccount info = roomAccountInfo(index);
 
-    const QString infoStr = QStringLiteral("%1 - %2").arg(info.accountName, info.channelName);
+    const QString infoStr = u"%1 - %2"_s.arg(info.accountName, info.channelName);
     const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, infoStr);
     const QRect infoAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), infoSize.height()); // the whole row
     const QRect infoTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, infoSize, infoAreaRect);
@@ -171,7 +173,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
 
     const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
-    layout.senderText = QLatin1Char('@') + userName;
+    layout.senderText = u'@' + userName;
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
 
@@ -260,7 +262,7 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
             QString tooltip = senderName;
             if (account->ruqolaServerConfig()->useRealName() && !tooltip.isEmpty()) {
                 const QString senderUserName = index.data(NotificationHistoryModel::SenderUserName).toString();
-                tooltip = QLatin1Char('@') + senderUserName;
+                tooltip = u'@' + senderUserName;
             }
             if (!tooltip.isEmpty()) {
                 QToolTip::showText(helpEvent->globalPos(), tooltip, view);

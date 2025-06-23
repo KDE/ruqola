@@ -5,6 +5,8 @@
 */
 
 #include "myaccountprofileconfigurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "dialogs/asktwoauthenticationpassworddialog.h"
 #include "misc/passwordconfirmwidget.h"
@@ -49,60 +51,60 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     pal.setColor(QPalette::WindowText, color);
 
     auto topLayout = new QVBoxLayout(this);
-    topLayout->setObjectName(QStringLiteral("topLayout"));
+    topLayout->setObjectName(u"topLayout"_s);
 
-    mConfigureAvatarWidget->setObjectName(QStringLiteral("mConfigureAvatarWidget"));
+    mConfigureAvatarWidget->setObjectName(u"mConfigureAvatarWidget"_s);
     topLayout->addWidget(mConfigureAvatarWidget);
 
     auto mainLayout = new QFormLayout;
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     topLayout->addLayout(mainLayout);
 
-    mName->setObjectName(QStringLiteral("mName"));
+    mName->setObjectName(u"mName"_s);
     KLineEditEventHandler::catchReturnKey(mName);
     mainLayout->addRow(i18n("Name:"), mName);
     mName->setClearButtonEnabled(true);
 
-    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mUserName->setObjectName(u"mUserName"_s);
     KLineEditEventHandler::catchReturnKey(mUserName);
     mainLayout->addRow(i18n("Username:"), mUserName);
     mUserNameInfo->setPalette(pal);
-    mUserNameInfo->setObjectName(QStringLiteral("mUserNameInfo"));
+    mUserNameInfo->setObjectName(u"mUserNameInfo"_s);
     mainLayout->addWidget(mUserNameInfo);
 
-    mEmail->setObjectName(QStringLiteral("mEmail"));
+    mEmail->setObjectName(u"mEmail"_s);
     KLineEditEventHandler::catchReturnKey(mEmail);
     mainLayout->addRow(i18n("Email:"), mEmail);
 
     mEmailInfo->setPalette(pal);
-    mEmailInfo->setObjectName(QStringLiteral("mEmailInfo"));
+    mEmailInfo->setObjectName(u"mEmailInfo"_s);
     mainLayout->addWidget(mEmailInfo);
 
-    mNickName->setObjectName(QStringLiteral("mNickName"));
+    mNickName->setObjectName(u"mNickName"_s);
     KLineEditEventHandler::catchReturnKey(mNickName);
     mainLayout->addRow(i18n("Nickname:"), mNickName);
     mNickName->setClearButtonEnabled(true);
 
     KLineEditEventHandler::catchReturnKey(mStatusText);
-    mStatusText->setObjectName(QStringLiteral("mStatusText"));
+    mStatusText->setObjectName(u"mStatusText"_s);
     mainLayout->addRow(i18n("Status text:"), mStatusText);
     mStatusText->setClearButtonEnabled(true);
 
     mStatusTextInfo->setPalette(pal);
-    mStatusTextInfo->setObjectName(QStringLiteral("mStatusTextInfo"));
+    mStatusTextInfo->setObjectName(u"mStatusTextInfo"_s);
     mainLayout->addWidget(mStatusTextInfo);
 
-    mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
+    mPasswordConfirmWidget->setObjectName(u"mPasswordConfirmWidget"_s);
     mainLayout->addRow(mPasswordConfirmWidget);
     if (mRocketChatAccount) {
         mPasswordConfirmWidget->setPasswordValidChecks(mRocketChatAccount->ruqolaServerConfig()->passwordSettings());
     }
 
-    mDeleteMyAccount->setObjectName(QStringLiteral("mDeleteMyAccount"));
+    mDeleteMyAccount->setObjectName(u"mDeleteMyAccount"_s);
     mainLayout->addWidget(mDeleteMyAccount);
     connect(mDeleteMyAccount, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotDeleteMyAccount);
 
-    mLogoutFromOtherLocation->setObjectName(QStringLiteral("mLogoutFromOtherLocation"));
+    mLogoutFromOtherLocation->setObjectName(u"mLogoutFromOtherLocation"_s);
     mainLayout->addWidget(mLogoutFromOtherLocation);
     connect(mLogoutFromOtherLocation, &QPushButton::clicked, this, &MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation);
     topLayout->addStretch();
@@ -132,8 +134,7 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
                                            KStandardGuiItem::del(),
                                            KStandardGuiItem::cancel())) {
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
-        dlg->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                      : KPassword::RevealMode::Never);
+        dlg->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew : KPassword::RevealMode::Never);
         dlg->setPrompt(i18n("Current Password"));
         if (dlg->exec()) {
             auto job = new RocketChatRestApi::DeleteOwnAccountJob(this);
@@ -207,8 +208,7 @@ void MyAccountProfileConfigureWidget::save()
         updateInfo.newPassword = mPasswordConfirmWidget->password(); // Not encrypt it ???!
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
         dlg->setPrompt(i18n("Current Password"));
-        dlg->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
-                                                                                                      : KPassword::RevealMode::Never);
+        dlg->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew : KPassword::RevealMode::Never);
         if (dlg->exec()) {
             updateInfo.currentPassword = Utils::convertSha256Password(dlg->password());
         } else {

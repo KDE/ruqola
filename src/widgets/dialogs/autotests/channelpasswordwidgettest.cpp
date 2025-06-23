@@ -5,6 +5,8 @@
 */
 
 #include "channelpasswordwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/channelpasswordwidget.h"
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
@@ -20,15 +22,15 @@ ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
 void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
 {
     ChannelPasswordWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
     QVERIFY(mPasswordLineEdit);
 
     QVERIFY(w.password().isEmpty());
@@ -37,9 +39,9 @@ void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
 void ChannelPasswordWidgetTest::shouldEmitSignals()
 {
     ChannelPasswordWidget w;
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
     QSignalSpy spy(&w, &ChannelPasswordWidget::updateOkButton);
-    mPasswordLineEdit->setPassword(QStringLiteral("bla"));
+    mPasswordLineEdit->setPassword(u"bla"_s);
     QVERIFY(spy.count() > 0);
     QVERIFY(spy.at(0).at(0).toBool());
     spy.clear();

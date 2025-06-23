@@ -5,6 +5,8 @@
 */
 
 #include "moderationreporteduserconsoletreewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/moderationconsole/moderationmessagesdialog.h"
 #include "administratordialog/moderationconsole/moderationusersdialog.h"
 #include "connection.h"
@@ -35,11 +37,11 @@ ModerationReportedUserConsoleTreeWidget::ModerationReportedUserConsoleTreeWidget
 {
     mCommonMessageFilterProxyModel = new CommonMessageFilterProxyModel(mCommonMessagesModel, this);
     mModel = new ModerationReportedUserModel(this);
-    mModel->setObjectName(QStringLiteral("mModel"));
+    mModel->setObjectName(u"mModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search moderation message…"));
 
     mProxyModelModel = new ModerationReportedUserProxyModel(mModel, this);
-    mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
+    mProxyModelModel->setObjectName(u"mProxyModelModel"_s);
     mTreeView->setModel(mProxyModelModel);
     connect(this, &ModerationReportedUserConsoleTreeWidget::doubleClicked, this, &ModerationReportedUserConsoleTreeWidget::slotShowReports);
     connect(this, &ModerationReportedUserConsoleTreeWidget::refreshList, this, [this]() {
@@ -131,18 +133,18 @@ void ModerationReportedUserConsoleTreeWidget::slotCustomContextMenuRequested(con
     if (index.isValid()) {
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("visibility")), i18nc("@action", "See reports"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(u"visibility"_s), i18nc("@action", "See reports"), this, [this, newModelIndex]() {
             slotShowReports(newModelIndex);
         });
         menu.addSeparator();
 
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Dismiss reports"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Dismiss reports"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedUserModel::Identifier);
             slotDismissReport(modelIndex);
         });
 
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Deactivate user"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Deactivate user"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedUserModel::UserName);
             slotDesactivateUser(modelIndex);
         });

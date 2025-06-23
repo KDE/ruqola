@@ -40,7 +40,7 @@ void UsersInRoomMenu::slotBlockUser()
             == KMessageBox::questionTwoActions(mParentWidget,
                                                i18n("Do you want to block this user?"),
                                                i18nc("@title", "Block User"),
-                                               KGuiItem(i18nc("@action:button", "Block User"), QStringLiteral("dialog-ok")),
+                                               KGuiItem(i18nc("@action:button", "Block User"), u"dialog-ok"_s),
                                                KStandardGuiItem::cancel())) {
             return;
         }
@@ -71,7 +71,7 @@ void UsersInRoomMenu::slotMuteUser()
             == KMessageBox::questionTwoActions(mParentWidget,
                                                i18n("Do you want to mute this user?"),
                                                i18nc("@title", "Mute User"),
-                                               KGuiItem(i18nc("@action:button", "Mute User"), QStringLiteral("dialog-ok")),
+                                               KGuiItem(i18nc("@action:button", "Mute User"), u"dialog-ok"_s),
                                                KStandardGuiItem::cancel())) {
             return;
         }
@@ -88,7 +88,7 @@ void UsersInRoomMenu::slotIgnoreUser()
             == KMessageBox::questionTwoActions(mParentWidget,
                                                i18n("Do you want to ignore this user?"),
                                                i18nc("@title", "Ignore User"),
-                                               KGuiItem(i18nc("@action:button", "Ignore User"), QStringLiteral("dialog-ok")),
+                                               KGuiItem(i18nc("@action:button", "Ignore User"), u"dialog-ok"_s),
                                                KStandardGuiItem::cancel())) {
             return;
         }
@@ -111,7 +111,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
     const bool isNotMe = mUserId != ownUserId;
     QMenu menu(mParentWidget);
 
-    if (account->hasPermission(QStringLiteral("create-d"))) {
+    if (account->hasPermission(u"create-d"_s)) {
         if (isNotMe && !isAdirectChannel) {
             auto conversationAction = new QAction(i18nc("@action", "Start Conversation"), &menu);
             connect(conversationAction, &QAction::triggered, this, &UsersInRoomMenu::slotOpenConversation);
@@ -121,14 +121,14 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
     if (!menu.isEmpty()) {
         menu.addSeparator();
     }
-    auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18nc("@action", "User Info"), &menu);
+    auto userInfoAction = new QAction(QIcon::fromTheme(u"documentinfo"_s), i18nc("@action", "User Info"), &menu);
     connect(userInfoAction, &QAction::triggered, this, &UsersInRoomMenu::slotUserInfo);
     menu.addAction(userInfoAction);
     if ((isAdministrator || canManageUsersInRoom) && !isAdirectChannel) {
         if (!menu.isEmpty()) {
             menu.addSeparator();
         }
-        if (isAdministrator || mRoom->hasPermission(QStringLiteral("set-owner"))) {
+        if (isAdministrator || mRoom->hasPermission(u"set-owner"_s)) {
             const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
             auto removeAsOwner = new QAction(hasOwnerRole ? i18nc("@action", "Remove as Owner") : i18nc("@action", "Add as Owner"), &menu);
             connect(removeAsOwner, &QAction::triggered, this, [this, hasOwnerRole, account]() {
@@ -141,7 +141,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addAction(removeAsOwner);
         }
 
-        if (isAdministrator || mRoom->hasPermission(QStringLiteral("set-leader"))) {
+        if (isAdministrator || mRoom->hasPermission(u"set-leader"_s)) {
             const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
             auto removeAsLeader = new QAction(hasLeaderRole ? i18nc("@action", "Remove as Leader") : i18nc("@action", "Add as Leader"), &menu);
             connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole, account]() {
@@ -153,7 +153,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addAction(removeAsLeader);
         }
 
-        if (isAdministrator || mRoom->hasPermission(QStringLiteral("set-moderator"))) {
+        if (isAdministrator || mRoom->hasPermission(u"set-moderator"_s)) {
             const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
             auto removeAsModerator = new QAction(hasModeratorRole ? i18nc("@action", "Remove as Moderator") : i18nc("@action", "Add as Moderator"), &menu);
             connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole, account]() {
@@ -164,7 +164,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             });
             menu.addAction(removeAsModerator);
         }
-        if (isAdministrator || mRoom->hasPermission(QStringLiteral("remove-user"))) {
+        if (isAdministrator || mRoom->hasPermission(u"remove-user"_s)) {
             menu.addSeparator();
             auto removeFromRoom = new QAction(i18nc("@action", "Remove from Room"), &menu);
             connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
@@ -186,7 +186,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
             menu.addAction(ignoreAction);
             menu.addSeparator();
-            if (mRoom->hasPermission(QStringLiteral("mute-user"))) {
+            if (mRoom->hasPermission(u"mute-user"_s)) {
                 const bool userIsMuted = mRoom->userIsMuted(mUserName);
                 auto muteAction = new QAction(userIsMuted ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), &menu);
                 muteAction->setIcon(userIsMuted ? QIcon::fromTheme("mic-on"_L1) : QIcon::fromTheme("mic-off"_L1));

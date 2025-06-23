@@ -5,6 +5,8 @@
 */
 
 #include "getsupportedlanguagesjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -29,7 +31,7 @@ void GetSupportedLanguagesJobTest::shouldGenerateRequest()
     GetSupportedLanguagesJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.getSupportedLanguages")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/autotranslate.getSupportedLanguages"_s));
 }
 
 #include "moc_getsupportedlanguagesjobtest.cpp"

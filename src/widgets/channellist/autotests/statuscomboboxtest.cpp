@@ -5,6 +5,8 @@
 */
 
 #include "statuscomboboxtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/statuscombobox.h"
 #include <QTest>
 QTEST_MAIN(StatusComboboxTest)

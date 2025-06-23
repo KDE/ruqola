@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "ldapsettingswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/ldap/ldapsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <KPasswordLineEdit>
@@ -20,75 +22,75 @@ LDapSettingsWidgetTest::LDapSettingsWidgetTest(QObject *parent)
 void LDapSettingsWidgetTest::shouldHaveDefaultValues()
 {
     LDapSettingsWidget w(nullptr);
-    auto mEnabled = w.findChild<QCheckBox *>(QStringLiteral("mEnabled"));
+    auto mEnabled = w.findChild<QCheckBox *>(u"mEnabled"_s);
     QVERIFY(mEnabled);
     QVERIFY(!mEnabled->isChecked());
     QVERIFY(!mEnabled->text().isEmpty());
     QVERIFY(!mEnabled->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("LDAP_Enable"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), u"LDAP_Enable"_s);
 
-    auto mHost = w.findChild<QLineEdit *>(QStringLiteral("mHost"));
+    auto mHost = w.findChild<QLineEdit *>(u"mHost"_s);
     QVERIFY(mHost);
     QVERIFY(mHost->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mHost), QStringLiteral("LDAP_Host"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Host"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mHost), u"LDAP_Host"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"LDAP_Host"_s);
 
-    auto mPort = w.findChild<QSpinBox *>(QStringLiteral("mPort"));
+    auto mPort = w.findChild<QSpinBox *>(u"mPort"_s);
     QVERIFY(mPort);
     QVERIFY(!mPort->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPort), QStringLiteral("LDAP_Port"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Port"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPort), u"LDAP_Port"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"LDAP_Port"_s);
 
-    auto mReconnect = w.findChild<QCheckBox *>(QStringLiteral("mReconnect"));
+    auto mReconnect = w.findChild<QCheckBox *>(u"mReconnect"_s);
     QVERIFY(mReconnect);
     QVERIFY(!mReconnect->isChecked());
     QVERIFY(!mReconnect->text().isEmpty());
     QVERIFY(!mReconnect->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mReconnect), QStringLiteral("LDAP_Reconnect"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mReconnect), u"LDAP_Reconnect"_s);
 
-    auto mAuthenticationEnabled = w.findChild<QCheckBox *>(QStringLiteral("mAuthenticationEnabled"));
+    auto mAuthenticationEnabled = w.findChild<QCheckBox *>(u"mAuthenticationEnabled"_s);
     QVERIFY(mAuthenticationEnabled);
     QVERIFY(!mAuthenticationEnabled->isChecked());
     QVERIFY(!mAuthenticationEnabled->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAuthenticationEnabled), QStringLiteral("LDAP_Authentication"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAuthenticationEnabled), u"LDAP_Authentication"_s);
 
-    auto authenticationLabel = w.findChild<QLabel *>(QStringLiteral("authenticationLabel"));
+    auto authenticationLabel = w.findChild<QLabel *>(u"authenticationLabel"_s);
     QVERIFY(authenticationLabel);
     QVERIFY(!authenticationLabel->text().isEmpty());
 
-    auto mAuthenticationUserDN = w.findChild<QLineEdit *>(QStringLiteral("mAuthenticationUserDN"));
+    auto mAuthenticationUserDN = w.findChild<QLineEdit *>(u"mAuthenticationUserDN"_s);
     QVERIFY(mAuthenticationUserDN);
     QVERIFY(mAuthenticationUserDN->text().isEmpty());
     QVERIFY(!mAuthenticationUserDN->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAuthenticationUserDN), QStringLiteral("LDAP_Authentication_UserDN"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Authentication_UserDN"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAuthenticationUserDN), u"LDAP_Authentication_UserDN"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"LDAP_Authentication_UserDN"_s);
 
-    auto timeoutLabel = w.findChild<QLabel *>(QStringLiteral("timeoutLabel"));
+    auto timeoutLabel = w.findChild<QLabel *>(u"timeoutLabel"_s);
     QVERIFY(timeoutLabel);
     QVERIFY(!timeoutLabel->text().isEmpty());
 
-    auto mTimeouts = w.findChild<QSpinBox *>(QStringLiteral("mTimeouts"));
+    auto mTimeouts = w.findChild<QSpinBox *>(u"mTimeouts"_s);
     QVERIFY(mTimeouts);
     QVERIFY(!mTimeouts->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTimeouts), QStringLiteral("LDAP_Timeout"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Timeout"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTimeouts), u"LDAP_Timeout"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"LDAP_Timeout"_s);
 
-    auto mConnectionTimeouts = w.findChild<QSpinBox *>(QStringLiteral("mConnectionTimeouts"));
+    auto mConnectionTimeouts = w.findChild<QSpinBox *>(u"mConnectionTimeouts"_s);
     QVERIFY(mConnectionTimeouts);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mConnectionTimeouts), QStringLiteral("LDAP_Connect_Timeout"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Connect_Timeout"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mConnectionTimeouts), u"LDAP_Connect_Timeout"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"LDAP_Connect_Timeout"_s);
 
-    auto mIdleTimeouts = w.findChild<QSpinBox *>(QStringLiteral("mIdleTimeouts"));
+    auto mIdleTimeouts = w.findChild<QSpinBox *>(u"mIdleTimeouts"_s);
     QVERIFY(mIdleTimeouts);
     QVERIFY(!mIdleTimeouts->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mIdleTimeouts), QStringLiteral("LDAP_Idle_Timeout"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Idle_Timeout"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mIdleTimeouts), u"LDAP_Idle_Timeout"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"LDAP_Idle_Timeout"_s);
 
-    auto mAuthenticationPassword = w.findChild<KPasswordLineEdit *>(QStringLiteral("mAuthenticationPassword"));
+    auto mAuthenticationPassword = w.findChild<KPasswordLineEdit *>(u"mAuthenticationPassword"_s);
     QVERIFY(mAuthenticationPassword);
     QVERIFY(mAuthenticationPassword->password().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAuthenticationPassword), QStringLiteral("LDAP_Authentication_Password"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Authentication_Password"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAuthenticationPassword), u"LDAP_Authentication_Password"_s);
+    SettingsWidgetHelper::checkLabelToolButton(&w, u"LDAP_Authentication_Password"_s);
 }
 
 #include "moc_ldapsettingswidgettest.cpp"

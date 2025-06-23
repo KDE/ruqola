@@ -5,6 +5,8 @@
 */
 
 #include "notificationhistorydelegatetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "notificationhistory/notificationhistorydelegate.h"
 
 #include <QTest>
@@ -19,44 +21,44 @@ void NotificationHistoryDelegateTest::shouldCompareAccountInfo()
 {
     {
         NotificationHistoryDelegate::RoomAccount info;
-        info.accountName = QStringLiteral("bla");
-        info.channelName = QStringLiteral("bli");
+        info.accountName = u"bla"_s;
+        info.channelName = u"bli"_s;
 
         NotificationHistoryDelegate::RoomAccount info2;
-        info2.accountName = QStringLiteral("bla");
-        info2.channelName = QStringLiteral("bli");
+        info2.accountName = u"bla"_s;
+        info2.channelName = u"bli"_s;
         QCOMPARE(info, info2);
     }
 
     {
         NotificationHistoryDelegate::RoomAccount info;
-        info.accountName = QStringLiteral("zz");
-        info.channelName = QStringLiteral("kk");
+        info.accountName = u"zz"_s;
+        info.channelName = u"kk"_s;
 
         NotificationHistoryDelegate::RoomAccount info2;
-        info2.accountName = QStringLiteral("bla");
-        info2.channelName = QStringLiteral("bli");
+        info2.accountName = u"bla"_s;
+        info2.channelName = u"bli"_s;
         QVERIFY(info != info2);
     }
 
     {
         NotificationHistoryDelegate::RoomAccount info;
-        info.accountName = QStringLiteral("bla");
-        info.channelName = QStringLiteral("kk");
+        info.accountName = u"bla"_s;
+        info.channelName = u"kk"_s;
 
         NotificationHistoryDelegate::RoomAccount info2;
-        info2.accountName = QStringLiteral("bla");
-        info2.channelName = QStringLiteral("bli");
+        info2.accountName = u"bla"_s;
+        info2.channelName = u"bli"_s;
         QVERIFY(info != info2);
     }
     {
         NotificationHistoryDelegate::RoomAccount info;
-        info.accountName = QStringLiteral("ss");
-        info.channelName = QStringLiteral("bli");
+        info.accountName = u"ss"_s;
+        info.channelName = u"bli"_s;
 
         NotificationHistoryDelegate::RoomAccount info2;
-        info2.accountName = QStringLiteral("bla");
-        info2.channelName = QStringLiteral("bli");
+        info2.accountName = u"bla"_s;
+        info2.channelName = u"bli"_s;
         QVERIFY(info != info2);
     }
 

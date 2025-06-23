@@ -5,6 +5,8 @@
 */
 
 #include "analyticswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -28,59 +30,59 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     , mHideOutgoingLinks(new QPlainTextEdit(this))
 {
     auto featuresEnabledLabel = createBoldLabel(i18n("Features Enabled"));
-    featuresEnabledLabel->setObjectName(QStringLiteral("featuresEnabledLabel"));
+    featuresEnabledLabel->setObjectName(u"featuresEnabledLabel"_s);
     mMainLayout->addWidget(featuresEnabledLabel);
 
-    mMessages->setObjectName(QStringLiteral("mMessages"));
+    mMessages->setObjectName(u"mMessages"_s);
     mMessages->setToolTip(i18nc("@info:tooltip", "Tracks custom events related to actions a user does on messages."));
-    addCheckBox(mMessages, QStringLiteral("Analytics_features_messages"));
+    addCheckBox(mMessages, u"Analytics_features_messages"_s);
 
-    mRooms->setObjectName(QStringLiteral("mRooms"));
+    mRooms->setObjectName(u"mRooms"_s);
     mRooms->setToolTip(i18nc("@info:tooltip", "Tracks custom events related to actions on a channel or group (create, leave, delete)."));
-    addCheckBox(mRooms, QStringLiteral("Analytics_features_rooms"));
+    addCheckBox(mRooms, u"Analytics_features_rooms"_s);
 
-    mUsers->setObjectName(QStringLiteral("mUsers"));
+    mUsers->setObjectName(u"mUsers"_s);
     mUsers->setToolTip(i18nc("@info:tooltip", "Tracks custom events related to actions related to users (password reset times, profile picture change, etc)."));
-    addCheckBox(mUsers, QStringLiteral("Analytics_features_users"));
+    addCheckBox(mUsers, u"Analytics_features_users"_s);
 
     auto googleAnalyticsLabel = createBoldLabel(i18n("Google Analytics"));
-    googleAnalyticsLabel->setObjectName(QStringLiteral("googleAnalyticsLabel"));
+    googleAnalyticsLabel->setObjectName(u"googleAnalyticsLabel"_s);
     mMainLayout->addWidget(googleAnalyticsLabel);
 
-    mGoogleEnabled->setObjectName(QStringLiteral("mGoogleEnabled"));
-    addCheckBox(mGoogleEnabled, QStringLiteral("GoogleAnalytics_enabled"));
+    mGoogleEnabled->setObjectName(u"mGoogleEnabled"_s);
+    addCheckBox(mGoogleEnabled, u"GoogleAnalytics_enabled"_s);
 
-    mGoogleTrackingId->setObjectName(QStringLiteral("mGoogleTrackingId"));
-    addLineEdit(i18n("Tracking ID"), mGoogleTrackingId, QStringLiteral("GoogleAnalytics_ID"));
+    mGoogleTrackingId->setObjectName(u"mGoogleTrackingId"_s);
+    addLineEdit(i18n("Tracking ID"), mGoogleTrackingId, u"GoogleAnalytics_ID"_s);
 
     auto piwikAnalyticsLabel = createBoldLabel(i18n("Piwik Analytics"));
-    piwikAnalyticsLabel->setObjectName(QStringLiteral("piwikAnalyticsLabel"));
+    piwikAnalyticsLabel->setObjectName(u"piwikAnalyticsLabel"_s);
     mMainLayout->addWidget(piwikAnalyticsLabel);
 
-    mPiwikEnabled->setObjectName(QStringLiteral("mPiwikEnabled"));
-    addCheckBox(mPiwikEnabled, QStringLiteral("PiwikAnalytics_enabled"));
+    mPiwikEnabled->setObjectName(u"mPiwikEnabled"_s);
+    addCheckBox(mPiwikEnabled, u"PiwikAnalytics_enabled"_s);
 
-    mPiwikUrl->setObjectName(QStringLiteral("mPiwikUrl"));
+    mPiwikUrl->setObjectName(u"mPiwikUrl"_s);
     mPiwikUrl->setToolTip(i18nc("@info:tooltip", "The url where the Piwik resides, be sure to include the trailing slash. Example: //piwik.rocket.chat/"));
-    addLineEdit(i18n("URL"), mPiwikUrl, QStringLiteral("PiwikAnalytics_url"));
+    addLineEdit(i18n("URL"), mPiwikUrl, u"PiwikAnalytics_url"_s);
 
-    mPiwikClientID->setObjectName(QStringLiteral("mPiwikClientID"));
+    mPiwikClientID->setObjectName(u"mPiwikClientID"_s);
     mPiwikClientID->setToolTip(i18nc("@info:tooltip", "The site id to use for identifying this site. Example: 17"));
-    addLineEdit(i18n("Client ID"), mPiwikClientID, QStringLiteral("PiwikAnalytics_siteId"));
+    addLineEdit(i18n("Client ID"), mPiwikClientID, u"PiwikAnalytics_siteId"_s);
 
-    mAdditionalPiwikSites->setObjectName(QStringLiteral("mAdditionalPiwikSites"));
-    addPlainTextEdit(i18n("Additional Piwik Sites"), mAdditionalPiwikSites, QStringLiteral("PiwikAdditionalTrackers"));
+    mAdditionalPiwikSites->setObjectName(u"mAdditionalPiwikSites"_s);
+    addPlainTextEdit(i18n("Additional Piwik Sites"), mAdditionalPiwikSites, u"PiwikAdditionalTrackers"_s);
 
-    mPrependDomain->setObjectName(QStringLiteral("mPrependDomain"));
+    mPrependDomain->setObjectName(u"mPrependDomain"_s);
     mPrependDomain->setToolTip(i18nc("@info:tooltip", "Prepend the site domain to the page title when tracking"));
-    addCheckBox(mPrependDomain, QStringLiteral("PiwikAnalytics_prependDomain"));
+    addCheckBox(mPrependDomain, u"PiwikAnalytics_prependDomain"_s);
 
-    mAllSubdomains->setObjectName(QStringLiteral("mAllSubdomains"));
+    mAllSubdomains->setObjectName(u"mAllSubdomains"_s);
     mAllSubdomains->setToolTip(i18nc("@info:tooltip", "Track visitors across all subdomains"));
-    addCheckBox(mAllSubdomains, QStringLiteral("PiwikAnalytics_cookieDomain"));
+    addCheckBox(mAllSubdomains, u"PiwikAnalytics_cookieDomain"_s);
 
-    mHideOutgoingLinks->setObjectName(QStringLiteral("mHideOutgoingLinks"));
-    addPlainTextEdit(i18n("Hide Outgoing Links"), mHideOutgoingLinks, QStringLiteral("PiwikAnalytics_domains"));
+    mHideOutgoingLinks->setObjectName(u"mHideOutgoingLinks"_s);
+    addPlainTextEdit(i18n("Hide Outgoing Links"), mHideOutgoingLinks, u"PiwikAnalytics_domains"_s);
 }
 
 AnalyticsWidget::~AnalyticsWidget() = default;

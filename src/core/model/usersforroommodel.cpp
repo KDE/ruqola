@@ -99,7 +99,7 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
 UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user) const
 {
     const QStringList roles = user.roles();
-    if (roles.contains(QStringLiteral("owner"))) {
+    if (roles.contains(u"owner"_s)) {
         return UsersForRoomModel::SectionStatus::Owner;
     }
     switch (user.status()) {
@@ -124,7 +124,7 @@ int UsersForRoomModel::numberUsersWithoutFilter() const
 
 QString UsersForRoomModel::generateDisplayName(const User &user) const
 {
-    const QString displayName = QStringLiteral("<a href=\'%1\'>%1</a>").arg(user.userName().isEmpty() ? user.name() : user.userName());
+    const QString displayName = u"<a href=\'%1\'>%1</a>"_s.arg(user.userName().isEmpty() ? user.name() : user.userName());
     return displayName;
 }
 
@@ -313,7 +313,7 @@ QString UsersForRoomModel::sectionName(UsersForRoomModel::SectionStatus sectionI
     case UsersForRoomModel::SectionStatus::NSections:
         break;
     }
-    return QStringLiteral("ERROR");
+    return u"ERROR"_s;
 }
 
 #include "moc_usersforroommodel.cpp"

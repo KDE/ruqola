@@ -5,6 +5,8 @@
 */
 
 #include "administratordirectroomseditwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/rooms/administratordirectroomseditwidget.h"
 #include <QCheckBox>
 #include <QFormLayout>
@@ -19,24 +21,24 @@ AdministratorDirectRoomsEditWidgetTest::AdministratorDirectRoomsEditWidgetTest(Q
 void AdministratorDirectRoomsEditWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorDirectRoomsEditWidget w;
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mLineEdit"));
+    auto mLineEdit = w.findChild<QLineEdit *>(u"mLineEdit"_s);
     QVERIFY(mLineEdit);
     QVERIFY(mLineEdit->text().isEmpty());
 
-    auto mDefaultCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mDefaultCheckBox"));
+    auto mDefaultCheckBox = w.findChild<QCheckBox *>(u"mDefaultCheckBox"_s);
     QVERIFY(mDefaultCheckBox);
     QVERIFY(!mDefaultCheckBox->isChecked());
     QVERIFY(!mDefaultCheckBox->text().isEmpty());
 
-    auto mFavoriteCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mFavoriteCheckBox"));
+    auto mFavoriteCheckBox = w.findChild<QCheckBox *>(u"mFavoriteCheckBox"_s);
     QVERIFY(mFavoriteCheckBox);
     QVERIFY(!mFavoriteCheckBox->isChecked());
     QVERIFY(!mFavoriteCheckBox->text().isEmpty());
 
-    auto mFeaturedCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mFeaturedCheckBox"));
+    auto mFeaturedCheckBox = w.findChild<QCheckBox *>(u"mFeaturedCheckBox"_s);
     QVERIFY(mFeaturedCheckBox);
     QVERIFY(!mFeaturedCheckBox->isChecked());
     QVERIFY(!mFeaturedCheckBox->text().isEmpty());

@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "myaccount2fadisabletotpwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "myaccount/myaccount2fadisabletotpwidget.h"
 #include <QLabel>
 #include <QLineEdit>
@@ -20,28 +22,28 @@ void MyAccount2FaDisableTotpWidgetTest::shouldHaveDefaultValues()
 {
     MyAccount2FaDisableTotpWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    auto hboxLayout = w.findChild<QHBoxLayout *>(u"hboxLayout"_s);
     QVERIFY(hboxLayout);
     QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
-    auto mDisableCodeLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mDisableCodeLineEdit"));
+    auto mDisableCodeLineEdit = w.findChild<QLineEdit *>(u"mDisableCodeLineEdit"_s);
     QVERIFY(mDisableCodeLineEdit);
     QVERIFY(!mDisableCodeLineEdit->placeholderText().isEmpty());
 
-    auto verifyButton = w.findChild<QPushButton *>(QStringLiteral("verifyButton"));
+    auto verifyButton = w.findChild<QPushButton *>(u"verifyButton"_s);
     QVERIFY(verifyButton);
     QVERIFY(!verifyButton->text().isEmpty());
     QVERIFY(!verifyButton->isEnabled());
 
-    auto regenerateCode = w.findChild<QPushButton *>(QStringLiteral("regenerateCode"));
+    auto regenerateCode = w.findChild<QPushButton *>(u"regenerateCode"_s);
     QVERIFY(regenerateCode);
     QVERIFY(!regenerateCode->text().isEmpty());
 }

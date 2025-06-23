@@ -5,6 +5,8 @@
 */
 
 #include "exportdatawizard.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exportdatafinishpage.h"
 #include "exportdataselectaccountpage.h"
 #include "importexportdata/importexportutils.h"
@@ -31,8 +33,8 @@ ExportDataWizard::ExportDataWizard(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Export Accounts"));
 
-    mExportDataSelectAccountPage->setObjectName(QStringLiteral("mExportDataSelectAccountPage"));
-    mExportDataFinishPage->setObjectName(QStringLiteral("mExportDataFinishPage"));
+    mExportDataSelectAccountPage->setObjectName(u"mExportDataSelectAccountPage"_s);
+    mExportDataFinishPage->setObjectName(u"mExportDataFinishPage"_s);
 
     setPage(int(ExportDataWizard::ExportDataEnum::SelectAccountPage), mExportDataSelectAccountPage);
     setPage(int(ExportDataWizard::ExportDataEnum::FinishPage), mExportDataFinishPage);
@@ -66,7 +68,7 @@ void ExportDataWizard::writeConfig()
 void ExportDataWizard::loadAccountInfo()
 {
     QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()),
-                    QStringList() << QStringLiteral("ruqola.conf"),
+                    QStringList() << u"ruqola.conf"_s,
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
     QList<ImportExportUtils::AccountImportExportInfo> lstAccountInfo;

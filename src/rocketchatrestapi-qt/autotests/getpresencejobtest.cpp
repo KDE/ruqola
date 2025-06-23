@@ -5,6 +5,8 @@
 */
 
 #include "getpresencejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "users/getpresencejob.h"
 #include <QTest>
@@ -31,15 +33,15 @@ void GetPresenceJobTest::shouldGenerateRequest()
 {
     GetPresenceJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     UserBaseJob::UserInfo info;
-    info.userIdentifier = QStringLiteral("foo");
+    info.userIdentifier = u"foo"_s;
     info.userInfoType = UserBaseJob::UserInfoType::UserId;
     job.setUserInfo(info);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPresence?userId=%1").arg(info.userIdentifier)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.getPresence?userId=%1"_s.arg(info.userIdentifier)));
 }
 
 #include "moc_getpresencejobtest.cpp"

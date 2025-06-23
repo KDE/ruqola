@@ -5,6 +5,8 @@
 */
 
 #include "showdiscussionswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "discussions/showdiscussionswidget.h"
 #include <QLabel>
 #include <QLineEdit>
@@ -21,22 +23,22 @@ void ShowDiscussionsWidgetTest::shouldHaveDefaultValues()
 {
     ShowDiscussionsWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mSearchDiscussionLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchDiscussionLineEdit"));
+    auto mSearchDiscussionLineEdit = w.findChild<QLineEdit *>(u"mSearchDiscussionLineEdit"_s);
     QVERIFY(mSearchDiscussionLineEdit);
     QVERIFY(mSearchDiscussionLineEdit->text().isEmpty());
     QVERIFY(mSearchDiscussionLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchDiscussionLineEdit->placeholderText().isEmpty());
 
-    auto mDiscussionInfoLabel = w.findChild<QLabel *>(QStringLiteral("mInfo"));
+    auto mDiscussionInfoLabel = w.findChild<QLabel *>(u"mInfo"_s);
     QVERIFY(mDiscussionInfoLabel);
     QVERIFY(mDiscussionInfoLabel->text().isEmpty());
     QCOMPARE(mDiscussionInfoLabel->textFormat(), Qt::RichText);
 
-    auto mListDiscussions = w.findChild<QListView *>(QStringLiteral("mListDiscussions"));
+    auto mListDiscussions = w.findChild<QListView *>(u"mListDiscussions"_s);
     QVERIFY(mListDiscussions);
     QVERIFY(mListDiscussions->itemDelegate());
 }

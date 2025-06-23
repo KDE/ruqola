@@ -5,6 +5,8 @@
 */
 
 #include "importdatafinishpage.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "importaccountjob.h"
 #include <KLocalizedString>
 #include <KMessageWidget>
@@ -20,13 +22,13 @@ ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     , mDetails(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mInfos->setObjectName(QStringLiteral("mInfos"));
+    mInfos->setObjectName(u"mInfos"_s);
     mainLayout->addWidget(mInfos);
     mInfos->setVisible(false);
 
-    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mMessageWidget->setVisible(false);
     mMessageWidget->setCloseButtonVisible(false);
     mMessageWidget->setMessageType(KMessageWidget::Information);
@@ -35,7 +37,7 @@ ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     mMessageWidget->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(mMessageWidget);
 
-    mDetails->setObjectName(QStringLiteral("mDetails"));
+    mDetails->setObjectName(u"mDetails"_s);
     mDetails->setReadOnly(true);
     mainLayout->addWidget(mDetails);
 }
@@ -76,7 +78,7 @@ void ImportDataFinishPage::slotImportFailed(const QString &msg)
 {
     QString currentText = mInfos->text();
     if (!currentText.isEmpty()) {
-        currentText += QLatin1Char('\n');
+        currentText += u'\n';
     }
     mInfos->setText(currentText + msg);
     mInfos->setVisible(true);

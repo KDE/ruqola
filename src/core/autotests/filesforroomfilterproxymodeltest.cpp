@@ -5,6 +5,8 @@
 */
 
 #include "filesforroomfilterproxymodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
 #include <QTest>
@@ -37,9 +39,9 @@ void FilesForRoomFilterProxyModelTest::shouldAssignValue()
     QList<File> mFiles;
     for (int i = 0; i < 10; ++i) {
         File f;
-        f.setFileName(QStringLiteral("name%1").arg(i));
-        f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
+        f.setFileName(u"name%1"_s.arg(i));
+        f.setDescription(u"description%1"_s.arg(i));
+        f.setUserId(u"userid%1"_s.arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     model.setFiles(mFiles);
@@ -49,9 +51,9 @@ void FilesForRoomFilterProxyModelTest::shouldAssignValue()
     mFiles.clear();
     for (int i = 0; i < 3; ++i) {
         File f;
-        f.setFileName(QStringLiteral("name%1").arg(i));
-        f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
+        f.setFileName(u"name%1"_s.arg(i));
+        f.setDescription(u"description%1"_s.arg(i));
+        f.setUserId(u"userid%1"_s.arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     model.setFiles(mFiles);

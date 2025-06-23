@@ -5,6 +5,8 @@
 */
 
 #include "createvideomessagewizard.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "createvideomessagewidget.h"
 #include "showvideowidget.h"
 #include <KConfigGroup>
@@ -84,9 +86,9 @@ CreateVideoMessagePage::CreateVideoMessagePage(QWidget *parent)
     , mCreateVideoMessageWidget(new CreateVideoMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateVideoMessageWidget->setObjectName(QStringLiteral("mCreateVideoMessageWidget"));
+    mCreateVideoMessageWidget->setObjectName(u"mCreateVideoMessageWidget"_s);
     mainLayout->addWidget(mCreateVideoMessageWidget);
     connect(mCreateVideoMessageWidget, &CreateVideoMessageWidget::recordDone, this, &CreateVideoMessagePage::completeChanged);
 }
@@ -125,18 +127,18 @@ GenerateVideoMessagePage::GenerateVideoMessagePage(RocketChatAccount *account, Q
     , mDescription(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mShowVideoWidget->setObjectName(QStringLiteral("mShowVideoWidget"));
+    mShowVideoWidget->setObjectName(u"mShowVideoWidget"_s);
     mainLayout->addWidget(mShowVideoWidget);
 
     auto label = new QLabel(i18nc("@label:textbox", "Filename:"), this);
-    label->setObjectName(QStringLiteral("label-filename"));
+    label->setObjectName(u"label-filename"_s);
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
-    mFileName->setObjectName(QStringLiteral("mFileName"));
-    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mFileName->setObjectName(u"mFileName"_s);
+    mDescription->setObjectName(u"mDescription"_s);
 
     KLineEditEventHandler::catchReturnKey(mFileName);
     KLineEditEventHandler::catchReturnKey(mDescription);
@@ -144,7 +146,7 @@ GenerateVideoMessagePage::GenerateVideoMessagePage(RocketChatAccount *account, Q
     mainLayout->addWidget(mFileName);
 
     label = new QLabel(i18nc("@label:textbox", "Description:"), this);
-    label->setObjectName(QStringLiteral("label-description"));
+    label->setObjectName(u"label-description"_s);
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 

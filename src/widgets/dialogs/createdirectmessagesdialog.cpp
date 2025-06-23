@@ -5,6 +5,8 @@
 */
 
 #include "createdirectmessagesdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "createdirectmessageswidget.h"
 #include "rocketchataccount.h"
 
@@ -26,15 +28,15 @@ CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *accoun
     : QDialog(parent)
     , mCreateDirectMessagesWidget(new CreateDirectMessagesWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Create Direct Messages - %1", account ? account->accountName() : QStringLiteral("account")));
+    setWindowTitle(i18nc("@title:window", "Create Direct Messages - %1", account ? account->accountName() : u"account"_s));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateDirectMessagesWidget->setObjectName(QStringLiteral("mCreateDirectMessagesWidget"));
+    mCreateDirectMessagesWidget->setObjectName(u"mCreateDirectMessagesWidget"_s);
     mainLayout->addWidget(mCreateDirectMessagesWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateDirectMessagesDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateDirectMessagesDialog::reject);
     mainLayout->addWidget(buttonBox);

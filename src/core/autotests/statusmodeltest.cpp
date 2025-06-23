@@ -5,6 +5,8 @@
 */
 
 #include "statusmodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/statusmodel.h"
 #include <QTest>
 

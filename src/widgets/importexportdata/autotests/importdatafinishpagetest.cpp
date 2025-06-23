@@ -5,6 +5,8 @@
 */
 
 #include "importdatafinishpagetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include <KMessageWidget>
 #include <QLabel>
@@ -23,18 +25,18 @@ void ImportDataFinishPageTest::shouldHaveDefaultValues()
 {
     ImportDataFinishPage w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mInfos = w.findChild<QLabel *>(QStringLiteral("mInfos"));
+    auto mInfos = w.findChild<QLabel *>(u"mInfos"_s);
     QVERIFY(mInfos);
     QVERIFY(mInfos->text().isEmpty());
 
-    auto mMessageWidget = w.findChild<KMessageWidget *>(QStringLiteral("mMessageWidget"));
+    auto mMessageWidget = w.findChild<KMessageWidget *>(u"mMessageWidget"_s);
     QVERIFY(mMessageWidget);
     QVERIFY(!mMessageWidget->isCloseButtonVisible());
 
-    auto mDetails = w.findChild<QPlainTextEdit *>(QStringLiteral("mDetails"));
+    auto mDetails = w.findChild<QPlainTextEdit *>(u"mDetails"_s);
     QVERIFY(mDetails);
     QVERIFY(mDetails->toPlainText().isEmpty());
     QVERIFY(mDetails->isReadOnly());

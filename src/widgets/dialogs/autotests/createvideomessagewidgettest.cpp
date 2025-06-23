@@ -5,6 +5,8 @@
 */
 
 #include "createvideomessagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/createvideomessagewidget.h"
 #include <QTest>
 #include <QToolButton>
@@ -20,17 +22,17 @@ void CreateVideoMessageWidgetTest::shouldHaveDefaultValues()
 {
     CreateVideoMessageWidget w;
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mStopButton = w.findChild<QToolButton *>(QStringLiteral("mStopButton"));
+    auto mStopButton = w.findChild<QToolButton *>(u"mStopButton"_s);
     QVERIFY(mStopButton);
 
-    auto mPauseButton = w.findChild<QToolButton *>(QStringLiteral("mStopButton"));
+    auto mPauseButton = w.findChild<QToolButton *>(u"mStopButton"_s);
     QVERIFY(mPauseButton);
 
-    auto mRecordButton = w.findChild<QToolButton *>(QStringLiteral("mRecordButton"));
+    auto mRecordButton = w.findChild<QToolButton *>(u"mRecordButton"_s);
     QVERIFY(mRecordButton);
 }
 

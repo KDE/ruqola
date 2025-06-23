@@ -36,38 +36,38 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
     QTest::addColumn<VideoConferenceInfo>("videoconferenceInfo");
     {
         VideoConferenceInfo info;
-        info.setProviderName(QStringLiteral("jitsi"));
-        info.setUrl(QStringLiteral("https://bla/RocketChat63ebad0405c6c93252c0f337"));
+        info.setProviderName(u"jitsi"_s);
+        info.setUrl(u"https://bla/RocketChat63ebad0405c6c93252c0f337"_s);
         info.setConferenceType(VideoConferenceInfo::VideoConferenceType::Conference);
-        info.setRoomId(QStringLiteral("hE6RS3iv5ND5EGWC6"));
+        info.setRoomId(u"hE6RS3iv5ND5EGWC6"_s);
         info.setStatus(1);
         info.setRinging(false);
         info.setCreatedAtDateTime(1676389636880);
-        info.setMessageId(QStringLiteral("NusivujrtX38F8too"));
-        info.setBlockId(QStringLiteral("63ebad0405c6c93252c0f337"));
-        QTest::addRow("videoconferenceinfo") << QStringLiteral("videoconferenceinfo") << info;
+        info.setMessageId(u"NusivujrtX38F8too"_s);
+        info.setBlockId(u"63ebad0405c6c93252c0f337"_s);
+        QTest::addRow("videoconferenceinfo") << u"videoconferenceinfo"_s << info;
     }
     {
         VideoConferenceInfo info;
-        info.setProviderName(QStringLiteral("jitsi"));
-        info.setUrl(QStringLiteral("https://goo/RocketChat639593184ef3f3baa965910c"));
+        info.setProviderName(u"jitsi"_s);
+        info.setUrl(u"https://goo/RocketChat639593184ef3f3baa965910c"_s);
         info.setConferenceType(VideoConferenceInfo::VideoConferenceType::Conference);
-        info.setRoomId(QStringLiteral("hE6RS3iv5ND5EGWC6"));
+        info.setRoomId(u"hE6RS3iv5ND5EGWC6"_s);
         info.setStatus(2);
         info.setRinging(false);
         info.setCreatedAtDateTime(1670746904785);
         info.setEndedAtDateTime(1670835600213);
         User user;
-        user.setUserName(QStringLiteral("laurent"));
-        user.setName(QStringLiteral("Laurent Montel"));
+        user.setUserName(u"laurent"_s);
+        user.setName(u"Laurent Montel"_s);
         user.setUserId("uKK39zoewTkdacidH"_ba);
         user.setUtcOffset(0);
         user.setActive(true);
         user.setStatus(User::PresenceStatus::Unknown);
         info.setUsers({user});
-        info.setMessageId(QStringLiteral("PmWesYrnRJkyTTi"));
-        info.setBlockId(QStringLiteral("639593184ef3f3baa965910c"));
-        QTest::addRow("videoconferenceinfo1") << QStringLiteral("videoconferenceinfo1") << info;
+        info.setMessageId(u"PmWesYrnRJkyTTi"_s);
+        info.setBlockId(u"639593184ef3f3baa965910c"_s);
+        QTest::addRow("videoconferenceinfo1") << u"videoconferenceinfo1"_s << info;
     }
 }
 

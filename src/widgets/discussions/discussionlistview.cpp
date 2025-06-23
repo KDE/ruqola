@@ -5,6 +5,8 @@
 */
 
 #include "discussionlistview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ddpapi/ddpclient.h"
 #include "discussion/listdiscussiondelegate.h"
 #include "model/discussionsmodel.h"
@@ -66,13 +68,13 @@ void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
         }
 #if HAVE_TEXT_TO_SPEECH
         menu.addSeparator();
-        auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("text-speak-symbolic")), i18nc("@action", "Speak Text"));
+        auto speakAction = menu.addAction(QIcon::fromTheme(u"text-speak-symbolic"_s), i18nc("@action", "Speak Text"));
         connect(speakAction, &QAction::triggered, this, [index, this]() {
             slotTextToSpeech(index);
         });
 #endif
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), this, [this, index]() {
             slotSelectAll(index);
         });
     }

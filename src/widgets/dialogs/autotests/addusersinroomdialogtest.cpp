@@ -5,6 +5,8 @@
 */
 
 #include "addusersinroomdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/addusersinroomdialog.h"
 #include "dialogs/addusersinroomwidget.h"
 #include <QDialogButtonBox>
@@ -23,13 +25,13 @@ void AddUsersInRoomDialogTest::shouldHaveDefaultValues()
 {
     AddUsersInRoomDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mAddUsersInRoomWidget = w.findChild<AddUsersInRoomWidget *>(QStringLiteral("mAddUsersInRoomWidget"));
+    auto mAddUsersInRoomWidget = w.findChild<AddUsersInRoomWidget *>(u"mAddUsersInRoomWidget"_s);
     QVERIFY(mAddUsersInRoomWidget);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     QVERIFY(okButton);

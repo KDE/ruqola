@@ -5,6 +5,8 @@
 */
 
 #include "messageattachmenttest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messages/messageattachment.h"
 #include <QJsonObject>
 #include <QStandardPaths>
@@ -41,14 +43,14 @@ void MessageAttachmentTest::shouldSerializeData()
 {
     {
         MessageAttachment input;
-        input.setColor(QStringLiteral("foo1"));
-        input.setDescription(QStringLiteral("foo2"));
-        input.setTitle(QStringLiteral("foo3"));
-        input.setLink(QStringLiteral("foo4"));
+        input.setColor(u"foo1"_s);
+        input.setDescription(u"foo2"_s);
+        input.setTitle(u"foo3"_s);
+        input.setLink(u"foo4"_s);
         input.setImageHeight(53);
         input.setImageWidth(83);
         input.setAttachmentSize(454564);
-        input.setAuthorName(QStringLiteral("auth"));
+        input.setAuthorName(u"auth"_s);
         input.generateTitle();
         const QJsonObject ba = MessageAttachment::serialize(input);
         const MessageAttachment output = MessageAttachment::deserialize(ba);
@@ -57,9 +59,9 @@ void MessageAttachmentTest::shouldSerializeData()
 
     {
         MessageAttachment input;
-        input.setDescription(QStringLiteral("foo2"));
-        input.setTitle(QStringLiteral("foo3"));
-        input.setLink(QStringLiteral("foo4"));
+        input.setDescription(u"foo2"_s);
+        input.setTitle(u"foo3"_s);
+        input.setLink(u"foo4"_s);
         input.generateTitle();
         const QJsonObject ba = MessageAttachment::serialize(input);
         const MessageAttachment output = MessageAttachment::deserialize(ba);
@@ -68,11 +70,11 @@ void MessageAttachmentTest::shouldSerializeData()
 
     {
         MessageAttachment input;
-        input.setColor(QStringLiteral("foo1"));
-        input.setDescription(QStringLiteral("foo2"));
-        input.setTitle(QStringLiteral("foo3"));
-        input.setLink(QStringLiteral("foo4"));
-        input.setAuthorName(QStringLiteral("auth"));
+        input.setColor(u"foo1"_s);
+        input.setDescription(u"foo2"_s);
+        input.setTitle(u"foo3"_s);
+        input.setLink(u"foo4"_s);
+        input.setAuthorName(u"auth"_s);
         input.generateTitle();
         const QJsonObject ba = MessageAttachment::serialize(input);
         const MessageAttachment output = MessageAttachment::deserialize(ba);
@@ -83,13 +85,13 @@ void MessageAttachmentTest::shouldSerializeData()
 void MessageAttachmentTest::shouldAllowToDownloadAttachment()
 {
     MessageAttachment input;
-    input.setColor(QStringLiteral("foo1"));
-    input.setDescription(QStringLiteral("foo2"));
-    input.setTitle(QStringLiteral("foo3"));
-    input.setLink(QStringLiteral("http://www.kde.org"));
-    input.setAuthorName(QStringLiteral("auth"));
+    input.setColor(u"foo1"_s);
+    input.setDescription(u"foo2"_s);
+    input.setTitle(u"foo3"_s);
+    input.setLink(u"http://www.kde.org"_s);
+    input.setAuthorName(u"auth"_s);
     QVERIFY(!input.canDownloadAttachment());
-    input.setLink(QStringLiteral("bla"));
+    input.setLink(u"bla"_s);
     QVERIFY(input.canDownloadAttachment());
 }
 

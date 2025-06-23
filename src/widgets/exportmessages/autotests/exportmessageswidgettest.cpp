@@ -5,6 +5,8 @@
 */
 
 #include "exportmessageswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exportmessages/exportmessageswidget.h"
 #include <QComboBox>
 #include <QDateEdit>
@@ -19,16 +21,16 @@ ExportMessagesWidgetTest::ExportMessagesWidgetTest(QObject *parent)
 void ExportMessagesWidgetTest::shouldHaveDefaultValues()
 {
     ExportMessagesWidget w;
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mFromDate = w.findChild<QDateEdit *>(QStringLiteral("mFromDate"));
+    auto mFromDate = w.findChild<QDateEdit *>(u"mFromDate"_s);
     QVERIFY(mFromDate);
 
-    auto mToDate = w.findChild<QDateEdit *>(QStringLiteral("mToDate"));
+    auto mToDate = w.findChild<QDateEdit *>(u"mToDate"_s);
     QVERIFY(mToDate);
 
-    auto mFormat = w.findChild<QComboBox *>(QStringLiteral("mFormat"));
+    auto mFormat = w.findChild<QComboBox *>(u"mFormat"_s);
     QVERIFY(mFormat);
 
     QVERIFY(!w.roomExportInfo().isValid());

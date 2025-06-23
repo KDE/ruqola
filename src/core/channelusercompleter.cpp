@@ -69,10 +69,10 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
         mStatusIcon = QIcon::fromTheme(Utils::iconFromStatus(object.value("status"_L1).toString()));
     } else {
         const QString roomType = object.value("t"_L1).toString();
-        if (roomType == QLatin1Char('c')) {
+        if (roomType == u'c') {
             setChannelIcon();
-        } else if (roomType == QLatin1Char('p')) {
-            mStatusIcon = QIcon::fromTheme(QStringLiteral("lock"));
+        } else if (roomType == u'p') {
+            mStatusIcon = QIcon::fromTheme(u"lock"_s);
         }
     }
     mOutsideRoom = object.value("outside"_L1).toBool();
@@ -81,7 +81,7 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
 
 void ChannelUserCompleter::setChannelIcon()
 {
-    mStatusIcon = QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
+    mStatusIcon = QIcon::fromTheme(u"irc-channel-inactive"_s);
 }
 
 void ChannelUserCompleter::createAvatarInfo()

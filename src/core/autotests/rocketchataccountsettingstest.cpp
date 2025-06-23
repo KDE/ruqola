@@ -5,6 +5,8 @@
 */
 
 #include "rocketchataccountsettingstest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccountsettings.h"
 #include <QSignalSpy>
 #include <QStandardPaths>
@@ -22,7 +24,7 @@ void RocketChatAccountSettingsTest::shouldNotEmitSignalWhenNewServerUrlIsSameAsO
 {
     RocketChatAccountSettings SampleChatAccount;
 
-    const QString url = QStringLiteral("some.url.com");
+    const QString url = u"some.url.com"_s;
     SampleChatAccount.setServerUrl(url);
 
     QSignalSpy SpyURL(&SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
@@ -35,7 +37,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenSetServerURLChanged()
     RocketChatAccountSettings SampleChatAccount;
 
     QSignalSpy SpyURL(&SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
-    const QString serverUrlDefault = QStringLiteral("bla bla");
+    const QString serverUrlDefault = u"bla bla"_s;
     SampleChatAccount.setServerUrl(serverUrlDefault);
     QCOMPARE(SpyURL.count(), 1);
 
@@ -56,7 +58,7 @@ void RocketChatAccountSettingsTest::shouldNotEmitSignalWhenNewUsernameIsSameAsOl
 {
     RocketChatAccountSettings SampleChat;
 
-    const QString username = QStringLiteral("dummyUsername");
+    const QString username = u"dummyUsername"_s;
     SampleChat.setUserName(username);
 
     QSignalSpy SpyName(&SampleChat, &RocketChatAccountSettings::userNameChanged);
@@ -69,7 +71,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserNameChanged()
     RocketChatAccountSettings SampleChat;
 
     QSignalSpy SpyName(&SampleChat, &RocketChatAccountSettings::userNameChanged);
-    const QString userNameDefault = QStringLiteral("Donald Knuth");
+    const QString userNameDefault = u"Donald Knuth"_s;
     SampleChat.setUserName(userNameDefault);
     QCOMPARE(SpyName.count(), 1);
 
@@ -106,9 +108,9 @@ void RocketChatAccountSettingsTest::shouldLogout()
 {
     RocketChatAccountSettings SampleChat;
 
-    SampleChat.setAuthToken(QStringLiteral("Token305"));
+    SampleChat.setAuthToken(u"Token305"_s);
     SampleChat.setUserId(QByteArray("ECE305"));
-    SampleChat.setPassword(QStringLiteral("masterPassword"));
+    SampleChat.setPassword(u"masterPassword"_s);
     // Make sure that values are not null
     QVERIFY(!SampleChat.authToken().isEmpty());
     QVERIFY(!SampleChat.userId().isEmpty());
@@ -125,7 +127,7 @@ void RocketChatAccountSettingsTest::shouldSetAccountName()
     RocketChatAccountSettings sampleChat;
     QSignalSpy spy(&sampleChat, &RocketChatAccountSettings::accountNameChanged);
 
-    const QString val = QStringLiteral("myAccount#$^56");
+    const QString val = u"myAccount#$^56"_s;
     sampleChat.setAccountName(val);
 
     QCOMPARE(val, sampleChat.accountName());
@@ -136,7 +138,7 @@ void RocketChatAccountSettingsTest::shouldsetAuthToken()
 {
     RocketChatAccountSettings sampleChat;
 
-    const QString val = QStringLiteral("myAuthToken#$^56");
+    const QString val = u"myAuthToken#$^56"_s;
     sampleChat.setAuthToken(val);
 
     QCOMPARE(val, sampleChat.authToken());
@@ -146,7 +148,7 @@ void RocketChatAccountSettingsTest::shouldSetPassword()
 {
     RocketChatAccountSettings sampleChat;
 
-    const QString val = QStringLiteral("myPass#$^56");
+    const QString val = u"myPass#$^56"_s;
     sampleChat.setPassword(val);
 
     QCOMPARE(val, sampleChat.password());
@@ -156,7 +158,7 @@ void RocketChatAccountSettingsTest::shouldSetServerUrl()
 {
     RocketChatAccountSettings sampleChat;
 
-    const QString val = QStringLiteral("my.fancy.url");
+    const QString val = u"my.fancy.url"_s;
     sampleChat.setServerUrl(val);
 
     QCOMPARE(val, sampleChat.serverUrl());
@@ -176,7 +178,7 @@ void RocketChatAccountSettingsTest::shouldSetUserName()
 {
     RocketChatAccountSettings sampleChat;
 
-    const QString val = QStringLiteral("Eric Roberts");
+    const QString val = u"Eric Roberts"_s;
     sampleChat.setUserName(val);
 
     QCOMPARE(val, sampleChat.userName());
@@ -195,7 +197,7 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(chat.userId().isEmpty());
     QVERIFY(chat.userName().isEmpty());
     QVERIFY(chat.authToken().isEmpty());
-    QCOMPARE(chat.serverUrl(), QStringLiteral("open.rocket.chat"));
+    QCOMPARE(chat.serverUrl(), u"open.rocket.chat"_s);
     QVERIFY(chat.twoFactorAuthenticationCode().isEmpty());
     QVERIFY(!chat.accountEnabled()); // Not valid => false
     QVERIFY(chat.displayName().isEmpty());

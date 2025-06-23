@@ -5,6 +5,8 @@
 */
 
 #include "teamsautocompletejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "teams/teamsautocompletejob.h"
@@ -27,11 +29,11 @@ void TeamsAutoCompleteJobTest::shouldHaveDefaultValue()
 void TeamsAutoCompleteJobTest::shouldGenerateRequest()
 {
     TeamsAutoCompleteJob job;
-    const QString name = QStringLiteral("blu");
+    const QString name = u"blu"_s;
     job.setName(name);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.autocomplete?name=%1").arg(name)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.autocomplete?name=%1"_s.arg(name)));
 }
 
 void TeamsAutoCompleteJobTest::shouldNotStarting()
@@ -39,19 +41,19 @@ void TeamsAutoCompleteJobTest::shouldNotStarting()
     TeamsAutoCompleteJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString name = QStringLiteral("foo1");
+    const QString name = u"foo1"_s;
     job.setName(name);
     QVERIFY(job.canStart());
 }

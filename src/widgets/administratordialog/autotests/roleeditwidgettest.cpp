@@ -5,6 +5,8 @@
 */
 
 #include "roleeditwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/roles/roleeditwidget.h"
 #include "administratordialog/roles/rolescopecombobox.h"
 #include <QCheckBox>
@@ -20,24 +22,24 @@ RoleEditWidgetTest::RoleEditWidgetTest(QObject *parent)
 void RoleEditWidgetTest::shouldHaveDefaultValues()
 {
     RoleEditWidget w;
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    auto mName = w.findChild<QLineEdit *>(u"mName"_s);
     QVERIFY(mName);
     QVERIFY(mName->text().isEmpty());
 
-    auto mDescription = w.findChild<QLineEdit *>(QStringLiteral("mDescription"));
+    auto mDescription = w.findChild<QLineEdit *>(u"mDescription"_s);
     QVERIFY(mDescription);
     QVERIFY(mDescription->text().isEmpty());
 
-    auto mTwoFactor = w.findChild<QCheckBox *>(QStringLiteral("mTwoFactor"));
+    auto mTwoFactor = w.findChild<QCheckBox *>(u"mTwoFactor"_s);
     QVERIFY(mTwoFactor);
     QVERIFY(!mTwoFactor->isChecked());
     QVERIFY(!mTwoFactor->text().isEmpty());
 
-    auto mRoleScopeComboBox = w.findChild<RoleScopeComboBox *>(QStringLiteral("mRoleScopeComboBox"));
+    auto mRoleScopeComboBox = w.findChild<RoleScopeComboBox *>(u"mRoleScopeComboBox"_s);
     QVERIFY(mRoleScopeComboBox);
 
     QVERIFY(!w.roleEditDialogInfo().isValid());

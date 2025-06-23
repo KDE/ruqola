@@ -5,6 +5,8 @@
 */
 
 #include "soundconfigurewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configuresoundcombobox.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferenceproxymodel.h"
@@ -21,12 +23,12 @@ SoundConfigureWidget::SoundConfigureWidget(RocketChatAccount *account, QWidget *
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
-    mConfigureSoundComboBox->setObjectName(QStringLiteral("mSoundNewRoomNotification"));
+    mConfigureSoundComboBox->setObjectName(u"mSoundNewRoomNotification"_s);
 
     mainLayout->addWidget(mConfigureSoundComboBox);
 
-    mPlaySoundToolButton->setObjectName(QStringLiteral("mPlaySoundToolButton"));
-    mPlaySoundToolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-start")));
+    mPlaySoundToolButton->setObjectName(u"mPlaySoundToolButton"_s);
+    mPlaySoundToolButton->setIcon(QIcon::fromTheme(u"media-playback-start"_s));
     mPlaySoundToolButton->setEnabled(false);
     mainLayout->addWidget(mPlaySoundToolButton);
     connect(mPlaySoundToolButton, &QToolButton::clicked, this, &SoundConfigureWidget::slotPlaySound);

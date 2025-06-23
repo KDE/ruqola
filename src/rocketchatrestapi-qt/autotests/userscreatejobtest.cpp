@@ -5,6 +5,8 @@
 */
 
 #include "userscreatejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqola_restapi_helper.h"
 #include "users/userscreatejob.h"
 QTEST_GUILESS_MAIN(UsersCreateJobTest)
@@ -27,17 +29,17 @@ void UsersCreateJobTest::shouldGenerateRequest()
     UsersCreateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.create")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.create"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void UsersCreateJobTest::shouldGenerateJson()
 {
     UsersCreateJob job;
     CreateUpdateUserInfo info;
-    const QString password{QStringLiteral("ccc")};
+    const QString password{u"ccc"_s};
     info.mPassword = password;
-    const QString email{QStringLiteral("bla@kde.org")};
+    const QString email{u"bla@kde.org"_s};
     info.mEmail = email;
     job.setCreateInfo(info);
     QCOMPARE(
@@ -46,7 +48,7 @@ void UsersCreateJobTest::shouldGenerateJson()
             .arg(email, password)
             .toLatin1());
 
-    const QString nickame{QStringLiteral("blu")};
+    const QString nickame{u"blu"_s};
     info.mNickName = nickame;
     job.setCreateInfo(info);
     QCOMPARE(
@@ -56,7 +58,7 @@ void UsersCreateJobTest::shouldGenerateJson()
             .arg(email, password, nickame)
             .toLatin1());
 
-    const QStringList roles{QStringLiteral("cd"), QStringLiteral("ssc")};
+    const QStringList roles{u"cd"_s, u"ssc"_s};
     info.mRoles = roles;
     job.setCreateInfo(info);
     QCOMPARE(
@@ -93,7 +95,7 @@ void UsersCreateJobTest::shouldGenerateJson()
             .toLatin1());
 
     info.mSetRandomPassword = false;
-    info.mPassword = QStringLiteral("ccc");
+    info.mPassword = u"ccc"_s;
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
@@ -108,28 +110,28 @@ void UsersCreateJobTest::shouldNotStarting()
     UsersCreateJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
     CreateUpdateUserInfo info;
-    info.mPassword = QStringLiteral("ccc");
+    info.mPassword = u"ccc"_s;
     job.setCreateInfo(info);
 
     QVERIFY(!job.canStart());
-    info.mEmail = QStringLiteral("ccc");
+    info.mEmail = u"ccc"_s;
     job.setCreateInfo(info);
 
     QVERIFY(!job.canStart());
-    info.mName = QStringLiteral("777");
+    info.mName = u"777"_s;
     job.setCreateInfo(info);
 
     QVERIFY(job.canStart());

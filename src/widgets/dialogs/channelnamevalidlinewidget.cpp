@@ -5,6 +5,8 @@
 */
 
 #include "channelnamevalidlinewidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 
 #include <KColorScheme>
@@ -19,13 +21,13 @@ ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *accoun
     , mChannelNameLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins(QMargins{});
 
-    mChannelNameValidLineEdit->setObjectName(QStringLiteral("mChannelNameValidLineEdit"));
+    mChannelNameValidLineEdit->setObjectName(u"mChannelNameValidLineEdit"_s);
     mainLayout->addWidget(mChannelNameValidLineEdit);
 
-    mChannelNameLabel->setObjectName(QStringLiteral("mChannelNameLabel"));
+    mChannelNameLabel->setObjectName(u"mChannelNameLabel"_s);
     mChannelNameLabel->setTextFormat(Qt::PlainText);
 
     const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);

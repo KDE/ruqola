@@ -5,6 +5,8 @@
 */
 
 #include "personalaccesstokeninfosmodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 PersonalAccessTokenInfosModel::PersonalAccessTokenInfosModel(QObject *parent)
@@ -40,7 +42,7 @@ QVariant PersonalAccessTokenInfosModel::data(const QModelIndex &index, int role)
         return info.createdAt();
     }
     case PersonalAccessTokenInfosModel::LastTokenPart: {
-        return QString(QStringLiteral("...") + info.lastTokenPart());
+        return QString(u"..."_s + info.lastTokenPart());
     }
     case PersonalAccessTokenInfosModel::ByPassTwoFactor: {
         return info.bypassTwoFactor() ? i18n("Ignored") : i18n("Required");

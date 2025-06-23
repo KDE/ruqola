@@ -5,6 +5,8 @@
 */
 
 #include "viewlogplaintextedit.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QAction>
@@ -32,7 +34,7 @@ ViewLogPlainTextEditor::~ViewLogPlainTextEditor() = default;
 void ViewLogPlainTextEditor::addExtraMenuEntry(QMenu *menu, QPoint pos)
 {
     Q_UNUSED(pos)
-    auto action = new QAction(QIcon::fromTheme(QStringLiteral("document-save")), i18n("Save as &File"), this);
+    auto action = new QAction(QIcon::fromTheme(u"document-save"_s), i18n("Save as &File"), this);
     connect(action, &QAction::triggered, this, &ViewLogPlainTextEditor::slotSaveAsFile);
     menu->addSeparator();
     menu->addAction(action);
@@ -88,7 +90,7 @@ void ViewLogPlainTextEdit::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *popup = createStandardContextMenu();
     if (popup) {
-        auto action = new QAction(QIcon::fromTheme(QStringLiteral("document-save")), i18n("Save as &File"), this);
+        auto action = new QAction(QIcon::fromTheme(u"document-save"_s), i18n("Save as &File"), this);
         connect(action, &QAction::triggered, this, &ViewLogPlainTextEdit::slotSaveAsFile);
         popup->addSeparator();
         popup->addAction(action);

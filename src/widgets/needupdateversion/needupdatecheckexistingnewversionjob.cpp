@@ -5,6 +5,8 @@
 */
 
 #include "needupdatecheckexistingnewversionjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "needupdateparsehtmljob.h"
 #include "needupdateparsehtmlutil.h"
 #include "ruqolawidgets_debug.h"
@@ -41,7 +43,7 @@ void NeedUpdateCheckExistingNewVersionJob::slotDownloadDone(const QString &str)
 
     qCDebug(RUQOLAWIDGETS_LOG) << " currentCompiledDate " << mCompileDate;
 
-    const QDate dateFromUrl = QDate::fromString(compileDateStr, QStringLiteral("yyyy-MM-dd"));
+    const QDate dateFromUrl = QDate::fromString(compileDateStr, u"yyyy-MM-dd"_s);
     qCDebug(RUQOLAWIDGETS_LOG) << " dateFromUrl " << dateFromUrl << " original " << compileDateStr;
 
     if (dateFromUrl > mCompileDate) {

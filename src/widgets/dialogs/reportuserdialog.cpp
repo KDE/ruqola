@@ -5,6 +5,8 @@
 */
 
 #include "reportuserdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "reportuserwidget.h"
 
 #include <KConfigGroup>
@@ -25,14 +27,14 @@ ReportUserDialog::ReportUserDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Report User"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mReportUserWidget->setObjectName(QStringLiteral("mReportUserWidget"));
+    mReportUserWidget->setObjectName(u"mReportUserWidget"_s);
     mainLayout->addWidget(mReportUserWidget);
     mainLayout->addStretch(1);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &ReportUserDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &ReportUserDialog::reject);

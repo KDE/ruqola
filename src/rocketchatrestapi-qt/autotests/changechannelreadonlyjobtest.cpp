@@ -5,6 +5,8 @@
 */
 
 #include "changechannelreadonlyjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channels/changechannelreadonlyjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,14 +31,14 @@ void ChangeChannelReadonlyJobTest::shouldGenerateRequest()
     ChangeChannelReadonlyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setReadOnly")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.setReadOnly"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void ChangeChannelReadonlyJobTest::shouldGenerateJson()
 {
     ChangeChannelReadonlyJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QString roomId = u"foo1"_s;
     bool readOnly = true;
     job.setRoomId(roomId);
     job.setReadOnly(readOnly);

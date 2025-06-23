@@ -88,7 +88,7 @@ bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch) cons
 void RuqolaServerConfig::setServerVersion(const QString &version)
 {
     mServerVersionStr = version;
-    const QStringList lst = version.split(QLatin1Char('.'));
+    const QStringList lst = version.split(u'.');
     // 0.70.0-rc.1 has 4 "."
     if (lst.count() >= 3) {
         bool ok;
@@ -512,7 +512,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     // qDebug() << " currentConfObject " << currentConfObject;
     const QString id = currentConfObject["_id"_L1].toString();
     const QVariant value = currentConfObject["value"_L1].toVariant();
-    static const QRegularExpression regularExpressionOAuth(QStringLiteral("^Accounts_OAuth_\\w+"));
+    static const QRegularExpression regularExpressionOAuth(u"^Accounts_OAuth_\\w+"_s);
     if (id == "uniqueID"_L1) {
         setUniqueId(value.toString());
     } else if (id == "Jitsi_Enabled"_L1) {
@@ -628,9 +628,9 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     } else if (id == "Accounts_AllowUserStatusMessageChange"_L1) {
         setAllowCustomStatusMessage(value.toBool());
     } else if (id == "FileUpload_MediaTypeWhiteList"_L1) {
-        setMediaWhiteList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
+        setMediaWhiteList(value.toString().split(u',', Qt::SkipEmptyParts));
     } else if (id == "FileUpload_MediaTypeBlackList"_L1) {
-        setMediaBlackList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
+        setMediaBlackList(value.toString().split(u',', Qt::SkipEmptyParts));
     } else if (id == "Accounts_ShowFormLogin"_L1) {
         if (value.toBool()) {
             mServerAuthTypes |= AuthenticationManager::AuthMethodType::Password;
@@ -717,109 +717,95 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
 {
     QJsonObject o;
     QJsonArray array;
-    array.append(createJsonObject(QStringLiteral("uniqueID"), mUniqueId));
-    array.append(createJsonObject(QStringLiteral("Jitsi_Enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabled)));
+    array.append(createJsonObject(u"uniqueID"_s, mUniqueId));
+    array.append(createJsonObject(u"Jitsi_Enabled"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabled)));
+    array.append(createJsonObject(u"Jitsi_Enable_Teams"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabledTeams)));
+    array.append(createJsonObject(u"Jitsi_Enable_Channels"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabledChannels)));
+    array.append(createJsonObject(u"Jitsi_Domain"_s, jitsiMeetUrl()));
+    array.append(createJsonObject(u"Jitsi_URL_Room_Prefix"_s, jitsiMeetPrefix()));
+    array.append(createJsonObject(u"FileUpload_Storage_Type"_s, fileUploadStorageType()));
+    array.append(createJsonObject(u"Message_AllowEditing"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowEditingMessage)));
+    array.append(createJsonObject(u"Message_AllowEditing_BlockEditInMinutes"_s, blockEditingMessageInMinutes()));
+    array.append(createJsonObject(u"Message_AllowDeleting_BlockDeleteInMinutes"_s, blockDeletingMessageInMinutes()));
+    array.append(createJsonObject(u"OTR_Enable"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::OtrEnabled)));
+    array.append(createJsonObject(u"Site_Url"_s, mSiteUrl));
+    array.append(createJsonObject(u"Site_Name"_s, siteName()));
+    array.append(createJsonObject(u"E2E_Enable"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::EncryptionEnabled)));
+    array.append(createJsonObject(u"Message_AllowPinning"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessagePinning)));
+    array.append(createJsonObject(u"Message_AllowStarring"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessageStarring)));
+    array.append(createJsonObject(u"Message_AllowDeleting"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessageDeleting)));
+    array.append(createJsonObject(u"Threads_enabled"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::ThreadsEnabled)));
+    array.append(createJsonObject(u"Discussion_enabled"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::DiscussionEnabled)));
+    array.append(createJsonObject(u"AutoTranslate_Enabled"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AutoTranslateEnabled)));
+    array.append(createJsonObject(u"FileUpload_Enabled"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::UploadFileEnabled)));
+    array.append(createJsonObject(u"AutoTranslate_GoogleAPIKey"_s, autoTranslateGoogleKey()));
+    array.append(createJsonObject(u"Broadcasting_enabled"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::BroadCastEnabled)));
     array.append(
-        createJsonObject(QStringLiteral("Jitsi_Enable_Teams"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabledTeams)));
-    array.append(createJsonObject(QStringLiteral("Jitsi_Enable_Channels"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabledChannels)));
-    array.append(createJsonObject(QStringLiteral("Jitsi_Domain"), jitsiMeetUrl()));
-    array.append(createJsonObject(QStringLiteral("Jitsi_URL_Room_Prefix"), jitsiMeetPrefix()));
-    array.append(createJsonObject(QStringLiteral("FileUpload_Storage_Type"), fileUploadStorageType()));
+        createJsonObject(u"Message_VideoRecorderEnabled"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::VideoRecorderEnabled)));
     array.append(
-        createJsonObject(QStringLiteral("Message_AllowEditing"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowEditingMessage)));
-    array.append(createJsonObject(QStringLiteral("Message_AllowEditing_BlockEditInMinutes"), blockEditingMessageInMinutes()));
-    array.append(createJsonObject(QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"), blockDeletingMessageInMinutes()));
-    array.append(createJsonObject(QStringLiteral("OTR_Enable"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::OtrEnabled)));
-    array.append(createJsonObject(QStringLiteral("Site_Url"), mSiteUrl));
-    array.append(createJsonObject(QStringLiteral("Site_Name"), siteName()));
-    array.append(createJsonObject(QStringLiteral("E2E_Enable"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::EncryptionEnabled)));
+        createJsonObject(u"Message_AudioRecorderEnabled"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AudioRecorderEnabled)));
     array.append(
-        createJsonObject(QStringLiteral("Message_AllowPinning"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessagePinning)));
-    array.append(createJsonObject(QStringLiteral("Message_AllowStarring"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessageStarring)));
-    array.append(createJsonObject(QStringLiteral("Message_AllowDeleting"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessageDeleting)));
-    array.append(createJsonObject(QStringLiteral("Threads_enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::ThreadsEnabled)));
+        createJsonObject(u"Accounts_AllowDeleteOwnAccount"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowDeleteOwnAccount)));
+    array.append(createJsonObject(u"Accounts_PasswordReset"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowPasswordReset)));
+    array.append(createJsonObject(u"Accounts_AllowEmailChange"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowEmailChange)));
     array.append(
-        createJsonObject(QStringLiteral("Discussion_enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::DiscussionEnabled)));
-    array.append(createJsonObject(QStringLiteral("AutoTranslate_Enabled"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AutoTranslateEnabled)));
+        createJsonObject(u"Accounts_AllowPasswordChange"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowPasswordChange)));
     array.append(
-        createJsonObject(QStringLiteral("FileUpload_Enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::UploadFileEnabled)));
-    array.append(createJsonObject(QStringLiteral("AutoTranslate_GoogleAPIKey"), autoTranslateGoogleKey()));
-    array.append(
-        createJsonObject(QStringLiteral("Broadcasting_enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::BroadCastEnabled)));
-    array.append(createJsonObject(QStringLiteral("Message_VideoRecorderEnabled"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::VideoRecorderEnabled)));
-    array.append(createJsonObject(QStringLiteral("Message_AudioRecorderEnabled"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AudioRecorderEnabled)));
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowDeleteOwnAccount"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowDeleteOwnAccount)));
-    array.append(createJsonObject(QStringLiteral("Accounts_PasswordReset"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowPasswordReset)));
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowEmailChange"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowEmailChange)));
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowPasswordChange"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowPasswordChange)));
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowUsernameChange"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowUsernameChange)));
+        createJsonObject(u"Accounts_AllowUsernameChange"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowUsernameChange)));
 
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowUserProfileChange"),
+    array.append(createJsonObject(u"Accounts_AllowUserProfileChange"_s,
                                   static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowUserProfileChange)));
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowUserAvatarChange"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowUserAvatarChange)));
-    array.append(createJsonObject(QStringLiteral("LDAP_Enable"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::LdapEnabled)));
-    array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_Enabled"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnabled)));
-    array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_By_Email_Enabled"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled)));
-    array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_By_TOTP_Enabled"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled)));
-    array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_Enforce_Password_Fallback"),
-                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback)));
-    array.append(createJsonObject(QStringLiteral("Assets_logo"), logoUrl()));
-    array.append(createJsonObject(QStringLiteral("Assets_favicon"), faviconUrl()));
-    array.append(createJsonObject(QStringLiteral("Accounts_LoginExpiration"), loginExpiration()));
-    array.append(createJsonObject(QStringLiteral("UTF8_Channel_Names_Validation"), channelNameValidation()));
-    array.append(createJsonObject(QStringLiteral("UTF8_User_Names_Validation"), userNameValidation()));
-    array.append(createJsonObject(QStringLiteral("Message_MaxAllowedSize"), messageMaximumAllowedSize()));
-    array.append(createJsonObject(QStringLiteral("Message_AllowConvertLongMessagesToAttachment"), messageAllowConvertLongMessagesToAttachment()));
-    array.append(createJsonObject(QStringLiteral("UI_Use_Real_Name"), useRealName()));
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowInvisibleStatusOption"), accountsAllowInvisibleStatusOption()));
-    array.append(createJsonObject(QStringLiteral("UserData_EnableDownload"), userDataDownloadEnabled()));
-    array.append(createJsonObject(QStringLiteral("Device_Management_Enable_Login_Emails"), deviceManagementEnableLoginEmails()));
-    array.append(createJsonObject(QStringLiteral("Device_Management_Allow_Login_Email_preference"), deviceManagementAllowLoginEmailpreference()));
-    array.append(createJsonObject(QStringLiteral("Message_GroupingPeriod"), messageGroupingPeriod()));
-    array.append(createJsonObject(QStringLiteral("DirectMesssage_maxUsers"), directMessageMaximumUser()));
-    array.append(createJsonObject(QStringLiteral("Message_QuoteChainLimit"), messageQuoteChainLimit()));
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowUserStatusMessageChange"), allowCustomStatusMessage()));
-    array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeWhiteList"), mMediaWhiteList.join(QLatin1Char(','))));
-    array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeBlackList"), mMediaBlackList.join(QLatin1Char(','))));
-    array.append(createJsonObject(QStringLiteral("FileUpload_MaxFileSize"), mFileMaxFileSize));
-    array.append(createJsonObject(QStringLiteral("AuthenticationServerMethod"), static_cast<int>(mServerAuthTypes)));
-    array.append(createJsonObject(QStringLiteral("API_Embed"), previewEmbed()));
-    array.append(createJsonObject(QStringLiteral("API_EmbedCacheExpirationDays"), embedCacheExpirationDays()));
     array.append(
-        createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_desktopNotifications"), accountsDefaultUserPreferencesDesktopNotifications()));
-    array.append(createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_pushNotifications"), accountsDefaultUserPreferencesPushNotifications()));
-    array.append(createJsonObject(QStringLiteral("Accounts_AllowEmailNotifications"), allowEmailNotifications()));
-    array.append(createJsonObject(QStringLiteral("Accounts_EmailVerification"), allowEmailVerification()));
-    array.append(createJsonObject(QStringLiteral("FEDERATION_Enabled"), federationEnabled()));
+        createJsonObject(u"Accounts_AllowUserAvatarChange"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowUserAvatarChange)));
+    array.append(createJsonObject(u"LDAP_Enable"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::LdapEnabled)));
+    array.append(createJsonObject(u"Accounts_TwoFactorAuthentication_Enabled"_s,
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnabled)));
+    array.append(createJsonObject(u"Accounts_TwoFactorAuthentication_By_Email_Enabled"_s,
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled)));
+    array.append(createJsonObject(u"Accounts_TwoFactorAuthentication_By_TOTP_Enabled"_s,
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled)));
+    array.append(createJsonObject(u"Accounts_TwoFactorAuthentication_Enforce_Password_Fallback"_s,
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback)));
+    array.append(createJsonObject(u"Assets_logo"_s, logoUrl()));
+    array.append(createJsonObject(u"Assets_favicon"_s, faviconUrl()));
+    array.append(createJsonObject(u"Accounts_LoginExpiration"_s, loginExpiration()));
+    array.append(createJsonObject(u"UTF8_Channel_Names_Validation"_s, channelNameValidation()));
+    array.append(createJsonObject(u"UTF8_User_Names_Validation"_s, userNameValidation()));
+    array.append(createJsonObject(u"Message_MaxAllowedSize"_s, messageMaximumAllowedSize()));
+    array.append(createJsonObject(u"Message_AllowConvertLongMessagesToAttachment"_s, messageAllowConvertLongMessagesToAttachment()));
+    array.append(createJsonObject(u"UI_Use_Real_Name"_s, useRealName()));
+    array.append(createJsonObject(u"Accounts_AllowInvisibleStatusOption"_s, accountsAllowInvisibleStatusOption()));
+    array.append(createJsonObject(u"UserData_EnableDownload"_s, userDataDownloadEnabled()));
+    array.append(createJsonObject(u"Device_Management_Enable_Login_Emails"_s, deviceManagementEnableLoginEmails()));
+    array.append(createJsonObject(u"Device_Management_Allow_Login_Email_preference"_s, deviceManagementAllowLoginEmailpreference()));
+    array.append(createJsonObject(u"Message_GroupingPeriod"_s, messageGroupingPeriod()));
+    array.append(createJsonObject(u"DirectMesssage_maxUsers"_s, directMessageMaximumUser()));
+    array.append(createJsonObject(u"Message_QuoteChainLimit"_s, messageQuoteChainLimit()));
+    array.append(createJsonObject(u"Accounts_AllowUserStatusMessageChange"_s, allowCustomStatusMessage()));
+    array.append(createJsonObject(u"FileUpload_MediaTypeWhiteList"_s, mMediaWhiteList.join(u',')));
+    array.append(createJsonObject(u"FileUpload_MediaTypeBlackList"_s, mMediaBlackList.join(u',')));
+    array.append(createJsonObject(u"FileUpload_MaxFileSize"_s, mFileMaxFileSize));
+    array.append(createJsonObject(u"AuthenticationServerMethod"_s, static_cast<int>(mServerAuthTypes)));
+    array.append(createJsonObject(u"API_Embed"_s, previewEmbed()));
+    array.append(createJsonObject(u"API_EmbedCacheExpirationDays"_s, embedCacheExpirationDays()));
+    array.append(createJsonObject(u"Accounts_Default_User_Preferences_desktopNotifications"_s, accountsDefaultUserPreferencesDesktopNotifications()));
+    array.append(createJsonObject(u"Accounts_Default_User_Preferences_pushNotifications"_s, accountsDefaultUserPreferencesPushNotifications()));
+    array.append(createJsonObject(u"Accounts_AllowEmailNotifications"_s, allowEmailNotifications()));
+    array.append(createJsonObject(u"Accounts_EmailVerification"_s, allowEmailVerification()));
+    array.append(createJsonObject(u"FEDERATION_Enabled"_s, federationEnabled()));
 
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_Enabled"), mPasswordSettings.accountsPasswordPolicyEnabled));
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharacters"),
-                                  mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharacters));
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"),
-                                  mPasswordSettings.accountsPasswordPolicyAtLeastOneSpecialCharacter));
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_AtLeastOneNumber"), mPasswordSettings.accountsPasswordPolicyAtLeastOneNumber));
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_AtLeastOneUppercase"), mPasswordSettings.accountsPasswordPolicyAtLeastOneUppercase));
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_AtLeastOneLowercase"), mPasswordSettings.accountsPasswordPolicyAtLeastOneLowercase));
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_MinLength"), mPasswordSettings.accountsPasswordPolicyMinLength));
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_MaxLength"), mPasswordSettings.accountsPasswordPolicyMaxLength));
-    array.append(createJsonObject(QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"),
-                                  mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount));
-    array.append(createJsonObject(QStringLiteral("Accounts_ManuallyApproveNewUsers"), mAccountsManuallyApproveNewUsers));
+    array.append(createJsonObject(u"Accounts_Password_Policy_Enabled"_s, mPasswordSettings.accountsPasswordPolicyEnabled));
+    array.append(createJsonObject(u"Accounts_Password_Policy_ForbidRepeatingCharacters"_s, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharacters));
+    array.append(
+        createJsonObject(u"Accounts_Password_Policy_AtLeastOneSpecialCharacter"_s, mPasswordSettings.accountsPasswordPolicyAtLeastOneSpecialCharacter));
+    array.append(createJsonObject(u"Accounts_Password_Policy_AtLeastOneNumber"_s, mPasswordSettings.accountsPasswordPolicyAtLeastOneNumber));
+    array.append(createJsonObject(u"Accounts_Password_Policy_AtLeastOneUppercase"_s, mPasswordSettings.accountsPasswordPolicyAtLeastOneUppercase));
+    array.append(createJsonObject(u"Accounts_Password_Policy_AtLeastOneLowercase"_s, mPasswordSettings.accountsPasswordPolicyAtLeastOneLowercase));
+    array.append(createJsonObject(u"Accounts_Password_Policy_MinLength"_s, mPasswordSettings.accountsPasswordPolicyMinLength));
+    array.append(createJsonObject(u"Accounts_Password_Policy_MaxLength"_s, mPasswordSettings.accountsPasswordPolicyMaxLength));
+    array.append(
+        createJsonObject(u"Accounts_Password_Policy_ForbidRepeatingCharactersCount"_s, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount));
+    array.append(createJsonObject(u"Accounts_ManuallyApproveNewUsers"_s, mAccountsManuallyApproveNewUsers));
 
     o["result"_L1] = array;
 

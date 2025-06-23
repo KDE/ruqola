@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "grabscreenpluginjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "grabscreenplugin_debug.h"
 #include "grabscreenplugintoolconfig.h"
 #include "utils.h"
@@ -28,10 +30,9 @@ void GrabScreenPluginJob::start()
         deleteLater();
         return;
     }
-    const QString path = Utils::findExecutable(QStringLiteral("spectacle"));
+    const QString path = Utils::findExecutable(u"spectacle"_s);
     auto proc = new QProcess(this);
-    const QStringList arguments = QStringList() << QStringLiteral("-n") << QStringLiteral("-d") << QString::number(GrabScreenPluginToolConfig::self()->delay())
-                                                << QStringLiteral("-bro") << mFilePath;
+    const QStringList arguments = QStringList() << u"-n"_s << u"-d"_s << QString::number(GrabScreenPluginToolConfig::self()->delay()) << u"-bro"_s << mFilePath;
     connect(proc, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
         Q_UNUSED(exitCode);
         Q_UNUSED(exitStatus);

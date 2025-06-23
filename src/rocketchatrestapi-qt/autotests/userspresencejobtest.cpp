@@ -5,6 +5,8 @@
 */
 
 #include "userspresencejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/userspresencejob.h"
@@ -28,7 +30,7 @@ void UsersPresenceJobTest::shouldGenerateRequest()
     UsersPresenceJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.presence")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.presence"_s));
 }
 
 #include "moc_userspresencejobtest.cpp"

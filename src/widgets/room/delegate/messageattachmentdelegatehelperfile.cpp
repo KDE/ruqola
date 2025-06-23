@@ -34,7 +34,7 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperFile::MessageAttachmentDelegateHelperFile(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
-    , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
+    , mDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
 {
 }
 

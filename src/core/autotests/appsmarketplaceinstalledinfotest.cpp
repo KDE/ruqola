@@ -36,7 +36,7 @@ void AppsMarketPlaceInstalledInfoTest::shouldLoadAppsMarketPlaceInstalledInfo_da
     QTest::addColumn<QString>("name");
     QTest::addColumn<AppsMarketPlaceInstalledInfo>("appsmaketplaceinstalledinfo");
 
-    QTest::addRow("empty") << QStringLiteral("empty") << AppsMarketPlaceInstalledInfo();
+    QTest::addRow("empty") << u"empty"_s << AppsMarketPlaceInstalledInfo();
 
     {
         AppsMarketPlaceInstalledInfo appsmaketplaceinstalledinfo;
@@ -50,7 +50,7 @@ void AppsMarketPlaceInstalledInfoTest::shouldLoadAppsMarketPlaceInstalledInfo_da
         appsmaketplaceinstalledinfo.setMigrated(true);
         appsmaketplaceinstalledinfo.setAppId("3b387ba9-f57c-44c6-9810-8c0256abd64c");
         appsmaketplaceinstalledinfo.setStatus(AppsMarketPlaceInstalledInfo::Status::AutoEnabled);
-        QTest::addRow("appsinstalled1") << QStringLiteral("appsinstalled1") << appsmaketplaceinstalledinfo;
+        QTest::addRow("appsinstalled1") << u"appsinstalled1"_s << appsmaketplaceinstalledinfo;
     }
 }
 

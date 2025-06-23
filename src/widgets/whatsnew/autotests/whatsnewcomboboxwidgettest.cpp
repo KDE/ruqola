@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewcomboboxwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "whatsnew/whatsnewcomboboxwidget.h"
 #include <KSeparator>
 #include <QComboBox>
@@ -22,22 +24,22 @@ WhatsNewComboBoxWidgetTest::WhatsNewComboBoxWidgetTest(QObject *parent)
 void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
 {
     WhatsNewComboBoxWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    auto hboxLayout = w.findChild<QHBoxLayout *>(u"hboxLayout"_s);
     QVERIFY(hboxLayout);
     QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
-    auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
+    auto mVersionComboBox = w.findChild<QComboBox *>(u"mVersionComboBox"_s);
     QVERIFY(mVersionComboBox);
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
+    auto separator = w.findChild<KSeparator *>(u"separator"_s);
     QVERIFY(separator);
 }
 
@@ -46,7 +48,7 @@ void WhatsNewComboBoxWidgetTest::shouldInitializeComboBox()
     /*
     WhatsNewComboBoxWidget w;
     w.initializeVersion(WhatsNewUtils::Version2_0);
-    auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
+    auto mVersionComboBox = w.findChild<QComboBox *>(u"mVersionComboBox"_s);
     QCOMPARE(mVersionComboBox->currentData(), WhatsNewUtils::Version2_0);
     */
 }
@@ -57,7 +59,7 @@ void WhatsNewComboBoxWidgetTest::shouldEmitVersionChanged()
     WhatsNewComboBoxWidget w;
     QSignalSpy versionChanged(&w, &WhatsNewComboBoxWidget::versionChanged);
 
-    auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
+    auto mVersionComboBox = w.findChild<QComboBox *>(u"mVersionComboBox"_s);
     mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewUtils::AllVersion));
     QCOMPARE(versionChanged.count(), 0);
 

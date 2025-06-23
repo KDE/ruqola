@@ -5,6 +5,8 @@
 */
 
 #include "conferencecalldialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "conferencecalldialog/conferencecalldialog.h"
 #include "conferencecalldialog/conferencecallwidget.h"
 #include <QDialogButtonBox>
@@ -20,13 +22,13 @@ void ConferenceCallDialogTest::shouldHaveDefaultValues()
 {
     ConferenceCallDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mConferenceCallWidget = d.findChild<ConferenceCallWidget *>(QStringLiteral("mConferenceCallWidget"));
+    auto mConferenceCallWidget = d.findChild<ConferenceCallWidget *>(u"mConferenceCallWidget"_s);
     QVERIFY(mConferenceCallWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
     auto info = d.conferenceCallInfo();

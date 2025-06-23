@@ -64,7 +64,7 @@ void TeamsListJob::initialQueryParameters()
 {
     QueryParameters parameters = queryParameters();
     QMap<QString, QString> map;
-    map.insert(QStringLiteral("text"), mPattern);
+    map.insert(u"text"_s, mPattern);
     parameters.setCustom(map);
     setQueryParameters(parameters);
 }

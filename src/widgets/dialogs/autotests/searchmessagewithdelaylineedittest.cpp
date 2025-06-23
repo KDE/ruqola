@@ -5,6 +5,8 @@
 */
 
 #include "searchmessagewithdelaylineedittest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/searchmessagewithdelaylineedit.h"
 #include <QCompleter>
 #include <QStringListModel>
@@ -19,10 +21,10 @@ SearchMessageWithDelayLineEditTest::SearchMessageWithDelayLineEditTest(QObject *
 void SearchMessageWithDelayLineEditTest::shouldHaveDefaultValues()
 {
     SearchMessageWithDelayLineEdit w(nullptr);
-    auto mCompleter = w.findChild<QCompleter *>(QStringLiteral("mCompleter"));
+    auto mCompleter = w.findChild<QCompleter *>(u"mCompleter"_s);
     QVERIFY(mCompleter);
 
-    auto mCompleterListModel = w.findChild<QStringListModel *>(QStringLiteral("mCompleterListModel"));
+    auto mCompleterListModel = w.findChild<QStringListModel *>(u"mCompleterListModel"_s);
     QVERIFY(mCompleterListModel);
     QCOMPARE(mCompleterListModel->rowCount(), 0);
 }

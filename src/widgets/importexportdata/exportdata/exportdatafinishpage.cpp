@@ -5,6 +5,8 @@
 */
 
 #include "exportdatafinishpage.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "exportaccountjob.h"
 #include <KLocalizedString>
 #include <KMessageWidget>
@@ -21,16 +23,16 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     , mDetails(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mInfos->setObjectName(QStringLiteral("mInfos"));
+    mInfos->setObjectName(u"mInfos"_s);
     mainLayout->addWidget(mInfos);
     mInfos->setVisible(false);
 
-    mDetails->setObjectName(QStringLiteral("mDetails"));
+    mDetails->setObjectName(u"mDetails"_s);
     mDetails->setReadOnly(true);
 
-    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mMessageWidget->setVisible(false);
     mMessageWidget->setCloseButtonVisible(false);
     mMessageWidget->setMessageType(KMessageWidget::Information);
@@ -51,7 +53,7 @@ bool ExportDataFinishPage::isComplete() const
 
 QString ExportDataFinishPage::generateExportZipFileName() const
 {
-    return QDir::homePath() + QLatin1Char('/') + QStringLiteral("ruqola-accountdata-%1.zip").arg(QDateTime::currentDateTime().toString());
+    return QDir::homePath() + u'/' + u"ruqola-accountdata-%1.zip"_s.arg(QDateTime::currentDateTime().toString());
 }
 
 void ExportDataFinishPage::setListAccounts(const QList<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
@@ -85,7 +87,7 @@ void ExportDataFinishPage::slotExportFailed(const QString &msg)
 {
     QString currentText = mInfos->text();
     if (!currentText.isEmpty()) {
-        currentText += QLatin1Char('\n');
+        currentText += u'\n';
     }
     mInfos->setText(currentText + msg);
     mInfos->setVisible(true);

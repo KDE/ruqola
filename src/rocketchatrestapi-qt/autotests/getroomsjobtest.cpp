@@ -5,6 +5,8 @@
 */
 
 #include "getroomsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rooms/getroomsjob.h"
 #include <QTest>
@@ -30,10 +32,10 @@ void GetRoomsJobTest::shouldGenerateRequest()
 {
     GetRoomsJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.get")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.get"_s));
 }
 
 #include "moc_getroomsjobtest.cpp"

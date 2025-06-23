@@ -28,7 +28,7 @@ namespace
 bool isEscaped(const QString &str, int pos)
 {
     int backslashes = 0;
-    while (pos > 0 && str[pos - 1] == QLatin1Char('\\')) {
+    while (pos > 0 && str[pos - 1] == u'\\') {
         ++backslashes;
         --pos;
     }
@@ -69,7 +69,7 @@ void iterateOverEndLineRegions(const QString &str,
                                NewLineCallBack &&newLine)
 {
     // We have quote text if text start with > or we have "\n>"
-    if (str.startsWith(regionMarker) || str.contains(QStringLiteral("\n") + regionMarker)) {
+    if (str.startsWith(regionMarker) || str.contains(u"\n"_s + regionMarker)) {
         int startFrom = 0;
         const auto markerSize = regionMarker.size();
         bool hasCode = false;
@@ -79,7 +79,7 @@ void iterateOverEndLineRegions(const QString &str,
                 break;
             }
 
-            const int endIndex = findNewLineOrEndLine(str, QStringLiteral("\n"), startIndex + markerSize);
+            const int endIndex = findNewLineOrEndLine(str, u"\n"_s, startIndex + markerSize);
             if (endIndex == -1) {
                 break;
             }
@@ -138,7 +138,7 @@ QString generateRichTextCMark(const QString &str,
                               const QString &searchedText)
 {
     QString newStr = markdownToRichTextCMark(str);
-    static const QRegularExpression regularExpressionAHref(QStringLiteral("(<a href=\'.*\'>|<a href=\".*\">)"));
+    static const QRegularExpression regularExpressionAHref(u"(<a href=\'.*\'>|<a href=\".*\">)"_s);
     struct HrefPos {
         int start = 0;
         int end = 0;
@@ -154,7 +154,7 @@ QString generateRichTextCMark(const QString &str,
             lstPos.append(std::move(pos));
         }
 
-        static const QRegularExpression regularExpressionRoom(QStringLiteral("(^|\\s+)#([\\w._-]+)"), QRegularExpression::UseUnicodePropertiesOption);
+        static const QRegularExpression regularExpressionRoom(u"(^|\\s+)#([\\w._-]+)"_s, QRegularExpression::UseUnicodePropertiesOption);
         QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
         while (roomIterator.hasNext()) {
             const QRegularExpressionMatch match = roomIterator.next();
@@ -188,8 +188,7 @@ QString generateRichTextCMark(const QString &str,
             } else {
                 roomIdentifier = wordName.toLatin1();
             }
-            newStr.replace(QLatin1Char('#') + word.toString(),
-                           QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(wordName, QString::fromLatin1(roomIdentifier)));
+            newStr.replace(u'#' + word.toString(), u"<a href=\'ruqola:/room/%2\'>#%1</a>"_s.arg(wordName, QString::fromLatin1(roomIdentifier)));
         }
     }
 
@@ -207,7 +206,7 @@ QString generateRichTextCMark(const QString &str,
         }
 
         for (const QString &word : highlightWords) {
-            const QRegularExpression exp(QStringLiteral("(\\b%1\\b)").arg(word), QRegularExpression::CaseInsensitiveOption);
+            const QRegularExpression exp(u"(\\b%1\\b)"_s.arg(word), QRegularExpression::CaseInsensitiveOption);
             QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
             int offset = 0;
             while (userIterator.hasNext()) {
@@ -225,7 +224,7 @@ QString generateRichTextCMark(const QString &str,
                     continue;
                 }
                 const QString replaceStr =
-                    QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>").arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
+                    u"<a style=\"color:%2;background-color:%3;\">%1</a>"_s.arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
                 newStr.replace(matchCapturedStart + offset, word.length(), replaceStr);
                 // We added a new string => increase offset
                 offset += replaceStr.length() - word.length();
@@ -246,7 +245,7 @@ QString generateRichTextCMark(const QString &str,
             lstPos.append(std::move(pos));
         }
 
-        const QRegularExpression exp(QStringLiteral("(%1)").arg(searchedText), QRegularExpression::CaseInsensitiveOption);
+        const QRegularExpression exp(u"(%1)"_s.arg(searchedText), QRegularExpression::CaseInsensitiveOption);
         QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
         int offset = 0;
         while (userIterator.hasNext()) {
@@ -264,13 +263,13 @@ QString generateRichTextCMark(const QString &str,
                 continue;
             }
             const QString replaceStr =
-                QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>").arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
+                u"<a style=\"color:%2;background-color:%3;\">%1</a>"_s.arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
             newStr.replace(matchCapturedStart + offset, word.length(), replaceStr);
             // We added a new string => increase offset
             offset += replaceStr.length() - word.length();
         }
     }
-    static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"), QRegularExpression::UseUnicodePropertiesOption);
+    static const QRegularExpression regularExpressionUser(u"(^|\\s+)@([\\w._-]+)"_s, QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
     const auto userMentionForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color().name();
@@ -292,17 +291,20 @@ QString generateRichTextCMark(const QString &str,
         if (word == username) {
             newStr.replace(capturedStart,
                            replaceWordLength,
-                           QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
-                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, wordFromUserIdentifier));
+                           u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(word.toString(),
+                                                                                                                                userMentionForegroundColor,
+                                                                                                                                userMentionBackgroundColor,
+                                                                                                                                wordFromUserIdentifier));
 
         } else {
             if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
                 newStr.replace(capturedStart,
                                replaceWordLength,
-                               QStringLiteral("<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>")
-                                   .arg(word.toString(), hereAllMentionForegroundColor, hereAllMentionBackgroundColor));
+                               u"<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>"_s.arg(word.toString(),
+                                                                                                          hereAllMentionForegroundColor,
+                                                                                                          hereAllMentionBackgroundColor));
             } else {
-                newStr.replace(capturedStart, replaceWordLength, QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, wordFromUserIdentifier));
+                newStr.replace(capturedStart, replaceWordLength, u"<a href=\'ruqola:/user/%2\'>@%1</a>"_s.arg(word, wordFromUserIdentifier));
             }
         }
         userIterator = regularExpressionUser.globalMatch(newStr);
@@ -327,7 +329,7 @@ void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, In
             break;
         }
 
-        const int adjust = str.at(endIndex - 1) == QLatin1Char('\n') ? 1 : 0;
+        const int adjust = str.at(endIndex - 1) == u'\n' ? 1 : 0;
         const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize - adjust);
 
         outsideRegion(str.mid(startFrom, startIndex - startFrom));
@@ -371,7 +373,7 @@ static QString addHighlighter(const QString &str, const TextConverter::ConvertMe
 
     auto addCodeChunk = [&](QString chunk) {
         const auto language = [&]() {
-            const auto newline = chunk.indexOf(QLatin1Char('\n'));
+            const auto newline = chunk.indexOf(u'\n');
             if (newline == -1) {
                 return QString();
             }
@@ -415,17 +417,17 @@ static QString addHighlighter(const QString &str, const TextConverter::ConvertMe
     };
 
     auto addInlineQuoteChunk = [&](const QString &chunk) {
-        iterateOverEndLineRegions(chunk, QStringLiteral(">"), addInlineQuoteCodeChunk, addTextChunk, addInlineQuoteCodeNewLineChunk);
+        iterateOverEndLineRegions(chunk, u">"_s, addInlineQuoteCodeChunk, addTextChunk, addInlineQuoteCodeNewLineChunk);
     };
     auto addNonCodeChunk = [&](QString chunk) {
         if (chunk.isEmpty()) {
             return;
         }
 
-        iterateOverRegionsCmark(chunk, QStringLiteral("`"), addInlineCodeChunk, addInlineQuoteChunk);
+        iterateOverRegionsCmark(chunk, u"`"_s, addInlineCodeChunk, addInlineQuoteChunk);
     };
 
-    iterateOverRegionsCmark(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
+    iterateOverRegionsCmark(str, u"```"_s, addCodeChunk, addNonCodeChunk);
 
     qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " richText generated: " << richText;
     return richText;
@@ -435,10 +437,10 @@ static QString addHighlighter(const QString &str, const TextConverter::ConvertMe
 
 static void convertHtmlChar(QString &str)
 {
-    str.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
-    str.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
-    str.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
-    str.replace(QStringLiteral("&amp;"), QStringLiteral("&"));
+    str.replace(u"&gt;"_s, u">"_s);
+    str.replace(u"&lt;"_s, u"<"_s);
+    str.replace(u"&quot;"_s, u"\""_s);
+    str.replace(u"&amp;"_s, u"&"_s);
 }
 
 static QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
@@ -477,7 +479,7 @@ static QString convertMessageText(const TextConverter::ConvertMessageTextSetting
             QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
                 convertHtmlChar(str);
-                const QString stringHtml = QStringLiteral("```") + str + QStringLiteral("```");
+                const QString stringHtml = u"```"_s + str + u"```"_s;
                 // qDebug() << " stringHtml " << stringHtml;
                 const QString highligherStr = addHighlighter(stringHtml, settings);
                 cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
@@ -512,7 +514,7 @@ static QString convertMessageText(const TextConverter::ConvertMessageTextSetting
             QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
                 convertHtmlChar(str);
-                const QString stringHtml = QStringLiteral("`") + str + QStringLiteral("`");
+                const QString stringHtml = u"`"_s + str + u"`"_s;
                 const QString convertedString = addHighlighter(stringHtml, settings);
                 qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  convert text " << convertedString;
                 cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
@@ -552,8 +554,8 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
     // TODO we need to look at room name too as we can have it when we use "direct reply"
     if (str.contains("[ ](http"_L1)
         && (settings.maximumRecursiveQuotedText == -1 || (settings.maximumRecursiveQuotedText > recusiveIndex))) { // ## is there a better way?
-        const int startPos = str.indexOf(QLatin1Char('('));
-        const int endPos = str.indexOf(QLatin1Char(')'));
+        const int startPos = str.indexOf(u'(');
+        const int endPos = str.indexOf(u')');
         const QString url = str.mid(startPos + 1, endPos - startPos - 1);
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
         const QByteArray messageId = url.mid(url.indexOf("msg="_L1) + 4).toLatin1();
@@ -562,7 +564,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
             return msg.messageId() == messageId;
         });
         if (it != settings.allMessages.cend()) {
-            const TextConverter::ConvertMessageTextSettings newSetting(QLatin1Char('@') + (*it).username() + QStringLiteral(": ") + (*it).text(),
+            const TextConverter::ConvertMessageTextSettings newSetting(u'@' + (*it).username() + u": "_s + (*it).text(),
                                                                        settings.userName,
                                                                        settings.allMessages,
                                                                        settings.highlightWords,

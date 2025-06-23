@@ -84,9 +84,9 @@ QNetworkRequest IgnoreUserJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatIgnoreUser);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("rid"), QLatin1StringView(mRoomId));
-    queryUrl.addQueryItem(QStringLiteral("userId"), QLatin1StringView(mIgnoreUserId));
-    queryUrl.addQueryItem(QStringLiteral("ignore"), mIgnore ? QStringLiteral("true") : QStringLiteral("false"));
+    queryUrl.addQueryItem(u"rid"_s, QLatin1StringView(mRoomId));
+    queryUrl.addQueryItem(u"userId"_s, QLatin1StringView(mIgnoreUserId));
+    queryUrl.addQueryItem(u"ignore"_s, mIgnore ? u"true"_s : QStringLiteral("false"));
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

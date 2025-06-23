@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportinfolistview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/moderationreportinfomodel.h"
 #include "moderationreportinfodelegate.h"
 
@@ -19,7 +21,7 @@ ModerationReportInfoListView::ModerationReportInfoListView(RocketChatAccount *ac
     : MessageListViewBase(parent)
     , mModerationReportInfoDelegate(new ModerationReportInfoDelegate(account, this, this))
 {
-    mModerationReportInfoDelegate->setObjectName(QStringLiteral("mModerationReportInfoDelegate"));
+    mModerationReportInfoDelegate->setObjectName(u"mModerationReportInfoDelegate"_s);
     setItemDelegate(mModerationReportInfoDelegate);
     setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -74,7 +76,7 @@ void ModerationReportInfoListView::slotCustomContextMenuRequested(const QPoint &
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             auto copyAction = new QAction(&menu);
-            copyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+            copyAction->setIcon(QIcon::fromTheme(u"edit-copy"_s));
             if (hasSelection()) {
                 copyAction->setText(i18nc("@action", "Copy Selection"));
             } else {
@@ -90,13 +92,13 @@ void ModerationReportInfoListView::slotCustomContextMenuRequested(const QPoint &
             }
 #if HAVE_TEXT_TO_SPEECH
             menu.addSeparator();
-            auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("text-speak-symbolic")), i18nc("@action", "Speak Text"));
+            auto speakAction = menu.addAction(QIcon::fromTheme(u"text-speak-symbolic"_s), i18nc("@action", "Speak Text"));
             connect(speakAction, &QAction::triggered, this, [this, index]() {
                 slotTextToSpeech(index);
             });
 #endif
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
         }

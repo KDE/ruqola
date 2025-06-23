@@ -5,6 +5,8 @@
 */
 
 #include "searchmessagejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "chat/searchmessagejob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(searchMessageJobTest)
@@ -32,21 +34,21 @@ void searchMessageJobTest::shouldGenerateRequest()
 {
     SearchMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    job.setRoomId(QStringLiteral("foo"));
-    job.setSearchText(QStringLiteral("bla"));
+    job.setRoomId(u"foo"_s);
+    job.setSearchText(u"bla"_s);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla"_s));
 }
 
 void searchMessageJobTest::shouldGenerateRequestWithLimit()
 {
     SearchMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    job.setRoomId(QStringLiteral("foo"));
-    job.setSearchText(QStringLiteral("bla"));
+    job.setRoomId(u"foo"_s);
+    job.setSearchText(u"bla"_s);
     job.setCount(5);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla&count=5")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla&count=5"_s));
 }
 
 #include "moc_searchmessagejobtest.cpp"

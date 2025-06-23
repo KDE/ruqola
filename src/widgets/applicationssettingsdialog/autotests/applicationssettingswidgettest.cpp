@@ -5,6 +5,8 @@
 */
 
 #include "applicationssettingswidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "applicationssettingsdialog/applicationssettingsinprogresswidget.h"
 #include "applicationssettingsdialog/applicationssettingslistview.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
@@ -23,19 +25,19 @@ ApplicationsSettingsWidgetTest::ApplicationsSettingsWidgetTest(QObject *parent)
 void ApplicationsSettingsWidgetTest::shouldHaveDefaultValues()
 {
     ApplicationsSettingsWidget d(nullptr);
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mApplicationsSettingsSearchWidget = d.findChild<ApplicationsSettingsSearchWidget *>(QStringLiteral("mApplicationsSettingsSearchWidget"));
+    auto mApplicationsSettingsSearchWidget = d.findChild<ApplicationsSettingsSearchWidget *>(u"mApplicationsSettingsSearchWidget"_s);
     QVERIFY(mApplicationsSettingsSearchWidget);
-    auto mApplicationsSettingsListView = d.findChild<ApplicationsSettingsListView *>(QStringLiteral("mApplicationsSettingsListView"));
+    auto mApplicationsSettingsListView = d.findChild<ApplicationsSettingsListView *>(u"mApplicationsSettingsListView"_s);
     QVERIFY(mApplicationsSettingsListView);
-    auto mApplicationsSettingsInProgressWidget = d.findChild<ApplicationsSettingsInProgressWidget *>(QStringLiteral("mApplicationsSettingsInProgressWidget"));
+    auto mApplicationsSettingsInProgressWidget = d.findChild<ApplicationsSettingsInProgressWidget *>(u"mApplicationsSettingsInProgressWidget"_s);
     QVERIFY(mApplicationsSettingsInProgressWidget);
-    auto mStackedWidget = d.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = d.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
-    auto mWidgetListView = d.findChild<QWidget *>(QStringLiteral("mWidgetListView"));
+    auto mWidgetListView = d.findChild<QWidget *>(u"mWidgetListView"_s);
     QVERIFY(mWidgetListView);
     auto mAppsCountInfoWidget = d.findChild<AppsCountInfoWidget *>("mAppsCountInfoWidget");
     QVERIFY(mAppsCountInfoWidget);

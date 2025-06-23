@@ -5,6 +5,8 @@
 */
 
 #include "localroomsdatabase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabaseutils.h"
 #include "room.h"
 #include "ruqola_database_debug.h"

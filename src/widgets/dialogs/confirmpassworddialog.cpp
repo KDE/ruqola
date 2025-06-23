@@ -5,6 +5,8 @@
 */
 
 #include "confirmpassworddialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "confirmpasswordwidget.h"
 
 #include <KLocalizedString>
@@ -18,13 +20,13 @@ ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Confirm Password"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mConfirmPasswordWidget->setObjectName(QStringLiteral("mConfirmPasswordWidget"));
+    mConfirmPasswordWidget->setObjectName(u"mConfirmPasswordWidget"_s);
     mainLayout->addWidget(mConfirmPasswordWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("buttonBox"));
+    buttonBox->setObjectName(u"buttonBox"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfirmPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfirmPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);

@@ -5,6 +5,8 @@
 */
 
 #include "logssettingswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -24,37 +26,37 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     , mTraceSubscriptionCalls(new QCheckBox(i18nc("@option:check", "Trace subscription calls"), this))
     , mTraceSubscriptionFilter(new QLineEdit(this))
 {
-    mLogExceptionsChannel->setObjectName(QStringLiteral("mLogExceptionsChannel"));
+    mLogExceptionsChannel->setObjectName(u"mLogExceptionsChannel"_s);
     mLogExceptionsChannel->setToolTip(i18nc("@info:tooltip", "A channel that will receive all captured exceptions. Leave empty to ignore exceptions."));
-    addLineEdit(i18n("Log Exceptions to Channel"), mLogExceptionsChannel, QStringLiteral("Log_Exceptions_to_Channel"));
+    addLineEdit(i18n("Log Exceptions to Channel"), mLogExceptionsChannel, u"Log_Exceptions_to_Channel"_s);
 
-    mLogLevel->setObjectName(QStringLiteral("mLogLevel"));
+    mLogLevel->setObjectName(u"mLogLevel"_s);
     const QMap<QString, QString> maps = {
-        {QStringLiteral("0"), i18n("Errors Only")},
-        {QStringLiteral("1"), i18n("Errors and Information")},
-        {QStringLiteral("2"), i18n("Errors, Information and Debug")},
+        {u"0"_s, i18n("Errors Only")},
+        {u"1"_s, i18n("Errors and Information")},
+        {u"2"_s, i18n("Errors, Information and Debug")},
     };
-    addComboBox(i18n("Log Level"), maps, mLogLevel, QStringLiteral("Log_Level"));
+    addComboBox(i18n("Log Level"), maps, mLogLevel, u"Log_Level"_s);
 
-    mLogViewLimit->setObjectName(QStringLiteral("mLogViewLimit"));
+    mLogViewLimit->setObjectName(u"mLogViewLimit"_s);
     mLogViewLimit->setMaximum(999999);
-    addSpinbox(i18n("Log View Limit"), mLogViewLimit, QStringLiteral("Log_View_Limit"));
+    addSpinbox(i18n("Log View Limit"), mLogViewLimit, u"Log_View_Limit"_s);
 
-    mTraceMethodCalls->setObjectName(QStringLiteral("mTraceMethodCalls"));
-    addCheckBox(mTraceMethodCalls, QStringLiteral("Log_Trace_Methods"));
+    mTraceMethodCalls->setObjectName(u"mTraceMethodCalls"_s);
+    addCheckBox(mTraceMethodCalls, u"Log_Trace_Methods"_s);
 
-    mTraceMethodFilter->setObjectName(QStringLiteral("mTraceMethodFilter"));
+    mTraceMethodFilter->setObjectName(u"mTraceMethodFilter"_s);
     mTraceMethodFilter->setToolTip(
         i18nc("@info:tooltip", "The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
-    addLineEdit(i18n("Trace method filter"), mTraceMethodFilter, QStringLiteral("Log_Trace_Methods_Filter"));
+    addLineEdit(i18n("Trace method filter"), mTraceMethodFilter, u"Log_Trace_Methods_Filter"_s);
 
-    mTraceSubscriptionCalls->setObjectName(QStringLiteral("mTraceSubscriptionCalls"));
-    addCheckBox(mTraceSubscriptionCalls, QStringLiteral("Log_Trace_Subscriptions"));
+    mTraceSubscriptionCalls->setObjectName(u"mTraceSubscriptionCalls"_s);
+    addCheckBox(mTraceSubscriptionCalls, u"Log_Trace_Subscriptions"_s);
 
-    mTraceSubscriptionFilter->setObjectName(QStringLiteral("mTraceSubscriptionFilter"));
+    mTraceSubscriptionFilter->setObjectName(u"mTraceSubscriptionFilter"_s);
     mTraceSubscriptionFilter->setToolTip(
         i18nc("@info:tooltip", "The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
-    addLineEdit(i18n("Trace method filter"), mTraceSubscriptionFilter, QStringLiteral("Log_Trace_Subscriptions_Filter"));
+    addLineEdit(i18n("Trace method filter"), mTraceSubscriptionFilter, u"Log_Trace_Subscriptions_Filter"_s);
 }
 
 LogsSettingsWidget::~LogsSettingsWidget() = default;
@@ -63,7 +65,7 @@ void LogsSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::Sett
 {
     initializeWidget(mLogExceptionsChannel, mapSettings, {});
     initializeWidget(mLogViewLimit, mapSettings, 1000);
-    initializeWidget(mLogLevel, mapSettings, QStringLiteral("0"));
+    initializeWidget(mLogLevel, mapSettings, u"0"_s);
     initializeWidget(mTraceMethodCalls, mapSettings, false);
     initializeWidget(mTraceSubscriptionCalls, mapSettings, false);
     initializeWidget(mTraceMethodFilter, mapSettings, {});

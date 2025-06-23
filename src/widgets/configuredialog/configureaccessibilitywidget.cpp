@@ -5,6 +5,8 @@
 */
 
 #include "configureaccessibilitywidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <TextEditTextToSpeech/TextToSpeechConfigWidget>
 
 #include <QShowEvent>
@@ -15,10 +17,10 @@ ConfigureAccessibilityWidget::ConfigureAccessibilityWidget(QWidget *parent)
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechConfigWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
 }
 

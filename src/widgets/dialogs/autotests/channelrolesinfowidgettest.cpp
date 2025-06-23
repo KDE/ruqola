@@ -5,6 +5,8 @@
 */
 
 #include "channelrolesinfowidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/channelrolesinfowidget.h"
 #include <QFormLayout>
 #include <QGroupBox>
@@ -19,15 +21,15 @@ ChannelRolesInfoWidgetTest::ChannelRolesInfoWidgetTest(QObject *parent)
 void ChannelRolesInfoWidgetTest::shouldHaveDefaultValues()
 {
     ChannelRolesInfoWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto box = w.findChild<QGroupBox *>(QStringLiteral("box"));
+    auto box = w.findChild<QGroupBox *>(u"box"_s);
     QVERIFY(box);
     QVERIFY(!box->title().isEmpty());
 
-    auto mFormLayout = w.findChild<QFormLayout *>(QStringLiteral("mFormLayout"));
+    auto mFormLayout = w.findChild<QFormLayout *>(u"mFormLayout"_s);
     QVERIFY(mFormLayout);
 }
 

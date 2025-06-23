@@ -76,7 +76,7 @@ QNetworkRequest AdminRoomsGetRoomJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRoomsGetRoom);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("rid"), mRoomId);
+    queryUrl.addQueryItem(u"rid"_s, mRoomId);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

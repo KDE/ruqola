@@ -5,6 +5,8 @@
 */
 
 #include "administratorsettingsdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
 #include <QDialogButtonBox>
@@ -24,13 +26,13 @@ void AdministratorSettingsDialogTest::shouldHaveDefaultValues()
     AdministratorSettingsDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mAdministratorSettingsWidget = d.findChild<AdministratorSettingsWidget *>(QStringLiteral("mAdministratorSettingsWidget"));
+    auto mAdministratorSettingsWidget = d.findChild<AdministratorSettingsWidget *>(u"mAdministratorSettingsWidget"_s);
     QVERIFY(mAdministratorSettingsWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 }
 

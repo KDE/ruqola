@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomuserstatuscreatewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"
 #include "misc/statuscombobox.h"
 #include <QFormLayout>
@@ -20,16 +22,16 @@ void AdministratorCustomUserStatusCreateWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorCustomUserStatusCreateWidget w;
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 
-    auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
+    auto mName = w.findChild<QLineEdit *>(u"mName"_s);
     QVERIFY(mName);
     QVERIFY(mName->text().isEmpty());
     QVERIFY(mName->isClearButtonEnabled());
 
-    auto mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
+    auto mStatusCombobox = w.findChild<StatusCombobox *>(u"mStatusCombobox"_s);
     QVERIFY(mStatusCombobox);
     QVERIFY(!w.userStatusInfo().isValid());
 }

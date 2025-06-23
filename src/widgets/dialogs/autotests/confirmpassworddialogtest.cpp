@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "confirmpassworddialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/confirmpassworddialog.h"
 #include "dialogs/confirmpasswordwidget.h"
 #include <QDialogButtonBox>
@@ -19,13 +21,13 @@ void ConfirmPasswordDialogTest::shouldHaveDefaultValues()
 {
     ConfirmPasswordDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mConfirmPasswordWidget = w.findChild<ConfirmPasswordWidget *>(QStringLiteral("mConfirmPasswordWidget"));
+    auto mConfirmPasswordWidget = w.findChild<ConfirmPasswordWidget *>(u"mConfirmPasswordWidget"_s);
     QVERIFY(mConfirmPasswordWidget);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"buttonBox"_s);
     QVERIFY(buttonBox);
     QCOMPARE(buttonBox->standardButtons(), QDialogButtonBox::StandardButtons{QDialogButtonBox::Ok | QDialogButtonBox::Cancel});
 }

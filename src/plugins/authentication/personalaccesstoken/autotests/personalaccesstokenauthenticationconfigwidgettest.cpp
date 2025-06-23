@@ -5,6 +5,8 @@
 */
 
 #include "personalaccesstokenauthenticationconfigwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "../personalaccesstokenauthenticationconfigwidget.h"
 #include <QFormLayout>
 #include <QLineEdit>
@@ -19,23 +21,23 @@ PersonalAccessTokenAuthenticationConfigWidgetTest::PersonalAccessTokenAuthentica
 void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldHaveDefaultValues()
 {
     PersonalAccessTokenAuthenticationConfigWidget w;
-    auto mUserLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mUserLineEdit"));
+    auto mUserLineEdit = w.findChild<QLineEdit *>(u"mUserLineEdit"_s);
     QVERIFY(mUserLineEdit);
     QVERIFY(mUserLineEdit->text().isEmpty());
 
-    auto mPersonalAccessTokenLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mPersonalAccessTokenLineEdit"));
+    auto mPersonalAccessTokenLineEdit = w.findChild<QLineEdit *>(u"mPersonalAccessTokenLineEdit"_s);
     QVERIFY(mPersonalAccessTokenLineEdit);
     QVERIFY(mPersonalAccessTokenLineEdit->text().isEmpty());
 
-    auto mServerNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mServerNameLineEdit"));
+    auto mServerNameLineEdit = w.findChild<QLineEdit *>(u"mServerNameLineEdit"_s);
     QVERIFY(mServerNameLineEdit);
     QVERIFY(mServerNameLineEdit->text().isEmpty());
 
-    auto mAccountNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mAccountNameLineEdit"));
+    auto mAccountNameLineEdit = w.findChild<QLineEdit *>(u"mAccountNameLineEdit"_s);
     QVERIFY(mAccountNameLineEdit);
     QVERIFY(mAccountNameLineEdit->text().isEmpty());
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->rowCount(), 4);
 
@@ -45,13 +47,13 @@ void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldHaveDefaultValues(
 void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldEmitSignalEnableOkButton()
 {
     PersonalAccessTokenAuthenticationConfigWidget w;
-    auto mUserLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mUserLineEdit"));
-    auto mPersonalAccessTokenLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mPersonalAccessTokenLineEdit"));
-    auto mServerNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mServerNameLineEdit"));
-    auto mAccountNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mAccountNameLineEdit"));
+    auto mUserLineEdit = w.findChild<QLineEdit *>(u"mUserLineEdit"_s);
+    auto mPersonalAccessTokenLineEdit = w.findChild<QLineEdit *>(u"mPersonalAccessTokenLineEdit"_s);
+    auto mServerNameLineEdit = w.findChild<QLineEdit *>(u"mServerNameLineEdit"_s);
+    auto mAccountNameLineEdit = w.findChild<QLineEdit *>(u"mAccountNameLineEdit"_s);
 
     QSignalSpy spyEnableOkButton(&w, &PersonalAccessTokenAuthenticationConfigWidget::settingsIsValid);
-    mUserLineEdit->setText(QStringLiteral("foo"));
+    mUserLineEdit->setText(u"foo"_s);
     QCOMPARE(spyEnableOkButton.count(), 1);
     QVERIFY(!spyEnableOkButton.at(0).at(0).toBool());
 
@@ -61,22 +63,22 @@ void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldEmitSignalEnableOk
     QVERIFY(!spyEnableOkButton.at(0).at(0).toBool());
 
     spyEnableOkButton.clear();
-    mPersonalAccessTokenLineEdit->setText(QStringLiteral("bla"));
+    mPersonalAccessTokenLineEdit->setText(u"bla"_s);
     QCOMPARE(spyEnableOkButton.count(), 1);
     QVERIFY(!spyEnableOkButton.at(0).at(0).toBool());
 
     spyEnableOkButton.clear();
-    mUserLineEdit->setText(QStringLiteral("foo"));
+    mUserLineEdit->setText(u"foo"_s);
     QCOMPARE(spyEnableOkButton.count(), 1);
     QVERIFY(!spyEnableOkButton.at(0).at(0).toBool());
 
     spyEnableOkButton.clear();
-    mServerNameLineEdit->setText(QStringLiteral("acc"));
+    mServerNameLineEdit->setText(u"acc"_s);
     QCOMPARE(spyEnableOkButton.count(), 1);
     QVERIFY(!spyEnableOkButton.at(0).at(0).toBool());
 
     spyEnableOkButton.clear();
-    mAccountNameLineEdit->setText(QStringLiteral("bb"));
+    mAccountNameLineEdit->setText(u"bb"_s);
     QCOMPARE(spyEnableOkButton.count(), 1);
     QVERIFY(spyEnableOkButton.at(0).at(0).toBool());
 }

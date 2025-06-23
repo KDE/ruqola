@@ -5,6 +5,8 @@
 */
 
 #include "e2ecopypassworddialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "e2ecopypasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -17,13 +19,13 @@ E2eCopyPasswordDialog::E2eCopyPasswordDialog(RocketChatAccount *account, QWidget
 {
     setWindowTitle(i18nc("@title:window", "Copy Password"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mE2eCopyPasswordWidget->setObjectName(QStringLiteral("mE2eCopyPasswordWidget"));
+    mE2eCopyPasswordWidget->setObjectName(u"mE2eCopyPasswordWidget"_s);
     mainLayout->addWidget(mE2eCopyPasswordWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel | QDialogButtonBox::Ok, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &E2eCopyPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &E2eCopyPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);

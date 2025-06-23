@@ -5,6 +5,8 @@
 */
 
 #include "notificationhistorylistview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/notificationhistorymodel.h"
 #include "notificationhistorydelegate.h"
 #include "notificationhistorymanager.h"
@@ -20,7 +22,7 @@ NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     : MessageListViewBase(parent)
     , mListNotificationsDelegate(new NotificationHistoryDelegate(this, this))
 {
-    mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
+    mListNotificationsDelegate->setObjectName(u"listNotificationsDelegate"_s);
     setItemDelegate(mListNotificationsDelegate);
     setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -72,7 +74,7 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
 {
     if (model()->rowCount() > 0) {
         QMenu menu(this);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18nc("@action", "Clear"), this, &NotificationHistoryListView::slotClearList);
+        menu.addAction(QIcon::fromTheme(u"edit-clear-history"_s), i18nc("@action", "Clear"), this, &NotificationHistoryListView::slotClearList);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             menu.addSeparator();
@@ -81,7 +83,7 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
             });
             menu.addSeparator();
             auto copyAction = new QAction(&menu);
-            copyAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+            copyAction->setIcon(QIcon::fromTheme(u"edit-copy"_s));
             if (hasSelection()) {
                 copyAction->setText(i18nc("@action", "Copy Selection"));
             } else {
@@ -97,13 +99,13 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
             }
 #if HAVE_TEXT_TO_SPEECH
             menu.addSeparator();
-            auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("text-speak-symbolic")), i18nc("@action", "Speak Text"));
+            auto speakAction = menu.addAction(QIcon::fromTheme(u"text-speak-symbolic"_s), i18nc("@action", "Speak Text"));
             connect(speakAction, &QAction::triggered, this, [this, index]() {
                 slotTextToSpeech(index);
             });
 #endif
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(QStringLiteral("edit-select-all")), i18nc("@action", "Select All"), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
         }

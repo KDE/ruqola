@@ -5,6 +5,7 @@
 */
 
 #include "administratormoderationreporteduserconsoletreewidget.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "moderationreporteduserconsoletreewidget.h"
 
@@ -16,14 +17,14 @@ AdministratorModerationReportedUserConsoleTreeWidget::AdministratorModerationRep
     , mAdministratorModerationRangeWidget(new AdministratorModerationRangeWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mAdministratorModerationRangeWidget->setObjectName(QStringLiteral("mAdministratorModerationRangeWidget"));
+    mAdministratorModerationRangeWidget->setObjectName(u"mAdministratorModerationRangeWidget"_s);
     mainLayout->addWidget(mAdministratorModerationRangeWidget);
 
-    mModerationConsoleTreeWidget->setObjectName(QStringLiteral("mModerationConsoleTreeWidget"));
+    mModerationConsoleTreeWidget->setObjectName(u"mModerationConsoleTreeWidget"_s);
     mainLayout->addWidget(mModerationConsoleTreeWidget);
     connect(mAdministratorModerationRangeWidget, &AdministratorModerationRangeWidget::rangeChanged, this, [this]() {
         mModerationConsoleTreeWidget->setModerationRanges(mAdministratorModerationRangeWidget->range());

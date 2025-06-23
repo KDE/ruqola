@@ -5,6 +5,8 @@
 */
 
 #include "messagelistviewbase.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/messagesmodel.h"
 #include "room/plugins/plugintext.h"
 #include "room/plugins/plugintextinterface.h"

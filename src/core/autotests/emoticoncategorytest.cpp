@@ -5,6 +5,8 @@
 */
 
 #include "emoticoncategorytest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "emoticons/emoticoncategory.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(EmoticonCategoryTest)
@@ -23,15 +25,15 @@ void EmoticonCategoryTest::shouldHaveDefaultValues()
 void EmoticonCategoryTest::shouldAssignValues()
 {
     EmoticonCategory cat;
-    const QString categoryName{QStringLiteral("cat")};
+    const QString categoryName{u"cat"_s};
     cat.setCategory(categoryName);
     QCOMPARE(cat.category(), categoryName);
 
-    const QString name{QStringLiteral("name")};
+    const QString name{u"name"_s};
     cat.setName(name);
     QCOMPARE(cat.name(), name);
 
-    const QString namei18n{QStringLiteral("i18n")};
+    const QString namei18n{u"i18n"_s};
     cat.setI18nName(namei18n);
     QCOMPARE(cat.i18nName(), namei18n);
 }

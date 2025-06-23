@@ -5,6 +5,7 @@
 */
 
 #include "accountschannelsmodeltest.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "model/accountschannelsmodel.h"
@@ -37,7 +38,7 @@ void AccountsChannelsModelTest::accountsAndChannels()
     QCOMPARE(model.data(model.index(1, 0)).toString(), QString());
     QCOMPARE(model.rowCount(model.index(1, 0)), 0);
 
-    const auto newAcctName = QStringLiteral("Test Account");
+    const auto newAcctName = u"Test Account"_s;
     const auto acct = new RocketChatAccount;
     Ruqola::self()->accountManager()->addAccount(acct);
     const auto newAcctIndex = model.index(0, 0);
@@ -50,7 +51,7 @@ void AccountsChannelsModelTest::accountsAndChannels()
     Ruqola::self()->setCurrentAccount(newAcctName);
 
     const auto newRoomId = QByteArray("RoomId");
-    const auto newRoomName = QStringLiteral("Room Name");
+    const auto newRoomName = u"Room Name"_s;
     acct->roomModel()->addRoom(newRoomId, newRoomName);
     QCOMPARE(model.rowCount(newAcctIndex), 1);
 

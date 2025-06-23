@@ -5,6 +5,8 @@
 */
 
 #include "administratoroautheditwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -21,31 +23,31 @@ AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
     , mAccessTokenUrl(new QLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mActiveCheckBox->setObjectName(QStringLiteral("mActiveCheckBox"));
+    mActiveCheckBox->setObjectName(u"mActiveCheckBox"_s);
     mainLayout->addWidget(mActiveCheckBox);
     mActiveCheckBox->setChecked(false);
 
-    mApplicationName->setObjectName(QStringLiteral("mApplicationName"));
+    mApplicationName->setObjectName(u"mApplicationName"_s);
     mainLayout->addRow(i18n("Name:"), mApplicationName);
 
-    mRedirectUrl->setObjectName(QStringLiteral("mRedirectUrl"));
+    mRedirectUrl->setObjectName(u"mRedirectUrl"_s);
     mainLayout->addRow(i18n("Redirect Url:"), mRedirectUrl);
 
-    mClientId->setObjectName(QStringLiteral("mClientId"));
+    mClientId->setObjectName(u"mClientId"_s);
     mainLayout->addRow(i18n("Client ID:"), mClientId);
     mClientId->setReadOnly(true);
 
-    mClientSecret->setObjectName(QStringLiteral("mClientSecret"));
+    mClientSecret->setObjectName(u"mClientSecret"_s);
     mainLayout->addRow(i18n("Client Secret:"), mClientSecret);
     mClientSecret->setReadOnly(true);
 
-    mAuthorizationUrl->setObjectName(QStringLiteral("mAuthorizationUrl"));
+    mAuthorizationUrl->setObjectName(u"mAuthorizationUrl"_s);
     mainLayout->addRow(i18n("Authorization Url:"), mAuthorizationUrl);
     mAuthorizationUrl->setReadOnly(true);
 
-    mAccessTokenUrl->setObjectName(QStringLiteral("mAccessTokenUrl"));
+    mAccessTokenUrl->setObjectName(u"mAccessTokenUrl"_s);
     mainLayout->addRow(i18n("Access Token URL:"), mAccessTokenUrl);
     mAccessTokenUrl->setReadOnly(true);
 

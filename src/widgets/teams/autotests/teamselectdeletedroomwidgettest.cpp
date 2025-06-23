@@ -5,6 +5,8 @@
 */
 
 #include "teamselectdeletedroomwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "teams/teamselectdeletedroomwidget.h"
 #include <QLineEdit>
 #include <QListView>
@@ -21,14 +23,14 @@ void TeamSelectDeletedRoomWidgetTest::shouldHaveDefaultValues()
     TeamSelectDeletedRoomWidget w;
 
     QVERIFY(w.roomsId().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
+    auto mListView = w.findChild<QListView *>(u"mListView"_s);
     QVERIFY(mListView);
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());

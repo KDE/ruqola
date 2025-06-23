@@ -5,6 +5,8 @@
 */
 
 #include "uploadfiledialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "uploadfilewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -25,13 +27,13 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Upload File"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mUploadFileWidget->setObjectName(QStringLiteral("mUploadFileWidget"));
+    mUploadFileWidget->setObjectName(u"mUploadFileWidget"_s);
     mainLayout->addWidget(mUploadFileWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("buttonBox"));
+    buttonBox->setObjectName(u"buttonBox"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &UploadFileDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &UploadFileDialog::reject);
     connect(mUploadFileWidget, &UploadFileWidget::uploadImage, this, [this]() {

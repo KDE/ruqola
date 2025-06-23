@@ -7,6 +7,8 @@
  */
 
 #include <QModelIndex>
+using namespace Qt::Literals::StringLiterals;
+
 #include <QTimeZone>
 
 #include "emoticons/emojimanager.h"
@@ -259,7 +261,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         }
         return true; // show date at the top
     case MessagesModel::CanEditMessage:
-        return mRocketChatAccount && mRocketChatAccount->isMessageEditable(message); // && mRoom && mRoom->hasPermission(QStringLiteral("edit-message"));
+        return mRocketChatAccount && mRocketChatAccount->isMessageEditable(message); // && mRoom && mRoom->hasPermission(u"edit-message"_s);
     case MessagesModel::CanDeleteMessage:
         return mRocketChatAccount && mRocketChatAccount->isMessageDeletable(message);
     case MessagesModel::Starred:
@@ -269,10 +271,10 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         if (username.isEmpty()) {
             return {};
         }
-        return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(message.username());
+        return u"<a href=\'ruqola:/user/%1\'>@%1</a>"_s.arg(message.username());
     }
     case MessagesModel::Roles: {
-        const QString str = roomRoles(message.userId()).join(QLatin1Char(','));
+        const QString str = roomRoles(message.userId()).join(u',');
         return str;
     }
     case MessagesModel::Reactions: {
@@ -372,7 +374,7 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
         if (mRoom) {
             if (mRoom->channelType() != Room::RoomType::Direct) { // We can't ignore message but we can block user in direct message
                 if (mRoom->userIsIgnored(message.userId()) && !message.showIgnoredMessage()) {
-                    return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
+                    return QString(u"<i>"_s + i18n("Ignored Message") + u"</i>"_s);
                 }
             }
             highlightWords = mRoom->highlightsWord();
@@ -620,7 +622,7 @@ QString MessagesModel::threadMessagePreview(const QByteArray &threadMessageId) c
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
             QString str = convertMessageText((*it), userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(), QString());
             if (str.length() > 80) {
-                str = str.left(80) + QStringLiteral("...");
+                str = str.left(80) + u"..."_s;
             }
             return str;
         } else {

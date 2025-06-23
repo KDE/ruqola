@@ -88,7 +88,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                         }
                     }
                     // Use TextConverter in case it starts with a [](URL) reply marker
-                    const QString contextText = KStringHandler::rsqueeze(QLatin1Char('@') + contextMessage.username() + ": "_L1 + contextMessage.text(), 200);
+                    const QString contextText = KStringHandler::rsqueeze(u'@' + contextMessage.username() + ": "_L1 + contextMessage.text(), 200);
 
                     QByteArray needUpdateMessageId;
                     const int maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();

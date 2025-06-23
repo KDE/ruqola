@@ -57,11 +57,11 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     }
 
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
+    mMessageTextEdit->setObjectName(u"mMessageTextEdit"_s);
     mainLayout->addWidget(mMessageTextEdit);
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
     connect(mMessageTextEdit, &MessageTextEdit::keyPressed, this, &MessageLineWidget::keyPressedInLineEdit);
@@ -69,42 +69,42 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::textClicked, this, &MessageLineWidget::textEditClicked);
 
     mSendFileButton->setAutoRaise(true);
-    mSendFileButton->setObjectName(QStringLiteral("mSendFileButton"));
+    mSendFileButton->setObjectName(u"mSendFileButton"_s);
     mSendFileButton->setToolTip(i18nc("@info:tooltip", "Attach a file…"));
     mainLayout->addWidget(mSendFileButton);
 #ifndef QT_NO_ACCESSIBILITY
     mSendFileButton->setAccessibleName(i18n("Attach File"));
 #endif
 
-    mSendFileButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-attachment-symbolic")));
+    mSendFileButton->setIcon(QIcon::fromTheme(u"mail-attachment-symbolic"_s));
     connect(mSendFileButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
     mVideoMessageButton->setAutoRaise(true);
-    mVideoMessageButton->setObjectName(QStringLiteral("mVideoMessageButton"));
+    mVideoMessageButton->setObjectName(u"mVideoMessageButton"_s);
     mVideoMessageButton->setToolTip(i18nc("@info:tooltip", "Send a video message…"));
 #ifndef QT_NO_ACCESSIBILITY
     mVideoMessageButton->setAccessibleName(i18n("Video Message"));
 #endif
 
     mainLayout->addWidget(mVideoMessageButton);
-    mVideoMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("camera-video")));
+    mVideoMessageButton->setIcon(QIcon::fromTheme(u"camera-video"_s));
     connect(mVideoMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendVideoMessage);
 
     mSoundMessageButton->setAutoRaise(true);
-    mSoundMessageButton->setObjectName(QStringLiteral("mSoundMessageButton"));
+    mSoundMessageButton->setObjectName(u"mSoundMessageButton"_s);
     mSoundMessageButton->setToolTip(i18nc("@info:tooltip", "Send a sound message…"));
 #ifndef QT_NO_ACCESSIBILITY
     mSoundMessageButton->setAccessibleName(i18n("Sound Message"));
 #endif
 
     mainLayout->addWidget(mSoundMessageButton);
-    mSoundMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("audio-input-microphone")));
+    mSoundMessageButton->setIcon(QIcon::fromTheme(u"audio-input-microphone"_s));
     mSoundMessageButton->setToolTip(i18nc("@info:tooltip", "Send a sound message…"));
     connect(mSoundMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendSoundMessage);
 
     mEmoticonButton->setAutoRaise(true);
-    mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
-    mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("smiley-add")));
+    mEmoticonButton->setObjectName(u"mEmoticonButton"_s);
+    mEmoticonButton->setIcon(QIcon::fromTheme(u"smiley-add"_s));
     mEmoticonButton->setPopupMode(QToolButton::InstantPopup);
     mEmoticonButton->setToolTip(i18nc("@info:tooltip", "Add emoticon…"));
 #ifndef QT_NO_ACCESSIBILITY
@@ -113,8 +113,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->addWidget(mEmoticonButton);
 
     mSendMessageButton->setAutoRaise(true);
-    mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
-    mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
+    mSendMessageButton->setObjectName(u"mSendMessageButton"_s);
+    mSendMessageButton->setIcon(QIcon::fromTheme(u"mail-sent"_s));
     mSendMessageButton->setToolTip(i18nc("@info:tooltip", "Send message"));
 #ifndef QT_NO_ACCESSIBILITY
     mSendMessageButton->setAccessibleName(i18n("Send Message"));
@@ -203,7 +203,7 @@ void MessageLineWidget::slotRunCommandFailed(const RocketChatRestApi::RunCommand
                                         KStandardGuiItem::cancel())
         == KMessageBox::ButtonCode::PrimaryAction) {
         QClipboard *clipboard = QGuiApplication::clipboard();
-        const QString msg = QStringLiteral("/%1 %2").arg(info.commandName, info.params);
+        const QString msg = u"/%1 %2"_s.arg(info.commandName, info.params);
         clipboard->setText(msg, QClipboard::Clipboard);
         clipboard->setText(msg, QClipboard::Selection);
     }
@@ -238,7 +238,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 {
     if (!msg.isEmpty()) {
         if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
-            if (msg.startsWith(QLatin1Char('/'))) {
+            if (msg.startsWith(u'/')) {
                 if (!msg.startsWith("//"_L1) && !msg.startsWith("/*"_L1)) {
                     // a command ?
                     if (hasCommandPreview(msg, roomId())) {
@@ -261,7 +261,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                                                            KStandardGuiItem::cancel())) {
                         QPointer<MessageMaximumSizeDialog> dlg = new MessageMaximumSizeDialog(this);
                         if (dlg->exec()) {
-                            QTemporaryFile tempFile(QDir::tempPath() + QStringLiteral("/XXXXXX.txt"));
+                            QTemporaryFile tempFile(QDir::tempPath() + u"/XXXXXX.txt"_s);
                             tempFile.setAutoRemove(false);
                             if (tempFile.open()) {
                                 QTextStream stream(&tempFile);
@@ -302,7 +302,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             mCurrentRocketChatAccount->updateMessage(roomId(), mMessageIdBeingEdited, msg);
             clearMessageIdBeingEdited();
         } else if (!mQuotePermalink.isEmpty()) {
-            const QString newMessage = QStringLiteral("[ ](%1) %2").arg(mQuotePermalink, msg);
+            const QString newMessage = u"[ ](%1) %2"_s.arg(mQuotePermalink, msg);
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(roomId(), newMessage);
             } else {
@@ -559,10 +559,10 @@ void MessageLineWidget::setMode(EditingMode mode)
         mMode = mode;
         switch (mMode) {
         case EditingMode::NewMessage:
-            mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
+            mSendMessageButton->setIcon(QIcon::fromTheme(u"mail-sent"_s));
             break;
         case EditingMode::EditMessage:
-            mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-symbolic")));
+            mSendMessageButton->setIcon(QIcon::fromTheme(u"edit-symbolic"_s));
             break;
         }
     }

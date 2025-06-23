@@ -5,6 +5,8 @@
 */
 
 #include "servererrorinfomessagewidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include <QTest>
 QTEST_MAIN(ServerErrorInfoMessageWidgetTest)

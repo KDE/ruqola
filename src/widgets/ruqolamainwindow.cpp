@@ -119,13 +119,13 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 
 {
     Ruqola::self()->setParentWidget(mMainWidget);
-    mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
+    mMainWidget->setObjectName(u"mMainWidget"_s);
     connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotDisableActions);
     connect(mMainWidget, &RuqolaCentralWidget::createNewAccount, this, &RuqolaMainWindow::slotAddServer);
     setCentralWidget(mMainWidget);
     setupActions();
     setupStatusBar();
-    setupGUI(/*QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc")*/);
+    setupGUI(/*u":/kxmlgui5/ruqola/ruqolaui.rc"_s*/);
     readConfig();
     createSystemTray();
     mSwitchChannelTreeManager->setParentWidget(mMainWidget);
@@ -219,14 +219,14 @@ void RuqolaMainWindow::setupStatusBar()
     statusBar()->insertPermanentWidget(0, mContainerStatusInfo);
     mStatusBarTypingMessage = new QLabel(this);
     mStatusBarTypingMessage->setTextFormat(Qt::RichText);
-    mStatusBarTypingMessage->setObjectName(QStringLiteral("mStatusBarTypingMessage"));
+    mStatusBarTypingMessage->setObjectName(u"mStatusBarTypingMessage"_s);
     statusBar()->addPermanentWidget(mStatusBarTypingMessage, 1);
     mAccountOverviewWidget = new AccountsOverviewWidget(this);
-    mAccountOverviewWidget->setObjectName(QStringLiteral("mAccountOverviewWidget"));
+    mAccountOverviewWidget->setObjectName(u"mAccountOverviewWidget"_s);
     statusBar()->addPermanentWidget(mAccountOverviewWidget);
     mNotificationToolButton = new QToolButton(this);
-    mNotificationToolButton->setIcon(QIcon::fromTheme(QStringLiteral("notifications")));
-    mNotificationToolButton->setObjectName(QStringLiteral("mNotificationToolButton"));
+    mNotificationToolButton->setIcon(QIcon::fromTheme(u"notifications"_s));
+    mNotificationToolButton->setObjectName(u"mNotificationToolButton"_s);
     mNotificationToolButton->setToolTip(i18nc("@info:tooltip", "Show New Notifications"));
 #ifndef QT_NO_ACCESSIBILITY
     mNotificationToolButton->setAccessibleName(i18n("Show New Notifications"));
@@ -367,17 +367,17 @@ void RuqolaMainWindow::updateActions()
 
 bool RuqolaMainWindow::canCreateChannels() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-c"));
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-c"_s);
 }
 
 bool RuqolaMainWindow::canCreateDirectMessages() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-d"));
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-d"_s);
 }
 
 bool RuqolaMainWindow::canCreateTeams() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-team"));
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-team"_s);
 }
 
 bool RuqolaMainWindow::hasBannerInfo() const
@@ -419,46 +419,46 @@ void RuqolaMainWindow::setupActions()
 
     auto act = new QAction(i18nc("@action", "Add Server…"), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
-    ac->addAction(QStringLiteral("add_server"), act);
+    ac->addAction(u"add_server"_s, act);
 
     // Move in specific server widget
     mServerInfo = new QAction(i18nc("@action", "Server Info…"), this);
     connect(mServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotServerInfo);
-    ac->addAction(QStringLiteral("server_info"), mServerInfo);
+    ac->addAction(u"server_info"_s, mServerInfo);
 
     mLogout = new QAction(i18nc("@action", "Logout Current Server"), this);
     connect(mLogout, &QAction::triggered, this, &RuqolaMainWindow::slotLogout);
-    ac->addAction(QStringLiteral("logout"), mLogout);
+    ac->addAction(u"logout"_s, mLogout);
 
     mNextUnreadChannel = new QAction(i18nc("@action", "Jump to Next Unread Channel"), this);
     connect(mNextUnreadChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSelectNextUnreadChannel);
     ac->setDefaultShortcut(mNextUnreadChannel, Qt::Key_Control | Qt::Key_PageDown);
-    ac->addAction(QStringLiteral("next_unread_channel"), mNextUnreadChannel);
+    ac->addAction(u"next_unread_channel"_s, mNextUnreadChannel);
 
-    mCreateNewChannel = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create New Channel…"), this);
+    mCreateNewChannel = new QAction(QIcon::fromTheme(u"irc-join-channel"_s), i18n("Create New Channel…"), this);
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
-    ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
+    ac->addAction(u"create_new_channel"_s, mCreateNewChannel);
 
-    mCreateDirectMessages = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Direct Messages…"), this);
+    mCreateDirectMessages = new QAction(QIcon::fromTheme(u"irc-join-channel"_s), i18n("Create Direct Messages…"), this);
     connect(mCreateDirectMessages, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDirectMessages);
-    ac->addAction(QStringLiteral("create_direct_messages"), mCreateDirectMessages);
+    ac->addAction(u"create_direct_messages"_s, mCreateDirectMessages);
 
-    mCreateDiscussion = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Discussion…"), this);
+    mCreateDiscussion = new QAction(QIcon::fromTheme(u"irc-join-channel"_s), i18n("Create Discussion…"), this);
     connect(mCreateDiscussion, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDiscussion);
-    ac->addAction(QStringLiteral("create_discussion"), mCreateDiscussion);
+    ac->addAction(u"create_discussion"_s, mCreateDiscussion);
 
-    mCreateTeam = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Team…"), this);
+    mCreateTeam = new QAction(QIcon::fromTheme(u"irc-join-channel"_s), i18n("Create Team…"), this);
     connect(mCreateTeam, &QAction::triggered, this, &RuqolaMainWindow::slotCreateTeam);
-    ac->addAction(QStringLiteral("create_team"), mCreateTeam);
+    ac->addAction(u"create_team"_s, mCreateTeam);
 
     mServerMenu = new ServerMenu(this);
     mServerMenu->setActionCollection(ac);
-    ac->addAction(QStringLiteral("server_menu"), mServerMenu);
+    ac->addAction(u"server_menu"_s, mServerMenu);
 
     mUnreadOnTop = new QAction(i18nc("@action", "Unread on Top"), this);
     mUnreadOnTop->setCheckable(true);
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
-    ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
+    ac->addAction(u"unread_on_top"_s, mUnreadOnTop);
 
     auto roomListSortOrder = new QActionGroup(this);
     roomListSortOrder->setExclusive(true);
@@ -467,115 +467,115 @@ void RuqolaMainWindow::setupActions()
     mRoomListSortByLastMessage->setCheckable(true);
     connect(mRoomListSortByLastMessage, &QAction::triggered, this, &RuqolaMainWindow::slotRoomListSortByLastMessage);
     roomListSortOrder->addAction(mRoomListSortByLastMessage);
-    ac->addAction(QStringLiteral("room_list_sort_by_last_message"), mRoomListSortByLastMessage);
+    ac->addAction(u"room_list_sort_by_last_message"_s, mRoomListSortByLastMessage);
 
     mRoomListSortAlphabetically = new QAction(i18nc("@action", "Alphabetically"), this);
     mRoomListSortAlphabetically->setCheckable(true);
     connect(mRoomListSortAlphabetically, &QAction::triggered, this, &RuqolaMainWindow::slotRoomListSortAlphabetically);
     roomListSortOrder->addAction(mRoomListSortAlphabetically);
-    ac->addAction(QStringLiteral("room_list_sort_alphabetically"), mRoomListSortAlphabetically);
+    ac->addAction(u"room_list_sort_alphabetically"_s, mRoomListSortAlphabetically);
 
-    mShowLog = new QAction(QIcon::fromTheme(QStringLiteral("view-history")), i18n("Show Channel Log"), this);
+    mShowLog = new QAction(QIcon::fromTheme(u"view-history"_s), i18n("Show Channel Log"), this);
     connect(mShowLog, &QAction::triggered, this, &RuqolaMainWindow::slotShowLog);
-    ac->addAction(QStringLiteral("show_log"), mShowLog);
+    ac->addAction(u"show_log"_s, mShowLog);
 
-    mShowServerInfo = new QAction(QIcon::fromTheme(QStringLiteral("data-error")), i18n("Show Server Errors"), this);
+    mShowServerInfo = new QAction(QIcon::fromTheme(u"data-error"_s), i18n("Show Server Errors"), this);
     connect(mShowServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowServerInfo);
-    ac->addAction(QStringLiteral("show_server_errors"), mShowServerInfo);
+    ac->addAction(u"show_server_errors"_s, mShowServerInfo);
 
     if (Ruqola::self()->debug()) {
-        mMenuDebug = new QAction(QStringLiteral("Debug"), this);
-        ac->addAction(QStringLiteral("debug_menu"), mMenuDebug);
+        mMenuDebug = new QAction(u"Debug"_s, this);
+        ac->addAction(u"debug_menu"_s, mMenuDebug);
         auto menu = new QMenu(this);
         mMenuDebug->setMenu(menu);
-        mShowDatabaseMessages = new QAction(QStringLiteral("Show Database Messages…"), this);
+        mShowDatabaseMessages = new QAction(u"Show Database Messages…"_s, this);
         connect(mShowDatabaseMessages, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessages);
-        ac->addAction(QStringLiteral("show_database_messages"), mShowDatabaseMessages);
+        ac->addAction(u"show_database_messages"_s, mShowDatabaseMessages);
         menu->addAction(mShowDatabaseMessages);
 
         menu->addSeparator();
-        mShowPermissions = new QAction(QStringLiteral("Show Permissions…"), this);
+        mShowPermissions = new QAction(u"Show Permissions…"_s, this);
         connect(mShowPermissions, &QAction::triggered, this, &RuqolaMainWindow::slotShowPermissions);
-        ac->addAction(QStringLiteral("show_permissions"), mShowPermissions);
+        ac->addAction(u"show_permissions"_s, mShowPermissions);
         menu->addAction(mShowPermissions);
 
         menu->addSeparator();
-        mShowAppsTranslation = new QAction(QStringLiteral("Show Application Translation…"), this);
+        mShowAppsTranslation = new QAction(u"Show Application Translation…"_s, this);
         connect(mShowAppsTranslation, &QAction::triggered, this, &RuqolaMainWindow::slotShowAppsTranslation);
-        ac->addAction(QStringLiteral("show_apps_translation"), mShowAppsTranslation);
+        ac->addAction(u"show_apps_translation"_s, mShowAppsTranslation);
         menu->addAction(mShowAppsTranslation);
 
         menu->addSeparator();
-        mShowLogsFile = new QAction(QStringLiteral("Show Ruqola Logs…"), this);
+        mShowLogsFile = new QAction(u"Show Ruqola Logs…"_s, this);
         connect(mShowLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowLogsFile);
-        ac->addAction(QStringLiteral("show_ruqola_logs"), mShowLogsFile);
+        ac->addAction(u"show_ruqola_logs"_s, mShowLogsFile);
         menu->addAction(mShowLogsFile);
 
         menu->addSeparator();
-        mShowRestApiLogsFile = new QAction(QStringLiteral("Show Ruqola Logs (RESTAPI)…"), this);
+        mShowRestApiLogsFile = new QAction(u"Show Ruqola Logs (RESTAPI)…"_s, this);
         connect(mShowRestApiLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowRestApiLogsFile);
-        ac->addAction(QStringLiteral("show_ruqola_restapi_logs"), mShowRestApiLogsFile);
+        ac->addAction(u"show_ruqola_restapi_logs"_s, mShowRestApiLogsFile);
         menu->addAction(mShowRestApiLogsFile);
     }
 
     mClearAlerts = new QAction(i18nc("@action", "Mark All Channels as Read"), this);
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
-    ac->addAction(QStringLiteral("mark_all_channels_read"), mClearAlerts);
+    ac->addAction(u"mark_all_channels_read"_s, mClearAlerts);
 
     mRegisterNewUser = new QAction(i18nc("@action", "Register a New User…"), this);
     connect(mRegisterNewUser, &QAction::triggered, this, &RuqolaMainWindow::slotRegisterNewUser);
-    ac->addAction(QStringLiteral("register_new_user"), mRegisterNewUser);
+    ac->addAction(u"register_new_user"_s, mRegisterNewUser);
 
     mMyAccount = new QAction(i18nc("@action", "My Account…"), this);
     connect(mMyAccount, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureMyAccount);
-    ac->addAction(QStringLiteral("configure_my_account"), mMyAccount);
+    ac->addAction(u"configure_my_account"_s, mMyAccount);
 
     mAdministrationMenu = new KActionMenu(i18n("administration"), this);
     mAdministrator = new QAction(i18nc("@action", "Administrator…"), this);
-    ac->addAction(QStringLiteral("administrator_account_settings"), mAdministrator);
+    ac->addAction(u"administrator_account_settings"_s, mAdministrator);
     connect(mAdministrator, &QAction::triggered, this, &RuqolaMainWindow::slotAdministrator);
     mAdministrationMenu->addAction(mAdministrator);
-    ac->addAction(QStringLiteral("administration"), mAdministrationMenu);
+    ac->addAction(u"administration"_s, mAdministrationMenu);
 
     mAdministratorServerSettings = new QAction(i18nc("@action", "Server Settings…"), this);
     connect(mAdministratorServerSettings, &QAction::triggered, this, &RuqolaMainWindow::slotAdministratorServerSettings);
-    ac->addAction(QStringLiteral("administrator_server_settings"), mAdministratorServerSettings);
+    ac->addAction(u"administrator_server_settings"_s, mAdministratorServerSettings);
     mAdministrationMenu->addAction(mAdministratorServerSettings);
 
     mAdministrationMenu->addSeparator();
 
     mApplications = new QAction(i18nc("@action", "Applications…"), this);
     connect(mApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsSettings);
-    ac->addAction(QStringLiteral("applications_settings"), mApplications);
+    ac->addAction(u"applications_settings"_s, mApplications);
     mAdministrationMenu->addAction(mApplications);
 
     mRequestedApplications = new QAction(i18nc("@action", "Requested Applications…"), this);
     connect(mRequestedApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsRequestedSettings);
-    ac->addAction(QStringLiteral("applications_requested_settings"), mRequestedApplications);
+    ac->addAction(u"applications_requested_settings"_s, mRequestedApplications);
     mAdministrationMenu->addAction(mRequestedApplications);
 
     mInstalledApplications = new QAction(i18nc("@action", "Installed Applications…"), this);
     connect(mInstalledApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsInstalledSettings);
-    ac->addAction(QStringLiteral("applications_requested_settings"), mInstalledApplications);
+    ac->addAction(u"applications_requested_settings"_s, mInstalledApplications);
     mAdministrationMenu->addAction(mInstalledApplications);
 
     mPrivateApplications = new QAction(i18nc("@action", "Private Applications…"), this);
     connect(mPrivateApplications, &QAction::triggered, this, &RuqolaMainWindow::slotPrivateApplicationsSettings);
-    ac->addAction(QStringLiteral("applications_private_settings"), mPrivateApplications);
+    ac->addAction(u"applications_private_settings"_s, mPrivateApplications);
     mAdministrationMenu->addAction(mPrivateApplications);
 
     mJoinRoom = new QAction(i18nc("Action which allows to search room", "Join Room…"), this);
     connect(mJoinRoom, &QAction::triggered, this, &RuqolaMainWindow::slotJoinRoom);
-    ac->addAction(QStringLiteral("join_room"), mJoinRoom);
+    ac->addAction(u"join_room"_s, mJoinRoom);
 
     mJoinTeam = new QAction(i18nc("Action which allows to search team", "Join Team…"), this);
     connect(mJoinTeam, &QAction::triggered, this, &RuqolaMainWindow::slotJoinTeam);
-    ac->addAction(QStringLiteral("join_team"), mJoinTeam);
+    ac->addAction(u"join_team"_s, mJoinTeam);
 
     mOpenPrivateConversation = new QAction(i18nc("Action which allows to open private conversation (direct user)", "Open Private Conversation…"), this);
     connect(mOpenPrivateConversation, &QAction::triggered, this, &RuqolaMainWindow::slotOpenPrivateChannel);
-    ac->addAction(QStringLiteral("open_private_conversation"), mOpenPrivateConversation);
+    ac->addAction(u"open_private_conversation"_s, mOpenPrivateConversation);
 
     // Actions to navigate through the different pages
     QList<QKeySequence> nextShortcut;
@@ -583,37 +583,37 @@ void RuqolaMainWindow::setupActions()
 
     QString nextIcon, prevIcon;
     if (QApplication::isRightToLeft()) {
-        prevShortcut.append(QKeySequence(QStringLiteral("Alt+Right")));
-        nextShortcut.append(QKeySequence(QStringLiteral("Alt+Left")));
-        nextIcon = QStringLiteral("go-previous-view");
-        prevIcon = QStringLiteral("go-next-view");
+        prevShortcut.append(QKeySequence(u"Alt+Right"_s));
+        nextShortcut.append(QKeySequence(u"Alt+Left"_s));
+        nextIcon = u"go-previous-view"_s;
+        prevIcon = u"go-next-view"_s;
     } else {
-        nextShortcut.append(QKeySequence(QStringLiteral("Alt+Right")));
-        prevShortcut.append(QKeySequence(QStringLiteral("Alt+Left")));
-        nextIcon = QStringLiteral("go-next-view");
-        prevIcon = QStringLiteral("go-previous-view");
+        nextShortcut.append(QKeySequence(u"Alt+Right"_s));
+        prevShortcut.append(QKeySequence(u"Alt+Left"_s));
+        nextIcon = u"go-next-view"_s;
+        prevIcon = u"go-previous-view"_s;
     }
 
     mNextTab = new QAction(QIcon::fromTheme(nextIcon), i18n("&Next Server"), this);
     actionCollection()->setDefaultShortcuts(mNextTab, nextShortcut);
     connect(mNextTab, &QAction::triggered, this, &RuqolaMainWindow::showNextView);
-    actionCollection()->addAction(QStringLiteral("next_tab"), mNextTab);
+    actionCollection()->addAction(u"next_tab"_s, mNextTab);
 
     mPreviewTab = new QAction(QIcon::fromTheme(prevIcon), i18n("&Previous Server"), this);
     actionCollection()->setDefaultShortcuts(mPreviewTab, prevShortcut);
     connect(mPreviewTab, &QAction::triggered, this, &RuqolaMainWindow::showPreviousView);
-    actionCollection()->addAction(QStringLiteral("previous_tab"), mPreviewTab);
+    actionCollection()->addAction(u"previous_tab"_s, mPreviewTab);
 
     {
         mContainerStatusInfo = new QWidget(this);
         auto layout = new QHBoxLayout(mContainerStatusInfo);
         layout->setContentsMargins({});
         auto label = new QLabel(i18nc("@label:textbox", "Status:"), mContainerStatusInfo);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(u"label"_s);
         layout->addWidget(label);
 
         mStatusComboBox = new StatusCombobox(mContainerStatusInfo);
-        mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
+        mStatusComboBox->setObjectName(u"mStatusComboBox"_s);
         layout->addWidget(mStatusComboBox);
         connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotStatusChanged);
         connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotUpdateStatusMenu);
@@ -623,13 +623,13 @@ void RuqolaMainWindow::setupActions()
         QList<QAction *> listActions;
         auto act = new QAction(i18nc("@action", "Previous Selected Channel"), this);
         ac->setDefaultShortcut(act, QKeySequence(Qt::CTRL | Qt::Key_Tab));
-        ac->addAction(QStringLiteral("previous_channel"), act);
+        ac->addAction(u"previous_channel"_s, act);
         listActions.append(act);
 
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::undoSwitchChannel);
 
         act = new QAction(i18nc("@action", "Next Selected Channel"), this);
-        ac->addAction(QStringLiteral("next_channel"), act);
+        ac->addAction(u"next_channel"_s, act);
         const QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
         ac->setDefaultShortcut(act, combinationKeys);
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
@@ -652,52 +652,52 @@ void RuqolaMainWindow::setupActions()
         });
     }
     auto manager = KColorSchemeManager::instance();
-    ac->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
+    ac->addAction(u"colorscheme_menu"_s, KColorSchemeMenu::createMenu(manager, this));
 
     mShowFullScreenAction = KStandardAction::fullScreen(nullptr, nullptr, this, ac);
     ac->setDefaultShortcut(mShowFullScreenAction, Qt::Key_F11);
     connect(mShowFullScreenAction, &QAction::toggled, this, &RuqolaMainWindow::slotFullScreen);
 
-    mShowNotifyHistory = new QAction(QIcon::fromTheme(QStringLiteral("notifications")), i18n("Show Notify History"), this);
+    mShowNotifyHistory = new QAction(QIcon::fromTheme(u"notifications"_s), i18n("Show Notify History"), this);
     connect(mShowNotifyHistory, &QAction::triggered, this, &RuqolaMainWindow::slotOpenNotificationHistory);
-    ac->addAction(QStringLiteral("show_notify_history"), mShowNotifyHistory);
+    ac->addAction(u"show_notify_history"_s, mShowNotifyHistory);
 
     mShowRocketChatServerInfo = new QAction(i18nc("@action", "Show RocketChat Information"), this);
     connect(mShowRocketChatServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotRocketChatInformation);
-    ac->addAction(QStringLiteral("show_rocketchat_information"), mShowRocketChatServerInfo);
+    ac->addAction(u"show_rocketchat_information"_s, mShowRocketChatServerInfo);
 
     mRoomAvatar = new QAction(i18nc("@action", "Show Room Avatar"), this);
     mRoomAvatar->setCheckable(true);
     connect(mRoomAvatar, &QAction::triggered, this, &RuqolaMainWindow::slotShowRoomAvatar);
-    ac->addAction(QStringLiteral("room_avatar"), mRoomAvatar);
+    ac->addAction(u"room_avatar"_s, mRoomAvatar);
 
     mRoomFavorite = new QAction(i18nc("@action", "Show Favorite Room"), this);
     mRoomFavorite->setCheckable(true);
     connect(mRoomFavorite, &QAction::triggered, this, &RuqolaMainWindow::slotShowFavoriteRoom);
-    ac->addAction(QStringLiteral("room_favorite"), mRoomFavorite);
+    ac->addAction(u"room_favorite"_s, mRoomFavorite);
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     auto verifyNewVersionAction = mVerifyNewVersionWidgetAction->verifyNewVersionAction();
-    ac->addAction(QStringLiteral("verify_check_version"), verifyNewVersionAction);
+    ac->addAction(u"verify_check_version"_s, verifyNewVersionAction);
 #endif
 
-    auto showWhatsNewAction = new QAction(QIcon::fromTheme(QStringLiteral("ruqola")), i18n("What's new"), this);
-    ac->addAction(QStringLiteral("whatsnew_ruqola"), showWhatsNewAction);
+    auto showWhatsNewAction = new QAction(QIcon::fromTheme(u"ruqola"_s), i18n("What's new"), this);
+    ac->addAction(u"whatsnew_ruqola"_s, showWhatsNewAction);
     connect(showWhatsNewAction, &QAction::triggered, this, &RuqolaMainWindow::slotWhatsNew);
 
-    mImportAccountsAction = new QAction(QIcon::fromTheme(QStringLiteral("document-import")), i18n("Import Accounts"), this);
+    mImportAccountsAction = new QAction(QIcon::fromTheme(u"document-import"_s), i18n("Import Accounts"), this);
     connect(mImportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotImportAccounts);
-    ac->addAction(QStringLiteral("import_accounts"), mImportAccountsAction);
+    ac->addAction(u"import_accounts"_s, mImportAccountsAction);
 
-    mExportAccountsAction = new QAction(QIcon::fromTheme(QStringLiteral("document-export")), i18n("Export Accounts"), this);
+    mExportAccountsAction = new QAction(QIcon::fromTheme(u"document-export"_s), i18n("Export Accounts"), this);
     connect(mExportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotExportAccounts);
-    ac->addAction(QStringLiteral("export_accounts"), mExportAccountsAction);
+    ac->addAction(u"export_accounts"_s, mExportAccountsAction);
 
     mMessageStyleAction = new MessageStyleLayoutMenu(this);
-    ac->addAction(QStringLiteral("message_style"), mMessageStyleAction);
+    ac->addAction(u"message_style"_s, mMessageStyleAction);
     connect(mMessageStyleAction, &MessageStyleLayoutMenu::styleChanged, this, &RuqolaMainWindow::slotMessageStyleChanged);
 
     mChangeFontSizeAction = new ChangeFontSizeMenu(this);
-    ac->addAction(QStringLiteral("change_font_size"), mChangeFontSizeAction);
+    ac->addAction(u"change_font_size"_s, mChangeFontSizeAction);
     connect(mChangeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [] {
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     });
@@ -711,7 +711,7 @@ void RuqolaMainWindow::setupActions()
         mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
     });
     roomListDisplay->addAction(mRoomListDisplayMedium);
-    ac->addAction(QStringLiteral("room_list_display_medium"), mRoomListDisplayMedium);
+    ac->addAction(u"room_list_display_medium"_s, mRoomListDisplayMedium);
 
     mRoomListDisplayCondensed = new QAction(i18nc("@action", "Condensed"), this);
     mRoomListDisplayCondensed->setCheckable(true);
@@ -720,7 +720,7 @@ void RuqolaMainWindow::setupActions()
     });
 
     roomListDisplay->addAction(mRoomListDisplayCondensed);
-    ac->addAction(QStringLiteral("room_list_display_condensed"), mRoomListDisplayCondensed);
+    ac->addAction(u"room_list_display_condensed"_s, mRoomListDisplayCondensed);
 
     mRoomListDisplayExtended = new QAction(i18nc("@action", "Extended"), this);
     mRoomListDisplayExtended->setCheckable(true);
@@ -728,11 +728,11 @@ void RuqolaMainWindow::setupActions()
         mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
     });
     roomListDisplay->addAction(mRoomListDisplayExtended);
-    ac->addAction(QStringLiteral("room_list_display_extended"), mRoomListDisplayExtended);
+    ac->addAction(u"room_list_display_extended"_s, mRoomListDisplayExtended);
 
-    mClearRoomHistory = new QAction(QIcon::fromTheme(QStringLiteral("edit-clear-all")), i18n("Clear history"), this);
+    mClearRoomHistory = new QAction(QIcon::fromTheme(u"edit-clear-all"_s), i18n("Clear history"), this);
     connect(mClearRoomHistory, &QAction::triggered, this, &RuqolaMainWindow::slotClearRoomHistory);
-    ac->addAction(QStringLiteral("clear_room_history"), mClearRoomHistory);
+    ac->addAction(u"clear_room_history"_s, mClearRoomHistory);
 }
 
 void RuqolaMainWindow::slotMessageStyleChanged()
@@ -952,7 +952,7 @@ void RuqolaMainWindow::slotShowLog()
 {
     auto room = mMainWidget->room();
     if (room) {
-        QTemporaryFile tempFile(QDir::tempPath() + QStringLiteral("/XXXXXX.log.txt"));
+        QTemporaryFile tempFile(QDir::tempPath() + u"/XXXXXX.log.txt"_s);
         tempFile.setAutoRemove(false);
         if (tempFile.open()) {
             LocalMessageLogger logger;
@@ -1221,7 +1221,7 @@ void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
                                               " You can show it again by typing %1.</qt>",
                                               accel),
                                          i18nc("@title:window", "Hide menu bar"),
-                                         QStringLiteral("HideMenuBarWarning"));
+                                         u"HideMenuBarWarning"_s);
             }
             menuBar()->hide();
         }
@@ -1234,13 +1234,13 @@ void RuqolaMainWindow::updateHamburgerMenu()
 {
     delete mHamburgerMenu->menu();
     auto menu = new QMenu(this);
-    menu->addAction(actionCollection()->action(QStringLiteral("add_server")));
+    menu->addAction(actionCollection()->action(u"add_server"_s));
     menu->addSeparator();
-    menu->addAction(actionCollection()->action(QStringLiteral("configure_my_account")));
+    menu->addAction(actionCollection()->action(u"configure_my_account"_s));
     menu->addSeparator();
-    menu->addAction(actionCollection()->action(QStringLiteral("directory")));
+    menu->addAction(actionCollection()->action(u"directory"_s));
     menu->addSeparator();
-    menu->addAction(actionCollection()->action(QStringLiteral("logout")));
+    menu->addAction(actionCollection()->action(u"logout"_s));
     menu->addSeparator();
     menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Quit)));
     mHamburgerMenu->setMenu(menu);

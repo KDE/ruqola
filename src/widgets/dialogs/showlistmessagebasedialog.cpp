@@ -5,6 +5,8 @@
 */
 
 #include "showlistmessagebasedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include "ruqolawidgets_debug.h"
@@ -19,13 +21,13 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(RocketChatAccount *account,
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mShowListMessage->setObjectName(QStringLiteral("mShowListMessage"));
+    mShowListMessage->setObjectName(u"mShowListMessage"_s);
     mainLayout->addWidget(mShowListMessage);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowListMessageBaseDialog::reject);
     connect(mShowListMessage, &ShowListMessageBaseWidget::loadMoreElements, this, &ShowListMessageBaseDialog::slotLoadMoreMessages);

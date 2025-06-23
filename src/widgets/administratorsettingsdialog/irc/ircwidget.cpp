@@ -5,6 +5,8 @@
 */
 
 #include "ircwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 #include <QFormLayout>
@@ -17,18 +19,18 @@ IrcWidget::IrcWidget(RocketChatAccount *account, QWidget *parent)
     , mCacheLimitOutBoundMessage(new QSpinBox(this))
     , mLoginSuccessful(new QLineEdit(this))
 {
-    mCacheLimitOutBoundMessage->setObjectName(QStringLiteral("mCacheLimitOutBoundMessage"));
+    mCacheLimitOutBoundMessage->setObjectName(u"mCacheLimitOutBoundMessage"_s);
     mCacheLimitOutBoundMessage->setToolTip(i18nc("@info:tooltip", "The cache limit for outbound message handling."));
     mCacheLimitOutBoundMessage->setMaximum(99999);
-    addSpinbox(i18n("The cache limit for outbound message handling."), mCacheLimitOutBoundMessage, QStringLiteral("IRC_Message_Cache_Size"));
+    addSpinbox(i18n("The cache limit for outbound message handling."), mCacheLimitOutBoundMessage, u"IRC_Message_Cache_Size"_s);
 
     auto regularExpressionsLabel = createBoldLabel(i18n("Regular Expressions"));
-    regularExpressionsLabel->setObjectName(QStringLiteral("regularExpressionsLabel"));
+    regularExpressionsLabel->setObjectName(u"regularExpressionsLabel"_s);
     mMainLayout->addWidget(regularExpressionsLabel);
 
-    mLoginSuccessful->setObjectName(QStringLiteral("mLoginSuccessful"));
+    mLoginSuccessful->setObjectName(u"mLoginSuccessful"_s);
     mLoginSuccessful->setToolTip(i18nc("@info:tooltip", "Output upon a successful connection to the IRC server."));
-    addLineEdit(i18n("Login Successful"), mLoginSuccessful, QStringLiteral("IRC_RegEx_successLogin"));
+    addLineEdit(i18n("Login Successful"), mLoginSuccessful, u"IRC_RegEx_successLogin"_s);
 }
 
 IrcWidget::~IrcWidget() = default;
@@ -36,7 +38,7 @@ IrcWidget::~IrcWidget() = default;
 void IrcWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
     initializeWidget(mCacheLimitOutBoundMessage, mapSettings, 200);
-    initializeWidget(mLoginSuccessful, mapSettings, QStringLiteral("Welcome to the freenode Internet Relay Chat Network"));
+    initializeWidget(mLoginSuccessful, mapSettings, u"Welcome to the freenode Internet Relay Chat Network"_s);
 }
 
 #include "moc_ircwidget.cpp"

@@ -5,6 +5,8 @@
 */
 
 #include "translatorenginemanager.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <TextTranslator/TranslatorEngineClient>
 #include <TextTranslator/TranslatorEngineLoader>
 #include <TextTranslator/TranslatorEnginePlugin>

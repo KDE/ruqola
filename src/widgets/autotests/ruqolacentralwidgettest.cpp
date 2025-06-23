@@ -5,6 +5,8 @@
 */
 
 #include "ruqolacentralwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "ruqolacentralwidget.h"
 #if 0
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
@@ -27,18 +29,18 @@ RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
 void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaCentralWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainlayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    auto mStackedWidget = w.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
 
 #if 0 // Create on demand => it will be nullptr
-    auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(QStringLiteral("mServerErrorInfoMessageWidget"));
+    auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(u"mServerErrorInfoMessageWidget"_s);
     QVERIFY(mServerErrorInfoMessageWidget);
 #endif
-    auto whatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(QStringLiteral("whatsNewMessageWidget"));
+    auto whatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(u"whatsNewMessageWidget"_s);
     if (WhatsNewTranslations().lastNewFeatures().isEmpty())
         QVERIFY(!whatsNewMessageWidget);
     else

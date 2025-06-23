@@ -5,6 +5,8 @@
 */
 
 #include "serverconfiginfotest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "serverconfiginfo.h"
 
 #include <QTest>

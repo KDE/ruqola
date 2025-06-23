@@ -5,6 +5,8 @@
 */
 
 #include "emojicustomdeletejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "emoji/emojicustomdeletejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -28,8 +30,8 @@ void EmojiCustomDeleteJobTest::shouldGenerateRequest()
     EmojiCustomDeleteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.delete")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/emoji-custom.delete"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void EmojiCustomDeleteJobTest::shouldGenerateJson()

@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomsoundswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratorcustomsoundscreatedialog.h"
 #include "connection.h"
 #include "custom/customsoundslistjob.h"
@@ -27,11 +29,11 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccou
     : SearchTreeBaseWidget(account, parent)
 {
     mModel = new AdminCustomSoundModel(this);
-    mModel->setObjectName(QStringLiteral("mAdminCustomSoundModel"));
+    mModel->setObjectName(u"mAdminCustomSoundModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Custom Sounds"));
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
-    mProxyModelModel->setObjectName(QStringLiteral("mCustomSoundProxyModel"));
+    mProxyModelModel->setObjectName(u"mCustomSoundProxyModel"_s);
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
@@ -78,7 +80,7 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
     // https://<url>/api/v1/custom-sounds.list?query={"name":{"$regex":"d","$options":"i"}}&sort={"name":1}&count=25
     RocketChatRestApi::QueryParameters parameters;
     QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
     parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);
@@ -140,7 +142,7 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
 #if 0
         auto job = new RocketChatRestApi::MethodCallJob(this);
         RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-        info.methodName = QStringLiteral("deleteCustomSound");
+        info.methodName = u"deleteCustomSound"_s;
         info.anonymous = false;
         QJsonObject obj;
         // TODO
@@ -165,13 +167,13 @@ void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoin
 {
     QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
+    menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, index]() {
             slotModifyCustomSound(index);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, index]() {
             slotRemoveCustomSound(index);
         });
     }

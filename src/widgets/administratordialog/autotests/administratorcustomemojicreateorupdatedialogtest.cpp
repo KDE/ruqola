@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomemojicreateorupdatedialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.h"
 #include "administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.h"
 #include <QDialogButtonBox>
@@ -24,13 +26,13 @@ void AdministratorCustomEmojiCreateOrUpdateDialogTest::shouldHaveDefaultValues()
 {
     AdministratorCustomEmojiCreateOrUpdateDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCreateWidget = w.findChild<AdministratorCustomEmojiCreateOrUpdateWidget *>(QStringLiteral("mCreateWidget"));
+    auto mCreateWidget = w.findChild<AdministratorCustomEmojiCreateOrUpdateWidget *>(u"mCreateWidget"_s);
     QVERIFY(mCreateWidget);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "directorystackedwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "directorynotauthorizedwidget.h"
 
 DirectoryStackedWidget::DirectoryStackedWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent)
@@ -12,8 +14,8 @@ DirectoryStackedWidget::DirectoryStackedWidget(RocketChatAccount *account, Direc
     , mDirectoryWidget(new DirectoryWidget(account, type, this))
     , mDirectoryNotAutorizedWidget(new DirectoryNotAuthorizedWidget(this))
 {
-    mDirectoryWidget->setObjectName(QStringLiteral("mDirectoryWidget"));
-    mDirectoryNotAutorizedWidget->setObjectName(QStringLiteral("mDirectoryNotAutorizedWidget"));
+    mDirectoryWidget->setObjectName(u"mDirectoryWidget"_s);
+    mDirectoryNotAutorizedWidget->setObjectName(u"mDirectoryNotAutorizedWidget"_s);
 
     addWidget(mDirectoryWidget);
     addWidget(mDirectoryNotAutorizedWidget);

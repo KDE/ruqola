@@ -5,6 +5,8 @@
 */
 
 #include "showattachmentcomboboxtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "dialogs/showattachmentcombobox.h"
 #include <QTest>
 QTEST_MAIN(ShowAttachmentComboBoxTest)

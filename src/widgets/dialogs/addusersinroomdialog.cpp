@@ -5,6 +5,8 @@
 */
 
 #include "addusersinroomdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "addusersinroomwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,13 +26,13 @@ AddUsersInRoomDialog::AddUsersInRoomDialog(RocketChatAccount *account, QWidget *
 {
     setWindowTitle(i18nc("@title:window", "Add Users in Room"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mAddUsersInRoomWidget->setObjectName(QStringLiteral("mAddUsersInRoomWidget"));
+    mAddUsersInRoomWidget->setObjectName(u"mAddUsersInRoomWidget"_s);
     mainLayout->addWidget(mAddUsersInRoomWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AddUsersInRoomDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AddUsersInRoomDialog::accept);

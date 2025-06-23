@@ -5,6 +5,8 @@
 */
 
 #include "registeruserdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "registeruserwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -26,13 +28,13 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Register User"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mRegisterUserWidget->setObjectName(QStringLiteral("mRegisterUserWidget"));
+    mRegisterUserWidget->setObjectName(u"mRegisterUserWidget"_s);
     mainLayout->addWidget(mRegisterUserWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &RegisterUserDialog::reject);
     readConfig();

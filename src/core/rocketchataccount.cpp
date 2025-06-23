@@ -5,6 +5,8 @@
 */
 
 #include "rocketchataccount.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "accountroomsettings.h"
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "apps/appcountjob.h"
@@ -159,7 +161,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mServerConfigInfo = new ServerConfigInfo(this, this);
     // Create it before loading settings
 
-    mInputTextManager->setObjectName(QStringLiteral("mInputTextManager"));
+    mInputTextManager->setObjectName(u"mInputTextManager"_s);
     connect(mInputTextManager,
             &InputTextManager::completionRequested,
             this,
@@ -167,7 +169,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
                 inputAutocomplete(roomId, pattern, exceptions, type, false);
             });
 
-    mInputThreadMessageTextManager->setObjectName(QStringLiteral("mInputThreadMessageTextManager"));
+    mInputThreadMessageTextManager->setObjectName(u"mInputThreadMessageTextManager"_s);
     connect(mInputThreadMessageTextManager,
             &InputTextManager::completionRequested,
             this,
@@ -196,24 +198,24 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
 
     mFilesModelForRoom = new FilesForRoomModel(this, this);
-    mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
+    mFilesModelForRoom->setObjectName(u"filesmodelforrooms"_s);
     mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(mFilesModelForRoom, this);
-    mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
+    mFilesForRoomFilterProxyModel->setObjectName(u"filesforroomfiltermodelproxy"_s);
 
-    mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
+    mDiscussionsModel->setObjectName(u"discussionsmodel"_s);
     mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(mDiscussionsModel, this);
-    mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));
+    mDiscussionsFilterProxyModel->setObjectName(u"discussionsfilterproxymodel"_s);
 
     mThreadMessageModel = new ThreadMessageModel(this, this);
-    mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
+    mThreadMessageModel->setObjectName(u"threadmessagemodel"_s);
 
     mListMessageModel = new ListMessagesModel(QByteArray(), this, nullptr, this);
-    mListMessageModel->setObjectName(QStringLiteral("listmessagemodel"));
+    mListMessageModel->setObjectName(u"listmessagemodel"_s);
 
     mListMessagesFilterProxyModel = new ListMessagesFilterProxyModel(mListMessageModel, this);
-    mListMessagesFilterProxyModel->setObjectName(QStringLiteral("listmessagesfiltermodelproxy"));
+    mListMessagesFilterProxyModel->setObjectName(u"listmessagesfiltermodelproxy"_s);
 
-    mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));
+    mAutoTranslateLanguagesModel->setObjectName(u"autotranslatelanguagesmodel"_s);
 
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
@@ -488,7 +490,7 @@ void RocketChatAccount::textEditing(const QByteArray &roomId, bool clearNotifica
 
 void RocketChatAccount::reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact)
 {
-    if (emoji.startsWith(QLatin1Char(':')) && emoji.endsWith(QLatin1Char(':'))) {
+    if (emoji.startsWith(u':') && emoji.endsWith(u':')) {
         restApi()->reactOnMessage(messageId, emoji, shouldReact);
     } else {
         restApi()->reactOnMessage(messageId, mEmojiManager->normalizedReactionEmoji(emoji), shouldReact);
@@ -812,11 +814,11 @@ void RocketChatAccount::joinJitsiConfCall(const QByteArray &roomId)
     // const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
     const QString hash = mRuqolaServerConfig->uniqueId() + QString::fromLatin1(roomId);
 #if defined(Q_OS_IOS)
-    const QString scheme = QStringLiteral("org.jitsi.meet://");
+    const QString scheme = u"org.jitsi.meet://"_s;
 #else
-    const QString scheme = QStringLiteral("https://");
+    const QString scheme = u"https://"_s;
 #endif
-    const QString url = scheme + mRuqolaServerConfig->jitsiMeetUrl() + QLatin1Char('/') + mRuqolaServerConfig->jitsiMeetPrefix() + hash;
+    const QString url = scheme + mRuqolaServerConfig->jitsiMeetUrl() + u'/' + mRuqolaServerConfig->jitsiMeetPrefix() + hash;
     const QUrl clickedUrl = QUrl::fromUserInput(url);
     RuqolaUtils::self()->openUrl(clickedUrl);
 }
@@ -855,7 +857,7 @@ void RocketChatAccount::initializeDirectChannel(const QByteArray &rid)
 
 void RocketChatAccount::openDirectChannel(const QString &roomId)
 {
-    if (hasPermission(QStringLiteral("create-d"))) {
+    if (hasPermission(u"create-d"_s)) {
         auto job = new RocketChatRestApi::OpenDmJob(this);
         job->setDirectUserId(roomId);
         restApi()->initializeRestApiJob(job);
@@ -885,7 +887,7 @@ void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QStrin
     // => use restapi for calling ddp method
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-    info.methodName = QStringLiteral("getRoomByTypeAndName");
+    info.methodName = u"getRoomByTypeAndName"_s;
     info.anonymous = false;
     const QJsonArray params{{roomType}, {QString::fromLatin1(rid)}};
     info.messageObj = ddp()->generateJsonObject(info.methodName, params);
@@ -1101,11 +1103,11 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QB
         mMarkUnreadThreadsAsReadOnNextReply = false;
 
         ListMessages messages;
-        messages.parseMessages(obj, QStringLiteral("threads"));
+        messages.parseMessages(obj, u"threads"_s);
         const auto listMessages = messages.listMessages();
         for (const auto &msg : listMessages) {
             QJsonObject params;
-            params.insert(QStringLiteral("tmid"), QString::fromLatin1(msg.messageId()));
+            params.insert(u"tmid"_s, QString::fromLatin1(msg.messageId()));
             ddp()->getThreadMessages(params);
         }
         return;
@@ -1712,8 +1714,8 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
     if (!tmpUrl.startsWith("https://"_L1)) {
         tmpUrl = "https://"_L1 + tmpUrl;
     }
-    if (!link.startsWith(QLatin1Char('/'))) {
-        tmpUrl += QLatin1Char('/');
+    if (!link.startsWith(u'/')) {
+        tmpUrl += u'/';
     }
     const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + link);
     return downloadFileUrl;
@@ -1800,7 +1802,7 @@ void RocketChatAccount::setServerVersion(const QString &version)
 
 bool RocketChatAccount::teamEnabled() const
 {
-    return hasPermission(QStringLiteral("create-team"));
+    return hasPermission(u"create-team"_s);
 }
 
 ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
@@ -1832,13 +1834,13 @@ void RocketChatAccount::setRoomListDisplay(OwnUserPreferences::RoomListDisplay r
     info.userId = userId();
     switch (roomListDisplay) {
     case OwnUserPreferences::RoomListDisplay::Medium:
-        info.sidebarViewMode = QStringLiteral("medium");
+        info.sidebarViewMode = u"medium"_s;
         break;
     case OwnUserPreferences::RoomListDisplay::Condensed:
-        info.sidebarViewMode = QStringLiteral("condensed");
+        info.sidebarViewMode = u"condensed"_s;
         break;
     case OwnUserPreferences::RoomListDisplay::Extended:
-        info.sidebarViewMode = QStringLiteral("extended");
+        info.sidebarViewMode = u"extended"_s;
         break;
     case OwnUserPreferences::RoomListDisplay::Unknown:
         qCWarning(RUQOLA_LOG) << " OwnUserPreferences::setRoomListDisplay::Unknown is a bug";
@@ -1853,10 +1855,10 @@ void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrd
     info.userId = userId();
     switch (roomListSortOrder) {
     case OwnUserPreferences::RoomListSortOrder::ByLastMessage:
-        info.sidebarSortby = QStringLiteral("activity");
+        info.sidebarSortby = u"activity"_s;
         break;
     case OwnUserPreferences::RoomListSortOrder::Alphabetically:
-        info.sidebarSortby = QStringLiteral("alphabetical");
+        info.sidebarSortby = u"alphabetical"_s;
         break;
     case OwnUserPreferences::RoomListSortOrder::Unknown:
         qCWarning(RUQOLA_LOG) << " OwnUserPreferences::RoomListSortOrder::Unknown is a bug";
@@ -1977,7 +1979,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
         return false;
     }
 
-    const bool canEditMessage = hasPermission(QStringLiteral("edit-message"), message.roomId());
+    const bool canEditMessage = hasPermission(u"edit-message"_s, message.roomId());
     const bool isEditAllowed = mRuqolaServerConfig->allowEditingMessages();
     const bool editOwn = message.userId() == userId();
 
@@ -1994,7 +1996,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
 {
-    if (hasPermission(QStringLiteral("force-delete-message"), message.roomId())) {
+    if (hasPermission(u"force-delete-message"_s, message.roomId())) {
         return true;
     }
 
@@ -2002,8 +2004,8 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
         return false;
     }
 
-    const bool deleteAnyAllowed = hasPermission(QStringLiteral("delete-message"), message.roomId());
-    const bool deleteOwnAllowed = hasPermission(QStringLiteral("delete-own-message"), message.roomId());
+    const bool deleteAnyAllowed = hasPermission(u"delete-message"_s, message.roomId());
+    const bool deleteOwnAllowed = hasPermission(u"delete-own-message"_s, message.roomId());
     const bool deleteAllowed = deleteAnyAllowed || (deleteOwnAllowed && message.userId() == userId());
 
     if (!deleteAllowed) {
@@ -2012,7 +2014,7 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
 
     constexpr int minutes = 60 * 1000;
     const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
-    const bool bypassBlockTimeLimit = hasPermission(QStringLiteral("bypass-time-limit-edit-and-delete"), message.roomId());
+    const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete"_s, message.roomId());
     const bool elapsedMinutes = (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
     const bool onTimeForDelete = bypassBlockTimeLimit || !blockDeleteInMinutes || elapsedMinutes;
 
@@ -2055,7 +2057,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
             if (!iconFileName.isEmpty()) {
                 const QUrl url = QUrl::fromLocalFile(iconFileName);
                 // qDebug() << "url.toLocalFile()" << url.toLocalFile();
-                const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
+                const bool loaded = pix.load(url.toLocalFile().remove(u"file://"_s), "JPEG");
                 // qDebug() << " load pixmap : " << loaded;
                 // qDebug() << " pix " << pix.isNull();
                 Q_UNUSED(loaded)
@@ -2433,11 +2435,11 @@ QMap<QString, DownloadAppsLanguagesInfo> RocketChatAccount::languagesAppsMap() c
 // apps/meteor/client/views/room/contextualBar/RoomFiles/hooks/useMessageDeletionIsAllowed.ts
 bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArray &fileUserId, qint64 uploadedAt) const
 {
-    const bool canForceDelete = hasPermission(QStringLiteral("force-delete-message"), roomId);
+    const bool canForceDelete = hasPermission(u"force-delete-message"_s, roomId);
     const bool deletionIsEnabled = mRuqolaServerConfig->allowMessageDeletingEnabled();
-    const bool userHasPermissionToDeleteAny = hasPermission(QStringLiteral("delete-message"), roomId);
-    const bool userHasPermissionToDeleteOwn = hasPermission(QStringLiteral("delete-own-message"));
-    const bool bypassBlockTimeLimit = hasPermission(QStringLiteral("bypass-time-limit-edit-and-delete"), roomId);
+    const bool userHasPermissionToDeleteAny = hasPermission(u"delete-message"_s, roomId);
+    const bool userHasPermissionToDeleteOwn = hasPermission(u"delete-own-message"_s);
+    const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete"_s, roomId);
     const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
     if (canForceDelete) {
         return true;
@@ -2770,7 +2772,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 // TODO update private key!!!!!
                 qDebug() << " e2e.private_key changed !!! " << updateJson.value(key).toString();
             } else {
-                const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
+                const static QRegularExpression bannerRegularExpression(u"banners.(.*).read"_s);
                 QRegularExpressionMatch rmatch;
                 if (key.contains(bannerRegularExpression, &rmatch)) {
                     if (rmatch.hasMatch()) {
@@ -2913,7 +2915,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
 
 bool RocketChatAccount::hasAutotranslateSupport() const
 {
-    return mRuqolaServerConfig->autoTranslateEnabled() && hasPermission(QStringLiteral("auto-translate"));
+    return mRuqolaServerConfig->autoTranslateEnabled() && hasPermission(u"auto-translate"_s);
 }
 
 MessageCache *RocketChatAccount::messageCache() const
@@ -3347,9 +3349,9 @@ void RocketChatAccount::roomsParsing(const QJsonObject &root)
             mRuqolaLogger->dataReceived("Rooms:"_ba + d.toJson());
         }
         // TODO: why checking the room type?
-        if (roomType == QLatin1Char('c') // Chat
-            || roomType == QLatin1Char('p') /*Private chat*/
-            || roomType == QLatin1Char('d') /*Direct chat*/) {
+        if (roomType == u'c' // Chat
+            || roomType == u'p' /*Private chat*/
+            || roomType == u'd' /*Direct chat*/) {
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
                 model->updateRoom(roomJson);
@@ -3385,14 +3387,14 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
 
             mRuqolaLogger->dataReceived("Rooms subscriptions:"_ba + d.toJson());
         }
-        if (roomType == QLatin1Char('c') // Chat
-            || roomType == QLatin1Char('p') // Private chat
-            || roomType == QLatin1Char('d')) { // Direct chat
+        if (roomType == u'c' // Chat
+            || roomType == u'p' // Private chat
+            || roomType == u'd') { // Direct chat
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
                 model->addRoom(room);
             }
-        } else if (roomType == QLatin1Char('l')) { // Live chat
+        } else if (roomType == u'l') { // Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
         }
     }

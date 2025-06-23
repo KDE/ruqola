@@ -5,6 +5,8 @@
 */
 
 #include "messageattachmentdelegatehelperimage.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "dialogs/showimagedialog.h"
 #include "misc/messageattachmentdownloadandsavejob.h"
@@ -43,10 +45,10 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
     // drawTitle(msgAttach, painter, );
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
+    const QIcon downloadIcon = QIcon::fromTheme(u"cloud-download"_s);
     if (!layout.pixmap.isNull()) {
         // Draw title and buttons
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
+        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? u"visibility"_s : u"hint"_s);
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
         downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
@@ -259,11 +261,11 @@ bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
     if (layout.isShown) {
         const QRect rectAdjusted = attachmentsRect.adjusted(0, 0, 0, -(layout.titleSize.height() + DelegatePaintUtil::margin()));
         if (rectAdjusted.contains(pos)) {
-            auto copyImageAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Image to Clipboard"), menu);
+            auto copyImageAction = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18n("Copy Image to Clipboard"), menu);
             connect(copyImageAction, &QAction::triggered, this, [msgAttach, option, layout]() {
                 auto data = new QMimeData();
                 data->setImageData(layout.pixmap.toImage());
-                data->setData(QStringLiteral("x-kde-force-image-copy"), QByteArray());
+                data->setData(u"x-kde-force-image-copy"_s, QByteArray());
                 QApplication::clipboard()->setMimeData(data, QClipboard::Clipboard);
             });
             menu->addAction(copyImageAction);

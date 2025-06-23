@@ -5,6 +5,8 @@
 */
 
 #include "conferencecalldialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -16,13 +18,13 @@ ConferenceCallDialog::ConferenceCallDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Start a Call"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mConferenceCallWidget->setObjectName(QStringLiteral("mConferenceCallWidget"));
+    mConferenceCallWidget->setObjectName(u"mConferenceCallWidget"_s);
     mainLayout->addWidget(mConferenceCallWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     button->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Start"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ConferenceCallDialog::reject);

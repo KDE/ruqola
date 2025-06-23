@@ -22,26 +22,26 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     mRoomId = o.value("rid"_L1).toString().toLatin1();
     mText = o.value("msg"_L1).toString();
     if (restApi) {
-        mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), o);
-        setEditedAt(Utils::parseIsoDate(QStringLiteral("editedAt"), o));
-        setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
-        if (o.contains(QStringLiteral("tlm"))) {
-            setThreadLastMessage(Utils::parseIsoDate(QStringLiteral("tlm"), o));
+        mUpdatedAt = Utils::parseIsoDate(u"_updatedAt"_s, o);
+        setEditedAt(Utils::parseIsoDate(u"editedAt"_s, o));
+        setTimeStamp(Utils::parseIsoDate(u"ts"_s, o));
+        if (o.contains(u"tlm"_s)) {
+            setThreadLastMessage(Utils::parseIsoDate(u"tlm"_s, o));
         }
-        if (o.contains(QStringLiteral("dlm"))) {
-            setDiscussionLastMessage(Utils::parseIsoDate(QStringLiteral("dlm"), o));
+        if (o.contains(u"dlm"_s)) {
+            setDiscussionLastMessage(Utils::parseIsoDate(u"dlm"_s, o));
         }
     } else {
-        setTimeStamp(Utils::parseDate(QStringLiteral("ts"), o));
-        mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
-        setEditedAt(Utils::parseDate(QStringLiteral("editedAt"), o));
+        setTimeStamp(Utils::parseDate(u"ts"_s, o));
+        mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, o);
+        setEditedAt(Utils::parseDate(u"editedAt"_s, o));
         // Verify if a day we will use not restapi for it.
-        if (o.contains(QStringLiteral("tlm"))) {
-            setThreadLastMessage(Utils::parseDate(QStringLiteral("tlm"), o));
+        if (o.contains(u"tlm"_s)) {
+            setThreadLastMessage(Utils::parseDate(u"tlm"_s, o));
         }
         // Verify if a day we will use not restapi for it.
-        if (o.contains(QStringLiteral("dlm"))) {
-            setDiscussionLastMessage(Utils::parseDate(QStringLiteral("dlm"), o));
+        if (o.contains(u"dlm"_s)) {
+            setDiscussionLastMessage(Utils::parseDate(u"dlm"_s, o));
         }
     }
 
@@ -788,7 +788,7 @@ QString Message::systemMessageText() const
     case SystemMessageTypeUtil::SystemMessageType::RoomPrivacyChanged:
         return i18n("%2 changed room privacy to %1", mText, mUsername);
     case SystemMessageTypeUtil::SystemMessageType::JitsiCallStarted:
-        return QStringLiteral("<a href=\"ruqola:/jitsicall/\">") + i18n("Click to join to video") + QStringLiteral("</a>");
+        return u"<a href=\"ruqola:/jitsicall/\">"_s + i18n("Click to join to video") + u"</a>"_s;
     case SystemMessageTypeUtil::SystemMessageType::MessageDeleted:
         // TODO encrypted message
         return i18n("Message Deleted");
@@ -985,7 +985,7 @@ void Message::setTimeStamp(qint64 timeStamp)
 {
     if (mTimeStamp != timeStamp) {
         mTimeStamp = timeStamp;
-        mDisplayTime = QDateTime::fromMSecsSinceEpoch(mTimeStamp).time().toString(QStringLiteral("hh:mm"));
+        mDisplayTime = QDateTime::fromMSecsSinceEpoch(mTimeStamp).time().toString(u"hh:mm"_s);
     }
 }
 

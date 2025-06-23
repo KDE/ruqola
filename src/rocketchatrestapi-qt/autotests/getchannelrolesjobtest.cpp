@@ -5,6 +5,8 @@
 */
 
 #include "getchannelrolesjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "channels/getchannelrolesjob.h"
 #include "restapimethod.h"
 #include <QTest>
@@ -31,15 +33,15 @@ void GetChannelRolesJobTest::shouldGenerateRequest()
 {
     GetChannelRolesJob job;
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    const QString roomId = QStringLiteral("avat");
+    const QString roomId = u"avat"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.roles?roomId=avat")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.roles?roomId=avat"_s));
 }
 
 #include "moc_getchannelrolesjobtest.cpp"

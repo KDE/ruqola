@@ -5,6 +5,8 @@
 */
 
 #include "removeaccountdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configuredialog/removeaccountdialog.h"
 #include "configuredialog/removeaccountwidget.h"
 #include <QDialogButtonBox>
@@ -20,13 +22,13 @@ void RemoveAccountDialogTest::shouldHaveDefaultValues()
 {
     RemoveAccountDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mRemoveAccountWidget = d.findChild<RemoveAccountWidget *>(QStringLiteral("mRemoveAccountWidget"));
+    auto mRemoveAccountWidget = d.findChild<RemoveAccountWidget *>(u"mRemoveAccountWidget"_s);
     QVERIFY(mRemoveAccountWidget);
 
-    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
 
     QVERIFY(!d.removeLogs());

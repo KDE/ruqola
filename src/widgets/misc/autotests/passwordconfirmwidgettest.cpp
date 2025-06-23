@@ -5,6 +5,8 @@
 */
 
 #include "passwordconfirmwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/passwordconfirmwidget.h"
 #include "misc/passwordvalidatewidget.h"
 #include <KPasswordLineEdit>
@@ -20,37 +22,37 @@ void PasswordConfirmWidgetTest::shouldHaveDefaultValues()
 {
     PasswordConfirmWidget w;
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mNewPasswordLineEdit"));
+    auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mNewPasswordLineEdit"_s);
     QVERIFY(mNewPasswordLineEdit);
 
-    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
+    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mConfirmPasswordLineEdit"_s);
     QVERIFY(mConfirmPasswordLineEdit);
 
     QVERIFY(!w.isNewPasswordConfirmed());
 
-    auto mPasswordValidateWidget = w.findChild<PasswordValidateWidget *>(QStringLiteral("mPasswordValidateWidget"));
+    auto mPasswordValidateWidget = w.findChild<PasswordValidateWidget *>(u"mPasswordValidateWidget"_s);
     QVERIFY(mPasswordValidateWidget);
 }
 
 void PasswordConfirmWidgetTest::shouldReturnNewPassword()
 {
     PasswordConfirmWidget w;
-    auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mNewPasswordLineEdit"));
+    auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mNewPasswordLineEdit"_s);
 
-    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
+    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mConfirmPasswordLineEdit"_s);
     QVERIFY(!w.isNewPasswordConfirmed());
-    mNewPasswordLineEdit->setPassword(QStringLiteral("bla"));
+    mNewPasswordLineEdit->setPassword(u"bla"_s);
     // mConfirmPasswordLineEdit is Empty => not a new password
     QVERIFY(!w.isNewPasswordConfirmed());
 
-    mConfirmPasswordLineEdit->setPassword(QStringLiteral("bli"));
+    mConfirmPasswordLineEdit->setPassword(u"bli"_s);
     QVERIFY(!w.isNewPasswordConfirmed());
 
-    mConfirmPasswordLineEdit->setPassword(QStringLiteral("bla"));
+    mConfirmPasswordLineEdit->setPassword(u"bla"_s);
     QVERIFY(w.isNewPasswordConfirmed());
 }
 

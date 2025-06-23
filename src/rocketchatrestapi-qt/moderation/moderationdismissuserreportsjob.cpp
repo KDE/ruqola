@@ -81,7 +81,7 @@ QNetworkRequest ModerationDismissUserReportsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationDismissUserReports);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), QString::fromLatin1(mModerationReportedUserId));
+    queryUrl.addQueryItem(u"userId"_s, QString::fromLatin1(mModerationReportedUserId));
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

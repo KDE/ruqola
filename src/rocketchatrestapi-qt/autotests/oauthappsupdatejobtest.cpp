@@ -5,6 +5,8 @@
 */
 
 #include "oauthappsupdatejobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "misc/oauthappsupdatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,8 +31,8 @@ void OauthAppsUpdateJobTest::shouldGenerateRequest()
     OauthAppsUpdateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.update")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/oauth-apps.update"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void OauthAppsUpdateJobTest::shouldGenerateJson()
@@ -38,10 +40,10 @@ void OauthAppsUpdateJobTest::shouldGenerateJson()
     OauthAppsUpdateJob job;
     OauthAppsUpdateJob::OauthAppsUpdateInfo foo;
     job.setOauthAppsUpdateInfo(foo);
-    foo.name = QStringLiteral("bla");
-    foo.redirectUri = QStringLiteral("bl");
+    foo.name = u"bla"_s;
+    foo.redirectUri = u"bl"_s;
     foo.active = true;
-    foo.appId = QStringLiteral("bli");
+    foo.appId = u"bli"_s;
     job.setOauthAppsUpdateInfo(foo);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"active":true,"appId":"bli","name":"bla","redirectUri":"bl"})").toLatin1());
@@ -52,14 +54,14 @@ void OauthAppsUpdateJobTest::shouldNotStarting()
     OauthAppsUpdateJob job;
 
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
 
     QNetworkAccessManager mNetworkAccessManager;
     job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
-    const QString auth = QStringLiteral("foo");
-    const QString userId = QStringLiteral("foo");
+    const QString auth = u"foo"_s;
+    const QString userId = u"foo"_s;
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
@@ -69,11 +71,11 @@ void OauthAppsUpdateJobTest::shouldNotStarting()
     job.setOauthAppsUpdateInfo(foo);
     QVERIFY(!job.canStart());
 
-    foo.name = QStringLiteral("bla");
+    foo.name = u"bla"_s;
     job.setOauthAppsUpdateInfo(foo);
     QVERIFY(!job.canStart());
 
-    foo.redirectUri = QStringLiteral("bl");
+    foo.redirectUri = u"bl"_s;
     job.setOauthAppsUpdateInfo(foo);
     QVERIFY(!job.canStart());
 
@@ -81,7 +83,7 @@ void OauthAppsUpdateJobTest::shouldNotStarting()
     job.setOauthAppsUpdateInfo(foo);
     QVERIFY(!job.canStart());
 
-    foo.appId = QStringLiteral("vvs");
+    foo.appId = u"vvs"_s;
     job.setOauthAppsUpdateInfo(foo);
     QVERIFY(job.canStart());
 }

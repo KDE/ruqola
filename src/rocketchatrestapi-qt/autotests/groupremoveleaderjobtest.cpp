@@ -5,6 +5,8 @@
 */
 
 #include "groupremoveleaderjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "groups/groupremoveleaderjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
@@ -29,15 +31,15 @@ void GroupRemoveLeaderJobTest::shouldGenerateRequest()
     GroupRemoveLeaderJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.removeLeader")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.removeLeader"_s));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void GroupRemoveLeaderJobTest::shouldGenerateJson()
 {
     GroupRemoveLeaderJob job;
-    const QString roomId = QStringLiteral("foo1");
-    const QString removeUserId = QStringLiteral("topic1");
+    const QString roomId = u"foo1"_s;
+    const QString removeUserId = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = roomId;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;

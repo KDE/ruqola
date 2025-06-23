@@ -5,6 +5,8 @@
 */
 
 #include "logoutjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "authentication/logoutjob.h"
 #include "restapimethod.h"
 #include <QTest>
@@ -33,15 +35,15 @@ void LogoutJobTest::shouldHaveDefaultValue()
 void LogoutJobTest::shouldGenerateRequest()
 {
     LogoutJob job;
-    const QString authToken = QStringLiteral("foo");
-    const QString userId = QStringLiteral("user");
+    const QString authToken = u"foo"_s;
+    const QString userId = u"user"_s;
     job.setUserId(userId);
     job.setAuthToken(authToken);
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/logout")));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/logout"_s));
     QCOMPARE(request.rawHeader("X-Auth-Token"_ba), authToken.toLocal8Bit());
     QCOMPARE(request.rawHeader("X-User-Id"_ba), userId.toLocal8Bit());
 }

@@ -28,7 +28,7 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
 
     {
         QList<ActionButton> buttons;
-        QTest::addRow("actionbuttons-empty") << QStringLiteral("actionbuttons-empty") << buttons;
+        QTest::addRow("actionbuttons-empty") << u"actionbuttons-empty"_s << buttons;
     }
     {
         QList<ActionButton> buttons;
@@ -39,7 +39,7 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
         b.setButtonContext(ActionButton::ButtonContext::RoomAction);
         b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
         buttons.append(b);
-        QTest::addRow("actionbuttons-test1") << QStringLiteral("actionbuttons-test1") << buttons;
+        QTest::addRow("actionbuttons-test1") << u"actionbuttons-test1"_s << buttons;
     }
     {
         QList<ActionButton> buttons;
@@ -94,7 +94,7 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
             b.setRoomTypeFilters(f);
             buttons.append(b);
         }
-        QTest::addRow("actionbuttons-test2") << QStringLiteral("actionbuttons-test2") << buttons;
+        QTest::addRow("actionbuttons-test2") << u"actionbuttons-test2"_s << buttons;
     }
     // TODO
 }

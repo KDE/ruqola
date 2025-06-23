@@ -47,18 +47,18 @@ void DirectoryJob::initialQueryParameters()
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mDirectoryInfo.searchType is undefined";
         break;
     case SearchType::Rooms:
-        customMap.insert(QStringLiteral("type"), QStringLiteral("channels"));
+        customMap.insert(u"type"_s, u"channels"_s);
         break;
     case SearchType::Users:
-        customMap.insert(QStringLiteral("type"), QStringLiteral("users"));
+        customMap.insert(u"type"_s, u"users"_s);
         break;
     case SearchType::Teams:
-        customMap.insert(QStringLiteral("type"), QStringLiteral("teams")); // Verify
+        customMap.insert(u"type"_s, u"teams"_s); // Verify
         break;
     }
 
-    customMap.insert(QStringLiteral("text"), mDirectoryInfo.pattern);
-    customMap.insert(QStringLiteral("workspace"), QStringLiteral("local"));
+    customMap.insert(u"text"_s, mDirectoryInfo.pattern);
+    customMap.insert(u"workspace"_s, u"local"_s);
     parameters.setCustom(customMap);
     setQueryParameters(parameters);
 }

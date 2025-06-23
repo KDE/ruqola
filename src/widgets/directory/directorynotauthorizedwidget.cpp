@@ -5,6 +5,8 @@
 */
 
 #include "directorynotauthorizedwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -14,10 +16,10 @@ DirectoryNotAuthorizedWidget::DirectoryNotAuthorizedWidget(QWidget *parent)
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    auto label = new QLabel(QStringLiteral("<qt><b>") + i18n("You are not authorized to view this page.") + QStringLiteral("</b></qt>"), this);
-    label->setObjectName(QStringLiteral("label"));
+    auto label = new QLabel(u"<qt><b>"_s + i18n("You are not authorized to view this page.") + u"</b></qt>"_s, this);
+    label->setObjectName(u"label"_s);
     label->setTextFormat(Qt::RichText);
     mainLayout->addWidget(label, 0, Qt::AlignCenter);
 }

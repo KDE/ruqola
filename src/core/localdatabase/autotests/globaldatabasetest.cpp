@@ -5,22 +5,24 @@
 */
 
 #include "globaldatabasetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "localdatabase/globaldatabase.h"
 #include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(GlobalDatabaseTest)
 static QString accountName()
 {
-    return QStringLiteral("myAccount");
+    return u"myAccount"_s;
 }
 
 static QString roomName()
 {
-    return QStringLiteral("myRoom");
+    return u"myRoom"_s;
 }
 static QString roomNameOther()
 {
-    return QStringLiteral("myOtherRoom");
+    return u"myOtherRoom"_s;
 }
 
 enum class Fields {
@@ -78,18 +80,16 @@ void GlobalDatabaseTest::shouldGenerateIdentifier_data()
     QTest::addColumn<QString>("result");
 
     QTest::addRow("empty") << QString() << QString() << GlobalDatabase::TimeStampType::MessageTimeStamp << QString();
-    QTest::addRow("test1") << QStringLiteral("account1") << QStringLiteral("room1") << GlobalDatabase::TimeStampType::MessageTimeStamp
-                           << QStringLiteral("messages-account1-room1");
-    QTest::addRow("test2") << QStringLiteral("account2") << QStringLiteral("room2") << GlobalDatabase::TimeStampType::RoomTimeStamp
-                           << QStringLiteral("rooms-account2-room2");
-    QTest::addRow("test3") << QStringLiteral("account3") << QString() << GlobalDatabase::TimeStampType::AccountTimeStamp << QStringLiteral("account-account3");
+    QTest::addRow("test1") << u"account1"_s << u"room1"_s << GlobalDatabase::TimeStampType::MessageTimeStamp << u"messages-account1-room1"_s;
+    QTest::addRow("test2") << u"account2"_s << u"room2"_s << GlobalDatabase::TimeStampType::RoomTimeStamp << u"rooms-account2-room2"_s;
+    QTest::addRow("test3") << u"account3"_s << QString() << GlobalDatabase::TimeStampType::AccountTimeStamp << u"account-account3"_s;
 }
 
 void GlobalDatabaseTest::shouldVerifyDbFileName()
 {
     GlobalDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
-             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/global/myAccount/myAccount.sqlite"));
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/global/myAccount/myAccount.sqlite"_s);
 }
 
 void GlobalDatabaseTest::shouldRemoveTimeStamp()

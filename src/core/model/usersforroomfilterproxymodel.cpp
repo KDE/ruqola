@@ -5,6 +5,8 @@
 */
 
 #include "usersforroomfilterproxymodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "usersforroommodel.h"
 
 UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
@@ -93,7 +95,7 @@ bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
 
     if (mStatusType == UsersForRoomFilterProxyModel::FilterUserType::Owners) {
         const QStringList roles = sourceIndex.data(UsersForRoomModel::Roles).toStringList();
-        return roles.contains(QStringLiteral("owner")) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+        return roles.contains(u"owner"_s) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     } else {
         UsersForRoomFilterProxyModel::FilterUserType userStatus = UsersForRoomFilterProxyModel::FilterUserType::All;
         const User::PresenceStatus statusType = sourceIndex.data(UsersForRoomModel::Status).value<User::PresenceStatus>();

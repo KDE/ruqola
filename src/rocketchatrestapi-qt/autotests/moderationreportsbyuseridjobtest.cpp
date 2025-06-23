@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportsbyuseridjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "moderation/moderationreportsbyuseridjob.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(ModerationReportsByUserIdJobTest)
@@ -30,14 +32,14 @@ void ModerationReportsByUserIdJobTest::shouldGenerateRequest()
         ModerationReportsByUserIdJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId"_s));
     }
     {
         ModerationReportsByUserIdJob job;
         job.setModerationUserId("foo"_ba);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId=foo")));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.user.reportsByUserId?userId=foo"_s));
     }
 }
 

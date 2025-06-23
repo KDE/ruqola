@@ -5,6 +5,8 @@
 */
 
 #include "usersinroomwidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/usersforroommodeldelegate.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "model/usersforroomfilterproxymodel.h"
@@ -30,25 +32,25 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto hMainLayout = new QHBoxLayout;
-    hMainLayout->setObjectName(QStringLiteral("hMainLayout"));
+    hMainLayout->setObjectName(u"hMainLayout"_s);
     hMainLayout->setContentsMargins({});
     mainLayout->addLayout(hMainLayout);
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &UsersInRoomWidget::slotTextChanged);
     hMainLayout->addWidget(mSearchLineEdit);
-    mUsersInRoomComboBox->setObjectName(QStringLiteral("mUsersInRoomComboBox"));
+    mUsersInRoomComboBox->setObjectName(u"mUsersInRoomComboBox"_s);
     hMainLayout->addWidget(mUsersInRoomComboBox);
     connect(mUsersInRoomComboBox, &UsersInRoomComboBox::currentIndexChanged, this, &UsersInRoomWidget::slotChangeStatusType);
 
-    mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
+    mMessageListInfo->setObjectName(u"mMessageListInfo"_s);
     mMessageListInfo->setTextFormat(Qt::RichText);
     mMessageListInfo->setContextMenuPolicy(Qt::NoContextMenu);
     QFont labFont = mMessageListInfo->font();
@@ -57,7 +59,7 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     connect(mMessageListInfo, &QLabel::linkActivated, this, &UsersInRoomWidget::loadMoreUsers);
     mainLayout->addWidget(mMessageListInfo);
 
-    mListView->setObjectName(QStringLiteral("mListView"));
+    mListView->setObjectName(u"mListView"_s);
     mainLayout->addWidget(mListView);
     mListView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListView, &QListView::customContextMenuRequested, this, &UsersInRoomWidget::slotCustomContextMenuRequested);
@@ -153,7 +155,7 @@ QString UsersInRoomWidget::displayShowMessageInRoom() const
     QString displayMessageStr =
         i18np("%1 User in room (Total: %2)", "%1 Users in room (Total: %2)", mUsersForRoomFilterProxy->numberOfUsers(), mUsersForRoomFilterProxy->total());
     if (!mUsersForRoomFilterProxy->hasFullList()) {
-        displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more…)"));
+        displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
 }

@@ -5,6 +5,8 @@
 */
 
 #include "forwardmessagedialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "forwardmessagewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -17,13 +19,13 @@ ForwardMessageDialog::ForwardMessageDialog(RocketChatAccount *account, QWidget *
 {
     setWindowTitle(i18nc("@title:window", "Forward Message"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mForwardMessageWidget->setObjectName(QStringLiteral("mForwardMessageWidget"));
+    mForwardMessageWidget->setObjectName(u"mForwardMessageWidget"_s);
     mainLayout->addWidget(mForwardMessageWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ForwardMessageDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ForwardMessageDialog::reject);
     mainLayout->addWidget(buttonBox);

@@ -35,7 +35,7 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
         User user;
         user.setStatus(User::PresenceStatus::Unknown);
         moderationReportUserInfos.setUser(user);
-        QTest::addRow("empty") << QStringLiteral("empty") << moderationReportUserInfos;
+        QTest::addRow("empty") << u"empty"_s << moderationReportUserInfos;
     }
 
     {
@@ -142,7 +142,7 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
       reportedUser   userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
 
 #endif
-        QTest::addRow("test1") << QStringLiteral("test1") << moderationReportUserInfos;
+        QTest::addRow("test1") << u"test1"_s << moderationReportUserInfos;
     }
 }
 

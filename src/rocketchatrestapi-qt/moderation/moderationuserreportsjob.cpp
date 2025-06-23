@@ -66,10 +66,10 @@ QNetworkRequest ModerationUserReportsJob::request() const
 
     QUrlQuery queryUrl;
     if (mModerationUserReportsInfo.isValid()) {
-        queryUrl.addQueryItem(QStringLiteral("oldest"), mModerationUserReportsInfo.mOldest.toString(Qt::ISODate));
-        queryUrl.addQueryItem(QStringLiteral("latest"), mModerationUserReportsInfo.mLatest.toString(Qt::ISODate));
+        queryUrl.addQueryItem(u"oldest"_s, mModerationUserReportsInfo.mOldest.toString(Qt::ISODate));
+        queryUrl.addQueryItem(u"latest"_s, mModerationUserReportsInfo.mLatest.toString(Qt::ISODate));
         if (!mModerationUserReportsInfo.mSelector.isEmpty()) {
-            queryUrl.addQueryItem(QStringLiteral("selector"), mModerationUserReportsInfo.mSelector);
+            queryUrl.addQueryItem(u"selector"_s, mModerationUserReportsInfo.mSelector);
         }
     }
     addQueryParameter(queryUrl);

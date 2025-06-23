@@ -5,6 +5,8 @@
 */
 
 #include "oauthtreeview.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "administratoroauthcreatedialog.h"
 #include "administratoroautheditdialog.h"
 #include "connection.h"
@@ -46,13 +48,13 @@ void OauthTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = indexAt(pos);
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18nc("@action", "Add…"), this, &OauthTreeView::addClicked);
+    menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &OauthTreeView::addClicked);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18nc("@action", "Modify…"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, index]() {
             editClicked(index);
         });
         menu.addSeparator();
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18nc("@action", "Remove"), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, index]() {
             const QModelIndex modelIndex = model()->index(index.row(), AdminOauthModel::Identifier);
             removeClicked(modelIndex.data().toString());
         });
@@ -110,8 +112,8 @@ void OauthTreeView::editClicked(const QModelIndex &index)
         info.redirectUrl = model()->index(index.row(), AdminOauthModel::RedirectUri).data().toString();
         info.clientId = model()->index(index.row(), AdminOauthModel::ClientId).data().toString();
         info.clientSecret = model()->index(index.row(), AdminOauthModel::ClientSecret).data().toString();
-        info.authorizationUrl = mRocketChatAccount->serverUrl() + QStringLiteral("/oauth/authorize");
-        info.accessTokenUrl = mRocketChatAccount->serverUrl() + QStringLiteral("/oauth/token");
+        info.authorizationUrl = mRocketChatAccount->serverUrl() + u"/oauth/authorize"_s;
+        info.accessTokenUrl = mRocketChatAccount->serverUrl() + u"/oauth/token"_s;
         info.active = model()->index(index.row(), AdminOauthModel::Active).data().toBool();
         dlg->setOauthInfo(std::move(info));
         if (dlg->exec()) {

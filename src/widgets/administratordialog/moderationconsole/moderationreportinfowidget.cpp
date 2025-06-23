@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportinfowidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/moderationreportinfofilterproxymodel.h"
 #include "model/moderationreportinfomodel.h"
 #include "moderationreportinfolistview.h"
@@ -30,17 +32,17 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(RocketChatAccount *accoun
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search…"));
     mainLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
 #if HAVE_TEXT_TO_SPEECH
-    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mListNotificationsListView,
             &ModerationReportInfoListView::textToSpeech,
@@ -48,7 +50,7 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(RocketChatAccount *accoun
             &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
-    mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
+    mListNotificationsListView->setObjectName(u"mListNotifications"_s);
     mainLayout->addWidget(mListNotificationsListView);
 
     mModerationReportInfoFilterProxyModel->setSourceModel(mModerationReportInfoModel);

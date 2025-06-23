@@ -15,7 +15,7 @@ QTEST_GUILESS_MAIN(LocalRoomsDatabaseTest)
 using namespace Qt::Literals::StringLiterals;
 static QString accountName()
 {
-    return QStringLiteral("myAccount");
+    return u"myAccount"_s;
 }
 LocalRoomsDatabaseTest::LocalRoomsDatabaseTest(QObject *parent)
     : QObject{parent}
@@ -34,14 +34,14 @@ void LocalRoomsDatabaseTest::initTestCase()
 void LocalRoomsDatabaseTest::shouldDefaultValues()
 {
     LocalRoomsDatabase roomDatabase;
-    QCOMPARE(roomDatabase.schemaDatabaseStr(), QStringLiteral("CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)"));
+    QCOMPARE(roomDatabase.schemaDatabaseStr(), u"CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)"_s);
 }
 
 void LocalRoomsDatabaseTest::shouldVerifyDbFileName()
 {
     LocalRoomsDatabase roomDatabase;
     QCOMPARE(roomDatabase.dbFileName(accountName()),
-             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/rooms/myAccount/myAccount.sqlite"));
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/rooms/myAccount/myAccount.sqlite"_s);
 }
 
 void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()

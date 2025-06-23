@@ -31,21 +31,21 @@ void ReactionsTest::shouldParseReactions_data()
     {
         Reactions *reactionsRef = new Reactions;
         Reaction react;
-        react.setReactionName(QStringLiteral(":ok_hand:"));
-        react.setUserNames(QStringList() << QStringLiteral("foo") << QStringLiteral("bla") << QStringLiteral("bli"));
+        react.setReactionName(u":ok_hand:"_s);
+        react.setUserNames(QStringList() << u"foo"_s << u"bla"_s << QStringLiteral("bli"));
         reactionsRef->setReactions({react});
-        QTest::addRow("reactions") << QStringLiteral("reactions") << reactionsRef;
+        QTest::addRow("reactions") << u"reactions"_s << reactionsRef;
     }
     {
         Reactions *reactionsRef = new Reactions;
         Reaction react;
-        react.setReactionName(QStringLiteral(":mrs_claus:"));
-        react.setUserNames(QStringList() << QStringLiteral("bla"));
+        react.setReactionName(u":mrs_claus:"_s);
+        react.setUserNames(QStringList() << u"bla"_s);
         Reaction react2;
-        react2.setReactionName(QStringLiteral(":right_facing_fist:"));
-        react2.setUserNames(QStringList() << QStringLiteral("bli"));
+        react2.setReactionName(u":right_facing_fist:"_s);
+        react2.setUserNames(QStringList() << u"bli"_s);
         reactionsRef->setReactions({react, react2});
-        QTest::addRow("reactions2") << QStringLiteral("reactions2") << reactionsRef;
+        QTest::addRow("reactions2") << u"reactions2"_s << reactionsRef;
     }
 }
 

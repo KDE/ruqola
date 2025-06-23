@@ -5,6 +5,8 @@
 */
 
 #include "administratorcustomuserstatuswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "customuserstatustreewidget.h"
 
 #include <KTreeWidgetSearchLineWidget>
@@ -15,13 +17,13 @@ AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(RocketC
     , mSearchLineWidget(new KTreeWidgetSearchLineWidget(this, mCustomUserStatusTreeWidget))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
-    mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    mSearchLineWidget->setObjectName(u"mSearchLineWidget"_s);
     mainLayout->addWidget(mSearchLineWidget);
 
-    mCustomUserStatusTreeWidget->setObjectName(QStringLiteral("mCustomUserStatusTreeWidget"));
+    mCustomUserStatusTreeWidget->setObjectName(u"mCustomUserStatusTreeWidget"_s);
     mainLayout->addWidget(mCustomUserStatusTreeWidget);
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "messagecachetest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #ifdef USE_GET_MESSAGE_JOB
 #include "chat/getmessagejob.h"
 #else
@@ -34,7 +36,7 @@ protected:
     [[nodiscard]] RocketChatRestApi::MethodCallJob::MethodCallJobInfo generateMethodCallInfo(const QByteArray &messageId) override
     {
         RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-        info.methodName = QStringLiteral("getSingleMessage");
+        info.methodName = u"getSingleMessage"_s;
         const QJsonArray params{QString::fromLatin1(messageId)};
         info.messageObj = RocketChatMessage::generateJsonObject(info.methodName, params, 3);
         info.anonymous = false;

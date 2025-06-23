@@ -30,17 +30,17 @@ void PermissionTest::shouldLoadPermission_data()
 
     {
         Permission p;
-        p.setIdentifier(QStringLiteral("pin-message"));
-        p.setRoles({QStringLiteral("owner"), QStringLiteral("moderator"), QStringLiteral("admin"), QStringLiteral("global-moderator")});
+        p.setIdentifier(u"pin-message"_s);
+        p.setRoles({u"owner"_s, u"moderator"_s, QStringLiteral("admin"), QStringLiteral("global-moderator")});
         p.setUpdatedAt(1634615770401);
-        QTest::addRow("permission1") << QStringLiteral("permission1") << p;
+        QTest::addRow("permission1") << u"permission1"_s << p;
     }
     {
         Permission p;
-        p.setIdentifier(QStringLiteral("create-c"));
-        p.setRoles({QStringLiteral("admin"), QStringLiteral("user"), QStringLiteral("bot"), QStringLiteral("app")});
+        p.setIdentifier(u"create-c"_s);
+        p.setRoles({u"admin"_s, u"user"_s, QStringLiteral("bot"), QStringLiteral("app")});
         p.setUpdatedAt(1634615770401);
-        QTest::addRow("permission2") << QStringLiteral("permission2") << p;
+        QTest::addRow("permission2") << u"permission2"_s << p;
     }
 }
 

@@ -5,6 +5,8 @@
 */
 
 #include "statusmodelfilterproxymodeltest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "model/statusmodelfilterproxymodel.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(StatusModelFilterProxyModelTest)

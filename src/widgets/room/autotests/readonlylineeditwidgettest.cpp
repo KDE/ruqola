@@ -5,6 +5,8 @@
 */
 
 #include "readonlylineeditwidgettest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "room/readonlylineeditwidget.h"
 #include <QLabel>
 #include <QTest>
@@ -18,11 +20,11 @@ ReadOnlyLineEditWidgetTest::ReadOnlyLineEditWidgetTest(QObject *parent)
 void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
 {
     ReadOnlyLineEditWidget w;
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto label = w.findChild<QLabel *>(u"label"_s);
     QVERIFY(label);
     QVERIFY(label->text().isEmpty());
 
@@ -34,12 +36,12 @@ void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
 void ReadOnlyLineEditWidgetTest::shouldChangeText()
 {
     ReadOnlyLineEditWidget w;
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
-    QString str{QStringLiteral("text text")};
+    auto label = w.findChild<QLabel *>(u"label"_s);
+    QString str{u"text text"_s};
     w.setMessage(str);
     QCOMPARE(label->text(), str);
 
-    str = QStringLiteral("bla");
+    str = u"bla"_s;
     w.setMessage(str);
     QCOMPARE(label->text(), str);
 }

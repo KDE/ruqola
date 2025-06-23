@@ -52,7 +52,7 @@ bool SetAvatarJob::start()
 
         QHttpPart filePart;
         filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
-        const QString filePartInfo = QStringLiteral("form-data; name=\"image\"; filename=\"%1\"").arg(mAvatarInfo.mImageUrl.fileName());
+        const QString filePartInfo = u"form-data; name=\"image\"; filename=\"%1\""_s.arg(mAvatarInfo.mImageUrl.fileName());
         filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
 
         filePart.setBodyDevice(file);

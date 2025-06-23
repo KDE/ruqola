@@ -26,8 +26,8 @@ MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(Roc
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mAvatarImage->setObjectName(QStringLiteral("mAvatarImage"));
+    mainLayout->setObjectName(u"mainLayout"_s);
+    mAvatarImage->setObjectName(u"mAvatarImage"_s);
     mainLayout->addWidget(mAvatarImage, 0, Qt::AlignLeft);
 }
 
@@ -73,11 +73,11 @@ void AvatarImage::changeImage()
     const QList<QByteArray> supportedImage = QImageReader::supportedImageFormats();
     for (const QByteArray &ba : supportedImage) {
         if (!filter.isEmpty()) {
-            filter += QLatin1Char(' ');
+            filter += u' ';
         }
         filter += "*."_L1 + QString::fromLatin1(ba);
     }
-    filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
+    filter = u"%1 (%2)"_s.arg(i18n("Image"), filter);
     const QUrl url = QFileDialog::getOpenFileUrl(this, i18nc("@title:window", "Select Image"), {}, filter);
     if (!url.isEmpty()) {
         mRocketChatAccount->setImageUrl(url);

@@ -5,6 +5,8 @@
 */
 
 #include "inviteuserswidget.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "connection.h"
 #include "rocketchataccount.h"
 
@@ -33,53 +35,53 @@ InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto hlayout = new QHBoxLayout;
-    hlayout->setObjectName(QStringLiteral("hlayout"));
+    hlayout->setObjectName(u"hlayout"_s);
     hlayout->setContentsMargins({});
     mainLayout->addLayout(hlayout);
 
     auto label = new QLabel(i18nc("@label:textbox", "Invite Link:"), this);
-    label->setObjectName(QStringLiteral("label"));
+    label->setObjectName(u"label"_s);
     label->setTextFormat(Qt::PlainText);
     hlayout->addWidget(label);
 
-    mInviteUserLineEdit->setObjectName(QStringLiteral("mInviteUserLineEdit"));
+    mInviteUserLineEdit->setObjectName(u"mInviteUserLineEdit"_s);
     mInviteUserLineEdit->setReadOnly(true);
     KLineEditEventHandler::catchReturnKey(mInviteUserLineEdit);
     hlayout->addWidget(mInviteUserLineEdit);
 
     auto copyLinkButton = new QToolButton(this);
-    copyLinkButton->setObjectName(QStringLiteral("copyLinkButton"));
-    copyLinkButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+    copyLinkButton->setObjectName(u"copyLinkButton"_s);
+    copyLinkButton->setIcon(QIcon::fromTheme(u"edit-copy"_s));
     copyLinkButton->setToolTip(i18nc("@info:tooltip", "Copy link"));
     copyLinkButton->setAutoRaise(true);
     hlayout->addWidget(copyLinkButton);
     connect(copyLinkButton, &QToolButton::clicked, this, &InviteUsersWidget::slotCopyLink);
 
     auto collapsibleGroupBox = new KCollapsibleGroupBox(this);
-    collapsibleGroupBox->setObjectName(QStringLiteral("collapsibleGroupBox"));
+    collapsibleGroupBox->setObjectName(u"collapsibleGroupBox"_s);
     collapsibleGroupBox->setTitle(i18n("Options"));
     mainLayout->addWidget(collapsibleGroupBox);
 
     auto formLayout = new QFormLayout(collapsibleGroupBox);
-    formLayout->setObjectName(QStringLiteral("formLayout"));
+    formLayout->setObjectName(u"formLayout"_s);
     formLayout->setContentsMargins({});
 
-    mExpirationDays->setObjectName(QStringLiteral("mExpirationDays"));
+    mExpirationDays->setObjectName(u"mExpirationDays"_s);
     formLayout->addRow(i18n("Expiration (Days)"), mExpirationDays);
 
-    mMaxUses->setObjectName(QStringLiteral("mMaxUses"));
+    mMaxUses->setObjectName(u"mMaxUses"_s);
     formLayout->addRow(i18n("Max number of uses"), mMaxUses);
 
     auto generateNewLink = new QPushButton(i18nc("@action:button", "Generate New Link"), this);
-    generateNewLink->setObjectName(QStringLiteral("generateNewLink"));
+    generateNewLink->setObjectName(u"generateNewLink"_s);
     connect(generateNewLink, &QPushButton::clicked, this, &InviteUsersWidget::slotGenerateNewLink);
     mainLayout->addWidget(generateNewLink);
 
-    mExpireDateLabel->setObjectName(QStringLiteral("mExpireDateLabel"));
+    mExpireDateLabel->setObjectName(u"mExpireDateLabel"_s);
     mExpireDateLabel->setTextFormat(Qt::PlainText);
     mExpireDateLabel->setWordWrap(true);
     mainLayout->addWidget(mExpireDateLabel);

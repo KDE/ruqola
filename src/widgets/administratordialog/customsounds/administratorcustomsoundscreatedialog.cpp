@@ -5,6 +5,7 @@
 */
 
 #include "administratorcustomsoundscreatedialog.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -25,13 +26,13 @@ AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWi
 {
     setWindowTitle(i18nc("@title:window", "Create New Sound"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
+    mCreateWidget->setObjectName(u"mCreateWidget"_s);
     mainLayout->addWidget(mCreateWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomSoundsCreateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomSoundsCreateDialog::accept);

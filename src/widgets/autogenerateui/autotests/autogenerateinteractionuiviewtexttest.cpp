@@ -51,7 +51,7 @@ void AutoGenerateInteractionUiViewTextTest::shouldLoadJson_data()
         textElement.setEmoji(false);
         textElement.setType(AutoGenerateInteractionUiViewText::TextType::Markdown);
 
-        QTest::addRow("mardownelement") << QStringLiteral("mardownelement") << textElement;
+        QTest::addRow("mardownelement") << u"mardownelement"_s << textElement;
     }
     {
         AutoGenerateInteractionUiViewText textElement;
@@ -59,7 +59,7 @@ void AutoGenerateInteractionUiViewTextTest::shouldLoadJson_data()
         textElement.setEmoji(false);
         textElement.setType(AutoGenerateInteractionUiViewText::TextType::PlainText);
 
-        QTest::addRow("plaintextelement") << QStringLiteral("plaintextelement") << textElement;
+        QTest::addRow("plaintextelement") << u"plaintextelement"_s << textElement;
     }
 }
 

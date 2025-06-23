@@ -5,6 +5,8 @@
 */
 
 #include "../githubauthenticationjob.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QCommandLineParser>
 #include <QGuiApplication>
 
@@ -13,9 +15,7 @@ int main(int argc, char **argv)
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
 
-    const QCommandLineOption clientId(QStringList() << QStringLiteral("i") << QStringLiteral("client-id"),
-                                      QStringLiteral("Specifies the application client id"),
-                                      QStringLiteral("client_id"));
+    const QCommandLineOption clientId(QStringList() << u"i"_s << u"client-id"_s, u"Specifies the application client id"_s, u"client_id"_s);
 
     parser.addOptions({clientId});
     parser.process(app);
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
         const QString value = parser.value(clientId);
         auto job = new GitHubAuthenticationJob();
         GitHubAuthenticationJob::GitHubInfo info;
-        info.url = QStringLiteral("foo");
+        info.url = u"foo"_s;
         info.clientId = value;
         job->setGitHubInfo(std::move(info));
         job->start();

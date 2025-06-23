@@ -5,6 +5,8 @@
 */
 
 #include "teamroomsmodel.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <KLocalizedString>
 
 TeamRoomsModel::TeamRoomsModel(QObject *parent)
@@ -31,7 +33,7 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
     case TeamRoomsRoles::Name: {
-        const QString name = teamroom.name() + (teamroom.autoJoin() ? QLatin1Char(' ') + i18n("(Autojoin)") : QString());
+        const QString name = teamroom.name() + (teamroom.autoJoin() ? u' ' + i18n("(Autojoin)") : QString());
         return name;
     }
     case TeamRoomsRoles::AutoJoin:

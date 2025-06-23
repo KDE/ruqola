@@ -5,6 +5,8 @@
 */
 
 #include "createnewserverdialogtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "configurenewserver/createnewserverdialog.h"
 #include "configurenewserver/createnewserverstackwidget.h"
 #include <QDialogButtonBox>
@@ -22,13 +24,13 @@ void CreateNewServerDialogTest::shouldHaveDefaultValues()
 {
     CreateNewServerDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mCreateNewServerStackWidget = w.findChild<CreateNewServerStackWidget *>(QStringLiteral("mCreateNewServerStackWidget"));
+    auto mCreateNewServerStackWidget = w.findChild<CreateNewServerStackWidget *>(u"mCreateNewServerStackWidget"_s);
     QVERIFY(mCreateNewServerStackWidget);
 
-    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto buttonBox = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(buttonBox);
 
     const AccountManager::AccountManagerInfo info = w.accountInfo();

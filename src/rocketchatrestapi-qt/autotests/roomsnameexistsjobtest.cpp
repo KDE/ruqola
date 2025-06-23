@@ -5,6 +5,8 @@
 */
 
 #include "roomsnameexistsjobtest.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "restapimethod.h"
 #include "rooms/roomsnameexistsjob.h"
 #include <QTest>
@@ -29,13 +31,13 @@ void RoomsNameExistsJobTest::shouldHaveDefaultValue()
 void RoomsNameExistsJobTest::shouldGenerateRequest()
 {
     RoomsNameExistsJob job;
-    const QString roomName{QStringLiteral("foo")};
+    const QString roomName{u"foo"_s};
     job.setRoomName(roomName);
     RestApiMethod method;
-    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.nameExists?roomName=%1").arg(roomName)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.nameExists?roomName=%1"_s.arg(roomName)));
 }
 
 #include "moc_roomsnameexistsjobtest.cpp"

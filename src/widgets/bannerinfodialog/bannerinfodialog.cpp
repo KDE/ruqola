@@ -5,6 +5,8 @@
 */
 
 #include "bannerinfodialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "bannerinfowidget.h"
 
 #include <KConfigGroup>
@@ -26,13 +28,13 @@ BannerInfoDialog::BannerInfoDialog(RocketChatAccount *account, QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Banner Information"));
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mBannerInfoWidget->setObjectName(QStringLiteral("mBannerInfoWidget"));
+    mBannerInfoWidget->setObjectName(u"mBannerInfoWidget"_s);
     mainLayout->addWidget(mBannerInfoWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
+    button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &BannerInfoDialog::reject);
 

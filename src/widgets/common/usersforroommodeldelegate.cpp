@@ -5,6 +5,8 @@
 */
 
 #include "usersforroommodeldelegate.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
 #include "model/usersforroommodel.h"
@@ -70,7 +72,7 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
         xPos += nameWidth;
         if (!userName.isEmpty()) {
             painter->setFont(oldFont);
-            DelegatePaintUtil::drawLighterText(painter, QStringLiteral("(%1)").arg(userName), QPoint(xPos + margin * 2, defaultCharHeight));
+            DelegatePaintUtil::drawLighterText(painter, u"(%1)"_s.arg(userName), QPoint(xPos + margin * 2, defaultCharHeight));
         }
     }
     painter->setFont(oldFont);
@@ -92,7 +94,7 @@ bool UsersForRoomModelDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemVi
     if (helpEvent->type() == QEvent::ToolTip) {
         const QStringList roles = index.data(UsersForRoomModel::Roles).toStringList();
         if (!roles.isEmpty()) {
-            QToolTip::showText(helpEvent->globalPos(), roles.join(QLatin1Char(',')), view);
+            QToolTip::showText(helpEvent->globalPos(), roles.join(u','), view);
             return true;
         }
     }

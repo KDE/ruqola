@@ -30,16 +30,16 @@ void ModerationReportInfoTest::shouldLoadReportInfo_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<ModerationReportInfo>("reportinfo");
 
-    QTest::addRow("empty") << QStringLiteral("empty") << ModerationReportInfo();
+    QTest::addRow("empty") << u"empty"_s << ModerationReportInfo();
     ModerationReportInfo moderationReportInfo;
-    moderationReportInfo.setDescription(QStringLiteral("test report 22222"));
+    moderationReportInfo.setDescription(u"test report 22222"_s);
     moderationReportInfo.setReportIdentifier("65278f64533fd6f8588e"_ba);
     moderationReportInfo.setTimeStamp(1697091428125);
     moderationReportInfo.setRoomId("xxib9aFXMGN3o"_ba);
     moderationReportInfo.setUserId("H7Q9djXQ4iShzD9T2"_ba);
-    moderationReportInfo.setUserName(QStringLiteral("bla"));
+    moderationReportInfo.setUserName(u"bla"_s);
 
-    QTest::addRow("moderationinfo1") << QStringLiteral("moderationinfo1") << moderationReportInfo;
+    QTest::addRow("moderationinfo1") << u"moderationinfo1"_s << moderationReportInfo;
 }
 
 void ModerationReportInfoTest::shouldLoadReportInfo()
