@@ -117,6 +117,11 @@ UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user) co
     return UsersForRoomModel::SectionStatus::Unknown;
 }
 
+int UsersForRoomModel::numberUsersWithoutFilter() const
+{
+    return mNumberUsersWithoutFilter;
+}
+
 QString UsersForRoomModel::generateDisplayName(const User &user) const
 {
     const QString displayName = QStringLiteral("<a href=\'%1\'>%1</a>").arg(user.userName().isEmpty() ? user.name() : user.userName());
@@ -217,6 +222,9 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
             }
         }
         setUsers(users);
+        if (filter.isEmpty()) {
+            mNumberUsersWithoutFilter += users.count();
+        }
     } else {
         const QJsonObject result = root["result"_L1].toObject();
         if (!result.isEmpty()) {

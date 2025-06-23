@@ -1170,7 +1170,7 @@ void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const Rocke
 void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType, const QString &filter)
 {
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
-    const int offset = usersModelForRoom->usersCount();
+    const int offset = usersModelForRoom->numberUsersWithoutFilter();
     if (offset < usersModelForRoom->total()) {
         usersModelForRoom->setLoadMoreUsersInProgress(true);
         if (hasAtLeastVersion(7, 3, 0)) {

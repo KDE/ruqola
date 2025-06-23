@@ -66,6 +66,8 @@ public:
     void setLoadMoreUsersInProgress(bool inProgress);
     [[nodiscard]] bool loadMoreUsersInProgress() const;
     [[nodiscard]] static QString sectionName(UsersForRoomModel::SectionStatus sectionId);
+    [[nodiscard]] int numberUsersWithoutFilter() const;
+
 Q_SIGNALS:
     void hasFullListChanged();
     void userStatusChanged(const QByteArray &userId);
@@ -79,6 +81,7 @@ private:
     QList<User> mUsers;
     int mTotal = 0;
     int mOffset = 0;
+    int mNumberUsersWithoutFilter = 0;
     bool mHasFullList = false;
     bool mLoadingInProgress = false;
 };
