@@ -33,7 +33,11 @@ void UsersForRoomModel::setUsers(const QList<User> &users)
         }
     } else {
         const int numberOfElement = mUsers.count();
-        mUsers << users;
+        for (const auto &u : users) {
+            if (!mUsers.contains(u)) {
+                mUsers << u;
+            }
+        }
         beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
         endInsertRows();
     }
