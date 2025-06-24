@@ -14,4 +14,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomTreeView : public QTreeView
 public:
     explicit UsersInRoomTreeView(QWidget *parent = nullptr);
     ~UsersInRoomTreeView() override;
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    [[nodiscard]] bool event(QEvent *ev) override;
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void generalPaletteChanged();
+    QColor mTextColor;
 };
