@@ -35,6 +35,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void loadMoreUsers();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeStatusType(int index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowUserInfo(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDoubleClick(const QModelIndex &index);
     UsersInRoomListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     QPointer<Room> mRoom;

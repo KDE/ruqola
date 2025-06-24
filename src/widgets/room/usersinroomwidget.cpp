@@ -63,7 +63,7 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     mainLayout->addWidget(mListView);
     mListView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListView, &QListView::customContextMenuRequested, this, &UsersInRoomWidget::slotCustomContextMenuRequested);
-    connect(mListView, &QListView::doubleClicked, this, &UsersInRoomWidget::slotShowUserInfo);
+    connect(mListView, &QListView::doubleClicked, this, &UsersInRoomWidget::slotDoubleClick);
     mListView->setModel(mUsersForRoomFilterProxy);
     if (account) {
         auto delegate = new UsersForRoomModelDelegate(mListView);
@@ -78,6 +78,16 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
 UsersInRoomWidget::~UsersInRoomWidget()
 {
     mUsersForRoomFilterProxy->clearFilter();
+}
+
+void UsersInRoomWidget::slotDoubleClick(const QModelIndex &index)
+{
+#ifdef USE_TREEVIEW
+    if (!index.parent().isValid()) {
+        return;
+    }
+#endif
+    slotShowUserInfo(index);
 }
 
 void UsersInRoomWidget::slotChangeStatusType(int index)
