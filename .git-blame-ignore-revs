@@ -9,3 +9,5 @@ ca38feaa6230169cf5f25940de61da179da310be
 89c3e82db12fa4808d213f06dc862882434e1878
 # precommit support
 1ddace8251cc8ced6a60601b564780478958cadb
+# Use string literals inline operators
+dde450ac0962cd2a8e32fc7f35e66b8ed0b7dde3
