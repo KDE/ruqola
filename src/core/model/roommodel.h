@@ -117,8 +117,6 @@ public:
     void updateSubscriptionRoom(const QJsonObject &room);
     [[nodiscard]] QByteArray insertRoom(const QJsonObject &room);
 
-    [[nodiscard]] QModelIndex indexForRoomName(const QString &roomName) const;
-
     [[nodiscard]] static QString sectionName(RoomModel::Section sectionId);
 
     [[nodiscard]] QList<Room *> findRoomNameConstains(const QString &str) const;
