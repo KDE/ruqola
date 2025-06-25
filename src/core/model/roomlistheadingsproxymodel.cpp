@@ -30,20 +30,24 @@ void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
     connect(sourceModel, &QAbstractItemModel::rowsAboutToBeMoved, this, [this] {
         Q_EMIT layoutAboutToBeChanged();
     });
-    connect(sourceModel, &QAbstractItemModel::rowsMoved, this, &RoomListHeadingsProxyModel::rebuildSections);
     connect(sourceModel, &QAbstractItemModel::rowsMoved, this, [this] {
+        rebuildSections();
         Q_EMIT layoutChanged();
     });
 
     connect(sourceModel, &QAbstractItemModel::dataChanged, this, &RoomListHeadingsProxyModel::onDataChanged);
 
     connect(sourceModel, &QAbstractItemModel::modelAboutToBeReset, this, &RoomListHeadingsProxyModel::beginResetModel);
-    connect(sourceModel, &QAbstractItemModel::modelReset, this, &RoomListHeadingsProxyModel::rebuildSections);
-    connect(sourceModel, &QAbstractItemModel::modelReset, this, &RoomListHeadingsProxyModel::endResetModel);
+    connect(sourceModel, &QAbstractItemModel::modelReset, this, [this]() {
+        rebuildSections();
+        endResetModel();
+    });
 
     connect(sourceModel, &QAbstractItemModel::layoutAboutToBeChanged, this, &RoomListHeadingsProxyModel::layoutAboutToBeChanged);
-    connect(sourceModel, &QAbstractItemModel::layoutChanged, this, &RoomListHeadingsProxyModel::rebuildSections);
-    connect(sourceModel, &QAbstractItemModel::layoutChanged, this, &RoomListHeadingsProxyModel::layoutChanged);
+    connect(sourceModel, &QAbstractItemModel::layoutChanged, this, [this]() {
+        rebuildSections();
+        Q_EMIT layoutChanged();
+    });
 
     rebuildSections();
 
