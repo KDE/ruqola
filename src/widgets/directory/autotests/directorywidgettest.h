@@ -13,6 +13,6 @@ class DirectoryWidgetTest : public QObject
 public:
     explicit DirectoryWidgetTest(QObject *parent = nullptr);
     ~DirectoryWidgetTest() override = default;
-private
-    Q_SLOT : void shouldHaveDefaultValues();
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

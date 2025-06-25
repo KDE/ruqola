@@ -89,7 +89,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
                 // FIXME: don't use  info.lastSeenAt until we store room information in database
                 // We need to use last message timeStamp
-                const qint64 endDateTime = info.roomModel->lastTimestamp();
+                // const qint64 endDateTime = info.roomModel->lastTimestamp();
                 syncMessage(info.roomId.toLatin1(), /*info.lastSeenAt*/ endDateTime);
                 return;
             } else {

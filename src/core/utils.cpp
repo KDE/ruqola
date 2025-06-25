@@ -420,7 +420,7 @@ bool Utils::userActivity(const QJsonArray &contents)
     if (contents.toVariantList().isEmpty()) {
         return false;
     }
-    const QString val = contents.toVariantList().at(1).toString();
+    // const QString val = contents.toVariantList().at(1).toString();
     // qDebug() << " val ************ " << val << " contents.toVariantList().at(1 " << contents.toVariantList().at(1);
     bool status = false;
     if (contents.toVariantList().at(1).toBool()) {

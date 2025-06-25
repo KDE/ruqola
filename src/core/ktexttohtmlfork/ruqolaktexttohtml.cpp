@@ -406,9 +406,7 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                     result += "&nbsp;"_L1;
                 }
 
-                if (startOfLine) {
-                    startOfLine = false;
-                }
+                startOfLine = false;
                 continue;
             } else if (ch == QLatin1Char('\t')) {
                 do {

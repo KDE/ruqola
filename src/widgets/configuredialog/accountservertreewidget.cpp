@@ -78,8 +78,8 @@ void AccountServerTreeWidget::save()
     QStringList order;
     const int numberOfItems(topLevelItemCount());
     order.reserve(numberOfItems);
-    QString currentActivity;
 #if HAVE_ACTIVITY_SUPPORT
+    QString currentActivity;
     if (columnCount() == 2) { // Configure activity
         currentActivity = Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity();
     }

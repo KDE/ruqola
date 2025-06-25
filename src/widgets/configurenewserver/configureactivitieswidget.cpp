@@ -32,7 +32,7 @@ public:
         // Drawing the checkbox
         auto checkRect = wholeRect;
         checkRect.setWidth(checkRect.height());
-        drawCheck(painter, option, checkRect, option.state & QStyle::State_Selected ? Qt::Checked : Qt::Unchecked);
+        drawCheck(painter, option, checkRect, (option.state & QStyle::State_Selected) ? Qt::Checked : Qt::Unchecked);
 
         // Drawing the text
         auto textRect = wholeRect;

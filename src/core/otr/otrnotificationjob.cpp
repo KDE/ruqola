@@ -87,7 +87,7 @@ QString OtrNotificationJob::generateText()
 {
     QString str;
     // TODO search real name.
-    const QByteArray userId = mOtr.userId();
+    // const QByteArray userId = mOtr.userId();
 
     switch (mOtr.type()) {
     case Otr::OtrType::Unknown:

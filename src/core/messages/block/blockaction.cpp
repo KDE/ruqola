@@ -51,8 +51,8 @@ QJsonObject BlockAction::serialize(const BlockAction &block)
     if (const QString value = block.value(); !value.isEmpty()) {
         o["value"_L1] = value;
     }
-    if (const QString url = block.url(); !url.isEmpty()) {
-        o["url"_L1] = url;
+    if (const QString blockUrl = block.url(); !blockUrl.isEmpty()) {
+        o["url"_L1] = blockUrl;
     }
     o["text"_L1] = block.text();
     return o;

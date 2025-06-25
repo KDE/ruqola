@@ -217,7 +217,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
         val1.setUpdatedAt(1560497261506);
         val1.setAliases({u":darth:"_s});
 
-        emojiList.append(std::move(val));
+        emojiList.append(val);
         emojiList.append(std::move(val1));
 
         QList<CustomEmoji> emojiListAfterDeleting;
@@ -228,7 +228,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
         val2.setEmojiIdentifier(u":ruqola:"_s);
         val2.setUpdatedAt(1631885946222);
         val2.setAliases({u"rooss"_s});
-        emojiListAfterDeleting.append(std::move(val));
+        emojiListAfterDeleting.append(val);
         emojiListAfterDeleting.append(std::move(val2));
         QTest::addRow("emojiparent2") << u"emojiparent2"_s << 3822 << u"updateemojicustom1"_s << emojiList << emojiList;
     }

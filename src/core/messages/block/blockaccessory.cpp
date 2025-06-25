@@ -92,8 +92,8 @@ QJsonObject BlockAccessory::serialize(const BlockAccessory &block)
     }
     o["type"_L1] = BlockAccessory::convertEnumToStr(block.type());
     QJsonArray array;
-    for (const auto &o : block.options()) {
-        array.append(BlockAccessoryOption::serialize(o));
+    for (const auto &opt : block.options()) {
+        array.append(BlockAccessoryOption::serialize(opt));
     }
     if (!array.isEmpty()) {
         o["options"_L1] = array;

@@ -301,7 +301,6 @@ void MyAccountPreferenceConfigureWidget::save()
         info.pushNotifications = mPushNotification->currentData().toString();
         info.desktopNotifications = mDesktopNotification->currentData().toString();
         info.emailNotificationMode = mEmailNotification->currentData().toString();
-        info.userId = mRocketChatAccount->userId();
         info.useEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mUseEmojis->isChecked());
         info.hideRoles = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mHideRoles->isChecked());
         info.displayAvatars = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mDisplayAvatars->isChecked());
@@ -314,6 +313,7 @@ void MyAccountPreferenceConfigureWidget::save()
         info.newMessageNotification = mSoundNewMessageNotification->identifier();
         info.newRoomNotification = mSoundNewRoomNotification->identifier();
         if (mRocketChatAccount) {
+            info.userId = mRocketChatAccount->userId();
             if (mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
                 && mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
                 info.receiveLoginDetectionEmail =
