@@ -43,7 +43,6 @@ void RoomModel::clear()
 
 void RoomModel::cleanRoomHistory()
 {
-    QList<Room *> rooms;
     for (Room *r : std::as_const(mRoomsList)) {
         if (r->canCleanHistory()) {
             r->clearHistory();
