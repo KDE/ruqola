@@ -45,3 +45,53 @@ Options:
  require-passing-tests-on: ['Linux', 'Windows']
  tests-run-in-parallel: True
  use-ccache: True
+ cppcheck-arguments: '--error-exitcode=1 --enable=warning,performance,portability,style --suppress-xml=cppcheck-suppressions.xml'
+ cppcheck-ignore-files:
+   - src/core/autotests
+   - src/core/localdatabase/autotests
+   - src/core/activities/autotests
+   - src/plugins/authentication/github/autotests
+   - src/plugins/authentication/gitlab/autotests
+   - src/plugins/authentication/google/autotests
+   - src/plugins/authentication/password/autotests
+   - src/plugins/authentication/personalaccesstoken/autotests
+   - src/plugins/textplugin/webshortcut/autotests
+   - src/widgets/administratordialog/autotests
+   - src/widgets/administratorsettingsdialog/autotests
+   - src/widgets/autotests
+   - src/widgets/bannerinfodialog/autotests
+   - src/widgets/channellist/autotests
+   - src/widgets/common/autotests
+   - src/widgets/conferencecalldialog/autotests
+   - src/widgets/configuredialog/autotests
+   - src/widgets/databasedialog/autotests
+   - src/widgets/dialogs/autotests
+   - src/widgets/directory/autotests
+   - src/widgets/discussions/autotests
+   - src/widgets/explorepermissionsdialog/autotests
+   - src/widgets/exportmessages/autotests
+   - src/widgets/importexportdata/autotests
+   - src/widgets/messagemaximumsizedialog/autotests
+   - src/widgets/misc/autotests
+   - src/widgets/myaccount/autotests
+   - src/widgets/notificationhistory/autotests
+   - src/widgets/offlinewidget/autotests
+   - src/widgets/otr/autotests
+   - src/widgets/prunemessages/autotests
+   - src/widgets/registeruser/autotests
+   - src/widgets/room/autotests
+   - src/widgets/servererrorinfohistory/autotests
+   - src/widgets/switchchannelhistory/autotests
+   - src/widgets/teams/autotests
+   - src/widgets/threadwidget/autotests
+   - src/widgets/whatsnew/autotests
+   - src/widgets/needupdateversion/autotests
+   - src/widgets/encryption/autotests
+   - src/widgets/forwardmessage/autotests
+   - src/widgets/configurenewserver/autotests
+   - src/widgets/applicationssettingsdialog/autotests
+   - src/widgets/welcome/autotests
+   - src/widgets/verifynewversionwidget/autotests
+   - src/widgets/autogenerateui/autotests
+   - src/widgets/exploreappstranlationdialog/autotests
+   - src/rocketchatrestapi-qt/autotests
