@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-06-21 21:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -3203,7 +3203,7 @@ msgstr "Visa modereringsmeddelanden"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:142
-#: widgets/room/usersinroomwidget.cpp:147
+#: widgets/room/usersinroomwidget.cpp:157
 #, kde-format
 msgid "Loading…"
 msgstr "Läser in…"
@@ -3211,7 +3211,7 @@ msgstr "Läser in…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:190
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/room/usersinroomwidget.cpp:149
+#: widgets/room/usersinroomwidget.cpp:159
 #, kde-format
 msgid "No Message found"
 msgstr "Inga meddelanden hittades"
@@ -8667,7 +8667,7 @@ msgstr[1] "%1 bilagor i rummet (totalt: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:124
-#: widgets/room/usersinroomwidget.cpp:158
+#: widgets/room/usersinroomwidget.cpp:168
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Klicka här för att läsa in fler…)"
@@ -10793,6 +10793,7 @@ msgid "(Open External Dialog…)"
 msgstr "(Öppna extern dialogruta…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
+#: widgets/room/usersinroomtreeview.cpp:27
 #, kde-format
 msgid "No Users Found."
 msgstr "Inga användare hittades."
@@ -10938,7 +10939,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Rapportera användare"
 
-#: widgets/room/usersinroomwidget.cpp:156
+#: widgets/room/usersinroomwidget.cpp:166
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"

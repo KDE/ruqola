@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3442,7 +3442,7 @@ msgstr "Mainitud sõnumite näitamine"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:142
-#: widgets/room/usersinroomwidget.cpp:147
+#: widgets/room/usersinroomwidget.cpp:157
 #, fuzzy, kde-format
 #| msgid "Loading..."
 msgid "Loading…"
@@ -3451,7 +3451,7 @@ msgstr "Laadimine ..."
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:190
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/room/usersinroomwidget.cpp:149
+#: widgets/room/usersinroomwidget.cpp:159
 #, kde-format
 msgid "No Message found"
 msgstr "Ühtegi sõnumit ei leitud"
@@ -9166,7 +9166,7 @@ msgstr[1] "%1 manust toas (kokku: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:124
-#: widgets/room/usersinroomwidget.cpp:158
+#: widgets/room/usersinroomwidget.cpp:168
 #, fuzzy, kde-format
 #| msgid "(Click here for Loading more...)"
 msgid "(Click here for Loading more…)"
@@ -11493,6 +11493,7 @@ msgid "(Open External Dialog…)"
 msgstr ""
 
 #: widgets/room/usersinroomlistview.cpp:22
+#: widgets/room/usersinroomtreeview.cpp:27
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No Users Found."
@@ -11661,7 +11662,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "Anna sõnumist teada"
 
-#: widgets/room/usersinroomwidget.cpp:156
+#: widgets/room/usersinroomwidget.cpp:166
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3240,7 +3240,7 @@ msgstr "顯示站務訊息"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:142
-#: widgets/room/usersinroomwidget.cpp:147
+#: widgets/room/usersinroomwidget.cpp:157
 #, kde-format
 msgid "Loading…"
 msgstr "載入中…"
@@ -3248,7 +3248,7 @@ msgstr "載入中…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:190
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/room/usersinroomwidget.cpp:149
+#: widgets/room/usersinroomwidget.cpp:159
 #, kde-format
 msgid "No Message found"
 msgstr "找不到訊息"
@@ -8926,7 +8926,7 @@ msgstr[0] "聊天室中有 %1 個附件（總數：%2）"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:124
-#: widgets/room/usersinroomwidget.cpp:158
+#: widgets/room/usersinroomwidget.cpp:168
 #, fuzzy, kde-format
 #| msgid "(Click here for Loading more...)"
 msgid "(Click here for Loading more…)"
@@ -11173,6 +11173,7 @@ msgid "(Open External Dialog…)"
 msgstr "（開啟外部對話框…）"
 
 #: widgets/room/usersinroomlistview.cpp:22
+#: widgets/room/usersinroomtreeview.cpp:27
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Users Found."
@@ -11335,7 +11336,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "檢舉使用者"
 
-#: widgets/room/usersinroomwidget.cpp:156
+#: widgets/room/usersinroomwidget.cpp:166
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
