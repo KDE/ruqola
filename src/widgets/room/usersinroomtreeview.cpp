@@ -17,6 +17,13 @@ UsersInRoomTreeView::UsersInRoomTreeView(QWidget *parent)
     setRootIsDecorated(false);
     setItemsExpandable(true);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    connect(model(), &QAbstractItemModel::rowsInserted, this, &QTreeView::expandAll);
+    connect(model(), &QAbstractItemModel::modelReset, this, &QTreeView::expandAll);
+    connect(model(), &QAbstractItemModel::rowsMoved, this, &QTreeView::expandAll);
+    connect(model(), &QAbstractItemModel::layoutChanged, this, &QTreeView::expandAll);
+
+    expandAll();
 }
 
 UsersInRoomTreeView::~UsersInRoomTreeView() = default;
