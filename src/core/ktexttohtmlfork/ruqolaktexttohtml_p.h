@@ -12,7 +12,7 @@
 class LIBRUQOLACORE_TESTS_EXPORT KTextToHTMLHelper
 {
 public:
-    KTextToHTMLHelper(const QString &plainText, int pos = 0, int maxUrlLen = 4096, int maxAddressLen = 255);
+    explicit KTextToHTMLHelper(const QString &plainText, int pos = 0, int maxUrlLen = 4096, int maxAddressLen = 255);
 
     [[nodiscard]] QString getEmailAddress();
     [[nodiscard]] QString getPhoneNumber();

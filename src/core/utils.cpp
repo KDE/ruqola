@@ -185,7 +185,9 @@ QString Utils::convertTextWithUrl(const QString &str)
     QString newStr;
     bool isRef = false;
     bool isUrl = false;
+#if 0
     bool isHasNewRef = false;
+#endif
     QString url;
     QString references;
     for (int i = 0; i < str.length(); ++i) {
@@ -248,10 +250,12 @@ QString Utils::convertTextWithUrl(const QString &str)
         newStr += u'[' + references;
     } else if (isUrl) {
         newStr += u'[' + references + "]("_L1 + url;
+#if 0
     } else if (isHasNewRef) {
         if (!url.isEmpty() && !references.isEmpty()) {
             newStr += u"<a href=\'%1'>%2</a>"_s.arg(url, references);
         }
+#endif
     }
     return newStr;
 }

@@ -24,10 +24,10 @@ bool AdminUsersPendingModel::setData(const QModelIndex &id, const QVariant &valu
         qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
         return false;
     }
-    const int idx = id.row();
-    User &user = mUsers[idx];
     switch (role) {
     case AdminUsersPendingRoles::ActiveUser: {
+        const int idx = id.row();
+        User &user = mUsers[idx];
         user.setActive(value.toBool());
         const QModelIndex newIndex = index(idx, AdminUsersPendingModel::ActiveUserDisplay);
         Q_EMIT dataChanged(newIndex, newIndex);

@@ -28,10 +28,8 @@ AutoGenerateInteractionUiDialog::~AutoGenerateInteractionUiDialog() = default;
 bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
 {
     QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> currentState;
-    if (mAutoGenerateInteractionUi) {
-        // get current State => allow to reapply after that
-        currentState = mAutoGenerateInteractionUi->createStateInfos();
-    }
+    // get current State => allow to reapply after that
+    currentState = mAutoGenerateInteractionUi->createStateInfos();
     // qDebug() << " values" << currentState;
     if (mAutoGenerateInteractionUi->parseInteractionUi(r)) {
         if (mMainWidget) {

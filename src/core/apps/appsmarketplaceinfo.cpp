@@ -85,13 +85,13 @@ void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
 {
     mPricePlan.clear();
     for (const QJsonValue &current : array) {
-        PricePlan price;
-        price.price = current["price"_L1].toInt();
-        price.trialDays = current["trialDays"_L1].toInt();
-        price.enabled = current["enabled"_L1].toBool();
-        price.isPerSeat = current["isPerSeat"_L1].toBool();
-        price.strategy = price.convertStringToStrategy(current["strategy"_L1].toString());
-        mPricePlan.append(std::move(price));
+        PricePlan priceElement;
+        priceElement.price = current["price"_L1].toInt();
+        priceElement.trialDays = current["trialDays"_L1].toInt();
+        priceElement.enabled = current["enabled"_L1].toBool();
+        priceElement.isPerSeat = current["isPerSeat"_L1].toBool();
+        priceElement.strategy = priceElement.convertStringToStrategy(current["strategy"_L1].toString());
+        mPricePlan.append(std::move(priceElement));
     }
 }
 
@@ -405,14 +405,14 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 
     str += u"<b>%1</b><br/>"_s.arg(i18n("Description")) + newDescription + u"<br/><br/>"_s;
 
-    QString version;
+    QString versionnfo;
     if (mInstalledInfo.isValid() && !mInstalledInfo.version().isEmpty()) {
-        version = mInstalledInfo.version();
+        versionnfo = mInstalledInfo.version();
     } else {
-        version = mVersion;
+        versionnfo = mVersion;
     }
 
-    str += u"<b>%1</b><br/>"_s.arg(i18n("Version")) + version + u"<br/><br/>"_s;
+    str += u"<b>%1</b><br/>"_s.arg(i18n("Version")) + versionnfo + u"<br/><br/>"_s;
 
     if (!mCategories.isEmpty()) {
         str += u"<b>%1</b><br/>"_s.arg(i18n("Categories")) + mCategories.join(u", "_s) + QStringLiteral("<br/><br/>");

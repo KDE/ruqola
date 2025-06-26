@@ -319,8 +319,8 @@ void MyAccountPreferenceConfigureWidget::save()
                 info.receiveLoginDetectionEmail =
                     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mReceiveLoginDetectionEmails->isChecked());
             }
+            mRocketChatAccount->setUserPreferences(info);
         }
-        mRocketChatAccount->setUserPreferences(info);
     }
 }
 
