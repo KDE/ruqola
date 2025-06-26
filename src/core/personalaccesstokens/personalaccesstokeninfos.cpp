@@ -31,7 +31,7 @@ void PersonalAccessTokenInfos::clear()
 
 PersonalAccessTokenInfo PersonalAccessTokenInfos::at(int index) const
 {
-    if (index < 0 || index > mPersonalAccessTokenInfos.count()) {
+    if (index < 0 || index >= mPersonalAccessTokenInfos.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

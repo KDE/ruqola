@@ -31,7 +31,7 @@ int Commands::count() const
 
 Command Commands::at(int index) const
 {
-    if (index < 0 || index > mCommands.count()) {
+    if (index < 0 || index >= mCommands.count()) {
         qCWarning(RUQOLA_COMMANDS_LOG) << "Invalid index " << index;
         return {};
     }

@@ -75,7 +75,7 @@ int Roles::count() const
 
 Role Roles::at(int index) const
 {
-    if (index < 0 || index > mRoles.count()) {
+    if (index < 0 || index >= mRoles.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

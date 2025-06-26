@@ -79,7 +79,7 @@ int Discussions::count() const
 
 Discussion Discussions::at(int index) const
 {
-    if (index < 0 || index > mDiscussion.count()) {
+    if (index < 0 || index >= mDiscussion.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

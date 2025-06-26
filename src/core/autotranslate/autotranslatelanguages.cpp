@@ -40,7 +40,7 @@ void AutotranslateLanguages::clear()
 
 AutotranslateLanguage AutotranslateLanguages::at(int index) const
 {
-    if (index < 0 || index > mAutotranslateLanguages.count()) {
+    if (index < 0 || index >= mAutotranslateLanguages.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

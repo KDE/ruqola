@@ -91,7 +91,7 @@ int ListMessages::count() const
 
 Message ListMessages::at(int index) const
 {
-    if (index < 0 || index > mListMessages.count()) {
+    if (index < 0 || index >= mListMessages.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return Message();
     }

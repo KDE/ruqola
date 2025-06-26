@@ -30,7 +30,7 @@ int FileAttachments::count() const
 
 File FileAttachments::at(int index) const
 {
-    if (index < 0 || index > mFileAttachments.count()) {
+    if (index < 0 || index >= mFileAttachments.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

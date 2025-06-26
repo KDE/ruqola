@@ -82,7 +82,7 @@ int DeviceInfos::count() const
 
 DeviceInfo DeviceInfos::at(int index) const
 {
-    if (index < 0 || index > mDeviceInfosList.count()) {
+    if (index < 0 || index >= mDeviceInfosList.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

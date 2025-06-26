@@ -82,7 +82,7 @@ int VideoConferenceInfos::count() const
 
 VideoConferenceInfo VideoConferenceInfos::at(int index) const
 {
-    if (index < 0 || index > mVideoConferenceInfosList.count()) {
+    if (index < 0 || index >= mVideoConferenceInfosList.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

@@ -30,7 +30,7 @@ int CustomEmojisInfo::count() const
 
 CustomEmoji CustomEmojisInfo::at(int index) const
 {
-    if (index < 0 || index > mCustomEmojiInfos.count()) {
+    if (index < 0 || index >= mCustomEmojiInfos.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

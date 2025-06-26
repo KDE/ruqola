@@ -82,7 +82,7 @@ int ModerationReportedMessageInfos::count() const
 
 ModerationReportedMessageInfo ModerationReportedMessageInfos::at(int index) const
 {
-    if (index < 0 || index > mModerationInfosList.count()) {
+    if (index < 0 || index >= mModerationInfosList.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

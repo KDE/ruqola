@@ -31,7 +31,7 @@ void Permissions::clear()
 
 Permission Permissions::at(int index) const
 {
-    if (index < 0 || index > mPermissions.count()) {
+    if (index < 0 || index >= mPermissions.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }

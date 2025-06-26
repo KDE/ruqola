@@ -35,7 +35,7 @@ bool BannerInfos::isEmpty() const
 
 BannerInfo BannerInfos::at(int index) const
 {
-    if (index < 0 || index > mBanners.count()) {
+    if (index < 0 || index >= mBanners.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
         return {};
     }
