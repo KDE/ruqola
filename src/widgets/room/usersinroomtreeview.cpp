@@ -5,12 +5,19 @@
 */
 
 #include "usersinroomtreeview.h"
+#include "model/usersforroomfilterproxymodel.h"
+#include "model/usersforroomlistheadingsproxymodel.h"
 #include <KLocalizedString>
 #include <QEvent>
 #include <QPainter>
 UsersInRoomTreeView::UsersInRoomTreeView(QWidget *parent)
     : QTreeView(parent)
+    , mUsersForRoomListHeadingsProxyModel(new UsersForRoomListHeadingsProxyModel(this))
+    , mUsersForRoomFilterProxy(new UsersForRoomFilterProxyModel(this))
 {
+    mUsersForRoomFilterProxy->setObjectName(u"mUsersForRoomFilterProxy"_s);
+    mUsersForRoomFilterProxy->setSourceModel(mUsersForRoomListHeadingsProxyModel);
+    setModel(mUsersForRoomFilterProxy);
     setHeaderHidden(true);
     setDragEnabled(false);
     setIndentation(0);

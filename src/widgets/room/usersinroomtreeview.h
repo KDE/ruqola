@@ -7,7 +7,8 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QTreeView>
-
+class UsersForRoomListHeadingsProxyModel;
+class UsersForRoomFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomTreeView : public QTreeView
 {
     Q_OBJECT
@@ -22,4 +23,6 @@ protected:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generalPaletteChanged();
     QColor mTextColor;
+    UsersForRoomListHeadingsProxyModel *const mUsersForRoomListHeadingsProxyModel;
+    UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxy;
 };
