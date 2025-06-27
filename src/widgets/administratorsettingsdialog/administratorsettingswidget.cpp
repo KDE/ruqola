@@ -159,7 +159,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
         const QString id = currentConfObject["_id"_L1].toString();
         const QVariant value = currentConfObject["value"_L1].toVariant();
         const bool readonly = currentConfObject["readonly"_L1].toBool(false);
-        const bool enterprise = currentConfObject["enterpri"_L1].toBool(false);
+        const bool enterprise = currentConfObject["enterprise"_L1].toBool(false);
         const QJsonArray modulesArrays = currentConfObject["modules"_L1].toArray();
         QStringList modules;
         for (auto module : modulesArrays) {
