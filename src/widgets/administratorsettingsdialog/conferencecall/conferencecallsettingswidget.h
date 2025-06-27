@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class RocketChatAccount;
 class QComboBox;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -21,4 +22,5 @@ public:
 
 private:
     QComboBox *const mDefaultProvider;
+    QCheckBox *const mEnableDirectMessage;
 };

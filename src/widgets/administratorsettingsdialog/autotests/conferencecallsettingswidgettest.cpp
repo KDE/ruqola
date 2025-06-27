@@ -26,6 +26,12 @@ void ConferenceCallSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDefaultProvider->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDefaultProvider), u"VideoConf_Default_Provider"_s);
     SettingsWidgetHelper::checkLabelToolButton(&w, u"VideoConf_Default_Provider"_s);
+
+    auto mEnableDirectMessage = w.findChild<QCheckBox *>(u"mEnableDirectMessage"_s);
+    QVERIFY(mEnableDirectMessage);
+    QVERIFY(!mEnableDirectMessage->isChecked());
+    QVERIFY(!mEnableDirectMessage->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableDirectMessage), u"VideoConf_Enable_DMs"_s);
 }
 
 #include "moc_conferencecallsettingswidgettest.cpp"

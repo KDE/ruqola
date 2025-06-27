@@ -11,6 +11,7 @@
 #include "ruqolawidgets_debug.h"
 #include "video-conference/videoconferenceprovidersjob.h"
 #include <KLocalizedString>
+#include <QCheckBox>
 #include <QComboBox>
 #include <QFormLayout>
 #include <QJsonArray>
@@ -19,9 +20,13 @@ using namespace Qt::Literals::StringLiterals;
 ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
     , mDefaultProvider(new QComboBox(this))
+    , mEnableDirectMessage(new QCheckBox(i18nc("@option:check", "Enable in direct messages"), this))
 {
     mDefaultProvider->setObjectName(u"mDefaultProvider"_s);
     addComboBox(i18n("Default Provider"), {}, mDefaultProvider, u"VideoConf_Default_Provider"_s);
+
+    mEnableDirectMessage->setObjectName(u"mEnableDirectMessage"_s);
+    addCheckBox(mEnableDirectMessage, u"VideoConf_Enable_DMs"_s);
 }
 
 ConferenceCallSettingsWidget::~ConferenceCallSettingsWidget() = default;
@@ -45,6 +50,7 @@ void ConferenceCallSettingsWidget::initialize(const QMap<QString, SettingsWidget
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceProvidersJob job";
     }
+    initializeWidget(mEnableDirectMessage, mapSettings, true);
 }
 
 #include "moc_conferencecallsettingswidget.cpp"
