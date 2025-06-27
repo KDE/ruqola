@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-26 00:42+0000\n"
+"POT-Creation-Date: 2025-06-27 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1845,7 +1845,7 @@ msgstr ""
 msgid "Owner"
 msgstr "Omanik"
 
-#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
+#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:358
 #, kde-format
 msgid "Offline"
 msgstr "Pole võrgus"
@@ -2042,17 +2042,17 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:87 core/utils.cpp:348
+#: core/utils.cpp:87 core/utils.cpp:352
 #, kde-format
 msgid "Online"
 msgstr "Võrgus"
 
-#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:89 core/utils.cpp:354 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Hõivatud"
 
-#: core/utils.cpp:91 core/utils.cpp:352 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Eemal"
@@ -11493,7 +11493,7 @@ msgid "(Open External Dialog…)"
 msgstr ""
 
 #: widgets/room/usersinroomlistview.cpp:22
-#: widgets/room/usersinroomtreeview.cpp:34
+#: widgets/room/usersinroomtreeview.cpp:41
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No Users Found."

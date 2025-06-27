@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-26 00:42+0000\n"
+"POT-Creation-Date: 2025-06-27 00:42+0000\n"
 "PO-Revision-Date: 2025-06-21 18:18+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1710,7 +1710,7 @@ msgstr "(Auto-meedoen)"
 msgid "Owner"
 msgstr "Eigenaar"
 
-#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
+#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:358
 #, kde-format
 msgid "Offline"
 msgstr "Offline"
@@ -1897,17 +1897,17 @@ msgstr "Systeembeheerder"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:87 core/utils.cpp:348
+#: core/utils.cpp:87 core/utils.cpp:352
 #, kde-format
 msgid "Online"
 msgstr "Online"
 
-#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:89 core/utils.cpp:354 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Bezet"
 
-#: core/utils.cpp:91 core/utils.cpp:352 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Afwezig"
@@ -10851,7 +10851,7 @@ msgid "(Open External Dialog…)"
 msgstr "(Externe dialoog openen…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#: widgets/room/usersinroomtreeview.cpp:34
+#: widgets/room/usersinroomtreeview.cpp:41
 #, kde-format
 msgid "No Users Found."
 msgstr "Geen gebruikers gevonden."

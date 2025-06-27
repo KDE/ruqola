@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-26 00:42+0000\n"
+"POT-Creation-Date: 2025-06-27 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1817,7 +1817,7 @@ msgstr ""
 msgid "Owner"
 msgstr "Vlastník"
 
-#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
+#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:358
 #, kde-format
 msgid "Offline"
 msgstr "Nepripojený"
@@ -2015,17 +2015,17 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:87 core/utils.cpp:348
+#: core/utils.cpp:87 core/utils.cpp:352
 #, kde-format
 msgid "Online"
 msgstr "Pripojený"
 
-#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:89 core/utils.cpp:354 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Zaneprázdnený"
 
-#: core/utils.cpp:91 core/utils.cpp:352 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Neprítomný"
@@ -11316,7 +11316,7 @@ msgid "(Open External Dialog…)"
 msgstr ""
 
 #: widgets/room/usersinroomlistview.cpp:22
-#: widgets/room/usersinroomtreeview.cpp:34
+#: widgets/room/usersinroomtreeview.cpp:41
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "No Users Found."

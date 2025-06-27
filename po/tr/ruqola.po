@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-26 00:42+0000\n"
+"POT-Creation-Date: 2025-06-27 00:42+0000\n"
 "PO-Revision-Date: 2025-06-21 08:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1708,7 +1708,7 @@ msgstr "(Otomatik Katılma)"
 msgid "Owner"
 msgstr "Sahip"
 
-#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
+#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:358
 #, kde-format
 msgid "Offline"
 msgstr "Çevrimdışı"
@@ -1895,17 +1895,17 @@ msgstr "Yönetici"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:87 core/utils.cpp:348
+#: core/utils.cpp:87 core/utils.cpp:352
 #, kde-format
 msgid "Online"
 msgstr "Çevrimiçi"
 
-#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:89 core/utils.cpp:354 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Meşgul"
 
-#: core/utils.cpp:91 core/utils.cpp:352 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Uzakta"
@@ -10791,7 +10791,7 @@ msgid "(Open External Dialog…)"
 msgstr "(Dış İletişim Kutusu Aç…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#: widgets/room/usersinroomtreeview.cpp:34
+#: widgets/room/usersinroomtreeview.cpp:41
 #, kde-format
 msgid "No Users Found."
 msgstr "Bulunan kullanıcı yok."

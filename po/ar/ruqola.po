@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-26 00:42+0000\n"
-"PO-Revision-Date: 2025-06-14 17:16+0400\n"
+"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"PO-Revision-Date: 2025-06-26 10:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1726,7 +1726,7 @@ msgstr "(إنضمام آلي)"
 msgid "Owner"
 msgstr "مالك"
 
-#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
+#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:358
 #, kde-format
 msgid "Offline"
 msgstr "غير متّصل"
@@ -1913,17 +1913,17 @@ msgstr "إداري"
 msgid "Bot"
 msgstr "آلي"
 
-#: core/utils.cpp:87 core/utils.cpp:348
+#: core/utils.cpp:87 core/utils.cpp:352
 #, kde-format
 msgid "Online"
 msgstr "متصل"
 
-#: core/utils.cpp:89 core/utils.cpp:350 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:89 core/utils.cpp:354 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "مشغول"
 
-#: core/utils.cpp:91 core/utils.cpp:352 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "بالخارج"
@@ -10854,9 +10854,8 @@ msgid "(Open External Dialog…)"
 msgstr "(افتح مربع حوار خارجي…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#: widgets/room/usersinroomtreeview.cpp:34
-#, fuzzy, kde-format
-#| msgid "No User found"
+#: widgets/room/usersinroomtreeview.cpp:41
+#, kde-format
 msgid "No Users Found."
 msgstr "لم يعثر على أي مستخدم"
 
@@ -12088,10 +12087,9 @@ msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr "إصلاح أزرار التطبيق والاستعادة والإلغاء في مربع حوار الإدارة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:190
-#, fuzzy, kde-format
-#| msgid "Fix display user."
+#, kde-format
 msgid "Fix search users."
-msgstr "إصلاح عرض المستخدم."
+msgstr "إصلاح البحث عن المستخدمين."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
