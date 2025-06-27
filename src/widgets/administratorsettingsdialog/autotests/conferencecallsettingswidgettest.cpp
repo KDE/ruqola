@@ -43,7 +43,7 @@ void ConferenceCallSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEnablePrivateChannels);
     QVERIFY(!mEnablePrivateChannels->isChecked());
     QVERIFY(!mEnablePrivateChannels->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePublicChannels), u"VideoConf_Enable_Groups"_s);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePrivateChannels), u"VideoConf_Enable_Groups"_s);
 
     auto mEnableTeams = w.findChild<QCheckBox *>(u"mEnableTeams"_s);
     QVERIFY(mEnableTeams);
