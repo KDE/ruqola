@@ -21,12 +21,24 @@ ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *ac
     : SettingsWidgetBase{account, parent}
     , mDefaultProvider(new QComboBox(this))
     , mEnableDirectMessage(new QCheckBox(i18nc("@option:check", "Enable in direct messages"), this))
+    , mEnablePublicChannels(new QCheckBox(i18nc("@option:check", "Enable in public channels"), this))
+    , mEnablePrivateChannels(new QCheckBox(i18nc("@option:check", "Enable in public channels"), this))
+    , mEnableTeams(new QCheckBox(i18nc("@option:check", "Enable in teams"), this))
 {
     mDefaultProvider->setObjectName(u"mDefaultProvider"_s);
     addComboBox(i18n("Default Provider"), {}, mDefaultProvider, u"VideoConf_Default_Provider"_s);
 
     mEnableDirectMessage->setObjectName(u"mEnableDirectMessage"_s);
     addCheckBox(mEnableDirectMessage, u"VideoConf_Enable_DMs"_s);
+
+    mEnablePublicChannels->setObjectName(u"mEnablePublicChannels"_s);
+    addCheckBox(mEnablePublicChannels, u"VideoConf_Enable_Channels"_s);
+
+    mEnablePrivateChannels->setObjectName(u"mEnablePrivateChannels"_s);
+    addCheckBox(mEnablePrivateChannels, u"VideoConf_Enable_Groups"_s);
+
+    mEnableTeams->setObjectName(u"mEnableTeams"_s);
+    addCheckBox(mEnableTeams, u"VideoConf_Enable_Teams"_s);
 }
 
 ConferenceCallSettingsWidget::~ConferenceCallSettingsWidget() = default;
@@ -51,6 +63,9 @@ void ConferenceCallSettingsWidget::initialize(const QMap<QString, SettingsWidget
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceProvidersJob job";
     }
     initializeWidget(mEnableDirectMessage, mapSettings, true);
+    initializeWidget(mEnablePublicChannels, mapSettings, true);
+    initializeWidget(mEnablePrivateChannels, mapSettings, true);
+    initializeWidget(mEnableTeams, mapSettings, true);
 }
 
 #include "moc_conferencecallsettingswidget.cpp"

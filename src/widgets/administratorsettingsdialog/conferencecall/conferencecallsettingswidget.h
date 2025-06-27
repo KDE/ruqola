@@ -23,4 +23,7 @@ public:
 private:
     QComboBox *const mDefaultProvider;
     QCheckBox *const mEnableDirectMessage;
+    QCheckBox *const mEnablePublicChannels;
+    QCheckBox *const mEnablePrivateChannels;
+    QCheckBox *const mEnableTeams;
 };

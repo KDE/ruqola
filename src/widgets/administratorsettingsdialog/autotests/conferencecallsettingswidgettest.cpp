@@ -32,6 +32,24 @@ void ConferenceCallSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableDirectMessage->isChecked());
     QVERIFY(!mEnableDirectMessage->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableDirectMessage), u"VideoConf_Enable_DMs"_s);
+
+    auto mEnablePublicChannels = w.findChild<QCheckBox *>(u"mEnablePublicChannels"_s);
+    QVERIFY(mEnablePublicChannels);
+    QVERIFY(!mEnablePublicChannels->isChecked());
+    QVERIFY(!mEnablePublicChannels->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePublicChannels), u"VideoConf_Enable_Channels"_s);
+
+    auto mEnablePrivateChannels = w.findChild<QCheckBox *>(u"mEnablePrivateChannels"_s);
+    QVERIFY(mEnablePrivateChannels);
+    QVERIFY(!mEnablePrivateChannels->isChecked());
+    QVERIFY(!mEnablePrivateChannels->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePublicChannels), u"VideoConf_Enable_Groups"_s);
+
+    auto mEnableTeams = w.findChild<QCheckBox *>(u"mEnableTeams"_s);
+    QVERIFY(mEnableTeams);
+    QVERIFY(!mEnableTeams->isChecked());
+    QVERIFY(!mEnableTeams->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableTeams), u"VideoConf_Enable_Teams"_s);
 }
 
 #include "moc_conferencecallsettingswidgettest.cpp"
