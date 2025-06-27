@@ -548,17 +548,25 @@ void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QStrin
     const QString variableName = checkbox->property(s_property).toString();
     bool value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        value = mapSettings.value(variableName).value.toBool();
+        const auto result = mapSettings.value(variableName);
+        value = result.value.toBool();
+        const bool readOnly = result.readOnly;
+        checkbox->setEnabled(!readOnly);
+        if (readOnly) {
+            hideButtons(variableName);
+        }
+        if (result.enterprise) {
+            qDebug() << " variableName " << variableName << " enterprise";
+            // TODO verify license module.
+        } else {
+        }
+    } else {
+        checkbox->setEnabled(false);
     }
     checkbox->setChecked(value);
     checkbox->setProperty(s_property_current_value, value);
     checkbox->setProperty(s_property_default_value, defaultValue);
     disableToolButton(variableName, (value != defaultValue));
-    const bool readOnly = mapSettings.value(variableName).readOnly;
-    checkbox->setEnabled(!readOnly);
-    if (readOnly) {
-        hideButtons(variableName);
-    }
 }
 
 void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue)
@@ -577,17 +585,20 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
     const bool hasValue = mapSettings.contains(variableName);
     int spinboxValue = defaultValue;
     if (hasValue) {
-        spinboxValue = mapSettings.value(variableName).value.toInt();
+        const auto result = mapSettings.value(variableName);
+        spinboxValue = result.value.toInt();
+        const bool readOnly = result.readOnly;
+        spinbox->setEnabled(!readOnly);
+        if (readOnly) {
+            hideButtons(variableName);
+        }
+    } else {
+        spinbox->setEnabled(false);
     }
     spinbox->setValue(spinboxValue);
     spinbox->setProperty(s_property_current_value, spinboxValue);
     spinbox->setProperty(s_property_default_value, defaultValue);
-    const bool readOnly = mapSettings.value(variableName).readOnly;
-    spinbox->setEnabled(!readOnly);
     disableToolButton(variableName, (spinboxValue != defaultValue));
-    if (readOnly) {
-        hideButtons(variableName);
-    }
 }
 
 void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue)
@@ -679,6 +690,21 @@ QString SettingsWidgetBase::urlFromRelativePath(const QString &relativePath)
         return mAccount->serverUrl() + u'/' + relativePath;
     }
     return {};
+}
+
+QDebug operator<<(QDebug d, const SettingsWidgetBase::SettingsInfo &t)
+{
+    d.space() << "readOnly:" << t.readOnly;
+    d.space() << "enterprise:" << t.enterprise;
+    d.space() << "modules:" << t.modules;
+    d.space() << "value:" << t.value;
+    return d;
+}
+
+bool SettingsWidgetBase::hasNecessaryLicense(const QStringList &lst) const
+{
+    // TODO
+    return false;
 }
 
 #include "moc_settingswidgetbase.cpp"

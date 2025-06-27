@@ -80,4 +80,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addApplyButton(const QString &variable);
     LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addCancelButton(const QString &variable);
     LIBRUQOLAWIDGETS_NO_EXPORT void hideButtons(const QString &variableName);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasNecessaryLicense(const QStringList &lst) const;
 };
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const SettingsWidgetBase::SettingsInfo &t);
