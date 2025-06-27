@@ -64,6 +64,11 @@ void UsersInRoomTreeView::generalPaletteChanged()
     mTextColor = color;
 }
 
+UsersForRoomFilterProxyModel *UsersInRoomTreeView::usersForRoomFilterProxy() const
+{
+    return mUsersForRoomFilterProxy;
+}
+
 bool UsersInRoomTreeView::event(QEvent *ev)
 {
     if (ev->type() == QEvent::ApplicationPaletteChange) {

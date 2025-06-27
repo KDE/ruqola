@@ -16,6 +16,8 @@ public:
     explicit UsersInRoomTreeView(QWidget *parent = nullptr);
     ~UsersInRoomTreeView() override;
 
+    [[nodiscard]] UsersForRoomFilterProxyModel *usersForRoomFilterProxy() const;
+
 protected:
     void paintEvent(QPaintEvent *event) override;
     [[nodiscard]] bool event(QEvent *ev) override;
