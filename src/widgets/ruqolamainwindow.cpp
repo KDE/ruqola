@@ -621,19 +621,19 @@ void RuqolaMainWindow::setupActions()
 
     {
         QList<QAction *> listActions;
-        auto act = new QAction(i18nc("@action", "Previous Selected Channel"), this);
-        ac->setDefaultShortcut(act, QKeySequence(Qt::CTRL | Qt::Key_Tab));
-        ac->addAction(u"previous_channel"_s, act);
-        listActions.append(act);
+        auto actSelectChanel = new QAction(i18nc("@action", "Previous Selected Channel"), this);
+        ac->setDefaultShortcut(actSelectChanel, QKeySequence(Qt::CTRL | Qt::Key_Tab));
+        ac->addAction(u"previous_channel"_s, actSelectChanel);
+        listActions.append(actSelectChanel);
 
-        connect(act, &QAction::triggered, this, &RuqolaMainWindow::undoSwitchChannel);
+        connect(actSelectChanel, &QAction::triggered, this, &RuqolaMainWindow::undoSwitchChannel);
 
-        act = new QAction(i18nc("@action", "Next Selected Channel"), this);
-        ac->addAction(u"next_channel"_s, act);
+        actSelectChanel = new QAction(i18nc("@action", "Next Selected Channel"), this);
+        ac->addAction(u"next_channel"_s, actSelectChanel);
         const QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
-        ac->setDefaultShortcut(act, combinationKeys);
-        connect(act, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
-        listActions.append(act);
+        ac->setDefaultShortcut(actSelectChanel, combinationKeys);
+        connect(actSelectChanel, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
+        listActions.append(actSelectChanel);
 
         mSwitchChannelTreeManager->addActions(listActions);
     }
