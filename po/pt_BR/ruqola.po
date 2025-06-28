@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-28 00:41+0000\n"
 "PO-Revision-Date: 2025-02-27 20:07-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -5067,7 +5067,30 @@ msgid ""
 "their team and department channel."
 msgstr ""
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Create Direct Messages..."
+msgctxt "@option:check"
+msgid "Enable in direct messages"
+msgstr "Criar mensagens direta..."
+
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Total Channels"
+msgctxt "@option:check"
+msgid "Enable in public channels"
+msgstr "Total de canais"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Delete Rooms"
+msgctxt "@option:check"
+msgid "Enable in teams"
+msgstr "Excluir salas"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Default Room"
 msgid "Default Provider"

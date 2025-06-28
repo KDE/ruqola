@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-28 00:41+0000\n"
 "PO-Revision-Date: 2025-06-21 10:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4875,7 +4875,32 @@ msgstr ""
 "durant la creació de l'usuari, p. ex.: {\"rooms\": \"%team%,%department%\"} "
 "s'uniria als usuaris CAS en la creació al seu equip i canal de departament."
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Direct Messages"
+msgctxt "@option:check"
+msgid "Enable in direct messages"
+msgstr "Activa en els missatges directes"
+
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Public Channels"
+msgctxt "@option:check"
+msgid "Enable in public channels"
+msgstr "Activa en els canals públics"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Teams"
+msgctxt "@option:check"
+msgid "Enable in teams"
+msgstr "Activa per als equips"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format
 msgid "Default Provider"
 msgstr "Proveïdor predeterminat"

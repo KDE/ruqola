@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-28 00:41+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -5124,7 +5124,29 @@ msgstr ""
 "após a criação do utilizador, p.ex.: {\"rooms\": \"%team%,%department%\"} "
 "iria associar os utilizadores do CAS ao canal da sua equipa e departamento."
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Enable for Direct Messages"
+msgctxt "@option:check"
+msgid "Enable in direct messages"
+msgstr "Activar nas Mensagens Directas"
+
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Enable for Public Channels"
+msgctxt "@option:check"
+msgid "Enable in public channels"
+msgstr "Activar nos Canais Públicos"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Enable for Teams"
+msgctxt "@option:check"
+msgid "Enable in teams"
+msgstr "Activar nas Equipas"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format
 msgid "Default Provider"
 msgstr "Fornecedor Predefinido"

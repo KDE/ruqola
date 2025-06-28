@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-28 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4833,7 +4833,32 @@ msgstr ""
 "पृथक्कृता सूची अस्ति यथा: {&quot;rooms&quot;: &quot;%team%,%department%&quot;} "
 "निर्माणे CAS उपयोक्तृभ्यः स्वसमूहे विभागचैनेले च सम्मिलितं करिष्यति"
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Direct Messages"
+msgctxt "@option:check"
+msgid "Enable in direct messages"
+msgstr "प्रत्यक्षसन्देशानां कृते सक्षमं कुर्वन्तु"
+
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Public Channels"
+msgctxt "@option:check"
+msgid "Enable in public channels"
+msgstr "सार्वजनिकचैनलस्य कृते सक्षमं कुर्वन्तु"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Teams"
+msgctxt "@option:check"
+msgid "Enable in teams"
+msgstr "दलानाम् कृते सक्षमं कुर्वन्तु"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format
 msgid "Default Provider"
 msgstr "पूर्वनिर्धारित प्रदाता"

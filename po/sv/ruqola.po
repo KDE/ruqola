@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-28 00:41+0000\n"
 "PO-Revision-Date: 2025-06-21 21:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -4845,7 +4845,32 @@ msgstr ""
 "skapas, t.ex. skulle {\"rooms\": \"%team%,%department%\"} göra att CAS-"
 "användare går med i kanalerna team och department."
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Direct Messages"
+msgctxt "@option:check"
+msgid "Enable in direct messages"
+msgstr "Aktivera i direktmeddelanden"
+
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Public Channels"
+msgctxt "@option:check"
+msgid "Enable in public channels"
+msgstr "Aktivera i öppna kanaler"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Teams"
+msgctxt "@option:check"
+msgid "Enable in teams"
+msgstr "Aktivera för lag"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format
 msgid "Default Provider"
 msgstr "Förvald leverantör"

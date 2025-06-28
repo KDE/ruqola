@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-28 00:41+0000\n"
 "PO-Revision-Date: 2025-06-21 19:09+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -4899,7 +4899,32 @@ msgstr ""
 "створення запису користувача. Приклад: {\"rooms\": \"%team%,%department%\"} "
 "— долучити користувачів CAS при створенні до їхніх кімнат команд і відділів."
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Direct Messages"
+msgctxt "@option:check"
+msgid "Enable in direct messages"
+msgstr "Увімкнути для безпосередніх повідомлень"
+
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Public Channels"
+msgctxt "@option:check"
+msgid "Enable in public channels"
+msgstr "Увімкнути для загальнодоступних каналів"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Teams"
+msgctxt "@option:check"
+msgid "Enable in teams"
+msgstr "Увімкнути для команд"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format
 msgid "Default Provider"
 msgstr "Типовий надавач послуг"
