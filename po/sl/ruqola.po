@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:41+0000\n"
-"PO-Revision-Date: 2025-06-21 06:43+0200\n"
+"POT-Creation-Date: 2025-06-29 00:42+0000\n"
+"PO-Revision-Date: 2025-06-28 08:19+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2996,7 +2996,7 @@ msgid "Remove Emoji"
 msgstr "Odstrani čustvenčka"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:168
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:103
@@ -3009,7 +3009,7 @@ msgid "Add…"
 msgstr "Dodaj…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:172
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:178
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3022,7 +3022,7 @@ msgid "Modify…"
 msgstr "Spremeni…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:182
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:173
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3062,12 +3062,12 @@ msgstr[1] "%1 zvoka po meri (skupaj: %2)"
 msgstr[2] "%1 zvoki po meri (skupaj: %2)"
 msgstr[3] "%1 zvokov po meri (skupaj: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:134
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:140
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Ali želite odstraniti ta zvok?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:135
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -4873,29 +4873,23 @@ msgstr ""
 "uporabnikom CAS pridružil pri ustvarjanju njihove ekipe in kanalu oddelka."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Direct Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in direct messages"
-msgstr "Omogoči za neposredna sporočila"
+msgstr "Omogoči v neposrednih sporočilih"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Public Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in public channels"
-msgstr "Omogoči za javne kanale"
+msgstr "Omogoči v javnih kanalih"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in teams"
-msgstr "Omogoči za skupine"
+msgstr "Omogoči v ekipah"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format

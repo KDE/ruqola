@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:41+0000\n"
-"PO-Revision-Date: 2025-06-21 10:38+0200\n"
+"POT-Creation-Date: 2025-06-29 00:42+0000\n"
+"PO-Revision-Date: 2025-06-28 10:31+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -2998,7 +2998,7 @@ msgid "Remove Emoji"
 msgstr "Eliminació d'emoji"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:168
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:103
@@ -3011,7 +3011,7 @@ msgid "Add…"
 msgstr "Afegeix…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:172
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:178
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3024,7 +3024,7 @@ msgid "Modify…"
 msgstr "Modifica…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:182
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:173
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3062,12 +3062,12 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 so personalitzat (Total: %2)"
 msgstr[1] "%1 sons personalitzats (Total: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:134
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:140
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Voleu eliminar aquest so?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:135
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -4876,26 +4876,20 @@ msgstr ""
 "s'uniria als usuaris CAS en la creació al seu equip i canal de departament."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Direct Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in direct messages"
 msgstr "Activa en els missatges directes"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Public Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in public channels"
 msgstr "Activa en els canals públics"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in teams"
 msgstr "Activa pels equips"

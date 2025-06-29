@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:41+0000\n"
+"POT-Creation-Date: 2025-06-29 00:42+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -2993,7 +2993,7 @@ msgid "Remove Emoji"
 msgstr "Forigi Emoji"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:168
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:103
@@ -3006,7 +3006,7 @@ msgid "Add…"
 msgstr "Aldoni…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:172
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:178
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3019,7 +3019,7 @@ msgid "Modify…"
 msgstr "Modifi…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:182
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:173
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3057,12 +3057,12 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 propra sono (Totalo: %2)"
 msgstr[1] "%1 propraj sonoj (Totalo: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:134
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:140
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Ĉu vi volas forigi ĉi tiun sonon?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:135
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"

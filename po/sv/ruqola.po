@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:41+0000\n"
-"PO-Revision-Date: 2025-06-21 21:35+0200\n"
+"POT-Creation-Date: 2025-06-29 00:42+0000\n"
+"PO-Revision-Date: 2025-06-28 20:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -2976,7 +2976,7 @@ msgid "Remove Emoji"
 msgstr "Ta bort emoji"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:170
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:168
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:103
@@ -2989,7 +2989,7 @@ msgid "Add…"
 msgstr "Lägg till…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:172
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:178
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3002,7 +3002,7 @@ msgid "Modify…"
 msgstr "Ändra…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:182
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:173
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3040,12 +3040,12 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 eget ljud (totalt : %2)"
 msgstr[1] "%1 egna ljud (totalt : %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:134
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:140
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Vill du ta bort ljudet?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:135
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -4846,26 +4846,20 @@ msgstr ""
 "användare går med i kanalerna team och department."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Direct Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in direct messages"
 msgstr "Aktivera i direktmeddelanden"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Public Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in public channels"
 msgstr "Aktivera i öppna kanaler"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in teams"
 msgstr "Aktivera för lag"
