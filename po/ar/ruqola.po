@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-04-05 11:55+0400\n"
+"PO-Revision-Date: 2025-06-28 17:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3756,7 +3756,7 @@ msgstr "أزل الغرفة"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
-msgstr "أنعش"
+msgstr "حدّث"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:68
 #, kde-format
