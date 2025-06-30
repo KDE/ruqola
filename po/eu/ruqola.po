@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-29 00:42+0000\n"
-"PO-Revision-Date: 2025-06-24 12:44+0200\n"
+"PO-Revision-Date: 2025-06-30 00:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -4878,29 +4878,23 @@ msgstr ""
 "lituzke."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Direct Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in direct messages"
-msgstr "Gaitu zuzeneko mezuetarako"
+msgstr "Gaitu zuzeneko mezuetan"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Public Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in public channels"
-msgstr "Gaitu kanal publikoetarako"
+msgstr "Gaitu kanal publikoetan"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in teams"
-msgstr "Gaitu taldeetarako"
+msgstr "Gaitu taldeetan"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format

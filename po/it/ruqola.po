@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-29 00:42+0000\n"
-"PO-Revision-Date: 2025-06-14 09:04+0200\n"
+"PO-Revision-Date: 2025-06-28 20:50+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -4876,29 +4876,23 @@ msgstr ""
 "del reparto."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Direct Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in direct messages"
-msgstr "Abilita per i messaggi diretti"
+msgstr "Abilita nei messaggi diretti"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Public Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in public channels"
-msgstr "Abilita per i canali pubblici"
+msgstr "Abilita nei canali pubblici"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in teams"
-msgstr "Abilita per Squadre"
+msgstr "Abilita nelle squadre"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format
@@ -10885,10 +10879,9 @@ msgstr "(Apri finestra esterna)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Nessun utente trovato"
+msgstr "Nessun utente trovato."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -12151,10 +12144,9 @@ msgstr ""
 "impostazioni di amministrazione."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:190
-#, fuzzy, kde-format
-#| msgid "Search users..."
+#, kde-format
 msgid "Fix search users."
-msgstr "Cerca utenti..."
+msgstr "Corregge la ricerca degli utenti."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
