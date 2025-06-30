@@ -224,6 +224,19 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     mMainLayout->addRow(layout);
 }
 
+QLabel *SettingsWidgetBase::addNotLicenseLabel(const QString &variable)
+{
+    auto label = new QLabel(this);
+    /*
+    label->setObjectName(u"toolbutton_%1"_s.arg(variable));
+    label->setIcon(QIcon::fromTheme(u"dialog-ok-apply"_s));
+    label->setToolTip(i18nc("@info:tooltip", "Apply"));
+    label->setProperty(s_property, variable);
+    label->setEnabled(false);
+    */
+    return label;
+}
+
 QToolButton *SettingsWidgetBase::addApplyButton(const QString &variable)
 {
     auto toolButton = new QToolButton(this);

@@ -76,10 +76,11 @@ private:
                                                                  const QString &buttonObjectName = {});
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName);
     LIBRUQOLAWIDGETS_NO_EXPORT void disableToolButton(const QString &variableName, bool differentFromDefaultValue);
-    LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addRestoreButton(const QString &variable);
-    LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addApplyButton(const QString &variable);
-    LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addCancelButton(const QString &variable);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addRestoreButton(const QString &variable);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addApplyButton(const QString &variable);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QToolButton *addCancelButton(const QString &variable);
     LIBRUQOLAWIDGETS_NO_EXPORT void hideButtons(const QString &variableName);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasNecessaryLicense(const QStringList &lst) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QLabel *addNotLicenseLabel(const QString &variable);
 };
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const SettingsWidgetBase::SettingsInfo &t);
