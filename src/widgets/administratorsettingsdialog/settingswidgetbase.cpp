@@ -516,16 +516,24 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
     const QString variableName = lineEdit->property(s_property).toString();
     QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        value = mapSettings.value(variableName).value.toString();
-    }
-    lineEdit->setText(value);
-    lineEdit->setProperty(s_property_current_value, value);
-    lineEdit->setProperty(s_property_default_value, defaultValue);
-    const bool readOnly = mapSettings.value(variableName).readOnly;
-    lineEdit->setReadOnly(readOnly);
-    disableToolButton(variableName, (value != defaultValue));
-    if (readOnly) {
-        hideButtons(variableName);
+        const auto result = mapSettings.value(variableName);
+        value = result.value.toString();
+        lineEdit->setText(value);
+        lineEdit->setProperty(s_property_current_value, value);
+        lineEdit->setProperty(s_property_default_value, defaultValue);
+        const bool readOnly = result.readOnly;
+        lineEdit->setReadOnly(readOnly);
+        disableToolButton(variableName, (value != defaultValue));
+        if (readOnly) {
+            hideButtons(variableName);
+        }
+        if (result.enterprise) {
+            if (!hasNecessaryLicense(result.modules)) {
+                hideButtons(variableName);
+                lineEdit->setEnabled(false);
+                // TODO show info about Missing license
+            }
+        }
     }
 }
 
@@ -533,12 +541,19 @@ void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMa
 {
     const QString variableName = lineEdit->property(s_property).toString();
     if (mapSettings.contains(variableName)) {
-        const auto value = mapSettings.value(variableName);
-        lineEdit->setPassword(value.value.toString());
+        const auto result = mapSettings.value(variableName);
+        lineEdit->setPassword(result.value.toString());
         disableToolButton(variableName, false);
-        const bool readOnly = mapSettings.value(variableName).readOnly;
+        const bool readOnly = result.readOnly;
         if (readOnly) {
             hideButtons(variableName);
+        }
+        if (result.enterprise) {
+            if (!hasNecessaryLicense(result.modules)) {
+                hideButtons(variableName);
+                lineEdit->setEnabled(false);
+                // TODO show info about Missing license
+            }
         }
     }
 }
@@ -556,18 +571,10 @@ void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QStrin
             hideButtons(variableName);
         }
         if (result.enterprise) {
-            const QStringList modules = result.modules;
-            bool hasModules = false;
-            for (const QString &m : modules) {
-                if (mAccount->hasLicense(m)) {
-                    hasModules = true;
-                }
-            }
-            qDebug() << " variableName " << variableName << " enterprise";
-            // TODO verify license module.
-            if (!hasModules) {
+            if (!hasNecessaryLicense(result.modules)) {
                 hideButtons(variableName);
                 checkbox->setEnabled(false);
+                // TODO show info about Missing license
             }
         }
     } else {
@@ -601,6 +608,13 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
         spinbox->setEnabled(!readOnly);
         if (readOnly) {
             hideButtons(variableName);
+        }
+        if (result.enterprise) {
+            if (!hasNecessaryLicense(result.modules)) {
+                hideButtons(variableName);
+                spinbox->setEnabled(false);
+                // TODO show info about Missing license
+            }
         }
     } else {
         spinbox->setEnabled(false);
@@ -717,9 +731,11 @@ bool SettingsWidgetBase::hasNecessaryLicense(const QStringList &lst) const
     for (const QString &m : lst) {
         if (mAccount->hasLicense(m)) {
             hasModules = true;
+        } else {
+            hasModules = false;
+            break;
         }
     }
-    // TODO
     return hasModules;
 }
 
