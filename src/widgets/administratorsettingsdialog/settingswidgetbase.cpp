@@ -556,9 +556,19 @@ void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QStrin
             hideButtons(variableName);
         }
         if (result.enterprise) {
+            const QStringList modules = result.modules;
+            bool hasModules = false;
+            for (const QString &m : modules) {
+                if (mAccount->hasLicense(m)) {
+                    hasModules = true;
+                }
+            }
             qDebug() << " variableName " << variableName << " enterprise";
             // TODO verify license module.
-        } else {
+            if (!hasModules) {
+                hideButtons(variableName);
+                checkbox->setEnabled(false);
+            }
         }
     } else {
         checkbox->setEnabled(false);
@@ -703,8 +713,14 @@ QDebug operator<<(QDebug d, const SettingsWidgetBase::SettingsInfo &t)
 
 bool SettingsWidgetBase::hasNecessaryLicense(const QStringList &lst) const
 {
+    bool hasModules = false;
+    for (const QString &m : lst) {
+        if (mAccount->hasLicense(m)) {
+            hasModules = true;
+        }
+    }
     // TODO
-    return false;
+    return hasModules;
 }
 
 #include "moc_settingswidgetbase.cpp"
