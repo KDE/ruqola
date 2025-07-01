@@ -226,14 +226,10 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
 
 QLabel *SettingsWidgetBase::addNotLicenseLabel(const QString &variable)
 {
-    auto label = new QLabel(this);
-    /*
-    label->setObjectName(u"toolbutton_%1"_s.arg(variable));
-    label->setIcon(QIcon::fromTheme(u"dialog-ok-apply"_s));
-    label->setToolTip(i18nc("@info:tooltip", "Apply"));
+    auto label = new QLabel(i18n("Enterprise"), this);
+    label->setObjectName(u"label_enterprise_%1"_s.arg(variable));
     label->setProperty(s_property, variable);
-    label->setEnabled(false);
-    */
+    label->hide();
     return label;
 }
 
