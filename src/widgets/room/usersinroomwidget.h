@@ -10,7 +10,6 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QListView;
 class QLineEdit;
 class Room;
 class UsersInRoomMenu;
