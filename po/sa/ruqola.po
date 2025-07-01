@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-29 00:42+0000\n"
+"POT-Creation-Date: 2025-07-01 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -6627,14 +6627,14 @@ msgstr "निजीसमूहेषु अधिकतमं सन्दे�
 msgid "Maximum message age in direct messages"
 msgstr "प्रत्यक्षसन्देशेषु अधिकतमं सन्देशवयोः"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:232
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:245
 #, fuzzy, kde-format
 #| msgid "Apply"
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "आचरतु"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:243
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Cancel"
@@ -6642,7 +6642,7 @@ msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:265
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"

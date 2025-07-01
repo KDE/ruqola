@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-29 00:42+0000\n"
+"POT-Creation-Date: 2025-07-01 00:42+0000\n"
 "PO-Revision-Date: 2025-06-28 18:37+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -6688,19 +6688,19 @@ msgstr "Maximale leeftijd van een bericht in privé groepen"
 msgid "Maximum message age in direct messages"
 msgstr "Maximale leeftijd van een direct bericht"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:232
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Toepassen"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:243
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:265
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"

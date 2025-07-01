@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-29 00:42+0000\n"
+"POT-Creation-Date: 2025-07-01 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -6710,21 +6710,21 @@ msgstr "Legnagyobb üzenetéletkor a személyes csoportokban"
 msgid "Maximum message age in direct messages"
 msgstr "Legnagyobb üzenetéletkor a közvetlen üzenetekben"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:232
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:245
 #, fuzzy, kde-format
 #| msgid "Apply"
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Alkalmaz"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:243
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:265
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
