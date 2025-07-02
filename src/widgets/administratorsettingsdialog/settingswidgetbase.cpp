@@ -6,6 +6,7 @@
 
 #include "settingswidgetbase.h"
 
+#include "colorsandmessageviewstyle.h"
 #include "connection.h"
 #include "dialogs/confirmpassworddialog.h"
 #include "rocketchataccount.h"
@@ -25,6 +26,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 #include <QToolButton>
+#include <kcolorscheme.h>
 
 using namespace Qt::Literals::StringLiterals;
 namespace
@@ -104,6 +106,9 @@ void SettingsWidgetBase::addCheckBox(QCheckBox *checkBox, const QString &variabl
     auto applyButton = addApplyButton(variable);
     checkBox->setProperty(s_property, variable);
     layout->addWidget(checkBox);
+    auto labelEnterprise = addNotLicenseLabel(variable);
+    layout->addWidget(labelEnterprise);
+
     layout->addWidget(applyButton);
     setTabOrder(checkBox, applyButton);
 
@@ -226,9 +231,16 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
 
 QLabel *SettingsWidgetBase::addNotLicenseLabel(const QString &variable)
 {
-    auto label = new QLabel(i18n("Enterprise"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Enterprise"), this);
     label->setObjectName(u"label_enterprise_%1"_s.arg(variable));
     label->setProperty(s_property, variable);
+    label->setToolTip(i18nc("@info:tooltip", "Need to activate enterprise license"));
+
+    const auto color = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color();
+    QPalette palette = label->palette();
+    palette.setColor(QPalette::WindowText, color);
+    label->setPalette(palette);
+
     label->hide();
     return label;
 }
