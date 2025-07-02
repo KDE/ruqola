@@ -595,7 +595,7 @@ void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QStrin
             if (!hasNecessaryLicense(result.modules)) {
                 hideButtons(variableName);
                 checkbox->setEnabled(false);
-                // TODO show info about Missing license
+                showEnterpriseLicense(variableName);
             }
         }
     } else {
@@ -681,6 +681,14 @@ void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit,
     plainTextEdit->setEnabled(!readOnly);
     if (readOnly) {
         hideButtons(variableName);
+    }
+}
+
+void SettingsWidgetBase::showEnterpriseLicense(const QString &variableName)
+{
+    auto labelEnterprise = findChild<QLabel *>(u"label_enterprise_%1"_s.arg(variableName));
+    if (labelEnterprise) {
+        labelEnterprise->setVisible(true);
     }
 }
 

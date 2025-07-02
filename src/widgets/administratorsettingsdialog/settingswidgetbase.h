@@ -82,5 +82,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void hideButtons(const QString &variableName);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasNecessaryLicense(const QStringList &lst) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QLabel *addNotLicenseLabel(const QString &variable);
+    LIBRUQOLAWIDGETS_NO_EXPORT void showEnterpriseLicense(const QString &variableName);
 };
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const SettingsWidgetBase::SettingsInfo &t);
