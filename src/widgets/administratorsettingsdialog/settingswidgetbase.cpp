@@ -552,7 +552,7 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
             if (!hasNecessaryLicense(result.modules)) {
                 hideButtons(variableName);
                 lineEdit->setEnabled(false);
-                // TODO show info about Missing license
+                showEnterpriseLicense(variableName);
             }
         }
     }
@@ -573,7 +573,7 @@ void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMa
             if (!hasNecessaryLicense(result.modules)) {
                 hideButtons(variableName);
                 lineEdit->setEnabled(false);
-                // TODO show info about Missing license
+                showEnterpriseLicense(variableName);
             }
         }
     }
@@ -634,7 +634,7 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
             if (!hasNecessaryLicense(result.modules)) {
                 hideButtons(variableName);
                 spinbox->setEnabled(false);
-                // TODO show info about Missing license
+                showEnterpriseLicense(variableName);
             }
         }
     } else {
