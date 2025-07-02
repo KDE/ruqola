@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-01 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 07:05+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -4590,6 +4590,7 @@ msgid "Layout"
 msgstr "Компоновка"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:229
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
 #, kde-format
 msgid "Enterprise"
@@ -6738,21 +6739,21 @@ msgstr "Максимальный возраст сообщений в закры
 msgid "Maximum message age in direct messages"
 msgstr "Максимальный возраст сообщений в личных сообщениях"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:245
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:241
 #, fuzzy, kde-format
 #| msgid "Apply"
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Применить"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:265
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-01 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 07:05+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -4883,6 +4883,7 @@ msgid "Layout"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:229
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Enter account name"
@@ -7018,20 +7019,20 @@ msgstr ""
 msgid "Maximum message age in direct messages"
 msgstr "Videosõnumi loomine"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:245
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:241
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:256
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Loobu"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:265
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
