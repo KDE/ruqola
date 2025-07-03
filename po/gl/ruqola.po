@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-02 07:05+0000\n"
+"POT-Creation-Date: 2025-07-03 06:56+0000\n"
 "PO-Revision-Date: 2025-06-21 12:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -4561,7 +4561,6 @@ msgid "Layout"
 msgstr "Disposición"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:229
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
 #, kde-format
 msgid "Enterprise"
@@ -6700,19 +6699,33 @@ msgstr "Duración máxima das mensaxes nos grupos privados"
 msgid "Maximum message age in direct messages"
 msgstr "Duración máxima das mensaxes directas"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:241
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
+#, fuzzy, kde-format
+#| msgid "Enterprise"
+msgctxt "@label:textbox"
+msgid "Enterprise"
+msgstr "Empresarial"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#, fuzzy, kde-format
+#| msgid "Enterprise License"
+msgctxt "@info:tooltip"
+msgid "Need to activate enterprise license"
+msgstr "Licenza para empresas"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Aplicar"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:264
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:273
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"

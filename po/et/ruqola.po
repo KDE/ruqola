@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-02 07:05+0000\n"
+"POT-Creation-Date: 2025-07-03 06:56+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -4883,7 +4883,6 @@ msgid "Layout"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:229
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Enter account name"
@@ -7019,20 +7018,33 @@ msgstr ""
 msgid "Maximum message age in direct messages"
 msgstr "Videosõnumi loomine"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:241
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
+#, fuzzy, kde-format
+#| msgid "Enter account name"
+msgctxt "@label:textbox"
+msgid "Enterprise"
+msgstr "Konto nimi"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Need to activate enterprise license"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:264
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Loobu"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:273
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-02 07:05+0000\n"
+"POT-Creation-Date: 2025-07-03 06:56+0000\n"
 "PO-Revision-Date: 2025-06-28 13:11+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -4577,7 +4577,6 @@ msgid "Layout"
 msgstr "Компонування"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:229
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
 #, kde-format
 msgid "Enterprise"
@@ -6717,19 +6716,33 @@ msgstr "Максимальний вік повідомлень у приватн
 msgid "Maximum message age in direct messages"
 msgstr "Максимальний вік повідомлень у безпосередніх повідомленнях"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:241
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
+#, fuzzy, kde-format
+#| msgid "Enterprise"
+msgctxt "@label:textbox"
+msgid "Enterprise"
+msgstr "Промислове"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#, fuzzy, kde-format
+#| msgid "Enterprise License"
+msgctxt "@info:tooltip"
+msgid "Need to activate enterprise license"
+msgstr "Промислове ліцензування"
+
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Застосувати"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:264
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:261
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:273
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
