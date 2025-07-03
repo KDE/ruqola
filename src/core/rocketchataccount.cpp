@@ -1997,18 +1997,22 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
 {
     if (hasPermission(u"force-delete-message"_s, message.roomId())) {
+        // qDebug() << " force-delete-message implemented";
         return true;
     }
 
     if (!mRuqolaServerConfig->allowMessageDeletingEnabled()) {
+        // qDebug() << " NOT mRuqolaServerConfig->allowMessageDeletingEnabled()";
         return false;
     }
 
     const bool deleteAnyAllowed = hasPermission(u"delete-message"_s, message.roomId());
-    const bool deleteOwnAllowed = hasPermission(u"delete-own-message"_s, message.roomId());
+    const bool deleteOwnAllowed = hasPermission(u"delete-own-message"_s);
     const bool deleteAllowed = deleteAnyAllowed || (deleteOwnAllowed && message.userId() == userId());
 
+    // qDebug() << " deleteOwnAllowed " << deleteOwnAllowed << "message.userId()  " << message.userId() << " userId() " << userId();
     if (!deleteAllowed) {
+        // qDebug() << " NOT deleteAllowed";
         return false;
     }
 
@@ -2018,6 +2022,7 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     const bool elapsedMinutes = (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
     const bool onTimeForDelete = bypassBlockTimeLimit || !blockDeleteInMinutes || elapsedMinutes;
 
+    // qDebug() << " deleteAllowed " << deleteAllowed << " onTimeForDelete " << onTimeForDelete;
     return deleteAllowed && onTimeForDelete;
 }
 
