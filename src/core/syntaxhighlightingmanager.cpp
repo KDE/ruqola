@@ -70,5 +70,3 @@ SyntaxHighlightingManager *SyntaxHighlightingManager::self()
     static SyntaxHighlightingManager s_self;
     return &s_self;
 }
-
-// #include "moc_syntaxhighlightingmanager.cpp"
