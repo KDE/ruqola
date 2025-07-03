@@ -316,6 +316,8 @@ quint64 DDPClient::videoConferenceCall(const QString &roomId, const QString &cal
 
 quint64 DDPClient::informTypingStatus(const QByteArray &roomId, bool typing, const QString &userName)
 {
+    if (!mWebSocket) // seems to happen when the server is restarted
+        return -1;
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, mUid);
     const qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
