@@ -1,4 +1,8 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<!--
+  SPDX-License-Identifier: CC0-1.0
+  SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
+-->
 <gui name="ruqola" version="54">
  <MenuBar>
   <Menu name="file" >
