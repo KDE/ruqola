@@ -50,6 +50,7 @@ int findNonEscaped(const QString &str, const QString &regionMarker, int startFro
     }
     Q_UNREACHABLE();
 }
+
 int findNewLineOrEndLine(const QString &str, const QString &regionMarker, int startFrom)
 {
     const int index = str.indexOf(regionMarker, startFrom);
