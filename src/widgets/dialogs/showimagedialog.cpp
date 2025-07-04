@@ -6,6 +6,7 @@
 
 #include "showimagedialog.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_showimage_debug.h"
 #include <KApplicationTrader>
 #include <QMimeDatabase>
 
@@ -123,11 +124,12 @@ void ShowImageDialog::showImages(const QByteArray &fileId, const QByteArray &roo
 void ShowImageDialog::updateServiceList()
 {
     mOpenWithMenu->clear();
-    QMimeDatabase db;
     const QString path = mRocketChatAccount->attachmentUrlFromLocalCache(mShowImageWidget->imageInfo().bigImagePath).toLocalFile();
     if (path.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "path is empty";
         return;
     }
+    QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(path);
 
     const bool valid = mimeType.isValid() && !mimeType.isDefault();
