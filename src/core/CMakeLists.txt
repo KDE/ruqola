@@ -584,8 +584,6 @@ if(UNITY_SUPPORT)
     target_link_libraries(libruqolacore Qt::DBus)
 endif()
 
-target_link_libraries(libruqolacore cmark-rc)
-
 if(USE_E2E_SUPPORT)
     target_link_libraries(libruqolacore OpenSSL::Crypto)
 endif()
@@ -744,6 +742,7 @@ target_link_libraries(
     KF6::KIOCore
     Qt::Multimedia
     KF6::ColorScheme
+    cmark-rc
 )
 
 if(HAVE_TEXT_TRANSLATOR)
