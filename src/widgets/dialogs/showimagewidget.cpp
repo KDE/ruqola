@@ -191,6 +191,7 @@ void ShowImageWidget::updateButtons()
 void ShowImageWidget::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
     mImageGraphicsView->setImageInfo(info);
+    Q_EMIT updateMenu(info);
 }
 
 const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const

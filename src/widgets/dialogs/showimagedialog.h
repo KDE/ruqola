@@ -26,12 +26,14 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void updateServiceList(const ShowImageWidget::ImageInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateServiceList();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenWith(QAction *action);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateMenu(const ShowImageWidget::ImageInfo &info);
     KService::List mServiceList;
     ShowImageWidget *const mShowImageWidget;
     QMenu *const mClipboardMenu;
     QToolButton *const mOpenWithButton;
     QMenu *const mOpenWithMenu;
     QAction *mClipboardImageAction = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };

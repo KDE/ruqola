@@ -5,6 +5,7 @@
 */
 
 #include "showimagedialog.h"
+#include "rocketchataccount.h"
 #include <KApplicationTrader>
 #include <QMimeDatabase>
 
@@ -32,6 +33,7 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     , mClipboardMenu(new QMenu(this))
     , mOpenWithButton(new QToolButton(this))
     , mOpenWithMenu(new QMenu(this))
+    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Display Image"));
     auto mainLayout = new QVBoxLayout(this);
@@ -75,6 +77,8 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowImageDialog::reject);
     connect(buttonBox->button(QDialogButtonBox::Save), &QPushButton::clicked, mShowImageWidget, &ShowImageWidget::saveAs);
     mainLayout->addWidget(buttonBox);
+
+    connect(mShowImageWidget, &ShowImageWidget::updateMenu, this, &ShowImageDialog::slotUpdateMenu);
     readConfig();
 }
 
@@ -83,13 +87,17 @@ ShowImageDialog::~ShowImageDialog()
     writeConfig();
 }
 
-void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
+void ShowImageDialog::slotUpdateMenu(const ShowImageWidget::ImageInfo &info)
 {
-    mShowImageWidget->setImageInfo(info);
-    updateServiceList(info);
+    updateServiceList();
     if (info.isAnimatedImage) {
         mClipboardImageAction->setEnabled(false);
     }
+}
+
+void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
+{
+    mShowImageWidget->setImageInfo(info);
 }
 
 void ShowImageDialog::readConfig()
@@ -112,20 +120,14 @@ void ShowImageDialog::showImages(const QByteArray &fileId, const QByteArray &roo
     mShowImageWidget->showImages(fileId, roomId);
 }
 
-void ShowImageDialog::updateServiceList(const ShowImageWidget::ImageInfo &info)
+void ShowImageDialog::updateServiceList()
 {
+    mOpenWithMenu->clear();
     QMimeDatabase db;
-    QString path;
-    if (info.bigImagePath.isEmpty()) {
-        path = info.bigImagePath;
-    } else {
-        path = info.previewImagePath;
-    }
-
+    const QString path = mRocketChatAccount->attachmentUrlFromLocalCache(mShowImageWidget->imageInfo().bigImagePath).toLocalFile();
     if (path.isEmpty()) {
         return;
     }
-
     const QMimeType mimeType = db.mimeTypeForFile(path);
 
     const bool valid = mimeType.isValid() && !mimeType.isDefault();
@@ -158,7 +160,6 @@ void ShowImageDialog::slotOpenWith(QAction *action)
     if (idx != -1) {
         service = mServiceList.at(idx);
     }
-    qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXx";
     mShowImageWidget->openWith(service);
 }
 
