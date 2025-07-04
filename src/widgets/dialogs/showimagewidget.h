@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <KService>
 #include <QWidget>
 
 #include "attachments/fileattachments.h"
@@ -48,6 +49,8 @@ public:
     void copyLocation();
 
     void showImages(const QByteArray &fileId, const QByteArray &roomId, int offset = 0);
+
+    void openWith(const KService::Ptr &p);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

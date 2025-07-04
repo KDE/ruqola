@@ -7,9 +7,11 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "showimagewidget.h"
+#include <KService>
 #include <QDialog>
 class RocketChatAccount;
 class QMenu;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageDialog : public QDialog
 {
     Q_OBJECT
@@ -24,7 +26,12 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateServiceList(const ShowImageWidget::ImageInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenWith(QAction *action);
+    KService::List mServiceList;
     ShowImageWidget *const mShowImageWidget;
     QMenu *const mClipboardMenu;
+    QToolButton *const mOpenWithButton;
+    QMenu *const mOpenWithMenu;
     QAction *mClipboardImageAction = nullptr;
 };

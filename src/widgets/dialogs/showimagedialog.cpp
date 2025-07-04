@@ -5,10 +5,12 @@
 */
 
 #include "showimagedialog.h"
-using namespace Qt::Literals::StringLiterals;
+#include <KApplicationTrader>
+#include <QMimeDatabase>
 
 #include <KConfigGroup>
 #include <KLocalizedString>
+
 #include <KSharedConfig>
 #include <KStandardActions>
 #include <KWindowConfig>
@@ -23,10 +25,13 @@ namespace
 {
 static const char myShowImageDialogGroupName[] = "ShowImageDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowImageWidget(new ShowImageWidget(account, this))
     , mClipboardMenu(new QMenu(this))
+    , mOpenWithButton(new QToolButton(this))
+    , mOpenWithMenu(new QMenu(this))
 {
     setWindowTitle(i18nc("@title:window", "Display Image"));
     auto mainLayout = new QVBoxLayout(this);
@@ -37,6 +42,14 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close | QDialogButtonBox::Save, this);
     buttonBox->setObjectName(u"button"_s);
+
+    mOpenWithButton->setObjectName(u"openWithButton"_s);
+    mOpenWithButton->setPopupMode(QToolButton::MenuButtonPopup);
+    mOpenWithButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    buttonBox->addButton(mOpenWithButton, QDialogButtonBox::ActionRole);
+    mOpenWithMenu->setObjectName(u"mOpenWithMenu"_s);
+    mOpenWithButton->setMenu(mOpenWithMenu);
+    connect(mOpenWithMenu, &QMenu::triggered, this, &ShowImageDialog::slotOpenWith);
 
     mClipboardImageAction = KStandardActions::copy(mShowImageWidget, &ShowImageWidget::copyImage, this);
     mClipboardImageAction->setObjectName(u"clipboardLocationAction"_s);
@@ -73,6 +86,7 @@ ShowImageDialog::~ShowImageDialog()
 void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
     mShowImageWidget->setImageInfo(info);
+    updateServiceList(info);
     if (info.isAnimatedImage) {
         mClipboardImageAction->setEnabled(false);
     }
@@ -97,4 +111,55 @@ void ShowImageDialog::showImages(const QByteArray &fileId, const QByteArray &roo
 {
     mShowImageWidget->showImages(fileId, roomId);
 }
+
+void ShowImageDialog::updateServiceList(const ShowImageWidget::ImageInfo &info)
+{
+    QMimeDatabase db;
+    QString path;
+    if (info.bigImagePath.isEmpty()) {
+        path = info.bigImagePath;
+    } else {
+        path = info.previewImagePath;
+    }
+
+    if (path.isEmpty()) {
+        return;
+    }
+
+    const QMimeType mimeType = db.mimeTypeForFile(path);
+
+    const bool valid = mimeType.isValid() && !mimeType.isDefault();
+    mServiceList = valid ? KApplicationTrader::queryByMimeType(mimeType.name()) : KService::List{};
+
+    int idx = 0;
+    for (const KService::Ptr &service : std::as_const(mServiceList)) {
+        const QString text = service->name().replace(u'&', u"&&"_s);
+        QAction *action = mOpenWithMenu->addAction(text);
+        action->setIcon(QIcon::fromTheme(service->icon()));
+        action->setData(idx);
+        if (idx == 0) {
+            mOpenWithButton->setDefaultAction(action);
+        }
+        ++idx;
+    }
+    mOpenWithMenu->addSeparator();
+    QAction *action = mOpenWithMenu->addAction(QIcon::fromTheme(QStringLiteral("system-run")), i18n("Other Application..."));
+    action->setData(-1);
+}
+
+void ShowImageDialog::slotOpenWith(QAction *action)
+{
+    bool ok;
+    const int idx = action->data().toInt(&ok);
+    if (!ok) {
+        return;
+    }
+    KService::Ptr service;
+    if (idx != -1) {
+        service = mServiceList.at(idx);
+    }
+    qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXx";
+    mShowImageWidget->openWith(service);
+}
+
 #include "moc_showimagedialog.cpp"

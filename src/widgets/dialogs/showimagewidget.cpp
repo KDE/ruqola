@@ -5,6 +5,9 @@
 */
 
 #include "showimagewidget.h"
+#include <kio/applicationlauncherjob.h>
+#include <kio/jobuidelegatefactory.h>
+#include <kjobuidelegate.h>
 using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegateutil.h"
@@ -249,6 +252,16 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Impossible to start RoomsImagesJob job";
     }
+}
+
+void ShowImageWidget::openWith(const KService::Ptr &service)
+{
+    const QString imagePath = mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile();
+    // If service is null, ApplicationLauncherJob will invoke the open-with dialog
+    auto job = new KIO::ApplicationLauncherJob(service);
+    job->setUrls({QUrl::fromLocalFile(imagePath)});
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->start();
 }
 
 ShowImageWidget::ImageInfo ShowImageWidget::ImageListInfo::imageFromIndex(int index, RocketChatAccount *account) const
