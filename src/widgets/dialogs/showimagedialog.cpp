@@ -156,6 +156,7 @@ void ShowImageDialog::slotOpenWith(QAction *action)
     bool ok;
     const int idx = action->data().toInt(&ok);
     if (!ok) {
+        qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Index is not defined";
         return;
     }
     KService::Ptr service;
