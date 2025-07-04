@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-03 06:56+0000\n"
-"PO-Revision-Date: 2025-06-28 03:56+0200\n"
+"PO-Revision-Date: 2025-07-03 14:51+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6649,18 +6649,16 @@ msgid "Maximum message age in direct messages"
 msgstr "პირად შეტყობინებების მაქსიმალური ასაკი"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
-#, fuzzy, kde-format
-#| msgid "Enterprise"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "კომპანიის"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
-#, fuzzy, kde-format
-#| msgid "Enterprise License"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "საწარმოო ლიცენზია"
+msgstr "საჭიროა საწარმოს ლიცენზიის გააქტიურება"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
 #, kde-format
