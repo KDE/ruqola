@@ -339,7 +339,7 @@ void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, In
 }
 }
 
-QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTextSettings &settings)
+static QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTextSettings &settings, const QString &language = {})
 {
     QString richText;
     QTextStream richTextStream(&richText);
@@ -370,18 +370,8 @@ QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTe
     };
 
     auto addCodeChunk = [&](QString chunk) {
-        const auto language = [&]() {
-            const auto newline = chunk.indexOf(QLatin1Char('\n'));
-            if (newline == -1) {
-                return QString();
-            }
-            return chunk.left(newline);
-        }();
-
         auto definition = SyntaxHighlightingManager::self()->def(language);
-        if (definition.isValid()) {
-            chunk.remove(0, language.size() + 1);
-        } else {
+        if (!definition.isValid()) {
             definition = SyntaxHighlightingManager::self()->defaultDef();
         }
 
@@ -477,9 +467,15 @@ QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newS
             QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
                 convertHtmlChar(str);
+                QString language;
+                const auto l = cmark_node_get_fence_info(node);
+                if (l) {
+                    language = QString::fromUtf8(l);
+                }
+                qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " language " << language;
                 const QString stringHtml = QStringLiteral("```") + str + QStringLiteral("```");
                 // qDebug() << " stringHtml " << stringHtml;
-                const QString highligherStr = addHighlighter(stringHtml, settings);
+                const QString highligherStr = addHighlighter(stringHtml, settings, language);
                 cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
 
                 cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
