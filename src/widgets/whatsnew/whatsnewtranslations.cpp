@@ -188,7 +188,8 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
                             i18n("Display translate menu in thread dialog."),
                             i18n("Add AI Rocket Chat Actions support."),
                             i18n("Fix apply, restore, cancel buttons in administration dialog."),
-                            i18n("Fix search users.")});
+                            i18n("Fix search users."),
+                            i18n("Fix extract language from code block.")});
 
         listInfo.append(std::move(info));
     }
