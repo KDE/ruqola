@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
-"PO-Revision-Date: 2025-07-03 14:51+0200\n"
+"POT-Creation-Date: 2025-07-06 00:42+0000\n"
+"PO-Revision-Date: 2025-07-05 04:30+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -8717,11 +8717,9 @@ msgid "Copy Location to Clipboard"
 msgstr "მდებარეობის ბუფერში კოპირება"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "აპლიკაციების ძებნა"
+msgstr "სხვა პროგრამა..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11548,7 +11546,7 @@ msgstr "დამატებების გააქტიურების �
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "გამოსახულების ჩვენებისას \"გახსნა პროგრამით\" ღილაკის დამატება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12086,6 +12084,11 @@ msgstr ""
 #, kde-format
 msgid "Fix search users."
 msgstr "გასწორდა მომხმარებლების ძებნა."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#, kde-format
+msgid "Fix extract language from code block."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

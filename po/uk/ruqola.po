@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
-"PO-Revision-Date: 2025-07-04 12:21+0300\n"
+"POT-Creation-Date: 2025-07-06 00:42+0000\n"
+"PO-Revision-Date: 2025-07-05 20:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -8823,11 +8823,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Копіювати адресу до буфера"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Програми"
+msgstr "Інша програма…"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11679,7 +11677,7 @@ msgstr "Дозволити активацію додатків."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "На панель показу зображення додано кнопку «Відкрити за допомогою»."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12224,6 +12222,11 @@ msgstr ""
 #, kde-format
 msgid "Fix search users."
 msgstr "Виправлено пошук користувачів."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#, kde-format
+msgid "Fix extract language from code block."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

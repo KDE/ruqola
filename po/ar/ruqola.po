@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
+"POT-Creation-Date: 2025-07-06 00:42+0000\n"
 "PO-Revision-Date: 2025-06-28 17:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -12134,6 +12134,11 @@ msgstr "إصلاح أزرار التطبيق والاستعادة والإلغا
 #, kde-format
 msgid "Fix search users."
 msgstr "إصلاح البحث عن المستخدمين."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#, kde-format
+msgid "Fix extract language from code block."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

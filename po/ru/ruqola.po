@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
+"POT-Creation-Date: 2025-07-06 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -12262,6 +12262,11 @@ msgstr ""
 #| msgid "Search users..."
 msgid "Fix search users."
 msgstr "Поиск пользователей…"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#, kde-format
+msgid "Fix extract language from code block."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

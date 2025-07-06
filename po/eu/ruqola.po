@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
+"POT-Creation-Date: 2025-07-06 00:42+0000\n"
 "PO-Revision-Date: 2025-06-30 00:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -12147,6 +12147,11 @@ msgstr ""
 #, kde-format
 msgid "Fix search users."
 msgstr "Bilatu erabiltzailea konpontzea."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#, kde-format
+msgid "Fix extract language from code block."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
-"PO-Revision-Date: 2025-07-03 13:45+0200\n"
+"POT-Creation-Date: 2025-07-06 00:42+0000\n"
+"PO-Revision-Date: 2025-07-05 19:12+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8768,11 +8768,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Locatie naar klembord kopiëren"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Toepassingen zoeken"
+msgstr "Andere toepassingen..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11608,7 +11606,7 @@ msgstr "Sta plug-ins activeren toe."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Openen met knop toevoegen in tonen van afbeelding."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12154,6 +12152,11 @@ msgstr ""
 #, kde-format
 msgid "Fix search users."
 msgstr "Gebruikers zoeken repareren."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#, kde-format
+msgid "Fix extract language from code block."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

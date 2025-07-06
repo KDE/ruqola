@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
-"PO-Revision-Date: 2025-07-04 16:03+0300\n"
+"POT-Creation-Date: 2025-07-06 00:42+0000\n"
+"PO-Revision-Date: 2025-07-05 11:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -8708,11 +8708,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Konumu Panoya Kopyala"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Uygulamalar ara…"
+msgstr "Başka Uygulama…"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11545,7 +11543,7 @@ msgstr "Eklentileri etkinleştirmeye izin verin."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Görseli bir uygulamayla açma düğmesi ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12075,6 +12073,11 @@ msgstr "Yönetim ayarlarına uygula, geri yükle, iptal düğmeleri ekle"
 #, kde-format
 msgid "Fix search users."
 msgstr "Kullanıcı aramayı onar"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#, kde-format
+msgid "Fix extract language from code block."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

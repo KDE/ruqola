@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
-"PO-Revision-Date: 2025-07-03 09:51+0200\n"
+"POT-Creation-Date: 2025-07-06 00:42+0000\n"
+"PO-Revision-Date: 2025-07-05 06:22+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -8753,11 +8753,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopiraj mesto na odložišče"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Išči aplikacije"
+msgstr "Druga aplikacija..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11598,7 +11596,7 @@ msgstr "Dovoli aktiviranje vtičnikov."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Dodaj Odpri z gumbom v prikazu slike."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12132,6 +12130,11 @@ msgstr ""
 #, kde-format
 msgid "Fix search users."
 msgstr "Popravi iskanje uporabnikov."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#, kde-format
+msgid "Fix extract language from code block."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
