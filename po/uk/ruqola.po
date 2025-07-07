@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-06 00:42+0000\n"
-"PO-Revision-Date: 2025-07-05 20:35+0300\n"
+"PO-Revision-Date: 2025-07-06 09:45+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -12226,7 +12226,7 @@ msgstr "Виправлено пошук користувачів."
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr ""
+msgstr "Виправлено видобування мови з блоку програмного коду."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

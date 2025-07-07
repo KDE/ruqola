@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-06 00:42+0000\n"
-"PO-Revision-Date: 2025-06-28 23:39+0100\n"
+"PO-Revision-Date: 2025-07-06 15:26+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -6696,18 +6696,16 @@ msgid "Maximum message age in direct messages"
 msgstr "Máxima edad de los mensajes en los mensajes directos"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
-#, fuzzy, kde-format
-#| msgid "Enterprise"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "Empresa"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
-#, fuzzy, kde-format
-#| msgid "Enterprise License"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "Licencia de empresa"
+msgstr "Es necesario activar la licencia empresarial"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
 #, kde-format
@@ -8775,11 +8773,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Copiar localización al portapapeles"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Aplicaciones"
+msgstr "Otra aplicación…"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11623,7 +11619,7 @@ msgstr "Permitir la activación de complementos"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Añadido botón «Abrir con» al mostrar imagen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format

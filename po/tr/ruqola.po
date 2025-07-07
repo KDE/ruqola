@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-06 00:42+0000\n"
-"PO-Revision-Date: 2025-07-05 11:13+0300\n"
+"PO-Revision-Date: 2025-07-06 17:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -12077,7 +12077,7 @@ msgstr "Kullanıcı aramayı onar"
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr ""
+msgstr "Kod blokundan dili çıkar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
