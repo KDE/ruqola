@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-06 00:42+0000\n"
-"PO-Revision-Date: 2025-06-28 20:50+0200\n"
+"PO-Revision-Date: 2025-07-06 20:44+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -6695,18 +6695,16 @@ msgid "Maximum message age in direct messages"
 msgstr "Durata massima del messaggio nei messaggi diretti"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
-#, fuzzy, kde-format
-#| msgid "Enterprise"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "Azienda"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
-#, fuzzy, kde-format
-#| msgid "Enterprise License"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "Licenza aziendale"
+msgstr "È necessario attivare la licenza aziendale"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
 #, kde-format
@@ -8773,11 +8771,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Copia la posizione negli appunti"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Cerca applicazioni"
+msgstr "Altra applicazione..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11620,7 +11616,7 @@ msgstr "Consenti l'attivazione delle estensioni."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Aggiunge il pulsante Apri con nell'immagine mostrata."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12176,7 +12172,7 @@ msgstr "Corregge la ricerca degli utenti."
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr ""
+msgstr "Corregge l'estrazione della linguaggio dal blocco di codice."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
