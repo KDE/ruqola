@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-06 00:42+0000\n"
-"PO-Revision-Date: 2025-07-03 16:19+0200\n"
+"PO-Revision-Date: 2025-07-06 14:01+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -8768,11 +8768,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Copia la ubicació a dins del porta-retalls"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Busca aplicacions"
+msgstr "Una altra aplicació…"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11615,7 +11613,7 @@ msgstr "Permet activar els connectors."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Afig el botó «Obri amb» en mostrar una imatge."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12165,7 +12163,7 @@ msgstr "Corregix la busca d'usuaris."
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr ""
+msgstr "Corregix el llenguatge d'extracció a partir del bloc de codi."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
