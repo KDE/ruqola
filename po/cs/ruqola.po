@@ -8554,11 +8554,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopírovat pozici do schránky"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Hledat aplikace"
+msgstr "Jiná aplikace..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
