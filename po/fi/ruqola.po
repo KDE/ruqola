@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-02-04 19:21+0200\n"
+"PO-Revision-Date: 2025-07-11 16:28+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -181,7 +181,7 @@ msgstr "Virheellinen merkki"
 #: core/accountmanager.cpp:862
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr ""
+msgstr "Kutsumerkki on virheellinen. Tilin luonti peruttu."
 
 #: core/apps/appsmarketplaceinfo.cpp:109
 #, kde-format
@@ -400,12 +400,12 @@ msgstr ""
 #: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr ""
+msgstr "Salli kirjoittaa oauth-sovellusasetukset"
 
 #: core/apps/appsmarketplaceinfo.cpp:676
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr ""
+msgstr "Salli lukea oauth-sovellusasetukset"
 
 #: core/apps/appsmarketplaceinfo.cpp:690
 #, fuzzy, kde-format
@@ -745,7 +745,7 @@ msgstr "(Viimeisin viesti: %1)"
 #: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
-msgstr ""
+msgstr "Palvelimen verkko-osoite puuttuu."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -2424,7 +2424,7 @@ msgstr "Virheellinen merkki"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 #, kde-format
 msgid "Invalid triggerWords"
-msgstr ""
+msgstr "Virheellisiä liipaisinsanoja"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:359
 #, kde-format
@@ -3430,7 +3430,7 @@ msgstr "Valtuutuksen verkko-osoite"
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:49
 #, kde-format
 msgid "Access Token URL:"
-msgstr ""
+msgstr "Pääsymerkin osoite:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
 #, kde-format
@@ -5573,6 +5573,7 @@ msgstr "Aikakatkaisut"
 msgctxt "@info:tooltip"
 msgid "How many milliseconds wait for a search result before return an error"
 msgstr ""
+"Montako millisekuntia hakutulosta odotetaan ennen virheen palauttamista"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:75
 #, kde-format
@@ -5590,6 +5591,8 @@ msgid ""
 "How many milliseconds wait after the latest LDAP operation until close the "
 "connection. (Each operation will open a new connection)"
 msgstr ""
+"Montako millisekuntia viimeisimmän LDAP-toimenpiteen jälkeen odotetaan ennen "
+"yhteyden katkaisemista. (Kukin toimenpide avaa uuden yhteyden)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:86
 #, kde-format
@@ -5615,6 +5618,8 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Kanava, joka vastaanottaa kaikki kaapatut poikkeukset. Sivuuta poikkeukset "
+"jättämällä tyhjäksi."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
@@ -5634,7 +5639,7 @@ msgstr "Virheet ja tiedotukset"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
 #, kde-format
 msgid "Errors, Information and Debug"
-msgstr ""
+msgstr "Virheet, tiedotteet ja virheenpaikannus"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
@@ -5654,6 +5659,8 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"Teksti tulkitaan säännölliseksi lausekkeeksi. Näytä jokainen kutsu "
+"jättämällä tämä tyhjäksi."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:50
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
@@ -5849,6 +5856,8 @@ msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
+"Viestit ryhmitellään aiemman kanssa, jos ne ovat samalta käyttäjältä ja "
+"aikaa on kulunut (sekunteina) annettua vähemmän."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:119
 #, kde-format
@@ -7174,8 +7183,8 @@ msgstr "Versiotietoa ei löytynyt."
 #, kde-format
 msgid "%1 app enabled"
 msgid_plural "%1 apps enabled"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 sovellus käytössä"
+msgstr[1] "%1 sovellusta käytössä"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
 #, kde-format
