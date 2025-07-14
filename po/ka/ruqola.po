@@ -1143,7 +1143,7 @@ msgstr "მხოლოდ-კითხვადი"
 #: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:127
 #, kde-format
 msgid "Default Room"
-msgstr "ნაგულისხმები ოთახი"
+msgstr "ნაგულისხმევი ოთახი"
 
 #: core/model/adminroomsmodel.cpp:45
 #, kde-format
@@ -2210,7 +2210,7 @@ msgstr "პირდაპირ ოთახებში მომხმარ�
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:249
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
-msgstr "არხის ნაგულისხმები პარამეტრი იგივეა, რაზეც შეცვლას აპირებდით."
+msgstr "არხის ნაგულისხმევი პარამეტრი იგივეა, რაზეც შეცვლას აპირებდით."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
@@ -4388,7 +4388,7 @@ msgstr "ამ თვისების გამოსაყენებლა�
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr "მომხმარებლის სახელის პრეფიქსის ნაგულისხმებად მინიშნება"
+msgstr "მომხმარებლის სახელის პრეფიქსის ნაგულისხმევად მინიშნება"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
 #, kde-format
@@ -4871,7 +4871,7 @@ msgstr "ჩართვა გუნდებში"
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
 #, kde-format
 msgid "Default Provider"
-msgstr "ნაგულისხმები მომწოდებელი"
+msgstr "ნაგულისხმევი მომწოდებელი"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
@@ -5409,7 +5409,7 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
-"დააყენებს ნაგულისხმებ დროის სარტყელს, რომელიც სამუშაო დაფების ჩენებისა და "
+"დააყენებს ნაგულისხმევ დროის სარტყელს, რომელიც სამუშაო დაფების ჩენებისა და "
 "ელფოსტის გაგზავნისას გამოიყენება"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
@@ -5430,7 +5430,7 @@ msgstr "მომხმარებლის დროის სარტყე�
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:117
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr "ნაგულისხმები დროის სარტყელი ანგარიშისთვის"
+msgstr "ნაგულისხმევი დროის სარტყელი ანგარიშისთვის"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:120
 #, kde-format
@@ -8017,7 +8017,7 @@ msgstr "შეკვეცა"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Maximum message age in days (default: 30):"
-msgstr "შეტყობინების მაქსიმალური ასაკი, დღეებში (ნაგულისხმები: 30):"
+msgstr "შეტყობინების მაქსიმალური ასაკი, დღეებში (ნაგულისხმევი: 30):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:64
 #, kde-format
@@ -12687,7 +12687,7 @@ msgstr "გამოსწორდა ზოგიერთი შეცდო�
 #~ msgstr "&ორმაგი ბრჭყალების ტიპოგრაფიულ ბრჭყალებად გადაკეთება"
 
 #~ msgid "By Default"
-#~ msgstr "ნაგულისხმებად"
+#~ msgstr "ნაგულისხმევად"
 
 #~ msgid "\""
 #~ msgstr "\""
@@ -12822,7 +12822,7 @@ msgstr "გამოსწორდა ზოგიერთი შეცდო�
 #~ msgstr "დაკეტვა"
 
 #~ msgid "Detect language"
-#~ msgstr "ნაგულისხმები ენა"
+#~ msgstr "ნაგულისხმევი ენა"
 
 #~ msgid "Hmong"
 #~ msgstr "Hmong"
@@ -13128,7 +13128,7 @@ msgstr "გამოსწორდა ზოგიერთი შეცდო�
 
 #~ msgctxt "Default tts engine"
 #~ msgid "Default"
-#~ msgstr "ნაგულისხმები"
+#~ msgstr "ნაგულისხმევი"
 
 #~ msgid "Chinese"
 #~ msgstr "ჩინური"

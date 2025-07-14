@@ -7016,7 +7016,7 @@ msgstr ""
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:57
 #, kde-format
 msgid "Application does not have settings."
-msgstr ""
+msgstr "此应用无配置选项。"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:98
 #, kde-format
