@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-06 00:42+0000\n"
-"PO-Revision-Date: 2025-06-28 17:13+0400\n"
+"PO-Revision-Date: 2025-07-14 20:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -6670,18 +6670,16 @@ msgid "Maximum message age in direct messages"
 msgstr "الحد الأقصى لعمر الرسالة في الرسائل المباشرة"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
-#, fuzzy, kde-format
-#| msgid "Enterprise"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "مؤسسة"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
-#, fuzzy, kde-format
-#| msgid "Enterprise License"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "رخصة مؤسسة"
+msgstr "يلزم تفعيل ترخيص المؤسسة"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
 #, kde-format
@@ -8764,11 +8762,9 @@ msgid "Copy Location to Clipboard"
 msgstr "انسخ المكان إلى الحافظة"
 
 #: widgets/dialogs/showimagedialog.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "ابحث في التطبيقات"
+msgstr "تطبيق آخر..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11611,7 +11607,7 @@ msgstr "اسمح بتفعيل الملحقات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "إضافة زر ”افتح باستخدام“ في إظهار الصورة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12138,7 +12134,7 @@ msgstr "إصلاح البحث عن المستخدمين."
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr ""
+msgstr "إصلاح لغة الاستخراج من كتلة التعليمات البرمجية."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
