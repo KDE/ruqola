@@ -25,13 +25,11 @@ DDPClient *DDPManager::ddpClient() const
 
 void DDPManager::processMethodResponse(int opId, const QJsonObject &response)
 {
-    // TODO: any generic preprocessing goes here
     processMethodResponseImpl(response, static_cast<AuthenticationManagerBase::Method>(opId));
 }
 
 void DDPManager::processSubscriptionResult(int subId, const QJsonObject &result)
 {
-    // TODO: any generic preprocessing goes here
     processSubscriptionResultImpl(subId, result);
 }
 
