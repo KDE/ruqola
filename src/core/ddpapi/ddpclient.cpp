@@ -12,7 +12,6 @@
 #include "messagequeue.h"
 #include "plugins/pluginauthenticationinterface.h"
 #include "rocketchataccountsettings.h"
-#include "rocketchatbackend.h"
 #include "ruqola.h"
 #include "ruqola_ddpapi_command_debug.h"
 #include "ruqola_ddpapi_debug.h"
