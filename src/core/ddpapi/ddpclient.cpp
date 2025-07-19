@@ -410,8 +410,9 @@ void DDPClient::unsubscribe(quint64 registerId)
 
 quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 {
-    if (!mWebSocket) // seems to happen when the server is restarted
+    if (!mWebSocket) { // seems to happen when the server is restarted
         return -1;
+    }
     quint64 registerId = mUid;
     QJsonObject json;
     json["msg"_L1] = u"sub"_s;
