@@ -129,6 +129,14 @@ void TextConverterTest::shouldConvertText_data()
                                                "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
                                                "$BORDERCOLOR$'><code>ssss</code></td></tr></table></p>\n");
 
+    QTest::newRow("code-with-language-2")
+        << QStringLiteral("```dart\nimport 'package:flutter/material.dart';\nimport 'package:markdown/markdown.dart';\n```")
+        << QStringLiteral(
+               "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code><span "
+               "style=\"font-weight:bold;\">import</span>&nbsp;<span style=\"color:#bf0303;\">'package:flutter/material.dart'</span>;<br><span "
+               "style=\"font-weight:bold;\">import</span>&nbsp;<span "
+               "style=\"color:#bf0303;\">'package:markdown/markdown.dart'</span>;</code></td></tr></table></p>\n");
+
     QTest::newRow("indented-code-block")
         << QStringLiteral("```\n  first line\n  second line\n```")
         << QStringLiteral(
@@ -154,7 +162,9 @@ void TextConverterTest::shouldConvertText()
     QByteArray needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {});
     int recursiveIndex = 0;
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex),
+    const QString result = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    qDebug() << "result " << result;
+    QCOMPARE(result,
              output); // TODO add autotests for highlightwords
 }
 
