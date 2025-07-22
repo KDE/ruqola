@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "administratordialog/customemoji/administratorcustomemojiwidget.h"
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
+#include "administratordialog/featurepreview/featurepreviewwidget.h"
 #include "administratordialog/invites/administratorinviteswidget.h"
 #include "administratordialog/logs/viewlogwidget.h"
 #include "administratordialog/moderationconsole/administratormoderationconsolewidget.h"
@@ -74,6 +75,9 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 
     auto mOauthWidget = w.findChild<AdministratorOauthWidget *>(u"mOauthWidget"_s);
     QVERIFY(mOauthWidget);
+
+    auto mFeaturePreviewWidget = w.findChild<FeaturePreviewWidget *>(u"mFeaturePreviewWidget"_s);
+    QVERIFY(mFeaturePreviewWidget);
 
     auto mAdministratorModerationConsoleWidget = w.findChild<AdministratorModerationConsoleWidget *>(u"mAdministratorModerationConsoleWidget"_s);
     QVERIFY(mAdministratorModerationConsoleWidget);

@@ -112,6 +112,10 @@ target_sources(
         administratordialog/users/administratoruserstabwidget.h
         administratordialog/users/administratoruserspendingactiondelegate.h
         administratordialog/users/administratoruserspendingactiondelegate.cpp
+
+        administratordialog/featurepreview/featurepreviewwidget.cpp
+        administratordialog/featurepreview/featurepreviewwidget.h
+
         administratorsettingsdialog/administratorsettingsdialog.cpp
         administratorsettingsdialog/administratorsettingsdialog.h
         administratorsettingsdialog/administratorsettingswidget.h

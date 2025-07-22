@@ -5,6 +5,7 @@
 */
 
 #include "administratorwidget.h"
+#include "administratordialog/featurepreview/featurepreviewwidget.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/logs/viewlogwidget.h"
@@ -39,6 +40,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     , mRolesWidget(new AdministratorRolesWidget(account, this))
     , mOauthWidget(new AdministratorOauthWidget(account, this))
     , mAdministratorModerationConsoleWidget(new AdministratorModerationConsoleWidget(account, this))
+    , mFeaturePreviewWidget(new FeaturePreviewWidget(this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -81,6 +83,9 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     mOauthWidget->setObjectName(u"mOauthWidget"_s);
     mTabWidget->addTab(mOauthWidget, i18n("Oauth"));
 
+    mFeaturePreviewWidget->setObjectName(u"mFeaturePreviewWidget"_s);
+    mTabWidget->addTab(mFeaturePreviewWidget, i18n("Feature Preview"));
+
     mAdministratorModerationConsoleWidget->setObjectName(u"mAdministratorModerationConsoleWidget"_s);
     mTabWidget->addTab(mAdministratorModerationConsoleWidget, i18n("Moderation Console"));
 }
@@ -116,6 +121,7 @@ void AdministratorWidget::initialize()
     if (mRocketChatAccount->hasPermission(u"view-moderation-console"_s)) {
         mAdministratorModerationConsoleWidget->initialize();
     }
+    mFeaturePreviewWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()
