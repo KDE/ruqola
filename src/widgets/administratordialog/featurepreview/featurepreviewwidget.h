@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class RocketChatAccount;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT FeaturePreviewWidget : public QWidget
 {
     Q_OBJECT
@@ -15,4 +16,7 @@ public:
     explicit FeaturePreviewWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~FeaturePreviewWidget() override;
     void initialize();
+
+private:
+    QCheckBox *const mAllowFeaturePreview;
 };
