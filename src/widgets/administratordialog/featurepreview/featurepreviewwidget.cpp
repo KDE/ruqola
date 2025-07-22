@@ -8,7 +8,7 @@
 
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
-FeaturePreviewWidget::FeaturePreviewWidget(QWidget *parent)
+FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
 {
     auto mainLayout = new QVBoxLayout(this);

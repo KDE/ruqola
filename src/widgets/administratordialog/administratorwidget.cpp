@@ -40,7 +40,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     , mRolesWidget(new AdministratorRolesWidget(account, this))
     , mOauthWidget(new AdministratorOauthWidget(account, this))
     , mAdministratorModerationConsoleWidget(new AdministratorModerationConsoleWidget(account, this))
-    , mFeaturePreviewWidget(new FeaturePreviewWidget(this))
+    , mFeaturePreviewWidget(new FeaturePreviewWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);

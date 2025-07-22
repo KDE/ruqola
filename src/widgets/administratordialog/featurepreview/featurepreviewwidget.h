@@ -7,12 +7,12 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT FeaturePreviewWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit FeaturePreviewWidget(QWidget *parent = nullptr);
+    explicit FeaturePreviewWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~FeaturePreviewWidget() override;
     void initialize();
 };
