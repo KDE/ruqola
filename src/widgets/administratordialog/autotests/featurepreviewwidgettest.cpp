@@ -6,6 +6,8 @@
 #include "featurepreviewwidgettest.h"
 #include "administratordialog/featurepreview/featurepreviewwidget.h"
 #include <QTest>
+#include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(FeaturePreviewWidgetTest)
 
 FeaturePreviewWidgetTest::FeaturePreviewWidgetTest(QObject *parent)
@@ -16,6 +18,10 @@ FeaturePreviewWidgetTest::FeaturePreviewWidgetTest(QObject *parent)
 void FeaturePreviewWidgetTest::shouldHaveDefaultValues()
 {
     FeaturePreviewWidget w(nullptr);
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     // TODO
 }
 
