@@ -26,4 +26,5 @@ private:
     QCheckBox *const mEnablePublicChannels;
     QCheckBox *const mEnablePrivateChannels;
     QCheckBox *const mEnableTeams;
+    QCheckBox *const mEnableMobileRinging;
 };

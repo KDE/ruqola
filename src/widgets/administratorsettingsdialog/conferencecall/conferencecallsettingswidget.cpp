@@ -24,6 +24,7 @@ ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *ac
     , mEnablePublicChannels(new QCheckBox(i18nc("@option:check", "Enable in public channels"), this))
     , mEnablePrivateChannels(new QCheckBox(i18nc("@option:check", "Enable in public channels"), this))
     , mEnableTeams(new QCheckBox(i18nc("@option:check", "Enable in teams"), this))
+    , mEnableMobileRinging(new QCheckBox(i18nc("@option:check", "Enable mobile ringing"), this))
 {
     mDefaultProvider->setObjectName(u"mDefaultProvider"_s);
     addComboBox(i18n("Default Provider"), {}, mDefaultProvider, u"VideoConf_Default_Provider"_s);
@@ -39,6 +40,9 @@ ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *ac
 
     mEnableTeams->setObjectName(u"mEnableTeams"_s);
     addCheckBox(mEnableTeams, u"VideoConf_Enable_Teams"_s);
+
+    mEnableMobileRinging->setObjectName(u"mEnableMobileRinging"_s);
+    addCheckBox(mEnableMobileRinging, u"VideoConf_Mobile_Ringing"_s);
 }
 
 ConferenceCallSettingsWidget::~ConferenceCallSettingsWidget() = default;
@@ -66,6 +70,7 @@ void ConferenceCallSettingsWidget::initialize(const QMap<QString, SettingsWidget
     initializeWidget(mEnablePublicChannels, mapSettings, true);
     initializeWidget(mEnablePrivateChannels, mapSettings, true);
     initializeWidget(mEnableTeams, mapSettings, true);
+    initializeWidget(mEnableMobileRinging, mapSettings, false);
 }
 
 #include "moc_conferencecallsettingswidget.cpp"

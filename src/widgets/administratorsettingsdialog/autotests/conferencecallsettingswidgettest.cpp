@@ -50,6 +50,12 @@ void ConferenceCallSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableTeams->isChecked());
     QVERIFY(!mEnableTeams->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableTeams), u"VideoConf_Enable_Teams"_s);
+
+    auto mEnableMobileRinging = w.findChild<QCheckBox *>(u"mEnableMobileRinging"_s);
+    QVERIFY(mEnableMobileRinging);
+    QVERIFY(!mEnableMobileRinging->isChecked());
+    QVERIFY(!mEnableMobileRinging->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableMobileRinging), u"VideoConf_Mobile_Ringing"_s);
 }
 
 #include "moc_conferencecallsettingswidgettest.cpp"
