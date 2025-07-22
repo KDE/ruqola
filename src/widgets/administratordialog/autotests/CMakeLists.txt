@@ -63,3 +63,4 @@ add_administrator_test(administratormoderationreportedmessageconsoletreewidgette
 add_administrator_test(moderationusersdialogtest.cpp)
 add_administrator_test(moderationuserswidgettest.cpp)
 add_administrator_test(administratoruserstabwidgettest.cpp)
+add_administrator_test(featurepreviewwidgettest.cpp)
