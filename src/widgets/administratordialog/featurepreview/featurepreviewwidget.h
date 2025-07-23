@@ -19,4 +19,5 @@ public:
 
 private:
     QCheckBox *const mAllowFeaturePreview;
+    QCheckBox *const mQuickReactions;
 };

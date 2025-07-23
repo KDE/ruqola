@@ -12,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mAllowFeaturePreview(new QCheckBox(i18nc("@option:check", "Allow Feature Preview"), this))
+    , mQuickReactions(new QCheckBox(i18nc("@option:check", "Quick Reactions"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -20,6 +21,9 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
 
     mAllowFeaturePreview->setObjectName(u"mAllowFeaturePreview"_s);
     mainLayout->addWidget(mAllowFeaturePreview);
+
+    mQuickReactions->setObjectName(u"mQuickReactions"_s);
+    mainLayout->addWidget(mQuickReactions);
 
     mainLayout->addStretch(1);
 }

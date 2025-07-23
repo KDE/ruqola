@@ -5,6 +5,7 @@
 */
 #include "featurepreviewwidgettest.h"
 #include "administratordialog/featurepreview/featurepreviewwidget.h"
+#include <QCheckBox>
 #include <QTest>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
@@ -22,7 +23,12 @@ void FeaturePreviewWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
-    // TODO
+
+    auto mAllowFeaturePreview = w.findChild<QCheckBox *>(u"mAllowFeaturePreview"_s);
+    QVERIFY(mAllowFeaturePreview);
+
+    auto mQuickReactions = w.findChild<QCheckBox *>(u"mQuickReactions"_s);
+    QVERIFY(mQuickReactions);
 }
 
 #include "moc_featurepreviewwidgettest.cpp"
