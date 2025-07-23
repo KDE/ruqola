@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-21 00:42+0000\n"
+"POT-Creation-Date: 2025-07-23 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -262,7 +262,7 @@ msgid "Privacy Summary"
 msgstr "Privat"
 
 #: core/apps/appsmarketplaceinfo.cpp:473
-#: widgets/administratordialog/administratorwidget.cpp:76
+#: widgets/administratordialog/administratorwidget.cpp:78
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Permissions"
@@ -1364,7 +1364,7 @@ msgid "Belongs To"
 msgstr ""
 
 #: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:574
-#: widgets/administratordialog/administratorwidget.cpp:55
+#: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
 msgid "Rooms"
@@ -1480,7 +1480,7 @@ msgid "Nothing"
 msgstr "Nichts"
 
 #: core/model/permissionsmodel.cpp:35 core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:79
+#: widgets/administratordialog/administratorwidget.cpp:81
 #: widgets/dialogs/channelrolesinfowidget.cpp:23
 #, kde-format
 msgid "Roles"
@@ -2997,52 +2997,58 @@ msgctxt "@title:window"
 msgid "Administrator"
 msgstr "Systemverwalter"
 
-#: widgets/administratordialog/administratorwidget.cpp:52
+#: widgets/administratordialog/administratorwidget.cpp:54
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:235
 #, kde-format
 msgid "Server Info"
 msgstr "Serverinfo"
 
-#: widgets/administratordialog/administratorwidget.cpp:58
+#: widgets/administratordialog/administratorwidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Custom User Status"
 msgstr "Status:"
 
-#: widgets/administratordialog/administratorwidget.cpp:61
+#: widgets/administratordialog/administratorwidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Custom Sounds"
 msgstr "Status:"
 
-#: widgets/administratordialog/administratorwidget.cpp:64
+#: widgets/administratordialog/administratorwidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Custom Emojis"
 msgstr "Status:"
 
-#: widgets/administratordialog/administratorwidget.cpp:67
+#: widgets/administratordialog/administratorwidget.cpp:69
 #, kde-format
 msgid "Users"
 msgstr "Benutzer"
 
-#: widgets/administratordialog/administratorwidget.cpp:70
+#: widgets/administratordialog/administratorwidget.cpp:72
 #, kde-format
 msgid "Invites"
 msgstr "Einladungen"
 
-#: widgets/administratordialog/administratorwidget.cpp:73
+#: widgets/administratordialog/administratorwidget.cpp:75
 #, kde-format
 msgid "View Log"
 msgstr "Protokoll anzeigen"
 
-#: widgets/administratordialog/administratorwidget.cpp:82
+#: widgets/administratordialog/administratorwidget.cpp:84
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
 #, kde-format
 msgid "Oauth"
 msgstr ""
 
-#: widgets/administratordialog/administratorwidget.cpp:85
+#: widgets/administratordialog/administratorwidget.cpp:87
+#, fuzzy, kde-format
+#| msgid "Message Deleted"
+msgid "Feature Preview"
+msgstr "Nachricht gelöscht"
+
+#: widgets/administratordialog/administratorwidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "Moderation Console"
@@ -3250,6 +3256,14 @@ msgstr "Möchten Sie „%1“ entfernen?"
 msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Status:"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:14
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
+#, fuzzy, kde-format
+#| msgid "Message Deleted"
+msgctxt "@option:check"
+msgid "Allow Feature Preview"
+msgstr "Nachricht gelöscht"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, fuzzy, kde-format
@@ -4477,13 +4491,6 @@ msgctxt "@option:check"
 msgid "Allow Password Change for OAuth Users"
 msgstr "Passwort zurücksetzen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Message Deleted"
-msgctxt "@option:check"
-msgid "Allow Feature Preview"
-msgstr "Nachricht gelöscht"
-
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "User registration is disabled"
@@ -5127,7 +5134,14 @@ msgctxt "@option:check"
 msgid "Enable in teams"
 msgstr "Räume löschen"
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
+#, fuzzy, kde-format
+#| msgid "E2E Enabled"
+msgctxt "@option:check"
+msgid "Enable mobile ringing"
+msgstr "E2E aktiviert"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, fuzzy, kde-format
 #| msgid "Default Room"
 msgid "Default Provider"

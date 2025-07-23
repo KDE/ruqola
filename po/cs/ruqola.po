@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-21 00:42+0000\n"
+"POT-Creation-Date: 2025-07-23 00:43+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -241,7 +241,7 @@ msgid "Privacy Summary"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:473
-#: widgets/administratordialog/administratorwidget.cpp:76
+#: widgets/administratordialog/administratorwidget.cpp:78
 #, kde-format
 msgid "Permissions"
 msgstr "Oprávnění"
@@ -1295,7 +1295,7 @@ msgid "Belongs To"
 msgstr "Patří"
 
 #: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:574
-#: widgets/administratordialog/administratorwidget.cpp:55
+#: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
 msgid "Rooms"
@@ -1402,7 +1402,7 @@ msgid "Nothing"
 msgstr "Nic"
 
 #: core/model/permissionsmodel.cpp:35 core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:79
+#: widgets/administratordialog/administratorwidget.cpp:81
 #: widgets/dialogs/channelrolesinfowidget.cpp:23
 #, kde-format
 msgid "Roles"
@@ -2868,49 +2868,54 @@ msgctxt "@title:window"
 msgid "Administrator"
 msgstr "Administrátor"
 
-#: widgets/administratordialog/administratorwidget.cpp:52
+#: widgets/administratordialog/administratorwidget.cpp:54
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:235
 #, kde-format
 msgid "Server Info"
 msgstr "Informace o serveru"
 
-#: widgets/administratordialog/administratorwidget.cpp:58
+#: widgets/administratordialog/administratorwidget.cpp:60
 #, kde-format
 msgid "Custom User Status"
 msgstr "Vlastní stav uživatele"
 
-#: widgets/administratordialog/administratorwidget.cpp:61
+#: widgets/administratordialog/administratorwidget.cpp:63
 #, kde-format
 msgid "Custom Sounds"
 msgstr "Vlastní zvuky"
 
-#: widgets/administratordialog/administratorwidget.cpp:64
+#: widgets/administratordialog/administratorwidget.cpp:66
 #, kde-format
 msgid "Custom Emojis"
 msgstr "Vlastní emotikon"
 
-#: widgets/administratordialog/administratorwidget.cpp:67
+#: widgets/administratordialog/administratorwidget.cpp:69
 #, kde-format
 msgid "Users"
 msgstr "Uživatelé"
 
-#: widgets/administratordialog/administratorwidget.cpp:70
+#: widgets/administratordialog/administratorwidget.cpp:72
 #, kde-format
 msgid "Invites"
 msgstr "Pozvánky"
 
-#: widgets/administratordialog/administratorwidget.cpp:73
+#: widgets/administratordialog/administratorwidget.cpp:75
 #, kde-format
 msgid "View Log"
 msgstr "Zobrazit záznam"
 
-#: widgets/administratordialog/administratorwidget.cpp:82
+#: widgets/administratordialog/administratorwidget.cpp:84
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
 #, kde-format
 msgid "Oauth"
 msgstr "Oauth"
 
-#: widgets/administratordialog/administratorwidget.cpp:85
+#: widgets/administratordialog/administratorwidget.cpp:87
+#, kde-format
+msgid "Feature Preview"
+msgstr ""
+
+#: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
 msgid "Moderation Console"
 msgstr ""
@@ -3100,6 +3105,13 @@ msgstr "Přejete si odstranit \"%1\"?"
 msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Odstranit vlastní stav uživatele"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:14
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
+#, kde-format
+msgctxt "@option:check"
+msgid "Allow Feature Preview"
+msgstr ""
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4208,12 +4220,6 @@ msgctxt "@option:check"
 msgid "Allow Password Change for OAuth Users"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, kde-format
-msgctxt "@option:check"
-msgid "Allow Feature Preview"
-msgstr ""
-
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, kde-format
 msgctxt "@option:check"
@@ -4827,7 +4833,15 @@ msgctxt "@option:check"
 msgid "Enable in teams"
 msgstr "Povolit záznamy"
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable logging"
+msgctxt "@option:check"
+msgid "Enable mobile ringing"
+msgstr "Povolit záznamy"
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
 msgid "Default Provider"
 msgstr ""

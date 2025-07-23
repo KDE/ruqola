@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-21 00:42+0000\n"
+"POT-Creation-Date: 2025-07-23 00:43+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -259,7 +259,7 @@ msgid "Privacy Summary"
 msgstr "Privaatne:"
 
 #: core/apps/appsmarketplaceinfo.cpp:473
-#: widgets/administratordialog/administratorwidget.cpp:76
+#: widgets/administratordialog/administratorwidget.cpp:78
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Permissions"
@@ -1373,7 +1373,7 @@ msgid "Belongs To"
 msgstr ""
 
 #: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:574
-#: widgets/administratordialog/administratorwidget.cpp:55
+#: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
 msgid "Rooms"
@@ -1490,7 +1490,7 @@ msgid "Nothing"
 msgstr "Puudub"
 
 #: core/model/permissionsmodel.cpp:35 core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:79
+#: widgets/administratordialog/administratorwidget.cpp:81
 #: widgets/dialogs/channelrolesinfowidget.cpp:23
 #, fuzzy, kde-format
 #| msgid "Hide Room"
@@ -3057,53 +3057,59 @@ msgctxt "@title:window"
 msgid "Administrator"
 msgstr ""
 
-#: widgets/administratordialog/administratorwidget.cpp:52
+#: widgets/administratordialog/administratorwidget.cpp:54
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:235
 #, kde-format
 msgid "Server Info"
 msgstr "Serveri teave"
 
-#: widgets/administratordialog/administratorwidget.cpp:58
+#: widgets/administratordialog/administratorwidget.cpp:60
 #, kde-format
 msgid "Custom User Status"
 msgstr "Kasutaja kohandatud olek"
 
-#: widgets/administratordialog/administratorwidget.cpp:61
+#: widgets/administratordialog/administratorwidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Custom Status:"
 msgid "Custom Sounds"
 msgstr "Kohandatud olek:"
 
-#: widgets/administratordialog/administratorwidget.cpp:64
+#: widgets/administratordialog/administratorwidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Custom Status:"
 msgid "Custom Emojis"
 msgstr "Kohandatud olek:"
 
-#: widgets/administratordialog/administratorwidget.cpp:67
+#: widgets/administratordialog/administratorwidget.cpp:69
 #, fuzzy, kde-format
 #| msgid "Users:"
 msgid "Users"
 msgstr "Kasutajad:"
 
-#: widgets/administratordialog/administratorwidget.cpp:70
+#: widgets/administratordialog/administratorwidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Invites"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/administratorwidget.cpp:73
+#: widgets/administratordialog/administratorwidget.cpp:75
 #, kde-format
 msgid "View Log"
 msgstr ""
 
-#: widgets/administratordialog/administratorwidget.cpp:82
+#: widgets/administratordialog/administratorwidget.cpp:84
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
 #, kde-format
 msgid "Oauth"
 msgstr ""
 
-#: widgets/administratordialog/administratorwidget.cpp:85
+#: widgets/administratordialog/administratorwidget.cpp:87
+#, fuzzy, kde-format
+#| msgid "Message Deleted"
+msgid "Feature Preview"
+msgstr "Sõnum kustutatud"
+
+#: widgets/administratordialog/administratorwidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "Moderation Console"
@@ -3313,6 +3319,14 @@ msgstr "Kas eemaldada konto \"%1\"?"
 msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Kasutaja kohandatud olek"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:14
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
+#, fuzzy, kde-format
+#| msgid "Message Deleted"
+msgctxt "@option:check"
+msgid "Allow Feature Preview"
+msgstr "Sõnum kustutatud"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, fuzzy, kde-format
@@ -4554,13 +4568,6 @@ msgctxt "@option:check"
 msgid "Allow Password Change for OAuth Users"
 msgstr "Parool"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Message Deleted"
-msgctxt "@option:check"
-msgid "Allow Feature Preview"
-msgstr "Sõnum kustutatud"
-
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "User registration is disabled"
@@ -5199,7 +5206,13 @@ msgctxt "@option:check"
 msgid "Enable in teams"
 msgstr "Toa kustutamine"
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
+#, kde-format
+msgctxt "@option:check"
+msgid "Enable mobile ringing"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Default Provider"
