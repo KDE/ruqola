@@ -20,6 +20,8 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
 
     mAllowFeaturePreview->setObjectName(u"mAllowFeaturePreview"_s);
     mainLayout->addWidget(mAllowFeaturePreview);
+
+    mainLayout->addStretch(1);
 }
 
 FeaturePreviewWidget::~FeaturePreviewWidget() = default;
