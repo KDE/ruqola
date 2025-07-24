@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:43+0000\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -3148,6 +3148,14 @@ msgstr "Удаление нестандартного статуса польз�
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Разрешить предпросмотр возможностей"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Reactions"
+msgctxt "@option:check"
+msgid "Quick Reactions"
+msgstr "Реакции"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format

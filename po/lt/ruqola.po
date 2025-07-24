@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:43+0000\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -3208,6 +3208,13 @@ msgstr "Tinkinta naudotojo būsena"
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Žinutė ištrinta"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@option:check"
+msgid "Quick Reactions"
+msgstr "Aprašas:"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, fuzzy, kde-format

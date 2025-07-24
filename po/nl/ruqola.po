@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:43+0000\n"
-"PO-Revision-Date: 2025-07-21 09:31+0200\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
+"PO-Revision-Date: 2025-07-23 12:27+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2920,11 +2920,9 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow Feature Preview"
+#, kde-format
 msgid "Feature Preview"
-msgstr "Voorvertoning van mogelijkheid toestaan"
+msgstr "Voorvertoning van mogelijkheid"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3122,6 +3120,14 @@ msgstr "Aangepaste gebruikersstatus verwijderen"
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Voorvertoning van mogelijkheid toestaan"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Reactions"
+msgctxt "@option:check"
+msgid "Quick Reactions"
+msgstr "Reacties"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4897,12 +4903,10 @@ msgid "Enable in teams"
 msgstr "In Teams inschakelen"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable logging"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "Loggen inschakelen"
+msgstr "Mobiel bellen inschakelen"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format

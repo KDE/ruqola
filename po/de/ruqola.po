@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:43+0000\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3264,6 +3264,13 @@ msgstr "Status:"
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Nachricht gelöscht"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgctxt "@option:check"
+msgid "Quick Reactions"
+msgstr "Nennungen"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, fuzzy, kde-format

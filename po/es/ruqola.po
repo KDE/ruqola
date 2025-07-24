@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:43+0000\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
 "PO-Revision-Date: 2025-07-23 00:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3124,6 +3124,14 @@ msgstr "Eliminar estado personalizado de usuario"
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Permitir previsualización"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Reactions"
+msgctxt "@option:check"
+msgid "Quick Reactions"
+msgstr "Reacciones"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:43+0000\n"
-"PO-Revision-Date: 2025-07-21 10:05+0200\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
+"PO-Revision-Date: 2025-07-23 23:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1073,7 +1073,7 @@ msgstr "Sense límit"
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expire in %1 days"
-msgstr "Venç en %1 dies"
+msgstr "Venç d'aquí a %1 dies"
 
 #: core/model/admininvitemodel.cpp:125
 #, kde-format
@@ -2921,11 +2921,9 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow Feature Preview"
+#, kde-format
 msgid "Feature Preview"
-msgstr "Permet la vista prèvia de característiques"
+msgstr "Vista prèvia de característiques"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3123,6 +3121,14 @@ msgstr "Eliminació d'estat personalitzat d'usuari"
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Permet la vista prèvia de característiques"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Reactions"
+msgctxt "@option:check"
+msgid "Quick Reactions"
+msgstr "Reaccions"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4903,12 +4909,10 @@ msgid "Enable in teams"
 msgstr "Activa pels equips"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable logging"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "Activa el registre"
+msgstr "Activa la trucada del mòbil"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format

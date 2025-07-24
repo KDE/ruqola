@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:43+0000\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -3108,6 +3108,14 @@ msgstr "कस्टम उपयोगकर्ता स्थिति हट
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "फ़ीचर पूर्वावलोकन की अनुमति दें"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Reactions"
+msgctxt "@option:check"
+msgid "Quick Reactions"
+msgstr "प्रतिक्रियाओं"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
