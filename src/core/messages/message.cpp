@@ -1226,8 +1226,10 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["emoji"_L1] = message.mEmoji;
     }
 
-    if (const QString typeMessage = SystemMessageTypeUtil::systemMessageTypeStringFromEnum(message.mSystemMessageType); !typeMessage.isEmpty()) {
-        o["type"_L1] = typeMessage;
+    if (message.mSystemMessageType != SystemMessageTypeUtil::SystemMessageType::Unknown) {
+        if (const QString typeMessage = SystemMessageTypeUtil::systemMessageTypeStringFromEnum(message.mSystemMessageType); !typeMessage.isEmpty()) {
+            o["type"_L1] = typeMessage;
+        }
     }
     o["messageType"_L1] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
 
