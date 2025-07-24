@@ -172,6 +172,7 @@ void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &ca
         const QString cacheImageUrlPath{cacheImageUrl.toLocalFile()};
         const QPixmap pixmap(cacheImageUrlPath);
         mImageGraphicsView->updatePixmap(pixmap, cacheImageUrlPath);
+        Q_EMIT updateMenu(info);
     }
 }
 

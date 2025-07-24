@@ -127,8 +127,10 @@ void ShowImageDialog::updateServiceList()
     const QString path = mRocketChatAccount->attachmentUrlFromLocalCache(mShowImageWidget->imageInfo().bigImagePath).toLocalFile();
     if (path.isEmpty()) {
         qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "path is empty for " << mShowImageWidget->imageInfo().bigImagePath;
+        mOpenWithButton->setEnabled(false);
         return;
     }
+    mOpenWithButton->setEnabled(true);
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(path);
 
