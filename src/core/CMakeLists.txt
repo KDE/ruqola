@@ -709,6 +709,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_action_bu
     CATEGORY_NAME org.kde.ruqola.action_buttons DESCRIPTION "ruqola action buttons" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_messages_model_debug.h IDENTIFIER RUQOLA_MESSAGEMODELS_LOG
+    CATEGORY_NAME org.kde.ruqola.messagemodels DESCRIPTION "ruqola message model" EXPORT RUQOLA
+)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)

@@ -7,7 +7,6 @@
  */
 
 #include <QModelIndex>
-using namespace Qt::Literals::StringLiterals;
 
 #include <QTimeZone>
 
@@ -16,12 +15,13 @@ using namespace Qt::Literals::StringLiterals;
 #include "messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
-#include "ruqola_debug.h"
+#include "ruqola_messages_model_debug.h"
 #include "textconverter.h"
 #include "utils.h"
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 MessagesModel::MessagesModel(const QByteArray &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : QAbstractListModel(parent)
     , mRoomId(roomID)
@@ -29,7 +29,7 @@ MessagesModel::MessagesModel(const QByteArray &roomID, RocketChatAccount *accoun
     , mRoom(room)
     , mLoadRecentHistoryManager(new LoadRecentHistoryManager)
 {
-    qCDebug(RUQOLA_LOG) << "Creating message Model";
+    qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Creating message Model";
     if (mRoom) {
         connect(mRoom, &Room::rolesChanged, this, &MessagesModel::refresh);
         connect(mRoom, &Room::ignoredUsersChanged, this, &MessagesModel::refresh);
@@ -41,18 +41,18 @@ MessagesModel::~MessagesModel() = default;
 
 void MessagesModel::activate()
 {
-    qCDebug(RUQOLA_LOG) << "Activate model";
+    qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Activate model";
     if (mRocketChatAccount) {
-        qCDebug(RUQOLA_LOG) << "CONNECT: messages model";
+        qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "CONNECT: messages model";
         connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessagesModel::slotFileDownloaded);
     }
 }
 
 void MessagesModel::deactivate()
 {
-    qCDebug(RUQOLA_LOG) << "Deactivate model";
+    qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Deactivate model";
     if (mRocketChatAccount) {
-        qCDebug(RUQOLA_LOG) << "DISCONNECT: messages model";
+        qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "DISCONNECT: messages model";
         disconnect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessagesModel::slotFileDownloaded);
     }
 }
@@ -110,7 +110,7 @@ void MessagesModel::refresh()
 qint64 MessagesModel::lastTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {
-        // qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
+        // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
         return mAllMessages.first().timeStamp();
     } else {
         return 0;
@@ -141,10 +141,10 @@ void MessagesModel::addMessage(const Message &message)
     // When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
-        qCDebug(RUQOLA_LOG) << "Update first message";
+        qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update first message";
         emitChanged(0);
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
-        qCDebug(RUQOLA_LOG) << "Update message: " << message.text();
+        qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update message: " << message.text();
         if (message.pendingMessage()) {
             // If we already have a message and we must add pending message it's that server
             // send quickly new message => replace not it by a pending message
@@ -153,7 +153,7 @@ void MessagesModel::addMessage(const Message &message)
         (*(it - 1)) = message;
         emitChanged(std::distance(mAllMessages.begin(), it - 1), {OriginalMessageOrAttachmentDescription});
     } else {
-        qCDebug(RUQOLA_LOG) << "Add message: " << message.text();
+        qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Add message: " << message.text();
         const int pos = it - mAllMessages.begin();
         beginInsertRows(QModelIndex(), pos, pos);
         mAllMessages.insert(it, message);
@@ -187,7 +187,7 @@ void MessagesModel::addMessages(const QList<Message> &messages, bool insertListM
 QVariant MessagesModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
-        qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
+        qCWarning(RUQOLA_MESSAGEMODELS_LOG) << "ERROR: invalid index";
         return {};
     }
     const int idx = index.row();
@@ -392,7 +392,7 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
 bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (!index.isValid()) {
-        qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
+        qCWarning(RUQOLA_MESSAGEMODELS_LOG) << "ERROR: invalid index";
         return false;
     }
     const int idx = index.row();
@@ -581,7 +581,8 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
         Q_EMIT dataChanged(idx, idx);
     } else {
         // Not necessarily a problem. The signal is emitted for CustomSounds or avatars, not just for attachments.
-        // qCDebug(RUQOLA_LOG) << "Attachment not found:" << filePath << "in" << mRoom->name() << "which has" << mAllMessages.count() << "messages";
+        // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Attachment not found:" << filePath << "in" << mRoom->name() << "which has" << mAllMessages.count() <<
+        // "messages";
     }
 }
 
@@ -608,7 +609,7 @@ Message MessagesModel::threadMessage(const QByteArray &threadMessageId) const
         if (it != mAllMessages.cend()) {
             return (*it);
         } else {
-            qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
+            qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
         }
     }
     return Message{};
@@ -626,7 +627,7 @@ QString MessagesModel::threadMessagePreview(const QByteArray &threadMessageId) c
             }
             return str;
         } else {
-            qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
+            qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
         }
     }
     return {};
@@ -652,7 +653,7 @@ bool MessagesModel::threadMessageFollowed(const QByteArray &threadMessageId) con
                 }
             }
         } else {
-            qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
+            qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
         }
     }
     return false;
