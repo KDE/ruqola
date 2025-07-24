@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-04-04 09:58+0200\n"
+"PO-Revision-Date: 2025-07-23 23:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -1074,7 +1074,7 @@ msgstr "Sense límit"
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expire in %1 days"
-msgstr "Venç en %1 dies"
+msgstr "Venç d'aquí a %1 dies"
 
 #: core/model/admininvitemodel.cpp:125
 #, kde-format
