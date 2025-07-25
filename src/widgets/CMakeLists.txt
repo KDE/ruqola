@@ -780,6 +780,8 @@ target_sources(
         databasedialog/exploredatabasewidget.cpp
         databasedialog/exploredatabaselineedit.h
         databasedialog/exploredatabaselineedit.cpp
+        databasedialog/exploredatabasejsonwidget.h
+        databasedialog/exploredatabasejsonwidget.cpp
         whatsnew/whatsnewdialog.h
         whatsnew/whatsnewdialog.cpp
         whatsnew/whatsnewwidget.h
