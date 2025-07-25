@@ -59,7 +59,8 @@ void ManageLocalDatabase::syncMessage(const QByteArray &roomId, qint64 lastSeenA
 
 void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QByteArray &roomId)
 {
-    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomId" << roomId << "obj" << obj;
+    // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomId" << roomId << "obj" << obj;
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomId" << roomId << "obj count:" << obj.count();
     ManageLoadHistoryParseSyncMessagesUtils utils(mRocketChatAccount);
     utils.parse(obj);
 
@@ -90,7 +91,9 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 // FIXME: don't use  info.lastSeenAt until we store room information in database
                 // We need to use last message timeStamp
                 // const qint64 endDateTime = info.roomModel->lastTimestamp();
-                syncMessage(info.roomId.toLatin1(), /*info.lastSeenAt*/ endDateTime);
+                if (endDateTime != 0) {
+                    syncMessage(info.roomId.toLatin1(), /*info.lastSeenAt*/ endDateTime);
+                }
                 return;
             } else {
                 // Load more from network.
@@ -129,10 +132,11 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
                                              << " number of message " << lstMessages.count();
             if (lstMessages.count() == downloadMessage) {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database";
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database" << lstMessages.count();
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
                 return;
             } else if (!lstMessages.isEmpty()) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database list is not empty" << lstMessages.count();
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
                 downloadMessage -= lstMessages.count();
                 // Update lastTimeStamp
