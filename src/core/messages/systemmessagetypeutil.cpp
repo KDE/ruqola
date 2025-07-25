@@ -12,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 
 SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QString &str)
 {
+    if (str.isEmpty()) {
+        return Unknown;
+    }
     if (str == "uj"_L1) {
         return UserJoined;
     } else if (str == "ul"_L1) {
