@@ -49,6 +49,7 @@ void ManageLocalDatabase::syncMessage(const QByteArray &roomId, qint64 lastSeenA
 {
     auto job = new RocketChatRestApi::SyncMessagesJob(this);
     job->setRoomId(roomId);
+    qDebug() << " QDateTime::fromMSecsSinceEpoch(lastSeenAt) " << QDateTime::fromMSecsSinceEpoch(lastSeenAt);
     job->setLastUpdate(QDateTime::fromMSecsSinceEpoch(lastSeenAt));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SyncMessagesJob::syncMessagesDone, this, &ManageLocalDatabase::slotSyncMessages);
@@ -92,7 +93,10 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 // We need to use last message timeStamp
                 // const qint64 endDateTime = info.roomModel->lastTimestamp();
                 if (endDateTime != 0) {
+                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << endDateTime;
                     syncMessage(info.roomId.toLatin1(), /*info.lastSeenAt*/ endDateTime);
+                } else {
+                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no sync message ";
                 }
                 return;
             } else {
