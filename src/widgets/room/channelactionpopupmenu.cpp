@@ -172,7 +172,7 @@ void ChannelActionPopupMenu::slotActionButtonChanged()
     // Check list of apps action
     qDeleteAll(mListActionButton);
     mListActionButton.clear();
-    if (mCurrentRocketChatAccount) {
+    if (mCurrentRocketChatAccount && mRoom) {
         ActionButton::FilterActionInfo filterInfo;
         filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
         filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
