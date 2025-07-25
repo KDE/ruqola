@@ -171,7 +171,7 @@ void ChannelActionPopupMenu::setCurrentRocketChatAccount(RocketChatAccount *acco
 
 void ChannelActionPopupMenu::slotActionButtonChanged()
 {
-    if (mCurrentRocketChatAccount) {
+    if (mCurrentRocketChatAccount && mRoom) {
         ActionButton::FilterActionInfo filterInfo;
         filterInfo.buttonContext = ActionButton::ButtonContext::RoomAction;
         filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
