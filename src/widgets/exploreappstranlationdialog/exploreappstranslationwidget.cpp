@@ -4,19 +4,30 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exploreappstranslationwidget.h"
-using namespace Qt::Literals::StringLiterals;
+#include <KTreeWidgetSearchLine>
+#include <QHeaderView>
 
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ExploreAppsTranslationWidget::ExploreAppsTranslationWidget(QWidget *parent)
     : QWidget{parent}
     , mTreeWidget(new QTreeWidget(this))
+    , mSearchLineEdit(new KTreeWidgetSearchLine(this, mTreeWidget))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
+    mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search…"));
+    mSearchLineEdit->setClearButtonEnabled(true);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
+
+    mainLayout->addWidget(mSearchLineEdit);
 
     mTreeWidget->setObjectName(u"mTreeWidget"_s);
     mTreeWidget->setColumnCount(2);
@@ -45,6 +56,16 @@ void ExploreAppsTranslationWidget::setAppsLanguagesInfoMap(const QMap<QString, D
         }
     }
     mTreeWidget->expandAll();
+}
+
+void ExploreAppsTranslationWidget::restoreState(const QByteArray &state)
+{
+    mTreeWidget->header()->restoreState(state);
+}
+
+QByteArray ExploreAppsTranslationWidget::saveState() const
+{
+    return mTreeWidget->header()->saveState();
 }
 
 #include "moc_exploreappstranslationwidget.cpp"

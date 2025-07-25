@@ -50,12 +50,14 @@ void ExploreAppsTranslationDialog::readConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
+    mExploreAppsTranslationWidget->restoreState(group.readEntry("HeaderView", QByteArray()));
 }
 
 void ExploreAppsTranslationDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+    group.writeEntry("HeaderView", mExploreAppsTranslationWidget->saveState());
 }
 
 void ExploreAppsTranslationDialog::setAppsLanguagesInfoMap(const QMap<QString, DownloadAppsLanguagesInfo> &map)

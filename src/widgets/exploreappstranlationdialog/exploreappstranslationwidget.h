@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QTreeWidget;
+class KTreeWidgetSearchLine;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreAppsTranslationWidget : public QWidget
 {
     Q_OBJECT
@@ -18,6 +19,10 @@ public:
 
     void setAppsLanguagesInfoMap(const QMap<QString, DownloadAppsLanguagesInfo> &map);
 
+    [[nodiscard]] QByteArray saveState() const;
+    void restoreState(const QByteArray &state);
+
 private:
     QTreeWidget *const mTreeWidget;
+    KTreeWidgetSearchLine *const mSearchLineEdit;
 };
