@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-26 00:42+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1022,7 +1022,7 @@ msgstr "Název"
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
 #: core/model/directoryroomsmodel.cpp:123 core/model/directoryteamsmodel.cpp:95
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:25
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:36
 #, kde-format
 msgid "Identifier"
 msgstr "Identifikátor"
@@ -3409,6 +3409,7 @@ msgstr "Vybrat vše"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:26
 #: widgets/notificationhistory/notificationhistorywidget.cpp:47
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
 #, kde-format
@@ -8936,7 +8937,7 @@ msgctxt "@title:window"
 msgid "Application Translation"
 msgstr ""
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:25
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:36
 #, kde-format
 msgid "Translation"
 msgstr "Překlad"

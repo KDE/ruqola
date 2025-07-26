@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-26 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1020,7 +1020,7 @@ msgstr ""
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
 #: core/model/directoryroomsmodel.cpp:123 core/model/directoryteamsmodel.cpp:95
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:25
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:36
 #, kde-format
 msgid "Identifier"
 msgstr ""
@@ -3359,6 +3359,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:26
 #: widgets/notificationhistory/notificationhistorywidget.cpp:47
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
 #, kde-format
@@ -8847,7 +8848,7 @@ msgctxt "@title:window"
 msgid "Application Translation"
 msgstr ""
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:25
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:36
 #, kde-format
 msgid "Translation"
 msgstr ""

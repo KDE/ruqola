@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:42+0000\n"
+"POT-Creation-Date: 2025-07-26 00:42+0000\n"
 "PO-Revision-Date: 2025-05-30 19:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1023,7 +1023,7 @@ msgstr "Nomine"
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
 #: core/model/directoryroomsmodel.cpp:123 core/model/directoryteamsmodel.cpp:95
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:25
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:36
 #, kde-format
 msgid "Identifier"
 msgstr "Identificator"
@@ -3414,6 +3414,7 @@ msgstr "Selige toto"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:26
 #: widgets/notificationhistory/notificationhistorywidget.cpp:47
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
 #, kde-format
@@ -8952,7 +8953,7 @@ msgctxt "@title:window"
 msgid "Application Translation"
 msgstr "Traduction de Application"
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:25
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:36
 #, kde-format
 msgid "Translation"
 msgstr "Traduction"
