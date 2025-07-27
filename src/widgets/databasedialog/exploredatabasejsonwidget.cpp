@@ -6,13 +6,19 @@
 
 #include "exploredatabasejsonwidget.h"
 #include <QVBoxLayout>
+#include <qplaintextedit.h>
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseJsonWidget::ExploreDatabaseJsonWidget(QWidget *parent)
     : QWidget{parent}
+    , mPlainTextEdit(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+
+    mPlainTextEdit->setObjectName(u"mPlainTextEdit"_s);
+    mPlainTextEdit->setReadOnly(true);
+    mainLayout->addWidget(mPlainTextEdit);
 }
 
 ExploreDatabaseJsonWidget::~ExploreDatabaseJsonWidget() = default;
