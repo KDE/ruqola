@@ -10,6 +10,7 @@
 #include <QDialog>
 class ExploreDatabaseWidget;
 class RocketChatAccount;
+class ExploreDatabaseJsonWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseDialog : public QDialog
 {
     Q_OBJECT
@@ -21,4 +22,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     ExploreDatabaseWidget *const mExploreDatabaseWidget;
+    ExploreDatabaseJsonWidget *const mExploreDatabaseJsonWidget;
 };

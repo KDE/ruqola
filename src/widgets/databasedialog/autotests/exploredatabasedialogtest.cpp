@@ -5,14 +5,15 @@
 */
 
 #include "exploredatabasedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "databasedialog/exploredatabasedialog.h"
 #include "databasedialog/exploredatabasewidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
+#include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ExploreDatabaseDialogTest)
 ExploreDatabaseDialogTest::ExploreDatabaseDialogTest(QObject *parent)
     : QObject{parent}
@@ -24,8 +25,13 @@ void ExploreDatabaseDialogTest::shouldHaveDefaultValues()
 {
     ExploreDatabaseDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
+
+    auto tabWidget = d.findChild<QTabWidget *>(u"tabWidget"_s);
+    QVERIFY(tabWidget);
+
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
+
     auto mExploreDatabaseWidget = d.findChild<ExploreDatabaseWidget *>(u"mExploreDatabaseWidget"_s);
     QVERIFY(mExploreDatabaseWidget);
 

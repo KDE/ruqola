@@ -5,7 +5,7 @@
 */
 
 #include "exploredatabasedialog.h"
-using namespace Qt::Literals::StringLiterals;
+#include "databasedialog/exploredatabasejsonwidget.h"
 
 #include "exploredatabasewidget.h"
 #include <KConfigGroup>
@@ -13,9 +13,11 @@ using namespace Qt::Literals::StringLiterals;
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QDialogButtonBox>
+#include <QTabWidget>
 #include <QVBoxLayout>
 #include <QWindow>
 
+using namespace Qt::Literals::StringLiterals;
 namespace
 {
 const char myExploreDatabaseDialogConfigGroupName[] = "ExploreDatabaseDialog";
@@ -23,13 +25,21 @@ const char myExploreDatabaseDialogConfigGroupName[] = "ExploreDatabaseDialog";
 ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mExploreDatabaseWidget(new ExploreDatabaseWidget(account, this))
+    , mExploreDatabaseJsonWidget(new ExploreDatabaseJsonWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
 
+    auto tabWidget = new QTabWidget(this);
+    tabWidget->setObjectName(u"tabWidget"_s);
+    mainLayout->addWidget(tabWidget);
+
     mExploreDatabaseWidget->setObjectName(u"mExploreDatabaseWidget"_s);
-    mainLayout->addWidget(mExploreDatabaseWidget);
+    tabWidget->addTab(mExploreDatabaseWidget, i18n("Messages"));
+
+    mExploreDatabaseJsonWidget->setObjectName(u"mExploreDatabaseJsonWidget"_s);
+    tabWidget->addTab(mExploreDatabaseJsonWidget, i18n("Json"));
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(u"button"_s);
