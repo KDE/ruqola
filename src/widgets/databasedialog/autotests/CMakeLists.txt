@@ -12,3 +12,4 @@ endmacro()
 
 add_ruqola_databasedialog_test(exploredatabasedialogtest.cpp)
 add_ruqola_databasedialog_test(exploredatabasewidgettest.cpp)
+add_ruqola_databasedialog_test(exploredatabasejsonwidgettest.cpp)
