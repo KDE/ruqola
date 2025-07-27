@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:42+0000\n"
-"PO-Revision-Date: 2025-07-23 23:32+0200\n"
+"PO-Revision-Date: 2025-07-24 09:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3124,12 +3124,10 @@ msgid "Allow Feature Preview"
 msgstr "Permet la vista prèvia de característiques"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "Reaccions"
+msgstr "Reaccions ràpides"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
