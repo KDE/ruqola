@@ -26,3 +26,5 @@ void ExploreDatabaseJsonWidgetTest::shouldHaveDefaultValues()
     auto mPlainTextEdit = w.findChild<QPlainTextEdit *>(u"mPlainTextEdit"_s);
     QVERIFY(mPlainTextEdit);
 }
+
+#include "moc_exploredatabasejsonwidgettest.cpp"
