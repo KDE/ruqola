@@ -8,7 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class ExploreDatabaseWidget;
+class ExploreDatabaseViewMessagesWidget;
 class RocketChatAccount;
 class ExploreDatabaseJsonWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseDialog : public QDialog
@@ -21,6 +21,6 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    ExploreDatabaseWidget *const mExploreDatabaseWidget;
+    ExploreDatabaseViewMessagesWidget *const mExploreDatabaseWidget;
     ExploreDatabaseJsonWidget *const mExploreDatabaseJsonWidget;
 };

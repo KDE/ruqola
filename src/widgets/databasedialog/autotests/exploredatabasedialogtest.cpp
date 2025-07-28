@@ -8,7 +8,7 @@
 
 #include "databasedialog/exploredatabasedialog.h"
 #include "databasedialog/exploredatabasejsonwidget.h"
-#include "databasedialog/exploredatabasewidget.h"
+#include "databasedialog/exploredatabaseviewmessageswidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTabWidget>
@@ -33,7 +33,7 @@ void ExploreDatabaseDialogTest::shouldHaveDefaultValues()
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mExploreDatabaseWidget = d.findChild<ExploreDatabaseWidget *>(u"mExploreDatabaseWidget"_s);
+    auto mExploreDatabaseWidget = d.findChild<ExploreDatabaseViewMessagesWidget *>(u"mExploreDatabaseWidget"_s);
     QVERIFY(mExploreDatabaseWidget);
 
     auto mExploreDatabaseJsonWidget = d.findChild<ExploreDatabaseJsonWidget *>(u"mExploreDatabaseJsonWidget"_s);

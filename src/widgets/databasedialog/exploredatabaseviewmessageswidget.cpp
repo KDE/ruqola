@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "exploredatabasewidget.h"
+#include "exploredatabaseviewmessageswidget.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "exploredatabaselineedit.h"
@@ -21,7 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 
 // debug dialogbox => don't translate it
-ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget *parent)
+ExploreDatabaseViewMessagesWidget::ExploreDatabaseViewMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
@@ -79,16 +79,16 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     auto pushButton = new QPushButton(u"Load"_s, this);
     pushButton->setObjectName(u"pushButton"_s);
     hboxLayout->addWidget(pushButton);
-    connect(pushButton, &QPushButton::clicked, this, &ExploreDatabaseWidget::slotLoad);
-    connect(mRoomName, &QLineEdit::returnPressed, this, &ExploreDatabaseWidget::slotLoad);
+    connect(pushButton, &QPushButton::clicked, this, &ExploreDatabaseViewMessagesWidget::slotLoad);
+    connect(mRoomName, &QLineEdit::returnPressed, this, &ExploreDatabaseViewMessagesWidget::slotLoad);
 
     mMessageListView->setModel(mMessageModel);
     mainLayout->addWidget(mMessageListView);
 }
 
-ExploreDatabaseWidget::~ExploreDatabaseWidget() = default;
+ExploreDatabaseViewMessagesWidget::~ExploreDatabaseViewMessagesWidget() = default;
 
-void ExploreDatabaseWidget::slotLoad()
+void ExploreDatabaseViewMessagesWidget::slotLoad()
 {
     const QString roomName = mRoomName->text().trimmed();
     if (!roomName.isEmpty()) {
@@ -113,4 +113,4 @@ void ExploreDatabaseWidget::slotLoad()
     }
 }
 
-#include "moc_exploredatabasewidget.cpp"
+#include "moc_exploredatabaseviewmessageswidget.cpp"

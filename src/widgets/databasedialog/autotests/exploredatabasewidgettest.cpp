@@ -6,7 +6,7 @@
 
 #include "exploredatabasewidgettest.h"
 
-#include "databasedialog/exploredatabasewidget.h"
+#include "databasedialog/exploredatabaseviewmessageswidget.h"
 #include "room/messagelistview.h"
 #include <QLabel>
 #include <QLineEdit>
@@ -22,7 +22,7 @@ ExploreDatabaseWidgetTest::ExploreDatabaseWidgetTest(QObject *parent)
 
 void ExploreDatabaseWidgetTest::shouldHaveDefaultValues()
 {
-    ExploreDatabaseWidget w(nullptr);
+    ExploreDatabaseViewMessagesWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

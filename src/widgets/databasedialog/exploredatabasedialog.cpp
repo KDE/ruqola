@@ -7,7 +7,7 @@
 #include "exploredatabasedialog.h"
 #include "databasedialog/exploredatabasejsonwidget.h"
 
-#include "exploredatabasewidget.h"
+#include "exploredatabaseviewmessageswidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -24,7 +24,7 @@ const char myExploreDatabaseDialogConfigGroupName[] = "ExploreDatabaseDialog";
 }
 ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mExploreDatabaseWidget(new ExploreDatabaseWidget(account, this))
+    , mExploreDatabaseWidget(new ExploreDatabaseViewMessagesWidget(account, this))
     , mExploreDatabaseJsonWidget(new ExploreDatabaseJsonWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
@@ -46,7 +46,10 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ExploreDatabaseDialog::reject);
 
-    connect(mExploreDatabaseWidget, &ExploreDatabaseWidget::messagesLoaded, mExploreDatabaseJsonWidget, &ExploreDatabaseJsonWidget::slotLoadedMessages);
+    connect(mExploreDatabaseWidget,
+            &ExploreDatabaseViewMessagesWidget::messagesLoaded,
+            mExploreDatabaseJsonWidget,
+            &ExploreDatabaseJsonWidget::slotLoadedMessages);
 
     readConfig();
 }

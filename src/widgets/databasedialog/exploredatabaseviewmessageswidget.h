@@ -15,12 +15,12 @@ class MessagesModel;
 class QSpinBox;
 class QDateTimeEdit;
 class QCheckBox;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseViewMessagesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseWidget(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~ExploreDatabaseWidget() override;
+    explicit ExploreDatabaseViewMessagesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~ExploreDatabaseViewMessagesWidget() override;
 
 Q_SIGNALS:
     void messagesLoaded(const QList<Message> &listMessages);
