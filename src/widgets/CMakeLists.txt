@@ -776,12 +776,14 @@ target_sources(
         servererrorinfohistory/servererrorinfohistorydelegate.cpp
         databasedialog/exploredatabasedialog.h
         databasedialog/exploredatabasedialog.cpp
-        databasedialog/exploredatabasewidget.h
-        databasedialog/exploredatabasewidget.cpp
+        databasedialog/exploredatabaseviewmessageswidget.h
+        databasedialog/exploredatabaseviewmessageswidget.cpp
         databasedialog/exploredatabaselineedit.h
         databasedialog/exploredatabaselineedit.cpp
         databasedialog/exploredatabasejsonwidget.h
         databasedialog/exploredatabasejsonwidget.cpp
+        databasedialog/exploredatabasestoragewidget.h
+        databasedialog/exploredatabasestoragewidget.cpp
         whatsnew/whatsnewdialog.h
         whatsnew/whatsnewdialog.cpp
         whatsnew/whatsnewwidget.h
