@@ -23,12 +23,14 @@ ExploreDatabaseJsonWidget::ExploreDatabaseJsonWidget(QWidget *parent)
 
 ExploreDatabaseJsonWidget::~ExploreDatabaseJsonWidget() = default;
 
-void ExploreDatabaseJsonWidget::slotLoadedMessages(const QList<Message> &listMessages)
+void ExploreDatabaseJsonWidget::slotLoadedMessages(QList<Message> listMessages)
 {
     QString str;
+    std::sort(listMessages.begin(), listMessages.end(), [](const Message &lhs, const Message &rhs) {
+        return lhs.timeStamp() < rhs.timeStamp();
+    });
     for (const auto &m : listMessages) {
         str.append(QString::fromUtf8(m.serialize(m, false)));
-        // TODO sort
     }
     mPlainTextEdit->setPlainText(str);
 }

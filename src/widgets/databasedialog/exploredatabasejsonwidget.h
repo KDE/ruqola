@@ -15,7 +15,7 @@ public:
     explicit ExploreDatabaseJsonWidget(QWidget *parent = nullptr);
     ~ExploreDatabaseJsonWidget() override;
 
-    void slotLoadedMessages(const QList<Message> &listMessages);
+    void slotLoadedMessages(QList<Message> listMessages);
 
 private:
     QPlainTextEdit *const mPlainTextEdit;
