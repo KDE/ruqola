@@ -22,6 +22,9 @@ public:
     explicit ExploreDatabaseWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ExploreDatabaseWidget() override;
 
+Q_SIGNALS:
+    void messagesLoaded(const QList<Message> &listMessages);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoad();
     RocketChatAccount *const mRocketChatAccount;

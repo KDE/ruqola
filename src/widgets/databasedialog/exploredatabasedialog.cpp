@@ -46,6 +46,8 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ExploreDatabaseDialog::reject);
 
+    connect(mExploreDatabaseWidget, &ExploreDatabaseWidget::messagesLoaded, mExploreDatabaseJsonWidget, &ExploreDatabaseJsonWidget::slotLoadedMessages);
+
     readConfig();
 }
 

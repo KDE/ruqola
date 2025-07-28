@@ -5,6 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "messages/message.h"
 #include <QWidget>
 class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseJsonWidget : public QWidget
@@ -13,6 +14,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseJsonWidget : public QWidget
 public:
     explicit ExploreDatabaseJsonWidget(QWidget *parent = nullptr);
     ~ExploreDatabaseJsonWidget() override;
+
+    void slotLoadedMessages(const QList<Message> &listMessages);
 
 private:
     QPlainTextEdit *const mPlainTextEdit;

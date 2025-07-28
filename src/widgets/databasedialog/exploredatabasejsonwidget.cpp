@@ -23,4 +23,14 @@ ExploreDatabaseJsonWidget::ExploreDatabaseJsonWidget(QWidget *parent)
 
 ExploreDatabaseJsonWidget::~ExploreDatabaseJsonWidget() = default;
 
+void ExploreDatabaseJsonWidget::slotLoadedMessages(const QList<Message> &listMessages)
+{
+    QString str;
+    for (const auto &m : listMessages) {
+        str.append(QString::fromUtf8(m.serialize(m, false)));
+        // TODO sort
+    }
+    mPlainTextEdit->setPlainText(str);
+}
+
 #include "moc_exploredatabasejsonwidget.cpp"
