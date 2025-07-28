@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-26 00:42+0000\n"
+"POT-Creation-Date: 2025-07-28 00:41+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -7679,11 +7679,24 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Upravit účet"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:27
+#: widgets/databasedialog/exploredatabasedialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informace o databázi"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Messages"
+msgid "Messages"
+msgstr "Zprávy"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:42
+#: widgets/exportmessages/exportmessageswidget.cpp:40
+#, kde-format
+msgid "Json"
+msgstr "Json"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -8967,11 +8980,6 @@ msgstr "Komu:"
 #, kde-format
 msgid "Output Format:"
 msgstr "Formát výstupu:"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:40
-#, kde-format
-msgid "Json"
-msgstr "Json"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:41
 #, kde-format

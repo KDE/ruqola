@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-26 00:42+0000\n"
+"POT-Creation-Date: 2025-07-28 00:41+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -8194,13 +8194,25 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Zugang bearbeiten"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:27
+#: widgets/databasedialog/exploredatabasedialog.cpp:30
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "User Info"
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Benutzerinformation"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:39
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Messages"
+msgstr "Nachricht"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:42
+#: widgets/exportmessages/exportmessageswidget.cpp:40
+#, kde-format
+msgid "Json"
+msgstr "JSON"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -9588,11 +9600,6 @@ msgstr "Bis:"
 #| msgid "Format"
 msgid "Output Format:"
 msgstr "Format"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:40
-#, kde-format
-msgid "Json"
-msgstr "JSON"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:41
 #, kde-format

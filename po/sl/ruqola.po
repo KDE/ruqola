@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-26 00:42+0000\n"
+"POT-Creation-Date: 2025-07-28 00:41+0000\n"
 "PO-Revision-Date: 2025-07-24 06:57+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -7859,11 +7859,24 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Spremeni račun"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:27
+#: widgets/databasedialog/exploredatabasedialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informacije o podatkovni zbirki"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Messages"
+msgid "Messages"
+msgstr "Sporočila"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:42
+#: widgets/exportmessages/exportmessageswidget.cpp:40
+#, kde-format
+msgid "Json"
+msgstr "JSON"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -9187,11 +9200,6 @@ msgstr "Za:"
 #, kde-format
 msgid "Output Format:"
 msgstr "Oblika izhoda:"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:40
-#, kde-format
-msgid "Json"
-msgstr "JSON"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:41
 #, kde-format
