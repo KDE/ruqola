@@ -5,7 +5,6 @@
 */
 
 #include "exploredatabasewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "databasedialog/exploredatabasewidget.h"
 #include "room/messagelistview.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ExploreDatabaseWidgetTest)
 ExploreDatabaseWidgetTest::ExploreDatabaseWidgetTest(QObject *parent)
     : QObject{parent}

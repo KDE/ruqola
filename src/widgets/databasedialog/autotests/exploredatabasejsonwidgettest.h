@@ -13,4 +13,6 @@ class ExploreDatabaseJsonWidgetTest : public QObject
 public:
     explicit ExploreDatabaseJsonWidgetTest(QObject *parent = nullptr);
     ~ExploreDatabaseJsonWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
