@@ -24,6 +24,7 @@ public:
 
 Q_SIGNALS:
     void messagesLoaded(const QList<Message> &listMessages);
+    void loadModelFromDataBase(const QString &accountName, const QString &roomName);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoad();

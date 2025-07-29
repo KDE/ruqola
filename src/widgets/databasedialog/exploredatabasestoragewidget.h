@@ -7,8 +7,9 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "localdatabase/localmessagesdatabase.h"
 #include <QWidget>
-class QTreeView;
+class QTableView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseStorageWidget : public QWidget
 {
     Q_OBJECT
@@ -16,6 +17,9 @@ public:
     explicit ExploreDatabaseStorageWidget(QWidget *parent = nullptr);
     ~ExploreDatabaseStorageWidget() override;
 
+    void slotLoadModelFromDataBase(const QString &accountName, const QString &roomName);
+
 private:
-    QTreeView *const mTreeView;
+    QTableView *const mTableView;
+    std::unique_ptr<LocalMessagesDatabase> mLocalMessageDatabase;
 };

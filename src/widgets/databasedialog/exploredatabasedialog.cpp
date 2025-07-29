@@ -56,6 +56,11 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
             mExploreDatabaseJsonWidget,
             &ExploreDatabaseJsonWidget::slotLoadedMessages);
 
+    connect(mExploreDatabaseWidget,
+            &ExploreDatabaseViewMessagesWidget::loadModelFromDataBase,
+            mExploreDatabaseStorageWidget,
+            &ExploreDatabaseStorageWidget::slotLoadModelFromDataBase);
+
     readConfig();
 }
 

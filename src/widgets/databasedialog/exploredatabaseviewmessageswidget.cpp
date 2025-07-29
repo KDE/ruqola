@@ -105,6 +105,7 @@ void ExploreDatabaseViewMessagesWidget::slotLoad()
         mMessageModel->clear();
         mMessageModel->addMessages(listMessages);
         Q_EMIT messagesLoaded(listMessages);
+        Q_EMIT loadModelFromDataBase(mRocketChatAccount->accountName(), roomName);
         if (listMessages.isEmpty()) {
             KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
         }
