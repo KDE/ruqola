@@ -5,8 +5,9 @@
 */
 
 #include "exploredatabasejsonwidget.h"
+#include <QPlainTextEdit>
 #include <QVBoxLayout>
-#include <qplaintextedit.h>
+
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseJsonWidget::ExploreDatabaseJsonWidget(QWidget *parent)
     : QWidget{parent}
