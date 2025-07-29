@@ -48,6 +48,7 @@ ExploreDatabaseViewMessagesWidget::ExploreDatabaseViewMessagesWidget(RocketChatA
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+    mainLayout->setSpacing(0);
 
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setContentsMargins({});
