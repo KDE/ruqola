@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-28 00:41+0000\n"
-"PO-Revision-Date: 2025-07-24 13:53+0200\n"
+"PO-Revision-Date: 2025-07-28 10:41+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7887,9 +7887,7 @@ msgid "Database Info"
 msgstr "Database-informatie"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "Berichten"
 

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-28 00:41+0000\n"
-"PO-Revision-Date: 2025-07-03 16:08+0200\n"
+"PO-Revision-Date: 2025-07-28 18:54+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -2900,11 +2900,9 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow Feature Preview"
+#, kde-format
 msgid "Feature Preview"
-msgstr "Tillåt förhandsgranskning av funktion"
+msgstr "Förhandsgranskning av funktioner"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3103,12 +3101,10 @@ msgid "Allow Feature Preview"
 msgstr "Tillåt förhandsgranskning av funktion"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "Reaktioner"
+msgstr "Snabbreaktioner"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4882,12 +4878,10 @@ msgid "Enable in teams"
 msgstr "Aktivera för lag"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable logging"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "Aktivera loggning"
+msgstr "Aktivera mobil ringsignal"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
@@ -7848,9 +7842,7 @@ msgid "Database Info"
 msgstr "Databasinformation"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "Meddelanden"
 
@@ -8759,11 +8751,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopiera plats till klippbordet"
 
 #: widgets/dialogs/showimagedialog.cpp:152
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Sök efter program"
+msgstr "Annat program..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -11580,7 +11570,7 @@ msgstr "Tillåt att aktivera insticksprogram."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Lägg till knappen Öppna med i bildvisning"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
@@ -12119,11 +12109,10 @@ msgstr "Rätta sökning efter användare."
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr ""
+msgstr "Rätta extrahering av språk från kodblock."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "All Version"
+#, kde-format
 msgid "All Versions"
 msgstr "Alla versioner"
 
