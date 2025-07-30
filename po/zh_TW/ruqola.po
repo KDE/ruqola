@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:41+0000\n"
+"POT-Creation-Date: 2025-07-30 00:43+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -8062,23 +8062,30 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "修改帳戶"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:30
+#: widgets/databasedialog/exploredatabasedialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "資料庫資訊"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:39
+#: widgets/databasedialog/exploredatabasedialog.cpp:41
 #, fuzzy, kde-format
 #| msgid "Message:"
 msgid "Messages"
 msgstr "訊息："
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:42
+#: widgets/databasedialog/exploredatabasedialog.cpp:44
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase"
+msgstr "資料庫資訊"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format

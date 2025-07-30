@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:41+0000\n"
+"POT-Creation-Date: 2025-07-30 00:43+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -7937,24 +7937,31 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Fiók módosítása"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:30
+#: widgets/databasedialog/exploredatabasedialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Adatbázis-információk"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:39
+#: widgets/databasedialog/exploredatabasedialog.cpp:41
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Messages"
 msgid "Messages"
 msgstr "Üzenetek"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:42
+#: widgets/databasedialog/exploredatabasedialog.cpp:44
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase"
+msgstr "Adatbázis-információk"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format

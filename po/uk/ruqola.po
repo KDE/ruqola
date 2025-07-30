@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-28 00:41+0000\n"
+"POT-Creation-Date: 2025-07-30 00:43+0000\n"
 "PO-Revision-Date: 2025-07-28 08:16+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -7916,22 +7916,29 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Зміна облікового запису"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:30
+#: widgets/databasedialog/exploredatabasedialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Інформація щодо бази даних"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:39
+#: widgets/databasedialog/exploredatabasedialog.cpp:41
 #, kde-format
 msgid "Messages"
 msgstr "Повідомлення"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:42
+#: widgets/databasedialog/exploredatabasedialog.cpp:44
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase"
+msgstr "Інформація щодо бази даних"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
