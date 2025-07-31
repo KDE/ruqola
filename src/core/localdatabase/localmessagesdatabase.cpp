@@ -5,7 +5,6 @@
 */
 
 #include "localmessagesdatabase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabaseutils.h"
 #include "messages/message.h"
@@ -20,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlRecord>
 #include <QSqlTableModel>
 
+using namespace Qt::Literals::StringLiterals;
 static const char s_schemaMessagesDataBase[] = "CREATE TABLE MESSAGES (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class MessagesFields {
     MessageId,
@@ -51,6 +51,8 @@ void LocalMessagesDatabase::addMessage(const QString &accountName, const QString
         query.addBindValue(Message::serialize(m, false)); // TODO binary or not ?
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
+        } else if (mRuqolaLogger) {
+            mRuqolaLogger->dataSaveFromDatabase("add message in " + accountName.toUtf8() + " roomName " + roomName.toUtf8() + " message id " + m.messageId());
         }
     }
 }
@@ -65,6 +67,9 @@ void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QStr
     query.addBindValue(messageId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
+    } else if (mRuqolaLogger) {
+        mRuqolaLogger->dataSaveFromDatabase("delete message in " + accountName.toUtf8() + " roomName " + roomName.toUtf8() + " message id "
+                                            + messageId.toUtf8());
     }
 }
 

@@ -52,5 +52,4 @@ private:
     std::unique_ptr<LocalRoomsDatabase> mRoomsDatabase;
     std::unique_ptr<LocalAccountsDatabase> mAccountDatabase;
     std::unique_ptr<GlobalDatabase> mGlobalDatabase;
-    RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
 };

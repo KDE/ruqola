@@ -72,6 +72,11 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     return prefix + name;
 }
 
+void LocalDatabaseBase::setDatabaseLogger(RocketChatRestApi::AbstractLogger *logger)
+{
+    mRuqolaLogger = logger;
+}
+
 bool LocalDatabaseBase::checkDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db)
 {
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);

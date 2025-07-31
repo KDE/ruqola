@@ -5,7 +5,6 @@
 */
 
 #include "localaccountsdatabase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlQuery>
 #include <QSqlRecord>
 
+using namespace Qt::Literals::StringLiterals;
 static const char s_schemaAccountsDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
 enum class AccountFields {
     AccountName,
@@ -41,6 +41,8 @@ void LocalAccountsDatabase::updateAccount(const QString &accountName, const QByt
         query.addBindValue(ba);
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
+        } else if (mRuqolaLogger) {
+            mRuqolaLogger->dataSaveFromDatabase("Update account " + accountName.toUtf8());
         }
     }
 }
@@ -55,6 +57,8 @@ void LocalAccountsDatabase::deleteAccount(const QString &accountName)
     query.addBindValue(accountName);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
+    } else if (mRuqolaLogger) {
+        mRuqolaLogger->dataSaveFromDatabase("Delete account " + accountName.toUtf8());
     }
 }
 

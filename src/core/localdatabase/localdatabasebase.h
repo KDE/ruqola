@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "abstractlogger.h"
 #include "libruqolacore_export.h"
 #include <QString>
 class QSqlDatabase;
@@ -27,6 +28,7 @@ public:
 
     // Only for test!
     [[nodiscard]] QString schemaDatabaseStr() const;
+    void setDatabaseLogger(RocketChatRestApi::AbstractLogger *logger);
 
 protected:
     [[nodiscard]] virtual QString schemaDataBase() const;
@@ -35,8 +37,10 @@ protected:
     [[nodiscard]] bool checkDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);
     [[nodiscard]] bool checkDataBase(const QString &accountName, QSqlDatabase &db);
     [[nodiscard]] QString databaseName(const QString &name) const;
+
     const QString mBasePath;
     const DatabaseType mDatabaseType = DatabaseType::Unknown;
+    RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDatabaseName(const QString &accountName, const QString &_roomName) const;

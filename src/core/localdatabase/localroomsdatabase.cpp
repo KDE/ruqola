@@ -45,6 +45,8 @@ void LocalRoomsDatabase::updateRoom(const QString &accountName, Room *room)
         query.addBindValue(Room::serialize(room, false)); // TODO use binary ?
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
+        } else if (mRuqolaLogger) {
+            mRuqolaLogger->dataSaveFromDatabase("Update room " + room->displayRoomName().toUtf8() + " in account " + accountName.toUtf8());
         }
     }
 }
@@ -59,6 +61,8 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &r
     query.addBindValue(roomId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
+    } else if (mRuqolaLogger) {
+        mRuqolaLogger->dataSaveFromDatabase("Delete room " + roomId.toUtf8() + " in account " + accountName.toUtf8());
     }
 }
 

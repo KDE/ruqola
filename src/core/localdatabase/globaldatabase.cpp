@@ -5,7 +5,6 @@
 */
 
 #include "globaldatabase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlRecord>
 #include <QSqlTableModel>
 
+using namespace Qt::Literals::StringLiterals;
 static const char s_schemaGlobalDataBase[] = "CREATE TABLE GLOBAL (identifier TEXT PRIMARY KEY NOT NULL, timestamp INTEGER)";
 enum class GlobalFields {
     Identifier,

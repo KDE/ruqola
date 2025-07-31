@@ -84,7 +84,10 @@ QByteArray LocalDatabaseManager::jsonAccount(const QString &accountName)
 
 void LocalDatabaseManager::setDatabaseLogger(RocketChatRestApi::AbstractLogger *logger)
 {
-    mRuqolaLogger = logger;
+    mMessagesDatabase->setDatabaseLogger(logger);
+    mRoomsDatabase->setDatabaseLogger(logger);
+    mAccountDatabase->setDatabaseLogger(logger);
+    mGlobalDatabase->setDatabaseLogger(logger);
 }
 
 void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
