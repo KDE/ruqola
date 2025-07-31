@@ -17,6 +17,8 @@ public:
     void dataSent(const QByteArray &data) override;
     void dataSent(DataType type, const QByteArray &label, const QByteArray &data) override;
     void dataReceived(const QByteArray &data) override;
+    void dataLoadFromDatabase(const QByteArray &data) override;
+    void dataSaveFromDatabase(const QByteArray &data) override;
 
     [[nodiscard]] QString loggerFilePath() const;
     [[nodiscard]] QString restApiLoggerFilePath() const;

@@ -86,6 +86,18 @@ void RuqolaLogger::dataSent(const QByteArray &data)
 
 void RuqolaLogger::dataReceived(const QByteArray &data)
 {
-    mLoggerFile.write("Received: " + data.trimmed() + '\n');
+    mLoggerFile.write('[' + QDateTime::currentDateTime().toString().toUtf8() + "] Received: " + data.trimmed() + '\n');
+    mLoggerFile.flush();
+}
+
+void RuqolaLogger::dataLoadFromDatabase(const QByteArray &data)
+{
+    mDatabaseLogFile.write('[' + QDateTime::currentDateTime().toString().toUtf8() + "] Load: " + data.trimmed() + '\n');
+    mLoggerFile.flush();
+}
+
+void RuqolaLogger::dataSaveFromDatabase(const QByteArray &data)
+{
+    mDatabaseLogFile.write("Save: " + data.trimmed() + '\n');
     mLoggerFile.flush();
 }
