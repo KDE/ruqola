@@ -82,6 +82,11 @@ QByteArray LocalDatabaseManager::jsonAccount(const QString &accountName)
     return {};
 }
 
+void LocalDatabaseManager::setDatabaseLogger(RocketChatRestApi::AbstractLogger *logger)
+{
+    mRuqolaLogger = logger;
+}
+
 void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {

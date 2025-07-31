@@ -18,6 +18,10 @@ class LocalRoomsDatabase;
 class LocalAccountsDatabase;
 class Message;
 class Room;
+namespace RocketChatRestApi
+{
+class AbstractLogger;
+}
 class LIBRUQOLACORE_EXPORT LocalDatabaseManager
 {
 public:
@@ -40,10 +44,13 @@ public:
 
     [[nodiscard]] QByteArray jsonAccount(const QString &accountName);
 
+    void setDatabaseLogger(RocketChatRestApi::AbstractLogger *logger);
+
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
     std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;
     std::unique_ptr<LocalRoomsDatabase> mRoomsDatabase;
     std::unique_ptr<LocalAccountsDatabase> mAccountDatabase;
     std::unique_ptr<GlobalDatabase> mGlobalDatabase;
+    RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
 };
