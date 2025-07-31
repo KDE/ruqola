@@ -25,5 +25,9 @@ public:
     virtual void dataSent(const QByteArray &data) = 0;
     virtual void dataReceived(const QByteArray &data) = 0;
     virtual void dataSent(DataType type, const QByteArray &label, const QByteArray &data) = 0;
+#if 0
+    virtual void dataLoadFromDatabase() = 0;
+    virtual void dataSaveFromDatabase() = 0;
+#endif
 };
 }
