@@ -84,7 +84,7 @@ void DirectoryDialog::readConfig()
 {
     create(); // ensure a window is created
     resize(QSize(1024, 768));
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myDirectoryDialog));
+    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myDirectoryDialog));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }

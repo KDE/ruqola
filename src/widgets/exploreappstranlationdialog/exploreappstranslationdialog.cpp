@@ -47,7 +47,7 @@ void ExploreAppsTranslationDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName));
+    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
     mExploreAppsTranslationWidget->restoreState(group.readEntry("HeaderView", QByteArray()));
