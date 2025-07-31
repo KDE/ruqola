@@ -21,9 +21,12 @@ public:
     [[nodiscard]] QString loggerFilePath() const;
     [[nodiscard]] QString restApiLoggerFilePath() const;
 
+    [[nodiscard]] QString databaseLogFilePath() const;
+
 private:
     Q_DISABLE_COPY(RuqolaLogger)
     QFile mLoggerFile;
     QFile mRestApiLogFile;
+    QFile mDatabaseLogFile;
     quint64 mIdentifier = 0;
 };

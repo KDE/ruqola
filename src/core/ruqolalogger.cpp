@@ -31,15 +31,27 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
         qCWarning(RUQOLA_LOG) << "Could not open log file for restapi:" << mRestApiLogFile.fileName();
     }
 
+    mDatabaseLogFile.setFileName(u"DATABASE_"_s + filename);
+    if (!mDatabaseLogFile.open(QFile::WriteOnly)) {
+        qCWarning(RUQOLA_LOG) << "Could not open log file for database:" << mDatabaseLogFile.fileName();
+    }
+
     // No convert to qCDebug as we want to see this info.
     qDebug() << "Log in file: " << loggerFilePath();
     qDebug() << "Log send RESTAPI in file: " << restApiLoggerFilePath();
+    qDebug() << "Log database info in file: " << restApiLoggerFilePath();
 }
 
 RuqolaLogger::~RuqolaLogger()
 {
     mLoggerFile.close();
     mRestApiLogFile.close();
+    mDatabaseLogFile.close();
+}
+
+QString RuqolaLogger::databaseLogFilePath() const
+{
+    return QFileInfo(mDatabaseLogFile.fileName()).absoluteFilePath();
 }
 
 QString RuqolaLogger::loggerFilePath() const
