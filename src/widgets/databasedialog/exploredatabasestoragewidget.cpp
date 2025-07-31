@@ -29,7 +29,9 @@ void ExploreDatabaseStorageWidget::slotLoadModelFromDataBase(const QString &acco
 {
     // TODO verify why we can't display it.
     auto model = mLocalMessageDatabase->createMessageModel(accountName, roomName);
-    mTableView->setModel(model.get());
+    if (model) {
+        mTableView->setModel(model.get());
+    }
 }
 
 #include "moc_exploredatabasestoragewidget.cpp"
