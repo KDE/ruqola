@@ -184,8 +184,9 @@ void InputCompleterModel::clear()
 
 int InputCompleterModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
     return mChannelUserCompleters.count();
 }
 

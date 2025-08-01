@@ -16,8 +16,9 @@ NotificationHistoryModel::~NotificationHistoryModel() = default;
 
 int NotificationHistoryModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
     return mNotificationInfo.count();
 }
 

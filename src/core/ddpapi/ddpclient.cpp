@@ -38,7 +38,7 @@ DDPClient::DDPClient(QObject *parent)
 
 DDPClient::~DDPClient()
 {
-    for (qint64 id : std::as_const(mSubscribeIdentifiers)) {
+    for (const qint64 id : std::as_const(mSubscribeIdentifiers)) {
         unsubscribe(id);
     }
     if (mWebSocket) {
@@ -315,8 +315,9 @@ quint64 DDPClient::videoConferenceCall(const QString &roomId, const QString &cal
 
 quint64 DDPClient::informTypingStatus(const QByteArray &roomId, bool typing, const QString &userName)
 {
-    if (!mWebSocket) // seems to happen when the server is restarted
+    if (!mWebSocket) { // seems to happen when the server is restarted
         return -1;
+    }
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, mUid);
     const qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
@@ -421,7 +422,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 
     QJsonArray newParams = params;
 
-    QJsonArray args;
+    const QJsonArray args;
     QJsonObject obj;
     obj["useCollection"_L1] = false;
     obj["args"_L1] = args;
@@ -480,7 +481,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             // nothing to do.
             qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << " message updated ! not implemented yet" << response;
         } else if (messageType == "result"_L1) {
-            quint64 id = root.value("id"_L1).toString().toULongLong();
+            const quint64 id = root.value("id"_L1).toString().toULongLong();
 
             // Checking first if any of the new DDPManager claimed the result,
             // otherwise defaulting to old behaviour.

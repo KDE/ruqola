@@ -173,7 +173,7 @@ void ChannelInfoEditableWidget::deleteTeam(const QByteArray &teamId, const QList
 
 void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
-    QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     const QByteArray teamId = mRoom->teamInfo().teamId();
     if (teamRooms.isEmpty()) {
         deleteTeam(teamId, {});

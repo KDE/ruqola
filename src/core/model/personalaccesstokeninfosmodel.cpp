@@ -18,8 +18,9 @@ PersonalAccessTokenInfosModel::~PersonalAccessTokenInfosModel() = default;
 
 int PersonalAccessTokenInfosModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
     return mPersonalAccessTokenInfos.count();
 }
 

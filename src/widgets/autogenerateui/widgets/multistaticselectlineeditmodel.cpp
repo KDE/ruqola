@@ -16,8 +16,9 @@ MultiStaticSelectLineEditModel::~MultiStaticSelectLineEditModel() = default;
 
 int MultiStaticSelectLineEditModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
     return mUserCompletionInfos.count();
 }
 

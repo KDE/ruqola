@@ -16,7 +16,7 @@ TeamInfoTest::TeamInfoTest(QObject *parent)
 
 void TeamInfoTest::shouldHaveDefaultValues()
 {
-    TeamInfo info;
+    const TeamInfo info;
     QVERIFY(info.teamId().isEmpty());
     QVERIFY(!info.mainTeam());
     QVERIFY(!info.autoJoin());

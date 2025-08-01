@@ -55,8 +55,9 @@ void DiscussionsModel::setRoomId(const QByteArray &roomId)
 
 int DiscussionsModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
 
     return mDiscussions->count();
 }

@@ -111,7 +111,7 @@ QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QSt
 
     auto downScaled = cache.findCachedPixmap(iconUrlStr.toLocalFile());
     if (downScaled.isNull()) {
-        const QUrl iconUrl(iconUrlStr);
+        const QUrl &iconUrl(iconUrlStr);
         Q_ASSERT(iconUrl.isLocalFile());
         QPixmap fullScale;
         if (!fullScale.load(iconUrl.toLocalFile())) {

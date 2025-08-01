@@ -26,7 +26,7 @@ int main(int argc, char **argv)
         GitHubAuthenticationJob::GitHubInfo info;
         info.url = u"foo"_s;
         info.clientId = value;
-        job->setGitHubInfo(std::move(info));
+        job->setGitHubInfo(info);
         job->start();
         app.exec();
     } else {

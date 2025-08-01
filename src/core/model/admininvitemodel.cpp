@@ -105,6 +105,8 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
         return maxUses(inviteInfo.maxUses());
     case AdminInviteModel::Expire:
         return expireInvitation(inviteInfo);
+    default:
+        break;
     }
     return {};
 }

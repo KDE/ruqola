@@ -55,8 +55,9 @@ void UsersForRoomModel::clear()
 
 int UsersForRoomModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
     return mUsers.count();
 }
 

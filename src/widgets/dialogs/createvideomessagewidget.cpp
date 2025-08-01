@@ -111,7 +111,7 @@ void CreateVideoMessageWidget::updateVideoInputs()
 
 void CreateVideoMessageWidget::loadSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myVideoGroupName));
+    const KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myVideoGroupName));
     const QByteArray deviceIdentifier = group.readEntry("VideoDevice", QByteArray());
     if (!deviceIdentifier.isEmpty()) {
         for (int i = 0; i < mListCamera->count(); ++i) {

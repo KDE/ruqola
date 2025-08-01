@@ -99,8 +99,9 @@ void FilesForRoomModel::setFiles(const QList<File> &files)
 
 int FilesForRoomModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
 
     return mFileAttachments->fileAttachments().count();
 }

@@ -16,8 +16,9 @@ AutotranslateLanguagesModel::~AutotranslateLanguagesModel() = default;
 
 int AutotranslateLanguagesModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
     return mAutoTranslateLanguages.count();
 }
 
@@ -34,6 +35,8 @@ QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) c
     case Qt::DisplayRole:
     case AutotranslateLanguagesModel::DisplayName:
         return language.displayLanguage();
+    default:
+        break;
     }
     return {};
 }

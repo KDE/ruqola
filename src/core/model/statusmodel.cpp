@@ -151,8 +151,9 @@ int StatusModel::currentStatus() const
 
 int StatusModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) // flat model
+    if (parent.isValid()) { // flat model
         return 0;
+    }
     return mStatusList.count();
 }
 
@@ -173,6 +174,8 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
     case Qt::DecorationRole:
     case Icon:
         return statusInfo.icon;
+    default:
+        break;
     }
 
     return {};
