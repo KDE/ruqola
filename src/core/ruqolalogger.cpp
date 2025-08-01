@@ -39,7 +39,7 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
     // No convert to qCDebug as we want to see this info.
     qDebug() << "Log in file: " << loggerFilePath();
     qDebug() << "Log send RESTAPI in file: " << restApiLoggerFilePath();
-    qDebug() << "Log database info in file: " << restApiLoggerFilePath();
+    qDebug() << "Log database info in file: " << databaseLogFilePath();
 }
 
 RuqolaLogger::~RuqolaLogger()
