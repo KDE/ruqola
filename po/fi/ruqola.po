@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-07-11 16:28+0300\n"
+"PO-Revision-Date: 2025-07-17 18:12+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -408,22 +408,19 @@ msgid "Allow to read oauth app settings"
 msgstr "Salli lukea oauth-sovellusasetukset"
 
 #: core/apps/appsmarketplaceinfo.cpp:690
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to send email"
-msgstr "Salli useamman tiedoston lähettäminen."
+msgstr "Salli sähköpostin lähettäminen"
 
 #: core/apps/appsmarketplaceinfo.cpp:692
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to write role"
-msgstr "Salli useamman tiedoston lähettäminen."
+msgstr "Salli roolin kirjoittaminen"
 
 #: core/apps/appsmarketplaceinfo.cpp:694
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to read role"
-msgstr "Salli useamman tiedoston lähettäminen."
+msgstr "Salli roolin lukeminen"
 
 #: core/authenticationmanager.cpp:85
 #, kde-format
@@ -2021,10 +2018,9 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Löydät uuden pyynnön osoitteesta:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgid "Created at"
+#, kde-format
 msgid "Create a screenshot"
-msgstr "Luotu"
+msgstr "Ota ruutukaappaus"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -3313,12 +3309,10 @@ msgstr "Hylkää kaikki ilmoitukset"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/room/messagelistview.cpp:287
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Kopioi linkki"
+msgstr "Kopioi valinta"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
@@ -3735,10 +3729,9 @@ msgid "Licenses"
 msgstr "Lisenssit"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:111
-#, fuzzy, kde-format
-#| msgid "Audio"
+#, kde-format
 msgid "Auditing"
-msgstr "Ääni"
+msgstr "Auditointi"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
 #, fuzzy, kde-format
@@ -4989,8 +4982,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr "Salli pääsy salattujen huoneiden salaamattomaan sisältöön"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Maininnat"
@@ -5465,10 +5457,9 @@ msgid "Local Password"
 msgstr "Paikallinen salasana"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Reset Password"
+#, kde-format
 msgid "Peer Password"
-msgstr "Alusta salasana"
+msgstr "Vertaissalasana"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:15
 #, kde-format
@@ -5699,11 +5690,10 @@ msgid "Allow Message Pinning"
 msgstr "Salli viestin kiinnitys"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Follow Message..."
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow Message Snippeting"
-msgstr "Seuraa viestiä…"
+msgstr "Salli viestikatkelmat"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:26
 #, kde-format
@@ -5962,10 +5952,9 @@ msgstr ""
 "linkkiesikatseluja."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:193
-#, fuzzy, kde-format
-#| msgid "Expiration (Days)"
+#, kde-format
 msgid "Embed Cache Expiration Days"
-msgstr "Vanheneminen (päivinä)"
+msgstr "Upota välimuistin vanhenemisaika"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6940,10 +6929,9 @@ msgid "Permissions"
 msgstr "Käyttöoikeudet"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "No version info found."
+#, kde-format
 msgid "No permissions information found."
-msgstr "Versiotietoa ei löytynyt."
+msgstr "Käyttöoikeustietoa ei löytynyt."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -7034,24 +7022,19 @@ msgid "Ask Application…"
 msgstr "Kysy sovellusta…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Asenna"
+msgstr "Poista asennus"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "Ei käytössä"
+msgstr "Poista käytöstä"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Käytä"
@@ -7064,24 +7047,20 @@ msgid "Copy Text"
 msgstr "Kopioi teksti"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "Haluatko palauttaa tämän huoneen arkistosta?"
+msgstr "Haluatko poistaa tämän sovelluksen asennuksen?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Asennetut sovellukset…"
+msgstr "Poista sovelluksen asennus"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgid "%1 Caller: %2"
-msgstr "%1: %2"
+msgstr "%1 kutsuja: %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:69
 #, kde-format
@@ -7128,14 +7107,12 @@ msgid "Search Private Applications"
 msgstr "Etsi yksityissovelluksia"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Application does not have settings."
-msgstr "Sovellusta ei löytynyt"
+msgstr "Sovelluksella ei ole asetuksia."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgid "Cancel"
 msgstr "Peru"
 
@@ -8131,18 +8108,14 @@ msgid "Private Room:"
 msgstr "Yksityishuone:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Messages are end-to-end encrypted, search will not work and notifications "
-#| "may not show message content"
+#, kde-format
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Viestit salataan päästä päähän, haku ei toimi eivätkä ilmoitukset näytä "
-"viestien sisältöä"
+"Päästä päähän salattu kanava. Haku ei salatulla kanavall toimi eivätkä "
+"ilmoitukset voi näyttää viestin sisältöä."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:80
 #, kde-format
@@ -8572,18 +8545,14 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopioi sijainti leikepöydälle"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show previous image"
-msgstr "Näytä viesti"
+msgstr "Näytä edellinen kuva"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show next image"
-msgstr "Näytä viesti"
+msgstr "Näytä seuraava kuva"
 
 #: widgets/dialogs/showimagewidget.cpp:63
 #, kde-format
@@ -8635,11 +8604,9 @@ msgid "Show Starred Messages - %1"
 msgstr "Näytä tähdellä merkityt viestit – %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:14
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
-msgstr "Seurataan"
+msgstr "Seuratut"
 
 #: widgets/dialogs/showthreadsdialog.cpp:26
 #, kde-format
@@ -8863,12 +8830,10 @@ msgid "Decode Encryption Key"
 msgstr "Pura salausavaimen salaus"
 
 #: widgets/encryption/e2edisabledialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "E2E-salaus käytössä"
+msgstr "Poista salaus käytöstä"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -8888,11 +8853,9 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Pura salausavaimen salaus"
+msgstr "Palauta salausavaimet"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:18
 #, kde-format
@@ -8901,19 +8864,16 @@ msgid "Decode Key"
 msgstr "Pura avaimen salaus"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "E2E-salaus käytössä"
+msgstr "Käytä salausta"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Click here to enter your e2e password."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Anna E2E-salasanasi napsauttamalla tästä."
+msgstr "Anna E2E-salasanasi"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:30
 #, kde-format
@@ -8942,16 +8902,13 @@ msgid "Save Encryption Key"
 msgstr "Tallenna salausavain"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Sovellusta ei löytynyt"
+msgstr "Sovelluksen käännös"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translation"
+#, kde-format
 msgid "Translation"
 msgstr "Käännös"
 
@@ -9332,11 +9289,10 @@ msgid "Reset E2E Key"
 msgstr "Nollaa E2E-avain"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Muuta…"
+msgstr "Muuta"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:32
 #, kde-format
@@ -10055,8 +10011,7 @@ msgid "Encrypt Messages"
 msgstr "Salaa viestit"
 
 #: widgets/room/commandpreviewwidget.cpp:140
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading..."
 msgstr "Ladataan…"
 
@@ -10232,7 +10187,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
-msgstr ""
+msgstr "Komentovirhe"
 
 #: widgets/room/messagelinewidget.cpp:245
 #, kde-format
@@ -10614,14 +10569,12 @@ msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgid "Direct Messages can not be archived"
+#, kde-format
 msgid "Encrypted content cannot be searched."
-msgstr "Suoraviestejä ei voi arkistoida"
+msgstr "Salattua sisältöä ei voi etsiä."
 
 #: widgets/room/roomwidget.cpp:536
-#, fuzzy, kde-format
-#| msgid "Search Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Etsi viestiä"
@@ -10663,10 +10616,9 @@ msgid "Disconnected"
 msgstr "Ei yhteyttä"
 
 #: widgets/room/usersinroomcombobox.cpp:27
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owners"
-msgstr "Omistaja"
+msgstr "Omistajat"
 
 #: widgets/room/usersinroomdialog.cpp:27
 #, kde-format
@@ -11328,8 +11280,7 @@ msgid "Return the number of account."
 msgstr "Palauta tilien lukumäärä."
 
 #: widgets/verifynewversionwidget/verifynewversiondialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Check New Version"
+#, kde-format
 msgctxt "@title:window"
 msgid "Check New Version"
 msgstr "Etsi uutta versiota"
@@ -11337,12 +11288,12 @@ msgstr "Etsi uutta versiota"
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:71
 #, kde-format
 msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
-msgstr ""
+msgstr "Löytyi uusi versio. Lataa se napsauttamalla <a href=\"%1\">tästä</a>."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-msgstr ""
+msgstr "Uutta versiota ei löytynyt. Kooste löytyy <a href=\"%1\">tästä</a>."
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11379,6 +11330,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
+"Liitännäinen: Lisä ruutukaappauspainike (lähelle viestin lähetyspainiketta)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 #, fuzzy
@@ -11401,16 +11353,12 @@ msgid "Show images from attachment dialog box"
 msgstr "Näytä huoneessa tiedostoliitteet"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
-msgstr "Toteutettu Rocket.Chat-tori."
+msgstr "Toteutettu Rocket.Chat-sovellustuki."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Url Preview"
 msgid "Implement command preview."
-msgstr "Toteutettu verkko-osoitteiden esikatselu"
+msgstr "Toteutettu komentoesikatselu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Debug: explore translation from RC server."
@@ -11759,11 +11707,9 @@ msgid "Add color to the text in the account tab"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Installed Applications"
+#, kde-format
 msgid "Allow to show private installed applications"
-msgstr "Etsi asennettuja sovelluksia"
+msgstr "Salli yksityisesti asennettujen sovellusten näyttäminen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
 #, kde-format
@@ -11797,10 +11743,9 @@ msgid "Fix filter discussion in administrator mode"
 msgstr "Toteutettu jonossa olevien käyttäjien tiedot (ylläpitotila)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:142
-#, fuzzy, kde-format
-#| msgid "Fix dark mode support."
+#, kde-format
 msgid "Fix message video support"
-msgstr "Korjattu tumman tilan tuki."
+msgstr "Korjattu viestien videotuki"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:143
 #, kde-format
@@ -11808,10 +11753,9 @@ msgid "Fix highlight text in quoted message"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:144
-#, fuzzy, kde-format
-#| msgid "Open Discussion"
+#, kde-format
 msgid "Fix open discussion channel"
-msgstr "Avaa keskustelu"
+msgstr "Korjattu keskustelukanavan avaaminen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:145
 #, kde-format
@@ -11856,7 +11800,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "Show roles for users in rooms."
-msgstr ""
+msgstr "Näytä huoneiden käyttäjien roolit."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
 #, kde-format
