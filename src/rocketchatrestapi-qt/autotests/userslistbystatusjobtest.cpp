@@ -87,7 +87,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
 
 void UsersListByStatusJobTest::shouldUsersListByStatusJobInfoValue()
 {
-    UsersListByStatusJob::UsersListByStatusJobInfo info;
+    const UsersListByStatusJob::UsersListByStatusJobInfo info;
     QCOMPARE(info.status, RocketChatRestApi::UsersListByStatusJob::Status::Unknown);
     QCOMPARE(info.type, RocketChatRestApi::UsersListByStatusJob::StatusType::Unknown);
     QCOMPARE(info.hasLoggedIn, RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Unknown);

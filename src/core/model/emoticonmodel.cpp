@@ -69,6 +69,8 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
                     return unicodeEmoti.identifier();
                 }
                 return unicodeEmoti.aliases().value(row.second);
+            default:
+                break;
             }
         }
     } else {
@@ -92,6 +94,8 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
                     return customEmoti.emojiIdentifier();
                 }
                 return customEmoti.aliases().value(row.second);
+            default:
+                break;
             }
         }
     }

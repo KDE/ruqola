@@ -18,7 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myShowVideoDialogGroupName[] = "ShowVideoDialog";
+const char myShowVideoDialogGroupName[] = "ShowVideoDialog";
 }
 
 ShowVideoDialog::ShowVideoDialog(RocketChatAccount *account, QWidget *parent)

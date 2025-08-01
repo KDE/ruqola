@@ -22,7 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myConfigCreateVideoMessageWizardGroupName[] = "CreateVideoMessageWizard";
+const char myConfigCreateVideoMessageWizardGroupName[] = "CreateVideoMessageWizard";
 }
 CreateVideoMessageWizard::CreateVideoMessageWizard(RocketChatAccount *account, QWidget *parent)
     : QWizard(parent)

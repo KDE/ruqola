@@ -17,7 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myConfigAdministratorCustomSoundsCreateDialogGroupName[] = "AdministratorCustomSoundsCreateDialog";
+const char myConfigAdministratorCustomSoundsCreateDialogGroupName[] = "AdministratorCustomSoundsCreateDialog";
 }
 
 AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWidget *parent)

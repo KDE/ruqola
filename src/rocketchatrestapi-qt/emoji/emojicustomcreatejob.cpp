@@ -40,7 +40,7 @@ bool EmojiCustomCreateJob::start()
         deleteLater();
         return false;
     }
-    QMimeDatabase db;
+    const QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
 
     auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);

@@ -24,7 +24,7 @@ using namespace std::chrono_literals;
 
 namespace
 {
-static const char myConfigExportDataWizardGroupName[] = "ExportDataWizard";
+const char myConfigExportDataWizardGroupName[] = "ExportDataWizard";
 }
 ExportDataWizard::ExportDataWizard(QWidget *parent)
     : QWizard(parent)

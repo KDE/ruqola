@@ -81,7 +81,7 @@ void ModerationReportedUserInfo::setCreatedAt(qint64 newTimeStamp)
 {
     mCreatedAt = newTimeStamp;
     if (mCreatedAt != -1) {
-        QLocale l;
+        const QLocale l;
         mCreateAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedAt), QLocale::LongFormat);
     }
 }

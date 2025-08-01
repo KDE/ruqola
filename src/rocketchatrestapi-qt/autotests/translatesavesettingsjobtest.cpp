@@ -48,7 +48,7 @@ void TranslateSaveSettingsJobTest::shouldGenerateJson()
     job.setLanguage(targetLanguage);
     TranslateSaveSettingsJob::SettingType type = TranslateSaveSettingsJob::SettingType::AutoTranslateSetting;
     job.setType(type);
-    bool autoTranslate = true;
+    const bool autoTranslate = true;
     job.setAutoTranslate(autoTranslate);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), u"{\"field\":\"%1\",\"roomId\":\"%2\",\"value\":true}"_s.arg(u"autoTranslate"_s, roomId).toLatin1());

@@ -29,7 +29,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myRuqolaMainWidgetGroupName[] = "RuqolaMainWidget";
+const char myRuqolaMainWidgetGroupName[] = "RuqolaMainWidget";
 }
 RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     : QWidget(parent)

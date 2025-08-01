@@ -15,7 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QWindow>
 namespace
 {
-static const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesDialog";
+const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesDialog";
 }
 
 ShowStarredMessagesDialog::ShowStarredMessagesDialog(RocketChatAccount *account, QWidget *parent)

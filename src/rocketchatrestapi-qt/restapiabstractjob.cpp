@@ -194,10 +194,11 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
 
 void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, const QJsonObject &replyObject)
 {
-    if (replyObject.isEmpty())
+    if (replyObject.isEmpty()) {
         Q_EMIT failed(replyErrorString);
-    else
+    } else {
         Q_EMIT failed(replyErrorString + u'\n' + errorStr(replyObject));
+    }
 }
 
 QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
@@ -375,9 +376,7 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
         return i18n("There are no tokens for this user");
     } else if (str == "error-not-allowed"_L1) {
         return i18n("Not allowed");
-    } else if (str == "error-not-authorized"_L1) {
-        return i18n("Not authorized");
-    } else if (str == "not-authorized"_L1) {
+    } else if (str == "error-not-authorized"_L1 || str == "not-authorized"_L1) {
         return i18n("Not authorized");
     } else if (str == "error-password-policy-not-met"_L1) {
         return i18n("Password does not meet the server's policy");
@@ -502,8 +501,9 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
         (this->*responseHandler)(QString(), convertToJsonDocument(mReply));
     }
 
-    if (mReply)
+    if (mReply) {
         mReply->deleteLater();
+    }
     deleteLater();
 }
 

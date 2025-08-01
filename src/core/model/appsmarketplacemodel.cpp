@@ -38,7 +38,7 @@ void AppsMarketPlaceModel::clearInstalledAppsInformation()
             info.clearInstalledInfo();
         }
     }
-    for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
+    for (const AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
         if (!info.isValid()) {
             mAppsMarketPlaceInfos.removeAll(info);
         }

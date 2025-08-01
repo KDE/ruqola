@@ -187,8 +187,8 @@ void ConfigurePluginsWidget::slotConfigureClicked(QAction *act)
     if (act) {
         const QStringList lst = act->data().toStringList();
         if (lst.count() == 2) {
-            const QString groupName = lst.at(0);
-            const QString identifier = lst.at(1);
+            const QString &groupName = lst.at(0);
+            const QString &identifier = lst.at(1);
             if (!groupName.isEmpty() && !identifier.isEmpty()) {
                 if (groupName == toolsPluginGroupName()) {
                     const auto p = ToolsPluginManager::self()->pluginFromIdentifier(identifier);

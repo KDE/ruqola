@@ -17,7 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QWindow>
 namespace
 {
-static const char myConfigAdministratorOauthCreateDialogGroupName[] = "AdministratorOauthCreateDialog";
+const char myConfigAdministratorOauthCreateDialogGroupName[] = "AdministratorOauthCreateDialog";
 }
 AdministratorOauthCreateDialog::AdministratorOauthCreateDialog(QWidget *parent)
     : QDialog(parent)

@@ -21,7 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myConfigCreateNewAccountDialogGroupName[] = "CreateNewAccountDialog";
+const char myConfigCreateNewAccountDialogGroupName[] = "CreateNewAccountDialog";
 }
 
 CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)

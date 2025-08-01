@@ -25,7 +25,7 @@
 
 namespace
 {
-static const char myShowImageDialogGroupName[] = "ShowImageDialog";
+const char myShowImageDialogGroupName[] = "ShowImageDialog";
 }
 using namespace Qt::Literals::StringLiterals;
 ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)

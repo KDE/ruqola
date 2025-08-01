@@ -21,7 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myConfigChannelInfoDialogGroupName[] = "ChannelInfoDialog";
+const char myConfigChannelInfoDialogGroupName[] = "ChannelInfoDialog";
 }
 
 ChannelInfoDialog::ChannelInfoDialog(Room *room, RocketChatAccount *account, QWidget *parent)

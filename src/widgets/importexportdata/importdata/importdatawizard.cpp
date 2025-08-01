@@ -19,7 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QWindow>
 namespace
 {
-static const char myConfigImportDataWizardGroupName[] = "ImportDataWizard";
+const char myConfigImportDataWizardGroupName[] = "ImportDataWizard";
 }
 ImportDataWizard::ImportDataWizard(QWidget *parent)
     : QWizard(parent)

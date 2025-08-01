@@ -18,7 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QWindow>
 namespace
 {
-static const char myConfigAddUsersInRoomDialogGroupName[] = "AddUsersInRoomDialog";
+const char myConfigAddUsersInRoomDialogGroupName[] = "AddUsersInRoomDialog";
 }
 AddUsersInRoomDialog::AddUsersInRoomDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

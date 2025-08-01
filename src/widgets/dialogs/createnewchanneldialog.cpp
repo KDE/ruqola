@@ -18,7 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myCreateNewChannelDialogGroupName[] = "CreateNewChannelDialog";
+const char myCreateNewChannelDialogGroupName[] = "CreateNewChannelDialog";
 }
 CreateNewChannelDialog::CreateNewChannelDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

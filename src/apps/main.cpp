@@ -104,12 +104,12 @@ int main(int argc, char *argv[])
                         QStringList() << u"ruqola.conf"_s,
                         QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                         QDirIterator::Subdirectories);
-        std::cout << qPrintable(i18n("The following accounts are available:")) << std::endl;
+        std::cout << qPrintable(i18n("The following accounts are available:")) << '\n';
         while (it.hasNext()) {
             QString result = it.next();
             result.remove(configPath + u'/');
             result.remove(u"/ruqola.conf"_s);
-            std::cout << "   " << result.toLocal8Bit().data() << std::endl;
+            std::cout << "   " << result.toLocal8Bit().data() << '\n';
         }
         return 0;
     }

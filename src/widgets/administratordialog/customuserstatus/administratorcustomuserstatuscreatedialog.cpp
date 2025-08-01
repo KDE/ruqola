@@ -17,7 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QWindow>
 namespace
 {
-static const char myConfigAdministratorCustomUserStatusCreateDialogGroupName[] = "AdministratorCustomUserStatusCreateDialog";
+const char myConfigAdministratorCustomUserStatusCreateDialogGroupName[] = "AdministratorCustomUserStatusCreateDialog";
 }
 AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDialog(QWidget *parent)
     : QDialog(parent)

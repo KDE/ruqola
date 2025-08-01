@@ -25,7 +25,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QWindow>
 namespace
 {
-static const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
+const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
 }
 
 ShowAttachmentDialog::ShowAttachmentDialog(RocketChatAccount *account, QWidget *parent)

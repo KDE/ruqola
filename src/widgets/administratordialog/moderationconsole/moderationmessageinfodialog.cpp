@@ -19,7 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myModerationMessageInfoDialogGroupName[] = "ModerationMessageInfoDialog";
+const char myModerationMessageInfoDialogGroupName[] = "ModerationMessageInfoDialog";
 }
 ModerationMessageInfoDialog::ModerationMessageInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

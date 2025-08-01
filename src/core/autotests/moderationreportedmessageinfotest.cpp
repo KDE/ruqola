@@ -57,7 +57,7 @@ void ModerationReportedMessageInfoTest::shouldModerationInfo_data()
         info.setCount(3);
         info.setIsUserDeleted(false);
         info.setMessage(u"H"_s);
-        qint64 val = 1695363298494;
+        const qint64 val = 1695363298494;
         info.setCreatedAt(val);
         QStringList list;
         list << u"test1"_s << u"test-team1"_s;

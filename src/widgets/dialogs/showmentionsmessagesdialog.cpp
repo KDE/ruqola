@@ -15,7 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QWindow>
 namespace
 {
-static const char myShowMentionsMessagesDialogGroupName[] = "ShowMentionsMessagesDialog";
+const char myShowMentionsMessagesDialogGroupName[] = "ShowMentionsMessagesDialog";
 }
 
 ShowMentionsMessagesDialog::ShowMentionsMessagesDialog(RocketChatAccount *account, QWidget *parent)

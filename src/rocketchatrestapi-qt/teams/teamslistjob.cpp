@@ -71,7 +71,7 @@ void TeamsListJob::initialQueryParameters()
 
 QNetworkRequest TeamsListJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsList);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsList);
     QUrlQuery queryUrl;
     // TODO addQueryUrl(url);
     // initialQueryParameters();

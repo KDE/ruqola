@@ -44,6 +44,8 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         return user.iconFromStatus();
     case UserStatusText:
         return user.statusText();
+    default:
+        break;
     }
 
     return {};

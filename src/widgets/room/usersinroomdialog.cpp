@@ -19,7 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myUsersInRoomDialogGroupName[] = "UsersInRoomDialog";
+const char myUsersInRoomDialogGroupName[] = "UsersInRoomDialog";
 }
 
 UsersInRoomDialog::UsersInRoomDialog(RocketChatAccount *account, QWidget *parent)

@@ -19,7 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myInviteUsersDialogGroupName[] = "InviteUsersDialog";
+const char myInviteUsersDialogGroupName[] = "InviteUsersDialog";
 }
 InviteUsersDialog::InviteUsersDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

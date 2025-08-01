@@ -19,7 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myUploadFileDialogGroupName[] = "UploadFileDialog";
+const char myUploadFileDialogGroupName[] = "UploadFileDialog";
 }
 UploadFileDialog::UploadFileDialog(QWidget *parent)
     : QDialog(parent)

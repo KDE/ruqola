@@ -20,7 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myModerationUsersDialogGroupName[] = "ModerationUsersDialog";
+const char myModerationUsersDialogGroupName[] = "ModerationUsersDialog";
 }
 ModerationUsersDialog::ModerationUsersDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

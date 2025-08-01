@@ -317,7 +317,7 @@ void MessagesModelTest::shouldFindPrevNextMessage()
     auto makeMessage = [&](const QByteArray &id, const QByteArray &userId) {
         input.setMessageId(id);
         input.setUserId(userId);
-        static int timestamp = 1;
+        static const int timestamp = 1;
         input.setTimeStamp(timestamp);
         return input;
     };

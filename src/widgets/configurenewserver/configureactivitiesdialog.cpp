@@ -18,7 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myConfigConfigureActivitiesDialogGroupName[] = "ConfigureActivitiesDialog";
+const char myConfigConfigureActivitiesDialogGroupName[] = "ConfigureActivitiesDialog";
 }
 ConfigureActivitiesDialog::ConfigureActivitiesDialog(QWidget *parent)
     : QDialog(parent)

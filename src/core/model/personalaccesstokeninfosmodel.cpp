@@ -51,6 +51,8 @@ QVariant PersonalAccessTokenInfosModel::data(const QModelIndex &index, int role)
     case PersonalAccessTokenInfosModel::Name: {
         return info.name();
     }
+    default:
+        break;
     }
     return {};
 }

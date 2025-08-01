@@ -21,7 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char mySearchMessageDialogGroupName[] = "SearchMessageDialog";
+const char mySearchMessageDialogGroupName[] = "SearchMessageDialog";
 }
 SearchMessageDialog::SearchMessageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

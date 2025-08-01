@@ -22,7 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectMessagesDialog";
+const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectMessagesDialog";
 }
 CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

@@ -223,7 +223,7 @@ void RoomInfo::setCreatedRoom(qint64 newCreatedRoom)
 {
     mCreatedRoom = newCreatedRoom;
     if (mCreatedRoom != -1) {
-        QLocale l;
+        const QLocale l;
         mCreatedRoomDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedRoom));
     }
 }
@@ -247,7 +247,7 @@ void RoomInfo::setLastMessage(qint64 newLastMessage)
 {
     mLastMessage = newLastMessage;
     if (mLastMessage != -1) {
-        QLocale l;
+        const QLocale l;
         mLastMessageDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(mLastMessage), QLocale::LongFormat);
     }
 }

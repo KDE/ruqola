@@ -19,7 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myShowThreadsDialogGroupName[] = "ShowThreadsDialog";
+const char myShowThreadsDialogGroupName[] = "ShowThreadsDialog";
 }
 ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent)
     : ShowListMessageBaseDialog(account, parent)

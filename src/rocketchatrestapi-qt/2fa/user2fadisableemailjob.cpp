@@ -59,7 +59,7 @@ QNetworkRequest User2FADisableEmailJob::request() const
 
 QJsonDocument User2FADisableEmailJob::json() const
 {
-    QJsonObject jsonObj;
+    const QJsonObject jsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

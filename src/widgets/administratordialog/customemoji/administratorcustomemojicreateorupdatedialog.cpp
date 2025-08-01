@@ -18,7 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-static const char myConfigAdministratorCustomEmojiCreateDialogGroupName[] = "AdministratorCustomEmojiCreateDialog";
+const char myConfigAdministratorCustomEmojiCreateDialogGroupName[] = "AdministratorCustomEmojiCreateDialog";
 }
 AdministratorCustomEmojiCreateOrUpdateDialog::AdministratorCustomEmojiCreateOrUpdateDialog(QWidget *parent)
     : QDialog(parent)

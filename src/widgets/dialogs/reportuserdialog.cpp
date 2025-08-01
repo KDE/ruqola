@@ -19,7 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QWindow>
 namespace
 {
-static const char myReportUserDialogGroupName[] = "ReportUserDialog";
+const char myReportUserDialogGroupName[] = "ReportUserDialog";
 }
 ReportUserDialog::ReportUserDialog(QWidget *parent)
     : QDialog(parent)

@@ -104,7 +104,7 @@
 
 namespace
 {
-static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
+const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 const int ruqolaVersion = 3;
 }
 using namespace Qt::Literals::StringLiterals;
