@@ -139,6 +139,8 @@ public:
 
     void clearHistory();
 
+    [[nodiscard]] qint64 firstTimestamp() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**

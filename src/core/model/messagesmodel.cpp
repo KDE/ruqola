@@ -111,7 +111,17 @@ qint64 MessagesModel::lastTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {
         // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
-        return mAllMessages.first().timeStamp();
+        return mAllMessages.constFirst().timeStamp();
+    } else {
+        return 0;
+    }
+}
+
+qint64 MessagesModel::firstTimestamp() const
+{
+    if (!mAllMessages.isEmpty()) {
+        // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
+        return mAllMessages.at(mAllMessages.count() - 1).timeStamp();
     } else {
         return 0;
     }

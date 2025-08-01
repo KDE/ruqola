@@ -91,10 +91,11 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
                 // FIXME: don't use  info.lastSeenAt until we store room information in database
                 // We need to use last message timeStamp
-                // const qint64 endDateTime = info.roomModel->lastTimestamp();
-                if (endDateTime != 0) {
-                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << endDateTime;
-                    syncMessage(info.roomId.toLatin1(), /*info.lastSeenAt*/ endDateTime);
+                const qint64 firstDateTime = info.roomModel->firstTimestamp();
+                qDebug() << " endDateTime " << firstDateTime;
+                if (firstDateTime != 0) {
+                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << firstDateTime;
+                    syncMessage(info.roomId.toLatin1(), /*info.lastSeenAt*/ firstDateTime);
                 } else {
                     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no sync message ";
                 }
