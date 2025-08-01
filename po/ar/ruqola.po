@@ -7870,9 +7870,7 @@ msgid "Database Info"
 msgstr "معلومات قاعدة البيانات"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "الرسائل"
 
