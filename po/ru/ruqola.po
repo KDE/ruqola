@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-30 00:43+0000\n"
+"POT-Creation-Date: 2025-08-02 00:43+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -662,8 +662,8 @@ msgid "None"
 msgstr "Нет"
 
 #: core/customsound/customsoundsmanager.cpp:33
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:51
-#: core/model/notificationpreferencemodel.cpp:47
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:52
+#: core/model/notificationpreferencemodel.cpp:48
 #: widgets/dialogs/createsoundmessagewidget.cpp:97
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
@@ -752,7 +752,7 @@ msgid "Socket was unexpectedly closed."
 msgstr "Сокет был неожиданно закрыт."
 
 #: core/messages/block/block.cpp:162 core/messages/message.cpp:863
-#: core/model/notificationhistorymodel.cpp:64
+#: core/model/notificationhistorymodel.cpp:65
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
@@ -1016,13 +1016,13 @@ msgstr "%1 и %2"
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
-#: core/model/directoryroomsmodel.cpp:117 core/model/directoryteamsmodel.cpp:91
-#: core/model/directoryusersmodel.cpp:102
+#: core/model/directoryroomsmodel.cpp:118 core/model/directoryteamsmodel.cpp:92
+#: core/model/directoryusersmodel.cpp:103
 #: core/model/moderationreportedmessagemodel.cpp:32
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:32
-#: core/model/personalaccesstokeninfosmodel.cpp:81
-#: core/model/usersinrolemodel.cpp:87
+#: core/model/personalaccesstokeninfosmodel.cpp:84
+#: core/model/usersinrolemodel.cpp:88
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:46
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
@@ -1032,7 +1032,7 @@ msgstr "Название"
 #: core/model/admincustomemojimodel.cpp:38
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:123 core/model/directoryteamsmodel.cpp:95
+#: core/model/directoryroomsmodel.cpp:124 core/model/directoryteamsmodel.cpp:96
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:36
 #, kde-format
 msgid "Identifier"
@@ -1068,17 +1068,17 @@ msgstr "Осталось использований"
 msgid "Expiration"
 msgstr "Срок действия"
 
-#: core/model/admininvitemodel.cpp:115
+#: core/model/admininvitemodel.cpp:117
 #, kde-format
 msgid "Unlimited"
 msgstr "Без ограничений"
 
-#: core/model/admininvitemodel.cpp:123
+#: core/model/admininvitemodel.cpp:125
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "Дней до истечения срока действия: %1"
 
-#: core/model/admininvitemodel.cpp:125
+#: core/model/admininvitemodel.cpp:127
 #, kde-format
 msgid "Expired"
 msgstr "Срок действия истёк"
@@ -1140,17 +1140,17 @@ msgstr "Количество сообщений"
 msgid "Number of Users"
 msgstr "Количество пользователей"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:121
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Topic"
 msgstr "Тема"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:125
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:126
 #, kde-format
 msgid "Read-only"
 msgstr "Только чтение"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:127
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:128
 #, kde-format
 msgid "Default Room"
 msgstr "Комната по умолчанию"
@@ -1242,7 +1242,7 @@ msgstr "Активировать"
 msgid "Pending action"
 msgstr "Ожидающее выполнения действие"
 
-#: core/model/bannerinfosmodel.cpp:55
+#: core/model/bannerinfosmodel.cpp:56
 #, kde-format
 msgid "link"
 msgstr "ссылка"
@@ -1280,49 +1280,49 @@ msgstr "IP"
 msgid "Login At"
 msgstr "Время входа"
 
-#: core/model/directoryroomsmodel.cpp:119
+#: core/model/directoryroomsmodel.cpp:120
 #, kde-format
 msgid "Number Of Users"
 msgstr "Количество пользователей"
 
-#: core/model/directoryroomsmodel.cpp:129
+#: core/model/directoryroomsmodel.cpp:130
 #, kde-format
 msgid "Last Message"
 msgstr "Последнее сообщение"
 
-#: core/model/directoryroomsmodel.cpp:131 core/model/directoryteamsmodel.cpp:97
+#: core/model/directoryroomsmodel.cpp:132 core/model/directoryteamsmodel.cpp:98
 #, kde-format
 msgid "Created"
 msgstr "Время создания"
 
-#: core/model/directoryroomsmodel.cpp:134
+#: core/model/directoryroomsmodel.cpp:135
 #, kde-format
 msgid "Channel Type"
 msgstr "Тип канала"
 
-#: core/model/directoryroomsmodel.cpp:136
+#: core/model/directoryroomsmodel.cpp:137
 #, kde-format
 msgid "Belongs To"
 msgstr "Принадлежность"
 
-#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:574
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:575
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
 msgid "Rooms"
 msgstr "Комнаты"
 
-#: core/model/directoryusersmodel.cpp:104 core/model/usersinrolemodel.cpp:89
+#: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:90
 #, kde-format
 msgid "Emails"
 msgstr "Адреса эл. почты"
 
-#: core/model/directoryusersmodel.cpp:106
+#: core/model/directoryusersmodel.cpp:107
 #, kde-format
 msgid "Join At"
 msgstr "Присоединение"
 
-#: core/model/emoticonmodel.cpp:85
+#: core/model/emoticonmodel.cpp:87
 #, kde-format
 msgid "Custom"
 msgstr "Другой"
@@ -1342,17 +1342,17 @@ msgstr "Ничего не найдено."
 msgid "Notify active users in this room"
 msgstr "Уведомить активных пользователей в этой комнате"
 
-#: core/model/messagesmodel.cpp:227
+#: core/model/messagesmodel.cpp:238
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Изменено %1 (%2)"
 
-#: core/model/messagesmodel.cpp:377
+#: core/model/messagesmodel.cpp:388
 #, kde-format
 msgid "Ignored Message"
 msgstr "Игнорируемое сообщение"
 
-#: core/model/messagesmodel.cpp:386
+#: core/model/messagesmodel.cpp:397
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Только вы можете видеть это сообщение"
@@ -1386,7 +1386,7 @@ msgstr "Дата жалобы"
 msgid "Room"
 msgstr "Комната"
 
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:57
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:58
 #, kde-format
 msgid "1 second"
 msgid_plural "%1 seconds"
@@ -1395,19 +1395,19 @@ msgstr[1] "%1 секунды"
 msgstr[2] "%1 секунд"
 msgstr[3] "1 секунда"
 
-#: core/model/notificationpreferencemodel.cpp:53
+#: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:243
 #, kde-format
 msgid "All Messages"
 msgstr "Все сообщения"
 
-#: core/model/notificationpreferencemodel.cpp:59
+#: core/model/notificationpreferencemodel.cpp:60
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
 #, kde-format
 msgid "Mentions"
 msgstr "Упоминания"
 
-#: core/model/notificationpreferencemodel.cpp:65
+#: core/model/notificationpreferencemodel.cpp:66
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
 #, kde-format
 msgid "Nothing"
@@ -1420,32 +1420,32 @@ msgstr "Ничего"
 msgid "Roles"
 msgstr "Роли"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:48
+#: core/model/personalaccesstokeninfosmodel.cpp:49
 #, kde-format
 msgid "Ignored"
 msgstr "Игнорируется"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:48
+#: core/model/personalaccesstokeninfosmodel.cpp:49
 #, kde-format
 msgid "Required"
 msgstr "Требуется"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:83
+#: core/model/personalaccesstokeninfosmodel.cpp:86
 #, kde-format
 msgid "Create At"
 msgstr "Время создания"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:85
+#: core/model/personalaccesstokeninfosmodel.cpp:88
 #, kde-format
 msgid "Two Factor Authentication"
 msgstr "Двухфакторная аутентификация"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:87
+#: core/model/personalaccesstokeninfosmodel.cpp:90
 #, kde-format
 msgid "Last token part"
 msgstr "Последняя часть маркера"
 
-#: core/model/roommodel.cpp:504
+#: core/model/roommodel.cpp:505
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1454,7 +1454,7 @@ msgstr[1] "%1 упоминания"
 msgstr[2] "%1 упоминаний"
 msgstr[3] "%1 упоминание"
 
-#: core/model/roommodel.cpp:508
+#: core/model/roommodel.cpp:509
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1463,7 +1463,7 @@ msgstr[1] "%1 упоминания группы"
 msgstr[2] "%1 упоминаний группы"
 msgstr[3] "%1 упоминание группы"
 
-#: core/model/roommodel.cpp:512
+#: core/model/roommodel.cpp:513
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1472,7 +1472,7 @@ msgstr[1] "%1 непрочитанных сообщения в ветках"
 msgstr[2] "%1 непрочитанных сообщений в ветках"
 msgstr[3] "%1 непрочитанное сообщение в ветках"
 
-#: core/model/roommodel.cpp:516
+#: core/model/roommodel.cpp:517
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1481,52 +1481,52 @@ msgstr[1] "%1 непрочитанных сообщения"
 msgstr[2] "%1 непрочитанных сообщений"
 msgstr[3] "%1 непрочитанное сообщение"
 
-#: core/model/roommodel.cpp:542
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Teams Room"
 msgstr "Комната команд"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Private Room"
 msgstr "Закрытая комната"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Discussion Room"
 msgstr "Переговорная комната"
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:555
 #, kde-format
 msgid "Channel Room"
 msgstr "Комната канала"
 
-#: core/model/roommodel.cpp:568 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:569 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Не прочитано"
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:571
 #, kde-format
 msgid "Favorites"
 msgstr "Избранное"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Teams"
 msgstr "Команды"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:577
 #, kde-format
 msgid "Discussions"
 msgstr "Обсуждения"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфиденциальные сообщения"
 
-#: core/model/roommodel.cpp:580 core/model/usersforroommodel.cpp:312
+#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:313
 #, kde-format
 msgid "Unknown"
 msgstr "Неизвестно"
@@ -1716,17 +1716,17 @@ msgstr "Скрыть сообщения «Описание комнаты изм
 msgid "Joined this Team"
 msgstr "Присоединился к этой команде"
 
-#: core/model/teamroomsmodel.cpp:36
+#: core/model/teamroomsmodel.cpp:37
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Автоприсоединение)"
 
-#: core/model/usersforroommodel.cpp:302 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:303 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Владелец"
 
-#: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:358
+#: core/model/usersmodel.cpp:77 core/utils.cpp:93 core/utils.cpp:358
 #, kde-format
 msgid "Offline"
 msgstr "Не в сети"
@@ -2119,13 +2119,13 @@ msgid "User is not an owner."
 msgstr "Пользователь не является владельцем."
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:61
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "Канал с именем «%1» существует"
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:64
 #, kde-format
 msgid "'%1' is not a valid room name"
@@ -2194,7 +2194,7 @@ msgstr ""
 "используется."
 
 #: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:46
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:401
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
@@ -2206,164 +2206,164 @@ msgstr ""
 msgid "Generate link is not authorized in this channel."
 msgstr "На этом канале не разрешается создавать ссылки."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:214
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:215
 #, kde-format
 msgid "Unauthorized"
 msgstr "Нет разрешения"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:232
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:233
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:240
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "«%1» запрещено"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:242
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
 #, kde-format
 msgid "Application not found"
 msgstr "Приложение не найдено"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:245
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:246
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr "Уже существует добавленный в архив канал с названием «%1»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:247
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:248
 #, kde-format
 msgid "Can't invite user to direct rooms"
 msgstr "Не разрешается приглашать пользователя в личные комнаты"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:250
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr ""
 "Параметр канала по умолчанию совпадает с тем, на что его предполагалось "
 "заменить."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:252
 #, kde-format
 msgid "The bodyParam 'default' is required"
 msgstr "Следует указать bodyParam «default»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:254
 #, kde-format
 msgid "Could not change email"
 msgstr "Не удалось изменить адрес эл. почты"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:256
 #, kde-format
 msgid "Could not change name"
 msgstr "Не удалось изменить название"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:258
 #, kde-format
 msgid "Could not change username"
 msgstr "Не удалось изменить имя пользователя"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:260
 #, kde-format
 msgid "Cannot delete a protected role"
 msgstr "Невозможно удалить защищённую роль"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:261
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
 #, kde-format
 msgid "Department not found"
 msgstr "Отдел не найден"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:263
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
 #, kde-format
 msgid "File sharing not allowed in direct messages"
 msgstr "В личных сообщениях запрещено обмениваться файлами"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 #, kde-format
 msgid "Editing permissions is not allowed"
 msgstr "Редактирование прав доступа запрещено"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
 #, kde-format
 msgid "The email domain is blacklisted"
 msgstr "Домен эл. почты находится в списке блокировок"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:273
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr "Ошибка при попытке отправить письмо: %1"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr "«%1» уже используется"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 #, kde-format
 msgid "File is too large"
 msgstr "Файл является слишком большим"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 #, kde-format
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "Средство импорта определено некорректно, отсутствует класс Import."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 #, kde-format
 msgid "Failed to extract import file."
 msgstr "Не удалось извлечь файл импорта."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 #, kde-format
 msgid "Imported file seems to be empty."
 msgstr "Похоже, импортированный файл пуст."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
 msgstr "Файл, который следует импортировать, не найден по указанному пути."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr "«%1» недопустимо использовать как %2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
 #, kde-format
 msgid "Invalid action link"
 msgstr "Неверная ссылка на действие"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
 #, kde-format
 msgid "Invalid Account"
 msgstr "Некорректная учётная запись"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
 #, kde-format
 msgid "Invalid arguments"
 msgstr "Некорректные аргументы"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
 #, kde-format
 msgid "Invalid asset"
 msgstr "Некорректный актив"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
 #, kde-format
 msgid "Invalid channel."
 msgstr "Неверный канал."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
 msgstr "Неверный канал. Запись канала должна начинаться с @ или #"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
 #, kde-format
 msgid "Invalid custom field"
 msgstr "Некорректное настраиваемое поле"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 #, kde-format
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
@@ -2372,184 +2372,183 @@ msgstr ""
 "Некорректное название настраиваемого поля. Используйте только буквы, цифры, "
 "дефисы и символы подчёркивания."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #, kde-format
 msgid "Invalid date provided."
 msgstr "Указана некорректная дата."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
 msgid "Invalid description"
 msgstr "Некорректное описание"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 #, kde-format
 msgid "Invalid domain"
 msgstr "Некорректный домен"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
 #, kde-format
 msgid "Invalid email '%1'"
 msgstr "Неверный адрес эл. почты «%1»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
 #, kde-format
 msgid "Invalid email address"
 msgstr "Неверный адрес эл. почты"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
 #, kde-format
 msgid "Invalid file height"
 msgstr "Некорректная высота файла"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
 #, kde-format
 msgid "Invalid file type"
 msgstr "Недопустимый тип файла"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
 #, kde-format
 msgid "Invalid file width"
 msgstr "Некорректная ширина файла"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
 #, kde-format
 msgid "You informed an invalid FROM address."
 msgstr "Указан некорректный адрес отправителя."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
 #, kde-format
 msgid "Invalid integration"
 msgstr "Некорректная интеграция"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
 #, kde-format
 msgid "Invalid message"
 msgstr "Некорректное сообщение"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
 #, kde-format
 msgid "Invalid method"
 msgstr "Некорректный способ"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
 #, kde-format
 msgid "Invalid name"
 msgstr "Неверное имя"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
 #, kde-format
 msgid "Invalid password"
 msgstr "Неверный пароль"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
 #, kde-format
 msgid "Invalid permission"
 msgstr "Некорректные права доступа"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
 #, kde-format
 msgid "Invalid redirectUri"
 msgstr "Неверный адрес перенаправления"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
 #, kde-format
 msgid "Invalid role"
 msgstr "Неверная роль"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
 #, kde-format
 msgid "Invalid room"
 msgstr "Некорректная комната"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "«%1» не является допустимым типом комнаты"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
 #, kde-format
 msgid "Invalid settings provided"
 msgstr "Указаны неверные параметры"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
 #, kde-format
 msgid "Invalid subscription"
 msgstr "Некорректная подписка"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
 #, kde-format
 msgid "Invalid token"
 msgstr "Некорректный маркер"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
 #, kde-format
 msgid "Invalid triggerWords"
 msgstr "Некорректные слова-переключатели"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
 #, kde-format
 msgid "Invalid URLs"
 msgstr "Некорректные адреса"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
 #, kde-format
 msgid "Invalid user"
 msgstr "Некорректный пользователь"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
 #, kde-format
 msgid "Invalid username"
 msgstr "Некорректное имя пользователя"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
 msgstr "URL-адрес веб-перехватчика ответил состоянием, отличным от 200"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:368
 #, kde-format
 msgid "Message deleting is blocked"
 msgstr "Удаление сообщений заблокировано"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:370
 #, kde-format
 msgid "Message editing is blocked"
 msgstr "Редактирование сообщений заблокировано"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:372
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "Размер сообщения превышает Message_MaxAllowedSize"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:374
 #, kde-format
 msgid "You must provide the [unsubscribe] link."
 msgstr "Вам необходимо отправить ссылку [unsubscribe]."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:375
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:376
 #, kde-format
 msgid "There are no tokens for this user"
 msgstr "Нет маркеров для этого пользователя"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:377
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
 #, kde-format
 msgid "Not allowed"
 msgstr "Запрещено"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:379
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
 #, kde-format
 msgid "Not authorized"
 msgstr "Нет разрешения"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
 #, kde-format
 msgid "Password does not meet the server's policy"
 msgstr "Пароль не соответствует правилам сервера"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
@@ -2558,7 +2557,7 @@ msgstr ""
 "Пароль не соответствует правилу сервера о максимальной длине (пароль "
 "является слишком длинным)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
@@ -2567,7 +2566,7 @@ msgstr ""
 "Пароль не соответствует правилу сервера о минимальной длине (пароль является "
 "слишком коротким)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
@@ -2576,14 +2575,14 @@ msgstr ""
 "Пароль не соответствует правилу сервера о наличии хотя бы одной буквы в "
 "нижнем регистре"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
 msgstr "Пароль не соответствует правилу сервера о наличии хотя бы одной цифры"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:393
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
@@ -2591,7 +2590,7 @@ msgstr ""
 "Пароль не соответствует правилу сервера о наличии хотя бы одного "
 "специального символа"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:395
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
@@ -2600,7 +2599,7 @@ msgstr ""
 "Пароль не соответствует правилу сервера о наличии хотя бы одной буквы в "
 "верхнем регистре"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:397
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
@@ -2609,52 +2608,52 @@ msgstr ""
 "Пароль не соответствует правилу сервера о запрете повторяющихся символов "
 "(слишком много одинаковых символов, идущих сразу друг за другом)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:399
 #, kde-format
 msgid "Push is disabled"
 msgstr "Выталкивание запрещено"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:403
 #, kde-format
 msgid "Cannot delete role because it's in use"
 msgstr "Не удалось удалить роль, так как она используется"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:406
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:405
 #, kde-format
 msgid "Role name is required"
 msgstr "Необходимо имя роли"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:408
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
 msgid "Room is not closed"
 msgstr "Комната не закрыта"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:411
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "Требуется поле «%1»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:412
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "Это не комната Livechat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:415
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:414
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Личные маркеры доступа сейчас отключены"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:417
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "Маркер с таким именем уже существует"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
 msgid "Token does not exists"
 msgstr "Маркер не существует"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2663,17 +2662,17 @@ msgstr ""
 "Ошибка, слишком много запросов. Необходимо подождать %1 сек. перед повторной "
 "попыткой."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:423
 #, kde-format
 msgid "User has no roles"
 msgstr "У пользователя нет ролей"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:425
 #, kde-format
 msgid "User is not activated"
 msgstr "Пользователь не активирован"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:427
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2682,89 +2681,89 @@ msgstr ""
 "Количество пользователей, которых вы пытаетесь пригласить на #channel_name, "
 "превышает установленный администратором предел"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:429
 #, kde-format
 msgid "User is not in this room"
 msgstr "Пользователя нет в этой комнате"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "Вы не в комнате «%s»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
 #, kde-format
 msgid "User registration is disabled"
 msgstr "Регистрация пользователей отключена"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "Регистрация пользователей возможна только по секретной ссылке"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 "Вы являетесь последним владельцем. Укажите нового владельца перед выходом из "
 "комнаты."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
 #, kde-format
 msgid "The private group is archived"
 msgstr "Закрытая группа добавлена в архив"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
 #, kde-format
 msgid "User is already an owner"
 msgstr "Пользователь уже является владельцем"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:444
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
 #, kde-format
 msgid "User is already a leader"
 msgstr "Пользователь уже является лидером"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:446
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
 #, kde-format
 msgid "User is already a moderator"
 msgstr "Пользователь уже является модератором"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:448
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
 #, kde-format
 msgid "Invalid message id"
 msgstr "Некорректный идентификатор сообщения"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:450
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
 #, kde-format
 msgid "User is not a leader"
 msgstr "Пользователь не является лидером"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:452
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "Пользователю приложения запрещён вход"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:454
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "Личные сообщения нельзя добавить в архив"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:456
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
 #, kde-format
 msgid "Message not found."
 msgstr "Сообщение не найдено."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:458
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "Требуется пароль двухфакторной аутентификации"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:460
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
 #, kde-format
 msgid "Invalid Password"
 msgstr "Неверный пароль"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:462
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2773,22 +2772,22 @@ msgstr ""
 "Указанный обязательный параметр «roomId» или «roomName» не соответствует ни "
 "одному каналу"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:464
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "Роль с таким именем уже существует"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:466
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "Сообщение нельзя закрепить"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:468
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "Введённый пароль уже использовался"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:470
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Достигнуто максимальное количество комнат на гостя."
@@ -8662,7 +8661,7 @@ msgid "Sound: %1"
 msgstr "Звук: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:247
-#: widgets/dialogs/showvideowidget.cpp:246
+#: widgets/dialogs/showvideowidget.cpp:247
 #, kde-format
 msgid "Error: "
 msgstr "Ошибка: "
