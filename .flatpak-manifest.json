@@ -78,8 +78,7 @@
                 }
             ],
             "config-opts": [
-                "-DBUILD_TESTING=OFF",
-                "-DBUILD_WITH_QT6=ON"
+                "-DBUILD_TESTING=OFF"
             ]
         },
         {
@@ -93,8 +92,7 @@
                 }
             ],
             "config-opts": [
-                "-DBUILD_TESTING=OFF",
-                "-DBUILD_WITH_QT6=ON"
+                "-DBUILD_TESTING=OFF"
             ],
             "cleanup": [
                 "/share/qlogging-categories5"
