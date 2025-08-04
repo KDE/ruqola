@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-02 00:43+0000\n"
-"PO-Revision-Date: 2025-07-22 14:48+0200\n"
+"PO-Revision-Date: 2025-07-30 15:55+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2918,11 +2918,9 @@ msgid "Oauth"
 msgstr "OAuth"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow Feature Preview"
+#, kde-format
 msgid "Feature Preview"
-msgstr "Consenti anteprima delle funzionalità"
+msgstr "Anteprima delle funzionalità"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3122,12 +3120,10 @@ msgid "Allow Feature Preview"
 msgstr "Consenti anteprima delle funzionalità"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "Reazioni"
+msgstr "Reazioni rapide"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4911,12 +4907,10 @@ msgid "Enable in teams"
 msgstr "Abilita nelle squadre"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable logging"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "Abilita il registro"
+msgstr "Abilita la suoneria del cellulare"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
@@ -7895,9 +7889,7 @@ msgid "Database Info"
 msgstr "Informazioni sulla banca dati"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "Messaggi"
 
@@ -7908,11 +7900,9 @@ msgid "Json"
 msgstr "Json"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:47
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
+#, kde-format
 msgid "DataBase"
-msgstr "Informazioni sulla banca dati"
+msgstr "Banca dati"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
