@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-06-28 17:13+0400\n"
+"PO-Revision-Date: 2025-08-03 15:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -4090,7 +4090,7 @@ msgstr "صفّر مفتاح التعمية من طرف لطرف"
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
-msgstr "صفّر كلمة المرور المستندة على الوقت"
+msgstr "صفّر كلمة السر المستندة على الوقت"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:436
 #, kde-format
@@ -4130,7 +4130,7 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
-"سيؤدي تصفير المصادقة الثنائية بكلمة المرور المستندة على الوقت الحالية إلى "
+"سيؤدي تصفير المصادقة الثنائية بكلمة السر المستندة على الوقت الحالية إلى "
 "تسجيل خروج المستخدم. سيكون المستخدم قادرًا على المصادقة الثانائية مرة أخرى "
 "لاحقًا."
 
@@ -4139,12 +4139,12 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
-msgstr "صفّر كلمة المرور المستندة على الوقت"
+msgstr "صفّر كلمة السر المستندة على الوقت"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:517
 #, kde-format
 msgid "TOTP key for %1 has been reset"
-msgstr "صُفّرت كلمة المرور المستندة على الوقت لـ%1"
+msgstr "صُفّرت كلمة السر المستندة على الوقت لـ%1"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -4642,7 +4642,7 @@ msgid ""
 "times, profile picture change, etc)."
 msgstr ""
 "تتبع الأحداث المخصصة المتعلقة بالإجراءات المتعلقة بالمستخدمين (أوقات إعادة "
-"تعيين كلمة المرور، تغيير صورة الملف الشخصي، إلخ)."
+"تعيين كلمة السر، تغيير صورة الملف الشخصي، إلخ)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
@@ -7974,7 +7974,7 @@ msgstr[5] "القادة:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
-msgstr "امسح"
+msgstr "امحُ"
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
 #, kde-format
@@ -8045,7 +8045,7 @@ msgstr "الصوت:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"
-msgstr "تأكيد كلمة المرور"
+msgstr "تأكيد كلمة السر"
 
 #: widgets/dialogs/confirmpasswordwidget.cpp:23
 #, kde-format
@@ -8856,7 +8856,7 @@ msgstr[5] "%1 نقاش في الغرفة (المجموع: %2)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "انسخ كلمة المرور"
+msgstr "انسخ كلمة السر"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:31
 #, kde-format
@@ -8988,7 +8988,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
-msgstr "احفظ كلمة سر تشفيرك. انقر هنا لعرض كلمة سرك ونسخها."
+msgstr "احفظ كلمة سر تعميتك. انقر هنا لعرض كلمة سرك ونسخها."
 
 #: widgets/encryption/e2esaveencryptionkeywidget.cpp:20
 #, kde-format
@@ -9431,7 +9431,7 @@ msgstr "فعّل المصادقة الثانئية عبر البريد الإل�
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
-msgstr "فعّل المصادقة الثنائية عبر كلمة المرور المستندة على الوقت"
+msgstr "فعّل المصادقة الثنائية عبر كلمة السر المستندة على الوقت"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:27
 #, kde-format
@@ -9484,7 +9484,7 @@ msgid ""
 "below.\n"
 " If you can't scan the QR code, you may enter code manually instead:"
 msgstr ""
-"امسح رمز الاستجابة السريعة. سيظهر لك رمز مكون من 6 أرقام يتعين عليك إدخاله "
+"امحُ رمز الاستجابة السريعة. سيظهر لك رمز مكون من 6 أرقام يتعين عليك إدخاله "
 "أدناه.\n"
 "إذا لم تتمكن من مسح رمز الاستجابة السريعة، يمكنك إدخال الرمز يدويًا بدلاً من "
 "ذلك:"
@@ -9907,7 +9907,7 @@ msgstr "الإخطار"
 #, kde-format
 msgctxt "@action"
 msgid "Clear"
-msgstr "امسح"
+msgstr "امحُ"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
 #: widgets/room/messagelistview.cpp:663
@@ -11166,7 +11166,7 @@ msgstr "ممتد"
 #: widgets/ruqolamainwindow.cpp:734
 #, kde-format
 msgid "Clear history"
-msgstr "امسح التاريخ"
+msgstr "امحُ التاريخ"
 
 #: widgets/ruqolamainwindow.cpp:771
 #, kde-format
@@ -11786,7 +11786,7 @@ msgstr "إضافة زر استعادة في مربع حوار إعدادات خ�
 #: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, kde-format
 msgid "Improve changing password (show validation info)."
-msgstr "تحسين تغيير كلمة المرور (إظهار معلومات التحقق من الصحة)."
+msgstr "تحسين تغيير كلمة السر (إظهار معلومات التحقق من الصحة)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
