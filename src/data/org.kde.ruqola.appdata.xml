@@ -795,7 +795,7 @@
       <li xml:lang="x-test">xxAuto-awayxx</li>
       <li xml:lang="zh-TW">自動標記不在場</li>
       <li>Two-factor authentication via TOTP</li>
-      <li xml:lang="ar">المصادقة الثنائية عبر كلمة المرور المعتمدة على الوقت</li>
+      <li xml:lang="ar">المصادقة الثنائية عبر كلمة السر المعتمدة على الوقت</li>
       <li xml:lang="ca">Autenticació de dos factors via TOTP</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via TOTP</li>
       <li xml:lang="en-GB">Two-factor authentication via TOTP</li>
