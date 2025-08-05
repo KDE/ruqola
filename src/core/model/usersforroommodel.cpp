@@ -38,8 +38,10 @@ void UsersForRoomModel::setUsers(const QList<User> &users)
                 mUsers << u;
             }
         }
-        beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
-        endInsertRows();
+        if (mUsers.count() > numberOfElement) {
+            beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
+            endInsertRows();
+        }
     }
     checkFullList();
 }
