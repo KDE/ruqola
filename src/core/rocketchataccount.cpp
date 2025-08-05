@@ -89,12 +89,12 @@ using namespace Qt::Literals::StringLiterals;
 #include "videoconference/videoconferencemanager.h"
 #include "videoconference/videoconferencemessageinfomanager.h"
 
+#include "custom/customuserstatuslistjob.h"
 #include <KLocalizedString>
 #include <QJsonArray>
 #include <QTimer>
 #include <TextEmoticonsCore/EmojiModel>
 #include <TextEmoticonsCore/EmojiModelManager>
-#include <custom/customuserstatuslistjob.h>
 
 #if HAVE_NETWORKMANAGER
 #include <NetworkManagerQt/Manager>

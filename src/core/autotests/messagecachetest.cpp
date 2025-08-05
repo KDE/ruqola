@@ -15,11 +15,11 @@ using namespace Qt::Literals::StringLiterals;
 #include "messagecache.h"
 #include "messages/message.h"
 
+#include "rocketchatmessage.h"
 #include <QJsonDocument>
 #include <QSignalSpy>
 #include <QTest>
 #include <QTimer>
-#include <rocketchatmessage.h>
 
 QTEST_GUILESS_MAIN(MessageCacheTest)
 
