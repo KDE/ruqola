@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-02 00:43+0000\n"
-"PO-Revision-Date: 2025-08-03 15:52+0400\n"
+"PO-Revision-Date: 2025-08-03 22:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1719,7 +1719,7 @@ msgstr "انضمّ  إلى هذا الفريق"
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
 msgid "(Autojoin)"
-msgstr "(إنضمام آلي)"
+msgstr "(إنضمام آليّ)"
 
 #: core/model/usersforroommodel.cpp:303 core/room.cpp:1153
 #, kde-format
@@ -1911,7 +1911,7 @@ msgstr "إداري"
 #: core/user.cpp:213
 #, kde-format
 msgid "Bot"
-msgstr "آلي"
+msgstr "آليّ"
 
 #: core/utils.cpp:87 core/utils.cpp:352
 #, kde-format
@@ -2497,7 +2497,7 @@ msgstr "اسم مستخدم غير صالح"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:366
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
-msgstr "استجاب عنوان URL للرد التلقائي على الويب بحالة غير 200"
+msgstr "استجاب عنوان URL للرد الآليّ على الويب بحالة غير 200"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:368
 #, kde-format
@@ -4247,7 +4247,7 @@ msgstr "اسمح بتغيير كلمة السر"
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Email Notifications"
-msgstr "اسمح بإخطارات البريد الإلكتروني"
+msgstr "اسمح بإشعارات البريد الإلكتروني"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
@@ -4579,7 +4579,7 @@ msgstr "‏LDAP"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
 #, kde-format
 msgid "Layout"
-msgstr "التّخطيط"
+msgstr "التخطيط"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
@@ -5123,7 +5123,7 @@ msgstr "الإشارات"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable OTR"
-msgstr "فعّل الدردشة المؤقتة غير المسجلة"
+msgstr "مكّن الدردشة المؤقتة غير المسجلة"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:27
 #, kde-format
@@ -5441,9 +5441,9 @@ msgid ""
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
 msgstr ""
-"يتحقق آلياً من التحديثات الجديدة/الرسائل المهمة من مطوري روكت تشات ويتلقى "
+"يتحقق آليّاً من التحديثات الجديدة/الرسائل المهمة من مطوري روكت تشات ويتلقى "
 "إشعارات عند توفرها.\n"
-"يظهر الإشعار مرة واحدة لكل إصدار جديد كشعار قابل للنقر وكرسالة من آلي روكت "
+"يظهر الإشعار مرة واحدة لكل إصدار جديد كشعار قابل للنقر وكرسالة من آليّ روكت "
 "تشات، \n"
 "كلاهما مرئي للمسؤولين فقط."
 
@@ -5490,7 +5490,7 @@ msgstr "التبليغ"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:127
 #, kde-format
 msgid "Notifications"
-msgstr "الإخطارات"
+msgstr "الإشعارات"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:133
 #, kde-format
@@ -5499,14 +5499,14 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
-"الحد الأقصى لعدد أعضاء الغرفة وبعده ستعطل إخطارات كل الرسائل. لا يزال بإمكان "
-"المستخدمين تغيير الإعداد لكل غرفة لتلقي جميع التنبيهات على أساس فردي. (0 "
+"الحد الأقصى لعدد أعضاء الغرفة وبعده ستعطل إشعارات كل الرسائل. لا يزال بإمكان "
+"المستخدمين تغيير الإعداد لكل غرفة لتلقي جميع الإشعارات على أساس فردي. (0 "
 "للتعطيل)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:136
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
-msgstr "الحد الأقصى لعدد أعضاء الغرفة قبل تعطيل إخطارات كل الرسائل."
+msgstr "الحد الأقصى لعدد أعضاء الغرفة قبل تعطيل إشعارات كل الرسائل."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
@@ -5642,7 +5642,7 @@ msgstr "جمّع القنوات حسب النوع"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:46
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
-msgstr "عدد اقتراحات الإكمال التلقائي للمستخدمين"
+msgstr "عدد اقتراحات الإكمال الآليّ للمستخدمين"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:20
 #, kde-format
@@ -5675,7 +5675,7 @@ msgid ""
 "Try to reconnect automatically when connection is interrupted by some reason "
 "while executing operations."
 msgstr ""
-"حاول إعادة الاتصال تلقائيًا عند انقطاع الاتصال لأي سبب أثناء تنفيذ العمليات."
+"حاول إعادة الاتصال آليًّا عند انقطاع الاتصال لأي سبب أثناء تنفيذ العمليات."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:47
 #, kde-format
@@ -5874,7 +5874,7 @@ msgstr "مسجل الصوت ممكّن"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Auto-Translate"
-msgstr "مكّن الترجمة آلية"
+msgstr "مكّن الترجمة آليّة"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:47
 #, kde-format
@@ -5974,7 +5974,7 @@ msgstr ""
 "الخاصّة ويُحتفظ بها في الغرف الأخرى. احذف جميع الرسائل: ستُحذف جميع الرسائل "
 "والملفات من المستخدم من قاعدة البيانات ولن يكون من الممكن تحديد موقع "
 "المستخدم بعد الآن. أزل الرابط بين المستخدم والرسائل: سيقوم هذا الخيار بتعيين "
-"جميع الرسائل والملفات الخاصة بالمستخدم إلى آلي روكت تشات وستُحذف الرسائل "
+"جميع الرسائل والملفات الخاصة بالمستخدم إلى آليّ روكت تشات وستُحذف الرسائل "
 "الخاصة."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
@@ -6050,7 +6050,7 @@ msgstr "معدل بت الرسالة الصوتية"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
 #, kde-format
 msgid "Auto-Translate"
-msgstr "ترجمة آلية"
+msgstr "ترجمة آليّة"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
 #, kde-format
@@ -6763,7 +6763,7 @@ msgstr "اختر ما إذا كان ينبغي على SlackBridge إرسال ر�
 msgctxt "@info:tooltip"
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
-msgstr "أرسل رسائل من جميع القنوات الموجودة في Slack وانضم إليها الآليين"
+msgstr "أرسل رسائل من جميع القنوات الموجودة في Slack وانضم إليها الآليّين"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:49
 #, kde-format
@@ -6786,19 +6786,19 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
-"لا تنشر الرسائل من الآليين التي يتطابق اسمها مع التعبير النمطي أعلاه. إذا "
-"تركت فارغة، ستُنشر جميع الرسائل من الآليين."
+"لا تنشر الرسائل من الآليّين التي يتطابق اسمها مع التعبير النمطي أعلاه. إذا "
+"تركت فارغة، ستُنشر جميع الرسائل من الآليّين."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:55
 #, kde-format
 msgid "Exclude Bots"
-msgstr "استبعد آليين"
+msgstr "استبعد آليّين"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Notifications"
-msgstr "عطّل الإخطارات"
+msgstr "عطّل الإشعارات"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
@@ -6927,7 +6927,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable User Data Download"
-msgstr "فعّلت تنزيل بيانات المستخدم"
+msgstr "مكّنت تنزيل بيانات المستخدم"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:28
 #, kde-format
@@ -7019,7 +7019,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
-msgstr "يوصى بتمكينه إذا كان مثيل Jitsi لا يستخدم أي آلية مصادقة."
+msgstr "يوصى بتمكينه إذا كان مثيل Jitsi لا يستخدم أي آليّة مصادقة."
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:86
 #, kde-format
@@ -7058,7 +7058,7 @@ msgstr "مكّن للقنوات الخاصة"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable for Direct Messages"
-msgstr "فعّل للرسائل المباشرة"
+msgstr "مكّن للرسائل المباشرة"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:37
 #, kde-format
@@ -7662,7 +7662,7 @@ msgstr "ضع علامة على القناة كمقروءة عند كتابة ر�
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable system tray icon"
-msgstr "فعّل أيقونة صينيّة النّظام"
+msgstr "مكّن أيقونة صينيّة النّظام"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
@@ -7836,7 +7836,7 @@ msgid ""
 msgstr ""
 "إذا حصرت هذا الحساب في نشاط معين، فسوف يظهر في رقولة فقط عندما تكون في تلك "
 "الأنشطة. علاوة على ذلك، عندما تقوم بالتبديل إلى نشاط لا ينبغي أن يكون متاحًا "
-"فيه، فسوف يُخفى الحساب آليًا."
+"فيه، فسوف يُخفى الحساب آليًّا."
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:31
 #, kde-format
@@ -7912,13 +7912,13 @@ msgstr "احذف الملفّ"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Auto-Translate"
-msgstr "اضبط الترجمة الآلية"
+msgstr "اضبط الترجمة الآليّة"
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto-Translate"
-msgstr "ترجمة آلية"
+msgstr "ترجمة آليّة"
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:43
 #, kde-format
@@ -8183,7 +8183,7 @@ msgstr "اعرض شارة للإشارات"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive alerts"
-msgstr "استقبِل تنبيهات"
+msgstr "استقبِل التحذيرات"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:62
 #, kde-format
@@ -9128,7 +9128,7 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
-"بدلاً من ذلك، ستؤدي عملية تصفير مفاتيح التعمية، إلى الإبقاء على التعمية مفعّلة "
+"بدلاً من ذلك، ستؤدي عملية تصفير مفاتيح التعمية، إلى الإبقاء على التعمية ممكّنة "
 "ولكن قد يُفقد الوصول إلى المحتوى المعمّى سابقاً."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
@@ -9335,7 +9335,7 @@ msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 msgstr ""
-"لقد فعّلت المصادقة بالعامل الثنائية.\n"
+"لقد مكّنت المصادقة بالعامل الثنائية.\n"
 "الرجاء إدخال الرمز المنشأ أو رمز احتياطي."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:166
@@ -9847,7 +9847,7 @@ msgstr "اعرض الصور الرمزية"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Auto Away"
-msgstr "مكّن الابتعاد التلقائي"
+msgstr "مكّن الابتعاد الآليّ"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
 #, kde-format
@@ -9926,7 +9926,7 @@ msgstr "إخطار رسالة جديدة:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
-msgstr "مستوى صوت الإخطارات:"
+msgstr "مستوى صوت الإشعارات:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
 #, kde-format
@@ -9974,7 +9974,7 @@ msgstr "كل إشارة/رسالة مباشرة"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
-msgstr "قام مسؤول روكت تشات الخاص بك بتعطيل إخطارات البريد الإلكتروني"
+msgstr "قام مسؤول روكت تشات الخاص بك بتعطيل إشعارات البريد الإلكتروني"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
 #, kde-format
@@ -10249,7 +10249,7 @@ msgstr "اضبط الإخطار…"
 #, kde-format
 msgctxt "@action"
 msgid "Configure Auto-Translate…"
-msgstr "اضبط الترجمة الآلية…"
+msgstr "اضبط الترجمة الآليّة…"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
@@ -11110,12 +11110,12 @@ msgstr "يسرد الخيارات المتاحة لمشاركة بياناتك"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
-msgstr "أظهر الإخطارات الجديدة"
+msgstr "أظهر الإشعارات الجديدة"
 
 #: widgets/ruqolamainwindow.cpp:232
 #, kde-format
 msgid "Show New Notifications"
-msgstr "أظهر الإخطارات الجديدة"
+msgstr "أظهر الإشعارات الجديدة"
 
 #: widgets/ruqolamainwindow.cpp:420
 #, kde-format
@@ -11458,7 +11458,7 @@ msgstr "اسم الفريق"
 #: widgets/teams/teamchannelscombobox.cpp:20
 #, kde-format
 msgid "Autojoin"
-msgstr "إنضمام آلي"
+msgstr "إنضمام آليّ"
 
 #: widgets/teams/teamchannelsdialog.cpp:26
 #, kde-format
@@ -11488,13 +11488,13 @@ msgstr "أنشئ غرفة"
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
-msgstr "أزل الإنضمام الآلي"
+msgstr "أزل الإنضمام الآليّ"
 
 #: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
-msgstr "أضف الإنضمام الآلي"
+msgstr "أضف الإنضمام الآليّ"
 
 #: widgets/teams/teamchannelswidget.cpp:132
 #, kde-format
