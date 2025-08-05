@@ -7,7 +7,7 @@
 #pragma once
 
 #include <QGraphicsView>
-#include <QWidget>
+class QWidget;
 
 #include "libruqolawidgets_private_export.h"
 #include "showimagewidget.h"

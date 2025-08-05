@@ -22,6 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KSharedConfig>
 #include <QHBoxLayout>
 #include <QSplitter>
+#include <QStackedWidget>
 
 #include "model/roommodel.h"
 

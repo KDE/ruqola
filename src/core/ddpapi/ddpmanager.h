@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include <QObject>
+class QObject;
 
 #include "authenticationmanager/authenticationmanagerbase.h"
 #include "libruqolacore_export.h"

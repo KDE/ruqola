@@ -9,7 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QMediaCaptureSession>
 #include <QMediaRecorder>
-#include <QTemporaryFile>
+class QTemporaryFile;
 #include <QWidget>
 class QLabel;
 class QCamera;

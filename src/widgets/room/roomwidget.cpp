@@ -71,6 +71,7 @@
 #include <QPushButton>
 #include <QScrollBar>
 #include <QTimeZone>
+#include <QVBoxLayout>
 
 #include "config-ruqola.h"
 #include "video-conference/videoconferencecapabilitiesjob.h"

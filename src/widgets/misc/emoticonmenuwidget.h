@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <QWidget>
+class QWidget;
 #include <TextEmoticonsWidgets/EmoticonTextEditSelector>
 class RocketChatAccount;
 class EmoticonMenuWidget : public TextEmoticonsWidgets::EmoticonTextEditSelector

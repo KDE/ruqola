@@ -9,7 +9,7 @@
 #include "authenticationmanager/authenticationmanagerbase.h"
 #include "libruqolacore_export.h"
 #include <QJsonObject>
-#include <QObject>
+class QObject;
 
 class Connection;
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public AuthenticationManagerBase

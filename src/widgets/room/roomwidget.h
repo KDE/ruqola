@@ -11,7 +11,7 @@
 #include "room.h"
 #include "roomheaderwidget.h"
 #include <QPointer>
-#include <QVBoxLayout>
+class QVBoxLayout;
 
 class RocketChatAccount;
 class UsersInRoomFlowWidget;

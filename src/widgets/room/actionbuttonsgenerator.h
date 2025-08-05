@@ -8,7 +8,7 @@
 
 #include "actionbuttons/actionbutton.h"
 #include "rocketchataccount.h"
-#include <QAction>
+class QAction;
 #include <QJsonObject>
 #include <QList>
 #include <QPointer>

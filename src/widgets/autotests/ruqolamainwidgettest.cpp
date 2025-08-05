@@ -16,9 +16,9 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QHBoxLayout>
 #include <QSplitter>
+#include <QStackedWidget>
 #include <QStandardPaths>
 #include <QTest>
-
 QTEST_MAIN(RuqolaMainWidgetTest)
 
 RuqolaMainWidgetTest::RuqolaMainWidgetTest(QObject *parent)

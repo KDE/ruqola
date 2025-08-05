@@ -10,7 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "room.h"
 #include <QPointer>
-#include <QStackedWidget>
+class QStackedWidget;
 #include <QWidget>
 class QVBoxLayout;
 class RoomWidget;
