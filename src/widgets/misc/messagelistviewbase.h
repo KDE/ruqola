@@ -44,11 +44,10 @@ protected:
     [[nodiscard]] QStyleOptionViewItem listViewOptions() const;
 
     void addTextPlugins(QMenu *menu, const QString &selectedText);
-
-    QList<PluginTextInterface *> mPluginTextInterface;
-
     [[nodiscard]] virtual QString selectedText(const QModelIndex &index);
     [[nodiscard]] virtual bool hasSelection() const;
+
+    QList<PluginTextInterface *> mPluginTextInterface;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void handleMouseEvent(QMouseEvent *event);
