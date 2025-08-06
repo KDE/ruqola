@@ -161,3 +161,14 @@ void QueryParameters::setSearchString(const QString &newSearchString)
 }
 
 } // namespace RocketChatRestApi
+QDebug operator<<(QDebug d, const RocketChatRestApi::QueryParameters &t)
+{
+    d.space() << "offset:" << t.offset();
+    d.space() << "count:" << t.count();
+    d.space() << "filter:" << t.filter();
+    d.space() << "searchString:" << t.searchString();
+    d.space() << "custom:" << t.custom();
+    d.space() << "sorting:" << t.sorting();
+    d.space() << "useSyntaxRc70:" << t.useSyntaxRc70();
+    return d;
+}

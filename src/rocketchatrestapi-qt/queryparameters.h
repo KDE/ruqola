@@ -5,6 +5,7 @@
 */
 #pragma once
 #include "librocketchatrestapi-qt_export.h"
+#include <QDebug>
 #include <QMap>
 #include <QString>
 #include <QUrlQuery>
@@ -13,12 +14,14 @@ namespace RocketChatRestApi
 
 class LIBROCKETCHATRESTAPI_QT_EXPORT QueryParameters
 {
+    Q_GADGET
 public:
     enum class SortOrder : uint8_t {
         Ascendant,
         Descendant,
         NoSorting,
     };
+    Q_ENUM(SortOrder);
     QueryParameters();
 
     [[nodiscard]] int offset() const;
@@ -57,3 +60,4 @@ private:
 };
 
 } // namespace RocketChatRestApi
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::QueryParameters &t);
