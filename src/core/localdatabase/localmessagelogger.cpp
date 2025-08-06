@@ -50,7 +50,9 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
         query.addBindValue(QString::fromLatin1(m.messageId()));
         query.addBindValue(m.timeStamp());
         query.addBindValue(m.username());
+        // TODO save info about attachment files.
         query.addBindValue(m.text());
+
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in LOGS table" << db.databaseName() << query.lastError();
         }
