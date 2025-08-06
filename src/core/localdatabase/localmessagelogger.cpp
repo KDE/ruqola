@@ -60,10 +60,10 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
 QString LocalMessageLogger::generateTextFromMessage(const Message &m) const
 {
     QString message;
-    if (const QString txt = m.text(); txt.isEmpty()) {
+    if (const QString txt = m.text(); !txt.isEmpty()) {
         message = txt;
     }
-    if (!m.attachments()->isEmpty()) {
+    if (m.attachments() && !m.attachments()->isEmpty()) {
         const auto attachments = m.attachments()->messageAttachments();
         for (const MessageAttachment &att : attachments) {
             if (!message.isEmpty()) {
