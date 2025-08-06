@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you autogenerating answer.",
-        "Description[ar]": "تسمح هذه الملحقة بالتوليد الآلي للإجابة.",
+        "Description[ar]": "تسمح هذه الملحقة بالتوليد الآليّ للإجابة.",
         "Description[ca@valencia]": "Este connector permet generar una resposta automàticament.",
         "Description[ca]": "Aquest connector permet generar una resposta automàticament.",
         "Description[es]": "Este complemento  le permite autogenerar respuestas.",
@@ -20,7 +20,7 @@
         "Description[x-test]": "xxThis plugin allows you autogenerating answer.xx",
         "EnabledByDefault": true,
         "Name": "Autogenerating Answer",
-        "Name[ar]": "التوليد الآلي للإجابة",
+        "Name[ar]": "التوليد الآليّ للإجابة",
         "Name[ca@valencia]": "Generació automàtica de resposta",
         "Name[ca]": "Generació automàtica de resposta",
         "Name[es]": "Autogenerando respuesta",
