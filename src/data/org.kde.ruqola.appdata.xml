@@ -217,7 +217,7 @@
       <li xml:lang="x-test">xxchannelxx</li>
       <li xml:lang="zh-TW">頻道</li>
       <li>Support autotranslate (when RC has it)</li>
-      <li xml:lang="ar">دعم الترجمة الآلية (عندما تكون مدعومة من ركت تشات)</li>
+      <li xml:lang="ar">دعم الترجمة الآليّة (عندما تكون مدعومة من ركت تشات)</li>
       <li xml:lang="ca">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="ca-valencia">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="en-GB">Support auto-translate (when RC has it)</li>
@@ -243,7 +243,7 @@
       <li xml:lang="x-test">xxSupport autotranslate (when RC has it)xx</li>
       <li xml:lang="zh-TW">支援自動翻譯（伺服器端 Rocket Chat 有提供的時候）</li>
       <li>Configuring room notification</li>
-      <li xml:lang="ar">ضبط إخطارات الغرفة</li>
+      <li xml:lang="ar">ضبط إشعارات الغرفة</li>
       <li xml:lang="ca">Configuració de les notificacions de sales</li>
       <li xml:lang="ca-valencia">Configureu les notificacions de sala</li>
       <li xml:lang="en-GB">Configuring room notification</li>
@@ -710,7 +710,7 @@
       <li xml:lang="x-test">xxAllow to block/unblock usersxx</li>
       <li xml:lang="zh-TW">允許封鎖/解除封鎖使用者</li>
       <li>Auto-away</li>
-      <li xml:lang="ar">الابتعاد التلقائي</li>
+      <li xml:lang="ar">الابتعاد الآليّ</li>
       <li xml:lang="ca">Absència automàtica</li>
       <li xml:lang="ca-valencia">Absència automàtica</li>
       <li xml:lang="cs">Automaticky pryč</li>
@@ -993,7 +993,7 @@
       <li xml:lang="x-test">xxMark All Channels are readxx</li>
       <li xml:lang="zh-TW">將所有頻道標為已讀</li>
       <li>Add notification history</li>
-      <li xml:lang="ar">إضافة تاريخ الإخطارات</li>
+      <li xml:lang="ar">إضافة تاريخ الإشعارات</li>
       <li xml:lang="ca">Afegeix un historial de notificacions</li>
       <li xml:lang="ca-valencia">Afig un historial de notificacions</li>
       <li xml:lang="en-GB">Add notification history</li>
@@ -1124,7 +1124,7 @@
       <li xml:lang="x-test">xxAdd support for local translationxx</li>
       <li xml:lang="zh-TW">新增本地翻譯的支援</li>
       <li>Add support for text auto-correction</li>
-      <li xml:lang="ar">إضافة دعم لتصحيح النص تلقائيًا</li>
+      <li xml:lang="ar">إضافة دعم لتصحيح النص آليًّا</li>
       <li xml:lang="ca">Afegeix la implementació per a la correcció automàtica</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la correcció automàtica</li>
       <li xml:lang="cs">Přidat podporu pro automatickou opravu textu</li>
