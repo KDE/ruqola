@@ -189,7 +189,8 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
                             i18n("Add AI Rocket Chat Actions support."),
                             i18n("Fix apply, restore, cancel buttons in administration dialog."),
                             i18n("Fix search users."),
-                            i18n("Fix extract language from code block.")});
+                            i18n("Fix extract language from code block."),
+                            i18n("Fix attachment info in \"Show Channel Log\" dialog.")});
 
         listInfo.append(std::move(info));
     }
