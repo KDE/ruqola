@@ -36,7 +36,7 @@ Name[x-test]=xxRuqolaxx
 Name[zh_TW]=Ruqola
 DesktopEntry=org.kde.ruqola
 Comment=Notification
-Comment[ar]=إخطار
+Comment[ar]=إشعار
 Comment[ca]=Notificació
 Comment[ca@valencia]=Notificació
 Comment[cs]=Upozornění
@@ -199,7 +199,7 @@ Urgency=Normal
 
 [Event/new-notification]
 Name=A Notification Arrived
-Name[ar]=وصل إخطار
+Name[ar]=وصل إشعار
 Name[ca]=Ha arribat una notificació
 Name[ca@valencia]=Ha arribat una notificació
 Name[cs]=Bylo přijato upozornění
