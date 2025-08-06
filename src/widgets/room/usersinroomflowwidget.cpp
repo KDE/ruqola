@@ -12,10 +12,12 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
+#include "ruqola_usersinroomflowwidget_debug.h"
 #include "usersinroomdialog.h"
 #include "usersinroomlabel.h"
 #include <KLocalizedString>
 #include <QLabel>
+
 #define MAX_NUMBER_USER 70
 UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)
@@ -101,6 +103,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
         const auto count = mUsersForRoomFilterProxyModel->rowCount();
         mFlowLayout->clearAndDeleteWidgets();
         mListUsersWidget.clear();
+        qCDebug(RUQOLA_USERSINROOMFLOWWIDGETS_LOG) << "mUsersForRoomFilterProxyModel->rowCount() " << count;
         int numberOfUsers = 0;
         for (; numberOfUsers < count && numberOfUsers < MAX_NUMBER_USER; ++numberOfUsers) {
             const auto userModelIndex = mUsersForRoomFilterProxyModel->index(numberOfUsers, 0);
@@ -121,6 +124,10 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
         }
         if (count > 0) {
             if (!mUsersForRoomFilterProxyModel->hasFullList()) {
+                qCDebug(RUQOLA_USERSINROOMFLOWWIDGETS_LOG) << "mUsersForRoomFilterProxyModel->hasFullList() is not full!!! ";
+                qCDebug(RUQOLA_USERSINROOMFLOWWIDGETS_LOG) << "mUsersForRoomFilterProxyModel->total()" << mUsersForRoomFilterProxyModel->total();
+                qCDebug(RUQOLA_USERSINROOMFLOWWIDGETS_LOG)
+                    << "mUsersForRoomFilterProxyModel->numberOfUsers()" << mUsersForRoomFilterProxyModel->numberOfUsers();
                 auto loadingMoreLabel = new QLabel(u"<a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);
                 loadingMoreLabel->setContextMenuPolicy(Qt::NoContextMenu);
