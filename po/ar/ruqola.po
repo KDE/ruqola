@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-08-03 22:56+0400\n"
+"PO-Revision-Date: 2025-08-05 20:51+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2558,7 +2558,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:400
 #, kde-format
 msgid "Push is disabled"
-msgstr "الإخطار الفوري معطل"
+msgstr "الإشعار الفوري معطل"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:404
 #, kde-format
@@ -4641,8 +4641,8 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
-"تتبع الأحداث المخصصة المتعلقة بالإجراءات المتعلقة بالمستخدمين (أوقات إعادة "
-"تعيين كلمة السر، تغيير صورة الملف الشخصي، إلخ)."
+"تتبع الأحداث المخصصة المتعلقة بالإجراءات المتعلقة بالمستخدمين (أوقات تصفير "
+"كلمة السر، تغيير صورة الملف الشخصي، إلخ)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
@@ -4834,10 +4834,9 @@ msgid ""
 "their team and department channel."
 msgstr ""
 "استخدم إدخال JSON هذا لبناء سمات داخلية (مفتاح) من سمات خارجية (قيمة).\n"
-"سيتم استيفاء أسماء السمات الخارجية المرفقة بعلامة \"%\" في سلاسل القيم.<br/"
-">على سبيل المثال، {\"email\":\"%email%\", \"name\":\"%firstname%, %lastname%"
-"\"}\n"
-"يتم استيفاء خريطة السمات دائمًا. في خدمة المصادقة المركزية 1.0، تتوفر سمة اسم "
+"ستُضمّن أسماء السمات الخارجية المرفقة بعلامة \"%\" في سلاسل القيم.<br/>على "
+"سبيل المثال، {\"email\":\"%email%\", \"name\":\"%firstname%, %lastname%\"}\n"
+"خريطة السمات تُستكمل دائمًا. في خدمة المصادقة المركزية 1.0، تتوفر سمة اسم "
 "المستخدم فقط. السمات الداخلية المتاحة هي: اسم المستخدم، الاسم، البريد "
 "الإلكتروني، الغرف؛\n"
 "الغرف عبارة عن قائمة مفصولة بفواصل من الغرف للانضمام إليها عند إنشاء "
@@ -5192,7 +5191,7 @@ msgid ""
 "without authentication)."
 msgstr ""
 "سر رمز الويب المميز لتحميل الملفات جوسن (يُستخدم للتمكن من الوصول إلى الملفات "
-"التي تم تحميلها دون مصادقة)."
+"المُحملة دون مصادقة)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:73
 #, kde-format
@@ -7300,7 +7299,7 @@ msgstr "انتقل إلى الفريق"
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
-msgstr "اضبط الإخطار…"
+msgstr "اضبط الإشعار…"
 
 #: widgets/channellist/channellistview.cpp:215
 #, kde-format
@@ -7986,13 +7985,13 @@ msgstr "حدد قناة"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Notification"
-msgstr "اضبط الإخطار"
+msgstr "اضبط الإشعار"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Notification"
-msgstr "عطّل الإخطار"
+msgstr "عطّل الإشعار"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:27
 #, kde-format
@@ -8898,8 +8897,8 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
-"تعذّر فك ترميز مفتاح التعمية الخاص بك ليتم استيراده. يبدو أن كلمة سر التعمية "
-"الخاصة بك خاطئة."
+"تعذّر فك ترميز مفتاح التعمية الخاص بك حتى يستورد بشكل صحيح. يبدو أن كلمة سر "
+"التعمية الخاصة بك خاطئة."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:20
 #, kde-format
@@ -9675,7 +9674,7 @@ msgstr "مكّن الابتعاد الآليّ"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Offline Email notification:"
-msgstr "إخطار البريد الإلكتروني غير المتصل:"
+msgstr "إشعار البريد الإلكتروني غير المتصل:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:45
 #, kde-format
@@ -9705,13 +9704,13 @@ msgstr "افصل كل كلمة بـ ','."
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Desktop notification:"
-msgstr "إخطار سطح المكتب:"
+msgstr "إشعار سطح المكتب:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
-msgstr "إخطار فوري:"
+msgstr "إشعار فوري:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
 #, kde-format
@@ -9736,13 +9735,13 @@ msgstr "الفترة الزمنية حتى تتغير الحالة إلى بعي
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Room Notification:"
-msgstr "إخطار غرفة جديد:"
+msgstr "إشعار غرفة جديد:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Message Notification:"
-msgstr "إخطار رسالة جديدة:"
+msgstr "إشعار رسالة جديدة:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:147
 #, kde-format
@@ -9900,7 +9899,7 @@ msgstr "الإصدار الخاص بك أقدم من عام واحد، ونحن 
 #, kde-format
 msgctxt "@title:window"
 msgid "Notification"
-msgstr "الإخطار"
+msgstr "الإشعار"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:44
@@ -10065,7 +10064,7 @@ msgstr "اعرض السلاسل…"
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification…"
-msgstr "اضبط الإخطار…"
+msgstr "اضبط الإشعار…"
 
 #: widgets/room/channelactionpopupmenu.cpp:88
 #, kde-format
@@ -11110,7 +11109,7 @@ msgstr "القناة المحددة التالية"
 #: widgets/ruqolamainwindow.cpp:662
 #, kde-format
 msgid "Show Notify History"
-msgstr "اعرض تاريخ الإخطار"
+msgstr "اعرض تاريخ الإشعار"
 
 #: widgets/ruqolamainwindow.cpp:666
 #, kde-format
@@ -11660,7 +11659,7 @@ msgstr "تنفيذ إشعار صوت القناة."
 #: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Implement New Room Sound Notification."
-msgstr "تنفيذ الإخطار الصوتي للغرفة الجديدة."
+msgstr "تنفيذ الإشعار الصوتي للغرفة الجديدة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
@@ -11776,7 +11775,7 @@ msgstr "إضافة مندوب في غرف البحث في حوار الفريق.
 #: widgets/whatsnew/whatsnewtranslations.cpp:125
 #, kde-format
 msgid "Allow to clean up room history when room was not opened from long time."
-msgstr "السماح بتنظيف سجل الغرفة عندما لا يتم فتح الغرفة منذ وقت طويل."
+msgstr "السماح بتنظيف سجل الغرفة عندما لا تُفتح الغرفة منذ وقت طويل."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
