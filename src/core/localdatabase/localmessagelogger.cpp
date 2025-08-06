@@ -50,13 +50,38 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
         query.addBindValue(QString::fromLatin1(m.messageId()));
         query.addBindValue(m.timeStamp());
         query.addBindValue(m.username());
-        // TODO save info about attachment files.
-        query.addBindValue(m.text());
+        query.addBindValue(generateTextFromMessage(m));
 
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in LOGS table" << db.databaseName() << query.lastError();
         }
     }
+}
+
+QString LocalMessageLogger::generateTextFromMessage(const Message &m) const
+{
+    QString message;
+    if (const QString txt = m.text(); txt.isEmpty()) {
+        message = txt;
+    }
+    if (!m.attachments()->isEmpty()) {
+        const auto attachments = m.attachments()->messageAttachments();
+        for (const MessageAttachment &att : attachments) {
+            if (!message.isEmpty()) {
+                message += u'\n';
+            }
+            if (!att.text().isEmpty()) {
+                message += att.text() + u'\n';
+            }
+            if (!att.title().isEmpty()) {
+                message += att.title() + u'\n';
+            }
+            if (!att.description().isEmpty()) {
+                message += att.description();
+            }
+        }
+    }
+    return message;
 }
 
 void LocalMessageLogger::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
