@@ -1068,6 +1068,10 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_autoge
     DESCRIPTION "ruqola autogenerate ui" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_usersinroomflowwidget_debug.h IDENTIFIER RUQOLA_USERSINROOMFLOWWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets.usersinroomflowwidget
+    DESCRIPTION "ruqola usersinroomflowwidget" EXPORT RUQOLA
+)
+
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
