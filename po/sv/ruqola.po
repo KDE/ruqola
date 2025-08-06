@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-02 00:43+0000\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
 "PO-Revision-Date: 2025-07-30 18:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1505,7 +1505,7 @@ msgstr "Diskussioner"
 msgid "Private Messages"
 msgstr "Privata meddelanden"
 
-#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:313
+#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Okänt"
@@ -1700,7 +1700,7 @@ msgstr "Gick med i laget"
 msgid "(Autojoin)"
 msgstr "(automatiskt anslutning)"
 
-#: core/model/usersforroommodel.cpp:303 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Ägare"
@@ -8365,7 +8365,7 @@ msgstr ""
 "Ofta börjar en diskussion med en fråga, såsom \"Hur laddar jag upp en bild?\""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:161
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Spelade in %1 sek"
@@ -10773,39 +10773,39 @@ msgstr "Svarar i en tråd"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Svara i tråd för meddelande: '%1'"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:341
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vill du verkligen ta bort historiken?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Ta bort historik"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportera meddelanden"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:377
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Krypterat innehåll går inte att söka i."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Sök meddelande"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:556
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10813,7 +10813,7 @@ msgstr ""
 "En administratör av arbetsytan måste installera och ställa in ett program "
 "för konferenssamtal."
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:557
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-02 00:43+0000\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1531,7 +1531,7 @@ msgstr "討論"
 msgid "Private Messages"
 msgstr "私訊"
 
-#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:313
+#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
@@ -1733,7 +1733,7 @@ msgstr "已加入此團隊"
 msgid "(Autojoin)"
 msgstr "（自動加入）"
 
-#: core/model/usersforroommodel.cpp:303 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "擁有者"
@@ -8619,7 +8619,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:161
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -11162,33 +11162,33 @@ msgstr "正在於對話串中回覆"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "為此訊息在對話串中回覆：「%1」"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:341
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "您確定要移除歷史嗎？"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "移除歷史"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:377
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11196,13 +11196,13 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "搜尋訊息"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:556
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "需要有工作空間管理員安裝並設定會議通話 app。"
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:557
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"

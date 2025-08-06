@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-02 00:43+0000\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
 "PO-Revision-Date: 2025-07-30 15:55+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1508,7 +1508,7 @@ msgstr "Discussioni"
 msgid "Private Messages"
 msgstr "Messaggi privati"
 
-#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:313
+#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Sconosciuto"
@@ -1703,7 +1703,7 @@ msgstr "Unito a questa squadra"
 msgid "(Autojoin)"
 msgstr "(Unisciti automaticamente)"
 
-#: core/model/usersforroommodel.cpp:303 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Proprietario"
@@ -8414,7 +8414,7 @@ msgstr ""
 "caricare un'immagine?»"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:161
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Registrati %1 sec"
@@ -10839,39 +10839,39 @@ msgstr "Rispondi in una conversazione"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Risposta alla conversazione per messaggio: «%1»"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:341
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vuoi davvero rimuovere la cronologia?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Rimuovi cronologia"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:377
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Non è possibile effettuare ricerche sui contenuti cifrati."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Ricerca messaggio"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:556
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10879,7 +10879,7 @@ msgstr ""
 "Un amministratore dell'area di lavoro deve installare e configurare "
 "un'applicazione per chiamate in conferenza."
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:557
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

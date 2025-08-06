@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-02 00:43+0000\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
 "PO-Revision-Date: 2025-07-30 06:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1518,7 +1518,7 @@ msgstr "Razprave"
 msgid "Private Messages"
 msgstr "Zasebna sporočila"
 
-#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:313
+#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Neznano"
@@ -1713,7 +1713,7 @@ msgstr "Se je pridružil tej ekipi"
 msgid "(Autojoin)"
 msgstr "(Samodejno pridruži)"
 
-#: core/model/usersforroommodel.cpp:303 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "Lastnik"
@@ -8393,7 +8393,7 @@ msgid ""
 msgstr "Navadno se debata začne z vprašanjem kot npr. »Kako prenesem sliko?«"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:161
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Posneto %1 sec"
@@ -10822,39 +10822,39 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: '%1'"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:341
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:377
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Po šifriranih sporočilih ni mogoče iskati."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Išči sporočilo"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:556
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10862,7 +10862,7 @@ msgstr ""
 "Skrbnik delovnega prostora mora namestiti in konfigurirati aplikacije "
 "konferenčnih klicev."
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:557
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

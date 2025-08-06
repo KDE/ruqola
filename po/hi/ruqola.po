@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-02 00:43+0000\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1511,7 +1511,7 @@ msgstr "चर्चाएँ"
 msgid "Private Messages"
 msgstr "निजी संदेश"
 
-#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:313
+#: core/model/roommodel.cpp:581 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -1706,7 +1706,7 @@ msgstr "इस टीम में शामिल हुए"
 msgid "(Autojoin)"
 msgstr "(ऑटोज्वाइन)"
 
-#: core/model/usersforroommodel.cpp:303 core/room.cpp:1153
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1153
 #, kde-format
 msgid "Owner"
 msgstr "मालिक"
@@ -8380,7 +8380,7 @@ msgid ""
 msgstr "आमतौर पर चर्चा एक प्रश्न से शुरू होती है, जैसे \"मैं चित्र कैसे अपलोड करूं?\""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:161
-#: widgets/dialogs/createvideomessagewidget.cpp:248
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 सेकंड रिकॉर्ड किया गया"
@@ -10797,34 +10797,34 @@ msgstr "किसी थ्रेड में उत्तर देना"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "संदेश के लिए थ्रेड में उत्तर दें: '%1'"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:341
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "क्या आप सचमुच इतिहास हटाना चाहते हैं?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "इतिहास हटाएँ"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgid "Export Messages"
 msgstr "संदेश निर्यात करें"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:377
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "आपका ईमेल भेजने के लिए कतारबद्ध कर दिया गया है."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "प्रत्यक्ष संदेश संग्रहीत नहीं किए जा सकते"
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:537
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -10832,7 +10832,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "संदेश खोजें"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:556
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10840,7 +10840,7 @@ msgstr ""
 "कार्यस्थान व्यवस्थापक को कॉन्फ़्रेंस कॉल एप्लिकेशन इंस्टॉल और कॉन्फ़िगर करने की आवश्यकता होती "
 "है।"
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:557
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
