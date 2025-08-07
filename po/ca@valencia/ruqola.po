@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-07-23 23:32+0200\n"
+"PO-Revision-Date: 2025-08-07 09:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2019,7 +2019,7 @@ msgstr "S'ha compartit el fitxer."
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
-msgstr "<qt>Trobareu la nova sol·licitud a:<br /><a href='%1'>%1</a></qt>"
+msgstr "<qt>Trobareu la sol·licitud nova a:<br /><a href='%1'>%1</a></qt>"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:40
 #, kde-format
@@ -6683,8 +6683,7 @@ msgstr "Testimonis de l'API"
 msgctxt "@info:tooltip"
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr ""
-"Seleccioneu si SlackBridge ha d'enviar els vostres missatges també cap a "
-"Slack"
+"Trieu si SlackBridge ha d'enviar els vostres missatges també cap a Slack"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
