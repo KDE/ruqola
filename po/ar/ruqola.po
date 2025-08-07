@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-08-05 20:51+0400\n"
+"PO-Revision-Date: 2025-08-06 14:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1057,7 +1057,7 @@ msgstr "الاستخدامات المتبقية"
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
 msgid "Expiration"
-msgstr "إنتهاء الصلاحية"
+msgstr "انتهاء الصلاحية"
 
 #: core/model/admininvitemodel.cpp:115
 #, kde-format
@@ -1161,7 +1161,7 @@ msgstr "معلق"
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
-msgstr "غيرمنشط"
+msgstr "غير منشط"
 
 #: core/model/adminusersallmodel.cpp:70
 #: core/model/adminuserspendingmodel.cpp:68
@@ -1720,7 +1720,7 @@ msgstr "انضمّ  إلى هذا الفريق"
 #: core/model/teamroomsmodel.cpp:34
 #, kde-format
 msgid "(Autojoin)"
-msgstr "(إنضمام آليّ)"
+msgstr "(انضمام آليّ)"
 
 #: core/model/usersmodel.cpp:74 core/utils.cpp:93 core/utils.cpp:354
 #, kde-format
@@ -1963,7 +1963,7 @@ msgstr "اقبل"
 #: plugins/authentication/github/githubpluginauthentication.cpp:33
 #, kde-format
 msgid "GitHub"
-msgstr "جِت هاب"
+msgstr "غِت هاب"
 
 #: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
 #, kde-format
@@ -2470,7 +2470,7 @@ msgstr "تحرير الرسائل محظور"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:371
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
-msgstr "حجم الرسالة يتجاوز حجم الرسالة_MaxAllowedSize"
+msgstr "حجم الرسالة يتجاوز Message_MaxAllowedSize"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:373
 #, kde-format
@@ -2491,7 +2491,7 @@ msgstr "غير مسموح"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:381
 #, kde-format
 msgid "Not authorized"
-msgstr "غير مستوثق"
+msgstr "غير مصرح"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, kde-format
@@ -2583,7 +2583,7 @@ msgstr "الحقل '%1' مطلوب."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:413
 #, kde-format
 msgid "This is not a Livechat room"
-msgstr "هذه ليست غرفة حية livechat"
+msgstr "هذه ليست غرفة حية"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:415
 #, kde-format
@@ -3842,7 +3842,7 @@ msgstr "ضيوف مفعلين"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
 #, kde-format
 msgid "Deactivated Users"
-msgstr "المستخدمين غير النشطين"
+msgstr "المستخدمين غير النشيطين"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
 #, kde-format
@@ -4054,7 +4054,7 @@ msgstr "هل تريد إزالة هذا المستخدم؟"
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
-msgstr "ادعو…"
+msgstr "ادعُ…"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:311
 #, kde-format
@@ -4131,7 +4131,7 @@ msgid ""
 "able to set the Two Factor again later."
 msgstr ""
 "سيؤدي تصفير المصادقة الثنائية بكلمة السر المستندة على الوقت الحالية إلى "
-"تسجيل خروج المستخدم. سيكون المستخدم قادرًا على المصادقة الثانائية مرة أخرى "
+"تسجيل خروج المستخدم. سيكون المستخدم قادرًا على المصادقة الثنائية مرة أخرى "
 "لاحقًا."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:486
@@ -4253,7 +4253,7 @@ msgstr "أرسل بريد إلكتروني إلى المستخدم عند تنش
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Email to User when User is Deactivated"
-msgstr "أرسل بريد إلكتروني إلى المستخدم عندما يتم إلغاء تنشيط المستخدم"
+msgstr "أرسل بريد إلكتروني إلى المستخدم عندما يلغى تنشيط المستخدم"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
@@ -4295,7 +4295,7 @@ msgstr "استخدم قائمة النطاقات المحظورة المبدئي
 #, kde-format
 msgctxt "@option:check"
 msgid "Use DNS Domain Check"
-msgstr "استخدم فحص نظاق DNS"
+msgstr "استخدم فحص نطاق DNS"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:52
 #, kde-format
@@ -4331,7 +4331,7 @@ msgstr "أظهر عميل المستخدم Useragent على سجلات الول�
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Client IP on failed login attempts logs"
-msgstr "أظهر عنوان الانترنت IP للعميل على سجلات الولوج الفاشلة"
+msgstr "أظهر عنوان الإنترنت IP للعميل على سجلات الولوج الفاشلة"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:60
 #, kde-format
@@ -4647,7 +4647,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
 msgid "Google Analytics"
-msgstr "جوجل أناليتكس"
+msgstr "غوغل أناليتكس"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
@@ -5206,7 +5206,7 @@ msgstr "AmazonS3"
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:75
 #, kde-format
 msgid "GoogleCloudStorage"
-msgstr "تخزين سحابي من جوجل"
+msgstr "تخزين سحابي من غوغل"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:76
 #, kde-format
@@ -5444,7 +5444,7 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
-"عنوان الانترنت IP أو المضيف لمركز البث المباشر روكت تشات الخاص بك. على سبيل "
+"عنوان الإنترنت IP أو المضيف لمركز البث المباشر روكت تشات الخاص بك. على سبيل "
 "المثال 192.168.1.1:3000 أو localhost:4000"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:150
@@ -5928,7 +5928,8 @@ msgid ""
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 "يحذف بيانات EXIF الوصفية من ملفات الصور (jpeg، tiff، إلخ). هذا الإعداد ليس "
-"بأثر رجعي، لذا ستحتوي الملفات التي تم تحميلها أثناء تعطيلها على بيانات EXIF"
+"بأثر رجعي، لذا ستحتوي الملفات المرفوعة عندما يكون هذا الخيار معطل على بيانات "
+"EXIF"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:139
 #, kde-format
@@ -5989,7 +5990,7 @@ msgstr "مفتاح DeepL API"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
 #, kde-format
 msgid "Google API Key"
-msgstr "مفتاح واجهة برمجة تطبيقات جوجل"
+msgstr "مفتاح واجهة برمجة تطبيقات غوغل"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:185
 #, kde-format
@@ -6354,7 +6355,7 @@ msgstr "طول تاريخ كلمة السر"
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:43
 #, kde-format
 msgid "Password Policy"
-msgstr "ساسية كلمة السر"
+msgstr "سياسة كلمة السر"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
 #, kde-format
@@ -8106,7 +8107,7 @@ msgstr "الموضوع:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
-msgstr "ادعو مستخدين…"
+msgstr "ادعُ مستخدمين…"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:44
 #, kde-format
@@ -8212,7 +8213,7 @@ msgstr "اسم المناقشة"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Invite Users"
-msgstr "ادعو مستخدين"
+msgstr "ادعُ مستخدمين"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #, kde-format
@@ -8312,7 +8313,7 @@ msgstr "%1 [%2]"
 #, kde-format
 msgctxt "@title:window"
 msgid "Invite Users"
-msgstr "ادع المستخدمين"
+msgstr "ادعُ مستخدمين"
 
 #: widgets/dialogs/inviteuserswidget.cpp:44
 #, kde-format
@@ -9399,7 +9400,7 @@ msgid ""
 "You will be required to enter it on other devices you wish to use e2e "
 "encryption on."
 msgstr ""
-"يمكنك الآن إنشاء مجموعات خاصة معماة ورسائل مباشرةمعماة. يمكنك أيضًا تغيير "
+"يمكنك الآن إنشاء مجموعات خاصة معماة ورسائل مباشرة معماة. يمكنك أيضًا تغيير "
 "المجموعات الخاصة أو الرسائل المباشرة الموجودة إلى معماة. هذا تعمية من طرف "
 "لطرف، لذا لن يُحفظ مفتاح التعمية/فك التعمية رسائلك على الخادم. لهذا السبب "
 "تحتاج إلى تخزين كلمة سرك في مكان آمن. سيُطلب منك إدخالها على الأجهزة الأخرى "
@@ -9424,7 +9425,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via Email"
-msgstr "فعّل المصادقة الثانئية عبر البريد الإلكتروني"
+msgstr "فعّل المصادقة الثنائية عبر البريد الإلكتروني"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:24
 #, kde-format
@@ -10076,7 +10077,7 @@ msgstr "اضبط الترجمة الآليّة…"
 #, kde-format
 msgctxt "@action"
 msgid "Invite Users"
-msgstr "ادعو مستخدين"
+msgstr "ادعُ مستخدمين"
 
 #: widgets/room/channelactionpopupmenu.cpp:103
 #, kde-format
@@ -11270,7 +11271,7 @@ msgstr "اسم الفريق"
 #: widgets/teams/teamchannelscombobox.cpp:20
 #, kde-format
 msgid "Autojoin"
-msgstr "إنضمام آليّ"
+msgstr "انضمام آليّ"
 
 #: widgets/teams/teamchannelsdialog.cpp:24
 #, kde-format
@@ -11300,13 +11301,13 @@ msgstr "أنشئ غرفة"
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
-msgstr "أزل الإنضمام الآليّ"
+msgstr "أزل الانضمام الآليّ"
 
 #: widgets/teams/teamchannelswidget.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
-msgstr "أضف الإنضمام الآليّ"
+msgstr "أضف الانضمام الآليّ"
 
 #: widgets/teams/teamchannelswidget.cpp:132
 #, kde-format
@@ -11548,7 +11549,7 @@ msgstr "تنفيذ نمط الرسالة"
 #: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid "Implement Url Preview"
-msgstr "تنفيذ معاينة URL"
+msgstr "تنفيذ معاينة عناوين الإنترنت"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
@@ -11638,8 +11639,8 @@ msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
-"تنفيذ مصادقة الرمز الشخصي. <ahref=\"https://bugs.kde.org/show_bug.cgi?"
-"id=481400\">العلة 481400</a>"
+"تنفيذ مصادقة الرمز الشخصي. <a href=\"https://bugs.kde.org/show_bug.cgi?"
+"id=481400\">Bug 481400</a>"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
@@ -11760,7 +11761,7 @@ msgstr "نموذج تطبيق السوق النظيف بعد 30 دقيقة (تق
 #: widgets/whatsnew/whatsnewtranslations.cpp:114
 #, kde-format
 msgid "Fix show discussion name in completion."
-msgstr "إصلاح إظهار اسم المناقشة عند الإكتمال."
+msgstr "إصلاح إظهار اسم المناقشة عند الاكتمال."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:115
 #, kde-format
