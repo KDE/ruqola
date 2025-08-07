@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-06 00:44+0000\n"
+"POT-Creation-Date: 2025-08-07 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -9157,7 +9157,7 @@ msgstr[1] "%1 Anhänge im Raum (Gesamt: %2)"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:115
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:124
+#: widgets/room/usersinroomflowwidget.cpp:131
 #: widgets/room/usersinroomwidget.cpp:168
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -11454,7 +11454,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Benutzer"
 
-#: widgets/room/usersinroomflowwidget.cpp:130
+#: widgets/room/usersinroomflowwidget.cpp:137
 #, fuzzy, kde-format
 #| msgid "(Open External Dialog...)"
 msgid "(Open External Dialog…)"
@@ -12815,6 +12815,11 @@ msgstr "Benutzer suchen ..."
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix extract language from code block."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#, kde-format
+msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
