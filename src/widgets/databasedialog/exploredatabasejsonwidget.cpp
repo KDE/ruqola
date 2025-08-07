@@ -5,6 +5,10 @@
 */
 
 #include "exploredatabasejsonwidget.h"
+#include "ruqolawidgets_debug.h"
+#include <KSyntaxHighlighting/Definition>
+#include <KSyntaxHighlighting/SyntaxHighlighter>
+#include <KSyntaxHighlighting/Theme>
 #include <QPlainTextEdit>
 #include <QVBoxLayout>
 
@@ -20,6 +24,16 @@ ExploreDatabaseJsonWidget::ExploreDatabaseJsonWidget(QWidget *parent)
     mPlainTextEdit->setObjectName(u"mPlainTextEdit"_s);
     mPlainTextEdit->setReadOnly(true);
     mainLayout->addWidget(mPlainTextEdit);
+
+    const KSyntaxHighlighting::Definition def = mRepo.definitionForName(u"Json"_s);
+    if (!def.isValid()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid definition name";
+    }
+
+    auto hl = new KSyntaxHighlighting::SyntaxHighlighter(mPlainTextEdit->document());
+    hl->setTheme((palette().color(QPalette::Base).lightness() < 128) ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                                                     : mRepo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
+    hl->setDefinition(def);
 }
 
 ExploreDatabaseJsonWidget::~ExploreDatabaseJsonWidget() = default;

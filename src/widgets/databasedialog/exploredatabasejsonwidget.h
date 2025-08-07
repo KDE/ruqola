@@ -6,6 +6,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "messages/message.h"
+#include <KSyntaxHighlighting/Repository>
 #include <QWidget>
 class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseJsonWidget : public QWidget
@@ -19,4 +20,5 @@ public:
 
 private:
     QPlainTextEdit *const mPlainTextEdit;
+    KSyntaxHighlighting::Repository mRepo;
 };
