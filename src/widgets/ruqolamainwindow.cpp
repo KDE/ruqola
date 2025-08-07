@@ -516,6 +516,12 @@ void RuqolaMainWindow::setupActions()
         connect(mShowRestApiLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowRestApiLogsFile);
         ac->addAction(u"show_ruqola_restapi_logs"_s, mShowRestApiLogsFile);
         menu->addAction(mShowRestApiLogsFile);
+
+        menu->addSeparator();
+        mShowDatabaseLogsFile = new QAction(u"Show Ruqola Database Logs…"_s, this);
+        connect(mShowDatabaseLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseLogsFile);
+        ac->addAction(u"show_ruqola_database_logs"_s, mShowDatabaseLogsFile);
+        menu->addAction(mShowDatabaseLogsFile);
     }
 
     mClearAlerts = new QAction(i18nc("@action", "Mark All Channels as Read"), this);
@@ -1027,11 +1033,15 @@ void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
     mAdministrationMenu->setEnabled(!loginPageActivated);
     mMessageStyleAction->setEnabled(!loginPageActivated);
     mChangeFontSizeAction->setEnabled(!loginPageActivated);
+    const bool enableLogsStatus = mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaLogger();
     if (mShowLogsFile) {
-        mShowLogsFile->setEnabled(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaLogger());
+        mShowLogsFile->setEnabled(enableLogsStatus);
     }
     if (mShowRestApiLogsFile) {
-        mShowRestApiLogsFile->setEnabled(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaLogger());
+        mShowRestApiLogsFile->setEnabled(enableLogsStatus);
+    }
+    if (mShowDatabaseLogsFile) {
+        mShowDatabaseLogsFile->setEnabled(enableLogsStatus);
     }
 }
 
@@ -1351,6 +1361,14 @@ void RuqolaMainWindow::slotShowLogsFile()
 void RuqolaMainWindow::slotShowRestApiLogsFile()
 {
     auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->restApiLoggerFilePath()), this);
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->setDeleteTemporaryFile(true);
+    job->start();
+}
+
+void RuqolaMainWindow::slotShowDatabaseLogsFile()
+{
+    auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->databaseLogFilePath()), this);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->setDeleteTemporaryFile(true);
     job->start();

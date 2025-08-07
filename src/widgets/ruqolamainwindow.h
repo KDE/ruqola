@@ -123,6 +123,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearRoomHistory();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowLogsFile();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowRestApiLogsFile();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowDatabaseLogsFile();
     LIBRUQOLAWIDGETS_NO_EXPORT void applicationSettings(ApplicationsSettingsSearchWidget::Feature feature);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateApplicationsSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddInviteServer(const AccountManager::AccountManagerInfo &info);
@@ -181,6 +182,7 @@ private:
     QAction *mShowAppsTranslation = nullptr;
     QAction *mShowLogsFile = nullptr;
     QAction *mShowRestApiLogsFile = nullptr;
+    QAction *mShowDatabaseLogsFile = nullptr;
 
     QAction *mImportAccountsAction = nullptr;
     QAction *mExportAccountsAction = nullptr;
