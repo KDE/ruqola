@@ -32,10 +32,10 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mImagePreview->setObjectName(u"mImagePreview"_s);
-    mainLayout->addWidget(mImagePreview, 0, Qt::AlignCenter);
+    mainLayout->addWidget(mImagePreview);
     mImagePreview->hide(); // Hide by default
-
-    mainLayout->addStretch(1);
+    mImagePreview->setScaledContents(true);
+    mImagePreview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     auto layout = new QFormLayout;
     layout->setObjectName(u"layout"_s);
@@ -96,12 +96,22 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
 void UploadFileWidget::setPixmap(const QPixmap &pix)
 {
     if (!pix.isNull()) {
+        mPix = pix;
         mImagePreview->setVisible(true);
-        const QSize s = QSize(600, 800) * screen()->devicePixelRatio();
-        const QPixmap p = pix.scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        mImagePreview->setMaximumSize(s);
+        const QSize s = QSize(200, 200) * screen()->devicePixelRatio();
+        const QPixmap p = mPix.scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        mImagePreview->setMinimumSize(s);
         mImagePreview->setPixmap(p);
         Q_EMIT uploadImage();
+    }
+}
+
+void UploadFileWidget::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+    if (!mImagePreview->pixmap().isNull()) {
+        const QPixmap pixmap = mPix.scaled(mImagePreview->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        mImagePreview->setPixmap(pixmap);
     }
 }
 

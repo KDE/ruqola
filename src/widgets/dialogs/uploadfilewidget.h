@@ -27,6 +27,9 @@ public:
 Q_SIGNALS:
     void uploadImage();
 
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 private:
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
@@ -34,4 +37,5 @@ private:
     QLabel *const mFileNameInfo;
     QLabel *const mMimeTypeLabel;
     QUrl mUrl;
+    QPixmap mPix;
 };
