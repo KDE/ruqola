@@ -29,7 +29,7 @@ PurposeMenuWidget::~PurposeMenuWidget()
     delete mShareMenu;
 }
 
-QByteArray PurposeMenuWidget::text()
+QByteArray PurposeMenuWidget::text() const
 {
     return mSelectedText.toUtf8();
 }
