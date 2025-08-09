@@ -5,6 +5,7 @@
 */
 
 #include "resizablepixmaplabel.h"
+#include <QDebug>
 #include <QScreen>
 
 ResizablePixmapLabel::ResizablePixmapLabel(QWidget *parent)
@@ -14,20 +15,22 @@ ResizablePixmapLabel::ResizablePixmapLabel(QWidget *parent)
 
 ResizablePixmapLabel::~ResizablePixmapLabel() = default;
 
-void ResizablePixmapLabel::setPixmap(const QPixmap &pix)
+void ResizablePixmapLabel::setCurrentPixmap(const QPixmap &pix)
 {
     mPix = pix;
     const QSize s = QSize(200, 200) * screen()->devicePixelRatio();
     const QPixmap p = mPix.scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     setMinimumSize(s);
-    QLabel::setPixmap(p);
+    setPixmap(p);
 }
 
 void ResizablePixmapLabel::resizeEvent(QResizeEvent *event)
 {
     QLabel::resizeEvent(event);
     if (!pixmap().isNull()) {
-        const QPixmap pixmap = mPix.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        const QPixmap pixmap = mPix.scaled(QSize(qMin(size().width(), mPix.size().width()), qMin(size().height(), mPix.size().height())),
+                                           Qt::KeepAspectRatio,
+                                           Qt::SmoothTransformation);
         setPixmap(pixmap);
     }
 }

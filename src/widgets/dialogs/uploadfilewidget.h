@@ -11,6 +11,7 @@
 #include <QWidget>
 class QLineEdit;
 class QLabel;
+class ResizablePixmapLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileWidget : public QWidget
 {
     Q_OBJECT
@@ -27,15 +28,11 @@ public:
 Q_SIGNALS:
     void uploadImage();
 
-protected:
-    void resizeEvent(QResizeEvent *event) override;
-
 private:
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
-    QLabel *const mImagePreview;
+    ResizablePixmapLabel *const mImagePreview;
     QLabel *const mFileNameInfo;
     QLabel *const mMimeTypeLabel;
     QUrl mUrl;
-    QPixmap mPix;
 };

@@ -5,7 +5,7 @@
 */
 
 #include "uploadfilewidget.h"
-using namespace Qt::Literals::StringLiterals;
+#include "common/resizablepixmaplabel.h"
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -16,14 +16,14 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 #include <QMimeDatabase>
-#include <QScreen>
 #include <QStyle>
+using namespace Qt::Literals::StringLiterals;
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)
     , mFileName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
-    , mImagePreview(new QLabel(this))
+    , mImagePreview(new ResizablePixmapLabel(this))
     , mFileNameInfo(new QLabel(this))
     , mMimeTypeLabel(new QLabel(this))
 {
@@ -34,7 +34,6 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     mImagePreview->setObjectName(u"mImagePreview"_s);
     mainLayout->addWidget(mImagePreview);
     mImagePreview->hide(); // Hide by default
-    mImagePreview->setScaledContents(true);
     mImagePreview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     auto layout = new QFormLayout;
@@ -96,22 +95,9 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
 void UploadFileWidget::setPixmap(const QPixmap &pix)
 {
     if (!pix.isNull()) {
-        mPix = pix;
+        mImagePreview->setCurrentPixmap(pix);
         mImagePreview->setVisible(true);
-        const QSize s = QSize(200, 200) * screen()->devicePixelRatio();
-        const QPixmap p = mPix.scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        mImagePreview->setMinimumSize(s);
-        mImagePreview->setPixmap(p);
         Q_EMIT uploadImage();
-    }
-}
-
-void UploadFileWidget::resizeEvent(QResizeEvent *event)
-{
-    QWidget::resizeEvent(event);
-    if (!mImagePreview->pixmap().isNull()) {
-        const QPixmap pixmap = mPix.scaled(mImagePreview->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        mImagePreview->setPixmap(pixmap);
     }
 }
 
