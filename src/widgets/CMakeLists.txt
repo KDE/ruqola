@@ -254,6 +254,8 @@ target_sources(
         common/teamroomcompletiondelegate.h
         common/usersforroommodeldelegate.cpp
         common/usersforroommodeldelegate.h
+        common/resizablepixmaplabel.h
+        common/resizablepixmaplabel.cpp
         configuredialog/accountservertreewidget.cpp
         configuredialog/accountservertreewidget.h
         configuredialog/configureaccountserverwidget.cpp
