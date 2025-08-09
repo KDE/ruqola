@@ -125,7 +125,8 @@ void DirectChannelInfoWidget::setUser(const User &user)
     mMainLayout->addRow(i18n("Timezone:"), timeZoneLabel);
 
     QDateTime dt = QDateTime::currentDateTimeUtc();
-    dt = dt.addSecs(60 * 60 * user.utcOffset());
+    constexpr int hours = 60 * 60;
+    dt = dt.addSecs(hours * user.utcOffset());
 
     auto localTimeLabel = new QLabel(this);
     localTimeLabel->setText(dt.time().toString());
