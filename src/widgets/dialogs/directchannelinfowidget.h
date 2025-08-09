@@ -15,6 +15,7 @@ class QLabel;
 class User;
 class QFormLayout;
 class RocketChatAccount;
+class ResizablePixmapLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -31,7 +32,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void fetchUserInfo(const QString &userName);
     LIBRUQOLAWIDGETS_NO_EXPORT void setUser(const User &user);
     QList<RoleInfo> mListRoleInfos;
-    QLabel *const mAvatar;
-    QFormLayout *const mMainLayout;
+    ResizablePixmapLabel *const mAvatar;
+    QFormLayout *const mFormLayout;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -5,6 +5,7 @@
 */
 
 #include "directchannelinfowidget.h"
+#include "common/resizablepixmaplabel.h"
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -19,15 +20,20 @@
 using namespace Qt::Literals::StringLiterals;
 DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mAvatar(new QLabel(this))
-    , mMainLayout(new QFormLayout(this))
+    , mAvatar(new ResizablePixmapLabel(this))
+    , mFormLayout(new QFormLayout)
     , mRocketChatAccount(account)
 {
-    mMainLayout->setObjectName(u"mainLayout"_s);
-    mMainLayout->setContentsMargins({});
+    mFormLayout->setObjectName(u"mFormLayout"_s);
+    mFormLayout->setContentsMargins({});
+
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(u"mainLayout"_s);
+    mainLayout->setContentsMargins({});
 
     mAvatar->setObjectName(u"mAvatar"_s);
-    mMainLayout->addWidget(mAvatar);
+    mainLayout->addWidget(mAvatar);
+    mainLayout->addLayout(mFormLayout);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget() = default;
@@ -77,8 +83,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     info.identifier = user.userName();
     const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
     if (!iconUrlStr.isEmpty()) {
-        const QSize pixmapAvatarSize = QSize(160, 160) * screen()->devicePixelRatio();
-        mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
+        mAvatar->setCurrentPixmap(QPixmap(iconUrlStr.toLocalFile()));
     }
 
     const QString name = user.name();
@@ -86,31 +91,31 @@ void DirectChannelInfoWidget::setUser(const User &user)
         auto nameLabel = new QLabel(this);
         nameLabel->setText(name);
         nameLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mMainLayout->addRow(i18n("Name:"), nameLabel);
+        mFormLayout->addRow(i18n("Name:"), nameLabel);
     }
 
     const QString userName = user.userName();
     if (!userName.isEmpty()) {
         auto userNameLabel = new QLabel(userName, this);
         userNameLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mMainLayout->addRow(i18n("Username:"), userNameLabel);
+        mFormLayout->addRow(i18n("Username:"), userNameLabel);
     }
 
     auto statusLabel = new QLabel(Utils::displaytextFromPresenceStatus(user.status()), this);
     statusLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Status:"), statusLabel);
+    mFormLayout->addRow(i18n("Status:"), statusLabel);
 
     const QString statusText = user.statusText();
     if (!statusText.isEmpty()) {
         auto customStatusLabel = new QLabel(statusText, this);
         customStatusLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mMainLayout->addRow(i18n("Custom Status:"), customStatusLabel);
+        mFormLayout->addRow(i18n("Custom Status:"), customStatusLabel);
     }
 
     if (!user.bio().isEmpty()) {
         auto bioLabel = new QLabel(user.bio(), this);
         bioLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mMainLayout->addRow(i18n("Bio:"), bioLabel);
+        mFormLayout->addRow(i18n("Bio:"), bioLabel);
     }
 
     auto timeZoneLabel = new QLabel(this);
@@ -122,7 +127,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
     timeZoneLabel->setText(urlStr);
     timeZoneLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Timezone:"), timeZoneLabel);
+    mFormLayout->addRow(i18n("Timezone:"), timeZoneLabel);
 
     QDateTime dt = QDateTime::currentDateTimeUtc();
     constexpr int hours = 60 * 60;
@@ -130,7 +135,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
 
     auto localTimeLabel = new QLabel(this);
     localTimeLabel->setText(dt.time().toString());
-    mMainLayout->addRow(i18n("Local Time:"), localTimeLabel);
+    mFormLayout->addRow(i18n("Local Time:"), localTimeLabel);
 
     const QStringList roles{user.roles()};
 
@@ -147,21 +152,21 @@ void DirectChannelInfoWidget::setUser(const User &user)
         }
         rolesLabel->setText(newRolesList.join(u", "_s));
         rolesLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mMainLayout->addRow(i18n("Roles:"), rolesLabel);
+        mFormLayout->addRow(i18n("Roles:"), rolesLabel);
     }
 
     const auto createdAt = user.createdAt();
     if (createdAt.isValid()) {
         auto createAtLabel = new QLabel(createdAt.date().toString(), this);
         createAtLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mMainLayout->addRow(i18n("Created At:"), createAtLabel);
+        mFormLayout->addRow(i18n("Created At:"), createAtLabel);
     }
 
     const auto lastLogin = user.lastLogin();
     if (lastLogin.isValid()) {
         auto lastLoginLabel = new QLabel(lastLogin.toString(), this);
         lastLoginLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mMainLayout->addRow(i18n("Last Login:"), lastLoginLabel);
+        mFormLayout->addRow(i18n("Last Login:"), lastLoginLabel);
     }
 
     const auto userEmailsInfo = user.userEmailsInfo();
@@ -172,7 +177,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
         emailsInfoLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
         emailsInfoLabel->setTextFormat(Qt::RichText);
         emailsInfoLabel->setOpenExternalLinks(true);
-        mMainLayout->addRow(i18n("Email:"), emailsInfoLabel);
+        mFormLayout->addRow(i18n("Email:"), emailsInfoLabel);
     }
 }
 

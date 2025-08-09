@@ -5,12 +5,13 @@
 */
 
 #include "directchannelinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/directchannelinfowidget.h"
 #include <QFormLayout>
 #include <QLabel>
 #include <QTest>
+#include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(DirectChannelInfoWidgetTest)
 DirectChannelInfoWidgetTest::DirectChannelInfoWidgetTest(QObject *parent)
     : QObject(parent)
@@ -21,9 +22,13 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
 {
     DirectChannelInfoWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mFormLayout = w.findChild<QFormLayout *>(u"mFormLayout"_s);
+    QVERIFY(mFormLayout);
+    QCOMPARE(mFormLayout->contentsMargins(), QMargins{});
 
     auto mAvatar = w.findChild<QLabel *>(u"mAvatar"_s);
     QVERIFY(mAvatar);
