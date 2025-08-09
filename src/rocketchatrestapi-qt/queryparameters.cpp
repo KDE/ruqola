@@ -172,3 +172,5 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::QueryParameters &t)
     d.space() << "useSyntaxRc70:" << t.useSyntaxRc70();
     return d;
 }
+
+#include "moc_queryparameters.cpp"
