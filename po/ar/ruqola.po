@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-08-06 14:02+0400\n"
+"PO-Revision-Date: 2025-08-09 23:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -390,7 +390,7 @@ msgstr "تخزين البيانات الداخلية في قاعدة البيا�
 #: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Modify Livechat custom field configuration"
-msgstr "تعديل تكوين الحقل المخصص للدردشة المباشرة"
+msgstr "تعديل ضبط الحقل المخصص للدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
@@ -460,7 +460,7 @@ msgstr "فشل الولوج: خطأ عام"
 #: core/authenticationmanager.cpp:101
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
-msgstr "مطلوب كلمة مرور لمرة واحدة لإكمال إجراء الولوج."
+msgstr "مطلوب كلمة سر لمرة واحدة لإكمال إجراء الولوج."
 
 #: core/authenticationmanager.cpp:103
 #: widgets/loginwidget/ruqolaloginwidget.cpp:168
@@ -6186,7 +6186,7 @@ msgstr "سر لينكد إن"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:126
 #, kde-format
 msgid "Proxy"
-msgstr "الوسيط"
+msgstr "الوكيل"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:131
 #, kde-format
@@ -8905,7 +8905,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Decrypt Encryption Key"
-msgstr "فك تعمية مفتاح التعمية"
+msgstr "مفتاح فك التعمية"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:18
 #, kde-format
@@ -8957,7 +8957,7 @@ msgstr "صفّر مفاتيح التعمية"
 #, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "فك ترميز المفتاح"
+msgstr "مفتاح فك الترميز"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:30
 #, kde-format
@@ -11469,7 +11469,7 @@ msgstr "التنقيح: استكشاف الترجمة من خادم روكت ت�
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
-msgstr "تنفيذ دعم واجهة المستخدم الإضافية (إنشاء مربع حوار لتكوين الإعدادات)."
+msgstr "تنفيذ دعم واجهة المستخدم الإضافية (إنشاء مربع حوار لضبط الإعدادات)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
