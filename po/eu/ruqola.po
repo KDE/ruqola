@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-07 18:30+0000\n"
-"PO-Revision-Date: 2025-07-31 00:08+0200\n"
+"POT-Creation-Date: 2025-08-10 00:43+0000\n"
+"PO-Revision-Date: 2025-08-09 12:55+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -2963,7 +2963,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:89
+#: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #, kde-format
@@ -3100,7 +3100,7 @@ msgstr "Editatu Erabiltzailearen-egoera"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:101
+#: widgets/dialogs/directchannelinfowidget.cpp:106
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3448,7 +3448,7 @@ msgstr "Erakutsi moderazio erabiltzaileak"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
-#: widgets/dialogs/directchannelinfowidget.cpp:174
+#: widgets/dialogs/directchannelinfowidget.cpp:180
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:41
 #, kde-format
@@ -3457,7 +3457,7 @@ msgstr "E-posta:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "Roles:"
 msgstr "Eginkizunak:"
@@ -3593,7 +3593,7 @@ msgstr "Erabili bi faktoreko kautotzea"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:55
 #: widgets/dialogs/channelinfoeditablewidget.cpp:71
 #: widgets/dialogs/channelinforeadonlywidget.cpp:49
-#: widgets/dialogs/uploadfilewidget.cpp:58
+#: widgets/dialogs/uploadfilewidget.cpp:57
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:29
 #, kde-format
 msgid "Description:"
@@ -4026,7 +4026,7 @@ msgid "Mark email as verified"
 msgstr "E-posta egiaztatu gisa markatu"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:96
+#: widgets/dialogs/directchannelinfowidget.cpp:101
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:41
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:35
@@ -4047,7 +4047,7 @@ msgid "Password:"
 msgstr "Pasahitza:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:118
 #, kde-format
 msgid "Bio:"
 msgstr "Bio:"
@@ -8449,42 +8449,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Erabiltzailearen informazioa"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:107
+#: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Custom Status:"
 msgstr "Neurrira ipinitako egoera:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:125
+#: widgets/dialogs/directchannelinfowidget.cpp:130
 #, kde-format
 msgid "Timezone:"
 msgstr "Ordu-eremua:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:132
+#: widgets/dialogs/directchannelinfowidget.cpp:138
 #, kde-format
 msgid "Local Time:"
 msgstr "Ordu lokala:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:162
 #, kde-format
 msgid "Created At:"
 msgstr "Noiz sortua:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:163
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Last Login:"
 msgstr "Azken saio-sarrera:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "Verified"
 msgstr "Egiaztatuta"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "Not verified"
 msgstr "Egiaztatu gabe"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -8894,7 +8894,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Zama-igo irudia"
 
-#: widgets/dialogs/uploadfilewidget.cpp:52
+#: widgets/dialogs/uploadfilewidget.cpp:51
 #, kde-format
 msgid "File Name:"
 msgstr "Fitxategi-izena:"
@@ -12182,6 +12182,8 @@ msgstr "Kode-bloketik lengoaia antzematea konpontzea."
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
+"\"Erakutsi kanalaren egunkaria\" elkarrizketa-koadroan eranskinen informazio "
+"konpontzea."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

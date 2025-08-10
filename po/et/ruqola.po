@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-07 18:30+0000\n"
+"POT-Creation-Date: 2025-08-10 00:43+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3139,7 +3139,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:89
+#: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #, kde-format
@@ -3294,7 +3294,7 @@ msgstr "Kasutaja kohandatud olek"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:101
+#: widgets/dialogs/directchannelinfowidget.cpp:106
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3669,7 +3669,7 @@ msgstr "Mainitud sõnumite näitamine"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
-#: widgets/dialogs/directchannelinfowidget.cpp:174
+#: widgets/dialogs/directchannelinfowidget.cpp:180
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:41
 #, fuzzy, kde-format
@@ -3679,7 +3679,7 @@ msgstr "E-post"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "Roles:"
 msgstr ""
@@ -3834,7 +3834,7 @@ msgstr "Autentimisviis"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:55
 #: widgets/dialogs/channelinfoeditablewidget.cpp:71
 #: widgets/dialogs/channelinforeadonlywidget.cpp:49
-#: widgets/dialogs/uploadfilewidget.cpp:58
+#: widgets/dialogs/uploadfilewidget.cpp:57
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:29
 #, kde-format
 msgid "Description:"
@@ -4327,7 +4327,7 @@ msgid "Mark email as verified"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:96
+#: widgets/dialogs/directchannelinfowidget.cpp:101
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:41
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:35
@@ -4349,7 +4349,7 @@ msgid "Password:"
 msgstr "Parool:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:118
 #, kde-format
 msgid "Bio:"
 msgstr ""
@@ -8887,46 +8887,46 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:107
+#: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Custom Status:"
 msgstr "Kohandatud olek:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:125
+#: widgets/dialogs/directchannelinfowidget.cpp:130
 #, fuzzy, kde-format
 #| msgid "TimeZone:"
 msgid "Timezone:"
 msgstr "Ajavöönd:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:132
+#: widgets/dialogs/directchannelinfowidget.cpp:138
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:162
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Created At:"
 msgstr "Konto loomine"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:163
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, fuzzy, kde-format
 #| msgid "Login"
 msgid "Last Login:"
 msgstr "Logi sisse"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "Verified"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, fuzzy, kde-format
 #| msgid "Not authorized"
 msgid "Not verified"
 msgstr "Pole autoriseeritud"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "%1 [%2]"
 msgstr ""
@@ -9376,7 +9376,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Pildi näitamine"
 
-#: widgets/dialogs/uploadfilewidget.cpp:52
+#: widgets/dialogs/uploadfilewidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "File:"
 msgid "File Name:"
