@@ -126,6 +126,7 @@
     <p xml:lang="nl">Het ondersteunt RC-functies:</p>
     <p xml:lang="pl">Obsługuje następujące cechy RC:</p>
     <p xml:lang="pt">Suporta as funcionalidades do RC:</p>
+    <p xml:lang="pt-BR">Ele suporta funcionalidades RC:</p>
     <p xml:lang="ru">Поддерживаются следующие возможности RC:</p>
     <p xml:lang="sl">Podpira možnosti RC:</p>
     <p xml:lang="sv">Det stöder RC-funktioner:</p>
@@ -155,6 +156,7 @@
       <li xml:lang="nl">Direct bericht</li>
       <li xml:lang="pl">Wiadomość bezpośrednia</li>
       <li xml:lang="pt">Mensagem Directa</li>
+      <li xml:lang="pt-BR">Mensagem direta</li>
       <li xml:lang="ru">Личное сообщение</li>
       <li xml:lang="sl">Neposredno sporočilo</li>
       <li xml:lang="sv">Direktmeddelande</li>
@@ -181,6 +183,7 @@
       <li xml:lang="nl">groepskanaal</li>
       <li xml:lang="pl">kanał grupy</li>
       <li xml:lang="pt">canal em grupo</li>
+      <li xml:lang="pt-BR">canal de grupo</li>
       <li xml:lang="ru">Группировка каналов</li>
       <li xml:lang="sl">skupinski kanal</li>
       <li xml:lang="sv">gruppkanal</li>
@@ -209,6 +212,7 @@
       <li xml:lang="nl">kanaal</li>
       <li xml:lang="pl">kanał</li>
       <li xml:lang="pt">canal</li>
+      <li xml:lang="pt-BR">canal</li>
       <li xml:lang="ru">Каналы</li>
       <li xml:lang="sl">kanal</li>
       <li xml:lang="sv">kanal</li>
@@ -235,6 +239,7 @@
       <li xml:lang="nl">Ondersteunt automatische vertaling (wanneer RC dat heeft)</li>
       <li xml:lang="pl">Obsługa samotłumaczenia (gdy RC to ma)</li>
       <li xml:lang="pt">Suporte para traduções automáticas (se o RC o suportar)</li>
+      <li xml:lang="pt-BR">Suporta tradução automática (quando o RC possui)</li>
       <li xml:lang="ru">Поддержка автоперевода (если предусмотрен в RC)</li>
       <li xml:lang="sl">Podpira samodejni prevod (kadar ga RC ima)</li>
       <li xml:lang="sv">Stöd automatisk översättning (när RC har det)</li>
@@ -261,6 +266,7 @@
       <li xml:lang="nl">Roommelding wordt geconfigureerd</li>
       <li xml:lang="pl">Ustawienia powiadomień pokoju</li>
       <li xml:lang="pt">Configuração das notificações da sala</li>
+      <li xml:lang="pt-BR">Configuração de notificação de sala</li>
       <li xml:lang="ru">Настройка уведомлений в комнатах</li>
       <li xml:lang="sl">Konfiguriranje obveščanja sobe</li>
       <li xml:lang="sv">Anpassa rumunderrättelser</li>
@@ -287,6 +293,7 @@
       <li xml:lang="nl">Room wordt geconfigureerd</li>
       <li xml:lang="pl">Ustawienia pokoju</li>
       <li xml:lang="pt">Configuração da sala</li>
+      <li xml:lang="pt-BR">Configuração de sala</li>
       <li xml:lang="ru">Настройка комнат</li>
       <li xml:lang="sl">Konfiguriranje sobe</li>
       <li xml:lang="sv">Anpassar rum</li>
@@ -313,6 +320,7 @@
       <li xml:lang="nl">Discussiebundeling van bericht wordt ondersteund</li>
       <li xml:lang="pl">Obsługa wiadomości w wątkach</li>
       <li xml:lang="pt">Suporte para mensagens por tópicos</li>
+      <li xml:lang="pt-BR">Suporte a mensagens em tópicos</li>
       <li xml:lang="ru">Поддержка веток сообщений</li>
       <li xml:lang="sl">Podpora niti sporočil</li>
       <li xml:lang="sv">Stöd meddelandetrådar</li>
@@ -339,6 +347,7 @@
       <li xml:lang="nl">Discussieroom</li>
       <li xml:lang="pl">Pokój rozmów</li>
       <li xml:lang="pt">Sala de discussão</li>
+      <li xml:lang="pt-BR">Sala de discussão</li>
       <li xml:lang="ru">Переговорные комнаты</li>
       <li xml:lang="sl">Debatna soba</li>
       <li xml:lang="sv">Diskussionsrum</li>
@@ -365,6 +374,7 @@
       <li xml:lang="nl">Ondersteuning van teamsroom</li>
       <li xml:lang="pl">Obsługa pokoju zespołu</li>
       <li xml:lang="pt">Suporte para sala de equipas</li>
+      <li xml:lang="pt-BR">Suporte a salas de equipes</li>
       <li xml:lang="ru">Поддержка комнат команд</li>
       <li xml:lang="sl">Podpora skupinske sobe</li>
       <li xml:lang="sv">Stöd rum för lag </li>
@@ -391,6 +401,7 @@
       <li xml:lang="nl">Eigen account wordt geconfigureerd</li>
       <li xml:lang="pl">Ustawienia własnego konta</li>
       <li xml:lang="pt">Configuração da própria conta</li>
+      <li xml:lang="pt-BR">Configurar sua própria conta</li>
       <li xml:lang="ru">Настройка своей учётной записи</li>
       <li xml:lang="sl">Konfiguriranje lastnega računa</li>
       <li xml:lang="sv">Anpassa eget konto</li>
@@ -417,6 +428,7 @@
       <li xml:lang="nl">Nieuwe account wordt geregistreerd</li>
       <li xml:lang="pl">Rejestracja nowego konta</li>
       <li xml:lang="pt">A registar uma nova conta</li>
+      <li xml:lang="pt-BR">Registrar nova conta</li>
       <li xml:lang="ru">Регистрация новой учётной записи</li>
       <li xml:lang="sl">Registracija novega računa</li>
       <li xml:lang="sv">Registrerar nytt konto</li>
@@ -443,6 +455,7 @@
       <li xml:lang="nl">Ondersteuning voor meerdere accounts</li>
       <li xml:lang="pl">Obsługa wielu kont</li>
       <li xml:lang="pt">Suporte para várias contas</li>
+      <li xml:lang="pt-BR">Suporte a múltiplas contas</li>
       <li xml:lang="ru">Поддержка работы с несколькими учётным записями</li>
       <li xml:lang="sl">Podpora multi računa</li>
       <li xml:lang="sv">Stöd flera konton</li>
@@ -469,6 +482,7 @@
       <li xml:lang="nl">Berichten zoeken in room</li>
       <li xml:lang="pl">Szukanie wiadomości w pokoju</li>
       <li xml:lang="pt">Pesquisa de mensagens na sala</li>
+      <li xml:lang="pt-BR">Pesquisa de mensagem na sala</li>
       <li xml:lang="ru">Поиск сообщений в комнате</li>
       <li xml:lang="sl">Iskanje sporočila v sobi</li>
       <li xml:lang="sv">Sök efter meddelande i rum</li>
@@ -494,6 +508,7 @@
       <li xml:lang="nl">Noemen tonen/bijlage/vastgezet bericht/startbericht</li>
       <li xml:lang="pl">Pokazywanie wspomnień/załączników/przypiętych wiadomości/wiadomości początkowej</li>
       <li xml:lang="pt">Mostrar as menções/anexos/mensagens fixas/mensagens iniciais</li>
+      <li xml:lang="pt-BR">Mostrar menção/anexo/mensagem fixada/mensagem inicial</li>
       <li xml:lang="ru">Показ упоминаний/вложений/закреплённых сообщений/начального сообщения</li>
       <li xml:lang="sl">Prikaz omembe/priloge/pripetega sporočila/začetnega sporočila</li>
       <li xml:lang="sv">Visa omnämnande, bilaga, fästa meddelanden, startmeddelanden</li>
@@ -520,6 +535,7 @@
       <li xml:lang="nl">Ondersteuning van emoji</li>
       <li xml:lang="pl">Obsługa emoji</li>
       <li xml:lang="pt">Suporte para emojis</li>
+      <li xml:lang="pt-BR">Suporte à emoji</li>
       <li xml:lang="ru">Поддержка смайликов</li>
       <li xml:lang="sl">Podpora čustvenčkom</li>
       <li xml:lang="sv">Stöd emoji</li>
@@ -547,6 +563,7 @@
       <li xml:lang="nl">Ondersteuning video</li>
       <li xml:lang="pl">Obsługa filmów</li>
       <li xml:lang="pt">Suporte para vídeo</li>
+      <li xml:lang="pt-BR">Suporte à vídeo</li>
       <li xml:lang="ru">Поддержка видео</li>
       <li xml:lang="sl">Podpora videa</li>
       <li xml:lang="sv">Videostöd</li>
@@ -572,6 +589,7 @@
       <li xml:lang="nl">Ondersteuning van configuratie door beheerder (toevoegen/verwijderen van rollen, toevoegen/verwijderen van gebruikers, toevoegen/verwijderen van rechten, rooms configureren etc.)</li>
       <li xml:lang="pl">Ustawienia obsługi administratora (dodawanie/usuwanie ról, -użytkowników, -uprawnień, ustawianie pokojów, itp.)</li>
       <li xml:lang="pt">Suporte para a configuração do administrador (adição/remoção de perfis, adição/remoção de utilizadores, adição/remoção de permissões, configuração das salas, etc.)</li>
+      <li xml:lang="pt-BR">Configurar o suporte do administrador (adicionar/remover funções, adicionar/remover usuários, adicionar/remover permissões, configurar salas etc.)</li>
       <li xml:lang="ru">Настройка параметров администрирования (добавление/удаление ролей, добавление/удаление пользователей, добавление/удаление прав, настройка комнат и так далее)</li>
       <li xml:lang="sl">Konfiguriranje podpore skrbnika (dodajanje/odstranjevanje vlog, dodajanje/odstranjevanje uporabnikov, dodajanje/odstranjevanje dovoljenj, konfiguriranje sob itd.)</li>
       <li xml:lang="sv">Anpassa administratörsstöd (lägg till/ta bort roller, lägg till/ta bort användare, lägg till/ta bort rättigheter, anpassa rum, etc.)</li>
@@ -598,6 +616,7 @@
       <li xml:lang="nl">Ondersteuning van OTR (werk-in-uitvoering)</li>
       <li xml:lang="pl">Obsługa OTR (w trakcie)</li>
       <li xml:lang="pt">Suporte para OTR (em curso)</li>
+      <li xml:lang="pt-BR">Suporte ao OTR (em progresso)</li>
       <li xml:lang="ru">Поддержка OTR (в работе)</li>
       <li xml:lang="sl">Podpora OTS (v razvoju)</li>
       <li xml:lang="sv">Stöd OTR (pågår)</li>
@@ -624,6 +643,7 @@
       <li xml:lang="nl">Ondersteuning van gif-afbeelding</li>
       <li xml:lang="pl">Obsługa obrazów GIF</li>
       <li xml:lang="pt">Suporte para imagens GIF</li>
+      <li xml:lang="pt-BR">suporte a imagem gif</li>
       <li xml:lang="ru">Поддержка GIF-изображений</li>
       <li xml:lang="sl">podpora slik gif</li>
       <li xml:lang="sv">stöd GIF-bild</li>
@@ -650,6 +670,7 @@
       <li xml:lang="nl">Ondersteuning toevoegen voor uploaden van bijgevoegde bestanden</li>
       <li xml:lang="pl">Dodanie obsługi wysyłania załączników</li>
       <li xml:lang="pt">Adição do suporte para o envio de ficheiros em anexo</li>
+      <li xml:lang="pt-BR">Adiciona suporte para enviar arquivos anexos</li>
       <li xml:lang="ru">Поддержка отправки файлов вложений</li>
       <li xml:lang="sl">Dodajanje podpore za prenos priloženih datotek tja</li>
       <li xml:lang="sv">Lägg till stöd för uppladdning av bilagor</li>
@@ -676,6 +697,7 @@
       <li xml:lang="nl">Informatie over ongelezen berichten tonen</li>
       <li xml:lang="pl">Pokazywanie liczby nieprzeczytanych wiadomości</li>
       <li xml:lang="pt">Mostrar informações de mensagens não-lidas</li>
+      <li xml:lang="pt-BR">Mostrar informações de mensagens não lidas</li>
       <li xml:lang="ru">Показ сведений о непрочитанных сообщениях</li>
       <li xml:lang="sl">Prikaz informacij neprebranih sporočil</li>
       <li xml:lang="sv">Visa information om olästa meddelanden</li>
@@ -702,6 +724,7 @@
       <li xml:lang="nl">Toestaan gebruikers te blokkeren/dit opheffen</li>
       <li xml:lang="pl">Zezwolenie na blokowanie/odblokowywanie użytkowników</li>
       <li xml:lang="pt">Permitir o bloqueio/desbloqueio de utilizadores</li>
+      <li xml:lang="pt-BR">Permite bloquear/desbloquear usuários</li>
       <li xml:lang="ru">Блокировка и разблокировка пользователей</li>
       <li xml:lang="sl">Dovoljuje blokado/deblokado uporabnikov</li>
       <li xml:lang="sv">Tillåt att blockera och avblockera användare</li>
@@ -729,6 +752,7 @@
       <li xml:lang="nl">Automatisch afwezig</li>
       <li xml:lang="pl">Samowolna nieobecność</li>
       <li xml:lang="pt">Ausência automática</li>
+      <li xml:lang="pt-BR">Ausência automática</li>
       <li xml:lang="ru">Автоустановка отсутствия</li>
       <li xml:lang="sl">Samodejno zapuščanje sej</li>
       <li xml:lang="sv">Automatiskt frånvaro</li>
@@ -755,6 +779,7 @@
       <li xml:lang="nl">Twee-factor-authenticatie via TOTP</li>
       <li xml:lang="pl">Dwuskładnikowe uwierzytelnianie przez TOTP</li>
       <li xml:lang="pt">Autenticação em dois-passos por TOTP</li>
+      <li xml:lang="pt-BR">Autenticação de dois fatores via TOTP</li>
       <li xml:lang="ru">Двухфакторная аутентификация с помощью TOTP</li>
       <li xml:lang="sl">Dvo-faktorska avtentikacija prek TOTP</li>
       <li xml:lang="sv">Tvåfaktorsbehörighetskontroll via TOTP</li>
@@ -781,6 +806,7 @@
       <li xml:lang="nl">Twee-factor-authenticatie via e-mail</li>
       <li xml:lang="pl">Dwuskładnikowe uwierzytelnianie przez pocztę</li>
       <li xml:lang="pt">Autenticação em dois-passos por e-mail</li>
+      <li xml:lang="pt-BR">Autenticação de dois fatores via e-mail</li>
       <li xml:lang="ru">Двухфакторная аутентификация с помощью электронной почты</li>
       <li xml:lang="sl">Dvo-faktorska avtentikacija prek elektronske pošte</li>
       <li xml:lang="sv">Tvåfaktorsbehörighetskontroll via e-post</li>
@@ -806,6 +832,7 @@
       <li xml:lang="nl">Ondersteuning van beheerder (Serverinformatie, Rooms, Aangepaste status van gebruiker, Aangepaste geluiden, Aangepaste emoji, Gebruikers, Uitnodigingen, Log bekijken, Rechten, Rollen, Oauth), Instellingen van beheerder (Bericht, Account, Bewaarbeleid, Uploaden van bestanden, Versleuteling)</li>
       <li xml:lang="pl">Obsługa administratora (Szczegóły serwera, pokoje, własne stany użytkownika, własne dźwięki, własne emoji, użytkownicy, zaproszenia, oglądanie dziennika, uprawnienia, role, Oauth), Ustawienia administrator (wiadomość, konto, zasady przechowywania, wysyłanie plików, szyfrowanie)</li>
       <li xml:lang="pt">Suporte para a administração (Informação do Servidor, Salas, Estados Personalizados do Utilizador, Sons Personalizados, Ícones Emotivos Personalizados, Utilizadores, Convites, Visualização do Registo, Permissões, Perfis, OAuth) e configuração do administrador (Mensagem, Conta, Política de Retenção, Envio de Ficheiros, Encriptação)</li>
+      <li xml:lang="pt-BR">Suporte do administrador (Informações do servidor, Salas, Status de usuário personalizado, Sons personalizados, Emoji personalizado, Usuários, Convites, Visualizar log, Permissões, Funções, OAuth), Configurações do administrador (Mensagem, Conta, Política de retenção, Envio de arquivo, Criptografia)</li>
       <li xml:lang="ru">Поддержка администрирования (Сведения о сервере, Комнаты, Нестандартный статус пользователя, Нестандартные звуки, Нестандартные смайлики, Пользователи, Приглашения, Просмотр журнала, Права, Роли, Oauth), параметры администрирования (Сообщение, Учётная запись, Политика хранения, Отправка файлов, Шифрование)</li>
       <li xml:lang="sl">Podpora skrbniku (informacije o strežniku, sobe, stanje uporabnikov po meri, zvoki po meri, čustvenčki po meri, uporabniki, vabila, ogled dnevnika, dovoljenja, vloge, prisege), nastavitve skrbnika (sporočilo, račun, pravilnik shranjevanja, prenos datotek tja, šifriranje)</li>
       <li xml:lang="sv">Administratörsstöd (serverinformation, rum, anpassad användarstatus, anpassade ljud, anpassade emoji, inbjudningar, loggvisning, rättigheter, roller, Oauth), administratörsinställningar (meddelanden, konton, bibehållandepolicy, filuppladdning, kryptering)</li>
@@ -833,6 +860,7 @@
       <li xml:lang="nl">Berichten exporteren</li>
       <li xml:lang="pl">Wyeksportuj wiadomości</li>
       <li xml:lang="pt">Exportar as Mensagens</li>
+      <li xml:lang="pt-BR">Exportar mensagens</li>
       <li xml:lang="ru">Экспорт сообщений</li>
       <li xml:lang="sl">Izvozi sporočila</li>
       <li xml:lang="sv">Exportera meddelanden</li>
@@ -859,6 +887,7 @@
       <li xml:lang="nl">Videoconferentie</li>
       <li xml:lang="pl">Wideokonferencja</li>
       <li xml:lang="pt">Vídeo-Conferência</li>
+      <li xml:lang="pt-BR">Vídeo-Conferência</li>
       <li xml:lang="ru">Видеоконференция</li>
       <li xml:lang="sl">Video konferenca</li>
       <li xml:lang="sv">Videokonferens</li>
@@ -888,6 +917,7 @@
     <p xml:lang="nl">Extra mogelijkheden:</p>
     <p xml:lang="pl">Dodatkowe możliwości:</p>
     <p xml:lang="pt">Funcionalidades extra:</p>
+    <p xml:lang="pt-BR">Funcionalidades adicionais:</p>
     <p xml:lang="ru">Дополнительные возможности:</p>
     <p xml:lang="sl">Ekstra možnosti:</p>
     <p xml:lang="sv">Extrafunktioner:</p>
@@ -914,6 +944,7 @@
       <li xml:lang="nl">Toestaan om directe op een bericht uit een melding te antwoorden (kde functies)</li>
       <li xml:lang="pl">Zezwala na bezpośrednie odpowiadanie na wiadomość z powiadomienia o niej (możliwe w KDE)</li>
       <li xml:lang="pt">Possibilidade de responder directamente à mensagem a partir da notificação (no KDE)</li>
+      <li xml:lang="pt-BR">Permitir responder diretamente à mensagem a partir da notificação (funcionalidade do KDE)</li>
       <li xml:lang="ru">Ответ на сообщение непосредственно из уведомления (возможности KDE)</li>
       <li xml:lang="sl">Dovoljuje, neposredne odgovore na sporočilo iz obvestila (možnosti KDE)</li>
       <li xml:lang="sv">Tillåt att svara direkt på meddelande från underrättelser (KDE-funktion)</li>
@@ -937,6 +968,7 @@
       <li xml:lang="ka">გადაათრიეთ და დააგდეთ გამოსახულება ruqola-დან ვებსაიტამდე ან ლოკალურ საქაღალდემდე</li>
       <li xml:lang="nl">Afbeelding uit ruqola slepen  en loslaten naar website of lokale map</li>
       <li xml:lang="pl">Przeciągnij i upuść obraz ze strony sieciowej ruqoli do katalogu lokalnego</li>
+      <li xml:lang="pt-BR">Arrastar e soltar imagem do ruqola para o site ou pasta local</li>
       <li xml:lang="ru">Перетаскивание изображения из Ruqola на веб-сайт или в локальную папку</li>
       <li xml:lang="sl">Povlecite in spustite sliko iz ruqole na spletno mesto ali lokalno mapo</li>
       <li xml:lang="sv">Dra och släpp bild från Ruqola till webbplats eller lokal katalog</li>
@@ -959,6 +991,7 @@
       <li xml:lang="nl">Bericht in lokale database opslaan zodat we offline kunnen zoeken</li>
       <li xml:lang="pl">Przechowywanie wiadomości w miejscowej bazie danych do późniejszego wyszukiwania</li>
       <li xml:lang="pt">Armazenamento da mensagem na base de dados local, para que possa ser pesquisada mesmo sem rede</li>
+      <li xml:lang="pt-BR">Armazenar a mensagem no banco de dados local para que possamos pesquisar offline</li>
       <li xml:lang="ru">Хранение сообщений в локальной базе данных (позволяет выполнять поиск в автономном режиме)</li>
       <li xml:lang="sl">Shrani sporočilo v lokalni bazi podatkov, da jo bomo lahko iskali tudi brez povezave</li>
       <li xml:lang="sv">Lagra meddelanden i lokal databas så de går att söka i nerkopplad</li>
@@ -985,6 +1018,7 @@
       <li xml:lang="nl">Alle kanalen markeren als gelezen</li>
       <li xml:lang="pl">Oznacz wszystkie kanały jako przeczytane</li>
       <li xml:lang="pt">Marcação de todos os canais como lidos</li>
+      <li xml:lang="pt-BR">Marcar todos os canais como lidos</li>
       <li xml:lang="ru">Отметка всех каналов как прочитанных</li>
       <li xml:lang="sl">Označi vsa sporočila kot prebrana</li>
       <li xml:lang="sv">Markera alla kanaler som lästa</li>
@@ -1011,6 +1045,7 @@
       <li xml:lang="nl">Geschiedenis van meldingen toevoegen</li>
       <li xml:lang="pl">Dodanie historii powiadomień</li>
       <li xml:lang="pt">Adição do histórico de notificações</li>
+      <li xml:lang="pt-BR">Adicionar histórico de notificação</li>
       <li xml:lang="ru">История уведомлений</li>
       <li xml:lang="sl">Dodaj zgodovino obvestil</li>
       <li xml:lang="sv">Lägg till underrättelsehistorik</li>
@@ -1036,6 +1071,7 @@
       <li xml:lang="nl">Nieuwe informatieondersteuning voor RocketChat-server</li>
       <li xml:lang="pl">Nowa obsługa szczegółów serwera RocketChat</li>
       <li xml:lang="pt">Nova Informação de Suporte do Servidor RocketChat</li>
+      <li xml:lang="pt-BR">Suporte à informações do novo Servidor RocketChat</li>
       <li xml:lang="ru">Поддержка сведений о сервере RocketChat</li>
       <li xml:lang="sl">Informacijska podpora novemu strežniku RocketChat</li>
       <li xml:lang="sv">Stöd för information om ny RocketChat-server</li>
@@ -1063,6 +1099,7 @@
       <li xml:lang="nl">Apparaat beheren (RC &gt;= 5.0)</li>
       <li xml:lang="pl">Zarządzanie urządzeniami (RC &gt;= 5.0)</li>
       <li xml:lang="pt">Gerir o Dispositivo (RC &gt;= 5.0)</li>
+      <li xml:lang="pt-BR">Gerenciar dispositivos (RC &gt;= 5.0)</li>
       <li xml:lang="ru">Управление устройством (RC &gt;= 5.0)</li>
       <li xml:lang="sl">Upravljaj napravo (RC &gt;= 5.0)</li>
       <li xml:lang="sv">Hantera enhet (RC ≥ 5.0)</li>
@@ -1089,6 +1126,7 @@
       <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
       <li xml:lang="pl">Zarządzanie osobistym tokenem dostępowym</li>
       <li xml:lang="pt">Gerir o Código de Acesso Pessoal</li>
+      <li xml:lang="pt-BR">Gerenciar tokens de acesso pessoal</li>
       <li xml:lang="ru">Управление личным маркером доступа</li>
       <li xml:lang="sl">Upravljaj žeton za osebni dostop</li>
       <li xml:lang="sv">Hantera personlig åtkomstsymbol</li>
@@ -1116,6 +1154,7 @@
       <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
       <li xml:lang="pl">Dodanie obsługi dla miejscowych tłumaczeń</li>
       <li xml:lang="pt">Adição do suporte para traduções locais</li>
+      <li xml:lang="pt-BR">Adicionar suporte para tradução local</li>
       <li xml:lang="ru">Добавление поддержки локального перевода</li>
       <li xml:lang="sl">Dodajanje podpore za lokalni prevod</li>
       <li xml:lang="sv">Lägg till stöd för lokal översättning</li>
@@ -1143,6 +1182,7 @@
       <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van tekst</li>
       <li xml:lang="pl">Dodanie obsługi poprawiania tekstu</li>
       <li xml:lang="pt">Adição do suporte para a correcção automática do texto</li>
+      <li xml:lang="pt-BR">Adicionar suporte para auto-correção de texto</li>
       <li xml:lang="ru">Добавление поддержки автоматического исправления текста</li>
       <li xml:lang="sl">Dodaj podporo za samodejno popravljanje besedila</li>
       <li xml:lang="sv">Lägg till stöd för automatisk textkorrigering</li>
