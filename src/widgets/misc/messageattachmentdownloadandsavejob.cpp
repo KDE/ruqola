@@ -111,20 +111,18 @@ void MessageAttachmentDownloadAndSaveJob::start()
     }
 
     if (mInfo.needToDownloadAttachment) {
-        if (mRocketChatAccount) {
-            mProgressDialogBox = new QProgressDialog(mInfo.parentWidget);
-            assignProgressDialogStr(mProgressDialogBox);
-            mProgressDialogBox->reset();
-            mProgressDialogBox->setRange(0, 0);
-            mProgressDialogBox->setValue(0);
-            mProgressDialogBox->setModal(true);
-            mProgressDialogBox->setAutoClose(false);
-            mProgressDialogBox->setAutoReset(false);
-            mProgressDialogBox->setMinimumDuration(0);
-            connect(mProgressDialogBox, &QProgressDialog::canceled, this, &MessageAttachmentDownloadAndSaveJob::slotDownloadCancel);
-            connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageAttachmentDownloadAndSaveJob::slotFileDownloaded);
-            (void)mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.attachmentPath);
-        }
+        mProgressDialogBox = new QProgressDialog(mInfo.parentWidget);
+        assignProgressDialogStr(mProgressDialogBox);
+        mProgressDialogBox->reset();
+        mProgressDialogBox->setRange(0, 0);
+        mProgressDialogBox->setValue(0);
+        mProgressDialogBox->setModal(true);
+        mProgressDialogBox->setAutoClose(false);
+        mProgressDialogBox->setAutoReset(false);
+        mProgressDialogBox->setMinimumDuration(0);
+        connect(mProgressDialogBox, &QProgressDialog::canceled, this, &MessageAttachmentDownloadAndSaveJob::slotDownloadCancel);
+        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageAttachmentDownloadAndSaveJob::slotFileDownloaded);
+        (void)mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.attachmentPath);
     } else {
         Q_EMIT downloadDone(mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.attachmentPath).toLocalFile());
     }
