@@ -92,7 +92,7 @@
 #include <KWindowSystem>
 #endif
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-#include "misc/verifynewversionwidgetaction.h"
+#include "verifynewversionwidget/verifynewversionwidgetaction.h"
 #endif
 
 #if HAVE_KUSERFEEDBACK
