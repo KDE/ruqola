@@ -15,9 +15,9 @@ using namespace Qt::Literals::StringLiterals;
 
 RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
     : AbstractWebSocket(parent)
+    , mLogger(logger)
     , mWebSocket(new QWebSocket)
 {
-    mLogger = logger;
     connect(mWebSocket, &QWebSocket::connected, this, [this]() {
         qDebug(RUQOLA_RECONNECT_LOG) << "QWebSocket emitted connected";
         Q_EMIT connected();
