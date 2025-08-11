@@ -93,11 +93,11 @@ void RuqolaLogger::dataReceived(const QByteArray &data)
 void RuqolaLogger::dataLoadFromDatabase(const QByteArray &data)
 {
     mDatabaseLogFile.write('[' + QDateTime::currentDateTime().toString().toUtf8() + "] Load: " + data.trimmed() + '\n');
-    mLoggerFile.flush();
+    mDatabaseLogFile.flush();
 }
 
 void RuqolaLogger::dataSaveFromDatabase(const QByteArray &data)
 {
     mDatabaseLogFile.write("Save: " + data.trimmed() + '\n');
-    mLoggerFile.flush();
+    mDatabaseLogFile.flush();
 }
