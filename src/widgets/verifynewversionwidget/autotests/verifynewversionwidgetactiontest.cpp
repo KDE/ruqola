@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "verifynewversionwidgetactiontest.h"
-#include "misc/verifynewversionwidgetaction.h"
+#include "verifynewversionwidget/verifynewversionwidgetaction.h"
 #include <QTest>
 QTEST_MAIN(VerifyNewVersionWidgetActionTest)
 VerifyNewVersionWidgetActionTest::VerifyNewVersionWidgetActionTest(QObject *parent)

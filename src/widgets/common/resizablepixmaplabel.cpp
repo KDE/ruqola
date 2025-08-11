@@ -18,6 +18,7 @@ ResizablePixmapLabel::~ResizablePixmapLabel() = default;
 void ResizablePixmapLabel::setCurrentPixmap(const QPixmap &pix)
 {
     mPix = pix;
+    qDebug() << " mPix " << mPix;
     const QSize s = QSize(200, 200) * screen()->devicePixelRatio();
     const QPixmap p = mPix.scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     setMinimumSize(s);
@@ -32,6 +33,8 @@ void ResizablePixmapLabel::resizeEvent(QResizeEvent *event)
                                            Qt::KeepAspectRatio,
                                            Qt::SmoothTransformation);
         setPixmap(pixmap);
+        // qDebug() << " pixmap.size " << pixmap.size();
+        // qDebug() << " mPix.size " << mPix.size();
     }
 }
 

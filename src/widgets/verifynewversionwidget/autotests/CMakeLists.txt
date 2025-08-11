@@ -12,3 +12,4 @@ macro(add_ruqola_verifynewversionwidget_test _source)
 endmacro()
 
 add_ruqola_verifynewversionwidget_test(verifynewversionwidgettest.cpp)
+add_ruqola_verifynewversionwidget_test(verifynewversionwidgetactiontest.cpp)

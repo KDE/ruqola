@@ -529,8 +529,6 @@ target_sources(
         misc/soundconfigurewidget.cpp
         misc/configuresoundcombobox.h
         misc/configuresoundcombobox.cpp
-        misc/verifynewversionwidgetaction.h
-        misc/verifynewversionwidgetaction.cpp
         misc/passwordvalidatewidget.h
         misc/passwordvalidatewidget.cpp
         myaccount/myaccount2e2configurewidget.cpp
@@ -912,6 +910,8 @@ target_sources(
         verifynewversionwidget/verifynewversionwidget.cpp
         verifynewversionwidget/verifynewversiondialog.h
         verifynewversionwidget/verifynewversiondialog.cpp
+        verifynewversionwidget/verifynewversionwidgetaction.h
+        verifynewversionwidget/verifynewversionwidgetaction.cpp
         dialogs/searchmessagelinewidget.h
         dialogs/searchmessagelinewidget.cpp
         autogenerateui/autogenerateinteractionui.h
