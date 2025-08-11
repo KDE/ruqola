@@ -98,6 +98,6 @@ void RuqolaLogger::dataLoadFromDatabase(const QByteArray &data)
 
 void RuqolaLogger::dataSaveFromDatabase(const QByteArray &data)
 {
-    mDatabaseLogFile.write("Save: " + data.trimmed() + '\n');
+    mDatabaseLogFile.write('[' + QDateTime::currentDateTime().toString().toUtf8() + "] Save: " + data.trimmed() + '\n');
     mDatabaseLogFile.flush();
 }

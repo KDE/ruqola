@@ -52,7 +52,8 @@ void LocalMessagesDatabase::addMessage(const QString &accountName, const QString
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("add message in " + accountName.toUtf8() + " roomName " + roomName.toUtf8() + " message id " + m.messageId());
+            mRuqolaLogger->dataSaveFromDatabase("add message in account " + accountName.toUtf8() + " in roomName " + roomName.toUtf8() + " for message id "
+                                                + m.messageId());
         }
     }
 }
