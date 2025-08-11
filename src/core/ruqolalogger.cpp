@@ -12,8 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDateTime>
 #include <QFileInfo>
 
-RuqolaLogger::RuqolaLogger(const QString &accountName)
-
+RuqolaLogger::RuqolaLogger(const QString &accountName, QObject *parent)
+    : RocketChatRestApi::AbstractLogger(parent)
 {
     static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;

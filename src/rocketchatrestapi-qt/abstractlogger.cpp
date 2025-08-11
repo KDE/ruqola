@@ -8,6 +8,9 @@
 
 using namespace RocketChatRestApi;
 
-AbstractLogger::AbstractLogger() = default;
+AbstractLogger::AbstractLogger(QObject *parent)
+    : QObject(parent)
+{
+}
 
 AbstractLogger::~AbstractLogger() = default;

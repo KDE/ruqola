@@ -10,15 +10,14 @@ using namespace Qt::Literals::StringLiterals;
 #include "config-ruqola.h"
 #include "ruqola_debug.h"
 #include "ruqola_reconnect_core_debug.h"
-#include "ruqolalogger.h"
 
 #include <QWebSocket>
 
 RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
     : AbstractWebSocket(parent)
-    , mLogger(logger)
     , mWebSocket(new QWebSocket)
 {
+    mLogger = logger;
     connect(mWebSocket, &QWebSocket::connected, this, [this]() {
         qDebug(RUQOLA_RECONNECT_LOG) << "QWebSocket emitted connected";
         Q_EMIT connected();

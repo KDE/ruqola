@@ -12,7 +12,7 @@
 class LIBRUQOLACORE_EXPORT RuqolaLogger : public RocketChatRestApi::AbstractLogger
 {
 public:
-    explicit RuqolaLogger(const QString &accountName = QString());
+    explicit RuqolaLogger(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RuqolaLogger() override;
     void dataSent(const QByteArray &data) override;
     void dataSent(DataType type, const QByteArray &label, const QByteArray &data) override;

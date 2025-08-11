@@ -7,9 +7,9 @@
 #pragma once
 
 #include "abstractwebsocket.h"
-
+#include "ruqolalogger.h"
+#include <QPointer>
 class QWebSocket;
-class RuqolaLogger;
 class RuqolaWebSocket : public AbstractWebSocket
 {
     Q_OBJECT
@@ -35,6 +35,6 @@ private:
     void slotTextMessageReceived(const QString &msg);
     void slotError(QAbstractSocket::SocketError error);
 
-    RuqolaLogger *const mLogger;
+    QPointer<RuqolaLogger> mLogger;
     QWebSocket *const mWebSocket;
 };

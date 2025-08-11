@@ -6,14 +6,16 @@
 
 #pragma once
 #include "librocketchatrestapi-qt_export.h"
+#include <QObject>
 class QByteArray;
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT AbstractLogger
+class LIBROCKETCHATRESTAPI_QT_EXPORT AbstractLogger : public QObject
 {
+    Q_OBJECT
 public:
-    AbstractLogger();
+    explicit AbstractLogger(QObject *parent = nullptr);
     virtual ~AbstractLogger();
 
     enum DataType {

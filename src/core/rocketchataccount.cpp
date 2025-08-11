@@ -300,7 +300,6 @@ RocketChatAccount::~RocketChatAccount()
     mCache = nullptr;
 
     delete mRuqolaServerConfig;
-    delete mRuqolaLogger;
     delete mAccountRoomSettings;
 }
 
