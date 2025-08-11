@@ -158,6 +158,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
     }
 
+    if (mRuqolaLogger) {
+        mLocalDatabaseManager->setDatabaseLogger(mRuqolaLogger);
+    }
     mServerConfigInfo = new ServerConfigInfo(this, this);
     // Create it before loading settings
 
