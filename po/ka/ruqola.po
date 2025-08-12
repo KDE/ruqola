@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:43+0000\n"
+"POT-Creation-Date: 2025-08-12 00:42+0000\n"
 "PO-Revision-Date: 2025-08-07 04:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1782,7 +1782,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:682
+#: core/rocketchataccount.cpp:684
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1791,12 +1791,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:692 core/rocketchataccount.cpp:704
 #, kde-format
 msgid "Not connected"
 msgstr "არაა დაკავშირებული"
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid "Not connected yet"
 msgstr "არაა დაკავშირებული"
@@ -9495,11 +9495,6 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "ახალი კოდის გაგზავნა"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:31
-#, kde-format
-msgid "Check New Version"
-msgstr "ახალი ვერსიის შემოწმება"
-
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:25
 #, kde-format
 msgctxt "@action:button"
@@ -11528,6 +11523,11 @@ msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
 "აღმოჩენილია ახალი ვერსია. ამ აგებული ვერსიის პოვნა შეგიძლიათ <a href="
 "\"%1\">აქ</a>."
+
+#: widgets/verifynewversionwidget/verifynewversionwidgetaction.cpp:31
+#, kde-format
+msgid "Check New Version"
+msgstr "ახალი ვერსიის შემოწმება"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

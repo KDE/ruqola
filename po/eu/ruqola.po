@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:43+0000\n"
-"PO-Revision-Date: 2025-08-09 12:55+0200\n"
+"POT-Creation-Date: 2025-08-12 00:42+0000\n"
+"PO-Revision-Date: 2025-08-11 14:18+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1800,7 +1800,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira…"
 
-#: core/rocketchataccount.cpp:682
+#: core/rocketchataccount.cpp:684
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1809,12 +1809,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:692 core/rocketchataccount.cpp:704
 #, kde-format
 msgid "Not connected"
 msgstr "Konektatu gabe"
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid "Not connected yet"
 msgstr "Oraindik konektatu gabe"
@@ -9544,11 +9544,6 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Bidali kode berria"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:31
-#, kde-format
-msgid "Check New Version"
-msgstr "Egiaztatu bertsio berririk dagoen"
-
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:25
 #, kde-format
 msgctxt "@action:button"
@@ -10063,16 +10058,16 @@ msgstr "Egiaztatu bertsio berririk dagoen"
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
-"Zure bertsio 6 hilabete baino zaharragoa da, biziki animatzen zaitugu "
-"bertsio-berritzera."
+"Zure bertsio 6 hilabete baino zaharragoa da, bertsio-berritzea gomendatzen "
+"dizugu."
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:47
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
 msgstr ""
-"Zure bertsioa urte 1 baino zaharragoa da, biziki animatzen zaitugu bertsio-"
-"berritzea."
+"Zure bertsioa urte 1 baino zaharragoa da, bertsio-berritzea biziki "
+"gomendatzen dizugu."
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:29
 #, kde-format
@@ -11585,6 +11580,11 @@ msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
 "Ez da bertsio berririk aurkitu. Eraikina <a href=\"%1\">hemen</a> aurki "
 "daiteke."
+
+#: widgets/verifynewversionwidget/verifynewversionwidgetaction.cpp:31
+#, kde-format
+msgid "Check New Version"
+msgstr "Egiaztatu bertsio berririk dagoen"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

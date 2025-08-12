@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:43+0000\n"
+"POT-Creation-Date: 2025-08-12 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1790,7 +1790,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:682
+#: core/rocketchataccount.cpp:684
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1799,12 +1799,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:692 core/rocketchataccount.cpp:704
 #, kde-format
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:699
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -9639,11 +9639,6 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Új kód küldése"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:31
-#, kde-format
-msgid "Check New Version"
-msgstr "Új verzió keresése"
-
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:25
 #, kde-format
 msgctxt "@action:button"
@@ -11691,6 +11686,11 @@ msgstr "Új verzió érhető el. Kattintson <a href=\"%1\">ide</a> a letöltésh
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
+
+#: widgets/verifynewversionwidget/verifynewversionwidgetaction.cpp:31
+#, kde-format
+msgid "Check New Version"
+msgstr "Új verzió keresése"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

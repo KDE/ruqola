@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:43+0000\n"
+"POT-Creation-Date: 2025-08-12 00:42+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1860,19 +1860,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:682
+#: core/rocketchataccount.cpp:684
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:692 core/rocketchataccount.cpp:704
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:699
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Not connected yet"
@@ -9882,12 +9882,6 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr ""
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:31
-#, fuzzy, kde-format
-#| msgid "Server Version:"
-msgid "Check New Version"
-msgstr "Serverio versija:"
-
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Password"
@@ -12119,6 +12113,12 @@ msgstr ""
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
+
+#: widgets/verifynewversionwidget/verifynewversionwidgetaction.cpp:31
+#, fuzzy, kde-format
+#| msgid "Server Version:"
+msgid "Check New Version"
+msgstr "Serverio versija:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, fuzzy, kde-format

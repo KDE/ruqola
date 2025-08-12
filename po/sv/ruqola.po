@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:43+0000\n"
+"POT-Creation-Date: 2025-08-12 00:42+0000\n"
 "PO-Revision-Date: 2025-08-09 22:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1781,7 +1781,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> skriver ..."
 
-#: core/rocketchataccount.cpp:682
+#: core/rocketchataccount.cpp:684
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1790,12 +1790,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:692 core/rocketchataccount.cpp:704
 #, kde-format
 msgid "Not connected"
 msgstr "Inte ansluten"
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid "Not connected yet"
 msgstr "Inte ansluten ännu"
@@ -9501,11 +9501,6 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Skicka ny kod"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:31
-#, kde-format
-msgid "Check New Version"
-msgstr "Kontrollera ny version"
-
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:25
 #, kde-format
 msgctxt "@action:button"
@@ -11527,6 +11522,11 @@ msgstr ""
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr "Ingen ny version hittades. Bygge finns <a href=\"%1\">här</a>."
+
+#: widgets/verifynewversionwidget/verifynewversionwidgetaction.cpp:31
+#, kde-format
+msgid "Check New Version"
+msgstr "Kontrollera ny version"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

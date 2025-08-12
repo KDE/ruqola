@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:43+0000\n"
+"POT-Creation-Date: 2025-08-12 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1802,7 +1802,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> печатают…"
 
-#: core/rocketchataccount.cpp:682
+#: core/rocketchataccount.cpp:684
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1811,12 +1811,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:692 core/rocketchataccount.cpp:704
 #, kde-format
 msgid "Not connected"
 msgstr "Не подключено"
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ещё не подключено"
@@ -9641,11 +9641,6 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Отправить новый код"
 
-#: widgets/misc/verifynewversionwidgetaction.cpp:31
-#, kde-format
-msgid "Check New Version"
-msgstr "Проверить наличие новой версии"
-
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:25
 #, kde-format
 msgctxt "@action:button"
@@ -11690,6 +11685,11 @@ msgstr "Найдена новая версия. Нажмите <a href=\"%1\">с
 #, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr "Новая версия не найдена. Сборка доступна <a href=\"%1\">здесь</a>."
+
+#: widgets/verifynewversionwidget/verifynewversionwidgetaction.cpp:31
+#, kde-format
+msgid "Check New Version"
+msgstr "Проверить наличие новой версии"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
