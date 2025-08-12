@@ -181,16 +181,19 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         }
         info.setNewFeatures(lst);
         info.setVersion(u"2.6"_s);
-        info.setBugFixings({i18n("Fix show date info."),
-                            i18n("Fix save application settings."),
-                            i18n("Fix text selection in attachment."),
-                            i18n("Fix display user."),
-                            i18n("Display translate menu in thread dialog."),
-                            i18n("Add AI Rocket Chat Actions support."),
-                            i18n("Fix apply, restore, cancel buttons in administration dialog."),
-                            i18n("Fix search users."),
-                            i18n("Fix extract language from code block."),
-                            i18n("Fix attachment info in \"Show Channel Log\" dialog.")});
+        info.setBugFixings({
+            i18n("Fix show date info."),
+            i18n("Fix save application settings."),
+            i18n("Fix text selection in attachment."),
+            i18n("Fix display user."),
+            i18n("Display translate menu in thread dialog."),
+            i18n("Add AI Rocket Chat Actions support."),
+            i18n("Fix apply, restore, cancel buttons in administration dialog."),
+            i18n("Fix search users."),
+            i18n("Fix extract language from code block."),
+            i18n("Fix attachment info in \"Show Channel Log\" dialog."),
+            i18n("Fix icon on windows."),
+        });
 
         listInfo.append(std::move(info));
     }
