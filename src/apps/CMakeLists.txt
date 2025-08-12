@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 include(ECMAddAppIcon)
 
-add_executable(ruqola main.cpp)
+add_executable(ruqola main.cpp ruqola.qrc)
 
 target_link_libraries(
     ruqola

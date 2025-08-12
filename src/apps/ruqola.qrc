@@ -1,0 +1,10 @@
+<!--
+    SPDX-FileCopyrightText: Laurent Montel <montel@kde.org>
+    SPDX-License-Identifier: CC0-1.0
+-->
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/ruqola">
+        <file alias="ruqola.svg">../icons/sc-apps-ruqola.svg</file>
+    </qresource>
+</RCC>

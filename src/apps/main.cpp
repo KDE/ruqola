@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 {
     KIconTheme::initTheme();
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme(u"ruqola"_s));
+    app.setWindowIcon(QIcon(u":/ruqola/ruqola.svg"_s));
 
     KStyleManager::initStyle();
 #if !WITH_DBUS
@@ -79,6 +79,7 @@ int main(int argc, char *argv[])
     aboutData.addCredit(i18nc("@info:credit", "Waqar Ahmed"), i18n("Bug fixing (compile, network crash...)"), u"waqar.17a@gmail.com"_s);
     aboutData.addCredit(i18nc("@info:credit", "Nicolas Fella"), i18n("Optimization, fix windows/mac support"), u"nicolas.fella@gmx.de"_s);
     aboutData.addCredit(i18nc("@info:credit", "Daniele E. Domenichelli"), i18n("New feature"), u"daniele.domenichelli@kdab.com"_s);
+    aboutData.setProgramLogo(QIcon(u":/ruqola/ruqola.svg"_s));
 
     KAboutData::setApplicationData(aboutData);
 
