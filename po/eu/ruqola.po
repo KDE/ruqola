@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-07-23 14:20+0200\n"
+"PO-Revision-Date: 2025-08-11 14:18+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -9874,16 +9874,16 @@ msgstr "Egiaztatu bertsio berririk dagoen"
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
-"Zure bertsio 6 hilabete baino zaharragoa da, biziki animatzen zaitugu "
-"bertsio-berritzera."
+"Zure bertsio 6 hilabete baino zaharragoa da, bertsio-berritzea gomendatzen "
+"dizugu."
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:47
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
 msgstr ""
-"Zure bertsioa urte 1 baino zaharragoa da, biziki animatzen zaitugu bertsio-"
-"berritzea."
+"Zure bertsioa urte 1 baino zaharragoa da, bertsio-berritzea biziki "
+"gomendatzen dizugu."
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
 #, kde-format
