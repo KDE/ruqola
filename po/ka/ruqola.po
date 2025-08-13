@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-12 00:42+0000\n"
+"POT-Creation-Date: 2025-08-13 00:42+0000\n"
 "PO-Revision-Date: 2025-08-07 04:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -168,7 +168,7 @@ msgstr "Daniele E. Domenichelli"
 msgid "New feature"
 msgstr "ახალი ფუნქცია"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:108
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
@@ -12073,58 +12073,64 @@ msgstr "როლების ჩვენება ოთახის მომ
 msgid "Fix download languages apps."
 msgstr "გასწორდა ენის აპების გადმოწერა."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
 msgid "Fix show date info."
 msgstr "გასწორდა თარიღის ინფორმაციის ჩვენება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#: widgets/whatsnew/whatsnewtranslations.cpp:186
 #, kde-format
 msgid "Fix save application settings."
 msgstr "გასწორდა აპლიკაციის პარამეტრების შენახვა."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "გასწორდა ტექსტის მონიშვნა მიმაგრებულ ფაილში."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
 msgid "Fix display user."
 msgstr "გასწორდა მომხმარებლის ჩვენება."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
 msgid "Display translate menu in thread dialog."
 msgstr "თარგმანის მენიუს ჩვენება საუბრის დიალოგში."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "დაემატა ხი-ის Rocket.Chat-ის ქმედებების მხარდაჭერა."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
+#: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
 "დაემატა გადატარების, აღდგენის და გაუქმების ღილაკები ადმინისტრატორის დიალოგში."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:191
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix search users."
 msgstr "გასწორდა მომხმარებლების ძებნა."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix extract language from code block."
 msgstr "გასწორდა ენის ამოღება კოდის ბლოკიდან."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#: widgets/whatsnew/whatsnewtranslations.cpp:194
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
 "გასწორდა \"არხის ჟურნალის ჩვენების\" დიალოგზე მიმაგრებული ფაილის ინფორმაციის "
 "მიღება."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:195
+#, fuzzy, kde-format
+#| msgid "Fix single application on Windows/MacOs"
+msgid "Fix icon on windows."
+msgstr "აპლიკაციის ერთხელ გაშვვების გასწორება Wndows/MacOS-ზე"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

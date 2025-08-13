@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-12 00:42+0000\n"
+"POT-Creation-Date: 2025-08-13 00:42+0000\n"
 "PO-Revision-Date: 2025-08-09 08:14-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -170,7 +170,7 @@ msgstr "Daniele E. Domenichelli"
 msgid "New feature"
 msgstr "Nova funcionalidade"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:108
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "As seguintes contas estão disponíveis:"
@@ -12121,59 +12121,65 @@ msgstr "Mostra funções para usuários em salas."
 msgid "Fix download languages apps."
 msgstr "Corrige download de aplicativos de idiomas."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
 msgid "Fix show date info."
 msgstr "Corrige exibição das informações de data."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#: widgets/whatsnew/whatsnewtranslations.cpp:186
 #, kde-format
 msgid "Fix save application settings."
 msgstr "Corrige o salvamento das configurações do aplicativo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "Corrige a seleção de texto no anexo."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
 msgid "Fix display user."
 msgstr "Corrige o usuário de exibição."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
 msgid "Display translate menu in thread dialog."
 msgstr "Exibe menu de tradução na caixa de diálogo do tópico."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Adiciona suporte para ações do AI Rocket Chat."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
+#: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
 "Corrige os botões aplicar, restaurar e cancelar na caixa de diálogo de "
 "administração."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:191
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix search users."
 msgstr "Corrige a pesquisa de usuários."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix extract language from code block."
 msgstr "Corrige a extração de linguagem do bloco de código."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#: widgets/whatsnew/whatsnewtranslations.cpp:194
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
 "Corrige informações de anexo na caixa de diálogo \"Mostrar registro do canal"
 "\"."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:195
+#, fuzzy, kde-format
+#| msgid "Fix single application on Windows/MacOs"
+msgid "Fix icon on windows."
+msgstr "Corrige aplicativos simples no Windows/MacOs"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

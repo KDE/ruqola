@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-12 00:42+0000\n"
+"POT-Creation-Date: 2025-08-13 00:42+0000\n"
 "PO-Revision-Date: 2025-08-11 14:18+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -170,7 +170,7 @@ msgstr "Daniele E. Domenichelli"
 msgid "New feature"
 msgstr "Ezaugarri berria"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:108
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
@@ -12131,59 +12131,65 @@ msgstr "Erabiltzaileen geletako eginkizunak erakutsi."
 msgid "Fix download languages apps."
 msgstr "Hizkuntza zama-jaisteko aplikazioen konponketa."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
 msgid "Fix show date info."
 msgstr "Erakutsi dataren informazioa konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#: widgets/whatsnew/whatsnewtranslations.cpp:186
 #, kde-format
 msgid "Fix save application settings."
 msgstr "Gorde aplikazioaren ezarpenak konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "Eranskinean testu-hautapena konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
 msgid "Fix display user."
 msgstr "Erabiltzailea azaldu konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
 msgid "Display translate menu in thread dialog."
 msgstr "Azaldu itzuli menua hari elkarrizketan."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Gehitu Rocket.Chat AA ekintzen euskarria."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
+#: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
 "Konpondu aplikatu, lehengoratu, utzi botoiak administrazio elkarrizketa-"
 "koadroan."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:191
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix search users."
 msgstr "Bilatu erabiltzailea konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix extract language from code block."
 msgstr "Kode-bloketik lengoaia antzematea konpontzea."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#: widgets/whatsnew/whatsnewtranslations.cpp:194
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
 "\"Erakutsi kanalaren egunkaria\" elkarrizketa-koadroan eranskinen informazio "
 "konpontzea."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:195
+#, fuzzy, kde-format
+#| msgid "Fix single application on Windows/MacOs"
+msgid "Fix icon on windows."
+msgstr "Windows-en/MacOs-en banakako aplikazioa konpontzea"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

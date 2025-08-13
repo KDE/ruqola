@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-12 00:42+0000\n"
+"POT-Creation-Date: 2025-08-13 00:42+0000\n"
 "PO-Revision-Date: 2025-08-07 22:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -168,7 +168,7 @@ msgstr "Daniele E. Domenichelli"
 msgid "New feature"
 msgstr "Yeni özellik"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:108
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Aşağıdaki hesaplar kullanılabilir:"
@@ -12063,55 +12063,61 @@ msgstr "Odalardaki kullanıcıların rollerini göster"
 msgid "Fix download languages apps."
 msgstr "Dil uygulamalarını indirmeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
 msgid "Fix show date info."
 msgstr "Tarih bilgisini göstermeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#: widgets/whatsnew/whatsnewtranslations.cpp:186
 #, kde-format
 msgid "Fix save application settings."
 msgstr "Uygulama ayarlarını kaydetmeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "İlişikte metin seçimini onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
 msgid "Fix display user."
 msgstr "Kullanıcı görüntülemeyi onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
 msgid "Display translate menu in thread dialog."
 msgstr "İleti dizisi iletişim kutusunda çeviri menüsünü görüntüle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Rocket.Chat yapay zekâ eylemleri desteği ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
+#: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr "Yönetim ayarlarına uygula, geri yükle, iptal düğmeleri ekle"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:191
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix search users."
 msgstr "Kullanıcı aramayı onar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix extract language from code block."
 msgstr "Kod blokundan dili çıkar"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#: widgets/whatsnew/whatsnewtranslations.cpp:194
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr "“Kanal Günlüğünü Göster” iletişim kutusundaki ek bilgisini onar"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:195
+#, fuzzy, kde-format
+#| msgid "Fix single application on Windows/MacOs"
+msgid "Fix icon on windows."
+msgstr "Windows/macOS üzerinde tekil uygulama başlatımını onar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

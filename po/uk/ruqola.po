@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-12 00:42+0000\n"
+"POT-Creation-Date: 2025-08-13 00:42+0000\n"
 "PO-Revision-Date: 2025-08-07 08:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -172,7 +172,7 @@ msgstr "Daniele E. Domenichelli"
 msgid "New feature"
 msgstr "Нова можливість"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:108
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
@@ -12210,57 +12210,63 @@ msgstr "Реалізовано показ ролей користувачів у
 msgid "Fix download languages apps."
 msgstr "Виправлено отримання мовних програм."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
 msgid "Fix show date info."
 msgstr "Виправлено показ даних щодо дати."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#: widgets/whatsnew/whatsnewtranslations.cpp:186
 #, kde-format
 msgid "Fix save application settings."
 msgstr "Виправлено збереження параметрів роботи програми."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "Виправлено позначення тексту у долученні."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
 msgid "Fix display user."
 msgstr "Виправлено показ користувача."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
 msgid "Display translate menu in thread dialog."
 msgstr "Реалізовано показ меню перекладу у вікні гілки."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Додано підтримку дій Rocket Chat з ШІ."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
+#: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
 "Виправлено кнопки застосування, відновлення та скасування у вікні "
 "адміністрування."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:191
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix search users."
 msgstr "Виправлено пошук користувачів."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix extract language from code block."
 msgstr "Виправлено видобування мови з блоку програмного коду."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#: widgets/whatsnew/whatsnewtranslations.cpp:194
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr "Виправлено відомості щодо долучення у вікні «Показати журнал каналу»."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:195
+#, fuzzy, kde-format
+#| msgid "Fix single application on Windows/MacOs"
+msgid "Fix icon on windows."
+msgstr "Виправлено проблему із єдиним екземпляром програми у Windows/MacOs"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

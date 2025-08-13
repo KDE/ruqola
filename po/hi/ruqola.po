@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-12 00:42+0000\n"
+"POT-Creation-Date: 2025-08-13 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -170,7 +170,7 @@ msgstr "डेनियल ई. डोमेनिचेली"
 msgid "New feature"
 msgstr "नई सुविधा"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:108
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "निम्नलिखित खाते उपलब्ध हैं:"
@@ -12101,62 +12101,68 @@ msgstr ""
 msgid "Fix download languages apps."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, fuzzy, kde-format
 #| msgid "Fix show avatar url."
 msgid "Fix show date info."
 msgstr "अवतार यूआरएल दिखाना ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#: widgets/whatsnew/whatsnewtranslations.cpp:186
 #, fuzzy, kde-format
 #| msgid "Allow to show application market settings"
 msgid "Fix save application settings."
 msgstr "एप्लिकेशन मार्केट सेटिंग दिखाने की अनुमति दें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
 msgid "Fix display user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, fuzzy, kde-format
 #| msgid "Fix translate message in direct channel."
 msgid "Display translate menu in thread dialog."
 msgstr "प्रत्यक्ष चैनल में संदेश का अनुवाद ठीक करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, fuzzy, kde-format
 #| msgid "Implement Rocket.Chat Marketplace."
 msgid "Add AI Rocket Chat Actions support."
 msgstr "रॉकेट.चैट मार्केटप्लेस को क्रियान्वित करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
+#: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, fuzzy, kde-format
 #| msgid "Add restore button in administrator server settings dialog."
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr "व्यवस्थापक सर्वर सेटिंग संवाद में पुनर्स्थापना बटन जोड़ें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:191
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search users…"
 msgid "Fix search users."
 msgstr "उपयोगकर्ताओं को खोजें…"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix extract language from code block."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#: widgets/whatsnew/whatsnewtranslations.cpp:194
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:195
+#, fuzzy, kde-format
+#| msgid "Fix single application on Windows/MacOs"
+msgid "Fix icon on windows."
+msgstr "Windows/MacOs पर एकल एप्लिकेशन को ठीक करें"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, fuzzy, kde-format
