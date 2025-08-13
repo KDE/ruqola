@@ -37,7 +37,7 @@ void CompletionListView::setTextWidget(QWidget *textWidget)
 // inputCompleterModel() for users and channels, emojiCompleterModel(), or commandModel()
 void CompletionListView::setModel(QAbstractItemModel *model)
 {
-    QAbstractItemModel *oldModel = QListView::model();
+    const QAbstractItemModel *oldModel = QListView::model();
     if (model != oldModel) {
         if (oldModel) {
             disconnect(oldModel, &QAbstractItemModel::rowsInserted, this, &CompletionListView::slotCompletionAvailable);
