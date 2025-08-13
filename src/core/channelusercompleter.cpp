@@ -23,6 +23,7 @@ QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
     d.space() << "outsideRoom" << t.outsideRoom();
     d.space() << "identifie " << t.identifier();
     d.space() << "avatarinfo" << t.avatarInfo();
+    d.space() << "fname" << t.fName();
     return d;
 }
 
