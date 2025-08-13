@@ -87,13 +87,14 @@ QList<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
         if (!mSearchInfo.searchString.isEmpty()) {
             const QList<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(mSearchInfo.searchString);
             for (const Room *room : rooms) {
-                if (room->channelType() == Room::RoomType::Channel) { // Only direct channel.
+                if (room->channelType() == Room::RoomType::Channel) { // Only channel.
                     ChannelUserCompleter channel;
                     channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
-                    channel.setName(room->displayFName());
+                    channel.setName(room->name());
                     channel.setIdentifier(room->roomId());
                     channel.setChannelIcon();
                     channel.setAvatarInfo(room->avatarInfo());
+                    channel.setFName(room->fName());
                     channels.append(std::move(channel));
                 }
             }
