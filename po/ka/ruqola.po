@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-13 00:42+0000\n"
-"PO-Revision-Date: 2025-08-07 04:42+0200\n"
+"PO-Revision-Date: 2025-08-13 06:17+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -12127,10 +12127,9 @@ msgstr ""
 "მიღება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, fuzzy, kde-format
-#| msgid "Fix single application on Windows/MacOs"
+#, kde-format
 msgid "Fix icon on windows."
-msgstr "აპლიკაციის ერთხელ გაშვვების გასწორება Wndows/MacOS-ზე"
+msgstr "გასწორდა ხატულა Windows-ზე."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
