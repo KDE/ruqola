@@ -14,3 +14,5 @@ AbstractLogger::AbstractLogger(QObject *parent)
 }
 
 AbstractLogger::~AbstractLogger() = default;
+
+#include "moc_abstractlogger.cpp"
