@@ -6,6 +6,7 @@
 
 #include "exploredatabasedialogtest.h"
 
+#include "databasedialog/exploredatabaseaccountstoragewidget.h"
 #include "databasedialog/exploredatabasedialog.h"
 #include "databasedialog/exploredatabasejsonwidget.h"
 #include "databasedialog/exploredatabasemessagesstoragewidget.h"
@@ -15,6 +16,7 @@
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
 using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ExploreDatabaseDialogTest)
 ExploreDatabaseDialogTest::ExploreDatabaseDialogTest(QObject *parent)
@@ -42,6 +44,9 @@ void ExploreDatabaseDialogTest::shouldHaveDefaultValues()
 
     auto mExploreDatabaseStorageWidget = d.findChild<ExploreDatabaseMessagesStorageWidget *>(u"mExploreDatabaseStorageWidget"_s);
     QVERIFY(mExploreDatabaseStorageWidget);
+
+    auto mExploreDatabaseAccountStorageWidget = d.findChild<ExploreDatabaseAccountStorageWidget *>(u"mExploreDatabaseAccountStorageWidget"_s);
+    QVERIFY(mExploreDatabaseAccountStorageWidget);
 
     auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);

@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabasedialog.h"
+#include "exploredatabaseaccountstoragewidget.h"
 #include "exploredatabasejsonwidget.h"
 #include "exploredatabasemessagesstoragewidget.h"
 
@@ -28,6 +29,7 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     , mExploreDatabaseWidget(new ExploreDatabaseViewMessagesWidget(account, this))
     , mExploreDatabaseJsonWidget(new ExploreDatabaseJsonWidget(this))
     , mExploreDatabaseStorageWidget(new ExploreDatabaseMessagesStorageWidget(this))
+    , mExploreDatabaseAccountStorageWidget(new ExploreDatabaseAccountStorageWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
     auto mainLayout = new QVBoxLayout(this);
@@ -45,6 +47,9 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
 
     mExploreDatabaseStorageWidget->setObjectName(u"mExploreDatabaseStorageWidget"_s);
     tabWidget->addTab(mExploreDatabaseStorageWidget, i18n("DataBase Messages"));
+
+    mExploreDatabaseAccountStorageWidget->setObjectName(u"mExploreDatabaseAccountStorageWidget"_s);
+    tabWidget->addTab(mExploreDatabaseAccountStorageWidget, i18n("DataBase Accounts"));
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(u"button"_s);

@@ -12,6 +12,7 @@ class ExploreDatabaseViewMessagesWidget;
 class RocketChatAccount;
 class ExploreDatabaseJsonWidget;
 class ExploreDatabaseMessagesStorageWidget;
+class ExploreDatabaseAccountStorageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseDialog : public QDialog
 {
     Q_OBJECT
@@ -25,4 +26,5 @@ private:
     ExploreDatabaseViewMessagesWidget *const mExploreDatabaseWidget;
     ExploreDatabaseJsonWidget *const mExploreDatabaseJsonWidget;
     ExploreDatabaseMessagesStorageWidget *const mExploreDatabaseStorageWidget;
+    ExploreDatabaseAccountStorageWidget *const mExploreDatabaseAccountStorageWidget;
 };
