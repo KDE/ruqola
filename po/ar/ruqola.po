@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-08-09 23:31+0400\n"
+"PO-Revision-Date: 2025-08-13 22:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -155,7 +155,7 @@ msgstr "نيكولاس فيلا"
 #: apps/main.cpp:80
 #, kde-format
 msgid "Optimization, fix windows/mac support"
-msgstr "التحسين، إصلاح دعم Windows/Mac"
+msgstr "التحسين، إصلاح التعامل مع Windows/Mac"
 
 #: apps/main.cpp:81
 #, kde-format
@@ -2230,7 +2230,7 @@ msgstr "لا يُسمح بمشاركة الملفات في الرسائل الم
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:268
 #, kde-format
 msgid "Editing permissions is not allowed"
-msgstr "لا يسمح بتعديل التصاريح"
+msgstr "لا يسمح بتعديل الأذونات"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 #, kde-format
@@ -3480,7 +3480,7 @@ msgstr "أزِل أوث"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit '%1' Permission"
-msgstr "حرر تصريح '%1'"
+msgstr "حرر إذْن '%1'"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #, kde-format
@@ -4102,10 +4102,10 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 "سيؤدي تصفير مفتاح التعمية من طرف لطرف الحالي إلى تسجيل خروج المستخدم. عندما "
-"يقوم المستخدم بالولوج مرة أخرى؛ سيعمل روكت تشات على إنشاء مفتاح جديد "
-"واستعادة وصول المستخدم إلى أي غرفة مشفرة بها عضو واحد أو أكثر متصل "
-"بالإنترنت. ونظرًا لطبيعة تعمية من طرف لطرف، فلن يتمكن روكت تشات من استعادة "
-"الوصول إلى أي غرفة مشفرة ليس بها عضو متصل بالإنترنت."
+"يلج المستخدم  مرة أخرى؛ سيعمل روكت تشات على إنشاء مفتاح جديد واستعادة وصول "
+"المستخدم إلى أي غرفة مشفرة بها عضو واحد أو أكثر متصل بالإنترنت. ونظرًا لطبيعة "
+"تعمية من طرف لطرف، فلن يتمكن روكت تشات من استعادة الوصول إلى أي غرفة مشفرة "
+"ليس بها عضو متصل بالإنترنت."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:440
 #, kde-format
@@ -4622,7 +4622,7 @@ msgstr "الميزات ممكنة"
 msgctxt "@info:tooltip"
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
-"تتبع الأحداث المخصصة المتعلقة بالإجراءات التي يقوم بها المستخدم على الرسائل."
+"يتتبع الأحداث المخصصة المتعلقة بالإجراءات التي يقوم بها المستخدم على الرسائل."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
 #, kde-format
@@ -5494,7 +5494,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "Attempt to integrate IRC support. Changing this value requires restarting "
 "Rocket.Chat."
-msgstr "محاولة دمج دعم آي أر سي. يتطلب تغيير هذه القيمة إعادة تشغيل روكت تشات."
+msgstr ""
+"محاولة التكامل مع آي أر سي. يتطلب تغيير هذه القيمة إعادة تشغيل روكت تشات."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
 #, kde-format
@@ -5609,10 +5610,9 @@ msgid ""
 "third-party integrations. Use a fully qualified name, such as "
 "cn=Administrator,cn=Users,dc=Example,dc=com."
 msgstr ""
-"مستخدم LDAP الذي يقوم بإجراء عمليات بحث عن المستخدم للتحقق من هوية "
-"المستخدمين الآخرين عند تسجيل الدخول. عادةً ما يكون هذا حساب خدمة تُنشئ خصيصًا "
-"للتكاملات مع جهات خارجية. استخدم اسمًا مؤهلاً بالكامل، مثل cn=Administrator،"
-"cn=Users،dc=Example،dc=com."
+"مستخدم LDAP الذي يبحث  للتحقق من هوية المستخدمين الآخرين عند تسجيل الدخول. "
+"عادةً ما يكون هذا حساب خدمة تُنشئ خصيصًا للتكاملات مع جهات خارجية. استخدم اسمًا "
+"مؤهلاً بالكامل، مثل cn=Administrator،cn=Users،dc=Example،dc=com."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:67
 #, kde-format
@@ -5887,9 +5887,8 @@ msgstr ""
 "بالرسائل واسم المستخدم: ستُحذف الرسائل والملفات الخاصة بالمستخدم من الرسائل "
 "الخاصّة ويُحتفظ بها في الغرف الأخرى. احذف جميع الرسائل: ستُحذف جميع الرسائل "
 "والملفات من المستخدم من قاعدة البيانات ولن يكون من الممكن تحديد موقع "
-"المستخدم بعد الآن. أزل الرابط بين المستخدم والرسائل: سيقوم هذا الخيار بتعيين "
-"جميع الرسائل والملفات الخاصة بالمستخدم إلى آليّ روكت تشات وستُحذف الرسائل "
-"الخاصة."
+"المستخدم بعد الآن. أزل الرابط بين المستخدم والرسائل: سيعين هذا الخيار جميع "
+"الرسائل والملفات الخاصة بالمستخدم إلى آليّ روكت تشات وستُحذف الرسائل الخاصة."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:114
 #, kde-format
@@ -6004,8 +6003,8 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
-"ما إذا كانت معاينات الارتباط المضمنة ممكّنة أم لا عندما يقوم المستخدم بنشر "
-"رابط لموقع ويب."
+"إذا كانت معاينات الروابط المضمنة ممكّنة أم لا عندما ينشر المستخدم رابط لموقع "
+"ويب."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:193
 #, kde-format
@@ -6711,7 +6710,7 @@ msgstr "عطّل بث الوجود"
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Instance Broadcast"
-msgstr "عطّل بث المثيل"
+msgstr "عطّل بث النسخة"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
@@ -6759,7 +6758,7 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
-"يمنع هذا الإعداد جميع المثيلات من إرسال تغييرات حالة المستخدمين إلى عملائها "
+"يمنع هذا الإعداد جميع النسخةات من إرسال تغييرات حالة المستخدمين إلى عملائها "
 "مع الاحتفاظ بجميع المستخدمين بحالة ظهورهم منذ التحميل الأول!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
@@ -6769,7 +6768,7 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
-"يمنع هذا الإعداد مثيلات روكت تشات من إرسال الأحداث إلى المثيلات الأخرى، وقد "
+"يمنع هذا الإعداد نسخةات روكت تشات من إرسال الأحداث إلى النسخةات الأخرى، وقد "
 "يتسبب في حدوث مشاكل في المزامنة وسوء السلوك!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
@@ -6905,7 +6904,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
-msgstr "يوصى بتمكينه إذا كان مثيل Jitsi لا يستخدم أي آليّة مصادقة."
+msgstr "يوصى بتمكينه إذا كان نسخة Jitsi لا يستخدم أي آليّة مصادقة."
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:93
 #, kde-format
@@ -6972,7 +6971,7 @@ msgstr "التّصاريح"
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:29
 #, kde-format
 msgid "No permissions information found."
-msgstr "لم يُعثر على معلومات التصاريح."
+msgstr "لم يُعثر على معلومات الأذونات."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:25
 #, kde-format
@@ -7790,8 +7789,7 @@ msgid ""
 "Messages are end-to-end encrypted, search will not work and notifications "
 "may not show message content"
 msgstr ""
-"الرسائل معماة من طرف لطرف ، ولن يعمل البحث وقد لا يعرض الإشعارات محتوى "
-"الرسالة"
+"الرسائل معماة من طرف لطرف، ولن يعمل البحث وقد لا يعرض الإشعارات محتوى الرسالة"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:84
 #, kde-format
@@ -11433,7 +11431,7 @@ msgstr "ما الجديد في %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Add support for tools plugins"
-msgstr "إضافة دعم لملحقات الأدوات"
+msgstr "إضافة ملحقات الأدوات"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Plugin: Add screenshot button (near send message button)"
@@ -11441,7 +11439,7 @@ msgstr "البرنامج المساعد: إضافة زر لقطة الشاشة (
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 msgid "Implement invite RC url support"
-msgstr "تنفيذ دعوة لدعم عنوان URL لـ RC"
+msgstr "إتاحة دعوة عنوان لـ RC"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement verify if a new Ruqola version exist"
@@ -11457,7 +11455,7 @@ msgstr "عرض الصور من صندوق حوار المرفق"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
 msgid "Implement Rocket.Chat application support."
-msgstr "تنفيذ دعم تطبيق روكت تشات."
+msgstr "إتاحة دعم تطبيق روكت تشات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Implement command preview."
@@ -11469,7 +11467,7 @@ msgstr "التنقيح: استكشاف الترجمة من خادم روكت ت�
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
-msgstr "تنفيذ دعم واجهة المستخدم الإضافية (إنشاء مربع حوار لضبط الإعدادات)."
+msgstr "تنفيذ واجهة المستخدم الإضافية (إنشاء مربع حوار لضبط الإعدادات)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
@@ -11494,12 +11492,12 @@ msgstr "السماح بنسخ الصورة في الحافظة"
 #: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
-msgstr "تحسين دعم تصحيح الأخطاء (السماح بعرض تصاريح الحساب الحالي)"
+msgstr "تحسين تصحيح الأخطاء (السماح بعرض أذونات الحساب الحالي)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
-msgstr "إضافة دعم للنص المقتبس (النص الذي يبدأ بـ '>')"
+msgstr "إضافة التعامل مع النص المقتبس (النص الذي يبدأ بـ '>')"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:43
 #, kde-format
@@ -11509,7 +11507,7 @@ msgstr "إظهار القائد/المشرف/المالك في معلومات ا
 #: widgets/whatsnew/whatsnewtranslations.cpp:44
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
-msgstr "دعم الرسائل الصوتية/الفيديو (kf6 فقط)."
+msgstr "إتاحة الرسائل الصوتية/الفيديو (kf6 فقط)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:45
 #, kde-format
@@ -11519,12 +11517,12 @@ msgstr "حسابات الاستيراد/التصدير."
 #: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Fix avatar support"
-msgstr "إصلاح دعم الصورة الرمزية"
+msgstr "إصلاح الصورة الرمزية"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:48
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-msgstr "إصلاح دعم الرموز التعبيرية (استخدم ktextaddons/textemoticons الجديدة)"
+msgstr "إصلاح الرموز التعبيرية (استخدم ktextaddons/textemoticons الجديدة)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format
@@ -11534,7 +11532,7 @@ msgstr "إصلاح الصورة المتحركة في التفاعلات"
 #: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Fix kf6 support"
-msgstr "إصلاح دعم kf6"
+msgstr "إصلاح التوافق مع kf6"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
@@ -11554,7 +11552,7 @@ msgstr "تنفيذ معاينة عناوين الإنترنت"
 #: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
-msgstr "إصلاح دعم تخفيض السعر (علامة اختيار الرأس)"
+msgstr "إصلاح ماركدون (الترويسة ومربع الاختيار)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:59
 #, kde-format
@@ -11581,7 +11579,7 @@ msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
-"إصلاح أوامر العرض في تحرير سطر الرسالة (إخفاء الإجراء عندما لا تدعمه الغرفة)."
+"إصلاح أوامر العرض في تحرير سطر الرسالة (إخفاء الإجراء عندما لا تتيحه الغرفة)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:63
 #, kde-format
@@ -11617,7 +11615,7 @@ msgstr "إضافة رسالة إلى الأمام"
 #: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Improve mentions support."
-msgstr "تحسين دعم الإشارات."
+msgstr "تحسين الإشارات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
@@ -11625,7 +11623,7 @@ msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">Deep Linking</a>."
 msgstr ""
-"إضافة الدعم للارتباط العميق <a href=\"https://developer.rocket.chat/getting-"
+"إضافة الارتباط العميق <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">الارتباط العميق</a>."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:78
@@ -11645,12 +11643,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
 msgid "Add Plasma Activities Support"
-msgstr "إضافة دعم أنشطة البلازما"
+msgstr "إضافة التعامل مع أنشطة البلازما"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Add Report User Support"
-msgstr "إضافة تقرير دعم المستخدم"
+msgstr "إضافة الإبلاغ عن مستخدم"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
@@ -11671,12 +11669,12 @@ msgstr "تنفيذ قائمة تخفيض الأسعار المصنفة/غير ا
 #: widgets/whatsnew/whatsnewtranslations.cpp:167
 #, kde-format
 msgid "Fix dark mode support."
-msgstr "إصلاح دعم الوضع الداكن."
+msgstr "إصلاح الوضع الداكن."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:88
 #, kde-format
 msgid "Fix jitsi support."
-msgstr "إصلاح دعم جيتسي."
+msgstr "إصلاح التعامل مع جيتسي."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:89
 #, kde-format
@@ -11741,7 +11739,7 @@ msgstr "تنفيذ معلومات المستخدمين المعلقة (وضع ا
 #: widgets/whatsnew/whatsnewtranslations.cpp:108
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
-msgstr "استخدم cmark-rc (https://github.com/dfaure/cmark-rc) لدعم تخفيض السعر."
+msgstr "استخدم cmark-rc (https://github.com/dfaure/cmark-rc) لتوفير ماركدون."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:109
 #, kde-format
@@ -11791,7 +11789,7 @@ msgstr "تحسين تغيير كلمة السر (إظهار معلومات ال�
 #: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
 msgid "Improve register new account (Add reason support)."
-msgstr "تحسين تسجيل حساب جديد (إضافة سبب الدعم)."
+msgstr "تحسين تسجيل حساب جديد (إضافة السبب)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
@@ -11801,7 +11799,7 @@ msgstr "تنفيذ كتم/إلغاء كتم صوت المستخدم."
 #: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, kde-format
 msgid "Add color to the text in the account tab"
-msgstr "إضافة لون إلى النص الموجود في علامة تبويب الحساب"
+msgstr "أضف لون إلى النص الموجود في لسان الحساب"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
@@ -11816,7 +11814,7 @@ msgstr "إصلاح رسالة التحرير."
 #: widgets/whatsnew/whatsnewtranslations.cpp:137
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "اعرض التصاريح في متجر روكت تشات."
+msgstr "اعرض الأذونات في متجر روكت تشات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:138
 #, kde-format
@@ -11841,7 +11839,7 @@ msgstr "إصلاح مناقشة التصفية في وضع المسؤول"
 #: widgets/whatsnew/whatsnewtranslations.cpp:142
 #, kde-format
 msgid "Fix message video support"
-msgstr "إصلاح دعم رسالة الفيديو"
+msgstr "إصلاح رسائل الفيديو"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:143
 #, kde-format
