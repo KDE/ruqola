@@ -3,14 +3,14 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
-#include "exploredatabasestoragewidget.h"
+#include "exploredatabasemessagesstoragewidget.h"
 #include <QHeaderView>
 #include <QSqlTableModel>
 #include <QTableView>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
-ExploreDatabaseStorageWidget::ExploreDatabaseStorageWidget(QWidget *parent)
+ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(QWidget *parent)
     : QWidget{parent}
     , mTableView(new QTableView(this))
     , mLocalMessageDatabase(new LocalMessagesDatabase())
@@ -23,9 +23,9 @@ ExploreDatabaseStorageWidget::ExploreDatabaseStorageWidget(QWidget *parent)
     mainLayout->addWidget(mTableView);
 }
 
-ExploreDatabaseStorageWidget::~ExploreDatabaseStorageWidget() = default;
+ExploreDatabaseMessagesStorageWidget::~ExploreDatabaseMessagesStorageWidget() = default;
 
-void ExploreDatabaseStorageWidget::slotLoadModelFromDataBase(const QString &accountName, const QString &roomName)
+void ExploreDatabaseMessagesStorageWidget::slotLoadModelFromDataBase(const QString &accountName, const QString &roomName)
 {
     // TODO verify why we can't display it.
     auto model = mLocalMessageDatabase->createMessageModel(accountName, roomName);
@@ -34,4 +34,4 @@ void ExploreDatabaseStorageWidget::slotLoadModelFromDataBase(const QString &acco
     }
 }
 
-#include "moc_exploredatabasestoragewidget.cpp"
+#include "moc_exploredatabasemessagesstoragewidget.cpp"

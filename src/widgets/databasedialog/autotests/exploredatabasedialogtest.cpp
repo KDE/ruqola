@@ -8,7 +8,7 @@
 
 #include "databasedialog/exploredatabasedialog.h"
 #include "databasedialog/exploredatabasejsonwidget.h"
-#include "databasedialog/exploredatabasestoragewidget.h"
+#include "databasedialog/exploredatabasemessagesstoragewidget.h"
 #include "databasedialog/exploredatabaseviewmessageswidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
@@ -40,7 +40,7 @@ void ExploreDatabaseDialogTest::shouldHaveDefaultValues()
     auto mExploreDatabaseJsonWidget = d.findChild<ExploreDatabaseJsonWidget *>(u"mExploreDatabaseJsonWidget"_s);
     QVERIFY(mExploreDatabaseJsonWidget);
 
-    auto mExploreDatabaseStorageWidget = d.findChild<ExploreDatabaseStorageWidget *>(u"mExploreDatabaseStorageWidget"_s);
+    auto mExploreDatabaseStorageWidget = d.findChild<ExploreDatabaseMessagesStorageWidget *>(u"mExploreDatabaseStorageWidget"_s);
     QVERIFY(mExploreDatabaseStorageWidget);
 
     auto button = d.findChild<QDialogButtonBox *>(u"button"_s);

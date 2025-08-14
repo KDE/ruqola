@@ -10,12 +10,12 @@
 #include "localdatabase/localmessagesdatabase.h"
 #include <QWidget>
 class QTableView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseStorageWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseMessagesStorageWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseStorageWidget(QWidget *parent = nullptr);
-    ~ExploreDatabaseStorageWidget() override;
+    explicit ExploreDatabaseMessagesStorageWidget(QWidget *parent = nullptr);
+    ~ExploreDatabaseMessagesStorageWidget() override;
 
     void slotLoadModelFromDataBase(const QString &accountName, const QString &roomName);
 
