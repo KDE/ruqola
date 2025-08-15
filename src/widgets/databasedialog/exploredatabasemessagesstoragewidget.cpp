@@ -11,16 +11,9 @@
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(QWidget *parent)
-    : QWidget{parent}
-    , mTableView(new QTableView(this))
+    : ExploreDatabaseBaseStorageWidget{parent}
     , mLocalMessageDatabase(new LocalMessagesDatabase())
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(u"mainLayout"_s);
-    mainLayout->setContentsMargins({});
-
-    mTableView->setObjectName(u"mTableView"_s);
-    mainLayout->addWidget(mTableView);
 }
 
 ExploreDatabaseMessagesStorageWidget::~ExploreDatabaseMessagesStorageWidget() = default;

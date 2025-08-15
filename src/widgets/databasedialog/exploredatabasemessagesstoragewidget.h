@@ -6,11 +6,10 @@
 
 #pragma once
 
+#include "exploredatabasebasestoragewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "localdatabase/localmessagesdatabase.h"
-#include <QWidget>
-class QTableView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseMessagesStorageWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseMessagesStorageWidget : public ExploreDatabaseBaseStorageWidget
 {
     Q_OBJECT
 public:
@@ -20,7 +19,5 @@ public:
     void slotLoadModelFromDataBase(const QString &accountName, const QString &roomName);
 
 private:
-    QTableView *const mTableView;
     std::unique_ptr<LocalMessagesDatabase> mLocalMessageDatabase;
-    std::unique_ptr<QSqlTableModel> mModel;
 };
