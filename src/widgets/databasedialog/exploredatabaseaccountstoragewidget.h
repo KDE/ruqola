@@ -14,4 +14,5 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseAccountStorageWidget : public
 public:
     explicit ExploreDatabaseAccountStorageWidget(QWidget *parent = nullptr);
     ~ExploreDatabaseAccountStorageWidget() override;
+    void slotLoadModelFromDataBase();
 };
