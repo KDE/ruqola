@@ -5,15 +5,21 @@
 */
 
 #include "exploredatabaseaccountstoragewidget.h"
+#include <QTableView>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseAccountStorageWidget::ExploreDatabaseAccountStorageWidget(QWidget *parent)
     : QWidget{parent}
+    , mTableView(new QTableView(this))
+    , mLocalAccountsDatabase(new LocalAccountsDatabase())
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+
+    mTableView->setObjectName(u"mTableView"_s);
+    mainLayout->addWidget(mTableView);
 }
 
 ExploreDatabaseAccountStorageWidget::~ExploreDatabaseAccountStorageWidget() = default;
