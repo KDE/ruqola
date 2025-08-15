@@ -6,8 +6,10 @@
 
 #include "exploredatabasedialog.h"
 #include "exploredatabaseaccountstoragewidget.h"
+#include "exploredatabaseglobalstoragewidget.h"
 #include "exploredatabasejsonwidget.h"
 #include "exploredatabasemessagesstoragewidget.h"
+#include "exploredatabaseroomsstoragewidget.h"
 
 #include "exploredatabaseviewmessageswidget.h"
 #include <KConfigGroup>
@@ -30,6 +32,8 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     , mExploreDatabaseJsonWidget(new ExploreDatabaseJsonWidget(this))
     , mExploreDatabaseStorageWidget(new ExploreDatabaseMessagesStorageWidget(this))
     , mExploreDatabaseAccountStorageWidget(new ExploreDatabaseAccountStorageWidget(this))
+    , mExploreDatabaseRoomsStorageWidget(new ExploreDatabaseRoomsStorageWidget(this))
+    , mExploreDatabaseGlobalStorageWidget(new ExploreDatabaseGlobalStorageWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
     auto mainLayout = new QVBoxLayout(this);
@@ -50,6 +54,12 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
 
     mExploreDatabaseAccountStorageWidget->setObjectName(u"mExploreDatabaseAccountStorageWidget"_s);
     tabWidget->addTab(mExploreDatabaseAccountStorageWidget, i18n("DataBase Accounts"));
+
+    mExploreDatabaseRoomsStorageWidget->setObjectName(u"mExploreDatabaseRoomsStorageWidget"_s);
+    tabWidget->addTab(mExploreDatabaseRoomsStorageWidget, i18n("DataBase Rooms"));
+
+    mExploreDatabaseGlobalStorageWidget->setObjectName(u"mExploreDatabaseGlobalStorageWidget"_s);
+    tabWidget->addTab(mExploreDatabaseGlobalStorageWidget, i18n("DataBase Global"));
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(u"button"_s);
