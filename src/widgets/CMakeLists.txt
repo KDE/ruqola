@@ -788,6 +788,11 @@ target_sources(
         databasedialog/exploredatabaseaccountstoragewidget.cpp
         databasedialog/exploredatabasebasestoragewidget.h
         databasedialog/exploredatabasebasestoragewidget.cpp
+        databasedialog/exploredatabaseglobalstoragewidget.cpp
+        databasedialog/exploredatabaseglobalstoragewidget.h
+        databasedialog/exploredatabaseroomsstoragewidget.cpp
+        databasedialog/exploredatabaseroomsstoragewidget.h
+
         whatsnew/whatsnewdialog.h
         whatsnew/whatsnewdialog.cpp
         whatsnew/whatsnewwidget.h
