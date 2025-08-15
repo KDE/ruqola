@@ -22,4 +22,5 @@ public:
 private:
     QTableView *const mTableView;
     std::unique_ptr<LocalMessagesDatabase> mLocalMessageDatabase;
+    std::unique_ptr<QSqlTableModel> mModel;
 };

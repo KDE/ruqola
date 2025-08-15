@@ -27,10 +27,9 @@ ExploreDatabaseMessagesStorageWidget::~ExploreDatabaseMessagesStorageWidget() = 
 
 void ExploreDatabaseMessagesStorageWidget::slotLoadModelFromDataBase(const QString &accountName, const QString &roomName)
 {
-    // TODO verify why we can't display it.
-    auto model = mLocalMessageDatabase->createMessageModel(accountName, roomName);
-    if (model) {
-        mTableView->setModel(model.get());
+    mModel = mLocalMessageDatabase->createMessageModel(accountName, roomName);
+    if (mModel) {
+        mTableView->setModel(mModel.get());
     }
 }
 
