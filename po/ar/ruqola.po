@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-08-13 22:50+0400\n"
+"PO-Revision-Date: 2025-08-14 10:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2245,7 +2245,7 @@ msgstr "خطأ أثناء محاولة إرسال البريد الإلكترو�
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:276
 #, kde-format
 msgid "'%1' is already in use :("
-msgstr "'%1' مستخدم بالفعل :("
+msgstr "'%1' مستخدم فعلًا :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 #, kde-format
@@ -2823,7 +2823,7 @@ msgstr "عُطلت الحالة غير المرئية"
 #: rocketchatrestapi-qt/users/userscreatejob.cpp:94
 #, kde-format
 msgid "%1 is already in use."
-msgstr "%1 مستخدم بالفعل."
+msgstr "%1 مستخدم فعلًا."
 
 #: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
 #, kde-format
@@ -9794,7 +9794,7 @@ msgstr "كل إشارة/رسالة مباشرة"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
-msgstr "قام مسؤول روكت تشات الخاص بك بتعطيل إشعارات البريد الإلكتروني"
+msgstr "عطل مسؤول روكت تشات الخاص بك إشعارات البريد الإلكتروني"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
 #, kde-format
