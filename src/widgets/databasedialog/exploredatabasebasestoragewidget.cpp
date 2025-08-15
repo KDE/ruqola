@@ -21,3 +21,5 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(QWidget *pare
 }
 
 ExploreDatabaseBaseStorageWidget::~ExploreDatabaseBaseStorageWidget() = default;
+
+#include "moc_exploredatabasebasestoragewidget.cpp"
