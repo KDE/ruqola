@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-13 00:42+0000\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
 "PO-Revision-Date: 2025-05-30 19:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -7694,31 +7694,37 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Modifica conto"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:32
+#: widgets/databasedialog/exploredatabasedialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Information de Base de Datos"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:41
+#: widgets/databasedialog/exploredatabasedialog.cpp:43
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Messages"
 msgid "Messages"
 msgstr "Messages"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:46
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "Json"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:47
+#: widgets/databasedialog/exploredatabasedialog.cpp:49
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
-msgid "DataBase"
-msgstr "Information de Base de Datos"
+#| msgid "Private Messages"
+msgid "DataBase Messages"
+msgstr "Messages private"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Delete my Account"
+msgid "DataBase Accounts"
+msgstr "Dele mi conto"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -11974,6 +11980,12 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcun correction de faltas (bug)"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Database Info"
+#~ msgid "DataBase"
+#~ msgstr "Information de Base de Datos"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

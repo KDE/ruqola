@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-13 00:42+0000\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
 "PO-Revision-Date: 2025-08-13 06:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -7858,27 +7858,35 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Spremeni račun"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:32
+#: widgets/databasedialog/exploredatabasedialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informacije o podatkovni zbirki"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:41
+#: widgets/databasedialog/exploredatabasedialog.cpp:43
 #, kde-format
 msgid "Messages"
 msgstr "Sporočila"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:46
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:47
-#, kde-format
-msgid "DataBase"
-msgstr "Podatkovna zbirka"
+#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "DataBase Messages"
+msgstr "Zasebna sporočila"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Delete my Account"
+msgid "DataBase Accounts"
+msgstr "Izbriši moj račun"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12200,6 +12208,9 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
+
+#~ msgid "DataBase"
+#~ msgstr "Podatkovna zbirka"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

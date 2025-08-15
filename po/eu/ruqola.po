@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-13 00:42+0000\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
 "PO-Revision-Date: 2025-08-14 00:08+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -7873,27 +7873,35 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Aldatu kontua"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:32
+#: widgets/databasedialog/exploredatabasedialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Datu-basearen informazioa"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:41
+#: widgets/databasedialog/exploredatabasedialog.cpp:43
 #, kde-format
 msgid "Messages"
 msgstr "Mezuak"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:46
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:47
-#, kde-format
-msgid "DataBase"
-msgstr "Datu-basea"
+#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "DataBase Messages"
+msgstr "Mezu pribatua"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Delete my Account"
+msgid "DataBase Accounts"
+msgstr "Ezabatu nire kontua"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12214,6 +12222,9 @@ msgstr "Ruqola-ren askapen berri honetako ezaugarri berrien artean daude:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Akatsak konponketa batzuk:"
+
+#~ msgid "DataBase"
+#~ msgstr "Datu-basea"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

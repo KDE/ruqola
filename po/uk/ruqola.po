@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-13 00:42+0000\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
 "PO-Revision-Date: 2025-08-13 21:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -7915,27 +7915,35 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Зміна облікового запису"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:32
+#: widgets/databasedialog/exploredatabasedialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Інформація щодо бази даних"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:41
+#: widgets/databasedialog/exploredatabasedialog.cpp:43
 #, kde-format
 msgid "Messages"
 msgstr "Повідомлення"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:46
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:47
-#, kde-format
-msgid "DataBase"
-msgstr "База даних"
+#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "DataBase Messages"
+msgstr "Конфіденційні повідомлення"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Delete my Account"
+msgid "DataBase Accounts"
+msgstr "Вилучити обліковий запис"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12291,6 +12299,9 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~ msgid "DataBase"
+#~ msgstr "База даних"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-13 00:42+0000\n"
-"PO-Revision-Date: 2025-08-07 09:08+0200\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
+"PO-Revision-Date: 2025-08-13 08:47+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -7878,27 +7878,35 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Modifica el compte"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:32
+#: widgets/databasedialog/exploredatabasedialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informació de la base de dades"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:41
+#: widgets/databasedialog/exploredatabasedialog.cpp:43
 #, kde-format
 msgid "Messages"
 msgstr "Missatges"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:46
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:47
-#, kde-format
-msgid "DataBase"
-msgstr "Base de dades"
+#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "DataBase Messages"
+msgstr "Missatges privats"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Delete my Account"
+msgid "DataBase Accounts"
+msgstr "Suprimix el meu compte"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12200,10 +12208,9 @@ msgstr ""
 "Corregix la informació dels adjunts al diàleg «Mostra el registre del canal»."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, fuzzy, kde-format
-#| msgid "Fix single application on Windows/MacOs"
+#, kde-format
 msgid "Fix icon on windows."
-msgstr "Corregix l'aplicació individual a Windows/MacOs"
+msgstr "Corregix una icona en Windows."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
@@ -12230,3 +12237,6 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"
+
+#~ msgid "DataBase"
+#~ msgstr "Base de dades"

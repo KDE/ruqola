@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-13 00:42+0000\n"
-"PO-Revision-Date: 2025-08-13 22:50+0400\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
+"PO-Revision-Date: 2025-08-14 10:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2287,7 +2287,7 @@ msgstr "خطأ أثناء محاولة إرسال البريد الإلكترو�
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
 msgid "'%1' is already in use :("
-msgstr "'%1' مستخدم بالفعل :("
+msgstr "'%1' مستخدم فعلًا :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 #, kde-format
@@ -2864,7 +2864,7 @@ msgstr "عُطلت الحالة غير المرئية"
 #: rocketchatrestapi-qt/users/userscreatejob.cpp:94
 #, kde-format
 msgid "%1 is already in use."
-msgstr "%1 مستخدم بالفعل."
+msgstr "%1 مستخدم فعلًا."
 
 #: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
 #, kde-format
@@ -7855,27 +7855,35 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "عدّل الحساب"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:32
+#: widgets/databasedialog/exploredatabasedialog.cpp:34
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "معلومات قاعدة البيانات"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:41
+#: widgets/databasedialog/exploredatabasedialog.cpp:43
 #, kde-format
 msgid "Messages"
 msgstr "الرسائل"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:46
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "جسون"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:47
-#, kde-format
-msgid "DataBase"
-msgstr "قاعدة البيانات"
+#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "DataBase Messages"
+msgstr "رسائل خاصة"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Delete my Account"
+msgid "DataBase Accounts"
+msgstr "احذف حسابي"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -9967,7 +9975,7 @@ msgstr "كل إشارة/رسالة مباشرة"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
-msgstr "قام مسؤول روكت تشات الخاص بك بتعطيل إشعارات البريد الإلكتروني"
+msgstr "عطل مسؤول روكت تشات الخاص بك إشعارات البريد الإلكتروني"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
 #, kde-format
@@ -12198,6 +12206,9 @@ msgstr "بعض الميزات الجديدة في هذا الإصدار من ر�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "إصلاح بعض الأخطاء:"
+
+#~ msgid "DataBase"
+#~ msgstr "قاعدة البيانات"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
