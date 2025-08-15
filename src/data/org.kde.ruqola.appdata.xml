@@ -118,7 +118,7 @@
     <p>
       It supports RC features:
     </p>
-    <p xml:lang="ar">تدعم مزايا روكت تشات التالية:</p>
+    <p xml:lang="ar">تتيح مزايا روكت تشات التالية:</p>
     <p xml:lang="ca">Permet les característiques de RC:</p>
     <p xml:lang="ca-valencia">Permet les característiques de RC:</p>
     <p xml:lang="en-GB">It supports RC features:</p>
@@ -239,7 +239,7 @@
       <li xml:lang="x-test">xxchannelxx</li>
       <li xml:lang="zh-TW">頻道</li>
       <li>Support autotranslate (when RC has it)</li>
-      <li xml:lang="ar">دعم الترجمة الآليّة (عندما تكون مدعومة من ركت تشات)</li>
+      <li xml:lang="ar">الترجمة الآليّة (عندما تكون متوفرة من ركت تشات)</li>
       <li xml:lang="ca">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="ca-valencia">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="en-GB">Support auto-translate (when RC has it)</li>
@@ -326,7 +326,7 @@
       <li xml:lang="x-test">xxConfiguring roomxx</li>
       <li xml:lang="zh-TW">設定聊天室</li>
       <li>Thread message support</li>
-      <li xml:lang="ar">دعم سلسلة الرسائل</li>
+      <li xml:lang="ar">الرسائل المتسلسلة</li>
       <li xml:lang="ca">Permet fils de missatges</li>
       <li xml:lang="ca-valencia">Permet fils de missatges</li>
       <li xml:lang="en-GB">Thread message support</li>
@@ -384,7 +384,7 @@
       <li xml:lang="x-test">xxDiscussion roomxx</li>
       <li xml:lang="zh-TW">討論室</li>
       <li>Teams room support</li>
-      <li xml:lang="ar">دعم غرفة الفرق</li>
+      <li xml:lang="ar">غرفة الفرق</li>
       <li xml:lang="ca">Permet sales d'equips</li>
       <li xml:lang="ca-valencia">Permet sales d'equips</li>
       <li xml:lang="en-GB">Teams room support</li>
@@ -471,7 +471,7 @@
       <li xml:lang="x-test">xxRegistering new accountxx</li>
       <li xml:lang="zh-TW">註冊新的帳戶</li>
       <li>Support multi account</li>
-      <li xml:lang="ar">دعم حسابات متعددة</li>
+      <li xml:lang="ar">حسابات متعددة</li>
       <li xml:lang="ca">Permet diversos comptes</li>
       <li xml:lang="ca-valencia">Permet diversos comptes</li>
       <li xml:lang="en-GB">Support multi account</li>
@@ -557,7 +557,7 @@
       <li xml:lang="x-test">xxShow mention/attachment/Pinned message/start messagexx</li>
       <li xml:lang="zh-TW">顯示提及/附件/置頂訊息/起始訊息</li>
       <li>Support emoji</li>
-      <li xml:lang="ar">دعم الرموز التعبيرية</li>
+      <li xml:lang="ar">الرموز التعبيرية</li>
       <li xml:lang="ca">Permet emojis</li>
       <li xml:lang="ca-valencia">Permet emoji</li>
       <li xml:lang="en-GB">Support emoji</li>
@@ -586,7 +586,7 @@
       <li xml:lang="x-test">xxSupport emojixx</li>
       <li xml:lang="zh-TW">支援表情符號</li>
       <li>Video support</li>
-      <li xml:lang="ar">دعم الفيديو</li>
+      <li xml:lang="ar"> الفيديو</li>
       <li xml:lang="ca">Permet vídeo</li>
       <li xml:lang="ca-valencia">Permet vídeo</li>
       <li xml:lang="cs">Podpora videa</li>
@@ -616,7 +616,7 @@
       <li xml:lang="x-test">xxVideo supportxx</li>
       <li xml:lang="zh-TW">影片支援</li>
       <li>Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
-      <li xml:lang="ar">دعم الإدارة (إضافة/إزالة الأدوار، إضافة/إزالة المستخدمين، إضافة/إزالة الأذونات، ضبط الغرف وما إلى ذلك)</li>
+      <li xml:lang="ar">عمليات الإدارة (إضافة/إزالة الأدوار، إضافة/إزالة المستخدمين، إضافة/إزالة الأذونات، ضبط الغرف وما إلى ذلك)</li>
       <li xml:lang="ca">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="ca-valencia">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="en-GB">Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
@@ -644,7 +644,7 @@
       <li xml:lang="x-test">xxConfigure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)xx</li>
       <li xml:lang="zh-TW">支援管理員設定（新增/移除角色、新增/移除使用者、新增/移除權限、配置聊天室等等）</li>
       <li>Support OTR (in progress)</li>
-      <li xml:lang="ar">دعم الرسائل المؤقت غير المسجلة (قيد التنفيذ)</li>
+      <li xml:lang="ar">الرسائل المؤقت غير المسجلة (قيد التنفيذ)</li>
       <li xml:lang="ca">Permet OTR (en curs)</li>
       <li xml:lang="ca-valencia">Permet OTR (en curs)</li>
       <li xml:lang="en-GB">Support OTR (in progress)</li>
@@ -673,7 +673,7 @@
       <li xml:lang="x-test">xxSupport OTR (in progress)xx</li>
       <li xml:lang="zh-TW">支援 OTR（仍在開發中）</li>
       <li>support gif image</li>
-      <li xml:lang="ar">دعم صورة GIF</li>
+      <li xml:lang="ar">صورة GIF</li>
       <li xml:lang="ca">Permet imatges GIF</li>
       <li xml:lang="ca-valencia">Permet imatges GIF</li>
       <li xml:lang="en-GB">support gif image</li>
@@ -702,7 +702,7 @@
       <li xml:lang="x-test">xxsupport gif imagexx</li>
       <li xml:lang="zh-TW">支援 GIF 影像</li>
       <li>Add support for uploading attachment files</li>
-      <li xml:lang="ar">إضافة دعم رفع الملفات المرفقة</li>
+      <li xml:lang="ar">رفع الملفات المرفقة</li>
       <li xml:lang="ca">Permet pujar fitxers adjunts</li>
       <li xml:lang="ca-valencia">Permet pujar fitxers adjunts</li>
       <li xml:lang="en-GB">Add support for uploading attachment files</li>
@@ -1136,7 +1136,7 @@
       <li xml:lang="x-test">xxAdd notification historyxx</li>
       <li xml:lang="zh-TW">新增通知歷史</li>
       <li>New RocketChat Server Information Support</li>
-      <li xml:lang="ar">دعم معلومات خادم روكت تشات الجديد</li>
+      <li xml:lang="ar">إتاحة معلومات خادم روكت تشات الجديد</li>
       <li xml:lang="ca">Implementació nova d'informació del servidor RocketChat</li>
       <li xml:lang="ca-valencia">Implementació nova d'informació del servidor RocketChat</li>
       <li xml:lang="en-GB">New RocketChat Server Information Support</li>
@@ -1223,7 +1223,7 @@
       <li xml:lang="x-test">xxManage Personal Access Tokenxx</li>
       <li xml:lang="zh-TW">管理個人存取權杖 (Personal Access Token)</li>
       <li>Add support for local translation</li>
-      <li xml:lang="ar">إضافة دعم للترجمة المحلية</li>
+      <li xml:lang="ar">الترجمة المحلية</li>
       <li xml:lang="ca">Afegeix la implementació per a la traducció local</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la traducció local</li>
       <li xml:lang="cs">Přidat podporu pro místní překlad</li>
@@ -1253,7 +1253,7 @@
       <li xml:lang="x-test">xxAdd support for local translationxx</li>
       <li xml:lang="zh-TW">新增本地翻譯的支援</li>
       <li>Add support for text auto-correction</li>
-      <li xml:lang="ar">إضافة دعم لتصحيح النص آليًّا</li>
+      <li xml:lang="ar">تصحيح النص آليًّا</li>
       <li xml:lang="ca">Afegeix la implementació per a la correcció automàtica</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la correcció automàtica</li>
       <li xml:lang="cs">Přidat podporu pro automatickou opravu textu</li>
