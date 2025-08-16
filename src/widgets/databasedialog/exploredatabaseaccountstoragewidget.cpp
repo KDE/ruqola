@@ -16,7 +16,7 @@ ExploreDatabaseAccountStorageWidget::ExploreDatabaseAccountStorageWidget(RocketC
 
 ExploreDatabaseAccountStorageWidget::~ExploreDatabaseAccountStorageWidget() = default;
 
-void ExploreDatabaseAccountStorageWidget::slotLoadModelFromDataBase()
+void ExploreDatabaseAccountStorageWidget::slotLoadModelFromDataBase(const QString &accountName)
 {
     /*
     mModel = mLocalAccountsDatabase->(accountName, roomName);

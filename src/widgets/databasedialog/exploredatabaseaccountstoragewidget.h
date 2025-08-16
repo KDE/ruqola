@@ -14,7 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseAccountStorageWidget : public
 public:
     explicit ExploreDatabaseAccountStorageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ExploreDatabaseAccountStorageWidget() override;
-    void slotLoadModelFromDataBase();
+    void slotLoadModelFromDataBase(const QString &accountName);
 
 private:
     std::unique_ptr<LocalAccountsDatabase> mLocalAccountsDatabase;

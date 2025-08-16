@@ -13,6 +13,9 @@ ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketCha
     : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalGlobalDatabase(account ? account->localDatabaseManager()->globalDatabase() : nullptr)
 {
+    if (account) {
+        slotLoadModelFromDataBase(account->accountName());
+    }
 }
 
 ExploreDatabaseGlobalStorageWidget::~ExploreDatabaseGlobalStorageWidget() = default;
@@ -23,8 +26,6 @@ void ExploreDatabaseGlobalStorageWidget::slotLoadModelFromDataBase(const QString
     if (mModel) {
         mTableView->setModel(mModel.get());
     }
-
-    // TODO
 }
 
 #include "moc_exploredatabaseglobalstoragewidget.cpp"

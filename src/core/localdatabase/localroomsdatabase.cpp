@@ -11,10 +11,12 @@ using namespace Qt::Literals::StringLiterals;
 #include "room.h"
 #include "ruqola_database_debug.h"
 
+#include <QFileInfo>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
+#include <QSqlTableModel>
 
 static const char s_schemaRoomDataBase[] = "CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class RoomFields {
@@ -80,4 +82,32 @@ QByteArray LocalRoomsDatabase::jsonRoom(const QString &accountName, const QStrin
         value = query.value(0).toByteArray();
     }
     return value;
+}
+
+std::unique_ptr<QSqlTableModel> LocalRoomsDatabase::createRoomsModel(const QString &accountName) const
+{
+    const QString dbName = databaseName(accountName);
+    QSqlDatabase db = QSqlDatabase::database(dbName);
+    if (!db.isValid()) {
+        // Open the DB if it exists (don't create a new one)
+        const QString fileName = dbFileName(accountName);
+        // qDebug() << " fileName " << fileName;
+        if (!QFileInfo::exists(fileName)) {
+            return {};
+        }
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
+        db.setDatabaseName(fileName);
+        if (!db.open()) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
+            return {};
+        }
+    }
+
+    Q_ASSERT(db.isValid());
+    Q_ASSERT(db.isOpen());
+    auto model = std::make_unique<QSqlTableModel>(nullptr, db);
+    model->setTable(u"ROOMS"_s);
+    model->setSort(int(RoomFields::TimeStamp), Qt::AscendingOrder);
+    model->select();
+    return model;
 }

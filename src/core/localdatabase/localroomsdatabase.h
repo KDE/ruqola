@@ -8,6 +8,7 @@
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
 class Room;
+class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT LocalRoomsDatabase : public LocalDatabaseBase
 {
 public:
@@ -17,6 +18,8 @@ public:
     void deleteRoom(const QString &accountName, const QString &roomId);
 
     [[nodiscard]] QByteArray jsonRoom(const QString &accountName, const QString &roomId);
+
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createRoomsModel(const QString &accountName) const;
 
 protected:
     [[nodiscard]] QString schemaDataBase() const override;
