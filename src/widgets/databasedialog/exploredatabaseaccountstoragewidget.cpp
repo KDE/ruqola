@@ -10,7 +10,7 @@
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseAccountStorageWidget::ExploreDatabaseAccountStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
-    , mLocalAccountsDatabase(account->localDatabaseManager()->accountDatabase())
+    , mLocalAccountsDatabase(account ? account->localDatabaseManager()->accountDatabase() : nullptr)
 {
 }
 
