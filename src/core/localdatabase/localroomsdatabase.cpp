@@ -91,7 +91,7 @@ std::unique_ptr<QSqlTableModel> LocalRoomsDatabase::createRoomsModel(const QStri
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
         const QString fileName = dbFileName(accountName);
-        // qDebug() << " fileName " << fileName;
+        qCDebug(RUQOLA_DATABASE_LOG) << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
             return {};
         }
