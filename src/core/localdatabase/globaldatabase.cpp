@@ -9,6 +9,7 @@
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 
+#include <QFileInfo>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
@@ -104,15 +105,13 @@ qint64 GlobalDatabase::timeStamp(const QString &accountName, const QString &room
     return value;
 }
 
-std::unique_ptr<QSqlTableModel> GlobalDatabase::createGlobalModel() const
+std::unique_ptr<QSqlTableModel> GlobalDatabase::createGlobalModel(const QString &accountName) const
 {
-    /*
-    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + u'-' + roomName);
+    const QString dbName = databaseName(accountName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
-        const QString fileName = dbFileName(accountName, roomName);
+        const QString fileName = dbFileName(accountName);
         // qDebug() << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
             return {};
@@ -128,10 +127,8 @@ std::unique_ptr<QSqlTableModel> GlobalDatabase::createGlobalModel() const
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
-    model->setTable(u"MESSAGES"_s);
-    model->setSort(int(MessagesFields::TimeStamp), Qt::AscendingOrder);
+    model->setTable(u"GLOBAL"_s);
+    model->setSort(int(GlobalFields::TimeStamp), Qt::AscendingOrder);
     model->select();
     return model;
-    */
-    return nullptr;
 }

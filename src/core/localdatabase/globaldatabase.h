@@ -29,7 +29,7 @@ public:
 
     [[nodiscard]] qint64 timeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
 
-    [[nodiscard]] std::unique_ptr<QSqlTableModel> createGlobalModel() const;
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createGlobalModel(const QString &accountName) const;
 
 protected:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString schemaDataBase() const override;
