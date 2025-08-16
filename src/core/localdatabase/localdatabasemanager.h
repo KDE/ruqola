@@ -46,6 +46,14 @@ public:
 
     void setDatabaseLogger(RocketChatRestApi::AbstractLogger *logger);
 
+    [[nodiscard]] LocalMessagesDatabase *messagesDatabase() const;
+
+    [[nodiscard]] LocalRoomsDatabase *roomsDatabase() const;
+
+    [[nodiscard]] LocalAccountsDatabase *accountDatabase() const;
+
+    [[nodiscard]] GlobalDatabase *globalDatabase() const;
+
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
     std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;

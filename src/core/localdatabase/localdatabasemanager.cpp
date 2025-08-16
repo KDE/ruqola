@@ -90,6 +90,26 @@ void LocalDatabaseManager::setDatabaseLogger(RocketChatRestApi::AbstractLogger *
     mGlobalDatabase->setDatabaseLogger(logger);
 }
 
+LocalMessagesDatabase *LocalDatabaseManager::messagesDatabase() const
+{
+    return mMessagesDatabase.get();
+}
+
+LocalRoomsDatabase *LocalDatabaseManager::roomsDatabase() const
+{
+    return mRoomsDatabase.get();
+}
+
+LocalAccountsDatabase *LocalDatabaseManager::accountDatabase() const
+{
+    return mAccountDatabase.get();
+}
+
+GlobalDatabase *LocalDatabaseManager::globalDatabase() const
+{
+    return mGlobalDatabase.get();
+}
+
 void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
