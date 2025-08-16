@@ -30,7 +30,7 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     : QDialog(parent)
     , mExploreDatabaseWidget(new ExploreDatabaseViewMessagesWidget(account, this))
     , mExploreDatabaseJsonWidget(new ExploreDatabaseJsonWidget(this))
-    , mExploreDatabaseStorageWidget(new ExploreDatabaseMessagesStorageWidget(this))
+    , mExploreDatabaseMessagesStorageWidget(new ExploreDatabaseMessagesStorageWidget(this))
     , mExploreDatabaseAccountStorageWidget(new ExploreDatabaseAccountStorageWidget(this))
     , mExploreDatabaseRoomsStorageWidget(new ExploreDatabaseRoomsStorageWidget(this))
     , mExploreDatabaseGlobalStorageWidget(new ExploreDatabaseGlobalStorageWidget(this))
@@ -49,8 +49,8 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     mExploreDatabaseJsonWidget->setObjectName(u"mExploreDatabaseJsonWidget"_s);
     tabWidget->addTab(mExploreDatabaseJsonWidget, i18n("Json"));
 
-    mExploreDatabaseStorageWidget->setObjectName(u"mExploreDatabaseStorageWidget"_s);
-    tabWidget->addTab(mExploreDatabaseStorageWidget, i18n("DataBase Messages"));
+    mExploreDatabaseMessagesStorageWidget->setObjectName(u"mExploreDatabaseStorageWidget"_s);
+    tabWidget->addTab(mExploreDatabaseMessagesStorageWidget, i18n("DataBase Messages"));
 
     mExploreDatabaseAccountStorageWidget->setObjectName(u"mExploreDatabaseAccountStorageWidget"_s);
     tabWidget->addTab(mExploreDatabaseAccountStorageWidget, i18n("DataBase Accounts"));
@@ -73,7 +73,7 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
 
     connect(mExploreDatabaseWidget,
             &ExploreDatabaseViewMessagesWidget::loadModelFromDataBase,
-            mExploreDatabaseStorageWidget,
+            mExploreDatabaseMessagesStorageWidget,
             &ExploreDatabaseMessagesStorageWidget::slotLoadModelFromDataBase);
 
     // TODO load mExploreDatabaseAccountStorageWidget

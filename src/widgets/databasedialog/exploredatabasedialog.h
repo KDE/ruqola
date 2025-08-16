@@ -27,7 +27,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     ExploreDatabaseViewMessagesWidget *const mExploreDatabaseWidget;
     ExploreDatabaseJsonWidget *const mExploreDatabaseJsonWidget;
-    ExploreDatabaseMessagesStorageWidget *const mExploreDatabaseStorageWidget;
+    ExploreDatabaseMessagesStorageWidget *const mExploreDatabaseMessagesStorageWidget;
     ExploreDatabaseAccountStorageWidget *const mExploreDatabaseAccountStorageWidget;
     ExploreDatabaseRoomsStorageWidget *const mExploreDatabaseRoomsStorageWidget;
     ExploreDatabaseGlobalStorageWidget *const mExploreDatabaseGlobalStorageWidget;
