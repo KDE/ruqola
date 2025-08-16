@@ -7,7 +7,7 @@
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
 #pragma once
-
+class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT LocalAccountsDatabase : public LocalDatabaseBase
 {
 public:
@@ -18,6 +18,8 @@ public:
     void updateAccount(const QString &accountName, const QByteArray &ba);
 
     [[nodiscard]] QByteArray jsonAccount(const QString &accountName);
+
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createAccountsModel(const QString &accountName) const;
 
 protected:
     [[nodiscard]] QString schemaDataBase() const override;

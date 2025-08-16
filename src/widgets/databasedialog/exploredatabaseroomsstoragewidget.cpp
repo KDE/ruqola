@@ -27,7 +27,7 @@ void ExploreDatabaseRoomsStorageWidget::slotLoadModelFromDataBase(const QString 
     if (mModel) {
         mTableView->setModel(mModel.get());
     } else {
-        qCDebug(RUQOLA_DATABASE_LOG) << "rooms model is nullptr" << accountName;
+        // qCDebug(RUQOLA_DATABASE_LOG) << "rooms model is nullptr" << accountName;
     }
 }
 

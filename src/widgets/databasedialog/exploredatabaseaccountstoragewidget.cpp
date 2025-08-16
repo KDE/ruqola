@@ -7,24 +7,28 @@
 #include "exploredatabaseaccountstoragewidget.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
+#include "ruqola_database_debug.h"
+#include <QTableView>
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseAccountStorageWidget::ExploreDatabaseAccountStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalAccountsDatabase(account ? account->localDatabaseManager()->accountDatabase() : nullptr)
 {
+    if (account) {
+        slotLoadModelFromDataBase(account->accountName());
+    }
 }
 
 ExploreDatabaseAccountStorageWidget::~ExploreDatabaseAccountStorageWidget() = default;
 
 void ExploreDatabaseAccountStorageWidget::slotLoadModelFromDataBase(const QString &accountName)
 {
-    /*
-    mModel = mLocalAccountsDatabase->(accountName, roomName);
+    mModel = mLocalAccountsDatabase->createAccountsModel(accountName);
     if (mModel) {
         mTableView->setModel(mModel.get());
+    } else {
+        // qCWarning(RUQOLA_DATABASE_LOG) << "Model is empty for accounts";
     }
-    */
-    // TODO
 }
 
 #include "moc_exploredatabaseaccountstoragewidget.cpp"

@@ -8,10 +8,12 @@
 
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
+#include <QFileInfo>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
+#include <qsqltablemodel.h>
 
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaAccountsDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
@@ -75,4 +77,32 @@ QByteArray LocalAccountsDatabase::jsonAccount(const QString &accountName)
         value = query.value(0).toByteArray();
     }
     return value;
+}
+
+std::unique_ptr<QSqlTableModel> LocalAccountsDatabase::createAccountsModel(const QString &accountName) const
+{
+    const QString dbName = databaseName(accountName);
+    QSqlDatabase db = QSqlDatabase::database(dbName);
+    if (!db.isValid()) {
+        // Open the DB if it exists (don't create a new one)
+        const QString fileName = dbFileName(accountName);
+        // qDebug() << " fileName " << fileName;
+        if (!QFileInfo::exists(fileName)) {
+            return {};
+        }
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
+        db.setDatabaseName(fileName);
+        if (!db.open()) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
+            return {};
+        }
+    }
+
+    Q_ASSERT(db.isValid());
+    Q_ASSERT(db.isOpen());
+    auto model = std::make_unique<QSqlTableModel>(nullptr, db);
+    model->setTable(u"ACCOUNT"_s);
+    model->setSort(int(AccountFields::AccountName), Qt::AscendingOrder);
+    model->select();
+    return model;
 }
