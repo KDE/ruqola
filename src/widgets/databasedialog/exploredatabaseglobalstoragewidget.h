@@ -6,7 +6,7 @@
 #pragma once
 
 #include "exploredatabasebasestoragewidget.h"
-#include "localdatabase/localaccountsdatabase.h"
+#include "localdatabase/globaldatabase.h"
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseGlobalStorageWidget : public ExploreDatabaseBaseStorageWidget
 {
@@ -17,5 +17,5 @@ public:
     void slotLoadModelFromDataBase();
 
 private:
-    std::unique_ptr<LocalAccountsDatabase> mLocalAccountsDatabase;
+    std::unique_ptr<GlobalDatabase> mLocalGlobalDatabase;
 };

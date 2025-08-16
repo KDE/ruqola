@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exploredatabasemessagesstoragewidget.h"
+#include "localdatabase/localdatabasemanager.h"
+#include "rocketchataccount.h"
 #include <QHeaderView>
 #include <QSqlTableModel>
 #include <QTableView>
@@ -12,7 +14,7 @@
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
-    , mLocalMessageDatabase(new LocalMessagesDatabase())
+    , mLocalMessageDatabase(account->localDatabaseManager()->messagesDatabase())
 {
 }
 

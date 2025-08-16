@@ -5,11 +5,12 @@
 */
 
 #include "exploredatabaseglobalstoragewidget.h"
-
+#include "localdatabase/localdatabasemanager.h"
+#include "rocketchataccount.h"
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
-    , mLocalAccountsDatabase(new LocalAccountsDatabase())
+    , mLocalGlobalDatabase(account->localDatabaseManager()->globalDatabase())
 {
 }
 
