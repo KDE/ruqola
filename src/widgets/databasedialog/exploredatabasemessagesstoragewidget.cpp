@@ -11,7 +11,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(RocketChatAccount *account, QWidget *parent)
-    : ExploreDatabaseBaseStorageWidget{parent}
+    : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalMessageDatabase(new LocalMessagesDatabase())
 {
 }

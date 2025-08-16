@@ -8,7 +8,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketChatAccount *account, QWidget *parent)
-    : ExploreDatabaseBaseStorageWidget{parent}
+    : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalAccountsDatabase(new LocalAccountsDatabase())
 {
 }

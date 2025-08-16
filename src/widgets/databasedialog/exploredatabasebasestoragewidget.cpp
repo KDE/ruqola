@@ -8,9 +8,10 @@
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
-ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(QWidget *parent)
+ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTableView(new QTableView(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);

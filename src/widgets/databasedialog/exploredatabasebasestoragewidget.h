@@ -10,14 +10,16 @@
 #include <QWidget>
 #include <memory.h>
 class QTableView;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseBaseStorageWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseBaseStorageWidget(QWidget *parent = nullptr);
+    explicit ExploreDatabaseBaseStorageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ExploreDatabaseBaseStorageWidget() override;
 
 protected:
     std::unique_ptr<QSqlTableModel> mModel;
     QTableView *const mTableView;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
