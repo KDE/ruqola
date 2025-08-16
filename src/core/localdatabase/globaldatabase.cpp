@@ -103,3 +103,35 @@ qint64 GlobalDatabase::timeStamp(const QString &accountName, const QString &room
     }
     return value;
 }
+
+std::unique_ptr<QSqlTableModel> GlobalDatabase::createGlobalModel() const
+{
+    /*
+    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
+    const QString dbName = databaseName(accountName + u'-' + roomName);
+    QSqlDatabase db = QSqlDatabase::database(dbName);
+    if (!db.isValid()) {
+        // Open the DB if it exists (don't create a new one)
+        const QString fileName = dbFileName(accountName, roomName);
+        // qDebug() << " fileName " << fileName;
+        if (!QFileInfo::exists(fileName)) {
+            return {};
+        }
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
+        db.setDatabaseName(fileName);
+        if (!db.open()) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
+            return {};
+        }
+    }
+
+    Q_ASSERT(db.isValid());
+    Q_ASSERT(db.isOpen());
+    auto model = std::make_unique<QSqlTableModel>(nullptr, db);
+    model->setTable(u"MESSAGES"_s);
+    model->setSort(int(MessagesFields::TimeStamp), Qt::AscendingOrder);
+    model->select();
+    return model;
+    */
+    return nullptr;
+}

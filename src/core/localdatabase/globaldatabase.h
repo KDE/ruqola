@@ -9,6 +9,7 @@
 #include "localdatabasebase.h"
 #include <QObject>
 
+class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT GlobalDatabase : public LocalDatabaseBase
 {
 public:
@@ -27,6 +28,8 @@ public:
     void removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
 
     [[nodiscard]] qint64 timeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
+
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createGlobalModel() const;
 
 protected:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString schemaDataBase() const override;
