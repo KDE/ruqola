@@ -7,6 +7,7 @@
 #include "exploredatabaseglobalstoragewidget.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
+#include <QTableView>
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
@@ -16,8 +17,13 @@ ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketCha
 
 ExploreDatabaseGlobalStorageWidget::~ExploreDatabaseGlobalStorageWidget() = default;
 
-void ExploreDatabaseGlobalStorageWidget::slotLoadModelFromDataBase()
+void ExploreDatabaseGlobalStorageWidget::slotLoadModelFromDataBase(const QString &accountName)
 {
+    mModel = mLocalGlobalDatabase->createGlobalModel(accountName);
+    if (mModel) {
+        mTableView->setModel(mModel.get());
+    }
+
     // TODO
 }
 

@@ -18,6 +18,12 @@ ExploreDatabaseAccountStorageWidget::~ExploreDatabaseAccountStorageWidget() = de
 
 void ExploreDatabaseAccountStorageWidget::slotLoadModelFromDataBase()
 {
+    /*
+    mModel = mLocalAccountsDatabase->(accountName, roomName);
+    if (mModel) {
+        mTableView->setModel(mModel.get());
+    }
+    */
     // TODO
 }
 
