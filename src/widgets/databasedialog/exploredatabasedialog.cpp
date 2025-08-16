@@ -30,10 +30,10 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     : QDialog(parent)
     , mExploreDatabaseWidget(new ExploreDatabaseViewMessagesWidget(account, this))
     , mExploreDatabaseJsonWidget(new ExploreDatabaseJsonWidget(this))
-    , mExploreDatabaseMessagesStorageWidget(new ExploreDatabaseMessagesStorageWidget(this))
-    , mExploreDatabaseAccountStorageWidget(new ExploreDatabaseAccountStorageWidget(this))
-    , mExploreDatabaseRoomsStorageWidget(new ExploreDatabaseRoomsStorageWidget(this))
-    , mExploreDatabaseGlobalStorageWidget(new ExploreDatabaseGlobalStorageWidget(this))
+    , mExploreDatabaseMessagesStorageWidget(new ExploreDatabaseMessagesStorageWidget(account, this))
+    , mExploreDatabaseAccountStorageWidget(new ExploreDatabaseAccountStorageWidget(account, this))
+    , mExploreDatabaseRoomsStorageWidget(new ExploreDatabaseRoomsStorageWidget(account, this))
+    , mExploreDatabaseGlobalStorageWidget(new ExploreDatabaseGlobalStorageWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
     auto mainLayout = new QVBoxLayout(this);

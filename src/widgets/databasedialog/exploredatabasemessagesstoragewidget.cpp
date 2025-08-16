@@ -10,7 +10,7 @@
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
-ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(QWidget *parent)
+ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{parent}
     , mLocalMessageDatabase(new LocalMessagesDatabase())
 {

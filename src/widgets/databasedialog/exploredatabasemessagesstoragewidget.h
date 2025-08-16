@@ -9,11 +9,12 @@
 #include "exploredatabasebasestoragewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "localdatabase/localmessagesdatabase.h"
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseMessagesStorageWidget : public ExploreDatabaseBaseStorageWidget
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseMessagesStorageWidget(QWidget *parent = nullptr);
+    explicit ExploreDatabaseMessagesStorageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ExploreDatabaseMessagesStorageWidget() override;
 
     void slotLoadModelFromDataBase(const QString &accountName, const QString &roomName);

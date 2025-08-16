@@ -7,7 +7,7 @@
 #include "exploredatabaseglobalstoragewidget.h"
 
 using namespace Qt::Literals::StringLiterals;
-ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(QWidget *parent)
+ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{parent}
     , mLocalAccountsDatabase(new LocalAccountsDatabase())
 {
