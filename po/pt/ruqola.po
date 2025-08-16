@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-16 00:43+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -8418,35 +8418,49 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Modificar a Conta"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:34
+#: widgets/databasedialog/exploredatabasedialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informação da Base de Dados"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:43
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, fuzzy, kde-format
 #| msgid "Messages"
 msgid "Messages"
 msgstr "Mensagens"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:46
+#: widgets/databasedialog/exploredatabasedialog.cpp:50
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#: widgets/databasedialog/exploredatabasedialog.cpp:53
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "Mensagens Privadas"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, fuzzy, kde-format
 #| msgid "Delete my Account"
 msgid "DataBase Accounts"
 msgstr "Apagar a Minha Conta"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase Rooms"
+msgstr "Informação da Base de Dados"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase Global"
+msgstr "Informação da Base de Dados"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -13132,12 +13146,6 @@ msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Database Info"
-#~ msgid "DataBase"
-#~ msgstr "Informação da Base de Dados"
 
 #, fuzzy
 #~| msgid "Remove"

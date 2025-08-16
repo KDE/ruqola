@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-16 00:43+0000\n"
 "PO-Revision-Date: 2025-08-13 14:36-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7868,35 +7868,47 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Modificar conta"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:34
+#: widgets/databasedialog/exploredatabasedialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informações do banco de dados"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:43
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, kde-format
 msgid "Messages"
 msgstr "Mensagens"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:46
+#: widgets/databasedialog/exploredatabasedialog.cpp:50
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#: widgets/databasedialog/exploredatabasedialog.cpp:53
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "Mensagens privadas"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Delete my Account"
 msgid "DataBase Accounts"
 msgstr "Excluir minha conta"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#, fuzzy, kde-format
+#| msgid "DataBase"
+msgid "DataBase Rooms"
+msgstr "Banco de dados"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#, fuzzy, kde-format
+#| msgid "DataBase"
+msgid "DataBase Global"
+msgstr "Banco de dados"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12212,9 +12224,6 @@ msgstr "Alguns dos novos recursos desta versão do Ruqola incluem:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correções de erro:"
-
-#~ msgid "DataBase"
-#~ msgstr "Banco de dados"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

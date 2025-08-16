@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-16 00:43+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7943,37 +7943,51 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Изменение учётной записи"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:34
+#: widgets/databasedialog/exploredatabasedialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Сведения о базе данных"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:43
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Messages"
 msgid "Messages"
 msgstr "Сообщения"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:46
+#: widgets/databasedialog/exploredatabasedialog.cpp:50
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#: widgets/databasedialog/exploredatabasedialog.cpp:53
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "Конфиденциальные сообщения"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Delete my Account"
 msgid "DataBase Accounts"
 msgstr "Удалить мою учётную запись"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase Rooms"
+msgstr "Сведения о базе данных"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase Global"
+msgstr "Сведения о базе данных"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12349,12 +12363,6 @@ msgstr "Некоторые из новых возможностей в этой 
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Исправление некоторых ошибок:"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Database Info"
-#~ msgid "DataBase"
-#~ msgstr "Сведения о базе данных"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

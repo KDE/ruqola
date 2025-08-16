@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-16 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -8123,36 +8123,48 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Pridať účet"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:34
+#: widgets/databasedialog/exploredatabasedialog.cpp:38
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informácie o užívateľovi"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:43
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Messages"
 msgstr "Správa"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:46
+#: widgets/databasedialog/exploredatabasedialog.cpp:50
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr ""
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#: widgets/databasedialog/exploredatabasedialog.cpp:53
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "Súkromné adresy"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "DataBase Accounts"
 msgstr "Odstrániť účet"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#, fuzzy, kde-format
+#| msgid "User Info"
+msgid "DataBase Rooms"
+msgstr "Informácie o užívateľovi"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#, fuzzy, kde-format
+#| msgid "User Info"
+msgid "DataBase Global"
+msgstr "Informácie o užívateľovi"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12776,11 +12788,6 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
-
-#, fuzzy
-#~| msgid "User Info"
-#~ msgid "DataBase"
-#~ msgstr "Informácie o užívateľovi"
 
 #, fuzzy
 #~| msgid "Delete Account"

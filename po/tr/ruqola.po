@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-15 00:45+0000\n"
-"PO-Revision-Date: 2025-08-13 16:54+0300\n"
+"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"PO-Revision-Date: 2025-08-15 20:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7819,35 +7819,44 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Hesabı Değiştir"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:34
+#: widgets/databasedialog/exploredatabasedialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Veritabanı Bilgisi"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:43
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, kde-format
 msgid "Messages"
 msgstr "İletiler"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:46
+#: widgets/databasedialog/exploredatabasedialog.cpp:50
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:49
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#: widgets/databasedialog/exploredatabasedialog.cpp:53
+#, kde-format
 msgid "DataBase Messages"
-msgstr "Özel İletiler"
+msgstr "Veritabanı İletileri"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete my Account"
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
+#, kde-format
 msgid "DataBase Accounts"
-msgstr "Hesabımı Sil"
+msgstr "Veritabanı Hesapları"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#, fuzzy, kde-format
+#| msgid "DataBase"
+msgid "DataBase Rooms"
+msgstr "Veritabanı"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#, fuzzy, kde-format
+#| msgid "DataBase"
+msgid "DataBase Global"
+msgstr "Veritabanı"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12150,9 +12159,6 @@ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeleri:"
-
-#~ msgid "DataBase"
-#~ msgstr "Veritabanı"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-15 00:45+0000\n"
+"POT-Creation-Date: 2025-08-16 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -8193,7 +8193,7 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Zugang bearbeiten"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:34
+#: widgets/databasedialog/exploredatabasedialog.cpp:38
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "User Info"
@@ -8201,29 +8201,43 @@ msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Benutzerinformation"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:43
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Messages"
 msgstr "Nachricht"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:46
+#: widgets/databasedialog/exploredatabasedialog.cpp:50
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#: widgets/databasedialog/exploredatabasedialog.cpp:53
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "Private Nachrichten"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, fuzzy, kde-format
 #| msgid "Delete my Account"
 msgid "DataBase Accounts"
 msgstr "Meinen Zugang löschen"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "User Info"
+msgid "DataBase Rooms"
+msgstr "Benutzerinformation"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "User Info"
+msgid "DataBase Global"
+msgstr "Benutzerinformation"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12859,12 +12873,6 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Fehlerkorrekturen"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "User Info"
-#~ msgid "DataBase"
-#~ msgstr "Benutzerinformation"
 
 #, fuzzy
 #~| msgid "Remove"
