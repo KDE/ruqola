@@ -88,7 +88,6 @@ target_include_directories(
     INTERFACE
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
 )
 
 generate_export_header(cmark-rc BASE_NAME cmark-rc)
