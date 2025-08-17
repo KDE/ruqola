@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-16 00:43+0000\n"
-"PO-Revision-Date: 2025-08-14 14:51+0200\n"
+"PO-Revision-Date: 2025-08-16 18:55+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7897,29 +7897,24 @@ msgid "Json"
 msgstr "Json"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:53
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgid "DataBase Messages"
-msgstr "Privé berichten"
+msgstr "DataBase-berichten"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete my Account"
+#, kde-format
 msgid "DataBase Accounts"
-msgstr "Mijn account verwijderen"
+msgstr "DataBase-accounts"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:59
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Rooms"
-msgstr "Database"
+msgstr "DataBase-rooms"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Global"
-msgstr "Database"
+msgstr "DataBase-globaal"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format

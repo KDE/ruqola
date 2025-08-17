@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-16 00:43+0000\n"
-"PO-Revision-Date: 2025-08-15 08:33+0200\n"
+"PO-Revision-Date: 2025-08-16 10:30+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7886,16 +7886,14 @@ msgid "DataBase Accounts"
 msgstr "Računi podatkovne baze"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:59
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Rooms"
-msgstr "Podatkovna zbirka"
+msgstr "Sobe podatkovne zbirke"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Global"
-msgstr "Podatkovna zbirka"
+msgstr "Globalna podatkovna zbirka"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format

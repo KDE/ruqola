@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-16 00:43+0000\n"
-"PO-Revision-Date: 2025-08-13 08:47+0200\n"
+"PO-Revision-Date: 2025-08-15 12:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1527,7 +1527,7 @@ msgstr "Modifica l'estat…"
 #: core/model/systemmessagesmodel.cpp:33
 #, kde-format
 msgid "Select Messages to hide"
-msgstr "Seleccioneu els missatges a ocultar"
+msgstr "Trieu els missatges que s'han d'ocultar"
 
 #: core/model/systemmessagesmodel.cpp:36
 #, kde-format
@@ -3421,7 +3421,7 @@ msgstr "Llig el text"
 #, kde-format
 msgctxt "@action"
 msgid "Select All"
-msgstr "Selecciona-ho tot"
+msgstr "Tria-ho tot"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
@@ -7896,17 +7896,14 @@ msgid "Json"
 msgstr "JSON"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:53
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgid "DataBase Messages"
-msgstr "Missatges privats"
+msgstr "Missatges de la base de dades"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete my Account"
+#, kde-format
 msgid "DataBase Accounts"
-msgstr "Suprimix el meu compte"
+msgstr "Comptes de la base de dades"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:59
 #, fuzzy, kde-format
@@ -8177,7 +8174,7 @@ msgstr "Neteja"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Select a channel"
-msgstr "Seleccioneu un canal"
+msgstr "Trieu un canal"
 
 #: widgets/dialogs/configurenotificationdialog.cpp:19
 #, kde-format
@@ -8288,7 +8285,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Select users…"
-msgstr "Selecciona usuaris…"
+msgstr "Tria usuaris…"
 
 #: widgets/dialogs/createnewchanneldialog.cpp:27
 #, kde-format
@@ -8687,7 +8684,7 @@ msgstr "Imatge"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Room Avatar"
-msgstr "Selecciona l'avatar de la sala"
+msgstr "Tria l'avatar de la sala"
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -9248,7 +9245,7 @@ msgstr "Missatge reenviat"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
-msgstr "Seleccioneu almenys un canal al qual reenviar el missatge."
+msgstr "Trieu almenys un canal al qual reenviar el missatge."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:37
 #, kde-format
@@ -9295,7 +9292,7 @@ msgstr "S'han exportat els comptes."
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Select Accounts:"
-msgstr "Seleccioneu els comptes:"
+msgstr "Trieu els comptes:"
 
 #: widgets/importexportdata/exportdata/exportdatawizard.cpp:34
 #, kde-format
@@ -9332,7 +9329,7 @@ msgstr "S'han importat els comptes."
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Select Zip file:"
-msgstr "Seleccioneu el fitxer Zip:"
+msgstr "Trieu el fitxer Zip:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:29
 #, kde-format
@@ -10003,7 +10000,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
-msgstr "Seleccioneu una imatge"
+msgstr "Trieu una imatge"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
 #, kde-format
@@ -11549,9 +11546,9 @@ msgid ""
 "select will be moved to the Workspace. Notice that public Channels will be "
 "public and visible to everyone."
 msgstr ""
-"Seleccioneu els canals de l'equip que voleu suprimir, els que no seleccioneu "
-"es mouran a l'espai de treball. Workspace. Cal tindre en compte que els "
-"canals públics seran públics i visibles per a tothom."
+"Trieu els canals de l'equip que voleu suprimir, els que no seleccioneu es "
+"mouran a l'espai de treball. Workspace. Cal tindre en compte que els canals "
+"públics seran públics i visibles per a tothom."
 
 #: widgets/teams/teamsearchroomdialog.cpp:28
 #, kde-format

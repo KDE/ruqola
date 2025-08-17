@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-16 00:43+0000\n"
-"PO-Revision-Date: 2025-08-15 07:23+0200\n"
+"PO-Revision-Date: 2025-08-16 07:30+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -7854,24 +7854,22 @@ msgstr "JSON"
 #: widgets/databasedialog/exploredatabasedialog.cpp:53
 #, kde-format
 msgid "DataBase Messages"
-msgstr "Databasmeddelanden"
+msgstr "Databas meddelanden"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, kde-format
 msgid "DataBase Accounts"
-msgstr "Databaskonton"
+msgstr "Databas konton"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:59
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Rooms"
-msgstr "Databas"
+msgstr "Databas rum"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Global"
-msgstr "Databas"
+msgstr "Databas global"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
