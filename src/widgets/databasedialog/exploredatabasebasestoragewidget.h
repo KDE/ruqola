@@ -6,11 +6,13 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <KSyntaxHighlighting/Repository>
 #include <QSqlTableModel>
 #include <QWidget>
 #include <memory.h>
 class QTableView;
 class RocketChatAccount;
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseBaseStorageWidget : public QWidget
 {
     Q_OBJECT
@@ -22,4 +24,9 @@ protected:
     std::unique_ptr<QSqlTableModel> mModel;
     QTableView *const mTableView;
     RocketChatAccount *mRocketChatAccount = nullptr;
+    QPlainTextEdit *const mTextEdit;
+    KSyntaxHighlighting::Repository mRepo;
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCellClicked(const QModelIndex &index);
 };
