@@ -30,7 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoad();
     RocketChatAccount *const mRocketChatAccount;
     MessageListView *const mMessageListView;
-    std::unique_ptr<LocalMessagesDatabase> mLocalMessageDatabase;
+    LocalMessagesDatabase *const mLocalMessageDatabase;
     ExploreDatabaseLineEdit *const mRoomName;
     QSpinBox *const mNumberOfMessages;
     QCheckBox *const mUseStartDateTime;

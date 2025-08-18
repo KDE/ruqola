@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabaseviewmessageswidget.h"
+#include "localdatabase/localdatabasemanager.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "exploredatabaselineedit.h"
@@ -25,7 +26,7 @@ ExploreDatabaseViewMessagesWidget::ExploreDatabaseViewMessagesWidget(RocketChatA
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
-    , mLocalMessageDatabase(new LocalMessagesDatabase())
+    , mLocalMessageDatabase(account ? account->localDatabaseManager()->messagesDatabase() : nullptr)
     , mRoomName(new ExploreDatabaseLineEdit(account, this))
     , mNumberOfMessages(new QSpinBox(this))
     , mUseStartDateTime(new QCheckBox(u"Start"_s, this))

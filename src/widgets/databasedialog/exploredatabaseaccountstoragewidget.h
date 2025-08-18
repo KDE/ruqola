@@ -17,5 +17,5 @@ public:
     void slotLoadModelFromDataBase(const QString &accountName);
 
 private:
-    std::unique_ptr<LocalAccountsDatabase> mLocalAccountsDatabase;
+    LocalAccountsDatabase *const mLocalAccountsDatabase;
 };

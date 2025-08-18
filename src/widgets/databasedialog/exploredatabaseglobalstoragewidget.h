@@ -17,5 +17,5 @@ public:
     void slotLoadModelFromDataBase(const QString &accountName);
 
 private:
-    std::unique_ptr<GlobalDatabase> mLocalGlobalDatabase;
+    GlobalDatabase *const mLocalGlobalDatabase;
 };

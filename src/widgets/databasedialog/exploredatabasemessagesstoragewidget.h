@@ -20,5 +20,5 @@ public:
     void slotLoadModelFromDataBase(const QString &accountName, const QString &roomName);
 
 private:
-    std::unique_ptr<LocalMessagesDatabase> mLocalMessageDatabase;
+    LocalMessagesDatabase *const mLocalMessageDatabase;
 };
