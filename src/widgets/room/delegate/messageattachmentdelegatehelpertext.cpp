@@ -7,7 +7,6 @@
 #include "messageattachmentdelegatehelpertext.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
