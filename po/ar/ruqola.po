@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-16 00:43+0000\n"
-"PO-Revision-Date: 2025-08-14 10:02+0400\n"
+"PO-Revision-Date: 2025-08-17 22:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -7873,29 +7873,24 @@ msgid "Json"
 msgstr "جسون"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:53
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgid "DataBase Messages"
-msgstr "رسائل خاصة"
+msgstr "رسائل قاعدة البيانات"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete my Account"
+#, kde-format
 msgid "DataBase Accounts"
-msgstr "احذف حسابي"
+msgstr "حسابات قاعدة البيانات"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:59
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Rooms"
-msgstr "قاعدة البيانات"
+msgstr "غرف قاعدة البيانات"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Global"
-msgstr "قاعدة البيانات"
+msgstr "قاعدة البيانات العالمية"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12189,10 +12184,9 @@ msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr "إصلاح معلومات المرفق في مربع الحوار أظهر سجل القناة“."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, fuzzy, kde-format
-#| msgid "Fix single application on Windows/MacOs"
+#, kde-format
 msgid "Fix icon on windows."
-msgstr "إصلاح تطبيق واحد على نظامي التشغيل Windows/MacOs"
+msgstr "إصلاح أيقونة في ويندوز"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
