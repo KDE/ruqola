@@ -792,6 +792,10 @@ target_sources(
         databasedialog/exploredatabaseglobalstoragewidget.h
         databasedialog/exploredatabaseroomsstoragewidget.cpp
         databasedialog/exploredatabaseroomsstoragewidget.h
+        databasedialog/exploredatabasetimestampdelegate.h
+        databasedialog/exploredatabasetimestampdelegate.cpp
+        databasedialog/exploredatabasejsondelegate.h
+        databasedialog/exploredatabasejsondelegate.cpp
 
         whatsnew/whatsnewdialog.h
         whatsnew/whatsnewdialog.cpp

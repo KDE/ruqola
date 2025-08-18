@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabaseglobalstoragewidget.h"
+#include "exploredatabasetimestampdelegate.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
@@ -17,6 +18,7 @@ ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketCha
     if (account) {
         slotLoadModelFromDataBase(account->accountName());
     }
+    mTableView->setItemDelegateForColumn(1, new ExploreDatabaseTimeStampDelegate(this));
 }
 
 ExploreDatabaseGlobalStorageWidget::~ExploreDatabaseGlobalStorageWidget() = default;
