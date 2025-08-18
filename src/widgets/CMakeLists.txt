@@ -280,6 +280,14 @@ target_sources(
         configuredialog/configurepluginswidget.cpp
         configuredialog/configurepluginstreewidgetdelegate.cpp
         configuredialog/configurepluginstreewidgetdelegate.h
+        configurenewserver/createnewserverdialog.cpp
+        configurenewserver/createnewserverdialog.h
+        configurenewserver/createnewserverwidget.cpp
+        configurenewserver/createnewserverwidget.h
+        configurenewserver/createnewserverstackwidget.h
+        configurenewserver/createnewserverstackwidget.cpp
+        configurenewserver/checknewserverurlwidget.h
+        configurenewserver/checknewserverurlwidget.cpp
         delegateutils/textuibase.h
         delegateutils/textuibase.cpp
         delegateutils/messagedelegateutils.cpp
@@ -352,14 +360,6 @@ target_sources(
         dialogs/resetpassworddialog.cpp
         dialogs/resetpasswordwidget.h
         dialogs/resetpasswordwidget.cpp
-        configurenewserver/createnewserverdialog.cpp
-        configurenewserver/createnewserverdialog.h
-        configurenewserver/createnewserverwidget.cpp
-        configurenewserver/createnewserverwidget.h
-        configurenewserver/createnewserverstackwidget.h
-        configurenewserver/createnewserverstackwidget.cpp
-        configurenewserver/checknewserverurlwidget.h
-        configurenewserver/checknewserverurlwidget.cpp
         dialogs/directchannelinfodialog.cpp
         dialogs/directchannelinfodialog.h
         dialogs/directchannelinfowidget.cpp
