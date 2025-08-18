@@ -7,7 +7,7 @@
 #include "exploredatabaseaccountstoragewidget.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
-#include "ruqola_database_debug.h"
+#include "ruqola_database_widget_debug.h"
 #include <QTableView>
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseAccountStorageWidget::ExploreDatabaseAccountStorageWidget(RocketChatAccount *account, QWidget *parent)
@@ -27,7 +27,7 @@ void ExploreDatabaseAccountStorageWidget::slotLoadModelFromDataBase(const QStrin
     if (mModel) {
         mTableView->setModel(mModel.get());
     } else {
-        // qCWarning(RUQOLA_DATABASE_LOG) << "Model is empty for accounts";
+        qCWarning(RUQOLA_DATABASE_WIDGETS_LOG) << "Model is empty for accounts";
     }
 }
 

@@ -7,6 +7,7 @@
 #include "exploredatabaseglobalstoragewidget.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
+#include "ruqola_database_widget_debug.h"
 #include <QTableView>
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketChatAccount *account, QWidget *parent)
@@ -25,6 +26,8 @@ void ExploreDatabaseGlobalStorageWidget::slotLoadModelFromDataBase(const QString
     mModel = mLocalGlobalDatabase->createGlobalModel(accountName);
     if (mModel) {
         mTableView->setModel(mModel.get());
+    } else {
+        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
     }
 }
 

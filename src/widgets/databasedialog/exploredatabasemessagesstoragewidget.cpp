@@ -6,6 +6,7 @@
 #include "exploredatabasemessagesstoragewidget.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
+#include "ruqola_database_widget_debug.h"
 #include <QHeaderView>
 #include <QSqlTableModel>
 #include <QTableView>
@@ -25,6 +26,8 @@ void ExploreDatabaseMessagesStorageWidget::slotLoadModelFromDataBase(const QStri
     mModel = mLocalMessageDatabase->createMessageModel(accountName, roomName);
     if (mModel) {
         mTableView->setModel(mModel.get());
+    } else {
+        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
     }
 }
 
