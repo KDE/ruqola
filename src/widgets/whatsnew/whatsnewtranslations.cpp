@@ -193,6 +193,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix extract language from code block."),
             i18n("Fix attachment info in \"Show Channel Log\" dialog."),
             i18n("Fix icon on windows."),
+            i18n("Fix show file attachment size."),
         });
 
         listInfo.append(std::move(info));
