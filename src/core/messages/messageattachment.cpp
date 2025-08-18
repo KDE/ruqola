@@ -75,6 +75,11 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
         }
     }
 
+    const QJsonValue sizeAttachment = attachment.value("size"_L1);
+    if (!sizeAttachment.isUndefined()) {
+        setAttachmentSize(sizeAttachment.toInteger(-1));
+    }
+
     setAuthorName(attachment.value("author_name"_L1).toString());
     setAuthorIcon(attachment.value("author_icon"_L1).toString());
 
