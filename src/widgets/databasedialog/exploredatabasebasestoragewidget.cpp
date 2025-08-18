@@ -20,6 +20,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     mTableView->setObjectName(u"mTableView"_s);
     mainLayout->addWidget(mTableView);
     mTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    mTableView->setSortingEnabled(true);
 }
 
 ExploreDatabaseBaseStorageWidget::~ExploreDatabaseBaseStorageWidget() = default;
