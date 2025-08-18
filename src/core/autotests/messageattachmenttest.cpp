@@ -5,14 +5,14 @@
 */
 
 #include "messageattachmenttest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messages/messageattachment.h"
 #include <QJsonObject>
 #include <QStandardPaths>
 #include <QTest>
-QTEST_GUILESS_MAIN(MessageAttachmentTest)
 
+using namespace Qt::Literals::StringLiterals;
+QTEST_GUILESS_MAIN(MessageAttachmentTest)
 MessageAttachmentTest::MessageAttachmentTest(QObject *parent)
     : QObject(parent)
 {
@@ -37,6 +37,7 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(!attachment.showAttachment());
     QVERIFY(!attachment.hasDescription());
     QCOMPARE(attachment.attachmentSize(), -1);
+    QVERIFY(attachment.format().isEmpty());
 }
 
 void MessageAttachmentTest::shouldSerializeData()

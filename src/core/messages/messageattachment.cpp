@@ -320,6 +320,16 @@ QString MessageAttachment::fixTitle(const QString &title) const
     return newTitle;
 }
 
+QString MessageAttachment::format() const
+{
+    return mFormat;
+}
+
+void MessageAttachment::setFormat(const QString &newFormat)
+{
+    mFormat = newFormat;
+}
+
 void MessageAttachment::generateTitle()
 {
     if (!mTitle.isEmpty()) {
@@ -471,7 +481,7 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
         && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mAuthorName == other.authorName())
         && (mMimeType == other.mimeType()) && (mText == other.text()) && (mAttachmentFields == other.attachmentFields()) && (mCollapsed == other.collapsed())
         && (mAuthorIcon == other.authorIcon()) && (mImageUrlPreview == other.imageUrlPreview()) && (mAttachmentSize == other.attachmentSize())
-        && (mAttachmentGeneratedTitle == other.attachmentGeneratedTitle());
+        && (mAttachmentGeneratedTitle == other.attachmentGeneratedTitle()) && (mFormat == other.format());
 }
 
 QDebug operator<<(QDebug d, const MessageAttachment &t)
@@ -492,6 +502,7 @@ QDebug operator<<(QDebug d, const MessageAttachment &t)
     d.space() << "imageUrlPreview" << t.imageUrlPreview();
     d.space() << "attachment size" << t.attachmentSize();
     d.space() << "attachmentGeneratedTitle" << t.attachmentGeneratedTitle();
+    d.space() << "format" << t.format();
     return d;
 }
 

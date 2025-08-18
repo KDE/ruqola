@@ -96,6 +96,9 @@ public:
     [[nodiscard]] QString attachmentGeneratedTitle() const;
     void generateTitle();
 
+    [[nodiscard]] QString format() const;
+    void setFormat(const QString &newFormat);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString fixTitle(const QString &title) const;
@@ -113,6 +116,7 @@ private:
     QString mAttachmentFieldsText;
     QString mImageUrlPreview;
     QString mAttachmentGeneratedTitle;
+    QString mFormat;
     qint64 mAttachmentSize = -1;
     int mImageHeight = -1;
     int mImageWidth = -1;
