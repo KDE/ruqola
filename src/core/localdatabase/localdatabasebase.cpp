@@ -52,7 +52,7 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     QString prefix;
     switch (mDatabaseType) {
     case DatabaseType::Unknown:
-        qCWarning(RUQOLA_DATABASE_LOG) << "Unknown data base it's a bug";
+        qCWarning(RUQOLA_DATABASE_LOG) << "Unknown data base it's a bug" << name;
         break;
     case DatabaseType::Accounts:
         prefix = u"accounts-"_s;
