@@ -24,6 +24,12 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     if (!title.isUndefined()) {
         setTitle(title.toString());
     }
+
+    const QJsonValue format = attachment.value("format"_L1);
+    if (!format.isUndefined()) {
+        setFormat(format.toString());
+    }
+
     AttachmentType attType = AttachmentType::Unknown;
     if (attachment.contains("audio_url"_L1)) {
         setLink(attachment.value("audio_url"_L1).toString());
@@ -146,10 +152,13 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
     if (!text.isEmpty()) {
         obj["text"_L1] = text;
     }
+    const QString format = messageAttach.format();
+    if (!format.isEmpty()) {
+        obj["format"_L1] = format;
+    }
     if (messageAttach.attachmentSize() != -1) {
         obj["attachment_size"_L1] = messageAttach.attachmentSize();
     }
-
     QJsonArray fieldArray;
     for (int i = 0, total = messageAttach.attachmentFields().count(); i < total; ++i) {
         const QJsonObject fields = MessageAttachmentField::serialize(messageAttach.attachmentFields().at(i));
@@ -180,6 +189,7 @@ MessageAttachment MessageAttachment::deserialize(const QJsonObject &o)
     att.setAuthorIcon(o.value("authoricon"_L1).toString());
     att.setMimeType(o.value("mimetype"_L1).toString());
     att.setAttachmentSize(o.value("attachment_size"_L1).toInteger(-1));
+    att.setFormat(o.value("format"_L1).toString());
 
     const QJsonValue valHeight = o.value("image_height"_L1);
     if (!valHeight.isUndefined()) {
