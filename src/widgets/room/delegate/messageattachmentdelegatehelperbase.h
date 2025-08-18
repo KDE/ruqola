@@ -86,7 +86,6 @@ protected:
     void drawTitle(const MessageAttachment &msgAttach, QPainter *painter);
     [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach, int width) const;
 
-protected:
     enum class DocumentIdType : uint8_t {
         Unknown = 0,
         Title,
