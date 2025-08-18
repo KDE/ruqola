@@ -686,7 +686,7 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(u"verify_check_version"_s, verifyNewVersionAction);
 #endif
 
-    auto showWhatsNewAction = new QAction(QIcon::fromTheme(u"ruqola"_s), i18n("What's new"), this);
+    auto showWhatsNewAction = new QAction(QIcon(u":/ruqola/ruqola.svg"_s), i18n("What's new"), this);
     ac->addAction(u"whatsnew_ruqola"_s, showWhatsNewAction);
     connect(showWhatsNewAction, &QAction::triggered, this, &RuqolaMainWindow::slotWhatsNew);
 
