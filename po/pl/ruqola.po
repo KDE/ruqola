@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-19 00:42+0000\n"
 "PO-Revision-Date: 2025-02-23 12:34+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -12269,6 +12269,12 @@ msgstr ""
 #| msgid "Fix single application on Windows/MacOs"
 msgid "Fix icon on windows."
 msgstr "Naprawiono pojedyncze wystąpienie aplikacji na Windowsie/MacOS"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:196
+#, fuzzy, kde-format
+#| msgid "Show File Attachments…"
+msgid "Fix show file attachment size."
+msgstr "Pokaż załączniki…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, fuzzy, kde-format

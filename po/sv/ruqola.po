@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-19 00:42+0000\n"
 "PO-Revision-Date: 2025-08-16 07:30+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -12139,6 +12139,12 @@ msgstr "Rätta information om bilagor i dialogrutan \"Visa kanallogg\"."
 #, kde-format
 msgid "Fix icon on windows."
 msgstr "Rätta ikon på Windows."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:196
+#, fuzzy, kde-format
+#| msgid "Show File Attachments…"
+msgid "Fix show file attachment size."
+msgstr "Visa filbilagor…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

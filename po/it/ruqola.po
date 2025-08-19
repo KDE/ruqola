@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
-"PO-Revision-Date: 2025-08-14 21:04+0200\n"
+"POT-Creation-Date: 2025-08-19 00:42+0000\n"
+"PO-Revision-Date: 2025-08-16 20:09+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -7900,29 +7900,24 @@ msgid "Json"
 msgstr "Json"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:53
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgid "DataBase Messages"
-msgstr "Messaggi privati"
+msgstr "Messaggi DataBase"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete my Account"
+#, kde-format
 msgid "DataBase Accounts"
-msgstr "Elimina il mio account"
+msgstr "Account DataBase"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:59
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Rooms"
-msgstr "Banca dati"
+msgstr "Stanze DataBase"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "DataBase"
+#, kde-format
 msgid "DataBase Global"
-msgstr "Banca dati"
+msgstr "Globale DataBase"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -12234,6 +12229,12 @@ msgstr ""
 #, kde-format
 msgid "Fix icon on windows."
 msgstr "Corregge l'icona su Windows."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:196
+#, fuzzy, kde-format
+#| msgid "Show File Attachments…"
+msgid "Fix show file attachment size."
+msgstr "Mostra file allegati…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

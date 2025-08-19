@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-19 00:42+0000\n"
 "PO-Revision-Date: 2025-08-16 10:30+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -12190,6 +12190,12 @@ msgstr ""
 #, kde-format
 msgid "Fix icon on windows."
 msgstr "Fiksiraj ikono na oknih."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:196
+#, fuzzy, kde-format
+#| msgid "Show File Attachments…"
+msgid "Fix show file attachment size."
+msgstr "Pokaži pripete datoteke…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

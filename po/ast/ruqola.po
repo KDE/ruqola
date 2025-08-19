@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-19 00:42+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -11832,6 +11832,11 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
 #, kde-format
 msgid "Fix icon on windows."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:196
+#, kde-format
+msgid "Fix show file attachment size."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
