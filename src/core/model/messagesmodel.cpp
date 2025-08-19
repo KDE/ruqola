@@ -331,7 +331,6 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::ShowTranslatedMessage:
         return message.showTranslatedMessage();
     case MessagesModel::DisplayAttachment:
-        return {}; // Unused.
     case MessagesModel::DisplayUrlPreview:
         return {}; // Unused.
     case MessagesModel::DisplayLastSeenMessage:
