@@ -12,6 +12,7 @@
 class QTableView;
 class RocketChatAccount;
 class ExploreDatabaseJsonPlainTextEditWidget;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseBaseStorageWidget : public QWidget
 {
     Q_OBJECT
@@ -24,6 +25,7 @@ protected:
     QTableView *const mTableView;
     RocketChatAccount *mRocketChatAccount = nullptr;
     ExploreDatabaseJsonPlainTextEditWidget *const mTextEdit;
+    QLineEdit *const mFilterLineEdit;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCellClicked(const QModelIndex &index);

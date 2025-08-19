@@ -5,6 +5,8 @@
 */
 #include "exploredatabasebasestoragewidget.h"
 #include "databasedialog/exploredatabasejsonplaintexteditwidget.h"
+#include <KLineEditEventHandler>
+#include <QLineEdit>
 #include <QSplitter>
 #include <QTableView>
 #include <QVBoxLayout>
@@ -15,6 +17,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     , mTableView(new QTableView(this))
     , mRocketChatAccount(account)
     , mTextEdit(new ExploreDatabaseJsonPlainTextEditWidget(this))
+    , mFilterLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -24,11 +27,19 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     splitter->setObjectName(u"splitter"_s);
     mainLayout->addWidget(splitter);
 
+    auto tableWidget = new QWidget(this);
+    auto tableLayout = new QVBoxLayout(tableWidget);
+    tableLayout->setObjectName(u"tableLayout"_s);
+    tableLayout->setContentsMargins({});
+
+    KLineEditEventHandler::catchReturnKey(mTextEdit);
     mTableView->setObjectName(u"mTableView"_s);
     mTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     mTableView->setSortingEnabled(true);
+    tableLayout->addWidget(mFilterLineEdit);
+    tableLayout->addWidget(mTableView);
 
-    splitter->addWidget(mTableView);
+    splitter->addWidget(tableWidget);
     splitter->addWidget(mTextEdit);
     splitter->setChildrenCollapsible(false);
 
