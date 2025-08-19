@@ -1094,7 +1094,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mEditedByUsername = o["editedByUsername"_L1].toString();
     message.mAlias = o["alias"_L1].toString();
     message.mAvatar = o["avatar"_L1].toString();
-    message.setGroupable(o["groupable"_L1].toBool());
+    message.setGroupable(o["groupable"_L1].toBool(false));
     message.setParseUrls(o["parseUrls"_L1].toBool());
     message.setUnread(o["unread"_L1].toBool());
     message.mMessageStarred.setIsStarred(o["starred"_L1].toBool());
@@ -1206,7 +1206,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mAvatar.isEmpty()) {
         o["avatar"_L1] = message.mAvatar;
     }
-    o["groupable"_L1] = message.groupable();
+    if (message.groupable()) {
+        o["groupable"_L1] = true;
+    }
     o["parseUrls"_L1] = message.parseUrls();
     if (message.unread()) {
         o["unread"_L1] = true;

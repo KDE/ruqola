@@ -1,6 +1,5 @@
 {
     "alias": "foo",
-    "groupable": false,
     "message": "https://www.kde.org/bla.zip",
     "messageID": "NNLTgCTmhZNNDA",
     "messageType": "NormalText",

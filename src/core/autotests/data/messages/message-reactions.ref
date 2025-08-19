@@ -1,6 +1,5 @@
 {
     "alias": "foo",
-    "groupable": false,
     "message": "s",
     "messageID": "4x2picEqPzAph3dty",
     "messageType": "NormalText",

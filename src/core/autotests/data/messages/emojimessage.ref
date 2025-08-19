@@ -7,7 +7,6 @@
         }
     ],
     "emoji": ":warning:",
-    "groupable": false,
     "message": "Munin alert - WARNING: Disk latency per device",
     "messageID": "854aAFAttBNpqZsYb",
     "messageType": "NormalText",

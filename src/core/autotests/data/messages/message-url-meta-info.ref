@@ -1,6 +1,5 @@
 {
     "alias": "bli",
-    "groupable": false,
     "message": "https://github.com/magne4000/quassel-webserver looks much better",
     "messageID": "74kLLpYCMXLHGzZj5",
     "messageType": "NormalText",
