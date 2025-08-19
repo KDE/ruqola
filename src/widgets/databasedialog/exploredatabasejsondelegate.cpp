@@ -27,3 +27,5 @@ bool ExploreDatabaseJsonDelegate::helpEvent(QHelpEvent *event, QAbstractItemView
     }
     return QStyledItemDelegate::helpEvent(event, view, option, index);
 }
+
+#include "moc_exploredatabasejsondelegate.cpp"

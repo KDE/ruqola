@@ -5,35 +5,20 @@
 */
 
 #include "exploredatabasejsonwidget.h"
-#include "ruqolawidgets_debug.h"
-#include <KSyntaxHighlighting/Definition>
-#include <KSyntaxHighlighting/SyntaxHighlighter>
-#include <KSyntaxHighlighting/Theme>
-#include <QPlainTextEdit>
+#include "databasedialog/exploredatabasejsonplaintexteditwidget.h"
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseJsonWidget::ExploreDatabaseJsonWidget(QWidget *parent)
     : QWidget{parent}
-    , mPlainTextEdit(new QPlainTextEdit(this))
+    , mPlainTextEdit(new ExploreDatabaseJsonPlainTextEditWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     mPlainTextEdit->setObjectName(u"mPlainTextEdit"_s);
-    mPlainTextEdit->setReadOnly(true);
     mainLayout->addWidget(mPlainTextEdit);
-
-    const KSyntaxHighlighting::Definition def = mRepo.definitionForName(u"Json"_s);
-    if (!def.isValid()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid definition name";
-    }
-
-    auto hl = new KSyntaxHighlighting::SyntaxHighlighter(mPlainTextEdit->document());
-    hl->setTheme((palette().color(QPalette::Base).lightness() < 128) ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                                                     : mRepo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
-    hl->setDefinition(def);
 }
 
 ExploreDatabaseJsonWidget::~ExploreDatabaseJsonWidget() = default;

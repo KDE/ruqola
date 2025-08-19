@@ -6,9 +6,8 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "messages/message.h"
-#include <KSyntaxHighlighting/Repository>
 #include <QWidget>
-class QPlainTextEdit;
+class ExploreDatabaseJsonPlainTextEditWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseJsonWidget : public QWidget
 {
     Q_OBJECT
@@ -19,6 +18,5 @@ public:
     void slotLoadedMessages(QList<Message> listMessages);
 
 private:
-    QPlainTextEdit *const mPlainTextEdit;
-    KSyntaxHighlighting::Repository mRepo;
+    ExploreDatabaseJsonPlainTextEditWidget *const mPlainTextEdit;
 };
