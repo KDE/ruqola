@@ -52,7 +52,7 @@
 #include "room.h"
 #include "ruqola.h"
 #include "ruqolacentralwidget.h"
-#include "ruqolacommandlineoptions.h"
+#include "ruqolacommandlineparser.h"
 #include "ruqolaserverconfig.h"
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include "teams/teamscreatejob.h"

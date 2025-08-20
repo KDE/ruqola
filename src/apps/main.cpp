@@ -7,7 +7,7 @@
 #include "config-ruqola.h"
 #include "managerdatapaths.h"
 #include "ruqola.h"
-#include "ruqolacommandlineoptions.h"
+#include "ruqolacommandlineparser.h"
 #include "ruqolaglobalconfig.h"
 #include <KCrash>
 #include <KLocalizedString>

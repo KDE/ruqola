@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "ruqolacommandlineoptions.h"
+#include "ruqolacommandlineparser.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
