@@ -27,7 +27,7 @@ void ExploreDatabaseGlobalStorageWidget::slotLoadModelFromDataBase(const QString
 {
     mModel = mLocalGlobalDatabase->createGlobalModel(accountName);
     if (mModel) {
-        mTableView->setModel(mModel.get());
+        setModel(mModel.get());
     } else {
         qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
     }

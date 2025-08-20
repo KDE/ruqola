@@ -13,6 +13,7 @@ class QTableView;
 class RocketChatAccount;
 class ExploreDatabaseJsonPlainTextEditWidget;
 class QLineEdit;
+class QSortFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseBaseStorageWidget : public QWidget
 {
     Q_OBJECT
@@ -21,11 +22,14 @@ public:
     ~ExploreDatabaseBaseStorageWidget() override;
 
 protected:
+    void setModel(QAbstractItemModel *model);
+
     std::unique_ptr<QSqlTableModel> mModel;
     QTableView *const mTableView;
     RocketChatAccount *mRocketChatAccount = nullptr;
     ExploreDatabaseJsonPlainTextEditWidget *const mTextEdit;
     QLineEdit *const mFilterLineEdit;
+    QSortFilterProxyModel *const mSortFilterProxyModel;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCellClicked(const QModelIndex &index);

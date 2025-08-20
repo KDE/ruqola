@@ -27,7 +27,7 @@ void ExploreDatabaseAccountStorageWidget::slotLoadModelFromDataBase(const QStrin
 {
     mModel = mLocalAccountsDatabase->createAccountsModel(accountName);
     if (mModel) {
-        mTableView->setModel(mModel.get());
+        setModel(mModel.get());
     } else {
         qCWarning(RUQOLA_DATABASE_WIDGETS_LOG) << "Model is empty for accounts";
     }

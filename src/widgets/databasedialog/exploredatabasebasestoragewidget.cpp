@@ -10,6 +10,7 @@
 #include <QSplitter>
 #include <QTableView>
 #include <QVBoxLayout>
+#include <qsortfilterproxymodel.h>
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAccount *account, QWidget *parent)
@@ -18,6 +19,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     , mRocketChatAccount(account)
     , mTextEdit(new ExploreDatabaseJsonPlainTextEditWidget(this))
     , mFilterLineEdit(new QLineEdit(this))
+    , mSortFilterProxyModel(new QSortFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -38,6 +40,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     mTableView->setSortingEnabled(true);
     tableLayout->addWidget(mFilterLineEdit);
     tableLayout->addWidget(mTableView);
+    mTableView->setModel(mSortFilterProxyModel);
 
     splitter->addWidget(tableWidget);
     splitter->addWidget(mTextEdit);
@@ -55,6 +58,11 @@ void ExploreDatabaseBaseStorageWidget::slotCellClicked(const QModelIndex &index)
     } else {
         mTextEdit->setPlainText({});
     }
+}
+
+void ExploreDatabaseBaseStorageWidget::setModel(QAbstractItemModel *model)
+{
+    mSortFilterProxyModel->setSourceModel(model);
 }
 
 #include "moc_exploredatabasebasestoragewidget.cpp"
