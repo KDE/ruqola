@@ -5,10 +5,10 @@
 */
 
 #include "ruqolacommandlineparser.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 RuqolaCommandLineParser::RuqolaCommandLineParser(QCommandLineParser *parser)
 {
     initializeCommandLine(parser);

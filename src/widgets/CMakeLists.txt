@@ -703,8 +703,6 @@ target_sources(
         loginwidget/ruqolaloginstackwidget.cpp
         ruqolacentralwidget.cpp
         ruqolacentralwidget.h
-        ruqolacommandlineparser.cpp
-        ruqolacommandlineparser.h
         ruqolamainwidget.cpp
         ruqolamainwidget.h
         ruqolamainwindow.cpp

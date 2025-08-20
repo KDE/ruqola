@@ -539,6 +539,9 @@ target_sources(
         actionbuttons/actionbuttonsmanager.cpp
         actionbuttons/actionbuttonutil.h
         actionbuttons/actionbuttonutil.cpp
+
+        ruqolacommandlineparser.cpp
+        ruqolacommandlineparser.h
 )
 
 if(USE_E2E_SUPPORT)

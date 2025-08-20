@@ -6,11 +6,11 @@
 
 #pragma once
 #include "config-ruqola.h"
-#include "libruqolawidgets_export.h"
+#include "libruqolacore_export.h"
 #include <QCommandLineParser>
 #include <QString>
 
-class LIBRUQOLAWIDGETS_EXPORT RuqolaCommandLineParser
+class LIBRUQOLACORE_EXPORT RuqolaCommandLineParser
 {
 public:
     enum class CommandLineName : uint8_t {
@@ -29,5 +29,5 @@ public:
     [[nodiscard]] static QString commandLineFromEnum(CommandLineName e);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void initializeCommandLine(QCommandLineParser *parser);
+    LIBRUQOLACORE_NO_EXPORT void initializeCommandLine(QCommandLineParser *parser);
 };
