@@ -7,7 +7,6 @@
 #include "ruqolacommandlineoptions.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "config-ruqola.h"
 #include <KLocalizedString>
 
 RuqolaCommandLineParser::RuqolaCommandLineParser(QCommandLineParser *parser)
@@ -28,8 +27,10 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
         return u"messageurl"_s;
     case CommandLineName::LoginDdpApi:
         return u"loginddpapi"_s;
+#if HAVE_KUSERFEEDBACK
     case CommandLineName::FeedBack:
         return u"feedback"_s;
+#endif
     }
     return {};
 }

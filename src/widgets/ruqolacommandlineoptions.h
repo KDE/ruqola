@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "config-ruqola.h"
 #include "libruqolawidgets_export.h"
 #include <QCommandLineParser>
 #include <QString>
@@ -17,7 +18,9 @@ public:
         Account,
         MessageUrl,
         LoginDdpApi,
+#if HAVE_KUSERFEEDBACK
         FeedBack,
+#endif
     };
 
     explicit RuqolaCommandLineParser(QCommandLineParser *parser);
