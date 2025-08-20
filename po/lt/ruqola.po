@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-19 00:42+0000\n"
+"POT-Creation-Date: 2025-08-20 00:43+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1372,12 +1372,12 @@ msgstr "Pranešti aktyviems naudotojams šiame kambaryje"
 msgid "Edited at %1 by %2"
 msgstr ""
 
-#: core/model/messagesmodel.cpp:388
+#: core/model/messagesmodel.cpp:387
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
 
-#: core/model/messagesmodel.cpp:397
+#: core/model/messagesmodel.cpp:396
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Šią žinutę matote tik jūs"

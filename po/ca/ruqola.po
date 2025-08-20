@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-19 00:42+0000\n"
-"PO-Revision-Date: 2025-08-16 17:59+0200\n"
+"POT-Creation-Date: 2025-08-20 00:43+0000\n"
+"PO-Revision-Date: 2025-08-19 09:58+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -1344,12 +1344,12 @@ msgstr "Notifica als usuaris actius en aquesta sala"
 msgid "Edited at %1 by %2"
 msgstr "Editat a les %1 per %2"
 
-#: core/model/messagesmodel.cpp:388
+#: core/model/messagesmodel.cpp:387
 #, kde-format
 msgid "Ignored Message"
 msgstr "Missatge ignorat"
 
-#: core/model/messagesmodel.cpp:397
+#: core/model/messagesmodel.cpp:396
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Aquest missatge només el podeu veure vós"
@@ -12224,10 +12224,9 @@ msgid "Fix icon on windows."
 msgstr "Corregeix una icona al Windows."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, fuzzy, kde-format
-#| msgid "Show File Attachments…"
+#, kde-format
 msgid "Fix show file attachment size."
-msgstr "Mostra els fitxers adjunts…"
+msgstr "Corregeix la visualització de la mida del fitxer adjunt."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

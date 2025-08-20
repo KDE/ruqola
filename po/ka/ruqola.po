@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-19 00:42+0000\n"
-"PO-Revision-Date: 2025-08-16 06:33+0200\n"
+"POT-Creation-Date: 2025-08-20 00:43+0000\n"
+"PO-Revision-Date: 2025-08-19 10:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1337,12 +1337,12 @@ msgstr "ამ ოთახში მყოფი აქტიური მო�
 msgid "Edited at %1 by %2"
 msgstr "ჩასწრების დრო %1 (%2-ის მიერ)"
 
-#: core/model/messagesmodel.cpp:388
+#: core/model/messagesmodel.cpp:387
 #, kde-format
 msgid "Ignored Message"
 msgstr "იგნორირებული შეტყობინება"
 
-#: core/model/messagesmodel.cpp:397
+#: core/model/messagesmodel.cpp:396
 #, kde-format
 msgid "Only you can see this message"
 msgstr "ამ შეტყობინებას, მხოლოდ, თქვენ ხედავთ"
@@ -12147,10 +12147,9 @@ msgid "Fix icon on windows."
 msgstr "გასწორდა ხატულა Windows-ზე."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, fuzzy, kde-format
-#| msgid "Show File Attachments…"
+#, kde-format
 msgid "Fix show file attachment size."
-msgstr "მიმაგრებული ფაილების ჩვენება…"
+msgstr "გასწორდა მიმაგრებული ფაილის ზომის ჩვენება."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

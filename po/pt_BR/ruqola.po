@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-19 00:42+0000\n"
+"POT-Creation-Date: 2025-08-20 00:43+0000\n"
 "PO-Revision-Date: 2025-08-13 14:36-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1340,12 +1340,12 @@ msgstr "Notificar usuários ativos nesta sala"
 msgid "Edited at %1 by %2"
 msgstr "Editado em %1 por %2"
 
-#: core/model/messagesmodel.cpp:388
+#: core/model/messagesmodel.cpp:387
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mensagens ignoradas"
 
-#: core/model/messagesmodel.cpp:397
+#: core/model/messagesmodel.cpp:396
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Somente você pode ver esta mensagem"

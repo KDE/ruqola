@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-19 00:42+0000\n"
-"PO-Revision-Date: 2025-08-16 07:30+0200\n"
+"POT-Creation-Date: 2025-08-20 00:43+0000\n"
+"PO-Revision-Date: 2025-08-19 16:40+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -1336,12 +1336,12 @@ msgstr "Underrätta aktiva användare i det här rummet"
 msgid "Edited at %1 by %2"
 msgstr "Redigerad %1 av %2"
 
-#: core/model/messagesmodel.cpp:388
+#: core/model/messagesmodel.cpp:387
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignorerat meddelande"
 
-#: core/model/messagesmodel.cpp:397
+#: core/model/messagesmodel.cpp:396
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Bara du kan se meddelandet"
@@ -12141,10 +12141,9 @@ msgid "Fix icon on windows."
 msgstr "Rätta ikon på Windows."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, fuzzy, kde-format
-#| msgid "Show File Attachments…"
+#, kde-format
 msgid "Fix show file attachment size."
-msgstr "Visa filbilagor…"
+msgstr "Rätta visning av filbilagors storlek."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

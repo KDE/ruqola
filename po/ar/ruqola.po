@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-19 00:42+0000\n"
+"POT-Creation-Date: 2025-08-20 00:43+0000\n"
 "PO-Revision-Date: 2025-08-17 22:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1337,12 +1337,12 @@ msgstr "أعلم المستخدمين الناشطين في هذه الغرفة"
 msgid "Edited at %1 by %2"
 msgstr "حُررت في %1 من قبل %2"
 
-#: core/model/messagesmodel.cpp:388
+#: core/model/messagesmodel.cpp:387
 #, kde-format
 msgid "Ignored Message"
 msgstr "الرسالة المتجاهلة"
 
-#: core/model/messagesmodel.cpp:397
+#: core/model/messagesmodel.cpp:396
 #, kde-format
 msgid "Only you can see this message"
 msgstr "أنت الوحيد الذي يمكنه رؤية هذه الرسالة"
