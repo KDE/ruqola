@@ -42,6 +42,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     tableLayout->addWidget(mFilterLineEdit);
     tableLayout->addWidget(mTableView);
     mTableView->setModel(mSortFilterProxyModel);
+    mTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     mSortFilterProxyModel->setFilterKeyColumn(-1); // don't select specific column
     mSortFilterProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
 
