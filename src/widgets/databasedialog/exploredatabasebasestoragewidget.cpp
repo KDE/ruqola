@@ -33,6 +33,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     auto tableLayout = new QVBoxLayout(tableWidget);
     tableLayout->setObjectName(u"tableLayout"_s);
     tableLayout->setContentsMargins({});
+    tableLayout->setSpacing(0);
 
     KLineEditEventHandler::catchReturnKey(mTextEdit);
     mTableView->setObjectName(u"mTableView"_s);
