@@ -4,7 +4,6 @@
     "messageID": "4x2picEqPzAph3dty",
     "messageType": "NormalText",
     "name": "foo",
-    "parseUrls": false,
     "reactions": {
         ":mrs_claus:": {
             "usernames": [

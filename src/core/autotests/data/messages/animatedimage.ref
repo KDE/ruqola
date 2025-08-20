@@ -17,7 +17,6 @@
     "messageID": "ZGdbAFBZsLSrt7SLn",
     "messageType": "NormalText",
     "name": "foo",
-    "parseUrls": false,
     "roomID": "dBWXYy4nyBHn8Q7dv",
     "timestamp": 1525277394341,
     "unread": true,

@@ -2,7 +2,6 @@
     "message": "",
     "messageID": "",
     "messageType": "NormalText",
-    "parseUrls": false,
     "roomID": "",
     "timestamp": -1,
     "updatedAt": -1,

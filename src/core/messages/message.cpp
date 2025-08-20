@@ -55,7 +55,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
 
     setUnread(o.value("unread"_L1).toBool());
     setGroupable(o.value("groupable"_L1).toBool(/*true*/ false)); // Laurent, disable for the moment groupable
-    setParseUrls(o.value("parseUrls"_L1).toBool());
+    setParseUrls(o.value("parseUrls"_L1).toBool(false));
     mRole = o.value("role"_L1).toString();
     if (o.contains("tcount"_L1)) {
         setThreadCount(o.value("tcount"_L1).toInt());
@@ -1095,7 +1095,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mAlias = o["alias"_L1].toString();
     message.mAvatar = o["avatar"_L1].toString();
     message.setGroupable(o["groupable"_L1].toBool(false));
-    message.setParseUrls(o["parseUrls"_L1].toBool());
+    message.setParseUrls(o["parseUrls"_L1].toBool(false));
     message.setUnread(o["unread"_L1].toBool());
     message.mMessageStarred.setIsStarred(o["starred"_L1].toBool());
 
@@ -1209,7 +1209,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (message.groupable()) {
         o["groupable"_L1] = true;
     }
-    o["parseUrls"_L1] = message.parseUrls();
+    if (message.parseUrls()) {
+        o["parseUrls"_L1] = true;
+    }
     if (message.unread()) {
         o["unread"_L1] = true;
     }
