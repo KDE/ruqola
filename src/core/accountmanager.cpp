@@ -32,6 +32,11 @@
 #include <QSettings>
 #include <TextEmoticonsCore/EmojiModelManager>
 using namespace Qt::Literals::StringLiterals;
+namespace
+{
+constexpr int currentDataBaseVersion = 1;
+}
+
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)
     , mRocketChatAccountModel(new RocketChatAccountModel(this))
@@ -788,8 +793,20 @@ void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, 
     Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
 }
 
+bool AccountManager::needToHandleDataMigration() const
+{
+    const bool needMigration = RuqolaGlobalConfig::self()->databaseVersion() < currentDataBaseVersion;
+    return needMigration;
+}
+
 void AccountManager::loadAccount()
 {
+    const bool needDatabaseMigration = needToHandleDataMigration();
+    if (needDatabaseMigration) {
+        RuqolaGlobalConfig::self()->setDatabaseVersion(currentDataBaseVersion);
+        RuqolaGlobalConfig::self()->save();
+    }
+
     qCDebug(RUQOLA_LOG) << " void AccountManager::loadAccount()" << ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
     QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()),
                     QStringList() << u"ruqola.conf"_s,
@@ -799,7 +816,7 @@ void AccountManager::loadAccount()
     while (it.hasNext()) {
         const QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
-        auto account = new RocketChatAccount(val);
+        auto account = new RocketChatAccount(val, needDatabaseMigration);
         if (account->settings()->isValid()) {
             if (account->accountEnabled()) {
                 connectToAccount(account);

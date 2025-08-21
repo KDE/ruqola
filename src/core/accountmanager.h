@@ -121,6 +121,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loadExcludeEmoticons();
     LIBRUQOLACORE_NO_EXPORT void changeEnableState(RocketChatAccount *account, bool enabled);
     LIBRUQOLACORE_NO_EXPORT void disconnectAccount(RocketChatAccount *account);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool needToHandleDataMigration() const;
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
