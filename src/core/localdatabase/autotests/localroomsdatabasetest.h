@@ -20,4 +20,6 @@ private Q_SLOTS:
     void shouldDefaultValues();
     void shouldVerifyDbFileName();
     void shouldStoreRoomsSettings();
+    void shouldStoreRooms();
+    void shouldDeleteRooms();
 };
