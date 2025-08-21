@@ -110,21 +110,22 @@ void LocalRoomsDatabaseTest::shouldStoreRooms()
     room2.setUpdatedAt(QDateTime(QDate(2022, 6, 7), QTime(23, 40, 50)).toMSecsSinceEpoch()); // earlier
     logger.updateRoom(otherAccountName(), &room2);
 
-    logger.updateRoom(otherAccountName(), &room2);
-#if 0
-    Room room-other;
-    messageOtherRoom.setText(QString::fromUtf8("Message other room"));
-    messageOtherRoom.setUsername(QString::fromUtf8("Joe"));
-    messageOtherRoom.setTimeStamp(QDateTime(QDate(2022, 6, 7), QTime(23, 30, 50)).toMSecsSinceEpoch());
-    messageOtherRoom.setMessageId("msg-other-1"_ba);
-    logger.updateRoom(otherAccountName(), otherRoomName(), messageOtherRoom);
-#endif
+    Room roomother;
+    roomother.setRoomId("room-other"_ba);
+
+    roomother.setAnnouncement(QString::fromUtf8("CCCC"));
+    roomother.setChannelType(Room::RoomType::Direct);
+    roomother.setOpen(true);
+    roomother.setName(QString::fromUtf8("AAANoël"));
+    roomother.setUpdatedAt(QDateTime(QDate(2022, 6, 7), QTime(23, 55, 50)).toMSecsSinceEpoch()); // earlier
+    logger.updateRoom(otherAccountName(), &roomother);
+
     // WHEN
     auto tableModel = logger.createRoomsModel(otherAccountName());
 
     // THEN
     QVERIFY(tableModel);
-    QCOMPARE(tableModel->rowCount(), 2);
+    QCOMPARE(tableModel->rowCount(), 3);
     const QSqlRecord record0 = tableModel->record(0);
     QCOMPARE(record0.value(int(RoomFields::Json)).toByteArray(), Room::serialize(&room1, false));
     QCOMPARE(record0.value(int(RoomFields::TimeStamp)).toULongLong(), room1.updatedAt());
@@ -137,16 +138,15 @@ void LocalRoomsDatabaseTest::shouldDeleteRooms() // this test depends on shouldS
 {
     // GIVEN
     LocalRoomsDatabase logger;
-    const QString roomId = (u"roomId-other-1"_s);
+    const QString roomId = (u"room-other"_s);
 
     // WHEN
-    logger.deleteRoom(accountName(), roomId);
-#if 0
+    logger.deleteRoom(otherAccountName(), roomId);
+
     // THEN
-    auto tableModel = logger.createRoomsModel(accountName());
+    auto tableModel = logger.createRoomsModel(otherAccountName());
     QVERIFY(tableModel);
-    QCOMPARE(tableModel->rowCount(), 0);
-#endif
+    QCOMPARE(tableModel->rowCount(), 2);
 }
 
 #include "moc_localroomsdatabasetest.cpp"
