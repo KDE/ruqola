@@ -22,6 +22,7 @@
   <name xml:lang="fi">Ruqola</name>
   <name xml:lang="fr">Ruqola</name>
   <name xml:lang="gl">Ruqola</name>
+  <name xml:lang="he">Ruqola</name>
   <name xml:lang="hu">Ruqola</name>
   <name xml:lang="ia">file:///run/media/giovanni/5796-7BBF/My Office/SpeseArtInFiera2021.odsfile:///run/media/giovanni/5796-7BBF/My Office/SpeseArtInFiera2021.xlsx</name>
   <name xml:lang="id">Ruqola</name>
@@ -55,6 +56,7 @@
   <summary xml:lang="fi">Rocket-keskusteluasiakas</summary>
   <summary xml:lang="fr">Client de discussion « Rocket »</summary>
   <summary xml:lang="gl">Cliente de Rocket Chat</summary>
+  <summary xml:lang="he">לקוח Rocket Chat</summary>
   <summary xml:lang="hu">Rocket.Chat kliens</summary>
   <summary xml:lang="ia">Cliente de Rocket Chat (Conversation in directo de Rocchetta)</summary>
   <summary xml:lang="id">Klien Obrolan Rocket</summary>
@@ -89,6 +91,7 @@
     <p xml:lang="fi">Ruqola on Rocket.Chat-asiakas.</p>
     <p xml:lang="fr">Rugola est un client de discussions « Rocket.Chat »</p>
     <p xml:lang="gl">Ruqola é un cliente para Rocket.Chat.</p>
+    <p xml:lang="he">Ruqola הוא לקוח ל־Rocket.Chat.</p>
     <p xml:lang="hu">A Ruqola egy kliens a Rocket.Chathez.</p>
     <p xml:lang="ia">Ruqola es un Rocket Chat client (Cliente de Conversation in directo de Rochet.Chat).</p>
     <p xml:lang="id">Ruqola adalah klien untuk Rocket.Chat.</p>
@@ -118,6 +121,7 @@
     <p xml:lang="fi">Tukee RC:n ominaisuuksia:</p>
     <p xml:lang="fr">Il prend en charge les fonctionnalités « RC »  :</p>
     <p xml:lang="gl">Permite funcionalidades de Rocket.Chat:</p>
+    <p xml:lang="he">הוא תומך ביכולות של Rocket Chat:</p>
     <p xml:lang="hu">Támogatja az RC szolgáltatásokat:</p>
     <p xml:lang="ia">Il supporta characteristicas de RC:</p>
     <p xml:lang="id">Yang mendukung fitur RC:</p>
@@ -148,6 +152,7 @@
       <li xml:lang="fi">Suoraviesti</li>
       <li xml:lang="fr">Message direct</li>
       <li xml:lang="gl">Mensaxes directas.</li>
+      <li xml:lang="he">הודעה ישירה</li>
       <li xml:lang="hu">Közvetlen üzenet</li>
       <li xml:lang="ia">Message Directe</li>
       <li xml:lang="id">Perpesanan Langsung</li>
@@ -175,6 +180,7 @@
       <li xml:lang="fi">ryhmäkanava</li>
       <li xml:lang="fr">canal de groupe</li>
       <li xml:lang="gl">Canles de grupo.</li>
+      <li xml:lang="he">ערוץ קבוצה</li>
       <li xml:lang="hu">csoportos csatorna</li>
       <li xml:lang="ia">canal de gruppo</li>
       <li xml:lang="id">kanal kelompok grup</li>
@@ -204,6 +210,7 @@
       <li xml:lang="fi">kanava</li>
       <li xml:lang="fr">canal</li>
       <li xml:lang="gl">Canles.</li>
+      <li xml:lang="he">ערוץ</li>
       <li xml:lang="hu">csatorna</li>
       <li xml:lang="ia">Canal</li>
       <li xml:lang="id">kanal</li>
@@ -231,6 +238,7 @@
       <li xml:lang="fi">Automaattikäännöstuki (kun se on RC:ssä)</li>
       <li xml:lang="fr">Prise en charge de la traduction automatique (Lorsque RC le propose)</li>
       <li xml:lang="gl">Tradución automática (cando Rocket.Chat a permita).</li>
+      <li xml:lang="he">תמיכה בתרגום אוטומטי (כתלות ב־Rocket Chat)</li>
       <li xml:lang="hu">Automatikus fordítás (ha a RC is támogatja)</li>
       <li xml:lang="ia">Supporta autotraduction (quando RC lo ha)</li>
       <li xml:lang="id">Dukungan auto terjemah (ketika RC memilikinya)</li>
@@ -258,6 +266,7 @@
       <li xml:lang="fi">Huoneilmoitusten määrittäminen</li>
       <li xml:lang="fr">Configuration en cours de la notification des salons</li>
       <li xml:lang="gl">Configuración das notificacións das salas.</li>
+      <li xml:lang="he">הגדרת התראות חדר</li>
       <li xml:lang="hu">Szobaértesítések beállítása</li>
       <li xml:lang="ia">Configurante notification de sala</li>
       <li xml:lang="id">Pengaturan notifikasi ruang</li>
@@ -285,6 +294,7 @@
       <li xml:lang="fi">Huoneen määrittäminen</li>
       <li xml:lang="fr">Configuration du salon en cours</li>
       <li xml:lang="gl">Configuración das salas.</li>
+      <li xml:lang="he">הגדרת חדר</li>
       <li xml:lang="hu">Szobák beállítása</li>
       <li xml:lang="ia">Configurante sala</li>
       <li xml:lang="id">Pengaturan ruang</li>
@@ -312,6 +322,7 @@
       <li xml:lang="fi">Säikeistetty viestituki</li>
       <li xml:lang="fr">Prise en charge d'un message en fil de discussions</li>
       <li xml:lang="gl">Compatibilidade con mensaxes de fíos.</li>
+      <li xml:lang="he">תמיכה בהודעות שרשור</li>
       <li xml:lang="hu">Szálüzenetek támogatása</li>
       <li xml:lang="ia">Supporto de message de topico</li>
       <li xml:lang="id">Dukungan perpesanan utas</li>
@@ -339,6 +350,7 @@
       <li xml:lang="fi">Keskusteluhuone</li>
       <li xml:lang="fr">Salon de discussions</li>
       <li xml:lang="gl">Salas de discusión.</li>
+      <li xml:lang="he">חדר דיונים</li>
       <li xml:lang="hu">Megbeszélésszobák</li>
       <li xml:lang="ia">Sala de discussion</li>
       <li xml:lang="id">Ruang diskusi</li>
@@ -366,6 +378,7 @@
       <li xml:lang="fi">Ryhmähuonetuki</li>
       <li xml:lang="fr">Prise en charge des salles de discussions « Teams »</li>
       <li xml:lang="gl">Compatibilidade con salas de equipos.</li>
+      <li xml:lang="he">תמיכה בחדר צוותים</li>
       <li xml:lang="hu">Csapatszobák támogatása</li>
       <li xml:lang="ia">Supporto de Sala de Equipas</li>
       <li xml:lang="id">Dukungan ruang regu</li>
@@ -393,6 +406,7 @@
       <li xml:lang="fi">Oman tilin määrittäminen</li>
       <li xml:lang="fr">Configuration de son propre compte en cours</li>
       <li xml:lang="gl">Configuración da conta persoal.</li>
+      <li xml:lang="he">הגדרת חשבון עצמי</li>
       <li xml:lang="hu">Saját fiók beállítása</li>
       <li xml:lang="ia">Configurante proprie conto</li>
       <li xml:lang="id">Pengaturan akun milik sendiri</li>
@@ -420,6 +434,7 @@
       <li xml:lang="fi">Uuden tilin rekisteröinti</li>
       <li xml:lang="fr">Enregistrement en cours d'un nouveau compte</li>
       <li xml:lang="gl">Rexistro de novas contas.</li>
+      <li xml:lang="he">רישום חשבון חדש</li>
       <li xml:lang="hu">Új fiók regisztrációja</li>
       <li xml:lang="ia">Registrante nove conto</li>
       <li xml:lang="id">Peregistrasian akun baru</li>
@@ -447,6 +462,7 @@
       <li xml:lang="fi">Useampien tilien tuki</li>
       <li xml:lang="fr">Prend en charge le compte multiple</li>
       <li xml:lang="gl">Permitir a combinación de varias contas.</li>
+      <li xml:lang="he">תמיכה בריבוי חשבונות</li>
       <li xml:lang="hu">Több fiók támogatása</li>
       <li xml:lang="ia">Supporta conto multiple</li>
       <li xml:lang="id">Dukungan banyak akun</li>
@@ -474,6 +490,7 @@
       <li xml:lang="fi">Näytä viesti huoneessa</li>
       <li xml:lang="fr">Rechercher un message dans le salon</li>
       <li xml:lang="gl">Busca de mensaxes en salas.</li>
+      <li xml:lang="he">חיפוש הודעות בחדרים</li>
       <li xml:lang="hu">Üzenetek keresése a szobákban</li>
       <li xml:lang="ia">Cerca message in sala</li>
       <li xml:lang="id">Pencarian pesan di ruang</li>
@@ -501,6 +518,7 @@
       <li xml:lang="fi">Näytä maininta/liite/kiinnitetty viesti/viestin alku</li>
       <li xml:lang="fr">Afficher la mention / la pièce jointe / le message épinglé / le message de démarrage</li>
       <li xml:lang="gl">Amosar mensaxes de mención, de anexo, fixadas, e de inicio.</li>
+      <li xml:lang="he">הצגת אזכור/קובץ מצורף/הודעה נעוצה/התחלת הודעה</li>
       <li xml:lang="hu">Említések/mellékletek/kitűzött üzenetek/kezdőüzenet megjelenítése</li>
       <li xml:lang="id">Tampilkan pesan awal/sebutan/lampiran/pesan yang disematkan</li>
       <li xml:lang="it">Mostra menzione/allegato/messaggio appuntato/messaggio iniziale</li>
@@ -527,6 +545,7 @@
       <li xml:lang="fi">Emojituki</li>
       <li xml:lang="fr">Prendre en charge les émoticônes</li>
       <li xml:lang="gl">Permitir expresións.</li>
+      <li xml:lang="he">תמיכה באמוג׳י</li>
       <li xml:lang="hu">Emodzsi támogatás</li>
       <li xml:lang="ia">Supporta emoji</li>
       <li xml:lang="id">Dukungan emoji</li>
@@ -555,6 +574,7 @@
       <li xml:lang="fi">Videotuki</li>
       <li xml:lang="fr">Prise en charge de la vidéo</li>
       <li xml:lang="gl">Compatibilidade con vídeo.</li>
+      <li xml:lang="he">תמיכה בוידאו</li>
       <li xml:lang="hu">Videó támogatás</li>
       <li xml:lang="ia">Supporto video</li>
       <li xml:lang="id">Dukungan video</li>
@@ -582,6 +602,7 @@
       <li xml:lang="fi">Määritä ylläpitotuki (lisää ja poista rooleja, käyttäjiä tai käyttöoikeuksia, määritä huoneita jne.)</li>
       <li xml:lang="fr">Configurer la prise en charge du rôle administrateur (ajouter / supprimer des rôles, ajouter / supprimer des utilisateurs, ajouter / supprimer des permissions, configurer des salons, etc.)</li>
       <li xml:lang="gl">Permitir configurar a administración (roles, xente, permisos, salas, etc.).</li>
+      <li xml:lang="he">הגדרת תמיכה בניהול (הוספת/הסרת תפקידים, הוספת/הסרת משתמשים, הוספת/הסרת הרשאות, הגדרת חדרים וכו׳)</li>
       <li xml:lang="hu">Adminisztrátori beállítások támogatása (szerepek, felhasználók és jogosultságok hozzáadása/eltávolítása szobák beállítása, stb.)</li>
       <li xml:lang="id">Mengonfigurasi dukungan administrator (menambah/menghapus peran, menambah/menyingkirkan pengguna, menambah/menghapus izin, mengonfigurasi ruang, dll.)</li>
       <li xml:lang="it">Configurazione del supporto dell'amministratore (aggiungi/rimuovi ruoli, aggiungi/rimuovi utenti, aggiungi/rimuovi permessi, configura stanze ecc.)</li>
@@ -608,6 +629,7 @@
       <li xml:lang="fi">OTR-tuki (tekeillä)</li>
       <li xml:lang="fr">Prise en charge de « OTR » (en cours)</li>
       <li xml:lang="gl">Permitir confidencialidade (en progreso).</li>
+      <li xml:lang="he">תמיכה בסילוק תיעוד (בפיתוח)</li>
       <li xml:lang="hu">OTR támogatása (folyamatban)</li>
       <li xml:lang="ia">Supporta OTR (in progresso)</li>
       <li xml:lang="id">Dukungan OTR (dalam progres)</li>
@@ -635,6 +657,7 @@
       <li xml:lang="fi">GIF-kuvien tuki</li>
       <li xml:lang="fr">Prend en charge les images « gif »</li>
       <li xml:lang="gl">Compatibilidade con imaxes GIF.</li>
+      <li xml:lang="he">תמיכה בתמונת gif</li>
       <li xml:lang="hu">GIF-képek támogatása</li>
       <li xml:lang="ia">supporta imagine gif</li>
       <li xml:lang="id">Dukungan gambar gift</li>
@@ -662,6 +685,7 @@
       <li xml:lang="fi">Lisää tuki liitetiedostojen lähettämiseksi</li>
       <li xml:lang="fr">Ajouter la prise en charge de l'envoi de fichiers en pièce jointe</li>
       <li xml:lang="gl">Permitir subir ficheiros anexos.</li>
+      <li xml:lang="he">הוספת תמיכה בהעלאת קבצים מצורפים</li>
       <li xml:lang="hu">Fájlmellékletek feltöltésének támogatása</li>
       <li xml:lang="ia">Adde supporto per incargar files de attachamento</li>
       <li xml:lang="id">Menambahkan dukungan untuk mengunggah pelampiran file</li>
@@ -689,6 +713,7 @@
       <li xml:lang="fi">Näytä tietoa lukematta olevista viesteistä</li>
       <li xml:lang="fr">Afficher les informations pour les messages non lus</li>
       <li xml:lang="gl">Amosar información de mensaxes sen ler.</li>
+      <li xml:lang="he">הצגת פרטי הודעה שלא נקראה</li>
       <li xml:lang="hu">Olvasatlan üzenetek információinak megjelenítése</li>
       <li xml:lang="ia">Monstra information de message non legite</li>
       <li xml:lang="id">Tampilkan informasi pesan yang belum dibaca</li>
@@ -716,6 +741,7 @@
       <li xml:lang="fi">Salli käyttäjien estäminen ja estämisen kumoaminen</li>
       <li xml:lang="fr">Autoriser le blocage / déblocage d'utilisateurs</li>
       <li xml:lang="gl">Bloquear ou desbloquear xente.</li>
+      <li xml:lang="he">לאפשר לחסום/לבטל חסימת משתמשים</li>
       <li xml:lang="hu">Felhasználók tiltása/feloldása</li>
       <li xml:lang="ia">Permitte blocar/disblocar usatores</li>
       <li xml:lang="id">Izinkan memblokir/membuka blokir pengguna</li>
@@ -744,6 +770,7 @@
       <li xml:lang="fi">Automaattinen poissaolo</li>
       <li xml:lang="fr">Absence automatique</li>
       <li xml:lang="gl">Ausencia automática.</li>
+      <li xml:lang="he">התרחקות אוטומטית</li>
       <li xml:lang="hu">Automatikus távollét</li>
       <li xml:lang="ia">Absente automatic</li>
       <li xml:lang="id">Pergi otomatis</li>
@@ -771,6 +798,7 @@
       <li xml:lang="fi">Kahden tekijän todennus TOTP:llä</li>
       <li xml:lang="fr">Authentification à deux facteurs par « TOTP »</li>
       <li xml:lang="gl">Autenticación de dous factores mediante pase momentáneo.</li>
+      <li xml:lang="he">אימות דו־שלבי דרך TOTP</li>
       <li xml:lang="hu">Időalapú, egyszer használatos jelszóval történő kétfaktoros hitelesítés</li>
       <li xml:lang="ia">Authentication a duo factores via TOTP</li>
       <li xml:lang="id">Dua faktor autentikasi via TOTP</li>
@@ -798,6 +826,7 @@
       <li xml:lang="fi">Kahden tekijän todennus sähköpostitse</li>
       <li xml:lang="fr">Authentification à deux facteurs par courriel</li>
       <li xml:lang="gl">Autenticación de dous factores mediante correo electrónico.</li>
+      <li xml:lang="he">אימות דו־שלבי דרך דוא״ל</li>
       <li xml:lang="hu">E-mailen keresztüli kétfaktoros hitelesítés</li>
       <li xml:lang="ia">Authentication a duo factores via eposta</li>
       <li xml:lang="id">Dua faktor autentikasi via email</li>
@@ -825,6 +854,7 @@
       <li xml:lang="fi">Ylläpitotuki (palvelintiedot, huoneet, käyttäjän mukautettu tila, mukautetut äänet, mukautettu emoji, käyttäjät, kutsut, lokin näyttö, käyttöoikeudet, roolit, OAuth), ylläpitoasetukset (viesti, tili, säilytyskäytäntö, tiedostojen lähetys, salaus)</li>
       <li xml:lang="fr">Prise en charge du rôle d'administrateur (Informations serveur, Salons, État personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d'affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
       <li xml:lang="gl">Permitir administración (información de servidor, salas, estado de persoa personalizado, sons personalizados, expresións personalizadas, xente, invitacións, ver o rexistro, permisos, roles, OAuth), configuración de administración (mensaxe, conta, regras de retención, envío de ficheiros, cifraxe).</li>
+      <li xml:lang="he">תמיכה בניהול (פרטי שרת, חדרים, Custom User Status, צלילים משלך, אמוג׳י משלך, משתמשים, הזמנות, הצגת יומן, הרשאות, תפקידים, Oauth), הגדרות ניהול (הודעה, חשבון, מדיניות התיישנות, העלאת קבצים, הצפנה)</li>
       <li xml:lang="hu">Adminisztrátori támogatás (kiszolgálóinformáció, szobál, egyéni felhasználóállapot, egyéni hangok, egyéni emodzsik, felhasználók, meghívások, napló megtekintése, jogosultságok szerepek, Oauth), Adminisztrátori beállítások (üzenet, fiók, megőrzési házirend, fájlfeltöltés, titkosítás)</li>
       <li xml:lang="id">Dukungan administrator (Info Server, Ruangan, Status Pengguna Kustom, Suara Kustom, Emoji Kustom, Pengguna, Undangan, Lihat Log, Izin, Peran, Oauth), Pengaturan Administrator (Pesan, Akun, Kebijakan Retensi, Unggah File, Enkripsi)</li>
       <li xml:lang="it">Supporto amministratore (informazioni server, stanze, stato utente personalizzato, suoni personalizzati, emoji personalizzati, utenti, inviti, visualizza registro, permessi, ruoli, Oauth), Impostazioni amministratore (messaggio, account, criteri di conservazione, caricamento file, cifratura)</li>
@@ -852,6 +882,7 @@
       <li xml:lang="fi">Vie viestejä</li>
       <li xml:lang="fr">Exporter des messages</li>
       <li xml:lang="gl">Exportar mensaxes.</li>
+      <li xml:lang="he">ייצוא הודעות</li>
       <li xml:lang="hu">Üzenetek exportálása</li>
       <li xml:lang="ia">Exporta Messages </li>
       <li xml:lang="id">Ekspor Pesan</li>
@@ -880,6 +911,7 @@
       <li xml:lang="fi">Videokonferenssi</li>
       <li xml:lang="fr">Vidéo-conférence</li>
       <li xml:lang="gl">Videoconferencia.</li>
+      <li xml:lang="he">ועידת וידאו</li>
       <li xml:lang="hu">Videokonferencia</li>
       <li xml:lang="ia">Video Conferentia</li>
       <li xml:lang="it">Videoconferenza</li>
@@ -909,6 +941,7 @@
     <p xml:lang="fi">Lisäominaisuudet:</p>
     <p xml:lang="fr">Fonctionnalités supplémentaires :</p>
     <p xml:lang="gl">Funcionalidades adicionais:</p>
+    <p xml:lang="he">יכולות נוספות:</p>
     <p xml:lang="hu">Extra szolgáltatások:</p>
     <p xml:lang="ia">Characteristicas Extra:</p>
     <p xml:lang="id">Fitur ekstra:</p>
@@ -937,6 +970,7 @@
       <li xml:lang="fi">Salli vastata viestiin suoraan ilmoituksesta (KDE:n ominaisuus)</li>
       <li xml:lang="fr">Autoriser à répondre directement au message à partir de la notification (fonctionnalités de KDE)</li>
       <li xml:lang="gl">Responder mensaxes directas desde notificacións (funcionalidades de KDE).</li>
+      <li xml:lang="he">לאפשר לענות על הודעות ישירות מההתראות (יכולות של kde)</li>
       <li xml:lang="hu">Közvetlen válasz üzenetekre az értesítésből (KDE szolgáltatás)</li>
       <li xml:lang="id">Izinkan untuk membalas langsung pesan dari notifikasi (fitur kde)</li>
       <li xml:lang="it">Consente di rispondere direttamente al messaggio dalla notifica (funzionalità di kde)</li>
@@ -963,6 +997,7 @@
       <li xml:lang="fi">Vedä ja pudota kuva Ruqolasta verkkosivustolle tai paikalliseen kansioon</li>
       <li xml:lang="fr">Glisser et déposer une image à partir de Ruqola vers le site Internet ou vers un dossier local</li>
       <li xml:lang="gl">Arrastrar e soltar imaxes de Ruqola nun sitio web ou cartafol local.</li>
+      <li xml:lang="he">גרירה של תמונה מ־ruqola לאתר או לתיקייה מקומית</li>
       <li xml:lang="hu">Képek ejtése fogd és vidd módszerrel Ruqolából weboldalra vagy helyi mappába</li>
       <li xml:lang="it">Trascina e rilascia l'immagine da ruqola al sito web o alla cartella locale</li>
       <li xml:lang="ka">გადაათრიეთ და დააგდეთ გამოსახულება ruqola-დან ვებსაიტამდე ან ლოკალურ საქაღალდემდე</li>
@@ -984,6 +1019,7 @@
       <li xml:lang="fi">Talleta viestit paikalliseen tietokantaan, jotta niitä voi etsiä verkotta</li>
       <li xml:lang="fr">Enregistrer un message dans la base de données locale. Ainsi, vous pouvez rechercher en configuration hors ligne.</li>
       <li xml:lang="gl">Almacenar mensaxes nunha base de datos local para buscar nelas sen Internet.</li>
+      <li xml:lang="he">אחסון הודעה במסד נתונים מקומי כדי שנוכל לחפש ללא חיבור לאינטרנט</li>
       <li xml:lang="hu">Üzenetek tárolása helyi adatbázisban offline kereséshez</li>
       <li xml:lang="id">Simpan pesan di database lokal sehingga kami bisa mencari secara offline</li>
       <li xml:lang="it">Memorizza il messaggio nella banca dati locale in modo da poter eseguire ricerche quando non si è in linea</li>
@@ -1010,6 +1046,7 @@
       <li xml:lang="fi">Merkitse kaikki kanavat luetuiksi</li>
       <li xml:lang="fr">Marquer tous les canaux comme lus</li>
       <li xml:lang="gl">Marcar todas as canles como lidas.</li>
+      <li xml:lang="he">לסמן את כל הערוצים כנקראו</li>
       <li xml:lang="hu">Összes csatorna megjelölése olvasottként</li>
       <li xml:lang="ia">Marca omne canales como legite</li>
       <li xml:lang="id">Tandai Semua Kanal yang dibaca</li>
@@ -1037,6 +1074,7 @@
       <li xml:lang="fi">Lisätty ilmoitushistoria</li>
       <li xml:lang="fr">Ajouter un historique de notifications</li>
       <li xml:lang="gl">Historial de notificacións.</li>
+      <li xml:lang="he">הוספת היסטוריית התראות</li>
       <li xml:lang="hu">Értesítési előzmények hozzáadása</li>
       <li xml:lang="ia">Adde chronologia de notification</li>
       <li xml:lang="id">Menambahkan histori notifikasi</li>
@@ -1064,6 +1102,7 @@
       <li xml:lang="fi">Uusi RocketChat-palvelintietojen tuki</li>
       <li xml:lang="fr">Nouvelle prise en charge des informations du serveur RocketChat</li>
       <li xml:lang="gl">Compatibilidade con nova información de servidor de Rocket.Chat.</li>
+      <li xml:lang="he">תמיכה חדשה בפרטי שרת RocketChat</li>
       <li xml:lang="hu">Új Rocket.Chat kiszolgálóinformációk támogatása</li>
       <li xml:lang="id">Dukungan Informasi Server RocketChat Baru</li>
       <li xml:lang="it">Nuovo supporto per le informazioni del server RocketChat</li>
@@ -1091,6 +1130,7 @@
       <li xml:lang="fi">Laitteen hallinta (RC &gt;= 5.0)</li>
       <li xml:lang="fr">Gérer un périphérique (Version candidate &gt;= 5.0)</li>
       <li xml:lang="gl">Xestión de dispositivos (Rocket.Chat ≥ 5.0).</li>
+      <li xml:lang="he">ניהול מכשיר (RocketChat &gt;= 5.0)</li>
       <li xml:lang="hu">Eszközkezelés (RC &gt;= 5.0)</li>
       <li xml:lang="ia">Gere Dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="id">Kelola Peranti (RC &gt;= 5.0)</li>
@@ -1119,6 +1159,7 @@
       <li xml:lang="fi">Hallitse henkilökohtaista pääsymerkkiä</li>
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
       <li xml:lang="gl">Xestión de pase de acceso persoal.</li>
+      <li xml:lang="he">ניהול אסימון גישה אישי</li>
       <li xml:lang="hu">Személyes hozzáférési tokenek kezelése</li>
       <li xml:lang="id">Kelola Token Akses Personal</li>
       <li xml:lang="it">Gestisci token di accesso personale</li>
@@ -1146,6 +1187,7 @@
       <li xml:lang="fi">Lisätty tuki automaattiselle kääntämiselle</li>
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
       <li xml:lang="gl">Permitir traducións locais.</li>
+      <li xml:lang="he">הוספת תמיכה בתרגום מקומי</li>
       <li xml:lang="hu">Helyi fordítás támogatása</li>
       <li xml:lang="ia">Adde supporto per traduction local</li>
       <li xml:lang="id">Menambahkan dukungan terjemahan lokal</li>
@@ -1174,6 +1216,7 @@
       <li xml:lang="fi">Lisätty tuki tekstin automaattikorjaukselle</li>
       <li xml:lang="fr">Ajouter la prise en charge de la correction automatique de texte</li>
       <li xml:lang="gl">Permitir corrección automática de texto.</li>
+      <li xml:lang="he">הוספת תמיכה בתיקון אוטומטי של טקסט</li>
       <li xml:lang="hu">Automatikus szövegjavítás támogatása</li>
       <li xml:lang="ia">Adde supporto per auto-correction de texto</li>
       <li xml:lang="id">Menambahkan dukungan untuk auto koreksi teks</li>
@@ -1210,6 +1253,7 @@
       <caption xml:lang="fi">Keskusteluhuone Ruqolassa</caption>
       <caption xml:lang="fr">Salon de discussions dans ruqola</caption>
       <caption xml:lang="gl">Sala de conversa en Ruqola.</caption>
+      <caption xml:lang="he">חדר שיחה ב־Ruqola</caption>
       <caption xml:lang="hu">Csevegőszoba a Ruqolában</caption>
       <caption xml:lang="ia">Sala de conversation in Ruqola</caption>
       <caption xml:lang="id">Ruang obrolan di Ruqola</caption>
