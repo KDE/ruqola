@@ -92,7 +92,8 @@ ExploreDatabaseViewMessagesWidget::~ExploreDatabaseViewMessagesWidget() = defaul
 
 void ExploreDatabaseViewMessagesWidget::slotLoad()
 {
-    const QByteArray roomId = mRoomName->text().trimmed().toLatin1();
+    const QByteArray roomId = mRoomName->channelId();
+    const QString roomName = mRoomName->text();
     if (!roomId.isEmpty()) {
         qint64 startId = -1;
         qint64 endId = -1;
@@ -108,11 +109,11 @@ void ExploreDatabaseViewMessagesWidget::slotLoad()
         Q_EMIT messagesLoaded(listMessages);
         Q_EMIT loadModelFromDataBase(mRocketChatAccount->accountName(), roomId);
         if (listMessages.isEmpty()) {
-            KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomId), u"Database empty"_s);
+            KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
         }
     } else {
         Q_EMIT messagesLoaded({});
-        KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomId), u"Database empty"_s);
+        KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
     }
 }
 

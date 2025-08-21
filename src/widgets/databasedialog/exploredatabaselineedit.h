@@ -14,6 +14,11 @@ public:
     explicit ExploreDatabaseLineEdit(RocketChatAccount *account, QWidget *parent);
     ~ExploreDatabaseLineEdit() override;
 
+    [[nodiscard]] QByteArray channelId() const;
+    void setChannelId(const QByteArray &newChannelId);
+
 private:
     void slotJoinedChannelFound(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info);
+
+    QByteArray mChannelId;
 };
