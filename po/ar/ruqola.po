@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-08-14 10:02+0400\n"
+"PO-Revision-Date: 2025-08-20 21:53+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1119,7 +1119,7 @@ msgstr "محمي"
 #: core/model/adminrolesmodel.cpp:38
 #, kde-format
 msgid "Two Factors Authentication"
-msgstr "المصادقة الثنائية"
+msgstr "الاستيثاق الثنائي"
 
 #: core/model/adminroomsmodel.cpp:32
 #, kde-format
@@ -1431,7 +1431,7 @@ msgstr "أنشئ في"
 #: core/model/personalaccesstokeninfosmodel.cpp:83
 #, kde-format
 msgid "Two Factor Authentication"
-msgstr "المصادقة الثنائية"
+msgstr "الاستيثاق الثنائي"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:85
 #, kde-format
@@ -1987,7 +1987,7 @@ msgstr "الولوج/كلمة السر"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #, kde-format
 msgid "Server URL:"
-msgstr "مسار الخادوم:"
+msgstr "مسار الخادم:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:37
 #: widgets/common/authenticationloginwidget.cpp:39
@@ -2701,7 +2701,7 @@ msgstr "لم يُعثر على الرّسالة."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
 #, kde-format
 msgid "Two Authentication Password Required"
-msgstr "مطلوب كلمتي سر للمصادقة"
+msgstr "مطلوب كلمتي سر للاستيثاق"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
 #, kde-format
@@ -2845,7 +2845,7 @@ msgstr "إداري"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:235
 #, kde-format
 msgid "Server Info"
-msgstr "معلومات الخادوم"
+msgstr "معلومات الخادم"
 
 #: widgets/administratordialog/administratorwidget.cpp:56
 #, kde-format
@@ -3534,7 +3534,7 @@ msgstr "حرر الدور"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Two Factor Authentication"
-msgstr "استخدم المصادقة الثنائية"
+msgstr "استخدم الاستيثاق الثنائي"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
@@ -4130,8 +4130,8 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
-"سيؤدي تصفير المصادقة الثنائية بكلمة السر المستندة على الوقت الحالية إلى "
-"تسجيل خروج المستخدم. سيكون المستخدم قادرًا على المصادقة الثنائية مرة أخرى "
+"سيؤدي تصفير الاستيثاق الثنائي بكلمة السر المستندة على الوقت الحالية إلى "
+"تسجيل خروج المستخدم. سيكون المستخدم قادرًا على الاستيثاق الثنائي مرة أخرى "
 "لاحقًا."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:486
@@ -4301,7 +4301,7 @@ msgstr "استخدم فحص نطاق DNS"
 #, kde-format
 msgctxt "@option:check"
 msgid "Registration with Authentication Services"
-msgstr "التسجيل بخدمات المصادقة"
+msgstr "التسجيل بخدمات الاستيثاق"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:55
 #, kde-format
@@ -4426,12 +4426,12 @@ msgid ""
 "authentication services"
 msgstr ""
 "الأدوار المبدئية (مفصولة بفواصل) التي ستُعطى للمستخدمين عند التسجيل من خلال "
-"خدمات المصادقة"
+"خدمات الاستيثاق"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:243
 #, kde-format
 msgid "Default Roles for Authentication Services"
-msgstr "الأدوار المبدئية لخدمات المصادقة"
+msgstr "الأدوار المبدئية لخدمات الاستيثاق"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:249
 #, kde-format
@@ -4724,7 +4724,7 @@ msgstr "ممكن"
 #, kde-format
 msgctxt "@option:check"
 msgid "Trust CAS Username"
-msgstr "ثقّ في اسم مستخدم خدمة المصادقة المركزية (CAS)"
+msgstr "ثقّ في اسم مستخدم خدمة الاستيثاق المركزية (CAS)"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:25
 #, kde-format
@@ -4782,19 +4782,19 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
-"عند تمكين هذه الميزة، سوف يثق روكت تشات في أن أي اسم مستخدم من خدمة المصادقة "
-"المركزية ينتمي إلى نفس المستخدم على روكت تشات.\n"
-"قد يكون هذا ضروريًا إذا أُعيد تسمية مستخدم على خدمة المصادقة المركزية، ولكن قد "
-"يسمح أيضًا للأشخاص بالتحكم في حسابات روكت تشات عن طريق إعادة تسمية مستخدمي "
-"خدمة المصادقة المركزية الخاصة بهم."
+"عند تمكين هذه الميزة، سوف يثق روكت تشات في أن أي اسم مستخدم من خدمة "
+"الاستيثاق المركزية ينتمي إلى نفس المستخدم على روكت تشات.\n"
+"قد يكون هذا ضروريًا إذا أُعيد تسمية مستخدم على خدمة الاستيثاق المركزية، ولكن "
+"قد يسمح أيضًا للأشخاص بالتحكم في حسابات روكت تشات عن طريق إعادة تسمية مستخدمي "
+"خدمة الاستيثاق المركزية الخاصة بهم."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
-"اسمح بإنشاء مستخدم خدمة المصادقة المركزية من البيانات المقدمة بواسطة تذكرة "
-"خدمة المصادقة المركزية."
+"اسمح بإنشاء مستخدم خدمة الاستيثاق المركزية من البيانات المقدمة بواسطة تذكرة "
+"خدمة الاستيثاق المركزية."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
@@ -4809,8 +4809,8 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
-"زامن بيانات مستخدمين خدمة المصادقة المركزية الخارجية دائمًا مع السمات المتاحة "
-"عند الولوج.\n"
+"زامن بيانات مستخدمين خدمة الاستيثاق المركزية الخارجية دائمًا مع السمات "
+"المتاحة عند الولوج.\n"
 "ملاحظة: تُزامن السمات دائمًا عند إنشاء الحساب على أي حال."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:72
@@ -4836,12 +4836,12 @@ msgstr ""
 "استخدم إدخال JSON هذا لبناء سمات داخلية (مفتاح) من سمات خارجية (قيمة).\n"
 "ستُضمّن أسماء السمات الخارجية المرفقة بعلامة \"%\" في سلاسل القيم.<br/>على "
 "سبيل المثال، {\"email\":\"%email%\", \"name\":\"%firstname%, %lastname%\"}\n"
-"خريطة السمات تُستكمل دائمًا. في خدمة المصادقة المركزية 1.0، تتوفر سمة اسم "
+"خريطة السمات تُستكمل دائمًا. في خدمة الاستيثاق المركزية 1.0، تتوفر سمة اسم "
 "المستخدم فقط. السمات الداخلية المتاحة هي: اسم المستخدم، الاسم، البريد "
 "الإلكتروني، الغرف؛\n"
 "الغرف عبارة عن قائمة مفصولة بفواصل من الغرف للانضمام إليها عند إنشاء "
 "المستخدم، على سبيل المثال: {\"rooms\": \"%team%,%department%\"} ستضم مستخدمي "
-"خدمة المصادقة المركزية عند إنشائهم إلى قناة فريقهم وقسمهم."
+"خدمة الاستيثاق المركزية عند إنشائهم إلى قناة فريقهم وقسمهم."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, kde-format
@@ -5142,7 +5142,7 @@ msgstr "الحد الأقصى لحجم الملف المرفوع (بالبايت
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only authenticated users will have access"
-msgstr "سيتمكن المستخدمون المصادق عليهم فقط من الوصول"
+msgstr "سيتمكن المستخدمون الموثقين فقط من الوصول"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:45
 #, kde-format
@@ -5191,7 +5191,7 @@ msgid ""
 "without authentication)."
 msgstr ""
 "سر رمز الويب المميز لتحميل الملفات جوسن (يُستخدم للتمكن من الوصول إلى الملفات "
-"المُحملة دون مصادقة)."
+"المُحملة دون استيثاق)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:73
 #, kde-format
@@ -5465,12 +5465,12 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The cache limit for outbound message handling."
-msgstr "حد ذاكرة التخزين المؤقت لمعالجة الرسائل الصادرة."
+msgstr "حد خبيئة معالجة الرسائل الصادرة."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr "حد ذاكرة التخزين المؤقت لمعالجة الرسائل الصادرة."
+msgstr "حد خبيئة معالجة الرسائل الصادرة."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
 #, kde-format
@@ -5575,7 +5575,7 @@ msgstr "أعد الاتّصال"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attempt to utilize LDAP for authentication."
-msgstr "محاولة استخدام LDAP للمصادقة."
+msgstr "محاولة استخدام LDAP للاستيثاق."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:37
 #, kde-format
@@ -6009,7 +6009,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:193
 #, kde-format
 msgid "Embed Cache Expiration Days"
-msgstr "أيام انتهاء صلاحية ذاكرة التخزين المؤقت للتضمين"
+msgstr "أيام انتهاء صلاحية خبيئة التضمين"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6869,7 +6869,7 @@ msgstr "مكّن للفرق"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable JWT auth"
-msgstr "مكّن مصادقة JWT"
+msgstr "مكّن استيثاق JWT"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:34
 #, kde-format
@@ -6904,7 +6904,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
-msgstr "يوصى بتمكينه إذا كان نسخة Jitsi لا يستخدم أي آليّة مصادقة."
+msgstr "يوصى بتمكينه إذا كان نسخة Jitsi لا تستخدم أي آليّة استيثاق."
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:93
 #, kde-format
@@ -7690,7 +7690,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
-msgstr "أضف خادومًا"
+msgstr "أضف خادمًا"
 
 #: widgets/configurenewserver/createnewserverdialog.cpp:47
 #, kde-format
@@ -8523,7 +8523,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Info"
-msgstr "معلومات الخادوم"
+msgstr "معلومات الخادم"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:49
 #, kde-format
@@ -9155,8 +9155,8 @@ msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 msgstr ""
-"لقد مكّنت المصادقة بالعامل الثنائية.\n"
-"الرجاء إدخال الرمز المنشأ أو رمز احتياطي."
+"لقد مكّنت الاستيثاق بالعامل الثنائي.\n"
+"الرجاء إدخال الرمز المُولّد أو رمز احتياطي."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:164
 #, kde-format
@@ -9351,7 +9351,7 @@ msgstr "ابحث كلمة…"
 #: widgets/misc/servermenu.cpp:22
 #, kde-format
 msgid "Server"
-msgstr "الخادوم"
+msgstr "الخادم"
 
 #: widgets/misc/serverscombobox.cpp:20
 #, kde-format
@@ -9423,13 +9423,13 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via Email"
-msgstr "فعّل المصادقة الثنائية عبر البريد الإلكتروني"
+msgstr "فعّل الاستيثاق الثنائي عبر البريد الإلكتروني"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
-msgstr "فعّل المصادقة الثنائية عبر كلمة السر المستندة على الوقت"
+msgstr "فعّل الاستيثاق الثنائي عبر كلمة السر المستندة على الوقت"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:27
 #, kde-format
@@ -9438,7 +9438,7 @@ msgid ""
 "Open your authentication app and enter the code.\n"
 "You can also use one of your backup codes."
 msgstr ""
-"افتح تطبيق المصادقة الخاص بك وأدخل الرمز.\n"
+"افتح تطبيق الاستيثاق الخاص بك وأدخل الرمز.\n"
 "يمكنك أيضًا استخدام أحد رموزك الاحتياطية."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
@@ -9465,14 +9465,14 @@ msgstr "أعد توليد الرمز"
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
 #, kde-format
 msgid "Invalid two factor code."
-msgstr "رمز المصادقة الثنائية غير صحيح"
+msgstr "رمز الاستيثاق الثنائي غير صحيح"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
-msgstr "تحقق من رمز المصادقة الثنائية"
+msgstr "تحقق من رمز الاستيثاق الثنائي"
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:36
 #, kde-format
@@ -9497,7 +9497,7 @@ msgid ""
 msgstr ""
 "تأكد من أن لديك نسخة من الرموز الخاصة بك:\n"
 "%1\n"
-"إذا فقدت الوصول إلى تطبيق المصادقة الخاص بك، فيمكنك استخدام أحد هذه الرموز "
+"إذا فقدت الوصول إلى تطبيق الاستيثاق الخاص بك، فيمكنك استخدام أحد هذه الرموز "
 "للولوج."
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
@@ -9525,7 +9525,7 @@ msgstr "تفضيل"
 #: widgets/myaccount/myaccountconfigurewidget.cpp:46
 #, kde-format
 msgid "Two Authentication Factor"
-msgstr "عامل المصادقة الثنائية"
+msgstr "عامل الاستيثاق الثنائي"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:52
 #, kde-format
@@ -9575,7 +9575,7 @@ msgstr "أنشئ رمز شخصي"
 #, kde-format
 msgctxt "@option:check"
 msgid "Ignore Two Factor Authentication"
-msgstr "تجاهل المصادقة الثنائية"
+msgstr "تجاهل الاستيثاق الثنائي"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:46
 #, kde-format
@@ -11562,7 +11562,7 @@ msgstr "إصلاح تسرب الذاكرة"
 #: widgets/whatsnew/whatsnewtranslations.cpp:60
 #, kde-format
 msgid "Cache message size (optimization)"
-msgstr "حجم رسالة التخزين المؤقت (تحسين)"
+msgstr "حجم خبيئة الرسائل (تحسين)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:61
 #, kde-format
@@ -11584,13 +11584,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:63
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
-msgstr ""
-"إصلاح مشكلة تنزيل ملف الصوت/الفيديو عندما لا يكون في ذاكرة التخزين المؤقت."
+msgstr "إصلاح مشكلة تنزيل ملف الصوت/الفيديو عندما لا يكون في خبيئة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:64
 #, kde-format
 msgid "Fix list of authentication method."
-msgstr "إصلاح قائمة طريقة المصادقة."
+msgstr "إصلاح قائمة طريقة الاستيثاق."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:65
 #, kde-format
@@ -11637,7 +11636,7 @@ msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
-"تنفيذ مصادقة الرمز الشخصي. <a href=\"https://bugs.kde.org/show_bug.cgi?"
+"تنفيذ الاستيثاق بالرمز الشخصي. <a href=\"https://bugs.kde.org/show_bug.cgi?"
 "id=481400\">Bug 481400</a>"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:80
@@ -11747,8 +11746,8 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
-"احذف الملفات الأقدم من بعض أدلة ذاكرة التخزين المؤقت (تحميل الملفات "
-"والوسائط) حتى لا تنمو إلى الأبد."
+"حذف الملفات الأقدم من بعض أدلة خبيئة رفع الملفات والوسائط حتى لا تتوسع إلى "
+"الأبد."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:113
 #, kde-format
