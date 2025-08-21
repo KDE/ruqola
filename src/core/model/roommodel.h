@@ -94,7 +94,7 @@ public:
 
     void updateSubscription(const QJsonArray &array);
     void updateRoom(const QJsonObject &array);
-    void addRoom(const QJsonObject &room);
+    QByteArray addRoom(const QJsonObject &room);
 
     [[nodiscard]] Room::TeamRoomInfo roomFromTeamId(const QByteArray &teamId);
 

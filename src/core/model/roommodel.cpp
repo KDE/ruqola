@@ -286,7 +286,7 @@ QByteArray RoomModel::insertRoom(const QJsonObject &room)
     return {};
 }
 
-void RoomModel::addRoom(const QJsonObject &room)
+QByteArray RoomModel::addRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
     r->parseSubscriptionRoom(room);
@@ -294,6 +294,7 @@ void RoomModel::addRoom(const QJsonObject &room)
     if (!addRoom(r)) {
         qCDebug(RUQOLA_ROOMS_LOG) << "Impossible to add room: " << r->name();
     }
+    return r->roomId();
 }
 
 Room::TeamRoomInfo RoomModel::roomFromTeamId(const QByteArray &teamId)

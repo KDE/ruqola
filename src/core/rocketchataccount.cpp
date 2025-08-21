@@ -3395,7 +3395,7 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
     // qDebug() << " updated : "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
-        QJsonObject room = updated.at(i).toObject();
+        const QJsonObject room = updated.at(i).toObject();
 
         const QString roomType = room.value("t"_L1).toString();
         if (mRuqolaLogger) {
@@ -3409,7 +3409,10 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             || roomType == u'd') { // Direct chat
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
-                model->addRoom(room);
+                const QByteArray roomId = model->addRoom(room);
+                if (auto r = model->findRoom(roomId); r) {
+                    addRoomToDataBase(r);
+                }
             }
         } else if (roomType == u'l') { // Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
