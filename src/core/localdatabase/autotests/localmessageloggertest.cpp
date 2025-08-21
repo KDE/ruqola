@@ -21,17 +21,17 @@ static QString accountName()
 {
     return u"myAccount"_s;
 }
-static QString roomName()
+static QByteArray roomId()
 {
-    return u"myRoom"_s;
+    return "myRoom"_ba;
 }
-static QString otherRoomName()
+static QByteArray otherRoomId()
 {
-    return u"otherRoom"_s;
+    return "otherRoom"_ba;
 }
-static QString existingRoomName()
+static QByteArray existingRoomId()
 {
-    return u"existingRoom"_s;
+    return "existingRoom"_ba;
 }
 enum class Fields {
     MessageId,
@@ -46,9 +46,9 @@ void LocalMessageLoggerTest::initTestCase()
 
     // Clean up after previous runs
     LocalMessageLogger logger;
-    QFile::remove(logger.dbFileName(accountName(), roomName()));
-    QFile::remove(logger.dbFileName(accountName(), otherRoomName()));
-    QFile::remove(logger.dbFileName(accountName(), existingRoomName()));
+    QFile::remove(logger.dbFileName(accountName(), roomId()));
+    QFile::remove(logger.dbFileName(accountName(), otherRoomId()));
+    QFile::remove(logger.dbFileName(accountName(), existingRoomId()));
 }
 
 void LocalMessageLoggerTest::shouldStoreMessages()
@@ -61,28 +61,28 @@ void LocalMessageLoggerTest::shouldStoreMessages()
     message1.setUsername(QString::fromUtf8("Hervé"));
     message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50, 50)).toMSecsSinceEpoch());
     message1.setMessageId("msg-1"_ba);
-    logger.addMessage(accountName(), roomName(), message1);
+    logger.addMessage(accountName(), roomId(), message1);
 
     message1.setText(QString::fromUtf8("Message text: €2"));
     message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50, 55)).toMSecsSinceEpoch());
-    logger.addMessage(accountName(), roomName(), message1); // update an existing message 5s later
+    logger.addMessage(accountName(), roomId(), message1); // update an existing message 5s later
 
     Message message2;
     message2.setText(QString::fromUtf8("Message text: ßĐ"));
     message2.setUsername(QString::fromUtf8("Joe"));
     message2.setTimeStamp(QDateTime(QDate(2022, 6, 7), QTime(23, 40, 50)).toMSecsSinceEpoch()); // earlier
     message2.setMessageId("msg-2"_ba);
-    logger.addMessage(accountName(), roomName(), message2);
+    logger.addMessage(accountName(), roomId(), message2);
 
     Message messageOtherRoom;
     messageOtherRoom.setText(QString::fromUtf8("Message other room"));
     messageOtherRoom.setUsername(QString::fromUtf8("Joe"));
     messageOtherRoom.setTimeStamp(QDateTime(QDate(2022, 6, 7), QTime(23, 30, 50)).toMSecsSinceEpoch());
     messageOtherRoom.setMessageId("msg-other-1"_ba);
-    logger.addMessage(accountName(), otherRoomName(), messageOtherRoom);
+    logger.addMessage(accountName(), otherRoomId(), messageOtherRoom);
 
     // WHEN
-    auto tableModel = logger.createMessageModel(accountName(), roomName());
+    auto tableModel = logger.createMessageModel(accountName(), roomId());
 
     // THEN
     QVERIFY(tableModel);
@@ -102,15 +102,15 @@ void LocalMessageLoggerTest::shouldLoadExistingDb() // this test depends on shou
     // GIVEN
     LocalMessageLogger logger;
     // Copy an existing db under a new room name, so that there's not yet a QSqlDatabase for it
-    QSqlDatabase::database(accountName() + u'-' + otherRoomName()).close();
-    const QString srcDb = logger.dbFileName(accountName(), otherRoomName());
-    const QString destDb = logger.dbFileName(accountName(), existingRoomName());
+    QSqlDatabase::database(accountName() + u'-' + QString::fromLatin1(otherRoomId())).close();
+    const QString srcDb = logger.dbFileName(accountName(), otherRoomId());
+    const QString destDb = logger.dbFileName(accountName(), existingRoomId());
     QVERIFY(QFileInfo::exists(srcDb));
     QVERIFY(!QFileInfo::exists(destDb));
     QVERIFY(QFile::copy(srcDb, destDb));
 
     // WHEN
-    auto tableModel = logger.createMessageModel(accountName(), existingRoomName());
+    auto tableModel = logger.createMessageModel(accountName(), existingRoomId());
 
     // THEN
     QVERIFY(tableModel);
@@ -127,10 +127,10 @@ void LocalMessageLoggerTest::shouldDeleteMessages() // this test depends on shou
     const QString messageId = (u"msg-other-1"_s);
 
     // WHEN
-    logger.deleteMessage(accountName(), otherRoomName(), messageId);
+    logger.deleteMessage(accountName(), otherRoomId(), messageId);
 
     // THEN
-    auto tableModel = logger.createMessageModel(accountName(), otherRoomName());
+    auto tableModel = logger.createMessageModel(accountName(), otherRoomId());
     QVERIFY(tableModel);
     QCOMPARE(tableModel->rowCount(), 0);
 }
@@ -140,7 +140,7 @@ void LocalMessageLoggerTest::shouldReturnNullIfDoesNotExist()
     // GIVEN
     LocalMessageLogger logger;
     // WHEN
-    auto tableModel = logger.createMessageModel(accountName(), u"does not exist"_s);
+    auto tableModel = logger.createMessageModel(accountName(), "does not exist"_ba);
     // THEN
     QVERIFY(!tableModel);
 }

@@ -17,7 +17,7 @@ public:
     explicit ExploreDatabaseMessagesStorageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ExploreDatabaseMessagesStorageWidget() override;
 
-    void slotLoadModelFromDataBase(const QString &accountName, const QString &roomName);
+    void slotLoadModelFromDataBase(const QString &accountName, const QByteArray &roomId);
 
 private:
     LocalMessagesDatabase *const mLocalMessageDatabase;

@@ -962,7 +962,7 @@ void RuqolaMainWindow::slotShowLog()
         tempFile.setAutoRemove(false);
         if (tempFile.open()) {
             LocalMessageLogger logger;
-            if (logger.saveToFile(tempFile, mCurrentRocketChatAccount->accountName(), room->displayFName())) {
+            if (logger.saveToFile(tempFile, mCurrentRocketChatAccount->accountName(), room->roomId())) {
                 const QString fileName = tempFile.fileName();
                 tempFile.close();
                 auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(fileName), this);

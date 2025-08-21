@@ -16,7 +16,7 @@ public:
     struct ManageLoadHistoryInfo {
         MessagesModel *roomModel = nullptr;
         QString roomName;
-        QString roomId;
+        QByteArray roomId;
         bool initial = false;
         qint64 timeStamp = -1;
         qint64 lastSeenAt = -1;

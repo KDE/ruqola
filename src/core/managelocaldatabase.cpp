@@ -38,7 +38,7 @@ void ManageLocalDatabase::loadAccountSettings()
     if (!ba.isEmpty()) {
         qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "Account info loads from database";
         mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
-        timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
+        timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, {}, GlobalDatabase::TimeStampType::AccountTimeStamp);
         qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp:" << timeStamp;
     }
 #endif
@@ -75,14 +75,14 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 
     qint64 endDateTime = info.roomModel->lastTimestamp();
     QJsonArray params;
-    params.append(QJsonValue(info.roomId));
+    params.append(QJsonValue(QString::fromLatin1(info.roomId)));
     // Load history
     if (info.initial || info.roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #ifdef USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
             const QList<Message> lstMessages =
-                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50, mRocketChatAccount->emojiManager());
+                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, -1, 50, mRocketChatAccount->emojiManager());
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
                                              << " number of message " << lstMessages.count();
             if (lstMessages.count() == 50) {
@@ -95,7 +95,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 qDebug() << " endDateTime " << firstDateTime;
                 if (firstDateTime != 0) {
                     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << firstDateTime;
-                    syncMessage(info.roomId.toLatin1(), /*info.lastSeenAt*/ firstDateTime);
+                    syncMessage(info.roomId, /*info.lastSeenAt*/ firstDateTime);
                 } else {
                     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no sync message ";
                 }
@@ -133,7 +133,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 #ifdef USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
             const QList<Message> lstMessages =
-                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, startDateTime, 50, mRocketChatAccount->emojiManager());
+                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, startDateTime, 50, mRocketChatAccount->emojiManager());
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
                                              << " number of message " << lstMessages.count();
             if (lstMessages.count() == downloadMessage) {

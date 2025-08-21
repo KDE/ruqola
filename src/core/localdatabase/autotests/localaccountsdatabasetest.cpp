@@ -5,16 +5,23 @@
 */
 
 #include "localaccountsdatabasetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabase/localaccountsdatabase.h"
 #include <QFile>
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+enum class AccountFields {
+    AccountName,
+    Json,
+}; // in the same order as the table
+
 static QString accountName()
 {
     return u"myAccount"_s;
 }
+
 QTEST_MAIN(LocalAccountsDatabaseTest)
 LocalAccountsDatabaseTest::LocalAccountsDatabaseTest(QObject *parent)
     : QObject{parent}

@@ -93,7 +93,7 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QList<QByteArray> &
         messageModel->deleteMessage(messageId);
         Room *room = mRocketChatAccount->room(roomId);
         if (room) {
-            mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
+            mRocketChatAccount->deleteMessageFromDatabase(room->roomId(), messageId);
         }
         // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
         MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
@@ -159,7 +159,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
                 // qDebug() << " Update thread message";
             }
             if (room) {
-                mRocketChatAccount->addMessageToDataBase(room->displayFName(), m);
+                mRocketChatAccount->addMessageToDataBase(room->roomId(), m);
                 if (!loadHistory) {
                     room->newMessageAdded();
                 }
@@ -535,7 +535,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 messageModel->deleteMessage(messageId);
                 Room *room = mRocketChatAccount->room(roomId.toLatin1());
                 if (room) {
-                    mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
+                    mRocketChatAccount->deleteMessageFromDatabase(room->roomId(), messageId);
                 }
                 // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
                 MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();

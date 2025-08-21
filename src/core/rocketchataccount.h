@@ -91,7 +91,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
 public:
-    explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
+    explicit RocketChatAccount(const QString &accountName = QString(), bool migrateDatabase = false, QObject *parent = nullptr);
     ~RocketChatAccount() override;
 
     enum class ChannelTypeInfo : uint8_t {
@@ -361,8 +361,8 @@ public:
     [[nodiscard]] VideoConferenceMessageInfoManager *videoConferenceMessageInfoManager() const;
 
     [[nodiscard]] QUrl faviconLogoUrlFromLocalCache(const QString &url);
-    void addMessageToDataBase(const QString &roomName, const Message &message);
-    void deleteMessageFromDatabase(const QString &roomName, const QByteArray &messageId);
+    void addMessageToDataBase(const QByteArray &roomId, const Message &message);
+    void deleteMessageFromDatabase(const QByteArray &roomId, const QByteArray &messageId);
     void loadAccountSettings();
 
     [[nodiscard]] QList<AuthenticationInfo> authenticationMethodInfos() const;
@@ -424,6 +424,8 @@ public:
 
     [[nodiscard]] bool isFileDeletable(const QByteArray &roomId, const QByteArray &fileUserId, qint64 uploadedAt) const;
 
+    void deleteRoomFromDatabase(const QByteArray &roomId);
+    void addRoomToDataBase(Room *r);
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

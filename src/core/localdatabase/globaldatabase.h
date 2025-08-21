@@ -22,12 +22,12 @@ public:
     GlobalDatabase();
     ~GlobalDatabase() override;
 
-    void insertOrReplaceTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, GlobalDatabase::TimeStampType type);
+    void insertOrReplaceTimeStamp(const QString &accountName, const QByteArray &roomId, qint64 timestamp, GlobalDatabase::TimeStampType type);
 
-    [[nodiscard]] QString generateIdentifier(const QString &accountName, const QString &roomName, TimeStampType type);
-    void removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
+    [[nodiscard]] QString generateIdentifier(const QString &accountName, const QByteArray &roomId, TimeStampType type);
+    void removeTimeStamp(const QString &accountName, const QByteArray &roomId, TimeStampType type);
 
-    [[nodiscard]] qint64 timeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
+    [[nodiscard]] qint64 timeStamp(const QString &accountName, const QByteArray &roomId, TimeStampType type);
 
     [[nodiscard]] std::unique_ptr<QSqlTableModel> createGlobalModel(const QString &accountName) const;
 

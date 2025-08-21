@@ -20,13 +20,13 @@ class LIBRUQOLACORE_EXPORT LocalMessagesDatabase : public LocalDatabaseBase
 public:
     LocalMessagesDatabase();
     ~LocalMessagesDatabase() override;
-    void deleteMessage(const QString &accountName, const QString &_roomName, const QString &messageId);
-    void addMessage(const QString &accountName, const QString &_roomName, const Message &m);
+    void deleteMessage(const QString &accountName, const QByteArray &roomId, const QString &messageId);
+    void addMessage(const QString &accountName, const QByteArray &roomId, const Message &m);
 
-    [[nodiscard]] std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &_roomName) const;
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QByteArray &roomId) const;
 
     [[nodiscard]] QList<Message> loadMessages(const QString &accountName,
-                                              const QString &_roomName,
+                                              const QByteArray &roomId,
                                               qint64 startId = -1,
                                               qint64 endId = -1,
                                               qint64 numberElements = -1,
@@ -36,7 +36,7 @@ public:
 
     [[nodiscard]] static QString generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements);
 
-    [[nodiscard]] QList<Message> loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const;
+    [[nodiscard]] QList<Message> loadMessages(RocketChatAccount *account, const QByteArray &roomId, qint64 startId, qint64 endId, qint64 numberElements) const;
 
 protected:
     [[nodiscard]] QString schemaDataBase() const override;

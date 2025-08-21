@@ -111,7 +111,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
-RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
+RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrateDatabase, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
     , mUserModel(new UsersModel(this))
@@ -135,7 +135,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mUploadFileManager(new UploadFileManager(this, this))
     , mVideoConferenceManager(new VideoConferenceManager(this, this))
     , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this, this))
-    , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
+    , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>(migrateDatabase))
     , mManageLoadHistory(new ManageLocalDatabase(this, this))
     , mPreviewUrlCacheManager(new PreviewUrlCacheManager(this, this))
     , mNotificationPreferences(new NotificationPreferences(this))
@@ -1779,7 +1779,7 @@ void RocketChatAccount::loadHistory(const QByteArray &roomID, bool initial, qint
         }
         ManageLocalDatabase::ManageLoadHistoryInfo info;
         info.roomModel = roomModel;
-        info.roomId = QString::fromLatin1(roomID);
+        info.roomId = roomID;
         info.initial = initial;
         info.timeStamp = timeStamp;
         info.roomName = room->displayFName();
@@ -3006,14 +3006,24 @@ bool RocketChatAccount::hasLicense(const QString &name)
     return mLicensesManager.hasLicense(name);
 }
 
-void RocketChatAccount::addMessageToDataBase(const QString &roomName, const Message &message)
+void RocketChatAccount::addMessageToDataBase(const QByteArray &roomId, const Message &message)
 {
-    mLocalDatabaseManager->addMessage(accountName(), roomName, message);
+    mLocalDatabaseManager->addMessage(accountName(), roomId, message);
 }
 
-void RocketChatAccount::deleteMessageFromDatabase(const QString &roomName, const QByteArray &messageId)
+void RocketChatAccount::deleteMessageFromDatabase(const QByteArray &roomId, const QByteArray &messageId)
 {
-    mLocalDatabaseManager->deleteMessage(accountName(), roomName, messageId);
+    mLocalDatabaseManager->deleteMessage(accountName(), roomId, messageId);
+}
+
+void RocketChatAccount::deleteRoomFromDatabase(const QByteArray &roomId)
+{
+    mLocalDatabaseManager->deleteRoom(accountName(), roomId);
+}
+
+void RocketChatAccount::addRoomToDataBase(Room *r)
+{
+    mLocalDatabaseManager->addRoom(accountName(), r);
 }
 
 // Only for debugging permissions. (debug mode)

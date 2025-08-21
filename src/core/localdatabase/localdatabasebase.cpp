@@ -7,7 +7,6 @@
 #include "localdatabasebase.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 
 #include <QDir>
@@ -28,6 +27,11 @@ QString LocalDatabaseBase::dbFileName(const QString &accountName, const QString 
 {
     const QString dirPath = mBasePath + accountName;
     return dirPath + u'/' + roomName + u".sqlite"_s;
+}
+
+QString LocalDatabaseBase::dbFileName(const QString &accountName, const QByteArray &roomId) const
+{
+    return dbFileName(accountName, QString::fromLatin1(roomId));
 }
 
 QString LocalDatabaseBase::dbFileName(const QString &accountName) const
@@ -77,14 +81,13 @@ void LocalDatabaseBase::setDatabaseLogger(RocketChatRestApi::AbstractLogger *log
     mRuqolaLogger = logger;
 }
 
-bool LocalDatabaseBase::checkDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db)
+bool LocalDatabaseBase::checkDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db)
 {
-    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = generateDatabaseName(accountName, roomName);
+    const QString dbName = generateDatabaseName(accountName, roomId);
     db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room"
-                                       << roomName << "database file " << dbName;
+        qCWarning(RUQOLA_DATABASE_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room" << roomId
+                                       << "database file " << dbName;
         return false;
     }
     Q_ASSERT(db.isOpen());
@@ -104,16 +107,15 @@ bool LocalDatabaseBase::checkDataBase(const QString &accountName, QSqlDatabase &
     return true;
 }
 
-QString LocalDatabaseBase::generateDatabaseName(const QString &accountName, const QString &roomName) const
+QString LocalDatabaseBase::generateDatabaseName(const QString &accountName, const QByteArray &roomId) const
 {
-    const QString dbName = databaseName(accountName + u'-' + roomName);
+    const QString dbName = databaseName(accountName + u'-' + QString::fromLatin1(roomId));
     return dbName;
 }
 
-bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db)
+bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db)
 {
-    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = generateDatabaseName(accountName, roomName);
+    const QString dbName = generateDatabaseName(accountName, roomId);
     db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
@@ -122,7 +124,7 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QSt
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << dirPath;
             return false;
         }
-        const QString fileName = dbFileName(accountName, roomName);
+        const QString fileName = dbFileName(accountName, roomId);
         const bool newDb = QFileInfo::exists(fileName);
         db.setDatabaseName(fileName);
         if (!db.open()) {

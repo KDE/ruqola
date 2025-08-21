@@ -15,7 +15,7 @@ public:
     LocalRoomsDatabase();
     ~LocalRoomsDatabase() override;
     void updateRoom(const QString &accountName, Room *room);
-    void deleteRoom(const QString &accountName, const QString &roomId);
+    void deleteRoom(const QString &accountName, const QByteArray &roomId);
 
     [[nodiscard]] QByteArray jsonRoom(const QString &accountName, const QString &roomId);
 

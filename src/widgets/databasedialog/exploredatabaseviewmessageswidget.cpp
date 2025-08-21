@@ -92,8 +92,8 @@ ExploreDatabaseViewMessagesWidget::~ExploreDatabaseViewMessagesWidget() = defaul
 
 void ExploreDatabaseViewMessagesWidget::slotLoad()
 {
-    const QString roomName = mRoomName->text().trimmed();
-    if (!roomName.isEmpty()) {
+    const QByteArray roomId = mRoomName->text().trimmed().toLatin1(); // TODO fix me
+    if (!roomId.isEmpty()) {
         qint64 startId = -1;
         qint64 endId = -1;
         if (mUseStartDateTime->isChecked()) {
@@ -102,17 +102,17 @@ void ExploreDatabaseViewMessagesWidget::slotLoad()
         if (mUseEndDateTime->isChecked()) {
             endId = mEndDateTime->dateTime().toMSecsSinceEpoch();
         }
-        const QList<Message> listMessages = mLocalMessageDatabase->loadMessages(mRocketChatAccount, roomName, startId, endId, mNumberOfMessages->value());
+        const QList<Message> listMessages = mLocalMessageDatabase->loadMessages(mRocketChatAccount, roomId, startId, endId, mNumberOfMessages->value());
         mMessageModel->clear();
         mMessageModel->addMessages(listMessages);
         Q_EMIT messagesLoaded(listMessages);
-        Q_EMIT loadModelFromDataBase(mRocketChatAccount->accountName(), roomName);
+        Q_EMIT loadModelFromDataBase(mRocketChatAccount->accountName(), roomId);
         if (listMessages.isEmpty()) {
-            KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
+            KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomId), u"Database empty"_s);
         }
     } else {
         Q_EMIT messagesLoaded({});
-        KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
+        KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomId), u"Database empty"_s);
     }
 }
 

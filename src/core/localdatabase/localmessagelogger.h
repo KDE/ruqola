@@ -19,10 +19,10 @@ class LIBRUQOLACORE_EXPORT LocalMessageLogger : public LocalDatabaseBase
 public:
     LocalMessageLogger();
 
-    void addMessage(const QString &accountName, const QString &roomName, const Message &message);
-    void deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId);
-    [[nodiscard]] std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &roomName) const;
-    [[nodiscard]] bool saveToFile(QFile &file, const QString &accountName, const QString &roomName) const;
+    void addMessage(const QString &accountName, const QByteArray &roomId, const Message &message);
+    void deleteMessage(const QString &accountName, const QByteArray &roomId, const QString &messageId);
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QByteArray &roomId) const;
+    [[nodiscard]] bool saveToFile(QFile &file, const QString &accountName, const QByteArray &roomId) const;
 
 protected:
     [[nodiscard]] QString schemaDataBase() const override;

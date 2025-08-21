@@ -25,19 +25,19 @@ class AbstractLogger;
 class LIBRUQOLACORE_EXPORT LocalDatabaseManager
 {
 public:
-    LocalDatabaseManager();
+    explicit LocalDatabaseManager(bool migrateDataBase = false);
     ~LocalDatabaseManager();
 
-    void deleteMessage(const QString &accountName, const QString &roomName, const QByteArray &messageId);
-    void addMessage(const QString &accountName, const QString &roomName, const Message &m);
+    void deleteMessage(const QString &accountName, const QByteArray &roomId, const QByteArray &messageId);
+    void addMessage(const QString &accountName, const QByteArray &roomId, const Message &m);
 
     void addRoom(const QString &accountName, Room *room);
-    void deleteRoom(const QString &accountName, const QString &roomId);
+    void deleteRoom(const QString &accountName, const QByteArray &roomId);
 
-    [[nodiscard]] qint64 timeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type);
+    [[nodiscard]] qint64 timeStamp(const QString &accountName, const QByteArray &roomId, GlobalDatabase::TimeStampType type);
 
     [[nodiscard]] QList<Message>
-    loadMessages(const QString &accountName, const QString &roomName, qint64 startId, qint64 endId, qint64 numberElements, EmojiManager *emojiManager) const;
+    loadMessages(const QString &accountName, const QByteArray &roomId, qint64 startId, qint64 endId, qint64 numberElements, EmojiManager *emojiManager) const;
 
     void updateAccount(const QString &accountName, const QByteArray &ba, qint64 timeStamp);
     void deleteAccount(const QString &accountName);
@@ -55,6 +55,7 @@ public:
     [[nodiscard]] GlobalDatabase *globalDatabase() const;
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void handleMigration();
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
     std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;
     std::unique_ptr<LocalRoomsDatabase> mRoomsDatabase;

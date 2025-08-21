@@ -24,6 +24,7 @@ public:
     explicit LocalDatabaseBase(const QString &basePath, DatabaseType type);
     virtual ~LocalDatabaseBase();
     [[nodiscard]] QString dbFileName(const QString &accountName, const QString &roomName) const;
+    [[nodiscard]] QString dbFileName(const QString &accountName, const QByteArray &roomId) const;
     [[nodiscard]] QString dbFileName(const QString &accountName) const;
 
     // Only for test!
@@ -32,9 +33,9 @@ public:
 
 protected:
     [[nodiscard]] virtual QString schemaDataBase() const;
-    [[nodiscard]] bool initializeDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);
+    [[nodiscard]] bool initializeDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db);
     [[nodiscard]] bool initializeDataBase(const QString &accountName, QSqlDatabase &db);
-    [[nodiscard]] bool checkDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);
+    [[nodiscard]] bool checkDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db);
     [[nodiscard]] bool checkDataBase(const QString &accountName, QSqlDatabase &db);
     [[nodiscard]] QString databaseName(const QString &name) const;
 
@@ -43,5 +44,5 @@ protected:
     RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDatabaseName(const QString &accountName, const QString &_roomName) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDatabaseName(const QString &accountName, const QByteArray &roomId) const;
 };

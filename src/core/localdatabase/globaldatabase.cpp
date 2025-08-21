@@ -34,7 +34,7 @@ QString GlobalDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaGlobalDataBase);
 }
 
-QString GlobalDatabase::generateIdentifier(const QString &accountName, const QString &roomName, TimeStampType type)
+QString GlobalDatabase::generateIdentifier(const QString &accountName, const QByteArray &roomId, TimeStampType type)
 {
     QString identifier;
     if (accountName.isEmpty()) {
@@ -52,20 +52,20 @@ QString GlobalDatabase::generateIdentifier(const QString &accountName, const QSt
         break;
     }
     identifier += accountName;
-    if (roomName.isEmpty() && type != TimeStampType::AccountTimeStamp) {
+    if (roomId.isEmpty() && type != TimeStampType::AccountTimeStamp) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Missing roomName! It's a bug!!!";
     }
-    if (!roomName.isEmpty()) {
-        identifier += u'-' + LocalDatabaseUtils::fixRoomName(roomName);
+    if (!roomId.isEmpty()) {
+        identifier += u'-' + QString::fromLatin1(roomId);
     }
     return identifier;
 }
 
-void GlobalDatabase::insertOrReplaceTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
+void GlobalDatabase::insertOrReplaceTimeStamp(const QString &accountName, const QByteArray &roomId, qint64 timestamp, TimeStampType type)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
-        const QString identifier = generateIdentifier(accountName, roomName, type);
+        const QString identifier = generateIdentifier(accountName, roomId, type);
         QSqlQuery query(LocalDatabaseUtils::insertReplaceGlobal(), db);
         query.addBindValue(identifier);
         query.addBindValue(timestamp);
@@ -75,13 +75,13 @@ void GlobalDatabase::insertOrReplaceTimeStamp(const QString &accountName, const 
     }
 }
 
-void GlobalDatabase::removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
+void GlobalDatabase::removeTimeStamp(const QString &accountName, const QByteArray &roomId, TimeStampType type)
 {
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
         return;
     }
-    const QString identifier = generateIdentifier(accountName, roomName, type);
+    const QString identifier = generateIdentifier(accountName, roomId, type);
     QSqlQuery query(LocalDatabaseUtils::removeGlobal(), db);
     query.addBindValue(identifier);
     if (!query.exec()) {
@@ -89,13 +89,13 @@ void GlobalDatabase::removeTimeStamp(const QString &accountName, const QString &
     }
 }
 
-qint64 GlobalDatabase::timeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
+qint64 GlobalDatabase::timeStamp(const QString &accountName, const QByteArray &roomId, TimeStampType type)
 {
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {
         return -1;
     }
-    const QString identifier = generateIdentifier(accountName, roomName, type);
+    const QString identifier = generateIdentifier(accountName, roomId, type);
     QSqlQuery query(LocalDatabaseUtils::timestampGlobal().arg(identifier), db);
     qint64 value = -1;
     // We have one element

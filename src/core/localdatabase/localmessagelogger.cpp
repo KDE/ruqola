@@ -39,13 +39,13 @@ QString LocalMessageLogger::schemaDataBase() const
     return QString::fromLatin1(s_schema);
 }
 
-void LocalMessageLogger::addMessage(const QString &accountName, const QString &_roomName, const Message &m)
+void LocalMessageLogger::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
 {
     if (!RuqolaGlobalConfig::self()->enableLogging()) {
         return;
     }
     QSqlDatabase db;
-    if (initializeDataBase(accountName, _roomName, db)) {
+    if (initializeDataBase(accountName, roomId, db)) {
         QSqlQuery query(LocalDatabaseUtils::insertReplaceMessageFromLogs(), db);
         query.addBindValue(QString::fromLatin1(m.messageId()));
         query.addBindValue(m.timeStamp());
@@ -84,13 +84,13 @@ QString LocalMessageLogger::generateTextFromMessage(const Message &m) const
     return message;
 }
 
-void LocalMessageLogger::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
+void LocalMessageLogger::deleteMessage(const QString &accountName, const QByteArray &roomId, const QString &messageId)
 {
     if (!RuqolaGlobalConfig::self()->enableLogging()) {
         return;
     }
     QSqlDatabase db;
-    if (!checkDataBase(accountName, roomName, db)) {
+    if (!checkDataBase(accountName, roomId, db)) {
         return;
     }
     QSqlQuery query(LocalDatabaseUtils::deleteMessageFromLogs(), db);
@@ -100,9 +100,9 @@ void LocalMessageLogger::deleteMessage(const QString &accountName, const QString
     }
 }
 
-std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QString &accountName, const QString &_roomName) const
+std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QString &accountName, const QByteArray &roomId) const
 {
-    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
+    const QString roomName = QString::fromLatin1(roomId);
     const QString dbName = databaseName(accountName + u'-' + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
@@ -128,10 +128,9 @@ std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QSt
     return model;
 }
 
-bool LocalMessageLogger::saveToFile(QFile &file, const QString &accountName, const QString &_roomName) const
+bool LocalMessageLogger::saveToFile(QFile &file, const QString &accountName, const QByteArray &roomId) const
 {
-    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    auto model = createMessageModel(accountName, roomName);
+    auto model = createMessageModel(accountName, roomId);
     if (!model) {
         return false;
     }

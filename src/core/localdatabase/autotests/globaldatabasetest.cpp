@@ -16,13 +16,13 @@ static QString accountName()
     return u"myAccount"_s;
 }
 
-static QString roomName()
+static QByteArray roomId()
 {
-    return u"myRoom"_s;
+    return "myRoom"_ba;
 }
-static QString roomNameOther()
+static QByteArray roomIdOther()
 {
-    return u"myOtherRoom"_s;
+    return "myOtherRoom"_ba;
 }
 
 enum class Fields {
@@ -49,40 +49,40 @@ void GlobalDatabaseTest::shouldStoreIdentifier()
     // GIVEN
     GlobalDatabase globalDataBase;
     const int roomNameValue = 55;
-    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomId(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
     const int roomNameOtherValue = 12;
-    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomNameOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomIdOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
 
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomId(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
 
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomIdOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
 
     // -1 if timeStamp doesn't exist
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::AccountTimeStamp), -1);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomIdOther(), GlobalDatabase::TimeStampType::AccountTimeStamp), -1);
 }
 
 void GlobalDatabaseTest::shouldGenerateIdentifier()
 {
     QFETCH(QString, accountName);
-    QFETCH(QString, roomName);
+    QFETCH(QByteArray, roomId);
     QFETCH(GlobalDatabase::TimeStampType, type);
     QFETCH(QString, result);
 
     GlobalDatabase globalDataBase;
-    QCOMPARE(globalDataBase.generateIdentifier(accountName, roomName, type), result);
+    QCOMPARE(globalDataBase.generateIdentifier(accountName, roomId, type), result);
 }
 
 void GlobalDatabaseTest::shouldGenerateIdentifier_data()
 {
     QTest::addColumn<QString>("accountName");
-    QTest::addColumn<QString>("roomName");
+    QTest::addColumn<QByteArray>("roomId");
     QTest::addColumn<GlobalDatabase::TimeStampType>("type");
     QTest::addColumn<QString>("result");
 
-    QTest::addRow("empty") << QString() << QString() << GlobalDatabase::TimeStampType::MessageTimeStamp << QString();
-    QTest::addRow("test1") << u"account1"_s << u"room1"_s << GlobalDatabase::TimeStampType::MessageTimeStamp << u"messages-account1-room1"_s;
-    QTest::addRow("test2") << u"account2"_s << u"room2"_s << GlobalDatabase::TimeStampType::RoomTimeStamp << u"rooms-account2-room2"_s;
-    QTest::addRow("test3") << u"account3"_s << QString() << GlobalDatabase::TimeStampType::AccountTimeStamp << u"account-account3"_s;
+    QTest::addRow("empty") << QString() << QByteArray() << GlobalDatabase::TimeStampType::MessageTimeStamp << QString();
+    QTest::addRow("test1") << u"account1"_s << "room1"_ba << GlobalDatabase::TimeStampType::MessageTimeStamp << u"messages-account1-room1"_s;
+    QTest::addRow("test2") << u"account2"_s << "room2"_ba << GlobalDatabase::TimeStampType::RoomTimeStamp << u"rooms-account2-room2"_s;
+    QTest::addRow("test3") << u"account3"_s << QByteArray() << GlobalDatabase::TimeStampType::AccountTimeStamp << u"account-account3"_s;
 }
 
 void GlobalDatabaseTest::shouldVerifyDbFileName()
@@ -96,32 +96,32 @@ void GlobalDatabaseTest::shouldRemoveTimeStamp()
 {
     GlobalDatabase globalDataBase;
     const int roomNameValue = 55;
-    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomId(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
     const int roomNameOtherValue = 12;
-    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomNameOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomIdOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
 
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomId(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
 
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomIdOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
 
     // Remove it.
-    globalDataBase.removeTimeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp);
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), -1);
+    globalDataBase.removeTimeStamp(accountName(), roomId(), GlobalDatabase::TimeStampType::MessageTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomId(), GlobalDatabase::TimeStampType::MessageTimeStamp), -1);
 
     // OTher still exists
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomIdOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
 
-    globalDataBase.removeTimeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::AccountTimeStamp);
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
+    globalDataBase.removeTimeStamp(accountName(), roomIdOther(), GlobalDatabase::TimeStampType::AccountTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomIdOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
 
-    globalDataBase.removeTimeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp);
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), -1);
+    globalDataBase.removeTimeStamp(accountName(), roomIdOther(), GlobalDatabase::TimeStampType::MessageTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomIdOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), -1);
 
     // RoomTimeStamp
-    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::RoomTimeStamp);
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::RoomTimeStamp), roomNameValue);
-    globalDataBase.removeTimeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::RoomTimeStamp);
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::RoomTimeStamp), -1);
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomId(), roomNameValue, GlobalDatabase::TimeStampType::RoomTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomId(), GlobalDatabase::TimeStampType::RoomTimeStamp), roomNameValue);
+    globalDataBase.removeTimeStamp(accountName(), roomId(), GlobalDatabase::TimeStampType::RoomTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomId(), GlobalDatabase::TimeStampType::RoomTimeStamp), -1);
 }
 
 #include "moc_globaldatabasetest.cpp"

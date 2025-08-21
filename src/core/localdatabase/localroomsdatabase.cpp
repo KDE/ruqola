@@ -53,18 +53,18 @@ void LocalRoomsDatabase::updateRoom(const QString &accountName, Room *room)
     }
 }
 
-void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &roomId)
+void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QByteArray &roomId)
 {
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
         return;
     }
     QSqlQuery query(LocalDatabaseUtils::deleteRoom(), db);
-    query.addBindValue(roomId);
+    query.addBindValue(QString::fromLatin1(roomId));
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("Delete room " + roomId.toUtf8() + " in account " + accountName.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("Delete room " + roomId + " in account " + accountName.toUtf8());
     }
 }
 

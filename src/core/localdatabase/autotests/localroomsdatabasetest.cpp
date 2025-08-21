@@ -138,7 +138,7 @@ void LocalRoomsDatabaseTest::shouldDeleteRooms() // this test depends on shouldS
 {
     // GIVEN
     LocalRoomsDatabase logger;
-    const QString roomId = (u"room-other"_s);
+    const QByteArray roomId = "room-other"_ba;
 
     // WHEN
     logger.deleteRoom(otherAccountName(), roomId);

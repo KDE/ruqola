@@ -39,10 +39,10 @@ QString LocalMessagesDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaMessagesDataBase);
 }
 
-void LocalMessagesDatabase::addMessage(const QString &accountName, const QString &roomName, const Message &m)
+void LocalMessagesDatabase::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
 {
     QSqlDatabase db;
-    if (initializeDataBase(accountName, roomName, db)) {
+    if (initializeDataBase(accountName, roomId, db)) {
         QSqlQuery query(LocalDatabaseUtils::insertReplaceMessage(), db);
         query.addBindValue(QString::fromLatin1(m.messageId()));
         query.addBindValue(m.timeStamp());
@@ -52,16 +52,16 @@ void LocalMessagesDatabase::addMessage(const QString &accountName, const QString
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("add message in account " + accountName.toUtf8() + " in roomName " + roomName.toUtf8() + " for message id "
+            mRuqolaLogger->dataSaveFromDatabase("add message in account " + accountName.toUtf8() + " in roomName " + roomId + " for message id "
                                                 + m.messageId());
         }
     }
 }
 
-void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
+void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QByteArray &roomId, const QString &messageId)
 {
     QSqlDatabase db;
-    if (!checkDataBase(accountName, roomName, db)) {
+    if (!checkDataBase(accountName, roomId, db)) {
         return;
     }
     QSqlQuery query(LocalDatabaseUtils::deleteMessage(), db);
@@ -69,8 +69,7 @@ void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QStr
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("delete message in " + accountName.toUtf8() + " roomName " + roomName.toUtf8() + " message id "
-                                            + messageId.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("delete message in " + accountName.toUtf8() + " roomName " + roomId + " message id " + messageId.toUtf8());
     }
 }
 
@@ -96,14 +95,14 @@ QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qi
 }
 
 QList<Message>
-LocalMessagesDatabase::loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const
+LocalMessagesDatabase::loadMessages(RocketChatAccount *account, const QByteArray &roomId, qint64 startId, qint64 endId, qint64 numberElements) const
 {
     Q_ASSERT(account);
-    return loadMessages(account->accountName(), _roomName, startId, endId, numberElements, account->emojiManager());
+    return loadMessages(account->accountName(), roomId, startId, endId, numberElements, account->emojiManager());
 }
 
 QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
-                                                   const QString &_roomName,
+                                                   const QByteArray &roomId,
                                                    qint64 startId,
                                                    qint64 endId,
                                                    qint64 numberElements,
@@ -117,12 +116,11 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
     // Use sorting ASC or DESC
 #endif
 
-    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + u'-' + roomName);
+    const QString dbName = databaseName(accountName + u'-' + QString::fromLatin1(roomId));
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
-        const QString fileName = dbFileName(accountName, roomName);
+        const QString fileName = dbFileName(accountName, roomId);
         // qDebug() << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Filename doesn't exist: " << fileName;
@@ -174,14 +172,13 @@ Message LocalMessagesDatabase::convertJsonToMessage(const QString &json, EmojiMa
     return msg;
 }
 
-std::unique_ptr<QSqlTableModel> LocalMessagesDatabase::createMessageModel(const QString &accountName, const QString &_roomName) const
+std::unique_ptr<QSqlTableModel> LocalMessagesDatabase::createMessageModel(const QString &accountName, const QByteArray &roomId) const
 {
-    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + u'-' + roomName);
+    const QString dbName = databaseName(accountName + u'-' + QString::fromLatin1(roomId));
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
-        const QString fileName = dbFileName(accountName, roomName);
+        const QString fileName = dbFileName(accountName, roomId);
         // qDebug() << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
             return {};

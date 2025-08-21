@@ -112,7 +112,7 @@ void RocketChatCache::cleanupCacheDirectory(const QString &directory)
     const QDate today = QDate::currentDate();
     QDirIterator it(directory, {}, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
     while (it.hasNext()) {
-        QFileInfo fileInfo(it.next());
+        const QFileInfo fileInfo(it.next());
         if (fileInfo.lastModified().date().daysTo(today) > 365) { // at least one year old
             qCInfo(RUQOLA_LOG) << "Deleting" << fileInfo.absoluteFilePath();
             QFile::remove(fileInfo.absoluteFilePath());
@@ -122,7 +122,7 @@ void RocketChatCache::cleanupCacheDirectory(const QString &directory)
     QDirIterator dirit(directory, {}, QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
     while (dirit.hasNext()) {
         const QString path = dirit.next();
-        QDir dir(path);
+        const QDir dir(path);
         if (dir.isEmpty()) {
             qCInfo(RUQOLA_LOG) << "Deleting empty dir" << path;
             QDir().rmdir(path);
@@ -177,8 +177,9 @@ QUrl RocketChatCache::avatarUrlFromLocalCache(const QString &url)
 
 QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthentication, ManagerDataPaths::PathType type)
 {
-    if (url.isEmpty())
+    if (url.isEmpty()) {
         return {};
+    }
     const QString cachePath = fileCachePath(QUrl(url), type);
     if (QFileInfo::exists(cachePath)) {
         // QML wants a QUrl here. The widgets code would be simpler with just a QString path.

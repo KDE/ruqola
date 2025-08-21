@@ -25,9 +25,9 @@ ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(Rocke
 
 ExploreDatabaseMessagesStorageWidget::~ExploreDatabaseMessagesStorageWidget() = default;
 
-void ExploreDatabaseMessagesStorageWidget::slotLoadModelFromDataBase(const QString &accountName, const QString &roomName)
+void ExploreDatabaseMessagesStorageWidget::slotLoadModelFromDataBase(const QString &accountName, const QByteArray &roomId)
 {
-    mModel = mLocalMessageDatabase->createMessageModel(accountName, roomName);
+    mModel = mLocalMessageDatabase->createMessageModel(accountName, roomId);
     if (mModel) {
         setModel(mModel.get());
     } else {

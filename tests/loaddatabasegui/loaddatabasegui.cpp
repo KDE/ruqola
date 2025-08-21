@@ -68,7 +68,8 @@ LoadDataBaseGui::~LoadDataBaseGui()
 void LoadDataBaseGui::slotLoad()
 {
     if (!mRoomName->text().trimmed().isEmpty() && !mAccountName->text().trimmed().isEmpty()) {
-        const auto listMessages = mLocalMessageDatabase->loadMessages(mAccountName->text(), mRoomName->text(), -1, -1, mNumberElement->value());
+        // TODO fixme roomname => roomId
+        const auto listMessages = mLocalMessageDatabase->loadMessages(mAccountName->text(), mRoomName->text().toLatin1(), -1, -1, mNumberElement->value());
         // qDebug() << " listMessages " << listMessages.count();
         mMessageModel->clear();
         mMessageModel->addMessages(listMessages);
