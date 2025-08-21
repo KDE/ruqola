@@ -6,6 +6,7 @@
 #include "exploredatabasebasestoragewidget.h"
 #include "databasedialog/exploredatabasejsonplaintexteditwidget.h"
 #include <KLineEditEventHandler>
+#include <KLocalizedString>
 #include <QLineEdit>
 #include <QSplitter>
 #include <QTableView>
@@ -47,6 +48,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     mSortFilterProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
 
     mFilterLineEdit->setClearButtonEnabled(true);
+    mFilterLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search…"));
     connect(mFilterLineEdit, &QLineEdit::textChanged, this, [this](const QString &text) {
         mSortFilterProxyModel->setFilterFixedString(text);
     });
