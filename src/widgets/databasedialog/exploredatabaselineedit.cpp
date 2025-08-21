@@ -17,7 +17,7 @@ ExploreDatabaseLineEdit::~ExploreDatabaseLineEdit() = default;
 void ExploreDatabaseLineEdit::slotJoinedChannelFound(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info)
 {
     disconnect(this, &QLineEdit::textChanged, this, &ExploreDatabaseLineEdit::slotSearchTextEdited);
-    setText(info.name);
+    setText(QString::fromLatin1(info.channelId));
     connect(this, &QLineEdit::textChanged, this, &ExploreDatabaseLineEdit::slotSearchTextEdited);
 }
 

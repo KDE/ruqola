@@ -92,7 +92,7 @@ ExploreDatabaseViewMessagesWidget::~ExploreDatabaseViewMessagesWidget() = defaul
 
 void ExploreDatabaseViewMessagesWidget::slotLoad()
 {
-    const QByteArray roomId = mRoomName->text().trimmed().toLatin1(); // TODO fix me
+    const QByteArray roomId = mRoomName->text().trimmed().toLatin1();
     if (!roomId.isEmpty()) {
         qint64 startId = -1;
         qint64 endId = -1;
