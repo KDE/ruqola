@@ -6,9 +6,7 @@
     "blocker": false,
     "broadcast": false,
     "encrypted": false,
-    "favorite": false,
     "fname": "ruqola",
-    "jitsiTimeout": -1,
     "lastSeenAt": 1566885101719,
     "name": "ruqola",
     "notifications": {

@@ -5,9 +5,7 @@
     "blocker": false,
     "broadcast": false,
     "encrypted": false,
-    "favorite": false,
     "fname": "Laurent Montel",
-    "jitsiTimeout": -1,
     "lastSeenAt": 1575322438005,
     "name": "laurent",
     "notifications": {

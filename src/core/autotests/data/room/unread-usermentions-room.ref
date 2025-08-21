@@ -7,7 +7,6 @@
     "encrypted": false,
     "favorite": true,
     "fname": "",
-    "jitsiTimeout": -1,
     "lastSeenAt": 1519924629624,
     "name": "foo",
     "notifications": {

@@ -1260,7 +1260,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setGroupMentions(o["groupMentions"_L1].toInt(0));
     r->setAnnouncement(o["announcement"_L1].toString());
     r->setSelected(o["selected"_L1].toBool());
-    r->setFavorite(o["favorite"_L1].toBool());
+    r->setFavorite(o["favorite"_L1].toBool(false));
     r->setAlert(o["alert"_L1].toBool());
     r->setOpen(o["open"_L1].toBool());
     r->setArchived(o["archived"_L1].toBool());
@@ -1356,7 +1356,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     if (r->autoTranslate()) {
         o["autoTranslate"_L1] = r->autoTranslate();
     }
-    o["jitsiTimeout"_L1] = r->jitsiTimeout();
+    if (r->jitsiTimeout() != -1) {
+        o["jitsiTimeout"_L1] = r->jitsiTimeout();
+    }
     o["updatedAt"_L1] = r->updatedAt();
     o["lastSeenAt"_L1] = r->lastSeenAt();
     o["ro"_L1] = r->readOnly();
@@ -1365,7 +1367,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o["announcement"_L1] = r->announcement();
     }
     o["selected"_L1] = r->selected();
-    o["favorite"_L1] = r->favorite();
+    if (r->favorite()) {
+        o["favorite"_L1] = true;
+    }
     o["alert"_L1] = r->alert();
     o["open"_L1] = r->open();
     o["blocker"_L1] = r->blocker();

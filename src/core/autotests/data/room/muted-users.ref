@@ -5,9 +5,7 @@
     "blocker": false,
     "broadcast": false,
     "encrypted": false,
-    "favorite": false,
     "fname": "foo",
-    "jitsiTimeout": -1,
     "lastSeenAt": -1,
     "muted": [
         "muteduser"

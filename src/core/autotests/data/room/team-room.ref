@@ -5,9 +5,7 @@
     "blocker": false,
     "broadcast": false,
     "encrypted": false,
-    "favorite": false,
     "fname": "ruqola-team",
-    "jitsiTimeout": -1,
     "lastSeenAt": -1,
     "name": "ruqola-team",
     "notifications": {

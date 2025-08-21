@@ -7,9 +7,7 @@
     "broadcast": false,
     "description": "description",
     "encrypted": false,
-    "favorite": false,
     "fname": "",
-    "jitsiTimeout": -1,
     "lastSeenAt": 1519664810617,
     "name": "test",
     "notifications": {

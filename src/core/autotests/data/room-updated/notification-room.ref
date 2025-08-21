@@ -7,7 +7,6 @@
     "broadcast": false,
     "description": "description",
     "encrypted": false,
-    "favorite": false,
     "fname": "test",
     "jitsiTimeout": 1519989707339,
     "lastSeenAt": 1519664810617,

@@ -5,9 +5,7 @@
     "blocker": false,
     "broadcast": false,
     "encrypted": false,
-    "favorite": false,
     "fname": "",
-    "jitsiTimeout": -1,
     "lastSeenAt": 1520958500138,
     "name": "user2",
     "notifications": {

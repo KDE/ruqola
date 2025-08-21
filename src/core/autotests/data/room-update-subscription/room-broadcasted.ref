@@ -5,9 +5,7 @@
     "blocker": false,
     "broadcast": true,
     "encrypted": false,
-    "favorite": false,
     "fname": "ruqola-broadcast",
-    "jitsiTimeout": -1,
     "lastSeenAt": 1550143648425,
     "name": "ruqola-broadcast",
     "notifications": {

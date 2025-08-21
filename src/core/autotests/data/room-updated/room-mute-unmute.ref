@@ -6,9 +6,7 @@
     "broadcast": false,
     "description": "d",
     "encrypted": false,
-    "favorite": false,
     "fname": "foo",
-    "jitsiTimeout": -1,
     "lastSeenAt": 1521094705114,
     "name": "foo",
     "notifications": {
