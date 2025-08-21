@@ -19,6 +19,12 @@ static QString accountName()
 {
     return u"myAccount"_s;
 }
+
+static QString otherAccountName()
+{
+    return u"myOtherAccount"_s;
+}
+
 enum class RoomFields {
     RoomId,
     TimeStamp,
@@ -37,6 +43,7 @@ void LocalRoomsDatabaseTest::initTestCase()
     // Clean up after previous runs
     LocalRoomsDatabase roomDatabase;
     QFile::remove(roomDatabase.dbFileName(accountName()));
+    QFile::remove(roomDatabase.dbFileName(otherAccountName()));
 }
 
 void LocalRoomsDatabaseTest::shouldDefaultValues()
@@ -82,38 +89,39 @@ void LocalRoomsDatabaseTest::shouldStoreRooms()
 
     Room room1;
     room1.setRoomId("room-1"_ba);
-#if 0
-    message1.setText(QString::fromUtf8("Message text: €1"));
-    message1.setUsername(QString::fromUtf8("Hervé"));
-    message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50, 50)).toMSecsSinceEpoch());
-#endif
-    logger.updateRoom(accountName(), &room1);
-#if 0
-    message1.setText(QString::fromUtf8("Message text: €2"));
-    message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50, 55)).toMSecsSinceEpoch());
-#endif
-    logger.updateRoom(accountName(), &room1); // update an existing message 5s later
+    room1.setAnnouncement(QString::fromUtf8("Hervé"));
+    room1.setChannelType(Room::RoomType::Private);
+    room1.setOpen(false);
+    room1.setName(QString::fromUtf8("Marché"));
+    room1.setUpdatedAt(QDateTime(QDate(2022, 6, 7), QTime(23, 40, 50)).toMSecsSinceEpoch());
+    logger.updateRoom(otherAccountName(), &room1);
+
+    room1.setAnnouncement(QString::fromUtf8("Room Announcement text: €2"));
+    room1.setUpdatedAt(QDateTime(QDate(2021, 6, 7), QTime(23, 50, 55)).toMSecsSinceEpoch());
+    logger.updateRoom(otherAccountName(), &room1); // update an existing message 5s later
 
     Room room2;
-    room2.setRoomId("msg-2"_ba);
-#if 0
-    message2.setText(QString::fromUtf8("Message text: ßĐ"));
-    message2.setUsername(QString::fromUtf8("Joe"));
-    message2.setTimeStamp(QDateTime(QDate(2022, 6, 7), QTime(23, 40, 50)).toMSecsSinceEpoch()); // earlier
-#endif
-    logger.updateRoom(accountName(), &room2);
+    room2.setRoomId("room-2"_ba);
+
+    room2.setAnnouncement(QString::fromUtf8("Foo"));
+    room2.setChannelType(Room::RoomType::Private);
+    room2.setOpen(true);
+    room2.setName(QString::fromUtf8("Noël"));
+    room2.setUpdatedAt(QDateTime(QDate(2022, 6, 7), QTime(23, 40, 50)).toMSecsSinceEpoch()); // earlier
+    logger.updateRoom(otherAccountName(), &room2);
+
+    logger.updateRoom(otherAccountName(), &room2);
 #if 0
     Room room-other;
     messageOtherRoom.setText(QString::fromUtf8("Message other room"));
     messageOtherRoom.setUsername(QString::fromUtf8("Joe"));
     messageOtherRoom.setTimeStamp(QDateTime(QDate(2022, 6, 7), QTime(23, 30, 50)).toMSecsSinceEpoch());
     messageOtherRoom.setMessageId("msg-other-1"_ba);
-    logger.updateRoom(accountName(), otherRoomName(), messageOtherRoom);
+    logger.updateRoom(otherAccountName(), otherRoomName(), messageOtherRoom);
 #endif
     // WHEN
-    auto tableModel = logger.createRoomsModel(accountName());
+    auto tableModel = logger.createRoomsModel(otherAccountName());
 
-#if 0
     // THEN
     QVERIFY(tableModel);
     QCOMPARE(tableModel->rowCount(), 2);
@@ -123,7 +131,6 @@ void LocalRoomsDatabaseTest::shouldStoreRooms()
     const QSqlRecord record1 = tableModel->record(1);
     QCOMPARE(record1.value(int(RoomFields::Json)).toByteArray(), Room::serialize(&room2, false));
     QCOMPARE(record1.value(int(RoomFields::TimeStamp)).toULongLong(), room2.updatedAt());
-#endif
 }
 
 void LocalRoomsDatabaseTest::shouldDeleteRooms() // this test depends on shouldStoreMessages()
