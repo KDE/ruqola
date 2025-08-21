@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-20 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2025-08-16 17:59+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1880,6 +1880,36 @@ msgstr "Missatge directe"
 #, kde-format
 msgid "Omnichannel"
 msgstr "Omnicanal"
+
+#: core/ruqolacommandlineparser.cpp:40
+#, kde-format
+msgctxt "@info:shell"
+msgid "Return lists of accounts"
+msgstr "Retorna la llista de comptes"
+
+#: core/ruqolacommandlineparser.cpp:42
+#, kde-format
+msgctxt "@info:shell"
+msgid "Start with specific account"
+msgstr "Comença amb un compte específic"
+
+#: core/ruqolacommandlineparser.cpp:44
+#, kde-format
+msgctxt "@info:shell"
+msgid "Show Message"
+msgstr "Mostra el missatge"
+
+#: core/ruqolacommandlineparser.cpp:45
+#, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr "Utilitza l'API DDP per a iniciar sessió"
+
+#: core/ruqolacommandlineparser.cpp:48
+#, kde-format
+msgctxt "@info:shell"
+msgid "Lists the available options for user feedback"
+msgstr "Llista les opcions disponibles per als comentaris dels usuaris"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11084,36 +11114,6 @@ msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuari a la sala (Total: %2)"
 msgstr[1] "%1 usuaris a la sala (Total: %2)"
-
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, kde-format
-msgctxt "@info:shell"
-msgid "Return lists of accounts"
-msgstr "Retorna la llista de comptes"
-
-#: widgets/ruqolacommandlineoptions.cpp:41
-#, kde-format
-msgctxt "@info:shell"
-msgid "Start with specific account"
-msgstr "Comença amb un compte específic"
-
-#: widgets/ruqolacommandlineoptions.cpp:43
-#, kde-format
-msgctxt "@info:shell"
-msgid "Show Message"
-msgstr "Mostra el missatge"
-
-#: widgets/ruqolacommandlineoptions.cpp:44
-#, kde-format
-msgctxt "@info:shell"
-msgid "Use ddp api for login"
-msgstr "Utilitza l'API DDP per a iniciar sessió"
-
-#: widgets/ruqolacommandlineoptions.cpp:47
-#, kde-format
-msgctxt "@info:shell"
-msgid "Lists the available options for user feedback"
-msgstr "Llista les opcions disponibles per als comentaris dels usuaris"
 
 #: widgets/ruqolamainwindow.cpp:230
 #, kde-format

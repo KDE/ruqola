@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-20 00:43+0000\n"
-"PO-Revision-Date: 2025-08-16 12:27+0200\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
+"PO-Revision-Date: 2025-08-20 14:50+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -1890,6 +1890,37 @@ msgstr "Zuzeneko mezua"
 #, kde-format
 msgid "Omnichannel"
 msgstr "Omnikanala"
+
+#: core/ruqolacommandlineparser.cpp:40
+#, kde-format
+msgctxt "@info:shell"
+msgid "Return lists of accounts"
+msgstr "Itzuli kontuen zerrendak"
+
+#: core/ruqolacommandlineparser.cpp:42
+#, kde-format
+msgctxt "@info:shell"
+msgid "Start with specific account"
+msgstr "Hasi kontu jakin batekin"
+
+#: core/ruqolacommandlineparser.cpp:44
+#, kde-format
+msgctxt "@info:shell"
+msgid "Show Message"
+msgstr "Erakutsi mezua"
+
+#: core/ruqolacommandlineparser.cpp:45
+#, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr "Erabili DDP APIa saio-sarrerarako"
+
+#: core/ruqolacommandlineparser.cpp:48
+#, kde-format
+msgctxt "@info:shell"
+msgid "Lists the available options for user feedback"
+msgstr ""
+"Erabiltzailearen atzera-elikadurarako aukera erabilgarriak zerrendatzen ditu"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11074,37 +11105,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Gelan erabiltzaile %1 (Guztira: %2)"
 msgstr[1] "Gelan %1 erabiltzaile (Guztira: %2)"
 
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, kde-format
-msgctxt "@info:shell"
-msgid "Return lists of accounts"
-msgstr "Itzuli kontuen zerrendak"
-
-#: widgets/ruqolacommandlineoptions.cpp:41
-#, kde-format
-msgctxt "@info:shell"
-msgid "Start with specific account"
-msgstr "Hasi kontu jakin batekin"
-
-#: widgets/ruqolacommandlineoptions.cpp:43
-#, kde-format
-msgctxt "@info:shell"
-msgid "Show Message"
-msgstr "Erakutsi mezua"
-
-#: widgets/ruqolacommandlineoptions.cpp:44
-#, kde-format
-msgctxt "@info:shell"
-msgid "Use ddp api for login"
-msgstr "Erabili DDP APIa saio-sarrerarako"
-
-#: widgets/ruqolacommandlineoptions.cpp:47
-#, kde-format
-msgctxt "@info:shell"
-msgid "Lists the available options for user feedback"
-msgstr ""
-"Erabiltzailearen atzera-elikadurarako aukera erabilgarriak zerrendatzen ditu"
-
 #: widgets/ruqolamainwindow.cpp:230
 #, kde-format
 msgctxt "@info:tooltip"
@@ -12206,10 +12206,9 @@ msgid "Fix icon on windows."
 msgstr "Windows-en ikonoa konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, fuzzy, kde-format
-#| msgid "Show File Attachments…"
+#, kde-format
 msgid "Fix show file attachment size."
-msgstr "Erakutsi fitxategi-eranskinak…"
+msgstr "Erakutsi fitxategi-eranskinaren neurria konpontzea."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

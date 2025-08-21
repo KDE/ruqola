@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-20 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1993,6 +1993,38 @@ msgstr "1 správa"
 #| msgid "Leave Channel"
 msgid "Omnichannel"
 msgstr "Opustiť kanál"
+
+#: core/ruqolacommandlineparser.cpp:40
+#, fuzzy, kde-format
+#| msgid "Delete Account"
+msgctxt "@info:shell"
+msgid "Return lists of accounts"
+msgstr "Odstrániť účet"
+
+#: core/ruqolacommandlineparser.cpp:42
+#, kde-format
+msgctxt "@info:shell"
+msgid "Start with specific account"
+msgstr ""
+
+#: core/ruqolacommandlineparser.cpp:44
+#, fuzzy, kde-format
+#| msgid "All Messages"
+msgctxt "@info:shell"
+msgid "Show Message"
+msgstr "Všetky správy"
+
+#: core/ruqolacommandlineparser.cpp:45
+#, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr ""
+
+#: core/ruqolacommandlineparser.cpp:48
+#, kde-format
+msgctxt "@info:shell"
+msgid "Lists the available options for user feedback"
+msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11577,38 +11609,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Delete Account"
-msgctxt "@info:shell"
-msgid "Return lists of accounts"
-msgstr "Odstrániť účet"
-
-#: widgets/ruqolacommandlineoptions.cpp:41
-#, kde-format
-msgctxt "@info:shell"
-msgid "Start with specific account"
-msgstr ""
-
-#: widgets/ruqolacommandlineoptions.cpp:43
-#, fuzzy, kde-format
-#| msgid "All Messages"
-msgctxt "@info:shell"
-msgid "Show Message"
-msgstr "Všetky správy"
-
-#: widgets/ruqolacommandlineoptions.cpp:44
-#, kde-format
-msgctxt "@info:shell"
-msgid "Use ddp api for login"
-msgstr ""
-
-#: widgets/ruqolacommandlineoptions.cpp:47
-#, kde-format
-msgctxt "@info:shell"
-msgid "Lists the available options for user feedback"
-msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:230
 #, fuzzy, kde-format

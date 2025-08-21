@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-20 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2024-10-08 22:03+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1951,6 +1951,39 @@ msgstr "Tiesioginė žinutė"
 #| msgid "Hide Channel"
 msgid "Omnichannel"
 msgstr "Slėpti kanalą"
+
+#: core/ruqolacommandlineparser.cpp:40
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
+msgctxt "@info:shell"
+msgid "Return lists of accounts"
+msgstr "Grąžinti paskyrų sąrašus"
+
+#: core/ruqolacommandlineparser.cpp:42
+#, fuzzy, kde-format
+#| msgid "Start with specific account"
+msgctxt "@info:shell"
+msgid "Start with specific account"
+msgstr "Pradėti naudojant tam tikrą paskyrą"
+
+#: core/ruqolacommandlineparser.cpp:44
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "@info:shell"
+msgid "Show Message"
+msgstr "Šifruota žinutė"
+
+#: core/ruqolacommandlineparser.cpp:45
+#, kde-format
+msgctxt "@info:shell"
+msgid "Use ddp api for login"
+msgstr ""
+
+#: core/ruqolacommandlineparser.cpp:48
+#, kde-format
+msgctxt "@info:shell"
+msgid "Lists the available options for user feedback"
+msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11547,39 +11580,6 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
-
-#: widgets/ruqolacommandlineoptions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Return lists of accounts"
-msgctxt "@info:shell"
-msgid "Return lists of accounts"
-msgstr "Grąžinti paskyrų sąrašus"
-
-#: widgets/ruqolacommandlineoptions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Start with specific account"
-msgctxt "@info:shell"
-msgid "Start with specific account"
-msgstr "Pradėti naudojant tam tikrą paskyrą"
-
-#: widgets/ruqolacommandlineoptions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
-msgctxt "@info:shell"
-msgid "Show Message"
-msgstr "Šifruota žinutė"
-
-#: widgets/ruqolacommandlineoptions.cpp:44
-#, kde-format
-msgctxt "@info:shell"
-msgid "Use ddp api for login"
-msgstr ""
-
-#: widgets/ruqolacommandlineoptions.cpp:47
-#, kde-format
-msgctxt "@info:shell"
-msgid "Lists the available options for user feedback"
-msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:230
 #, fuzzy, kde-format
