@@ -794,9 +794,10 @@ target_sources(
         databasedialog/exploredatabasetimestampdelegate.cpp
         databasedialog/exploredatabasejsondelegate.h
         databasedialog/exploredatabasejsondelegate.cpp
-
         databasedialog/exploredatabasejsonplaintexteditwidget.h
         databasedialog/exploredatabasejsonplaintexteditwidget.cpp
+        databasedialog/exploredatabaseroomiddelegate.h
+        databasedialog/exploredatabaseroomiddelegate.cpp
 
         whatsnew/whatsnewdialog.h
         whatsnew/whatsnewdialog.cpp
