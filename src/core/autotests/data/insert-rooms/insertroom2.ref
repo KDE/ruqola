@@ -1,15 +1,7 @@
 {
-    "alert": false,
     "announcement": "announcement",
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
     "description": "description channel",
-    "encrypted": false,
-    "favorite": false,
     "fname": "",
-    "jitsiTimeout": -1,
     "lastSeenAt": -1,
     "name": "channeltest",
     "notifications": {
@@ -23,12 +15,9 @@
         "muteGroupMentions": false,
         "unreadAlert": ""
     },
-    "open": false,
     "rid": "bla1",
-    "ro": false,
     "roomCreatorUserID": "fZmmHQh",
     "roomCreatorUserName": "goo",
-    "selected": false,
     "t": "c",
     "unread": 0,
     "updatedAt": 1520426909281,

@@ -1342,8 +1342,12 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o["t"_L1] = Room::roomFromRoomType(r->channelType());
     o["name"_L1] = r->name();
     o["fname"_L1] = r->fName();
-    o["roomCreatorUserName"_L1] = r->roomOwnerUserName();
-    o["roomCreatorUserID"_L1] = QString::fromLatin1(r->roomCreatorUserId());
+    if (!r->roomOwnerUserName().isEmpty()) {
+        o["roomCreatorUserName"_L1] = r->roomOwnerUserName();
+    }
+    if (!r->roomCreatorUserId().isEmpty()) {
+        o["roomCreatorUserID"_L1] = QString::fromLatin1(r->roomCreatorUserId());
+    }
     if (r->numberMessages() > 0) {
         o["msgs"_L1] = r->numberMessages();
     }
