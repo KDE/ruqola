@@ -715,7 +715,7 @@ void RocketChatBackend::subscribeRegistration()
         u"banners"_s,
         u"force_logout"_s,
     };
-    for (const QString &str : listStreamNotifierUser) {
+    for (const QString &str : listStreamNotifierAll) {
         QJsonArray params;
         params.append(QJsonValue(str));
         mRocketChatAccount->ddp()->subscribe(u"stream-notify-all"_s, params);
