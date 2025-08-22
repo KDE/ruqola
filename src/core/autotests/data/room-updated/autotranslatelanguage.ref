@@ -1,11 +1,5 @@
 {
-    "alert": false,
-    "archived": false,
     "autoTranslateLanguage": "ar",
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
-    "encrypted": false,
     "fname": "ruqola",
     "lastSeenAt": 1566885101719,
     "name": "ruqola",
@@ -22,13 +16,11 @@
     },
     "open": true,
     "rid": "3ZvKSjzabkkLJmuAr",
-    "ro": false,
     "roles": [
         "owner"
     ],
     "roomCreatorUserID": "YbwG4T2uB3wZSZSKB",
     "roomCreatorUserName": "laurent-montel",
-    "selected": false,
     "t": "c",
     "unread": 0,
     "updatedAt": 1566885101719,

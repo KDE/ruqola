@@ -1,10 +1,4 @@
 {
-    "alert": false,
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
-    "encrypted": false,
     "fname": "",
     "lastSeenAt": -1,
     "name": "general",
@@ -19,7 +13,6 @@
         "muteGroupMentions": false,
         "unreadAlert": ""
     },
-    "open": false,
     "retention": {
         "enabled": false,
         "excludePinned": false,
@@ -28,10 +21,8 @@
         "overrideGlobal": true
     },
     "rid": "GENERAL",
-    "ro": false,
     "roomCreatorUserID": "",
     "roomCreatorUserName": "",
-    "selected": false,
     "t": "c",
     "unread": 0,
     "updatedAt": 1613401653650,

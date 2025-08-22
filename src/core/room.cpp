@@ -1254,21 +1254,21 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setRoomCreatorUserId(o["roomCreatorUserID"_L1].toString().toLatin1());
     r->setTopic(o["topic"_L1].toString());
     r->setJitsiTimeout(static_cast<qint64>(o["jitsiTimeout"_L1].toDouble()));
-    r->setReadOnly(o["ro"_L1].toBool());
+    r->setReadOnly(o["ro"_L1].toBool(false));
     r->setUnread(o["unread"_L1].toInt(0));
     r->setUserMentions(o["userMentions"_L1].toInt(0));
     r->setGroupMentions(o["groupMentions"_L1].toInt(0));
     r->setAnnouncement(o["announcement"_L1].toString());
-    r->setSelected(o["selected"_L1].toBool());
+    r->setSelected(o["selected"_L1].toBool(false));
     r->setFavorite(o["favorite"_L1].toBool(false));
-    r->setAlert(o["alert"_L1].toBool());
-    r->setOpen(o["open"_L1].toBool());
-    r->setArchived(o["archived"_L1].toBool());
+    r->setAlert(o["alert"_L1].toBool(false));
+    r->setOpen(o["open"_L1].toBool(false));
+    r->setArchived(o["archived"_L1].toBool(false));
     r->setDescription(o["description"_L1].toString());
-    r->setBlocker(o["blocker"_L1].toBool());
-    r->setBlocked(o["blocked"_L1].toBool());
-    r->setEncrypted(o["encrypted"_L1].toBool());
-    r->setBroadcast(o["broadcast"_L1].toBool());
+    r->setBlocker(o["blocker"_L1].toBool(false));
+    r->setBlocked(o["blocked"_L1].toBool(false));
+    r->setEncrypted(o["encrypted"_L1].toBool(false));
+    r->setBroadcast(o["broadcast"_L1].toBool(false));
     r->setE2EKey(o["e2ekey"_L1].toString());
     r->setE2eKeyId(o["e2ekeyid"_L1].toString());
     r->setJoinCodeRequired(o["joinCodeRequired"_L1].toBool());
@@ -1361,22 +1361,40 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
     o["updatedAt"_L1] = r->updatedAt();
     o["lastSeenAt"_L1] = r->lastSeenAt();
-    o["ro"_L1] = r->readOnly();
+    if (r->readOnly()) {
+        o["ro"_L1] = true;
+    }
     o["unread"_L1] = r->unread();
     if (!r->announcement().isEmpty()) {
         o["announcement"_L1] = r->announcement();
     }
-    o["selected"_L1] = r->selected();
+    if (r->selected()) {
+        o["selected"_L1] = true;
+    }
     if (r->favorite()) {
         o["favorite"_L1] = true;
     }
-    o["alert"_L1] = r->alert();
-    o["open"_L1] = r->open();
-    o["blocker"_L1] = r->blocker();
-    o["blocked"_L1] = r->blocked();
-    o["encrypted"_L1] = r->encrypted();
-    o["archived"_L1] = r->archived();
-    o["broadcast"_L1] = r->broadcast();
+    if (r->alert()) {
+        o["alert"_L1] = true;
+    }
+    if (r->open()) {
+        o["open"_L1] = true;
+    }
+    if (r->blocker()) {
+        o["blocker"_L1] = true;
+    }
+    if (r->blocked()) {
+        o["blocked"_L1] = true;
+    }
+    if (r->encrypted()) {
+        o["encrypted"_L1] = true;
+    }
+    if (r->archived()) {
+        o["archived"_L1] = true;
+    }
+    if (r->broadcast()) {
+        o["broadcast"_L1] = true;
+    }
     if (r->joinCodeRequired()) {
         o["joinCodeRequired"_L1] = true;
     }

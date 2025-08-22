@@ -1,10 +1,4 @@
 {
-    "alert": false,
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
-    "encrypted": false,
     "fname": "ruqola-team",
     "lastSeenAt": -1,
     "name": "ruqola-team",
@@ -19,12 +13,9 @@
         "muteGroupMentions": false,
         "unreadAlert": ""
     },
-    "open": false,
     "rid": "epGvxJC5MCxTTb9GY",
-    "ro": false,
     "roomCreatorUserID": "",
     "roomCreatorUserName": "",
-    "selected": false,
     "t": "p",
     "unread": 0,
     "updatedAt": 1618146576614,

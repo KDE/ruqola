@@ -1,10 +1,4 @@
 {
-    "alert": false,
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
-    "encrypted": false,
     "fname": "",
     "lastSeenAt": 1519664810617,
     "name": "test",
@@ -21,13 +15,11 @@
     },
     "open": true,
     "rid": "Pa6bu7xHrS5xz6",
-    "ro": false,
     "roles": [
         "owner"
     ],
     "roomCreatorUserID": "",
     "roomCreatorUserName": "",
-    "selected": false,
     "t": "p",
     "unread": 0,
     "updatedAt": 1519918618671,

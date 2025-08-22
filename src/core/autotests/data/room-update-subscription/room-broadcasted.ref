@@ -1,10 +1,5 @@
 {
-    "alert": false,
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
     "broadcast": true,
-    "encrypted": false,
     "fname": "ruqola-broadcast",
     "lastSeenAt": 1550143648425,
     "name": "ruqola-broadcast",
@@ -27,7 +22,6 @@
     ],
     "roomCreatorUserID": "uKK39zoewTkdacidH",
     "roomCreatorUserName": "laurent",
-    "selected": false,
     "t": "p",
     "unread": 0,
     "updatedAt": 1550160508264,

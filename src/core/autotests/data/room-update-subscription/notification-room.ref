@@ -1,12 +1,6 @@
 {
-    "alert": false,
     "announcement": "annou!!!!",
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
     "description": "description",
-    "encrypted": false,
     "fname": "",
     "lastSeenAt": 1519664810617,
     "name": "test",
@@ -23,13 +17,11 @@
     },
     "open": true,
     "rid": "kGtPa6bu7xHrS5xz6",
-    "ro": false,
     "roles": [
         "owner"
     ],
     "roomCreatorUserID": "uKK39zoewTkdacidH",
     "roomCreatorUserName": "laurent",
-    "selected": false,
     "t": "p",
     "topic": "sdfs",
     "unread": 0,

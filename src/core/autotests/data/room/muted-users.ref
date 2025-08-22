@@ -1,10 +1,4 @@
 {
-    "alert": false,
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
-    "encrypted": false,
     "fname": "foo",
     "lastSeenAt": -1,
     "muted": [
@@ -22,12 +16,9 @@
         "muteGroupMentions": false,
         "unreadAlert": ""
     },
-    "open": false,
     "rid": "Dic5wZD4Zu9ze5gk3",
-    "ro": false,
     "roomCreatorUserID": "",
     "roomCreatorUserName": "",
-    "selected": false,
     "t": "p",
     "unread": 0,
     "updatedAt": 1521115962354,

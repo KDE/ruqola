@@ -1,10 +1,4 @@
 {
-    "alert": false,
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
-    "encrypted": false,
     "fname": "ruqola-team21",
     "lastSeenAt": -1,
     "name": "ruqola-team21",
@@ -19,12 +13,9 @@
         "muteGroupMentions": false,
         "unreadAlert": ""
     },
-    "open": false,
     "rid": "BKwMZXmQH67mvMXgj",
-    "ro": false,
     "roomCreatorUserID": "uKK39zoewTkdacidH",
     "roomCreatorUserName": "laurent",
-    "selected": false,
     "t": "p",
     "teamId": "608f8897f3fc7f9ba58bfb08",
     "teamMain": true,

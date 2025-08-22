@@ -1,10 +1,4 @@
 {
-    "alert": false,
-    "archived": false,
-    "blocked": false,
-    "blocker": false,
-    "broadcast": false,
-    "encrypted": false,
     "fname": "",
     "ignored": [
         "CtmbQDdqNNNytdYsX",
@@ -25,10 +19,8 @@
     },
     "open": true,
     "rid": "np9DKhZY3TL3depq4",
-    "ro": false,
     "roomCreatorUserID": "",
     "roomCreatorUserName": "",
-    "selected": false,
     "t": "c",
     "unread": 0,
     "updatedAt": 1531307532486,
