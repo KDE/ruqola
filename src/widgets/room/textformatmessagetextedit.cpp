@@ -6,9 +6,14 @@
 
 #include "textformatmessagetextedit.h"
 
+#include <QHBoxLayout>
+
 TextFormatMessageTextEdit::TextFormatMessageTextEdit(QWidget *parent)
     : QFrame(parent)
 {
+    auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setContentsMargins({});
+    mainLayout->setSpacing(0);
 }
 
 TextFormatMessageTextEdit::~TextFormatMessageTextEdit() = default;
