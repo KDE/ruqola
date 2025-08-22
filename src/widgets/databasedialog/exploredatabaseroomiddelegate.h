@@ -16,6 +16,8 @@ public:
 
     [[nodiscard]] QString displayText(const QVariant &value, const QLocale &locale) const override;
 
+    [[nodiscard]] bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
 private:
     RocketChatAccount *const mRocketChatAccount;
 };

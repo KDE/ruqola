@@ -5,6 +5,8 @@
 */
 #include "exploredatabaseroomiddelegate.h"
 #include "rocketchataccount.h"
+#include <QHelpEvent>
+#include <QToolTip>
 
 ExploreDatabaseRoomIdDelegate::ExploreDatabaseRoomIdDelegate(RocketChatAccount *account, QObject *parent)
     : QStyledItemDelegate{parent}
@@ -22,6 +24,19 @@ QString ExploreDatabaseRoomIdDelegate::displayText(const QVariant &value, const 
         }
     }
     return QStyledItemDelegate::displayText(value, locale);
+}
+
+bool ExploreDatabaseRoomIdDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (!event || !view)
+        return false;
+
+    if (event->type() == QEvent::ToolTip) {
+        const QString tooltip = index.data(Qt::DisplayRole).toString();
+        QToolTip::showText(event->globalPos(), tooltip);
+        return true;
+    }
+    return QStyledItemDelegate::helpEvent(event, view, option, index);
 }
 
 #include "moc_exploredatabaseroomiddelegate.cpp"
