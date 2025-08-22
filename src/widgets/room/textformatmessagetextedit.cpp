@@ -36,3 +36,5 @@ TextFormatMessageTextEdit::TextFormatMessageTextEdit(QWidget *parent)
 }
 
 TextFormatMessageTextEdit::~TextFormatMessageTextEdit() = default;
+
+#include "moc_textformatmessagetextedit.cpp"
