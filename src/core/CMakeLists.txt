@@ -606,6 +606,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_ddpapi_co
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_unknown_collectiontype_debug.h IDENTIFIER RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG
     CATEGORY_NAME org.kde.ruqola.ddp.collectiontype DESCRIPTION "ruqola ddp unknown collection" EXPORT RUQOLA
 )
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_backend_debug.h IDENTIFIER RUQOLA_BACKEND_LOG
+    CATEGORY_NAME org.kde.ruqola.ddp.backend DESCRIPTION "ruqola backend changed" EXPORT RUQOLA
+)
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_typing_notification_debug.h IDENTIFIER RUQOLA_TYPING_NOTIFICATION_LOG
     CATEGORY_NAME org.kde.ruqola.typingnotification DESCRIPTION "ruqola typingnotification" EXPORT RUQOLA
 )
