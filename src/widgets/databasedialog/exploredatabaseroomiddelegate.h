@@ -6,11 +6,16 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QStyledItemDelegate>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseRoomIdDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseRoomIdDelegate(QObject *parent = nullptr);
+    explicit ExploreDatabaseRoomIdDelegate(RocketChatAccount *account, QObject *parent = nullptr);
     ~ExploreDatabaseRoomIdDelegate() override;
+
+    [[nodiscard]] QString displayText(const QVariant &value, const QLocale &locale) const override;
+
+private:
+    RocketChatAccount *const mRocketChatAccount;
 };
