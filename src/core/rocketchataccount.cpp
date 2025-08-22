@@ -3371,9 +3371,21 @@ void RocketChatAccount::roomsParsing(const QJsonObject &root)
             || roomType == u'd' /*Direct chat*/) {
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
-                model->updateRoom(roomJson);
+                const QByteArray roomId = model->updateRoom(roomJson);
+                updateRoomInDatabase(roomId);
             }
         }
+    }
+}
+
+void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
+{
+    if (!roomId.isEmpty()) {
+        if (auto r = mRoomModel->findRoom(roomId); r) {
+            addRoomToDataBase(r);
+        }
+    } else {
+        Q_ASSERT(false);
     }
 }
 
@@ -3410,9 +3422,7 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
                 const QByteArray roomId = model->addRoom(room);
-                if (auto r = model->findRoom(roomId); r) {
-                    addRoomToDataBase(r);
-                }
+                updateRoomInDatabase(roomId);
             }
         } else if (roomType == u'l') { // Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";

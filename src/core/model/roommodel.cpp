@@ -375,7 +375,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     }
 }
 
-void RoomModel::updateRoom(const QJsonObject &roomData)
+QByteArray RoomModel::updateRoom(const QJsonObject &roomData)
 {
     qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonObject &roomData)" << roomData;
     // TODO fix me!
@@ -408,6 +408,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
         qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateRoom incorrect jsonobject " << roomData;
         // qWarning() << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
     }
+    return rId;
 }
 
 void RoomModel::userStatusChanged(const User &user)
