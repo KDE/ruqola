@@ -788,7 +788,7 @@
       <li xml:lang="x-test">xxAuto-awayxx</li>
       <li xml:lang="zh-TW">自動標記不在場</li>
       <li>Two-factor authentication via TOTP</li>
-      <li xml:lang="ar">المصادقة الثنائية عبر كلمة السر المعتمدة على الوقت</li>
+      <li xml:lang="ar">الاستيثاق الثنائي عبر كلمة السر المعتمدة على الوقت</li>
       <li xml:lang="ca">Autenticació de dos factors via TOTP</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via TOTP</li>
       <li xml:lang="en-GB">Two-factor authentication via TOTP</li>
@@ -816,7 +816,7 @@
       <li xml:lang="x-test">xxTwo-factor authentication via TOTPxx</li>
       <li xml:lang="zh-TW">利用基於時間的一次性密碼 (TOTP) 的兩步驟驗證</li>
       <li>Two-factor authentication via email</li>
-      <li xml:lang="ar">المصادقة الثنائية عبر البريد الإلكتروني</li>
+      <li xml:lang="ar">الاستيثاق الثنائي عبر البريد الإلكتروني</li>
       <li xml:lang="ca">Autenticació de dos factors via correu electrònic</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via correu electrònic</li>
       <li xml:lang="en-GB">Two-factor authentication via email</li>
