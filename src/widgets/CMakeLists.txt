@@ -697,6 +697,9 @@ target_sources(
         room/usersinroomtreeview.cpp
         room/usersinroomlistview.h
         room/usersinroomlistview.cpp
+
+        room/textformatmessagetextedit.h
+        room/textformatmessagetextedit.cpp
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h
