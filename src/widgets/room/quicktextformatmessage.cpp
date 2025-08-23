@@ -7,11 +7,14 @@
 #include "quicktextformatmessage.h"
 
 #include <QHBoxLayout>
+#include <QTextEdit>
 #include <QToolButton>
 using namespace Qt::Literals::StringLiterals;
-QuickTextFormatMessage::QuickTextFormatMessage(QWidget *parent)
+QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *parent)
     : QFrame(parent)
 {
+    setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
+
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
@@ -72,6 +75,19 @@ QuickTextFormatMessage::QuickTextFormatMessage(QWidget *parent)
         Q_EMIT quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType::InsertLink);
     });
     mainLayout->addWidget(insertLinkButton);
+
+    if (editor) {
+        connect(editor, &QTextEdit::selectionChanged, this, [this, editor]() {
+            if (editor->textCursor().hasSelection()) {
+                const QRect cursorRect = editor->cursorRect();
+                const QPoint globalPos = editor->viewport()->mapToGlobal(cursorRect.topLeft());
+                move(globalPos.x(), globalPos.y() - height());
+                show();
+            } else {
+                hide();
+            }
+        });
+    }
 }
 
 QuickTextFormatMessage::~QuickTextFormatMessage() = default;

@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QFrame>
-
+class QTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT QuickTextFormatMessage : public QFrame
 {
     Q_OBJECT
@@ -21,7 +21,7 @@ public:
         InsertLink,
     };
 
-    explicit QuickTextFormatMessage(QWidget *parent = nullptr);
+    explicit QuickTextFormatMessage(QTextEdit *editor, QWidget *parent = nullptr);
     ~QuickTextFormatMessage() override;
 
 Q_SIGNALS:

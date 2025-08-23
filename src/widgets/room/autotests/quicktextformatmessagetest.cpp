@@ -16,7 +16,7 @@ QuickTextFormatMessageTest::QuickTextFormatMessageTest(QObject *parent)
 
 void QuickTextFormatMessageTest::shouldHaveDefaultValues()
 {
-    const QuickTextFormatMessage t;
+    const QuickTextFormatMessage t(nullptr);
     auto mainLayout = t.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
