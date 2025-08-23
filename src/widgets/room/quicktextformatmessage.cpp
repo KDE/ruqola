@@ -4,12 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "textformatmessagetextedit.h"
+#include "quicktextformatmessage.h"
 
 #include <QHBoxLayout>
 #include <QToolButton>
 using namespace Qt::Literals::StringLiterals;
-TextFormatMessageTextEdit::TextFormatMessageTextEdit(QWidget *parent)
+QuickTextFormatMessage::QuickTextFormatMessage(QWidget *parent)
     : QFrame(parent)
 {
     auto mainLayout = new QHBoxLayout(this);
@@ -53,6 +53,6 @@ TextFormatMessageTextEdit::TextFormatMessageTextEdit(QWidget *parent)
     mainLayout->addWidget(insertLinkeButton);
 }
 
-TextFormatMessageTextEdit::~TextFormatMessageTextEdit() = default;
+QuickTextFormatMessage::~QuickTextFormatMessage() = default;
 
-#include "moc_textformatmessagetextedit.cpp"
+#include "moc_quicktextformatmessage.cpp"

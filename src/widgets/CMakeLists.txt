@@ -698,8 +698,8 @@ target_sources(
         room/usersinroomlistview.h
         room/usersinroomlistview.cpp
 
-        room/textformatmessagetextedit.h
-        room/textformatmessagetextedit.cpp
+        room/quicktextformatmessage.h
+        room/quicktextformatmessage.cpp
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h

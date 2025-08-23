@@ -8,12 +8,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QFrame>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT TextFormatMessageTextEdit : public QFrame
+class LIBRUQOLAWIDGETS_TESTS_EXPORT QuickTextFormatMessage : public QFrame
 {
     Q_OBJECT
 public:
-    explicit TextFormatMessageTextEdit(QWidget *parent = nullptr);
-    ~TextFormatMessageTextEdit() override;
+    explicit QuickTextFormatMessage(QWidget *parent = nullptr);
+    ~QuickTextFormatMessage() override;
 
 Q_SIGNALS:
     void blockQuoteRequested();
