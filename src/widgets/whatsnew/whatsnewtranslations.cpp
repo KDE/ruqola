@@ -20,6 +20,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Add restore button in administration settings."),
         kli18n("Allow to activate plugins."),
         kli18n("Add Open With button in show image."),
+        kli18n("Add Quick Text Format."),
     };
     return info;
 }
