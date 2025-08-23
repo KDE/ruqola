@@ -11,6 +11,7 @@
 #include "common/emojicompletiondelegate.h"
 #include "common/userandchannelcompletiondelegate.h"
 #include "model/inputcompletermodel.h"
+#include "quicktextformatmessage.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include <KLocalizedString>
@@ -60,6 +61,33 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     loadSpellCheckingSettings();
     connect(this, &MessageTextEdit::languageChanged, this, &MessageTextEdit::slotLanguageChanged);
     connect(this, &MessageTextEdit::checkSpellingChanged, this, &MessageTextEdit::slotSpellCheckingEnableChanged);
+
+    auto quicktextformatmessage = new QuickTextFormatMessage(this, this);
+    connect(quicktextformatmessage, &QuickTextFormatMessage::quickTextFormatRequested, this, [this](QuickTextFormatMessage::QuickTextFormatType type) {
+        switch (type) {
+        case QuickTextFormatMessage::QuickTextFormatType::Bold: {
+            slotSetAsBold();
+            break;
+        }
+        case QuickTextFormatMessage::QuickTextFormatType::Italic: {
+            slotSetAsItalic();
+            break;
+        }
+        case QuickTextFormatMessage::QuickTextFormatType::StrikeThrough: {
+            slotSetAsStrikeOut();
+            break;
+        }
+        case QuickTextFormatMessage::QuickTextFormatType::CodeBlock:
+            slotInsertCodeBlock();
+            break;
+        case QuickTextFormatMessage::QuickTextFormatType::BlockQuote:
+            // TODO
+            break;
+        case QuickTextFormatMessage::QuickTextFormatType::InsertLink:
+            slotInsertMarkdownUrl();
+            break;
+        }
+    });
 }
 
 MessageTextEdit::~MessageTextEdit()
