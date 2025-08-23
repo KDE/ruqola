@@ -15,7 +15,7 @@ public:
     enum class QuickTextFormatType : uint8_t {
         Bold,
         Italic,
-        StrikeOut,
+        StrikeThrough,
         CodeBlock,
         BlockQuote,
         InsertLink,
