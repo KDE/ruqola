@@ -18,6 +18,34 @@ QuickTextFormatGui::QuickTextFormatGui(QWidget *parent)
     mainLayout->setContentsMargins({});
     auto textEdit = new QTextEdit(this);
     auto quickTextFormatMessage = new QuickTextFormatMessage(textEdit, this);
+    connect(quickTextFormatMessage, &QuickTextFormatMessage::quickTextFormatRequested, this, [textEdit](QuickTextFormatMessage::QuickTextFormatType type) {
+        switch (type) {
+        case QuickTextFormatMessage::QuickTextFormatType::Bold: {
+            QTextCharFormat format;
+            format.setFontWeight(textEdit->fontWeight() == QFont::Bold ? QFont::Normal : QFont::Bold);
+            textEdit->textCursor().mergeCharFormat(format);
+            break;
+        }
+        case QuickTextFormatMessage::QuickTextFormatType::Italic: {
+            QTextCharFormat format;
+            format.setFontItalic(!textEdit->fontItalic());
+            textEdit->textCursor().mergeCharFormat(format);
+            break;
+        }
+        case QuickTextFormatMessage::QuickTextFormatType::StrikeThrough:
+            // TODO
+            break;
+        case QuickTextFormatMessage::QuickTextFormatType::CodeBlock:
+            // TODO
+            break;
+        case QuickTextFormatMessage::QuickTextFormatType::BlockQuote:
+            // TODO
+            break;
+        case QuickTextFormatMessage::QuickTextFormatType::InsertLink:
+            // TODO
+            break;
+        }
+    });
     mainLayout->addWidget(textEdit);
 }
 

@@ -24,6 +24,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     boldButton->setObjectName(u"boldButton"_s);
     boldButton->setIconSize(QSize(12, 12));
     boldButton->setIcon(QIcon::fromTheme(u"format-text-bold"_s));
+    boldButton->setAutoRaise(true);
     mainLayout->addWidget(boldButton);
     connect(boldButton, &QToolButton::clicked, this, [this]() {
         Q_EMIT quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType::Bold);
@@ -33,6 +34,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     italicButton->setObjectName(u"italicButton"_s);
     italicButton->setIconSize(QSize(12, 12));
     italicButton->setIcon(QIcon::fromTheme(u"format-text-italic"_s));
+    italicButton->setAutoRaise(true);
     connect(italicButton, &QToolButton::clicked, this, [this]() {
         Q_EMIT quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType::Italic);
     });
@@ -42,6 +44,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     strikeThroughButton->setObjectName(u"strikeThroughButton"_s);
     strikeThroughButton->setIconSize(QSize(12, 12));
     strikeThroughButton->setIcon(QIcon::fromTheme(u"format-text-strikethrough"_s));
+    strikeThroughButton->setAutoRaise(true);
     connect(strikeThroughButton, &QToolButton::clicked, this, [this]() {
         Q_EMIT quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType::StrikeThrough);
     });
@@ -51,6 +54,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     codeBlockButton->setObjectName(u"codeBlockButton"_s);
     codeBlockButton->setIconSize(QSize(12, 12));
     codeBlockButton->setIcon(QIcon::fromTheme(u"format-text-code"_s));
+    codeBlockButton->setAutoRaise(true);
     connect(codeBlockButton, &QToolButton::clicked, this, [this]() {
         Q_EMIT quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType::CodeBlock);
     });
@@ -61,6 +65,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     blockQuoteButton->setObjectName(u"blockQuoteButton"_s);
     blockQuoteButton->setIconSize(QSize(12, 12));
     blockQuoteButton->setIcon(QIcon::fromTheme(u"format-text-blockquote"_s));
+    blockQuoteButton->setAutoRaise(true);
     connect(blockQuoteButton, &QToolButton::clicked, this, [this]() {
         Q_EMIT quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType::BlockQuote);
     });
@@ -71,6 +76,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     insertLinkButton->setObjectName(u"insertLinkButton"_s);
     insertLinkButton->setIconSize(QSize(12, 12));
     insertLinkButton->setIcon(QIcon::fromTheme(u"link"_s));
+    insertLinkButton->setAutoRaise(true);
     connect(insertLinkButton, &QToolButton::clicked, this, [this]() {
         Q_EMIT quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType::InsertLink);
     });
