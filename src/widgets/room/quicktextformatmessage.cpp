@@ -13,6 +13,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QWidget *parent)
     : QFrame(parent)
 {
     auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 

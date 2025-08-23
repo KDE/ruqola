@@ -5,8 +5,10 @@
 */
 #include "quicktextformatmessagetest.h"
 #include "room/quicktextformatmessage.h"
+#include <QHBoxLayout>
 #include <QTest>
-QTEST_GUILESS_MAIN(QuickTextFormatMessageTest)
+QTEST_MAIN(QuickTextFormatMessageTest)
+using namespace Qt::Literals::StringLiterals;
 QuickTextFormatMessageTest::QuickTextFormatMessageTest(QObject *parent)
     : QObject{parent}
 {
@@ -14,6 +16,10 @@ QuickTextFormatMessageTest::QuickTextFormatMessageTest(QObject *parent)
 
 void QuickTextFormatMessageTest::shouldHaveDefaultValues()
 {
-    QuickTextFormatMessageTest t;
+    const QuickTextFormatMessage t;
+    auto mainLayout = t.findChild<QHBoxLayout *>(u"mainLayout"_s);
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+    QCOMPARE(mainLayout->spacing(), 0);
     // TODO
 }
