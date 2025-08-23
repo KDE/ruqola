@@ -12,9 +12,18 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT QuickTextFormatMessage : public QFrame
 {
     Q_OBJECT
 public:
+    enum class QuickTextFormatType : uint8_t {
+        Bold,
+        Italic,
+        StrikeOut,
+        CodeBlock,
+        BlockQuote,
+        InsertLink,
+    };
+
     explicit QuickTextFormatMessage(QWidget *parent = nullptr);
     ~QuickTextFormatMessage() override;
 
 Q_SIGNALS:
-    void blockQuoteRequested();
+    void quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType type);
 };
