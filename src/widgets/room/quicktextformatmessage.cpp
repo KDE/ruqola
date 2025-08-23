@@ -46,11 +46,11 @@ QuickTextFormatMessage::QuickTextFormatMessage(QWidget *parent)
     blockQuoteButton->setIcon(QIcon::fromTheme(u"format-text-blockquote"_s));
     mainLayout->addWidget(blockQuoteButton);
 
-    auto insertLinkeButton = new QToolButton(this);
-    insertLinkeButton->setObjectName(u"insertLinkeButton"_s);
-    insertLinkeButton->setIconSize(QSize(12, 12));
-    insertLinkeButton->setIcon(QIcon::fromTheme(u"link"_s));
-    mainLayout->addWidget(insertLinkeButton);
+    auto insertLinkButton = new QToolButton(this);
+    insertLinkButton->setObjectName(u"insertLinkButton"_s);
+    insertLinkButton->setIconSize(QSize(12, 12));
+    insertLinkButton->setIcon(QIcon::fromTheme(u"link"_s));
+    mainLayout->addWidget(insertLinkButton);
 }
 
 QuickTextFormatMessage::~QuickTextFormatMessage() = default;
