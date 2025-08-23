@@ -20,6 +20,7 @@ public:
         BlockQuote,
         InsertLink,
     };
+    Q_ENUM(QuickTextFormatType);
 
     explicit QuickTextFormatMessage(QTextEdit *editor, QWidget *parent = nullptr);
     ~QuickTextFormatMessage() override;

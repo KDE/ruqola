@@ -6,8 +6,10 @@
 #include "quicktextformatmessagetest.h"
 #include "room/quicktextformatmessage.h"
 #include <QHBoxLayout>
+#include <QSignalSpy>
 #include <QTest>
 #include <QToolButton>
+#include <qtestmouse.h>
 QTEST_MAIN(QuickTextFormatMessageTest)
 using namespace Qt::Literals::StringLiterals;
 QuickTextFormatMessageTest::QuickTextFormatMessageTest(QObject *parent)
@@ -42,6 +44,46 @@ void QuickTextFormatMessageTest::shouldHaveDefaultValues()
     auto insertLinkButton = t.findChild<QToolButton *>(u"insertLinkButton"_s);
     QCOMPARE(insertLinkButton->iconSize(), QSize(12, 12));
     QVERIFY(insertLinkButton->autoRaise());
+}
+
+void QuickTextFormatMessageTest::shouldReactSignalCall()
+{
+    const QuickTextFormatMessage t(nullptr);
+    {
+        auto boldButton = t.findChild<QToolButton *>(u"boldButton"_s);
+        QSignalSpy spyBoldButton(&t, &QuickTextFormatMessage::quickTextFormatRequested);
+        QTest::mouseClick(boldButton, Qt::LeftButton);
+        QCOMPARE(spyBoldButton.count(), 1);
+        QCOMPARE(spyBoldButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::Bold);
+    }
+    {
+        auto italicButton = t.findChild<QToolButton *>(u"italicButton"_s);
+        QSignalSpy spyButton(&t, &QuickTextFormatMessage::quickTextFormatRequested);
+        QTest::mouseClick(italicButton, Qt::LeftButton);
+        QCOMPARE(spyButton.count(), 1);
+        QCOMPARE(spyButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::Italic);
+    }
+    {
+        auto strikeThroughButton = t.findChild<QToolButton *>(u"strikeThroughButton"_s);
+        QSignalSpy spyButton(&t, &QuickTextFormatMessage::quickTextFormatRequested);
+        QTest::mouseClick(strikeThroughButton, Qt::LeftButton);
+        QCOMPARE(spyButton.count(), 1);
+        QCOMPARE(spyButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::StrikeThrough);
+    }
+    {
+        auto blockQuoteButton = t.findChild<QToolButton *>(u"blockQuoteButton"_s);
+        QSignalSpy spyButton(&t, &QuickTextFormatMessage::quickTextFormatRequested);
+        QTest::mouseClick(blockQuoteButton, Qt::LeftButton);
+        QCOMPARE(spyButton.count(), 1);
+        QCOMPARE(spyButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::BlockQuote);
+    }
+    {
+        auto insertLinkButton = t.findChild<QToolButton *>(u"insertLinkButton"_s);
+        QSignalSpy spyButton(&t, &QuickTextFormatMessage::quickTextFormatRequested);
+        QTest::mouseClick(insertLinkButton, Qt::LeftButton);
+        QCOMPARE(spyButton.count(), 1);
+        QCOMPARE(spyButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::InsertLink);
+    }
 }
 
 #include "moc_quicktextformatmessagetest.cpp"
