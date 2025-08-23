@@ -293,6 +293,7 @@ QByteArray RoomModel::addRoom(const QJsonObject &room)
     qCDebug(RUQOLA_ROOMS_LOG) << "Adding room subscription" << r->name() << r->roomId() << r->topic();
     if (!addRoom(r)) {
         qCDebug(RUQOLA_ROOMS_LOG) << "Impossible to add room: " << r->name();
+        return {};
     }
     return r->roomId();
 }
@@ -356,7 +357,9 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     } else if (actionName == "inserted"_L1) {
         qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value("name"_L1) << " rid " << roomData.value("rid"_L1);
         // TODO fix me!
-        addRoom(roomData);
+        if (addRoom(roomData).isEmpty()) {
+            qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to add room";
+        }
 
         // addRoom(roomData.value("rid"_L1).toString(), roomData.value("name"_L1).toString(), false);
     } else if (actionName == "updated"_L1) {
