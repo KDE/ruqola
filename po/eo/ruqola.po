@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-23 00:42+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1295,7 +1295,7 @@ msgstr "Kanala Tipo"
 msgid "Belongs To"
 msgstr "Apartenas Al"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:576
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:577
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1433,80 +1433,80 @@ msgstr "Dufaktora Aŭtentigo"
 msgid "Last token part"
 msgstr "Lasta simbola parto"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:507
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 Mencio"
 msgstr[1] "%1 Mencioj"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:511
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 Grupmencio"
 msgstr[1] "%1 Grupmencioj"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 Nelegita Fadenmesaĝo"
 msgstr[1] "%1 Nelegitaj Fadenmesaĝoj"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 Nelegita Mesaĝo"
 msgstr[1] "%1 Nelegitaj Mesaĝoj"
 
-#: core/model/roommodel.cpp:544
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Teams Room"
 msgstr "Ĉambro de Teamoj"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Private Room"
 msgstr "Privata Ĉambro"
 
-#: core/model/roommodel.cpp:552
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Discussion Room"
 msgstr "Diskutejo"
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:557
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanala Ĉambro"
 
-#: core/model/roommodel.cpp:570 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:571 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Nelegita"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Favorites"
 msgstr "Plej ŝatataj"
 
-#: core/model/roommodel.cpp:574
+#: core/model/roommodel.cpp:575
 #, kde-format
 msgid "Teams"
 msgstr "Teamoj"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Discussions"
 msgstr "Diskutoj"
 
-#: core/model/roommodel.cpp:580
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Private Messages"
 msgstr "Privataj Mesaĝoj"
 
-#: core/model/roommodel.cpp:582 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:583 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Nekonata"
@@ -1819,17 +1819,17 @@ msgstr "Leader"
 msgid "Moderator"
 msgstr "Moderiganto"
 
-#: core/room.cpp:1521
+#: core/room.cpp:1543
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalo estas nur legata."
 
-#: core/room.cpp:1524
+#: core/room.cpp:1546
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Vi blokis ĉi tiun kanalon."
 
-#: core/room.cpp:1527
+#: core/room.cpp:1549
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalo estis blokita."

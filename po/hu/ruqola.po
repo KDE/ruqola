@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-23 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1303,7 +1303,7 @@ msgstr "Csatornatípus"
 msgid "Belongs To"
 msgstr "Ehhez tartozik:"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:576
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:577
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1441,80 +1441,80 @@ msgstr "Kétfaktoros hitelesítés"
 msgid "Last token part"
 msgstr "Utolsó tokenrész"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:507
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 említés"
 msgstr[1] "%1 említés"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:511
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 csoportemlítés"
 msgstr[1] "%1 csoportemlítés"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 olvasatlan szálüzenet"
 msgstr[1] "%1 olvasatlan szálüzenet"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 olvasatlan üzenet"
 msgstr[1] "%1 olvasatlan üzenet"
 
-#: core/model/roommodel.cpp:544
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Teams Room"
 msgstr "Csapatszoba"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Private Room"
 msgstr "Személyes szoba"
 
-#: core/model/roommodel.cpp:552
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Discussion Room"
 msgstr "Megbeszélésszoba"
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:557
 #, kde-format
 msgid "Channel Room"
 msgstr "Csatornaszoba"
 
-#: core/model/roommodel.cpp:570 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:571 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Olvasatlan"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Favorites"
 msgstr "Kedvencek"
 
-#: core/model/roommodel.cpp:574
+#: core/model/roommodel.cpp:575
 #, kde-format
 msgid "Teams"
 msgstr "Csapatok"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Discussions"
 msgstr "Megbeszélések"
 
-#: core/model/roommodel.cpp:580
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Private Messages"
 msgstr "Személyes üzenetek"
 
-#: core/model/roommodel.cpp:582 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:583 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Ismeretlen"
@@ -1830,17 +1830,17 @@ msgstr "Vezető"
 msgid "Moderator"
 msgstr "Moderátor"
 
-#: core/room.cpp:1521
+#: core/room.cpp:1543
 #, kde-format
 msgid "Channel is read only."
 msgstr "A csatorna csak olvasható."
 
-#: core/room.cpp:1524
+#: core/room.cpp:1546
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Ön tiltotta ezt a csatornát."
 
-#: core/room.cpp:1527
+#: core/room.cpp:1549
 #, kde-format
 msgid "Channel was blocked."
 msgstr "A csatornát tiltották."

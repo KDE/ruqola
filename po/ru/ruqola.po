@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-23 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1305,7 +1305,7 @@ msgstr "Тип канала"
 msgid "Belongs To"
 msgstr "Принадлежность"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:576
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:577
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1445,7 +1445,7 @@ msgstr "Двухфакторная аутентификация"
 msgid "Last token part"
 msgstr "Последняя часть маркера"
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:507
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1454,7 +1454,7 @@ msgstr[1] "%1 упоминания"
 msgstr[2] "%1 упоминаний"
 msgstr[3] "%1 упоминание"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:511
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1463,7 +1463,7 @@ msgstr[1] "%1 упоминания группы"
 msgstr[2] "%1 упоминаний группы"
 msgstr[3] "%1 упоминание группы"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1472,7 +1472,7 @@ msgstr[1] "%1 непрочитанных сообщения в ветках"
 msgstr[2] "%1 непрочитанных сообщений в ветках"
 msgstr[3] "%1 непрочитанное сообщение в ветках"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1481,52 +1481,52 @@ msgstr[1] "%1 непрочитанных сообщения"
 msgstr[2] "%1 непрочитанных сообщений"
 msgstr[3] "%1 непрочитанное сообщение"
 
-#: core/model/roommodel.cpp:544
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Teams Room"
 msgstr "Комната команд"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "Private Room"
 msgstr "Закрытая комната"
 
-#: core/model/roommodel.cpp:552
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Discussion Room"
 msgstr "Переговорная комната"
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:557
 #, kde-format
 msgid "Channel Room"
 msgstr "Комната канала"
 
-#: core/model/roommodel.cpp:570 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:571 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Не прочитано"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Favorites"
 msgstr "Избранное"
 
-#: core/model/roommodel.cpp:574
+#: core/model/roommodel.cpp:575
 #, kde-format
 msgid "Teams"
 msgstr "Команды"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Discussions"
 msgstr "Обсуждения"
 
-#: core/model/roommodel.cpp:580
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфиденциальные сообщения"
 
-#: core/model/roommodel.cpp:582 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:583 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Неизвестно"
@@ -1841,17 +1841,17 @@ msgstr "Лидер"
 msgid "Moderator"
 msgstr "Модератор"
 
-#: core/room.cpp:1521
+#: core/room.cpp:1543
 #, kde-format
 msgid "Channel is read only."
 msgstr "Канал доступен только для чтения."
 
-#: core/room.cpp:1524
+#: core/room.cpp:1546
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Вы заблокировали этот канал."
 
-#: core/room.cpp:1527
+#: core/room.cpp:1549
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Канал заблокирован."

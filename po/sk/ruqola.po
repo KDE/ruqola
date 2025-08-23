@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-23 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1363,7 +1363,7 @@ msgstr "Názov kanála"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:576
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:577
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1513,7 +1513,7 @@ msgstr "Autentifikačná metóda"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:506
+#: core/model/roommodel.cpp:507
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "%1 Mention"
@@ -1522,7 +1522,7 @@ msgstr[0] "Súkromné adresy"
 msgstr[1] "Súkromné adresy"
 msgstr[2] "Súkromné adresy"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:511
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1530,7 +1530,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:515
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "%1 Unread Threaded Message"
@@ -1539,7 +1539,7 @@ msgstr[0] "Súkromné adresy"
 msgstr[1] "Súkromné adresy"
 msgstr[2] "Súkromné adresy"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:519
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "%1 Unread Message"
@@ -1548,57 +1548,57 @@ msgstr[0] "Súkromné adresy"
 msgstr[1] "Súkromné adresy"
 msgstr[2] "Súkromné adresy"
 
-#: core/model/roommodel.cpp:544
+#: core/model/roommodel.cpp:545
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Teams Room"
 msgstr "Predvolené"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Private Room"
 msgstr "Súkromné:"
 
-#: core/model/roommodel.cpp:552
+#: core/model/roommodel.cpp:553
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Discussion Room"
 msgstr "Hľadať súbor..."
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:557
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Channel Room"
 msgstr "Názov kanála"
 
-#: core/model/roommodel.cpp:570 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:571 widgets/dialogs/showtheadscombobox.cpp:17
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Unread"
 msgstr "Vlákna"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: core/model/roommodel.cpp:574
+#: core/model/roommodel.cpp:575
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:579
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:580
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Private Messages"
 msgstr "Súkromné adresy"
 
-#: core/model/roommodel.cpp:582 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:583 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr ""
@@ -1936,17 +1936,17 @@ msgstr "Leader"
 msgid "Moderator"
 msgstr ""
 
-#: core/room.cpp:1521
+#: core/room.cpp:1543
 #, kde-format
 msgid "Channel is read only."
 msgstr ""
 
-#: core/room.cpp:1524
+#: core/room.cpp:1546
 #, kde-format
 msgid "You have blocked this channel."
 msgstr ""
 
-#: core/room.cpp:1527
+#: core/room.cpp:1549
 #, kde-format
 msgid "Channel was blocked."
 msgstr ""
