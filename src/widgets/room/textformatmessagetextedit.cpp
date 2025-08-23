@@ -33,6 +33,24 @@ TextFormatMessageTextEdit::TextFormatMessageTextEdit(QWidget *parent)
     strikeThroughButton->setIconSize(QSize(12, 12));
     strikeThroughButton->setIcon(QIcon::fromTheme(u"format-text-strikethrough"_s));
     mainLayout->addWidget(strikeThroughButton);
+
+    auto codeBlockButton = new QToolButton(this);
+    codeBlockButton->setObjectName(u"codeBlockButton"_s);
+    codeBlockButton->setIconSize(QSize(12, 12));
+    codeBlockButton->setIcon(QIcon::fromTheme(u"format-text-code"_s));
+    mainLayout->addWidget(codeBlockButton);
+
+    auto blockQuoteButton = new QToolButton(this);
+    blockQuoteButton->setObjectName(u"blockQuoteButton"_s);
+    blockQuoteButton->setIconSize(QSize(12, 12));
+    blockQuoteButton->setIcon(QIcon::fromTheme(u"format-text-blockquote"_s));
+    mainLayout->addWidget(blockQuoteButton);
+
+    auto insertLinkeButton = new QToolButton(this);
+    insertLinkeButton->setObjectName(u"insertLinkeButton"_s);
+    insertLinkeButton->setIconSize(QSize(12, 12));
+    insertLinkeButton->setIcon(QIcon::fromTheme(u"link"_s));
+    mainLayout->addWidget(insertLinkeButton);
 }
 
 TextFormatMessageTextEdit::~TextFormatMessageTextEdit() = default;

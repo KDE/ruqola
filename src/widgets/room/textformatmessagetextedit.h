@@ -5,13 +5,16 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QFrame>
 
-class TextFormatMessageTextEdit : public QFrame
+class LIBRUQOLAWIDGETS_TESTS_EXPORT TextFormatMessageTextEdit : public QFrame
 {
     Q_OBJECT
 public:
     explicit TextFormatMessageTextEdit(QWidget *parent = nullptr);
     ~TextFormatMessageTextEdit() override;
+
+Q_SIGNALS:
+    void blockQuoteRequested();
 };
