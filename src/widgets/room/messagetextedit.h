@@ -34,7 +34,7 @@ public:
 
     void changeText(const QString &str, int cursorPosition);
 
-    QMenu *mousePopupMenu() override;
+    [[nodiscard]] QMenu *mousePopupMenu() override;
 
     void setRoomId(const QByteArray &roomId);
     [[nodiscard]] QByteArray roomId() const;
