@@ -28,22 +28,27 @@ void QuickTextFormatMessageTest::shouldHaveDefaultValues()
     auto boldButton = t.findChild<QToolButton *>(u"boldButton"_s);
     QCOMPARE(boldButton->iconSize(), QSize(12, 12));
     QVERIFY(boldButton->autoRaise());
+    QVERIFY(!boldButton->toolTip().isEmpty());
 
     auto italicButton = t.findChild<QToolButton *>(u"italicButton"_s);
     QCOMPARE(italicButton->iconSize(), QSize(12, 12));
     QVERIFY(italicButton->autoRaise());
+    QVERIFY(!italicButton->toolTip().isEmpty());
 
     auto strikeThroughButton = t.findChild<QToolButton *>(u"strikeThroughButton"_s);
     QCOMPARE(strikeThroughButton->iconSize(), QSize(12, 12));
     QVERIFY(strikeThroughButton->autoRaise());
+    QVERIFY(!strikeThroughButton->toolTip().isEmpty());
 
     auto blockQuoteButton = t.findChild<QToolButton *>(u"blockQuoteButton"_s);
     QCOMPARE(blockQuoteButton->iconSize(), QSize(12, 12));
     QVERIFY(blockQuoteButton->autoRaise());
+    QVERIFY(!blockQuoteButton->toolTip().isEmpty());
 
     auto insertLinkButton = t.findChild<QToolButton *>(u"insertLinkButton"_s);
     QCOMPARE(insertLinkButton->iconSize(), QSize(12, 12));
     QVERIFY(insertLinkButton->autoRaise());
+    QVERIFY(!insertLinkButton->toolTip().isEmpty());
 }
 
 void QuickTextFormatMessageTest::shouldReactSignalCall()
