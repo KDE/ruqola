@@ -1330,6 +1330,7 @@
   <url type="homepage">https://apps.kde.org/ruqola</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola</url>
   <url type="donation">https://www.kde.org/community/donations/?app=ruqola&amp;source=appdata</url>
+  <url type="contact">https://go.kde.org/matrix/#/#ruqola:kde.org</url>
   <project_group>KDE</project_group>
   <screenshots>
     <screenshot type="default">
