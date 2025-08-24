@@ -262,13 +262,13 @@ void MessageTextEdit::slotInsertMarkdownUrl()
 
 void MessageTextEdit::slotInsertBlockQuote()
 {
-    const QString textCodeBlock{u'`'};
+    const QString textQuoteBlock{u'`'};
     QTextCursor cursor = textCursor();
     if (cursor.hasSelection()) {
-        const QString text = textCodeBlock + u'\n' + cursor.selectedText() + u'\n' + textCodeBlock;
-        cursor.insertText(text);
+        const QString newText = textQuoteBlock + u'\n' + cursor.selectedText() + u'\n' + textQuoteBlock;
+        cursor.insertText(newText);
     } else {
-        cursor.insertText(QString(textCodeBlock + u"\n\n"_s + textCodeBlock));
+        cursor.insertText(QString(textQuoteBlock + u"\n\n"_s + textQuoteBlock));
     }
     cursor.setPosition(cursor.position() - 1);
     setTextCursor(cursor);
@@ -279,8 +279,8 @@ void MessageTextEdit::slotInsertCodeBlock()
     const QString textCodeBlock{u"```"_s};
     QTextCursor cursor = textCursor();
     if (cursor.hasSelection()) {
-        const QString text = textCodeBlock + u'\n' + cursor.selectedText() + u'\n' + textCodeBlock;
-        cursor.insertText(text);
+        const QString newText = textCodeBlock + u'\n' + cursor.selectedText() + u'\n' + textCodeBlock;
+        cursor.insertText(newText);
     } else {
         cursor.insertText(QString(textCodeBlock + u"\n\n"_s + textCodeBlock));
     }
@@ -307,8 +307,8 @@ void MessageTextEdit::insertFormat(QChar formatChar)
 {
     QTextCursor cursor = textCursor();
     if (cursor.hasSelection()) {
-        const QString text = formatChar + cursor.selectedText() + formatChar;
-        cursor.insertText(text);
+        const QString newText = formatChar + cursor.selectedText() + formatChar;
+        cursor.insertText(newText);
     } else {
         cursor.insertText(QString(formatChar) + QString(formatChar));
     }
