@@ -399,6 +399,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
         } else if (eventname.endsWith("/subscriptions-changed"_L1)) {
             RoomModel *model = mRocketChatAccount->roomModel();
+            // TODO fix database
             model->updateSubscription(contents);
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;

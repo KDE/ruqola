@@ -7,6 +7,8 @@
  */
 
 #include "roommodel.h"
+#include "localdatabase/localdatabasemanager.h"
+#include "localdatabase/localroomsdatabase.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
@@ -341,6 +343,7 @@ void RoomModel::removeRoom(const QByteArray &roomId)
             beginRemoveRows(QModelIndex(), i, i);
             mRoomsList.takeAt(i)->deleteLater();
             endRemoveRows();
+            mRocketChatAccount->localDatabaseManager()->roomsDatabase()->deleteRoom(mRocketChatAccount->accountName(), roomId);
             break;
         }
     }
@@ -356,15 +359,17 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         removeRoom(id);
     } else if (actionName == "inserted"_L1) {
         qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value("name"_L1) << " rid " << roomData.value("rid"_L1);
-        // TODO fix me!
-        if (addRoom(roomData).isEmpty()) {
+        if (const auto roomId = addRoom(roomData); roomId.isEmpty()) {
             qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to add room";
+        } else {
+            mRocketChatAccount->updateRoomInDatabase(roomId);
         }
 
         // addRoom(roomData.value("rid"_L1).toString(), roomData.value("name"_L1).toString(), false);
     } else if (actionName == "updated"_L1) {
         qCDebug(RUQOLA_ROOMS_LOG) << "UPDATE ROOM name " << roomData.value("name"_L1).toString() << " rid " << roomData.value("rid"_L1) << " roomData "
                                   << roomData;
+        // TODO FIXME
         updateSubscriptionRoom(roomData);
     } else if (actionName == "changed"_L1) {
         // qDebug() << "CHANGED ROOM name " << roomData.value("name"_L1).toString() << " rid " << roomData.value("rid"_L1) << "
