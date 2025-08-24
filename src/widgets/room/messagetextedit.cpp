@@ -81,7 +81,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
             slotInsertCodeBlock();
             break;
         case QuickTextFormatMessage::QuickTextFormatType::BlockQuote:
-            // TODO
+            slotInsertBlockQuote();
             break;
         case QuickTextFormatMessage::QuickTextFormatType::InsertLink:
             slotInsertMarkdownUrl();
@@ -257,6 +257,20 @@ void MessageTextEdit::slotInsertMarkdownUrl()
         cursor.insertText(mardownUrlStr);
         cursor.setPosition(cursor.position() - mardownUrlStr.length() + 1);
     }
+    setTextCursor(cursor);
+}
+
+void MessageTextEdit::slotInsertBlockQuote()
+{
+    const QString textCodeBlock{u'`'};
+    QTextCursor cursor = textCursor();
+    if (cursor.hasSelection()) {
+        const QString text = textCodeBlock + u'\n' + cursor.selectedText() + u'\n' + textCodeBlock;
+        cursor.insertText(text);
+    } else {
+        cursor.insertText(QString(textCodeBlock + u"\n\n"_s + textCodeBlock));
+    }
+    cursor.setPosition(cursor.position() - 1);
     setTextCursor(cursor);
 }
 

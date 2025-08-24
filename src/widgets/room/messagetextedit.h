@@ -70,6 +70,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void switchAutoCorrectionLanguage(const QString &lang);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateMessageFailed(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectFirstTextCompleter();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotInsertBlockQuote();
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;
