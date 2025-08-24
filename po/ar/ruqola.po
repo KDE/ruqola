@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-07 02:32+0000\n"
-"PO-Revision-Date: 2025-08-20 21:53+0400\n"
+"PO-Revision-Date: 2025-08-23 08:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3095,7 +3095,7 @@ msgstr "هل أنت متأكد أنك تريد حذف هذه الدعوة؟"
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Invite"
-msgstr "إزالة الدعوة"
+msgstr "أزل الدعوة"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
@@ -6758,8 +6758,8 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
-"يمنع هذا الإعداد جميع النسخةات من إرسال تغييرات حالة المستخدمين إلى عملائها "
-"مع الاحتفاظ بجميع المستخدمين بحالة ظهورهم منذ التحميل الأول!"
+"يمنع هذا الإعداد جميع النسخ من إرسال تغييرات حالة المستخدمين إلى عملائها مع "
+"الاحتفاظ بجميع المستخدمين بحالة ظهورهم منذ التحميل الأول!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
