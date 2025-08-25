@@ -1416,7 +1416,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     if (!r->description().isEmpty()) {
         o["description"_L1] = r->description();
     }
-    o["userMentions"_L1] = r->userMentions();
+    if (r->userMentions() > 0) {
+        o["userMentions"_L1] = r->userMentions();
+    }
     if (r->groupMentions() > 0) {
         o["groupMentions"_L1] = r->groupMentions();
     }
