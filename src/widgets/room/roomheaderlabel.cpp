@@ -62,7 +62,7 @@ void RoomHeaderLabel::slotMoreInfo(const QString &content)
 QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
 {
     const auto tSize = textSize(text);
-    int tHeight = tSize.height();
+    const int tHeight = tSize.height();
     int tw = tSize.width();
     QString tmp = text;
     const QString showMoreText = i18n("(Show More Info…)");
