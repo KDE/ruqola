@@ -265,12 +265,12 @@ void MessageTextEdit::slotInsertBlockQuote()
     const QString textQuoteBlock{u'`'};
     QTextCursor cursor = textCursor();
     if (cursor.hasSelection()) {
-        const QString newText = textQuoteBlock + u'\n' + cursor.selectedText() + u'\n' + textQuoteBlock;
+        const QString newText = textQuoteBlock + cursor.selectedText() + textQuoteBlock;
         cursor.insertText(newText);
     } else {
-        cursor.insertText(QString(textQuoteBlock + u"\n\n"_s + textQuoteBlock));
+        cursor.insertText(QString(textQuoteBlock + u" "_s + textQuoteBlock));
     }
-    cursor.setPosition(cursor.position() - 1);
+    cursor.setPosition(cursor.position());
     setTextCursor(cursor);
 }
 
@@ -312,7 +312,7 @@ void MessageTextEdit::insertFormat(QChar formatChar)
     } else {
         cursor.insertText(QString(formatChar) + QString(formatChar));
     }
-    cursor.setPosition(cursor.position() - 1);
+    cursor.setPosition(cursor.position());
     setTextCursor(cursor);
 }
 
