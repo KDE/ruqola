@@ -593,7 +593,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
             };
             str = convertMessageText(newsettings, QString());
 
-            quotedMessage = Utils::formatQuotedRichText(std::move(info)) + str;
+            quotedMessage = Utils::formatQuotedRichText(info) + str;
             str.clear();
         } else {
             if (settings.messageCache) {
@@ -630,7 +630,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                     };
                     str = convertMessageText(newsettings, QString());
 
-                    quotedMessage = Utils::formatQuotedRichText(std::move(info)) + str;
+                    quotedMessage = Utils::formatQuotedRichText(info) + str;
                     str.clear();
                 } else {
                     qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
