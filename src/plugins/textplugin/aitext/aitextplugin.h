@@ -26,5 +26,5 @@ public:
     void showConfigureDialog(QWidget *parent = nullptr) const override;
 
 private:
-    TextAutoGenerateText::TextAutoGenerateMenuTextManager *mManager = nullptr;
+    TextAutoGenerateText::TextAutoGenerateMenuTextManager *const mManager;
 };
