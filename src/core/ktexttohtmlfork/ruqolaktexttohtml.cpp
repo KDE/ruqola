@@ -475,15 +475,20 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                     if (str.endsWith(QLatin1Char('"'))) {
                         str.chop(1);
                     }
-                    result += QLatin1StringView("<a href=\"") + hyperlink + "\">"_L1 + str.toHtmlEscaped() + "</a>"_L1;
+                    QString urlStr = str.toHtmlEscaped();
+                    constexpr int maxSize = 100;
+                    if (urlStr.size() > maxSize) {
+                        urlStr = urlStr.left(maxSize) + u"..."_s;
+                    }
+                    result += QLatin1StringView("<a href=\"") + hyperlink + "\">"_L1 + urlStr + "</a>"_L1;
                     x += helper.mPos - start;
                     continue;
                 }
                 str = helper.getEmailAddress();
                 if (!str.isEmpty()) {
                     // len is the length of the local part
-                    int len = str.indexOf(QLatin1Char('@'));
-                    QString localPart = str.left(len);
+                    const int len = str.indexOf(QLatin1Char('@'));
+                    const QString localPart = str.left(len);
 
                     // remove the local part from the result (as '&'s have been expanded to
                     // &amp; we have to take care of the 4 additional characters per '&')
