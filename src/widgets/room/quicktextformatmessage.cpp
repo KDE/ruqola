@@ -55,6 +55,17 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     });
     mainLayout->addWidget(strikeThroughButton);
 
+    auto underLineButton = new QToolButton(this);
+    underLineButton->setObjectName(u"underLineButton"_s);
+    underLineButton->setIconSize(QSize(12, 12));
+    underLineButton->setIcon(QIcon::fromTheme(u"format-text-underline"_s));
+    underLineButton->setAutoRaise(true);
+    underLineButton->setToolTip(i18nc("@info:tooltip", "Underline"));
+    connect(underLineButton, &QToolButton::clicked, this, [this]() {
+        Q_EMIT quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType::UnderLine);
+    });
+    mainLayout->addWidget(underLineButton);
+
     auto codeBlockButton = new QToolButton(this);
     codeBlockButton->setObjectName(u"codeBlockButton"_s);
     codeBlockButton->setIconSize(QSize(12, 12));

@@ -49,6 +49,11 @@ void QuickTextFormatMessageTest::shouldHaveDefaultValues()
     QCOMPARE(insertLinkButton->iconSize(), QSize(12, 12));
     QVERIFY(insertLinkButton->autoRaise());
     QVERIFY(!insertLinkButton->toolTip().isEmpty());
+
+    auto underLineButton = t.findChild<QToolButton *>(u"underLineButton"_s);
+    QCOMPARE(underLineButton->iconSize(), QSize(12, 12));
+    QVERIFY(underLineButton->autoRaise());
+    QVERIFY(!underLineButton->toolTip().isEmpty());
 }
 
 void QuickTextFormatMessageTest::shouldReactSignalCall()
@@ -88,6 +93,14 @@ void QuickTextFormatMessageTest::shouldReactSignalCall()
         QTest::mouseClick(insertLinkButton, Qt::LeftButton);
         QCOMPARE(spyButton.count(), 1);
         QCOMPARE(spyButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::InsertLink);
+    }
+
+    {
+        auto underLineButton = t.findChild<QToolButton *>(u"underLineButton"_s);
+        QSignalSpy spyButton(&t, &QuickTextFormatMessage::quickTextFormatRequested);
+        QTest::mouseClick(underLineButton, Qt::LeftButton);
+        QCOMPARE(spyButton.count(), 1);
+        QCOMPARE(spyButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::UnderLine);
     }
 }
 

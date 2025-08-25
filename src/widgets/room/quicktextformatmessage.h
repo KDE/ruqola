@@ -19,6 +19,7 @@ public:
         CodeBlock,
         BlockQuote,
         InsertLink,
+        UnderLine,
     };
     Q_ENUM(QuickTextFormatType);
 
