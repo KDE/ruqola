@@ -20,6 +20,8 @@ QuickTextFormatMessageTest::QuickTextFormatMessageTest(QObject *parent)
 void QuickTextFormatMessageTest::shouldHaveDefaultValues()
 {
     const QuickTextFormatMessage t(nullptr);
+    QCOMPARE(t.focusPolicy(), Qt::NoFocus);
+
     auto mainLayout = t.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -29,31 +31,31 @@ void QuickTextFormatMessageTest::shouldHaveDefaultValues()
     QCOMPARE(boldButton->iconSize(), QSize(12, 12));
     QVERIFY(boldButton->autoRaise());
     QVERIFY(!boldButton->toolTip().isEmpty());
+    QCOMPARE(boldButton->focusPolicy(), Qt::NoFocus);
 
     auto italicButton = t.findChild<QToolButton *>(u"italicButton"_s);
     QCOMPARE(italicButton->iconSize(), QSize(12, 12));
     QVERIFY(italicButton->autoRaise());
     QVERIFY(!italicButton->toolTip().isEmpty());
+    QCOMPARE(italicButton->focusPolicy(), Qt::NoFocus);
 
     auto strikeThroughButton = t.findChild<QToolButton *>(u"strikeThroughButton"_s);
     QCOMPARE(strikeThroughButton->iconSize(), QSize(12, 12));
     QVERIFY(strikeThroughButton->autoRaise());
     QVERIFY(!strikeThroughButton->toolTip().isEmpty());
+    QCOMPARE(strikeThroughButton->focusPolicy(), Qt::NoFocus);
 
     auto blockQuoteButton = t.findChild<QToolButton *>(u"blockQuoteButton"_s);
     QCOMPARE(blockQuoteButton->iconSize(), QSize(12, 12));
     QVERIFY(blockQuoteButton->autoRaise());
     QVERIFY(!blockQuoteButton->toolTip().isEmpty());
+    QCOMPARE(blockQuoteButton->focusPolicy(), Qt::NoFocus);
 
     auto insertLinkButton = t.findChild<QToolButton *>(u"insertLinkButton"_s);
     QCOMPARE(insertLinkButton->iconSize(), QSize(12, 12));
     QVERIFY(insertLinkButton->autoRaise());
     QVERIFY(!insertLinkButton->toolTip().isEmpty());
-
-    auto underLineButton = t.findChild<QToolButton *>(u"underLineButton"_s);
-    QCOMPARE(underLineButton->iconSize(), QSize(12, 12));
-    QVERIFY(underLineButton->autoRaise());
-    QVERIFY(!underLineButton->toolTip().isEmpty());
+    QCOMPARE(insertLinkButton->focusPolicy(), Qt::NoFocus);
 }
 
 void QuickTextFormatMessageTest::shouldReactSignalCall()

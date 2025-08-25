@@ -18,12 +18,15 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
 {
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
 
+    setFocusPolicy(Qt::NoFocus);
+
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
     auto boldButton = new QToolButton(this);
+    boldButton->setFocusPolicy(Qt::NoFocus);
     boldButton->setObjectName(u"boldButton"_s);
     boldButton->setIconSize(QSize(12, 12));
     boldButton->setIcon(QIcon::fromTheme(u"format-text-bold"_s));
@@ -36,6 +39,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
 
     auto italicButton = new QToolButton(this);
     italicButton->setObjectName(u"italicButton"_s);
+    italicButton->setFocusPolicy(Qt::NoFocus);
     italicButton->setIconSize(QSize(12, 12));
     italicButton->setIcon(QIcon::fromTheme(u"format-text-italic"_s));
     italicButton->setAutoRaise(true);
@@ -47,6 +51,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
 
     auto strikeThroughButton = new QToolButton(this);
     strikeThroughButton->setObjectName(u"strikeThroughButton"_s);
+    strikeThroughButton->setFocusPolicy(Qt::NoFocus);
     strikeThroughButton->setIconSize(QSize(12, 12));
     strikeThroughButton->setIcon(QIcon::fromTheme(u"format-text-strikethrough"_s));
     strikeThroughButton->setAutoRaise(true);
@@ -60,6 +65,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
 
     auto codeBlockButton = new QToolButton(this);
     codeBlockButton->setObjectName(u"codeBlockButton"_s);
+    codeBlockButton->setFocusPolicy(Qt::NoFocus);
     codeBlockButton->setIconSize(QSize(12, 12));
     codeBlockButton->setIcon(QIcon::fromTheme(u"format-text-code"_s));
     codeBlockButton->setToolTip(i18nc("@info:tooltip", "Code Block"));
@@ -72,6 +78,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
 
     auto blockQuoteButton = new QToolButton(this);
     blockQuoteButton->setObjectName(u"blockQuoteButton"_s);
+    blockQuoteButton->setFocusPolicy(Qt::NoFocus);
     blockQuoteButton->setIconSize(QSize(12, 12));
     blockQuoteButton->setIcon(QIcon::fromTheme(u"format-text-blockquote"_s));
     blockQuoteButton->setToolTip(i18nc("@info:tooltip", "Quote Text"));
@@ -86,6 +93,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
 
     auto insertLinkButton = new QToolButton(this);
     insertLinkButton->setObjectName(u"insertLinkButton"_s);
+    insertLinkButton->setFocusPolicy(Qt::NoFocus);
     insertLinkButton->setIconSize(QSize(12, 12));
     insertLinkButton->setIcon(QIcon::fromTheme(u"link"_s));
     insertLinkButton->setToolTip(i18nc("@info:tooltip", "Insert Link"));
