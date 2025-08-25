@@ -9,12 +9,19 @@
 #include <KLocalizedString>
 #include <KSeparator>
 
+#include <QEvent>
 #include <QHBoxLayout>
 #include <QTextEdit>
+#include <QTimer>
 #include <QToolButton>
+#include <chrono>
+using namespace std::chrono_literals;
+
 using namespace Qt::Literals::StringLiterals;
 QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *parent)
     : QFrame(parent)
+    , mEditor(editor)
+    , mUpdatePositionTimer(new QTimer(this))
 {
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowDoesNotAcceptFocus);
 
@@ -103,20 +110,42 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     });
     mainLayout->addWidget(insertLinkButton);
 
-    if (editor) {
-        connect(editor, &QTextEdit::selectionChanged, this, [this, editor]() {
-            if (editor->textCursor().hasSelection()) {
-                const QRect cursorRect = editor->cursorRect();
-                const QPoint globalPos = editor->viewport()->mapToGlobal(cursorRect.topLeft());
-                move(globalPos.x(), globalPos.y() - height());
-                show();
-            } else {
-                hide();
-            }
-        });
+    if (mEditor) {
+        connect(mEditor, &QTextEdit::selectionChanged, this, &QuickTextFormatMessage::updatePosition);
+        mUpdatePositionTimer->setInterval(20ms);
+        mUpdatePositionTimer->setSingleShot(true);
+        connect(mUpdatePositionTimer, &QTimer::timeout, this, &QuickTextFormatMessage::updatePosition);
+        mEditor->viewport()->installEventFilter(this);
     }
 }
 
 QuickTextFormatMessage::~QuickTextFormatMessage() = default;
+
+void QuickTextFormatMessage::updatePosition()
+{
+    if (mEditor->textCursor().hasSelection()) {
+        const QRect cursorRect = mEditor->cursorRect();
+        const QPoint globalPos = mEditor->viewport()->mapToGlobal(cursorRect.topLeft());
+        move(globalPos.x(), globalPos.y() - height());
+        show();
+    } else {
+        hide();
+    }
+}
+
+bool QuickTextFormatMessage::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == mEditor->viewport()) {
+        if (event->type() == QEvent::Move || event->type() == QEvent::Resize) {
+            if (isVisible()) {
+                if (mUpdatePositionTimer->isActive()) {
+                    mUpdatePositionTimer->stop();
+                }
+                mUpdatePositionTimer->start();
+            }
+        }
+    }
+    return QFrame::eventFilter(watched, event);
+}
 
 #include "moc_quicktextformatmessage.cpp"

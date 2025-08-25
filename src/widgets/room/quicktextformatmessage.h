@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QFrame>
 class QTextEdit;
+class QTimer;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT QuickTextFormatMessage : public QFrame
 {
     Q_OBJECT
@@ -27,4 +28,12 @@ public:
 
 Q_SIGNALS:
     void quickTextFormatRequested(QuickTextFormatMessage::QuickTextFormatType type);
+
+protected:
+    [[nodiscard]] bool eventFilter(QObject *watched, QEvent *event) override;
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void updatePosition();
+    QTextEdit *const mEditor;
+    QTimer *const mUpdatePositionTimer;
 };
