@@ -68,11 +68,11 @@ QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
 {
     const auto tSize = textSize(text);
     const int tHeight = tSize.height();
-    int tw = tSize.width();
-    QString tmp = text;
-    const QString showMoreText = i18n("(Show More Info…)");
     if (tHeight > (3 * fontMetrics().ascent() + fontMetrics().descent())) {
+        QString tmp = text;
         if (!mExpandTopic) {
+            int tw = tSize.width();
+            const QString showMoreText = i18n("(Show More Info…)");
             if (tw > maxPixels) {
                 int em = fontMetrics().maxWidth();
                 maxPixels -= fontMetrics().horizontalAdvance(showMoreText);
