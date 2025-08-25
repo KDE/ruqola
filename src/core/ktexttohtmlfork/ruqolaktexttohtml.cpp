@@ -360,6 +360,8 @@ QString KTextToHTMLHelper::highlightedText()
                 return QStringLiteral("<i>") + match.capturedView(1).toString() + QStringLiteral("</i>");
             case '~':
                 return QStringLiteral("<s>") + match.capturedView(1).toString() + QStringLiteral("</s>");
+            default:
+                break;
             }
         }
     }
