@@ -7,6 +7,8 @@
 #include "clickablewidget.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include <KLocalizedString>
+
 #include <QHBoxLayout>
 #include <QIcon>
 
@@ -58,6 +60,7 @@ void ClickableWidget::setIdentifier(const QByteArray &userId)
 ClickableLabel::ClickableLabel(QWidget *parent)
     : QLabel(parent)
 {
+    setToolTip(i18nc("@info:tooltip", "Remove"));
     setPixmap(QIcon::fromTheme(u"delete"_s).pixmap(18, 18));
 }
 
