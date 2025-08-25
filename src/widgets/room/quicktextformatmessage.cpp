@@ -16,7 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *parent)
     : QFrame(parent)
 {
-    setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
+    setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowDoesNotAcceptFocus);
 
     setFocusPolicy(Qt::NoFocus);
 
