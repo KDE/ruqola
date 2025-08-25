@@ -1,7 +1,6 @@
 {
     "alert": true,
     "blocked": true,
-    "fname": "",
     "lastSeenAt": 1520958500138,
     "name": "user2",
     "notifications": {

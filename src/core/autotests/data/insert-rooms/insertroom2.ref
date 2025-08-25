@@ -1,7 +1,6 @@
 {
     "announcement": "announcement",
     "description": "description channel",
-    "fname": "",
     "lastSeenAt": -1,
     "name": "channeltest",
     "notifications": {
