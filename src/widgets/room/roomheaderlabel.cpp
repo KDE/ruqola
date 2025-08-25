@@ -19,6 +19,11 @@ RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
     setTextFormat(Qt::RichText);
     setVisible(false);
     connect(this, &QLabel::linkActivated, this, &RoomHeaderLabel::slotMoreInfo);
+    connect(this, &QLabel::linkHovered, this, [this](const QString &url) {
+        if (url != "showlesstext"_L1 && url != "showmoretext"_L1) {
+            setToolTip(url);
+        }
+    });
 }
 
 RoomHeaderLabel::~RoomHeaderLabel() = default;
