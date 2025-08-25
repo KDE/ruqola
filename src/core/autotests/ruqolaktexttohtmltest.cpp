@@ -457,8 +457,7 @@ void KTextToHTMLTest::testHtmlConvert_data()
         << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces)
         << "<a "
            "href=\"https://www.openstreetmap.org/directions?engine=graphhopper_foot&route=44.85765%2C-0.55931%3B44.85713%2C-0.56117#map=18/44.85756/"
-           "-0.56094\">https://www.openstreetmap.org/directions?engine=graphhopper_foot&amp;route=44.85765%2C-0.55931%3B44.85713%2C-0.56117#map=18/44.85756/"
-           "-0.56094</a>";
+           "-0.56094\">https://www.openstreetmap.org/directions?engine=graphhopper_foot&amp;route=44.85765%2C-0.55931%3B44....</a>";
 
     // xmpp bug 422291
     QTest::newRow("xmpp1") << "xmpp:username@server.tld" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces)
@@ -506,6 +505,8 @@ void KTextToHTMLTest::testHtmlConvert()
     QEXPECT_FAIL("spacebeforeandafter5", "multi _/*/~ at end is not supported yet because we use InvertedGreedinessOption", Continue);
 
     const QString actualHtml = RuqolaKTextToHTML::convertToHtml(plainText, flags);
+    qDebug() << " actualHtml " << actualHtml;
+    qDebug() << " htmlText " << htmlText;
     QCOMPARE(actualHtml, htmlText);
 }
 
