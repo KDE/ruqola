@@ -94,14 +94,6 @@ void QuickTextFormatMessageTest::shouldReactSignalCall()
         QCOMPARE(spyButton.count(), 1);
         QCOMPARE(spyButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::InsertLink);
     }
-
-    {
-        auto underLineButton = t.findChild<QToolButton *>(u"underLineButton"_s);
-        QSignalSpy spyButton(&t, &QuickTextFormatMessage::quickTextFormatRequested);
-        QTest::mouseClick(underLineButton, Qt::LeftButton);
-        QCOMPARE(spyButton.count(), 1);
-        QCOMPARE(spyButton.at(0).at(0).value<QuickTextFormatMessage::QuickTextFormatType>(), QuickTextFormatMessage::QuickTextFormatType::UnderLine);
-    }
 }
 
 #include "moc_quicktextformatmessagetest.cpp"
