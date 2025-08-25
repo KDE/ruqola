@@ -1366,7 +1366,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o["jitsiTimeout"_L1] = r->jitsiTimeout();
     }
     o["updatedAt"_L1] = r->updatedAt();
-    o["lastSeenAt"_L1] = r->lastSeenAt();
+    if (r->lastSeenAt() != -1) {
+        o["lastSeenAt"_L1] = r->lastSeenAt();
+    }
     if (r->readOnly()) {
         o["ro"_L1] = true;
     }

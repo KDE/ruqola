@@ -1,6 +1,5 @@
 {
     "fname": "foo",
-    "lastSeenAt": -1,
     "muted": [
         "muteduser"
     ],

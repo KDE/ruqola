@@ -1,7 +1,6 @@
 {
     "announcement": "announcement",
     "description": "description channel",
-    "lastSeenAt": -1,
     "name": "channeltest",
     "notifications": {
         "audioNotificationValue": "",
