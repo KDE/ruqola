@@ -82,6 +82,8 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
 
     mainLayout->addWidget(blockQuoteButton);
 
+    mainLayout->addWidget(new KSeparator(Qt::Vertical, this));
+
     auto insertLinkButton = new QToolButton(this);
     insertLinkButton->setObjectName(u"insertLinkButton"_s);
     insertLinkButton->setIconSize(QSize(12, 12));
