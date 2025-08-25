@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -1292,7 +1292,7 @@ msgstr ""
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:580
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1430,80 +1430,80 @@ msgstr ""
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Teams Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:559
 #, kde-format
 msgid "Private Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:561
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Channel Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:574 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr ""
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:586 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr ""
@@ -10398,6 +10398,42 @@ msgstr ""
 #: widgets/room/messagetextedit.cpp:234
 #, kde-format
 msgid "Markdown Url"
+msgstr ""
+
+#: widgets/room/quicktextformatmessage.cpp:30
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Bold"
+msgstr ""
+
+#: widgets/room/quicktextformatmessage.cpp:41
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Italic"
+msgstr ""
+
+#: widgets/room/quicktextformatmessage.cpp:52
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Strike Through"
+msgstr ""
+
+#: widgets/room/quicktextformatmessage.cpp:62
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Code Block"
+msgstr ""
+
+#: widgets/room/quicktextformatmessage.cpp:74
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Quote Text"
+msgstr ""
+
+#: widgets/room/quicktextformatmessage.cpp:86
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Insert Link"
 msgstr ""
 
 #: widgets/room/reconnectinfowidget.cpp:74

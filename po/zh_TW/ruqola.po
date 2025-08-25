@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1325,7 +1325,7 @@ msgstr "頻道類型"
 msgid "Belongs To"
 msgstr "屬於"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:580
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1462,76 +1462,76 @@ msgstr "兩步驟驗證"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 個提及"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 個群組提及"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 個未讀的對話串訊息"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 個未讀訊息"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Teams Room"
 msgstr "團隊聊天室"
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:559
 #, kde-format
 msgid "Private Room"
 msgstr "私人聊天室"
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:561
 #, kde-format
 msgid "Discussion Room"
 msgstr "討論室"
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:574 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "未讀"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Favorites"
 msgstr "最愛"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Teams"
 msgstr "團隊"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Discussions"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Private Messages"
 msgstr "私訊"
 
-#: core/model/roommodel.cpp:586 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
@@ -11056,6 +11056,48 @@ msgstr "程式碼區塊"
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown 網址"
+
+#: widgets/room/quicktextformatmessage.cpp:30
+#, fuzzy, kde-format
+#| msgid "Bold"
+msgctxt "@info:tooltip"
+msgid "Bold"
+msgstr "粗體"
+
+#: widgets/room/quicktextformatmessage.cpp:41
+#, fuzzy, kde-format
+#| msgid "Italic"
+msgctxt "@info:tooltip"
+msgid "Italic"
+msgstr "斜體"
+
+#: widgets/room/quicktextformatmessage.cpp:52
+#, fuzzy, kde-format
+#| msgid "Strike-out"
+msgctxt "@info:tooltip"
+msgid "Strike Through"
+msgstr "刪除線"
+
+#: widgets/room/quicktextformatmessage.cpp:62
+#, fuzzy, kde-format
+#| msgid "Code Block"
+msgctxt "@info:tooltip"
+msgid "Code Block"
+msgstr "程式碼區塊"
+
+#: widgets/room/quicktextformatmessage.cpp:74
+#, fuzzy, kde-format
+#| msgid "Copy Text"
+msgctxt "@info:tooltip"
+msgid "Quote Text"
+msgstr "複製文字"
+
+#: widgets/room/quicktextformatmessage.cpp:86
+#, fuzzy, kde-format
+#| msgid "Invite Link:"
+msgctxt "@info:tooltip"
+msgid "Insert Link"
+msgstr "邀請連結："
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format

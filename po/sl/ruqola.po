@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
-"PO-Revision-Date: 2025-08-19 06:33+0200\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"PO-Revision-Date: 2025-08-24 07:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1297,7 +1297,7 @@ msgstr "Vrsta kanala"
 msgid "Belongs To"
 msgstr "Pripada k"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:580
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1437,7 +1437,7 @@ msgstr "Dvostopenjsko preverjanje pristnosti"
 msgid "Last token part"
 msgstr "Zadnji del žetona"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1446,7 +1446,7 @@ msgstr[1] "%1 Omembi"
 msgstr[2] "%1 Omembe"
 msgstr[3] "%1 Omemb"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1455,7 +1455,7 @@ msgstr[1] "%1 omembi skupine"
 msgstr[2] "%1 omembe skupine"
 msgstr[3] "%1 omemb skupine"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1464,7 +1464,7 @@ msgstr[1] "%1 Neprebrani sporočila niti"
 msgstr[2] "%1 Neprebrana sporočila niti"
 msgstr[3] "%1 Neprebranih sporočil niti"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1473,52 +1473,52 @@ msgstr[1] "%1 neprebrani sporočili"
 msgstr[2] "%1 neprebrana sporočila"
 msgstr[3] "%1 neprebranih sporočil"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Teams Room"
 msgstr "Soba za ekipe"
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:559
 #, kde-format
 msgid "Private Room"
 msgstr "Zasebna soba"
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:561
 #, kde-format
 msgid "Discussion Room"
 msgstr "Soba za razprave"
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Channel Room"
 msgstr "Soba s kanali"
 
-#: core/model/roommodel.cpp:574 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Neprebrano"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Favorites"
 msgstr "Priljubljeni"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Teams"
 msgstr "Ekipe"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Discussions"
 msgstr "Razprave"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Private Messages"
 msgstr "Zasebna sporočila"
 
-#: core/model/roommodel.cpp:586 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Neznano"
@@ -10724,6 +10724,49 @@ msgstr "Blok kode"
 msgid "Markdown Url"
 msgstr "Url markdowna"
 
+#: widgets/room/quicktextformatmessage.cpp:30
+#, fuzzy, kde-format
+#| msgid "Bold"
+msgctxt "@info:tooltip"
+msgid "Bold"
+msgstr "Krepko"
+
+#: widgets/room/quicktextformatmessage.cpp:41
+#, fuzzy, kde-format
+#| msgid "Italic"
+msgctxt "@info:tooltip"
+msgid "Italic"
+msgstr "Ležeče"
+
+#: widgets/room/quicktextformatmessage.cpp:52
+#, fuzzy, kde-format
+#| msgid "Strike-out"
+msgctxt "@info:tooltip"
+msgid "Strike Through"
+msgstr "Prečrtano"
+
+#: widgets/room/quicktextformatmessage.cpp:62
+#, fuzzy, kde-format
+#| msgid "Code Block"
+msgctxt "@info:tooltip"
+msgid "Code Block"
+msgstr "Blok kode"
+
+#: widgets/room/quicktextformatmessage.cpp:74
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Quote"
+msgctxt "@info:tooltip"
+msgid "Quote Text"
+msgstr "Citiraj"
+
+#: widgets/room/quicktextformatmessage.cpp:86
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@info:tooltip"
+msgid "Insert Link"
+msgstr "Vstavi"
+
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "(Try Reconnect)"
@@ -11644,10 +11687,8 @@ msgid "Add Open With button in show image."
 msgstr "Dodaj Odpri z gumbom v prikazu slike."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "Spremeni obliko besedila"
+msgstr "Dodaj hitro oblikovanje besedila."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
@@ -12890,9 +12931,6 @@ msgstr "Nekaj odprav napak:"
 #~ msgctxt "@title:window"
 #~ msgid "Select Special Characters"
 #~ msgstr "Izberi posebne znake"
-
-#~ msgid "Insert"
-#~ msgstr "Vstavi"
 
 #~ msgid "Select"
 #~ msgstr "Izberi"

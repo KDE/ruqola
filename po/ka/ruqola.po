@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
-"PO-Revision-Date: 2025-08-19 10:38+0200\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"PO-Revision-Date: 2025-08-24 04:01+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -1295,7 +1295,7 @@ msgstr "არხის ტიპი"
 msgid "Belongs To"
 msgstr "ეკუთვნის"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:580
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1433,80 +1433,80 @@ msgstr "2FA ავთენტიკაცია"
 msgid "Last token part"
 msgstr "ბოლო კოდის ნაწილი"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 ხსენება"
 msgstr[1] "%1 ხსენება"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 ჯგუფის ხსენება"
 msgstr[1] "%1 ჯგუფის ხსენება"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 ნაკადის წაუკითხავი შეტყობინება"
 msgstr[1] "%1 ნაკადის წაუკითხავი შეტყობინება"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 წაუკითხავი შეტყობინება"
 msgstr[1] "%1 წაუკითხავი შეტყობინება"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Teams Room"
 msgstr "გუნდის ოთახი"
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:559
 #, kde-format
 msgid "Private Room"
 msgstr "პირადი ოთახი"
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:561
 #, kde-format
 msgid "Discussion Room"
 msgstr "კამათის ოთახი"
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Channel Room"
 msgstr "არხის ოთახი"
 
-#: core/model/roommodel.cpp:574 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "წაუკითხავი"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Favorites"
 msgstr "სანიშნები"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Teams"
 msgstr "გუნდები"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Discussions"
 msgstr "კამათი"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Private Messages"
 msgstr "პირადი შეტყობინებები"
 
-#: core/model/roommodel.cpp:586 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "უცნობი"
@@ -10675,6 +10675,49 @@ msgstr "კოდის ბლოკი"
 msgid "Markdown Url"
 msgstr "Markdown -ის ბმული"
 
+#: widgets/room/quicktextformatmessage.cpp:30
+#, fuzzy, kde-format
+#| msgid "Bold"
+msgctxt "@info:tooltip"
+msgid "Bold"
+msgstr "გასქელება"
+
+#: widgets/room/quicktextformatmessage.cpp:41
+#, fuzzy, kde-format
+#| msgid "Italic"
+msgctxt "@info:tooltip"
+msgid "Italic"
+msgstr "დახრა"
+
+#: widgets/room/quicktextformatmessage.cpp:52
+#, fuzzy, kde-format
+#| msgid "Strike-out"
+msgctxt "@info:tooltip"
+msgid "Strike Through"
+msgstr "გადასმა"
+
+#: widgets/room/quicktextformatmessage.cpp:62
+#, fuzzy, kde-format
+#| msgid "Code Block"
+msgctxt "@info:tooltip"
+msgid "Code Block"
+msgstr "კოდის ბლოკი"
+
+#: widgets/room/quicktextformatmessage.cpp:74
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Quote"
+msgctxt "@info:tooltip"
+msgid "Quote Text"
+msgstr "ციტატა"
+
+#: widgets/room/quicktextformatmessage.cpp:86
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@info:tooltip"
+msgid "Insert Link"
+msgstr "ჩასმა"
+
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "(Try Reconnect)"
@@ -11594,10 +11637,8 @@ msgid "Add Open With button in show image."
 msgstr "გამოსახულების ჩვენებისას \"გახსნა პროგრამით\" ღილაკის დამატება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "ტექსტის ფორმატის შეცვლა"
+msgstr "დაემატა სწრაფი ტექსტის ფორმატი."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
@@ -12842,9 +12883,6 @@ msgstr "გამოსწორდა ზოგიერთი შეცდო�
 #~ msgctxt "@title:window"
 #~ msgid "Select Special Characters"
 #~ msgstr "აირჩიეთ სპეციალური სიმბოლოები"
-
-#~ msgid "Insert"
-#~ msgstr "ჩასმა"
 
 #~ msgid "Select"
 #~ msgstr "არჩევა"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
-"PO-Revision-Date: 2025-08-20 14:50+0200\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"PO-Revision-Date: 2025-08-24 18:53+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1313,7 +1313,7 @@ msgstr "Kanal-mota"
 msgid "Belongs To"
 msgstr "Honi dagokio,"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:580
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1451,80 +1451,80 @@ msgstr "Bi faktoreko kautotzea"
 msgid "Last token part"
 msgstr "Tokenaren azken zatia"
 
-#: core/model/roommodel.cpp:510
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "Aipamen %1"
 msgstr[1] "%1 aipamen"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "Taldearen aipamen %1"
 msgstr[1] "Taldearen %1 aipamen"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Hariko mezu %1 irakurri gabe"
 msgstr[1] "Hariko %1 mezu irakurri gabe"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "Irakurri gabeko mezu %1"
 msgstr[1] "Irakurri gabeko %1 mezu"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:553
 #, kde-format
 msgid "Teams Room"
 msgstr "Taldearen gela"
 
-#: core/model/roommodel.cpp:554
+#: core/model/roommodel.cpp:559
 #, kde-format
 msgid "Private Room"
 msgstr "Gela pribatua"
 
-#: core/model/roommodel.cpp:556
+#: core/model/roommodel.cpp:561
 #, kde-format
 msgid "Discussion Room"
 msgstr "Elkarrizketa-gela"
 
-#: core/model/roommodel.cpp:560
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanalaren gela"
 
-#: core/model/roommodel.cpp:574 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Irakurri gabea"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:581
 #, kde-format
 msgid "Favorites"
 msgstr "Gogokoak"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Teams"
 msgstr "Taldeak"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Discussions"
 msgstr "Eztabaidak"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Private Messages"
 msgstr "Mezu pribatua"
 
-#: core/model/roommodel.cpp:586 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
@@ -10731,6 +10731,49 @@ msgstr "Kode-blokea"
 msgid "Markdown Url"
 msgstr "Markdown URLa"
 
+#: widgets/room/quicktextformatmessage.cpp:30
+#, fuzzy, kde-format
+#| msgid "Bold"
+msgctxt "@info:tooltip"
+msgid "Bold"
+msgstr "Lodia"
+
+#: widgets/room/quicktextformatmessage.cpp:41
+#, fuzzy, kde-format
+#| msgid "Italic"
+msgctxt "@info:tooltip"
+msgid "Italic"
+msgstr "Etzana"
+
+#: widgets/room/quicktextformatmessage.cpp:52
+#, fuzzy, kde-format
+#| msgid "Strike-out"
+msgctxt "@info:tooltip"
+msgid "Strike Through"
+msgstr "Marratua"
+
+#: widgets/room/quicktextformatmessage.cpp:62
+#, fuzzy, kde-format
+#| msgid "Code Block"
+msgctxt "@info:tooltip"
+msgid "Code Block"
+msgstr "Kode-blokea"
+
+#: widgets/room/quicktextformatmessage.cpp:74
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Quote"
+msgctxt "@info:tooltip"
+msgid "Quote Text"
+msgstr "Aipua"
+
+#: widgets/room/quicktextformatmessage.cpp:86
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "@info:tooltip"
+msgid "Insert Link"
+msgstr "Txertatu"
+
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
 msgid "(Try Reconnect)"
@@ -11651,10 +11694,8 @@ msgid "Add Open With button in show image."
 msgstr "Erakutsi irudian Ireki honekin botoia gehitzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "Aldatu testuaren formatua"
+msgstr "Gehitu testuaren formatu azkarra."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
@@ -12757,9 +12798,6 @@ msgstr "Akatsak konponketa batzuk:"
 #~ msgctxt "@title:window"
 #~ msgid "Select Special Characters"
 #~ msgstr "Hautatu karaktere bereziak"
-
-#~ msgid "Insert"
-#~ msgstr "Txertatu"
 
 #~ msgid "Select"
 #~ msgstr "Hautatu"
