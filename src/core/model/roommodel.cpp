@@ -343,7 +343,9 @@ void RoomModel::removeRoom(const QByteArray &roomId)
             beginRemoveRows(QModelIndex(), i, i);
             mRoomsList.takeAt(i)->deleteLater();
             endRemoveRows();
-            mRocketChatAccount->localDatabaseManager()->roomsDatabase()->deleteRoom(mRocketChatAccount->accountName(), roomId);
+            if (mRocketChatAccount) {
+                mRocketChatAccount->localDatabaseManager()->roomsDatabase()->deleteRoom(mRocketChatAccount->accountName(), roomId);
+            }
             break;
         }
     }
@@ -362,7 +364,9 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         if (const auto roomId = addRoom(roomData); roomId.isEmpty()) {
             qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to add room";
         } else {
-            mRocketChatAccount->updateRoomInDatabase(roomId);
+            if (mRocketChatAccount) {
+                mRocketChatAccount->updateRoomInDatabase(roomId);
+            }
         }
 
         // addRoom(roomData.value("rid"_L1).toString(), roomData.value("name"_L1).toString(), false);
