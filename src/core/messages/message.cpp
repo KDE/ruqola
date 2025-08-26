@@ -1182,7 +1182,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     o["messageID"_L1] = QString::fromLatin1(message.mMessageId);
     o["roomID"_L1] = QString::fromLatin1(message.mRoomId);
-    o["message"_L1] = message.mText;
+    if (!message.mText.isEmpty()) {
+        o["message"_L1] = message.mText;
+    }
     o["timestamp"_L1] = message.mTimeStamp;
     o["username"_L1] = message.mUsername;
     if (!message.mName.isEmpty()) {
