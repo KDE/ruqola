@@ -5,13 +5,8 @@
     "notifications": {
         "audioNotificationValue": "",
         "desktopNotifications": "",
-        "disableNotifications": false,
         "emailNotifications": "nothing",
-        "hideMentionStatus": false,
-        "hideUnreadStatus": false,
-        "mobilePushNotifications": "",
-        "muteGroupMentions": false,
-        "unreadAlert": ""
+        "mobilePushNotifications": ""
     },
     "open": true,
     "rid": "or396aM8g7vXngDZA",

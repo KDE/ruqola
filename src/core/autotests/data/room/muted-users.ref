@@ -7,13 +7,8 @@
     "notifications": {
         "audioNotificationValue": "",
         "desktopNotifications": "",
-        "disableNotifications": false,
         "emailNotifications": "",
-        "hideMentionStatus": false,
-        "hideUnreadStatus": false,
-        "mobilePushNotifications": "",
-        "muteGroupMentions": false,
-        "unreadAlert": ""
+        "mobilePushNotifications": ""
     },
     "rid": "Dic5wZD4Zu9ze5gk3",
     "t": "p",

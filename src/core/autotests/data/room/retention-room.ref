@@ -3,13 +3,8 @@
     "notifications": {
         "audioNotificationValue": "",
         "desktopNotifications": "",
-        "disableNotifications": false,
         "emailNotifications": "",
-        "hideMentionStatus": false,
-        "hideUnreadStatus": false,
-        "mobilePushNotifications": "",
-        "muteGroupMentions": false,
-        "unreadAlert": ""
+        "mobilePushNotifications": ""
     },
     "retention": {
         "enabled": false,

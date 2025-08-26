@@ -6,12 +6,8 @@
     "notifications": {
         "audioNotificationValue": "chime",
         "desktopNotifications": "mentions",
-        "disableNotifications": false,
         "emailNotifications": "default",
-        "hideMentionStatus": false,
-        "hideUnreadStatus": false,
         "mobilePushNotifications": "",
-        "muteGroupMentions": false,
         "unreadAlert": "nothing"
     },
     "open": true,

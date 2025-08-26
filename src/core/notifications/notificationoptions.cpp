@@ -53,14 +53,24 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 {
     QJsonObject obj;
     obj["audioNotificationValue"_L1] = QString::fromLatin1(options.audioNotificationValue());
-    obj["disableNotifications"_L1] = options.disableNotifications();
+    if (options.disableNotifications()) {
+        obj["disableNotifications"_L1] = true;
+    }
     obj["desktopNotifications"_L1] = QString::fromLatin1(options.desktopNotifications().currentValue());
     obj["mobilePushNotifications"_L1] = QString::fromLatin1(options.mobilePushNotification().currentValue());
     obj["emailNotifications"_L1] = QString::fromLatin1(options.emailNotifications().currentValue());
-    obj["unreadAlert"_L1] = options.unreadTrayIconAlert();
-    obj["hideUnreadStatus"_L1] = options.hideUnreadStatus();
-    obj["muteGroupMentions"_L1] = options.muteGroupMentions();
-    obj["hideMentionStatus"_L1] = options.hideMentionStatus();
+    if (!options.unreadTrayIconAlert().isEmpty()) {
+        obj["unreadAlert"_L1] = options.unreadTrayIconAlert();
+    }
+    if (options.hideUnreadStatus()) {
+        obj["hideUnreadStatus"_L1] = true;
+    }
+    if (options.muteGroupMentions()) {
+        obj["muteGroupMentions"_L1] = true;
+    }
+    if (options.hideMentionStatus()) {
+        obj["hideMentionStatus"_L1] = true;
+    }
     return obj;
 }
 
@@ -69,11 +79,11 @@ NotificationOptions NotificationOptions::deserialize(const QJsonObject &o)
     qCWarning(RUQOLA_LOG) << "Not implemented yet";
     NotificationOptions options;
     options.setAudioNotificationValue(o["audioNotificationValue"_L1].toString().toLatin1());
-    options.setDisableNotifications(o["disableNotifications"_L1].toBool());
+    options.setDisableNotifications(o["disableNotifications"_L1].toBool(false));
     options.setUnreadTrayIconAlert(o["unreadAlert"_L1].toString());
-    options.setHideUnreadStatus(o["hideUnreadStatus"_L1].toBool());
-    options.setMuteGroupMentions(o["muteGroupMentions"_L1].toBool());
-    options.setHideMentionStatus(o["hideMentionStatus"_L1].toBool());
+    options.setHideUnreadStatus(o["hideUnreadStatus"_L1].toBool(false));
+    options.setMuteGroupMentions(o["muteGroupMentions"_L1].toBool(false));
+    options.setHideMentionStatus(o["hideMentionStatus"_L1].toBool(false));
     options.setDesktopNotifications(NotificationValue(o["desktopNotifications"_L1].toString().toLatin1(), QByteArray()));
     options.setMobilePushNotification(NotificationValue(o["mobilePushNotifications"_L1].toString().toLatin1(), QByteArray()));
     options.setEmailNotifications(NotificationValue(o["emailNotifications"_L1].toString().toLatin1(), QByteArray()));

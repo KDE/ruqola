@@ -8,13 +8,8 @@
     "notifications": {
         "audioNotificationValue": "",
         "desktopNotifications": "",
-        "disableNotifications": false,
         "emailNotifications": "",
-        "hideMentionStatus": false,
-        "hideUnreadStatus": false,
-        "mobilePushNotifications": "",
-        "muteGroupMentions": false,
-        "unreadAlert": ""
+        "mobilePushNotifications": ""
     },
     "open": true,
     "rid": "np9DKhZY3TL3depq4",
