@@ -23,9 +23,7 @@ QuickTextFormatMessage::QuickTextFormatMessage(QTextEdit *editor, QWidget *paren
     , mEditor(editor)
     , mUpdatePositionTimer(new QTimer(this))
 {
-    setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowDoesNotAcceptFocus);
-
-    setFocusPolicy(Qt::NoFocus);
+    setWindowFlags(Qt::ToolTip | Qt::FramelessWindowHint | Qt::WindowDoesNotAcceptFocus);
 
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
