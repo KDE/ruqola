@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-25 00:42+0000\n"
-"PO-Revision-Date: 2025-08-24 10:44-0300\n"
+"POT-Creation-Date: 2025-08-26 00:42+0000\n"
+"PO-Revision-Date: 2025-08-25 14:32-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -1298,7 +1298,7 @@ msgstr "Tipo de canal"
 msgid "Belongs To"
 msgstr "Pertence a"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:589
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1436,80 +1436,80 @@ msgstr "Autenticação de dois fatores"
 msgid "Last token part"
 msgstr "Última parte do token"
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 menção"
 msgstr[1] "%1 menções"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 menção de grupo"
 msgstr[1] "%1 menções de grupo"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 mensagem encadeada não lida"
 msgstr[1] "%1 mensagens encadeadas não lidas"
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 mensagem não lida"
 msgstr[1] "%1 mensagens não lidas"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:557
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala da equipe"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:563
 #, kde-format
 msgid "Private Room"
 msgstr "Sala privada"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de discussão"
 
-#: core/model/roommodel.cpp:565
+#: core/model/roommodel.cpp:569
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala do canal"
 
-#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:583 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Não lida"
 
-#: core/model/roommodel.cpp:581
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Teams"
 msgstr "Equipes"
 
-#: core/model/roommodel.cpp:587
+#: core/model/roommodel.cpp:591
 #, kde-format
 msgid "Discussions"
 msgstr "Discussões"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:593
 #, kde-format
 msgid "Private Messages"
 msgstr "Mensagens privadas"
 
-#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:595 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -1824,17 +1824,17 @@ msgstr "Líder"
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1543
+#: core/room.cpp:1549
 #, kde-format
 msgid "Channel is read only."
 msgstr "O canal é somente leitura."
 
-#: core/room.cpp:1546
+#: core/room.cpp:1552
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Você bloqueou este canal."
 
-#: core/room.cpp:1549
+#: core/room.cpp:1555
 #, kde-format
 msgid "Channel was blocked."
 msgstr "O canal foi bloqueado."
@@ -9439,6 +9439,13 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Diminuir tamanho da fonte"
 
+#: widgets/misc/clickablewidget.cpp:63
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@info:tooltip"
+msgid "Remove"
+msgstr "Excluir"
+
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
 msgid "Save Video"
@@ -10718,49 +10725,41 @@ msgstr "Bloco de código"
 msgid "Markdown Url"
 msgstr "URL Markdown"
 
-#: widgets/room/quicktextformatmessage.cpp:30
-#, fuzzy, kde-format
-#| msgid "Bold"
+#: widgets/room/quicktextformatmessage.cpp:41
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Negrito"
 
-#: widgets/room/quicktextformatmessage.cpp:41
-#, fuzzy, kde-format
-#| msgid "Italic"
+#: widgets/room/quicktextformatmessage.cpp:53
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Itálico"
 
-#: widgets/room/quicktextformatmessage.cpp:52
-#, fuzzy, kde-format
-#| msgid "Strike-out"
+#: widgets/room/quicktextformatmessage.cpp:65
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Tachado"
 
-#: widgets/room/quicktextformatmessage.cpp:62
-#, fuzzy, kde-format
-#| msgid "Code Block"
+#: widgets/room/quicktextformatmessage.cpp:78
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Bloco de código"
 
-#: widgets/room/quicktextformatmessage.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#: widgets/room/quicktextformatmessage.cpp:91
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "Citar"
+msgstr "Citação"
 
-#: widgets/room/quicktextformatmessage.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Link:"
+#: widgets/room/quicktextformatmessage.cpp:106
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "Link de convite:"
+msgstr "Inserir link"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -10791,12 +10790,12 @@ msgid_plural "%1 new messages since %2."
 msgstr[0] "%1 nova mensagem desde %2."
 msgstr[1] "%1 novas mensagens desde %2."
 
-#: widgets/room/roomheaderlabel.cpp:68
+#: widgets/room/roomheaderlabel.cpp:75
 #, kde-format
 msgid "(Show More Info…)"
 msgstr "(Mostrar mais informações...)"
 
-#: widgets/room/roomheaderlabel.cpp:100
+#: widgets/room/roomheaderlabel.cpp:105
 #, kde-format
 msgid "(Show Less Info…)"
 msgstr "(Mostrar menos informações...)"

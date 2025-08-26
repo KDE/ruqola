@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-25 00:42+0000\n"
-"PO-Revision-Date: 2025-08-24 21:40+0400\n"
+"POT-Creation-Date: 2025-08-26 00:42+0000\n"
+"PO-Revision-Date: 2025-08-25 17:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1295,7 +1295,7 @@ msgstr "نوع القناة"
 msgid "Belongs To"
 msgstr "ينتمي إلى"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:589
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1437,7 +1437,7 @@ msgstr "الاستيثاق الثنائي"
 msgid "Last token part"
 msgstr "أخر جزء من الرمز"
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1448,7 +1448,7 @@ msgstr[3] "%1 إشارات"
 msgstr[4] "%1 إشارة"
 msgstr[5] "%1 إشارة"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1459,7 +1459,7 @@ msgstr[3] "%1 إشارات للمجموعة"
 msgstr[4] "%1 إشارة للمجموعة"
 msgstr[5] "%1 إشارة للمجموعة"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1470,7 +1470,7 @@ msgstr[3] "%1 رسائل مسلسلة غير مقروءة"
 msgstr[4] "%1 رسالة مسلسلة غير مقروءة"
 msgstr[5] "%1 رسالة مسلسلة غير مقروءة"
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1481,52 +1481,52 @@ msgstr[3] "%1 رسائل غير مقروءة"
 msgstr[4] "%1 رسالة غير مقروءة"
 msgstr[5] "%1 رسالة غير مقروءة"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:557
 #, kde-format
 msgid "Teams Room"
 msgstr "غرفة فرق"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:563
 #, kde-format
 msgid "Private Room"
 msgstr "غرفة خاصة"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Discussion Room"
 msgstr "غرفة مناقشة"
 
-#: core/model/roommodel.cpp:565
+#: core/model/roommodel.cpp:569
 #, kde-format
 msgid "Channel Room"
 msgstr "غرفة قناة"
 
-#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:583 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "غير المقروء"
 
-#: core/model/roommodel.cpp:581
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Favorites"
 msgstr "المفضّلة"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Teams"
 msgstr "الفرق"
 
-#: core/model/roommodel.cpp:587
+#: core/model/roommodel.cpp:591
 #, kde-format
 msgid "Discussions"
 msgstr "مناقشات"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:593
 #, kde-format
 msgid "Private Messages"
 msgstr "رسائل خاصة"
 
-#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:595 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "مجهول"
@@ -1841,17 +1841,17 @@ msgstr "قائد"
 msgid "Moderator"
 msgstr "وسيط"
 
-#: core/room.cpp:1543
+#: core/room.cpp:1549
 #, kde-format
 msgid "Channel is read only."
 msgstr "القناة للقراءة فقط."
 
-#: core/room.cpp:1546
+#: core/room.cpp:1552
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "لقد حظرت هذه القناة."
 
-#: core/room.cpp:1549
+#: core/room.cpp:1555
 #, kde-format
 msgid "Channel was blocked."
 msgstr "حُظرت القناة."
@@ -9450,6 +9450,13 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "انقص حجم الخط"
 
+#: widgets/misc/clickablewidget.cpp:63
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@info:tooltip"
+msgid "Remove"
+msgstr "أزل"
+
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
 msgid "Save Video"
@@ -10734,49 +10741,41 @@ msgstr "كتلة شفرة"
 msgid "Markdown Url"
 msgstr "رابط مارك‌داون"
 
-#: widgets/room/quicktextformatmessage.cpp:30
-#, fuzzy, kde-format
-#| msgid "Bold"
+#: widgets/room/quicktextformatmessage.cpp:41
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "ثخين"
 
-#: widgets/room/quicktextformatmessage.cpp:41
-#, fuzzy, kde-format
-#| msgid "Italic"
+#: widgets/room/quicktextformatmessage.cpp:53
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "مائل"
 
-#: widgets/room/quicktextformatmessage.cpp:52
-#, fuzzy, kde-format
-#| msgid "Strike-out"
+#: widgets/room/quicktextformatmessage.cpp:65
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "مشطوب"
 
-#: widgets/room/quicktextformatmessage.cpp:62
-#, fuzzy, kde-format
-#| msgid "Code Block"
+#: widgets/room/quicktextformatmessage.cpp:78
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "كتلة شفرة"
 
-#: widgets/room/quicktextformatmessage.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#: widgets/room/quicktextformatmessage.cpp:91
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "اقتبس"
+msgstr "اقتباس"
 
-#: widgets/room/quicktextformatmessage.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Link:"
+#: widgets/room/quicktextformatmessage.cpp:106
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "رابط الدعوة:"
+msgstr "أدرج رابط"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -10811,12 +10810,12 @@ msgstr[3] "%1 رسائل جديدة منذ %2."
 msgstr[4] "%1 رسالة جديدة منذ %2."
 msgstr[5] "%1 رسالة جديدة منذ %2."
 
-#: widgets/room/roomheaderlabel.cpp:68
+#: widgets/room/roomheaderlabel.cpp:75
 #, kde-format
 msgid "(Show More Info…)"
 msgstr "(اعرض معلومات أكثر…)"
 
-#: widgets/room/roomheaderlabel.cpp:100
+#: widgets/room/roomheaderlabel.cpp:105
 #, kde-format
 msgid "(Show Less Info…)"
 msgstr "(اعرض معلومات أقل…)"

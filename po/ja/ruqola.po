@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"POT-Creation-Date: 2025-08-26 00:42+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1289,7 +1289,7 @@ msgstr ""
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:589
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1426,76 +1426,76 @@ msgstr ""
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:557
 #, kde-format
 msgid "Teams Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:563
 #, kde-format
 msgid "Private Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:565
+#: core/model/roommodel.cpp:569
 #, kde-format
 msgid "Channel Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:583 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr ""
 
-#: core/model/roommodel.cpp:581
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:587
+#: core/model/roommodel.cpp:591
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:593
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:595 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr ""
@@ -1808,17 +1808,17 @@ msgstr ""
 msgid "Moderator"
 msgstr ""
 
-#: core/room.cpp:1543
+#: core/room.cpp:1549
 #, kde-format
 msgid "Channel is read only."
 msgstr ""
 
-#: core/room.cpp:1546
+#: core/room.cpp:1552
 #, kde-format
 msgid "You have blocked this channel."
 msgstr ""
 
-#: core/room.cpp:1549
+#: core/room.cpp:1555
 #, kde-format
 msgid "Channel was blocked."
 msgstr ""
@@ -9125,6 +9125,12 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr ""
 
+#: widgets/misc/clickablewidget.cpp:63
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remove"
+msgstr ""
+
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
 msgid "Save Video"
@@ -10370,37 +10376,37 @@ msgstr ""
 msgid "Markdown Url"
 msgstr ""
 
-#: widgets/room/quicktextformatmessage.cpp:30
+#: widgets/room/quicktextformatmessage.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr ""
 
-#: widgets/room/quicktextformatmessage.cpp:41
+#: widgets/room/quicktextformatmessage.cpp:53
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr ""
 
-#: widgets/room/quicktextformatmessage.cpp:52
+#: widgets/room/quicktextformatmessage.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr ""
 
-#: widgets/room/quicktextformatmessage.cpp:62
+#: widgets/room/quicktextformatmessage.cpp:78
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr ""
 
-#: widgets/room/quicktextformatmessage.cpp:74
+#: widgets/room/quicktextformatmessage.cpp:91
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
 msgstr ""
 
-#: widgets/room/quicktextformatmessage.cpp:86
+#: widgets/room/quicktextformatmessage.cpp:106
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
@@ -10434,12 +10440,12 @@ msgid "%1 new message since %2."
 msgid_plural "%1 new messages since %2."
 msgstr[0] ""
 
-#: widgets/room/roomheaderlabel.cpp:68
+#: widgets/room/roomheaderlabel.cpp:75
 #, kde-format
 msgid "(Show More Info…)"
 msgstr ""
 
-#: widgets/room/roomheaderlabel.cpp:100
+#: widgets/room/roomheaderlabel.cpp:105
 #, kde-format
 msgid "(Show Less Info…)"
 msgstr ""

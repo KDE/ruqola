@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"POT-Creation-Date: 2025-08-26 00:42+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1294,7 +1294,7 @@ msgstr "Typ kanálu"
 msgid "Belongs To"
 msgstr "Patří"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:585
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:589
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1433,7 +1433,7 @@ msgstr "Dvoufaktorové ověření"
 msgid "Last token part"
 msgstr "Poslední část tokenu"
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1441,7 +1441,7 @@ msgstr[0] "%1 Zmínka"
 msgstr[1] "%1 Zmínky"
 msgstr[2] "%1 Zmínek"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1449,7 +1449,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1457,7 +1457,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:531
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1465,52 +1465,52 @@ msgstr[0] "%1 Nepřečtená zpráva"
 msgstr[1] "%1 Nepřečtené zprávy"
 msgstr[2] "%1 Nepřečtených zpráv"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:557
 #, kde-format
 msgid "Teams Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:563
 #, kde-format
 msgid "Private Room"
 msgstr "Soukromá místnost"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:565
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:565
+#: core/model/roommodel.cpp:569
 #, kde-format
 msgid "Channel Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:579 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:583 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Nepřečteno"
 
-#: core/model/roommodel.cpp:581
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Favorites"
 msgstr "Oblíbené"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Teams"
 msgstr "Týmy"
 
-#: core/model/roommodel.cpp:587
+#: core/model/roommodel.cpp:591
 #, kde-format
 msgid "Discussions"
 msgstr "Diskuze"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:593
 #, kde-format
 msgid "Private Messages"
 msgstr "Soukromé zprávy"
 
-#: core/model/roommodel.cpp:591 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:595 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Neznámý"
@@ -1823,17 +1823,17 @@ msgstr "Vedoucí"
 msgid "Moderator"
 msgstr "Moderátor"
 
-#: core/room.cpp:1543
+#: core/room.cpp:1549
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanál je pouze ke čtení."
 
-#: core/room.cpp:1546
+#: core/room.cpp:1552
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Zablokoval jste tento kanál."
 
-#: core/room.cpp:1549
+#: core/room.cpp:1555
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanál byl zablokován."
@@ -9228,6 +9228,13 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Zmenšit písmo"
 
+#: widgets/misc/clickablewidget.cpp:63
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@info:tooltip"
+msgid "Remove"
+msgstr "Odstranit"
+
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
 msgid "Save Video"
@@ -10479,35 +10486,35 @@ msgstr "Blok kódu"
 msgid "Markdown Url"
 msgstr ""
 
-#: widgets/room/quicktextformatmessage.cpp:30
+#: widgets/room/quicktextformatmessage.cpp:41
 #, fuzzy, kde-format
 #| msgid "Bold"
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Tučné"
 
-#: widgets/room/quicktextformatmessage.cpp:41
+#: widgets/room/quicktextformatmessage.cpp:53
 #, fuzzy, kde-format
 #| msgid "Italic"
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Kurzíva"
 
-#: widgets/room/quicktextformatmessage.cpp:52
+#: widgets/room/quicktextformatmessage.cpp:65
 #, fuzzy, kde-format
 #| msgid "Strike-out"
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Přeškrtnuté"
 
-#: widgets/room/quicktextformatmessage.cpp:62
+#: widgets/room/quicktextformatmessage.cpp:78
 #, fuzzy, kde-format
 #| msgid "Code Block"
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Blok kódu"
 
-#: widgets/room/quicktextformatmessage.cpp:74
+#: widgets/room/quicktextformatmessage.cpp:91
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Quote"
@@ -10515,7 +10522,7 @@ msgctxt "@info:tooltip"
 msgid "Quote Text"
 msgstr "Citát"
 
-#: widgets/room/quicktextformatmessage.cpp:86
+#: widgets/room/quicktextformatmessage.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Invite Link:"
@@ -10553,12 +10560,12 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/room/roomheaderlabel.cpp:68
+#: widgets/room/roomheaderlabel.cpp:75
 #, kde-format
 msgid "(Show More Info…)"
 msgstr ""
 
-#: widgets/room/roomheaderlabel.cpp:100
+#: widgets/room/roomheaderlabel.cpp:105
 #, kde-format
 msgid "(Show Less Info…)"
 msgstr ""
