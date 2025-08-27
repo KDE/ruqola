@@ -698,8 +698,6 @@ target_sources(
         room/usersinroomlistview.h
         room/usersinroomlistview.cpp
 
-        room/quicktextformatmessage.h
-        room/quicktextformatmessage.cpp
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h
@@ -1012,6 +1010,15 @@ target_sources(
         exploreappstranlationdialog/exploreappstranslationdialog.cpp
 )
 
+if(NOT HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT)
+    target_sources(
+        libruqolawidgets
+        PRIVATE
+        room/quicktextformatmessage.h
+        room/quicktextformatmessage.cpp
+    )
+endif()
+
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(
         libruqolawidgets
@@ -1147,6 +1154,10 @@ endif()
 
 if(HAVE_TEXT_CUSTOM_EDITOR)
     target_link_libraries(libruqolawidgets KF6::TextCustomEditor)
+endif()
+
+if(HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT)
+    target_link_libraries(libruqolawidgets KF6::TextAddonsWidgets)
 endif()
 
 if(NOT WIN32 AND NOT APPLE)

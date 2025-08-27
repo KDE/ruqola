@@ -270,6 +270,18 @@ if(TARGET KF6::TextAutoGenerateText)
     set(HAVE_TEXT_AUTOGENERATE_TEXT TRUE)
 endif()
 
+find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(
+    KF6TextAddonsWidgets
+    PROPERTIES
+        DESCRIPTION "Add text addons widget"
+        TYPE REQUIRED
+)
+
+if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.7.56)
+    set(HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT TRUE)
+endif()
+
 # shall we use DBus?
 # enabled per default on Linux & BSD systems
 set(USE_DBUS_DEFAULT OFF)
