@@ -81,6 +81,12 @@ QString LocalMessageLogger::generateTextFromMessage(const Message &m) const
             }
         }
     }
+    if (m.messageType() == Message::System) {
+        if (!message.isEmpty()) {
+            message += u'\n';
+        }
+        message += m.systemMessageText();
+    }
     return message;
 }
 
