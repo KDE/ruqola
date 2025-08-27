@@ -229,16 +229,6 @@ set_package_properties(
         TYPE REQUIRED
 )
 
-if(${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
-    set(HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT TRUE)
-else()
-    if(${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.3)
-        if(${KF6TextEmoticonsWidgets_VERSION} VERSION_LESS_EQUAL 1.5.30)
-            set(HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT TRUE)
-        endif()
-    endif()
-endif()
-
 find_package(KF6TextUtils ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextUtils

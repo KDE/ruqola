@@ -59,7 +59,6 @@ AccountManager::~AccountManager() = default;
 
 void AccountManager::loadExcludeEmoticons()
 {
-#if HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT
     const QStringList lst = QStringList({u":face_holding_back_tears:"_s,
                                          u":smiling_face_with_tear:"_s,
                                          u":disguised_face:"_s,
@@ -701,7 +700,6 @@ void AccountManager::loadExcludeEmoticons()
                                          u":flag_mf:"_s,
                                          u":yo_yo:"_s});
     TextEmoticonsCore::EmojiModelManager::self()->setExcludeEmoticons(lst);
-#endif
 }
 
 int AccountManager::accountNumber() const
