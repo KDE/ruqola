@@ -32,7 +32,7 @@ QString DelegateUtil::querySaveFileName(QWidget *parent, const QString &title, c
             if (!file.open(QIODevice::ReadOnly)) {
                 return;
             }
-            QMimeDatabase mimeDb;
+            const QMimeDatabase mimeDb;
             const auto mime = mimeDb.mimeTypeForFileNameAndData(fileName, &file);
             if (!mime.isValid()) {
                 return;
