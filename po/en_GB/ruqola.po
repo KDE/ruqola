@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-26 00:42+0000\n"
+"POT-Creation-Date: 2025-08-28 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -173,13 +173,13 @@ msgstr "New feature"
 msgid "The following accounts are available:"
 msgstr "The following accounts are available:"
 
-#: core/accountmanager.cpp:878
+#: core/accountmanager.cpp:876
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "Invalid token"
 
-#: core/accountmanager.cpp:879
+#: core/accountmanager.cpp:877
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -10709,70 +10709,70 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Translator Error"
 
-#: widgets/room/messagetextedit.cpp:219
+#: widgets/room/messagetextedit.cpp:254
 #, kde-format
 msgid "Paste Image"
 msgstr "Paste Image"
 
-#: widgets/room/messagetextedit.cpp:226
+#: widgets/room/messagetextedit.cpp:261
 #, kde-format
 msgid "Change Text Format"
 msgstr "Change Text Format"
 
-#: widgets/room/messagetextedit.cpp:228
+#: widgets/room/messagetextedit.cpp:263
 #, kde-format
 msgid "Bold"
 msgstr "Bold"
 
-#: widgets/room/messagetextedit.cpp:229
+#: widgets/room/messagetextedit.cpp:264
 #, kde-format
 msgid "Italic"
 msgstr "Italic"
 
-#: widgets/room/messagetextedit.cpp:230
+#: widgets/room/messagetextedit.cpp:265
 #, kde-format
 msgid "Strike-out"
 msgstr "Strike-out"
 
-#: widgets/room/messagetextedit.cpp:232
+#: widgets/room/messagetextedit.cpp:267
 #, kde-format
 msgid "Code Block"
 msgstr "Code Block"
 
-#: widgets/room/messagetextedit.cpp:234
+#: widgets/room/messagetextedit.cpp:269
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URL"
 
-#: widgets/room/quicktextformatmessage.cpp:41
+#: widgets/room/quicktextformatmessage.cpp:39
 #, fuzzy, kde-format
 #| msgid "Bold"
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Bold"
 
-#: widgets/room/quicktextformatmessage.cpp:53
+#: widgets/room/quicktextformatmessage.cpp:51
 #, fuzzy, kde-format
 #| msgid "Italic"
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Italic"
 
-#: widgets/room/quicktextformatmessage.cpp:65
+#: widgets/room/quicktextformatmessage.cpp:63
 #, fuzzy, kde-format
 #| msgid "Strike-out"
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Strike-out"
 
-#: widgets/room/quicktextformatmessage.cpp:78
+#: widgets/room/quicktextformatmessage.cpp:76
 #, fuzzy, kde-format
 #| msgid "Code Block"
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Code Block"
 
-#: widgets/room/quicktextformatmessage.cpp:91
+#: widgets/room/quicktextformatmessage.cpp:89
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Quote"
@@ -10780,7 +10780,7 @@ msgctxt "@info:tooltip"
 msgid "Quote Text"
 msgstr "Quote"
 
-#: widgets/room/quicktextformatmessage.cpp:106
+#: widgets/room/quicktextformatmessage.cpp:104
 #, fuzzy, kde-format
 #| msgid "Insert"
 msgctxt "@info:tooltip"

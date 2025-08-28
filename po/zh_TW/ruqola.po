@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-26 00:42+0000\n"
+"POT-Creation-Date: 2025-08-28 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -178,13 +178,13 @@ msgstr "已啟用的功能"
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
-#: core/accountmanager.cpp:878
+#: core/accountmanager.cpp:876
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "無效的權杖"
 
-#: core/accountmanager.cpp:879
+#: core/accountmanager.cpp:877
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -11029,77 +11029,77 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "翻譯工具錯誤"
 
-#: widgets/room/messagetextedit.cpp:219
+#: widgets/room/messagetextedit.cpp:254
 #, kde-format
 msgid "Paste Image"
 msgstr "貼上影像"
 
-#: widgets/room/messagetextedit.cpp:226
+#: widgets/room/messagetextedit.cpp:261
 #, kde-format
 msgid "Change Text Format"
 msgstr "變更文字格式"
 
-#: widgets/room/messagetextedit.cpp:228
+#: widgets/room/messagetextedit.cpp:263
 #, kde-format
 msgid "Bold"
 msgstr "粗體"
 
-#: widgets/room/messagetextedit.cpp:229
+#: widgets/room/messagetextedit.cpp:264
 #, kde-format
 msgid "Italic"
 msgstr "斜體"
 
-#: widgets/room/messagetextedit.cpp:230
+#: widgets/room/messagetextedit.cpp:265
 #, kde-format
 msgid "Strike-out"
 msgstr "刪除線"
 
-#: widgets/room/messagetextedit.cpp:232
+#: widgets/room/messagetextedit.cpp:267
 #, kde-format
 msgid "Code Block"
 msgstr "程式碼區塊"
 
-#: widgets/room/messagetextedit.cpp:234
+#: widgets/room/messagetextedit.cpp:269
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown 網址"
 
-#: widgets/room/quicktextformatmessage.cpp:41
+#: widgets/room/quicktextformatmessage.cpp:39
 #, fuzzy, kde-format
 #| msgid "Bold"
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "粗體"
 
-#: widgets/room/quicktextformatmessage.cpp:53
+#: widgets/room/quicktextformatmessage.cpp:51
 #, fuzzy, kde-format
 #| msgid "Italic"
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "斜體"
 
-#: widgets/room/quicktextformatmessage.cpp:65
+#: widgets/room/quicktextformatmessage.cpp:63
 #, fuzzy, kde-format
 #| msgid "Strike-out"
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "刪除線"
 
-#: widgets/room/quicktextformatmessage.cpp:78
+#: widgets/room/quicktextformatmessage.cpp:76
 #, fuzzy, kde-format
 #| msgid "Code Block"
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "程式碼區塊"
 
-#: widgets/room/quicktextformatmessage.cpp:91
+#: widgets/room/quicktextformatmessage.cpp:89
 #, fuzzy, kde-format
 #| msgid "Copy Text"
 msgctxt "@info:tooltip"
 msgid "Quote Text"
 msgstr "複製文字"
 
-#: widgets/room/quicktextformatmessage.cpp:106
+#: widgets/room/quicktextformatmessage.cpp:104
 #, fuzzy, kde-format
 #| msgid "Invite Link:"
 msgctxt "@info:tooltip"

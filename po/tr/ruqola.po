@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-26 00:42+0000\n"
-"PO-Revision-Date: 2025-08-25 09:44+0300\n"
+"POT-Creation-Date: 2025-08-28 00:42+0000\n"
+"PO-Revision-Date: 2025-08-27 09:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -173,12 +173,12 @@ msgstr "Yeni özellik"
 msgid "The following accounts are available:"
 msgstr "Aşağıdaki hesaplar kullanılabilir:"
 
-#: core/accountmanager.cpp:878
+#: core/accountmanager.cpp:876
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Geçersiz Davet Jetonu"
 
-#: core/accountmanager.cpp:879
+#: core/accountmanager.cpp:877
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Geçersiz davet jetonu. Hesap oluşturma iptal ediliyor."
@@ -9394,8 +9394,7 @@ msgid "Decrease Font"
 msgstr "Yazıtipi Büyüklüğünü Azalt"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Kaldır"
@@ -10647,72 +10646,72 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
 
-#: widgets/room/messagetextedit.cpp:219
+#: widgets/room/messagetextedit.cpp:254
 #, kde-format
 msgid "Paste Image"
 msgstr "Görseli Yapıştır"
 
-#: widgets/room/messagetextedit.cpp:226
+#: widgets/room/messagetextedit.cpp:261
 #, kde-format
 msgid "Change Text Format"
 msgstr "Metin Biçimini Değiştir"
 
-#: widgets/room/messagetextedit.cpp:228
+#: widgets/room/messagetextedit.cpp:263
 #, kde-format
 msgid "Bold"
 msgstr "Kalın"
 
-#: widgets/room/messagetextedit.cpp:229
+#: widgets/room/messagetextedit.cpp:264
 #, kde-format
 msgid "Italic"
 msgstr "Yatık"
 
-#: widgets/room/messagetextedit.cpp:230
+#: widgets/room/messagetextedit.cpp:265
 #, kde-format
 msgid "Strike-out"
 msgstr "Üzeri Çizili"
 
-#: widgets/room/messagetextedit.cpp:232
+#: widgets/room/messagetextedit.cpp:267
 #, kde-format
 msgid "Code Block"
 msgstr "Kod Bloku"
 
-#: widgets/room/messagetextedit.cpp:234
+#: widgets/room/messagetextedit.cpp:269
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URL’si"
 
-#: widgets/room/quicktextformatmessage.cpp:41
+#: widgets/room/quicktextformatmessage.cpp:39
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Kalın"
 
-#: widgets/room/quicktextformatmessage.cpp:53
+#: widgets/room/quicktextformatmessage.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Yatık"
 
-#: widgets/room/quicktextformatmessage.cpp:65
+#: widgets/room/quicktextformatmessage.cpp:63
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Üzeri çizili"
 
-#: widgets/room/quicktextformatmessage.cpp:78
+#: widgets/room/quicktextformatmessage.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Kod bloku"
 
-#: widgets/room/quicktextformatmessage.cpp:91
+#: widgets/room/quicktextformatmessage.cpp:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
 msgstr "Metin alıntısı"
 
-#: widgets/room/quicktextformatmessage.cpp:106
+#: widgets/room/quicktextformatmessage.cpp:104
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"

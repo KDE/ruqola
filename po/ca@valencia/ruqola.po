@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-26 00:42+0000\n"
-"PO-Revision-Date: 2025-08-16 17:59+0200\n"
+"POT-Creation-Date: 2025-08-28 00:42+0000\n"
+"PO-Revision-Date: 2025-08-26 09:43+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -176,12 +176,12 @@ msgstr "Característica nova"
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:878
+#: core/accountmanager.cpp:876
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Testimoni d'invitació no vàlid"
 
-#: core/accountmanager.cpp:879
+#: core/accountmanager.cpp:877
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -9459,8 +9459,7 @@ msgid "Decrease Font"
 msgstr "Disminuïx la mida de la lletra"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Elimina"
@@ -10713,84 +10712,76 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "S'ha produït un error del traductor"
 
-#: widgets/room/messagetextedit.cpp:219
+#: widgets/room/messagetextedit.cpp:254
 #, kde-format
 msgid "Paste Image"
 msgstr "Apega una imatge"
 
-#: widgets/room/messagetextedit.cpp:226
+#: widgets/room/messagetextedit.cpp:261
 #, kde-format
 msgid "Change Text Format"
 msgstr "Canvia el format del text"
 
-#: widgets/room/messagetextedit.cpp:228
+#: widgets/room/messagetextedit.cpp:263
 #, kde-format
 msgid "Bold"
 msgstr "Negreta"
 
-#: widgets/room/messagetextedit.cpp:229
+#: widgets/room/messagetextedit.cpp:264
 #, kde-format
 msgid "Italic"
 msgstr "Cursiva"
 
-#: widgets/room/messagetextedit.cpp:230
+#: widgets/room/messagetextedit.cpp:265
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrat"
 
-#: widgets/room/messagetextedit.cpp:232
+#: widgets/room/messagetextedit.cpp:267
 #, kde-format
 msgid "Code Block"
 msgstr "Bloc de codi"
 
-#: widgets/room/messagetextedit.cpp:234
+#: widgets/room/messagetextedit.cpp:269
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL en Markdown"
 
-#: widgets/room/quicktextformatmessage.cpp:41
-#, fuzzy, kde-format
-#| msgid "Bold"
+#: widgets/room/quicktextformatmessage.cpp:39
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Negreta"
 
-#: widgets/room/quicktextformatmessage.cpp:53
-#, fuzzy, kde-format
-#| msgid "Italic"
+#: widgets/room/quicktextformatmessage.cpp:51
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Cursiva"
 
-#: widgets/room/quicktextformatmessage.cpp:65
-#, fuzzy, kde-format
-#| msgid "Strike-out"
+#: widgets/room/quicktextformatmessage.cpp:63
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Barrat"
 
-#: widgets/room/quicktextformatmessage.cpp:78
-#, fuzzy, kde-format
-#| msgid "Code Block"
+#: widgets/room/quicktextformatmessage.cpp:76
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Bloc de codi"
 
-#: widgets/room/quicktextformatmessage.cpp:91
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#: widgets/room/quicktextformatmessage.cpp:89
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "Cita"
+msgstr "Cita de text"
 
-#: widgets/room/quicktextformatmessage.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Link:"
+#: widgets/room/quicktextformatmessage.cpp:104
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "Enllaç de convit:"
+msgstr "Inserix un enllaç"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11711,10 +11702,8 @@ msgid "Add Open With button in show image."
 msgstr "Afig el botó «Obri amb» en mostrar una imatge."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "Canvia el format del text"
+msgstr "Afig el format del text ràpid."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
@@ -12278,10 +12267,9 @@ msgid "Fix icon on windows."
 msgstr "Corregix una icona en Windows."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:197
-#, fuzzy, kde-format
-#| msgid "Show File Attachments…"
+#, kde-format
 msgid "Fix show file attachment size."
-msgstr "Mostra els fitxers adjunts…"
+msgstr "Corregix la visualització de la mida del fitxer adjunt."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

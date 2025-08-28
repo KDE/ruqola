@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-26 00:42+0000\n"
+"POT-Creation-Date: 2025-08-28 00:42+0000\n"
 "PO-Revision-Date: 2025-08-26 09:43+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -176,12 +176,12 @@ msgstr "Característica nova"
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:878
+#: core/accountmanager.cpp:876
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Testimoni d'invitació no vàlid"
 
-#: core/accountmanager.cpp:879
+#: core/accountmanager.cpp:877
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -10713,72 +10713,72 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Error del traductor"
 
-#: widgets/room/messagetextedit.cpp:219
+#: widgets/room/messagetextedit.cpp:254
 #, kde-format
 msgid "Paste Image"
 msgstr "Enganxa una imatge"
 
-#: widgets/room/messagetextedit.cpp:226
+#: widgets/room/messagetextedit.cpp:261
 #, kde-format
 msgid "Change Text Format"
 msgstr "Canvia el format del text"
 
-#: widgets/room/messagetextedit.cpp:228
+#: widgets/room/messagetextedit.cpp:263
 #, kde-format
 msgid "Bold"
 msgstr "Negreta"
 
-#: widgets/room/messagetextedit.cpp:229
+#: widgets/room/messagetextedit.cpp:264
 #, kde-format
 msgid "Italic"
 msgstr "Cursiva"
 
-#: widgets/room/messagetextedit.cpp:230
+#: widgets/room/messagetextedit.cpp:265
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrat"
 
-#: widgets/room/messagetextedit.cpp:232
+#: widgets/room/messagetextedit.cpp:267
 #, kde-format
 msgid "Code Block"
 msgstr "Bloc de codi"
 
-#: widgets/room/messagetextedit.cpp:234
+#: widgets/room/messagetextedit.cpp:269
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL en Markdown"
 
-#: widgets/room/quicktextformatmessage.cpp:41
+#: widgets/room/quicktextformatmessage.cpp:39
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Negreta"
 
-#: widgets/room/quicktextformatmessage.cpp:53
+#: widgets/room/quicktextformatmessage.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Cursiva"
 
-#: widgets/room/quicktextformatmessage.cpp:65
+#: widgets/room/quicktextformatmessage.cpp:63
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Barrat"
 
-#: widgets/room/quicktextformatmessage.cpp:78
+#: widgets/room/quicktextformatmessage.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Bloc de codi"
 
-#: widgets/room/quicktextformatmessage.cpp:91
+#: widgets/room/quicktextformatmessage.cpp:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
 msgstr "Cita de text"
 
-#: widgets/room/quicktextformatmessage.cpp:106
+#: widgets/room/quicktextformatmessage.cpp:104
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
