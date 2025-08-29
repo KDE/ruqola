@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-28 00:42+0000\n"
-"PO-Revision-Date: 2025-08-25 13:09+0200\n"
+"PO-Revision-Date: 2025-08-27 07:55+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -9514,8 +9514,7 @@ msgid "Decrease Font"
 msgstr "Diminuer la taille de la police"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Supprimer"
@@ -10813,47 +10812,40 @@ msgid "Markdown Url"
 msgstr "URL « Markdown »"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, fuzzy, kde-format
-#| msgid "Bold"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Gras"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Italique"
 
 #: widgets/room/quicktextformatmessage.cpp:63
-#, fuzzy, kde-format
-#| msgid "Strike-out"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Barré"
 
 #: widgets/room/quicktextformatmessage.cpp:76
-#, fuzzy, kde-format
-#| msgid "Code Block"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Bloc de code"
 
 #: widgets/room/quicktextformatmessage.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "Citer"
+msgstr "Texte de citation"
 
 #: widgets/room/quicktextformatmessage.cpp:104
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "Insérer"
+msgstr "Insérer un lien"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
