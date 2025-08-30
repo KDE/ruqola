@@ -4,7 +4,7 @@
 - change set(RUQOLA_RELEASE_VERSION "24.12.16") in toplevel CMakeLists.txt
   (used for show when version is too old)
 - change src/widgets/needupdateversion/needupdateversionutils.cpp
-  [https://cdn.kde.org/ci-builds/network/ruqola/version_number](https://cdn.kde.org/ci-builds/network/ruqola/version_number)
+  [https://cdn.kde.org/ci-builds/network/ruqola/](https://cdn.kde.org/ci-builds/network/ruqola/)
 
 ## Update generate binaire
 
