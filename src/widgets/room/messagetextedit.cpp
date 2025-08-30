@@ -93,6 +93,8 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
                 case TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::InsertLink:
                     slotInsertMarkdownUrl();
                     break;
+                case TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::Unknown:
+                    break;
                 }
             });
 #else
