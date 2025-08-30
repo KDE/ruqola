@@ -67,6 +67,14 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
 
 #if HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT
     auto quicktextformatmessage = new TextAddonsWidgets::RichTextQuickTextFormat(this, this);
+    TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatTypes formatTypes = TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::Unknown;
+    formatTypes |= TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::Bold;
+    formatTypes |= TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::Italic;
+    formatTypes |= TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::StrikeThrough;
+    formatTypes |= TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::BlockQuote;
+    formatTypes |= TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::InsertLink;
+    formatTypes |= TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::CodeBlock;
+    quicktextformatmessage->setFormatTypes(formatTypes);
     connect(quicktextformatmessage,
             &TextAddonsWidgets::RichTextQuickTextFormat::quickTextFormatRequested,
             this,
