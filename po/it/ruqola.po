@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-28 00:42+0000\n"
-"PO-Revision-Date: 2025-08-19 17:45+0200\n"
+"PO-Revision-Date: 2025-08-27 12:49+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -9458,8 +9458,7 @@ msgid "Decrease Font"
 msgstr "Riduci il carattere"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Rimuovi"
@@ -10751,47 +10750,40 @@ msgid "Markdown Url"
 msgstr "URL Markdown"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, fuzzy, kde-format
-#| msgid "Bold"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Grassetto"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Corsivo"
 
 #: widgets/room/quicktextformatmessage.cpp:63
-#, fuzzy, kde-format
-#| msgid "Strike-out"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
-msgstr "Barrato"
+msgstr "Sbarrato"
 
 #: widgets/room/quicktextformatmessage.cpp:76
-#, fuzzy, kde-format
-#| msgid "Code Block"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Blocco di codice"
 
 #: widgets/room/quicktextformatmessage.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "Cita"
+msgstr "Testo citato"
 
 #: widgets/room/quicktextformatmessage.cpp:104
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "Inserisci"
+msgstr "Inserisci collegamento"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11714,10 +11706,8 @@ msgid "Add Open With button in show image."
 msgstr "Aggiunge il pulsante Apri con nell'immagine mostrata."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "Cambia formato del testo"
+msgstr "Aggiunge il formato di testo rapido."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
