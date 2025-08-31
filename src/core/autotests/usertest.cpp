@@ -138,7 +138,7 @@ void UserTest::checkEqualsAndUnequalsOperator()
     sampleuserOther.setUserId(Id);
     sampleuserOther.setName(name);
     sampleuserOther.setStatus(User::PresenceStatus::Offline);
-    QVERIFY(sampleuser == sampleuserOther);
+    QCOMPARE(sampleuser, sampleuserOther);
 
     sampleuserOther.setName(u"Robert Segwick_NEW"_s);
     QVERIFY(sampleuser != sampleuserOther);
