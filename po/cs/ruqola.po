@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-28 00:42+0000\n"
+"POT-Creation-Date: 2025-08-31 00:42+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -10422,37 +10422,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:254
+#: widgets/room/messagetextedit.cpp:264
 #, kde-format
 msgid "Paste Image"
 msgstr "Vložit obrázek"
 
-#: widgets/room/messagetextedit.cpp:261
+#: widgets/room/messagetextedit.cpp:271
 #, kde-format
 msgid "Change Text Format"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:263
+#: widgets/room/messagetextedit.cpp:273
 #, kde-format
 msgid "Bold"
 msgstr "Tučné"
 
-#: widgets/room/messagetextedit.cpp:264
+#: widgets/room/messagetextedit.cpp:274
 #, kde-format
 msgid "Italic"
 msgstr "Kurzíva"
 
-#: widgets/room/messagetextedit.cpp:265
+#: widgets/room/messagetextedit.cpp:275
 #, kde-format
 msgid "Strike-out"
 msgstr "Přeškrtnuté"
 
-#: widgets/room/messagetextedit.cpp:267
+#: widgets/room/messagetextedit.cpp:277
 #, kde-format
 msgid "Code Block"
 msgstr "Blok kódu"
 
-#: widgets/room/messagetextedit.cpp:269
+#: widgets/room/messagetextedit.cpp:279
 #, kde-format
 msgid "Markdown Url"
 msgstr ""

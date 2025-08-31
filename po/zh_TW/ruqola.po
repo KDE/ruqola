@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-28 00:42+0000\n"
+"POT-Creation-Date: 2025-08-31 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -11029,37 +11029,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "翻譯工具錯誤"
 
-#: widgets/room/messagetextedit.cpp:254
+#: widgets/room/messagetextedit.cpp:264
 #, kde-format
 msgid "Paste Image"
 msgstr "貼上影像"
 
-#: widgets/room/messagetextedit.cpp:261
+#: widgets/room/messagetextedit.cpp:271
 #, kde-format
 msgid "Change Text Format"
 msgstr "變更文字格式"
 
-#: widgets/room/messagetextedit.cpp:263
+#: widgets/room/messagetextedit.cpp:273
 #, kde-format
 msgid "Bold"
 msgstr "粗體"
 
-#: widgets/room/messagetextedit.cpp:264
+#: widgets/room/messagetextedit.cpp:274
 #, kde-format
 msgid "Italic"
 msgstr "斜體"
 
-#: widgets/room/messagetextedit.cpp:265
+#: widgets/room/messagetextedit.cpp:275
 #, kde-format
 msgid "Strike-out"
 msgstr "刪除線"
 
-#: widgets/room/messagetextedit.cpp:267
+#: widgets/room/messagetextedit.cpp:277
 #, kde-format
 msgid "Code Block"
 msgstr "程式碼區塊"
 
-#: widgets/room/messagetextedit.cpp:269
+#: widgets/room/messagetextedit.cpp:279
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown 網址"

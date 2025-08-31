@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-28 00:42+0000\n"
+"POT-Creation-Date: 2025-08-31 00:42+0000\n"
 "PO-Revision-Date: 2025-08-27 09:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -10646,37 +10646,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
 
-#: widgets/room/messagetextedit.cpp:254
+#: widgets/room/messagetextedit.cpp:264
 #, kde-format
 msgid "Paste Image"
 msgstr "Görseli Yapıştır"
 
-#: widgets/room/messagetextedit.cpp:261
+#: widgets/room/messagetextedit.cpp:271
 #, kde-format
 msgid "Change Text Format"
 msgstr "Metin Biçimini Değiştir"
 
-#: widgets/room/messagetextedit.cpp:263
+#: widgets/room/messagetextedit.cpp:273
 #, kde-format
 msgid "Bold"
 msgstr "Kalın"
 
-#: widgets/room/messagetextedit.cpp:264
+#: widgets/room/messagetextedit.cpp:274
 #, kde-format
 msgid "Italic"
 msgstr "Yatık"
 
-#: widgets/room/messagetextedit.cpp:265
+#: widgets/room/messagetextedit.cpp:275
 #, kde-format
 msgid "Strike-out"
 msgstr "Üzeri Çizili"
 
-#: widgets/room/messagetextedit.cpp:267
+#: widgets/room/messagetextedit.cpp:277
 #, kde-format
 msgid "Code Block"
 msgstr "Kod Bloku"
 
-#: widgets/room/messagetextedit.cpp:269
+#: widgets/room/messagetextedit.cpp:279
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URL’si"
