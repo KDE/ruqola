@@ -63,10 +63,10 @@ void UnityServiceManager::initUnity()
     });
 
     // QDBusConnectionInterface::isServiceRegistered blocks
-    QDBusPendingCall listNamesCall = QDBusConnection::sessionBus().interface()->asyncCall(u"ListNames"_s);
+    const QDBusPendingCall listNamesCall = QDBusConnection::sessionBus().interface()->asyncCall(u"ListNames"_s);
     auto callWatcher = new QDBusPendingCallWatcher(listNamesCall, this);
     connect(callWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
-        QDBusPendingReply<QStringList> reply = *watcher;
+        const QDBusPendingReply<QStringList> reply = *watcher;
         watcher->deleteLater();
 
         if (reply.isError()) {
