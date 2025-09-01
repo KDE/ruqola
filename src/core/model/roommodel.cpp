@@ -336,6 +336,9 @@ bool RoomModel::addRoom(Room *room)
 
 void RoomModel::removeRoom(const QByteArray &roomId)
 {
+    if (roomId.isEmpty()) {
+        return;
+    }
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
