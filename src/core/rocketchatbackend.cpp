@@ -729,7 +729,6 @@ void RocketChatBackend::subscribeRegistration()
         u"updateEmojiCustom"_s,
         u"deleteEmojiCustom"_s,
         u"roles-change"_s,
-        u"roles-change"_s,
         u"updateAvatar"_s,
         u"Users:NameChanged"_s,
         u"Users:Deleted"_s,
