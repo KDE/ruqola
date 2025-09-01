@@ -542,7 +542,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             if (messageModel) {
                 const QByteArray messageId = contents.at(0).toObject()["_id"_L1].toString().toLatin1();
                 messageModel->deleteMessage(messageId);
-                Room *room = mRocketChatAccount->room(roomId.toLatin1());
+                const Room *room = mRocketChatAccount->room(roomId.toLatin1());
                 if (room) {
                     mRocketChatAccount->deleteMessageFromDatabase(room->roomId(), messageId);
                 }
