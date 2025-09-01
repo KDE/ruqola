@@ -1630,6 +1630,8 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                         const QJsonObject obj = arrayApps.at(j).toObject();
                         mAppsMarketPlaceModel->updateAppStatus(obj["appId"_L1].toString(), obj["status"_L1].toString());
                     }
+                } else if (type == "app/updated"_L1) {
+                    qDebug() << " NEED TO IMPLEMENT app/updated";
                 } else if (type == "app/settingUpdated"_L1) {
                     qDebug() << " NEED TO IMPLEMENT app/settingUpdated";
                 } else if (type == "app/added"_L1) {
@@ -1640,6 +1642,8 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                     slotUpdateCommands();
                 } else if (type == "command/added"_L1) {
                     slotUpdateCommands();
+                } else if (type == "actions/disabled"_L1) {
+                    qWarning() << " actions/disabled not implemented ";
                 } else if (type == "actions/changed"_L1) {
                     mActionButtonsManager->fetchActionButtons();
                 } else {
