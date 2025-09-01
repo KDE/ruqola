@@ -431,8 +431,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else if (actionName == "removed"_L1) {
                 qCDebug(RUQOLA_BACKEND_LOG) << "Remove channel" << contents;
                 const QJsonObject roomData = contents[1].toObject();
-                // TODO mRocketChatAccount->deleteRoomFromDatabase()
-                // TODO use rid
+                qDebug() << "roomData " << roomData;
+                Q_ASSERT(false);
                 model->removeRoom(QByteArray());
             } else {
                 qWarning() << "rooms-changed invalid actionName " << actionName;
