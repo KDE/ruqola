@@ -38,9 +38,8 @@ QVariant PermissionsModel::headerData(int section, Qt::Orientation orientation, 
     return {};
 }
 
-int PermissionsModel::columnCount(const QModelIndex &parent) const
+int PermissionsModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(PermissionsModel::LastColumn) + 1;
     return val;
 }

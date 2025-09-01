@@ -15,9 +15,8 @@ ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
     qGuiApp->installEventFilter(this);
 }
 
-bool ColorsAndMessageViewStyle::eventFilter(QObject *obj, QEvent *event)
+bool ColorsAndMessageViewStyle::eventFilter([[maybe_unused]] QObject *obj, QEvent *event)
 {
-    Q_UNUSED(obj);
     if (event->type() == QEvent::ApplicationPaletteChange) {
         regenerateColorScheme();
     }
