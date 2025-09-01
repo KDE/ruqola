@@ -7,6 +7,7 @@
 #include "exploredatabaseroomsstoragewidget.h"
 #include "exploredatabaseroomiddelegate.h"
 #include "exploredatabasetimestampdelegate.h"
+#include "exploredatabasetooltipdelegate.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
@@ -23,6 +24,8 @@ ExploreDatabaseRoomsStorageWidget::ExploreDatabaseRoomsStorageWidget(RocketChatA
     mTableView->setItemDelegateForColumn(1, new ExploreDatabaseTimeStampDelegate(this));
     // RoomId => displayName
     mTableView->setItemDelegateForColumn(0, new ExploreDatabaseRoomIdDelegate(account, this));
+
+    mTableView->setItemDelegateForColumn(2, new ExploreDatabaseTooltipDelegate(this));
 }
 
 ExploreDatabaseRoomsStorageWidget::~ExploreDatabaseRoomsStorageWidget() = default;

@@ -793,8 +793,8 @@ target_sources(
         databasedialog/exploredatabaseroomsstoragewidget.h
         databasedialog/exploredatabasetimestampdelegate.h
         databasedialog/exploredatabasetimestampdelegate.cpp
-        databasedialog/exploredatabasejsondelegate.h
-        databasedialog/exploredatabasejsondelegate.cpp
+        databasedialog/exploredatabasetooltipdelegate.h
+        databasedialog/exploredatabasetooltipdelegate.cpp
         databasedialog/exploredatabasejsonplaintexteditwidget.h
         databasedialog/exploredatabasejsonplaintexteditwidget.cpp
         databasedialog/exploredatabaseroomiddelegate.h

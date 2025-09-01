@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exploredatabasemessagesstoragewidget.h"
-#include "exploredatabasejsondelegate.h"
 #include "exploredatabasetimestampdelegate.h"
+#include "exploredatabasetooltipdelegate.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
@@ -20,7 +20,7 @@ ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(Rocke
     , mLocalMessageDatabase(account ? account->localDatabaseManager()->messagesDatabase() : nullptr)
 {
     mTableView->setItemDelegateForColumn(1, new ExploreDatabaseTimeStampDelegate(this));
-    mTableView->setItemDelegateForColumn(2, new ExploreDatabaseJsonDelegate(this));
+    mTableView->setItemDelegateForColumn(2, new ExploreDatabaseTooltipDelegate(this));
 }
 
 ExploreDatabaseMessagesStorageWidget::~ExploreDatabaseMessagesStorageWidget() = default;

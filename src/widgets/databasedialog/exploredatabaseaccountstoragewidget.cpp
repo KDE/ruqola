@@ -5,7 +5,7 @@
 */
 
 #include "exploredatabaseaccountstoragewidget.h"
-#include "exploredatabasejsondelegate.h"
+#include "exploredatabasetooltipdelegate.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
@@ -18,7 +18,7 @@ ExploreDatabaseAccountStorageWidget::ExploreDatabaseAccountStorageWidget(RocketC
     if (account) {
         slotLoadModelFromDataBase(account->accountName());
     }
-    mTableView->setItemDelegateForColumn(1, new ExploreDatabaseJsonDelegate(this));
+    mTableView->setItemDelegateForColumn(1, new ExploreDatabaseTooltipDelegate(this));
 }
 
 ExploreDatabaseAccountStorageWidget::~ExploreDatabaseAccountStorageWidget() = default;

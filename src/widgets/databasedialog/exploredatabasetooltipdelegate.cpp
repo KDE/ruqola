@@ -4,18 +4,18 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "exploredatabasejsondelegate.h"
+#include "exploredatabasetooltipdelegate.h"
 #include <QHelpEvent>
 #include <QToolTip>
 
-ExploreDatabaseJsonDelegate::ExploreDatabaseJsonDelegate(QObject *parent)
+ExploreDatabaseTooltipDelegate::ExploreDatabaseTooltipDelegate(QObject *parent)
     : QStyledItemDelegate{parent}
 {
 }
 
-ExploreDatabaseJsonDelegate::~ExploreDatabaseJsonDelegate() = default;
+ExploreDatabaseTooltipDelegate::~ExploreDatabaseTooltipDelegate() = default;
 
-bool ExploreDatabaseJsonDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool ExploreDatabaseTooltipDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (!event || !view)
         return false;
@@ -28,4 +28,4 @@ bool ExploreDatabaseJsonDelegate::helpEvent(QHelpEvent *event, QAbstractItemView
     return QStyledItemDelegate::helpEvent(event, view, option, index);
 }
 
-#include "moc_exploredatabasejsondelegate.cpp"
+#include "moc_exploredatabasetooltipdelegate.cpp"

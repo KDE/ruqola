@@ -8,12 +8,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QStyledItemDelegate>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseJsonDelegate : public QStyledItemDelegate
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseTooltipDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseJsonDelegate(QObject *parent = nullptr);
-    ~ExploreDatabaseJsonDelegate() override;
+    explicit ExploreDatabaseTooltipDelegate(QObject *parent = nullptr);
+    ~ExploreDatabaseTooltipDelegate() override;
 
     [[nodiscard]] bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 };
