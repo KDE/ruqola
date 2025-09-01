@@ -5,7 +5,6 @@
 */
 
 #include "accountmanager.h"
-#include "connection.h"
 #include "job/validateinviteserverjob.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
