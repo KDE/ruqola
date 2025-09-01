@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 
     KCrash::initialize();
     QCommandLineParser parser;
-    RuqolaCommandLineParser commandLineParser(&parser);
+    const RuqolaCommandLineParser commandLineParser(&parser);
 
     aboutData.setupCommandLine(&parser);
     parser.process(app);
@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
 #endif
     }
 #if WITH_DBUS
-    KDBusService service(KDBusService::Unique);
+    const KDBusService service(KDBusService::Unique);
 #else
     if (!sapp.isPrimaryInstance()) {
         QJsonDocument doc;
