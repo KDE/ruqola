@@ -209,9 +209,8 @@ QTextDocument *ApplicationsSettingsDelegate::documentForModelIndex(const QModelI
     return documentForDelegate(mRocketChatAccount, appsId, fullDescription, width);
 }
 
-RocketChatAccount *ApplicationsSettingsDelegate::rocketChatAccount(const QModelIndex &index) const
+RocketChatAccount *ApplicationsSettingsDelegate::rocketChatAccount([[maybe_unused]] const QModelIndex &index) const
 {
-    Q_UNUSED(index);
     return mRocketChatAccount;
 }
 

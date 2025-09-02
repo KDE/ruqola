@@ -140,9 +140,8 @@ bool BannerInfoListViewDelegate::mouseEvent(QEvent *event, const QStyleOptionVie
     return false;
 }
 
-QPoint BannerInfoListViewDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+QPoint BannerInfoListViewDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }
@@ -193,9 +192,8 @@ bool BannerInfoListViewDelegate::maybeStartDrag(QMouseEvent *event, const QStyle
     return false;
 }
 
-RocketChatAccount *BannerInfoListViewDelegate::rocketChatAccount(const QModelIndex &index) const
+RocketChatAccount *BannerInfoListViewDelegate::rocketChatAccount([[maybe_unused]] const QModelIndex &index) const
 {
-    Q_UNUSED(index);
     return mRocketChatAccount;
 }
 

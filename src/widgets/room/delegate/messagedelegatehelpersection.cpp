@@ -65,9 +65,11 @@ void MessageDelegateHelperSection::draw(const Block &block,
     }
 }
 
-QSize MessageDelegateHelperSection::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageDelegateHelperSection::sizeHint(const Block &block,
+                                             [[maybe_unused]] const QModelIndex &index,
+                                             int maxWidth,
+                                             const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const SectionLayout layout = layoutSection(block, option, maxWidth);
     const int height = layout.sectionTextSize.height() + DelegatePaintUtil::margin();
     return {qMax(0, layout.sectionTextSize.width()), height};
@@ -77,9 +79,8 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
                                                     QMouseEvent *mouseEvent,
                                                     QRect blocksRect,
                                                     const QStyleOptionViewItem &option,
-                                                    const QModelIndex &index)
+                                                    [[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(index);
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
         const SectionLayout layout = layoutSection(block, option);

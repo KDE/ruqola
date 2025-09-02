@@ -84,14 +84,12 @@ void AutoGenerateInteractionUiViewContextBlock::setElements(const QList<AutoGene
     mElements = newElements;
 }
 
-void AutoGenerateInteractionUiViewContextBlock::setErrorMessages(const QMap<QString, QString> &map)
+void AutoGenerateInteractionUiViewContextBlock::setErrorMessages([[maybe_unused]] const QMap<QString, QString> &map)
 {
-    Q_UNUSED(map);
 }
 
-void AutoGenerateInteractionUiViewContextBlock::assignState(const QList<StateInfo> &info)
+void AutoGenerateInteractionUiViewContextBlock::assignState([[maybe_unused]] const QList<StateInfo> &info)
 {
-    Q_UNUSED(info);
 }
 
 void AutoGenerateInteractionUiViewContextBlock::serializeBlock(QJsonObject &o) const

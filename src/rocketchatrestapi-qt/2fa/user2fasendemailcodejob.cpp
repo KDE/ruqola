@@ -31,9 +31,8 @@ bool User2FASendEmailCodeJob::start()
     return true;
 }
 
-void User2FASendEmailCodeJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void User2FASendEmailCodeJob::onPostRequestResponse([[maybe_unused]] const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    Q_UNUSED(replyErrorString);
     // TODO it reports only email.
 
     addLoggerInfo("User2FASendEmailCodeJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));

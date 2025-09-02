@@ -316,9 +316,8 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
     painter->setPen(origPen);
 }
 
-void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
+void MessageListDelegate::selectAll([[maybe_unused]] const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    Q_UNUSED(option);
     mTextSelectionImpl->textSelection()->selectMessage(index);
     mListView->update(index);
     MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());

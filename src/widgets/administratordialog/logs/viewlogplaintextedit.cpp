@@ -31,9 +31,8 @@ ViewLogPlainTextEditor::ViewLogPlainTextEditor(QWidget *parent)
 
 ViewLogPlainTextEditor::~ViewLogPlainTextEditor() = default;
 
-void ViewLogPlainTextEditor::addExtraMenuEntry(QMenu *menu, QPoint pos)
+void ViewLogPlainTextEditor::addExtraMenuEntry(QMenu *menu, [[maybe_unused]] QPoint pos)
 {
-    Q_UNUSED(pos)
     auto action = new QAction(QIcon::fromTheme(u"document-save"_s), i18n("Save as &File"), this);
     connect(action, &QAction::triggered, this, &ViewLogPlainTextEditor::slotSaveAsFile);
     menu->addSeparator();

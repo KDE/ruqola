@@ -40,10 +40,8 @@ public:
         drawDisplay(painter, option, textRect, index.data(Qt::DisplayRole).toString());
     }
 
-    [[nodiscard]] QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
+    [[nodiscard]] QSize sizeHint([[maybe_unused]] const QStyleOptionViewItem &option, [[maybe_unused]] const QModelIndex &index) const override
     {
-        Q_UNUSED(option);
-        Q_UNUSED(index);
         return QSize(100, 22);
     }
 };

@@ -63,9 +63,8 @@ ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
 
 ConfigurePluginsWidget::~ConfigurePluginsWidget() = default;
 
-void ConfigurePluginsWidget::slotItemChanged(QTreeWidgetItem *item, int column)
+void ConfigurePluginsWidget::slotItemChanged([[maybe_unused]] QTreeWidgetItem *item, int column)
 {
-    Q_UNUSED(item)
     if (mInitializeDone) {
         if (column == 0) {
             mMessageWidget->animatedShow();

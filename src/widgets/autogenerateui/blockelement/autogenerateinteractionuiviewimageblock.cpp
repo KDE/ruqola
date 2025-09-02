@@ -20,10 +20,9 @@ AutoGenerateInteractionUiViewImageBlock::~AutoGenerateInteractionUiViewImageBloc
     delete mTitle;
 }
 
-QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewImageBlock::generateWidget([[maybe_unused]] QWidget *parent)
 {
     qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewImageBlock::generateWidget not implemented yet";
-    Q_UNUSED(parent);
     return nullptr;
 }
 

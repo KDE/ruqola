@@ -28,27 +28,23 @@ public:
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
-    [[nodiscard]] virtual QTextDocument *documentForIndex(const QModelIndex &index) const
+    [[nodiscard]] virtual QTextDocument *documentForIndex([[maybe_unused]] const QModelIndex &index) const
     {
-        Q_UNUSED(index);
         Q_ASSERT(false);
         return nullptr;
     }
-    [[nodiscard]] virtual QTextDocument *documentForAttachement(const MessageAttachment &msgAttach) const
+    [[nodiscard]] virtual QTextDocument *documentForAttachement([[maybe_unused]] const MessageAttachment &msgAttach) const
     {
-        Q_UNUSED(msgAttach);
         Q_ASSERT(false);
         return nullptr;
     }
-    [[nodiscard]] virtual QTextDocument *documentForBlock(const Block &block) const
+    [[nodiscard]] virtual QTextDocument *documentForBlock([[maybe_unused]] const Block &block) const
     {
-        Q_UNUSED(block);
         Q_ASSERT(false);
         return nullptr;
     }
-    [[nodiscard]] virtual QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const
+    [[nodiscard]] virtual QTextDocument *documentForUrlPreview([[maybe_unused]] const MessageUrl &messageUrl) const
     {
-        Q_UNUSED(messageUrl);
         Q_ASSERT(false);
         return nullptr;
     }

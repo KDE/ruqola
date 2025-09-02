@@ -27,9 +27,8 @@ bool GitLabAuthenticationInterface::login()
     return true;
 }
 
-PluginAuthenticationConfigureWidget *GitLabAuthenticationInterface::configureWidget(QWidget *parent)
+PluginAuthenticationConfigureWidget *GitLabAuthenticationInterface::configureWidget([[maybe_unused]] QWidget *parent)
 {
-    Q_UNUSED(parent);
     return nullptr;
 }
 

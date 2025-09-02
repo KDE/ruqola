@@ -180,9 +180,8 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
     return false;
 }
 
-QPoint ListDiscussionDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+QPoint ListDiscussionDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }
@@ -270,9 +269,8 @@ bool ListDiscussionDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOpti
     return false;
 }
 
-RocketChatAccount *ListDiscussionDelegate::rocketChatAccount(const QModelIndex &index) const
+RocketChatAccount *ListDiscussionDelegate::rocketChatAccount([[maybe_unused]] const QModelIndex &index) const
 {
-    Q_UNUSED(index);
     return mRocketChatAccount;
 }
 
