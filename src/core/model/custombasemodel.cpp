@@ -31,20 +31,17 @@ QList<int> CustomBaseModel::excludeResizeToContentColumns() const
     return {};
 }
 
-void CustomBaseModel::insertElement(const QJsonObject &obj)
+void CustomBaseModel::insertElement([[maybe_unused]] const QJsonObject &obj)
 {
-    Q_UNUSED(obj)
     // Nothing
 }
 
-void CustomBaseModel::removeElement(const QByteArray &identifier)
+void CustomBaseModel::removeElement([[maybe_unused]] const QByteArray &identifier)
 {
-    Q_UNUSED(identifier)
 }
 
-void CustomBaseModel::updateElement(const QJsonObject &obj)
+void CustomBaseModel::updateElement([[maybe_unused]] const QJsonObject &obj)
 {
-    Q_UNUSED(obj)
     // Nothing
 }
 

@@ -15,9 +15,8 @@ GitHubAuthenticationInterface::GitHubAuthenticationInterface(QObject *parent)
 
 GitHubAuthenticationInterface::~GitHubAuthenticationInterface() = default;
 
-PluginAuthenticationConfigureWidget *GitHubAuthenticationInterface::configureWidget(QWidget *parent)
+PluginAuthenticationConfigureWidget *GitHubAuthenticationInterface::configureWidget([[maybe_unused]] QWidget *parent)
 {
-    Q_UNUSED(parent);
     return nullptr;
 }
 

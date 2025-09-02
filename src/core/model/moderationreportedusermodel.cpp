@@ -42,9 +42,8 @@ QVariant ModerationReportedUserModel::headerData(int section, Qt::Orientation or
     return {};
 }
 
-int ModerationReportedUserModel::columnCount(const QModelIndex &parent) const
+int ModerationReportedUserModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(ModerationReportedUserRoles::LastColumn) + 1;
     return val;
 }
@@ -136,7 +135,7 @@ QList<int> ModerationReportedUserModel::hideColumns() const
     return {ModerationReportedUserRoles::ReportDate, ModerationReportedUserRoles::Identifier};
 }
 
-void ModerationReportedUserModel::removeElement(const QByteArray &identifier)
+void ModerationReportedUserModel::removeElement([[maybe_unused]] const QByteArray &identifier)
 {
 #if 0
     const int userCount = mModerationInfos.count();

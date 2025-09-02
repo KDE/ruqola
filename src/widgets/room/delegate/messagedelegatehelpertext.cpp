@@ -143,16 +143,17 @@ void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModel
     MessageDelegateUtils::drawSelection(doc, rect, rect.top(), painter, index, option, mTextSelectionImpl->textSelection(), {}, {});
 }
 
-QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, [[maybe_unused]] const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
-    Q_UNUSED(option)
     auto *doc = documentForIndex(index, maxWidth, true);
     return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
 
-bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent,
+                                                 QRect messageRect,
+                                                 [[maybe_unused]] const QStyleOptionViewItem &option,
+                                                 const QModelIndex &index)
 {
-    Q_UNUSED(option)
     if (!messageRect.contains(mouseEvent->pos())) {
         return false;
     }

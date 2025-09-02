@@ -27,9 +27,8 @@ bool PluginBase::hasConfigureDialog() const
     return false;
 }
 
-void PluginBase::showConfigureDialog(QWidget *parent) const
+void PluginBase::showConfigureDialog([[maybe_unused]] QWidget *parent) const
 {
-    Q_UNUSED(parent);
 }
 
 #include "moc_pluginbase.cpp"

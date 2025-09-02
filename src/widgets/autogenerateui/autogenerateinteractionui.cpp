@@ -148,8 +148,7 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
         job->setAppsUiInteractionJobInfo(info);
 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
-            Q_UNUSED(replyObject);
+        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
             Q_EMIT submitCalled();
         });
         connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionFailed, this, [this](const QJsonObject &replyObject) {

@@ -36,9 +36,8 @@ QVariant AdminUsersStatusModel::headerData(int section, Qt::Orientation orientat
     return {};
 }
 
-int AdminUsersStatusModel::columnCount(const QModelIndex &parent) const
+int AdminUsersStatusModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(AdminUsersStatusModel::LastColumn) + 1;
     return val;
 }

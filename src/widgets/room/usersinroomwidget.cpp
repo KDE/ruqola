@@ -90,9 +90,8 @@ void UsersInRoomWidget::slotDoubleClick(const QModelIndex &index)
     slotShowUserInfo(index);
 }
 
-void UsersInRoomWidget::slotChangeStatusType(int index)
+void UsersInRoomWidget::slotChangeStatusType([[maybe_unused]] int index)
 {
-    Q_UNUSED(index);
     mUsersForRoomFilterProxy->setStatusType(mUsersInRoomComboBox->currentData().value<UsersForRoomFilterProxyModel::FilterUserType>());
 }
 

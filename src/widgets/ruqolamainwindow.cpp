@@ -176,9 +176,8 @@ void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
     }
 }
 
-void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
+void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, [[maybe_unused]] const QString &workingDirectory)
 {
-    Q_UNUSED(workingDirectory)
     if (!arguments.isEmpty()) {
         QCommandLineParser parser;
         RuqolaCommandLineParser commandLineParser(&parser);

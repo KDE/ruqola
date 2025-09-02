@@ -1056,7 +1056,9 @@ void MessageListView::slotShowUserInfo(const QString &userName)
     dlg.exec();
 }
 
-void MessageListView::slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex)
+void MessageListView::slotTranslate([[maybe_unused]] const QString &from,
+                                    [[maybe_unused]] const QString &to,
+                                    [[maybe_unused]] const QPersistentModelIndex &modelIndex)
 {
 #if HAVE_TEXT_TRANSLATOR
     if (modelIndex.isValid()) {
@@ -1085,10 +1087,6 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
             job->translate();
         }
     }
-#else
-    Q_UNUSED(from)
-    Q_UNUSED(to)
-    Q_UNUSED(modelIndex)
 #endif
 }
 

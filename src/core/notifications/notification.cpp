@@ -93,12 +93,10 @@ void Notification::createToolTip()
     }
 }
 
-void Notification::updateUnityService(int unreadMessage)
+void Notification::updateUnityService([[maybe_unused]] int unreadMessage)
 {
 #if HAVE_UNITY_SUPPORT
     unityServiceManager()->setCount(unreadMessage);
-#else
-    Q_UNUSED(unreadMessage)
 #endif
 }
 

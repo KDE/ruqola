@@ -143,9 +143,8 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
     return {};
 }
 
-int DirectoryRoomsModel::columnCount(const QModelIndex &parent) const
+int DirectoryRoomsModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(DirectoryRoomsModel::LastColumn) + 1;
     return val;
 }

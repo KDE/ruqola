@@ -35,9 +35,8 @@ QVariant AdminCustomSoundModel::headerData(int section, Qt::Orientation orientat
     return {};
 }
 
-int AdminCustomSoundModel::columnCount(const QModelIndex &parent) const
+int AdminCustomSoundModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(CustomSoundsRoles::LastColumn) + 1;
     return val;
 }

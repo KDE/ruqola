@@ -95,9 +95,8 @@ QVariant PersonalAccessTokenInfosModel::headerData(int section, Qt::Orientation 
     return {};
 }
 
-int PersonalAccessTokenInfosModel::columnCount(const QModelIndex &parent) const
+int PersonalAccessTokenInfosModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(PersonalAccessTokenInfosModel::LastColumn) + 1;
     return val;
 }

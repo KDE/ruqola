@@ -32,9 +32,8 @@ bool OauthAppsDeleteJob::start()
     return true;
 }
 
-void OauthAppsDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void OauthAppsDeleteJob::onPostRequestResponse([[maybe_unused]] const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    Q_UNUSED(replyErrorString)
     const QJsonObject replyObject = replyJson.object();
     // No result from RC server ? bug from RC server
     Q_EMIT oauthAppsDeleteDone();

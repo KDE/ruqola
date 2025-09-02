@@ -87,9 +87,8 @@ QVariant AdminUsersAllModel::headerData(int section, Qt::Orientation orientation
     return {};
 }
 
-int AdminUsersAllModel::columnCount(const QModelIndex &parent) const
+int AdminUsersAllModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(AdminUsersAllModel::LastColumn) + 1;
     return val;
 }

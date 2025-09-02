@@ -77,9 +77,8 @@ QJsonObject AutoGenerateInteractionUiViewBlockBase::serialize() const
     return o;
 }
 
-QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget(QWidget *parent)
+QWidget *AutoGenerateInteractionUiViewBlockBase::generateWidget([[maybe_unused]] QWidget *parent)
 {
-    Q_UNUSED(parent);
     return nullptr;
 }
 

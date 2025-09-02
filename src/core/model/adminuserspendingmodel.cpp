@@ -87,9 +87,8 @@ QVariant AdminUsersPendingModel::headerData(int section, Qt::Orientation orienta
     return {};
 }
 
-int AdminUsersPendingModel::columnCount(const QModelIndex &parent) const
+int AdminUsersPendingModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(AdminUsersPendingModel::LastColumn) + 1;
     return val;
 }
