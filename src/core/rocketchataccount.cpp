@@ -5,7 +5,6 @@
 */
 
 #include "rocketchataccount.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountroomsettings.h"
 #include "actionbuttons/actionbuttonsmanager.h"
@@ -112,6 +111,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
+using namespace Qt::Literals::StringLiterals;
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrateDatabase, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
@@ -806,7 +806,7 @@ void RocketChatAccount::openChannel(const QString &roomId, ChannelTypeInfo typeI
     mManageChannels->openChannel(roomId, typeInfo);
 }
 
-void RocketChatAccount::openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
+void RocketChatAccount::openArchivedRoom([[maybe_unused]] const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
 {
     // TODO
 }
@@ -1193,7 +1193,7 @@ void RocketChatAccount::getMentionsMessages(const QByteArray &roomId)
     mListMessageModel->setLoadMoreListMessagesInProgress(true);
     Utils::ListMessagesInfo info;
     info.roomId = roomId;
-    restApi()->getMentionedMessages(std::move(info));
+    restApi()->getMentionedMessages(info);
 }
 
 void RocketChatAccount::getPinnedMessages(const QByteArray &roomId)
@@ -1203,7 +1203,7 @@ void RocketChatAccount::getPinnedMessages(const QByteArray &roomId)
     mListMessageModel->setRoomId(roomId);
     Utils::ListMessagesInfo info;
     info.roomId = roomId;
-    restApi()->getPinnedMessages(std::move(info));
+    restApi()->getPinnedMessages(info);
 }
 
 void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
@@ -1214,7 +1214,7 @@ void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
     Utils::ListMessagesInfo info;
     info.roomId = roomId;
 
-    restApi()->getStarredMessages(std::move(info));
+    restApi()->getStarredMessages(info);
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType)
@@ -1320,7 +1320,7 @@ void RocketChatAccount::setShowRoomAvatar(bool checked)
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
     info.userId = userId();
     info.sidebarDisplayAvatar = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(checked);
-    setUserPreferences(std::move(info));
+    setUserPreferences(info);
 }
 
 void RocketChatAccount::setShowFavoriteRoom(bool checked)
@@ -1328,7 +1328,7 @@ void RocketChatAccount::setShowFavoriteRoom(bool checked)
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
     info.userId = userId();
     info.sidebarShowFavorites = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(checked);
-    setUserPreferences(std::move(info));
+    setUserPreferences(info);
 }
 
 void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
@@ -1347,13 +1347,13 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
                 qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
                 break;
             case ListMessagesModel::StarredMessages:
-                restApi()->getStarredMessages(std::move(info));
+                restApi()->getStarredMessages(info);
                 break;
             case ListMessagesModel::PinnedMessages:
-                restApi()->getPinnedMessages(std::move(info));
+                restApi()->getPinnedMessages(info);
                 break;
             case ListMessagesModel::MentionsMessages:
-                restApi()->getMentionedMessages(std::move(info));
+                restApi()->getMentionedMessages(info);
                 break;
             case ListMessagesModel::ThreadsMessages:
                 // TODO allow to search by type
