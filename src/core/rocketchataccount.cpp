@@ -3361,7 +3361,7 @@ void RocketChatAccount::roomsParsing(const QJsonObject &root)
     // qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
-        QJsonObject roomJson = updated.at(i).toObject();
+        const QJsonObject roomJson = updated.at(i).toObject();
         const QString roomType = roomJson.value("t"_L1).toString();
         if (mRuqolaLogger) {
             QJsonDocument d;
@@ -3395,16 +3395,28 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
 
 void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
 {
-    // qCDebug(RUQOLA_MESSAGE_LOG) << " getsubscription_parsing " << root;
     const QJsonObject obj = root.value("result"_L1).toObject();
     RoomModel *model = roomModel();
+    qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << " RocketChatAccount::getsubscriptionParsing " << root;
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        // qCDebug(RUQOLA_MESSAGE_LOG) << " getsubscription_parsing " << root;
 
-    // qDebug() << " doc " << doc;
-
-    const QJsonArray removed = obj.value("remove"_L1).toArray();
-    if (!removed.isEmpty()) {
-        // TODO implement it.
-        qDebug() << " room removed " << removed;
+        // We parse it for database support
+        const QJsonArray removed = obj.value("remove"_L1).toArray();
+        if (!removed.isEmpty()) {
+            // [{"_deletedAt":{"$date":1755062226770},"_id":"689b8e0c85bb4d46b4859631"},{"_deletedAt":{"$date":1755062397447},...
+            qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << " room removed " << removed;
+            for (int i = 0; i < removed.size(); i++) {
+                const QJsonObject removedRoom = removed.at(i).toObject();
+                const QByteArray roomId = removedRoom["_id"_L1].toString().toLatin1();
+                if (!roomId.isEmpty()) {
+                    deleteRoomFromDatabase(roomId);
+                } else {
+                    qCWarning(RUQOLA_SUBSCRIPTION_PARSING_LOG) << " root : " << root;
+                    Q_ASSERT(false);
+                }
+            }
+        }
     }
 
     const QJsonArray updated = obj.value("update"_L1).toArray();
