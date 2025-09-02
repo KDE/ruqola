@@ -294,7 +294,7 @@ QByteArray RoomModel::addRoom(const QJsonObject &room)
     r->parseSubscriptionRoom(room);
     qCDebug(RUQOLA_ROOMS_LOG) << "Adding room subscription" << r->name() << r->roomId() << r->topic();
     if (!addRoom(r)) {
-        qCDebug(RUQOLA_ROOMS_LOG) << "Impossible to add room: " << r->name();
+        qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to add room: " << r->name();
         return {};
     }
     return r->roomId();
@@ -322,7 +322,7 @@ bool RoomModel::addRoom(Room *room)
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == room->roomId()) {
-            qCDebug(RUQOLA_ROOMS_LOG) << " room already exist " << room->roomId() << " A bug ? ";
+            qCWarning(RUQOLA_ROOMS_LOG) << " room already exist " << room->roomId() << " A bug ? ";
             delete room;
             return false;
         }
