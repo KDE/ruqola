@@ -719,6 +719,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_messages_
     CATEGORY_NAME org.kde.ruqola.messagemodels DESCRIPTION "ruqola message model" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_subscription_parsing_debug.h IDENTIFIER RUQOLA_SUBSCRIPTION_PARSING_LOG
+    CATEGORY_NAME org.kde.ruqola.subscription_parsing DESCRIPTION "ruqola subscription parsing message" EXPORT RUQOLA
+)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)

@@ -20,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/roommodel.h"
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccountsettings.h"
+#include "ruqola_subscription_parsing_debug.h"
 #include "ruqolautils.h"
 
 #include "attachments/fileattachments.h"
@@ -3438,10 +3439,17 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
                 const QByteArray roomId = model->addRoom(room);
-                updateRoomInDatabase(roomId);
+                if (!roomId.isEmpty()) {
+                    updateRoomInDatabase(roomId);
+                } else {
+                    qDebug() << "insert room root : " << root;
+                    Q_ASSERT(false);
+                }
             }
         } else if (roomType == u'l') { // Live chat
-            qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
+            qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Live Chat not implemented yet";
+        } else {
+            qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Not supported roomType: " << roomType;
         }
     }
     // We need to load all room after get subscription to update parameters
