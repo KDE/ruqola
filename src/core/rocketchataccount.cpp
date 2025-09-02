@@ -3454,7 +3454,7 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
     }
     // We need to load all room after get subscription to update parameters
     QJsonObject params;
-    // TODO use timeStamp too
+    // TODO use timeStamp too from last session
     params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
     // Add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-rooms
 
