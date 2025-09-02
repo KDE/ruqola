@@ -30,7 +30,6 @@
 #include "videoconference/videoconferencemessageinfomanager.h"
 
 #include "authenticationmanager/restauthenticationmanager.h"
-#include "connection.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;
 
