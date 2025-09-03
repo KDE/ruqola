@@ -47,7 +47,7 @@ QPair<QStringList, QStringList> PluginUtils::loadPluginSetting(const QString &gr
     QStringList enabledPlugins;
     QStringList disabledPlugins;
     if (config->hasGroup(groupName)) {
-        KConfigGroup grp = config->group(groupName);
+        const KConfigGroup grp = config->group(groupName);
         enabledPlugins = grp.readEntry(u"%1Enabled"_s.arg(prefixSettingKey), QStringList());
         disabledPlugins = grp.readEntry(u"%1Disabled"_s.arg(prefixSettingKey), QStringList());
     }
