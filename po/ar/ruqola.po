@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-02 00:43+0000\n"
+"POT-Creation-Date: 2025-09-03 00:43+0000\n"
 "PO-Revision-Date: 2025-08-26 22:03+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1058,17 +1058,17 @@ msgstr "الاستخدامات المتبقية"
 msgid "Expiration"
 msgstr "انتهاء الصلاحية"
 
-#: core/model/admininvitemodel.cpp:117
+#: core/model/admininvitemodel.cpp:116
 #, kde-format
 msgid "Unlimited"
 msgstr "غير محدود"
 
-#: core/model/admininvitemodel.cpp:125
+#: core/model/admininvitemodel.cpp:124
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "تنتهي صلاحيته في %1 يوم"
 
-#: core/model/admininvitemodel.cpp:127
+#: core/model/admininvitemodel.cpp:126
 #, kde-format
 msgid "Expired"
 msgstr "منتهي"
@@ -1089,8 +1089,8 @@ msgid "Redirect Url"
 msgstr "أعد توجيه الرابط"
 
 #: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:56
-#: core/model/adminusersallmodel.cpp:127
-#: core/model/adminuserspendingmodel.cpp:131
+#: core/model/adminusersallmodel.cpp:126
+#: core/model/adminuserspendingmodel.cpp:130
 #, kde-format
 msgid "Active"
 msgstr "نشط"
@@ -1185,9 +1185,9 @@ msgstr "البريد الإلكترونيّ"
 msgid "Role"
 msgstr "الدّور"
 
-#: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:127
+#: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:126
 #: core/model/adminuserspendingmodel.cpp:74
-#: core/model/adminuserspendingmodel.cpp:131
+#: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
@@ -1802,7 +1802,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> يكتبون…"
 
-#: core/rocketchataccount.cpp:684
+#: core/rocketchataccount.cpp:685
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1811,12 +1811,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:692 core/rocketchataccount.cpp:704
+#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
 #, kde-format
 msgid "Not connected"
 msgstr "غير متّصل"
 
-#: core/rocketchataccount.cpp:699
+#: core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected yet"
 msgstr "غير متّصل حتى الآن"
@@ -3186,14 +3186,14 @@ msgctxt "@title:window"
 msgid "Remove Invite"
 msgstr "أزل الدعوة"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:37
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:93
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:36
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:92
 #, kde-format
 msgid "Save as &File"
 msgstr "احفظ كمل&فّ"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:59
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:119
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:58
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:118
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
@@ -3202,8 +3202,8 @@ msgstr ""
 "تعذّرت كتابة الملفّ %1:\n"
 "وصف الخطأ المفصّل هو ”%2“."
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:63
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:123
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:62
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:122
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File Error"
@@ -3284,7 +3284,7 @@ msgstr "أظهر رسائل الإشراف"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:142
-#: widgets/room/usersinroomwidget.cpp:157
+#: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "Loading…"
 msgstr "يحمل…"
@@ -3292,7 +3292,7 @@ msgstr "يحمل…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:190
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/room/usersinroomwidget.cpp:159
+#: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
 msgid "No Message found"
 msgstr "لم يُعثر على رسالة"
@@ -7532,7 +7532,7 @@ msgid "Username or email:"
 msgstr "اسم المستخدم أو البريد الإلكتروني:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1071
+#: widgets/ruqolamainwindow.cpp:1070
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7542,7 +7542,7 @@ msgstr ""
 "إذا لم يصلك بريد إلكتروني بعد قليل، يرجى العودة والمحاولة مرة أخرى."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1072
+#: widgets/ruqolamainwindow.cpp:1071
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7729,22 +7729,22 @@ msgstr "مكّن التكامل مع أنشطة بلازما"
 msgid "Restart is necessary for applying the changes."
 msgstr "إعادة التّشغيل مطلوبة لتطبيق التّغييرات."
 
-#: widgets/configuredialog/configurepluginswidget.cpp:103
+#: widgets/configuredialog/configurepluginswidget.cpp:102
 #, kde-format
 msgid "Tools Plugins"
 msgstr "ملحقات الأدوات"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:110
+#: widgets/configuredialog/configurepluginswidget.cpp:109
 #, kde-format
 msgid "Text Plugins"
 msgstr "ملحقات النصوص"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:172
+#: widgets/configuredialog/configurepluginswidget.cpp:171
 #, kde-format
 msgid "..."
 msgstr "..."
 
-#: widgets/configuredialog/configurepluginswidget.cpp:174
+#: widgets/configuredialog/configurepluginswidget.cpp:173
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
@@ -7850,13 +7850,13 @@ msgctxt "@title:window"
 msgid "Configure Activities"
 msgstr "اضبط الأنشطة"
 
-#: widgets/configurenewserver/configureactivitieswidget.cpp:55
+#: widgets/configurenewserver/configureactivitieswidget.cpp:53
 #, kde-format
 msgctxt "@option:check"
 msgid "Limit to the selected activities:"
 msgstr "الحد من الأنشطة المحددة:"
 
-#: widgets/configurenewserver/configureactivitieswidget.cpp:62
+#: widgets/configurenewserver/configureactivitieswidget.cpp:60
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8817,7 +8817,7 @@ msgstr[5] "%1 مرفق في الغرفة (الإجمالي: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:131
-#: widgets/room/usersinroomwidget.cpp:168
+#: widgets/room/usersinroomwidget.cpp:167
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(انقر هنا لتحميل المزيد…)"
@@ -10378,33 +10378,33 @@ msgstr "انضم"
 msgid "Link Preview"
 msgstr "معاينة الوصلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:442
+#: widgets/room/delegate/messagelistdelegate.cpp:441
 #, kde-format
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:452
+#: widgets/room/delegate/messagelistdelegate.cpp:451
 #: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "ابدأ محادثة خاصة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:468
+#: widgets/room/delegate/messagelistdelegate.cpp:467
 #: widgets/room/messagelistview.cpp:520 widgets/room/messagelistview.cpp:578
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "أظهر الرسالة الأصلية"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:468
+#: widgets/room/delegate/messagelistdelegate.cpp:467
 #: widgets/room/messagelistview.cpp:520 widgets/room/messagelistview.cpp:578
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "رسالة الترجمة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:690
+#: widgets/room/delegate/messagelistdelegate.cpp:689
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10415,7 +10415,7 @@ msgstr[3] "%1 ردود"
 msgstr[4] "%1 ردًّا"
 msgstr[5] "%1 ردّ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:700
+#: widgets/room/delegate/messagelistdelegate.cpp:699
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10426,36 +10426,36 @@ msgstr[3] "%1 رسائل"
 msgstr[4] "%1 رسالة"
 msgstr[5] "%1 رسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:700
+#: widgets/room/delegate/messagelistdelegate.cpp:699
 #, kde-format
 msgid "No message yet"
 msgstr "لا يوجد رسائل بعد"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1009
+#: widgets/room/delegate/messagelistdelegate.cpp:1008
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "متابعة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1013
+#: widgets/room/delegate/messagelistdelegate.cpp:1012
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "لقد ثُبتت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1017
+#: widgets/room/delegate/messagelistdelegate.cpp:1016
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "لقد عُلّمت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1021
+#: widgets/room/delegate/messagelistdelegate.cpp:1020
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1025
+#: widgets/room/delegate/messagelistdelegate.cpp:1024
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
@@ -10699,7 +10699,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "احذف الرّسالة"
 
-#: widgets/room/messagelistview.cpp:1082
+#: widgets/room/messagelistview.cpp:1084
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11146,7 +11146,7 @@ msgctxt "@action"
 msgid "Report User"
 msgstr "بلّغ عن المستخدم"
 
-#: widgets/room/usersinroomwidget.cpp:166
+#: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
@@ -11157,286 +11157,286 @@ msgstr[3] "%1 مستخدمين في الغرفة (المجموع: %2)"
 msgstr[4] "%1 مستخدمًا في الغرفة (المجموع: %2)"
 msgstr[5] "%1 مستخدم في الغرفة (المجموع: %2)"
 
-#: widgets/ruqolamainwindow.cpp:230
+#: widgets/ruqolamainwindow.cpp:229
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "أظهر الإشعارات الجديدة"
 
-#: widgets/ruqolamainwindow.cpp:232
+#: widgets/ruqolamainwindow.cpp:231
 #, kde-format
 msgid "Show New Notifications"
 msgstr "أظهر الإشعارات الجديدة"
 
-#: widgets/ruqolamainwindow.cpp:420
+#: widgets/ruqolamainwindow.cpp:419
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "أضف خادمًا…"
 
-#: widgets/ruqolamainwindow.cpp:425
+#: widgets/ruqolamainwindow.cpp:424
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "معلومات الخادم…"
 
-#: widgets/ruqolamainwindow.cpp:429
+#: widgets/ruqolamainwindow.cpp:428
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "اخرج من الخادم الحالي"
 
-#: widgets/ruqolamainwindow.cpp:433
+#: widgets/ruqolamainwindow.cpp:432
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "اقفز إلى القناة غير المقروءة التالية"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:437
 #, kde-format
 msgid "Create New Channel…"
 msgstr "أنشئ قناة جديدة…"
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:441
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "أنشئ رسائل مباشرة…"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:445
 #, kde-format
 msgid "Create Discussion…"
 msgstr "أنشئ مناقشة…"
 
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:449
 #, kde-format
 msgid "Create Team…"
 msgstr "أنشئ فريقًا…"
 
-#: widgets/ruqolamainwindow.cpp:458
+#: widgets/ruqolamainwindow.cpp:457
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "غير المقروء في الأعلى"
 
-#: widgets/ruqolamainwindow.cpp:466
+#: widgets/ruqolamainwindow.cpp:465
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "حسب أخر رسالة"
 
-#: widgets/ruqolamainwindow.cpp:472
+#: widgets/ruqolamainwindow.cpp:471
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "أبجديًا"
 
-#: widgets/ruqolamainwindow.cpp:478
+#: widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "Show Channel Log"
 msgstr "اعرض سجل القناة"
 
-#: widgets/ruqolamainwindow.cpp:482
+#: widgets/ruqolamainwindow.cpp:481
 #, kde-format
 msgid "Show Server Errors"
 msgstr "اعرض أخطاء الخادم"
 
-#: widgets/ruqolamainwindow.cpp:527
+#: widgets/ruqolamainwindow.cpp:526
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "علّم كل القنوات على أنها مقروءة"
 
-#: widgets/ruqolamainwindow.cpp:532
+#: widgets/ruqolamainwindow.cpp:531
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "سجّل مستخدم جديد…"
 
-#: widgets/ruqolamainwindow.cpp:536
+#: widgets/ruqolamainwindow.cpp:535
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "حسابي…"
 
-#: widgets/ruqolamainwindow.cpp:540
+#: widgets/ruqolamainwindow.cpp:539
 #, kde-format
 msgid "administration"
 msgstr "الإدارة"
 
-#: widgets/ruqolamainwindow.cpp:541
+#: widgets/ruqolamainwindow.cpp:540
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "إداري…"
 
-#: widgets/ruqolamainwindow.cpp:547
+#: widgets/ruqolamainwindow.cpp:546
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "إعدادات الخادم…"
 
-#: widgets/ruqolamainwindow.cpp:554
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "التطبيقات…"
 
-#: widgets/ruqolamainwindow.cpp:559
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "التطبيقات المطلوبة…"
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:563
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "التطبيقات المثبتة…"
 
-#: widgets/ruqolamainwindow.cpp:569
+#: widgets/ruqolamainwindow.cpp:568
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "التطبيقات الخاصة…"
 
-#: widgets/ruqolamainwindow.cpp:574
+#: widgets/ruqolamainwindow.cpp:573
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "انضم إلى الغرفة…"
 
-#: widgets/ruqolamainwindow.cpp:578
+#: widgets/ruqolamainwindow.cpp:577
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "انضم إلى الفريق…"
 
-#: widgets/ruqolamainwindow.cpp:582
+#: widgets/ruqolamainwindow.cpp:581
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "افتح محادثة خاصة…"
 
-#: widgets/ruqolamainwindow.cpp:603
+#: widgets/ruqolamainwindow.cpp:602
 #, kde-format
 msgid "&Next Server"
 msgstr "الخادم ال&تالي"
 
-#: widgets/ruqolamainwindow.cpp:608
+#: widgets/ruqolamainwindow.cpp:607
 #, kde-format
 msgid "&Previous Server"
 msgstr "الخادم ال&سابق"
 
-#: widgets/ruqolamainwindow.cpp:617
+#: widgets/ruqolamainwindow.cpp:616
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "الحالة:"
 
-#: widgets/ruqolamainwindow.cpp:630
+#: widgets/ruqolamainwindow.cpp:629
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "القناة المحددة السابقة"
 
-#: widgets/ruqolamainwindow.cpp:637
+#: widgets/ruqolamainwindow.cpp:636
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "القناة المحددة التالية"
 
-#: widgets/ruqolamainwindow.cpp:667
+#: widgets/ruqolamainwindow.cpp:666
 #, kde-format
 msgid "Show Notify History"
 msgstr "اعرض تاريخ الإشعار"
 
-#: widgets/ruqolamainwindow.cpp:671
+#: widgets/ruqolamainwindow.cpp:670
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "اعرض معلومات روكت تشات"
 
-#: widgets/ruqolamainwindow.cpp:675
+#: widgets/ruqolamainwindow.cpp:674
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "اعرض الصورة الرمزية للغرفة"
 
-#: widgets/ruqolamainwindow.cpp:680
+#: widgets/ruqolamainwindow.cpp:679
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "اعرض الغرفة المفضلة"
 
-#: widgets/ruqolamainwindow.cpp:689
+#: widgets/ruqolamainwindow.cpp:688
 #, kde-format
 msgid "What's new"
 msgstr "ما هو الجديد"
 
-#: widgets/ruqolamainwindow.cpp:693
+#: widgets/ruqolamainwindow.cpp:692
 #, kde-format
 msgid "Import Accounts"
 msgstr "استورد حسابات"
 
-#: widgets/ruqolamainwindow.cpp:697
+#: widgets/ruqolamainwindow.cpp:696
 #, kde-format
 msgid "Export Accounts"
 msgstr "صدّر الحسابات"
 
-#: widgets/ruqolamainwindow.cpp:714
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "متوسط"
 
-#: widgets/ruqolamainwindow.cpp:722
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "مكثف "
 
-#: widgets/ruqolamainwindow.cpp:731
+#: widgets/ruqolamainwindow.cpp:730
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "ممتد"
 
-#: widgets/ruqolamainwindow.cpp:739
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgid "Clear history"
 msgstr "امحُ التاريخ"
 
-#: widgets/ruqolamainwindow.cpp:776
+#: widgets/ruqolamainwindow.cpp:775
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "أنشئ فريقًا"
 
-#: widgets/ruqolamainwindow.cpp:973
+#: widgets/ruqolamainwindow.cpp:972
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "لا يمكن كتابة إلى ملف سجل %1"
 
-#: widgets/ruqolamainwindow.cpp:973
+#: widgets/ruqolamainwindow.cpp:972
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "اعرض سجل القناة"
 
-#: widgets/ruqolamainwindow.cpp:1143
+#: widgets/ruqolamainwindow.cpp:1142
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "الحالة"
 
-#: widgets/ruqolamainwindow.cpp:1230
+#: widgets/ruqolamainwindow.cpp:1229
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>سيُخفي هذا شريط القوائم بالكامل. يمكنك إظهاره ثانيةً بضغط %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1233
+#: widgets/ruqolamainwindow.cpp:1232
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
