@@ -214,6 +214,7 @@ void RocketChatBackend::slotLoginStatusChanged()
             connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
 
             auto ddp = mRocketChatAccount->ddp();
+            // TODO add timestamp
             ddp->initializeSubscription();
         }
         restApi->listAllPermissions();
@@ -222,7 +223,7 @@ void RocketChatBackend::slotLoginStatusChanged()
     }
 }
 
-void RocketChatBackend::slotPrivateInfoDone(const QJsonObject &data)
+void RocketChatBackend::slotPrivateInfoDone([[maybe_unused]] const QJsonObject &data)
 {
     qDebug() << "parse private info not implemented . Needed ? "; // << data;
 }
@@ -300,7 +301,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
             // TODO add current user ? me ?
             User user;
             user.parseUser(object);
-            qDebug() << " SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" << object;
+            // qDebug() << " SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" << object;
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
