@@ -36,7 +36,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     tableLayout->setContentsMargins({});
     tableLayout->setSpacing(0);
 
-    KLineEditEventHandler::catchReturnKey(mTextEdit);
+    KLineEditEventHandler::catchReturnKey(mFilterLineEdit);
     mTableView->setObjectName(u"mTableView"_s);
     mTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     mTableView->setSortingEnabled(true);
