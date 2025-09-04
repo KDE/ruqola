@@ -8,10 +8,10 @@
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
+#include <QSortFilterProxyModel>
 #include <QSplitter>
 #include <QTableView>
 #include <QVBoxLayout>
-#include <qsortfilterproxymodel.h>
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAccount *account, QWidget *parent)

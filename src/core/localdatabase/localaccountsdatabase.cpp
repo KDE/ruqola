@@ -13,7 +13,7 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
-#include <qsqltablemodel.h>
+#include <QSqlTableModel>
 
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaAccountsDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
