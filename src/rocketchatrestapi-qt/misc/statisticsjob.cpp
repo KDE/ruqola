@@ -65,7 +65,7 @@ QNetworkRequest StatisticsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Statistics);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(u"refresh"_s, mRefresh ? u"true"_s : QStringLiteral("false"));
+    queryUrl.addQueryItem(u"refresh"_s, mRefresh ? u"true"_s : u"false"_s);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

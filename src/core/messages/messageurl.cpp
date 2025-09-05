@@ -18,37 +18,37 @@ MessageUrl::MessageUrl()
 
 QStringList MessageUrl::pageTitleElements()
 {
-    return {QStringLiteral("ogTitle"), QStringLiteral("twitterTitle"), QStringLiteral("title"), QStringLiteral("pageTitle"), QStringLiteral("oembedTitle")};
+    return {u"ogTitle"_s, u"twitterTitle"_s, u"title"_s, QStringLiteral("pageTitle"), QStringLiteral("oembedTitle")};
 }
 
 QStringList MessageUrl::descriptionElements()
 {
-    return {QStringLiteral("ogDescription"), QStringLiteral("twitterDescription"), QStringLiteral("description")};
+    return {u"ogDescription"_s, u"twitterDescription"_s, u"description"_s};
 }
 
 QStringList MessageUrl::imageUrlElements()
 {
-    return {QStringLiteral("ogImage"), QStringLiteral("twitterImage"), QStringLiteral("msapplicationTileImage"), QStringLiteral("oembedThumbnailUrl")};
+    return {u"ogImage"_s, u"twitterImage"_s, u"msapplicationTileImage"_s, QStringLiteral("oembedThumbnailUrl")};
 }
 
 QStringList MessageUrl::siteUrlElements()
 {
-    return {QStringLiteral("ogUrl"), QStringLiteral("oembedProviderUrl")};
+    return {u"ogUrl"_s, u"oembedProviderUrl"_s};
 }
 
 QStringList MessageUrl::siteNameElements()
 {
-    return {QStringLiteral("ogSiteName"), QStringLiteral("oembedProviderName")};
+    return {u"ogSiteName"_s, u"oembedProviderName"_s};
 }
 
 QStringList MessageUrl::imageHeightElements()
 {
-    return {QStringLiteral("ogImageHeight"), QStringLiteral("oembedHeight"), QStringLiteral("oembedThumbnailHeight")};
+    return {u"ogImageHeight"_s, u"oembedHeight"_s, u"oembedThumbnailHeight"_s};
 }
 
 QStringList MessageUrl::imageWidthElements()
 {
-    return {QStringLiteral("ogImageWidth"), QStringLiteral("oembedWidth"), QStringLiteral("oembedThumbnailWidth")};
+    return {u"ogImageWidth"_s, u"oembedWidth"_s, u"oembedThumbnailWidth"_s};
 }
 
 bool MessageUrl::showPreview() const
@@ -72,13 +72,13 @@ void MessageUrl::generateHtmlDescription()
 {
     mHtmlDescription.clear();
     if (!mPageTitle.isEmpty()) {
-        mHtmlDescription = QStringLiteral("[%1](%2)").arg(MessageUrl::cleanText(mPageTitle), mUrl);
+        mHtmlDescription = u"[%1](%2)"_s.arg(MessageUrl::cleanText(mPageTitle), mUrl);
     }
     if (!mDescription.isEmpty()) {
-        mHtmlDescription += QStringLiteral("\n%1").arg(MessageUrl::cleanText(mDescription));
+        mHtmlDescription += u"\n%1"_s.arg(MessageUrl::cleanText(mDescription));
     }
     if (!mSiteName.isEmpty()) {
-        mHtmlDescription += QStringLiteral("\n[%1](%2)").arg(mSiteName, mSiteUrl);
+        mHtmlDescription += u"\n[%1](%2)"_s.arg(mSiteName, mSiteUrl);
     }
 }
 
@@ -278,10 +278,10 @@ MessageUrl::ContentType MessageUrl::stringToContentTypeEnum(const QString &str)
 MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHeader) const
 {
     if (!typeHeader.isEmpty()) {
-        const static QRegularExpression rimage(QStringLiteral("image/.*"));
-        const static QRegularExpression raudio(QStringLiteral("audio/.*"));
-        const static QRegularExpression rvideo(QStringLiteral("video/.*"));
-        const static QRegularExpression rhtml(QStringLiteral("text/html.*"));
+        const static QRegularExpression rimage(u"image/.*"_s);
+        const static QRegularExpression raudio(u"audio/.*"_s);
+        const static QRegularExpression rvideo(u"video/.*"_s);
+        const static QRegularExpression rhtml(u"text/html.*"_s);
         if (typeHeader.contains("image/gif"_L1)) {
             return MessageUrl::ContentType::ImageAnimated;
         } else if (typeHeader.contains(rimage)) {

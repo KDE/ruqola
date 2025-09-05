@@ -27,7 +27,7 @@ QString KTextToHTMLHelper::getEmailAddress()
     if (mPos < mText.length() && mText.at(mPos) == QLatin1Char('@')) {
         // the following characters are allowed in a dot-atom (RFC 2822):
         // a-z A-Z 0-9 . ! # $ % & ' * + - / = ? ^ _ ` { | } ~
-        const QString allowedSpecialChars = QStringLiteral(".!#$%&'*+-/=?^_`{|}~");
+        const QString allowedSpecialChars = u".!#$%&'*+-/=?^_`{|}~"_s;
 
         // determine the local part of the email address
         int start = mPos - 1;
@@ -89,7 +89,7 @@ QString KTextToHTMLHelper::getPhoneNumber()
         return {};
     }
 
-    const QString allowedBeginSeparators = QStringLiteral(" \r\t\n:");
+    const QString allowedBeginSeparators = u" \r\t\n:"_s;
     if (mPos > 0 && !allowedBeginSeparators.contains(mText.at(mPos - 1))) {
         return {};
     }
@@ -130,7 +130,7 @@ QString KTextToHTMLHelper::getPhoneNumber()
         }
 
         // check if there's a plausible separator at the end
-        const QString allowedEndSeparators = QStringLiteral(" \r\t\n,.");
+        const QString allowedEndSeparators = u" \r\t\n,."_s;
         const auto l = m.size();
         if (mText.size() > mPos + l && !allowedEndSeparators.contains(mText.at(mPos + l))) {
             return {};
@@ -298,7 +298,7 @@ QString KTextToHTMLHelper::getUrl(bool *badurl)
     //       a dot to finish the sentence. That would lead the parser to include the dot in the url,
     //       even though that is not wanted. So work around that here.
     //       Most real-life URLs hopefully don't end with dots or commas.
-    QString wordBoundaries = QStringLiteral(".,:!?>");
+    QString wordBoundaries = u".,:!?>"_s;
     bool hasOpenParenthese = url.contains(QLatin1Char('('));
     if (!hasOpenParenthese) {
         wordBoundaries += QLatin1Char(')');
@@ -341,7 +341,7 @@ QString KTextToHTMLHelper::highlightedText()
         return {};
     }
 
-    QRegularExpression re(QStringLiteral("\\%1+\\s*([^\\s|^\\%1].*[^\\s|^\\%1])\\s*\\%1+").arg(ch));
+    QRegularExpression re(u"\\%1+\\s*([^\\s|^\\%1].*[^\\s|^\\%1])\\s*\\%1+"_s.arg(ch));
     re.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
     const auto match = re.match(mText, mPos, QRegularExpression::NormalMatch, QRegularExpression::AnchorAtOffsetMatchOption);
 
@@ -355,11 +355,11 @@ QString KTextToHTMLHelper::highlightedText()
             mPos += length - 1;
             switch (ch.toLatin1()) {
             case '*':
-                return QStringLiteral("<b>") + match.capturedView(1).toString() + QStringLiteral("</b>");
+                return u"<b>"_s + match.capturedView(1).toString() + u"</b>"_s;
             case '_':
-                return QStringLiteral("<i>") + match.capturedView(1).toString() + QStringLiteral("</i>");
+                return u"<i>"_s + match.capturedView(1).toString() + u"</i>"_s;
             case '~':
-                return QStringLiteral("<s>") + match.capturedView(1).toString() + QStringLiteral("</s>");
+                return u"<s>"_s + match.capturedView(1).toString() + u"</s>"_s;
             default:
                 break;
             }

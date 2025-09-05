@@ -46,7 +46,7 @@ void PermissionsManagerTest::shouldLoadPermissions_data()
         {
             Permission p;
             p.setIdentifier(u"add-user-to-joined-room"_s);
-            p.setRoles({u"admin"_s, u"owner"_s, QStringLiteral("moderator")});
+            p.setRoles({u"admin"_s, u"owner"_s, u"moderator"_s});
             p.setUpdatedAt(1533550243869);
             permissions.append(std::move(p));
         }
@@ -113,7 +113,7 @@ void PermissionsManagerTest::shouldUpdatePermissions_data()
         {
             Permission p;
             p.setIdentifier(u"add-user-to-joined-room"_s);
-            p.setRoles({u"admin"_s, u"owner"_s, QStringLiteral("moderator")});
+            p.setRoles({u"admin"_s, u"owner"_s, u"moderator"_s});
             p.setUpdatedAt(1533550243869);
             permissions.append(std::move(p));
         }
@@ -147,7 +147,7 @@ void PermissionsManagerTest::shouldUpdatePermissions_data()
         {
             Permission p;
             p.setIdentifier(u"add-user-to-joined-room"_s);
-            p.setRoles({u"admin"_s, u"owner"_s, QStringLiteral("moderator")});
+            p.setRoles({u"admin"_s, u"owner"_s, u"moderator"_s});
             p.setUpdatedAt(1533550243869);
             permissions.append(p);
             updatedPermissions.append(p);

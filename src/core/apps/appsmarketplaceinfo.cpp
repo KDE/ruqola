@@ -415,7 +415,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     str += u"<b>%1</b><br/>"_s.arg(i18n("Version")) + versionnfo + u"<br/><br/>"_s;
 
     if (!mCategories.isEmpty()) {
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Categories")) + mCategories.join(u", "_s) + QStringLiteral("<br/><br/>");
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Categories")) + mCategories.join(u", "_s) + u"<br/><br/>"_s;
     }
     if (!mDocumentationUrl.isEmpty()) {
         const QString url = mDocumentationUrl.startsWith(u"http"_s) ? mDocumentationUrl : u"https://%1"_s.arg(mDocumentationUrl);
@@ -442,7 +442,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 
     if (!homePage.isEmpty()) {
         const QString url = homePage.startsWith(u"http"_s) ? homePage : u"https://%1"_s.arg(homePage);
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Homepage")) + u"<a href=\"%2\">%1</a>"_s.arg(homePage, url) + QStringLiteral("<br/><br/>");
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Homepage")) + u"<a href=\"%2\">%1</a>"_s.arg(homePage, url) + u"<br/><br/>"_s;
     }
 
     QString support;
@@ -454,7 +454,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 
     if (!support.isEmpty()) {
         const QString url = support.startsWith(u"http"_s) ? support : u"mailto://%1"_s.arg(support);
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Support")) + u"<a href=\"%2\">%1</a>"_s.arg(support, url) + QStringLiteral("<br/><br/>");
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Support")) + u"<a href=\"%2\">%1</a>"_s.arg(support, url) + u"<br/><br/>"_s;
     }
 
     if (!mPrivacyPolicySummary.isEmpty()) {

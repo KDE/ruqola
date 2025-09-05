@@ -33,9 +33,9 @@ void RoomUtilTest::shouldGeneratePermalink_data()
     QTest::addColumn<Room::RoomType>("channelType");
     QTest::addColumn<QString>("generatePermalink");
 
-    QTest::addRow("channels") << u"msId"_s << u"roomId"_s << Room::RoomType::Channel << QStringLiteral("channel/roomId?msg=msId");
-    QTest::addRow("direct") << u"msId"_s << u"roomId"_s << Room::RoomType::Direct << QStringLiteral("direct/roomId?msg=msId");
-    QTest::addRow("group") << u"msId"_s << u"roomId"_s << Room::RoomType::Private << QStringLiteral("group/roomId?msg=msId");
+    QTest::addRow("channels") << u"msId"_s << u"roomId"_s << Room::RoomType::Channel << u"channel/roomId?msg=msId"_s;
+    QTest::addRow("direct") << u"msId"_s << u"roomId"_s << Room::RoomType::Direct << u"direct/roomId?msg=msId"_s;
+    QTest::addRow("group") << u"msId"_s << u"roomId"_s << Room::RoomType::Private << u"group/roomId?msg=msId"_s;
 }
 
 #include "moc_roomutiltest.cpp"

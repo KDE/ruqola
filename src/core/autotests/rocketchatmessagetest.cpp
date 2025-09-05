@@ -142,7 +142,7 @@ void RocketChatMessageTest::streamNotifyUserOtrHandshake()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.streamNotifyUserOtrHandshake(u"userFrom"_s, u"userTo"_s, QStringLiteral("publickeys"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.streamNotifyUserOtrHandshake(u"userFrom"_s, u"userTo"_s, u"publickeys"_s, 43);
     compareFile(r.result, u"streamNotifyUserOtrHandshake"_s);
 }
 

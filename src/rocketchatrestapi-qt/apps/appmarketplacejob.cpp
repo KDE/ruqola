@@ -72,7 +72,7 @@ QNetworkRequest AppMarketPlaceJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::MarketplaceApps, RestApiUtil::RestApiUrlExtensionType::Apps);
 
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(u"isAdminUser"_s, mIsAdminUser ? u"true"_s : QStringLiteral("false"));
+    queryUrl.addQueryItem(u"isAdminUser"_s, mIsAdminUser ? u"true"_s : u"false"_s);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

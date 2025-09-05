@@ -114,8 +114,8 @@ QNetworkRequest ChannelHistoryJob::request() const
     if (mChannelHistoryInfo.count > 0) {
         queryUrl.addQueryItem(u"count"_s, QString::number(mChannelHistoryInfo.count));
     }
-    queryUrl.addQueryItem(u"inclusive"_s, mChannelHistoryInfo.inclusive ? u"true"_s : QStringLiteral("false"));
-    queryUrl.addQueryItem(u"unreads"_s, mChannelHistoryInfo.unreads ? u"true"_s : QStringLiteral("false"));
+    queryUrl.addQueryItem(u"inclusive"_s, mChannelHistoryInfo.inclusive ? u"true"_s : u"false"_s);
+    queryUrl.addQueryItem(u"unreads"_s, mChannelHistoryInfo.unreads ? u"true"_s : u"false"_s);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

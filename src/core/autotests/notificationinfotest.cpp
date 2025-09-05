@@ -47,19 +47,19 @@ void NotificationInfoTest::shouldParseNotification_data()
     QTest::addColumn<QByteArray>("roomId");
     QTest::addColumn<QByteArray>("tmId");
     QTest::addColumn<QByteArray>("messageId");
-    QTest::newRow("notification1") << u"notification"_s << u"title"_s << QStringLiteral("pong") << QByteArrayLiteral("tgrk5CZKgYGiSSqXp") << QString() << u"d"_s
+    QTest::newRow("notification1") << u"notification"_s << u"title"_s << u"pong"_s << QByteArrayLiteral("tgrk5CZKgYGiSSqXp") << QString() << u"d"_s
                                    << u"Laurent"_s << u"laurent"_s << QByteArrayLiteral("tgrk5CZKgYGiSSqXpuKK39zoewTkdacidH") << QByteArray()
                                    << QByteArrayLiteral("yfitiEkpGyDAAJ6Eo");
     // TODO
-    QTest::newRow("notificationencrypted") << u"notificationencrypted"_s << u"title"_s << QStringLiteral("pong") << QByteArrayLiteral("tgrk5CZKgYGiSSqXp")
-                                           << QString() << u"d"_s << u"foo"_s << u"bla"_s << QByteArrayLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH")
-                                           << QByteArray() << QByteArrayLiteral("PuKLfJfd5r5DrZBdN");
+    QTest::newRow("notificationencrypted") << u"notificationencrypted"_s << u"title"_s << u"pong"_s << QByteArrayLiteral("tgrk5CZKgYGiSSqXp") << QString()
+                                           << u"d"_s << u"foo"_s << u"bla"_s << QByteArrayLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH") << QByteArray()
+                                           << QByteArrayLiteral("PuKLfJfd5r5DrZBdN");
 
-    QTest::newRow("notification2") << u"notification1"_s << u"my title"_s << QStringLiteral("@here") << QByteArrayLiteral("Gsvg6BGoBfmPLoFie")
-                                   << u"roomname example"_s << u"c"_s << u"foo"_s << u"foo.bla"_s << QByteArrayLiteral("Fc4EWcQXCkJkJ7QEQ") << QByteArray()
+    QTest::newRow("notification2") << u"notification1"_s << u"my title"_s << u"@here"_s << QByteArrayLiteral("Gsvg6BGoBfmPLoFie") << u"roomname example"_s
+                                   << u"c"_s << u"foo"_s << u"foo.bla"_s << QByteArrayLiteral("Fc4EWcQXCkJkJ7QEQ") << QByteArray()
                                    << QByteArrayLiteral("dNYhFAYBhqPFnBwRy");
 
-    QTest::newRow("notification-tmid1") << u"notification-tmid1"_s << u"my title"_s << QStringLiteral("@here") << QByteArrayLiteral("Gsvg6BGoBfmPLoFie")
+    QTest::newRow("notification-tmid1") << u"notification-tmid1"_s << u"my title"_s << u"@here"_s << QByteArrayLiteral("Gsvg6BGoBfmPLoFie")
                                         << u"roomname example"_s << u"c"_s << u"foo"_s << u"foo.bla"_s << QByteArrayLiteral("Fc4EWcQXCkJkJ7QEQ")
                                         << QByteArrayLiteral("QLNcu8TnRi8Ld57Pk") << QByteArrayLiteral("dNYhFAYBhqPFnBwRy");
 }

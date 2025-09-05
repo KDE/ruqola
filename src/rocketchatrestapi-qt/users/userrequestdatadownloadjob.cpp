@@ -58,7 +58,7 @@ QNetworkRequest UserRequestDataDownloadJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UserRequestDataDownload);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(u"fullExport"_s, mFullExport ? u"true"_s : QStringLiteral("false"));
+    queryUrl.addQueryItem(u"fullExport"_s, mFullExport ? u"true"_s : u"false"_s);
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

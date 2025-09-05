@@ -34,11 +34,11 @@ void InputTextManagerTest::shouldReplaceWord_data()
     QTest::addColumn<QString>("result");
     QTest::addColumn<int>("expectedPosition");
     QTest::newRow("empty") << QString() << QString() << 5 << QString() << 5;
-    QTest::newRow("replace1") << u"bla"_s << u"foo @d"_s << 5 << QStringLiteral("foo @bla") << 8;
-    QTest::newRow("replace2") << u"bla"_s << u"foo @daaaa"_s << 5 << QStringLiteral("foo @bla") << 8;
-    QTest::newRow("replace3") << u"bla"_s << u"@daaaa foo"_s << 1 << QStringLiteral("@bla foo") << 4;
-    QTest::newRow("buildbot") << u"buildbot "_s << u"@bu"_s << 3 << QStringLiteral("@buildbot ") << 10;
-    QTest::newRow("trailing_space_already_there") << u"bla "_s << u"@daaaa foo"_s << 1 << QStringLiteral("@bla foo") << 5;
+    QTest::newRow("replace1") << u"bla"_s << u"foo @d"_s << 5 << u"foo @bla"_s << 8;
+    QTest::newRow("replace2") << u"bla"_s << u"foo @daaaa"_s << 5 << u"foo @bla"_s << 8;
+    QTest::newRow("replace3") << u"bla"_s << u"@daaaa foo"_s << 1 << u"@bla foo"_s << 4;
+    QTest::newRow("buildbot") << u"buildbot "_s << u"@bu"_s << 3 << u"@buildbot "_s << 10;
+    QTest::newRow("trailing_space_already_there") << u"bla "_s << u"@daaaa foo"_s << 1 << u"@bla foo"_s << 5;
 }
 
 void InputTextManagerTest::shouldReplaceWord()

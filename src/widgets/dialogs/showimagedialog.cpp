@@ -149,7 +149,7 @@ void ShowImageDialog::updateServiceList()
         ++idx;
     }
     mOpenWithMenu->addSeparator();
-    QAction *action = mOpenWithMenu->addAction(QIcon::fromTheme(QStringLiteral("system-run")), i18n("Other Application..."));
+    QAction *action = mOpenWithMenu->addAction(QIcon::fromTheme(u"system-run"_s), i18n("Other Application..."));
     action->setData(-1);
 }
 

@@ -86,7 +86,7 @@ QNetworkRequest IgnoreUserJob::request() const
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(u"rid"_s, QLatin1StringView(mRoomId));
     queryUrl.addQueryItem(u"userId"_s, QLatin1StringView(mIgnoreUserId));
-    queryUrl.addQueryItem(u"ignore"_s, mIgnore ? u"true"_s : QStringLiteral("false"));
+    queryUrl.addQueryItem(u"ignore"_s, mIgnore ? u"true"_s : u"false"_s);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

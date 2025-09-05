@@ -169,7 +169,7 @@ void RuqolaServerConfigTest::shouldVerifyOauthType_data()
         QTest::newRow("go") << lst << types;
     }
     {
-        const QStringList lst = {u"Accounts_OAuth_Google"_s, u"Accounts_OAuth_Twitter"_s, QStringLiteral("Accounts_OAuth_FaceBook")};
+        const QStringList lst = {u"Accounts_OAuth_Google"_s, u"Accounts_OAuth_Twitter"_s, u"Accounts_OAuth_FaceBook"_s};
         AuthenticationManager::AuthMethodTypes types;
         types |= AuthenticationManager::AuthMethodType::Google;
         types |= AuthenticationManager::AuthMethodType::FaceBook;

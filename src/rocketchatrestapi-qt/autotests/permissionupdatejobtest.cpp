@@ -39,8 +39,8 @@ void PermissionUpdateJobTest::shouldGenerateJson()
 {
     PermissionUpdateJob job;
     QMap<QString, QStringList> lst;
-    lst.insert(u"bla"_s, {u"user"_s, QStringLiteral("admin")});
-    lst.insert(u"team"_s, {u"user"_s, QStringLiteral("admin"), QStringLiteral("owner")});
+    lst.insert(u"bla"_s, {u"user"_s, u"admin"_s});
+    lst.insert(u"team"_s, {u"user"_s, u"admin"_s, u"owner"_s});
     job.setPermissions(lst);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
@@ -65,8 +65,8 @@ void PermissionUpdateJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     QMap<QString, QStringList> lst;
-    lst.insert(u"bla"_s, {u"user"_s, QStringLiteral("admin")});
-    lst.insert(u"team"_s, {u"user"_s, QStringLiteral("admin"), QStringLiteral("owner")});
+    lst.insert(u"bla"_s, {u"user"_s, u"admin"_s});
+    lst.insert(u"team"_s, {u"user"_s, u"admin"_s, u"owner"_s});
     job.setPermissions(lst);
     QVERIFY(job.canStart());
 }

@@ -32,7 +32,7 @@ void ReactionsTest::shouldParseReactions_data()
         Reactions *reactionsRef = new Reactions;
         Reaction react;
         react.setReactionName(u":ok_hand:"_s);
-        react.setUserNames(QStringList() << u"foo"_s << u"bla"_s << QStringLiteral("bli"));
+        react.setUserNames(QStringList() << u"foo"_s << u"bla"_s << u"bli"_s);
         reactionsRef->setReactions({react});
         QTest::addRow("reactions") << u"reactions"_s << reactionsRef;
     }

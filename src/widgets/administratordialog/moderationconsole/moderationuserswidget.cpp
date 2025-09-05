@@ -34,14 +34,14 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     QString html;
     const User user = infos.user();
     if (!infos.user().userEmailsInfo().email.isEmpty()) {
-        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name(), user.userName()) + QStringLiteral("</div>");
+        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name(), user.userName()) + u"</div>"_s;
         html += u"<br/>"_s;
-        html += u"<div><b>"_s + i18n("Email:") + u"</b>"_s + QStringLiteral(" %1").arg(infos.user().userEmailsInfo().email) + u"</div>"_s;
+        html += u"<div><b>"_s + i18n("Email:") + u"</b>"_s + u" %1"_s.arg(infos.user().userEmailsInfo().email) + u"</div>"_s;
         html += u"<br/>"_s;
     }
 
     if (!user.roles().isEmpty()) {
-        html += u"<div><b>"_s + i18n("Roles:") + u"</b>"_s + QStringLiteral(" %1").arg(infos.user().roles().join(", "_L1)) + u"</div>"_s;
+        html += u"<div><b>"_s + i18n("Roles:") + u"</b>"_s + u" %1"_s.arg(infos.user().roles().join(", "_L1)) + u"</div>"_s;
         html += u"<br/>"_s;
     }
 

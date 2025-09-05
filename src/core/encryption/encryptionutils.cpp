@@ -207,7 +207,7 @@ QByteArray EncryptionUtils::generateRandomIV(int size)
 
 QString EncryptionUtils::generateRandomText(int length)
 {
-    const static QString characters = QStringLiteral("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?");
+    const static QString characters = u"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?"_s;
     QString randomText;
     const int charSize = characters.size();
 
