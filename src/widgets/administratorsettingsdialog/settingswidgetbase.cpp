@@ -15,6 +15,7 @@
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 
+#include <KColorScheme>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QComboBox>
@@ -26,7 +27,6 @@
 #include <QPushButton>
 #include <QSpinBox>
 #include <QToolButton>
-#include <kcolorscheme.h>
 
 using namespace Qt::Literals::StringLiterals;
 namespace
