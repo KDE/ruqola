@@ -14,7 +14,7 @@
 SerializeMessageWidget::SerializeMessageWidget(QWidget *parent)
     : QWidget{parent}
     , mPlainTextEdit(new QPlainTextEdit(this))
-    , mMessageListView(new MessageListView(new RocketChatAccount(QStringLiteral("test"), this), MessageListView::Mode::Viewing, this))
+    , mMessageListView(new MessageListView(new RocketChatAccount(QStringLiteral("test"), false, this), MessageListView::Mode::Viewing, this))
     , mMessageModel(new MessagesModel())
 {
     auto mainLayout = new QHBoxLayout(this);
