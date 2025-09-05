@@ -3,6 +3,7 @@
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
+
 #include "encryptionutilstest.h"
 #include "encryption/encryptionutils.h"
 #include <QTest>
