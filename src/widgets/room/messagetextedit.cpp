@@ -80,6 +80,10 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
             this,
             [this](TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType type) {
                 switch (type) {
+                case TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::UnderLine: {
+                    // No supported here
+                    break;
+                }
                 case TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::Bold: {
                     slotSetAsBold();
                     break;
