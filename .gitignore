@@ -33,3 +33,5 @@ compile_commands.json
 .cache
 /.vscode/
 .qtcreator/
+.env
+compose.yml
