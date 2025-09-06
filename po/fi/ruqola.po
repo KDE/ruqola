@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:43+0000\n"
+"POT-Creation-Date: 2025-09-06 00:42+0000\n"
 "PO-Revision-Date: 2025-07-17 18:12+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -10613,39 +10613,39 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Käännösvirhe"
 
-#: widgets/room/messagetextedit.cpp:264
+#: widgets/room/messagetextedit.cpp:268
 #, kde-format
 msgid "Paste Image"
 msgstr ""
 "Liitä kuva\n"
 "kuvan liittäminen"
 
-#: widgets/room/messagetextedit.cpp:271
+#: widgets/room/messagetextedit.cpp:275
 #, kde-format
 msgid "Change Text Format"
 msgstr "Muuta tekstin muotoa"
 
-#: widgets/room/messagetextedit.cpp:273
+#: widgets/room/messagetextedit.cpp:277
 #, kde-format
 msgid "Bold"
 msgstr "Lihavoitu"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:278
 #, kde-format
 msgid "Italic"
 msgstr "Kursivoitu"
 
-#: widgets/room/messagetextedit.cpp:275
+#: widgets/room/messagetextedit.cpp:279
 #, kde-format
 msgid "Strike-out"
 msgstr "Yliviivattu"
 
-#: widgets/room/messagetextedit.cpp:277
+#: widgets/room/messagetextedit.cpp:281
 #, kde-format
 msgid "Code Block"
 msgstr "Koodilohko"
 
-#: widgets/room/messagetextedit.cpp:279
+#: widgets/room/messagetextedit.cpp:283
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown-verkko-osoite"

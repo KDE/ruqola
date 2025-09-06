@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:43+0000\n"
+"POT-Creation-Date: 2025-09-06 00:42+0000\n"
 "PO-Revision-Date: 2025-08-26 10:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -10702,37 +10702,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Itzultzailearen errorea"
 
-#: widgets/room/messagetextedit.cpp:264
+#: widgets/room/messagetextedit.cpp:268
 #, kde-format
 msgid "Paste Image"
 msgstr "Itsatsi irudia"
 
-#: widgets/room/messagetextedit.cpp:271
+#: widgets/room/messagetextedit.cpp:275
 #, kde-format
 msgid "Change Text Format"
 msgstr "Aldatu testuaren formatua"
 
-#: widgets/room/messagetextedit.cpp:273
+#: widgets/room/messagetextedit.cpp:277
 #, kde-format
 msgid "Bold"
 msgstr "Lodia"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:278
 #, kde-format
 msgid "Italic"
 msgstr "Etzana"
 
-#: widgets/room/messagetextedit.cpp:275
+#: widgets/room/messagetextedit.cpp:279
 #, kde-format
 msgid "Strike-out"
 msgstr "Marratua"
 
-#: widgets/room/messagetextedit.cpp:277
+#: widgets/room/messagetextedit.cpp:281
 #, kde-format
 msgid "Code Block"
 msgstr "Kode-blokea"
 
-#: widgets/room/messagetextedit.cpp:279
+#: widgets/room/messagetextedit.cpp:283
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URLa"
