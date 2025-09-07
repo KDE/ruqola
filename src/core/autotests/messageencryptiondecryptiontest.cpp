@@ -24,17 +24,18 @@ MessageEncryptionDecryptionTest::MessageEncryptionDecryptionTest(QObject *parent
  */
 void MessageEncryptionDecryptionTest::messageEncryptionDecryptionTest()
 {
-    auto message = QStringLiteral("This is GSoC 2025, Andro Ranogajec got to the end of 'Phase 1' :)");
+    const auto message = QStringLiteral("This is GSoC 2025, Andro Ranogajec got to the end of 'Phase 1' :)");
     const QByteArray sessionKey1 = EncryptionUtils::generateSessionKey();
     const QByteArray sessionKey2 = EncryptionUtils::generateSessionKey();
-    QString decryptedMessage = QString::fromUtf8(EncryptionUtils::decryptMessage(EncryptionUtils::encryptMessage(message.toUtf8(), sessionKey1), sessionKey1));
+    const QString decryptedMessage =
+        QString::fromUtf8(EncryptionUtils::decryptMessage(EncryptionUtils::encryptMessage(message.toUtf8(), sessionKey1), sessionKey1));
     QVERIFY(message == decryptedMessage);
 
     for (int i = 1; i <= 10; ++i) {
-        QByteArray message = EncryptionUtils::generateRandomText(i).toUtf8();
-        QByteArray encrypted = EncryptionUtils::encryptMessage(message, sessionKey1);
-        QByteArray decryptedWithWrongKey = EncryptionUtils::decryptMessage(encrypted, sessionKey2);
-        QVERIFY(decryptedWithWrongKey.isEmpty() && decryptedWithWrongKey != message);
+        const QByteArray message2 = EncryptionUtils::generateRandomText(i).toUtf8();
+        const QByteArray encrypted = EncryptionUtils::encryptMessage(message2, sessionKey1);
+        const QByteArray decryptedWithWrongKey = EncryptionUtils::decryptMessage(encrypted, sessionKey2);
+        QVERIFY(decryptedWithWrongKey.isEmpty() && decryptedWithWrongKey != message2);
     }
 }
 

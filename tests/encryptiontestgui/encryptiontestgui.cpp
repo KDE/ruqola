@@ -32,20 +32,20 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
     mainLayout->addWidget(pushButtonDeriveMasterKey);
 
     connect(pushButtonDeriveMasterKey, &QPushButton::clicked, this, [this]() {
-        auto *dialog = new QDialog(this);
+        auto dialog = new QDialog(this);
         dialog->setWindowTitle(QStringLiteral("Credentials"));
 
-        auto *saltEdit = new QLineEdit(dialog);
-        auto *passwordEdit = new QLineEdit(dialog);
+        auto saltEdit = new QLineEdit(dialog);
+        auto passwordEdit = new QLineEdit(dialog);
         passwordEdit->setEchoMode(QLineEdit::Password);
 
-        auto *layout = new QGridLayout(dialog);
+        auto layout = new QGridLayout(dialog);
         layout->addWidget(new QLabel(QStringLiteral("Salt: "), dialog), 0, 0);
         layout->addWidget(saltEdit, 0, 1);
         layout->addWidget(new QLabel(QStringLiteral("Password: "), dialog), 1, 0);
         layout->addWidget(passwordEdit, 1, 1);
 
-        auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, dialog);
+        auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, dialog);
         layout->addWidget(buttonBox, 2, 0, 1, 2);
 
         connect(buttonBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);

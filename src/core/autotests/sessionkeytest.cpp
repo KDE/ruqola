@@ -28,17 +28,14 @@ void SessionKeyTest::sessionKeyGenerationTest()
  */
 void SessionKeyTest::sessionKeyEncryptionDecryptionTest()
 {
-    QByteArray sessionKey;
-    QByteArray encryptedSessionKey;
-    QByteArray decryptedSessionKey;
-    auto rsaKeyPair = EncryptionUtils::generateRSAKey();
-    auto privateKey = rsaKeyPair.privateKey;
-    auto publicKey = rsaKeyPair.publicKey;
+    const auto rsaKeyPair = EncryptionUtils::generateRSAKey();
+    const auto privateKey = rsaKeyPair.privateKey;
+    const auto publicKey = rsaKeyPair.publicKey;
 
     for (int i = 0; i <= 10; i++) {
-        sessionKey = EncryptionUtils::generateSessionKey();
-        encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, EncryptionUtils::publicKeyFromPEM(publicKey));
-        decryptedSessionKey = EncryptionUtils::decryptSessionKey(encryptedSessionKey, EncryptionUtils::privateKeyFromPEM(privateKey));
+        const QByteArray sessionKey = EncryptionUtils::generateSessionKey();
+        const QByteArray encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, EncryptionUtils::publicKeyFromPEM(publicKey));
+        const QByteArray decryptedSessionKey = EncryptionUtils::decryptSessionKey(encryptedSessionKey, EncryptionUtils::privateKeyFromPEM(privateKey));
         QVERIFY(sessionKey == decryptedSessionKey);
     }
 }
