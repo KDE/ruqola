@@ -17,7 +17,12 @@ MasterKeyTest::MasterKeyTest(QObject *parent)
 /**
  * @brief This methods to going to test the determinism of the master key.
  *
+ * n, n1 = salt
+ *
+ * m1, m2 = password
+ *
  * if
+ *
  * n == n1 and m == m1
  * then
  * getMasterKey(n, m) == getMasterKey(n1, m1)
