@@ -6,10 +6,17 @@
 #include "e2edatabase.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
+#include <QFileInfo>
 #include <QSqlError>
 #include <QSqlQuery>
-
-const char E2EDataBase::s_schemaE2EKeyStore[] = "CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
+#include <QSqlTableModel>
+using namespace Qt::Literals::StringLiterals;
+static const char s_schemaE2EKeyStore[] = "CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
+enum class E2EFields {
+    UserId,
+    EncryptedPrivateKey,
+    PublicKey
+}; // in the same order as the table
 
 E2EDataBase::E2EDataBase()
     : LocalDatabaseBase(LocalDatabaseUtils::localDatabasePath() + QStringLiteral("e2e/"), LocalDatabaseBase::DatabaseType::E2E)
@@ -84,4 +91,32 @@ bool E2EDataBase::hasKey(const QString &userId)
     query.prepare(QStringLiteral("SELECT 1 FROM E2EKEYS WHERE userId = ?"));
     query.addBindValue(userId);
     return query.exec() && query.first();
+}
+
+std::unique_ptr<QSqlTableModel> E2EDataBase::createAccountsModel(const QString &accountName) const
+{
+    const QString dbName = databaseName(accountName);
+    QSqlDatabase db = QSqlDatabase::database(dbName);
+    if (!db.isValid()) {
+        // Open the DB if it exists (don't create a new one)
+        const QString fileName = dbFileName(accountName);
+        // qDebug() << " fileName " << fileName;
+        if (!QFileInfo::exists(fileName)) {
+            return {};
+        }
+        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
+        db.setDatabaseName(fileName);
+        if (!db.open()) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
+            return {};
+        }
+    }
+
+    Q_ASSERT(db.isValid());
+    Q_ASSERT(db.isOpen());
+    auto model = std::make_unique<QSqlTableModel>(nullptr, db);
+    model->setTable(u"E2EKEYS"_s);
+    model->setSort(int(E2EFields::UserId), Qt::AscendingOrder);
+    model->select();
+    return model;
 }

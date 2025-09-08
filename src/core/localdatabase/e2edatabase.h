@@ -7,7 +7,7 @@
 
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
-
+class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT E2EDataBase : public LocalDatabaseBase
 {
 public:
@@ -19,9 +19,8 @@ public:
     [[nodiscard]] bool deleteKey(const QString &userId);
     [[nodiscard]] bool hasKey(const QString &userId);
 
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createAccountsModel(const QString &accountName) const;
+
 protected:
     [[nodiscard]] QString schemaDataBase() const override;
-
-private:
-    static const char s_schemaE2EKeyStore[];
 };
