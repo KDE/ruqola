@@ -36,7 +36,7 @@ bool AiTextPlugin::hasConfigureDialog() const
 
 void AiTextPlugin::showConfigureDialog(QWidget *parent) const
 {
-    auto dlg = new TextAutoGenerateText::TextAutoGenerateMenuConfigureDialog(nullptr);
+    auto dlg = new TextAutoGenerateText::TextAutoGenerateMenuConfigureDialog(parent);
     dlg->setTextInfos(mManager->textInfos());
     if (dlg->exec()) {
         mManager->setTextInfos(dlg->textInfos());
