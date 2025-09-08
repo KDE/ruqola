@@ -233,7 +233,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::EditedAt:
         return message.editedAt();
     case MessagesModel::EditedToolTip: {
-        QLocale l;
+        const QLocale l;
         const QString editedDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(message.editedAt()), QLocale::LongFormat);
         return i18n("Edited at %1 by %2", editedDisplayTime, message.editedByUsername());
     }
@@ -370,6 +370,8 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return messageReplies(message);
     case MessagesModel::Unread:
         return message.unread();
+    default:
+        break;
     }
 
     return {};
