@@ -70,6 +70,9 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     case DatabaseType::Global:
         prefix = u"global-"_s;
         break;
+    case DatabaseType::E2E:
+        prefix = u"e2e-"_s;
+        break;
     case DatabaseType::Logger:
         break;
     }
