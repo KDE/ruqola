@@ -16,8 +16,8 @@ using namespace Qt::Literals::StringLiterals;
 void E2EDataBaseTest::initTestCase()
 {
     E2EDataBase store;
-    store.deleteKey(testUser);
-    store.deleteKey(otherUser);
+    QVERIFY(store.deleteKey(testUser));
+    QVERIFY(store.deleteKey(otherUser));
 }
 
 void E2EDataBaseTest::shouldDefaultValues()
@@ -66,7 +66,7 @@ void E2EDataBaseTest::testOverwrite()
     QCOMPARE(loadedPriv, priv2);
     QCOMPARE(loadedPub, pub2);
 
-    store.deleteKey(userId);
+    QVERIFY(store.deleteKey(userId));
 }
 
 void E2EDataBaseTest::testNonexistentKey()

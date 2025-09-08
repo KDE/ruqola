@@ -52,5 +52,9 @@ void LocalDatabaseBaseTest::shouldHaveDefaultValues()
         TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Global);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"global-kde"_s);
     }
+    {
+        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::E2E);
+        QCOMPARE(w.currentDatabaseName(u"kde"_s), u"e2e-kde"_s);
+    }
 }
 #include "moc_localdatabasebasetest.cpp"
