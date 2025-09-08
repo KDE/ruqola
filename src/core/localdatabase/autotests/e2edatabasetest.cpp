@@ -12,12 +12,18 @@ QTEST_GUILESS_MAIN(E2EDataBaseTest)
 
 const auto testUser = QStringLiteral("testuser");
 const auto otherUser = QStringLiteral("otheruser");
-
+using namespace Qt::Literals::StringLiterals;
 void E2EDataBaseTest::initTestCase()
 {
     E2EDataBase store;
     store.deleteKey(testUser);
     store.deleteKey(otherUser);
+}
+
+void E2EDataBaseTest::shouldDefaultValues()
+{
+    E2EDataBase e2eDatabase;
+    QCOMPARE(e2eDatabase.schemaDatabaseStr(), u"CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)"_s);
 }
 
 void E2EDataBaseTest::testSaveLoadDelete()
