@@ -15,6 +15,7 @@ class ExploreDatabaseMessagesStorageWidget;
 class ExploreDatabaseAccountStorageWidget;
 class ExploreDatabaseRoomsStorageWidget;
 class ExploreDatabaseGlobalStorageWidget;
+class ExploreDatabaseE2EStorageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseDialog : public QDialog
 {
     Q_OBJECT
@@ -31,4 +32,5 @@ private:
     ExploreDatabaseAccountStorageWidget *const mExploreDatabaseAccountStorageWidget;
     ExploreDatabaseRoomsStorageWidget *const mExploreDatabaseRoomsStorageWidget;
     ExploreDatabaseGlobalStorageWidget *const mExploreDatabaseGlobalStorageWidget;
+    ExploreDatabaseE2EStorageWidget *const mExploreDatabaseE2EStorageWidget;
 };
