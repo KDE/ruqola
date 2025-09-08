@@ -16,6 +16,7 @@ class LocalMessageLogger;
 class LocalMessagesDatabase;
 class LocalRoomsDatabase;
 class LocalAccountsDatabase;
+class E2EDataBase;
 class Message;
 class Room;
 namespace RocketChatRestApi
@@ -54,6 +55,8 @@ public:
 
     [[nodiscard]] GlobalDatabase *globalDatabase() const;
 
+    [[nodiscard]] E2EDataBase *e2EDatabase() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void handleMigration();
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
@@ -61,4 +64,5 @@ private:
     std::unique_ptr<LocalRoomsDatabase> mRoomsDatabase;
     std::unique_ptr<LocalAccountsDatabase> mAccountDatabase;
     std::unique_ptr<GlobalDatabase> mGlobalDatabase;
+    std::unique_ptr<E2EDataBase> mE2EDatabase;
 };

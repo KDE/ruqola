@@ -5,6 +5,7 @@
 */
 
 #include "localdatabasemanager.h"
+#include "e2edatabase.h"
 #include "localaccountsdatabase.h"
 #include "localdatabaseutils.h"
 #include "localmessagelogger.h"
@@ -21,6 +22,7 @@ LocalDatabaseManager::LocalDatabaseManager(bool migrateDataBase)
     , mRoomsDatabase(std::make_unique<LocalRoomsDatabase>())
     , mAccountDatabase(std::make_unique<LocalAccountsDatabase>())
     , mGlobalDatabase(std::make_unique<GlobalDatabase>())
+    , mE2EDatabase(std::make_unique<E2EDataBase>())
 {
     if (migrateDataBase) {
         handleMigration();
@@ -40,6 +42,11 @@ void LocalDatabaseManager::handleMigration()
             }
         }
     }
+}
+
+E2EDataBase *LocalDatabaseManager::e2EDatabase() const
+{
+    return mE2EDatabase.get();
 }
 
 void LocalDatabaseManager::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
@@ -107,6 +114,7 @@ void LocalDatabaseManager::setDatabaseLogger(RocketChatRestApi::AbstractLogger *
     mRoomsDatabase->setDatabaseLogger(logger);
     mAccountDatabase->setDatabaseLogger(logger);
     mGlobalDatabase->setDatabaseLogger(logger);
+    mE2EDatabase->setDatabaseLogger(logger);
 }
 
 LocalMessagesDatabase *LocalDatabaseManager::messagesDatabase() const
