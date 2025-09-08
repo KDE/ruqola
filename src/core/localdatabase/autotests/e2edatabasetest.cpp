@@ -3,26 +3,26 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "e2ekeystoretest.h"
+#include "e2edatabasetest.h"
 #include "encryption/encryptionutils.h"
-#include "localdatabase/e2ekeystore.h"
+#include "localdatabase/e2edatabase.h"
 #include <QtTest>
 
-QTEST_GUILESS_MAIN(E2EKeyStoreTest)
+QTEST_GUILESS_MAIN(E2EDataBaseTest)
 
 const auto testUser = QStringLiteral("testuser");
 const auto otherUser = QStringLiteral("otheruser");
 
-void E2EKeyStoreTest::initTestCase()
+void E2EDataBaseTest::initTestCase()
 {
-    E2EKeyStore store;
+    E2EDataBase store;
     store.deleteKey(testUser);
     store.deleteKey(otherUser);
 }
 
-void E2EKeyStoreTest::testSaveLoadDelete()
+void E2EDataBaseTest::testSaveLoadDelete()
 {
-    E2EKeyStore store;
+    E2EDataBase store;
     const auto userId = testUser;
     const auto rsaKeyPair = EncryptionUtils::generateRSAKey();
     const auto priv = rsaKeyPair.publicKey;
@@ -40,9 +40,9 @@ void E2EKeyStoreTest::testSaveLoadDelete()
     QVERIFY(!store.hasKey(userId));
 }
 
-void E2EKeyStoreTest::testOverwrite()
+void E2EDataBaseTest::testOverwrite()
 {
-    E2EKeyStore store;
+    E2EDataBase store;
     const auto userId = testUser;
     const auto rsaKeyPair1 = EncryptionUtils::generateRSAKey();
     const auto rsaKeyPair2 = EncryptionUtils::generateRSAKey();
@@ -63,9 +63,9 @@ void E2EKeyStoreTest::testOverwrite()
     store.deleteKey(userId);
 }
 
-void E2EKeyStoreTest::testNonexistentKey()
+void E2EDataBaseTest::testNonexistentKey()
 {
-    E2EKeyStore store;
+    E2EDataBase store;
     const auto userId = otherUser;
     QByteArray priv, pub;
     QVERIFY(!store.hasKey(userId));
@@ -73,4 +73,4 @@ void E2EKeyStoreTest::testNonexistentKey()
     QVERIFY(store.deleteKey(userId));
 }
 
-#include "moc_e2ekeystoretest.cpp"
+#include "moc_e2edatabasetest.cpp"

@@ -7,7 +7,7 @@
 
 #include <QObject>
 
-class E2EKeyStoreTest : public QObject
+class E2EDataBaseTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:

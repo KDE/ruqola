@@ -3,27 +3,27 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "e2ekeystore.h"
+#include "e2edatabase.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 #include <QSqlError>
 #include <QSqlQuery>
 
-const char E2EKeyStore::s_schemaE2EKeyStore[] = "CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
+const char E2EDataBase::s_schemaE2EKeyStore[] = "CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
 
-E2EKeyStore::E2EKeyStore()
+E2EDataBase::E2EDataBase()
     : LocalDatabaseBase(LocalDatabaseUtils::localDatabasePath() + QStringLiteral("e2e/"), LocalDatabaseBase::DatabaseType::E2E)
 {
 }
 
-E2EKeyStore::~E2EKeyStore() = default;
+E2EDataBase::~E2EDataBase() = default;
 
-QString E2EKeyStore::schemaDataBase() const
+QString E2EDataBase::schemaDataBase() const
 {
     return QString::fromLatin1(s_schemaE2EKeyStore);
 }
 
-bool E2EKeyStore::saveKey(const QString &userId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey)
+bool E2EDataBase::saveKey(const QString &userId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey)
 {
     QSqlDatabase db;
     if (!initializeDataBase(userId, db)) {
@@ -41,7 +41,7 @@ bool E2EKeyStore::saveKey(const QString &userId, const QByteArray &encryptedPriv
     return true;
 }
 
-bool E2EKeyStore::loadKey(const QString &userId, QByteArray &encryptedPrivateKey, QByteArray &publicKey)
+bool E2EDataBase::loadKey(const QString &userId, QByteArray &encryptedPrivateKey, QByteArray &publicKey)
 {
     QSqlDatabase db;
     if (!initializeDataBase(userId, db)) {
@@ -58,7 +58,7 @@ bool E2EKeyStore::loadKey(const QString &userId, QByteArray &encryptedPrivateKey
     return false;
 }
 
-bool E2EKeyStore::deleteKey(const QString &userId)
+bool E2EDataBase::deleteKey(const QString &userId)
 {
     QSqlDatabase db;
     if (!initializeDataBase(userId, db)) {
@@ -74,7 +74,7 @@ bool E2EKeyStore::deleteKey(const QString &userId)
     return true;
 }
 
-bool E2EKeyStore::hasKey(const QString &userId)
+bool E2EDataBase::hasKey(const QString &userId)
 {
     QSqlDatabase db;
     if (!initializeDataBase(userId, db)) {

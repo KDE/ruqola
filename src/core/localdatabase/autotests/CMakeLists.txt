@@ -21,5 +21,5 @@ add_ruqola_localdatabase_test(localdatabasebasetest.cpp)
 
 
 if(USE_E2E_SUPPORT)
-   add_ruqola_localdatabase_test(e2ekeystoretest.cpp)
+    add_ruqola_localdatabase_test(e2edatabasetest.cpp)
 endif()

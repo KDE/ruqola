@@ -8,17 +8,18 @@
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
 
-class LIBRUQOLACORE_EXPORT E2EKeyStore : public LocalDatabaseBase
+class LIBRUQOLACORE_EXPORT E2EDataBase : public LocalDatabaseBase
 {
 public:
-    E2EKeyStore();
-    ~E2EKeyStore() override;
+    E2EDataBase();
+    ~E2EDataBase() override;
 
     [[nodiscard]] bool saveKey(const QString &userId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey);
     [[nodiscard]] bool loadKey(const QString &userId, QByteArray &encryptedPrivateKey, QByteArray &publicKey);
     [[nodiscard]] bool deleteKey(const QString &userId);
     [[nodiscard]] bool hasKey(const QString &userId);
 
+protected:
     [[nodiscard]] QString schemaDataBase() const override;
 
 private:
