@@ -20,10 +20,10 @@ ExploreDatabaseRoomsStorageWidget::ExploreDatabaseRoomsStorageWidget(RocketChatA
     if (account) {
         slotLoadModelFromDataBase(account->accountName());
     }
-    // timeStamp
-    mTableView->setItemDelegateForColumn(1, new ExploreDatabaseTimeStampDelegate(this));
     // RoomId => displayName
     mTableView->setItemDelegateForColumn(0, new ExploreDatabaseRoomIdDelegate(account, this));
+    // timeStamp
+    mTableView->setItemDelegateForColumn(1, new ExploreDatabaseTimeStampDelegate(this));
 
     mTableView->setItemDelegateForColumn(2, new ExploreDatabaseTooltipDelegate(this));
 }
