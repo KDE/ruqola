@@ -57,6 +57,6 @@ Q_SIGNALS:
     void loginFailed(const QString &error);
 
 private:
-    RocketChatRestApi::LoginJob *loginJob = nullptr;
-    RocketChatRestApi::RestApiMethod *restApiMethod = nullptr;
+    RocketChatRestApi::LoginJob *mLoginJob = nullptr;
+    RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
 };

@@ -4,9 +4,13 @@
 */
 
 #include "uploaddownloadrsakeypair.h"
+#include "e2e/fetchmykeysjob.h"
+#include "e2e/setuserpublicandprivatekeysjob.h"
+#include "restapimethod.h"
 #include <QCoreApplication>
 #include <QDebug>
 #include <QJsonObject>
+#include <QNetworkAccessManager>
 
 using namespace EncryptionUtils;
 using namespace RocketChatRestApi;
@@ -49,7 +53,10 @@ void uploadKeys(const QString &authToken,
         QCoreApplication::quit();
     });
 
-    uploadJob->start();
+    if (!uploadJob->start()) {
+        qWarning() << "Impossible to start upload job";
+        delete restApiMethod;
+    }
 }
 
 void downloadKeys(const QString &authToken,
@@ -85,5 +92,7 @@ void downloadKeys(const QString &authToken,
         QCoreApplication::quit();
     });
 
-    fetchJob->start();
+    if (!fetchJob->start()) {
+        qWarning() << " Impossible to start fetch job";
+    }
 }
