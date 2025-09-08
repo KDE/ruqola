@@ -73,4 +73,4 @@ void E2EKeyStoreTest::testNonexistentKey()
     QVERIFY(store.deleteKey(userId));
 }
 
-#include "e2ekeystoretest.moc"
+#include "moc_e2ekeystoretest.cpp"

@@ -46,3 +46,5 @@ void UploadDownloadRsaKeyPairTest::uploadDownloadCompare()
 }
 
 #include "uploaddownloadrsakeypairtest.moc"
+
+#include "moc_uploaddownloadrsakeypairtest.cpp"

@@ -176,4 +176,4 @@ void SessionKeyDistributionTest::testCanStartValidation()
     QVERIFY(job.canStart());
 }
 
-#include "sessionkeydistributiontest.moc"
+#include "moc_sessionkeydistributiontest.cpp"

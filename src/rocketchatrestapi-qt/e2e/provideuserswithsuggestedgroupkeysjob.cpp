@@ -104,3 +104,5 @@ bool ProvideUsersWithSuggestedGroupKeysJob::canStart() const
     }
     return true;
 }
+
+#include "moc_provideuserswithsuggestedgroupkeysjob.cpp"
