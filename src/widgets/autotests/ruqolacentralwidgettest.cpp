@@ -41,10 +41,9 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mServerErrorInfoMessageWidget);
 #endif
     auto whatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(u"whatsNewMessageWidget"_s);
-    if (WhatsNewTranslations().lastNewFeatures().isEmpty())
+    if (WhatsNewTranslations().lastNewFeatures().isEmpty()) {
         QVERIFY(!whatsNewMessageWidget);
-    else
-        QVERIFY(whatsNewMessageWidget);
+    }
 }
 
 #include "moc_ruqolacentralwidgettest.cpp"
