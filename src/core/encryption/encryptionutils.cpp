@@ -243,11 +243,21 @@ QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString 
 #endif
 }
 
+/**
+ * @brief Generates a random 16-byte (128-bit) session key for AES encryption.
+ *
+ * @return A QByteArray containing 16 random bytes suitable for use as an AES-128 session key.
+ */
 QByteArray EncryptionUtils::generateSessionKey()
 {
     return generateRandomIV(16);
 }
 
+/**
+ * @brief Converts public key from QByteArray to RSA.
+ * @param QByteArray &pem
+ *
+ */
 RSA *EncryptionUtils::publicKeyFromPEM(const QByteArray &pem)
 {
     BIO *bio = BIO_new_mem_buf(pem.constData(), pem.size());
@@ -266,6 +276,11 @@ RSA *EncryptionUtils::publicKeyFromPEM(const QByteArray &pem)
     return rsa;
 }
 
+/**
+ * @brief Converts private key from QByteArray to RSA.
+ * @param QByteArray &pem
+ *
+ */
 RSA *EncryptionUtils::privateKeyFromPEM(const QByteArray &pem)
 {
     BIO *bio = BIO_new_mem_buf(pem.constData(), pem.size());
@@ -365,12 +380,12 @@ QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QB
         return {};
     }
 
-    QByteArray iv = encrypted.left(16);
-    QByteArray cipherText = encrypted.mid(16);
+    const QByteArray iv = encrypted.left(16);
+    const QByteArray cipherText = encrypted.mid(16);
 
     qDebug() << cipherText << "QByteArray cipherText = encrypted.mid(16)";
 
-    QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);
+    const QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);
 
     qDebug() << plainText << "QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);";
 

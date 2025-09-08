@@ -34,4 +34,4 @@ compile_commands.json
 /.vscode/
 .qtcreator/
 .env
-compose.yml
+docker-compose.yml

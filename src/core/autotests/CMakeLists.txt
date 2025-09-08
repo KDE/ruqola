@@ -1,4 +1,5 @@
-# SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>,
+# SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
 # SPDX-License-Identifier: BSD-3-Clause
 add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 add_definitions(-DRUQOLA_BINARY_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")
@@ -167,6 +168,37 @@ if(USE_E2E_SUPPORT)
     add_ruqola_test(rsapairtest.cpp)
     add_ruqola_test(sessionkeytest.cpp)
     add_ruqola_test(messageencryptiondecryptiontest.cpp)
+    #add_ruqola_test(uploaddownloadrsakeypairtest.cpp)
+    add_ruqola_test(sessionkeydistributiontest.cpp)
+
+
+    target_sources(sessionkeydistributiontest PRIVATE
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/loginmanager.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/envutils.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/uploaddownloadrsakeypair.cpp
+    )
+    target_link_libraries(sessionkeydistributiontest librocketchatrestapi-qt)
+
+    target_include_directories(sessionkeydistributiontest PRIVATE
+          ${CMAKE_SOURCE_DIR}/tests/encryptiontest
+          ${CMAKE_SOURCE_DIR}/src/core/encryption)
+
+if (0)
+    target_include_directories(uploaddownloadrsakeypairtest PRIVATE
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontest
+        ${CMAKE_SOURCE_DIR}/src/core/encryption
+        ${CMAKE_SOURCE_DIR}/src/rocketchatrestapi-qt
+        ${CMAKE_SOURCE_DIR}/src/rocketchatrestapi-qt/e2e
+        ${CMAKE_BINARY_DIR}/src/core
+        ${CMAKE_BINARY_DIR}/src/rocketchatrestapi-qt
+    )
+
+    target_sources(uploaddownloadrsakeypairtest PRIVATE
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/loginmanager.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/uploaddownloadrsakeypair.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/envutils.cpp
+    )
+endif()
 endif()
 
 add_ruqola_test(channelstest.cpp)

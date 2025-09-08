@@ -479,6 +479,8 @@ target_sources(
         localdatabase/localdatabasebase.cpp
         localdatabase/localaccountsdatabase.h
         localdatabase/localaccountsdatabase.cpp
+        localdatabase/e2ekeystore.h
+        localdatabase/e2ekeystore.cpp
         localdatabase/globaldatabase.h
         localdatabase/globaldatabase.cpp
         customemojiiconmanager.h

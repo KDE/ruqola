@@ -20,6 +20,7 @@ public:
         Messages,
         Logger,
         Global,
+        E2E,
     };
     explicit LocalDatabaseBase(const QString &basePath, DatabaseType type);
     virtual ~LocalDatabaseBase();
