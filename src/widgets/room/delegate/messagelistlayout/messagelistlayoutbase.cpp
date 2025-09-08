@@ -47,8 +47,9 @@ bool MessageListLayoutBase::sameSenderAsPreviousMessage(const QModelIndex &index
 
     const int diffDate = mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->messageGroupingPeriod() * 1000 : 0;
     if ((message->userId() == previousMessage->userId()) && (message->threadMessageId() == previousMessage->threadMessageId())
-        && (message->timeStamp() <= (previousMessage->timeStamp() + diffDate)))
+        && (message->timeStamp() <= (previousMessage->timeStamp() + diffDate))) {
         return true;
+    }
     return false;
 }
 
