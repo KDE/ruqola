@@ -5,13 +5,10 @@
 
 #pragma once
 
-#include "e2e/fetchmykeysjob.h"
-#include "e2e/setuserpublicandprivatekeysjob.h"
 #include "encryptionutils.h"
-#include "restapimethod.h"
-#include <QNetworkAccessManager>
 #include <QString>
 #include <functional>
+class QNetworkAccessManager;
 
 void uploadKeys(const QString &authToken,
                 const QString &url,
