@@ -38,13 +38,18 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     WhatsNewTranslations translations;
     const QString newFeaturesMD5 = translations.newFeaturesMD5();
     if (!newFeaturesMD5.isEmpty()) {
-        const bool hasNewFeature = (RuqolaGlobalConfig::self()->previousNewFeaturesMD5() != newFeaturesMD5);
-        if (hasNewFeature) {
-            auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
-            whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
-            mMainLayout->addWidget(whatsNewMessageWidget);
+        const QString previousNewFeaturesMD5 = RuqolaGlobalConfig::self()->previousNewFeaturesMD5();
+        if (!previousNewFeaturesMD5.isEmpty()) {
+            const bool hasNewFeature = (previousNewFeaturesMD5 != newFeaturesMD5);
+            if (hasNewFeature) {
+                auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
+                whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
+                mMainLayout->addWidget(whatsNewMessageWidget);
+                RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
+                whatsNewMessageWidget->animatedShow();
+            }
+        } else {
             RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
-            whatsNewMessageWidget->animatedShow();
         }
     }
 
