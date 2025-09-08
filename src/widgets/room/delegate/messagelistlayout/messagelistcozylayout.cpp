@@ -150,6 +150,10 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
         layout.translatedIconRect = QRect(translatedIconX, senderRectY, iconSize, iconSize);
     }
 
+    /* TODO encrypted icon
+        layout.encryptedIconRect = QRect(...)
+     */
+
     if (ignoreMessage) {
         layout.showIgnoredMessageIconRect = QRect(showIgnoreMessageIconX, senderRectY, iconSize, iconSize);
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();

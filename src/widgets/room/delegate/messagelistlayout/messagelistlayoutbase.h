@@ -53,6 +53,9 @@ public:
         // Show Ignore Message icon
         QRect showIgnoredMessageIconRect;
 
+        // Encrypted icon
+        QRect encryptedIconRect;
+
         // add-reaction button and timestamp
         QRect addReactionRect;
 

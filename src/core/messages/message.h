@@ -53,6 +53,7 @@ public:
         Edited = 64,
         Translated = 128,
         ParsedUrl = 256,
+        Encrypted = 512,
     };
     Q_FLAGS(MessageState MessageStates)
     Q_DECLARE_FLAGS(MessageStates, MessageState)
@@ -232,6 +233,8 @@ public:
 
     [[nodiscard]] MessageStates messageStates() const;
     void setMessageStates(const MessageStates &newMessageStates);
+
+    [[nodiscard]] bool isEncryptedMessage() const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);

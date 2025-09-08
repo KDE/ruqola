@@ -205,6 +205,12 @@ bool Message::isAutoTranslated() const
     return false;
 }
 
+bool Message::isEncryptedMessage() const
+{
+    // TODO
+    return false;
+}
+
 bool Message::showTranslatedMessage() const
 {
     return messageStateValue(Translated);
@@ -1146,7 +1152,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         const QJsonObject mention = mentionsArray.at(i).toObject();
         mentions.insert(mention.value("username"_L1).toString(), mention.value("_id"_L1).toString().toLatin1());
     }
-    message.setMentions(std::move(mentions));
+    message.setMentions(mentions);
 
     if (o.contains("channels"_L1)) {
         const QJsonArray channelsArray = o.value("channels"_L1).toArray();

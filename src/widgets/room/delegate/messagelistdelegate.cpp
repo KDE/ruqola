@@ -64,6 +64,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mPinIcon(QIcon::fromTheme(u"pin"_s))
     , mTranslatedIcon(QIcon::fromTheme(u"translate"_s))
     , mReplyInThreadIcon(QIcon::fromTheme(u"view-conversation-balloon-symbolic"_s))
+    , mEncryptedIcon(QIcon::fromTheme(u"document-encrypt"_s))
     , mListView(view)
     , mTextSelectionImpl(new TextSelectionImpl)
     , mHelperText(new MessageDelegateHelperText(account, view, mTextSelectionImpl))
@@ -616,10 +617,18 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (layout.messageIsFollowing) {
         mFollowingIcon.paint(painter, layout.followingIconRect);
     }
-    // Draw translated string
+    // Draw translated string icon
     if (message->isAutoTranslated() || !message->localTranslation().isEmpty()) {
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
+
+    // Draw encrypted icon
+    // TODO implement encrypted message
+    /*
+    if (message->) {
+        mEncryptedIcon.paint(painter, layout.encryptedIconRect);
+    }
+    */
 
     if (MessageDelegateUtils::showIgnoreMessages(index)) {
         const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? u"visibility"_s : u"hint"_s);

@@ -164,7 +164,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 info.needToDownloadBigImage = !mRocketChatAccount->attachmentIsInLocalCache(info.bigImagePath);
                 info.pixmap = layout.pixmap;
                 info.isAnimatedImage = layout.isAnimatedImage;
-                dlg->setImageInfo(std::move(info));
+                dlg->setImageInfo(info);
                 dlg->show();
                 return true;
             }
