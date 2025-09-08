@@ -4,9 +4,9 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#pragma once
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
-#pragma once
 class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT LocalAccountsDatabase : public LocalDatabaseBase
 {
