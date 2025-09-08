@@ -799,6 +799,8 @@ target_sources(
         databasedialog/exploredatabasejsonplaintexteditwidget.cpp
         databasedialog/exploredatabaseroomiddelegate.h
         databasedialog/exploredatabaseroomiddelegate.cpp
+	databasedialog/exploredatabasee2estoragewidget.cpp
+	databasedialog/exploredatabasee2estoragewidget.h
 
         whatsnew/whatsnewdialog.h
         whatsnew/whatsnewdialog.cpp
