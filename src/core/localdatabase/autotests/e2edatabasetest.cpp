@@ -59,17 +59,24 @@ void E2EDataBaseTest::testOverwrite()
     const auto pub2 = rsaKeyPair2.publicKey;
 
     QVERIFY(store.saveKey(userId, priv1, pub1));
+    {
+        QByteArray loadedPriv, loadedPub;
+        QVERIFY(store.loadKey(userId, loadedPriv, loadedPub));
+        QCOMPARE(loadedPriv, priv1);
+        QCOMPARE(loadedPub, pub1);
+    }
+
     QVERIFY(store.saveKey(userId, priv2, pub2));
-
-    QByteArray loadedPriv, loadedPub;
-    QVERIFY(store.loadKey(userId, loadedPriv, loadedPub));
-    QCOMPARE(loadedPriv, priv2);
-    QCOMPARE(loadedPub, pub2);
-
+    {
+        QByteArray loadedPriv, loadedPub;
+        QVERIFY(store.loadKey(userId, loadedPriv, loadedPub));
+        QCOMPARE(loadedPriv, priv2);
+        QCOMPARE(loadedPub, pub2);
+    }
     QVERIFY(store.deleteKey(userId));
 }
 
-void E2EDataBaseTest::testNonexistentKey()
+void E2EDataBaseTest::testNonExistentKey()
 {
     E2EDataBase store;
     const auto userId = otherUser;

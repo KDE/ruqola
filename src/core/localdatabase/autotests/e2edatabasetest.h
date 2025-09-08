@@ -14,6 +14,6 @@ private Q_SLOTS:
     void initTestCase();
     void testSaveLoadDelete();
     void testOverwrite();
-    void testNonexistentKey();
+    void testNonExistentKey();
     void shouldDefaultValues();
 };
