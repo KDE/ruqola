@@ -6,7 +6,7 @@
 #pragma once
 
 #include "exploredatabasebasestoragewidget.h"
-#include "localdatabase/localroomsdatabase.h"
+#include "localdatabase/e2edatabase.h"
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseE2EStorageWidget : public ExploreDatabaseBaseStorageWidget
 {
@@ -17,5 +17,5 @@ public:
     void slotLoadModelFromDataBase(const QString &accountName);
 
 private:
-    LocalRoomsDatabase *const mLocalRoomsDatabase;
+    E2EDataBase *const mLocalE2EDatabase;
 };
