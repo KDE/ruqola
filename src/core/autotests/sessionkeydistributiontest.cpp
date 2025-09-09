@@ -9,8 +9,9 @@
 #include "e2e/provideuserswithsuggestedgroupkeysjob.h"
 #include "e2e/rejectsuggestedgroupkeyjob.h"
 #include "encryption/encryptionutils.h"
-#include "loginmanager.h"
-#include "uploaddownloadrsakeypair.h"
+#include "restapimethod.h"
+// #include "loginmanager.h"
+// #include "uploaddownloadrsakeypair.h"
 #include <QCoreApplication>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -174,6 +175,7 @@ void SessionKeyDistributionTest::testCanStartValidation()
     QVector<RocketChatRestApi::SuggestedGroupKey> keys = {{QStringLiteral("users"), QStringLiteral("base64keyA")}};
     job.setKeys(keys);
     QVERIFY(job.canStart());
+    delete restApiMethod;
 }
 
 #include "moc_sessionkeydistributiontest.cpp"

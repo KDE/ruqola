@@ -173,14 +173,14 @@ if(USE_E2E_SUPPORT)
 
 
     target_sources(sessionkeydistributiontest PRIVATE
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/loginmanager.cpp
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/envutils.cpp
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/uploaddownloadrsakeypair.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/loginmanager.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/envutils.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/uploaddownloadrsakeypair.cpp
     )
     target_link_libraries(sessionkeydistributiontest librocketchatrestapi-qt)
 
     target_include_directories(sessionkeydistributiontest PRIVATE
-          ${CMAKE_SOURCE_DIR}/tests/encryptiontest
+          ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui
           ${CMAKE_SOURCE_DIR}/src/core/encryption)
 
 if (0)
@@ -194,9 +194,9 @@ if (0)
     )
 
     target_sources(uploaddownloadrsakeypairtest PRIVATE
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/loginmanager.cpp
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/uploaddownloadrsakeypair.cpp
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontest/envutils.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/loginmanager.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/uploaddownloadrsakeypair.cpp
+        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/envutils.cpp
     )
 endif()
 endif()
