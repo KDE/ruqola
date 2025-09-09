@@ -4,6 +4,7 @@
 */
 
 #include "loginmanager.h"
+#include "envutils.h"
 #include <QDebug>
 
 LoginManager::LoginManager(QObject *parent)

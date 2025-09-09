@@ -18,6 +18,8 @@ curl -X POST http://localhost:3000/api/v1/login \
 #include <QCoreApplication>
 #include <QDebug>
 
+// TODO we need to have VM
+
 using namespace EncryptionUtils;
 
 const auto url = u"http://localhost:3000"_s;

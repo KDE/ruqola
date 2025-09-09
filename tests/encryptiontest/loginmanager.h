@@ -6,7 +6,6 @@
 #pragma once
 
 #include "authentication/loginjob.h"
-#include "envutils.h"
 #include "restapimethod.h"
 #include <QCoreApplication>
 #include <QDir>
