@@ -86,6 +86,12 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         positionIcon += iconSizeMargin;
     }
 
+    const int encryptionX = positionIcon;
+    // Encruption icon
+    if (message->isEncryptedMessage()) {
+        positionIcon += iconSizeMargin;
+    }
+
     const int followingIconX = positionIcon;
     layout.messageIsFollowing = mRocketChatAccount && (message->replies() && message->replies()->replies().contains(mRocketChatAccount->userId()));
     // Following icon
@@ -183,6 +189,16 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
             layout.followingIconRect = QRect(followingIconX, senderRectY, iconSize, iconSize);
         }
     }
+
+    if (message->isEncryptedMessage()) {
+        if (layout.sameSenderAsPreviousMessage) {
+            layout.encryptedIconRect = iconRect(iconIndex, senderX, iconPosition, iconSize, margin, avatarWidth);
+            iconIndex++;
+        } else {
+            layout.encryptedIconRect = QRect(encryptionX, senderRectY, iconSize, iconSize);
+        }
+    }
+
     if (message->isAutoTranslated() || !message->localTranslation().isEmpty()) {
         if (layout.sameSenderAsPreviousMessage) {
             layout.translatedIconRect = iconRect(iconIndex, senderX, iconPosition, iconSize, margin, avatarWidth);

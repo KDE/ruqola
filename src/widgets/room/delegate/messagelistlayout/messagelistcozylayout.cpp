@@ -82,6 +82,12 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
         textLeft += iconSizeMargin;
     }
 
+    const int encryptionX = textLeft;
+    // Encruption icon
+    if (message->isEncryptedMessage()) {
+        textLeft += iconSizeMargin;
+    }
+
     const int followingIconX = textLeft;
     layout.messageIsFollowing = mRocketChatAccount && message->replies() && message->replies()->replies().contains(mRocketChatAccount->userId());
     // Following icon
@@ -143,6 +149,11 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     if (message->isPinned()) {
         layout.pinIconRect = QRect(pinIconX, senderRectY, iconSize, iconSize);
     }
+
+    if (message->isEncryptedMessage()) {
+        layout.encryptedIconRect = QRect(encryptionX, senderRectY, iconSize, iconSize);
+    }
+
     if (layout.messageIsFollowing) {
         layout.followingIconRect = QRect(followingIconX, senderRectY, iconSize, iconSize);
     }
