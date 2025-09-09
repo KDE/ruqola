@@ -19,7 +19,7 @@ void uploadKeys(const QString &authToken,
                 std::function<void(QString, RSAKeyPair)> onSuccess)
 {
     const auto keyPair = generateRSAKey();
-    const auto masterKey = getMasterKey(password, QStringLiteral("salt"));
+    const auto masterKey = getMasterKey(password, u"salt"_s);
     const auto encryptedPrivateKey = encryptPrivateKey(keyPair.privateKey, masterKey);
 
     qDebug() << "uploadKeys called with authToken:" << authToken;
@@ -40,7 +40,7 @@ void uploadKeys(const QString &authToken,
 
     QObject::connect(uploadJob, &SetUserPublicAndPrivateKeysJob::setUserPublicAndPrivateKeysDone, uploadJob, [onSuccess, keyPair]() {
         if (onSuccess) {
-            onSuccess(QStringLiteral("Key upload successful!"), keyPair);
+            onSuccess(u"Key upload successful!"_s, keyPair);
         }
     });
 
@@ -72,7 +72,7 @@ void downloadKeys(const QString &authToken,
         const auto publicKey = jsonObj["public_key"_L1].toString();
         const auto encryptedPrivateKeyB64 = jsonObj["private_key"_L1].toString();
         const auto encryptedPrivateKey = QByteArray::fromBase64(encryptedPrivateKeyB64.toUtf8());
-        const auto masterKey = getMasterKey(password, QStringLiteral("salt"));
+        const auto masterKey = getMasterKey(password, u"salt"_s);
         const auto decryptedPrivateKey = QString::fromUtf8(decryptPrivateKey(encryptedPrivateKey, masterKey));
 
         if (onSuccess) {

@@ -13,7 +13,7 @@
 #include "needupdateversion/needupdateversionutils.h"
 
 #include "needupdatecheckexistingnextversionwidget.h"
-
+using namespace Qt::Literals::StringLiterals;
 NeedUpdateCheckExistingNextVersionWidget::NeedUpdateCheckExistingNextVersionWidget(QWidget *parent)
     : QWidget{parent}
 {
@@ -21,7 +21,7 @@ NeedUpdateCheckExistingNextVersionWidget::NeedUpdateCheckExistingNextVersionWidg
     auto lineEdit = new QLineEdit(this);
     mainLayout->addWidget(lineEdit);
 
-    auto pushButton = new QPushButton(QStringLiteral("Download"), this);
+    auto pushButton = new QPushButton(u"Download"_s, this);
     mainLayout->addWidget(pushButton);
 
     auto plainTextEdit = new QPlainTextEdit(this);
@@ -33,7 +33,7 @@ NeedUpdateCheckExistingNextVersionWidget::NeedUpdateCheckExistingNextVersionWidg
             job->setUrl(QUrl(lineEdit->text()));
             job->setCompileDate(NeedUpdateVersionUtils::compileDate());
             connect(job, &NeedUpdateCheckExistingNewVersionJob::foundNewVersion, this, [plainTextEdit](bool state) {
-                plainTextEdit->setPlainText(QStringLiteral("New version found ? %1").arg(state));
+                plainTextEdit->setPlainText(u"New version found ? %1"_s.arg(state));
             });
             job->start();
         }

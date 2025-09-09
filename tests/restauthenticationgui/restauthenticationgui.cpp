@@ -25,7 +25,7 @@ RestAuthenticationGui::RestAuthenticationGui(QWidget *parent)
     mainLayout->addWidget(mAuthenticationLoginWidget);
     mAuthenticationLoginWidget->setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType::Create);
 
-    auto login = new QPushButton(QStringLiteral("Login"), this);
+    auto login = new QPushButton(u"Login"_s, this);
     mainLayout->addWidget(login);
     connect(login, &QPushButton::clicked, this, [this, dummyAccount, authManager]() {
         const AccountManager::AccountManagerInfo info = mAuthenticationLoginWidget->accountInfo();
@@ -34,7 +34,7 @@ RestAuthenticationGui::RestAuthenticationGui(QWidget *parent)
             qDebug() << " Impossible to log";
         }
     });
-    auto logout = new QPushButton(QStringLiteral("Logout"), this);
+    auto logout = new QPushButton(u"Logout"_s, this);
     mainLayout->addWidget(logout);
     connect(logout, &QPushButton::clicked, this, [this, dummyAccount, authManager]() {
         const AccountManager::AccountManagerInfo info = mAuthenticationLoginWidget->accountInfo();
@@ -44,7 +44,7 @@ RestAuthenticationGui::RestAuthenticationGui(QWidget *parent)
     auto label = new QLabel(this);
     mainLayout->addWidget(label);
     connect(authManager, &RESTAuthenticationManager::loginStatusChanged, this, [label, authManager]() {
-        label->setText(QStringLiteral("Login Status: %1").arg(authManager->loginStatus()));
+        label->setText(u"Login Status: %1"_s.arg(authManager->loginStatus()));
     });
 }
 

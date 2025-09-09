@@ -15,7 +15,7 @@
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QStandardPaths>
-
+using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
     : QWidget(parent)
     , mPlainTextEdit(new QPlainTextEdit(this))
@@ -24,7 +24,7 @@ AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mPlainTextEdit);
 
-    auto button = new QPushButton(QStringLiteral("Generate"), this);
+    auto button = new QPushButton(u"Generate"_s, this);
     mainLayout->addWidget(button);
     auto engine = new AutoGenerateInteractionUi(nullptr);
     connect(button, &QPushButton::clicked, this, [this, engine]() {
@@ -42,7 +42,7 @@ AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
 
     mSerializeTextEdit->setReadOnly(true);
     mainLayout->addWidget(mSerializeTextEdit);
-    auto generateJsonbutton = new QPushButton(QStringLiteral("Generate Json"), this);
+    auto generateJsonbutton = new QPushButton(u"Generate Json"_s, this);
     mainLayout->addWidget(generateJsonbutton);
     connect(generateJsonbutton, &QPushButton::clicked, this, [this, engine]() {
         mSerializeTextEdit->clear();

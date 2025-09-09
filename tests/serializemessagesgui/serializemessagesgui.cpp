@@ -29,10 +29,10 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
 
-    auto saveFromFile = new QPushButton(QStringLiteral("Load..."), this);
+    auto saveFromFile = new QPushButton(u"Load..."_s, this);
     mainLayout->addWidget(saveFromFile);
     connect(saveFromFile, &QPushButton::clicked, this, [this]() {
-        const QString str = QFileDialog::getOpenFileName(this, QStringLiteral("Load File"));
+        const QString str = QFileDialog::getOpenFileName(this, u"Load File"_s);
         if (!str.isEmpty()) {
             QFile f(str);
             if (!f.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -58,7 +58,7 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     mainWidgetLayout->addWidget(mOriginal);
 
     mSerialize->setReadOnly(true);
-    auto generateJsonbutton = new QPushButton(QStringLiteral("Serialize Json"), this);
+    auto generateJsonbutton = new QPushButton(u"Serialize Json"_s, this);
     mainWidgetLayout->addWidget(generateJsonbutton);
     mainWidgetLayout->addWidget(mSerialize);
 
@@ -82,11 +82,11 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
 
                 const bool equal = (newMsg == msg);
                 if (equal) {
-                    mDiffMessage->setPlainText(QStringLiteral("Messages are equal"));
+                    mDiffMessage->setPlainText(u"Messages are equal"_s);
                 } else {
-                    QString diff = QStringLiteral("Original Message %1").arg(QDebug::toString(msg));
-                    diff += QStringLiteral("\nSerialized Message %1").arg(QDebug::toString(newMsg));
-                    mDiffMessage->setPlainText(QStringLiteral("Messages are NOT equal\n%1").arg(diff));
+                    QString diff = u"Original Message %1"_s.arg(QDebug::toString(msg));
+                    diff += u"\nSerialized Message %1"_s.arg(QDebug::toString(newMsg));
+                    mDiffMessage->setPlainText(u"Messages are NOT equal\n%1"_s.arg(diff));
                 }
             } else if (doc.isArray()) {
                 // List of messages
@@ -107,11 +107,11 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
 
                     const bool equal = (newMsg == msg);
                     if (equal) {
-                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + u'\n' + QStringLiteral("Messages are equal"));
+                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + u'\n' + u"Messages are equal"_s);
                     } else {
-                        QString diff = QStringLiteral("Original Message %1").arg(QDebug::toString(msg));
-                        diff += QStringLiteral("\nSerialized Message %1").arg(QDebug::toString(newMsg));
-                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + u'\n' + QStringLiteral("Messages are NOT equal\n%1").arg(diff));
+                        QString diff = u"Original Message %1"_s.arg(QDebug::toString(msg));
+                        diff += u"\nSerialized Message %1"_s.arg(QDebug::toString(newMsg));
+                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + u'\n' + u"Messages are NOT equal\n%1"_s.arg(diff));
                     }
                 }
             } else {

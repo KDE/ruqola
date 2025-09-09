@@ -27,7 +27,7 @@ enum class Fields {
 }; // in the same order as the table
 LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     : QWidget{parent}
-    , mMessageListView(new MessageListView(new RocketChatAccount(QStringLiteral("test"), false, this), MessageListView::Mode::Viewing, this))
+    , mMessageListView(new MessageListView(new RocketChatAccount(u"test"_s, false, this), MessageListView::Mode::Viewing, this))
     , mLocalMessageDatabase(new LocalMessagesDatabase())
     , mAccountName(new QLineEdit(this))
     , mRoomName(new QLineEdit(this))
@@ -39,20 +39,20 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
 
-    auto label = new QLabel(QStringLiteral("Account name:"), this);
+    auto label = new QLabel(u"Account name:"_s, this);
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mAccountName);
-    mAccountName->setPlaceholderText(QStringLiteral("<account name>"));
-    label = new QLabel(QStringLiteral("Room name:"), this);
+    mAccountName->setPlaceholderText(u"<account name>"_s);
+    label = new QLabel(u"Room name:"_s, this);
     hboxLayout->addWidget(label);
-    mRoomName->setPlaceholderText(QStringLiteral("all"));
+    mRoomName->setPlaceholderText(u"all"_s);
     hboxLayout->addWidget(mRoomName);
 
     hboxLayout->addWidget(mNumberElement);
     mNumberElement->setRange(-1, 9999);
     mNumberElement->setValue(-1);
 
-    auto pushButton = new QPushButton(QStringLiteral("Load"), this);
+    auto pushButton = new QPushButton(u"Load"_s, this);
     hboxLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, &LoadDataBaseGui::slotLoad);
 
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     // Use specific ruqola name for database path
-    app.setApplicationName(QStringLiteral("ruqola"));
+    app.setApplicationName(u"ruqola"_s);
     // QStandardPaths::setTestModeEnabled(true);
 
     LoadDataBaseGui w;

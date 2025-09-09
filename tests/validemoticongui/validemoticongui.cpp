@@ -22,7 +22,7 @@
 #include <QStandardPaths>
 #include <QVBoxLayout>
 #include <TextEmoticonsCore/UnicodeEmoticonParser>
-
+using namespace Qt::Literals::StringLiterals;
 ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     : QWidget(parent)
     , mSearchEmoticon(new KListWidgetSearchLine(this))
@@ -48,11 +48,11 @@ ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     auto hboxLayoutUrlRequester = new QHBoxLayout;
     vboxLayout->addLayout(hboxLayoutUrlRequester);
 
-    auto label = new QLabel(QStringLiteral("Path emoji RocketChat:"), this);
+    auto label = new QLabel(u"Path emoji RocketChat:"_s, this);
     hboxLayoutUrlRequester->addWidget(label);
 
     auto urlRequester = new KUrlRequester(this);
-    urlRequester->setPlaceholderText(QStringLiteral("<foo>/packages/livechat/src/components/Emoji/emojis.ts"));
+    urlRequester->setPlaceholderText(u"<foo>/packages/livechat/src/components/Emoji/emojis.ts"_s);
     hboxLayoutUrlRequester->addWidget(urlRequester);
 
     auto plainTextEdit = new QPlainTextEdit(this);
@@ -79,11 +79,11 @@ QString ValidEmoticonGui::generateExcludeEmoticon(const QUrl &url, const QString
     QTextStream in(&file);
     while (!in.atEnd()) {
         const QString line = in.readLine();
-        static QRegularExpression regular{QStringLiteral("':(.*):':")};
+        static QRegularExpression regular{u"':(.*):':"_s};
         QRegularExpressionMatch match;
         if (line.contains(regular, &match)) {
             const QString captured = match.captured(1);
-            resultRocketChatEmoticons.append(QStringLiteral(":%1:").arg(captured));
+            resultRocketChatEmoticons.append(u":%1:"_s.arg(captured));
         }
     }
     QString result;
@@ -99,7 +99,7 @@ QString ValidEmoticonGui::generateExcludeEmoticon(const QUrl &url, const QString
 QStringList ValidEmoticonGui::load()
 {
     TextEmoticonsCore::UnicodeEmoticonParser unicodeParser;
-    QFile file(QStringLiteral(":/emoji.json"));
+    QFile file(u":/emoji.json"_s);
     if (!file.open(QFile::ReadOnly)) {
         qWarning() << "Impossible to open file: " << file.errorString();
         return {};

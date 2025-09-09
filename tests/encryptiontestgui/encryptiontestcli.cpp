@@ -20,7 +20,7 @@ curl -X POST http://localhost:3000/api/v1/login \
 
 using namespace EncryptionUtils;
 
-const auto url = QStringLiteral("http://localhost:3000");
+const auto url = u"http://localhost:3000"_s;
 
 int main(int argc, char *argv[])
 {
@@ -32,26 +32,22 @@ int main(int argc, char *argv[])
     QObject::connect(loginManager, &LoginManager::loginSucceeded, &app, [=](const QString &authToken, const QString &userId) {
         qDebug() << "Login successful! Auth token:" << authToken << "UserId:" << userId << "\n";
 
-        uploadKeys(authToken,
-                   url,
-                   userId,
-                   QStringLiteral("mypassword123"),
-                   networkManager,
-                   [authToken, userId, networkManager](const QString &message, const RSAKeyPair &keypair) {
-                       qDebug() << message;
-                       qDebug() << keypair.publicKey << keypair.privateKey;
+        uploadKeys(
+            authToken,
+            url,
+            userId,
+            u"mypassword123"_s,
+            networkManager,
+            [authToken, userId, networkManager](const QString &message, const RSAKeyPair &keypair) {
+                qDebug() << message;
+                qDebug() << keypair.publicKey << keypair.privateKey;
 
-                       downloadKeys(authToken,
-                                    url,
-                                    userId,
-                                    QStringLiteral("mypassword123"),
-                                    networkManager,
-                                    [](const QString &publicKey, const QString &decryptedPrivateKey) {
-                                        qDebug() << "Downloaded Public Key:" << publicKey;
-                                        qDebug() << "Decrypted Private Key:" << decryptedPrivateKey;
-                                        QCoreApplication::quit();
-                                    });
-                   });
+                downloadKeys(authToken, url, userId, u"mypassword123"_s, networkManager, [](const QString &publicKey, const QString &decryptedPrivateKey) {
+                    qDebug() << "Downloaded Public Key:" << publicKey;
+                    qDebug() << "Decrypted Private Key:" << decryptedPrivateKey;
+                    QCoreApplication::quit();
+                });
+            });
     });
 
     QObject::connect(loginManager, &LoginManager::loginFailed, &app, [](const QString &err) {

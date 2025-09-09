@@ -11,12 +11,12 @@
 #include <QPushButton>
 #include <QTextEdit>
 #include <QVBoxLayout>
-
+using namespace Qt::Literals::StringLiterals;
 ExpandJson::ExpandJson(QWidget *parent)
     : QWidget(parent)
     , mInput(new QTextEdit(this))
     , mOutput(new QTextEdit(this))
-    , mExpandButton(new QPushButton(QStringLiteral("Expand Json String"), this))
+    , mExpandButton(new QPushButton(u"Expand Json String"_s, this))
 {
     auto layout = new QVBoxLayout(this);
     mInput->setAcceptRichText(false);

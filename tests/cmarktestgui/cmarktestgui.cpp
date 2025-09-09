@@ -21,17 +21,17 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mTextEdit);
 
-    auto pushButton = new QPushButton(QStringLiteral("Generate Html code"), this);
+    auto pushButton = new QPushButton(u"Generate Html code"_s, this);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, [this]() {
-        const TextConverter::ConvertMessageTextSettings settings(mTextEdit->toPlainText(), QStringLiteral("foo"), {}, {}, nullptr, nullptr, {}, {});
+        const TextConverter::ConvertMessageTextSettings settings(mTextEdit->toPlainText(), u"foo"_s, {}, {}, nullptr, nullptr, {}, {});
         QByteArray needUpdateMessageId;
         int recursiveIndex = 0;
         mTextEditResultCMark->setHtml(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex));
     });
 
     mTextEditResultCMark->setReadOnly(true);
-    auto label = new QLabel(QStringLiteral("Convert with CMark"), this);
+    auto label = new QLabel(u"Convert with CMark"_s, this);
     mainLayout->addWidget(label);
     mainLayout->addWidget(mTextEditResultCMark);
 }

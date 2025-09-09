@@ -44,11 +44,11 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
 
     auto buttonLayout = new QHBoxLayout;
     mainLayout->addLayout(buttonLayout);
-    auto savePushButton = new QPushButton(QStringLiteral("Save…"), this);
+    auto savePushButton = new QPushButton(u"Save…"_s, this);
     buttonLayout->addWidget(savePushButton);
     connect(savePushButton, &QPushButton::clicked, this, &UnicodeEmoticonGui::save);
 
-    auto exportIdentifier = new QPushButton(QStringLiteral("Export identifiers…"), this);
+    auto exportIdentifier = new QPushButton(u"Export identifiers…"_s, this);
     buttonLayout->addWidget(exportIdentifier);
     connect(exportIdentifier, &QPushButton::clicked, this, &UnicodeEmoticonGui::slotExportIdentifier);
 
@@ -77,7 +77,7 @@ void UnicodeEmoticonGui::slotItemChanged(QListWidgetItem *item)
 void UnicodeEmoticonGui::load()
 {
     TextEmoticonsCore::UnicodeEmoticonParser unicodeParser;
-    QFile file(QStringLiteral(":/emoji.json"));
+    QFile file(u":/emoji.json"_s);
     if (!file.open(QFile::ReadOnly)) {
         qWarning() << "Impossible to open file: " << file.errorString();
         return;
@@ -121,15 +121,15 @@ UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
     auto mainLayout = new QFormLayout(this);
     mainLayout->setContentsMargins({});
     mIdentifier = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("identifier:"), mIdentifier);
+    mainLayout->addRow(u"identifier:"_s, mIdentifier);
     mUnicode = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("unicode:"), mUnicode);
+    mainLayout->addRow(u"unicode:"_s, mUnicode);
     mAliases = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("aliases:"), mAliases);
+    mainLayout->addRow(u"aliases:"_s, mAliases);
     mCategory = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("category:"), mCategory);
+    mainLayout->addRow(u"category:"_s, mCategory);
     mOrder = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("order:"), mOrder);
+    mainLayout->addRow(u"order:"_s, mOrder);
 }
 
 UnicodeEmoticonInfo::~UnicodeEmoticonInfo() = default;

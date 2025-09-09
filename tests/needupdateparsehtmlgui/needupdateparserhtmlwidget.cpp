@@ -12,7 +12,7 @@
 #include "needupdateversion/needupdateparsehtmljob.h"
 
 #include "needupdateparserhtmlwidget.h"
-
+using namespace Qt::Literals::StringLiterals;
 NeedUpdateParserHtmlWidget::NeedUpdateParserHtmlWidget(QWidget *parent)
     : QWidget{parent}
 {
@@ -20,7 +20,7 @@ NeedUpdateParserHtmlWidget::NeedUpdateParserHtmlWidget(QWidget *parent)
     auto lineEdit = new QLineEdit(this);
     mainLayout->addWidget(lineEdit);
 
-    auto pushButton = new QPushButton(QStringLiteral("Download"), this);
+    auto pushButton = new QPushButton(u"Download"_s, this);
     mainLayout->addWidget(pushButton);
 
     auto plainTextEdit = new QPlainTextEdit(this);

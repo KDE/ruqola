@@ -12,7 +12,7 @@
 #include <QLabel>
 #include <QTextEdit>
 #include <QVBoxLayout>
-
+using namespace Qt::Literals::StringLiterals;
 LoadRoomCache::LoadRoomCache(QWidget *parent)
     : QWidget(parent)
     , mCacheTextEdit(new QTextEdit(this))
@@ -26,13 +26,13 @@ LoadRoomCache::LoadRoomCache(QWidget *parent)
     mainLayout->addLayout(hbox);
     hbox->setContentsMargins({});
 
-    auto lab = new QLabel(QStringLiteral("Select cache file:"), this);
+    auto lab = new QLabel(u"Select cache file:"_s, this);
     hbox->addWidget(lab);
 
     hbox->addWidget(mRequester);
     mRequester->setMode(KFile::File);
 
-    auto openButton = new QPushButton(QStringLiteral("Open"));
+    auto openButton = new QPushButton(u"Open"_s);
     hbox->addWidget(openButton);
     connect(openButton, &QPushButton::clicked, this, &LoadRoomCache::slotOpenFile);
 }

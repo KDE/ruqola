@@ -14,7 +14,7 @@ UploadWidget::UploadWidget(QWidget *parent)
     , mUploadFileProgressStatusListWidget(new UploadFileProgressStatusListWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    auto addElement = new QPushButton(QStringLiteral("Add"), this);
+    auto addElement = new QPushButton(u"Add"_s, this);
     mainLayout->addWidget(mUploadFileProgressStatusListWidget);
     mainLayout->addWidget(addElement);
     connect(addElement, &QPushButton::clicked, this, &UploadWidget::addButton);

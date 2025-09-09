@@ -14,14 +14,14 @@
 #include <QStandardPaths>
 #include <QTextEdit>
 #include <QVBoxLayout>
-
+using namespace Qt::Literals::StringLiterals;
 NotificationHistoryGui::NotificationHistoryGui(QWidget *parent)
     : QWidget{parent}
     , mTextEdit(new QTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mTextEdit);
-    auto addDefaultValueButton = new QPushButton(QStringLiteral("Default Parameter"), this);
+    auto addDefaultValueButton = new QPushButton(u"Default Parameter"_s, this);
     mainLayout->addWidget(addDefaultValueButton);
     connect(addDefaultValueButton, &QPushButton::clicked, this, [this]() {
         mTextEdit->setText(QStringLiteral(
@@ -30,14 +30,14 @@ cu8TnRi8Ld57Pk"},"text":"text s","title":"my title"}
 ])"));
     });
 
-    auto pushButton = new QPushButton(QStringLiteral("Send Notification"), this);
+    auto pushButton = new QPushButton(u"Send Notification"_s, this);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, &NotificationHistoryGui::slotSendNotification);
 
     auto dlg = new NotificationHistoryDialog(this);
     QList<AccountManager::AccountDisplayInfo> infos;
     AccountManager::AccountDisplayInfo serverInfo;
-    serverInfo.name = QStringLiteral("accountName");
+    serverInfo.name = u"accountName"_s;
     infos.append(std::move(serverInfo));
     dlg->addServerList(infos);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
@@ -56,7 +56,7 @@ void NotificationHistoryGui::slotSendNotification()
             return;
         }
         NotificationInfo info;
-        info.setAccountName(QStringLiteral("accountName")); // TODO
+        info.setAccountName(u"accountName"_s); // TODO
         info.setDateTime(QDateTime::currentDateTime());
         info.parseNotification(doc.array());
         qDebug() << " info " << info;

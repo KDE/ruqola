@@ -13,11 +13,11 @@ LoginManager::LoginManager(QObject *parent)
 
 void LoginManager::login(const QString &serverUrl, QNetworkAccessManager *networkManager, int userIndex)
 {
-    const auto envPath = QDir(QCoreApplication::applicationDirPath()).absoluteFilePath(QStringLiteral("../../.env"));
+    const auto envPath = QDir(QCoreApplication::applicationDirPath()).absoluteFilePath(u"../../.env"_s);
     const auto creds = loadEnvFile(envPath);
 
-    const auto usernameKey = userIndex == 0 ? QStringLiteral("USERNAME") : QStringLiteral("USERNAME%1").arg(userIndex);
-    const auto passwordKey = userIndex == 0 ? QStringLiteral("PASSWORD") : QStringLiteral("PASSWORD%1").arg(userIndex);
+    const auto usernameKey = userIndex == 0 ? u"USERNAME"_s : u"USERNAME%1"_s.arg(userIndex);
+    const auto passwordKey = userIndex == 0 ? u"PASSWORD"_s : u"PASSWORD%1"_s.arg(userIndex);
 
     mLoginJob = new RocketChatRestApi::LoginJob(this);
     mRestApiMethod = new RocketChatRestApi::RestApiMethod();
