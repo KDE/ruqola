@@ -156,11 +156,9 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
     if (message->isAutoTranslated() || !message->localTranslation().isEmpty()) {
         layout.translatedIconRect = QRect(translatedIconX, senderRectY, iconSize, iconSize);
     }
-
     if (message->isEncryptedMessage()) {
         layout.encryptedIconRect = QRect(encryptionX, senderRectY, iconSize, iconSize);
     }
-
     if (ignoreMessage) {
         layout.showIgnoredMessageIconRect = QRect(showIgnoreMessageIconX, senderRectY, iconSize, iconSize);
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();

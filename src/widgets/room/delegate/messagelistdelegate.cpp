@@ -624,11 +624,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Draw encrypted icon
     // TODO implement encrypted message
-    /*
-    if (message->) {
+    if (message->isEncryptedMessage()) {
         mEncryptedIcon.paint(painter, layout.encryptedIconRect);
     }
-    */
 
     if (MessageDelegateUtils::showIgnoreMessages(index)) {
         const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? u"visibility"_s : u"hint"_s);
