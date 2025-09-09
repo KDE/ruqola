@@ -5,6 +5,7 @@
 */
 
 #include "unicodeemoticongui.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KListWidgetSearchLine>
 #include <QApplication>
@@ -142,7 +143,7 @@ void UnicodeEmoticonInfo::setInfo(const TextEmoticonsCore::UnicodeEmoticon &info
 {
     mIdentifier->setText(info.identifier());
     mUnicode->setText(info.unicode());
-    mAliases->setText(info.aliases().join(QLatin1Char(',')));
+    mAliases->setText(info.aliases().join(u','));
     mCategory->setText(info.category());
     mOrder->setText(QString::number(info.order()));
     mInfo = info;

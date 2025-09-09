@@ -4,6 +4,8 @@
 */
 
 #include "envutils.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QFile>
 
 QHash<QString, QString> loadEnvFile(const QString &filePath)
@@ -15,9 +17,9 @@ QHash<QString, QString> loadEnvFile(const QString &filePath)
     }
     while (!file.atEnd()) {
         const QString line = QString::fromUtf8(file.readLine()).trimmed();
-        if (line.startsWith(QLatin1Char('#')) || line.isEmpty())
+        if (line.startsWith(u'#') || line.isEmpty())
             continue;
-        const int equalSignIndex = line.indexOf(QLatin1Char('='));
+        const int equalSignIndex = line.indexOf(u'=');
         if (equalSignIndex == -1)
             continue;
         const QString key = line.left(equalSignIndex).trimmed();

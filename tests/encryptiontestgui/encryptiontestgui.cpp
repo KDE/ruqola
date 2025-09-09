@@ -40,9 +40,9 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
         passwordEdit->setEchoMode(QLineEdit::Password);
 
         auto layout = new QGridLayout(dialog);
-        layout->addWidget(new QLabel(QStringLiteral("Salt: "), dialog), 0, 0);
+        layout->addWidget(new QLabel(QStringLiteral("Salt:"), dialog), 0, 0);
         layout->addWidget(saltEdit, 0, 1);
-        layout->addWidget(new QLabel(QStringLiteral("Password: "), dialog), 1, 0);
+        layout->addWidget(new QLabel(QStringLiteral("Password:"), dialog), 1, 0);
         layout->addWidget(passwordEdit, 1, 1);
 
         auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, dialog);

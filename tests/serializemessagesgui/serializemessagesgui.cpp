@@ -5,6 +5,8 @@
 */
 
 #include "serializemessagesgui.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "messages/message.h"
 #include "serializemessagewidget.h"
 
@@ -100,16 +102,16 @@ SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
                     Message newMsg = msg.deserialize(doc2.object(), nullptr);
 
                     const QByteArray newBa = Message::serialize(msg, false);
-                    mSerialize->setText(mSerialize->text() + QLatin1Char('\n') + QString::fromUtf8(newBa));
+                    mSerialize->setText(mSerialize->text() + u'\n' + QString::fromUtf8(newBa));
                     mSerialize->addMessage(newMsg);
 
                     const bool equal = (newMsg == msg);
                     if (equal) {
-                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + QLatin1Char('\n') + QStringLiteral("Messages are equal"));
+                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + u'\n' + QStringLiteral("Messages are equal"));
                     } else {
                         QString diff = QStringLiteral("Original Message %1").arg(QDebug::toString(msg));
                         diff += QStringLiteral("\nSerialized Message %1").arg(QDebug::toString(newMsg));
-                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + QLatin1Char('\n') + QStringLiteral("Messages are NOT equal\n%1").arg(diff));
+                        mDiffMessage->setPlainText(mDiffMessage->toPlainText() + u'\n' + QStringLiteral("Messages are NOT equal\n%1").arg(diff));
                     }
                 }
             } else {
