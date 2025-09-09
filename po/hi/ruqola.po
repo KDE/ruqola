@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-06 00:42+0000\n"
+"POT-Creation-Date: 2025-09-09 00:54+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -748,120 +748,120 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr "सॉकेट अप्रत्याशित रूप से बंद हो गया था."
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:863
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:869
 #: core/model/notificationhistorymodel.cpp:65
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
 msgstr "कांफ्रेंस कॉल"
 
-#: core/messages/message.cpp:759
+#: core/messages/message.cpp:765
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 चैनल में शामिल हो गया है"
 
-#: core/messages/message.cpp:761
+#: core/messages/message.cpp:767
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 ने चैनल छोड़ दिया है"
 
-#: core/messages/message.cpp:763
+#: core/messages/message.cpp:769
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 ने यह टीम छोड़ दी"
 
-#: core/messages/message.cpp:766
+#: core/messages/message.cpp:772
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "विषय को साफ़ किया गया: %1 द्वारा"
 
-#: core/messages/message.cpp:768
+#: core/messages/message.cpp:774
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 ने विषय को बदला: <i>%1</i>"
 
-#: core/messages/message.cpp:771
+#: core/messages/message.cpp:777
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 ने %1 को वार्तालाप में जोड़ा"
 
-#: core/messages/message.cpp:773
+#: core/messages/message.cpp:779
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 ने कमरे का नाम बदलकर <a href=\"ruqola:/room/%1\">#%1</a> कर दिया"
 
-#: core/messages/message.cpp:775
+#: core/messages/message.cpp:781
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 ने उपयोगकर्ता %1 को हटा दिया"
 
-#: core/messages/message.cpp:778
+#: core/messages/message.cpp:784
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "विवरण %1 द्वारा साफ़ किया गया"
 
-#: core/messages/message.cpp:780
+#: core/messages/message.cpp:786
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 ने कमरे का विवरण बदलकर %1 कर दिया"
 
-#: core/messages/message.cpp:784
+#: core/messages/message.cpp:790
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "घोषणा %1 द्वारा स्वीकृत की गई"
 
-#: core/messages/message.cpp:786
+#: core/messages/message.cpp:792
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 ने कमरे की घोषणा को %1 में बदल दिया"
 
-#: core/messages/message.cpp:789
+#: core/messages/message.cpp:795
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 ने कमरे की गोपनीयता को %1 में बदल दिया"
 
-#: core/messages/message.cpp:791
+#: core/messages/message.cpp:797
 #, kde-format
 msgid "Click to join to video"
 msgstr "वीडियो से जुड़ने के लिए क्लिक करें"
 
-#: core/messages/message.cpp:794
+#: core/messages/message.cpp:800
 #, kde-format
 msgid "Message Deleted"
 msgstr "संदेश हटा दिया गया"
 
-#: core/messages/message.cpp:796
+#: core/messages/message.cpp:802
 #, kde-format
 msgid "Message Pinned"
 msgstr "संदेश पिन किया गया"
 
-#: core/messages/message.cpp:798
+#: core/messages/message.cpp:804
 #, kde-format
 msgid "Encrypted Message"
 msgstr "एन्क्रिप्टेड संदेश"
 
-#: core/messages/message.cpp:800
+#: core/messages/message.cpp:806
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 को %2 द्वारा अनम्यूट किया गया"
 
-#: core/messages/message.cpp:802
+#: core/messages/message.cpp:808
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 को %2 द्वारा म्यूट किया गया"
 
-#: core/messages/message.cpp:804
+#: core/messages/message.cpp:810
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "भूमिका '%3' को %2 द्वारा %1 में जोड़ा गया"
 
-#: core/messages/message.cpp:806
+#: core/messages/message.cpp:812
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "भूमिका '%3' को %2 द्वारा हटाकर %1 कर दिया गया"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:810
+#: core/messages/message.cpp:816
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -870,122 +870,122 @@ msgstr ""
 "यह संदेश एंड-टू-एंड एन्क्रिप्टेड है। इसे देखने के लिए, आपको अपनी खाता सेटिंग में अपनी एन्क्रिप्शन "
 "कुंजी दर्ज करनी होगी।"
 
-#: core/messages/message.cpp:812
+#: core/messages/message.cpp:818
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "\"%1\" के बारे में चर्चा बनाई गई"
 
-#: core/messages/message.cpp:814
+#: core/messages/message.cpp:820
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 बातचीत में शामिल हो गया है"
 
-#: core/messages/message.cpp:816
+#: core/messages/message.cpp:822
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "इस कमरे को %1 द्वारा संग्रहित किया गया है"
 
-#: core/messages/message.cpp:818
+#: core/messages/message.cpp:824
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "इस कमरे को %1 द्वारा असंग्रहित किया गया है"
 
-#: core/messages/message.cpp:821 core/messages/message.cpp:868
+#: core/messages/message.cpp:827 core/messages/message.cpp:874
 #, kde-format
 msgid "Unknown action!"
 msgstr "अज्ञात कार्रवाई!"
 
-#: core/messages/message.cpp:825
+#: core/messages/message.cpp:831
 #, kde-format
 msgid "Welcome %1!"
 msgstr "स्वागत है %1!"
 
-#: core/messages/message.cpp:827
+#: core/messages/message.cpp:833
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "कमरे का अवतार %1 द्वारा बदला गया"
 
-#: core/messages/message.cpp:829
+#: core/messages/message.cpp:835
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "इस कमरे का एन्क्रिप्शन %1 द्वारा सक्षम किया गया है"
 
-#: core/messages/message.cpp:831
+#: core/messages/message.cpp:837
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "इस कमरे का एन्क्रिप्शन %1 द्वारा अक्षम कर दिया गया है"
 
-#: core/messages/message.cpp:833
+#: core/messages/message.cpp:839
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "%1 द्वारा कक्ष को केवल पढ़ने के लिए सेट किया गया"
 
-#: core/messages/message.cpp:835
+#: core/messages/message.cpp:841
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "कक्ष में %1 द्वारा लेखन अनुमति जोड़ी गई"
 
-#: core/messages/message.cpp:837
+#: core/messages/message.cpp:843
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 ने @%2 को इस टीम में जोड़ा"
 
-#: core/messages/message.cpp:839
+#: core/messages/message.cpp:845
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 ने @%2 को इस टीम से हटा दिया"
 
-#: core/messages/message.cpp:841
+#: core/messages/message.cpp:847
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 ने #%2 को टीम में परिवर्तित किया"
 
-#: core/messages/message.cpp:843
+#: core/messages/message.cpp:849
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 ने #%2 को चैनल में परिवर्तित किया"
 
-#: core/messages/message.cpp:845
+#: core/messages/message.cpp:851
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 ने इस टीम से #%2 को हटा दिया"
 
-#: core/messages/message.cpp:847
+#: core/messages/message.cpp:853
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 हटा दिया गया #%2"
 
-#: core/messages/message.cpp:849
+#: core/messages/message.cpp:855
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 ने इस टीम में #%2 को जोड़ा"
 
-#: core/messages/message.cpp:851
+#: core/messages/message.cpp:857
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1 द्वारा प्रतिक्रिया करने की अनुमति दी गई जगह"
 
-#: core/messages/message.cpp:853
+#: core/messages/message.cpp:859
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1 द्वारा प्रतिक्रिया करने से कक्ष अस्वीकृत"
 
-#: core/messages/message.cpp:855
+#: core/messages/message.cpp:861
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 इस टीम में शामिल हुए"
 
-#: core/messages/message.cpp:857
+#: core/messages/message.cpp:863
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 OTR चैट में शामिल हो गया है."
 
-#: core/messages/message.cpp:859
+#: core/messages/message.cpp:865
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 कुंजी सफलतापूर्वक ताज़ा की गई"
 
-#: core/messages/message.cpp:861
+#: core/messages/message.cpp:867
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1 ने कुंजी ताज़ा करने का अनुरोध किया है."
@@ -1342,12 +1342,12 @@ msgstr "इस कमरे में सक्रिय उपयोगकर�
 msgid "Edited at %1 by %2"
 msgstr "%1 पर %2 द्वारा संपादित"
 
-#: core/model/messagesmodel.cpp:387
+#: core/model/messagesmodel.cpp:389
 #, kde-format
 msgid "Ignored Message"
 msgstr "अनदेखा किया गया संदेश"
 
-#: core/model/messagesmodel.cpp:396
+#: core/model/messagesmodel.cpp:398
 #, kde-format
 msgid "Only you can see this message"
 msgstr "यह संदेश केवल आप ही देख सकते हैं"
@@ -7876,50 +7876,57 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "खाता संशोधित करें"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:38
+#: widgets/databasedialog/exploredatabasedialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "डेटाबेस जानकारी"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:47
+#: widgets/databasedialog/exploredatabasedialog.cpp:49
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Messages"
 msgid "Messages"
 msgstr "संदेशों"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:50
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "जेसन"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:53
+#: widgets/databasedialog/exploredatabasedialog.cpp:55
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "निजी संदेश"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:56
+#: widgets/databasedialog/exploredatabasedialog.cpp:58
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Delete my Account"
 msgid "DataBase Accounts"
 msgstr "मेरा एकाउंट हटा दो"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
 msgid "DataBase Rooms"
 msgstr "डेटाबेस जानकारी"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
 msgid "DataBase Global"
+msgstr "डेटाबेस जानकारी"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:67
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase E2E"
 msgstr "डेटाबेस जानकारी"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
@@ -10357,76 +10364,76 @@ msgstr "जोड़ना"
 msgid "Link Preview"
 msgstr "लिंक पूर्वावलोकन"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:441
+#: widgets/room/delegate/messagelistdelegate.cpp:442
 #, kde-format
 msgid "User Info"
 msgstr "उपयोगकर्ता जानकारी"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:451
+#: widgets/room/delegate/messagelistdelegate.cpp:452
 #: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "निजी बातचीत शुरू करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:467
+#: widgets/room/delegate/messagelistdelegate.cpp:468
 #: widgets/room/messagelistview.cpp:520 widgets/room/messagelistview.cpp:578
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "मूल संदेश दिखाएं"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:467
+#: widgets/room/delegate/messagelistdelegate.cpp:468
 #: widgets/room/messagelistview.cpp:520 widgets/room/messagelistview.cpp:578
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "संदेश का अनुवाद करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:689
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 उत्तर"
 msgstr[1] "%1 उत्तर"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:699
+#: widgets/room/delegate/messagelistdelegate.cpp:708
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 संदेश"
 msgstr[1] "%1 संदेश"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:699
+#: widgets/room/delegate/messagelistdelegate.cpp:708
 #, kde-format
 msgid "No message yet"
 msgstr "अभी तक कोई संदेश नहीं"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1008
+#: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "अगले"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1012
+#: widgets/room/delegate/messagelistdelegate.cpp:1021
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "संदेश पिन कर दिया गया है"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1016
+#: widgets/room/delegate/messagelistdelegate.cpp:1025
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "संदेश को तारांकित कर दिया गया है"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1020
+#: widgets/room/delegate/messagelistdelegate.cpp:1029
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "थ्रेड में उत्तर दें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1024
+#: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
