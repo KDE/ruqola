@@ -45,7 +45,6 @@
   <name xml:lang="sv">Ruqola </name>
   <name xml:lang="tr">Roka</name>
   <name xml:lang="uk">Ruqola</name>
-  <name xml:lang="x-test">xxRuqolaxx</name>
   <name xml:lang="zh-TW">Ruqola</name>
   <summary>Rocket Chat Client</summary>
   <summary xml:lang="ar">عميل روكت تشات</summary>
@@ -81,7 +80,6 @@
   <summary xml:lang="sv">Rocket Chat klient</summary>
   <summary xml:lang="tr">Rocket.Chat İstemcisi</summary>
   <summary xml:lang="uk">Клієнт спілкування Rocket</summary>
-  <summary xml:lang="x-test">xxRocket Chat Clientxx</summary>
   <summary xml:lang="zh-TW">Rocket Chat 用戶端</summary>
   <description>
     <p>
@@ -115,7 +113,6 @@
     <p xml:lang="sv">Ruqola är en Rocket Chat klient.</p>
     <p xml:lang="tr">Roka, Rocket.Chat için bir istemcidir.</p>
     <p xml:lang="uk">Ruqola — клієнт Rocket.Chat.</p>
-    <p xml:lang="x-test">xxRuqola is a client for Rocket.Chat.xx</p>
     <p xml:lang="zh-TW">Ruqola 是一個 Rocket.Chat 的用戶端。</p>
     <p>
       It supports RC features:
@@ -147,7 +144,6 @@
     <p xml:lang="sv">Det stöder RC-funktioner:</p>
     <p xml:lang="tr">Şu RC özelliklerini destekler:</p>
     <p xml:lang="uk">Передбачено підтримку таких можливостей RC:</p>
-    <p xml:lang="x-test">xxIt supports RC features:xx</p>
     <p xml:lang="zh-TW">它支援 Rocket Chat 的功能：</p>
     <ul>
       <li>Direct Message</li>
@@ -180,7 +176,6 @@
       <li xml:lang="sv">Direktmeddelande</li>
       <li xml:lang="tr">Doğrudan İleti</li>
       <li xml:lang="uk">Безпосереднє повідомлення</li>
-      <li xml:lang="x-test">xxDirect Messagexx</li>
       <li xml:lang="zh-TW">私訊</li>
       <li>group channel</li>
       <li xml:lang="ar">قناة المجموعة</li>
@@ -210,7 +205,6 @@
       <li xml:lang="sv">gruppkanal</li>
       <li xml:lang="tr">grup kanalı</li>
       <li xml:lang="uk">Групування каналів</li>
-      <li xml:lang="x-test">xxgroup channelxx</li>
       <li xml:lang="zh-TW">群組頻道</li>
       <li>channel</li>
       <li xml:lang="ar">القنوات</li>
@@ -242,7 +236,6 @@
       <li xml:lang="sv">kanal</li>
       <li xml:lang="tr">kanal</li>
       <li xml:lang="uk">Канали</li>
-      <li xml:lang="x-test">xxchannelxx</li>
       <li xml:lang="zh-TW">頻道</li>
       <li>Support autotranslate (when RC has it)</li>
       <li xml:lang="ar">الترجمة الآليّة (عندما تكون متوفرة من ركت تشات)</li>
@@ -272,7 +265,6 @@
       <li xml:lang="sv">Stöd automatisk översättning (när RC har det)</li>
       <li xml:lang="tr">Kendiliğinden çeviri desteği (RC’de varsa)</li>
       <li xml:lang="uk">Підтримка автоматичного перекладу (якщо її передбачено у RC)</li>
-      <li xml:lang="x-test">xxSupport autotranslate (when RC has it)xx</li>
       <li xml:lang="zh-TW">支援自動翻譯（伺服器端 Rocket Chat 有提供的時候）</li>
       <li>Configuring room notification</li>
       <li xml:lang="ar">ضبط إشعارات الغرفة</li>
@@ -302,7 +294,6 @@
       <li xml:lang="sv">Anpassa rumunderrättelser</li>
       <li xml:lang="tr">Oda bildirimini yapılandırma</li>
       <li xml:lang="uk">Налаштовування сповіщень у кімнатах</li>
-      <li xml:lang="x-test">xxConfiguring room notificationxx</li>
       <li xml:lang="zh-TW">設定聊天室通知</li>
       <li>Configuring room</li>
       <li xml:lang="ar">ضبط الغرفة</li>
@@ -332,7 +323,6 @@
       <li xml:lang="sv">Anpassar rum</li>
       <li xml:lang="tr">Odayı yapılandırma</li>
       <li xml:lang="uk">Налаштовування кімнат</li>
-      <li xml:lang="x-test">xxConfiguring roomxx</li>
       <li xml:lang="zh-TW">設定聊天室</li>
       <li>Thread message support</li>
       <li xml:lang="ar">الرسائل المتسلسلة</li>
@@ -362,7 +352,6 @@
       <li xml:lang="sv">Stöd meddelandetrådar</li>
       <li xml:lang="tr">İlmekli ileti desteği</li>
       <li xml:lang="uk">Підтримка гілок повідомлень</li>
-      <li xml:lang="x-test">xxThread message supportxx</li>
       <li xml:lang="zh-TW">訊息對話串支援</li>
       <li>Discussion room</li>
       <li xml:lang="ar">غرف المناقشة</li>
@@ -392,7 +381,6 @@
       <li xml:lang="sv">Diskussionsrum</li>
       <li xml:lang="tr">Tartışma odası</li>
       <li xml:lang="uk">Кімнати обговорення</li>
-      <li xml:lang="x-test">xxDiscussion roomxx</li>
       <li xml:lang="zh-TW">討論室</li>
       <li>Teams room support</li>
       <li xml:lang="ar">غرفة الفرق</li>
@@ -422,7 +410,6 @@
       <li xml:lang="sv">Stöd rum för lag </li>
       <li xml:lang="tr">Takım odası desteği</li>
       <li xml:lang="uk">Підтримка кімнат команд</li>
-      <li xml:lang="x-test">xxTeams room supportxx</li>
       <li xml:lang="zh-TW">團隊聊天室支援</li>
       <li>Configuring own account</li>
       <li xml:lang="ar">ضبط حسابك</li>
@@ -452,7 +439,6 @@
       <li xml:lang="sv">Anpassa eget konto</li>
       <li xml:lang="tr">Hesabınızı yapılandırma</li>
       <li xml:lang="uk">Налаштовування власного облікового запису</li>
-      <li xml:lang="x-test">xxConfiguring own accountxx</li>
       <li xml:lang="zh-TW">設定自己的帳戶</li>
       <li>Registering new account</li>
       <li xml:lang="ar">تسجيل حساب جديد</li>
@@ -482,7 +468,6 @@
       <li xml:lang="sv">Registrerar nytt konto</li>
       <li xml:lang="tr">Yeni hesap kaydı</li>
       <li xml:lang="uk">Реєстрація нових облікових записів</li>
-      <li xml:lang="x-test">xxRegistering new accountxx</li>
       <li xml:lang="zh-TW">註冊新的帳戶</li>
       <li>Support multi account</li>
       <li xml:lang="ar">حسابات متعددة</li>
@@ -512,7 +497,6 @@
       <li xml:lang="sv">Stöd flera konton</li>
       <li xml:lang="tr">Çoklu hesap desteği</li>
       <li xml:lang="uk">Підтримка роботи із декількома обліковими записами</li>
-      <li xml:lang="x-test">xxSupport multi accountxx</li>
       <li xml:lang="zh-TW">支援多帳號</li>
       <li>Search message in room</li>
       <li xml:lang="ar">البحث عن الرسائل في الغرفة</li>
@@ -542,7 +526,6 @@
       <li xml:lang="sv">Sök efter meddelande i rum</li>
       <li xml:lang="tr">Odada ileti ara</li>
       <li xml:lang="uk">Пошук повідомлень у кімнаті</li>
-      <li xml:lang="x-test">xxSearch message in roomxx</li>
       <li xml:lang="zh-TW">搜尋聊天室中的訊息</li>
       <li>Show mention/attachment/Pinned message/start message</li>
       <li xml:lang="ar">إظهار الإشارة/المرفق/الرسالة المثبتة/بدء الرسالة</li>
@@ -571,7 +554,6 @@
       <li xml:lang="sv">Visa omnämnande, bilaga, fästa meddelanden, startmeddelanden</li>
       <li xml:lang="tr">Söz etme/ek/iğneli ileti/başlangıç iletisi gösterme</li>
       <li xml:lang="uk">Показ згадок/долучень/пришпилених повідомлень/початкового повідомлення</li>
-      <li xml:lang="x-test">xxShow mention/attachment/Pinned message/start messagexx</li>
       <li xml:lang="zh-TW">顯示提及/附件/置頂訊息/起始訊息</li>
       <li>Support emoji</li>
       <li xml:lang="ar">الرموز التعبيرية</li>
@@ -601,7 +583,6 @@
       <li xml:lang="sv">Stöd emoji</li>
       <li xml:lang="tr">Emoji desteği</li>
       <li xml:lang="uk">Підтримка емодзі</li>
-      <li xml:lang="x-test">xxSupport emojixx</li>
       <li xml:lang="zh-TW">支援表情符號</li>
       <li>Video support</li>
       <li xml:lang="ar"> الفيديو</li>
@@ -632,7 +613,6 @@
       <li xml:lang="sv">Videostöd</li>
       <li xml:lang="tr">Video desteği</li>
       <li xml:lang="uk">Підтримка відео</li>
-      <li xml:lang="x-test">xxVideo supportxx</li>
       <li xml:lang="zh-TW">影片支援</li>
       <li>Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
       <li xml:lang="ar">عمليات الإدارة (إضافة/إزالة الأدوار، إضافة/إزالة المستخدمين، إضافة/إزالة الأذونات، ضبط الغرف وما إلى ذلك)</li>
@@ -661,7 +641,6 @@
       <li xml:lang="sv">Anpassa administratörsstöd (lägg till/ta bort roller, lägg till/ta bort användare, lägg till/ta bort rättigheter, anpassa rum, etc.)</li>
       <li xml:lang="tr">Yönetici olarak yapılandırma desteği (rol ekle/kaldır, kullanıcı ekle/kaldır, izin ekle/kaldır, odaları yapılandır vb.)</li>
       <li xml:lang="uk">Налаштовування параметрів адміністрування (додавання/вилучення ролей, додавання/вилучення користувачів, додавання/вилучення прав доступу, налаштовування кімнат тощо)</li>
-      <li xml:lang="x-test">xxConfigure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)xx</li>
       <li xml:lang="zh-TW">支援管理員設定（新增/移除角色、新增/移除使用者、新增/移除權限、配置聊天室等等）</li>
       <li>Support OTR (in progress)</li>
       <li xml:lang="ar">الرسائل المؤقت غير المسجلة (قيد التنفيذ)</li>
@@ -691,7 +670,6 @@
       <li xml:lang="sv">Stöd OTR (pågår)</li>
       <li xml:lang="tr">Kayıt Dışı (OTR) desteği (yapım aşamasında)</li>
       <li xml:lang="uk">Підтримка OTR (в опрацюванні)</li>
-      <li xml:lang="x-test">xxSupport OTR (in progress)xx</li>
       <li xml:lang="zh-TW">支援 OTR（仍在開發中）</li>
       <li>support gif image</li>
       <li xml:lang="ar">صورة GIF</li>
@@ -721,7 +699,6 @@
       <li xml:lang="sv">stöd GIF-bild</li>
       <li xml:lang="tr">gif görseli desteği</li>
       <li xml:lang="uk">Підтримка зображень gif</li>
-      <li xml:lang="x-test">xxsupport gif imagexx</li>
       <li xml:lang="zh-TW">支援 GIF 影像</li>
       <li>Add support for uploading attachment files</li>
       <li xml:lang="ar">رفع الملفات المرفقة</li>
@@ -751,7 +728,6 @@
       <li xml:lang="sv">Lägg till stöd för uppladdning av bilagor</li>
       <li xml:lang="tr">İlişik dosyaları karşıya yükleme desteği</li>
       <li xml:lang="uk">Підтримка вивантаження файлів долучень</li>
-      <li xml:lang="x-test">xxAdd support for uploading attachment filesxx</li>
       <li xml:lang="zh-TW">新增上傳附件檔案的支援</li>
       <li>Show unread message information</li>
       <li xml:lang="ar">إظهار معلومات الرسالة غير المقروءة</li>
@@ -781,7 +757,6 @@
       <li xml:lang="sv">Visa information om olästa meddelanden</li>
       <li xml:lang="tr">Okunmamış ileti bilgisi gösterme</li>
       <li xml:lang="uk">Показ відомостей щодо непрочитаних повідомлень</li>
-      <li xml:lang="x-test">xxShow unread message informationxx</li>
       <li xml:lang="zh-TW">顯示關於未讀訊息的資訊</li>
       <li>Allow to block/unblock users</li>
       <li xml:lang="ar">السماح بحظر/إلغاء حظر المستخدمين</li>
@@ -811,7 +786,6 @@
       <li xml:lang="sv">Tillåt att blockera och avblockera användare</li>
       <li xml:lang="tr">Kullanıcıları engelle/engelini kaldır</li>
       <li xml:lang="uk">Можливість блокування/розблокування користувачів</li>
-      <li xml:lang="x-test">xxAllow to block/unblock usersxx</li>
       <li xml:lang="zh-TW">允許封鎖/解除封鎖使用者</li>
       <li>Auto-away</li>
       <li xml:lang="ar">الابتعاد الآليّ</li>
@@ -842,7 +816,6 @@
       <li xml:lang="sv">Automatiskt frånvaro</li>
       <li xml:lang="tr">Otomatik uzakta</li>
       <li xml:lang="uk">Автовстановлення відсутності</li>
-      <li xml:lang="x-test">xxAuto-awayxx</li>
       <li xml:lang="zh-TW">自動標記不在場</li>
       <li>Two-factor authentication via TOTP</li>
       <li xml:lang="ar">الاستيثاق الثنائي عبر كلمة السر المعتمدة على الوقت</li>
@@ -872,7 +845,6 @@
       <li xml:lang="sv">Tvåfaktorsbehörighetskontroll via TOTP</li>
       <li xml:lang="tr">TOTP ile iki adımlı kimlik doğrulama</li>
       <li xml:lang="uk">Двофакторне розпізнавання за допомогою TOTP</li>
-      <li xml:lang="x-test">xxTwo-factor authentication via TOTPxx</li>
       <li xml:lang="zh-TW">利用基於時間的一次性密碼 (TOTP) 的兩步驟驗證</li>
       <li>Two-factor authentication via email</li>
       <li xml:lang="ar">الاستيثاق الثنائي عبر البريد الإلكتروني</li>
@@ -902,7 +874,6 @@
       <li xml:lang="sv">Tvåfaktorsbehörighetskontroll via e-post</li>
       <li xml:lang="tr">E-posta ile iki adımlı kimlik doğrulama</li>
       <li xml:lang="uk">Двофакторне розпізнавання за допомогою електронної пошти</li>
-      <li xml:lang="x-test">xxTwo-factor authentication via emailxx</li>
       <li xml:lang="zh-TW">透過電子郵件的兩步驟驗證</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="ar">دعم المسؤول (معلومات الخادم، الغرف، حالة المستخدم المخصصة، الأصوات المخصصة، الرموز التعبيرية المخصصة، المستخدمون، الدعوات، عرض السجل، الأذونات، الأدوار، Oauth)، إعدادات المسؤول (الرسالة، الحساب، سياسة الاحتفاظ، تحميل الملفات، التعمية)</li>
@@ -931,7 +902,6 @@
       <li xml:lang="sv">Administratörsstöd (serverinformation, rum, anpassad användarstatus, anpassade ljud, anpassade emoji, inbjudningar, loggvisning, rättigheter, roller, Oauth), administratörsinställningar (meddelanden, konton, bibehållandepolicy, filuppladdning, kryptering)</li>
       <li xml:lang="tr">Yönetici desteği (Sunucu Bilgisi, Odalar, Özel Kullanıcı Durumu, Özel Sesler, Özel Emoji, Kullanıcılar, Davetler, Günlük Görüntüleme, İzinler, Roller, Oauth), Yönetici ayarları (İleti, Hesap, Tutma Politikası, Dosya Karşıya Yükleme, Şifreleme)</li>
       <li xml:lang="uk">Підтримка адміністрування (відомості щодо сервера, кімнат, нетипові стани користувачів, нетипові звуки, нетипові емодзі, користувачі, запрошення, перегляд журналу, права доступу, ролі, Oauth), параметри адміністрування (повідомлення, обліковий запис, правила збереження, вивантаження файлів, шифрування)</li>
-      <li xml:lang="x-test">xxAdministrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)xx</li>
       <li xml:lang="zh-TW">管理員功能支援（伺服器資訊、聊天室、自訂使用者狀態、自訂音效、自訂表情符號、使用者、邀請、檢視紀錄、權限、角色、OAuth）；管理員設定（訊息、帳戶、保留原則、檔案上傳、加密）</li>
       <li>Export Messages</li>
       <li xml:lang="ar">تصدير الرسائل</li>
@@ -962,7 +932,6 @@
       <li xml:lang="sv">Exportera meddelanden</li>
       <li xml:lang="tr">İletileri Dışa Aktar</li>
       <li xml:lang="uk">Експорт повідомлень</li>
-      <li xml:lang="x-test">xxExport Messagesxx</li>
       <li xml:lang="zh-TW">匯出訊息</li>
       <li>Video Conference</li>
       <li xml:lang="ar">مؤتمرات الفيديو</li>
@@ -992,7 +961,6 @@
       <li xml:lang="sv">Videokonferens</li>
       <li xml:lang="tr">Video Konferans</li>
       <li xml:lang="uk">Відеоконференція</li>
-      <li xml:lang="x-test">xxVideo Conferencexx</li>
       <li xml:lang="zh-TW">視訊會議</li>
     </ul>
     <p>
@@ -1025,7 +993,6 @@
     <p xml:lang="sv">Extrafunktioner:</p>
     <p xml:lang="tr">Ek özellikler:</p>
     <p xml:lang="uk">Додаткові можливості:</p>
-    <p xml:lang="x-test">xxExtra features:xx</p>
     <p xml:lang="zh-TW">其他功能：</p>
     <ul>
       <li>Allow to reply directly to message from notification (kde features)</li>
@@ -1055,7 +1022,6 @@
       <li xml:lang="sv">Tillåt att svara direkt på meddelande från underrättelser (KDE-funktion)</li>
       <li xml:lang="tr">İletiyi doğrudan bildirimden yanıtlama (KDE özelliği)</li>
       <li xml:lang="uk">Можливість відповідати на повідомлення безпосередньо з панелі сповіщення (можливість KDE)</li>
-      <li xml:lang="x-test">xxAllow to reply directly to message from notification (kde features)xx</li>
       <li xml:lang="zh-TW">可以直接從通知回覆訊息（KDE 功能）</li>
       <li>Drag and drop image from ruqola to website or local folder</li>
       <li xml:lang="ar">اسحب وأفلِت الصورة من رقولة إلى موقع الويب أو المجلد المحلي</li>
@@ -1082,7 +1048,6 @@
       <li xml:lang="sv">Dra och släpp bild from ruqola till webbplats eller lokal katalog</li>
       <li xml:lang="tr">Roka’dan web sitesine veya yerel klasöre görsel sürükleyip bırakın</li>
       <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
-      <li xml:lang="x-test">xxDrag and drop image from ruqola to website or local folderxx</li>
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ar">تخزين الرسالة في قاعدة بيانات محلية حتى نتمكن من البحث في وضع عدم الاتصال</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
@@ -1110,7 +1075,6 @@
       <li xml:lang="sv">Lagra meddelanden i lokal databas så de går att söka i nerkopplad</li>
       <li xml:lang="tr">İletileri yerel bir veritabanında depola, böylece çevrimdışıyken aranabilir</li>
       <li xml:lang="uk">Зберігання повідомлення у локальній базі даних для пошуку в автономному режимі</li>
-      <li xml:lang="x-test">xxStore message in local database so we can search in offlinexx</li>
       <li xml:lang="zh-TW">將訊息儲存在本地資料庫以利離線搜尋</li>
       <li>Mark All Channels are read</li>
       <li xml:lang="ar">تحديد كافة القنوات على أنها مقروءة</li>
@@ -1140,7 +1104,6 @@
       <li xml:lang="sv">Markera alla kanaler som lästa</li>
       <li xml:lang="tr">Tüm kanalları okundu olarak imle</li>
       <li xml:lang="uk">Позначення усіх каналів, як прочитаних</li>
-      <li xml:lang="x-test">xxMark All Channels are readxx</li>
       <li xml:lang="zh-TW">將所有頻道標為已讀</li>
       <li>Add notification history</li>
       <li xml:lang="ar">إضافة تاريخ الإشعارات</li>
@@ -1170,7 +1133,6 @@
       <li xml:lang="sv">Lägg till underrättelsehistorik</li>
       <li xml:lang="tr">Bildirim geçmişi ekle</li>
       <li xml:lang="uk">Журнал сповіщень</li>
-      <li xml:lang="x-test">xxAdd notification historyxx</li>
       <li xml:lang="zh-TW">新增通知歷史</li>
       <li>New RocketChat Server Information Support</li>
       <li xml:lang="ar">إتاحة معلومات خادم روكت تشات الجديد</li>
@@ -1199,7 +1161,6 @@
       <li xml:lang="sv">Stöd för information om ny RocketChat-server</li>
       <li xml:lang="tr">Yeni Rocket.Chat Sunucusu Bilgi Desteği</li>
       <li xml:lang="uk">Підтримка відомостей щодо сервера RocketChat</li>
-      <li xml:lang="x-test">xxNew RocketChat Server Information Supportxx</li>
       <li xml:lang="zh-TW">新增對 RocketChat 伺服器資訊的支援</li>
       <li>Manage Device (RC &gt;= 5.0)</li>
       <li xml:lang="ar">إدارة الأجهزة ( روكت تشات&gt;= 5.0)</li>
@@ -1230,7 +1191,6 @@
       <li xml:lang="sv">Hantera enhet (RC ≥ 5.0)</li>
       <li xml:lang="tr">Aygıt Yönet (RC &gt;= 5.0)</li>
       <li xml:lang="uk">Керування пристроєм (RC &gt;= 5.0)</li>
-      <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
       <li xml:lang="zh-TW">管理裝置 (RC &gt;= 5.0)</li>
       <li>Manage Personal Access Token</li>
       <li xml:lang="ar">إدارة رمز الوصول الشخصي</li>
@@ -1260,7 +1220,6 @@
       <li xml:lang="sv">Hantera personlig åtkomstsymbol</li>
       <li xml:lang="tr">Kişisel Erişim Jetonunu Yönet</li>
       <li xml:lang="uk">Керування жетоном особистого доступу</li>
-      <li xml:lang="x-test">xxManage Personal Access Tokenxx</li>
       <li xml:lang="zh-TW">管理個人存取權杖 (Personal Access Token)</li>
       <li>Add support for local translation</li>
       <li xml:lang="ar">الترجمة المحلية</li>
@@ -1291,7 +1250,6 @@
       <li xml:lang="sv">Lägg till stöd för lokal översättning</li>
       <li xml:lang="tr">Yerel çeviri desteği</li>
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
-      <li xml:lang="x-test">xxAdd support for local translationxx</li>
       <li xml:lang="zh-TW">新增本地翻譯的支援</li>
       <li>Add support for text auto-correction</li>
       <li xml:lang="ar">تصحيح النص آليًّا</li>
@@ -1322,7 +1280,6 @@
       <li xml:lang="sv">Lägg till stöd för automatisk textkorrigering</li>
       <li xml:lang="tr">Metin otomatik düzeltme için destek ekle</li>
       <li xml:lang="uk">Додано підтримку автоматичного виправлення тексту</li>
-      <li xml:lang="x-test">xxAdd support for text auto-correctionxx</li>
       <li xml:lang="zh-TW">新增文字自動修正的支援</li>
     </ul>
   </description>
@@ -1364,7 +1321,6 @@
       <caption xml:lang="sv">Chattrum i Ruqola</caption>
       <caption xml:lang="tr">Roka’da sohbet odası</caption>
       <caption xml:lang="uk">Кімната спілкування у Ruqola</caption>
-      <caption xml:lang="x-test">xxChat room in Ruqolaxx</caption>
       <caption xml:lang="zh-TW">Ruqola 中的聊天室</caption>
       <image type="source" width="840" height="669">https://cdn.kde.org/screenshots/ruqola/ruqola.png</image>
     </screenshot>
