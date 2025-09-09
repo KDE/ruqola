@@ -6,7 +6,6 @@
 #pragma once
 
 #include "authentication/loginjob.h"
-#include "envutils.h"
 #include "restapimethod.h"
 #include <QCoreApplication>
 #include <QDir>
@@ -57,6 +56,6 @@ Q_SIGNALS:
     void loginFailed(const QString &error);
 
 private:
-    RocketChatRestApi::LoginJob *loginJob = nullptr;
-    RocketChatRestApi::RestApiMethod *restApiMethod = nullptr;
+    RocketChatRestApi::LoginJob *mLoginJob = nullptr;
+    RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
 };

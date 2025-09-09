@@ -4,6 +4,8 @@
 */
 
 #include "loginmanager.h"
+#include "envutils.h"
+#include <QDebug>
 
 LoginManager::LoginManager(QObject *parent)
     : QObject(parent)
@@ -18,27 +20,30 @@ void LoginManager::login(const QString &serverUrl, QNetworkAccessManager *networ
     const auto usernameKey = userIndex == 0 ? u"USERNAME"_s : u"USERNAME%1"_s.arg(userIndex);
     const auto passwordKey = userIndex == 0 ? u"PASSWORD"_s : u"PASSWORD%1"_s.arg(userIndex);
 
-    loginJob = new RocketChatRestApi::LoginJob(this);
-    restApiMethod = new RocketChatRestApi::RestApiMethod();
-    restApiMethod->setServerUrl(serverUrl);
+    mLoginJob = new RocketChatRestApi::LoginJob(this);
+    mRestApiMethod = new RocketChatRestApi::RestApiMethod();
+    mRestApiMethod->setServerUrl(serverUrl);
 
-    loginJob->setRestApiMethod(restApiMethod);
-    loginJob->setNetworkAccessManager(networkManager);
+    mLoginJob->setRestApiMethod(mRestApiMethod);
+    mLoginJob->setNetworkAccessManager(networkManager);
 
     if (creds.value(usernameKey).isEmpty() || creds.value(passwordKey).isEmpty()) {
         qDebug() << "Username or password are empty!";
     }
 
-    loginJob->setUserName(creds.value(usernameKey));
-    loginJob->setPassword(creds.value(passwordKey));
+    mLoginJob->setUserName(creds.value(usernameKey));
+    mLoginJob->setPassword(creds.value(passwordKey));
 
-    QObject::connect(loginJob, &RocketChatRestApi::LoginJob::loginDone, this, [this](const QString &authToken, const QString &userId) {
+    QObject::connect(mLoginJob, &RocketChatRestApi::LoginJob::loginDone, this, [this](const QString &authToken, const QString &userId) {
         Q_EMIT loginSucceeded(authToken, userId);
     });
 
-    QObject::connect(loginJob, &RocketChatRestApi::RestApiAbstractJob::failed, this, [this](const QString &err) {
+    QObject::connect(mLoginJob, &RocketChatRestApi::RestApiAbstractJob::failed, this, [this](const QString &err) {
         Q_EMIT loginFailed(err);
     });
 
-    loginJob->start();
+    if (!mLoginJob->start()) {
+        qWarning() << "Impossible to start login job";
+        delete mRestApiMethod;
+    }
 }
