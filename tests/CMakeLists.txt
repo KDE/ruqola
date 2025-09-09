@@ -10,9 +10,8 @@ add_subdirectory(whatsnewdialoggui)
 add_subdirectory(validemoticongui)
 add_subdirectory(restauthenticationgui)
 add_subdirectory(cmarktestgui)
-if(OPTION_USE_E2E_SUPPORT)
-	 ##### REACTIVATE
-	#add_subdirectory(encryptiontestgui)
+if(USE_E2E_SUPPORT)
+        add_subdirectory(encryptiontestgui)
 endif()
 
 add_subdirectory(passwordvalidategui)

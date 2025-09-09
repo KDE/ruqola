@@ -1,8 +1,8 @@
 /*
-   SPDX-FileCopyrightText: 2023-2025 Laurent Montel <montel@kde.org>
-   SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
+  SPDX-FileCopyrightText: 2023-2025 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
 
-   SPDX-License-Identifier: LGPL-2.0-or-later
+  SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "encryptiontestgui.h"

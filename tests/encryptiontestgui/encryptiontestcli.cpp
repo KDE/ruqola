@@ -12,11 +12,8 @@ curl -X POST http://localhost:3000/api/v1/login \
   -d '{"user": "", "password": ""}'
 */
 
-#include "e2e/fetchmykeysjob.h"
-#include "e2e/setuserpublicandprivatekeysjob.h"
-#include "encryptionutils.h"
+#include "encryption/encryptionutils.h"
 #include "loginmanager.h"
-#include "restapimethod.h"
 #include "uploaddownloadrsakeypair.h"
 #include <QCoreApplication>
 #include <QDebug>
