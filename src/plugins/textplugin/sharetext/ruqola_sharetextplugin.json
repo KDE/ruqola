@@ -18,7 +18,6 @@
         "Description[sv]": "Insticksprogrammet gör det möjligt att dela text.",
         "Description[tr]": "Bu eklenti, metin paylaşmanıza olanak tanır.",
         "Description[uk]": "За допомогою цього додатка ви можете оприлюднювати тексти.",
-        "Description[x-test]": "xxThis plugin allows you sharing text.xx",
         "EnabledByDefault": true,
         "Name": "Share Text",
         "Name[ar]": "شارك النص",
@@ -39,7 +38,6 @@
         "Name[sv]": "Dela text",
         "Name[tr]": "Metni Paylaş",
         "Name[uk]": "Оприлюднення тексту",
-        "Name[x-test]": "xxShare Textxx",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],

@@ -18,7 +18,6 @@
         "Description[sv]": "Insticksprogrammet låter dig generera svar automatiskt.",
         "Description[tr]": "Bu eklenti, kendiliğinden yanıtlar üretilmesine olanak tanır.",
         "Description[uk]": "За допомогою цього додатка ви можете отримувати автоматичні відповіді на питання.",
-        "Description[x-test]": "xxThis plugin allows you autogenerating answer.xx",
         "EnabledByDefault": true,
         "Name": "Autogenerating Answer",
         "Name[ar]": "التوليد الآليّ للإجابة",
@@ -38,7 +37,6 @@
         "Name[sv]": "Generera svar automatiskt",
         "Name[tr]": "Kendiliğinden Üretilen Yanıt",
         "Name[uk]": "Автоматична відповідь",
-        "Name[x-test]": "xxAutogenerating Answerxx",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],

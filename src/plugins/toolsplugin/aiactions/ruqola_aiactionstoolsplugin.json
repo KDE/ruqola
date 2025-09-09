@@ -18,7 +18,6 @@
         "Description[sv]": "Insticksprogrammet låter dig fråga ett AI-gränssnitt några frågor.",
         "Description[tr]": "Bu eklenti, yapay zekâ işletkesine sorular sormanıza olanak tanır.",
         "Description[uk]": "За допомогою цього додатка ви можете ставити певні питання рушію ШІ.",
-        "Description[x-test]": "xxThis plugin allows you asking to AI engine some questions.xx",
         "EnabledByDefault": true,
         "Name": "AI Actions",
         "Name[ar]": "إجراءات الذكاء الاصطناعي",
@@ -38,7 +37,6 @@
         "Name[sv]": "AI-åtgärder",
         "Name[tr]": "Yapay Zekâ Eylemleri",
         "Name[uk]": "Дії ШІ",
-        "Name[x-test]": "xxAI Actionsxx",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],

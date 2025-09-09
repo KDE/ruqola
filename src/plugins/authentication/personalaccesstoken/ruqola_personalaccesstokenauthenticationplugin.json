@@ -28,7 +28,6 @@
         "Name[sv]": "Insticksprogram för Github behörighetskontroll",
         "Name[tr]": "Github Kimlik Doğrulama Eklentisi",
         "Name[uk]": "Додаток розпізнавання Github",
-        "Name[x-test]": "xxGithub Authentication Pluginxx",
         "Name[zh_TW]": "Github 身份驗證外掛程式",
         "ServiceTypes": [
             "Ruqola/Authentication"
