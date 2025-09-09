@@ -2,13 +2,18 @@
 # SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
 # SPDX-License-Identifier: BSD-3-Clause
 
-add_executable(encryptiontestgui)
-target_sources(
-    encryptiontestgui
-    PRIVATE encryptiontestgui.h encryptiontestgui.cpp
+set(TEST_SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/uploaddownloadrsakeypair.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/loginmanager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/envutils.cpp
+)
+
+add_executable(encryptiontestgui)
+target_sources(
+    encryptiontestgui
+    PRIVATE encryptiontestgui.h
+    encryptiontestgui.cpp
+    ${TEST_SOURCE}
 )
 
 target_link_libraries(encryptiontestgui Qt::Widgets Qt::Gui libruqolacore)
@@ -18,16 +23,12 @@ set_target_properties(
 )
 
 ########
-add_executable(encryptiontestcli
-    ${CMAKE_CURRENT_SOURCE_DIR}/encryptiontestcli.cpp
-)
+add_executable(encryptiontestcli)
 target_sources(
     encryptiontestcli
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/encryptiontestcli.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/uploaddownloadrsakeypair.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/loginmanager.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/envutils.cpp
+    ${TEST_SOURCE}
 )
 
 target_link_libraries(encryptiontestcli
