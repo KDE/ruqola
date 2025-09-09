@@ -150,7 +150,7 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
         } else {
             mEncryptedMessage = EncryptionUtils::encryptMessage(text.toUtf8(), mSessionKey);
             qDebug() << "Encrypted message:" << mEncryptedMessage.toBase64();
-            mTextEditResult->setPlainText((u"Message encryption succeeded!\n"_s + QString::fromUtf8(mEncryptedMessage.toBase64())));
+            mTextEditResult->setPlainText(u"Message encryption succeeded!\n"_s + QString::fromUtf8(mEncryptedMessage.toBase64()));
             mTextEdit->clear();
         }
     });
@@ -186,7 +186,7 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
                  << "\npublickey: " << mRsaKeyPair.publicKey << "\nencrypted session key: " << mEncryptedSessionKey
                  << "\ndecrypted session key: " << mDecryptedSessionKey << "\nencrypted message: " << mEncryptedMessage
                  << "\ndecrypted message: " << mDecryptedMessage;
-        mTextEditResult->setPlainText((u"Reset succeeded!\n"_s));
+        mTextEditResult->setPlainText(u"Reset succeeded!\n"_s);
     });
 
     mTextEditResult->setReadOnly(true);
