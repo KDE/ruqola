@@ -6,6 +6,10 @@ set(TEST_SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/uploaddownloadrsakeypair.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/loginmanager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/envutils.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/uploaddownloadrsakeypair.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/loginmanager.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/envutils.h
 )
 
 add_executable(encryptiontestgui)

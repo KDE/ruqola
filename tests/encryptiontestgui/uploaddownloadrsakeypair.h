@@ -5,10 +5,7 @@
 
 #pragma once
 
-#include "e2e/fetchmykeysjob.h"
-#include "e2e/setuserpublicandprivatekeysjob.h"
 #include "encryption/encryptionutils.h"
-#include "restapimethod.h"
 #include <QNetworkAccessManager>
 #include <QString>
 #include <functional>

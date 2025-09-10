@@ -4,6 +4,9 @@
 */
 
 #include "uploaddownloadrsakeypair.h"
+#include "e2e/fetchmykeysjob.h"
+#include "e2e/setuserpublicandprivatekeysjob.h"
+#include "restapimethod.h"
 #include <QCoreApplication>
 #include <QDebug>
 #include <QJsonObject>
@@ -44,12 +47,16 @@ void uploadKeys(const QString &authToken,
         }
     });
 
-    QObject::connect(uploadJob, &SetUserPublicAndPrivateKeysJob::failed, uploadJob, [](const QString &err) {
+    QObject::connect(uploadJob, &SetUserPublicAndPrivateKeysJob::failed, uploadJob, [restApiMethod](const QString &err) {
         qCritical() << "Key upload failed!: " << err;
+        delete restApiMethod;
         QCoreApplication::quit();
     });
 
-    uploadJob->start();
+    if (!uploadJob->start()) {
+        qWarning() << "Impossible to start uploadJob";
+        delete restApiMethod;
+    }
 }
 
 void downloadKeys(const QString &authToken,
@@ -82,8 +89,12 @@ void downloadKeys(const QString &authToken,
 
     QObject::connect(fetchJob, &RestApiAbstractJob::failed, fetchJob, [=](const QString &err) {
         qCritical() << "Key fetch failed:" << err;
+        delete restApiMethod;
         QCoreApplication::quit();
     });
 
-    fetchJob->start();
+    if (!fetchJob->start()) {
+        qWarning() << "Impossible to start fetchJob";
+        delete restApiMethod;
+    }
 }

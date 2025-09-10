@@ -4,10 +4,10 @@
 */
 
 #include "envutils.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QFile>
 
+using namespace Qt::Literals::StringLiterals;
 QHash<QString, QString> loadEnvFile(const QString &filePath)
 {
     QHash<QString, QString> env;
