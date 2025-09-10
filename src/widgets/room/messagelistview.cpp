@@ -711,7 +711,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         // TODO use roles too.
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
         const QByteArray roomId = mRoom->roomId();
-        mActionButtonsGenerator->generateActionButtons(actionButtons, &menu, roomId);
+        mActionButtonsGenerator->generateMessageActionButtons(actionButtons, &menu, roomId, message->messageId());
     }
 
     if (!menu.actions().isEmpty()) {

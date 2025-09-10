@@ -356,7 +356,7 @@ void RoomHeaderWidget::slotActionButtonChanged()
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
         mAIActionButton->setVisible(!actionButtons.isEmpty());
         const QByteArray roomId = mRoom->roomId();
-        mActionButtonsGenerator->generateActionButtons(actionButtons, mAIActionButton->menu(), roomId);
+        mActionButtonsGenerator->generateRoomActionButtons(actionButtons, mAIActionButton->menu(), roomId);
     }
 }
 
