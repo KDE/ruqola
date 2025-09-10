@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-09 00:54+0000\n"
-"PO-Revision-Date: 2025-08-26 09:43+0200\n"
+"PO-Revision-Date: 2025-09-09 09:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3451,7 +3451,7 @@ msgstr "Llig el text"
 #, kde-format
 msgctxt "@action"
 msgid "Select All"
-msgstr "Tria-ho tot"
+msgstr "Selecciona-ho tot"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
@@ -7947,10 +7947,9 @@ msgid "DataBase Global"
 msgstr "Base de dades global"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Base de dades de les sales"
+msgstr "E2E de la base de dades"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -11709,7 +11708,7 @@ msgstr "Afig el botó «Obri amb» en mostrar una imatge."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
 msgid "Add Quick Text Format."
-msgstr "Afig el format del text ràpid."
+msgstr "Afig el format ràpid del text."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format

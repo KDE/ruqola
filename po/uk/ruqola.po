@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-09 00:54+0000\n"
-"PO-Revision-Date: 2025-08-26 09:50+0300\n"
+"PO-Revision-Date: 2025-09-09 15:12+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -7984,10 +7984,9 @@ msgid "DataBase Global"
 msgstr "Загальні записи бази даних"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Кімнати бази даних"
+msgstr "E2E бази даних"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format

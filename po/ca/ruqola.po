@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-09 00:54+0000\n"
-"PO-Revision-Date: 2025-08-26 09:43+0200\n"
+"PO-Revision-Date: 2025-09-09 09:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7948,10 +7948,9 @@ msgid "DataBase Global"
 msgstr "Global de la base de dades"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Sales de la base de dades"
+msgstr "E2E de la base de dades"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format

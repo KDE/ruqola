@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-09 00:54+0000\n"
-"PO-Revision-Date: 2025-08-26 06:18+0200\n"
+"PO-Revision-Date: 2025-09-09 04:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7901,10 +7901,9 @@ msgid "DataBase Global"
 msgstr "მონაცემთა ბაზა გლობალური"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "მონაცემთა ბაზის ოთახები"
+msgstr "მონაცემთა ბაზის E2E"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format

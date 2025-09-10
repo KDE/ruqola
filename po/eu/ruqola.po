@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-09 00:54+0000\n"
-"PO-Revision-Date: 2025-08-26 10:14+0200\n"
+"PO-Revision-Date: 2025-09-09 23:31+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -7925,17 +7925,17 @@ msgstr "JSON"
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
 #, kde-format
 msgid "DataBase Messages"
-msgstr "Datu-base Mezuak"
+msgstr "Datu-baseko mezuak"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:58
 #, kde-format
 msgid "DataBase Accounts"
-msgstr "Datu-base kontuak"
+msgstr "Datu-baseko kontuak"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, kde-format
 msgid "DataBase Rooms"
-msgstr "Datu-base gelak"
+msgstr "Datu-baseko gelak"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, kde-format
@@ -7943,10 +7943,9 @@ msgid "DataBase Global"
 msgstr "Datu-base globala"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Datu-base gelak"
+msgstr "Datu-baseko (E2E) muturren arteko zifratzea"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
