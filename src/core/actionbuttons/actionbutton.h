@@ -64,7 +64,7 @@ public:
         MessageActionContext messageActionContext = MessageActionContext::Unknown;
         Category category = Category::Unknown;
         // TODO use it
-        QStringList roles = {};
+        QStringList roles;
     };
 
     ActionButton();
