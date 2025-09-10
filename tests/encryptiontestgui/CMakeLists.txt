@@ -27,7 +27,7 @@ add_executable(encryptiontestcli)
 target_sources(
     encryptiontestcli
     PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/encryptiontestcli.cpp
+    encryptiontestcli.cpp
     ${TEST_SOURCE}
 )
 
