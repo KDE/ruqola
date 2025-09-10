@@ -39,6 +39,12 @@ bool AutoGenerateInteractionUiDialog::parse(const QJsonObject &r)
             delete mMainWidget;
         }
         mMainWidget = mAutoGenerateInteractionUi->generateWidget(this);
+        if (!mMainWidget->windowTitle().isEmpty()) {
+            setWindowTitle(mMainWidget->windowTitle());
+        }
+        if (!mMainWidget->windowIcon().isNull()) {
+            setWindowIcon(mMainWidget->windowIcon());
+        }
         mainLayout->addWidget(mMainWidget);
         if (!currentState.isEmpty()) {
             mAutoGenerateInteractionUi->assignState(currentState);

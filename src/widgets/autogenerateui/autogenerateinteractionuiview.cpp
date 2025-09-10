@@ -148,8 +148,9 @@ void AutoGenerateInteractionUiView::slotActionChanged(const QByteArray &blockId,
 
 void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
 {
-    // TODO customize title
-    widget->setWindowTitle(mTitle.generateText());
+    widget->setWindowTitle(mTitle.generateText(true));
+    // TODO get icon too ?
+    // widget->setWindowIcon()
     auto mainLayout = new QVBoxLayout(widget);
     connect(mBlocks, &AutoGenerateInteractionUiViewBlocks::actionChanged, this, &AutoGenerateInteractionUiView::slotActionChanged);
     mBlocks->generateWidget(widget);
