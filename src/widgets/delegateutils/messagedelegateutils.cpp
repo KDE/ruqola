@@ -64,7 +64,8 @@ bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
     const bool isSystemMessage = messageType == Message::System
         && index.data(MessagesModel::SystemMessageType).value<SystemMessageTypeUtil::SystemMessageType>()
             != SystemMessageTypeUtil::SystemMessageType::JitsiCallStarted;
-    return isSystemMessage || index.data(MessagesModel::PrivateMessage).toBool();
+    const bool isEncrypted = messageType == Message::EncryptedText;
+    return isEncrypted || isSystemMessage || index.data(MessagesModel::PrivateMessage).toBool();
 }
 
 bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)

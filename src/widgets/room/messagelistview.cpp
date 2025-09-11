@@ -272,8 +272,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
-    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
-    const bool isVideoConferenceMessage = messageType == Message::VideoConference;
+    const bool isSystemMessage = (messageType == Message::EncryptedText) || (messageType == Message::System) || (messageType == Message::Information);
     QMenu menu(this);
     if (isSystemMessage) {
         if (Ruqola::self()->debug()) {
@@ -282,6 +281,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         return;
     }
+    const bool isVideoConferenceMessage = messageType == Message::VideoConference;
     mMessageListDelegate->attachmentContextMenu(options, index, info, &menu);
     const bool isNotOwnerOfMessage = (index.data(MessagesModel::UserId).toByteArray() != mCurrentRocketChatAccount->userId());
 

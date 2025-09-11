@@ -381,6 +381,9 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
 {
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
+    } else if (message.messageType() == Message::EncryptedText) {
+        // TODO allow to decrypt message
+        return message.systemMessageText();
     } else {
         QStringList highlightWords;
         if (mRoom) {

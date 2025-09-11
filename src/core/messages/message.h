@@ -38,6 +38,7 @@ public:
         Information,
         NormalText,
         VideoConference,
+        EncryptedText,
     };
 
     Q_ENUM(MessageType)

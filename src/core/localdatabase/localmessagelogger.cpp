@@ -81,7 +81,7 @@ QString LocalMessageLogger::generateTextFromMessage(const Message &m) const
             }
         }
     }
-    if (m.messageType() == Message::System) {
+    if (m.messageType() == Message::System || m.messageType() == Message::EncryptedText) {
         if (!message.isEmpty()) {
             message += u'\n';
         }
