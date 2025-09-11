@@ -52,14 +52,14 @@ void ActionButtonsManager::setActionButtons(const QList<ActionButton> &newAction
 
 void ActionButtonsManager::parseActionButtons(const QJsonArray &array)
 {
-    // qDebug() << " void ActionButtonsManager::parseActionButtons(const QJsonArray &array) " << array;
+    qDebug() << " void ActionButtonsManager::parseActionButtons(const QJsonArray &array) " << array;
     QList<ActionButton> buttons;
     for (const auto &r : array) {
         ActionButton act;
         act.parseActionButton(r.toObject());
         buttons.append(std::move(act));
     }
-    setActionButtons(std::move(buttons));
+    setActionButtons(buttons);
 }
 
 QList<ActionButton> ActionButtonsManager::actionButtonsFromFilterActionInfo(const ActionButton::FilterActionInfo &filterInfo) const
