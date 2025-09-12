@@ -11,3 +11,5 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
 }
 
 MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;
+
+#include "moc_messagelineextratoolbutton.cpp"
