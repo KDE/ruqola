@@ -106,6 +106,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     connect(mMessageListView, &MessageListView::errorMessage, this, &RoomWidgetBase::errorMessage);
     connect(mMessageListView, &MessageListView::successMessage, this, &RoomWidgetBase::successMessage);
     connect(mMessageListView, &MessageListView::uiInteractionRequested, this, &RoomWidgetBase::uiInteractionRequested);
+    connect(mMessageLineWidget, &MessageLineWidget::uiInteractionRequested, this, &RoomWidgetBase::uiInteractionRequested);
     setAcceptDrops(true);
 }
 

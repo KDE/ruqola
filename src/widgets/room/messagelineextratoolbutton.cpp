@@ -43,6 +43,7 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
                 &MessageLineExtraToolButton::slotActionButtonChanged);
     }
     mCurrentRocketChatAccount = account;
+    slotActionButtonChanged();
 }
 
 void MessageLineExtraToolButton::slotActionButtonChanged()

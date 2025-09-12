@@ -76,6 +76,7 @@ Q_SIGNALS:
     void quoteMessageChanged(const QString &permalink, const QString &text);
     void createUploadJob(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
     void showCommandPreview(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
+    void uiInteractionRequested(const QJsonObject &obj);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSendMessage(const QString &msg);
