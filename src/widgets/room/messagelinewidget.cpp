@@ -428,6 +428,7 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, 
     connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineWidget::slotPrivateSettingsChanged);
     mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
+    mMessageLineExtraToolButton->setCurrentRocketChatAccount(account);
 }
 
 void MessageLineWidget::setText(const QString &text)
