@@ -12,4 +12,6 @@ class MessageLineExtraToolButtonTest : public QObject
 public:
     explicit MessageLineExtraToolButtonTest(QObject *parent = nullptr);
     ~MessageLineExtraToolButtonTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

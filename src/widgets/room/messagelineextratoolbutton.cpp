@@ -4,10 +4,13 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagelineextratoolbutton.h"
-
+#include <KLocalizedString>
+using namespace Qt::Literals::StringLiterals;
 MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     : QToolButton(parent)
 {
+    setIcon(QIcon::fromTheme(u"list-add"_s));
+    setToolTip(i18nc("@info:tooltip", "More Actions"));
 }
 
 MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;
