@@ -5,21 +5,23 @@
 */
 #include "messagelineextratoolbutton.h"
 #include "actionbuttons/actionbuttonsmanager.h"
-#include "actionbuttons/actionbuttonutil.h"
 #include "actionbuttonsgenerator.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <QMenu>
 using namespace Qt::Literals::StringLiterals;
 MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     : QToolButton(parent)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
-
+    , mMenu(new QMenu)
 {
     setIcon(QIcon::fromTheme(u"list-add"_s));
     setToolTip(i18nc("@info:tooltip", "More Actions"));
     setVisible(false);
     setAutoRaise(true);
     setPopupMode(QToolButton::InstantPopup);
+    setMenu(mMenu);
+    connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &MessageLineExtraToolButton::uiInteractionRequested);
 }
 
 MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;
@@ -45,7 +47,13 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
 
 void MessageLineExtraToolButton::slotActionButtonChanged()
 {
-    // TODO
+    if (mCurrentRocketChatAccount) {
+        ActionButton::FilterActionInfo filterInfo;
+        filterInfo.buttonContext = ActionButton::ButtonContext::MessageBoxAction;
+        const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
+        mActionButtonsGenerator->generateMessageBoxActionButtons(actionButtons, menu());
+        setVisible(!menu()->isEmpty());
+    }
 }
 
 #include "moc_messagelineextratoolbutton.cpp"
