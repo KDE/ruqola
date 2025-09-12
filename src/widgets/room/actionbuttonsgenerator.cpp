@@ -140,7 +140,7 @@ void ActionButtonsGenerator::generateMessageActionButtons(const QList<ActionButt
             actionMessageInfo.roomId = roomId;
             actionMessageInfo.messageId = messageId;
             info.messageObj = AutoGenerateInteractionUtil::createMessageActionButton(actionMessageInfo);
-            qDebug() << " info " << info;
+            // qDebug() << " info " << info;
             job->setAppsUiInteractionJobInfo(info);
 
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
