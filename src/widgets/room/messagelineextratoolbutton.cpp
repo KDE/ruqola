@@ -22,6 +22,9 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     setPopupMode(QToolButton::InstantPopup);
     setMenu(mMenu);
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &MessageLineExtraToolButton::uiInteractionRequested);
+    // TODO use apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/hooks/useShareLocationAction.tsx
+    // TODO ./apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/hooks/useWebdavActions.tsx
+    // TODO see apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/MessageBoxActionsToolbar.tsx
 }
 
 MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;
