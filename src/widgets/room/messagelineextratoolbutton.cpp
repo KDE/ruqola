@@ -46,20 +46,22 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
                 &MessageLineExtraToolButton::slotActionButtonChanged);
     }
     mCurrentRocketChatAccount = account;
-    slotActionButtonChanged();
 }
 
 void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
 {
-    mRoomId = roomId;
+    if (mRoomId != roomId) {
+        mRoomId = roomId;
+        slotActionButtonChanged();
+    }
 }
 
 void MessageLineExtraToolButton::slotActionButtonChanged()
 {
     if (mCurrentRocketChatAccount) {
-        ActionButton::FilterActionInfo filterInfo;
-        filterInfo.buttonContext = ActionButton::ButtonContext::MessageBoxAction;
+        const ActionButton::FilterActionInfo filterInfo{.buttonContext = ActionButton::ButtonContext::MessageBoxAction};
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
+        // qDebug() << "*************** actionButtons " << actionButtons << "mRoomId  " << mRoomId;
         mActionButtonsGenerator->generateMessageBoxActionButtons(actionButtons, menu(), mRoomId);
         setVisible(!menu()->isEmpty());
     }
