@@ -8,6 +8,7 @@
 #include <QPointer>
 #include <QToolButton>
 class RocketChatAccount;
+class ActionButtonsGenerator;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineExtraToolButton : public QToolButton
 {
     Q_OBJECT
@@ -18,5 +19,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    ActionButtonsGenerator *const mActionButtonsGenerator;
 };
