@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagelineextratoolbutton.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 using namespace Qt::Literals::StringLiterals;
 MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
@@ -16,5 +17,10 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
 }
 
 MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;
+
+void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mCurrentRocketChatAccount = account;
+}
 
 #include "moc_messagelineextratoolbutton.cpp"

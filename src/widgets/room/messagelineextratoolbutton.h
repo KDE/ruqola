@@ -5,12 +5,18 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <QPointer>
 #include <QToolButton>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineExtraToolButton : public QToolButton
 {
     Q_OBJECT
 public:
     explicit MessageLineExtraToolButton(QWidget *parent = nullptr);
     ~MessageLineExtraToolButton() override;
+
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
+
+private:
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
