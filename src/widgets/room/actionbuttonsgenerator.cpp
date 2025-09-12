@@ -22,7 +22,7 @@ ActionButtonsGenerator::ActionButtonsGenerator(QObject *parent)
 
 ActionButtonsGenerator::~ActionButtonsGenerator() = default;
 
-void ActionButtonsGenerator::generateMessageBoxActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu)
+void ActionButtonsGenerator::generateMessageBoxActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu, const QByteArray &roomId)
 {
     clearActionButtons();
     if (actionButtons.isEmpty()) {
@@ -38,14 +38,14 @@ void ActionButtonsGenerator::generateMessageBoxActionButtons(const QList<ActionB
         const QString translateIdentifier = ActionButtonUtil::generateTranslateIdentifier(actionButton);
         const QString appId = QString::fromLatin1(actionButton.appId());
         act->setText(mCurrentRocketChatAccount->getTranslatedIdentifier(lang, translateIdentifier));
-        connect(act, &QAction::triggered, this, [this, actionButton, appId]() {
+        connect(act, &QAction::triggered, this, [this, actionButton, appId, roomId]() {
             auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
             RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
             info.methodName = appId;
             AutoGenerateInteractionUtil::ActionButtonInfo actionButtonInfo;
             actionButtonInfo.actionId = actionButton.actionId();
             actionButtonInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
-            // actionButtonInfo.roomId = roomId;
+            actionButtonInfo.roomId = roomId;
             info.messageObj = AutoGenerateInteractionUtil::createRoomActionButton(actionButtonInfo);
             // qDebug() << " info " << info;
             job->setAppsUiInteractionJobInfo(info);

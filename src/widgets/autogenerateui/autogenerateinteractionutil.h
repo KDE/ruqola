@@ -55,6 +55,7 @@ struct MessageBlockMessageActionUserInfo {
     QString blockId;
 };
 [[nodiscard]] QJsonObject createBlockMessageActionUser(const MessageBlockMessageActionUserInfo &info);
+[[nodiscard]] QJsonObject createMessageBoxActionButton(const ActionButtonInfo &info);
 };
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewBlockActionUserInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewSubmitUserInfo, Q_RELOCATABLE_TYPE);

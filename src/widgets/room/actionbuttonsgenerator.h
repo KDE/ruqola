@@ -20,7 +20,7 @@ public:
     explicit ActionButtonsGenerator(QObject *parent = nullptr);
     ~ActionButtonsGenerator() override;
 
-    void generateMessageBoxActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu);
+    void generateMessageBoxActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu, const QByteArray &roomId);
     void generateRoomActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu, const QByteArray &roomId);
     void generateMessageActionButtons(const QList<ActionButton> &actionButtons, QMenu *menu, const QByteArray &roomId, const QByteArray &messageId);
     void setCurrentRocketChatAccount(RocketChatAccount *account);

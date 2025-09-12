@@ -19,11 +19,13 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
+    void setRoomId(const QByteArray &roomId);
 Q_SIGNALS:
     void uiInteractionRequested(const QJsonObject &obj);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
+    QByteArray mRoomId;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     ActionButtonsGenerator *const mActionButtonsGenerator;
     QMenu *const mMenu;

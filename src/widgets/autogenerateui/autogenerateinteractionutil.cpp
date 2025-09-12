@@ -105,6 +105,21 @@ QJsonObject AutoGenerateInteractionUtil::createRoomActionButton(const ActionButt
     return o;
 }
 
+QJsonObject AutoGenerateInteractionUtil::createMessageBoxActionButton(const ActionButtonInfo &info)
+{
+    // {"type":"actionButton","actionId":"auto-reply-room-action-id","rid":"67b7116fc0984e12f9661a2c","payload":{"context":"roomAction"},"triggerId":"EdEdKAKzxMTu9io9L"}
+    QJsonObject o;
+    o["type"_L1] = "actionButton"_L1;
+    o["actionId"_L1] = QString::fromLatin1(info.actionId);
+    QJsonObject payload;
+    payload["context"_L1] = "messageBoxAction"_L1;
+    o["payload"_L1] = payload;
+
+    o["rid"_L1] = QString::fromLatin1(info.roomId);
+    o["triggerId"_L1] = QString::fromLatin1(info.triggerId);
+    return o;
+}
+
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionButtonInfo &t)
 {
     d.space() << "actionId:" << t.actionId;

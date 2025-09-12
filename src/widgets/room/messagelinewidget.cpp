@@ -598,6 +598,7 @@ QByteArray MessageLineWidget::roomId() const
 void MessageLineWidget::setRoomId(const QByteArray &roomId)
 {
     mMessageTextEdit->setRoomId(roomId);
+    mMessageLineExtraToolButton->setRoomId(roomId);
 }
 
 bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
