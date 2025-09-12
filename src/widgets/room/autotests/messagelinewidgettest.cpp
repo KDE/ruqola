@@ -5,8 +5,8 @@
 */
 
 #include "messagelinewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
+#include "room/messagelineextratoolbutton.h"
 #include "room/messagelinewidget.h"
 #include "room/messagetextedit.h"
 #include <QHBoxLayout>
@@ -15,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QToolButton>
 
 QTEST_MAIN(MessageLineWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 
 MessageLineWidgetTest::MessageLineWidgetTest(QObject *parent)
     : QObject(parent)
@@ -72,6 +73,9 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(w.quoteText().isEmpty());
     QVERIFY(w.quotePermalink().isEmpty());
+
+    auto mMessageLineExtraToolButton = w.findChild<MessageLineExtraToolButton *>(u"mMessageLineExtraToolButton"_s);
+    QVERIFY(mMessageLineExtraToolButton);
 }
 
 #include "moc_messagelinewidgettest.cpp"

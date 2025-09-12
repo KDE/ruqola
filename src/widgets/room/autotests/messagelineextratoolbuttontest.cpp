@@ -17,6 +17,7 @@ void MessageLineExtraToolButtonTest::shouldHaveDefaultValues()
 {
     MessageLineExtraToolButton b;
     QVERIFY(!b.toolTip().isEmpty());
+    QVERIFY(b.autoRaise());
     // TODO
 }
 

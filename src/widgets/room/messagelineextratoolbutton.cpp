@@ -11,6 +11,8 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
 {
     setIcon(QIcon::fromTheme(u"list-add"_s));
     setToolTip(i18nc("@info:tooltip", "More Actions"));
+    setVisible(false);
+    setAutoRaise(true);
 }
 
 MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;

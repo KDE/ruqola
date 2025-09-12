@@ -14,6 +14,7 @@
 #include "misc/emoticonmenuwidget.h"
 #include "ownuser/ownuserpreferences.h"
 #include "rocketchataccount.h"
+#include "room/messagelineextratoolbutton.h"
 #include "room/plugins/plugintextinterface.h"
 #include "room/plugins/plugintool.h"
 #include "ruqolaglobalconfig.h"
@@ -48,6 +49,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     , mSoundMessageButton(new QToolButton(this))
     , mEmoticonButton(new QToolButton(this))
     , mSendMessageButton(new QToolButton(this))
+    , mMessageLineExtraToolButton(new MessageLineExtraToolButton(this))
 {
     QList<PluginTool *> plugins = ToolsPluginManager::self()->pluginsList();
     if (plugins.count() > 1) {
@@ -171,6 +173,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
             }
         }
     }
+    mMessageLineExtraToolButton->setObjectName(u"mMessageLineExtraToolButton"_s);
+    mainLayout->addWidget(mMessageLineExtraToolButton);
 }
 
 MessageLineWidget::~MessageLineWidget()

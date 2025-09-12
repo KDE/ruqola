@@ -20,6 +20,7 @@ class RocketChatAccount;
 class QMimeData;
 class MessagesModel;
 class PluginToolInterface;
+class MessageLineExtraToolButton;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
@@ -104,6 +105,7 @@ private:
     QToolButton *const mSoundMessageButton;
     QToolButton *const mEmoticonButton;
     QToolButton *const mSendMessageButton;
+    MessageLineExtraToolButton *const mMessageLineExtraToolButton;
     EmoticonMenuWidget *mEmoticonMenuWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mReplyInThreadDialogBox = false;
