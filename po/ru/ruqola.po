@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1347,12 +1347,12 @@ msgstr "Уведомить активных пользователей в это
 msgid "Edited at %1 by %2"
 msgstr "Изменено %1 (%2)"
 
-#: core/model/messagesmodel.cpp:389
+#: core/model/messagesmodel.cpp:392
 #, kde-format
 msgid "Ignored Message"
 msgstr "Игнорируемое сообщение"
 
-#: core/model/messagesmodel.cpp:398
+#: core/model/messagesmodel.cpp:401
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Только вы можете видеть это сообщение"
@@ -10543,31 +10543,31 @@ msgstr[3] "1 сообщение"
 msgid "No message yet"
 msgstr "Сообщений ещё нет"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1015
+#: widgets/room/delegate/messagelistdelegate.cpp:1016
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Отслеживается"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1019
+#: widgets/room/delegate/messagelistdelegate.cpp:1020
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Сообщение закреплено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1023
+#: widgets/room/delegate/messagelistdelegate.cpp:1024
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Сообщение отмечено звёздочкой"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1027
+#: widgets/room/delegate/messagelistdelegate.cpp:1028
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Ответить в ветке"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1031
+#: widgets/room/delegate/messagelistdelegate.cpp:1032
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"

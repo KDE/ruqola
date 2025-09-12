@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1342,12 +1342,12 @@ msgstr "अस्मिन् कक्षे सक्रियप्रयो�
 msgid "Edited at %1 by %2"
 msgstr "%2 द्वारा %1 इत्यत्र सम्पादितम्"
 
-#: core/model/messagesmodel.cpp:389
+#: core/model/messagesmodel.cpp:392
 #, kde-format
 msgid "Ignored Message"
 msgstr "उपेक्षितः सन्देशः"
 
-#: core/model/messagesmodel.cpp:398
+#: core/model/messagesmodel.cpp:401
 #, kde-format
 msgid "Only you can see this message"
 msgstr "केवलं भवन्तः एव एतत् सन्देशं द्रष्टुं शक्नुवन्ति"
@@ -10390,31 +10390,31 @@ msgstr[1] "%1 सन्देशाः"
 msgid "No message yet"
 msgstr "अद्यापि कोऽपि सन्देशः नास्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1015
+#: widgets/room/delegate/messagelistdelegate.cpp:1016
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "अनुसरण"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1019
+#: widgets/room/delegate/messagelistdelegate.cpp:1020
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "सन्देशः पिन कृतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1023
+#: widgets/room/delegate/messagelistdelegate.cpp:1024
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "सन्देशः अभिनीतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1027
+#: widgets/room/delegate/messagelistdelegate.cpp:1028
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1031
+#: widgets/room/delegate/messagelistdelegate.cpp:1032
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2025-09-09 08:25-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1340,12 +1340,12 @@ msgstr "Notificar usuários ativos nesta sala"
 msgid "Edited at %1 by %2"
 msgstr "Editado em %1 por %2"
 
-#: core/model/messagesmodel.cpp:389
+#: core/model/messagesmodel.cpp:392
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mensagens ignoradas"
 
-#: core/model/messagesmodel.cpp:398
+#: core/model/messagesmodel.cpp:401
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Somente você pode ver esta mensagem"
@@ -10419,31 +10419,31 @@ msgstr[1] "%1 mensagens"
 msgid "No message yet"
 msgstr "Nenhuma mensagem ainda"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1015
+#: widgets/room/delegate/messagelistdelegate.cpp:1016
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Seguindo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1019
+#: widgets/room/delegate/messagelistdelegate.cpp:1020
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Mensagem fixada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1023
+#: widgets/room/delegate/messagelistdelegate.cpp:1024
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Mensagem recebeu estrela"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1027
+#: widgets/room/delegate/messagelistdelegate.cpp:1028
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Responder no tópico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1031
+#: widgets/room/delegate/messagelistdelegate.cpp:1032
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"

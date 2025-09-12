@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2025-09-09 09:22+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1339,12 +1339,12 @@ msgstr "Obvesti vse aktivne uporabnike v tej sobi"
 msgid "Edited at %1 by %2"
 msgstr "Uredil %2: %1"
 
-#: core/model/messagesmodel.cpp:389
+#: core/model/messagesmodel.cpp:392
 #, kde-format
 msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
 
-#: core/model/messagesmodel.cpp:398
+#: core/model/messagesmodel.cpp:401
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Samo vi lahko vidite to sporočilo"
@@ -10426,31 +10426,31 @@ msgstr[3] "%1 sporočilo"
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1015
+#: widgets/room/delegate/messagelistdelegate.cpp:1016
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Sledi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1019
+#: widgets/room/delegate/messagelistdelegate.cpp:1020
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Sporočilo je bilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1023
+#: widgets/room/delegate/messagelistdelegate.cpp:1024
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Sporočilo je bilo označeno z zvezdico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1027
+#: widgets/room/delegate/messagelistdelegate.cpp:1028
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1031
+#: widgets/room/delegate/messagelistdelegate.cpp:1032
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
