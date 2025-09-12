@@ -46,7 +46,7 @@ void ActionButtonsGenerator::generateMessageBoxActionButtons(const QList<ActionB
             actionButtonInfo.actionId = actionButton.actionId();
             actionButtonInfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
             actionButtonInfo.roomId = roomId;
-            info.messageObj = AutoGenerateInteractionUtil::createRoomActionButton(actionButtonInfo);
+            info.messageObj = AutoGenerateInteractionUtil::createMessageBoxActionButton(actionButtonInfo);
             // qDebug() << " info " << info;
             job->setAppsUiInteractionJobInfo(info);
 
