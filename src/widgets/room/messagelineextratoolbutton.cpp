@@ -19,6 +19,7 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     setToolTip(i18nc("@info:tooltip", "More Actions"));
     setVisible(false);
     setAutoRaise(true);
+    setPopupMode(QToolButton::InstantPopup);
 }
 
 MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;
