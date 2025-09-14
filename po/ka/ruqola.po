@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-13 00:49+0000\n"
-"PO-Revision-Date: 2025-09-09 04:14+0200\n"
+"PO-Revision-Date: 2025-09-13 05:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -10408,11 +10408,10 @@ msgid "Add reaction"
 msgstr "რეაქციის დამატება"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "ხი-ის ქმედებები"
+msgstr "მეტი ქმედება"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11653,7 +11652,7 @@ msgstr "დაემატა სწრაფი ტექსტის ფორ
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "დაემატა გაფართოების შეტყობინების ხაზის ღილაკი."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

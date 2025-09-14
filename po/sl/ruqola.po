@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-13 00:49+0000\n"
-"PO-Revision-Date: 2025-09-09 09:22+0200\n"
+"PO-Revision-Date: 2025-09-13 06:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -10457,11 +10457,10 @@ msgid "Add reaction"
 msgstr "Dodaj reakcijo"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Dejavnosti umetne inteligence"
+msgstr "Več dejavnosti"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11703,7 +11702,7 @@ msgstr "Dodaj hitro oblikovanje besedila."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Gumb za dodajanje sporočil v vrstici za razširitev."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

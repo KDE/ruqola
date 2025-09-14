@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-13 00:49+0000\n"
-"PO-Revision-Date: 2025-09-09 08:25-0300\n"
+"PO-Revision-Date: 2025-09-13 08:19-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -10450,11 +10450,10 @@ msgid "Add reaction"
 msgstr "Adicionar reação"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Ações de IA"
+msgstr "Mais ações"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11698,7 +11697,7 @@ msgstr "Adiciona formato de texto rápido."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Adicionar extensão de botão de linha de mensagem."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

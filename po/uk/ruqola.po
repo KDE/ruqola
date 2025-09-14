@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-13 00:49+0000\n"
-"PO-Revision-Date: 2025-09-09 15:12+0300\n"
+"PO-Revision-Date: 2025-09-13 08:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -10535,11 +10535,10 @@ msgid "Add reaction"
 msgstr "Додати реакцію"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Дії ШІ"
+msgstr "Додаткові дії"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11784,7 +11783,7 @@ msgstr "Додано швидке форматування тексту"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Додати кнопку рядка повідомлення розширення."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-13 00:49+0000\n"
-"PO-Revision-Date: 2025-08-30 19:21+0100\n"
+"PO-Revision-Date: 2025-09-14 01:55+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -7954,10 +7954,9 @@ msgid "DataBase Global"
 msgstr "Global de base de datos"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Salas de la base de datos"
+msgstr "Base de datos E2E"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -10480,11 +10479,10 @@ msgid "Add reaction"
 msgstr "Añadir reacción"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Acciones de IA"
+msgstr "Más acciones"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11727,7 +11725,7 @@ msgstr "Añadir formato de texto rápido."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Añadida línea de extensión del mensaje."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
