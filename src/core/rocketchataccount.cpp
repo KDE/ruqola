@@ -1822,7 +1822,7 @@ void RocketChatAccount::setSortUnreadOnTop(bool checked)
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
     info.userId = userId();
     info.sidebarShowUnread = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(checked);
-    setUserPreferences(std::move(info));
+    setUserPreferences(info);
 }
 
 bool RocketChatAccount::sortUnreadOnTop() const
