@@ -397,6 +397,8 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d.space() << "accountsDefaultUserPreferencesPushNotifications " << t.accountsDefaultUserPreferencesPushNotifications();
     d.space() << "accountsDefaultUserPreferencesDesktopNotifications " << t.accountsDefaultUserPreferencesDesktopNotifications();
     d.space() << "mPasswordSettings " << t.passwordSettings();
+    d.space() << "mFederationEnabled " << t.federationEnabled();
+    d.space() << "mWebDavEnabled " << t.webDavEnabled();
     return d;
 }
 
@@ -415,6 +417,16 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     value.defaultUrl = o["defaultUrl"_L1].toString();
     value.url = o["url"_L1].toString();
     return value;
+}
+
+bool RuqolaServerConfig::webDavEnabled() const
+{
+    return mWebDavEnabled;
+}
+
+void RuqolaServerConfig::setWebDavEnabled(bool newWebDavEnabled)
+{
+    mWebDavEnabled = newWebDavEnabled;
 }
 
 bool RuqolaServerConfig::accountsManuallyApproveNewUsers() const
@@ -655,6 +667,8 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setFederationEnabled(value.toBool());
     } else if (id == "Accounts_ManuallyApproveNewUsers"_L1) {
         setAccountsManuallyApproveNewUsers(value.toBool());
+    } else if (id == "Webdav_Integration_Enabled"_L1) {
+        setWebDavEnabled(value.toBool());
     } else if (!mPasswordSettings.loadSettings(id, value)) {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
@@ -806,6 +820,8 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(
         createJsonObject(u"Accounts_Password_Policy_ForbidRepeatingCharactersCount"_s, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount));
     array.append(createJsonObject(u"Accounts_ManuallyApproveNewUsers"_s, mAccountsManuallyApproveNewUsers));
+    array.append(createJsonObject(u"FEDERATION_Enabled"_s, federationEnabled()));
+    array.append(createJsonObject(u"Webdav_Integration_Enabled"_s, mWebDavEnabled));
 
     o["result"_L1] = array;
 
@@ -830,7 +846,7 @@ void RuqolaServerConfig::deserialize(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value("result"_L1).toArray();
     mServerConfigFeatureTypes = ServerConfigFeatureType::None;
-    for (QJsonValueRef currentConfig : configs) {
+    for (const QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
         loadSettings(currentConfObject);
     }
@@ -953,7 +969,7 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj, bool update
     if (!update) {
         mServerConfigFeatureTypes = ServerConfigFeatureType::None;
     }
-    for (QJsonValueRef currentConfig : configs) {
+    for (const QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
         loadSettings(currentConfObject);
     }

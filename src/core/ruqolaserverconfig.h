@@ -276,6 +276,9 @@ public:
     [[nodiscard]] bool allowPasswordReset() const;
     [[nodiscard]] bool allowUsernameChange() const;
 
+    [[nodiscard]] bool webDavEnabled() const;
+    void setWebDavEnabled(bool newWebDavEnabled);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
@@ -338,6 +341,7 @@ private:
     bool mAllowEmailVerification = false;
     bool mFederationEnabled = false;
     bool mAccountsManuallyApproveNewUsers = false;
+    bool mWebDavEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);
