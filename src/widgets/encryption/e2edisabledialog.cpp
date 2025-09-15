@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "e2edisablewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 E2eDisableDialog::E2eDisableDialog(QWidget *parent)
@@ -26,6 +27,7 @@ E2eDisableDialog::E2eDisableDialog(QWidget *parent)
     buttonBox->setObjectName(u"button"_s);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &E2eDisableDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &E2eDisableDialog::reject);
+    buttonBox->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Disable Encryption"));
     mainLayout->addWidget(buttonBox);
 }
 
