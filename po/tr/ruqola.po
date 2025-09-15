@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-13 00:49+0000\n"
-"PO-Revision-Date: 2025-09-12 10:13+0300\n"
+"PO-Revision-Date: 2025-09-14 18:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -10408,11 +10408,10 @@ msgid "Add reaction"
 msgstr "Tepki ekle"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Yapay Zekâ Eylemleri"
+msgstr "Daha fazla eylem"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11650,7 +11649,7 @@ msgstr "Tez metin biçimlendirme seçenekleri ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Genişletme ileti satırı düğmesi ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
