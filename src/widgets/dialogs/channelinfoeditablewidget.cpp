@@ -264,6 +264,7 @@ void ChannelInfoEditableWidget::updateEditableChannelInfo()
     mPrivate->setChecked(mRoom->channelType() == Room::RoomType::Private);
     mEncrypted->setVisible(mRoom->encryptedEnabled());
     mEncrypted->setChecked(mRoom->encrypted());
+    mEncrypted->setEnabled(mPrivate->isChecked());
     mEncryptedLabel->setVisible(mRoom->encryptedEnabled());
     mSystemMessageCombox->setMessagesSystem(mRoom->displaySystemMessageTypes());
     joinCodeChanged();
