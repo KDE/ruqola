@@ -187,6 +187,8 @@ target_sources(
         e2e/resetroomkeyjob.h
         e2e/provideuserswithsuggestedgroupkeysjob.cpp
         e2e/provideuserswithsuggestedgroupkeysjob.h
+	e2e/getusersofroomwithoutkey.h
+	e2e/getusersofroomwithoutkey.cpp
         emoji/emojicustomalljob.cpp
         emoji/emojicustomalljob.h
         emoji/emojicustomcreatejob.cpp
