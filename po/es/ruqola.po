@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 02:32+0000\n"
+"POT-Creation-Date: 2025-09-16 02:40+0000\n"
 "PO-Revision-Date: 2025-06-18 01:58+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -7895,13 +7895,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "Borrar sala"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:274
+#: widgets/dialogs/channelinfoeditablewidget.cpp:275
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "Esta sala tiene contraseña"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:275
+#: widgets/dialogs/channelinfoeditablewidget.cpp:276
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -10715,7 +10715,7 @@ msgstr "Conferencia de vídeo"
 #, kde-format
 msgctxt "Percent value; %p is the value, % is the percent sign"
 msgid "%p%"
-msgstr "%p%"
+msgstr "%p %"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:35
 #, kde-format

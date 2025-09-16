@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 02:32+0000\n"
+"POT-Creation-Date: 2025-09-16 02:40+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7930,13 +7930,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "Удаление комнаты"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:274
+#: widgets/dialogs/channelinfoeditablewidget.cpp:275
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "Эта комната защищена паролем"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:275
+#: widgets/dialogs/channelinfoeditablewidget.cpp:276
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"

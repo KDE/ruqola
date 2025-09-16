@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-07 02:32+0000\n"
+"POT-Creation-Date: 2025-09-16 02:40+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -8132,13 +8132,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "Predvolené"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:274
+#: widgets/dialogs/channelinfoeditablewidget.cpp:275
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:275
+#: widgets/dialogs/channelinfoeditablewidget.cpp:276
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgctxt "@info:placeholder"
