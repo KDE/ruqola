@@ -820,7 +820,6 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(
         createJsonObject(u"Accounts_Password_Policy_ForbidRepeatingCharactersCount"_s, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount));
     array.append(createJsonObject(u"Accounts_ManuallyApproveNewUsers"_s, mAccountsManuallyApproveNewUsers));
-    array.append(createJsonObject(u"FEDERATION_Enabled"_s, federationEnabled()));
     array.append(createJsonObject(u"Webdav_Integration_Enabled"_s, mWebDavEnabled));
 
     o["result"_L1] = array;
