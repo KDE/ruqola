@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -8511,14 +8511,14 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "Toa kustutamine"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:276
+#: widgets/dialogs/channelinfoeditablewidget.cpp:277
 #, fuzzy, kde-format
 #| msgid "This Room has a password"
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "See tuba on parooliga"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:277
+#: widgets/dialogs/channelinfoeditablewidget.cpp:278
 #, fuzzy, kde-format
 #| msgid "Add password"
 msgctxt "@info:placeholder"
@@ -9643,10 +9643,17 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Krüptitud:"
 
-#: widgets/encryption/e2edisabledialog.cpp:18
+#: widgets/encryption/e2edisabledialog.cpp:19
 #, fuzzy, kde-format
 #| msgid "Invalid description"
 msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "Vigane kirjeldus"
+
+#: widgets/encryption/e2edisabledialog.cpp:30
+#, fuzzy, kde-format
+#| msgid "Invalid description"
+msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Vigane kirjeldus"
 

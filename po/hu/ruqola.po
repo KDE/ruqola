@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -8172,13 +8172,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "Szoba törlése"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:276
+#: widgets/dialogs/channelinfoeditablewidget.cpp:277
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "A szoba jelszóval van ellátva"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:277
+#: widgets/dialogs/channelinfoeditablewidget.cpp:278
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -9227,11 +9227,19 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Titkosítási kulcs visszafejtése"
 
-#: widgets/encryption/e2edisabledialog.cpp:18
+#: widgets/encryption/e2edisabledialog.cpp:19
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enabled E2E encryption"
 msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "Végpontok közötti titkosítás bekapcsolva"
+
+#: widgets/encryption/e2edisabledialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Végpontok közötti titkosítás bekapcsolva"
 

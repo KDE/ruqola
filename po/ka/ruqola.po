@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
 "PO-Revision-Date: 2025-09-13 05:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -8057,13 +8057,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "ოთახის წაშლა"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:276
+#: widgets/dialogs/channelinfoeditablewidget.cpp:277
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "ამ ოთახზე პაროლი აყენია"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:277
+#: widgets/dialogs/channelinfoeditablewidget.cpp:278
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -9093,9 +9093,17 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "დაშიფვრის გასაღების გაშიფვრა"
 
-#: widgets/encryption/e2edisabledialog.cpp:18
+#: widgets/encryption/e2edisabledialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "დაშიფვრის გამორთვა"
+
+#: widgets/encryption/e2edisabledialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Disable Encryption"
+msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "დაშიფვრის გამორთვა"
 

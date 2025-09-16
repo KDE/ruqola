@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -8108,13 +8108,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "Delete Room"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:276
+#: widgets/dialogs/channelinfoeditablewidget.cpp:277
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "This room has a password"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:277
+#: widgets/dialogs/channelinfoeditablewidget.cpp:278
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -9158,11 +9158,19 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Decode Encryption Key"
 
-#: widgets/encryption/e2edisabledialog.cpp:18
+#: widgets/encryption/e2edisabledialog.cpp:19
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enabled E2E encryption"
 msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "Enabled E2E encryption"
+
+#: widgets/encryption/e2edisabledialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Enabled E2E encryption"
 

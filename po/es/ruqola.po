@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
 "PO-Revision-Date: 2025-09-14 01:55+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -8110,13 +8110,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "Borrar sala"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:276
+#: widgets/dialogs/channelinfoeditablewidget.cpp:277
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "Esta sala tiene contraseña"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:277
+#: widgets/dialogs/channelinfoeditablewidget.cpp:278
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -9149,9 +9149,17 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "Descodificar clave de cifrado"
 
-#: widgets/encryption/e2edisabledialog.cpp:18
+#: widgets/encryption/e2edisabledialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "Desactivar cifrado"
+
+#: widgets/encryption/e2edisabledialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Disable Encryption"
+msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Desactivar cifrado"
 
@@ -10987,7 +10995,7 @@ msgstr "Conferencia de vídeo"
 #, kde-format
 msgctxt "Percent value; %p is the value, % is the percent sign"
 msgid "%p%"
-msgstr "%p%"
+msgstr "%p %"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:36
 #, kde-format

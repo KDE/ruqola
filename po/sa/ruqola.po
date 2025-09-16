@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -8063,13 +8063,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "कक्षं विलोपयन्तु"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:276
+#: widgets/dialogs/channelinfoeditablewidget.cpp:277
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "अस्मिन् कक्षे गुप्तशब्दः अस्ति"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:277
+#: widgets/dialogs/channelinfoeditablewidget.cpp:278
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -9111,11 +9111,19 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "एन्क्रिप्शन कुंजी डिकोड कुर्वन्तु"
 
-#: widgets/encryption/e2edisabledialog.cpp:18
+#: widgets/encryption/e2edisabledialog.cpp:19
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enabled E2E encryption"
 msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "E2E एन्क्रिप्शन सक्षमम्"
+
+#: widgets/encryption/e2edisabledialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enabled E2E encryption"
+msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "E2E एन्क्रिप्शन सक्षमम्"
 

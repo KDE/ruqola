@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
-"PO-Revision-Date: 2025-08-26 22:03+0400\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
+"PO-Revision-Date: 2025-09-15 12:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -7924,10 +7924,9 @@ msgid "DataBase Global"
 msgstr "قاعدة البيانات العالمية"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "غرف قاعدة البيانات"
+msgstr "قاعدة البيانات E2E"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -8080,13 +8079,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "احذف الغرفة"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:276
+#: widgets/dialogs/channelinfoeditablewidget.cpp:277
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "هذه الغرفة لديها كلمة سر"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:277
+#: widgets/dialogs/channelinfoeditablewidget.cpp:278
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -9151,9 +9150,17 @@ msgctxt "@action"
 msgid "Decode Encryption Key"
 msgstr "فك ترميز مفتاح التعمية"
 
-#: widgets/encryption/e2edisabledialog.cpp:18
+#: widgets/encryption/e2edisabledialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
+msgid "Disable Encryption"
+msgstr "عطّل التعمية"
+
+#: widgets/encryption/e2edisabledialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Disable Encryption"
+msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "عطّل التعمية"
 
@@ -10468,11 +10475,10 @@ msgid "Add reaction"
 msgstr "أضف تفاعل"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "إجراءات الذكاء الاصطناعي"
+msgstr "المزيد من الإجراءات"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11713,7 +11719,7 @@ msgstr "إضافة تنسيق سريع للنص"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "أضف زر سطر رسالة التمديد."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
