@@ -5,12 +5,12 @@
 */
 
 #include "getusersofroomwithoutkey.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 GetUsersOfRoomWithoutKey::GetUsersOfRoomWithoutKey(QObject *parent)
     : RestApiAbstractJob(parent)
 {
@@ -37,7 +37,7 @@ void GetUsersOfRoomWithoutKey::onGetRequestResponse(const QString &replyErrorStr
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("GetUsersOfRoomWithoutKey: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT fetchMyKeysDone(replyObject);
+        Q_EMIT getUsersOfRoomWithoutKeyDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("GetUsersOfRoomWithoutKey: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
@@ -56,7 +56,12 @@ void GetUsersOfRoomWithoutKey::setRoomId(const QByteArray &newRoomId)
 
 QNetworkRequest GetUsersOfRoomWithoutKey::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EfetchMyKeys);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EGetUsersOfRoomWithoutKey);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(u"roomId"_s, QLatin1StringView(mRoomId));
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     return request;
