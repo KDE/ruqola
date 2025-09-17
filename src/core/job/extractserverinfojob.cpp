@@ -79,7 +79,7 @@ void ExtractServerInfoJob::start()
             }
             info.authenticationInfos = fillModel;
 
-            Q_EMIT serverInfoFound(std::move(info));
+            Q_EMIT serverInfoFound(info);
             ddpClient->deleteLater();
             deleteLater();
         }
