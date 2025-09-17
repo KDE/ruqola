@@ -315,7 +315,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.threadMessageId = mThreadMessageId;
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
-
+    setThreadMessageId({});
     Q_EMIT createUploadJob(std::move(info));
 }
 
