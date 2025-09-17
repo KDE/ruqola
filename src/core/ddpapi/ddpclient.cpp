@@ -333,7 +333,7 @@ quint64 DDPClient::informTypingStatus(const QByteArray &roomId, bool typing, con
 
 quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, MethodRequestedType methodRequestedType, DDPClient::MessageType messageType)
 {
-    qint64 bytes = mWebSocket->sendTextMessage(result.result);
+    const qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
@@ -371,7 +371,7 @@ QJsonObject DDPClient::generateJsonObject(const QString &method, const QJsonArra
 quint64
 DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult &result, MethodRequestedType methodRequestedType, DDPClient::MessageType messageType)
 {
-    qint64 bytes = mWebSocket->sendTextMessage(result.result);
+    const qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
@@ -414,7 +414,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
     if (!mWebSocket) { // seems to happen when the server is restarted
         return -1;
     }
-    quint64 registerId = mUid;
+    const quint64 registerId = mUid;
     QJsonObject json;
     json["msg"_L1] = u"sub"_s;
     json["id"_L1] = QString::number(mUid);
@@ -430,7 +430,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 
     json["params"_L1] = newParams;
     qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << mUid;
-    qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
+    const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCWarning(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
@@ -471,7 +471,7 @@ void DDPClient::deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpMa
 
 void DDPClient::onTextMessageReceived(const QString &message)
 {
-    QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
+    const QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
     if (!response.isNull() && response.isObject()) {
         QJsonObject root = response.object();
 
