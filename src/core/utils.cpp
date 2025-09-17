@@ -27,7 +27,7 @@ QUrl Utils::generateServerUrl(const QString &url)
     if (url.isEmpty()) {
         return {};
     }
-    QString serverUrl = url;
+    QString serverUrl = url.trimmed();
     if (serverUrl.startsWith("https://"_L1)) {
         serverUrl.replace("https://"_L1, "wss://"_L1);
     } else if (serverUrl.startsWith("http://"_L1)) {

@@ -27,6 +27,7 @@ void UtilsTest::shouldGenerateServerUrl_data()
     QTest::newRow("http2") << u"http://foo.kde.org"_s << QUrl(u"ws://foo.kde.org/websocket"_s);
     QTest::newRow("https") << u"https://foo.kde.org"_s << QUrl(u"wss://foo.kde.org/websocket"_s);
     QTest::newRow("withoutscheme") << u"foo.kde.org"_s << QUrl(u"wss://foo.kde.org/websocket"_s);
+    QTest::newRow("http with space") << u" https://foo.kde.org"_s << QUrl(u"wss://foo.kde.org/websocket"_s);
 }
 
 void UtilsTest::shouldGenerateServerUrl()
