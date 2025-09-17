@@ -11,31 +11,56 @@
 // https://docs.rocket.chat/customer-center/security-center/end-to-end-encryption-specifications
 
 #include <QDebug>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QRandomGenerator>
 
 using namespace Qt::Literals::StringLiterals;
-QByteArray EncryptionUtils::exportJWKKey(RSA *rsaKey)
+
+/**
+ * @brief Exports an RSA public key in JWK (JSON Web Key) format.
+ *
+ * This function extracts the modulus and public exponent from the given OpenSSL RSA key,
+ * encodes them using base64url (without padding), and constructs a JWK-compliant JSON object.
+ * The resulting JSON contains all fields required for interoperability with the Web Crypto API,
+ * and is returned as a compact UTF-8 encoded QByteArray.
+ *
+ * @param rsaKey Pointer to the OpenSSL RSA key.
+ * @return A QByteArray containing the JWK JSON representation of the public key,
+ *         or an empty QByteArray on error.
+ *
+ * Example output:
+ *
+ * {
+ *   "kty": "RSA",
+ *
+ *   "n": "<base64url modulus>",
+ *
+ *   "e": "<base64url exponent>",
+ *
+ *   "alg": "RSA-OAEP-256",
+ *
+ *   "key_ops": ["encrypt"],
+ *
+ *   "ext": true
+ * }
+ *
+ * General steps of encoding/decoding for E2EE of the RSA public key part:
+ *
+ * use generateRsaKey() => QByteArray(PEM)
+ *
+ * use publicKeyFromPEM() => RSA(QByteArray(PEM))
+ *
+ * use exportJWKPublicKey() => JWK(RSA)
+ */
+QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
 {
-#if 0
-    code javascript
-    const key = await crypto.subtle.generateKey(
-      { name: 'AES-CBC', length: 256 },
-      true,
-      ['encrypt', 'decrypt']
-    );
-
-    const jwkKey = await exportJWKKey(key);
-    console.log(jwkKey);
-
-#endif
-
     const BIGNUM *n, *e, *d;
     RSA_get0_key(rsaKey, &n, &e, &d);
 
     if (!n || !e) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << " Impossible to get RSA";
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Impossible to get RSA";
         return {};
     }
 
@@ -49,9 +74,12 @@ QByteArray EncryptionUtils::exportJWKKey(RSA *rsaKey)
     const QString eBase64Url = QString::fromLatin1(eBytes.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
 
     QJsonObject jwkObj;
-    jwkObj["kty"_L1] = "RSA"_L1;
-    jwkObj["n"_L1] = nBase64Url;
-    jwkObj["e"_L1] = eBase64Url;
+    jwkObj[QStringLiteral("kty")] = QStringLiteral("RSA");
+    jwkObj[QStringLiteral("n")] = nBase64Url;
+    jwkObj[QStringLiteral("e")] = eBase64Url;
+    jwkObj[QStringLiteral("alg")] = QStringLiteral("RSA-OAEP-256");
+    jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("encrypt");
+    jwkObj[QStringLiteral("ext")] = true;
 
     QJsonDocument doc(jwkObj);
     return doc.toJson(QJsonDocument::Compact);
@@ -192,7 +220,7 @@ QByteArray EncryptionUtils::decryptPrivateKey(const QByteArray &encryptedPrivate
  * The master key is used to encrypt and decrypt the user's private RSA key.
  *
  * @param password The user's E2EE password.
- * @param salt user's unique identifier (used as salt).
+ * @param salt user's unique identifier, sometimes called pepper if its constant.
  * @return A 32-byte (256-bit) master key as a QByteArray, or an empty QByteArray on failure.
  */
 QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString &salt)
@@ -203,7 +231,7 @@ QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString 
     }
 
     if (salt.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Salt(username) can't be null. It's a bug";
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Salt(userId) can't be null. It's a bug";
         return {};
     }
 
@@ -598,15 +626,27 @@ QString EncryptionUtils::generateRandomText(int length)
     return randomText;
 }
 
-QByteArray EncryptionUtils::deriveKey(const QByteArray &salt, const QByteArray &baseKey, int iterations, int keyLength)
+/**
+ * @brief Derives a cryptographic key using PBKDF2 (Password-Based Key Derivation Function 2).
+ *
+ * This function uses OpenSSL's PKCS5_PBKDF2_HMAC to generate a key from a password and a salt.
+ * It is typically used to derive an AES key from a user's password and unique identifier (salt).
+ *
+ * @param pepper The constant salt value (user's id).
+ * @param baseKey The base key ( user's password).
+ * @param iterations Number of PBKDF2 iterations (higher is more secure but slower).
+ * @param keyLength Desired length of the derived key in bytes (e.g., 32 for AES-256).
+ * @return The derived key as a QByteArray, or an empty QByteArray on failure.
+ */
+QByteArray EncryptionUtils::deriveKey(const QByteArray &pepper, const QByteArray &baseKey, int iterations, int keyLength)
 {
     QByteArray derivedKey(keyLength, 0); // Allocate memory for the derived key
 
     // Use OpenSSL's PKCS5_PBKDF2_HMAC for PBKDF2 key derivation
     const int result = PKCS5_PBKDF2_HMAC(baseKey.data(),
                                          baseKey.size(), // Input key (password)
-                                         reinterpret_cast<const unsigned char *>(salt.data()),
-                                         salt.size(), // Salt
+                                         reinterpret_cast<const unsigned char *>(pepper.data()),
+                                         pepper.size(), // Salt
                                          iterations, // Number of iterations
                                          EVP_sha256(), // Hash function (SHA-256)
                                          keyLength, // Output key length (in bytes)
@@ -620,6 +660,45 @@ QByteArray EncryptionUtils::deriveKey(const QByteArray &salt, const QByteArray &
 
     return derivedKey;
 }
+
+/* QJsonObject EncryptionUtils::exportPublicKeyJWK(const RSA *rsaKey)
+{
+    const BIGNUM *n, *e;
+    RSA_get0_key(rsaKey, &n, &e, nullptr);
+
+    auto b64url = [](const BIGNUM *bn) {
+        QByteArray bytes(BN_num_bytes(bn), 0);
+        BN_bn2bin(bn, reinterpret_cast<unsigned char *>(bytes.data()));
+        return QString::fromLatin1(bytes.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
+    };
+
+    QJsonObject jwk;
+    jwk["kty"] = "RSA";
+    jwk["n"] = b64url(n);
+    jwk["e"] = b64url(e);
+    jwk["alg"] = "RSA-OAEP-256";
+    jwk["key_ops"] = QJsonArray{"encrypt"};
+    jwk["ext"] = true;
+    return jwk;
+} */
+
+/* QJsonObject EncryptionUtils::exportEncryptedPrivateKeyJWK(const QByteArray &encryptedPrivateKey)
+{
+    QJsonObject jwk;
+    jwk["kty"] = "oct"; // "oct" for a symmetric (opaque) blob
+    jwk["alg"] = "A256CBC"; // or whatever encryption you used
+    jwk["ciphertext"] = QString::fromLatin1(encryptedPrivateKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
+    jwk["ext"] = true;
+    return jwk;
+}
+
+QJsonObject EncryptionUtils::exportKeyPairJWK(RSA *rsaKey, const QByteArray &encryptedPrivateKey)
+{
+    QJsonObject bundle;
+    bundle["public_key"] = exportPublicKeyJWK(rsaKey);
+    bundle["encrypted_private_key"] = exportEncryptedPrivateKeyJWK(encryptedPrivateKey);
+    return bundle;
+} */
 
 #if 0
 QByteArray aesEncrypt(const QByteArray& plaintext, const QByteArray& key, const QByteArray& iv) {

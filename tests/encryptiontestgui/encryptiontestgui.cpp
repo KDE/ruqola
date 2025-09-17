@@ -104,6 +104,14 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
         }
     });
 
+    auto pushButtonExportPublicKey = new QPushButton(u"Export Public Key"_s, this);
+    mainLayout->addWidget(pushButtonExportPublicKey);
+    connect(pushButtonExportPublicKey, &QPushButton::clicked, this, [this]() {
+        const auto expPublicKey = EncryptionUtils::exportJWKPublicKey(EncryptionUtils::publicKeyFromPEM(mRsaKeyPair.publicKey));
+        qDebug() << "Public Key:\n " << mRsaKeyPair.publicKey << "Exported Public Key:\n " << expPublicKey;
+        mTextEditResult->setPlainText(QStringLiteral("Public key export succeeded!\n") + QString::fromUtf8(expPublicKey));
+    });
+
     auto pushButtonGenerateSessionKey = new QPushButton(u"Generate Session Key"_s, this);
     mainLayout->addWidget(pushButtonGenerateSessionKey);
     connect(pushButtonGenerateSessionKey, &QPushButton::clicked, this, [this]() {

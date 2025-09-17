@@ -27,7 +27,7 @@ struct RSAKeyPair {
     QByteArray privateKey;
 };
 
-[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray exportJWKKey(RSA *rsaKey);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray exportJWKPublicKey(RSA *rsaKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT RSAKeyPair generateRSAKey();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptPrivateKey(const QByteArray &privateKey, const QByteArray &masterKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptPrivateKey(const QByteArray &encryptedPrivateKey, const QByteArray &masterKey);
