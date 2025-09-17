@@ -10,16 +10,19 @@
 #include <QString>
 #include <functional>
 
+namespace UploadDownloadRsaKeyPair
+{
 void uploadKeys(const QString &authToken,
                 const QString &url,
                 const QString &userId,
                 const QString &password,
                 QNetworkAccessManager *networkManager,
-                std::function<void(QString, EncryptionUtils::RSAKeyPair)> onSuccess);
+                const std::function<void(QString, EncryptionUtils::RSAKeyPair)> &onSuccess);
 
 void downloadKeys(const QString &authToken,
                   const QString &url,
                   const QString &userId,
                   const QString &password,
                   QNetworkAccessManager *networkManager,
-                  std::function<void(QString, QString)> onSuccess);
+                  const std::function<void(QString, QString)> &onSuccess);
+}

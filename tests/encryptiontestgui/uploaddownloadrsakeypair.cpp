@@ -13,13 +13,12 @@
 
 using namespace EncryptionUtils;
 using namespace RocketChatRestApi;
-
-void uploadKeys(const QString &authToken,
-                const QString &url,
-                const QString &userId,
-                const QString &password,
-                QNetworkAccessManager *networkManager,
-                std::function<void(QString, RSAKeyPair)> onSuccess)
+void UploadDownloadRsaKeyPair::uploadKeys(const QString &authToken,
+                                          const QString &url,
+                                          const QString &userId,
+                                          const QString &password,
+                                          QNetworkAccessManager *networkManager,
+                                          const std::function<void(QString, RSAKeyPair)> &onSuccess)
 {
     const auto keyPair = generateRSAKey();
     const auto masterKey = getMasterKey(password, u"salt"_s);
@@ -59,12 +58,12 @@ void uploadKeys(const QString &authToken,
     }
 }
 
-void downloadKeys(const QString &authToken,
-                  const QString &url,
-                  const QString &userId,
-                  const QString &password,
-                  QNetworkAccessManager *networkManager,
-                  std::function<void(QString, QString)> onSuccess)
+void UploadDownloadRsaKeyPair::downloadKeys(const QString &authToken,
+                                            const QString &url,
+                                            const QString &userId,
+                                            const QString &password,
+                                            QNetworkAccessManager *networkManager,
+                                            const std::function<void(QString, QString)> &onSuccess)
 {
     const auto fetchJob = new FetchMyKeysJob();
     const auto restApiMethod = new RestApiMethod();
