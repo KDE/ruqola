@@ -48,7 +48,7 @@ void ExtractServerInfoJob::start()
             // qDebug() << " obj " << obj;
 
             ServerInfo info;
-            info.url = mServerUrl.trimmed();
+            info.url = mServerUrl;
             info.canRegisterAccount = config.serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::RegistrationFormEnabled;
             info.passwordSettings = config.passwordSettings();
             info.accountsManuallyApproveNewUsers = config.accountsManuallyApproveNewUsers();
