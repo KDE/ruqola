@@ -638,15 +638,15 @@ QString EncryptionUtils::generateRandomText(int length)
  * @param keyLength Desired length of the derived key in bytes (e.g., 32 for AES-256).
  * @return The derived key as a QByteArray, or an empty QByteArray on failure.
  */
-QByteArray EncryptionUtils::deriveKey(const QByteArray &pepper, const QByteArray &baseKey, int iterations, int keyLength)
+QByteArray EncryptionUtils::deriveKey(const QByteArray &salt, const QByteArray &baseKey, int iterations, int keyLength)
 {
     QByteArray derivedKey(keyLength, 0); // Allocate memory for the derived key
 
     // Use OpenSSL's PKCS5_PBKDF2_HMAC for PBKDF2 key derivation
     const int result = PKCS5_PBKDF2_HMAC(baseKey.data(),
                                          baseKey.size(), // Input key (password)
-                                         reinterpret_cast<const unsigned char *>(pepper.data()),
-                                         pepper.size(), // Salt
+                                         reinterpret_cast<const unsigned char *>(salt.data()),
+                                         salt.size(), // Salt
                                          iterations, // Number of iterations
                                          EVP_sha256(), // Hash function (SHA-256)
                                          keyLength, // Output key length (in bytes)
