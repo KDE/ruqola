@@ -5,7 +5,6 @@
 */
 
 #include "checknewserverurlwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QPushButton>
 
+using namespace Qt::Literals::StringLiterals;
 CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     : QWidget{parent}
     , mServerUrl(new QLineEdit(this))
