@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-16 00:41+0000\n"
-"PO-Revision-Date: 2025-09-13 18:09+0200\n"
+"PO-Revision-Date: 2025-09-16 15:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -9151,9 +9151,7 @@ msgid "Disable Encryption"
 msgstr "Versleuteling uitschakelen"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Disable Encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Versleuteling uitschakelen"
