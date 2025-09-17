@@ -92,8 +92,8 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
     int ret = 0;
     RSA *rsa = nullptr;
     BIGNUM *bne = nullptr;
-    BIO *bp_public = nullptr;
-    BIO *bp_private = nullptr;
+    // BIO *bp_public = nullptr;
+    // BIO *bp_private = nullptr;
 
     BIO *pubBio = BIO_new(BIO_s_mem());
     BIO *privBio = BIO_new(BIO_s_mem());
@@ -377,8 +377,8 @@ QByteArray EncryptionUtils::encryptMessage(const QByteArray &plainText, const QB
         return {};
     }
 
-    QByteArray iv = generateRandomIV(16);
-    QByteArray cipherText = encryptAES_CBC_128(plainText, sessionKey, iv);
+    const QByteArray iv = generateRandomIV(16);
+    const QByteArray cipherText = encryptAES_CBC_128(plainText, sessionKey, iv);
 
     if (cipherText.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, message encryption failed, cipher text is empty!";
@@ -434,8 +434,9 @@ QByteArray EncryptionUtils::decryptAES_CBC_256(const QByteArray &data, const QBy
     QByteArray plaintext(data.size(), 0);
 
     ctx = EVP_CIPHER_CTX_new();
-    if (!ctx)
+    if (!ctx) {
         return {};
+    }
 
     if (1
         != EVP_DecryptInit_ex(ctx,
@@ -475,11 +476,12 @@ QByteArray EncryptionUtils::encryptAES_CBC_256(const QByteArray &data, const QBy
     int len;
     int ciphertext_len;
 
-    int max_out_len = data.size() + EVP_CIPHER_block_size(EVP_aes_256_cbc());
+    const int max_out_len = data.size() + EVP_CIPHER_block_size(EVP_aes_256_cbc());
     QByteArray cipherText(max_out_len, 0);
 
-    if (!(ctx = EVP_CIPHER_CTX_new()))
+    if (!(ctx = EVP_CIPHER_CTX_new())) {
         return {};
+    }
 
     if (1
         != EVP_EncryptInit_ex(ctx,
@@ -519,11 +521,12 @@ QByteArray EncryptionUtils::encryptAES_CBC_128(const QByteArray &data, const QBy
     int len;
     int ciphertext_len;
 
-    int max_out_len = data.size() + EVP_CIPHER_block_size(EVP_aes_128_cbc());
+    const int max_out_len = data.size() + EVP_CIPHER_block_size(EVP_aes_128_cbc());
     QByteArray cipherText(max_out_len, 0);
 
-    if (!(ctx = EVP_CIPHER_CTX_new()))
+    if (!(ctx = EVP_CIPHER_CTX_new())) {
         return {};
+    }
 
     if (1
         != EVP_EncryptInit_ex(ctx,
@@ -565,8 +568,9 @@ QByteArray EncryptionUtils::decryptAES_CBC_128(const QByteArray &cipherText, con
 
     QByteArray plainText(cipherText.size(), 0);
 
-    if (!(ctx = EVP_CIPHER_CTX_new()))
+    if (!(ctx = EVP_CIPHER_CTX_new())) {
         return {};
+    }
 
     if (1
         != EVP_DecryptInit_ex(ctx,

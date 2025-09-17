@@ -56,9 +56,9 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
             mPassword = passwordEdit->text();
             mMasterKey = EncryptionUtils::getMasterKey(mPassword, mSalt);
 
-            if (mMasterKey.isEmpty())
+            if (mMasterKey.isEmpty()) {
                 mTextEditResult->setPlainText(u"Master key is empty, generation failed!"_s);
-            else {
+            } else {
                 qDebug() << "Derived Master Key:" << mMasterKey.toBase64();
                 mTextEditResult->setPlainText(u"Master Key derivation succeeded!\n"_s + QString::fromUtf8(mMasterKey.toBase64()));
             }
@@ -78,11 +78,11 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
     auto pushButtonEncryptPrivateKey = new QPushButton(u"Encrypt Private Key"_s, this);
     mainLayout->addWidget(pushButtonEncryptPrivateKey);
     connect(pushButtonEncryptPrivateKey, &QPushButton::clicked, this, [this]() {
-        if (mMasterKey.isEmpty())
+        if (mMasterKey.isEmpty()) {
             mTextEditResult->setPlainText(u"Master key is empty, encryption of the private key failed!"_s);
-        else if (mRsaKeyPair.privateKey.isEmpty())
+        } else if (mRsaKeyPair.privateKey.isEmpty()) {
             mTextEditResult->setPlainText(u"Private key is empty, encryption of the private key failed!"_s);
-        else {
+        } else {
             mEncryptedPrivateKey = EncryptionUtils::encryptPrivateKey(mRsaKeyPair.privateKey, mMasterKey);
             qDebug() << mEncryptedPrivateKey.toBase64() << "encrypted and encoded to 'base64()' private key ";
             mTextEditResult->setPlainText(u"Private key encryption succeeded!\n"_s + QString::fromUtf8(mEncryptedPrivateKey.toBase64()));
@@ -92,11 +92,11 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
     auto pushButtonDecryptPrivateKey = new QPushButton(u"Decrypt Private Key"_s, this);
     mainLayout->addWidget(pushButtonDecryptPrivateKey);
     connect(pushButtonDecryptPrivateKey, &QPushButton::clicked, this, [this]() {
-        if (mMasterKey.isEmpty())
+        if (mMasterKey.isEmpty()) {
             mTextEditResult->setPlainText(u"Master key is empty, encryption of the private key failed!"_s);
-        else if (mEncryptedPrivateKey.isEmpty())
+        } else if (mEncryptedPrivateKey.isEmpty()) {
             mTextEditResult->setPlainText(u"Encrypted private key is empty, decryption of the private key failed!"_s);
-        else {
+        } else {
             mDecryptedPrivateKey = EncryptionUtils::decryptPrivateKey(mEncryptedPrivateKey, mMasterKey);
             mTextEditResult->setPlainText(u"Private key decryption succeeded!\n"_s + QString::fromUtf8(mDecryptedPrivateKey));
             qDebug() << mDecryptedPrivateKey << "decrypted private key '\n' ";

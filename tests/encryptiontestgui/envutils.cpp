@@ -17,11 +17,13 @@ QHash<QString, QString> loadEnvFile(const QString &filePath)
     }
     while (!file.atEnd()) {
         const QString line = QString::fromUtf8(file.readLine()).trimmed();
-        if (line.startsWith(u'#') || line.isEmpty())
+        if (line.startsWith(u'#') || line.isEmpty()) {
             continue;
+        }
         const int equalSignIndex = line.indexOf(u'=');
-        if (equalSignIndex == -1)
+        if (equalSignIndex == -1) {
             continue;
+        }
         const QString key = line.left(equalSignIndex).trimmed();
         const QString value = line.mid(equalSignIndex + 1).trimmed();
         env[key] = value;
