@@ -93,7 +93,7 @@ void CheckNewServerUrlWidget::slotTestConnection()
         mFailedError->hide();
         mBusyIndicatorWidget->show();
         auto job = new ExtractServerInfoJob(this);
-        job->setServerUrl(mServerUrl->text());
+        job->setServerUrl(serverUrl);
         connect(job, &ExtractServerInfoJob::errorConnection, this, [this](const QString &errorStr) {
             mConnectionPushButton->setEnabled(true);
             mBusyIndicatorWidget->hide();
