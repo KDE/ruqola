@@ -60,8 +60,8 @@ void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
 void MessageLineExtraToolButton::updateWebDavSupport()
 {
     if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
-        // TODO implement it
-        QAction *webdavAddServerAction = mMenu->addAction(i18n("Add WebDav Server"));
+        // TODO verify if it leaks or not
+        auto *webdavAddServerAction = mMenu->addAction(i18n("Add WebDav Server"));
         connect(webdavAddServerAction, &QAction::triggered, this, &MessageLineExtraToolButton::addWebDavServer);
     }
 }
@@ -71,6 +71,9 @@ void MessageLineExtraToolButton::slotActionButtonChanged()
     if (mCurrentRocketChatAccount) {
         const ActionButton::FilterActionInfo filterInfo{.buttonContext = ActionButton::ButtonContext::MessageBoxAction, .roles = {}};
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
+        if (!actionButtons.isEmpty()) {
+            mMenu->addSeparator();
+        }
         // qDebug() << "*************** actionButtons " << actionButtons << "mRoomId  " << mRoomId;
         mActionButtonsGenerator->generateMessageBoxActionButtons(actionButtons, menu(), mRoomId);
         setVisible(!menu()->isEmpty());
