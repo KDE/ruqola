@@ -61,7 +61,8 @@ void MessageLineExtraToolButton::updateWebDavSupport()
 {
     if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
         // TODO implement it
-        mMenu->addAction(i18n("Add WebDav Server"));
+        QAction *webdavAddServerAction = mMenu->addAction(i18n("Add WebDav Server"));
+        connect(webdavAddServerAction, &QAction::triggered, this, &MessageLineExtraToolButton::addWebDavServer);
     }
 }
 

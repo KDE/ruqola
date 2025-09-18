@@ -22,6 +22,7 @@ public:
     void setRoomId(const QByteArray &roomId);
 Q_SIGNALS:
     void uiInteractionRequested(const QJsonObject &obj);
+    void addWebDavServer();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
