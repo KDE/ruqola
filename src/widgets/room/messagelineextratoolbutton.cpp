@@ -46,6 +46,7 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
                 &MessageLineExtraToolButton::slotActionButtonChanged);
     }
     mCurrentRocketChatAccount = account;
+    updateWebDavSupport();
 }
 
 void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
@@ -53,6 +54,14 @@ void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
     if (mRoomId != roomId) {
         mRoomId = roomId;
         slotActionButtonChanged();
+    }
+}
+
+void MessageLineExtraToolButton::updateWebDavSupport()
+{
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
+        // TODO implement it
+        mMenu->addAction(i18n("Add WebDav Server"));
     }
 }
 

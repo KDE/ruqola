@@ -25,6 +25,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateWebDavSupport();
     QByteArray mRoomId;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     ActionButtonsGenerator *const mActionButtonsGenerator;
