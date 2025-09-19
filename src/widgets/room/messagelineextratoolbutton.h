@@ -31,4 +31,5 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     ActionButtonsGenerator *const mActionButtonsGenerator;
     QMenu *const mMenu;
+    QAction *const mWebdavAddServerAction;
 };

@@ -14,6 +14,7 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     : QToolButton(parent)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
     , mMenu(new QMenu)
+    , mWebdavAddServerAction(new QAction(i18nc("@action", "Add WebDav Server"), this))
 {
     setIcon(QIcon::fromTheme(u"list-add"_s));
     setToolTip(i18nc("@info:tooltip", "More Actions"));
@@ -22,6 +23,7 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     setPopupMode(QToolButton::InstantPopup);
     setMenu(mMenu);
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &MessageLineExtraToolButton::uiInteractionRequested);
+    connect(mWebdavAddServerAction, &QAction::triggered, this, &MessageLineExtraToolButton::addWebDavServer);
     // TODO use apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/hooks/useShareLocationAction.tsx
     // TODO ./apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/hooks/useWebdavActions.tsx
     // TODO see apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/MessageBoxActionsToolbar.tsx
@@ -60,9 +62,9 @@ void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
 void MessageLineExtraToolButton::updateWebDavSupport()
 {
     if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
-        // TODO verify if it leaks or not
-        auto *webdavAddServerAction = mMenu->addAction(i18n("Add WebDav Server"));
-        connect(webdavAddServerAction, &QAction::triggered, this, &MessageLineExtraToolButton::addWebDavServer);
+        mMenu->addAction(mWebdavAddServerAction);
+    } else {
+        mMenu->removeAction(mWebdavAddServerAction);
     }
 }
 
