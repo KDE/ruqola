@@ -5,14 +5,16 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "webdavaddserverwidget.h"
 #include <QDialog>
-class WebDavAddServerWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WebDavAddServerDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit WebDavAddServerDialog(QWidget *parent = nullptr);
     ~WebDavAddServerDialog() override;
+
+    [[nodiscard]] WebDavAddServerWidget::WebDavAddServerInfo addServerInfo() const;
 
 private:
     WebDavAddServerWidget *const mWebDavAddServerWidget;

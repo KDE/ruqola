@@ -6,16 +6,30 @@
 
 #include "webdavaddserverwidget.h"
 #include <KLocalizedString>
-#include <QVBoxLayout>
+#include <QFormLayout>
+#include <QLineEdit>
+
 using namespace Qt::Literals::StringLiterals;
 WebDavAddServerWidget::WebDavAddServerWidget(QWidget *parent)
     : QWidget{parent}
+    , mName(new QLineEdit(this))
+    , mUrl(new QLineEdit(this))
+    , mUserName(new QLineEdit(this))
 {
-    auto mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+
+    mName->setObjectName(u"mName"_s);
+    mUrl->setObjectName(u"mUrl"_s);
+    mUserName->setObjectName(u"mUserName"_s);
 }
 
 WebDavAddServerWidget::~WebDavAddServerWidget() = default;
+
+WebDavAddServerWidget::WebDavAddServerInfo WebDavAddServerWidget::addServerInfo() const
+{
+    return {};
+}
 
 #include "moc_webdavaddserverwidget.cpp"

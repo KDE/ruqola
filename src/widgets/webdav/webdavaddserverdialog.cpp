@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "webdavaddserverdialog.h"
-#include "webdavaddserverwidget.h"
+
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -31,5 +31,10 @@ WebDavAddServerDialog::WebDavAddServerDialog(QWidget *parent)
 }
 
 WebDavAddServerDialog::~WebDavAddServerDialog() = default;
+
+WebDavAddServerWidget::WebDavAddServerInfo WebDavAddServerDialog::addServerInfo() const
+{
+    return mWebDavAddServerWidget->addServerInfo();
+}
 
 #include "moc_webdavaddserverdialog.cpp"
