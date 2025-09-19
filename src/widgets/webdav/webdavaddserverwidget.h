@@ -4,9 +4,10 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLineEdit;
-class WebDavAddServerWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT WebDavAddServerWidget : public QWidget
 {
     Q_OBJECT
 public:

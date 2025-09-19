@@ -12,4 +12,7 @@ class WebDavAddServerWidgetTest : public QObject
 public:
     explicit WebDavAddServerWidgetTest(QObject *parent = nullptr);
     ~WebDavAddServerWidgetTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
