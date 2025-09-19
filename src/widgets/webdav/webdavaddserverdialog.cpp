@@ -7,6 +7,7 @@
 #include "webdavaddserverwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 WebDavAddServerDialog::WebDavAddServerDialog(QWidget *parent)
@@ -24,12 +25,11 @@ WebDavAddServerDialog::WebDavAddServerDialog(QWidget *parent)
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(u"buttonBox"_s);
     mainLayout->addWidget(buttonBox);
+    buttonBox->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Add WebDAV Server"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &WebDavAddServerDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &WebDavAddServerDialog::accept);
 }
 
-WebDavAddServerDialog::~WebDavAddServerDialog()
-{
-}
+WebDavAddServerDialog::~WebDavAddServerDialog() = default;
 
 #include "moc_webdavaddserverdialog.cpp"
