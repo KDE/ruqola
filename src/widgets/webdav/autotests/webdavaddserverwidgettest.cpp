@@ -22,3 +22,5 @@ void WebDavAddServerWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins());
 }
+
+#include "moc_webdavaddserverwidgettest.cpp"
