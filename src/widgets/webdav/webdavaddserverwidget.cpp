@@ -5,6 +5,7 @@
 */
 
 #include "webdavaddserverwidget.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -23,6 +24,13 @@ WebDavAddServerWidget::WebDavAddServerWidget(QWidget *parent)
     mName->setObjectName(u"mName"_s);
     mUrl->setObjectName(u"mUrl"_s);
     mUserName->setObjectName(u"mUserName"_s);
+    KLineEditEventHandler::catchReturnKey(mName);
+    KLineEditEventHandler::catchReturnKey(mUrl);
+    KLineEditEventHandler::catchReturnKey(mUserName);
+    mainLayout->addRow(i18n("Name:"), mName);
+    mainLayout->addRow(i18n("Url:"), mUrl);
+    mainLayout->addRow(i18n("UserName:"), mUserName);
+    // TODO add password
 }
 
 WebDavAddServerWidget::~WebDavAddServerWidget() = default;
