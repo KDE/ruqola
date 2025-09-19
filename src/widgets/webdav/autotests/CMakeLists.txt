@@ -11,3 +11,4 @@ macro(add_ruqolawidget_webdav_test _source)
 endmacro()
 
 add_ruqolawidget_webdav_test(webdavaddserverwidgettest.cpp)
+add_ruqolawidget_webdav_test(webdavaddserverdialogtest.cpp)
