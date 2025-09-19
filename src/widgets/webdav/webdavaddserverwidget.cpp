@@ -7,10 +7,13 @@
 #include "webdavaddserverwidget.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
-
+using namespace Qt::Literals::StringLiterals;
 WebDavAddServerWidget::WebDavAddServerWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(u"mainLayout"_s);
+    mainLayout->setContentsMargins({});
 }
 
 WebDavAddServerWidget::~WebDavAddServerWidget() = default;
