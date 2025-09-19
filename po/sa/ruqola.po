@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-16 00:41+0000\n"
+"POT-Creation-Date: 2025-09-19 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -10435,6 +10435,13 @@ msgstr "प्रतिक्रियां योजयन्तु"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "आवेदनम् पृच्छतु"
+
+#: widgets/room/messagelineextratoolbutton.cpp:64
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgid "Add WebDav Server"
+msgstr "Server योजयतु"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format

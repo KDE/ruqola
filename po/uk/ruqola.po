@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-16 00:41+0000\n"
+"POT-Creation-Date: 2025-09-19 00:42+0000\n"
 "PO-Revision-Date: 2025-09-16 10:27+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -10545,6 +10545,13 @@ msgstr "Додати реакцію"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Додаткові дії"
+
+#: widgets/room/messagelineextratoolbutton.cpp:64
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgid "Add WebDav Server"
+msgstr "Додати сервер"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format

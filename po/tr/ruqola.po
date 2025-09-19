@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-16 00:41+0000\n"
+"POT-Creation-Date: 2025-09-19 00:42+0000\n"
 "PO-Revision-Date: 2025-09-16 17:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -10418,6 +10418,13 @@ msgstr "Tepki ekle"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Daha fazla eylem"
+
+#: widgets/room/messagelineextratoolbutton.cpp:64
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgid "Add WebDav Server"
+msgstr "Sunucu Ekle"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format

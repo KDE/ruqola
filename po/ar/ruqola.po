@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-16 00:41+0000\n"
+"POT-Creation-Date: 2025-09-19 00:42+0000\n"
 "PO-Revision-Date: 2025-09-16 19:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -10477,6 +10477,13 @@ msgstr "أضف تفاعل"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "المزيد من الإجراءات"
+
+#: widgets/room/messagelineextratoolbutton.cpp:64
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgid "Add WebDav Server"
+msgstr "أضف خادمًا"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-16 00:41+0000\n"
+"POT-Creation-Date: 2025-09-19 00:42+0000\n"
 "PO-Revision-Date: 2025-07-17 18:12+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -10390,6 +10390,13 @@ msgstr "Lisää reaktio"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Tekoälytoiminnot"
+
+#: widgets/room/messagelineextratoolbutton.cpp:64
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgid "Add WebDav Server"
+msgstr "Lisää palvelin"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
