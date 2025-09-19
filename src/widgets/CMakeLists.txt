@@ -1012,6 +1012,11 @@ target_sources(
         exploreappstranlationdialog/exploreappstranslationwidget.cpp
         exploreappstranlationdialog/exploreappstranslationdialog.h
         exploreappstranlationdialog/exploreappstranslationdialog.cpp
+
+        webdav/webdavaddserverdialog.h
+        webdav/webdavaddserverdialog.cpp
+        webdav/webdavaddserverwidget.h
+        webdav/webdavaddserverwidget.cpp
 )
 
 if(NOT HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT)
@@ -1219,6 +1224,7 @@ if(BUILD_TESTING)
     add_subdirectory(autogenerateui/autotests)
     add_subdirectory(exploreappstranlationdialog/autotests)
     add_subdirectory(verifynewversionwidget/autotests)
+    add_subdirectory(webdav/autotests)
 endif()
 
 install(
