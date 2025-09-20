@@ -6,7 +6,6 @@
 
 #include "usersinroomtreeviewtest.h"
 #include "room/usersinroomtreeview.h"
-#include <QHeaderView>
 #include <QTest>
 QTEST_MAIN(UsersInRoomTreeViewTest)
 

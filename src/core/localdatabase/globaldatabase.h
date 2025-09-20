@@ -7,7 +7,6 @@
 
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
-#include <QObject>
 
 class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT GlobalDatabase : public LocalDatabaseBase

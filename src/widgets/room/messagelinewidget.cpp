@@ -35,7 +35,6 @@
 #include <QImageWriter>
 #include <QMenu>
 #include <QMimeData>
-#include <QScreen>
 #include <QTemporaryFile>
 #include <QToolButton>
 #include <QWidgetAction>

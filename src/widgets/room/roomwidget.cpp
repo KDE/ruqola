@@ -64,7 +64,6 @@
 #include <KNotification>
 
 #include "ruqolautils.h"
-#include <QDialog>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QMimeData>

@@ -17,7 +17,6 @@
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
 
-#include <QCborValue>
 #include <QJsonArray>
 #include <QPair>
 

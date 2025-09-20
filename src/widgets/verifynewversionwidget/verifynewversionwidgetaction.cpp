@@ -9,8 +9,6 @@
 #include "verifynewversionwidget/verifynewversiondialog.h"
 #include <KLocalizedString>
 #include <QAction>
-#include <QDesktopServices>
-#include <QUrl>
 using namespace Qt::Literals::StringLiterals;
 VerifyNewVersionWidgetAction::VerifyNewVersionWidgetAction(QObject *parent)
     : QObject{parent}

@@ -20,8 +20,6 @@
 #include "replies.h"
 #include "systemmessagetypeutil.h"
 #include "utils.h"
-#include <QColor>
-#include <QList>
 #include <QString>
 
 class EmojiManager;

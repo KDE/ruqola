@@ -9,11 +9,9 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/searchmessagelinewidget.h"
 #include "room/messagelistview.h"
-#include <KLineEditEventHandler>
 
 #include <KLocalizedString>
 #include <QLabel>
-#include <QLineEdit>
 #include <QVBoxLayout>
 
 #include "config-ruqola.h"

@@ -14,9 +14,7 @@
 
 #include <KLocalizedString>
 #include <QFormLayout>
-#include <QIcon>
 #include <QLabel>
-#include <QScreen>
 using namespace Qt::Literals::StringLiterals;
 DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)

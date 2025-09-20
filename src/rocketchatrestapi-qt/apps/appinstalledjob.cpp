@@ -11,7 +11,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QUrlQuery>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;

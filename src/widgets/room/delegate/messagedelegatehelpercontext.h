@@ -10,7 +10,6 @@
 #include "messageblockdelegatehelperbase.h"
 #include "messages/block/block.h"
 
-#include <QIcon>
 #include <QModelIndex>
 #include <QSize>
 

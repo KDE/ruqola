@@ -12,7 +12,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "room/usersinroomwidget.h"
 #include <QLabel>
 #include <QLineEdit>
-#include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
 

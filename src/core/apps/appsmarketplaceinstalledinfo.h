@@ -9,7 +9,6 @@
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
-#include <QObject>
 #include <QPixmap>
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInstalledInfo
 {

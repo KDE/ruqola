@@ -7,7 +7,6 @@
 #pragma once
 
 #include "lrucache.h"
-#include <QString>
 #include <QTextDocument>
 #include <memory>
 

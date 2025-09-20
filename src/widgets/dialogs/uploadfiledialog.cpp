@@ -8,14 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "uploadfilewidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
 
 namespace
 {

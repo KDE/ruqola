@@ -36,7 +36,6 @@
 #include <KWindowSystem>
 #include <QJsonArray>
 #include <QJsonDocument>
-#include <QWindow>
 #include <kdsingleapplication.h>
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
 #include <private/qtx11extras_p.h>

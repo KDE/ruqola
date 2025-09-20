@@ -8,7 +8,6 @@
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
-#include <QTableView>
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseE2EStorageWidget::ExploreDatabaseE2EStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}

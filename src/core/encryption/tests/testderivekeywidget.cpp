@@ -7,8 +7,6 @@
 #include "testderivekeywidget.h"
 #include "encryption/encryptionutils.h"
 
-#include <QLineEdit>
-#include <QPlainTextEdit>
 #include <QVBoxLayout>
 
 TestDeriveKeyWidget::TestDeriveKeyWidget(QWidget *parent)

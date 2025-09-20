@@ -10,7 +10,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_action_buttons_debug.h"
 #include <QJsonArray>
-#include <QJsonObject>
 
 ActionButtonsManager::ActionButtonsManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}

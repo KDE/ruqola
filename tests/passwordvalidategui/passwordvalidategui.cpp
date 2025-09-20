@@ -7,7 +7,6 @@
 #include "passwordvalidategui.h"
 #include "misc/passwordvalidatewidget.h"
 #include <QApplication>
-#include <QLabel>
 #include <QVBoxLayout>
 PasswordValidateGui::PasswordValidateGui(QWidget *parent)
     : QWidget{parent}

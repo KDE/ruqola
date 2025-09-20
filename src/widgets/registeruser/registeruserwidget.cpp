@@ -11,7 +11,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <KAuthorized>
 #include <KLocalizedString>
-#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>

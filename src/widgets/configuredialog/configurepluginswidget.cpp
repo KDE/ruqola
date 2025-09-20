@@ -19,7 +19,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <KTreeWidgetSearchLine>
 #include <KTreeWidgetSearchLineWidget>
 #include <QHeaderView>
-#include <QLineEdit>
 #include <QToolButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>

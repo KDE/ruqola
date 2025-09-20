@@ -14,13 +14,10 @@ using namespace Qt::Literals::StringLiterals;
 #include "rocketchataccount.h"
 #include "room.h"
 #include <KLocalizedString>
-#include <QAudioOutput>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFormLayout>
 #include <QGroupBox>
-#include <QMediaPlayer>
-#include <QToolButton>
 #include <QVBoxLayout>
 
 ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *account, QWidget *parent)

@@ -14,14 +14,10 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QCheckBox>
-#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QLineEdit>
-#include <QPlainTextEdit>
 #include <QPushButton>
 #include <QShowEvent>
-#include <QSpinBox>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;

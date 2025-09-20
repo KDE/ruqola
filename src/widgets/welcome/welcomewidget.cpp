@@ -6,8 +6,8 @@
 
 #include "welcomewidget.h"
 #include <KLocalizedString>
+#include <QHBoxLayout>
 #include <QPushButton>
-#include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
 WelcomeWidget::WelcomeWidget(QWidget *parent)

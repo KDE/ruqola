@@ -9,10 +9,10 @@
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
-#include <KUrlRequester>
 
 #include <KFormat>
 #include <KLineEdit>
+#include <QFileInfo>
 #include <QFormLayout>
 #include <QLabel>
 #include <QMimeDatabase>

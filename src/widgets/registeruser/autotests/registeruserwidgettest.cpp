@@ -9,7 +9,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "misc/passwordconfirmwidget.h"
 #include "registeruser/registeruserwidget.h"
-#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>

@@ -20,8 +20,6 @@ curl -X POST http://localhost:3000/api/v1/login \
 #include "restapimethod.h"
 #include <QCoreApplication>
 #include <QDebug>
-#include <QDir>
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <qfile.h>
 

@@ -11,7 +11,6 @@
 #include "ruqola_password_core_debug.h"
 
 #include <QDateTime>
-#include <QDir>
 #include <QFile>
 #include <QSettings>
 #include <QStandardPaths>

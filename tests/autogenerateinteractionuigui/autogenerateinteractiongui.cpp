@@ -8,13 +8,12 @@
 
 #include "autogenerateui/autogenerateinteractionui.h"
 #include <QApplication>
-#include <QFormLayout>
-#include <QHBoxLayout>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QStandardPaths>
+#include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionGui::AutoGenerateInteractionGui(QWidget *parent)
     : QWidget(parent)

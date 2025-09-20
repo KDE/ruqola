@@ -12,9 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QApplication>
 #include <QFileDialog>
-#include <QHBoxLayout>
 #include <QJsonDocument>
-#include <QJsonObject>
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QSplitter>

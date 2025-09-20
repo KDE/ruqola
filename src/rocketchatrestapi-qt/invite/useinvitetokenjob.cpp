@@ -9,7 +9,6 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
-#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
