@@ -5,8 +5,10 @@
 */
 
 #include "webdavaddserverwidget.h"
+#include <KAuthorized>
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
+#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
 
@@ -16,6 +18,7 @@ WebDavAddServerWidget::WebDavAddServerWidget(QWidget *parent)
     , mName(new QLineEdit(this))
     , mUrl(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
+    , mPasswordLineEdit(new KPasswordLineEdit(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -27,17 +30,28 @@ WebDavAddServerWidget::WebDavAddServerWidget(QWidget *parent)
     KLineEditEventHandler::catchReturnKey(mName);
     KLineEditEventHandler::catchReturnKey(mUrl);
     KLineEditEventHandler::catchReturnKey(mUserName);
+    KLineEditEventHandler::catchReturnKey(mPasswordLineEdit->lineEdit());
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Url:"), mUrl);
     mainLayout->addRow(i18n("UserName:"), mUserName);
-    // TODO add password
+    mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
+
+    mPasswordLineEdit->setObjectName(u"mPasswordLineEdit"_s);
+    mainLayout->addWidget(mPasswordLineEdit);
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
+                                                                                                   : KPassword::RevealMode::Never);
 }
 
 WebDavAddServerWidget::~WebDavAddServerWidget() = default;
 
 WebDavAddServerWidget::WebDavAddServerInfo WebDavAddServerWidget::addServerInfo() const
 {
-    return {};
+    return {.name = mName->text(), .url = mUrl->text(), .userName = mUserName->text(), .password = mPasswordLineEdit->password()};
+}
+
+bool WebDavAddServerWidget::WebDavAddServerInfo::isValid() const
+{
+    return !name.isEmpty() && !url.isEmpty() && !userName.isEmpty() && !password.isEmpty();
 }
 
 #include "moc_webdavaddserverwidget.cpp"
