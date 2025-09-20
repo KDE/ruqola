@@ -6,7 +6,6 @@
 */
 
 #include "encryptiontestgui.h"
-#include "encryption/encryptionutils.h"
 #include <QApplication>
 #include <QDialog>
 #include <QDialogButtonBox>

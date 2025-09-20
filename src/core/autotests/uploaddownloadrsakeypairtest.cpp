@@ -8,7 +8,6 @@
 #include "uploaddownloadrsakeypairtest.h"
 #include <QCoreApplication>
 #include <QDebug>
-#include <QObject>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UploadDownloadRsaKeyPairTest)
