@@ -31,4 +31,6 @@ void WebDavAddServerDialogTest::shouldHaveDefaultValues()
 
     auto buttonBox = d.findChild<QDialogButtonBox *>(u"buttonBox"_s);
     QVERIFY(buttonBox);
+
+    QVERIFY(!d.addServerInfo().isValid());
 }
