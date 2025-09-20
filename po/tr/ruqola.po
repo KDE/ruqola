@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
-"PO-Revision-Date: 2025-09-16 17:37+0300\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
+"PO-Revision-Date: 2025-09-19 09:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -2962,6 +2962,7 @@ msgstr "Özel emoji adı ve armaları ayrımlı olmalıdır."
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "Ad:"
@@ -10413,18 +10414,18 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Tepki ekle"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgid "Add WebDav Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "WebDav Sunucusu Ekle"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Daha fazla eylem"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "Sunucu Ekle"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11607,6 +11608,31 @@ msgstr "Bulunan yeni sürüm yok. Yapı, <a href=\"%1\">burada</a> bulunabilir."
 #, kde-format
 msgid "Check New Version"
 msgstr "Yeni Sürümü Denetle"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "Add WebDav Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "WebDav Sunucusu Ekle"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgid "Add WebDav Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "WebDav Sunucusu Ekle"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "UserName"
+msgid "UserName:"
+msgstr "Kullanıcı Adı"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

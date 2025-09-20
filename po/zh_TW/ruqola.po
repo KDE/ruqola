@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2992,6 +2992,7 @@ msgstr "自訂表情符號名稱跟它的別名應該不同。"
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "名稱："
@@ -10771,19 +10772,20 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "新增表情符號"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "新增伺服器"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "應用程式 ID (iss)"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "新增伺服器"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, fuzzy, kde-format
@@ -12047,6 +12049,33 @@ msgstr ""
 msgid "Check New Version"
 msgstr "Node 版本"
 
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "新增伺服器"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "新增伺服器"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgid "UserName:"
+msgstr "使用者名稱："
+
 #: widgets/welcome/welcomewidget.cpp:21
 #, fuzzy, kde-format
 #| msgctxt "@action"
@@ -13271,11 +13300,6 @@ msgstr "一些錯誤修正："
 #~| msgid "Report Message"
 #~ msgid "Follow Message..."
 #~ msgstr "檢舉訊息"
-
-#, fuzzy
-#~| msgid "Username:"
-#~ msgid "UserName:"
-#~ msgstr "使用者名稱："
 
 #~ msgid "Error"
 #~ msgstr "錯誤"

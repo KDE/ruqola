@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2970,6 +2970,7 @@ msgstr ""
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "Jméno:"
@@ -10192,19 +10193,20 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr ""
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "Přidat server"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Zmínky"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "Přidat server"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11385,6 +11387,33 @@ msgstr ""
 #, kde-format
 msgid "Check New Version"
 msgstr "Zkontrolovat novou verzi"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Přidat server"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "Přidat server"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "UserName"
+msgid "UserName:"
+msgstr "Uživatelské jméno"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

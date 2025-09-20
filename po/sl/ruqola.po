@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
-"PO-Revision-Date: 2025-09-16 07:10+0200\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
+"PO-Revision-Date: 2025-09-19 10:20+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2983,6 +2983,7 @@ msgstr "Ime čustvenčka po meri in njegovi vzdevki morajo biti različni."
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "Ime:"
@@ -10462,18 +10463,18 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Dodaj reakcijo"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgid "Add WebDav Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "Dodaj strežnik WebDav"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Več dejavnosti"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "Dodaj strežnik"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11660,6 +11661,31 @@ msgstr "Ni nove različice. Izgradnjo lahko najdete <a href=\"%1\">tukaj</a>."
 #, kde-format
 msgid "Check New Version"
 msgstr "Preveri novo različico"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "Add WebDav Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Dodaj strežnik WebDav"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgid "Add WebDav Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "Dodaj strežnik WebDav"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "User Name:"
+msgid "UserName:"
+msgstr "Uporabniško ime:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -13311,9 +13337,6 @@ msgstr "Nekaj odprav napak:"
 
 #~ msgid "Read Only"
 #~ msgstr "Samo za branje"
-
-#~ msgid "User Name:"
-#~ msgstr "Uporabniško ime:"
 
 #~ msgctxt "Default tts engine"
 #~ msgid "Default"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3115,6 +3115,7 @@ msgstr ""
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "Name:"
@@ -10967,19 +10968,20 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Zugang hinzufügen"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "Server hinzufügen"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Programm nicht gefunden"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "Server hinzufügen"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, fuzzy, kde-format
@@ -12310,6 +12312,32 @@ msgstr ""
 #| msgid "Version %1"
 msgid "Check New Version"
 msgstr "Version %1"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Server hinzufügen"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "Server hinzufügen"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, kde-format
+msgid "UserName:"
+msgstr "Benutzername:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, fuzzy, kde-format
@@ -13659,9 +13687,6 @@ msgstr "Fehlerkorrekturen"
 #~| msgid "All Messages"
 #~ msgid "Follow Message..."
 #~ msgstr "Alle Nachrichten"
-
-#~ msgid "UserName:"
-#~ msgstr "Benutzername:"
 
 #~ msgid "Error"
 #~ msgstr "Fehler"

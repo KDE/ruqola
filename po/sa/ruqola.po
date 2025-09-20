@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2973,6 +2973,7 @@ msgstr "कस्टम् इमोजी नाम तेषां उपन�
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "नामः:"
@@ -10428,20 +10429,21 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "प्रतिक्रियां योजयन्तु"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "Server योजयतु"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Ask Application"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "आवेदनम् पृच्छतु"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "Server योजयतु"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11637,6 +11639,33 @@ msgstr ""
 #, kde-format
 msgid "Check New Version"
 msgstr "नवीनसंस्करणं पश्यन्तु"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Server योजयतु"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "Server योजयतु"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "UserName"
+msgid "UserName:"
+msgstr "उपयोक्तृनाम"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

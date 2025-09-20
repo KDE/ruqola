@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
 "PO-Revision-Date: 2025-09-16 19:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2991,6 +2991,7 @@ msgstr "يجب أن يكون اسم الرموز التعبيرية المخصص
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "الاسم:"
@@ -10472,18 +10473,19 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "أضف تفاعل"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "أضف خادمًا"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "المزيد من الإجراءات"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "أضف خادمًا"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11669,6 +11671,33 @@ msgstr "توجد نسخة جديدة. يمكن أن تجدها <a href=\"%1\">ه
 #, kde-format
 msgid "Check New Version"
 msgstr "تحقق من الإصدار الجديد"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "أضف خادمًا"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "أضف خادمًا"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "UserName"
+msgid "UserName:"
+msgstr "اسم المستخدم"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

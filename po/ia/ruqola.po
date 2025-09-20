@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
 "PO-Revision-Date: 2025-05-30 19:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2985,6 +2985,7 @@ msgstr ""
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "Nomine:"
@@ -10261,19 +10262,20 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Adde reaction"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "Adde Servitor"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
 #| msgid "AI Actions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Actiones de AI (IA)"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "Adde Servitor"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11465,6 +11467,32 @@ msgstr ""
 #, kde-format
 msgid "Check New Version"
 msgstr "Verifica nove version"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Adde Servitor"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "Adde Servitor"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, kde-format
+msgid "UserName:"
+msgstr "Nomine de usator:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -13124,6 +13152,3 @@ msgstr "Alcun correction de faltas (bug)"
 
 #~ msgid "Follow Message..."
 #~ msgstr "Seque message..."
-
-#~ msgid "UserName:"
-#~ msgstr "Nomine de usator:"

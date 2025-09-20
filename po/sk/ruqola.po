@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3110,6 +3110,7 @@ msgstr ""
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "Názov:"
@@ -10896,18 +10897,19 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Pridať účet"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgid "Server Url"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "URL serveru"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Aplikácia nenájdená"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgid "Server Url"
-msgid "Add WebDav Server"
-msgstr "URL serveru"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, fuzzy, kde-format
@@ -12231,6 +12233,31 @@ msgstr ""
 msgid "Check New Version"
 msgstr "Verzia %1"
 
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "Server Url"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "URL serveru"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgid "Server Url"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "URL serveru"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "User name: %1"
+msgid "UserName:"
+msgstr "Meno používateľa: %1"
+
 #: widgets/welcome/welcomewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Add Account"
@@ -13448,11 +13475,6 @@ msgstr ""
 #~| msgid "All Messages"
 #~ msgid "Follow Message..."
 #~ msgstr "Všetky správy"
-
-#, fuzzy
-#~| msgid "User name: %1"
-#~ msgid "UserName:"
-#~ msgstr "Meno používateľa: %1"
 
 #~ msgid "Error"
 #~ msgstr "Chyba"

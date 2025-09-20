@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
 "PO-Revision-Date: 2025-07-17 18:12+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2971,6 +2971,7 @@ msgstr "Mukautetun emojin nimen ja sen aliasten tulisi olla erilaiset."
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "Nimi:"
@@ -10384,19 +10385,20 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Lisää reaktio"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
+#: widgets/room/messagelineextratoolbutton.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action"
+msgid "Add WebDav Server"
+msgstr "Lisää palvelin"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
 #| msgid "AI Actions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Tekoälytoiminnot"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgid "Add WebDav Server"
-msgstr "Lisää palvelin"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11588,6 +11590,32 @@ msgstr "Uutta versiota ei löytynyt. Kooste löytyy <a href=\"%1\">tästä</a>."
 #, kde-format
 msgid "Check New Version"
 msgstr "Etsi uutta versiota"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Lisää palvelin"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "Lisää palvelin"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, kde-format
+msgid "UserName:"
+msgstr "Käyttäjätunnus:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -12968,9 +12996,6 @@ msgstr "Joitakin virheenkorjauksia:"
 
 #~ msgid "Follow Message..."
 #~ msgstr "Seuraa viestiä…"
-
-#~ msgid "UserName:"
-#~ msgstr "Käyttäjätunnus:"
 
 #~ msgid "Error"
 #~ msgstr "Virhe"

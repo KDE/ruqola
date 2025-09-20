@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:42+0000\n"
-"PO-Revision-Date: 2025-09-10 12:12+0200\n"
+"POT-Creation-Date: 2025-09-20 00:43+0000\n"
+"PO-Revision-Date: 2025-09-17 08:44+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: apps/main.cpp:59 core/notifications/notification.cpp:36
 #, kde-format
@@ -3001,6 +3001,7 @@ msgstr ""
 #: widgets/dialogs/directchannelinfowidget.cpp:94
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
+#: widgets/webdav/webdavaddserverwidget.cpp:30
 #, kde-format
 msgid "Name:"
 msgstr "Nom :"
@@ -9207,9 +9208,7 @@ msgid "Disable Encryption"
 msgstr "Désactiver le chiffrement"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Disable Encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Désactiver le chiffrement"
@@ -10542,19 +10541,19 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Ajouter une réaction"
 
-#: widgets/room/messagelineextratoolbutton.cpp:19
-#, fuzzy, kde-format
-#| msgid "AI Actions"
-msgctxt "@info:tooltip"
-msgid "More Actions"
-msgstr "Actions de l'IA"
-
-#: widgets/room/messagelineextratoolbutton.cpp:64
+#: widgets/room/messagelineextratoolbutton.cpp:17
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Server"
+msgctxt "@action"
 msgid "Add WebDav Server"
 msgstr "Ajouter un serveur"
+
+#: widgets/room/messagelineextratoolbutton.cpp:20
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "More Actions"
+msgstr "Plus d'actions"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11745,6 +11744,32 @@ msgstr ""
 msgid "Check New Version"
 msgstr "Vérifier l'existence d'une nouvelle version"
 
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Ajouter un serveur"
+
+#: widgets/webdav/webdavaddserverdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@action:button"
+msgid "Add WebDAV Server"
+msgstr "Ajouter un serveur"
+
+#: widgets/webdav/webdavaddserverwidget.cpp:31
+#, kde-format
+msgid "Url:"
+msgstr ""
+
+#: widgets/webdav/webdavaddserverwidget.cpp:32
+#, kde-format
+msgid "UserName:"
+msgstr "Nom d'utilisateur :"
+
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
 msgctxt "@action:button"
@@ -11800,7 +11825,7 @@ msgstr "Ajouter le format « Quick Text »"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Bouton « Ajouter une ligne d'extension de message »."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -13494,9 +13519,6 @@ msgstr "Quelques correction de bogues :"
 
 #~ msgid "Follow Message..."
 #~ msgstr "Suivre le message..."
-
-#~ msgid "UserName:"
-#~ msgstr "Nom d'utilisateur :"
 
 #~ msgid "Error"
 #~ msgstr "Erreur"
