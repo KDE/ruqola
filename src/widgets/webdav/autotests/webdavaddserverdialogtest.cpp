@@ -34,3 +34,5 @@ void WebDavAddServerDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(!d.addServerInfo().isValid());
 }
+
+#include "moc_webdavaddserverdialogtest.cpp"
