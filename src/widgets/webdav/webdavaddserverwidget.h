@@ -12,7 +12,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT WebDavAddServerWidget : public QWidget
 {
     Q_OBJECT
 public:
-    struct WebDavAddServerInfo {
+    struct LIBRUQOLAWIDGETS_TESTS_EXPORT WebDavAddServerInfo {
         QString name;
         QString url;
         QString userName;
