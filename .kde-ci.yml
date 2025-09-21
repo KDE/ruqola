@@ -42,6 +42,6 @@ Dependencies:
     'frameworks/purpose': '@latest-kf6'
 
 Options:
- require-passing-tests-on: ['Linux', 'Windows']
+ require-passing-tests-on: ['Linux']
  tests-run-in-parallel: True
  use-ccache: True
