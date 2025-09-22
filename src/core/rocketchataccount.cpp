@@ -894,7 +894,7 @@ void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QStrin
     info.anonymous = false;
     const QJsonArray params{{roomType}, {QString::fromLatin1(rid)}};
     info.messageObj = ddp()->generateJsonObject(info.methodName, params);
-    job->setMethodCallJobInfo(std::move(info));
+    job->setMethodCallJobInfo(info);
     restApi()->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
