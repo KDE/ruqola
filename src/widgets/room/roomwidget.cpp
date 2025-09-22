@@ -507,10 +507,10 @@ void RoomWidget::slotShowThreads()
     }
     QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(mCurrentRocketChatAccount, this);
     dlg->setFilterProxyModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    const QByteArray roomId{mRoomWidgetBase->roomId()};
-    dlg->setRoomId(roomId);
+    const QByteArray currentRoomId{mRoomWidgetBase->roomId()};
+    dlg->setRoomId(currentRoomId);
     dlg->setRoom(mRoom);
-    mCurrentRocketChatAccount->getListMessages(roomId, ListMessagesModel::ThreadsMessages);
+    mCurrentRocketChatAccount->getListMessages(currentRoomId, ListMessagesModel::ThreadsMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;
@@ -520,19 +520,19 @@ void RoomWidget::slotShowDiscussions()
 {
     auto dlg = new ShowDiscussionsDialog(mCurrentRocketChatAccount, this);
     dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
-    const QByteArray roomId{mRoomWidgetBase->roomId()};
-    dlg->setRoomId(roomId);
-    mCurrentRocketChatAccount->discussionsInRoom(roomId);
+    const QByteArray currentRoomId{mRoomWidgetBase->roomId()};
+    dlg->setRoomId(currentRoomId);
+    mCurrentRocketChatAccount->discussionsInRoom(currentRoomId);
     dlg->show();
 }
 
 void RoomWidget::slotShowFileAttachments()
 {
-    const QByteArray roomId{mRoomWidgetBase->roomId()};
+    const QByteArray currentRoomId{mRoomWidgetBase->roomId()};
     auto dlg = new ShowAttachmentDialog(mCurrentRocketChatAccount, this);
-    mCurrentRocketChatAccount->roomFiles(roomId, mRoomType);
+    mCurrentRocketChatAccount->roomFiles(currentRoomId, mRoomType);
     dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
-    dlg->setRoomId(roomId);
+    dlg->setRoomId(currentRoomId);
     dlg->setRoomType(mRoomType);
     dlg->show();
 }
