@@ -15,4 +15,5 @@ public:
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldChangeEnableButtonStatus();
 };

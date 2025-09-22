@@ -8,6 +8,7 @@
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QSignalSpy>
 #include <QTest>
 
 using namespace Qt::Literals::StringLiterals;
@@ -37,6 +38,42 @@ void WebDavAddServerWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mPasswordLineEdit);
 
     QVERIFY(!w.addServerInfo().isValid());
+}
+
+void WebDavAddServerWidgetTest::shouldChangeEnableButtonStatus()
+{
+    const WebDavAddServerWidget w;
+    QSignalSpy spyUpdateButton(&w, &WebDavAddServerWidget::okButtonEnabled);
+
+    auto mName = w.findChild<QLineEdit *>(u"mName"_s);
+    auto mUrl = w.findChild<QLineEdit *>(u"mUrl"_s);
+    auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
+
+    mName->setText(u"dd"_s);
+    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.at(0).at(0), false);
+
+    spyUpdateButton.clear();
+    mUrl->setText(u"dd"_s);
+    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.at(0).at(0), false);
+
+    spyUpdateButton.clear();
+    mUserName->setText(u"foo"_s);
+    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.at(0).at(0), false);
+
+    spyUpdateButton.clear();
+    mPasswordLineEdit->setPassword(u"AAAA"_s);
+    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.at(0).at(0), true);
+
+    // Empty
+    spyUpdateButton.clear();
+    mName->setText(u" "_s);
+    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.at(0).at(0), false);
 }
 
 #include "moc_webdavaddserverwidgettest.cpp"
