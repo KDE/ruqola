@@ -37,7 +37,6 @@ WebDavAddServerWidget::WebDavAddServerWidget(QWidget *parent)
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     mPasswordLineEdit->setObjectName(u"mPasswordLineEdit"_s);
-    mainLayout->addWidget(mPasswordLineEdit);
     mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
                                                                                                    : KPassword::RevealMode::Never);
     connect(mName, &QLineEdit::textChanged, this, &WebDavAddServerWidget::slotUpdateOkButtonStatus);
