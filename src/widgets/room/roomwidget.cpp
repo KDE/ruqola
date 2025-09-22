@@ -160,6 +160,9 @@ void RoomWidget::slotAddWebDavServer()
 {
     WebDavAddServerDialog d(this);
     if (d.exec()) {
+        const WebDavAddServerWidget::WebDavAddServerInfo info = d.addServerInfo();
+        // TODO save
+        qWarning() << " WebDavAddServerDialog accept not implemented";
         // TODO
     }
 }
