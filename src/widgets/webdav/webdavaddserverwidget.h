@@ -29,7 +29,7 @@ Q_SIGNALS:
     void okButtonEnabled(bool enabled);
 
 private:
-    LIBRUQOLAWIDGETS_EXPORT void slotUpdateOkButtonStatus();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateOkButtonStatus();
     QLineEdit *const mName;
     QLineEdit *const mUrl;
     QLineEdit *const mUserName;
