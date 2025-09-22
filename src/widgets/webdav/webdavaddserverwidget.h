@@ -25,7 +25,11 @@ public:
 
     [[nodiscard]] WebDavAddServerInfo addServerInfo() const;
 
+Q_SIGNALS:
+    void okButtonEnabled(bool enabled);
+
 private:
+    LIBRUQOLAWIDGETS_EXPORT void slotUpdateOkButtonStatus();
     QLineEdit *const mName;
     QLineEdit *const mUrl;
     QLineEdit *const mUserName;

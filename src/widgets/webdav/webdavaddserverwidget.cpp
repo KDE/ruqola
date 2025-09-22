@@ -40,13 +40,22 @@ WebDavAddServerWidget::WebDavAddServerWidget(QWidget *parent)
     mainLayout->addWidget(mPasswordLineEdit);
     mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(u"lineedit_reveal_password"_s) ? KPassword::RevealMode::OnlyNew
                                                                                                    : KPassword::RevealMode::Never);
+    connect(mName, &QLineEdit::textChanged, this, &WebDavAddServerWidget::slotUpdateOkButtonStatus);
+    connect(mUrl, &QLineEdit::textChanged, this, &WebDavAddServerWidget::slotUpdateOkButtonStatus);
+    connect(mUserName, &QLineEdit::textChanged, this, &WebDavAddServerWidget::slotUpdateOkButtonStatus);
+    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &WebDavAddServerWidget::slotUpdateOkButtonStatus);
 }
 
 WebDavAddServerWidget::~WebDavAddServerWidget() = default;
 
+void WebDavAddServerWidget::slotUpdateOkButtonStatus()
+{
+    Q_EMIT okButtonEnabled(addServerInfo().isValid());
+}
+
 WebDavAddServerWidget::WebDavAddServerInfo WebDavAddServerWidget::addServerInfo() const
 {
-    return {.name = mName->text(), .url = mUrl->text(), .userName = mUserName->text(), .password = mPasswordLineEdit->password()};
+    return {.name = mName->text().trimmed(), .url = mUrl->text().trimmed(), .userName = mUserName->text().trimmed(), .password = mPasswordLineEdit->password()};
 }
 
 bool WebDavAddServerWidget::WebDavAddServerInfo::isValid() const

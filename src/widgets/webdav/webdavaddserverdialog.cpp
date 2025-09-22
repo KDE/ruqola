@@ -25,9 +25,14 @@ WebDavAddServerDialog::WebDavAddServerDialog(QWidget *parent)
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(u"buttonBox"_s);
     mainLayout->addWidget(buttonBox);
-    buttonBox->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Add WebDAV Server"));
+    auto buttonOk = buttonBox->button(QDialogButtonBox::Ok);
+    buttonOk->setText(i18nc("@action:button", "Add WebDAV Server"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &WebDavAddServerDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &WebDavAddServerDialog::accept);
+    buttonOk->setEnabled(false);
+    connect(mWebDavAddServerWidget, &WebDavAddServerWidget::okButtonEnabled, this, [buttonOk](bool enabled) {
+        buttonOk->setEnabled(enabled);
+    });
 }
 
 WebDavAddServerDialog::~WebDavAddServerDialog() = default;
