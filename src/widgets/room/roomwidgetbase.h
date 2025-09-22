@@ -48,6 +48,7 @@ Q_SIGNALS:
     void errorMessage(const QString &message);
     void successMessage(const QString &message);
     void uiInteractionRequested(const QJsonObject &obj);
+    void addWebDavServer();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearNotification();

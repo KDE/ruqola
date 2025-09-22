@@ -107,6 +107,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     connect(mMessageListView, &MessageListView::successMessage, this, &RoomWidgetBase::successMessage);
     connect(mMessageListView, &MessageListView::uiInteractionRequested, this, &RoomWidgetBase::uiInteractionRequested);
     connect(mMessageLineWidget, &MessageLineWidget::uiInteractionRequested, this, &RoomWidgetBase::uiInteractionRequested);
+    connect(mMessageLineWidget, &MessageLineWidget::addWebDavServer, this, &RoomWidgetBase::addWebDavServer);
     setAcceptDrops(true);
 }
 

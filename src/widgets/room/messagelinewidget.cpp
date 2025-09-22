@@ -175,6 +175,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mMessageLineExtraToolButton->setObjectName(u"mMessageLineExtraToolButton"_s);
     mainLayout->addWidget(mMessageLineExtraToolButton);
     connect(mMessageLineExtraToolButton, &MessageLineExtraToolButton::uiInteractionRequested, this, &MessageLineWidget::uiInteractionRequested);
+    connect(mMessageLineExtraToolButton, &MessageLineExtraToolButton::addWebDavServer, this, &MessageLineWidget::addWebDavServer);
 }
 
 MessageLineWidget::~MessageLineWidget()

@@ -58,6 +58,7 @@
 #include "videoconference/videoconferencemessageinfomanager.h"
 
 #include "rooms/roomscleanhistoryjob.h"
+#include "webdav/webdavaddserverdialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -149,10 +150,19 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(this, &RoomWidget::showUiInteractionDialog, this, &RoomWidget::displayUiInteractionDialog);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::uiInteractionRequested, this, &RoomWidget::displayUiInteractionDialog);
     connect(mRoomWidgetBase, &RoomWidgetBase::uiInteractionRequested, this, &RoomWidget::displayUiInteractionDialog);
+    connect(mRoomWidgetBase, &RoomWidgetBase::addWebDavServer, this, &RoomWidget::slotAddWebDavServer);
     setAcceptDrops(true);
 }
 
 RoomWidget::~RoomWidget() = default;
+
+void RoomWidget::slotAddWebDavServer()
+{
+    WebDavAddServerDialog d(this);
+    if (d.exec()) {
+        // TODO
+    }
+}
 
 void RoomWidget::createPluginTextMessageWidget()
 {
