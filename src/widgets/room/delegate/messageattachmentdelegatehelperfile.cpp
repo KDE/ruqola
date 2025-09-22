@@ -20,6 +20,7 @@
 #include <KService>
 
 #include <QAbstractTextDocumentLayout>
+#include <QDesktopServices>
 #include <QMessageBox>
 #include <QMimeDatabase>
 #include <QMouseEvent>
@@ -114,12 +115,16 @@ static UserChoice askUser(const QUrl &url, const KService::Ptr &offer, QWidget *
     const QString title = i18nc("@title:window", "Open Attachment?");
     const QString text = xi18nc("@info", "Open attachment <filename>%1</filename>?<nl/>", url.fileName());
     QMessageBox msgBox(QMessageBox::Question, title, text, QMessageBox::NoButton, widget);
+#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
+    msgBox.addButton(i18nc("@action:button", "Open"), QMessageBox::YesRole)->setProperty(prop, QVariant::fromValue(UserChoice::Open));
+#else
     const char *prop = "_enumValue";
     if (offer) {
         auto *b = msgBox.addButton(i18nc("@action:button", "&Open With '%1'", offer->name()), QMessageBox::YesRole);
         b->setProperty(prop, QVariant::fromValue(UserChoice::Open));
     }
     msgBox.addButton(i18nc("@action:button", "Open &With…"), QMessageBox::YesRole)->setProperty(prop, QVariant::fromValue(UserChoice::OpenWith));
+#endif
     msgBox.addButton(i18nc("@action:button", "Save &As…"), QMessageBox::ActionRole)->setProperty(prop, QVariant::fromValue(UserChoice::Save));
     msgBox.addButton(QMessageBox::Cancel)->setProperty(prop, QVariant::fromValue(UserChoice::Cancel));
     msgBox.exec();
@@ -150,7 +155,7 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
 void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &link, QWidget *widget)
 {
     const QUrl url(link);
-    QMimeDatabase db;
+    const QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForUrl(url);
     const bool valid = mimeType.isValid() && !mimeType.isDefault();
     const KService::Ptr offer = valid ? KApplicationTrader::preferredService(mimeType.name()) : KService::Ptr{};
@@ -165,7 +170,11 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
         break;
     }
     case UserChoice::Open:
+#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
+        QDesktopServices::openUrl(QUrl::fromUserInput(link));
+#else
         runApplication(offer, link, widget, mRocketChatAccount);
+#endif
         break;
     case UserChoice::OpenWith:
         runApplication({}, link, widget, mRocketChatAccount);
