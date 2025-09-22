@@ -34,6 +34,7 @@
 #include "exportmessages/exportmessagesdialog.h"
 #include "messagelinewidget.h"
 #include "messagelistview.h"
+#include "misc/methodcalljob.h"
 #include "plugintextmessagewidget.h"
 #include "prunemessages/prunemessagesdialog.h"
 #include "rocketchataccount.h"
@@ -160,10 +161,31 @@ void RoomWidget::slotAddWebDavServer()
 {
     WebDavAddServerDialog d(this);
     if (d.exec()) {
-        const WebDavAddServerWidget::WebDavAddServerInfo info = d.addServerInfo();
-        // TODO save
-        qWarning() << " WebDavAddServerDialog accept not implemented";
-        // TODO
+        const WebDavAddServerWidget::WebDavAddServerInfo infoServerInfo = d.addServerInfo();
+        // it uses "/api/v1/method.call/addWebdavAccount"
+        // => use restapi for calling ddp method
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+        info.methodName = u"addWebdavAccount"_s;
+        info.anonymous = false;
+
+        //[{\"name\":\"test1\",\"serverURL\":\"http://www.kde.org\",\"username\":\"A\",\"password\":\"A\"}]}
+        QJsonObject obj;
+        obj["name"_L1] = infoServerInfo.name;
+        obj["serverURL"_L1] = infoServerInfo.url;
+        obj["username"_L1] = infoServerInfo.userName;
+        obj["password"_L1] = infoServerInfo.password;
+        const QJsonArray params{obj};
+        info.messageObj = mCurrentRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+        job->setMethodCallJobInfo(info);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
+            qDebug() << " replyObject " << replyObject;
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getRoomByTypeAndName job";
+        }
     }
 }
 
