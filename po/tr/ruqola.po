@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 00:42+0000\n"
-"PO-Revision-Date: 2025-09-19 09:54+0300\n"
+"PO-Revision-Date: 2025-09-21 19:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -10416,11 +10416,10 @@ msgid "Add reaction"
 msgstr "Tepki ekle"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
-#, fuzzy, kde-format
-#| msgid "Add WebDav Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "WebDav Sunucusu Ekle"
+msgstr "WebDAV Sunucusu Ekle"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, kde-format
@@ -11611,29 +11610,26 @@ msgid "Check New Version"
 msgstr "Yeni Sürümü Denetle"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Add WebDav Server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
-msgstr "WebDav Sunucusu Ekle"
+msgstr "Yeni WebDAV Sunucusu Ekle"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:28
-#, fuzzy, kde-format
-#| msgid "Add WebDav Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
-msgstr "WebDav Sunucusu Ekle"
+msgstr "WebDAV Sunucusu Ekle"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "URL:"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "UserName"
+#, kde-format
 msgid "UserName:"
-msgstr "Kullanıcı Adı"
+msgstr "Kullanıcı adı:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format

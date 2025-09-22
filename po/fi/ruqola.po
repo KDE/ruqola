@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 00:42+0000\n"
-"PO-Revision-Date: 2025-07-17 18:12+0300\n"
+"PO-Revision-Date: 2025-09-19 18:42+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -2933,11 +2933,9 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow Feature Preview"
+#, kde-format
 msgid "Feature Preview"
-msgstr "Salli ominaisuuden esikatselu"
+msgstr "Ominaisuuden esikatselu"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3137,12 +3135,10 @@ msgid "Allow Feature Preview"
 msgstr "Salli ominaisuuden esikatselu"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "Reaktiot"
+msgstr "Pikareaktiot"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -5523,18 +5519,18 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:163
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Käyttäjämäärärajoitus lisättäessä kanavalle kaikki käyttäjät"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "Välimuistirajoitus lähtevien viestien käsittelyssä."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "Välimuistirajoitus lähtevien viestien käsittelyssä."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:27
 #, kde-format
@@ -5545,7 +5541,7 @@ msgstr "Säännölliset lausekkeet"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Output upon a successful connection to the IRC server."
-msgstr ""
+msgstr "Tulosta onnistuneen IRC-palvelinyhteydenoton jälkeen."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:33
 #, kde-format
@@ -5559,6 +5555,8 @@ msgid ""
 "Attempt to integrate IRC support. Changing this value requires restarting "
 "Rocket.Chat."
 msgstr ""
+"Yritä eheyttää IRC-tuki. Arvon muuttaminen vaatii Rocket.Chatin "
+"uudelleenkäynnistyksen."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
 #, kde-format
@@ -5569,7 +5567,7 @@ msgstr "RFC2813"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The port to bind to on the IRC host server."
-msgstr ""
+msgstr "Portti, johon IRC-isäntäpalvelimessa yhdistetään"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:53
 #, kde-format
@@ -5597,13 +5595,13 @@ msgstr "Käytä oikeaa nimeä"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Full Name Initials to Generate Default Avatar"
-msgstr ""
+msgstr "Käytä koko nimen alkukirjaimia oletusavatarin luomiseksi"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Special Characters in Room Names"
-msgstr ""
+msgstr "Salli huoneiden nimissä erikoismerkit"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:21
 #, kde-format
@@ -5620,7 +5618,7 @@ msgstr "Ryhmitä kanavat tyypeittäin"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:46
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
-msgstr ""
+msgstr "Käyttäjän automaattitäydennysehdotusten määrä"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:20
 #, kde-format
@@ -5653,6 +5651,8 @@ msgid ""
 "Try to reconnect automatically when connection is interrupted by some reason "
 "while executing operations."
 msgstr ""
+"Yritä yhdistää automaattisesti uudelleen yhteyden jostakin syystä "
+"keskeydyttyä toimenpiteiden aikana."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:47
 #, kde-format
@@ -5672,6 +5672,10 @@ msgid ""
 "third-party integrations. Use a fully qualified name, such as "
 "cn=Administrator,cn=Users,dc=Example,dc=com."
 msgstr ""
+"LDAP-tunnus, joka suorittaa käyttäjähaut kirjautuvien käyttäjien "
+"todentamiseksi. Tämä on tavallisesti palvelutili, joka on luotu "
+"nimenomaisesti kolmannen osapuolen eheytykseen. Käytä nimen täyttä muotoa, "
+"esim. cn=Administrator,cn=Users,dc=Esimerkki,dc=fi."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:65
 #, kde-format
@@ -6184,18 +6188,17 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:67
 #, kde-format
 msgid "OAuth Apple Id"
-msgstr ""
+msgstr "OAuth Apple Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:70
-#, fuzzy, kde-format
-#| msgid "Search Threads..."
+#, kde-format
 msgid "OAuth Apple Iss"
-msgstr "Etsi säikeitä…"
+msgstr "OAuth Apple Iss"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:73
 #, kde-format
 msgid "OAuth Apple Kid"
-msgstr ""
+msgstr "OAuth Apple Kid"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:75
 #, kde-format
@@ -6553,7 +6556,7 @@ msgstr "DDP:n nopeuden rajoitus"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:51
 #, kde-format
 msgid "Limit by IP: interval time"
-msgstr ""
+msgstr "Rajoita IP:n mukaan: aikaväli"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:55
 #, kde-format
@@ -7846,9 +7849,7 @@ msgid "Database Info"
 msgstr "Tietokannan tiedot"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "Viestit"
 
@@ -9108,6 +9109,8 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
+"Vaihtoehtoisesti salausavainten palauttaminen säilyttää salauksen mutta "
+"pääsy aiemmin salattuun sisältöön katoaa."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
 #, kde-format
@@ -9455,7 +9458,7 @@ msgstr "Tiivis"
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "Your passwords do no match."
-msgstr ""
+msgstr "Salasanat eivät täsmää."
 
 #: widgets/misc/passwordconfirmwidget.cpp:38
 #, kde-format
@@ -10459,7 +10462,7 @@ msgstr "Lähetä viesti"
 #: widgets/room/messagelinewidget.cpp:204
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
-msgstr ""
+msgstr "Komento epäonnistui. Haluatko kopioida sen leikepöydälle?"
 
 #: widgets/room/messagelinewidget.cpp:205
 #, kde-format
@@ -10683,48 +10686,40 @@ msgid "Markdown Url"
 msgstr "Markdown-verkko-osoite"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, fuzzy, kde-format
-#| msgid "Bold"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
-msgstr "Lihavoitu"
+msgstr "Lihavointi"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
-msgstr "Kursivoitu"
+msgstr "Kursiivi"
 
 #: widgets/room/quicktextformatmessage.cpp:63
-#, fuzzy, kde-format
-#| msgid "Strike-out"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
-msgstr "Yliviivattu"
+msgstr "Yliviivaus"
 
 #: widgets/room/quicktextformatmessage.cpp:76
-#, fuzzy, kde-format
-#| msgid "Code Block"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Koodilohko"
 
 #: widgets/room/quicktextformatmessage.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "Lainaa"
+msgstr "Lainaa teksti"
 
 #: widgets/room/quicktextformatmessage.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Link:"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "Kutsulinkki:"
+msgstr "Lisää linkki"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11614,7 +11609,8 @@ msgid "Url:"
 msgstr ""
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "UserName:"
 msgid "UserName:"
 msgstr "Käyttäjätunnus:"
 
@@ -11669,10 +11665,8 @@ msgid "Add Open With button in show image."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "Muuta tekstin muotoa"
+msgstr "Lisää pikatekstin muotoilu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
@@ -11841,7 +11835,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Implement block actions."
-msgstr ""
+msgstr "Toteuta lohkotoimenpiteet."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
@@ -12077,7 +12071,7 @@ msgstr "Etsi asennettuja sovelluksia"
 #: widgets/whatsnew/whatsnewtranslations.cpp:151
 #, kde-format
 msgid "Add support for tools plugins"
-msgstr ""
+msgstr "Lisää tuki työkaluliitännäisille"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:152
 #, kde-format
@@ -12221,22 +12215,20 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
-msgstr ""
+msgstr "Korjaa liitetiedot ”Näytä kanavaloki” -ikkunassa."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:197
 #, kde-format
 msgid "Fix icon on windows."
-msgstr ""
+msgstr "Korjaa kuvake ikkunoissa."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:198
-#, fuzzy, kde-format
-#| msgid "Show File Attachments…"
+#, kde-format
 msgid "Fix show file attachment size."
-msgstr "Näytä tiedostoliitteet…"
+msgstr "Korjaa tiedoston liitteen koon näyttö."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "All Version"
+#, kde-format
 msgid "All Versions"
 msgstr "Kaikki versiot"
 
