@@ -12,20 +12,20 @@ namespace TextCustomEditor
 {
 class PlainTextEditorWidget;
 }
-class ExploreDatabasePlainTextEditor : public TextCustomEditor::PlainTextEditor
+class JsonPlainTextEditor : public TextCustomEditor::PlainTextEditor
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabasePlainTextEditor(QWidget *parent = nullptr);
-    ~ExploreDatabasePlainTextEditor() override;
+    explicit JsonPlainTextEditor(QWidget *parent = nullptr);
+    ~JsonPlainTextEditor() override;
 };
 
-class ExploreDatabaseJsonPlainTextEditWidget : public QWidget
+class JsonPlainTextEditWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseJsonPlainTextEditWidget(QWidget *parent = nullptr);
-    ~ExploreDatabaseJsonPlainTextEditWidget() override;
+    explicit JsonPlainTextEditWidget(QWidget *parent = nullptr);
+    ~JsonPlainTextEditWidget() override;
 
     void setPlainText(const QString &str);
 

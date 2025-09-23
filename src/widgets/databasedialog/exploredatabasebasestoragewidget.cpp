@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exploredatabasebasestoragewidget.h"
-#include "databasedialog/exploredatabasejsonplaintexteditwidget.h"
+#include "databasedialog/jsonplaintexteditwidget.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
@@ -18,7 +18,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     : QWidget{parent}
     , mTableView(new QTableView(this))
     , mRocketChatAccount(account)
-    , mTextEdit(new ExploreDatabaseJsonPlainTextEditWidget(this))
+    , mTextEdit(new JsonPlainTextEditWidget(this))
     , mFilterLineEdit(new QLineEdit(this))
     , mSortFilterProxyModel(new QSortFilterProxyModel(this))
 {

@@ -7,7 +7,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "messages/message.h"
 #include <QWidget>
-class ExploreDatabaseJsonPlainTextEditWidget;
+class JsonPlainTextEditWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseJsonWidget : public QWidget
 {
     Q_OBJECT
@@ -18,5 +18,5 @@ public:
     void slotLoadedMessages(QList<Message> listMessages);
 
 private:
-    ExploreDatabaseJsonPlainTextEditWidget *const mPlainTextEdit;
+    JsonPlainTextEditWidget *const mPlainTextEdit;
 };

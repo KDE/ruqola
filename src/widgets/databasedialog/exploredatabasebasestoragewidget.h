@@ -11,7 +11,7 @@
 #include <memory.h>
 class QTableView;
 class RocketChatAccount;
-class ExploreDatabaseJsonPlainTextEditWidget;
+class JsonPlainTextEditWidget;
 class QLineEdit;
 class QSortFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseBaseStorageWidget : public QWidget
@@ -27,7 +27,7 @@ protected:
     std::unique_ptr<QSqlTableModel> mModel;
     QTableView *const mTableView;
     RocketChatAccount *mRocketChatAccount = nullptr;
-    ExploreDatabaseJsonPlainTextEditWidget *const mTextEdit;
+    JsonPlainTextEditWidget *const mTextEdit;
     QLineEdit *const mFilterLineEdit;
     QSortFilterProxyModel *const mSortFilterProxyModel;
 

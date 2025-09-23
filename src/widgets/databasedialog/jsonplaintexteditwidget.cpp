@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "exploredatabasejsonplaintexteditwidget.h"
+#include "jsonplaintexteditwidget.h"
 #include "ruqolawidgets_debug.h"
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/SyntaxHighlighter>
@@ -14,18 +14,18 @@
 #include <TextCustomEditor/PlainTextEditorWidget>
 using namespace Qt::Literals::StringLiterals;
 
-ExploreDatabasePlainTextEditor::ExploreDatabasePlainTextEditor(QWidget *parent)
+JsonPlainTextEditor::JsonPlainTextEditor(QWidget *parent)
     : TextCustomEditor::PlainTextEditor(parent)
 {
     setReadOnly(true);
     setSearchSupport(true);
 }
 
-ExploreDatabasePlainTextEditor::~ExploreDatabasePlainTextEditor() = default;
+JsonPlainTextEditor::~JsonPlainTextEditor() = default;
 
-ExploreDatabaseJsonPlainTextEditWidget::ExploreDatabaseJsonPlainTextEditWidget(QWidget *parent)
+JsonPlainTextEditWidget::JsonPlainTextEditWidget(QWidget *parent)
     : QWidget{parent}
-    , mPlainTextEdit(new TextCustomEditor::PlainTextEditorWidget(new ExploreDatabasePlainTextEditor(parent), this))
+    , mPlainTextEdit(new TextCustomEditor::PlainTextEditorWidget(new JsonPlainTextEditor(parent), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -46,11 +46,11 @@ ExploreDatabaseJsonPlainTextEditWidget::ExploreDatabaseJsonPlainTextEditWidget(Q
     hl->setDefinition(def);
 }
 
-ExploreDatabaseJsonPlainTextEditWidget::~ExploreDatabaseJsonPlainTextEditWidget() = default;
+JsonPlainTextEditWidget::~JsonPlainTextEditWidget() = default;
 
-void ExploreDatabaseJsonPlainTextEditWidget::setPlainText(const QString &str)
+void JsonPlainTextEditWidget::setPlainText(const QString &str)
 {
     mPlainTextEdit->setPlainText(str);
 }
 
-#include "moc_exploredatabasejsonplaintexteditwidget.cpp"
+#include "moc_jsonplaintexteditwidget.cpp"

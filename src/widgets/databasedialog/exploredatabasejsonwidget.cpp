@@ -5,13 +5,13 @@
 */
 
 #include "exploredatabasejsonwidget.h"
-#include "databasedialog/exploredatabasejsonplaintexteditwidget.h"
+#include "databasedialog/jsonplaintexteditwidget.h"
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseJsonWidget::ExploreDatabaseJsonWidget(QWidget *parent)
     : QWidget{parent}
-    , mPlainTextEdit(new ExploreDatabaseJsonPlainTextEditWidget(this))
+    , mPlainTextEdit(new JsonPlainTextEditWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
