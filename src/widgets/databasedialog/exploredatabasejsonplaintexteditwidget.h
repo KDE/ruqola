@@ -7,7 +7,20 @@
 
 #include <KSyntaxHighlighting/Repository>
 #include <QWidget>
-class QPlainTextEdit;
+#include <TextCustomEditor/PlainTextEditor>
+
+namespace TextCustomEditor
+{
+class PlainTextEditorWidget;
+}
+class ExploreDatabasePlainTextEditor : public TextCustomEditor::PlainTextEditor
+{
+    Q_OBJECT
+public:
+    explicit ExploreDatabasePlainTextEditor(QWidget *parent = nullptr);
+    ~ExploreDatabasePlainTextEditor() override;
+};
+
 class ExploreDatabaseJsonPlainTextEditWidget : public QWidget
 {
     Q_OBJECT
@@ -18,6 +31,6 @@ public:
     void setPlainText(const QString &str);
 
 private:
-    QPlainTextEdit *const mPlainTextEdit;
+    TextCustomEditor::PlainTextEditorWidget *const mPlainTextEdit;
     KSyntaxHighlighting::Repository mRepo;
 };

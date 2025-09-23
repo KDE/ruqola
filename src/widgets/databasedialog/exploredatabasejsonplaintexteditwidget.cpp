@@ -9,12 +9,23 @@
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/SyntaxHighlighter>
 #include <KSyntaxHighlighting/Theme>
-#include <QPlainTextEdit>
 #include <QVBoxLayout>
+#include <TextCustomEditor/PlainTextEditor>
+#include <TextCustomEditor/PlainTextEditorWidget>
 using namespace Qt::Literals::StringLiterals;
+
+ExploreDatabasePlainTextEditor::ExploreDatabasePlainTextEditor(QWidget *parent)
+    : TextCustomEditor::PlainTextEditor(parent)
+{
+    setReadOnly(true);
+    setSearchSupport(true);
+}
+
+ExploreDatabasePlainTextEditor::~ExploreDatabasePlainTextEditor() = default;
+
 ExploreDatabaseJsonPlainTextEditWidget::ExploreDatabaseJsonPlainTextEditWidget(QWidget *parent)
     : QWidget{parent}
-    , mPlainTextEdit(new QPlainTextEdit(this))
+    , mPlainTextEdit(new TextCustomEditor::PlainTextEditorWidget(new ExploreDatabasePlainTextEditor(parent), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -29,7 +40,7 @@ ExploreDatabaseJsonPlainTextEditWidget::ExploreDatabaseJsonPlainTextEditWidget(Q
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid definition name";
     }
 
-    auto hl = new KSyntaxHighlighting::SyntaxHighlighter(mPlainTextEdit->document());
+    auto hl = new KSyntaxHighlighting::SyntaxHighlighter(mPlainTextEdit->editor()->document());
     hl->setTheme((palette().color(QPalette::Base).lightness() < 128) ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                                                                      : mRepo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
     hl->setDefinition(def);
