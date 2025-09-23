@@ -701,6 +701,10 @@ target_sources(
         room/usersinroomlistview.cpp
         room/messagelineextratoolbutton.h
         room/messagelineextratoolbutton.cpp
+        room/debugdialog/showdebugdialog.h
+	room/debugdialog/showdebugdialog.cpp
+        room/debugdialog/showdebugwidget.h
+        room/debugdialog/showdebugwidget.cpp
 
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
