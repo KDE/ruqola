@@ -5,7 +5,7 @@
 */
 #include "exploredatabasejsonwidgettest.h"
 #include "databasedialog/exploredatabasejsonwidget.h"
-#include <QPlainTextEdit>
+#include "misc/jsonplaintexteditwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
@@ -23,7 +23,7 @@ void ExploreDatabaseJsonWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mPlainTextEdit = w.findChild<QPlainTextEdit *>(u"mPlainTextEdit"_s);
+    auto mPlainTextEdit = w.findChild<JsonPlainTextEditWidget *>(u"mPlainTextEdit"_s);
     QVERIFY(mPlainTextEdit);
 }
 
