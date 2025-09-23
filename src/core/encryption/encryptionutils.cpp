@@ -331,11 +331,11 @@ RSA *EncryptionUtils::privateKeyFromPEM(const QByteArray &pem)
 QByteArray EncryptionUtils::encryptSessionKey(const QByteArray &sessionKey, RSA *publicKey)
 {
     QByteArray encryptedSessionKey(RSA_size(publicKey), 0);
-    int bytes = RSA_public_encrypt(sessionKey.size(),
-                                   reinterpret_cast<const unsigned char *>(sessionKey.constData()),
-                                   reinterpret_cast<unsigned char *>(encryptedSessionKey.data()),
-                                   publicKey,
-                                   RSA_PKCS1_OAEP_PADDING);
+    const int bytes = RSA_public_encrypt(sessionKey.size(),
+                                         reinterpret_cast<const unsigned char *>(sessionKey.constData()),
+                                         reinterpret_cast<unsigned char *>(encryptedSessionKey.data()),
+                                         publicKey,
+                                         RSA_PKCS1_OAEP_PADDING);
     if (bytes == -1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key encryption failed!";
         return {};
@@ -347,11 +347,11 @@ QByteArray EncryptionUtils::encryptSessionKey(const QByteArray &sessionKey, RSA 
 QByteArray EncryptionUtils::decryptSessionKey(const QByteArray &encryptedSessionKey, RSA *privateKey)
 {
     QByteArray decryptedSessionKey(RSA_size(privateKey), 0);
-    int bytes = RSA_private_decrypt(encryptedSessionKey.size(),
-                                    reinterpret_cast<const unsigned char *>(encryptedSessionKey.constData()),
-                                    reinterpret_cast<unsigned char *>(decryptedSessionKey.data()),
-                                    privateKey,
-                                    RSA_PKCS1_OAEP_PADDING);
+    const int bytes = RSA_private_decrypt(encryptedSessionKey.size(),
+                                          reinterpret_cast<const unsigned char *>(encryptedSessionKey.constData()),
+                                          reinterpret_cast<unsigned char *>(decryptedSessionKey.data()),
+                                          privateKey,
+                                          RSA_PKCS1_OAEP_PADDING);
     if (bytes == -1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed!";
         return {};
