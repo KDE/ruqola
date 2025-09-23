@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exploredatabasebasestoragewidget.h"
-#include "databasedialog/jsonplaintexteditwidget.h"
+#include "misc/jsonplaintexteditwidget.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>

@@ -531,6 +531,8 @@ target_sources(
         misc/configuresoundcombobox.cpp
         misc/passwordvalidatewidget.h
         misc/passwordvalidatewidget.cpp
+        misc/jsonplaintexteditwidget.h
+        misc/jsonplaintexteditwidget.cpp
         myaccount/myaccount2e2configurewidget.cpp
         myaccount/myaccount2e2configurewidget.h
         myaccount/myaccount2faconfigurewidget.cpp
@@ -797,8 +799,6 @@ target_sources(
         databasedialog/exploredatabasetimestampdelegate.cpp
         databasedialog/exploredatabasetooltipdelegate.h
         databasedialog/exploredatabasetooltipdelegate.cpp
-        databasedialog/jsonplaintexteditwidget.h
-        databasedialog/jsonplaintexteditwidget.cpp
         databasedialog/exploredatabaseroomiddelegate.h
         databasedialog/exploredatabaseroomiddelegate.cpp
 	databasedialog/exploredatabasee2estoragewidget.cpp

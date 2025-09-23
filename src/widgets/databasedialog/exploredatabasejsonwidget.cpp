@@ -5,7 +5,7 @@
 */
 
 #include "exploredatabasejsonwidget.h"
-#include "databasedialog/jsonplaintexteditwidget.h"
+#include "misc/jsonplaintexteditwidget.h"
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
