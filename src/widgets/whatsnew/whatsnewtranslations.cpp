@@ -22,6 +22,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Add Open With button in show image."),
         kli18n("Add Quick Text Format."),
         kli18n("Add Extension message line button."),
+        kli18n("Allow to Add WebDav Server."),
     };
     return info;
 }
