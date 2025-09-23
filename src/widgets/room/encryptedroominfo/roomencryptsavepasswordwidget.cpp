@@ -5,11 +5,11 @@
 */
 
 #include "roomencryptsavepasswordwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RoomEncryptSavePasswordWidget::RoomEncryptSavePasswordWidget(QWidget *parent)
     : QWidget{parent}
 {
