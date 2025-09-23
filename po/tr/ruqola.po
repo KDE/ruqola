@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:42+0000\n"
+"POT-Creation-Date: 2025-09-23 00:42+0000\n"
 "PO-Revision-Date: 2025-09-21 19:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -8882,7 +8882,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:483
+#: widgets/room/messagelinewidget.cpp:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10293,13 +10293,13 @@ msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "İletileri Şifrele"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Eki Aç?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
@@ -10308,22 +10308,28 @@ msgstr "<filename>%1</filename> eki açılsın mı?<nl/>"
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
 #, kde-format
 msgctxt "@action:button"
+msgid "Open"
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#, kde-format
+msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "“%1” ile &Aç"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "&Birlikte Aç…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "&Farklı Kaydet…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:160
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:165
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -10482,50 +10488,50 @@ msgstr "İletiyi gönder"
 msgid "Send Message"
 msgstr "İletiyi Gönder"
 
-#: widgets/room/messagelinewidget.cpp:204
+#: widgets/room/messagelinewidget.cpp:205
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Komut başarısız oldu. Komutu panoya kopyalamak istiyor musunuz?"
 
-#: widgets/room/messagelinewidget.cpp:205
+#: widgets/room/messagelinewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Komut Hatası"
 
-#: widgets/room/messagelinewidget.cpp:262
+#: widgets/room/messagelinewidget.cpp:263
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Bu büyük metni bir eke dönüştürmek istiyor musunuz?"
 
-#: widgets/room/messagelinewidget.cpp:263
+#: widgets/room/messagelinewidget.cpp:264
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "İleti Pek Büyük"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Dizideki %1 Kişisine İleti Gönder"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "%1 içinde bir ileti gönder…"
 
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:507
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Seçili dosya pek büyük (En büyük boyut %1)"
 
-#: widgets/room/messagelinewidget.cpp:507
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Dosya Karşıya Yükle"
 
-#: widgets/room/messagelinewidget.cpp:512
+#: widgets/room/messagelinewidget.cpp:513
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Sunucu, bu dosya türünü yetkilendirmedi (geçersiz MIME türü)"
@@ -10879,39 +10885,39 @@ msgstr "Bir dizide yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu İletiyi Dizide Yanıtla: “%1”"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:375
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:410
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:411
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Şifreli içerikte arama yapılamaz."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "İleti Ara"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:590
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10919,7 +10925,7 @@ msgstr ""
 "Bir çalışma alanı yöneticisinin bir konferans araması uygulaması kurması ve "
 "yapılandırması gerekir."
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:591
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11615,7 +11621,7 @@ msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Yeni WebDAV Sunucusu Ekle"
 
-#: widgets/webdav/webdavaddserverdialog.cpp:28
+#: widgets/webdav/webdavaddserverdialog.cpp:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Add WebDAV Server"

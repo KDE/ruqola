@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:42+0000\n"
+"POT-Creation-Date: 2025-09-23 00:42+0000\n"
 "PO-Revision-Date: 2025-09-20 15:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -8999,7 +8999,7 @@ msgid "Video: %1"
 msgstr "Відео: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:483
+#: widgets/room/messagelinewidget.cpp:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10416,37 +10416,44 @@ msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Шифрувати повідомлення"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Відкрити долучення?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Відкрити долучення <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
+#, fuzzy, kde-format
+#| msgid "Open…"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Відкрити…"
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Відкрити за допомогою «%1»"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Відкрити з&а допомогою…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Зберегти &як…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:160
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:165
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -10609,52 +10616,52 @@ msgstr "Надіслати повідомлення"
 msgid "Send Message"
 msgstr "Надіслати повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:204
+#: widgets/room/messagelinewidget.cpp:205
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 "Не вдалося виконати команду. Хочете скопіювати команду до буфера обміну "
 "даними?"
 
-#: widgets/room/messagelinewidget.cpp:205
+#: widgets/room/messagelinewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Помилка команди"
 
-#: widgets/room/messagelinewidget.cpp:262
+#: widgets/room/messagelinewidget.cpp:263
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Хочете перетворити цей значний фрагмент тексту на долучення?"
 
-#: widgets/room/messagelinewidget.cpp:263
+#: widgets/room/messagelinewidget.cpp:264
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Надто велике повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Повідомлення %1 у гілці"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Надіслати повідомлення у %1…"
 
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:507
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Вибраний файл є надто великим (максимальний розмір — %1)"
 
-#: widgets/room/messagelinewidget.cpp:507
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Вивантаження файла"
 
-#: widgets/room/messagelinewidget.cpp:512
+#: widgets/room/messagelinewidget.cpp:513
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME)"
@@ -11010,39 +11017,39 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:375
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Вилучення журналу"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:410
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:411
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Не можна шукати у зашифрованих даних."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Пошук повідомлення"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:590
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11050,7 +11057,7 @@ msgstr ""
 "Адміністратор робочого простору має встановити і налаштувати програми для "
 "викликів-конференцій."
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:591
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11749,7 +11756,7 @@ msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Додавання нового сервера WebDAV"
 
-#: widgets/webdav/webdavaddserverdialog.cpp:28
+#: widgets/webdav/webdavaddserverdialog.cpp:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
@@ -12585,9 +12592,6 @@ msgstr "Виправлення деяких вад:"
 
 #~ msgid "Search channels…"
 #~ msgstr "Шукати канали…"
-
-#~ msgid "Open…"
-#~ msgstr "Відкрити…"
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"

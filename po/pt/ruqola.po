@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:42+0000\n"
+"POT-Creation-Date: 2025-09-23 00:42+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -9570,7 +9570,7 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:483
+#: widgets/room/messagelinewidget.cpp:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -11114,13 +11114,13 @@ msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Encriptar as Mensagens"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Abrir o Anexo?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
@@ -11128,26 +11128,33 @@ msgstr "Deseja abrir o anexo <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
 #, fuzzy, kde-format
+#| msgid "Open..."
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Abrir..."
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#, fuzzy, kde-format
 #| msgid "&Open With '%1'"
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "Abrir C&om o '%1'"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:126
 #, fuzzy, kde-format
 #| msgid "Open &With..."
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Abrir &Com..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, fuzzy, kde-format
 #| msgid "Save &As..."
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Gr&avar Como..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:160
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:165
 #, fuzzy, kde-format
 #| msgid "Save File"
 msgctxt "@title:window"
@@ -11329,54 +11336,54 @@ msgstr "Mensagens com Estrela"
 msgid "Send Message"
 msgstr "Mensagens com Estrela"
 
-#: widgets/room/messagelinewidget.cpp:204
+#: widgets/room/messagelinewidget.cpp:205
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:205
+#: widgets/room/messagelinewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:262
+#: widgets/room/messagelinewidget.cpp:263
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Deseja converter este texto extenso para um anexo?"
 
-#: widgets/room/messagelinewidget.cpp:263
+#: widgets/room/messagelinewidget.cpp:264
 #, fuzzy, kde-format
 #| msgid "Message Too Big"
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Mensagem Demasiado Grande"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message %1 in thread"
 msgstr "Mensagem Fixa"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, fuzzy, kde-format
 #| msgid "Search messages..."
 msgid "Send a message in %1…"
 msgstr "Procurar por mensagens..."
 
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:507
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "O ficheiro seleccionado é demasiado grande (Tamanho máximo %1)"
 
-#: widgets/room/messagelinewidget.cpp:507
+#: widgets/room/messagelinewidget.cpp:508
 #, fuzzy, kde-format
 #| msgid "File upload"
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Envio do ficheiro"
 
-#: widgets/room/messagelinewidget.cpp:512
+#: widgets/room/messagelinewidget.cpp:513
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "O servidor não autorizou este ficheiro (tipo MIME inválido)"
@@ -11773,35 +11780,35 @@ msgstr "A responder num tópico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta no Tópico à Mensagem: '%1'"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:375
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Deseja realmente remover o histórico?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:376
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remover o Histórico"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:410
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:411
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "As Mensagens Directas não podem ser arquivadas"
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11809,7 +11816,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Procurar por Mensagens"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:590
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11817,7 +11824,7 @@ msgstr ""
 "É preciso um administrador da área de trabalho para instalar e configurar "
 "uma aplicação de chamadas em conferência."
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:591
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"
@@ -12587,7 +12594,7 @@ msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Adicionar um Servidor"
 
-#: widgets/webdav/webdavaddserverdialog.cpp:28
+#: widgets/webdav/webdavaddserverdialog.cpp:29
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Server"
@@ -13544,9 +13551,6 @@ msgstr "Algumas correcções de erros:"
 
 #~ msgid "Search channels..."
 #~ msgstr "Procurar por canais..."
-
-#~ msgid "Open..."
-#~ msgstr "Abrir..."
 
 #~ msgid "Search rooms..."
 #~ msgstr "Procurar por salas..."

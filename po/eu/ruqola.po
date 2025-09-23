@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:42+0000\n"
+"POT-Creation-Date: 2025-09-23 00:42+0000\n"
 "PO-Revision-Date: 2025-09-21 02:21+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -8936,7 +8936,7 @@ msgid "Video: %1"
 msgstr "Bideoa: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:483
+#: widgets/room/messagelinewidget.cpp:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10349,37 +10349,44 @@ msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Zifratu mezuak"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Eranskina ireki?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Eranskina ireki <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
+#, fuzzy, kde-format
+#| msgid "Open..."
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Ireki..."
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Ireki '%1'(r)ekin"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Ireki &honekin…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Gorde &honela…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:160
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:165
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -10538,50 +10545,50 @@ msgstr "Bidali mezua"
 msgid "Send Message"
 msgstr "Bidali mezua"
 
-#: widgets/room/messagelinewidget.cpp:204
+#: widgets/room/messagelinewidget.cpp:205
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Komandoak huts egin du. Komandoa arbelean kopiatu nahi duzu?"
 
-#: widgets/room/messagelinewidget.cpp:205
+#: widgets/room/messagelinewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Komando errorea"
 
-#: widgets/room/messagelinewidget.cpp:262
+#: widgets/room/messagelinewidget.cpp:263
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Testu handi hau eranskin bihurtu nahi duzu?"
 
-#: widgets/room/messagelinewidget.cpp:263
+#: widgets/room/messagelinewidget.cpp:264
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Mezua handiegia"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "%1 mezua harian"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Bidali %1(e)ko mezu bat…"
 
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:507
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Hautatutako fitxategia handiegia da (Gehienezko neurria %1)"
 
-#: widgets/room/messagelinewidget.cpp:507
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Fitxategia zama-igotzea"
 
-#: widgets/room/messagelinewidget.cpp:512
+#: widgets/room/messagelinewidget.cpp:513
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Zerbitzariak ez du fitxategi hori baimentzen (MIME-mota baliogabea)"
@@ -10935,39 +10942,39 @@ msgstr "Hari batean erantzutea"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Erantzun harian mezuari: '%1'"
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:375
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Historia benetan kendu nahi duzu?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Kendu historia"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:410
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:411
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Zifratutako edukia ezin da bilatu."
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Bilatu mezua"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:590
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10975,7 +10982,7 @@ msgstr ""
 "Langunearen administratzaile batek konferentzia aplikazio bat instalatu eta "
 "konfiguratu behar du."
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:591
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11675,7 +11682,7 @@ msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Gehitu WebDAV zerbitzari berria"
 
-#: widgets/webdav/webdavaddserverdialog.cpp:28
+#: widgets/webdav/webdavaddserverdialog.cpp:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
@@ -12585,9 +12592,6 @@ msgstr "Akatsak konponketa batzuk:"
 
 #~ msgid "Search channels..."
 #~ msgstr "Bilatu kanalak..."
-
-#~ msgid "Open..."
-#~ msgstr "Ireki..."
 
 #~ msgid "Search rooms..."
 #~ msgstr "Bilatu gelak..."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:42+0000\n"
+"POT-Creation-Date: 2025-09-23 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -8910,7 +8910,7 @@ msgid "Video: %1"
 msgstr "विडियो: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:483
+#: widgets/room/messagelinewidget.cpp:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10308,13 +10308,13 @@ msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "सन्देशान् एन्क्रिप्ट् कुर्वन्तु"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:114
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Open Attachment ?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
@@ -10323,22 +10323,28 @@ msgstr "संलग्नकं <filename>%1</filename>?<nl/> उद्घा�
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:119
 #, kde-format
 msgctxt "@action:button"
+msgid "Open"
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#, kde-format
+msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&'%1' इत्यनेन सह उद्घाटयतु।"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Open &With..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Save &As..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:160
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:165
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -10501,50 +10507,50 @@ msgstr "सन्देशं प्रेषयन्तु"
 msgid "Send Message"
 msgstr "सन्देशं प्रेषयतु"
 
-#: widgets/room/messagelinewidget.cpp:204
+#: widgets/room/messagelinewidget.cpp:205
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:205
+#: widgets/room/messagelinewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:262
+#: widgets/room/messagelinewidget.cpp:263
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "किं भवन्तः एतत् महत् पाठं संलग्नकरूपेण परिवर्तयितुम् इच्छन्ति?"
 
-#: widgets/room/messagelinewidget.cpp:263
+#: widgets/room/messagelinewidget.cpp:264
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "सन्देशः अतीव विशालः"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "थ्रेड् मध्ये %1 सन्देशः"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:365
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "%1 इत्यत्र सन्देशं प्रेषयन्तु..."
 
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:507
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "चयनिता सञ्चिका अतीव विशाला अस्ति (अधिकतमः आकारः %1) ।"
 
-#: widgets/room/messagelinewidget.cpp:507
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "सञ्चिका अपलोड्"
 
-#: widgets/room/messagelinewidget.cpp:512
+#: widgets/room/messagelinewidget.cpp:513
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "सर्वरः एतां सञ्चिकां न अधिकृतयति (अवैधं mimetype)"
@@ -10908,34 +10914,34 @@ msgstr "सूत्रेण उत्तरं ददाति"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "सन्देशस्य कृते सूत्रे उत्तरम्: '%1'."
 
-#: widgets/room/roomwidget.cpp:340
+#: widgets/room/roomwidget.cpp:375
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "किं भवन्तः वास्तवमेव इतिहासं दूरीकर्तुं इच्छन्ति ?"
 
-#: widgets/room/roomwidget.cpp:341
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "इतिहासं निष्कासयन्तु"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:410
 #, kde-format
 msgid "Export Messages"
 msgstr "सन्देशान् निर्यातयन्तु"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:411
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "भवतः ईमेल प्रेषणार्थं पङ्क्तिबद्धा अस्ति।"
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "प्रत्यक्षसन्देशाः संग्रहीतुं न शक्यन्ते"
 
-#: widgets/room/roomwidget.cpp:536
+#: widgets/room/roomwidget.cpp:571
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -10943,13 +10949,13 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "सन्देशान् अन्वेष्टुम्"
 
-#: widgets/room/roomwidget.cpp:555
+#: widgets/room/roomwidget.cpp:590
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "कार्यक्षेत्रप्रशासकेन सम्मेलन-कॉल-अनुप्रयोगाः संस्थापनं विन्यस्तं च करणीयम् ।"
 
-#: widgets/room/roomwidget.cpp:556
+#: widgets/room/roomwidget.cpp:591
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11649,7 +11655,7 @@ msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Server योजयतु"
 
-#: widgets/webdav/webdavaddserverdialog.cpp:28
+#: widgets/webdav/webdavaddserverdialog.cpp:29
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Server"
