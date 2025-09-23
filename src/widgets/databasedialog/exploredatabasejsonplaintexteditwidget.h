@@ -6,7 +6,6 @@
 #pragma once
 
 #include <KSyntaxHighlighting/Repository>
-#include <QWidget>
 #include <TextCustomEditor/PlainTextEditor>
 
 namespace TextCustomEditor
