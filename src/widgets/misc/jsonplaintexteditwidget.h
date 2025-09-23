@@ -5,14 +5,14 @@
 */
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <KSyntaxHighlighting/Repository>
 #include <TextCustomEditor/PlainTextEditor>
-
 namespace TextCustomEditor
 {
 class PlainTextEditorWidget;
 }
-class JsonPlainTextEditor : public TextCustomEditor::PlainTextEditor
+class LIBRUQOLAWIDGETS_TESTS_EXPORT JsonPlainTextEditor : public TextCustomEditor::PlainTextEditor
 {
     Q_OBJECT
 public:
@@ -20,7 +20,7 @@ public:
     ~JsonPlainTextEditor() override;
 };
 
-class JsonPlainTextEditWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT JsonPlainTextEditWidget : public QWidget
 {
     Q_OBJECT
 public:
