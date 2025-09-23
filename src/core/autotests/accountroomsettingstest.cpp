@@ -19,12 +19,13 @@ void AccountRoomSettingsTest::shouldHaveDefaultValues()
     AccountRoomSettings s;
     QVERIFY(s.isEmpty());
 
-    AccountRoomSettings::PendingTypedInfo info;
+    const AccountRoomSettings::PendingTypedInfo info;
     QVERIFY(info.text.isEmpty());
     QVERIFY(info.messageIdBeingEdited.isEmpty());
     QVERIFY(info.threadMessageId.isEmpty());
     QCOMPARE(info.scrollbarPosition, -1);
     QVERIFY(!info.isValid());
+    QVERIFY(!info.hasPendingMessageTyped());
 }
 
 void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
@@ -34,18 +35,21 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
         QVERIFY(!info.isValid());
         info.messageIdBeingEdited = "foo"_ba;
         QVERIFY(info.isValid());
+        QVERIFY(!info.hasPendingMessageTyped());
     }
     {
         AccountRoomSettings::PendingTypedInfo info;
         QVERIFY(!info.isValid());
         info.text = u"foo"_s;
         QVERIFY(info.isValid());
+        QVERIFY(info.hasPendingMessageTyped());
     }
     {
         AccountRoomSettings::PendingTypedInfo info;
         QVERIFY(!info.isValid());
         info.scrollbarPosition = 2;
         QVERIFY(info.isValid());
+        QVERIFY(!info.hasPendingMessageTyped());
     }
 }
 

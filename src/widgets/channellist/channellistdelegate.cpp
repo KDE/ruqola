@@ -6,7 +6,6 @@
 */
 
 #include "channellistdelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
@@ -27,6 +26,7 @@ constexpr ushort padding = 2;
 constexpr ushort extraMargins = 2 * padding;
 }
 
+using namespace Qt::Literals::StringLiterals;
 ChannelListDelegate::ChannelListDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
@@ -155,6 +155,12 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         if (index.data(RoomModel::UserOffline).toBool()) {
             optionCopy.palette.setBrush(QPalette::Text, ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color());
         }
+    }
+    const bool hasPendingMessageTyped = index.data(RoomModel::RoomHasPendingMessageTyped).toBool();
+    if (hasPendingMessageTyped) {
+        QFont font = optionCopy.font;
+        font.setItalic(true);
+        optionCopy.font = font;
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
     if (!isHeader && !layout.unreadText.isEmpty()) {

@@ -22,6 +22,7 @@ public:
         QString quoteText;
         int scrollbarPosition = -1;
         [[nodiscard]] bool isValid() const;
+        [[nodiscard]] bool hasPendingMessageTyped() const;
     };
     AccountRoomSettings();
     ~AccountRoomSettings();
@@ -30,7 +31,8 @@ public:
 
     void add(const QByteArray &roomId, const PendingTypedInfo &info);
 
-    [[nodiscard]] PendingTypedInfo value(const QByteArray &roomId);
+    [[nodiscard]] PendingTypedInfo value(const QByteArray &roomId) const;
+    [[nodiscard]] bool hasPendingMessageTyped(const QByteArray &roomId) const;
 
     [[nodiscard]] bool isEmpty() const;
 

@@ -7,6 +7,7 @@
  */
 
 #include "roommodel.h"
+#include "accountroomsettings.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "localdatabase/localroomsdatabase.h"
 using namespace Qt::Literals::StringLiterals;
@@ -193,6 +194,9 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return generateUnreadToolTip(r);
     case RoomModel::RoomMentionsInfoType:
         return QVariant::fromValue(mentionsInfoType(r));
+    case RoomModel::RoomHasPendingMessageTyped: {
+        return mRocketChatAccount ? mRocketChatAccount->accountRoomSettings()->hasPendingMessageTyped(r->roomId()) : false;
+    }
     }
     return {};
 }

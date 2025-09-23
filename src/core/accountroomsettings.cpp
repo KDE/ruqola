@@ -20,7 +20,12 @@ void AccountRoomSettings::add(const QByteArray &roomId, const PendingTypedInfo &
     mPendingTypedTexts[roomId] = info;
 }
 
-AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QByteArray &roomId)
+bool AccountRoomSettings::hasPendingMessageTyped(const QByteArray &roomId) const
+{
+    return mPendingTypedTexts.value(roomId).hasPendingMessageTyped();
+}
+
+AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QByteArray &roomId) const
 {
     return mPendingTypedTexts.value(roomId);
 }
@@ -28,6 +33,11 @@ AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QByteArra
 bool AccountRoomSettings::isEmpty() const
 {
     return mPendingTypedTexts.isEmpty();
+}
+
+bool AccountRoomSettings::PendingTypedInfo::hasPendingMessageTyped() const
+{
+    return !text.isEmpty();
 }
 
 bool AccountRoomSettings::PendingTypedInfo::isValid() const
