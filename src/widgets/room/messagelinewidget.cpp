@@ -372,8 +372,8 @@ QString MessageLineWidget::quotePermalink() const
 
 void MessageLineWidget::clearMessageIdBeingEdited()
 {
-    MessagesModel *model = messageModel();
     if (!mMessageIdBeingEdited.isEmpty()) {
+        MessagesModel *model = messageModel();
         const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
         if (index.isValid()) {
             model->setData(index, false, MessagesModel::MessageInEditMode);
