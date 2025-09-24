@@ -706,6 +706,9 @@ target_sources(
         room/debugdialog/showdebugwidget.h
         room/debugdialog/showdebugwidget.cpp
 
+        room/newmessageindicator.h
+        room/newmessageindicator.cpp
+
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h
