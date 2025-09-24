@@ -740,7 +740,7 @@ void MessageListView::addDebugMenu(QMenu &menu, const QModelIndex &index)
         qDebug() << " mRoom " << *mRoom;
 
         ShowDebugDialog d(this);
-        d.setPlainText(QString::fromLatin1(Room::serialize(mRoom, false)));
+        d.setPlainText(QString::fromUtf8(Room::serialize(mRoom, false)));
         d.exec();
     });
     menu.addAction(debugRoomAction);
@@ -780,7 +780,7 @@ void MessageListView::slotDebugMessage(const QModelIndex &index)
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     qDebug() << " message " << *message << " MessageConvertedText " << index.data(MessagesModel::MessageConvertedText).toString();
     ShowDebugDialog d(this);
-    d.setPlainText(QString::fromLatin1(Message::serialize(*message, false)));
+    d.setPlainText(QString::fromUtf8(Message::serialize(*message, false)));
     d.exec();
 }
 
