@@ -739,7 +739,6 @@ void RoomWidget::setChannelSelected(const QByteArray &roomId, Room::RoomType roo
         if (currentPendingInfo.scrollbarPosition != -1) {
             mRoomWidgetBase->messageListView()->verticalScrollBar()->setValue(currentPendingInfo.scrollbarPosition);
         }
-        mCurrentRocketChatAccount->accountRoomSettings()->remove(roomId);
     } else {
         mRoomWidgetBase->messageLineWidget()->setText(QString());
     }

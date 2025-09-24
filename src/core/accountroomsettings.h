@@ -31,7 +31,7 @@ public:
 
     void add(const QByteArray &roomId, const PendingTypedInfo &info);
 
-    [[nodiscard]] PendingTypedInfo value(const QByteArray &roomId) const;
+    [[nodiscard]] PendingTypedInfo value(const QByteArray &roomId);
     [[nodiscard]] bool hasPendingMessageTyped(const QByteArray &roomId) const;
 
     [[nodiscard]] bool isEmpty() const;

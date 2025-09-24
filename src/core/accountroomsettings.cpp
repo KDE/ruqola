@@ -25,9 +25,9 @@ bool AccountRoomSettings::hasPendingMessageTyped(const QByteArray &roomId) const
     return mPendingTypedTexts.value(roomId).hasPendingMessageTyped();
 }
 
-AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QByteArray &roomId) const
+AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QByteArray &roomId)
 {
-    return mPendingTypedTexts.value(roomId);
+    return mPendingTypedTexts.take(roomId);
 }
 
 bool AccountRoomSettings::isEmpty() const
