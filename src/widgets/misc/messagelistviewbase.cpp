@@ -34,6 +34,9 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
         connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);
         mPluginTextInterface.append(plugin->createInterface(this));
     }
+    connect(verticalScrollBar(), &QScrollBar::valueChanged, this, [this](int value) {
+        mAtBottom = value == verticalScrollBar()->maximum();
+    });
 }
 
 MessageListViewBase::~MessageListViewBase()
