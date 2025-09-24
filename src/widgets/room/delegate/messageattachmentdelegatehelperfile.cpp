@@ -115,10 +115,10 @@ static UserChoice askUser(const QUrl &url, const KService::Ptr &offer, QWidget *
     const QString title = i18nc("@title:window", "Open Attachment?");
     const QString text = xi18nc("@info", "Open attachment <filename>%1</filename>?<nl/>", url.fileName());
     QMessageBox msgBox(QMessageBox::Question, title, text, QMessageBox::NoButton, widget);
+    const char *prop = "_enumValue";
 #if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
     msgBox.addButton(i18nc("@action:button", "Open"), QMessageBox::YesRole)->setProperty(prop, QVariant::fromValue(UserChoice::Open));
 #else
-    const char *prop = "_enumValue";
     if (offer) {
         auto *b = msgBox.addButton(i18nc("@action:button", "&Open With '%1'", offer->name()), QMessageBox::YesRole);
         b->setProperty(prop, QVariant::fromValue(UserChoice::Open));
