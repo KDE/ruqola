@@ -53,5 +53,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void handleMouseEvent(QMouseEvent *event);
     bool mAtBottom = true;
     QPoint mPressedPosition;
-    QPersistentModelIndex mCurrentIndex = {};
+    QPersistentModelIndex mCurrentIndex;
 };
