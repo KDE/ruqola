@@ -18,6 +18,7 @@
 #include "chat/unfollowmessagejob.h"
 
 #include "forwardmessage/forwardmessagedialog.h"
+#include "misc/emoticonmenuwidget.h"
 #include "moderation/moderationdismissreportsjob.h"
 
 #include "connection.h"
@@ -250,6 +251,58 @@ void MessageListView::createTranslorMenu()
 #endif
 }
 
+static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
+{
+    const QRect screenRect = parentWindow->screen()->availableGeometry();
+
+    const QSize popupSize{popup->sizeHint()};
+    QRect popupRect(QPoint(pos.x() - popupSize.width(), pos.y() - popupSize.height()), popup->sizeHint());
+    if (popupRect.top() < screenRect.top()) {
+        popupRect.moveTop(screenRect.top());
+    }
+
+    if ((pos.x() + popupSize.width()) > (screenRect.x() + screenRect.width())) {
+        popupRect.setX(screenRect.x() + screenRect.width() - popupSize.width());
+    }
+    if (pos.x() - popupSize.width() < screenRect.x()) {
+        popupRect.setX(screenRect.x());
+    }
+
+    popup->setGeometry(popupRect);
+}
+void MessageListView::createEmojiWidgetAction(QMenu *menu, const QModelIndex &index)
+{
+    QList<EmojiWidgetAction::EmojiInfo> emojiList{
+        {.emojiStr = u"👍"_s, .emojiIdentifier = u":thumbsup:"_s},
+        {.emojiStr = u"👎"_s, .emojiIdentifier = u":thumbsdown:"_s},
+        {.emojiStr = u"😄"_s, .emojiIdentifier = u":smiley:"_s},
+        {.emojiStr = u"🎉"_s, .emojiIdentifier = u":tada:"_s},
+        {.emojiStr = u"👀"_s, .emojiIdentifier = u":eyes:"_s},
+    };
+
+    auto emojiWidgetAction = new EmojiWidgetAction(emojiList, menu);
+    connect(emojiWidgetAction, &EmojiWidgetAction::insertEmojiIdentifier, this, [this, index](const QString &identifier) {
+        const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+        mCurrentRocketChatAccount->reactOnMessage(messageId, identifier, true /*add*/);
+    });
+    connect(emojiWidgetAction, &EmojiWidgetAction::selectEmoji, this, [this, index]() {
+        auto mEmoticonMenuWidget = new EmoticonMenuWidget(this);
+        mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
+        mEmoticonMenuWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+        mEmoticonMenuWidget->forceLineEditFocus();
+        positionPopup(QCursor::pos(), this, mEmoticonMenuWidget);
+        mEmoticonMenuWidget->show();
+        connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, index](const QString &id) {
+            const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+            mCurrentRocketChatAccount->reactOnMessage(messageId, id, true /*add*/);
+        });
+        qDebug() << "selectEmoji ";
+    });
+
+    menu->addAction(emojiWidgetAction);
+    menu->addSeparator();
+}
+
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
@@ -449,9 +502,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     switch (mMode) {
     case Mode::Editing: {
-        auto emojiWidgetAction = new EmojiWidgetAction(&menu);
-        menu.addAction(emojiWidgetAction);
-        menu.addSeparator();
+        createEmojiWidgetAction(&menu, index);
 
         auto startDiscussion = new QAction(i18nc("@action", "Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [this, index]() {
@@ -532,9 +583,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         break;
     }
     case Mode::ThreadEditing: {
-        auto emojiWidgetAction = new EmojiWidgetAction(&menu);
-        menu.addAction(emojiWidgetAction);
-        menu.addSeparator();
+        createEmojiWidgetAction(&menu, index);
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
         }

@@ -103,6 +103,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotForwardMessage(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasSelection() const override;
+    LIBRUQOLAWIDGETS_NO_EXPORT void createEmojiWidgetAction(QMenu *menu, const QModelIndex &index);
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;
