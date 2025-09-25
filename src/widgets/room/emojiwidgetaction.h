@@ -8,19 +8,8 @@
 #include <QWidget>
 #include <QWidgetAction>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT EmojiWidgetActionWidget : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit EmojiWidgetActionWidget(QWidget *parent = nullptr);
-    ~EmojiWidgetActionWidget() override;
-
-Q_SIGNALS:
-    void insertEmoji(const QString &str);
-    void insertEmojiIdentifier(const QString &identifier);
-    void selectEmoji();
-};
-
+class QHBoxLayout;
+class EmojiWidgetActionWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmojiWidgetAction : public QWidgetAction
 {
     Q_OBJECT
@@ -43,4 +32,22 @@ Q_SIGNALS:
 private:
     EmojiWidgetActionWidget *const mEmojiWidgetActionWidget;
 };
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT EmojiWidgetActionWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit EmojiWidgetActionWidget(QWidget *parent = nullptr);
+    ~EmojiWidgetActionWidget() override;
+
+    void addDefaultEmojis(const QList<EmojiWidgetAction::EmojiInfo> &emojis);
+Q_SIGNALS:
+    void insertEmoji(const QString &str);
+    void insertEmojiIdentifier(const QString &identifier);
+    void selectEmoji();
+
+private:
+    QHBoxLayout *const mMainLayout;
+};
+
 Q_DECLARE_TYPEINFO(EmojiWidgetAction::EmojiInfo, Q_RELOCATABLE_TYPE);

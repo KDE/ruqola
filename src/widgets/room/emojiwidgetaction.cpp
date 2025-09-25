@@ -25,22 +25,39 @@ EmojiWidgetAction::~EmojiWidgetAction()
 
 void EmojiWidgetAction::addDefaultEmojis(const QList<EmojiInfo> &emojis)
 {
+    mEmojiWidgetActionWidget->addDefaultEmojis(emojis);
 }
 
 EmojiWidgetActionWidget::EmojiWidgetActionWidget(QWidget *parent)
     : QWidget(parent)
+    , mMainLayout(new QHBoxLayout(this))
 {
-    auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(u"mainLayout"_s);
-    mainLayout->setContentsMargins({});
-
-    auto toolButton = new QToolButton(this);
-    toolButton->setObjectName(u"toolButton"_s);
-    toolButton->setAutoRaise(true);
-    toolButton->setIcon(QIcon::fromTheme(u"list-remove"_s));
-    mainLayout->addWidget(toolButton);
+    mMainLayout->setObjectName(u"mainLayout"_s);
+    mMainLayout->setContentsMargins({});
+    const int defaultFontSize{22};
+    QFont f;
+    f.setPointSize(defaultFontSize);
+#ifdef Q_OS_WIN
+    f.setFamily(u"Segoe UI Emoji"_s);
+#else
+    f.setFamily(u"NotoColorEmoji"_s);
+#endif
 }
 
 EmojiWidgetActionWidget::~EmojiWidgetActionWidget() = default;
+
+void EmojiWidgetActionWidget::addDefaultEmojis(const QList<EmojiWidgetAction::EmojiInfo> &emojis)
+{
+    for (const auto &emoji : emojis) {
+        auto toolButton = new QToolButton(this);
+        toolButton->setAutoRaise(true);
+        toolButton->setText(emoji.emojiStr);
+        mMainLayout->addWidget(toolButton);
+        connect(toolButton, &QToolButton::clicked, this, [this, emoji]() {
+            Q_EMIT insertEmoji(emoji.emojiStr);
+            Q_EMIT insertEmojiIdentifier(emoji.emojiIdentifier);
+        });
+    }
+}
 
 #include "moc_emojiwidgetaction.cpp"
