@@ -24,6 +24,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Add Extension message line button."),
         kli18n("Allow to Add WebDav Server."),
         kli18n("Show room info (italic text) when there is some pending message typed."),
+        kli18n("Allow to add emoticon from popup menu."),
     };
     return info;
 }
