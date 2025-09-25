@@ -7,6 +7,7 @@
 #include "room/newmessageindicator.h"
 #include <QApplication>
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QStandardPaths>
 #include <QTextEdit>
 using namespace Qt::Literals::StringLiterals;
@@ -19,10 +20,18 @@ NewMessageIndicatorGui::NewMessageIndicatorGui(QWidget *parent)
     auto textEdit = new QTextEdit(this);
     mainLayout->addWidget(textEdit);
 
-    auto m = new NewMessageIndicator(this);
+    mNewMessageIndicator = new NewMessageIndicator(this);
+    mNewMessageIndicator->move(width() - mNewMessageIndicator->width() - 10, height() - (mNewMessageIndicator->height() * 2));
+    mNewMessageIndicator->showNewMessageIndicator(true);
 }
 
 NewMessageIndicatorGui::~NewMessageIndicatorGui() = default;
+
+void NewMessageIndicatorGui::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+    mNewMessageIndicator->move(width() - mNewMessageIndicator->width() - 10, height() - (mNewMessageIndicator->height() * 2));
+}
 
 int main(int argc, char *argv[])
 {

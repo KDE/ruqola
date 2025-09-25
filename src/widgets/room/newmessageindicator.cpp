@@ -15,18 +15,19 @@ NewMessageIndicator::NewMessageIndicator(QWidget *parent)
     setObjectName(u"NewMessageIndicator"_s);
     setFocusPolicy(Qt::NoFocus);
     auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins({});
     mainLayout->setObjectName(u"mainLayout"_s);
 
     mMessageWidget->setObjectName(u"messageWidget"_s);
-    mMessageWidget->setCloseButtonVisible(false);
+    // mMessageWidget->setCloseButtonVisible(false);
 
     mainLayout->addWidget(mMessageWidget);
 
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
 
     // by default, hide widgets
-    mMessageWidget->hide();
-    hide();
+    // mMessageWidget->hide();
+    // hide();
 
     mMessageWidget->setPosition(KMessageWidget::Inline);
     mMessageWidget->setText(i18n("New Message"));
