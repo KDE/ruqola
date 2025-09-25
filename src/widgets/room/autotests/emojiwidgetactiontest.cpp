@@ -5,12 +5,22 @@
 */
 
 #include "emojiwidgetactiontest.h"
+#include "room/emojiwidgetaction.h"
 #include <QTest>
+#include <qboxlayout.h>
 QTEST_MAIN(EmojiWidgetActionTest)
-
+using namespace Qt::Literals::StringLiterals;
 EmojiWidgetActionTest::EmojiWidgetActionTest(QObject *parent)
     : QObject{parent}
 {
+}
+
+void EmojiWidgetActionTest::shouldHaveDefaultValuesEmojiWidgetActionWidget()
+{
+    const EmojiWidgetActionWidget d;
+    auto mainLayout = d.findChild<QHBoxLayout *>(u"mainLayout"_s);
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }
 
 #include "moc_emojiwidgetactiontest.cpp"

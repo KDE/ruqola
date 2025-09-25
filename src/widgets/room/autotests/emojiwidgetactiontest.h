@@ -13,4 +13,7 @@ class EmojiWidgetActionTest : public QObject
 public:
     explicit EmojiWidgetActionTest(QObject *parent = nullptr);
     ~EmojiWidgetActionTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValuesEmojiWidgetActionWidget();
 };
