@@ -8,9 +8,9 @@
 #include <QIcon>
 #include <QToolButton>
 using namespace Qt::Literals::StringLiterals;
-EmojiWidgetAction::EmojiWidgetAction(QObject *parent)
+EmojiWidgetAction::EmojiWidgetAction(const QList<EmojiWidgetAction::EmojiInfo> &emojis, QObject *parent)
     : QWidgetAction{parent}
-    , mEmojiWidgetActionWidget(new EmojiWidgetActionWidget())
+    , mEmojiWidgetActionWidget(new EmojiWidgetActionWidget(emojis))
 {
     setDefaultWidget(mEmojiWidgetActionWidget);
     connect(mEmojiWidgetActionWidget, &EmojiWidgetActionWidget::insertEmoji, this, &EmojiWidgetAction::insertEmoji);
@@ -23,19 +23,14 @@ EmojiWidgetAction::~EmojiWidgetAction()
     delete mEmojiWidgetActionWidget;
 }
 
-void EmojiWidgetAction::addDefaultEmojis(const QList<EmojiInfo> &emojis)
-{
-    mEmojiWidgetActionWidget->addDefaultEmojis(emojis);
-}
-
-EmojiWidgetActionWidget::EmojiWidgetActionWidget(QWidget *parent)
+EmojiWidgetActionWidget::EmojiWidgetActionWidget(const QList<EmojiWidgetAction::EmojiInfo> &emojis, QWidget *parent)
     : QWidget(parent)
     , mMainLayout(new QHBoxLayout(this))
 {
     mMainLayout->setObjectName(u"mainLayout"_s);
     mMainLayout->setContentsMargins({});
     // TODO replace by ktextaddons/emoji font
-    const int defaultFontSize{22};
+    constexpr int defaultFontSize{14};
     QFont f;
     f.setPointSize(defaultFontSize);
 #ifdef Q_OS_WIN
@@ -43,6 +38,8 @@ EmojiWidgetActionWidget::EmojiWidgetActionWidget(QWidget *parent)
 #else
     f.setFamily(u"NotoColorEmoji"_s);
 #endif
+    setFont(f);
+    addDefaultEmojis(emojis);
 }
 
 EmojiWidgetActionWidget::~EmojiWidgetActionWidget() = default;
@@ -60,7 +57,8 @@ void EmojiWidgetActionWidget::addDefaultEmojis(const QList<EmojiWidgetAction::Em
         });
     }
     auto selectMoreEmojiButton = new QToolButton(this);
-    // TODO add icon
+    selectMoreEmojiButton->setObjectName(u"selectMoreEmojiButton"_s);
+    selectMoreEmojiButton->setIcon(QIcon::fromTheme(u"overflow-menu"_s));
     selectMoreEmojiButton->setAutoRaise(true);
     mMainLayout->addWidget(selectMoreEmojiButton);
     connect(selectMoreEmojiButton, &QToolButton::clicked, this, &EmojiWidgetActionWidget::selectEmoji);

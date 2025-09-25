@@ -10,19 +10,17 @@
 
 class QHBoxLayout;
 class EmojiWidgetActionWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT EmojiWidgetAction : public QWidgetAction
+class LIBRUQOLAWIDGETS_EXPORT EmojiWidgetAction : public QWidgetAction
 {
     Q_OBJECT
 public:
-    struct EmojiInfo {
+    struct LIBRUQOLAWIDGETS_EXPORT EmojiInfo {
         QString emojiStr;
         QString emojiIdentifier;
     };
 
-    explicit EmojiWidgetAction(QObject *parent = nullptr);
+    explicit EmojiWidgetAction(const QList<EmojiWidgetAction::EmojiInfo> &emojis, QObject *parent = nullptr);
     ~EmojiWidgetAction() override;
-
-    void addDefaultEmojis(const QList<EmojiInfo> &emojis);
 
 Q_SIGNALS:
     void insertEmoji(const QString &str);
@@ -37,16 +35,16 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT EmojiWidgetActionWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit EmojiWidgetActionWidget(QWidget *parent = nullptr);
+    explicit EmojiWidgetActionWidget(const QList<EmojiWidgetAction::EmojiInfo> &emojis, QWidget *parent = nullptr);
     ~EmojiWidgetActionWidget() override;
 
-    void addDefaultEmojis(const QList<EmojiWidgetAction::EmojiInfo> &emojis);
 Q_SIGNALS:
     void insertEmoji(const QString &str);
     void insertEmojiIdentifier(const QString &identifier);
     void selectEmoji();
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void addDefaultEmojis(const QList<EmojiWidgetAction::EmojiInfo> &emojis);
     QHBoxLayout *const mMainLayout;
 };
 
