@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <KMessageWidget>
 #include <QWidget>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NewMessageIndicator : public QWidget
@@ -14,4 +15,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT NewMessageIndicator : public QWidget
 public:
     explicit NewMessageIndicator(QWidget *parent = nullptr);
     ~NewMessageIndicator() override;
+
+    void showNewMessageIndicator(bool visible);
+
+private:
+    KMessageWidget *const mMessageWidget;
 };
