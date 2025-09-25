@@ -19,18 +19,20 @@ NewMessageIndicator::NewMessageIndicator(QWidget *parent)
     mainLayout->setObjectName(u"mainLayout"_s);
 
     mMessageWidget->setObjectName(u"messageWidget"_s);
-    // mMessageWidget->setCloseButtonVisible(false);
+    mMessageWidget->setCloseButtonVisible(false);
 
     mainLayout->addWidget(mMessageWidget);
 
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
 
+    mMessageWidget->show();
     // by default, hide widgets
     // mMessageWidget->hide();
     // hide();
 
-    mMessageWidget->setPosition(KMessageWidget::Inline);
+    // mMessageWidget->setPosition(KMessageWidget::Inline);
     mMessageWidget->setText(i18n("New Message"));
+    mMessageWidget->setWordWrap(false);
     // TODO mMessageWidget->setIcon(QIcon::fromTheme(u""_s));
 
     mMessageWidget->setMessageType(KMessageWidget::Information);

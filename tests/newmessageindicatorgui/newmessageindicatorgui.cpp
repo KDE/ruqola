@@ -5,6 +5,7 @@
 */
 #include "newmessageindicatorgui.h"
 #include "room/newmessageindicator.h"
+#include <KMessageWidget>
 #include <QApplication>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -20,9 +21,14 @@ NewMessageIndicatorGui::NewMessageIndicatorGui(QWidget *parent)
     auto textEdit = new QTextEdit(this);
     mainLayout->addWidget(textEdit);
 
-    mNewMessageIndicator = new NewMessageIndicator(this);
-    mNewMessageIndicator->move(width() - mNewMessageIndicator->width() - 10, height() - (mNewMessageIndicator->height() * 2));
-    mNewMessageIndicator->showNewMessageIndicator(true);
+    mNewMessageIndicator = new KMessageWidget(this);
+    mNewMessageIndicator->setText(u"New Message"_s);
+    mNewMessageIndicator->setWordWrap(false);
+    mNewMessageIndicator->setFixedHeight(50);
+    mNewMessageIndicator->setFixedWidth(150);
+    mNewMessageIndicator->show();
+    mNewMessageIndicator->move(width() - mNewMessageIndicator->width() - 10, height() - (mNewMessageIndicator->height()));
+    // mNewMessageIndicator->showNewMessageIndicator(true);
 }
 
 NewMessageIndicatorGui::~NewMessageIndicatorGui() = default;
@@ -30,7 +36,7 @@ NewMessageIndicatorGui::~NewMessageIndicatorGui() = default;
 void NewMessageIndicatorGui::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
-    mNewMessageIndicator->move(width() - mNewMessageIndicator->width() - 10, height() - (mNewMessageIndicator->height() * 2));
+    mNewMessageIndicator->move(width() - mNewMessageIndicator->width() - 10, height() - (mNewMessageIndicator->height()));
 }
 
 int main(int argc, char *argv[])

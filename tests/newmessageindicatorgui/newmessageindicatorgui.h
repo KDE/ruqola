@@ -19,5 +19,5 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
 
 private:
-    NewMessageIndicator *mNewMessageIndicator = nullptr;
+    KMessageWidget *mNewMessageIndicator = nullptr;
 };
