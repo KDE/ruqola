@@ -13,6 +13,7 @@ NewMessageIndicator::NewMessageIndicator(QWidget *parent)
     setObjectName(u"NewMessageIndicator"_s);
     setFocusPolicy(Qt::NoFocus);
     auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(u"mainLayout"_s);
 }
 
 NewMessageIndicator::~NewMessageIndicator() = default;
