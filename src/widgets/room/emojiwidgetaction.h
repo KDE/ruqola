@@ -16,7 +16,8 @@ public:
     ~EmojiWidgetActionWidget() override;
 
 Q_SIGNALS:
-    void addEmoji(const QString &str);
+    void insertEmoji(const QString &str);
+    void insertEmojiIdentifier(const QString &identifier);
     void selectEmoji();
 };
 
@@ -28,7 +29,8 @@ public:
     ~EmojiWidgetAction() override;
 
 Q_SIGNALS:
-    void addEmoji(const QString &str);
+    void insertEmoji(const QString &str);
+    void insertEmojiIdentifier(const QString &identifier);
     void selectEmoji();
 
 private:

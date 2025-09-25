@@ -13,7 +13,8 @@ EmojiWidgetAction::EmojiWidgetAction(QObject *parent)
     , mEmojiWidgetActionWidget(new EmojiWidgetActionWidget())
 {
     setDefaultWidget(mEmojiWidgetActionWidget);
-    connect(mEmojiWidgetActionWidget, &EmojiWidgetActionWidget::addEmoji, this, &EmojiWidgetAction::addEmoji);
+    connect(mEmojiWidgetActionWidget, &EmojiWidgetActionWidget::insertEmoji, this, &EmojiWidgetAction::insertEmoji);
+    connect(mEmojiWidgetActionWidget, &EmojiWidgetActionWidget::insertEmojiIdentifier, this, &EmojiWidgetAction::insertEmojiIdentifier);
     connect(mEmojiWidgetActionWidget, &EmojiWidgetActionWidget::selectEmoji, this, &EmojiWidgetAction::selectEmoji);
 }
 
