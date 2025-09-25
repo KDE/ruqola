@@ -5,10 +5,10 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
-class NewMessageIndicator : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT NewMessageIndicator : public QWidget
 {
     Q_OBJECT
 public:
