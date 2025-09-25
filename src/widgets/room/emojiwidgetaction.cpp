@@ -34,6 +34,7 @@ EmojiWidgetActionWidget::EmojiWidgetActionWidget(QWidget *parent)
 {
     mMainLayout->setObjectName(u"mainLayout"_s);
     mMainLayout->setContentsMargins({});
+    // TODO replace by ktextaddons/emoji font
     const int defaultFontSize{22};
     QFont f;
     f.setPointSize(defaultFontSize);
@@ -58,6 +59,13 @@ void EmojiWidgetActionWidget::addDefaultEmojis(const QList<EmojiWidgetAction::Em
             Q_EMIT insertEmojiIdentifier(emoji.emojiIdentifier);
         });
     }
+    auto selectMoreEmojiButton = new QToolButton(this);
+    // TODO add icon
+    selectMoreEmojiButton->setAutoRaise(true);
+    mMainLayout->addWidget(selectMoreEmojiButton);
+    connect(selectMoreEmojiButton, &QToolButton::clicked, this, &EmojiWidgetActionWidget::selectEmoji);
+
+    mMainLayout->addStretch(1);
 }
 
 #include "moc_emojiwidgetaction.cpp"
