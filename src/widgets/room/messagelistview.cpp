@@ -29,6 +29,7 @@
 #include "room.h"
 #include "room/actionbuttonsgenerator.h"
 #include "room/debugdialog/showdebugdialog.h"
+#include "room/emojiwidgetaction.h"
 #include "roomutil.h"
 #include "ruqola.h"
 #include "ruqola_translatemessage_debug.h"
@@ -448,6 +449,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     switch (mMode) {
     case Mode::Editing: {
+        auto emojiWidgetAction = new EmojiWidgetAction(&menu);
+        menu.addAction(emojiWidgetAction);
+        menu.addSeparator();
+
         auto startDiscussion = new QAction(i18nc("@action", "Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [this, index]() {
             slotStartDiscussion(index);
@@ -527,6 +532,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         break;
     }
     case Mode::ThreadEditing: {
+        auto emojiWidgetAction = new EmojiWidgetAction(&menu);
+        menu.addAction(emojiWidgetAction);
+        menu.addSeparator();
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
         }
