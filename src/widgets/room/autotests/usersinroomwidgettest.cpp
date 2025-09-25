@@ -5,7 +5,6 @@
 */
 
 #include "usersinroomwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/usersinroomcombobox.h"
 #include "room/usersinroomlistview.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(UsersInRoomWidgetTest)
 
+using namespace Qt::Literals::StringLiterals;
 UsersInRoomWidgetTest::UsersInRoomWidgetTest(QObject *parent)
     : QObject(parent)
 {
