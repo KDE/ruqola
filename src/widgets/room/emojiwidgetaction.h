@@ -25,8 +25,15 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT EmojiWidgetAction : public QWidgetAction
 {
     Q_OBJECT
 public:
+    struct EmojiInfo {
+        QString emojiStr;
+        QString emojiIdentifier;
+    };
+
     explicit EmojiWidgetAction(QObject *parent = nullptr);
     ~EmojiWidgetAction() override;
+
+    void addDefaultEmojis(const QList<EmojiInfo> &emojis);
 
 Q_SIGNALS:
     void insertEmoji(const QString &str);
@@ -36,3 +43,4 @@ Q_SIGNALS:
 private:
     EmojiWidgetActionWidget *const mEmojiWidgetActionWidget;
 };
+Q_DECLARE_TYPEINFO(EmojiWidgetAction::EmojiInfo, Q_RELOCATABLE_TYPE);

@@ -23,6 +23,10 @@ EmojiWidgetAction::~EmojiWidgetAction()
     delete mEmojiWidgetActionWidget;
 }
 
+void EmojiWidgetAction::addDefaultEmojis(const QList<EmojiInfo> &emojis)
+{
+}
+
 EmojiWidgetActionWidget::EmojiWidgetActionWidget(QWidget *parent)
     : QWidget(parent)
 {
