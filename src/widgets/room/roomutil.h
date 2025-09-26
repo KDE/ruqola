@@ -9,8 +9,10 @@
 #include "libruqolawidgets_private_export.h"
 #include "room.h"
 #include <QString>
+#include <QWidget>
 namespace RoomUtil
 {
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString generateUserLink(const QString &userName);
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString generatePermalink(const QString &messageId, const QString &roomId, Room::RoomType channelType);
+void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup);
 }

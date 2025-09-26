@@ -33,6 +33,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
+#include "room/roomutil.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
@@ -759,26 +760,6 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     return size;
 }
 
-static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
-{
-    const QRect screenRect = parentWindow->screen()->availableGeometry();
-
-    const QSize popupSize{popup->sizeHint()};
-    QRect popupRect(QPoint(pos.x() - popupSize.width(), pos.y() - popupSize.height()), popup->sizeHint());
-    if (popupRect.top() < screenRect.top()) {
-        popupRect.moveTop(screenRect.top());
-    }
-
-    if ((pos.x() + popupSize.width()) > (screenRect.x() + screenRect.width())) {
-        popupRect.setX(screenRect.x() + screenRect.width() - popupSize.width());
-    }
-    if (pos.x() - popupSize.width() < screenRect.x()) {
-        popupRect.setX(screenRect.x());
-    }
-
-    popup->setGeometry(popupRect);
-}
-
 bool MessageListDelegate::isSystemMessage(const Message *message) const
 {
     const Message::MessageType messageType = message->messageType();
@@ -802,7 +783,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
                 mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
                 mEmoticonMenuWidget->forceLineEditFocus();
-                positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
+                RoomUtil::positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
                 mEmoticonMenuWidget->show();
                 connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, message](const QString &id) {
                     mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);

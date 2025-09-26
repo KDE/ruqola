@@ -249,25 +249,6 @@ void MessageListView::createTranslorMenu()
 #endif
 }
 
-static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
-{
-    const QRect screenRect = parentWindow->screen()->availableGeometry();
-
-    const QSize popupSize{popup->sizeHint()};
-    QRect popupRect(QPoint(pos.x() - popupSize.width(), pos.y() - popupSize.height()), popup->sizeHint());
-    if (popupRect.top() < screenRect.top()) {
-        popupRect.moveTop(screenRect.top());
-    }
-
-    if ((pos.x() + popupSize.width()) > (screenRect.x() + screenRect.width())) {
-        popupRect.setX(screenRect.x() + screenRect.width() - popupSize.width());
-    }
-    if (pos.x() - popupSize.width() < screenRect.x()) {
-        popupRect.setX(screenRect.x());
-    }
-
-    popup->setGeometry(popupRect);
-}
 void MessageListView::createEmojiWidgetAction(QMenu *menu, const QModelIndex &index)
 {
     QList<EmojiWidgetAction::EmojiInfo> emojiList{
@@ -288,13 +269,12 @@ void MessageListView::createEmojiWidgetAction(QMenu *menu, const QModelIndex &in
         mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
         mEmoticonMenuWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
         mEmoticonMenuWidget->forceLineEditFocus();
-        positionPopup(QCursor::pos(), this, mEmoticonMenuWidget);
+        RoomUtil::positionPopup(QCursor::pos(), this, mEmoticonMenuWidget);
         mEmoticonMenuWidget->show();
         connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, index](const QString &id) {
             const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
             mCurrentRocketChatAccount->reactOnMessage(messageId, id, true /*add*/);
         });
-        qDebug() << "selectEmoji ";
     });
 
     menu->addAction(emojiWidgetAction);

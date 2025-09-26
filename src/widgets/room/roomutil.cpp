@@ -5,9 +5,10 @@
 */
 
 #include "roomutil.h"
-using namespace Qt::Literals::StringLiterals;
-
 #include "ruqolawidgets_debug.h"
+#include <QScreen>
+
+using namespace Qt::Literals::StringLiterals;
 QString RoomUtil::generateUserLink(const QString &userName)
 {
     return u"ruqola:/user/"_s + userName;
@@ -32,4 +33,24 @@ QString RoomUtil::generatePermalink(const QString &messageId, const QString &roo
     }
     const QString result = u"%1%2?msg=%3"_s.arg(prefix, roomId, messageId);
     return result;
+}
+
+void RoomUtil::positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
+{
+    const QRect screenRect = parentWindow->screen()->availableGeometry();
+
+    const QSize popupSize{popup->sizeHint()};
+    QRect popupRect(QPoint(pos.x() - popupSize.width(), pos.y() - popupSize.height()), popup->sizeHint());
+    if (popupRect.top() < screenRect.top()) {
+        popupRect.moveTop(screenRect.top());
+    }
+
+    if ((pos.x() + popupSize.width()) > (screenRect.x() + screenRect.width())) {
+        popupRect.setX(screenRect.x() + screenRect.width() - popupSize.width());
+    }
+    if (pos.x() - popupSize.width() < screenRect.x()) {
+        popupRect.setX(screenRect.x());
+    }
+
+    popup->setGeometry(popupRect);
 }
