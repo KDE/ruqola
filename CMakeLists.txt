@@ -282,6 +282,10 @@ if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.7.57)
     set(HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT TRUE)
 endif()
 
+if(${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.7.84)
+    set(HAVE_TEXTEMOTICONSWIDGET_ACTIONWIDGET TRUE)
+endif()
+
 # shall we use DBus?
 # enabled per default on Linux & BSD systems
 set(USE_DBUS_DEFAULT OFF)
