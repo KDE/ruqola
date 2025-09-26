@@ -354,12 +354,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             slotDeleteMessage(index);
         });
     }
-
+#if 0
     auto selectAllAction = new QAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), &menu);
     selectAllAction->setShortcut(QKeySequence::SelectAll);
     connect(selectAllAction, &QAction::triggered, this, [this, index]() {
         slotSelectAll(index);
     });
+#endif
 
     auto markMessageAsUnReadAction = new QAction(QIcon::fromTheme(u"checkmark-symbolic"_s), i18nc("@action", "Mark Message As Unread"), &menu);
     connect(markMessageAsUnReadAction, &QAction::triggered, this, [this, index]() {
@@ -522,7 +523,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (!isVideoConferenceMessage) {
             menu.addAction(forwardMessageAction);
             menu.addSeparator();
-            menu.addAction(selectAllAction);
+            // menu.addAction(selectAllAction);
         }
 
         menu.addSeparator();
@@ -583,7 +584,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (!isVideoConferenceMessage) {
             menu.addAction(forwardMessageAction);
             menu.addSeparator();
-            menu.addAction(selectAllAction);
+            // menu.addAction(selectAllAction);
         }
         if (isNotOwnerOfMessage) {
             menu.addAction(markMessageAsUnReadAction);
@@ -642,8 +643,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addSeparator();
-        menu.addAction(selectAllAction);
-        menu.addSeparator();
+        // menu.addAction(selectAllAction);
+        // menu.addSeparator();
         auto dismissReports = new QAction(i18nc("@action", "Dismiss Reports"), &menu); // Add icon
         connect(dismissReports, &QAction::triggered, this, [this, message]() {
             const auto messageId = message->messageId();
@@ -688,7 +689,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (!isVideoConferenceMessage) {
             menu.addAction(forwardMessageAction);
             menu.addSeparator();
-            menu.addAction(selectAllAction);
+            // menu.addAction(selectAllAction);
         }
 #if 0
         createTranslorMenu();
