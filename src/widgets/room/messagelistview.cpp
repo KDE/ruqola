@@ -57,8 +57,6 @@
 #if HAVE_TEXT_TRANSLATOR
 #include "translatetext/translatetextjob.h"
 #include "translatetext/translatorenginemanager.h"
-#include <texttranslator_version.h>
-
 #include <TextTranslator/TranslatorMenu>
 #endif
 using namespace Qt::Literals::StringLiterals;
