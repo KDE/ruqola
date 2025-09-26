@@ -52,8 +52,9 @@
 #include <QPainter>
 #include <QScrollBar>
 
-#include "config-ruqola.h"
+#include "ruqolaglobalconfig.h"
 
+#include "config-ruqola.h"
 #if HAVE_TEXT_TRANSLATOR
 #include "translatetext/translatetextjob.h"
 #include "translatetext/translatorenginemanager.h"
@@ -714,7 +715,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
 
 #if HAVE_TEXT_TO_SPEECH
-    if (!isVideoConferenceMessage) {
+    if (!isVideoConferenceMessage && RuqolaGlobalConfig::self()->enableTextToSpeech()) {
         createSeparator(menu);
         auto speakAction = menu.addAction(QIcon::fromTheme(u"text-speak-symbolic"_s), i18nc("@action", "Speak Text"));
         connect(speakAction, &QAction::triggered, this, [this, index]() {

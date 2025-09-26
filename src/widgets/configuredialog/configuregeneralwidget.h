@@ -33,4 +33,5 @@ private:
 #if HAVE_ACTIVITY_SUPPORT
     QCheckBox *const mEnabledActivitySupport;
 #endif
+    QCheckBox *const mEnableTextToSpeech;
 };
