@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-27 00:42+0000\n"
-"PO-Revision-Date: 2025-09-26 15:01+0200\n"
+"PO-Revision-Date: 2025-09-27 10:48+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7750,12 +7750,10 @@ msgid "Enable Plasma Activities integration"
 msgstr "Integratie van activiteiten van Plasma inschakelen"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Text-To-Speech"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr "Tekst-naar-spraak configureren"
+msgstr "Tekst-naar-spraak inschakelen"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-27 00:42+0000\n"
-"PO-Revision-Date: 2025-09-20 17:52+0100\n"
+"PO-Revision-Date: 2025-09-27 18:10+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -7760,7 +7760,7 @@ msgstr "Activar integración con actividades de Plasma"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr ""
+msgstr "Activar texto a voz"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
@@ -10374,7 +10374,7 @@ msgstr "Cifrar mensajes"
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
-msgstr ""
+msgstr "Depurar"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
 #, kde-format
@@ -10392,7 +10392,7 @@ msgstr "¿Abrir adjunto <filename>%1</filename>?<nl/>"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
@@ -10505,12 +10505,10 @@ msgid "Add reaction"
 msgstr "Añadir reacción"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "Añadir servidor"
+msgstr "Añadir servidor WebDav"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, kde-format
@@ -10799,10 +10797,9 @@ msgid "Markdown Url"
 msgstr "URL de Markdown"
 
 #: widgets/room/newmessageindicator.cpp:34
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgid "New Message"
-msgstr "Enviar mensaje"
+msgstr "Nuevo mensaje"
 
 #: widgets/room/quicktextformatmessage.cpp:39
 #, kde-format
@@ -11711,31 +11708,26 @@ msgid "Check New Version"
 msgstr "Comprobar nueva versión"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
-msgstr "Añadir servidor"
+msgstr "Añadir nuevo servidor WebDAV"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
-msgstr "Añadir servidor"
+msgstr "Añadir servidor WebDAV"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "Url:"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "UserName"
+#, kde-format
 msgid "UserName:"
-msgstr "Nombre del usuario"
+msgstr "Nombre del usuario:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11795,19 +11787,18 @@ msgid "Add Extension message line button."
 msgstr "Añadida línea de extensión del mensaje."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Add Server"
 msgid "Allow to Add WebDav Server."
-msgstr "Añadir servidor"
+msgstr "Soporte para añadir servidor WebDav."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
+"Mostrar información de la sala (texto en cursiva) cuando hay algún mensaje "
+"siendo escrito."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 msgid "Allow to add emoticon from popup menu."
-msgstr ""
+msgstr "Soporte para añadir emoticono desde el menú emergente."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format

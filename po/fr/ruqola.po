@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-27 00:42+0000\n"
-"PO-Revision-Date: 2025-09-24 14:04+0200\n"
+"PO-Revision-Date: 2025-09-26 10:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -10429,8 +10429,7 @@ msgid "Encrypt Messages"
 msgstr "Chiffrer les messages"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Debug"
+#, kde-format
 msgctxt "@title:window"
 msgid "Debug"
 msgstr "Déboguer"
@@ -11850,15 +11849,14 @@ msgid "Add Extension message line button."
 msgstr "Bouton « Ajouter une ligne d'extension de message »."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Add Server"
 msgid "Allow to Add WebDav Server."
-msgstr "Ajouter un serveur"
+msgstr "Autoriser l'ajout d'un serveur « WebDav »."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
+"Afficher les informations du salon (Avec du texte en italique) lorsqu'un "
+"message saisi est en attente."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 msgid "Allow to add emoticon from popup menu."

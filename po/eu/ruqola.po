@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-27 00:42+0000\n"
-"PO-Revision-Date: 2025-09-21 02:21+0200\n"
+"PO-Revision-Date: 2025-09-27 13:36+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -7749,7 +7749,7 @@ msgstr "Gaitu Plasma Jardueren integrazioa"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr ""
+msgstr "Gaitu Testutik-hizketara"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
@@ -10356,7 +10356,7 @@ msgid "Encrypt Messages"
 msgstr "Zifratu mezuak"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Debug"
 msgstr "Araztu"
@@ -10374,11 +10374,10 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Eranskina ireki <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr "Ireki..."
+msgstr "Ireki"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
@@ -10782,10 +10781,9 @@ msgid "Markdown Url"
 msgstr "Markdown URLa"
 
 #: widgets/room/newmessageindicator.cpp:34
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgid "New Message"
-msgstr "Bidali mezua"
+msgstr "Mezu berria"
 
 #: widgets/room/quicktextformatmessage.cpp:39
 #, kde-format
@@ -11773,19 +11771,18 @@ msgid "Add Extension message line button."
 msgstr "Mezu-lerroan luzapenaren botoia gehitzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Add WebDav Server"
 msgid "Allow to Add WebDav Server."
-msgstr "Gehitu WebDav zerbitzaria"
+msgstr "WebDav zerbitzaria gehitzea baimendu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
+"Tekleatutako mezuren bat bidaltzeke dagoenean, gelaren informazioa (testu "
+"etzana) erakustea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 msgid "Allow to add emoticon from popup menu."
-msgstr ""
+msgstr "Menu gainerakorretik emotikonoa gehitzea baimentzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-27 00:42+0000\n"
-"PO-Revision-Date: 2025-09-20 20:30+0400\n"
+"PO-Revision-Date: 2025-09-27 09:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -10354,7 +10354,7 @@ msgstr "عمّي الرسائل"
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
-msgstr ""
+msgstr "نقّح"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
 #, kde-format
@@ -10369,11 +10369,10 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "هل افتح المرفق <filename>%1</filename>؟<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr "افتح..."
+msgstr "افتح"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-format
@@ -10785,10 +10784,9 @@ msgid "Markdown Url"
 msgstr "رابط مارك‌داون"
 
 #: widgets/room/newmessageindicator.cpp:34
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgid "New Message"
-msgstr "أرسل رسالة"
+msgstr "رسالة جديدة"
 
 #: widgets/room/quicktextformatmessage.cpp:39
 #, kde-format
@@ -11775,11 +11773,8 @@ msgid "Add Extension message line button."
 msgstr "أضف زر سطر رسالة التمديد."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Add WebDav Server"
 msgid "Allow to Add WebDav Server."
-msgstr "أضف خادم WebDav"
+msgstr "اسمح بإضافة خادم WebDav."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."

@@ -11786,7 +11786,8 @@ msgid "Url:"
 msgstr ""
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "UserName:"
 msgid "UserName:"
 msgstr "Nazwa użytkownika:"
 

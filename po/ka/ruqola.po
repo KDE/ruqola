@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-27 00:42+0000\n"
-"PO-Revision-Date: 2025-09-26 05:34+0200\n"
+"PO-Revision-Date: 2025-09-27 03:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7704,12 +7704,10 @@ msgid "Enable Plasma Activities integration"
 msgstr "Plasma-ის აქტივობების ინტეგრაციის ჩართვა"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Text-To-Speech"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr "ტექსტის-ხმამაღლა-წაკითხვის მორგება"
+msgstr "ტექსტის წარმოთქმის ჩართვა"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
