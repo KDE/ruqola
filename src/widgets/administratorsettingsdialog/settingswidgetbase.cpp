@@ -58,10 +58,9 @@ bool SettingsWidgetBase::updateSettings(const QString &settingName,
 {
     bool status = false;
     if (mAccount) {
-        QString password;
         QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
         if (dialog->exec()) {
-            password = dialog->password();
+            const QString password = dialog->password();
             auto job = new RocketChatRestApi::UpdateAdminSettingsJob(this);
             RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo info;
             info.settingsValue = value;

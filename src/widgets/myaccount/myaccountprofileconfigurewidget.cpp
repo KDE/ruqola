@@ -220,9 +220,8 @@ void MyAccountProfileConfigureWidget::save()
     if (mRocketChatAccount->ownUser().servicePassword().email2faEnabled()) { // TODO verify it
         QPointer<AskTwoAuthenticationPasswordDialog> dlg = new AskTwoAuthenticationPasswordDialog(this);
         dlg->setRocketChatAccount(mRocketChatAccount);
-        QString code;
         if (dlg->exec()) {
-            code = dlg->code();
+            const QString code = dlg->code();
             qWarning() << " Code not used yet ! Implement it";
             // TODO use code !
         }

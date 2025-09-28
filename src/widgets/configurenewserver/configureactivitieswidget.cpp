@@ -20,7 +20,7 @@ namespace
 class CheckboxDelegate : public QItemDelegate
 {
 public:
-    CheckboxDelegate(QObject *parent)
+    explicit CheckboxDelegate(QObject *parent)
         : QItemDelegate(parent)
     {
     }
@@ -104,8 +104,8 @@ void ConfigureActivitiesWidget::setActivitiesSettings(const AccountManager::Acti
     bool listIsEmpty{activitySettings.activities.isEmpty()};
     mListView->setEnabled(activitySettings.enabled);
     mEnableActivitiesSupport->setChecked(activitySettings.enabled);
-    bool hasFoundActivities = false;
     if (!listIsEmpty) {
+        bool hasFoundActivities = false;
         for (int row = 0; row < model->rowCount(); ++row) {
             const auto index = model->index(row, 0);
             const auto activity = model->data(index, KActivities::ActivitiesModel::ActivityId).toString();

@@ -36,7 +36,6 @@ void RoomsImagesJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    const QByteArray roomId("bla");
     RoomsImagesJob::RoomsImagesJobInfo info;
     info.roomId = "room_id"_ba;
     info.startingFromId = "start_Id"_ba;

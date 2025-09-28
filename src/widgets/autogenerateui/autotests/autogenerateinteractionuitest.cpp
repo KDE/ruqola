@@ -43,7 +43,7 @@ void AutoGenerateInteractionUiTest::shouldLoadJson()
     const QJsonObject objUi = ui.generateJson(true);
     const QJsonDocument docSerialized = QJsonDocument(objUi);
     const QByteArray ba = docSerialized.toJson(QJsonDocument::Indented);
-    const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
+    const QByteArray jsonIndented = ba;
     QCOMPARE(QJsonDocument(ui.serializeState()).toJson(), serializeState);
 
     AutoTestHelper::compareFile("/autogenerateinteractionui/"_L1, jsonIndented, fileNameinit);

@@ -73,7 +73,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         val1.setEmojiIdentifier(u":vader:"_s);
         val1.setUpdatedAt(1560497261506);
         val1.setAliases({u":darth:"_s});
-        emojiList.append(std::move(val1));
+        emojiList.append(val1);
 
         QList<CustomEmoji> emojiListAfterDeleting;
         emojiListAfterDeleting.append(val1);
