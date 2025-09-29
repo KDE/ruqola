@@ -180,7 +180,7 @@ void RoomWidget::slotAddWebDavServer()
         job->setMethodCallJobInfo(info);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
             qDebug() << " replyObject " << replyObject;
         });
         if (!job->start()) {
