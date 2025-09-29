@@ -96,8 +96,6 @@ void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi:
                 setVisible(false);
             }
         }
-    } else {
-        qCWarning(RUQOLAWIDGETS_LOG) << "identifier " << identifier << " not found.";
     }
 }
 
