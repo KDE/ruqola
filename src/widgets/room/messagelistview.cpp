@@ -343,6 +343,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         return;
     }
+    if (mMode == Mode::ThreadEditing || mMode == Mode::Editing) {
+        createEmojiWidgetAction(&menu, index);
+    }
+
     const bool isVideoConferenceMessage = messageType == Message::VideoConference;
     mMessageListDelegate->attachmentContextMenu(options, index, info, &menu);
     const bool isNotOwnerOfMessage = (index.data(MessagesModel::UserId).toByteArray() != mCurrentRocketChatAccount->userId());
@@ -510,8 +514,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     switch (mMode) {
     case Mode::Editing: {
-        createEmojiWidgetAction(&menu, index);
-
         auto startDiscussion = new QAction(i18nc("@action", "Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [this, index]() {
             slotStartDiscussion(index);
@@ -591,7 +593,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         break;
     }
     case Mode::ThreadEditing: {
-        createEmojiWidgetAction(&menu, index);
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
         }
