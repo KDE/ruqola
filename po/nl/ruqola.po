@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"POT-Creation-Date: 2025-09-29 00:43+0000\n"
 "PO-Revision-Date: 2025-09-27 10:48+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -6739,31 +6739,31 @@ msgstr "Maximale leeftijd van een bericht in privé groepen"
 msgid "Maximum message age in direct messages"
 msgstr "Maximale leeftijd van een direct bericht"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "Grote onderneming"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
 msgstr "Licentie voor grote onderneming moet geactiveerd worden"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Toepassen"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:264
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:273
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:272
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"

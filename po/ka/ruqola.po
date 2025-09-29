@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"POT-Creation-Date: 2025-09-29 00:43+0000\n"
 "PO-Revision-Date: 2025-09-27 03:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6699,31 +6699,31 @@ msgstr "კონფიდენციალური არხის შეტ�
 msgid "Maximum message age in direct messages"
 msgstr "პირად შეტყობინებების მაქსიმალური ასაკი"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "კომპანიის"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
 msgstr "საჭიროა საწარმოს ლიცენზიის გააქტიურება"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "გადატარება"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:264
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:273
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:272
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"

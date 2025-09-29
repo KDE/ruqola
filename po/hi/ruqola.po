@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"POT-Creation-Date: 2025-09-29 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -6697,28 +6697,28 @@ msgstr "निजी समूहों में संदेश भेजन�
 msgid "Maximum message age in direct messages"
 msgstr "प्रत्यक्ष संदेशों में अधिकतम संदेश आयु"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
 #, fuzzy, kde-format
 #| msgid "Enterprise"
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "उद्यम"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
 #, fuzzy, kde-format
 #| msgid "Enterprise License"
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
 msgstr "एंटरप्राइज़ लाइसेंस"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
 #, fuzzy, kde-format
 #| msgid "Apply"
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "आवेदन करना"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:264
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Cancel"
@@ -6726,7 +6726,7 @@ msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "रद्द करना"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:273
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:272
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"

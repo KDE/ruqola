@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
-"PO-Revision-Date: 2025-09-26 10:03+0300\n"
+"POT-Creation-Date: 2025-09-29 00:43+0000\n"
+"PO-Revision-Date: 2025-09-28 20:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -6690,31 +6690,31 @@ msgstr "Özel gruplardaki en yüksek ileti yaşı"
 msgid "Maximum message age in direct messages"
 msgstr "Doğrudan iletilerdeki en yüksek ileti yaşı"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "Kurumsal"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
 msgstr "Kurumsal lisansın etkinleştirilmesi gerek"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Uygula"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:264
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "İptal"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:273
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:272
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
@@ -7694,7 +7694,7 @@ msgstr "Plasma Etkinlikler tümleştirmesini etkinleştir"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr ""
+msgstr "Metin konuşmayı etkinleştir"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format

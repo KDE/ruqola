@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"POT-Creation-Date: 2025-09-29 00:43+0000\n"
 "PO-Revision-Date: 2025-09-27 13:36+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -6737,31 +6737,31 @@ msgstr "Talde pribatuetan mezuen gehienezko adina"
 msgid "Maximum message age in direct messages"
 msgstr "Zuzeneko mezuetan mezuen gehienezko adina"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:234
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "Enpresa"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:237
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
 msgstr "Enpresa-lizentzia aktibatu beharra dago"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:253
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Aplikatu"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:264
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Utzi"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:273
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:272
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
