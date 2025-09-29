@@ -23,6 +23,7 @@ public:
     void restoreState(const QByteArray &state);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotContextMenu(const QPoint &pos);
     QTreeWidget *const mTreeWidget;
     KTreeWidgetSearchLine *const mSearchLineEdit;
 };

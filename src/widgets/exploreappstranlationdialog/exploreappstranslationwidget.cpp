@@ -9,6 +9,9 @@
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
+#include <QApplication>
+#include <QClipboard>
+#include <QMenu>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
@@ -34,9 +37,25 @@ ExploreAppsTranslationWidget::ExploreAppsTranslationWidget(QWidget *parent)
     mainLayout->addWidget(mTreeWidget);
 
     mTreeWidget->setHeaderLabels({i18n("Identifier"), i18n("Translation")});
+
+    mTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mTreeWidget, &QTreeWidget::customContextMenuRequested, this, &ExploreAppsTranslationWidget::slotContextMenu);
 }
 
 ExploreAppsTranslationWidget::~ExploreAppsTranslationWidget() = default;
+
+void ExploreAppsTranslationWidget::slotContextMenu(const QPoint &pos)
+{
+    QMenu menu(this);
+    const QModelIndex index = mTreeWidget->indexAt(pos);
+    menu.addAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy"), this, [index]() {
+        const QString currentValue = index.data().toString();
+        QClipboard *clip = QApplication::clipboard();
+        clip->setText(currentValue, QClipboard::Clipboard);
+        clip->setText(currentValue, QClipboard::Selection);
+    });
+    menu.exec(mTreeWidget->viewport()->mapToGlobal(pos));
+}
 
 void ExploreAppsTranslationWidget::setAppsLanguagesInfoMap(const QMap<QString, DownloadAppsLanguagesInfo> &map)
 {
