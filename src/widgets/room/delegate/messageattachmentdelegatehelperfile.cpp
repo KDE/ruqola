@@ -17,6 +17,7 @@
 #include <KIO/JobUiDelegate>
 #include <KIO/JobUiDelegateFactory>
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <KService>
 
 #include <QAbstractTextDocumentLayout>
@@ -152,6 +153,25 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
     });
 }
 
+static void openUrl(const QString &link, QWidget *widget, RocketChatAccount *account)
+{
+    std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + "/ruqola_attachment_XXXXXX"_L1));
+    if (!tempDir->isValid()) {
+        return;
+    }
+    tempDir->setAutoRemove(false); // can't delete them, same problem as in messagelib ViewerPrivate::attachmentOpenWith
+    const QString tempFile = tempDir->filePath(QUrl(link).fileName());
+    const QUrl fileUrl = QUrl::fromLocalFile(tempFile);
+
+    const QUrl downloadUrl = account->urlForLink(link);
+    auto *job = account->restApi()->downloadFile(downloadUrl, fileUrl, "text/plain"_ba);
+    QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, widget, [widget](const QUrl &, const QUrl &localFileUrl) {
+        if (!QDesktopServices::openUrl(localFileUrl)) {
+            KMessageBox::error(widget, i18n("Impossible to open %1", localFileUrl.toDisplayString()), i18nc("@title:window", "Error Opening File"));
+        }
+    });
+}
+
 void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &link, QWidget *widget)
 {
     const QUrl url(link);
@@ -171,7 +191,7 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     }
     case UserChoice::Open:
 #if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
-        QDesktopServices::openUrl(QUrl::fromUserInput(link));
+        openUrl(link, widget, mRocketChatAccount);
 #else
         runApplication(offer, link, widget, mRocketChatAccount);
 #endif
