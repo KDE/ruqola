@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "aiactionsplugintoolinterface.h"
+#include "aiactionsplugin_debug.h"
 #include <KLocalizedString>
 #include <QMenu>
 
@@ -16,11 +17,12 @@ AiActionsPluginToolInterface::~AiActionsPluginToolInterface() = default;
 
 void AiActionsPluginToolInterface::activateTool()
 {
-    // TODO
     switch (mActionAi) {
     case ActionAi::Unknown:
+        qCWarning(RUQOLA_AUTOGENERATETEXT_AIACTIONS_LOG) << "ActionAi::Unknown it's a bug";
         break;
     case ActionAi::SummarizeUnreads:
+        // TODO
         break;
     }
 }
