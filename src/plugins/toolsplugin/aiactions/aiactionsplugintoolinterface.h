@@ -24,5 +24,6 @@ public:
 
 private:
     void slotSummarize();
+    void slotSummarizeUnreadMessages();
     ActionAi mActionAi = ActionAi::Unknown;
 };
