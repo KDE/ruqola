@@ -550,8 +550,6 @@ if(HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME)
     target_sources(
         libruqolacore
         PRIVATE
-        ruqolaunicodeemoticonmanager.h
-        ruqolaunicodeemoticonmanager.cpp
         emoji.qrc
     )
 endif()

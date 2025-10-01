@@ -30,11 +30,8 @@
 #include <QDirIterator>
 #include <QSettings>
 #include <TextEmoticonsCore/EmojiModelManager>
-#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
-#include "ruqolaunicodeemoticonmanager.h"
-#else
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
-#endif
+
 using namespace Qt::Literals::StringLiterals;
 namespace
 {
@@ -55,7 +52,7 @@ AccountManager::AccountManager(QObject *parent)
 #endif
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
 #if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
-    RuqolaUnicodeEmoticonManager::self(u":/emoji_ruqola.json"_s);
+    TextEmoticonsCore::UnicodeEmoticonManager::self(u":/emoji_ruqola.json"_s);
 #else
     loadExcludeEmoticons();
 #endif
