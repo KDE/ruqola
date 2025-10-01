@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-30 00:43+0000\n"
+"POT-Creation-Date: 2025-10-01 00:45+0000\n"
 "PO-Revision-Date: 2025-09-28 09:20+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -2056,7 +2056,7 @@ msgstr ""
 msgid "AI Actions"
 msgstr "Actions de l'IA"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Résumer les messages non lus"
@@ -10433,43 +10433,57 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Déboguer"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Ouvrir la pièce jointe ?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Ouvrir la pièce jointe <filename>%1</filename> ? <nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Ouvrir"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Ouvrir avec « %1 »"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:126
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Ou&vrir avec..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Enregistrer &sous..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:165
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#, fuzzy, kde-format
+#| msgid "Impossible to open file"
+msgid "Impossible to open %1"
+msgstr "Impossible d'ouvrir un fichier"
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Error saving file"
+msgctxt "@title:window"
+msgid "Error Opening File"
+msgstr "Erreur lors de l'enregistrement du fichier"
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-30 00:43+0000\n"
-"PO-Revision-Date: 2025-09-24 14:41+0200\n"
+"POT-Creation-Date: 2025-10-01 00:45+0000\n"
+"PO-Revision-Date: 2025-09-28 07:45+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2049,7 +2049,7 @@ msgstr ""
 msgid "AI Actions"
 msgstr "Azioni IA"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:31
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Riepiloga i messaggi non letti"
@@ -7755,12 +7755,10 @@ msgid "Enable Plasma Activities integration"
 msgstr "Abilita l'integrazione delle attività di Plasma"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Text-To-Speech"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr "Configura sintesi vocale"
+msgstr "Abilita la sintesi vocale"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
@@ -10376,43 +10374,57 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Debug"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:115
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Aprire allegato?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Aprire l'allegato <filename>%1</filename>?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Apri"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "Apri c&on «%1»"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:126
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Apr&i con…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "S&alva come…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:165
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#, fuzzy, kde-format
+#| msgid "Impossible to open file"
+msgid "Impossible to open %1"
+msgstr "Impossibile aprire il file"
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Error saving file"
+msgctxt "@title:window"
+msgid "Error Opening File"
+msgstr "Errore nel salvataggio del file"
+
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -10796,10 +10808,9 @@ msgid "Markdown Url"
 msgstr "URL Markdown"
 
 #: widgets/room/newmessageindicator.cpp:34
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgid "New Message"
-msgstr "Invia messaggio"
+msgstr "Nuovo messaggio"
 
 #: widgets/room/quicktextformatmessage.cpp:39
 #, kde-format
@@ -11794,10 +11805,12 @@ msgstr "Consente di aggiungere server WebDav."
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
+"Se hai problemi con determinati colori sullo schermo, questi filtri possono "
+"trasformarli in altri colori."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 msgid "Allow to add emoticon from popup menu."
-msgstr ""
+msgstr "Consenti di aggiungere emoticon dal menu a comparsa."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
