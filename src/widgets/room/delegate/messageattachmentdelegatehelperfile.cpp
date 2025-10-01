@@ -153,6 +153,7 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
     });
 }
 
+#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
 static void openUrl(const QString &link, QWidget *widget, RocketChatAccount *account)
 {
     std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + "/ruqola_attachment_XXXXXX"_L1));
@@ -171,6 +172,7 @@ static void openUrl(const QString &link, QWidget *widget, RocketChatAccount *acc
         }
     });
 }
+#endif
 
 void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &link, QWidget *widget)
 {
