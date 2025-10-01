@@ -5,15 +5,14 @@
 */
 
 #include "aiactionsplugintool.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "aiactionsplugintoolinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QStandardPaths>
 
+using namespace Qt::Literals::StringLiterals;
 K_PLUGIN_CLASS_WITH_JSON(AiActionsPluginTool, "ruqola_aiactionstoolsplugin.json")
-
 AiActionsPluginTool::AiActionsPluginTool(QObject *parent, const QVariantList &)
     : PluginTool{parent}
 {

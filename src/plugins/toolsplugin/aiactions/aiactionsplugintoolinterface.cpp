@@ -5,6 +5,7 @@
 */
 #include "aiactionsplugintoolinterface.h"
 #include "aiactionsplugin_debug.h"
+#include "rocketchataccount.h"
 #include "ruqola.h"
 #include "textautogeneratetext_version.h"
 #include <KLocalizedString>
@@ -44,13 +45,13 @@ QMenu *AiActionsPluginToolInterface::menu(QWidget *parentWidget) const
 
 void AiActionsPluginToolInterface::slotSummarize()
 {
-    qDebug() << " void AiActionsPluginToolInterface::slotSummarize()";
     mActionAi = ActionAi::SummarizeUnreads;
     Q_EMIT activateRequested();
 }
 
 void AiActionsPluginToolInterface::slotSummarizeUnreadMessages()
 {
+    // TODO get message model info()
 #if TEXTAUTOGENERATETEXT_VERSION >= QT_VERSION_CHECK(1, 6, 50)
     TextAutoGenerateText::TextAutoGenerateQuickAskDialog d(Ruqola::self()->textAutoGenerateManager(), nullptr);
 #elif TEXTAUTOGENERATETEXT_VERSION >= QT_VERSION_CHECK(1, 6, 45)
