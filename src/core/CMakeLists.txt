@@ -544,6 +544,9 @@ target_sources(
 
         ruqolacommandlineparser.cpp
         ruqolacommandlineparser.h
+
+        ruqolaunicodeemoticonmanager.h
+        ruqolaunicodeemoticonmanager.cpp
 )
 
 if(USE_E2E_SUPPORT)
