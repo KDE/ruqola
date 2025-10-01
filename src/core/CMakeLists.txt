@@ -552,6 +552,7 @@ if(HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME)
         PRIVATE
         ruqolaunicodeemoticonmanager.h
         ruqolaunicodeemoticonmanager.cpp
+        emoji.qrc
     )
 endif()
 
