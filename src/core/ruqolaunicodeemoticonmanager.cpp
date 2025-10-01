@@ -45,3 +45,5 @@ int RuqolaUnicodeEmoticonManager::count() const
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->count();
 }
+
+#include "moc_ruqolaunicodeemoticonmanager.cpp"
