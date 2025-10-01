@@ -7,23 +7,18 @@
 #include "ruqolaunicodeemoticonmanager.h"
 
 using namespace Qt::Literals::StringLiterals;
-RuqolaUnicodeEmoticonManager::RuqolaUnicodeEmoticonManager(QObject *parent)
+RuqolaUnicodeEmoticonManager::RuqolaUnicodeEmoticonManager(const QString &filename, QObject *parent)
     : QObject{parent}
-    , mUnicodeEmoticonManager(TextEmoticonsCore::UnicodeEmoticonManager::self())
+    , mUnicodeEmoticonManager(TextEmoticonsCore::UnicodeEmoticonManager::self(filename))
 {
 }
 
 RuqolaUnicodeEmoticonManager::~RuqolaUnicodeEmoticonManager() = default;
 
-RuqolaUnicodeEmoticonManager *RuqolaUnicodeEmoticonManager::self()
+RuqolaUnicodeEmoticonManager *RuqolaUnicodeEmoticonManager::self(const QString &filename)
 {
-    static RuqolaUnicodeEmoticonManager s_self;
+    static RuqolaUnicodeEmoticonManager s_self(filename);
     return &s_self;
-}
-
-void RuqolaUnicodeEmoticonManager::loadUnicodeEmoji(const QString &filename)
-{
-    mUnicodeEmoticonManager->loadUnicodeEmoji(filename);
 }
 
 QList<TextEmoticonsCore::UnicodeEmoticon> RuqolaUnicodeEmoticonManager::unicodeEmojiList() const

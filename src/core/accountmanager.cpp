@@ -55,7 +55,7 @@ AccountManager::AccountManager(QObject *parent)
 #endif
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
 #if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
-    RuqolaUnicodeEmoticonManager::self()->loadUnicodeEmoji(u":/emoji_ruqola.json"_s);
+    RuqolaUnicodeEmoticonManager::self(u":/emoji_ruqola.json"_s);
 #else
     loadExcludeEmoticons();
 #endif

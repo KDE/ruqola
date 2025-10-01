@@ -12,18 +12,16 @@ class RuqolaUnicodeEmoticonManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit RuqolaUnicodeEmoticonManager(QObject *parent = nullptr);
+    explicit RuqolaUnicodeEmoticonManager(const QString &filename, QObject *parent = nullptr);
     ~RuqolaUnicodeEmoticonManager() override;
 
-    static RuqolaUnicodeEmoticonManager *self();
+    static RuqolaUnicodeEmoticonManager *self(const QString &filename = {});
 
     [[nodiscard]] QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmojiList() const;
     [[nodiscard]] QList<TextEmoticonsCore::EmoticonCategory> categories() const;
     [[nodiscard]] QList<TextEmoticonsCore::UnicodeEmoticon> emojisForCategory(const QString &category) const;
     [[nodiscard]] TextEmoticonsCore::UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
     [[nodiscard]] int count() const;
-
-    void loadUnicodeEmoji(const QString &filename);
 
 private:
     TextEmoticonsCore::UnicodeEmoticonManager *const mUnicodeEmoticonManager;
