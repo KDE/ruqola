@@ -544,10 +544,16 @@ target_sources(
 
         ruqolacommandlineparser.cpp
         ruqolacommandlineparser.h
+)
 
+if(HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME)
+    target_sources(
+        libruqolacore
+        PRIVATE
         ruqolaunicodeemoticonmanager.h
         ruqolaunicodeemoticonmanager.cpp
-)
+    )
+endif()
 
 if(USE_E2E_SUPPORT)
     target_sources(
