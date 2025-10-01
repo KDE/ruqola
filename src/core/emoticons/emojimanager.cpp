@@ -6,9 +6,14 @@
 
 #include "emoticons/emojimanager.h"
 
+#include "config-ruqola.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+#include "ruqolaunicodeemoticonmanager.h"
+#else
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
+#endif
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -25,17 +30,29 @@ EmojiManager::~EmojiManager() = default;
 
 QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
 {
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+    return RuqolaUnicodeEmoticonManager::self()->unicodeEmojiList();
+#else
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmojiList();
+#endif
 }
 
 QList<TextEmoticonsCore::EmoticonCategory> EmojiManager::categories() const
 {
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+    return RuqolaUnicodeEmoticonManager::self()->categories();
+#else
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->categories();
+#endif
 }
 
 QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category) const
 {
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+    return RuqolaUnicodeEmoticonManager::self()->emojisForCategory(category);
+#else
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->emojisForCategory(category);
+#endif
 }
 
 void EmojiManager::addUpdateEmojiCustomList(const QJsonArray &arrayEmojiCustomArray)
@@ -117,7 +134,11 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
 
 int EmojiManager::count() const
 {
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+    return mCustomEmojiList.count() + RuqolaUnicodeEmoticonManager::self()->count();
+#else
     return mCustomEmojiList.count() + TextEmoticonsCore::UnicodeEmoticonManager::self()->count();
+#endif
 }
 
 bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
@@ -135,7 +156,11 @@ bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
 
 TextEmoticonsCore::UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
 {
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+    return RuqolaUnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
+#else
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
+#endif
 }
 
 QString EmojiManager::customEmojiFileNameFromIdentifier(const QByteArray &emojiIdentifier) const

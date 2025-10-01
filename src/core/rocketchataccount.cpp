@@ -68,8 +68,11 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolalogger.h"
 #include "typingnotification.h"
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+#include "ruqolaunicodeemoticonmanager.h"
+#else
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
-
+#endif
 #include "channelcounterinfo.h"
 #include "connection.h"
 #include "directmessage/opendmjob.h"
@@ -186,7 +189,11 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrat
     mRocketChatBackend = new RocketChatBackend(this, this);
 
     // Load list of unicode emoticon
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+    RuqolaUnicodeEmoticonManager::self();
+#else
     TextEmoticonsCore::UnicodeEmoticonManager::self();
+#endif
 
     // After loadSettings
     mEmojiManager = new EmojiManager(this, this);
