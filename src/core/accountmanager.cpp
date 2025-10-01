@@ -30,6 +30,11 @@
 #include <QDirIterator>
 #include <QSettings>
 #include <TextEmoticonsCore/EmojiModelManager>
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+#include "ruqolaunicodeemoticonmanager.h"
+#else
+#include <TextEmoticonsCore/UnicodeEmoticonManager>
+#endif
 using namespace Qt::Literals::StringLiterals;
 namespace
 {
@@ -49,7 +54,11 @@ AccountManager::AccountManager(QObject *parent)
     // TODO disable/enable account
 #endif
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
+#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
+    RuqolaUnicodeEmoticonManager::self()->loadUnicodeEmoji(u":/emoji_ruqola.json"_s);
+#else
     loadExcludeEmoticons();
+#endif
     loadAccount();
     connect(this, &AccountManager::activitiesChanged, mRocketChatAccountProxyModel, &RocketChatAccountFilterProxyModel::slotActivitiesChanged);
 }
@@ -58,6 +67,7 @@ AccountManager::~AccountManager() = default;
 
 void AccountManager::loadExcludeEmoticons()
 {
+#if !HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
     const QStringList lst = QStringList({u":face_holding_back_tears:"_s,
                                          u":smiling_face_with_tear:"_s,
                                          u":disguised_face:"_s,
@@ -699,6 +709,7 @@ void AccountManager::loadExcludeEmoticons()
                                          u":flag_mf:"_s,
                                          u":yo_yo:"_s});
     TextEmoticonsCore::EmojiModelManager::self()->setExcludeEmoticons(lst);
+#endif
 }
 
 int AccountManager::accountNumber() const

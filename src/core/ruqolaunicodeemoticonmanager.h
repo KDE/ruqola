@@ -23,6 +23,8 @@ public:
     [[nodiscard]] TextEmoticonsCore::UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
     [[nodiscard]] int count() const;
 
+    void loadUnicodeEmoji(const QString &filename);
+
 private:
     TextEmoticonsCore::UnicodeEmoticonManager *const mUnicodeEmoticonManager;
 };

@@ -9,7 +9,7 @@
 using namespace Qt::Literals::StringLiterals;
 RuqolaUnicodeEmoticonManager::RuqolaUnicodeEmoticonManager(QObject *parent)
     : QObject{parent}
-    , mUnicodeEmoticonManager(new TextEmoticonsCore::UnicodeEmoticonManager(u":/emoji.json"_s, this))
+    , mUnicodeEmoticonManager(TextEmoticonsCore::UnicodeEmoticonManager::self())
 {
 }
 
@@ -19,6 +19,11 @@ RuqolaUnicodeEmoticonManager *RuqolaUnicodeEmoticonManager::self()
 {
     static RuqolaUnicodeEmoticonManager s_self;
     return &s_self;
+}
+
+void RuqolaUnicodeEmoticonManager::loadUnicodeEmoji(const QString &filename)
+{
+    mUnicodeEmoticonManager->loadUnicodeEmoji(filename);
 }
 
 QList<TextEmoticonsCore::UnicodeEmoticon> RuqolaUnicodeEmoticonManager::unicodeEmojiList() const

@@ -188,13 +188,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrat
 
     mRocketChatBackend = new RocketChatBackend(this, this);
 
-    // Load list of unicode emoticon
-#if HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME
-    RuqolaUnicodeEmoticonManager::self();
-#else
-    TextEmoticonsCore::UnicodeEmoticonManager::self();
-#endif
-
     // After loadSettings
     mEmojiManager = new EmojiManager(this, this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
