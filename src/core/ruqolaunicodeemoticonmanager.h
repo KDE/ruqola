@@ -7,10 +7,7 @@
 #pragma once
 
 #include <QObject>
-namespace TextEmoticonsCore
-{
-class UnicodeEmoticonManager;
-}
+#include <TextEmoticonsCore/UnicodeEmoticonManager>
 class RuqolaUnicodeEmoticonManager : public QObject
 {
     Q_OBJECT
@@ -19,6 +16,12 @@ public:
     ~RuqolaUnicodeEmoticonManager() override;
 
     static RuqolaUnicodeEmoticonManager *self();
+
+    [[nodiscard]] QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmojiList() const;
+    [[nodiscard]] QList<TextEmoticonsCore::EmoticonCategory> categories() const;
+    [[nodiscard]] QList<TextEmoticonsCore::UnicodeEmoticon> emojisForCategory(const QString &category) const;
+    [[nodiscard]] TextEmoticonsCore::UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
+    [[nodiscard]] int count() const;
 
 private:
     TextEmoticonsCore::UnicodeEmoticonManager *const mUnicodeEmoticonManager;
