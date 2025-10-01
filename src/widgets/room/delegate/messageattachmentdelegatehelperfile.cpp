@@ -20,6 +20,7 @@
 #include <KMessageBox>
 #include <KService>
 
+#include "ruqolawidgets_debug.h"
 #include <QAbstractTextDocumentLayout>
 #include <QDesktopServices>
 #include <QMessageBox>
@@ -136,6 +137,7 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
 {
     std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + "/ruqola_attachment_XXXXXX"_L1));
     if (!tempDir->isValid()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to create attachment temporary file";
         return;
     }
     tempDir->setAutoRemove(false); // can't delete them, same problem as in messagelib ViewerPrivate::attachmentOpenWith
@@ -158,6 +160,7 @@ static void openUrl(const QString &link, QWidget *widget, RocketChatAccount *acc
 {
     std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + "/ruqola_attachment_XXXXXX"_L1));
     if (!tempDir->isValid()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to create attachment temporary file";
         return;
     }
     tempDir->setAutoRemove(false); // can't delete them, same problem as in messagelib ViewerPrivate::attachmentOpenWith
