@@ -716,13 +716,13 @@ int AccountManager::accountNumber() const
 
 bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &parseInfo)
 {
-    auto account = mRocketChatAccountModel->accountFromServerUrl(parseInfo.serverHost);
-    if (account) {
+    auto rocketChatAccount = mRocketChatAccountModel->accountFromServerUrl(parseInfo.serverHost);
+    if (rocketChatAccount) {
         // const QString path{parseUrl.path()};
         const QByteArray messageId = parseInfo.messageId.toLatin1();
         qCDebug(RUQOLA_LOG) << " parseUrl " << parseInfo;
         // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
-        setCurrentAccount(account->accountName());
+        setCurrentAccount(rocketChatAccount->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
         Q_EMIT mCurrentAccount->raiseWindow();
         Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseInfo.roomId, parseInfo.roomIdType, parseInfo.channelType);
