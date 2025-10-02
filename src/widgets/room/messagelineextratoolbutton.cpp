@@ -34,10 +34,8 @@ MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;
 void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount) {
-        disconnect(mCurrentRocketChatAccount->actionButtonsManager(),
-                   &ActionButtonsManager::actionButtonsChanged,
-                   this,
-                   &MessageLineExtraToolButton::slotActionButtonChanged);
+        disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
+        disconnect(mCurrentRocketChatAccount->actionButtonsManager(), nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = account;
     mActionButtonsGenerator->setCurrentRocketChatAccount(account);
@@ -46,6 +44,8 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
                 &ActionButtonsManager::actionButtonsChanged,
                 this,
                 &MessageLineExtraToolButton::slotActionButtonChanged);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineExtraToolButton::updateWebDavSupport);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &MessageLineExtraToolButton::updateWebDavSupport);
     }
     mCurrentRocketChatAccount = account;
     updateWebDavSupport();
