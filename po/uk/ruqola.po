@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-01 00:45+0000\n"
-"PO-Revision-Date: 2025-09-27 16:38+0300\n"
+"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"PO-Revision-Date: 2025-10-01 18:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -177,12 +177,12 @@ msgstr "Нова можливість"
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
 
-#: core/accountmanager.cpp:875
+#: core/accountmanager.cpp:883
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Некоректний жетон запрошення"
 
-#: core/accountmanager.cpp:876
+#: core/accountmanager.cpp:884
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Жетон запрошення є некоректним. Створення облікового запису скасовано."
@@ -1797,7 +1797,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:685
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1806,12 +1806,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "Не з'єднано"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:695
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ще не з'єднано"
@@ -2056,12 +2056,12 @@ msgstr "Файл оприлюднено."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новий запит можна знайти тут:<br /><a href='%1'>%1</a> </qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, kde-format
 msgid "AI Actions"
 msgstr "Дії ШІ"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Резюме непрочитаних"
@@ -10429,57 +10429,54 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Діагностика"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Відкрити долучення?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Відкрити долучення <filename>%1</filename>?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Відкрити"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Відкрити за допомогою «%1»"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Відкрити з&а допомогою…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Зберегти &як…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Не вдалося відкрити файл"
+msgstr "Не вдалося відкрити %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Помилка під час збереження файла"
+msgstr "Помилка під час відкриття файла"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"

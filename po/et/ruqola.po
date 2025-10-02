@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-01 00:45+0000\n"
+"POT-Creation-Date: 2025-10-02 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -184,13 +184,13 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Saadaval on järgmised kontod:"
 
-#: core/accountmanager.cpp:875
+#: core/accountmanager.cpp:883
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "Vigane pääsmik"
 
-#: core/accountmanager.cpp:876
+#: core/accountmanager.cpp:884
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1924,19 +1924,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:685
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:695
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -2200,13 +2200,13 @@ msgstr "Fail on liiga suur"
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgid "AI Actions"
 msgstr "Rakendust ei leitud"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
 msgstr ""
@@ -10944,59 +10944,59 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, fuzzy, kde-format
 #| msgid "Save Attachment"
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Manuse salvestamine"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, fuzzy, kde-format
 #| msgid "Open Room"
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Ava tuba"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, fuzzy, kde-format
 #| msgid "Save As Text..."
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Salvesta tekstina ..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, fuzzy, kde-format
 #| msgid "Failed to extract import file."
 msgid "Impossible to open %1"
 msgstr "Importfaili lahtipakkimine nurjus."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, fuzzy, kde-format
 #| msgid "Error saving file"
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Tõrge faili salvestamisel"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, fuzzy, kde-format
 #| msgid "Save File"
 msgctxt "@title:window"

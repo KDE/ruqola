@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-01 00:45+0000\n"
-"PO-Revision-Date: 2025-09-27 03:50+0200\n"
+"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"PO-Revision-Date: 2025-10-01 04:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -173,12 +173,12 @@ msgstr "ახალი ფუნქცია"
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
-#: core/accountmanager.cpp:875
+#: core/accountmanager.cpp:883
 #, kde-format
 msgid "Invalid invite token"
 msgstr "არასწორი მოწვევის კოდი"
 
-#: core/accountmanager.cpp:876
+#: core/accountmanager.cpp:884
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "მოწვევის კოდი არასწორია. ანგარიშის შექმნა გაუქმდა."
@@ -1782,7 +1782,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:685
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1791,12 +1791,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "არაა დაკავშირებული"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:695
 #, kde-format
 msgid "Not connected yet"
 msgstr "არაა დაკავშირებული"
@@ -2043,12 +2043,12 @@ msgstr ""
 "<qt>ახალი მოთხოვნის პოვნა შეგიძლიათ მისამართზე:<br /><a href='%1'>%1</a> </"
 "qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, kde-format
 msgid "AI Actions"
 msgstr "ხი-ის ქმედებები"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "წაუკითხავების შეჯამება"
@@ -10306,57 +10306,54 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "გამართვა"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "გავხსნა მიმაგრებული ფაილი?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "გავხსნა მიმარებული ფაილი <filename>%1</filename>?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "გახსნა"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "'%1'-ით &გახსნა"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "&გამხსნელი პროგრამა…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "შეინახვა &როგორც…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "ფაილის გახსნა შეუძლებელია"
+msgstr "%1-ის გახსნა შეუძლებელია"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "ფაილის შენახვის შეცდომა"
+msgstr "ფაილის გახსნის შეცდომა"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"

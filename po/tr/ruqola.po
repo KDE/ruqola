@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-01 00:45+0000\n"
-"PO-Revision-Date: 2025-09-28 20:27+0300\n"
+"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"PO-Revision-Date: 2025-10-01 14:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -173,12 +173,12 @@ msgstr "Yeni özellik"
 msgid "The following accounts are available:"
 msgstr "Aşağıdaki hesaplar kullanılabilir:"
 
-#: core/accountmanager.cpp:875
+#: core/accountmanager.cpp:883
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Geçersiz Davet Jetonu"
 
-#: core/accountmanager.cpp:876
+#: core/accountmanager.cpp:884
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Geçersiz davet jetonu. Hesap oluşturma iptal ediliyor."
@@ -1784,7 +1784,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:685
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1793,12 +1793,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:695
 #, kde-format
 msgid "Not connected yet"
 msgstr "Henüz bağlı değil"
@@ -2043,12 +2043,12 @@ msgstr "Dosya, paylaşıldı."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Yeni isteği şurada bulabilirsiniz:<br /><a href='%1'>%1</a> </qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, kde-format
 msgid "AI Actions"
 msgstr "Yapay Zekâ Eylemleri"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Okunmamışları Özetle"
@@ -10306,57 +10306,54 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Hata Ayıkla"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Eki Aç?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "<filename>%1</filename> eki açılsın mı?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Aç"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "“%1” ile &Aç"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "&Birlikte Aç…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "&Farklı Kaydet…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Dosyayı açmak olanaksız"
+msgstr "%1 açılamıyor"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Dosya Kaydedilirken Hata"
+msgstr "Dosya Açılırken Hata"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"

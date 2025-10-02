@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-01 00:45+0000\n"
+"POT-Creation-Date: 2025-10-02 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -175,13 +175,13 @@ msgstr "नई सुविधा"
 msgid "The following accounts are available:"
 msgstr "निम्नलिखित खाते उपलब्ध हैं:"
 
-#: core/accountmanager.cpp:875
+#: core/accountmanager.cpp:883
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "अमान्य टोकन"
 
-#: core/accountmanager.cpp:876
+#: core/accountmanager.cpp:884
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1787,7 +1787,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:685
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1796,12 +1796,12 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:695
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
@@ -2046,14 +2046,14 @@ msgstr "फ़ाइल साझा की गई."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>आप नया अनुरोध यहां पा सकते हैं:<br /> <a href='%1'>%1</a></qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Ask Application"
 msgid "AI Actions"
 msgstr "आवेदन पूछें"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
 msgstr ""
@@ -10340,49 +10340,49 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "अनुलग्नक खोलें?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "अनुलग्नक <फ़ाइलनाम>%1</फ़ाइलनाम> खोलें?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&'%1' के साथ खोलें"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "के साथ खोलें…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "के रूप रक्षित करें…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "फ़ाइल खोलना असंभव"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error saving file"
@@ -10390,7 +10390,7 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "फ़ाइल सहेजने में त्रुटि"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"

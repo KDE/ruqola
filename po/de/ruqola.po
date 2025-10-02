@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-01 00:45+0000\n"
+"POT-Creation-Date: 2025-10-02 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -188,13 +188,13 @@ msgstr "Natur"
 msgid "The following accounts are available:"
 msgstr "Die folgenden Zugänge sind vorhanden:"
 
-#: core/accountmanager.cpp:875
+#: core/accountmanager.cpp:883
 #, fuzzy, kde-format
 #| msgid "Invalid file type"
 msgid "Invalid invite token"
 msgstr "Ungültiger Dateityp"
 
-#: core/accountmanager.cpp:876
+#: core/accountmanager.cpp:884
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1896,19 +1896,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> schreiben gerade ..."
 
-#: core/rocketchataccount.cpp:685
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "Nicht verbunden"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:695
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -2172,13 +2172,13 @@ msgstr "Die Datei ist zu groß"
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgid "AI Actions"
 msgstr "Programm nicht gefunden"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
 msgstr ""
@@ -10845,59 +10845,59 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Anhang öffnen?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Anhang <filename>%1</filename> öffnen?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, fuzzy, kde-format
 #| msgid "Open..."
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Öffnen ..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, fuzzy, kde-format
 #| msgid "&Open With '%1'"
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Öffnen mit  „%1“"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, fuzzy, kde-format
 #| msgid "Open &With..."
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Öffnen &mit ..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, fuzzy, kde-format
 #| msgid "Save &As..."
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Speichern &unter ..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, kde-format
 msgid "Impossible to open %1"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, fuzzy, kde-format
 #| msgid "Error saving file"
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Fehler beim Speichern der Datei"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, fuzzy, kde-format
 #| msgid "Save File"
 msgctxt "@title:window"

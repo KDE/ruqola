@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-01 00:45+0000\n"
-"PO-Revision-Date: 2025-09-27 10:37+0200\n"
+"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"PO-Revision-Date: 2025-10-01 13:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -176,12 +176,12 @@ msgstr "Característica nova"
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:875
+#: core/accountmanager.cpp:883
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Testimoni d'invitació no vàlid"
 
-#: core/accountmanager.cpp:876
+#: core/accountmanager.cpp:884
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1790,7 +1790,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:685
+#: core/rocketchataccount.cpp:680
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1799,12 +1799,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:693 core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:695
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
@@ -2049,12 +2049,12 @@ msgstr "S'ha compartit el fitxer."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Trobareu la sol·licitud nova a:<br /><a href='%1'>%1</a></qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, kde-format
 msgid "AI Actions"
 msgstr "Accions d'IA"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:33
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Resumix els no llegits"
@@ -10372,57 +10372,54 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Depuració"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:116
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Voleu obrir l'adjunt?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Voleu obrir l'adjunt <filename>%1</filename>?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Obri"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:124
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "O&bri amb «%1»"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Obri &amb…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Anomena i gu&arda…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Impossible obrir el fitxer"
+msgstr "Impossible obrir el fitxer %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:170
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "S'ha produït un error en guardar el fitxer"
+msgstr "S'ha produït un error en obrir el fitxer"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:185
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
