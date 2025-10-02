@@ -754,7 +754,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
 
         switch (info.notificationType()) {
         case NotificationInfo::NotificationType::StandardMessage: {
-            if (Room *room = account->room(info.roomId())) {
+            if (const Room *room = account->room(info.roomId())) {
                 const QByteArray audioNotificationId = room->notificationOptions().audioNotificationValue();
                 account->playSound(audioNotificationId);
             } else {
