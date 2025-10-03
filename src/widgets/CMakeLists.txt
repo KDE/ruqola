@@ -709,9 +709,6 @@ target_sources(
         room/newmessageindicator.h
         room/newmessageindicator.cpp
 
-        room/emojiwidgetaction.h
-        room/emojiwidgetaction.cpp
-
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h

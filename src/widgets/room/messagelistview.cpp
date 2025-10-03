@@ -60,11 +60,7 @@
 #include <TextTranslator/TranslatorMenu>
 #endif
 
-#if HAVE_TEXTEMOTICONSWIDGET_ACTIONWIDGET
 #include <TextEmoticonsWidgets/EmoticonWidgetAction>
-#else
-#include "room/emojiwidgetaction.h"
-#endif
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -258,7 +254,6 @@ void MessageListView::createTranslorMenu()
 
 void MessageListView::createEmojiWidgetAction(QMenu *menu, const QModelIndex &index)
 {
-#if HAVE_TEXTEMOTICONSWIDGET_ACTIONWIDGET
     auto emojiWidgetAction = new TextEmoticonsWidgets::EmoticonWidgetAction(menu);
     connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::insertEmojiIdentifier, this, [this, index](const QString &identifier) {
         const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
@@ -278,36 +273,6 @@ void MessageListView::createEmojiWidgetAction(QMenu *menu, const QModelIndex &in
     });
     menu->addAction(emojiWidgetAction);
     menu->addSeparator();
-#else
-    const QList<EmojiWidgetAction::EmojiInfo> emojiList{
-        {.emojiStr = u"👍"_s, .emojiIdentifier = u":thumbsup:"_s},
-        {.emojiStr = u"👎"_s, .emojiIdentifier = u":thumbsdown:"_s},
-        {.emojiStr = u"😄"_s, .emojiIdentifier = u":smiley:"_s},
-        {.emojiStr = u"🎉"_s, .emojiIdentifier = u":tada:"_s},
-        {.emojiStr = u"👀"_s, .emojiIdentifier = u":eyes:"_s},
-    };
-
-    auto emojiWidgetAction = new EmojiWidgetAction(emojiList, menu);
-    connect(emojiWidgetAction, &EmojiWidgetAction::insertEmojiIdentifier, this, [this, index](const QString &identifier) {
-        const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-        mCurrentRocketChatAccount->reactOnMessage(messageId, identifier, true /*add*/);
-    });
-    connect(emojiWidgetAction, &EmojiWidgetAction::selectEmoji, this, [this, index]() {
-        auto mEmoticonMenuWidget = new EmoticonMenuWidget(this);
-        mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
-        mEmoticonMenuWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-        mEmoticonMenuWidget->forceLineEditFocus();
-        RoomUtil::positionPopup(QCursor::pos(), this, mEmoticonMenuWidget);
-        mEmoticonMenuWidget->show();
-        connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, index](const QString &id) {
-            const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-            mCurrentRocketChatAccount->reactOnMessage(messageId, id, true /*add*/);
-        });
-    });
-
-    menu->addAction(emojiWidgetAction);
-    menu->addSeparator();
-#endif
 }
 
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
