@@ -12,14 +12,10 @@
 #include "common/emojicompletiondelegate.h"
 #include "common/userandchannelcompletiondelegate.h"
 #include "model/inputcompletermodel.h"
-#if HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT
-#include <TextAddonsWidgets/RichTextQuickTextFormat>
-#else
-#include "quicktextformatmessage.h"
-#endif
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include <KLocalizedString>
+#include <TextAddonsWidgets/RichTextQuickTextFormat>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -65,7 +61,6 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     connect(this, &MessageTextEdit::languageChanged, this, &MessageTextEdit::slotLanguageChanged);
     connect(this, &MessageTextEdit::checkSpellingChanged, this, &MessageTextEdit::slotSpellCheckingEnableChanged);
 
-#if HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT
     auto quicktextformatmessage = new TextAddonsWidgets::RichTextQuickTextFormat(this, this);
     TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatTypes formatTypes = TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::Unknown;
     formatTypes |= TextAddonsWidgets::RichTextQuickTextFormat::QuickTextFormatType::Bold;
@@ -109,34 +104,6 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
                     break;
                 }
             });
-#else
-    auto quicktextformatmessage = new QuickTextFormatMessage(this, this);
-    connect(quicktextformatmessage, &QuickTextFormatMessage::quickTextFormatRequested, this, [this](QuickTextFormatMessage::QuickTextFormatType type) {
-        switch (type) {
-        case QuickTextFormatMessage::QuickTextFormatType::Bold: {
-            slotSetAsBold();
-            break;
-        }
-        case QuickTextFormatMessage::QuickTextFormatType::Italic: {
-            slotSetAsItalic();
-            break;
-        }
-        case QuickTextFormatMessage::QuickTextFormatType::StrikeThrough: {
-            slotSetAsStrikeOut();
-            break;
-        }
-        case QuickTextFormatMessage::QuickTextFormatType::CodeBlock:
-            slotInsertCodeBlock();
-            break;
-        case QuickTextFormatMessage::QuickTextFormatType::BlockQuote:
-            slotInsertBlockQuote();
-            break;
-        case QuickTextFormatMessage::QuickTextFormatType::InsertLink:
-            slotInsertMarkdownUrl();
-            break;
-        }
-    });
-#endif
 }
 
 MessageTextEdit::~MessageTextEdit()

@@ -1029,15 +1029,6 @@ target_sources(
         webdav/webdavaddserverwidget.cpp
 )
 
-if(NOT HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT)
-    target_sources(
-        libruqolawidgets
-        PRIVATE
-        room/quicktextformatmessage.h
-        room/quicktextformatmessage.cpp
-    )
-endif()
-
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(
         libruqolawidgets
@@ -1175,9 +1166,7 @@ if(HAVE_TEXT_CUSTOM_EDITOR)
     target_link_libraries(libruqolawidgets KF6::TextCustomEditor)
 endif()
 
-if(HAVE_TEXTADDONSWIDGET_RICHTEXTQUICKTEXTFORMAT)
-    target_link_libraries(libruqolawidgets KF6::TextAddonsWidgets)
-endif()
+target_link_libraries(libruqolawidgets KF6::TextAddonsWidgets)
 
 if(NOT WIN32 AND NOT APPLE)
     target_link_libraries(libruqolawidgets KF6::WindowSystem)
