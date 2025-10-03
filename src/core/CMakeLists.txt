@@ -544,15 +544,9 @@ target_sources(
 
         ruqolacommandlineparser.cpp
         ruqolacommandlineparser.h
+        emoji.qrc
 )
 
-if(HAVE_TEXTEMOTICONSCORE_UNICODEMANAGER_CUSTOM_FILENAME)
-    target_sources(
-        libruqolacore
-        PRIVATE
-        emoji.qrc
-    )
-endif()
 
 if(USE_E2E_SUPPORT)
     target_sources(
