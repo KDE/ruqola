@@ -7737,11 +7737,9 @@ msgid "DataBase Global"
 msgstr ""
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Informace o databázi"
+msgstr ""
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -8928,11 +8926,10 @@ msgid "Disable Encryption"
 msgstr ""
 
 #: widgets/encryption/e2edisabledialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Disable Encryption"
-msgstr "Šifrování"
+msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -10081,7 +10078,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
-msgstr ""
+msgstr "Ladění"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
@@ -10099,7 +10096,7 @@ msgstr "Otevřít přílohu <filename>%1</filename>?<nl/>"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr ""
+msgstr "Otevřít"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
@@ -10120,18 +10117,15 @@ msgid "Save &As…"
 msgstr "Uložit j&ako…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Nelze otevřít soubor"
+msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Chyba při ukládání souboru"
+msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
@@ -10228,19 +10222,16 @@ msgid "Add reaction"
 msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "Přidat server"
+msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Zmínky"
+msgstr ""
 
 #: widgets/room/messagelinewidget.cpp:74
 #, kde-format
@@ -10522,10 +10513,9 @@ msgid "Markdown Url"
 msgstr ""
 
 #: widgets/room/newmessageindicator.cpp:34
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgid "New Message"
-msgstr "Poslat správu"
+msgstr "Nová zpráva"
 
 #: widgets/room/quicktextformatmessage.cpp:39
 #, kde-format
@@ -11429,31 +11419,26 @@ msgid "Check New Version"
 msgstr "Zkontrolovat novou verzi"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
-msgstr "Přidat server"
+msgstr ""
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
-msgstr "Přidat server"
+msgstr ""
 
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "Url:"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "UserName"
+#, kde-format
 msgid "UserName:"
-msgstr "Uživatelské jméno"
+msgstr "Uživatelské jméno:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11512,11 +11497,8 @@ msgid "Add Extension message line button."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Add Server"
 msgid "Allow to Add WebDav Server."
-msgstr "Přidat server"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-02 00:42+0000\n"
-"PO-Revision-Date: 2025-09-27 13:36+0200\n"
+"PO-Revision-Date: 2025-10-02 21:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -10399,18 +10399,15 @@ msgid "Save &As…"
 msgstr "Gorde &honela…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Ezin da fitxategia ireki"
+msgstr "Ezin da %1 ireki"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Errorea fitxategia gordetzean"
+msgstr "Errorea fitxategia irekitzean"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
