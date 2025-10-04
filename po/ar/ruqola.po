@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-04 00:42+0000\n"
 "PO-Revision-Date: 2025-09-27 09:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -173,12 +173,12 @@ msgstr "ميزة جديدة"
 msgid "The following accounts are available:"
 msgstr "الحسابات التالية متاحة:"
 
-#: core/accountmanager.cpp:883
+#: core/accountmanager.cpp:232
 #, kde-format
 msgid "Invalid invite token"
 msgstr "رمز الدعوة غير صالح"
 
-#: core/accountmanager.cpp:884
+#: core/accountmanager.cpp:233
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "رمز الدعوة غير صالح. ألغي إنشاء الحساب."
@@ -3431,7 +3431,7 @@ msgstr "استبعد كافة التقارير"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:357
+#: widgets/room/messagelistview.cpp:322
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3440,7 +3440,7 @@ msgstr "انسخ التحديد"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
-#: widgets/room/messagelistview.cpp:359
+#: widgets/room/messagelistview.cpp:324
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3450,7 +3450,7 @@ msgstr "انسخ الرسالة"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
 #: widgets/discussions/discussionlistview.cpp:71
 #: widgets/notificationhistory/notificationhistorylistview.cpp:102
-#: widgets/room/messagelistview.cpp:750
+#: widgets/room/messagelistview.cpp:715
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
 #, kde-format
 msgctxt "@action"
@@ -3462,7 +3462,7 @@ msgstr "نطق النص"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/room/messagelistview.cpp:390
+#: widgets/room/messagelistview.cpp:355
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7401,7 +7401,7 @@ msgid "Mark as Unread"
 msgstr "علّم كغير مقروء"
 
 #: widgets/channellist/channellistview.cpp:133
-#: widgets/room/messagelistview.cpp:377
+#: widgets/room/messagelistview.cpp:342
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -10153,7 +10153,7 @@ msgid "Clear"
 msgstr "امحُ"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
-#: widgets/room/messagelistview.cpp:732
+#: widgets/room/messagelistview.cpp:697
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10430,21 +10430,21 @@ msgid "User Info"
 msgstr "معلومات المستخدم"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:453
-#: widgets/room/messagelistview.cpp:480
+#: widgets/room/messagelistview.cpp:445
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "ابدأ محادثة خاصة"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:469
-#: widgets/room/messagelistview.cpp:587 widgets/room/messagelistview.cpp:645
+#: widgets/room/messagelistview.cpp:552 widgets/room/messagelistview.cpp:610
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "أظهر الرسالة الأصلية"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:469
-#: widgets/room/messagelistview.cpp:587 widgets/room/messagelistview.cpp:645
+#: widgets/room/messagelistview.cpp:552 widgets/room/messagelistview.cpp:610
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10622,178 +10622,178 @@ msgstr "رفع الملف"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "الخادم لا يسمح بهذا الملف (نوع mime غير صالح)"
 
-#: widgets/room/messagelistview.cpp:128
+#: widgets/room/messagelistview.cpp:124
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "انضممت إلى رسالة مباشرة جديدة"
 
-#: widgets/room/messagelistview.cpp:130
+#: widgets/room/messagelistview.cpp:126
 #, kde-format
 msgid "Start of conversation"
 msgstr "بدء المحادثة"
 
-#: widgets/room/messagelistview.cpp:368
+#: widgets/room/messagelistview.cpp:333
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "ألغ تثبيت الرّسالة"
 
-#: widgets/room/messagelistview.cpp:368
+#: widgets/room/messagelistview.cpp:333
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "ثبّت الرّسالة"
 
-#: widgets/room/messagelistview.cpp:377
+#: widgets/room/messagelistview.cpp:342
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "أزِل من المفضّلة"
 
-#: widgets/room/messagelistview.cpp:384
+#: widgets/room/messagelistview.cpp:349
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "احذف"
 
-#: widgets/room/messagelistview.cpp:397
+#: widgets/room/messagelistview.cpp:362
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "علّم الرسالة كَغَير مقروءة"
 
-#: widgets/room/messagelistview.cpp:402
+#: widgets/room/messagelistview.cpp:367
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "اعرض كامل السلسلة"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:372
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "حرر"
 
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:377
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "اقتبس"
 
-#: widgets/room/messagelistview.cpp:417
+#: widgets/room/messagelistview.cpp:382
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "انسخ رابط إلى رسالة"
 
-#: widgets/room/messagelistview.cpp:422
+#: widgets/room/messagelistview.cpp:387
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "تمرير الرسالة"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:400
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "لا تتبع الرسالة"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:400
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "اتبع الرّسالة"
 
-#: widgets/room/messagelistview.cpp:448
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "انسخ المسار"
 
-#: widgets/room/messagelistview.cpp:471 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:436 widgets/room/usersinroommenu.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:482
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "ابدأ مناقشة"
 
-#: widgets/room/messagelistview.cpp:523
+#: widgets/room/messagelistview.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/messagelistview.cpp:654
+#: widgets/room/messagelistview.cpp:619
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "اطلع على التقارير"
 
-#: widgets/room/messagelistview.cpp:677
+#: widgets/room/messagelistview.cpp:642
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "استبعد التقارير"
 
-#: widgets/room/messagelistview.cpp:759
+#: widgets/room/messagelistview.cpp:724
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "بلّغ عن الرسالة"
 
-#: widgets/room/messagelistview.cpp:980
+#: widgets/room/messagelistview.cpp:945
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "هل تريد حذف هذه الرسالة؟"
 
-#: widgets/room/messagelistview.cpp:981
+#: widgets/room/messagelistview.cpp:946
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "احذف الرّسالة"
 
-#: widgets/room/messagelistview.cpp:1158
+#: widgets/room/messagelistview.cpp:1123
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "خطأ المترجم"
 
-#: widgets/room/messagetextedit.cpp:268
+#: widgets/room/messagetextedit.cpp:235
 #, kde-format
 msgid "Paste Image"
 msgstr "ألصِق صورة"
 
-#: widgets/room/messagetextedit.cpp:275
+#: widgets/room/messagetextedit.cpp:242
 #, kde-format
 msgid "Change Text Format"
 msgstr "غيّر تنسيق النص"
 
-#: widgets/room/messagetextedit.cpp:277
+#: widgets/room/messagetextedit.cpp:244
 #, kde-format
 msgid "Bold"
 msgstr "ثخين"
 
-#: widgets/room/messagetextedit.cpp:278
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Italic"
 msgstr "مائل"
 
-#: widgets/room/messagetextedit.cpp:279
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Strike-out"
 msgstr "مشطوب"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:248
 #, kde-format
 msgid "Code Block"
 msgstr "كتلة شفرة"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:250
 #, kde-format
 msgid "Markdown Url"
 msgstr "رابط مارك‌داون"
@@ -10802,42 +10802,6 @@ msgstr "رابط مارك‌داون"
 #, kde-format
 msgid "New Message"
 msgstr "رسالة جديدة"
-
-#: widgets/room/quicktextformatmessage.cpp:39
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Bold"
-msgstr "ثخين"
-
-#: widgets/room/quicktextformatmessage.cpp:51
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Italic"
-msgstr "مائل"
-
-#: widgets/room/quicktextformatmessage.cpp:63
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Strike Through"
-msgstr "مشطوب"
-
-#: widgets/room/quicktextformatmessage.cpp:76
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Code Block"
-msgstr "كتلة شفرة"
-
-#: widgets/room/quicktextformatmessage.cpp:89
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Quote Text"
-msgstr "اقتباس"
-
-#: widgets/room/quicktextformatmessage.cpp:104
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Insert Link"
-msgstr "أدرج رابط"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -12364,6 +12328,30 @@ msgstr "بعض الميزات الجديدة في هذا الإصدار من ر�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "إصلاح بعض الأخطاء:"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "ثخين"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "مائل"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "مشطوب"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "كتلة شفرة"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "اقتباس"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "أدرج رابط"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

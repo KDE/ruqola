@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-04 00:42+0000\n"
 "PO-Revision-Date: 2025-10-01 04:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -173,12 +173,12 @@ msgstr "ახალი ფუნქცია"
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
-#: core/accountmanager.cpp:883
+#: core/accountmanager.cpp:232
 #, kde-format
 msgid "Invalid invite token"
 msgstr "არასწორი მოწვევის კოდი"
 
-#: core/accountmanager.cpp:884
+#: core/accountmanager.cpp:233
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "მოწვევის კოდი არასწორია. ანგარიშის შექმნა გაუქმდა."
@@ -3401,7 +3401,7 @@ msgstr "ყველა ანგარიშის გაუქმება"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:357
+#: widgets/room/messagelistview.cpp:322
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3410,7 +3410,7 @@ msgstr "მონიშნულის კოპირება"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
-#: widgets/room/messagelistview.cpp:359
+#: widgets/room/messagelistview.cpp:324
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3420,7 +3420,7 @@ msgstr "შეტყობინების კოპირება"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
 #: widgets/discussions/discussionlistview.cpp:71
 #: widgets/notificationhistory/notificationhistorylistview.cpp:102
-#: widgets/room/messagelistview.cpp:750
+#: widgets/room/messagelistview.cpp:715
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
 #, kde-format
 msgctxt "@action"
@@ -3432,7 +3432,7 @@ msgstr "ტექსტის წაკითხვა"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/room/messagelistview.cpp:390
+#: widgets/room/messagelistview.cpp:355
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7377,7 +7377,7 @@ msgid "Mark as Unread"
 msgstr "წაუკითხავად მონიშვნა"
 
 #: widgets/channellist/channellistview.cpp:133
-#: widgets/room/messagelistview.cpp:377
+#: widgets/room/messagelistview.cpp:342
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -10100,7 +10100,7 @@ msgid "Clear"
 msgstr "გასუფთავება"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
-#: widgets/room/messagelistview.cpp:732
+#: widgets/room/messagelistview.cpp:697
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10376,21 +10376,21 @@ msgid "User Info"
 msgstr "ინფორმაცია მომხმარებელზე"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:453
-#: widgets/room/messagelistview.cpp:480
+#: widgets/room/messagelistview.cpp:445
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "კონფიდენციალური საუბრის დაწყება"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:469
-#: widgets/room/messagelistview.cpp:587 widgets/room/messagelistview.cpp:645
+#: widgets/room/messagelistview.cpp:552 widgets/room/messagelistview.cpp:610
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "ორიგინალი შეტყობინების ჩვენება"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:469
-#: widgets/room/messagelistview.cpp:587 widgets/room/messagelistview.cpp:645
+#: widgets/room/messagelistview.cpp:552 widgets/room/messagelistview.cpp:610
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10560,178 +10560,178 @@ msgstr "ფაილის ატვირთვა"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "სერვერმა ამ ფაილს ავტორიზაცია არ მიანიჭა (არასწორი mimetype)"
 
-#: widgets/room/messagelistview.cpp:128
+#: widgets/room/messagelistview.cpp:124
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "თქვენ ახალ პირდაპირ შეტყობინებას შეუერთდით"
 
-#: widgets/room/messagelistview.cpp:130
+#: widgets/room/messagelistview.cpp:126
 #, kde-format
 msgid "Start of conversation"
 msgstr "საუბრის დაწყება"
 
-#: widgets/room/messagelistview.cpp:368
+#: widgets/room/messagelistview.cpp:333
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "შეტყობინების ჩამოხსნა"
 
-#: widgets/room/messagelistview.cpp:368
+#: widgets/room/messagelistview.cpp:333
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "შეტყობინების ამაგრება"
 
-#: widgets/room/messagelistview.cpp:377
+#: widgets/room/messagelistview.cpp:342
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "რჩეულებიდან წაშლა"
 
-#: widgets/room/messagelistview.cpp:384
+#: widgets/room/messagelistview.cpp:349
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "წაშლა"
 
-#: widgets/room/messagelistview.cpp:397
+#: widgets/room/messagelistview.cpp:362
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "შეტყობინების წაუკითხავად მონიშვნა"
 
-#: widgets/room/messagelistview.cpp:402
+#: widgets/room/messagelistview.cpp:367
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "სრული ნაკადის ჩვენება"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:372
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "ჩასწორება"
 
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:377
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "ციტატა"
 
-#: widgets/room/messagelistview.cpp:417
+#: widgets/room/messagelistview.cpp:382
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "ბმულის კოპირება შეტყობინებაში"
 
-#: widgets/room/messagelistview.cpp:422
+#: widgets/room/messagelistview.cpp:387
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "შეტყობინების გადაგზავნა"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:400
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "შეტყობინების მიყოლის გაუქმება"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:400
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "შეტყობინების მიყოლა"
 
-#: widgets/room/messagelistview.cpp:448
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL-ის კოპირება"
 
-#: widgets/room/messagelistview.cpp:471 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:436 widgets/room/usersinroommenu.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "მომხმარებლის ინფორმაცია"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:482
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "კამათის დაწყება"
 
-#: widgets/room/messagelistview.cpp:523
+#: widgets/room/messagelistview.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "ნაკადში პასუხი"
 
-#: widgets/room/messagelistview.cpp:654
+#: widgets/room/messagelistview.cpp:619
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "ანგარიშების ნახვა"
 
-#: widgets/room/messagelistview.cpp:677
+#: widgets/room/messagelistview.cpp:642
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "ანგარიშების გაუქმება"
 
-#: widgets/room/messagelistview.cpp:759
+#: widgets/room/messagelistview.cpp:724
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "ანგარიში შეტყობინების შესახებ"
 
-#: widgets/room/messagelistview.cpp:980
+#: widgets/room/messagelistview.cpp:945
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "გსურთ, წაშალოთ ეს შეტყობინება?"
 
-#: widgets/room/messagelistview.cpp:981
+#: widgets/room/messagelistview.cpp:946
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "შეტყობინების წაშლა"
 
-#: widgets/room/messagelistview.cpp:1158
+#: widgets/room/messagelistview.cpp:1123
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "მთარგმნელის შეცდომა"
 
-#: widgets/room/messagetextedit.cpp:268
+#: widgets/room/messagetextedit.cpp:235
 #, kde-format
 msgid "Paste Image"
 msgstr "გამოსახულების ჩასმა"
 
-#: widgets/room/messagetextedit.cpp:275
+#: widgets/room/messagetextedit.cpp:242
 #, kde-format
 msgid "Change Text Format"
 msgstr "ტექსტის ფორმატის შეცვლა"
 
-#: widgets/room/messagetextedit.cpp:277
+#: widgets/room/messagetextedit.cpp:244
 #, kde-format
 msgid "Bold"
 msgstr "გასქელება"
 
-#: widgets/room/messagetextedit.cpp:278
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Italic"
 msgstr "დახრა"
 
-#: widgets/room/messagetextedit.cpp:279
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Strike-out"
 msgstr "გადასმა"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:248
 #, kde-format
 msgid "Code Block"
 msgstr "კოდის ბლოკი"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:250
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown -ის ბმული"
@@ -10740,42 +10740,6 @@ msgstr "Markdown -ის ბმული"
 #, kde-format
 msgid "New Message"
 msgstr "ახალი შეტყობინება"
-
-#: widgets/room/quicktextformatmessage.cpp:39
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Bold"
-msgstr "სქელი"
-
-#: widgets/room/quicktextformatmessage.cpp:51
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Italic"
-msgstr "კურსივი"
-
-#: widgets/room/quicktextformatmessage.cpp:63
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Strike Through"
-msgstr "ხაზის გადასმა"
-
-#: widgets/room/quicktextformatmessage.cpp:76
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Code Block"
-msgstr "კოდის ბლოკი"
-
-#: widgets/room/quicktextformatmessage.cpp:89
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Quote Text"
-msgstr "ტექსტის ციტირება"
-
-#: widgets/room/quicktextformatmessage.cpp:104
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Insert Link"
-msgstr "ბმულის ჩასმა"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -12320,6 +12284,30 @@ msgstr "Ruqola-ის ახალ ფუნქციებში შედი�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "სქელი"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "კურსივი"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "ხაზის გადასმა"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "კოდის ბლოკი"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "ტექსტის ციტირება"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "ბმულის ჩასმა"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"

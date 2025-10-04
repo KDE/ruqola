@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-04 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -184,13 +184,13 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Saadaval on järgmised kontod:"
 
-#: core/accountmanager.cpp:883
+#: core/accountmanager.cpp:232
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "Vigane pääsmik"
 
-#: core/accountmanager.cpp:884
+#: core/accountmanager.cpp:233
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -3641,7 +3641,7 @@ msgstr "Veast teatamine"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:357
+#: widgets/room/messagelistview.cpp:322
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, fuzzy, kde-format
 #| msgid "Copy link"
@@ -3651,7 +3651,7 @@ msgstr "Kopeeri link"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
-#: widgets/room/messagelistview.cpp:359
+#: widgets/room/messagelistview.cpp:324
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, fuzzy, kde-format
 #| msgid "Go to Message"
@@ -3662,7 +3662,7 @@ msgstr "Liikumine sõnumile"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
 #: widgets/discussions/discussionlistview.cpp:71
 #: widgets/notificationhistory/notificationhistorylistview.cpp:102
-#: widgets/room/messagelistview.cpp:750
+#: widgets/room/messagelistview.cpp:715
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -3675,7 +3675,7 @@ msgstr "Kõnele teksti"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/room/messagelistview.cpp:390
+#: widgets/room/messagelistview.cpp:355
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, fuzzy, kde-format
 #| msgid "Select All"
@@ -7767,7 +7767,7 @@ msgid "Mark as Unread"
 msgstr "Märgi mitteloetuks"
 
 #: widgets/channellist/channellistview.cpp:133
-#: widgets/room/messagelistview.cpp:377
+#: widgets/room/messagelistview.cpp:342
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
 msgctxt "@action"
@@ -10715,7 +10715,7 @@ msgid "Clear"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
-#: widgets/room/messagelistview.cpp:732
+#: widgets/room/messagelistview.cpp:697
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -11020,7 +11020,7 @@ msgid "User Info"
 msgstr "Kasutaja teave"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:453
-#: widgets/room/messagelistview.cpp:480
+#: widgets/room/messagelistview.cpp:445
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
@@ -11028,7 +11028,7 @@ msgid "Start a Private Conversation"
 msgstr "Alusta privaatvestlust"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:469
-#: widgets/room/messagelistview.cpp:587 widgets/room/messagelistview.cpp:645
+#: widgets/room/messagelistview.cpp:552 widgets/room/messagelistview.cpp:610
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
@@ -11036,7 +11036,7 @@ msgid "Show Original Message"
 msgstr "Algsõnumi näitamine"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:469
-#: widgets/room/messagelistview.cpp:587 widgets/room/messagelistview.cpp:645
+#: widgets/room/messagelistview.cpp:552 widgets/room/messagelistview.cpp:610
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
@@ -11232,55 +11232,55 @@ msgstr "Fail üles laaditud"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:128
+#: widgets/room/messagelistview.cpp:124
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
 msgid "You have joined a new direct message"
 msgstr "Videosõnumi loomine"
 
-#: widgets/room/messagelistview.cpp:130
+#: widgets/room/messagelistview.cpp:126
 #, fuzzy, kde-format
 #| msgid "Start Conversation"
 msgid "Start of conversation"
 msgstr "Alusta vestlust"
 
-#: widgets/room/messagelistview.cpp:368
+#: widgets/room/messagelistview.cpp:333
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Lase sõnum vabaks"
 
-#: widgets/room/messagelistview.cpp:368
+#: widgets/room/messagelistview.cpp:333
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Kinnista sõnum"
 
-#: widgets/room/messagelistview.cpp:377
+#: widgets/room/messagelistview.cpp:342
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Eemalda lemmikute seast"
 
-#: widgets/room/messagelistview.cpp:384
+#: widgets/room/messagelistview.cpp:349
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "Kustuta"
 
-#: widgets/room/messagelistview.cpp:397
+#: widgets/room/messagelistview.cpp:362
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Märgi sõnum mitteloetuks"
 
-#: widgets/room/messagelistview.cpp:402
+#: widgets/room/messagelistview.cpp:367
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Threads"
@@ -11288,148 +11288,148 @@ msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Lõimede näitamine"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:372
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "Muuda"
 
-#: widgets/room/messagelistview.cpp:412
+#: widgets/room/messagelistview.cpp:377
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:417
+#: widgets/room/messagelistview.cpp:382
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Liikumine sõnumile"
 
-#: widgets/room/messagelistview.cpp:422
+#: widgets/room/messagelistview.cpp:387
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:400
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/messagelistview.cpp:435
+#: widgets/room/messagelistview.cpp:400
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/messagelistview.cpp:448
+#: widgets/room/messagelistview.cpp:413
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopeeri link"
 
-#: widgets/room/messagelistview.cpp:471 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:436 widgets/room/usersinroommenu.cpp:124
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:482
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Alusta diskussiooni"
 
-#: widgets/room/messagelistview.cpp:523
+#: widgets/room/messagelistview.cpp:488
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Vasta lõimes"
 
-#: widgets/room/messagelistview.cpp:654
+#: widgets/room/messagelistview.cpp:619
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Veast teatamine"
 
-#: widgets/room/messagelistview.cpp:677
+#: widgets/room/messagelistview.cpp:642
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Veast teatamine"
 
-#: widgets/room/messagelistview.cpp:759
+#: widgets/room/messagelistview.cpp:724
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Anna sõnumist teada"
 
-#: widgets/room/messagelistview.cpp:980
+#: widgets/room/messagelistview.cpp:945
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Kas tõesti kustutada see sõnum?"
 
-#: widgets/room/messagelistview.cpp:981
+#: widgets/room/messagelistview.cpp:946
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Sõnumi kustutamine"
 
-#: widgets/room/messagelistview.cpp:1158
+#: widgets/room/messagelistview.cpp:1123
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Tõlge"
 
-#: widgets/room/messagetextedit.cpp:268
+#: widgets/room/messagetextedit.cpp:235
 #, fuzzy, kde-format
 #| msgid "Save Image"
 msgid "Paste Image"
 msgstr "Pildi salvestamine"
 
-#: widgets/room/messagetextedit.cpp:275
+#: widgets/room/messagetextedit.cpp:242
 #, fuzzy, kde-format
 #| msgid "Change Text"
 msgid "Change Text Format"
 msgstr "Teksti muutmine"
 
-#: widgets/room/messagetextedit.cpp:277
+#: widgets/room/messagetextedit.cpp:244
 #, kde-format
 msgid "Bold"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:278
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Italic"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:279
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Strike-out"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:248
 #, kde-format
 msgid "Code Block"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:250
 #, kde-format
 msgid "Markdown Url"
 msgstr ""
@@ -11439,44 +11439,6 @@ msgstr ""
 #| msgid "Starred Messages"
 msgid "New Message"
 msgstr "Tärniga sõnumid"
-
-#: widgets/room/quicktextformatmessage.cpp:39
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Bold"
-msgstr ""
-
-#: widgets/room/quicktextformatmessage.cpp:51
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Italic"
-msgstr ""
-
-#: widgets/room/quicktextformatmessage.cpp:63
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Strike Through"
-msgstr ""
-
-#: widgets/room/quicktextformatmessage.cpp:76
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Code Block"
-msgstr ""
-
-#: widgets/room/quicktextformatmessage.cpp:89
-#, fuzzy, kde-format
-#| msgid "Speak Text"
-msgctxt "@info:tooltip"
-msgid "Quote Text"
-msgstr "Kõnele teksti"
-
-#: widgets/room/quicktextformatmessage.cpp:104
-#, fuzzy, kde-format
-#| msgid "Invite Link:"
-msgctxt "@info:tooltip"
-msgid "Insert Link"
-msgstr "Kutselink:"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -13151,6 +13113,18 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Vigade parandamine"
+
+#, fuzzy
+#~| msgid "Speak Text"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Kõnele teksti"
+
+#, fuzzy
+#~| msgid "Invite Link:"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Kutselink:"
 
 #, fuzzy
 #~| msgid "Remove"
