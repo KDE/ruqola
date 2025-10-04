@@ -11,7 +11,6 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLabel;
 class User;
 class QFormLayout;
 class RocketChatAccount;
