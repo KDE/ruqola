@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1291,9 +1291,9 @@ msgstr "Zadajte užívateľské meno"
 
 #: core/model/adminuserspendingmodel.cpp:78
 #, fuzzy, kde-format
-#| msgid "Add Account"
+#| msgid "Conversation"
 msgid "Pending action"
-msgstr "Pridať účet"
+msgstr "Konverzácia"
 
 #: core/model/bannerinfosmodel.cpp:56
 #, fuzzy, kde-format
@@ -3954,12 +3954,10 @@ msgid "Just invited people can access this channel."
 msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "1 message"
-#| msgid_plural "%1 messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Direct"
-msgstr "1 správa"
+msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
@@ -7501,31 +7499,29 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Search File..."
 msgctxt "@info:placeholder"
 msgid "Search Applications"
-msgstr "Aplikácia nenájdená"
+msgstr "Hľadať súbor..."
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
-msgstr "Aplikácia nenájdená"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
-msgstr "Aplikácia nenájdená"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Search File..."
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Aplikácia nenájdená"
+msgstr "Hľadať súbor..."
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:53
 #, fuzzy, kde-format
@@ -8198,9 +8194,9 @@ msgstr "Odstrániť účet"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, fuzzy, kde-format
-#| msgid "User Info"
+#| msgid "Default"
 msgid "DataBase Rooms"
-msgstr "Informácie o užívateľovi"
+msgstr "Predvolené"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, fuzzy, kde-format
@@ -9190,9 +9186,9 @@ msgstr ""
 
 #: widgets/dialogs/showimagedialog.cpp:152
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Search File..."
 msgid "Other Application..."
-msgstr "Aplikácia nenájdená"
+msgstr "Hľadať súbor..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, fuzzy, kde-format
@@ -9362,11 +9358,10 @@ msgid "Search teams…"
 msgstr "Hľadať súbor..."
 
 #: widgets/directory/directorywidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Delete Account"
+#, kde-format
 msgctxt "@action"
 msgid "Join…"
-msgstr "Odstrániť účet"
+msgstr ""
 
 #: widgets/directory/directorywidget.cpp:83
 #, fuzzy, kde-format
@@ -10924,10 +10919,10 @@ msgstr "Správa"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1013
 #, fuzzy, kde-format
-#| msgid "Add Account"
+#| msgid "Conversation"
 msgctxt "@info:tooltip"
 msgid "Add reaction"
-msgstr "Pridať účet"
+msgstr "Konverzácia"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
 #, fuzzy, kde-format
@@ -10938,10 +10933,10 @@ msgstr "URL serveru"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
-#| msgid "Application not found"
+#| msgid "Private Messages"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Aplikácia nenájdená"
+msgstr "Súkromné adresy"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, fuzzy, kde-format
@@ -11647,10 +11642,10 @@ msgstr "Leader"
 
 #: widgets/room/usersinroommenu.cpp:158
 #, fuzzy, kde-format
-#| msgid "Favorites"
+#| msgid "Delete Account"
 msgctxt "@action"
 msgid "Remove as Moderator"
-msgstr "Obľúbené"
+msgstr "Odstrániť účet"
 
 #: widgets/room/usersinroommenu.cpp:158
 #, kde-format
@@ -11867,18 +11862,16 @@ msgid "Applications…"
 msgstr "Aplikácia nenájdená"
 
 #: widgets/ruqolamainwindow.cpp:558
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
-msgstr "Aplikácia nenájdená"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:563
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
-msgstr "Aplikácia nenájdená"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:568
 #, fuzzy, kde-format
@@ -12365,9 +12358,9 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
-#| msgid "Server Url"
+#| msgid "All Messages"
 msgid "Allow to Add WebDav Server."
-msgstr "URL serveru"
+msgstr "Všetky správy"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
@@ -12674,10 +12667,9 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Opustiť kanál"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:117
-#, fuzzy, kde-format
-#| msgid "Leave Channel"
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "Opustiť kanál"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
@@ -12711,10 +12703,9 @@ msgid "Add color to the text in the account tab"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Allow to show private installed applications"
-msgstr "Aplikácia nenájdená"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:137
 #, fuzzy, kde-format
@@ -12764,10 +12755,9 @@ msgid "Fix open discussion channel"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:146
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Aplikácia nenájdená"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:154
 #, kde-format
@@ -12840,10 +12830,9 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, fuzzy, kde-format
-#| msgid "All Messages"
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
-msgstr "Všetky správy"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:172
 #, kde-format
@@ -12957,69 +12946,6 @@ msgid "Some bug fixing:"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Delete Account"
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Odstrániť účet"
-
-#, fuzzy
-#~| msgid "Leave Channel"
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Opustiť kanál"
-
-#, fuzzy
-#~| msgid "Delete Account"
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Odstrániť účet"
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Nastaviť účet"
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Nastaviť účet"
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Nastaviť účet"
-
-#, fuzzy
-#~| msgid "Private Messages"
-#~ msgid "No new version found."
-#~ msgstr "Súkromné adresy"
-
-#, fuzzy
-#~| msgid "Attachments"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Prílohy"
-
-#, fuzzy
-#~| msgid "Leave Channel"
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Opustiť kanál"
-
-#, fuzzy
-#~| msgid "Private:"
-#~ msgid "Private"
-#~ msgstr "Súkromné:"
-
-#, fuzzy
-#~| msgid "Leave Channel"
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Opustiť kanál"
-
-#, fuzzy
 #~| msgid "Private Messages"
 #~ msgid "Starred Messages"
 #~ msgstr "Súkromné adresy"
@@ -13046,7 +12972,30 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Private Messages"
-#~ msgid "(Mark as Read)"
+#~ msgid "System Messages"
+#~ msgstr "Súkromné adresy"
+
+#, fuzzy
+#~| msgid "Leave Channel"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Opustiť kanál"
+
+#, fuzzy
+#~| msgid "Not authorized"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Nemá oprávnenie"
+
+#, fuzzy
+#~| msgid "Private:"
+#~ msgid "Private"
+#~ msgstr "Súkromné:"
+
+#, fuzzy
+#~| msgid "Private Messages"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
 #~ msgstr "Súkromné adresy"
 
 #, fuzzy
@@ -13079,26 +13028,19 @@ msgstr ""
 
 #, fuzzy
 #~| msgid "Private Messages"
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
+#~ msgid "(Mark As Read)"
 #~ msgstr "Súkromné adresy"
 
 #, fuzzy
-#~| msgid "Password:"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Heslo:"
+#~| msgid "Leave Channel"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Opustiť kanál"
 
 #, fuzzy
-#~| msgid "Not authorized"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Nemá oprávnenie"
-
-#, fuzzy
-#~| msgid "Private Messages"
-#~ msgid "System Messages"
-#~ msgstr "Súkromné adresy"
+#~| msgid "Select File..."
+#~ msgid "Select All"
+#~ msgstr "Vybrať súbor..."
 
 #, fuzzy
 #~| msgid "Password:"
@@ -13106,31 +13048,14 @@ msgstr ""
 #~ msgstr "Heslo:"
 
 #, fuzzy
-#~| msgid "Search File..."
-#~ msgid "Search rooms…"
-#~ msgstr "Hľadať súbor..."
-
-#, fuzzy
-#~| msgid "Message"
-#~ msgid "Copy Message"
-#~ msgstr "Správa"
-
-#, fuzzy
-#~| msgid "Search File..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Hľadať súbor..."
-
-#, fuzzy
-#~| msgid "Search File..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Hľadať súbor..."
-
-#, fuzzy
 #~| msgid "Leave Channel"
 #~ msgid "Search channels…"
 #~ msgstr "Opustiť kanál"
+
+#, fuzzy
+#~| msgid "Message"
+#~ msgid "Go to Message"
+#~ msgstr "Správa"
 
 #, fuzzy
 #~| msgid "Version %1"
@@ -13141,21 +13066,6 @@ msgstr ""
 #~| msgid "Version %1"
 #~ msgid "Version 2.2"
 #~ msgstr "Verzia %1"
-
-#, fuzzy
-#~| msgid "Version %1"
-#~ msgid "Version 2.3"
-#~ msgstr "Verzia %1"
-
-#, fuzzy
-#~| msgid "Select File..."
-#~ msgid "Select All"
-#~ msgstr "Vybrať súbor..."
-
-#, fuzzy
-#~| msgid "Message"
-#~ msgid "Go to Message"
-#~ msgstr "Správa"
 
 #, fuzzy
 #~| msgid "Reply"
@@ -13396,6 +13306,11 @@ msgstr ""
 #~ msgstr "Zavrieť"
 
 #, fuzzy
+#~| msgid "Configure Account"
+#~ msgid "Configure..."
+#~ msgstr "Nastaviť účet"
+
+#, fuzzy
 #~| msgid "Version %1"
 #~ msgid "Persian"
 #~ msgstr "Verzia %1"
@@ -13404,6 +13319,12 @@ msgstr ""
 #~| msgid "User name: %1"
 #~ msgid "Vietnamese"
 #~ msgstr "Meno používateľa: %1"
+
+#, fuzzy
+#~| msgid "Configure Account"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Nastaviť účet"
 
 #, fuzzy
 #~| msgid "Translation"

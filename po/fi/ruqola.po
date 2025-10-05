@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
 "PO-Revision-Date: 2025-09-19 18:42+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2047,19 +2047,21 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Löydät uuden pyynnön osoitteesta:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
 msgid "AI Actions"
-msgstr "Tekoälytoiminnot"
+msgstr "Kysy sovellusta"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
-msgstr "Tee lukematta olevista yhteenveto"
+msgstr ""
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:41
 #, kde-format
 msgid "Ask to AI"
-msgstr "Kysy tekoälyltä"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
 #, kde-format
@@ -2069,26 +2071,30 @@ msgstr "Ota ruutukaappaus"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr "Tällä työkalulla voi ottaa ruutukaappauksia."
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure my Account"
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Ruutukaappausasetukset"
+msgstr "Tiliasetukset"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
 #, kde-format
 msgid "Delay:"
-msgstr "Viive:"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "%v sekunti"
-msgstr[1] "%v sekuntia"
+msgstr[0] "%1 sekunti"
+msgstr[1] "%1 sekuntia"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -2933,9 +2939,11 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Allow Feature Preview"
 msgid "Feature Preview"
-msgstr "Ominaisuuden esikatselu"
+msgstr "Salli ominaisuuden esikatselu"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3135,10 +3143,12 @@ msgid "Allow Feature Preview"
 msgstr "Salli ominaisuuden esikatselu"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Reactions"
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "Pikareaktiot"
+msgstr "Reaktiot"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4878,23 +4888,29 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Direct Messages"
 msgctxt "@option:check"
 msgid "Enable in direct messages"
-msgstr "Käytä suoraviesteissä"
+msgstr "Käytä suoraviesteihin"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Public Channels"
 msgctxt "@option:check"
 msgid "Enable in public channels"
-msgstr "Käytä julkisilla kanavilla"
+msgstr "Käytä julkisiin kanaviin"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Teams"
 msgctxt "@option:check"
 msgid "Enable in teams"
-msgstr "Käytä ryhmissä"
+msgstr "Käytä työryhmiin"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
 #, fuzzy, kde-format
@@ -5520,7 +5536,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:163
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr "Käyttäjämäärärajoitus lisättäessä kanavalle kaikki käyttäjät"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
@@ -6683,25 +6699,29 @@ msgid "Maximum message age in direct messages"
 msgstr "Viestin enimmäisikä suoraviesteissä"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enterprise"
 msgctxt "@label:textbox"
 msgid "Enterprise"
-msgstr "Yrityslisenssi"
+msgstr "Enterprise"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enterprise License"
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "Yrityslisenssi pitää aktivoida"
+msgstr "Yrityslisenssi"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Apply"
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Käytä"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Peru"
@@ -6840,10 +6860,12 @@ msgid "Disable Workspace Sync"
 msgstr "Poista työtilatahdistus käytöstä"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Disable Sessions Monitor"
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Poista ryhmämaininta käytöstä"
+msgstr "Poista istunnonvalvonta käytöstä"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:28
 #, kde-format
@@ -6917,8 +6939,6 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
-"Tämä asetus poistaa ryhmämainintaominaisuuden käytöstä. Käyttäjät eivät voi "
-"mainita ryhmää viestissä nimeltä ilmoittaakseen sen jäsenille."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:18
 #, kde-format
@@ -7690,28 +7710,31 @@ msgstr ""
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr "Muutosten käyttöönotto vaatii uudelleenkäynnistyksen."
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr "Työkaluliitännäiset"
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr "Tekstiliitännäiset"
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add..."
 msgid "..."
-msgstr "…"
+msgstr "Lisää…"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Ruqola"
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Asetukset"
+msgstr "Ruqolan asetukset"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:66
 #, kde-format
@@ -7771,7 +7794,7 @@ msgstr "Esteettömyys"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr "Liitännäiset"
+msgstr ""
 
 #: widgets/configuredialog/removeaccountdialog.cpp:19
 #, kde-format
@@ -7856,7 +7879,9 @@ msgid "Database Info"
 msgstr "Tietokannan tiedot"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Messages"
 msgid "Messages"
 msgstr "Viestit"
 
@@ -7882,9 +7907,9 @@ msgstr "Poista tilini"
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Database Info"
+#| msgid "Delete Rooms"
 msgid "DataBase Rooms"
-msgstr "Tietokannan tiedot"
+msgstr "Poista huoneita"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, fuzzy, kde-format
@@ -8464,7 +8489,7 @@ msgstr "Aikavyöhyke:"
 #: widgets/dialogs/directchannelinfowidget.cpp:136
 #, kde-format
 msgid "Local Time:"
-msgstr "Paikallinen aika:"
+msgstr ""
 
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #, kde-format
@@ -8715,7 +8740,8 @@ msgid "License:"
 msgstr "Lisenssi:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "None"
 msgctxt "No license"
 msgid "None"
 msgstr "Ei mitään"
@@ -8797,9 +8823,11 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopioi sijainti leikepöydälle"
 
 #: widgets/dialogs/showimagedialog.cpp:152
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search Applications"
 msgid "Other Application..."
-msgstr "Muu sovellus…"
+msgstr "Etsi sovelluksia"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -10433,10 +10461,10 @@ msgstr "Lisää palvelin"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
-#| msgid "AI Actions"
+#| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Tekoälytoiminnot"
+msgstr "Maininnat"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, kde-format
@@ -10726,40 +10754,48 @@ msgid "New Message"
 msgstr "Lähetä viesti"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Bold"
 msgctxt "@info:tooltip"
 msgid "Bold"
-msgstr "Lihavointi"
+msgstr "Lihavoitu"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Italic"
 msgctxt "@info:tooltip"
 msgid "Italic"
-msgstr "Kursiivi"
+msgstr "Kursivoitu"
 
 #: widgets/room/quicktextformatmessage.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Strike-out"
 msgctxt "@info:tooltip"
 msgid "Strike Through"
-msgstr "Yliviivaus"
+msgstr "Yliviivattu"
 
 #: widgets/room/quicktextformatmessage.cpp:76
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Code Block"
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Koodilohko"
 
 #: widgets/room/quicktextformatmessage.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Quote"
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "Lainaa teksti"
+msgstr "Lainaa"
 
 #: widgets/room/quicktextformatmessage.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Invite Link:"
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "Lisää linkki"
+msgstr "Kutsulinkki:"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -10818,10 +10854,12 @@ msgid "E2E Enabled"
 msgstr "E2E käytössä"
 
 #: widgets/room/roomheaderwidget.cpp:133
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "Tekoälytoiminnot"
+msgstr "Kysy sovellusta"
 
 #: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
@@ -10984,9 +11022,10 @@ msgstr "(Avaa ulkoinen kyselyikkuna…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No User found"
 msgid "No Users Found."
-msgstr "Käyttäjiä ei löytynyt."
+msgstr "Käyttäjää ei löytynyt"
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -11649,8 +11688,7 @@ msgid "Url:"
 msgstr ""
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "UserName:"
+#, kde-format
 msgid "UserName:"
 msgstr "Käyttäjätunnus:"
 
@@ -11683,30 +11721,39 @@ msgid "What's new in %2. %1"
 msgstr "%2 – mitä uutta. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Add Autojoin"
 msgid "Add AI plugin"
-msgstr "Lisää tekoälyliitännäinen"
+msgstr "Lisää automaattiliittyminen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 #, fuzzy
-#| msgid "Allow to send multi files."
+#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Salli useamman tiedoston lähettäminen."
+msgstr "Salli sähköpostin lähettäminen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
+#, fuzzy
+#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr "Lisää ylläpitäjän asetusikkunaan palautuspainike."
+msgstr "Lisää palautuspainike ylläpitäjän palvelinasetusikkunaan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
+#, fuzzy
+#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Salli liitännäisten aktivointi."
+msgstr "Salli roolin kirjoittaminen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
+#, fuzzy
+#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "Lisää pikatekstin muotoilu."
+msgstr "Muuta tekstin muotoa"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
@@ -11714,10 +11761,9 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#| msgid "Allow to read role"
 msgid "Allow to Add WebDav Server."
-msgstr "Lisää palvelin"
+msgstr "Salli roolin lukeminen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
@@ -12029,10 +12075,9 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Korjattu toistuvat viestit viestihakuikkunassa."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:117
-#, fuzzy, kde-format
-#| msgid "Total Messages in Channels"
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "Viestejä kanavilla yhteensä"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
@@ -12097,9 +12142,10 @@ msgid "Fix select created room/discussion/teams"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:142
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Implement pending users info (administrator mode)."
 msgid "Fix filter discussion in administrator mode"
-msgstr ""
+msgstr "Toteutettu jonossa olevien käyttäjien tiedot (ylläpitotila)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:143
 #, kde-format
@@ -12117,11 +12163,9 @@ msgid "Fix open discussion channel"
 msgstr "Korjattu keskustelukanavan avaaminen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Installed Applications"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "Etsi asennettuja sovelluksia"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:154
 #, kde-format
@@ -12197,10 +12241,9 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
-msgstr "Salli useamman tiedoston lähettäminen."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:172
 #, kde-format
@@ -12223,14 +12266,16 @@ msgid "Fix download languages apps."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fix show avatar url."
 msgid "Fix show date info."
-msgstr "Korjattu päiväyksen näyttämisen tiedot."
+msgstr "Korjattu avatarin verkko-osoitteen näyttäminen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application does not have settings."
 msgid "Fix save application settings."
-msgstr "Korjattu sovellusasetusten tallennus."
+msgstr "Sovelluksella ei ole asetuksia."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
@@ -12243,24 +12288,28 @@ msgid "Fix display user."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:194
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fix translate message in direct channel."
 msgid "Display translate menu in thread dialog."
-msgstr "Näytä käännösvalikko säieikkunassa."
+msgstr "Korjattu suorakanavan viestin kääntäminen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Implement Rocket.Chat application support."
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Lisätty AI Rocket Chat -toimintotuki."
+msgstr "Toteutettu Rocket.Chat-sovellustuki."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add restore button in administrator server settings dialog."
 msgid "Fix apply, restore, cancel buttons in administration dialog."
-msgstr "Korjattu ylläpitoikkunan Käytä-, Palauta- ja Peru-painikkeet"
+msgstr "Lisää palautuspainike ylläpitäjän palvelinasetusikkunaan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:197
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search users..."
 msgid "Fix search users."
-msgstr "Korjattu käyttäjien haku."
+msgstr "Etsi käyttäjiä…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:198
 #, kde-format
@@ -12270,20 +12319,22 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:199
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
-msgstr "Korjaa liitetiedot ”Näytä kanavaloki” -ikkunassa."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:200
 #, kde-format
 msgid "Fix icon on windows."
-msgstr "Korjaa kuvake ikkunoissa."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show File Attachments…"
 msgid "Fix show file attachment size."
-msgstr "Korjaa tiedoston liitteen koon näyttö."
+msgstr "Näytä tiedostoliitteet…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "All Version"
 msgid "All Versions"
 msgstr "Kaikki versiot"
 
@@ -12311,82 +12362,8 @@ msgstr "Joitakin virheenkorjauksia:"
 #~ msgid "Restore"
 #~ msgstr "Palauta"
 
-#, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Remove"
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Poista"
-
-#, fuzzy
-#~| msgid "Do you want to remove \"%1\"?"
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Haluatko poistaa kohteen ”%1”?"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Poista"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Activities"
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Aktiviteettiasetukset"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Ruqolan asetukset"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Ruqolan asetukset"
-
-#, fuzzy
-#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Ladataan…"
-
-#, fuzzy
-#~| msgid "No room found"
-#~ msgid "No new version found."
-#~ msgstr "Huonetta ei löytynyt"
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Liitä tiedosto"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Lokia on mahdotonta avata."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Näytä loki"
-
-#~ msgid "Private"
-#~ msgstr "Yksityinen"
-
-#~ msgid "Installed"
-#~ msgstr "Asennettu"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#, fuzzy
-#~| msgid "Join Default Channels"
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Liity oletuskanaville"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Tähdellä merkityt viestit"
@@ -12403,123 +12380,104 @@ msgstr "Joitakin virheenkorjauksia:"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Merkitse säikeen viestien olevan lukematta"
 
-#, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Merkitse luetuksi)"
+#~ msgid "System Messages"
+#~ msgstr "Järjestelmäviestit"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Liity oletuskanaville"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Vahvistettu"
+
+#~ msgid "Private"
+#~ msgstr "Yksityinen"
+
+#~ msgid "Installed"
+#~ msgstr "Asennettu"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Merkitse luetuksi"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Käyttäjätunnus tai sähköposti:"
 
-#, fuzzy
-#~| msgid "Show images by default"
 #~ msgctxt "@option:check"
 #~ msgid "Show images by default"
 #~ msgstr "Näytä kuvat oletusarvoisesti"
 
-#, fuzzy
-#~| msgid "Show images by default"
 #~ msgctxt "@option:check"
 #~ msgid "Show preview url by default"
-#~ msgstr "Näytä kuvat oletusarvoisesti"
+#~ msgstr "Näytä verkko-osoitteiden esikatselut oletusarvoisesti"
 
-#, fuzzy
-#~| msgid "Show hover highlights"
 #~ msgctxt "@option:check"
 #~ msgid "Show hover highlights"
-#~ msgstr "Näytä korostukset hiiren ollessa yllä"
+#~ msgstr "Näytä korostukset leijuttaessa"
 
-#, fuzzy
-#~| msgid "Store Message in Local Database"
 #~ msgctxt "@option:check"
 #~ msgid "Use local dataBase (experimental)"
-#~ msgstr "Talleta viestit paikalliseen tietokantaan"
+#~ msgstr "Käytä paikallista tietokantaa (kokeellinen)"
 
 #~ msgctxt "@title Preferences page name"
 #~ msgid "Account"
 #~ msgstr "Tili"
 
-#, fuzzy
-#~| msgid "Connecting"
 #~ msgctxt "@action:button"
 #~ msgid "Connection"
-#~ msgstr "Yhdistetään"
+#~ msgstr "Yhteys"
 
-#, fuzzy
-#~| msgid "Server Url:"
 #~ msgctxt "@label:textbox"
 #~ msgid "Server Url:"
-#~ msgstr "Palvelimen osoite:"
+#~ msgstr "Palvelimen verkko-osoite:"
 
-#, fuzzy
-#~| msgid "Message"
-#~ msgid "Message %1"
-#~ msgstr "Viesti"
-
-#, fuzzy
-#~| msgid "Mark As Read"
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Merkitse luetuksi"
-
-#, fuzzy
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Palauta E2E"
-
-#, fuzzy
-#~| msgid "All users in this team can write messages"
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
-#~ msgstr "Kaikki ryhmän jäsenet voivat kirjoittaa viestejä"
+#~ msgstr "Kaikki työryhmän jäsenet voivat kirjoittaa viestejä"
 
-#, fuzzy
-#~| msgid "Verified"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Vahvistettu"
+#~ msgid "Message %1"
+#~ msgstr "Viesti %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Järjestelmäviestit"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Merkitse luetuksi)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Lokia on mahdotonta avata."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Näytä loki"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Valitse kaikki"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Palauta TOTP"
 
-#~ msgid "Create"
-#~ msgstr "Luo"
+#~ msgid "Add..."
+#~ msgstr "Lisää…"
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Aseta suosikiksi"
+#~ msgid "Modify..."
+#~ msgstr "Muuta…"
 
-#, fuzzy
-#~| msgid "Search rooms"
-#~ msgid "Search rooms…"
-#~ msgstr "Etsi huoneita"
-
-#~ msgid "Copy Message"
-#~ msgstr "Kopioi viesti"
-
-#, fuzzy
-#~| msgid "Search rooms"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Etsi huoneita"
-
-#, fuzzy
-#~| msgid "Search Users..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Etsi käyttäjiä…"
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Kansio – %1"
 
 #, fuzzy
 #~| msgid "Search Channels"
 #~ msgid "Search channels…"
 #~ msgstr "Etsi kanavia"
 
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Kansio – %1"
+#~ msgid "Go to Message"
+#~ msgstr "Siirry viestiin"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Lataa lisää napsauttamalla tästä…)"
 
 #, fuzzy
 #~| msgctxt "Action which allows to search room/user/team"
@@ -12538,29 +12496,9 @@ msgstr "Joitakin virheenkorjauksia:"
 #~ msgid "Version 2.2"
 #~ msgstr "Versio"
 
-#, fuzzy
-#~| msgid "Version"
-#~ msgid "Version 2.3"
-#~ msgstr "Versio"
-
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Mikä Ruqolassa on uutta"
-
-#~ msgid "Select All"
-#~ msgstr "Valitse kaikki"
-
-#~ msgid "Go to Message"
-#~ msgstr "Siirry viestiin"
-
-#~ msgid "Add..."
-#~ msgstr "Lisää…"
-
-#~ msgid "Modify..."
-#~ msgstr "Muuta…"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Lataa lisää napsauttamalla tästä…)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -12870,6 +12808,12 @@ msgstr "Joitakin virheenkorjauksia:"
 #~ msgstr "Sulje"
 
 #, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgid "Configure..."
+#~ msgstr "Ruqolan asetukset"
+
+#, fuzzy
 #~| msgid "Italic"
 #~ msgid "Italian"
 #~ msgstr "Kursivoitu"
@@ -12883,6 +12827,13 @@ msgstr "Joitakin virheenkorjauksia:"
 #~| msgid "File:"
 #~ msgid "Vietnamese"
 #~ msgstr "Tiedosto:"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Ruqolan asetukset"
 
 #, fuzzy
 #~| msgctxt "@title:window"

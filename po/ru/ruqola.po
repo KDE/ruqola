@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7844,7 +7844,7 @@ msgstr "Добавить..."
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Настроить уведомление…"
+msgstr "Настройка Ruqola"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:66
 #, kde-format
@@ -8018,9 +8018,9 @@ msgstr "Удалить мою учётную запись"
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Database Info"
+#| msgid "Delete Rooms"
 msgid "DataBase Rooms"
-msgstr "Сведения о базе данных"
+msgstr "Удаление комнат"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, fuzzy, kde-format
@@ -10627,11 +10627,10 @@ msgstr "Добавление сервера"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Запрос к приложению…"
+msgstr "Упоминания"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, kde-format
@@ -11934,10 +11933,9 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#| msgid "Allow to read role"
 msgid "Allow to Add WebDav Server."
-msgstr "Добавление сервера"
+msgstr "Возможность чтения роли"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
@@ -12551,75 +12549,8 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgid "Restore"
 #~ msgstr "Восстановить"
 
-#, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Remove"
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Удалить"
-
-#, fuzzy
-#~| msgid "Do you want to remove \"%1\"?"
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Удалить «%1»?"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Удалить"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Activities"
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Настройка комнат Plasma"
-
-#, fuzzy
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Настройка Ruqola"
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Настройка нестандартных смайликов"
-
 #~ msgid "Loading..."
 #~ msgstr "Загрузка…"
-
-#, fuzzy
-#~ msgid "No new version found."
-#~ msgstr "Информация о версии не найдена."
-
-#, fuzzy
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Прикрепить файл"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Невозможно открыть журнал."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Показ журнала"
-
-#~ msgid "Private"
-#~ msgstr "Закрытые"
-
-#~ msgid "Installed"
-#~ msgstr "Установленные"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Присоединиться к каналам по умолчанию"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Сообщения со звёздочкой"
@@ -12636,9 +12567,26 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Непрочитанные сообщения в ветках"
 
-#, fuzzy
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Отметить как прочитанное)"
+#~ msgid "System Messages"
+#~ msgstr "Системные сообщения"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Присоединиться к каналам по умолчанию"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Проверено"
+
+#~ msgid "Private"
+#~ msgstr "Закрытые"
+
+#~ msgid "Installed"
+#~ msgstr "Установленные"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Отметить как прочитанное"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Имя пользователя или адрес эл. почты:"
@@ -12671,67 +12619,59 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgid "Server Url:"
 #~ msgstr "Адрес сервера:"
 
-#~ msgid "Message %1"
-#~ msgstr "Сообщение %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Отметить как прочитанное"
-
-#, fuzzy
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Сброс сквозного шифрования"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Все пользователи в этой команде могут писать сообщения"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Проверено"
+#~ msgid "Message %1"
+#~ msgstr "Сообщение %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Системные сообщения"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Отметить как прочитанное)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Невозможно открыть журнал."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Показ журнала"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Выбрать все"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Сбросить TOTP"
 
-#, fuzzy
-#~ msgid "Create"
-#~ msgstr "Создать"
+#~ msgid "Add..."
+#~ msgstr "Добавить..."
 
-#, fuzzy
-#~ msgid "Set as Favorite"
-#~ msgstr "Добавить в избранное"
-
-#, fuzzy
-#~ msgid "Search rooms…"
-#~ msgstr "Поиск комнат…"
-
-#, fuzzy
-#~ msgid "Copy Message"
-#~ msgstr "Копировать сообщение"
-
-#, fuzzy
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Поиск комнат…"
-
-#, fuzzy
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Поиск пользователей…"
-
-#, fuzzy
-#~ msgid "Search channels…"
-#~ msgstr "Поиск каналов"
+#~ msgid "Modify..."
+#~ msgstr "Изменить..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Каталог — %1"
 
 #, fuzzy
+#~| msgid "Search Channels"
+#~ msgid "Search channels…"
+#~ msgstr "Поиск каналов"
+
+#~ msgid "Go to Message"
+#~ msgstr "Перейти к сообщению"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
+
+#, fuzzy
+#~| msgctxt "Action which allows to search room/user/team"
+#~| msgid "Directory..."
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
 #~ msgstr "Каталог..."
@@ -12740,33 +12680,16 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgstr "Версия 2.0"
 
 #, fuzzy
+#~| msgid "Version 2.0"
 #~ msgid "Version 2.2"
-#~ msgstr "Версия 2.0"
-
-#, fuzzy
-#~ msgid "Version 2.3"
 #~ msgstr "Версия 2.0"
 
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Новое в Ruqola"
 
-#~ msgid "Select All"
-#~ msgstr "Выбрать все"
-
-#~ msgid "Go to Message"
-#~ msgstr "Перейти к сообщению"
-
-#~ msgid "Add..."
-#~ msgstr "Добавить..."
-
-#~ msgid "Modify..."
-#~ msgstr "Изменить..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
-
 #, fuzzy
+#~| msgid "(Click here for Loading more...)"
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
 
@@ -12810,10 +12733,12 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgstr "Загрузить изображение…"
 
 #, fuzzy
+#~| msgid "Download Image..."
 #~ msgid "Download Video..."
 #~ msgstr "Загрузить изображение…"
 
 #, fuzzy
+#~| msgid "Download Image..."
 #~ msgid "Download Sound..."
 #~ msgstr "Загрузить изображение…"
 
@@ -12894,6 +12819,7 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgstr "Начало прямого вызова"
 
 #, fuzzy
+#~| msgid "Cozy"
 #~ msgctxt "Message Style"
 #~ msgid "Cozy"
 #~ msgstr "Уютный"
@@ -13062,6 +12988,10 @@ msgstr "Исправление некоторых ошибок:"
 #~ msgstr "Закрыть"
 
 #, fuzzy
+#~ msgid "Configure..."
+#~ msgstr "Настроить уведомление…"
+
+#, fuzzy
 #~ msgid "Italian"
 #~ msgstr "Курсив"
 
@@ -13072,6 +13002,11 @@ msgstr "Исправление некоторых ошибок:"
 #, fuzzy
 #~ msgid "Vietnamese"
 #~ msgstr "Имя файла:"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Настройка нестандартных смайликов"
 
 #, fuzzy
 #~ msgid "Libre Translate"

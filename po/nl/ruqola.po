@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
-"PO-Revision-Date: 2025-10-01 23:17+0200\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
+"PO-Revision-Date: 2025-09-02 09:37+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -394,12 +394,12 @@ msgstr "Livechat aangepast veldconfiguratie wijzigen"
 #: core/apps/appsmarketplaceinfo.cpp:671
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr "Bied het schrijven van oauth-app-instellingen"
+msgstr "Toestaan om oauth toepassingsinstellingen te schrijven"
 
 #: core/apps/appsmarketplaceinfo.cpp:673
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr "Bied het lezen van oauth-app-instellingen"
+msgstr "Toestaan om oauth toepassingsinstellingen te lezen"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
@@ -1905,7 +1905,8 @@ msgstr "ddp-api voor aanmelden gebruiken"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
-msgstr "Toont de beschikbare opties voor terugkoppeling van gebruiker"
+msgstr ""
+"Geeft een lijst met de beschikbare opties voor terugkoppeling van gebruiker"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -2047,19 +2048,21 @@ msgstr ""
 "<qt>Het nieuwe verzoek kunt u vinden op:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
 msgid "AI Actions"
-msgstr "AI-acties"
+msgstr "Aan toepassing vragen"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
-msgstr "Niet-gelezene samenvatten"
+msgstr ""
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:41
 #, kde-format
 msgid "Ask to AI"
-msgstr "Aan AI vragen"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
 #, kde-format
@@ -2069,26 +2072,30 @@ msgstr "Een schermafdruk maken"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr "Dit hulpmiddel biedt u het maken van een schermafdruk."
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure my Account"
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Scherm pakken configureren"
+msgstr "Mijn account configureren"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
 #, kde-format
 msgid "Delay:"
-msgstr "Vertraging:"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "%v seconde"
-msgstr[1] "%v seconden"
+msgstr[0] "1 seconde"
+msgstr[1] "%1 seconden"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -2949,9 +2956,11 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Allow Feature Preview"
 msgid "Feature Preview"
-msgstr "Voorvertoning van mogelijkheid"
+msgstr "Voorvertoning van mogelijkheid toestaan"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3152,10 +3161,12 @@ msgid "Allow Feature Preview"
 msgstr "Voorvertoning van mogelijkheid toestaan"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Reactions"
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "Snelle reacties"
+msgstr "Reacties"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -3489,7 +3500,7 @@ msgstr "Rollen:"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
 #, kde-format
 msgid "Report #%1"
-msgstr "#%1 rapporteren"
+msgstr "Rapport #%1"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:26
 #, kde-format
@@ -4916,29 +4927,37 @@ msgstr ""
 "aanmaken laten meedoen bij hun team- en afdelingskanaal."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Direct Messages"
 msgctxt "@option:check"
 msgid "Enable in direct messages"
-msgstr "In directe berichten inschakelen"
+msgstr "Voor directe berichten inschakelen"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Public Channels"
 msgctxt "@option:check"
 msgid "Enable in public channels"
-msgstr "In publieke kanalen inschakelen"
+msgstr "Voor publieke kanalen inschakelen"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Teams"
 msgctxt "@option:check"
 msgid "Enable in teams"
-msgstr "In Teams inschakelen"
+msgstr "Voor Teams inschakelen"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable logging"
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "Mobiel bellen inschakelen"
+msgstr "Loggen inschakelen"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
@@ -5570,7 +5589,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:163
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr "Gebruikerslimiet voor toevoegen van alle gebruikers aan kanaal"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
@@ -6741,25 +6760,29 @@ msgid "Maximum message age in direct messages"
 msgstr "Maximale leeftijd van een direct bericht"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enterprise"
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "Grote onderneming"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enterprise License"
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "Licentie voor grote onderneming moet geactiveerd worden"
+msgstr "Licentie voor grote onderneming"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Apply"
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Toepassen"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Annuleren"
@@ -6768,7 +6791,7 @@ msgstr "Annuleren"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr "Herstellen naar de standaard serverwaarde"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
@@ -6900,10 +6923,12 @@ msgid "Disable Workspace Sync"
 msgstr "Synchronisatie van werkruimte uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Disable Sessions Monitor"
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Teams noemen uitschakelen"
+msgstr "Sessiesmonitor uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:28
 #, kde-format
@@ -6983,9 +7008,6 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
-"Deze instelling schakelt de functie van het noemen van teams uit. Gebruikers "
-"zullen niet in staat zijn om een team bij naam te noemen in een bericht en "
-"krijgen dat zijn leden dat wordt meegedeeld."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:18
 #, kde-format
@@ -7194,7 +7216,7 @@ msgstr "Ingeschakeld"
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
-msgstr[0] "%1 verzoek"
+msgstr[0] "Verzoek"
 msgstr[1] "%1 verzoeken"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
@@ -7595,7 +7617,7 @@ msgstr "Een oproep beginnen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Start"
-msgstr "Begin"
+msgstr "Starten"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:33
 #, kde-format
@@ -7751,25 +7773,27 @@ msgid "Enable Plasma Activities integration"
 msgstr "Integratie van activiteiten van Plasma inschakelen"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Text-To-Speech"
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr "Tekst-naar-spraak inschakelen"
+msgstr "Tekst-naar-spraak configureren"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr "Opnieuw opstarten is nodig om de wijzigingen toe te passen."
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr "Plug-ins voor hulpmiddelen"
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr "Tekstplug-ins"
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
 #, kde-format
@@ -7777,7 +7801,9 @@ msgid "..."
 msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure"
 msgctxt "@info:tooltip"
 msgid "Configure"
 msgstr "Configureren"
@@ -7840,7 +7866,7 @@ msgstr "Toegankelijkheid"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr "Plug-ins"
+msgstr ""
 
 #: widgets/configuredialog/removeaccountdialog.cpp:19
 #, kde-format
@@ -7926,7 +7952,9 @@ msgid "Database Info"
 msgstr "Database-informatie"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Messages"
 msgid "Messages"
 msgstr "Berichten"
 
@@ -7937,29 +7965,38 @@ msgid "Json"
 msgstr "Json"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Private Messages"
 msgid "DataBase Messages"
-msgstr "DataBase-berichten"
+msgstr "Privé berichten"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Delete my Account"
 msgid "DataBase Accounts"
-msgstr "DataBase-accounts"
+msgstr "Mijn account verwijderen"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Delete Rooms"
 msgid "DataBase Rooms"
-msgstr "DataBase-rooms"
+msgstr "Rooms verwijderen"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
 msgid "DataBase Global"
-msgstr "DataBase-globaal"
+msgstr "Database-informatie"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
 msgid "DataBase E2E"
-msgstr "DataBase-E2E"
+msgstr "Database-informatie"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -8129,7 +8166,7 @@ msgstr "Wachtwoord toevoegen"
 #, kde-format
 msgctxt "@option:check"
 msgid "Exclude pinned messages"
-msgstr "Vast gepinde berichten uitsluiten"
+msgstr "Vastgepinde berichten uitsluiten"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:22
 #, kde-format
@@ -8529,7 +8566,7 @@ msgstr "Tijdzone:"
 #: widgets/dialogs/directchannelinfowidget.cpp:136
 #, kde-format
 msgid "Local Time:"
-msgstr "Lokale tijd:"
+msgstr ""
 
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #, kde-format
@@ -8780,7 +8817,8 @@ msgid "License:"
 msgstr "Licentie:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "None"
 msgctxt "No license"
 msgid "None"
 msgstr "Geen"
@@ -8862,9 +8900,11 @@ msgid "Copy Location to Clipboard"
 msgstr "Locatie naar klembord kopiëren"
 
 #: widgets/dialogs/showimagedialog.cpp:152
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search Applications"
 msgid "Other Application..."
-msgstr "Andere toepassingen..."
+msgstr "Toepassingen zoeken"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -8917,7 +8957,7 @@ msgstr "Vermeldingsberichten tonen - %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
-msgstr "Vast gepinde berichten tonen - %1"
+msgstr "Vastgepinde berichten tonen - %1"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, kde-format
@@ -8928,7 +8968,7 @@ msgstr "Berichten met sterren tonen - %1"
 #: widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
 msgid "Following"
-msgstr "Bezig met volgen"
+msgstr "Volgt op"
 
 #: widgets/dialogs/showthreadsdialog.cpp:28
 #, kde-format
@@ -9160,7 +9200,9 @@ msgid "Disable Encryption"
 msgstr "Versleuteling uitschakelen"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Disable Encryption"
 msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Versleuteling uitschakelen"
@@ -9473,7 +9515,8 @@ msgid "Decrease Font"
 msgstr "Tekengrootte kleiner"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove"
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Verwijderen"
@@ -10289,7 +10332,7 @@ msgstr "Vermeldingen tonen…"
 #, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
-msgstr "Vast gepinde berichten tonen…"
+msgstr "Vastgepinde berichten tonen…"
 
 #: widgets/room/channelactionpopupmenu.cpp:56
 #, kde-format
@@ -10361,7 +10404,8 @@ msgid "Encrypt Messages"
 msgstr "Berichten versleutelen"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Debug"
 msgctxt "@title:window"
 msgid "Debug"
 msgstr "Debuggen"
@@ -10379,10 +10423,11 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Bijlage <filename>%1</filename> openen?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open…"
 msgctxt "@action:button"
 msgid "Open"
-msgstr "Openen"
+msgstr "Openen…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
@@ -10403,15 +10448,18 @@ msgid "Save &As…"
 msgstr "Opslaan &als…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Impossible to open file"
 msgid "Impossible to open %1"
-msgstr "%1 openen is onmogelijk"
+msgstr "Bestand openen is onmogelijk"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Error saving file"
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Fout bij openen van bestand"
+msgstr "Fout bij opslaan van bestand"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
@@ -10506,16 +10554,19 @@ msgid "Add reaction"
 msgstr "Reactie toevoegen"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "WebDav-server toevoegen"
+msgstr "Server toevoegen"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Meer acties"
+msgstr "Vermeldingen"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, kde-format
@@ -10797,45 +10848,53 @@ msgid "Markdown Url"
 msgstr "Url in markdown"
 
 #: widgets/room/newmessageindicator.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send Message"
 msgid "New Message"
-msgstr "Nieuw bericht"
+msgstr "Bericht verzenden"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Bold"
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Vet"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Italic"
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Cursief"
 
 #: widgets/room/quicktextformatmessage.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Strike-out"
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Doorstrepen"
 
 #: widgets/room/quicktextformatmessage.cpp:76
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Code Block"
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Codeblok"
 
 #: widgets/room/quicktextformatmessage.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Quote"
 msgctxt "@info:tooltip"
 msgid "Quote Text"
 msgstr "Citaat"
 
 #: widgets/room/quicktextformatmessage.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Insert"
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "Koppeling invoegen"
+msgstr "Invoegen"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -10894,10 +10953,12 @@ msgid "E2E Enabled"
 msgstr "E2E ingeschakeld"
 
 #: widgets/room/roomheaderwidget.cpp:133
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "AI-acties"
+msgstr "Aan toepassing vragen"
 
 #: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
@@ -11060,9 +11121,10 @@ msgstr "(Externe dialoog openen…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No User found"
 msgid "No Users Found."
-msgstr "Geen gebruikers gevonden."
+msgstr "Geen gebruiker gevonden"
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -11090,7 +11152,7 @@ msgstr "Wilt u deze gebruiker dempen?"
 #, kde-format
 msgctxt "@title"
 msgid "Mute User"
-msgstr "Gebruikers dempen"
+msgstr "Gebruiker dempen"
 
 #: widgets/room/usersinroommenu.cpp:74
 #, kde-format
@@ -11352,7 +11414,7 @@ msgstr "Geïnstalleerde toepassingen…"
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "Private toepassingen…"
+msgstr "Privé toepassingen…"
 
 #: widgets/ruqolamainwindow.cpp:573
 #, kde-format
@@ -11708,21 +11770,25 @@ msgid "Check New Version"
 msgstr "Op nieuwe versie controleren"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
-msgstr "Nieuwe WebDAV-server toevoegen"
+msgstr "Server toevoegen"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
-msgstr "WebDAV-server toevoegen"
+msgstr "Server toevoegen"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr "URL:"
+msgstr ""
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
 #, kde-format
@@ -11758,46 +11824,59 @@ msgid "What's new in %2. %1"
 msgstr "Wat is er nieuw in %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Add Autojoin"
 msgid "Add AI plugin"
-msgstr "AI-plug-in toevoegen"
+msgstr "Auto-meedoen toevoegen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
+#, fuzzy
+#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Dnd afbeelding toestaan"
+msgstr "Verzenden van e-mail toestaan"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
+#, fuzzy
+#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr "Herstelknop toevoegen in instellingen voor beheer."
+msgstr ""
+"Herstelknop toevoegen in de dialoog voor de instellingen van de server van "
+"de systeembeheerder."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
+#, fuzzy
+#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Sta plug-ins activeren toe."
+msgstr "Bied de rol van schrijven"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr "Openen met knop toevoegen in tonen van afbeelding."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
+#, fuzzy
+#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "Snel tekstformaat toevoegen."
+msgstr "Tekstformaat wijzigen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr "Lijnknop voor uitbreidingsbericht toevoegen"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
+#, fuzzy
+#| msgid "Allow to read role"
 msgid "Allow to Add WebDav Server."
-msgstr "Toestaan WebDav-server toe te voegen."
+msgstr "Bied de rol van lezen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
-"Roominformatie tonen (cursieve tekst) wanneer er een wachtend bericht wordt "
-"getypt."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 msgid "Allow to add emoticon from popup menu."
-msgstr "Sta het toevoegen van een emoticon vanuit het pop-up-menu toe."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
@@ -12278,7 +12357,8 @@ msgstr ""
 "Sta toe om opdrachtregel in het klembord te stoppen wanneer een fout optreedt"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to activate/desactivate apps market."
 msgid "Allow to activate/deactivate apps market."
 msgstr "Sta toe activeren/deactiveren van apps-markt."
 
@@ -12303,70 +12383,78 @@ msgid "Fix download languages apps."
 msgstr "Downloaden van talentoepassingen repareren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fix show avatar url."
 msgid "Fix show date info."
-msgstr "Datuminformatie tonen repareren."
+msgstr "Tonen van url van avatar repareren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to show application market settings"
 msgid "Fix save application settings."
-msgstr "Opslaan van instellingen van toepassingen repareren."
+msgstr "Sta het tonen van instellingen van toepassingenmarkt toe"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr "Tekstselectie in bijlage repareren."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix display user."
-msgstr "Scherm van gebruiker repareren."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:194
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fix translate message in direct channel."
 msgid "Display translate menu in thread dialog."
-msgstr "Vertaalmenu in dialoog van discussiebundeling tonen."
+msgstr "Bericht vertalen in direct kanaal repareren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Implement Rocket.Chat application support."
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Ondersteuning voor acties van Rocket Chat toevoegen."
+msgstr "Ondersteuning voor toepassing Rocket.Chat implementeren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add restore button in administrator server settings dialog."
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
-"Knoppen voor reparatie toepassen, herstellen en annuleren in "
-"systeembeheerdialoog."
+"Herstelknop toevoegen in de dialoog voor de instellingen van de server van "
+"de systeembeheerder."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:197
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search users..."
 msgid "Fix search users."
-msgstr "Gebruikers zoeken repareren."
+msgstr "Gebruikers zoeken..."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:198
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr "Extraheren van taal uit codeblok repareren."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:199
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
-"Informatie over bijlage in dialoog van \"Log van kanaal tonen\" repareren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:200
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fix single application on Windows/MacOs"
 msgid "Fix icon on windows."
-msgstr "Pictogram op venster repareren."
+msgstr "Enkele toepassing op Windows/MacOs repareren"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show File Attachments…"
 msgid "Fix show file attachment size."
-msgstr "Repareren van grootte van bestandsbijlage tonen…"
+msgstr "Bestandsbijlagen tonen…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "All Version"
 msgid "All Versions"
 msgstr "Alle versies"
 
@@ -12394,70 +12482,8 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Restore"
 #~ msgstr "Herstellen"
 
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Verwijderen…"
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Wilt u het verwijderen?"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Verwijderen"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "AI-tekstplug-ins configureren"
-
-#~ msgid "Ask AI…"
-#~ msgstr "Aan AI vragen…"
-
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Configureren…"
-
-#~| msgctxt "@title:window"
-#~| msgid "Configure Engine"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Openai IA configureren"
-
-#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Bezig met laden..."
-
-#~ msgid "No new version found."
-#~ msgstr "Geen nieuwe versie gevonden."
-
-#~ msgid "Add screenshot button"
-#~ msgstr "Knop voor schermafdruk toevoegen"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Bestand bijvoegen"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Log openen is onmogelijk"
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Log tonen"
-
-#~ msgid "Private"
-#~ msgstr "Privé"
-
-#~ msgid "Installed"
-#~ msgstr "Geïnstalleerd"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Meedoen in standaard kanalen"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Berichten met sterren"
@@ -12474,27 +12500,53 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Ongelezen berichten uit discussiebundeling"
 
-#~ msgid "@option:check"
-#~ msgstr "@option:check"
+#~ msgid "System Messages"
+#~ msgstr "Systeemberichten"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Als gelezen markeren)"
+#, fuzzy
+#~| msgid "Join Default Channels"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Meedoen in standaard kanalen"
+
+#, fuzzy
+#~| msgid "Verified"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Geverifieerd"
+
+#~ msgid "Private"
+#~ msgstr "Privé"
+
+#, fuzzy
+#~| msgid "Mark As Read"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Als gelezen markeren"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Gebruikersnaam of e-mailadres:"
 
+#, fuzzy
+#~| msgid "Show images by default"
 #~ msgctxt "@option:check"
 #~ msgid "Show images by default"
 #~ msgstr "Standaard afbeeldingen tonen"
 
+#, fuzzy
+#~| msgid "Show preview url by default"
 #~ msgctxt "@option:check"
 #~ msgid "Show preview url by default"
 #~ msgstr "Standaard voorbeeld van url tonen"
 
+#, fuzzy
+#~| msgid "Show hover highlights"
 #~ msgctxt "@option:check"
 #~ msgid "Show hover highlights"
 #~ msgstr "Accentueringen bij er boven zweven tonen"
 
+#, fuzzy
+#~| msgid "Use local dataBase (experimental)"
 #~ msgctxt "@option:check"
 #~ msgid "Use local dataBase (experimental)"
 #~ msgstr "Lokale database gebruiken (experimenteel)"
@@ -12503,72 +12555,67 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Account"
 #~ msgstr "Account"
 
+#, fuzzy
+#~| msgid "Connection"
 #~ msgctxt "@action:button"
 #~ msgid "Connection"
 #~ msgstr "Verbinding"
 
+#, fuzzy
+#~| msgid "Server Url:"
 #~ msgctxt "@label:textbox"
 #~ msgid "Server Url:"
-#~ msgstr "URL van server:"
-
-#~ msgid "Impossible to access to server."
-#~ msgstr "Toegang tot server is onmogelijk."
-
-#~ msgid "Message %1"
-#~ msgstr "Bericht %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Als gelezen markeren"
-
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Resetten"
+#~ msgstr "URL-adres server:"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Alle gebruikers in dit team kunnen berichten schrijven"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Geverifieerd"
+#~ msgid "Message %1"
+#~ msgstr "Bericht %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Systeemberichten"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Als gelezen markeren)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Log openen is onmogelijk"
+
+#, fuzzy
+#~| msgid "Show Log"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Log tonen"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Alles selecteren"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "TOTP resetten"
 
-#~ msgid "Create"
-#~ msgstr "Aanmaken"
+#~ msgid "Add..."
+#~ msgstr "Toevoegen..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Als favoriet instellen"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Rooms zoeken…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Bericht kopiëren"
-
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Rooms zoeken…"
-
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Gebruikers zoeken…"
-
-#~ msgid "Search channels…"
-#~ msgstr "Kanalen doorzoeken…"
+#~ msgid "Modify..."
+#~ msgstr "Wijzigen..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Map - %1"
+
+#~ msgid "Search channels…"
+#~ msgstr "Kanalen doorzoeken…"
+
+#~ msgid "Go to Message"
+#~ msgstr "Naar bericht gaan"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Klik hier om meer te laden...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -12580,27 +12627,9 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Version 2.2"
 #~ msgstr "Versie 2.2"
 
-#~ msgid "Version 2.3"
-#~ msgstr "Versie 2.3"
-
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Wat is er nieuw in Ruqola"
-
-#~ msgid "Select All"
-#~ msgstr "Alles selecteren"
-
-#~ msgid "Go to Message"
-#~ msgstr "Naar bericht gaan"
-
-#~ msgid "Add..."
-#~ msgstr "Toevoegen..."
-
-#~ msgid "Modify..."
-#~ msgstr "Wijzigen..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Klik hier om meer te laden...)"
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Klik hier om meer te laden…)"
@@ -13111,6 +13140,9 @@ msgstr "Enig repareren van bugs:"
 #~ msgid "Close"
 #~ msgstr "Sluiten"
 
+#~ msgid "Configure..."
+#~ msgstr "Configureren..."
+
 #~ msgid "Detect language"
 #~ msgstr "Taal detecteren"
 
@@ -13313,6 +13345,10 @@ msgstr "Enig repareren van bugs:"
 
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Configuratie-engine"
 
 #~ msgid "Use Free License Key"
 #~ msgstr "Vrije licentiesleutel gebruiken"

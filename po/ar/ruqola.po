@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
-"PO-Revision-Date: 2025-09-27 09:49+0400\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
+"PO-Revision-Date: 2025-08-23 08:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2062,19 +2062,21 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>ستجد الطلب الجديد في: <a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
 msgid "AI Actions"
-msgstr "إجراءات الذكاء الاصطناعي"
+msgstr "اسأل التطبيق"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
-msgstr "تلخيص غير المقروءة"
+msgstr ""
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:41
 #, kde-format
 msgid "Ask to AI"
-msgstr "اسأل الذكاء الاصطناعي"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
 #, kde-format
@@ -2084,30 +2086,34 @@ msgstr "خذ لقطة شاشة"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr "تسمح هذه الأداة بأخذ لقطة للشاشة"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure my Account"
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "اضبط التقاط الشاشة"
+msgstr "اضبط حسابك"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
 #, kde-format
 msgid "Delay:"
-msgstr "التأخير:"
+msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "أقل من ثانية"
+msgstr[0] "صفر"
 msgstr[1] "ثانية واحدة"
 msgstr[2] "ثانيتين"
-msgstr[3] "%v ثواني"
-msgstr[4] "%v ثانية"
-msgstr[5] "%v ثانية"
+msgstr[3] "%1 ثواني"
+msgstr[4] "%1 ثانية"
+msgstr[5] "%1 ثانية"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -2955,9 +2961,11 @@ msgid "Oauth"
 msgstr "ميفاق أوث"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Allow Feature Preview"
 msgid "Feature Preview"
-msgstr "معاينة الميزة"
+msgstr "اسمح بمعاينة الميزة"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3165,10 +3173,12 @@ msgid "Allow Feature Preview"
 msgstr "اسمح بمعاينة الميزة"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Reactions"
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "تفاعلات سريعة"
+msgstr "ردود الفعل"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4933,29 +4943,37 @@ msgstr ""
 "خدمة الاستيثاق المركزية عند إنشائهم إلى قناة فريقهم وقسمهم."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Direct Messages"
 msgctxt "@option:check"
 msgid "Enable in direct messages"
-msgstr "مكّن في الرسائل المباشرة"
+msgstr "مكّن للرسائل المباشرة"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Public Channels"
 msgctxt "@option:check"
 msgid "Enable in public channels"
-msgstr "مكّن في القنوات العامة"
+msgstr "مكّن للقنوات العامة"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable for Teams"
 msgctxt "@option:check"
 msgid "Enable in teams"
-msgstr "مكّن  في الفرق"
+msgstr "مكّن للفرق"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable logging"
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "مك~ن رنين الهاتف المحمول"
+msgstr "مكّن السجل"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
@@ -5578,7 +5596,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:163
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr "حد المستخدم لإضافة جميع المستخدمين إلى القناة"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
@@ -6721,25 +6739,29 @@ msgid "Maximum message age in direct messages"
 msgstr "الحد الأقصى لعمر الرسالة في الرسائل المباشرة"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enterprise"
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "مؤسسة"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enterprise License"
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "يلزم تفعيل ترخيص المؤسسة"
+msgstr "رخصة مؤسسة"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Apply"
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "طبّق"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "ألغِ"
@@ -6748,7 +6770,7 @@ msgstr "ألغِ"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr "استعِد قيمة الخادم المبدئية"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
@@ -6876,10 +6898,12 @@ msgid "Disable Workspace Sync"
 msgstr "عطّل مزامنة مساحة العمل"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Disable Sessions Monitor"
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "عطّل ذكر الفرق"
+msgstr "عطّل مراقبة الجلسات"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:28
 #, kde-format
@@ -6953,8 +6977,6 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
-"يُعطل هذا الإعداد ميزة ذكر الفِرق. لن يتمكن المستخدمون من ذكر فريق بالاسم في "
-"رسالة وإشعار أعضائه."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:18
 #, kde-format
@@ -7736,28 +7758,31 @@ msgstr ""
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr "إعادة التّشغيل مطلوبة لتطبيق التّغييرات."
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr "ملحقات الأدوات"
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr "ملحقات النصوص"
+msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add..."
 msgid "..."
-msgstr "..."
+msgstr "أضف..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Ruqola"
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "اضبط"
+msgstr "اضبط رقولة"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:66
 #, kde-format
@@ -7817,7 +7842,7 @@ msgstr "الإتاحة"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr "الملحقات"
+msgstr ""
 
 #: widgets/configuredialog/removeaccountdialog.cpp:19
 #, kde-format
@@ -7902,7 +7927,9 @@ msgid "Database Info"
 msgstr "معلومات قاعدة البيانات"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Messages"
 msgid "Messages"
 msgstr "الرسائل"
 
@@ -7913,29 +7940,38 @@ msgid "Json"
 msgstr "جسون"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Private Messages"
 msgid "DataBase Messages"
-msgstr "رسائل قاعدة البيانات"
+msgstr "رسائل خاصة"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Delete my Account"
 msgid "DataBase Accounts"
-msgstr "حسابات قاعدة البيانات"
+msgstr "احذف حسابي"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Delete Rooms"
 msgid "DataBase Rooms"
-msgstr "غرف قاعدة البيانات"
+msgstr "احذف الغرف"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
 msgid "DataBase Global"
-msgstr "قاعدة البيانات العالمية"
+msgstr "معلومات قاعدة البيانات"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
 msgid "DataBase E2E"
-msgstr "قاعدة البيانات E2E"
+msgstr "معلومات قاعدة البيانات"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -8512,7 +8548,7 @@ msgstr "المنطقة الزمنية:"
 #: widgets/dialogs/directchannelinfowidget.cpp:136
 #, kde-format
 msgid "Local Time:"
-msgstr "التوقيت المحلي:"
+msgstr ""
 
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #, kde-format
@@ -8768,7 +8804,8 @@ msgid "License:"
 msgstr "الرّخصة:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "None"
 msgctxt "No license"
 msgid "None"
 msgstr "لا شيء"
@@ -8854,9 +8891,11 @@ msgid "Copy Location to Clipboard"
 msgstr "انسخ المكان إلى الحافظة"
 
 #: widgets/dialogs/showimagedialog.cpp:152
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search Applications"
 msgid "Other Application..."
-msgstr "تطبيق آخر..."
+msgstr "ابحث في التطبيقات"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -9166,7 +9205,9 @@ msgid "Disable Encryption"
 msgstr "عطّل التعمية"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Disable Encryption"
 msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "عطّل التعمية"
@@ -9471,7 +9512,8 @@ msgid "Decrease Font"
 msgstr "انقص حجم الخط"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove"
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "أزل"
@@ -10355,7 +10397,7 @@ msgstr "عمّي الرسائل"
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
-msgstr "نقّح"
+msgstr ""
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
@@ -10370,10 +10412,11 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "هل افتح المرفق <filename>%1</filename>؟<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open..."
 msgctxt "@action:button"
 msgid "Open"
-msgstr "افتح"
+msgstr "افتح..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
@@ -10508,16 +10551,19 @@ msgid "Add reaction"
 msgstr "أضف تفاعل"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "أضف خادم WebDav"
+msgstr "أضف خادمًا"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "المزيد من الإجراءات"
+msgstr "الإشارات"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, kde-format
@@ -10799,45 +10845,54 @@ msgid "Markdown Url"
 msgstr "رابط مارك‌داون"
 
 #: widgets/room/newmessageindicator.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send Message"
 msgid "New Message"
-msgstr "رسالة جديدة"
+msgstr "أرسل رسالة"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Bold"
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "ثخين"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Italic"
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "مائل"
 
 #: widgets/room/quicktextformatmessage.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Strike-out"
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "مشطوب"
 
 #: widgets/room/quicktextformatmessage.cpp:76
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Code Block"
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "كتلة شفرة"
 
 #: widgets/room/quicktextformatmessage.cpp:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Quote"
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "اقتباس"
+msgstr "اقتبس"
 
 #: widgets/room/quicktextformatmessage.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Invite Link:"
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "أدرج رابط"
+msgstr "رابط الدعوة:"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -10900,10 +10955,12 @@ msgid "E2E Enabled"
 msgstr "التعمية من طرف لطرف ممكّنة"
 
 #: widgets/room/roomheaderwidget.cpp:133
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "إجراءات الذكاء الاصطناعي"
+msgstr "اسأل التطبيق"
 
 #: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
@@ -11064,7 +11121,8 @@ msgstr "(افتح مربع حوار خارجي…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No User found"
 msgid "No Users Found."
 msgstr "لم يعثر على أي مستخدم"
 
@@ -11710,26 +11768,31 @@ msgid "Check New Version"
 msgstr "تحقق من الإصدار الجديد"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
-msgstr "أضف خادم WebDav جديدًأ"
+msgstr "أضف خادمًا"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
-msgstr "أضف خادم WebDav"
+msgstr "أضف خادمًا"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr "العنوان:"
+msgstr ""
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "UserName"
 msgid "UserName:"
-msgstr "اسم المستخدم:"
+msgstr "اسم المستخدم"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
@@ -11760,36 +11823,49 @@ msgid "What's new in %2. %1"
 msgstr "ما الجديد في %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Add Autojoin"
 msgid "Add AI plugin"
-msgstr "أضف ملحقة الذكاء الاصطناعي"
+msgstr "أضف الانضمام الآليّ"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
+#, fuzzy
+#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "السماح بتحويل الصور إلى نمط سجون وتنانين."
+msgstr "السماح بإرسال البريد الإلكتروني"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
+#, fuzzy
+#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr "إضافة زر استعادة في إعدادات الإدارة."
+msgstr "إضافة زر استعادة في مربع حوار إعدادات خادم المسؤول."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
+#, fuzzy
+#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "اسمح بتفعيل الملحقات."
+msgstr "اسمح بكتابة دور"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr "إضافة زر ”افتح باستخدام“ في إظهار الصورة."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
+#, fuzzy
+#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "إضافة تنسيق سريع للنص"
+msgstr "غيّر تنسيق النص"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr "أضف زر سطر رسالة التمديد."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
+#, fuzzy
+#| msgid "Allow to read role"
 msgid "Allow to Add WebDav Server."
-msgstr "اسمح بإضافة خادم WebDav."
+msgstr "اسمح بقراءة دور"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
@@ -12256,9 +12332,10 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr "السماح بوضع سطر الأوامر في الحافظة عند حدوث خطأ"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to activate/desactivate apps market."
 msgid "Allow to activate/deactivate apps market."
-msgstr "اسمح بتنشيط/إلغاء تنشيط سوق التطبيقات."
+msgstr "السماح بتنشيط/إلغاء تنشيط سوق التطبيقات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:172
 #, kde-format
@@ -12281,67 +12358,77 @@ msgid "Fix download languages apps."
 msgstr "إصلاح تنزيل تطبيقات لغات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fix show avatar url."
 msgid "Fix show date info."
-msgstr "إصلاح عرض معلومات التاريخ"
+msgstr "إصلاح رابط إظهار الصورة الرمزية."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to show application market settings"
 msgid "Fix save application settings."
-msgstr "إصلاح حفظ إعدادات التطبيق."
+msgstr "السماح بإظهار إعدادات سوق التطبيقات"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr "إصلاح تحديد النصف في المرفقات."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix display user."
-msgstr "إصلاح عرض المستخدم."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:194
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fix translate message in direct channel."
 msgid "Display translate menu in thread dialog."
-msgstr "عرض قائمة الترجمة في مربع الحوار."
+msgstr "إصلاح ترجمة الرسالة في القناة المباشرة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Implement Rocket.Chat application support."
 msgid "Add AI Rocket Chat Actions support."
-msgstr "إضافة إجراءات الذكاء الاصطناعي لروكت تشات."
+msgstr "إتاحة دعم تطبيق روكت تشات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add restore button in administrator server settings dialog."
 msgid "Fix apply, restore, cancel buttons in administration dialog."
-msgstr "إصلاح أزرار التطبيق والاستعادة والإلغاء في مربع حوار الإدارة."
+msgstr "إضافة زر استعادة في مربع حوار إعدادات خادم المسؤول."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:197
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search users…"
 msgid "Fix search users."
-msgstr "إصلاح البحث عن المستخدمين."
+msgstr "ابحث في المستخدمين…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:198
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr "إصلاح لغة الاستخراج من كتلة التعليمات البرمجية."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:199
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
-msgstr "إصلاح معلومات المرفق في مربع الحوار أظهر سجل القناة“."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:200
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fix single application on Windows/MacOs"
 msgid "Fix icon on windows."
-msgstr "إصلاح أيقونة في ويندوز"
+msgstr "إصلاح تطبيق واحد على نظامي التشغيل Windows/MacOs"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show File Attachments…"
 msgid "Fix show file attachment size."
-msgstr "إصلاح إظهار حجم المرفقات."
+msgstr "اعرض مرفقات الملفات…"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "All Version"
 msgid "All Versions"
 msgstr "جميع الإصدارات"
 
@@ -12369,47 +12456,8 @@ msgstr "إصلاح بعض الأخطاء:"
 #~ msgid "Restore"
 #~ msgstr "استعد"
 
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "أزل…"
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "أتريد إزالته؟"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "أزل"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "اضبط ملحقات الذكاء الاصطناعي النصية"
-
-#~ msgid "Ask AI…"
-#~ msgstr "اسأل الذكاء الاصطناعي…"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "اضبط رقولة"
-
-#, fuzzy
-#~| msgid "Loading…"
 #~ msgid "Loading..."
-#~ msgstr "يحمل…"
-
-#~ msgid "No new version found."
-#~ msgstr "لا يوجد إصدار جديد."
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "إرفاق ملفّ"
-
-#~ msgid "Private"
-#~ msgstr "خاص"
+#~ msgstr "يحمّل…"
 
 #, fuzzy
 #~| msgid "Search messages"
@@ -12418,9 +12466,19 @@ msgstr "إصلاح بعض الأخطاء:"
 #~ msgstr "ابحث في الرسائل"
 
 #, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "(علّم كمقروءة)"
+#~| msgid "Verified"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "متحقّق منه"
+
+#~ msgid "Private"
+#~ msgstr "خاص"
+
+#, fuzzy
+#~| msgid "Mark As Read"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "علّمها كمقروءة"
 
 #~ msgctxt "@title Preferences page name"
 #~ msgid "Account"
@@ -12443,40 +12501,11 @@ msgstr "إصلاح بعض الأخطاء:"
 #~ msgid "Message %1"
 #~ msgstr "الرّسالة"
 
-#, fuzzy
-#~| msgid "Mark As Read"
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "علّمها كمقروءة"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(علّم كمقروءة)"
 
-#, fuzzy
-#~| msgid "Verified"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "متحقّق منه"
-
-#~ msgid "Create"
-#~ msgstr "أنشئ"
-
-#, fuzzy
-#~| msgid "Search users..."
-#~ msgid "Search rooms…"
-#~ msgstr "ابحث في المستخدمين..."
-
-#~ msgid "Copy Message"
-#~ msgstr "انسخ الرِّسالة"
-
-#, fuzzy
-#~| msgid "Search users..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "ابحث في المستخدمين..."
-
-#, fuzzy
-#~| msgid "Search users..."
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "ابحث في المستخدمين..."
+#~ msgid "Modify..."
+#~ msgstr "عدّل..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
@@ -12494,17 +12523,6 @@ msgstr "إصلاح بعض الأخطاء:"
 
 #~ msgid "Version 2.2"
 #~ msgstr "الإصدارة 2.2"
-
-#, fuzzy
-#~| msgid "Version 2.0"
-#~ msgid "Version 2.3"
-#~ msgstr "الإصدارة 2.0"
-
-#~ msgid "Select All"
-#~ msgstr "حدّد الكلّ"
-
-#~ msgid "Modify..."
-#~ msgstr "عدّل..."
 
 #~ msgid "Droplet"
 #~ msgstr "قطرة"

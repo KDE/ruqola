@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
 "PO-Revision-Date: 2025-02-23 12:34+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -7343,9 +7343,9 @@ msgstr "Poszukaj prywatnych aplikacji"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:53
 #, fuzzy, kde-format
-#| msgid "Applications does not have settings."
+#| msgid "Application not found"
 msgid "Application does not have settings."
-msgstr "Aplikacje nie mają ustawień."
+msgstr "Nie znaleziono programu"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:94
 #, kde-format
@@ -7797,11 +7797,10 @@ msgstr "Dodaj..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#| msgid "Configure"
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Ustawienia Ruqoli"
+msgstr "Ustawienia"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:66
 #, kde-format
@@ -7975,9 +7974,9 @@ msgstr "Usuń moje konto"
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Database Info"
+#| msgid "Delete Rooms"
 msgid "DataBase Rooms"
-msgstr "Szczegóły bazy danych"
+msgstr "Usuń pokoje"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, fuzzy, kde-format
@@ -10570,11 +10569,10 @@ msgstr "Dodaj serwer"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Zapytaj aplikację"
+msgstr "Wspomnienia"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, kde-format
@@ -11767,12 +11765,9 @@ msgstr ""
 "Dostępna jest nowa wersja. Naciśnij <a href=\"%1\">tutaj</a>, aby ją pobrać."
 
 #: widgets/verifynewversionwidget/verifynewversionwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid ""
-#| "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+#, kde-format
 msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 msgstr ""
-"Dostępna jest nowa wersja. Naciśnij <a href=\"%1\">tutaj</a>, aby ją pobrać."
 
 #: widgets/verifynewversionwidget/verifynewversionwidgetaction.cpp:29
 #, kde-format
@@ -11801,8 +11796,7 @@ msgid "Url:"
 msgstr ""
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "UserName:"
+#, kde-format
 msgid "UserName:"
 msgstr "Nazwa użytkownika:"
 
@@ -11875,10 +11869,9 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#| msgid "Allow to read role"
 msgid "Allow to Add WebDav Server."
-msgstr "Dodaj serwer"
+msgstr "Zezwól na odczytywanie roli"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
@@ -12486,79 +12479,9 @@ msgstr "Naprawa błędów:"
 #~ msgstr "Przywróć"
 
 #, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Remove"
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Usuń"
-
-#, fuzzy
-#~| msgid "Do you want to remove \"%1\"?"
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Czy usunąć \"%1\"?"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Usuń"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Activities"
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Ustawienia aktywności"
-
-#, fuzzy
-#~| msgid "Configure"
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Ustawienia"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Ustawienia Ruqoli"
-
-#, fuzzy
 #~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Wczytywanie…"
-
-#~ msgid "No new version found."
-#~ msgstr "Żadna nowa wersja nie jest jeszcze dostępna."
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Załącz plik"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Nie można otworzyć dziennika."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Pokaż dziennik"
-
-#~ msgid "Private"
-#~ msgstr "Prywatny"
-
-#~ msgid "Installed"
-#~ msgstr "Wgrane"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "DużyNiebieskiPrzycisk"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Połącz domyślne kanały"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Wiadomości wyróżnione"
@@ -12575,10 +12498,26 @@ msgstr "Naprawa błędów:"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Oznacz wiadomości wątku jako nieprzeczytane"
 
-#, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Oznacz jako przeczytana)"
+#~ msgid "System Messages"
+#~ msgstr "Wiadomości systemowe"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Połącz domyślne kanały"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Potwierdzony"
+
+#~ msgid "Private"
+#~ msgstr "Prywatny"
+
+#~ msgid "Installed"
+#~ msgstr "Wgrane"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Oznacz jako przeczytany"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Nazwa użytkownika lub e-mail:"
@@ -12611,64 +12550,53 @@ msgstr "Naprawa błędów:"
 #~ msgid "Server Url:"
 #~ msgstr "Adres URL serwera:"
 
-#~ msgid "Message %1"
-#~ msgstr "Wiadomość %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Oznacz jako przeczytany"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Wyzeruj klucz E2E"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Wszyscy użytkownicy w tym zespole mogą pisać wiadomości"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Potwierdzony"
+#~ msgid "Message %1"
+#~ msgstr "Wiadomość %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Wiadomości systemowe"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Oznacz jako przeczytana)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Nie można otworzyć dziennika."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Pokaż dziennik"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "DużyNiebieskiPrzycisk"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Zaznacz wszystko"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Wyzeruj TOTP"
 
-#~ msgid "Create"
-#~ msgstr "Utwórz"
+#~ msgid "Add..."
+#~ msgstr "Dodaj..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Ustaw jako ulubiony"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Poszukaj pokojów…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Skopiuj wiadomość"
-
-#, fuzzy
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Poszukaj pokojów…"
-
-#, fuzzy
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Poszukaj użytkowników…"
-
-#~ msgid "Search channels…"
-#~ msgstr "Poszukaj kanałów…"
+#~ msgid "Modify..."
+#~ msgstr "Zmień..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Katalog - %1"
+
+#~ msgid "Search channels…"
+#~ msgstr "Poszukaj kanałów…"
+
+#~ msgid "Go to Message"
+#~ msgstr "Przejdź do wiadomości"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Naciśnij tutaj, aby wczytać więcej...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -12680,27 +12608,9 @@ msgstr "Naprawa błędów:"
 #~ msgid "Version 2.2"
 #~ msgstr "Wersja 2.2"
 
-#~ msgid "Version 2.3"
-#~ msgstr "Wersja 2.3"
-
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Co nowego w Ruqoli"
-
-#~ msgid "Select All"
-#~ msgstr "Zaznacz wszystko"
-
-#~ msgid "Go to Message"
-#~ msgstr "Przejdź do wiadomości"
-
-#~ msgid "Add..."
-#~ msgstr "Dodaj..."
-
-#~ msgid "Modify..."
-#~ msgstr "Zmień..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Naciśnij tutaj, aby wczytać więcej...)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -13220,6 +13130,12 @@ msgstr "Naprawa błędów:"
 #~ msgid "Close"
 #~ msgstr "Zamknij"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgid "Configure..."
+#~ msgstr "Ustawienia Ruqoli"
+
 #~ msgid "Detect language"
 #~ msgstr "Wykryj język"
 
@@ -13423,6 +13339,13 @@ msgstr "Naprawa błędów:"
 
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Ustawienia Ruqoli"
 
 #~ msgid "Use Free License Key"
 #~ msgstr "Użyj darmowego klucza licencji"

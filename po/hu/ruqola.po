@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -688,7 +688,7 @@ msgstr "Ajtó"
 #: core/customsound/customsoundsmanager.cpp:59
 #, kde-format
 msgid "Beep"
-msgstr "Csipogás"
+msgstr "Hangjelzés"
 
 #: core/customsound/customsoundsmanager.cpp:67
 #, kde-format
@@ -4410,18 +4410,20 @@ msgstr ""
 "naplóiban"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Client IP on failed login attempts logs"
-msgstr "Sikertelen bejelentkezési kísérletek"
+msgstr ""
+"Ügyfél IP-címének megjelenítése a sikertelen bejelentkezési kísérletek "
+"naplóiban"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Forwarded IP on failed login attempts logs"
-msgstr "Sikertelen bejelentkezési kísérletek"
+msgstr ""
+"Továbbított IP-cím megjelenítése a sikertelen bejelentkezési kísérletek "
+"naplóiban"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:104
 #, kde-format
@@ -7832,11 +7834,11 @@ msgstr "Hozzáadás…"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
 #, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Configure Notification…"
+#| msgctxt "@title:window"
+#| msgid "Configure Ruqola"
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Értesítések beállítása…"
+msgstr "A Ruqola beállítása"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:66
 #, kde-format
@@ -8011,9 +8013,9 @@ msgstr "A fiókom törlése"
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Database Info"
+#| msgid "Delete Rooms"
 msgid "DataBase Rooms"
-msgstr "Adatbázis-információk"
+msgstr "Szobák törlése"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, fuzzy, kde-format
@@ -8481,10 +8483,6 @@ msgstr "Személyes szoba:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:76
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Messages are end-to-end encrypted, search will not work and notifications "
-#| "may not show message content"
 msgctxt "@label:textbox"
 msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
@@ -10618,11 +10616,10 @@ msgstr "Kiszolgáló hozzáadása"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Alkalmazás kérése"
+msgstr "Említések"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, fuzzy, kde-format
@@ -10652,10 +10649,10 @@ msgstr "Videoüzenet"
 #: widgets/room/messagelinewidget.cpp:96 widgets/room/messagelinewidget.cpp:103
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#| msgid "Search messages…"
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
-msgstr "Moderációs üzenetek keresése…"
+msgstr "Üzenetek keresése…"
 
 #: widgets/room/messagelinewidget.cpp:98
 #, kde-format
@@ -10715,9 +10712,9 @@ msgstr "Üzenet küldése a(z) %1 szobának szálban"
 #: widgets/room/messagelinewidget.cpp:367
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
-#| msgid "Search moderation message…"
+#| msgid "Search messages…"
 msgid "Send a message in %1…"
-msgstr "Moderációs üzenetek keresése…"
+msgstr "Üzenetek keresése…"
 
 #: widgets/room/messagelinewidget.cpp:509
 #, kde-format
@@ -11934,10 +11931,9 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#| msgid "Allow to send multi files."
 msgid "Allow to Add WebDav Server."
-msgstr "Kiszolgáló hozzáadása"
+msgstr "Több fájl küldésének lehetővé tétele."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
@@ -12349,8 +12345,6 @@ msgstr "Megbeszélés megnyitása"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:146
 #, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Installed Applications"
 msgid "Allow to show application market settings"
 msgstr "Telepített alkalmazások keresése"
 
@@ -12428,10 +12422,9 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
-msgstr "Több fájl küldésének lehetővé tétele."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:172
 #, kde-format
@@ -12461,8 +12454,6 @@ msgstr "Profilkép URL megjelenítése javítva."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Installed Applications"
 msgid "Fix save application settings."
 msgstr "Telepített alkalmazások keresése"
 
@@ -12549,76 +12540,12 @@ msgstr "Néhány új funkció, amelyet a Ruqola ezen kiadása tartalmaz:"
 msgid "Some bug fixing:"
 msgstr "Néhány hibajavítás:"
 
-#, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Remove"
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Eltávolítás"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Restore"
+#~ msgstr "Visszaállítás"
 
-#, fuzzy
-#~| msgid "Do you want to remove \"%1\"?"
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Szeretné eltávolítani ezt: „%1”?"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Eltávolítás"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Activities"
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Aktivitások beállítása"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "A Ruqola beállítása"
-
-#, fuzzy
-#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Betöltés…"
-
-#, fuzzy
-#~| msgid "No room found"
-#~ msgid "No new version found."
-#~ msgstr "Nem található szoba"
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Fájl csatolása"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "A napló megnyitása lehetetlen."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Napló megjelenítése"
-
-#~ msgid "Private"
-#~ msgstr "Személyes"
-
-#~ msgid "Installed"
-#~ msgstr "Telepítve"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Csatlakozás az alapértelmezett csatornákhoz"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Csillagozott üzenetek"
@@ -12635,10 +12562,26 @@ msgstr "Néhány hibajavítás:"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Olvasatlan szálüzenetek"
 
-#, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Megjelölés olvasottként)"
+#~ msgid "System Messages"
+#~ msgstr "Rendszerüzenetek"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Csatlakozás az alapértelmezett csatornákhoz"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Ellenőrizve"
+
+#~ msgid "Private"
+#~ msgstr "Személyes"
+
+#~ msgid "Installed"
+#~ msgstr "Telepítve"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Megjelölés olvasottként"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Felhasználónév vagy e-mail:"
@@ -12671,66 +12614,50 @@ msgstr "Néhány hibajavítás:"
 #~ msgid "Server Url:"
 #~ msgstr "Kiszolgáló URL-je:"
 
-#~ msgid "Message %1"
-#~ msgstr "Üzenet küldése a(z) %1 szobának"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Megjelölés olvasottként"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Végpontok közötti titkosítás visszaállítása"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Az ebben a csapatban lévő összes felhasználó írhat üzeneteket"
 
-#, fuzzy
-#~| msgid "Verified"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Ellenőrizve"
+#~ msgid "Message %1"
+#~ msgstr "Üzenet küldése a(z) %1 szobának"
 
-#~ msgid "System Messages"
-#~ msgstr "Rendszerüzenetek"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Megjelölés olvasottként)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "A napló megnyitása lehetetlen."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Napló megjelenítése"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Összes kijelölése"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Időalapú, egyszer használatos jelszó visszaállítása"
 
-#~ msgid "Create"
-#~ msgstr "Létrehozás"
-
-#~ msgid "Set as Favorite"
-#~ msgstr "Beállítás kedvencként"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Szobák keresése…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Üzenet másolása"
-
-#, fuzzy
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Szobák keresése…"
-
-#, fuzzy
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Felhasználók keresése…"
-
-#~ msgid "Search channels…"
-#~ msgstr "Csatornák keresése…"
+#~ msgid "Modify..."
+#~ msgstr "Módosítás…"
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Könyvtár - %1"
+
+#~ msgid "Search channels…"
+#~ msgstr "Csatornák keresése…"
+
+#~ msgid "Go to Message"
+#~ msgstr "Ugrás az üzenethez"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Kattintson ide továbbiak betöltéséhez…)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -12745,15 +12672,3 @@ msgstr "Néhány hibajavítás:"
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "A Ruqola újdonságai"
-
-#~ msgid "Select All"
-#~ msgstr "Összes kijelölése"
-
-#~ msgid "Go to Message"
-#~ msgstr "Ugrás az üzenethez"
-
-#~ msgid "Modify..."
-#~ msgstr "Módosítás…"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Kattintson ide továbbiak betöltéséhez…)"

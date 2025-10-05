@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/ruqola/ruqola.pot\n"
-"X-Crowdin-File-ID: 49360\n"
+"X-Crowdin-File: /kf6-stable/messages/ruqola/ruqola.pot\n"
+"X-Crowdin-File-ID: 53692\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -11396,8 +11396,10 @@ msgid "Add restore button in administration settings."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
+#, fuzzy
+#| msgid "Allow to activate/desactivate apps market."
 msgid "Allow to activate plugins."
-msgstr ""
+msgstr "允许启用/禁用应用市场。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
@@ -11871,9 +11873,10 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to activate/desactivate apps market."
 msgid "Allow to activate/deactivate apps market."
-msgstr ""
+msgstr "允许启用/禁用应用市场。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:172
 #, kde-format
@@ -11901,9 +11904,10 @@ msgid "Fix show date info."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application does not have settings."
 msgid "Fix save application settings."
-msgstr ""
+msgstr "此应用无配置选项。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
@@ -11979,3 +11983,7 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Restore"
+#~ msgstr "恢复"

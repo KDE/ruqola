@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-02 00:42+0000\n"
+"POT-Creation-Date: 2025-10-05 02:28+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -222,7 +222,7 @@ msgstr "版本"
 #: core/apps/appsmarketplaceinfo.cpp:418 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
-msgstr "分類"
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:422
 #, fuzzy, kde-format
@@ -238,7 +238,7 @@ msgstr "作者"
 #: core/apps/appsmarketplaceinfo.cpp:445
 #, kde-format
 msgid "Homepage"
-msgstr "首頁"
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:457
 #, fuzzy, kde-format
@@ -1232,11 +1232,9 @@ msgid "Registration status"
 msgstr "註冊"
 
 #: core/model/adminuserspendingmodel.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Use ddp api for login"
+#, kde-format
 msgid "User first log in"
-msgstr "登入使用 ddp API"
+msgstr ""
 
 #: core/model/adminuserspendingmodel.cpp:53
 #, fuzzy, kde-format
@@ -1897,9 +1895,10 @@ msgid "Channel"
 msgstr "頻道"
 
 #: core/roominfo/roominfo.cpp:143
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
 msgid "Direct message"
-msgstr "私訊"
+msgstr "傳送私訊給某人"
 
 #: core/roominfo/roominfo.cpp:145
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:110
@@ -1909,31 +1908,36 @@ msgid "Omnichannel"
 msgstr "下一個頻道"
 
 #: core/ruqolacommandlineparser.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
-msgstr "回傳帳戶列表"
+msgstr "回到帳戶列表"
 
 #: core/ruqolacommandlineparser.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start with specific account"
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "使用指定帳戶啟動"
 
 #: core/ruqolacommandlineparser.cpp:44
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Message"
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "顯示訊息"
 
 #: core/ruqolacommandlineparser.cpp:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use RESTAPI for logging."
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
-msgstr "登入使用 ddp API"
+msgstr "為日誌使用 REST API。"
 
 #: core/ruqolacommandlineparser.cpp:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Lists the available options for user feedback"
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "列出能用於使用者回饋的選項"
@@ -2057,7 +2061,8 @@ msgid "Personal Access Token"
 msgstr "個人存取權杖 (Personal Access Token)"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Share Text..."
 msgid "Share Text…"
 msgstr "分享文字…"
 
@@ -2078,9 +2083,9 @@ msgstr "<qt>您可以在此檢視新的請求：<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
 #, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#| msgid "Application Secret"
 msgid "AI Actions"
-msgstr "應用程式 ID (iss)"
+msgstr "應用程式秘密"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
@@ -2972,7 +2977,8 @@ msgid "Configure Custom Emoji"
 msgstr "設定自訂表情符號"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The custom emoji name and their aliases should be different."
 msgctxt "@label:textbox"
 msgid "The custom emoji name and their aliases should be different."
 msgstr "自訂表情符號名稱跟它的別名應該不同。"
@@ -3232,10 +3238,11 @@ msgid "From:"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Token:"
 msgctxt "@label:textbox"
 msgid "To:"
-msgstr "到："
+msgstr "權杖："
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:77
 #, kde-format
@@ -6997,13 +7004,15 @@ msgid "Disable Instance Broadcast"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Sessions Monitor"
 msgctxt "@option:check"
 msgid "Disable Sessions Monitor"
 msgstr "停用工作階段監控"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Livechat Activity Monitor"
 msgctxt "@option:check"
 msgid "Disable Livechat Activity Monitor"
 msgstr "停用即時聊天活動監控"
@@ -7031,7 +7040,6 @@ msgstr "停用工作空間同步"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:24
 #, fuzzy, kde-format
-#| msgctxt "@option:check"
 #| msgid "Disable Sessions Monitor"
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
@@ -7274,10 +7282,10 @@ msgstr "找不到聊天室"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:27
 #, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#| msgid "Application Secret"
 msgctxt "@title:window"
 msgid "Ask Application"
-msgstr "應用程式 ID (iss)"
+msgstr "應用程式秘密"
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp:29
 #, kde-format
@@ -7362,11 +7370,10 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:73
 #, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#| msgid "Application Secret"
 msgctxt "@action"
 msgid "Ask Application…"
-msgstr "應用程式…"
+msgstr "應用程式秘密"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
 #, kde-format
@@ -7404,11 +7411,10 @@ msgstr "您確定要解除封存此聊天室嗎？"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
 #, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#| msgid "Application Secret"
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "應用程式…"
+msgstr "應用程式秘密"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:64
 #, fuzzy, kde-format
@@ -7430,42 +7436,38 @@ msgstr ""
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:14
 #, kde-format
 msgid "Free Apps"
-msgstr "免費應用程式"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:15
 #, kde-format
 msgid "Paid Apps"
-msgstr "付費應用程式"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
 #, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#| msgid "Search Discussions..."
 msgctxt "@info:placeholder"
 msgid "Search Applications"
-msgstr "應用程式 ID (iss)"
+msgstr "搜尋討論區…"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
-msgstr "應用程式…"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
-msgstr "應用程式…"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
 #, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#| msgid "Search Discussions..."
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "應用程式 ID (iss)"
+msgstr "搜尋討論區…"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:53
 #, fuzzy, kde-format
@@ -7486,22 +7488,22 @@ msgstr "套用"
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
-msgstr "A 到 Z"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
 #, kde-format
 msgid "Z-A"
-msgstr "Z 到 A"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
 #, kde-format
 msgid "Most recent updated"
-msgstr "最近更新"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:15
 #, kde-format
 msgid "Least recent updated"
-msgstr "最久以前更新"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:13
 #, fuzzy, kde-format
@@ -7756,7 +7758,8 @@ msgid "Start a Call"
 msgstr "開始通話"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start"
 msgctxt "@action:button"
 msgid "Start"
 msgstr "開始"
@@ -7917,7 +7920,6 @@ msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, fuzzy, kde-format
-#| msgctxt "@option:check"
 #| msgid "Enable Plasma Activities"
 msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
@@ -8067,13 +8069,18 @@ msgid "Configure Activities"
 msgstr "設定活動"
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Limit to the selected activities:"
 msgctxt "@option:check"
 msgid "Limit to the selected activities:"
 msgstr "限制於所選活動："
 
 #: widgets/configurenewserver/configureactivitieswidget.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "If you limit this account to activity, it will be shown in Ruqola only "
+#| "when you are in those activities. Furthermore, when you switch to an "
+#| "activity it should not be available in, it will automatically be hidden."
 msgctxt "@label:textbox"
 msgid ""
 "If you limit this account to activity, it will be shown in Ruqola only when "
@@ -8134,9 +8141,9 @@ msgstr "刪除我的帳戶"
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Database Info"
+#| msgid "Delete Rooms"
 msgid "DataBase Rooms"
-msgstr "資料庫資訊"
+msgstr "刪除聊天室"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, fuzzy, kde-format
@@ -9093,20 +9100,18 @@ msgstr "複製位置到剪貼簿"
 
 #: widgets/dialogs/showimagedialog.cpp:152
 #, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#| msgid "Search Discussions..."
 msgid "Other Application..."
-msgstr "應用程式 ID (iss)"
+msgstr "搜尋討論區…"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, fuzzy, kde-format
-#| msgctxt "@info:shell"
 #| msgid "Show Message"
 msgid "Show previous image"
 msgstr "顯示訊息"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:31
 #, fuzzy, kde-format
-#| msgctxt "@info:shell"
 #| msgid "Show Message"
 msgid "Show next image"
 msgstr "顯示訊息"
@@ -9262,10 +9267,10 @@ msgstr "搜尋討論串…"
 
 #: widgets/directory/directorywidget.cpp:80
 #, fuzzy, kde-format
-#| msgid "Joined this Team"
+#| msgid "Join"
 msgctxt "@action"
 msgid "Join…"
-msgstr "已加入此團隊"
+msgstr "加入"
 
 #: widgets/directory/directorywidget.cpp:83
 #, fuzzy, kde-format
@@ -9451,7 +9456,12 @@ msgid "Please enter your E2EE password"
 msgstr ""
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "To access your encrypted private groups and direct messages, enter your "
+#| "encryption password.\n"
+#| "You need to enter this password to encode/decode your messages on every "
+#| "client you use, since the key is not stored on the server."
 msgctxt "@label:textbox"
 msgid ""
 "To access your encrypted private groups and direct messages, enter your "
@@ -10816,10 +10826,10 @@ msgstr "新增伺服器"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#| msgid "Mentions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "應用程式 ID (iss)"
+msgstr "提及"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, fuzzy, kde-format
@@ -10847,10 +10857,10 @@ msgstr "影片訊息"
 
 #: widgets/room/messagelinewidget.cpp:96 widgets/room/messagelinewidget.cpp:103
 #, fuzzy, kde-format
-#| msgid "Search moderation message…"
+#| msgid "Search messages"
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
-msgstr "搜尋站務訊息…"
+msgstr "搜尋訊息"
 
 #: widgets/room/messagelinewidget.cpp:98
 #, kde-format
@@ -10912,9 +10922,9 @@ msgstr "訊息已置頂"
 
 #: widgets/room/messagelinewidget.cpp:367
 #, fuzzy, kde-format
-#| msgid "Search moderation message…"
+#| msgid "Search messages"
 msgid "Send a message in %1…"
-msgstr "搜尋站務訊息…"
+msgstr "搜尋訊息"
 
 #: widgets/room/messagelinewidget.cpp:509
 #, kde-format
@@ -11241,10 +11251,10 @@ msgstr "已啟用"
 
 #: widgets/room/roomheaderwidget.cpp:133
 #, fuzzy, kde-format
-#| msgid "Application ID (iss)"
+#| msgid "Application Secret"
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "應用程式 ID (iss)"
+msgstr "應用程式秘密"
 
 #: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
@@ -11408,7 +11418,8 @@ msgid "Users"
 msgstr "使用者"
 
 #: widgets/room/usersinroomflowwidget.cpp:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "(Open External Dialog...)"
 msgid "(Open External Dialog…)"
 msgstr "（開啟外部對話框…）"
 
@@ -11684,7 +11695,8 @@ msgid "My Account…"
 msgstr "我的帳戶…"
 
 #: widgets/ruqolamainwindow.cpp:539
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Administrator"
 msgid "administration"
 msgstr "管理員"
 
@@ -11701,34 +11713,30 @@ msgid "Server Settings…"
 msgstr "伺服器設定…"
 
 #: widgets/ruqolamainwindow.cpp:553
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application ID (iss)"
 msgctxt "@action"
 msgid "Applications…"
-msgstr "應用程式…"
+msgstr "應用程式 ID (iss)"
 
 #: widgets/ruqolamainwindow.cpp:558
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
-msgstr "應用程式…"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:563
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
-msgstr "應用程式…"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:568
 #, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#| msgid "Application ID (iss)"
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "應用程式…"
+msgstr "應用程式 ID (iss)"
 
 #: widgets/ruqolamainwindow.cpp:573
 #, kde-format
@@ -11761,7 +11769,8 @@ msgid "&Previous Server"
 msgstr "上一個伺服器(&P)"
 
 #: widgets/ruqolamainwindow.cpp:616
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status:"
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "狀態："
@@ -11937,7 +11946,8 @@ msgid "Search Team"
 msgstr "搜尋團隊"
 
 #: widgets/teams/searchteamwidget.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Team Name:"
 msgctxt "@label:textbox"
 msgid "Team Name:"
 msgstr "團隊名稱："
@@ -12018,7 +12028,11 @@ msgid "Convert Team '%1' to Channel"
 msgstr "將團隊「%1」轉為頻道"
 
 #: widgets/teams/teamconverttochannelwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select the Team’s Channels you would like to delete, the ones you do not "
+#| "select will be moved to the Workspace. Notice that public Channels will "
+#| "be public and visible to everyone."
 msgctxt "@label:textbox"
 msgid ""
 "Select the Team’s Channels you would like to delete, the ones you do not "
@@ -12125,29 +12139,32 @@ msgid "Add Account…"
 msgstr "我的帳戶…"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Version:"
 msgctxt "@label:textbox"
 msgid "Version:"
 msgstr "版本："
 
-# %1 是 "(Show News)" 按鈕
 #: widgets/whatsnew/whatsnewdialog.cpp:28
 #, fuzzy, kde-format
-#| msgid "What's new in %2. %1"
+#| msgctxt "@title:window"
+#| msgid "What's new in Ruqola"
 msgctxt "@title:window"
 msgid "What's new in %1"
-msgstr "%2 的新功能。%1"
+msgstr "Ruqola 中的新功能"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "(Show Errors)"
 msgid "(Show News)"
-msgstr "（顯示最新消息）"
+msgstr "（顯示錯誤）"
 
-# %1 是 "(Show News)" 按鈕
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "What's new in Ruqola"
 msgid "What's new in %2. %1"
-msgstr "%2 的新功能。%1"
+msgstr "Ruqola 中的新功能"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 #, fuzzy
@@ -12190,10 +12207,9 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#| msgid "Allow to send multi files."
 msgid "Allow to Add WebDav Server."
-msgstr "新增伺服器"
+msgstr "允許傳送多個檔案。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
@@ -12433,10 +12449,9 @@ msgid "Fix preview url."
 msgstr "修正預覽網址。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:103
-#, fuzzy, kde-format
-#| msgid "Implement Application Market Settings."
+#, kde-format
 msgid "Implement Rocket.Chat Marketplace."
-msgstr "實作應用程式商店設定。"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, fuzzy, kde-format
@@ -12445,10 +12460,9 @@ msgid "Allow to clean room history."
 msgstr "允許傳送多個檔案。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:105
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to check new version."
-msgstr "允許傳送多個檔案。"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:106
 #, kde-format
@@ -12496,10 +12510,9 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "修正私訊頻道中的翻譯訊息。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:117
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Add delegate in search rooms in team dialog."
-msgstr "修正私訊頻道中的翻譯訊息。"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
@@ -12535,23 +12548,20 @@ msgid "Add color to the text in the account tab"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgid "Allow to show private installed applications"
-msgstr "應用程式…"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:137
 #, fuzzy, kde-format
-#| msgid "Direct message"
+#| msgid "Direct message someone"
 msgid "Fix editing message."
-msgstr "私訊"
+msgstr "傳送私訊給某人"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:138
-#, fuzzy, kde-format
-#| msgid "Implement Application Market Settings."
+#, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "實作應用程式商店設定。"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:139
 #, kde-format
@@ -12591,11 +12601,9 @@ msgid "Fix open discussion channel"
 msgstr "開啟討論區"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#, kde-format
 msgid "Allow to show application market settings"
-msgstr "應用程式…"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:154
 #, kde-format
@@ -12631,9 +12639,9 @@ msgstr "顯示聊天室中的檔案附件"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:160
 #, fuzzy, kde-format
-#| msgid "Implement Application Market Settings."
+#| msgid "Implement block actions."
 msgid "Implement Rocket.Chat application support."
-msgstr "實作應用程式商店設定。"
+msgstr "實作封鎖動作。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:161
 #, fuzzy, kde-format
@@ -12672,10 +12680,9 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, fuzzy, kde-format
-#| msgid "Allow to send multi files."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
-msgstr "允許傳送多個檔案。"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:172
 #, kde-format
@@ -12705,10 +12712,9 @@ msgstr "修正頭貼顯示 URL。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Applications…"
+#| msgid "Application not found"
 msgid "Fix save application settings."
-msgstr "應用程式…"
+msgstr "找不到應用程式"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
@@ -12728,9 +12734,9 @@ msgstr "修正私訊頻道中的翻譯訊息。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
 #, fuzzy, kde-format
-#| msgid "Implement Application Market Settings."
+#| msgid "Implement block actions."
 msgid "Add AI Rocket Chat Actions support."
-msgstr "實作應用程式商店設定。"
+msgstr "實作封鎖動作。"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
 #, fuzzy, kde-format
@@ -12794,74 +12800,9 @@ msgid "Some bug fixing:"
 msgstr "一些錯誤修正："
 
 #, fuzzy
-#~| msgid "Remove"
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "移除"
-
-#, fuzzy
-#~| msgid "Do you want to open this channel: \"%1\"?"
-#~ msgid "Do you want to remove it?"
-#~ msgstr "您確定要開啟這個頻道：「%1」嗎？"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "移除"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Activities"
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "設定活動"
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "設定帳戶"
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "設定帳戶"
-
-#, fuzzy
 #~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "載入中…"
-
-#, fuzzy
-#~| msgid "No room found"
-#~ msgid "No new version found."
-#~ msgstr "找不到聊天室"
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "附加檔案"
-
-#, fuzzy
-#~| msgid "Show Log"
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "顯示紀錄"
-
-#~ msgid "Private"
-#~ msgstr "私人"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#, fuzzy
-#~| msgid "Join Default Channels"
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "加入預設頻道"
 
 #~ msgid "Starred Messages"
 #~ msgstr "收藏的訊息"
@@ -12878,10 +12819,29 @@ msgstr "一些錯誤修正："
 #~ msgid "Unread Threads Messages"
 #~ msgstr "未讀的對話串訊息"
 
+#~ msgid "System Messages"
+#~ msgstr "系統訊息"
+
 #, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "（標記為已讀）"
+#~| msgid "Join Default Channels"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "加入預設頻道"
+
+#, fuzzy
+#~| msgid "Verified"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "已驗證"
+
+#~ msgid "Private"
+#~ msgstr "私人"
+
+#, fuzzy
+#~| msgid "Mark As Read"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "標記為已讀"
 
 #~ msgid "Username or Email:"
 #~ msgstr "使用者名稱或電子郵件："
@@ -12921,76 +12881,50 @@ msgstr "一些錯誤修正："
 #~ msgstr "伺服器網址："
 
 #, fuzzy
-#~| msgid "Message"
-#~ msgid "Message %1"
-#~ msgstr "訊息"
-
-#, fuzzy
-#~| msgid "Mark As Read"
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "標記為已讀"
-
-#, fuzzy
-#~| msgid "Password"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "密碼"
-
-#, fuzzy
 #~| msgid "All users in this team can write messages"
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "團隊中所有使用者都可以寫訊息"
 
 #, fuzzy
-#~| msgid "Verified"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "已驗證"
+#~| msgid "Message"
+#~ msgid "Message %1"
+#~ msgstr "訊息"
 
-#~ msgid "System Messages"
-#~ msgstr "系統訊息"
+#~ msgid "(Mark As Read)"
+#~ msgstr "（標記為已讀）"
+
+#, fuzzy
+#~| msgid "Show Log"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "顯示紀錄"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
 
 #, fuzzy
 #~| msgid "Password"
 #~ msgid "Reset TOTP"
 #~ msgstr "密碼"
 
-#~ msgid "Create"
-#~ msgstr "建立"
+#~ msgid "Modify..."
+#~ msgstr "變更…"
 
-#~ msgid "Set as Favorite"
-#~ msgstr "收藏"
-
-#, fuzzy
-#~| msgid "Search Room... (%1)"
-#~ msgid "Search rooms…"
-#~ msgstr "搜尋房間… (%1)"
-
-#~ msgid "Copy Message"
-#~ msgstr "複製訊息"
-
-#, fuzzy
-#~| msgid "Search Room... (%1)"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "搜尋房間… (%1)"
-
-#, fuzzy
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "搜尋使用者…"
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "目錄 - %1"
 
 #, fuzzy
 #~| msgid "Search Channels"
 #~ msgid "Search channels…"
 #~ msgstr "搜尋頻道"
 
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "目錄 - %1"
+#~ msgid "Go to Message"
+#~ msgstr "跳到訊息"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(按一下此處載入更多…)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -13001,25 +12935,6 @@ msgstr "一些錯誤修正："
 
 #~ msgid "Version 2.2"
 #~ msgstr "2.2 版"
-
-#~ msgid "Version 2.3"
-#~ msgstr "2.3 版"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in Ruqola"
-#~ msgstr "Ruqola 中的新功能"
-
-#~ msgid "Select All"
-#~ msgstr "全部選取"
-
-#~ msgid "Go to Message"
-#~ msgstr "跳到訊息"
-
-#~ msgid "Modify..."
-#~ msgstr "變更…"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(按一下此處載入更多…)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -13241,9 +13156,20 @@ msgstr "一些錯誤修正："
 #~ msgstr "關閉"
 
 #, fuzzy
+#~| msgid "Configure Account"
+#~ msgid "Configure..."
+#~ msgstr "設定帳戶"
+
+#, fuzzy
 #~| msgid "Username:"
 #~ msgid "Vietnamese"
 #~ msgstr "使用者名稱："
+
+#, fuzzy
+#~| msgid "Configure Account"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "設定帳戶"
 
 #, fuzzy
 #~| msgid "Auto-Translate"
