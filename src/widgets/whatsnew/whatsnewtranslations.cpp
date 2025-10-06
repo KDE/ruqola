@@ -14,18 +14,7 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{
-        kli18n("Add AI plugin"),
-        kli18n("Allow to dnd image."),
-        kli18n("Add restore button in administration settings."),
-        kli18n("Allow to activate plugins."),
-        kli18n("Add Open With button in show image."),
-        kli18n("Add Quick Text Format."),
-        kli18n("Add Extension message line button."),
-        kli18n("Allow to Add WebDav Server."),
-        kli18n("Show room info (italic text) when there is some pending message typed."),
-        kli18n("Allow to add emoticon from popup menu."),
-    };
+    const QList<KLazyLocalizedString> info{};
     return info;
 }
 
@@ -180,11 +169,18 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
     }
     {
         WhatsNewInfo info;
-        QStringList lst;
-        for (const KLazyLocalizedString &l : lastNewFeatures()) {
-            lst += l.toString();
-        }
-        info.setNewFeatures(lst);
+        info.setNewFeatures({
+            i18n("Add AI plugin"),
+            i18n("Allow to dnd image."),
+            i18n("Add restore button in administration settings."),
+            i18n("Allow to activate plugins."),
+            i18n("Add Open With button in show image."),
+            i18n("Add Quick Text Format."),
+            i18n("Add Extension message line button."),
+            i18n("Allow to Add WebDav Server."),
+            i18n("Show room info (italic text) when there is some pending message typed."),
+            i18n("Allow to add emoticon from popup menu."),
+        });
         info.setVersion(u"2.6"_s);
         info.setBugFixings({
             i18n("Fix show date info."),
@@ -200,6 +196,19 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
             i18n("Fix icon on windows."),
             i18n("Fix show file attachment size."),
         });
+
+        listInfo.append(std::move(info));
+    }
+
+    {
+        WhatsNewInfo info;
+        QStringList lst;
+        for (const KLazyLocalizedString &l : lastNewFeatures()) {
+            lst += l.toString();
+        }
+        info.setNewFeatures(lst);
+        info.setVersion(u"2.7"_s);
+        info.setBugFixings({});
 
         listInfo.append(std::move(info));
     }
