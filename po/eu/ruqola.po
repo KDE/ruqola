@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-05 02:28+0000\n"
-"PO-Revision-Date: 2025-08-11 14:18+0200\n"
+"PO-Revision-Date: 2025-10-05 19:22+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language-Team: Basque <kde-i18n-doc@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -2047,21 +2047,19 @@ msgstr ""
 "<qt>Eskaera berria hemen aurki dezakezu:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgid "AI Actions"
-msgstr "Eskatu aplikazioa"
+msgstr "AA ekintzak"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
 #, kde-format
 msgid "Summarize Unreads"
-msgstr ""
+msgstr "Laburtu irakurri gabekoak"
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:41
 #, kde-format
 msgid "Ask to AI"
-msgstr ""
+msgstr "Galdetu AAri"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
 #, kde-format
@@ -2071,30 +2069,26 @@ msgstr "Sortu pantaila-argazki bat"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr ""
+msgstr "Tresna honek pantaila-argazki bat sortzeko aukera ematen du."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Konfiguratu nire kontua"
+msgstr "Konfiguratu Pantaila grabatu"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Atzerapena:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "segundo 1"
-msgstr[1] "%1 segundo"
+msgstr[0] "segundo %v"
+msgstr[1] "%v segundo"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
 #, kde-format
@@ -2950,11 +2944,9 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow Feature Preview"
+#, kde-format
 msgid "Feature Preview"
-msgstr "Baimendu ezaugarriaren aurreikuspegia"
+msgstr "Ezaugarriaren aurreikuspena"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #, kde-format
@@ -3156,12 +3148,10 @@ msgid "Allow Feature Preview"
 msgstr "Baimendu ezaugarriaren aurreikuspegia"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "Erreakzioak"
+msgstr "Erreakzio azkarrak"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4920,37 +4910,29 @@ msgstr ""
 "lituzke."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Direct Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in direct messages"
-msgstr "Gaitu zuzeneko mezuetarako"
+msgstr "Gaitu zuzeneko mezuetan"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Public Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in public channels"
-msgstr "Gaitu kanal publikoetarako"
+msgstr "Gaitu kanal publikoetan"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in teams"
-msgstr "Gaitu taldeetarako"
+msgstr "Gaitu taldeetan"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable logging"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "Egunkarian erregistratzea gaitzea"
+msgstr "Gaitu mugikorraren txirrina jotzea"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
@@ -5580,7 +5562,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:163
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Erabiltzaile guztiak kanalera gehitzeko erabiltzaile muga"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
@@ -6742,29 +6724,25 @@ msgid "Maximum message age in direct messages"
 msgstr "Zuzeneko mezuetan mezuen gehienezko adina"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
-#, fuzzy, kde-format
-#| msgid "Enterprise"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "Enpresa"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
-#, fuzzy, kde-format
-#| msgid "Enterprise License"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "Enpresa-lizentzia"
+msgstr "Enpresa-lizentzia aktibatu beharra dago"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
-msgstr "Ezarri"
+msgstr "Aplikatu"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Utzi"
@@ -6773,7 +6751,7 @@ msgstr "Utzi"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Lehengoratu zerbitzariaren balio lehenetsian"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
@@ -6903,12 +6881,10 @@ msgid "Disable Workspace Sync"
 msgstr "Ezgaitu langunea sinkronizatzea"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Ezgaitu saioen begiralea"
+msgstr "Ezgaitu taldeen aipamena"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:28
 #, kde-format
@@ -6988,6 +6964,8 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"Ezarpen honek taldeen aipamena ezaugarria ezgaitzen du. Erabiltzaileek "
+"ezingo dute talde bat izenarekin aipatu bere partaideak jakinarazteko."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:18
 #, kde-format
@@ -7757,31 +7735,30 @@ msgstr "Gaitu Plasma Jardueren integrazioa"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr ""
+msgstr "Gaitu Testutik-hizketara"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Aldaketak ezartzeko berrabiatu beharra dago."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Tresna pluginak"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "Testu pluginak"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "..."
-msgstr "Gehitu..."
+msgstr "…"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
 msgstr "Konfiguratu"
@@ -7844,7 +7821,7 @@ msgstr "Irisgarritasuna"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr ""
+msgstr "Pluginak"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:19
 #, kde-format
@@ -7929,9 +7906,7 @@ msgid "Database Info"
 msgstr "Datu-basearen informazioa"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "Mezuak"
 
@@ -7942,38 +7917,29 @@ msgid "Json"
 msgstr "JSON"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgid "DataBase Messages"
-msgstr "Mezu pribatua"
+msgstr "Datu-baseko mezuak"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete my Account"
+#, kde-format
 msgid "DataBase Accounts"
-msgstr "Ezabatu nire kontua"
+msgstr "Datu-baseko kontuak"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Rooms"
+#, kde-format
 msgid "DataBase Rooms"
-msgstr "Ezabatu gelak"
+msgstr "Datu-baseko gelak"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
+#, kde-format
 msgid "DataBase Global"
-msgstr "Datu-basearen informazioa"
+msgstr "Datu-base globala"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Datu-basearen informazioa"
+msgstr "Datu-baseko (E2E) muturren arteko zifratzea"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -8542,7 +8508,7 @@ msgstr "Ordu-eremua:"
 #: widgets/dialogs/directchannelinfowidget.cpp:136
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Ordu lokala:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #, kde-format
@@ -8793,8 +8759,7 @@ msgid "License:"
 msgstr "Lizentzia:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No license"
 msgid "None"
 msgstr "Bat ere ez"
@@ -8876,11 +8841,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopiatu kokalekua arbelera"
 
 #: widgets/dialogs/showimagedialog.cpp:152
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Bilatu aplikazioak"
+msgstr "Beste aplikazio bat…"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -9175,9 +9138,7 @@ msgid "Disable Encryption"
 msgstr "Ezgaitu zifratzea"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Disable Encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Ezgaitu zifratzea"
@@ -9492,8 +9453,7 @@ msgid "Decrease Font"
 msgstr "Txikiagotu letra-tipoa"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Kendu"
@@ -10382,7 +10342,7 @@ msgid "Encrypt Messages"
 msgstr "Zifratu mezuak"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Debug"
 msgstr "Araztu"
@@ -10400,11 +10360,10 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Eranskina ireki <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr "Ireki…"
+msgstr "Ireki"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
@@ -10425,18 +10384,15 @@ msgid "Save &As…"
 msgstr "Gorde &honela…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Ezin da fitxategia ireki"
+msgstr "Ezin da %1 ireki"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Errorea fitxategia gordetzean"
+msgstr "Errorea fitxategia irekitzean"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
@@ -10531,19 +10487,16 @@ msgid "Add reaction"
 msgstr "Gehitu erreakzioa"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "Gehitu zerbitzaria"
+msgstr "Gehitu WebDav zerbitzaria"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Aipamenak"
+msgstr "Ekintza gehiago"
 
 #: widgets/room/messagelinewidget.cpp:74
 #, kde-format
@@ -10825,53 +10778,45 @@ msgid "Markdown Url"
 msgstr "Markdown URLa"
 
 #: widgets/room/newmessageindicator.cpp:34
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgid "New Message"
-msgstr "Bidali mezua"
+msgstr "Mezu berria"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, fuzzy, kde-format
-#| msgid "Bold"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Lodia"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Etzana"
 
 #: widgets/room/quicktextformatmessage.cpp:63
-#, fuzzy, kde-format
-#| msgid "Strike-out"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "Marratua"
 
 #: widgets/room/quicktextformatmessage.cpp:76
-#, fuzzy, kde-format
-#| msgid "Code Block"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "Kode-blokea"
 
 #: widgets/room/quicktextformatmessage.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
 msgstr "Aipua"
 
 #: widgets/room/quicktextformatmessage.cpp:104
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "Txertatu"
+msgstr "Txertatu esteka"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -10930,12 +10875,10 @@ msgid "E2E Enabled"
 msgstr "E2E gaituta"
 
 #: widgets/room/roomheaderwidget.cpp:133
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "Eskatu aplikazioa"
+msgstr "AA ekintzak"
 
 #: widgets/room/roomheaderwidget.cpp:143
 #, kde-format
@@ -11098,10 +11041,9 @@ msgstr "(Ireki kanpoko elkarrizketa-koadroa…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Ez da erabiltzailerik aurkitu"
+msgstr "Ez da erabiltzailerik aurkitu."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -11748,29 +11690,24 @@ msgid "Check New Version"
 msgstr "Egiaztatu bertsio berririk dagoen"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
-msgstr "Gehitu zerbitzaria"
+msgstr "Gehitu WebDAV zerbitzari berria"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
-msgstr "Gehitu zerbitzaria"
+msgstr "Gehitu WebDAV zerbitzaria"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "URL:"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "User Name:"
+#, kde-format
 msgid "UserName:"
 msgstr "Erabiltzaile-izena:"
 
@@ -11803,59 +11740,46 @@ msgid "What's new in %2. %1"
 msgstr "Zer berri %2(a)n. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Add Autojoin"
 msgid "Add AI plugin"
-msgstr "Gehitu batze automatikoa"
+msgstr "Gehitu AA plugina"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send email"
 msgid "Allow to dnd image."
-msgstr "Baimendu e-posta bidaltzea"
+msgstr "Baimendu irudia arrastatu eta jaregitea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
-msgstr ""
-"Gehitu lehengoratzeko botoia administratzaile zerbitzariaren ezarpenak "
-"elkarrizketa koadroan."
+msgstr "Gehitu lehengoratzeko botoia administrazio ezarpenetan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
-#, fuzzy
-#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Baimendu eginkizuna idaztea"
+msgstr "Baimendu pluginak aktibatzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Erakutsi irudian Ireki honekin botoia gehitzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Change Text Format"
 msgid "Add Quick Text Format."
-msgstr "Aldatu testuaren formatua"
+msgstr "Gehitu testuaren formatu azkarra."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Mezu-lerroan luzapenaren botoia gehitzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Allow to read role"
 msgid "Allow to Add WebDav Server."
-msgstr "Baimendu eginkizuna irakurtzea"
+msgstr "WebDav zerbitzaria gehitzea baimendu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
+"Tekleatutako mezuren bat bidaltzeke dagoenean, gelaren informazioa (testu "
+"etzana) erakustea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 msgid "Allow to add emoticon from popup menu."
-msgstr ""
+msgstr "Menu gainerakorretik emotikonoa gehitzea baimentzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
@@ -12330,8 +12254,7 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr "Errore bat gertatu denean komando lerroa arbelean jartzen utzi"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, fuzzy, kde-format
-#| msgid "Allow to activate/desactivate apps market."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
 msgstr "Aplikazioen merkatua aktibatzeko/desaktibatzeko aukera ematen du."
 
@@ -12356,81 +12279,73 @@ msgid "Fix download languages apps."
 msgstr "Hizkuntza zama-jaisteko aplikazioen konponketa."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:190
-#, fuzzy, kde-format
-#| msgid "Fix show avatar url."
+#, kde-format
 msgid "Fix show date info."
-msgstr "Erakutsi abatararen URLa konpontzea."
+msgstr "Erakutsi dataren informazioa konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Baimendu aplikazioaren merkatuko ezarpenak erakustea"
+msgstr "Gorde aplikazioaren ezarpenak konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "Eranskinean testu-hautapena konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix display user."
-msgstr ""
+msgstr "Erabiltzailea azaldu konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:194
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Zuzeneko kanaleko mezua konpontzea."
+msgstr "Azaldu itzuli menua hari elkarrizketan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Rocket.Chat aplikazioaren euskarria inplementatzea."
+msgstr "Gehitu Rocket.Chat AA ekintzen euskarria."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, fuzzy, kde-format
-#| msgid "Add restore button in administrator server settings dialog."
+#, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
-"Gehitu lehengoratzeko botoia administratzaile zerbitzariaren ezarpenak "
-"elkarrizketa koadroan."
+"Konpondu aplikatu, lehengoratu, utzi botoiak administrazio elkarrizketa-"
+"koadroan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:197
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgid "Fix search users."
-msgstr "Bilatu erabiltzaileak…"
+msgstr "Bilatu erabiltzailea konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:198
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr ""
+msgstr "Kode-bloketik lengoaia antzematea konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:199
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
+"\"Erakutsi kanalaren egunkaria\" elkarrizketa-koadroan eranskinen informazio "
+"konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:200
-#, fuzzy, kde-format
-#| msgid "Fix single application on Windows/MacOs"
+#, kde-format
 msgid "Fix icon on windows."
-msgstr "Windows-en/MacOs-en banakako aplikazioa konpontzea"
+msgstr "Windows-en ikonoa konpontzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:201
-#, fuzzy, kde-format
-#| msgid "Show File Attachments…"
+#, kde-format
 msgid "Fix show file attachment size."
-msgstr "Erakutsi fitxategi-eranskinak…"
+msgstr "Erakutsi fitxategi-eranskinaren neurria konpontzea."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "All Version"
+#, kde-format
 msgid "All Versions"
-msgstr "Bertsio denak"
+msgstr "Bertsio guztiak"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:49
 #, kde-format
