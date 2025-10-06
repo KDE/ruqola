@@ -5,7 +5,6 @@
 */
 
 #include "rocketchaturlutils.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "parserocketchaturlutils.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <KNotification>
 
+using namespace Qt::Literals::StringLiterals;
 bool RocketChatUrlUtils::parseUrl(const QString &link)
 {
     ParseRocketChatUrlUtils parseUrl;
