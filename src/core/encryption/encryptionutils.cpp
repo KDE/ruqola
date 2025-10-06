@@ -85,6 +85,22 @@ QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
     return doc.toJson(QJsonDocument::Compact);
 }
 
+QByteArray EncryptionUtils::exportJWKEncryptedPrivateKey(const QByteArray &encryptedPrivateKey)
+{
+    QJsonObject jwkObj;
+    jwkObj[QStringLiteral("kty")] = QStringLiteral("RSA");
+    jwkObj[QStringLiteral("alg")] = QStringLiteral("RSA-OAEP-256");
+    jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("decrypt");
+    jwkObj[QStringLiteral("ext")] = true;
+
+    // Store the encrypted private key as base64url
+    const QString ePrivKeyBase64Url = QString::fromLatin1(encryptedPrivateKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
+    jwkObj[QStringLiteral("RSA-EPrivKey")] = ePrivKeyBase64Url;
+
+    const QJsonDocument doc(jwkObj);
+    return doc.toJson(QJsonDocument::Compact);
+}
+
 EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
 {
     RSAKeyPair keyPair;
@@ -98,8 +114,8 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
     BIO *pubBio = BIO_new(BIO_s_mem());
     BIO *privBio = BIO_new(BIO_s_mem());
 
-    int bits = 2048;
-    unsigned long e = RSA_F4; // équivalent à 0x10001
+    const int bits = 2048;
+    const unsigned long e = RSA_F4; // équivalent à 0x10001
 
     bne = BN_new();
     ret = BN_set_word(bne, e);
@@ -479,7 +495,7 @@ QByteArray EncryptionUtils::encryptAES_CBC_256(const QByteArray &data, const QBy
     const int max_out_len = data.size() + EVP_CIPHER_block_size(EVP_aes_256_cbc());
     QByteArray cipherText(max_out_len, 0);
 
-    if (!(ctx = EVP_CIPHER_CTX_new())) {
+    if (ctx = EVP_CIPHER_CTX_new(); !ctx) {
         return {};
     }
 
@@ -524,7 +540,7 @@ QByteArray EncryptionUtils::encryptAES_CBC_128(const QByteArray &data, const QBy
     const int max_out_len = data.size() + EVP_CIPHER_block_size(EVP_aes_128_cbc());
     QByteArray cipherText(max_out_len, 0);
 
-    if (!(ctx = EVP_CIPHER_CTX_new())) {
+    if (ctx = EVP_CIPHER_CTX_new(); !ctx) {
         return {};
     }
 
@@ -568,7 +584,7 @@ QByteArray EncryptionUtils::decryptAES_CBC_128(const QByteArray &cipherText, con
 
     QByteArray plainText(cipherText.size(), 0);
 
-    if (!(ctx = EVP_CIPHER_CTX_new())) {
+    if (ctx = EVP_CIPHER_CTX_new(); !ctx) {
         return {};
     }
 

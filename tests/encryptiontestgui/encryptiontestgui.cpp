@@ -39,7 +39,7 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
         passwordEdit->setEchoMode(QLineEdit::Password);
 
         auto layout = new QGridLayout(dialog);
-        layout->addWidget(new QLabel(u"Salt:"_s, dialog), 0, 0);
+        layout->addWidget(new QLabel(u"UserId as salt:"_s, dialog), 0, 0);
         layout->addWidget(saltEdit, 0, 1);
         layout->addWidget(new QLabel(u"Password:"_s, dialog), 1, 0);
         layout->addWidget(passwordEdit, 1, 1);
@@ -106,9 +106,25 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
     auto pushButtonExportPublicKey = new QPushButton(u"Export Public Key"_s, this);
     mainLayout->addWidget(pushButtonExportPublicKey);
     connect(pushButtonExportPublicKey, &QPushButton::clicked, this, [this]() {
-        const auto expPublicKey = EncryptionUtils::exportJWKPublicKey(EncryptionUtils::publicKeyFromPEM(mRsaKeyPair.publicKey));
-        qDebug() << "Public Key:\n " << mRsaKeyPair.publicKey << "Exported Public Key:\n " << expPublicKey;
-        mTextEditResult->setPlainText(QStringLiteral("Public key export succeeded!\n") + QString::fromUtf8(expPublicKey));
+        if (mRsaKeyPair.publicKey.isEmpty()) {
+            mTextEditResult->setPlainText(QStringLiteral("Public key is empty, exporting failed!\n"));
+        } else {
+            const auto expPublicKey = EncryptionUtils::exportJWKPublicKey(EncryptionUtils::publicKeyFromPEM(mRsaKeyPair.publicKey));
+            qDebug() << "Public Key:\n " << mRsaKeyPair.publicKey << "Exported Public Key:\n " << expPublicKey;
+            mTextEditResult->setPlainText(QStringLiteral("Public key export succeeded!\n") + QString::fromUtf8(expPublicKey));
+        }
+    });
+
+    auto pushButtonExportEncryptedPrivateKey = new QPushButton(QStringLiteral("Export Encrypted Private Key"), this);
+    mainLayout->addWidget(pushButtonExportEncryptedPrivateKey);
+    connect(pushButtonExportEncryptedPrivateKey, &QPushButton::clicked, this, [this]() {
+        if (mEncryptedPrivateKey.isEmpty()) {
+            mTextEditResult->setPlainText(QStringLiteral("Encrypted private key is empty, exporting failed!\n"));
+        } else {
+            const auto expPrivKey = EncryptionUtils::exportJWKEncryptedPrivateKey(mEncryptedPrivateKey);
+            qDebug() << "Private Key:\n " << mRsaKeyPair.privateKey << "Exported Encrypted Private Key:\n " << expPrivKey;
+            mTextEditResult->setPlainText(QStringLiteral("Encrypted private key export succeeded!\n") + QString::fromUtf8(expPrivKey));
+        }
     });
 
     auto pushButtonGenerateSessionKey = new QPushButton(u"Generate Session Key"_s, this);
