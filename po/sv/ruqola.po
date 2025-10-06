@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-04 00:42+0000\n"
-"PO-Revision-Date: 2025-09-26 13:51+0200\n"
+"PO-Revision-Date: 2025-10-05 08:52+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -7707,12 +7707,10 @@ msgid "Enable Plasma Activities integration"
 msgstr "Aktivera integrering med Plasma-aktiviteter"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Text-To-Speech"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr "Anpassa text-till-tal"
+msgstr "Aktivera text till tal"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
@@ -10347,18 +10345,15 @@ msgid "Save &As…"
 msgstr "Spara s&om…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Omöjligt att öppna fil"
+msgstr "Omöjligt att öppna %1"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Fel när filen skulle sparas"
+msgstr "Fel när filen skulle öppnas"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format

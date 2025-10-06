@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-04 00:42+0000\n"
-"PO-Revision-Date: 2025-09-27 09:49+0400\n"
+"PO-Revision-Date: 2025-10-05 10:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -7731,7 +7731,7 @@ msgstr "مكّن التكامل مع أنشطة بلازما"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr ""
+msgstr "مكّن نطق النّصّ"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
@@ -10394,18 +10394,15 @@ msgid "Save &As…"
 msgstr "احفظ &كَ‍…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "من المستحيل فتح الملف"
+msgstr "من المستحيل فتح %1"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "خطأ في حفظ الملف"
+msgstr "خطأ في فتح الملفّ"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
@@ -11757,11 +11754,11 @@ msgstr "اسمح بإضافة خادم WebDav."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
-msgstr ""
+msgstr "عرض معلومات الغرفة (نص مائل) عندما يكون هناك رسالة معلقة مكتوبة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:27
 msgid "Allow to add emoticon from popup menu."
-msgstr ""
+msgstr "السماح بإضافة رموز تعبيرية من القائمة المنبثقة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
