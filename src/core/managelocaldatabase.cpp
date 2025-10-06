@@ -175,7 +175,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     loadHistoryInfo.methodName = u"loadHistory"_s;
     loadHistoryInfo.anonymous = false;
     loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
-    job->setMethodCallJobInfo(std::move(loadHistoryInfo));
+    job->setMethodCallJobInfo(loadHistoryInfo);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {

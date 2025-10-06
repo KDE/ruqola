@@ -58,7 +58,7 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
         auto job = new RocketChatRestApi::MethodCallJob(this);
 
         const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info = generateMethodCallInfo(messageId);
-        job->setMethodCallJobInfo(std::move(info));
+        job->setMethodCallJobInfo(info);
         mMessageJobs.insert(messageId, job);
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, messageId](const QJsonObject &replyObj) {
             slotGetSingleMessageDone(replyObj, messageId);
