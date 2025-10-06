@@ -56,7 +56,9 @@ using namespace Qt::Literals::StringLiterals;
  */
 QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
 {
-    const BIGNUM *n, *e, *d;
+    const BIGNUM *n;
+    const BIGNUM *e;
+    const BIGNUM *d;
     RSA_get0_key(rsaKey, &n, &e, &d);
 
     if (!n || !e) {
