@@ -136,7 +136,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
     MessagesModel *messageModel = nullptr;
     Room *room = nullptr;
     for (const QJsonValue &v : messages) {
-        QJsonObject o = v.toObject();
+        const QJsonObject o = v.toObject();
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(o);

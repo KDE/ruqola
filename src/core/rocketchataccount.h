@@ -427,6 +427,7 @@ public:
     void deleteRoomFromDatabase(const QByteArray &roomId);
     void addRoomToDataBase(Room *r);
     void updateRoomInDatabase(const QByteArray &roomId);
+    void addMessagesToDataBase(const QByteArray &roomId, const QList<Message> &messages);
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

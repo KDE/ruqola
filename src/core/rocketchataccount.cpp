@@ -3011,6 +3011,13 @@ void RocketChatAccount::addMessageToDataBase(const QByteArray &roomId, const Mes
     mLocalDatabaseManager->addMessage(accountName(), roomId, message);
 }
 
+void RocketChatAccount::addMessagesToDataBase(const QByteArray &roomId, const QList<Message> &messages)
+{
+    for (const auto &message : messages) {
+        mLocalDatabaseManager->addMessage(accountName(), roomId, message);
+    }
+}
+
 void RocketChatAccount::deleteMessageFromDatabase(const QByteArray &roomId, const QByteArray &messageId)
 {
     mLocalDatabaseManager->deleteMessage(accountName(), roomId, messageId);

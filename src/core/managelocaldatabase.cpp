@@ -61,12 +61,17 @@ void ManageLocalDatabase::syncMessage(const QByteArray &roomId, qint64 lastSeenA
 void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QByteArray &roomId)
 {
     // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomId" << roomId << "obj" << obj;
-    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomId" << roomId << "obj count:" << obj.count();
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomId" << roomId << "obj count:" << obj.count() << obj;
     ManageLoadHistoryParseSyncMessagesUtils utils(mRocketChatAccount);
     utils.parse(obj);
 
-    mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(utils.updatesMessages());
-    mRocketChatAccount->rocketChatBackend()->removeMessageFromLocalDatabase(utils.deletedMessages(), roomId);
+    const auto updatesMessages = utils.updatesMessages();
+    const auto deletedMessages = utils.deletedMessages();
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "updatesMessages" << updatesMessages.count() << "deletedMessages count:" << deletedMessages.count();
+
+    mRocketChatAccount->addMessagesToDataBase(roomId, updatesMessages);
+    mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(updatesMessages);
+    mRocketChatAccount->rocketChatBackend()->removeMessageFromLocalDatabase(deletedMessages, roomId);
 }
 
 void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageLoadHistoryInfo &info)
@@ -92,7 +97,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 // FIXME: don't use  info.lastSeenAt until we store room information in database
                 // We need to use last message timeStamp
                 const qint64 firstDateTime = info.roomModel->firstTimestamp();
-                qDebug() << " endDateTime " << firstDateTime;
+                qDebug() << "endDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
                 if (firstDateTime != 0) {
                     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << firstDateTime;
                     syncMessage(info.roomId, /*info.lastSeenAt*/ firstDateTime);
