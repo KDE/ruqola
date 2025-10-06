@@ -39,7 +39,7 @@ void ManageLocalDatabase::loadAccountSettings()
         qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "Account info loads from database";
         mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
         timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, {}, GlobalDatabase::TimeStampType::AccountTimeStamp);
-        qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp:" << timeStamp;
+        qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp:" << timeStamp << " date time " << QDateTime::fromMSecsSinceEpoch(timeStamp);
     }
 #endif
     mRocketChatAccount->ddp()->loadPublicSettings(timeStamp);
@@ -49,7 +49,7 @@ void ManageLocalDatabase::syncMessage(const QByteArray &roomId, qint64 lastSeenA
 {
     auto job = new RocketChatRestApi::SyncMessagesJob(this);
     job->setRoomId(roomId);
-    qDebug() << " QDateTime::fromMSecsSinceEpoch(lastSeenAt) " << QDateTime::fromMSecsSinceEpoch(lastSeenAt);
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "syncMessage from : QDateTime::fromMSecsSinceEpoch(lastSeenAt) " << QDateTime::fromMSecsSinceEpoch(lastSeenAt);
     job->setLastUpdate(QDateTime::fromMSecsSinceEpoch(lastSeenAt));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SyncMessagesJob::syncMessagesDone, this, &ManageLocalDatabase::slotSyncMessages);
@@ -175,7 +175,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     loadHistoryInfo.methodName = u"loadHistory"_s;
     loadHistoryInfo.anonymous = false;
     loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
-    job->setMethodCallJobInfo(std::move(loadHistoryInfo));
+    job->setMethodCallJobInfo(loadHistoryInfo);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {

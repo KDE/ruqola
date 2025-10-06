@@ -7,7 +7,6 @@
  */
 
 #include "ruqola.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "customemojiiconmanager.h"
 #include "managerdatapaths.h"
@@ -24,6 +23,7 @@ using namespace Qt::Literals::StringLiterals;
 #endif
 static Ruqola *s_self = nullptr;
 
+using namespace Qt::Literals::StringLiterals;
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
