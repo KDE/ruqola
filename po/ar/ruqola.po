@@ -10801,48 +10801,40 @@ msgid "New Message"
 msgstr "رسالة جديدة"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, fuzzy, kde-format
-#| msgid "Bold"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "ثخين"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "مائل"
 
 #: widgets/room/quicktextformatmessage.cpp:63
-#, fuzzy, kde-format
-#| msgid "Strike-out"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
 msgstr "مشطوب"
 
 #: widgets/room/quicktextformatmessage.cpp:76
-#, fuzzy, kde-format
-#| msgid "Code Block"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Code Block"
 msgstr "كتلة شفرة"
 
 #: widgets/room/quicktextformatmessage.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr "اقتبس"
+msgstr "اقتباس"
 
 #: widgets/room/quicktextformatmessage.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Invite Link:"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr "رابط الدعوة:"
+msgstr "أدرج رابط"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
