@@ -1,8 +1,26 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you creating screenshot.",
+        "Description[ar]": "تتيح لك هذه الملحقة إنشاء لقطة شاشة.",
+        "Description[ca@valencia]": "Este connector permet crear una captura de pantalla.",
+        "Description[ca]": "Aquest connector permet crear una captura de pantalla.",
+        "Description[es]": "Este complemento  le permite capturar la pantalla.",
+        "Description[eu]": "Plugin honek pantaila-argazkiak sortzeko aukera ematen dizu.",
+        "Description[nl]": "Deze plug-in biedt u het maken van en schermafdruk.",
+        "Description[pt_BR]": "Este plugin permite que você crie uma captura de tela.",
+        "Description[sl]": "Ta vtičnik vam omogoča ustvarjanje posnetkov zaslona.",
+        "Description[sv]": "Insticksprogrammet låter dig skapa en skärmbild.",
         "EnabledByDefault": true,
         "Name": "Grab Screen",
+        "Name[ar]": "لقطة شاشة",
+        "Name[ca@valencia]": "Gravació de la pantalla",
+        "Name[ca]": "Enregistrament de pantalla",
+        "Name[es]": "Captura de pantalla",
+        "Name[eu]": "Pantaila grabatzea",
+        "Name[nl]": "Scherm pakken",
+        "Name[pt_BR]": "Capturar tela",
+        "Name[sl]": "Zajem zaslona",
+        "Name[sv]": "Ta skärmbild",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],

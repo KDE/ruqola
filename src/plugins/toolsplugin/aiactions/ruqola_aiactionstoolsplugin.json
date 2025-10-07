@@ -1,8 +1,26 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you asking to AI engine some questions.",
+        "Description[ar]": "تسمح لك هذه الملحقة بطرح بعض الأسئلة على محرك الذكاء الاصطناعي.",
+        "Description[ca@valencia]": "Este connector permet preguntar questions al motor d'IA.",
+        "Description[ca]": "Aquest connector permet preguntar questions al motor d'IA.",
+        "Description[es]": "Este complemento  le permite preguntar a un motor IA.",
+        "Description[eu]": "Plugin honek AA motoreari galdera batzuk egiteko aukera ematen dizu.",
+        "Description[nl]": "Deze plug-in biedt u het stellen van enige vragen aan een AI-engine.",
+        "Description[pt_BR]": "Este plugin permite que você faça algumas perguntas ao mecanismo de IA.",
+        "Description[sl]": "Ta vtičnik vam omogoča, da stroju umetne inteligence postavite nekaj vprašanj.",
+        "Description[sv]": "Insticksprogrammet låter dig fråga ett AI-gränssnitt några frågor.",
         "EnabledByDefault": true,
         "Name": "AI Actions",
+        "Name[ar]": "إجراءات الذكاء الاصطناعي",
+        "Name[ca@valencia]": "Accions d'IA",
+        "Name[ca]": "Accions d'IA",
+        "Name[es]": "Acciones AI",
+        "Name[eu]": "AA ekintzak",
+        "Name[nl]": "AI-acties",
+        "Name[pt_BR]": "Ações de IA",
+        "Name[sl]": "Dejanja umetne inteligence",
+        "Name[sv]": "AI-åtgärder",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],

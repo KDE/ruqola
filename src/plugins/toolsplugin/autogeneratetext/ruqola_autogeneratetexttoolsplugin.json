@@ -1,8 +1,26 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you autogenerating answer.",
+        "Description[ar]": "تسمح هذه الملحقة بالتوليد الآليّ للإجابة.",
+        "Description[ca@valencia]": "Este connector permet generar una resposta automàticament.",
+        "Description[ca]": "Aquest connector permet generar una resposta automàticament.",
+        "Description[es]": "Este complemento  le permite autogenerar respuestas.",
+        "Description[eu]": "Plugin honek erantzunak automatikoki sortzeko aukera ematen dizu.",
+        "Description[nl]": "Deze plug-in biedt u een automatisch gegenereerd antwoord.",
+        "Description[pt_BR]": "Este plugin permite que você gere respostas automaticamente.",
+        "Description[sl]": "Ta vtičnik vam omogoča samodejno generiranje odgovorov.",
+        "Description[sv]": "Insticksprogrammet låter dig generera svar automatiskt.",
         "EnabledByDefault": true,
         "Name": "Autogenerating Answer",
+        "Name[ar]": "التوليد الآليّ للإجابة",
+        "Name[ca@valencia]": "Generació automàtica de resposta",
+        "Name[ca]": "Generació automàtica de resposta",
+        "Name[es]": "Autogenerando respuesta",
+        "Name[eu]": "Erantzuna automatikoki sortzea",
+        "Name[nl]": "Automatisch gegenereerd antwoord",
+        "Name[pt_BR]": "Geração automática de respostas",
+        "Name[sl]": "Samodejno generiranje odgovora",
+        "Name[sv]": "Generera svar automatiskt",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],

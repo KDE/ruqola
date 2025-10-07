@@ -1,8 +1,26 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you asking to AI.",
+        "Description[ar]": "تتيح لك هذه المحلقة سؤال الذكاء الاصطناعي.",
+        "Description[ca@valencia]": "Este connector permet preguntar a la IA.",
+        "Description[ca]": "Aquest connector permet preguntar a la IA.",
+        "Description[es]": "Este complemento le permite preguntar a una IA",
+        "Description[eu]": "Plugin honek AAri galdetzeko aukera ematen dizu.",
+        "Description[nl]": "Deze plug-in biedt u het vragen aan AI.",
+        "Description[pt_BR]": "Este plugin permite que você pergunte à IA.",
+        "Description[sl]": "Ta vtičnik vam omogoča, da sprašujete umetno inteligenco.",
+        "Description[sv]": "Insticksprogrammet låter dig fråga en AI.",
         "EnabledByDefault": true,
         "Name": "AI Text",
+        "Name[ar]": "نص الذكاء الاصطناعي",
+        "Name[ca@valencia]": "Text d'IA",
+        "Name[ca]": "Text d'IA",
+        "Name[es]": "Texto IA",
+        "Name[eu]": "AA testua",
+        "Name[nl]": "AI-tekst",
+        "Name[pt_BR]": "Texto de IA",
+        "Name[sl]": "Besedilo z umetno inteligenco",
+        "Name[sv]": "AI-text",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],

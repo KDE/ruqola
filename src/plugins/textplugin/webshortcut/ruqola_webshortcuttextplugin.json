@@ -1,8 +1,26 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you asking on web.",
+        "Description[ar]": "تتيح لك هذه الملحقة البحث في الويب.",
+        "Description[ca@valencia]": "Este connector permet preguntar a la web.",
+        "Description[ca]": "Aquest connector permet preguntar a la web.",
+        "Description[es]": "Este complemento  le permite preguntar en la web.",
+        "Description[eu]": "Plugin honek webean galdetzeko aukera ematen dizu.",
+        "Description[nl]": "Deze plug-in biedt u het vragen aan het web.",
+        "Description[pt_BR]": "Este plugin permite que você faça perguntas na web.",
+        "Description[sl]": "Ta vtičnik vam omogoča postavljanje vprašanj na spletu.",
+        "Description[sv]": "Insticksprogrammet låter dig fråga på webben.",
         "EnabledByDefault": true,
         "Name": "Web Shortcut",
+        "Name[ar]": "اختصار وبّ",
+        "Name[ca@valencia]": "Drecera web",
+        "Name[ca]": "Drecera web",
+        "Name[es]": "Acceso rápido a web",
+        "Name[eu]": "Web lasterbideak",
+        "Name[nl]": "Websneltoets",
+        "Name[pt_BR]": "Atalho web",
+        "Name[sl]": "Spletna bližnjica",
+        "Name[sv]": "Webbgenvägar",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],

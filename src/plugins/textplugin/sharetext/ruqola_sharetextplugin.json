@@ -1,8 +1,26 @@
 {
     "KPlugin": {
         "Description": "This plugin allows you sharing text.",
+        "Description[ar]": "تتيح لك هذه الملحقة مشاركة النّصوص.",
+        "Description[ca@valencia]": "Este connector permet compartir text.",
+        "Description[ca]": "Aquest connector permet compartir text.",
+        "Description[es]": "Este complemento le permite compartir texto.",
+        "Description[eu]": "Plugin honek testua partekatzeko aukera ematen dizu.",
+        "Description[nl]": "Deze plug-in biedt u het delen van tekst.",
+        "Description[pt_BR]": "Este plugin permite que você compartilhe texto.",
+        "Description[sl]": "Ta vtičnik vam omogoča deljenje besedila.",
+        "Description[sv]": "Insticksprogrammet gör det möjligt att dela text.",
         "EnabledByDefault": true,
         "Name": "Share Text",
+        "Name[ar]": "شارك النص",
+        "Name[ca@valencia]": "Compartix el text",
+        "Name[ca]": "Comparteix el text",
+        "Name[es]": "Compartir texto",
+        "Name[eu]": "Testua partekatu",
+        "Name[nl]": "Gedeelde tekst",
+        "Name[pt_BR]": "Compartilhar texto",
+        "Name[sl]": "Deli besedilo",
+        "Name[sv]": "Dela text",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
