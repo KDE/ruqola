@@ -38,7 +38,7 @@ public:
     void slotAdded(const QJsonObject &object);
     void slotChanged(const QJsonObject &object);
 
-    void addMessagesSyncAfterLoadingFromDatabase(QList<Message> messages);
+    void addMessagesSyncAfterLoadingFromDatabase(const QList<Message> &messages);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
