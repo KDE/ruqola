@@ -101,6 +101,34 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QList<QByteArray> &
     }
 }
 
+void RocketChatBackend::addMessagesSyncAfterLoadingFromDatabase(QList<Message> messages)
+{
+    qCWarning(RUQOLA_MESSAGE_LOG) << " addMessagesFromLocalDataBase :" << messages.count();
+
+    if (messages.isEmpty()) {
+        return;
+    }
+    MessagesModel *messageModel = nullptr;
+    for (const auto &message : messages) {
+        if (!messageModel) {
+            const QByteArray roomId = message.roomId();
+            messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+        }
+        updateVideoConferenceInfo(message);
+        if (messageModel) {
+            if (!message.threadMessageId().isEmpty()) {
+                mRocketChatAccount->updateThreadMessageList(message);
+                // qDebug() << " Update thread message";
+            }
+        } else {
+            qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << message.roomId() << " It's a bug for sure.";
+        }
+    }
+    if (messageModel) {
+        messageModel->addMessagesSyncAfterLoadingFromDatabase(messages);
+    }
+}
+
 void RocketChatBackend::addMessagesFromLocalDataBase(const QList<Message> &messages)
 {
     qCWarning(RUQOLA_MESSAGE_LOG) << " addMessagesFromLocalDataBase :" << messages.count();
