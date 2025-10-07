@@ -90,25 +90,19 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, -1, 50, mRocketChatAccount->emojiManager());
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
                                              << " number of message " << lstMessages.count();
-            if (lstMessages.count() == 50) {
-                // Check on network if message change. => we need to add timestamp.
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
-                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
-                // FIXME: don't use  info.lastSeenAt until we store room information in database
-                // We need to use last message timeStamp
-                const qint64 firstDateTime = info.roomModel->firstTimestamp();
-                qDebug() << "endDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
-                if (firstDateTime != 0) {
-                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << firstDateTime;
-                    syncMessage(info.roomId, /*info.lastSeenAt*/ firstDateTime);
-                } else {
-                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no sync message ";
-                }
+            // Check on network if message change. => we need to add timestamp.
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
+            mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
+            // FIXME: don't use  info.lastSeenAt until we store room information in database
+            // We need to use last message timeStamp
+            const qint64 firstDateTime = info.roomModel->firstTimestamp();
+            qDebug() << "endDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
+            if (firstDateTime != 0) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << firstDateTime;
+                syncMessage(info.roomId, /*info.lastSeenAt*/ firstDateTime);
                 return;
             } else {
-                // Load more from network.
-                // TODO load missing messages from network
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no sync message ";
             }
 #endif
         }
