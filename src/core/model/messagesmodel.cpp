@@ -172,6 +172,22 @@ void MessagesModel::addMessage(const Message &message)
     }
 }
 
+void MessagesModel::addMessagesSyncAfterLoadingFromDatabase(QList<Message> messages)
+{
+    if (messages.count() > 50) {
+        beginResetModel();
+        std::sort(messages.begin(), messages.end(), compareTimeStamps);
+        const QList<Message> reducedMessageList = messages.mid(messages.count() - 50);
+        mAllMessages = reducedMessageList;
+        endResetModel();
+    } else {
+        // TODO optimize this case as well?
+        for (const Message &message : messages) {
+            addMessage(message);
+        }
+    }
+}
+
 void MessagesModel::addMessages(const QList<Message> &messages, bool insertListMessages)
 {
     if (messages.isEmpty()) {

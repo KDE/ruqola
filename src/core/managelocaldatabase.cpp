@@ -70,7 +70,7 @@ void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QByteAr
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "updatesMessages" << updatesMessages.count() << "deletedMessages count:" << deletedMessages.count();
 
     mRocketChatAccount->addMessagesToDataBase(roomId, updatesMessages);
-    mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(updatesMessages);
+    mRocketChatAccount->rocketChatBackend()->addMessagesSyncAfterLoadingFromDatabase(updatesMessages);
     mRocketChatAccount->rocketChatBackend()->removeMessageFromLocalDatabase(deletedMessages, roomId);
 }
 

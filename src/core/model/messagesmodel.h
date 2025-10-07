@@ -141,6 +141,8 @@ public:
 
     [[nodiscard]] qint64 firstTimestamp() const;
 
+    void addMessagesSyncAfterLoadingFromDatabase(QList<Message> messages);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**
