@@ -101,7 +101,7 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QList<QByteArray> &
     }
 }
 
-void RocketChatBackend::addMessagesSyncAfterLoadingFromDatabase(QList<Message> messages)
+void RocketChatBackend::addMessagesSyncAfterLoadingFromDatabase(const QList<Message> &messages)
 {
     qCWarning(RUQOLA_MESSAGE_LOG) << " addMessagesSyncAfterLoadingFromDatabase :" << messages.count();
 
