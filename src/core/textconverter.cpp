@@ -682,7 +682,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
         settings.messageCache,
         settings.mentions,
         settings.channels,
-        {},
+        settings.messageId,
         settings.searchedText,
         settings.maximumRecursiveQuotedText,
     };
