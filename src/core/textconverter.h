@@ -42,6 +42,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
         , mentions(_mentions)
         , channels(_channels)
         , searchedText(_searchedText)
+        , messageId(messageUuid)
         , maximumRecursiveQuotedText(_maximumRecursiveQuotedText)
     {
     }
@@ -54,6 +55,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     const QMap<QString, QByteArray> mentions;
     const Channels *const channels;
     const QString searchedText;
+    const QByteArray messageId;
     int maximumRecursiveQuotedText = -1;
 };
 
