@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-07 00:42+0000\n"
+"POT-Creation-Date: 2025-10-08 00:43+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1362,17 +1362,17 @@ msgstr "找不到結果。"
 msgid "Notify active users in this room"
 msgstr "通知聊天室中所有活躍使用者"
 
-#: core/model/messagesmodel.cpp:238
+#: core/model/messagesmodel.cpp:254
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "由 %2 於 %1 編輯"
 
-#: core/model/messagesmodel.cpp:392
+#: core/model/messagesmodel.cpp:408
 #, kde-format
 msgid "Ignored Message"
 msgstr "已忽略的訊息"
 
-#: core/model/messagesmodel.cpp:401
+#: core/model/messagesmodel.cpp:417
 #, kde-format
 msgid "Only you can see this message"
 msgstr "只有您能看到這則訊息"
