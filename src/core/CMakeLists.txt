@@ -422,8 +422,6 @@ target_sources(
         serverconfiginfo.h
         servicepassword.cpp
         servicepassword.h
-        syntaxhighlightingmanager.cpp
-        syntaxhighlightingmanager.h
         teams/teamcompleter.cpp
         teams/teamcompleter.h
         teams/teaminfo.cpp
@@ -547,6 +545,14 @@ target_sources(
         emoji.qrc
 )
 
+if (NOT HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT)
+    target_sources(
+        libruqolacore
+        PRIVATE
+        syntaxhighlightingmanager.cpp
+        syntaxhighlightingmanager.h
+    )
+endif()
 
 if(USE_E2E_SUPPORT)
     target_sources(
