@@ -348,7 +348,11 @@ void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, In
 }
 }
 
-static QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTextSettings &settings, const QString &language = {})
+static QString addHighlighter(const QString &str,
+                              const TextConverter::ConvertMessageTextSettings &settings,
+                              const QByteArray &uuid,
+                              int &blockCodeIndex,
+                              const QString &language = {})
 {
     QString richText;
     QTextStream richTextStream(&richText);
@@ -461,8 +465,9 @@ static void convertHtmlChar(QString &str)
     str.replace(u"&amp;"_s, u"&"_s);
 }
 
-static QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
+static QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage, const QByteArray &uuid = {})
 {
+    int blockCodeIndex = 1;
     // Need to escaped text (avoid to interpret html code)
     const TextConverter::ConvertMessageTextSettings settings{
         quotedMessage + newSettings.str.toHtmlEscaped(),
@@ -473,6 +478,7 @@ static QString convertMessageText(const TextConverter::ConvertMessageTextSetting
         newSettings.messageCache,
         newSettings.mentions,
         newSettings.channels,
+        uuid,
         newSettings.searchedText,
         newSettings.maximumRecursiveQuotedText,
     };
@@ -505,7 +511,7 @@ static QString convertMessageText(const TextConverter::ConvertMessageTextSetting
                 qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " language " << language;
                 const QString stringHtml = u"```"_s + str + u"```"_s;
                 // qDebug() << " stringHtml " << stringHtml;
-                const QString highligherStr = addHighlighter(stringHtml, settings, language);
+                const QString highligherStr = addHighlighter(stringHtml, settings, uuid, blockCodeIndex, language);
                 cmark_node *p = cmark_node_new(CMARK_NODE_PARAGRAPH);
 
                 cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
@@ -523,7 +529,7 @@ static QString convertMessageText(const TextConverter::ConvertMessageTextSetting
 
             const QString str = QString::fromUtf8(literal);
             if (!str.isEmpty()) {
-                const QString convertedString = addHighlighter(str, settings);
+                const QString convertedString = addHighlighter(str, settings, uuid, blockCodeIndex);
                 qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_TEXT: convert text " << convertedString;
                 cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
                 cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
@@ -539,7 +545,7 @@ static QString convertMessageText(const TextConverter::ConvertMessageTextSetting
             if (!str.isEmpty()) {
                 convertHtmlChar(str);
                 const QString stringHtml = u"`"_s + str + u"`"_s;
-                const QString convertedString = addHighlighter(stringHtml, settings);
+                const QString convertedString = addHighlighter(stringHtml, settings, uuid, blockCodeIndex);
                 qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << "CMARK_NODE_CODE:  convert text " << convertedString;
                 cmark_node *htmlInline = cmark_node_new(CMARK_NODE_HTML_INLINE);
                 cmark_node_set_literal(htmlInline, convertedString.toUtf8().constData());
@@ -596,6 +602,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                                                                        settings.messageCache,
                                                                        (*it).mentions(),
                                                                        (*it).channels(),
+                                                                       (*it).messageId(),
                                                                        settings.searchedText,
                                                                        settings.maximumRecursiveQuotedText);
             recusiveIndex++;
@@ -615,6 +622,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                 settings.messageCache,
                 settings.mentions,
                 settings.channels,
+                (*it).messageId(),
                 settings.searchedText,
                 settings.maximumRecursiveQuotedText,
             };
@@ -635,6 +643,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                                                                                settings.messageCache,
                                                                                msg->mentions(),
                                                                                msg->channels(),
+                                                                               msg->messageId(),
                                                                                settings.searchedText,
                                                                                settings.maximumRecursiveQuotedText);
                     recusiveIndex++;
@@ -652,6 +661,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                         settings.messageCache,
                         settings.mentions,
                         settings.channels,
+                        msg->messageId(),
                         settings.searchedText,
                         settings.maximumRecursiveQuotedText,
                     };
@@ -677,6 +687,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
         settings.messageCache,
         settings.mentions,
         settings.channels,
+        {},
         settings.searchedText,
         settings.maximumRecursiveQuotedText,
     };

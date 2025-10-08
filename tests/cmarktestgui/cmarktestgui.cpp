@@ -24,7 +24,7 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
     auto pushButton = new QPushButton(u"Generate Html code"_s, this);
     mainLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, [this]() {
-        const TextConverter::ConvertMessageTextSettings settings(mTextEdit->toPlainText(), u"foo"_s, {}, {}, nullptr, nullptr, {}, {});
+        const TextConverter::ConvertMessageTextSettings settings(mTextEdit->toPlainText(), u"foo"_s, {}, {}, nullptr, nullptr, {}, {}, {});
         QByteArray needUpdateMessageId;
         int recursiveIndex = 0;
         mTextEditResultCMark->setHtml(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex));

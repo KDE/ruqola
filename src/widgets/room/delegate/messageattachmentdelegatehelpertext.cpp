@@ -209,6 +209,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
                                                                  {},
                                                                  {},
                                                                  {},
+                                                                 {},
                                                                  maximumRecursiveQuotedText);
 
         // TODO use needUpdateIndex ?

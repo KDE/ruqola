@@ -546,6 +546,7 @@ QString MessagesModel::convertMessageText(const Message &message, const QString 
                                                              messageCache,
                                                              message.mentions(),
                                                              message.channels(),
+                                                             message.messageId(),
                                                              searchedText,
                                                              maximumRecursiveQuotedText);
 

@@ -160,7 +160,7 @@ void TextConverterTest::shouldConvertText()
     QEXPECT_FAIL("Remove <br/>", "Bug in KF6", Continue);
 
     QByteArray needUpdateMessageId;
-    const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {});
+    const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {}, {});
     int recursiveIndex = 0;
     const QString result = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     qDebug() << "result " << result;
@@ -217,7 +217,7 @@ void TextConverterTest::shouldHighlightWords()
 
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
-    const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {});
+    const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {}, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
@@ -249,7 +249,7 @@ void TextConverterTest::shouldHighlightText()
     output = prepareExpectedOutput(output);
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
-    const TextConverter::ConvertMessageTextSettings settings(input, username, {}, {}, nullptr, nullptr, {}, {});
+    const TextConverter::ConvertMessageTextSettings settings(input, username, {}, {}, nullptr, nullptr, {}, {}, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
 }
 
@@ -396,7 +396,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
 
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
-    const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, &manager, nullptr, {}, {});
+    const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, &manager, nullptr, {}, {}, {});
     auto actualOutput = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     if (QLatin1StringView(QTest::currentDataTag()) == "quotedcode7"_L1) {
         // remove additional highlighting of the ':)' symbols within the <code> block
@@ -488,7 +488,7 @@ void TextConverterTest::shouldShowChannels()
     output = prepareExpectedOutput(output);
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
-    const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, c);
+    const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, c, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
     delete c;
 }
@@ -507,7 +507,7 @@ void TextConverterTest::shouldShowUsers()
     output = prepareExpectedOutput(output);
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
-    const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, c);
+    const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, c, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
     delete c;
 }
@@ -624,7 +624,7 @@ void TextConverterTest::shouldShowSearchedText()
 
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
-    const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, nullptr, searchedText);
+    const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, nullptr, {}, searchedText);
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
 }
 

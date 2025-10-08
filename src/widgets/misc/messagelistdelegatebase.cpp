@@ -229,6 +229,7 @@ MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const
                                                              rcAccount ? rcAccount->messageCache() : nullptr,
                                                              {},
                                                              {},
+                                                             messageId,
                                                              mSearchText,
                                                              maximumRecursiveQuotedText);
 

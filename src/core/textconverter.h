@@ -30,6 +30,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
                                MessageCache *_messageCache,
                                const QMap<QString, QByteArray> &_mentions,
                                const Channels *_channels,
+                               const QByteArray &messageUuid,
                                const QString &_searchedText = {},
                                int _maximumRecursiveQuotedText = -1)
         : str(_str)
@@ -57,7 +58,4 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
 };
 
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex);
-[[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageText(const TextConverter::ConvertMessageTextSettings &settings,
-                                                              QByteArray &needUpdateMessageId,
-                                                              int &recusiveIndex);
 }

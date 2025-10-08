@@ -80,6 +80,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
                                                              account ? account->messageCache() : nullptr,
                                                              {},
                                                              {},
+                                                             {},
                                                              mSearchText,
                                                              maximumRecursiveQuotedText);
 

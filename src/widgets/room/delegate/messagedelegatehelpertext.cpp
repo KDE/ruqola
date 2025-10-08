@@ -100,6 +100,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                                                              mRocketChatAccount->messageCache(),
                                                                              contextMessage.mentions(),
                                                                              contextMessage.channels(),
+                                                                             {},
                                                                              mSearchText,
                                                                              maximumRecursiveQuotedText);
 
