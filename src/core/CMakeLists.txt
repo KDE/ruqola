@@ -432,8 +432,6 @@ target_sources(
         teams/teamroom.h
         textconverter.cpp
         textconverter.h
-        texthighlighter.cpp
-        texthighlighter.h
         typingnotification.cpp
         typingnotification.h
         uploadfilemanager.cpp
@@ -551,6 +549,8 @@ if (NOT HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT)
         PRIVATE
         syntaxhighlightingmanager.cpp
         syntaxhighlightingmanager.h
+        texthighlighter.cpp
+        texthighlighter.h
     )
 endif()
 
