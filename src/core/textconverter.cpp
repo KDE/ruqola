@@ -16,6 +16,7 @@
 
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
 #if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
+#include <TextUtils/TextUtilsSyntaxHighlighter>
 #include <TextUtils/TextUtilsSyntaxHighlightingManager>
 #else
 #include "syntaxhighlightingmanager.h"
@@ -356,10 +357,11 @@ static QString addHighlighter(const QString &str, const TextConverter::ConvertMe
 
     QString highlighted;
     QTextStream stream(&highlighted);
-    TextHighlighter highlighter(&stream);
 #if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
+    TextUtils::TextUtilsSyntaxHighlighter highlighter(&stream);
     const auto useHighlighter = TextUtils::TextUtilsSyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
 #else
+    TextHighlighter highlighter(&stream);
     const auto useHighlighter = SyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
 #endif
 
@@ -381,7 +383,12 @@ static QString addHighlighter(const QString &str, const TextConverter::ConvertMe
         stream.reset();
         stream.seek(0);
         highlighted.clear();
+#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
+        int blockCodeIndex = 0;
+        highlighter.highlight(codeBlock, {}, blockCodeIndex);
+#else
         highlighter.highlight(codeBlock);
+#endif
         return highlighted;
     };
 
