@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-05 02:28+0000\n"
+"POT-Creation-Date: 2025-10-08 02:38+0000\n"
 "PO-Revision-Date: 2025-05-23 10:35+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -1336,17 +1336,17 @@ msgstr "Non se atoparon resultados."
 msgid "Notify active users in this room"
 msgstr "Notificar á xente activa na sala"
 
-#: core/model/messagesmodel.cpp:238
+#: core/model/messagesmodel.cpp:254
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Editouno %2 ás %1"
 
-#: core/model/messagesmodel.cpp:392
+#: core/model/messagesmodel.cpp:408
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mensaxe ignorada"
 
-#: core/model/messagesmodel.cpp:401
+#: core/model/messagesmodel.cpp:417
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Esta mensaxe só pode vela vostede."

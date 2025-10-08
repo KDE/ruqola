@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-05 02:28+0000\n"
+"POT-Creation-Date: 2025-10-08 02:38+0000\n"
 "PO-Revision-Date: 2025-05-04 18:14+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1334,17 +1334,17 @@ msgstr "Nessun risultato trovato."
 msgid "Notify active users in this room"
 msgstr "Avvisa gli utenti attivi in questa stanza"
 
-#: core/model/messagesmodel.cpp:238
+#: core/model/messagesmodel.cpp:254
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Modificato alle %1 da %2"
 
-#: core/model/messagesmodel.cpp:392
+#: core/model/messagesmodel.cpp:408
 #, kde-format
 msgid "Ignored Message"
 msgstr "Messaggio ignorato"
 
-#: core/model/messagesmodel.cpp:401
+#: core/model/messagesmodel.cpp:417
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Solo tu puoi vedere questo messaggio"
