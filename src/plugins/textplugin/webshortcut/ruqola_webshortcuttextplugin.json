@@ -10,6 +10,7 @@
         "Description[pt_BR]": "Este plugin permite que você faça perguntas na web.",
         "Description[sl]": "Ta vtičnik vam omogoča postavljanje vprašanj na spletu.",
         "Description[sv]": "Insticksprogrammet låter dig fråga på webben.",
+        "Description[uk]": "За допомогою цього додатка ви можете надсилати пошукові записи до інтернету.",
         "EnabledByDefault": true,
         "Name": "Web Shortcut",
         "Name[ar]": "اختصار وبّ",
@@ -21,6 +22,7 @@
         "Name[pt_BR]": "Atalho web",
         "Name[sl]": "Spletna bližnjica",
         "Name[sv]": "Webbgenvägar",
+        "Name[uk]": "Вебскорочення",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],

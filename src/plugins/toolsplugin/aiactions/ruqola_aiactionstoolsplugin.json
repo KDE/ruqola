@@ -10,6 +10,7 @@
         "Description[pt_BR]": "Este plugin permite que você faça algumas perguntas ao mecanismo de IA.",
         "Description[sl]": "Ta vtičnik vam omogoča, da stroju umetne inteligence postavite nekaj vprašanj.",
         "Description[sv]": "Insticksprogrammet låter dig fråga ett AI-gränssnitt några frågor.",
+        "Description[uk]": "За допомогою цього додатка ви можете ставити певні питання рушію ШІ.",
         "EnabledByDefault": true,
         "Name": "AI Actions",
         "Name[ar]": "إجراءات الذكاء الاصطناعي",
@@ -21,6 +22,7 @@
         "Name[pt_BR]": "Ações de IA",
         "Name[sl]": "Dejanja umetne inteligence",
         "Name[sv]": "AI-åtgärder",
+        "Name[uk]": "Дії ШІ",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
         ],

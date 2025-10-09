@@ -10,6 +10,7 @@
         "Description[pt_BR]": "Este plugin permite que você pergunte à IA.",
         "Description[sl]": "Ta vtičnik vam omogoča, da sprašujete umetno inteligenco.",
         "Description[sv]": "Insticksprogrammet låter dig fråga en AI.",
+        "Description[uk]": "За допомогою цього додатка ви можете ставити питання ШІ",
         "EnabledByDefault": true,
         "Name": "AI Text",
         "Name[ar]": "نص الذكاء الاصطناعي",
@@ -21,6 +22,7 @@
         "Name[pt_BR]": "Texto de IA",
         "Name[sl]": "Besedilo z umetno inteligenco",
         "Name[sv]": "AI-text",
+        "Name[uk]": "Текст ШІ",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
