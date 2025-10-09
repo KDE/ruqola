@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-09 00:43+0000\n"
-"PO-Revision-Date: 2025-10-01 06:46+0200\n"
+"POT-Creation-Date: 2025-10-09 09:54+0000\n"
+"PO-Revision-Date: 2025-10-09 07:12+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7941,9 +7941,7 @@ msgid "DataBase E2E"
 msgstr "Podatkovna zbirka E2E"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Kopiraj"
@@ -11718,6 +11716,10 @@ msgstr "(Pokaži novice)"
 #, kde-format
 msgid "What's new in %2. %1"
 msgstr "Kaj je novega v %2. %1"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+msgid "Copy block code more easily."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format

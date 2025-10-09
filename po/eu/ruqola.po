@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-09 00:43+0000\n"
+"POT-Creation-Date: 2025-10-09 09:54+0000\n"
 "PO-Revision-Date: 2025-10-02 21:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -11725,6 +11725,10 @@ msgstr "(Berriak erakutsi)"
 #, kde-format
 msgid "What's new in %2. %1"
 msgstr "Zer berri %2(a)n. %1"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+msgid "Copy block code more easily."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format

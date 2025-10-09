@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-09 00:43+0000\n"
+"POT-Creation-Date: 2025-10-09 09:54+0000\n"
 "PO-Revision-Date: 2025-10-01 14:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -11665,6 +11665,10 @@ msgstr "(Haberleri Göster)"
 #, kde-format
 msgid "What's new in %2. %1"
 msgstr "%2 bünyesinde neler yeni. %1"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+msgid "Copy block code more easily."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format
