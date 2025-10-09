@@ -14,7 +14,7 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{};
+    const QList<KLazyLocalizedString> info{kli18n("Copy block code more easily.")};
     return info;
 }
 
