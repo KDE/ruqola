@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-09 09:54+0000\n"
-"PO-Revision-Date: 2025-10-01 04:13+0200\n"
+"PO-Revision-Date: 2025-10-10 06:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7915,9 +7915,7 @@ msgid "DataBase E2E"
 msgstr "მონაცემთა ბაზის E2E"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "კოპირება"
@@ -11671,7 +11669,7 @@ msgstr "რა არის ახალი %2.%1-ში"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "დააკოპირეთ ბლოკის კოდი უფრო მარტივად."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format
