@@ -561,6 +561,15 @@ if(USE_E2E_SUPPORT)
     )
 endif()
 
+if (HAVE_TEXTUTILS_CMARK_SUPPORT)
+    target_sources(
+        libruqolacore
+        PRIVATE
+        ruqolablockcmarksupport.h
+        ruqolablockcmarksupport.cpp
+    )
+endif()
+
 if(HAVE_TEXT_TRANSLATOR)
     target_sources(
         libruqolacore
