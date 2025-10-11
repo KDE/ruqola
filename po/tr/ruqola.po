@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-09 09:54+0000\n"
-"PO-Revision-Date: 2025-10-01 14:33+0300\n"
+"PO-Revision-Date: 2025-10-10 23:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7902,9 +7902,7 @@ msgid "DataBase E2E"
 msgstr "Veritabanı Uçtan Uca Şifreleme"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Kopyala"
@@ -11668,7 +11666,7 @@ msgstr "%2 bünyesinde neler yeni. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Kod bloklarını daha kolay kopyala"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-09 09:54+0000\n"
-"PO-Revision-Date: 2025-10-05 08:52+0200\n"
+"PO-Revision-Date: 2025-10-10 21:34+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -7917,9 +7917,7 @@ msgid "DataBase E2E"
 msgstr "Databas hela vägen"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Kopiera"
@@ -11670,7 +11668,7 @@ msgstr "Vad är nytt i %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Kopiera kodblock enklare."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format
