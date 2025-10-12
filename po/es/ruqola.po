@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-09 09:54+0000\n"
-"PO-Revision-Date: 2025-10-04 20:21+0100\n"
+"PO-Revision-Date: 2025-10-12 01:37+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -7968,9 +7968,7 @@ msgid "DataBase E2E"
 msgstr "Base de datos E2E"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Copiar"
@@ -11743,7 +11741,7 @@ msgstr "¿Qué hay de nuevo en %2?. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Facilitada la copia de bloques de código"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format

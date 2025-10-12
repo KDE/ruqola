@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-09 09:54+0000\n"
-"PO-Revision-Date: 2025-10-09 21:48+0200\n"
+"PO-Revision-Date: 2025-10-11 18:10+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11729,7 +11729,7 @@ msgstr "Wat is er nieuw in %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Blokcode gemakkelijker kopiëren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format

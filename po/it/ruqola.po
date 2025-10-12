@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-09 09:54+0000\n"
-"PO-Revision-Date: 2025-09-28 07:45+0200\n"
+"PO-Revision-Date: 2025-10-10 08:58+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -7965,9 +7965,7 @@ msgid "DataBase E2E"
 msgstr "DataBase E2E"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Copia"
@@ -10419,18 +10417,15 @@ msgid "Save &As…"
 msgstr "S&alva come…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Impossibile aprire il file"
+msgstr "Impossibile aprire %1"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Errore nel salvataggio del file"
+msgstr "Errore apertura file"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
@@ -11743,7 +11738,7 @@ msgstr "Cosa c'è di nuovo %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Copia più facile dei blocchi di codice"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format
