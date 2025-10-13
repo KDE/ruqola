@@ -5,7 +5,12 @@
 */
 
 #include "textconverter.h"
+#include "config-ruqola.h"
+#if HAVE_TEXTUTILS_CMARK_SUPPORT
+#include "ruqolablockcmarksupport.h"
+#else
 #include "cmark-rc.h"
+#endif
 #include "colorsandmessageviewstyle.h"
 #include "config-ruqola.h"
 #include "emoticons/emojimanager.h"
@@ -30,6 +35,7 @@
 using namespace Qt::Literals::StringLiterals;
 namespace
 {
+#if !HAVE_TEXTUTILS_CMARK_SUPPORT
 /// check if the @p str contains an uneven number of backslashes before @p pos
 bool isEscaped(const QString &str, int pos)
 {
@@ -112,10 +118,12 @@ void iterateOverEndLineRegions(const QString &str,
         outsideRegion(str);
     }
 }
+#endif
 }
 
 namespace
 {
+#if !HAVE_TEXTUTILS_CMARK_SUPPORT
 QString markdownToRichTextCMark(const QString &markDown)
 {
     if (markDown.isEmpty()) {
@@ -346,8 +354,10 @@ void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, In
     }
     outsideRegion(str.mid(startFrom));
 }
+#endif
 }
 
+#if !HAVE_TEXTUTILS_CMARK_SUPPORT
 static QString addHighlighter(const QString &str, const TextConverter::ConvertMessageTextSettings &settings, int &blockCodeIndex, const QString &language = {})
 {
     QString richText;
@@ -553,6 +563,16 @@ static QString convertMessageText2(const TextConverter::ConvertMessageTextSettin
 
     return result;
 }
+#else
+static QString convertMessageText2(TextConverter::ConvertMessageTextSettings *settings)
+{
+    RuqolaBlockCMarkSupport cmarkSupport;
+    cmarkSupport.setSettings(settings);
+    const QString result = cmarkSupport.convertMessageText(settings->str.toHtmlEscaped(), settings->messageId, settings->searchedText);
+    delete settings;
+    return result;
+}
+#endif
 
 QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
@@ -595,6 +615,21 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
             info.displayTime = (*it).dateTime();
 
             str = str.left(startPos - 3) + str.mid(endPos + 1);
+#if HAVE_TEXTUTILS_CMARK_SUPPORT
+            auto newsettings = new TextConverter::ConvertMessageTextSettings{
+                str.toHtmlEscaped(),
+                settings.userName,
+                settings.allMessages,
+                settings.highlightWords,
+                settings.emojiManager,
+                settings.messageCache,
+                settings.mentions,
+                settings.channels,
+                (*it).messageId(),
+                settings.searchedText,
+                settings.maximumRecursiveQuotedText,
+            };
+#else
             const TextConverter::ConvertMessageTextSettings newsettings{
                 str.toHtmlEscaped(),
                 settings.userName,
@@ -608,8 +643,9 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                 settings.searchedText,
                 settings.maximumRecursiveQuotedText,
             };
-            str = convertMessageText2(newsettings);
 
+#endif
+            str = convertMessageText2(newsettings);
             quotedMessage = Utils::formatQuotedRichText(info) + str;
             str.clear();
         } else {
@@ -634,6 +670,21 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                     info.url = url;
                     info.richText = text;
                     info.displayTime = msg->dateTime();
+#if HAVE_TEXTUTILS_CMARK_SUPPORT
+                    auto newsettings = new TextConverter::ConvertMessageTextSettings{
+                        str.toHtmlEscaped(),
+                        settings.userName,
+                        settings.allMessages,
+                        settings.highlightWords,
+                        settings.emojiManager,
+                        settings.messageCache,
+                        settings.mentions,
+                        settings.channels,
+                        msg->messageId(),
+                        settings.searchedText,
+                        settings.maximumRecursiveQuotedText,
+                    };
+#else
                     const TextConverter::ConvertMessageTextSettings newsettings{
                         str.toHtmlEscaped(),
                         settings.userName,
@@ -647,6 +698,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                         settings.searchedText,
                         settings.maximumRecursiveQuotedText,
                     };
+#endif
                     str = convertMessageText2(newsettings);
 
                     quotedMessage = Utils::formatQuotedRichText(info) + str;
@@ -660,6 +712,21 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
     }
 
     // Need to escaped text (avoid to interpret html code)
+#if HAVE_TEXTUTILS_CMARK_SUPPORT
+    auto newsettings = new TextConverter::ConvertMessageTextSettings{
+        quotedMessage + str.toHtmlEscaped(),
+        settings.userName,
+        settings.allMessages,
+        settings.highlightWords,
+        settings.emojiManager,
+        settings.messageCache,
+        settings.mentions,
+        settings.channels,
+        settings.messageId,
+        settings.searchedText,
+        settings.maximumRecursiveQuotedText,
+    };
+#else
     const TextConverter::ConvertMessageTextSettings newsettings{
         quotedMessage + str.toHtmlEscaped(),
         settings.userName,
@@ -673,6 +740,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
         settings.searchedText,
         settings.maximumRecursiveQuotedText,
     };
+#endif
 
     // qDebug() << "settings.str  " << settings.str;
     const QString result = convertMessageText2(newsettings);

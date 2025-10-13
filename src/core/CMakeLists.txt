@@ -776,8 +776,14 @@ target_link_libraries(
     KF6::KIOCore
     Qt::Multimedia
     KF6::ColorScheme
-    cmark-rc
 )
+
+if(NOT HAVE_TEXTUTILS_CMARK_SUPPORT)
+    target_link_libraries(
+        libruqolacore
+        cmark-rc
+    )
+endif()
 
 if(HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolacore KF6::TextTranslator)

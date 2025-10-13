@@ -9,18 +9,12 @@
 #include "config-ruqola.h"
 #include "emoticons/emojimanager.h"
 #include "ruqola_texttohtml_cmark_debug.h"
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
-#include <TextUtils/TextUtilsSyntaxHighlighter>
-#include <TextUtils/TextUtilsSyntaxHighlightingManager>
-#else
-#include "syntaxhighlightingmanager.h"
-#endif
 #include <KColorScheme>
-#include <KSyntaxHighlighting/Definition>
-#include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 #include <QColor>
 #include <QTextStream>
+#include <TextUtils/TextUtilsSyntaxHighlighter>
+#include <TextUtils/TextUtilsSyntaxHighlightingManager>
 
 using namespace Qt::Literals::StringLiterals;
 RuqolaBlockCMarkSupport::RuqolaBlockCMarkSupport() = default;
@@ -312,20 +306,11 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
 
     QString highlighted;
     QTextStream stream(&highlighted);
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
     TextUtils::TextUtilsSyntaxHighlighter highlighter(&stream);
     const auto useHighlighter = TextUtils::TextUtilsSyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
-#else
-    TextHighlighter highlighter(&stream);
-    const auto useHighlighter = SyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
-#endif
 
     if (useHighlighter) {
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
         auto &repo = TextUtils::TextUtilsSyntaxHighlightingManager::self()->repo();
-#else
-        auto &repo = SyntaxHighlightingManager::self()->repo();
-#endif
         const auto theme = (codeBackgroundColor.lightness() < 128) ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                                                                    : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
         // qDebug() << " theme .n am" << theme.name();
@@ -347,17 +332,10 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
     };
 
     auto addCodeChunk = [&](const QString &chunk) {
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
         auto definition = TextUtils::TextUtilsSyntaxHighlightingManager::self()->def(language);
         if (!definition.isValid()) {
             definition = TextUtils::TextUtilsSyntaxHighlightingManager::self()->defaultDef();
         }
-#else
-        auto definition = SyntaxHighlightingManager::self()->def(language);
-        if (!definition.isValid()) {
-            definition = SyntaxHighlightingManager::self()->defaultDef();
-        }
-#endif
 
         highlighter.setDefinition(definition);
         // Qt's support for borders is limited to tables, so we have to jump through some hoops...
