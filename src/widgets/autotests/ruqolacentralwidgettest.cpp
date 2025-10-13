@@ -5,13 +5,18 @@
 */
 
 #include "ruqolacentralwidgettest.h"
+#include "config-ruqola.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "ruqolacentralwidget.h"
 #if 0
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #endif
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+#include <TextAddonsWidgets/WhatsNewMessageWidget>
+#else
 #include "whatsnew/whatsnewmessagewidget.h"
+#endif
 #include "whatsnew/whatsnewtranslations.h"
 
 #include <QStackedWidget>
@@ -40,7 +45,11 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(u"mServerErrorInfoMessageWidget"_s);
     QVERIFY(mServerErrorInfoMessageWidget);
 #endif
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+    auto whatsNewMessageWidget = w.findChild<TextAddonsWidgets::WhatsNewMessageWidget *>(u"whatsNewMessageWidget"_s);
+#else
     auto whatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(u"whatsNewMessageWidget"_s);
+#endif
     if (WhatsNewTranslations().lastNewFeatures().isEmpty()) {
         QVERIFY(!whatsNewMessageWidget);
     }

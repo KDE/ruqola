@@ -5,9 +5,8 @@
 */
 
 #include "ruqolacentralwidget.h"
-using namespace Qt::Literals::StringLiterals;
-
 #include "accountmanager.h"
+#include "config-ruqola.h"
 #include "loginwidget/ruqolaloginwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -17,12 +16,17 @@ using namespace Qt::Literals::StringLiterals;
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include "servererrorinfohistorymanager.h"
 #include "welcome/welcomewidget.h"
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+#include <TextAddonsWidgets/WhatsNewMessageWidget>
+#else
 #include "whatsnew/whatsnewmessagewidget.h"
+#endif
 #include "whatsnew/whatsnewtranslations.h"
 #include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))
@@ -42,7 +46,11 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
         if (!previousNewFeaturesMD5.isEmpty()) {
             const bool hasNewFeature = (previousNewFeaturesMD5 != newFeaturesMD5);
             if (hasNewFeature) {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+                auto whatsNewMessageWidget = new TextAddonsWidgets::WhatsNewMessageWidget(this);
+#else
                 auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
+#endif
                 whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
                 mMainLayout->addWidget(whatsNewMessageWidget);
                 RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);

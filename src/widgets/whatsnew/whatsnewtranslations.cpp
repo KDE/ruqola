@@ -17,12 +17,23 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
     const QList<KLazyLocalizedString> info{kli18n("Copy block code more easily.")};
     return info;
 }
-
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+QList<TextAddonsWidgets::WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
+#else
 QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
+#endif
 {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+    QList<TextAddonsWidgets::WhatsNewInfo> listInfo;
+#else
     QList<WhatsNewInfo> listInfo;
+#endif
     {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+        TextAddonsWidgets::WhatsNewInfo info;
+#else
         WhatsNewInfo info;
+#endif
         info.setChanges({i18n("Store Message in Local Database (experimental)")});
         info.setNewFeatures({
             i18n("Download Server Icon from Server"),
@@ -42,7 +53,11 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         listInfo.append(std::move(info));
     }
     {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+        TextAddonsWidgets::WhatsNewInfo info;
+#else
         WhatsNewInfo info;
+#endif
         info.setNewFeatures({i18n("Add Moderation Console (Administration, RC server 6.2)"), i18n("Implement message style"), i18n("Implement Url Preview")});
         info.setBugFixings({
             i18n("Fix markdown support (header + check mark)"),
@@ -58,7 +73,11 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         listInfo.append(std::move(info));
     }
     {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+        TextAddonsWidgets::WhatsNewInfo info;
+#else
         WhatsNewInfo info;
+#endif
         info.setNewFeatures({
             i18n("Allow to increase/decrease font (CTRL++/CTRL+-)"),
             i18n("Add channel list style (Condensed/Medium/Extended)"),
@@ -87,7 +106,11 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         listInfo.append(std::move(info));
     }
     {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+        TextAddonsWidgets::WhatsNewInfo info;
+#else
         WhatsNewInfo info;
+#endif
         info.setNewFeatures({
             i18n("Implement Rocket.Chat Marketplace."),
             i18n("Allow to clean room history."),
@@ -109,7 +132,11 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         listInfo.append(std::move(info));
     }
     {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+        TextAddonsWidgets::WhatsNewInfo info;
+#else
         WhatsNewInfo info;
+#endif
         info.setVersion(u"2.4"_s);
         info.setNewFeatures({
             i18n("Allow to clean up room history when room was not opened from long time."),
@@ -138,7 +165,11 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         listInfo.append(std::move(info));
     }
     {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+        TextAddonsWidgets::WhatsNewInfo info;
+#else
         WhatsNewInfo info;
+#endif
         info.setNewFeatures({
             i18n("Add support for tools plugins"),
             i18n("Plugin: Add screenshot button (near send message button)"),
@@ -168,7 +199,11 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         listInfo.append(std::move(info));
     }
     {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+        TextAddonsWidgets::WhatsNewInfo info;
+#else
         WhatsNewInfo info;
+#endif
         info.setNewFeatures({
             i18n("Add AI plugin"),
             i18n("Allow to dnd image."),
@@ -201,7 +236,11 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
     }
 
     {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+        TextAddonsWidgets::WhatsNewInfo info;
+#else
         WhatsNewInfo info;
+#endif
         QStringList lst;
         for (const KLazyLocalizedString &l : lastNewFeatures()) {
             lst += l.toString();

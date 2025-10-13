@@ -811,18 +811,6 @@ target_sources(
 	databasedialog/exploredatabasee2estoragewidget.cpp
 	databasedialog/exploredatabasee2estoragewidget.h
 
-        whatsnew/whatsnewdialog.h
-        whatsnew/whatsnewdialog.cpp
-        whatsnew/whatsnewwidget.h
-        whatsnew/whatsnewwidget.cpp
-        whatsnew/whatsnewmessagewidget.h
-        whatsnew/whatsnewmessagewidget.cpp
-        whatsnew/whatsnewcomboboxwidget.h
-        whatsnew/whatsnewcomboboxwidget.cpp
-        whatsnew/whatsnewtranslationbase.h
-        whatsnew/whatsnewtranslationbase.cpp
-        whatsnew/whatsnewinfo.h
-        whatsnew/whatsnewinfo.cpp
         whatsnew/whatsnewtranslations.h
         whatsnew/whatsnewtranslations.cpp
         explorepermissionsdialog/explorepermissionsdialog.h
@@ -853,16 +841,6 @@ target_sources(
         importexportdata/importexportutils.cpp
         offlinewidget/offlinewidget.h
         offlinewidget/offlinewidget.cpp
-        needupdateversion/needupdateversionwidget.h
-        needupdateversion/needupdateversionwidget.cpp
-        needupdateversion/needupdateversionutils.h
-        needupdateversion/needupdateversionutils.cpp
-        needupdateversion/needupdateparsehtmljob.h
-        needupdateversion/needupdateparsehtmljob.cpp
-        needupdateversion/needupdateparsehtmlutil.h
-        needupdateversion/needupdateparsehtmlutil.cpp
-        needupdateversion/needupdatecheckexistingnewversionjob.h
-        needupdateversion/needupdatecheckexistingnewversionjob.cpp
         encryption/e2esaveencryptionkeywidget.h
         encryption/e2esaveencryptionkeywidget.cpp
         encryption/e2edecodeencryptionkeywidget.cpp
@@ -933,12 +911,6 @@ target_sources(
         applicationssettingsdialog/applicationspermissionwidget.cpp
         welcome/welcomewidget.h
         welcome/welcomewidget.cpp
-        verifynewversionwidget/verifynewversionwidget.h
-        verifynewversionwidget/verifynewversionwidget.cpp
-        verifynewversionwidget/verifynewversiondialog.h
-        verifynewversionwidget/verifynewversiondialog.cpp
-        verifynewversionwidget/verifynewversionwidgetaction.h
-        verifynewversionwidget/verifynewversionwidgetaction.cpp
         dialogs/searchmessagelinewidget.h
         dialogs/searchmessagelinewidget.cpp
         autogenerateui/autogenerateinteractionui.h
@@ -1025,6 +997,41 @@ target_sources(
         webdav/webdavaddserverwidget.h
         webdav/webdavaddserverwidget.cpp
 )
+
+if(NOT HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
+    target_sources(
+        libruqolawidgets
+        PRIVATE
+        verifynewversionwidget/verifynewversionwidget.h
+        verifynewversionwidget/verifynewversionwidget.cpp
+        verifynewversionwidget/verifynewversiondialog.h
+        verifynewversionwidget/verifynewversiondialog.cpp
+        verifynewversionwidget/verifynewversionwidgetaction.h
+        verifynewversionwidget/verifynewversionwidgetaction.cpp
+        whatsnew/whatsnewdialog.h
+        whatsnew/whatsnewdialog.cpp
+        whatsnew/whatsnewwidget.h
+        whatsnew/whatsnewwidget.cpp
+        whatsnew/whatsnewmessagewidget.h
+        whatsnew/whatsnewmessagewidget.cpp
+        whatsnew/whatsnewcomboboxwidget.h
+        whatsnew/whatsnewcomboboxwidget.cpp
+        whatsnew/whatsnewtranslationbase.h
+        whatsnew/whatsnewtranslationbase.cpp
+        whatsnew/whatsnewinfo.h
+        whatsnew/whatsnewinfo.cpp
+        needupdateversion/needupdateversionwidget.h
+        needupdateversion/needupdateversionwidget.cpp
+        needupdateversion/needupdateversionutils.h
+        needupdateversion/needupdateversionutils.cpp
+        needupdateversion/needupdateparsehtmljob.h
+        needupdateversion/needupdateparsehtmljob.cpp
+        needupdateversion/needupdateparsehtmlutil.h
+        needupdateversion/needupdateparsehtmlutil.cpp
+        needupdateversion/needupdatecheckexistingnewversionjob.h
+        needupdateversion/needupdatecheckexistingnewversionjob.cpp
+    )
+endif()
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(
@@ -1169,6 +1176,10 @@ if(NOT WIN32 AND NOT APPLE)
     target_link_libraries(libruqolawidgets KF6::WindowSystem)
 endif()
 
+if (HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
+    target_link_libraries(libruqolawidgets KF6::TextAddonsWidgets)
+endif()
+
 set_target_properties(
     libruqolawidgets
     PROPERTIES
@@ -1205,13 +1216,16 @@ if(BUILD_TESTING)
     add_subdirectory(conferencecalldialog/autotests)
     add_subdirectory(servererrorinfohistory/autotests)
     add_subdirectory(databasedialog/autotests)
-    add_subdirectory(whatsnew/autotests)
+    if (NOT HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
+        add_subdirectory(whatsnew/autotests)
+        add_subdirectory(needupdateversion/tests)
+        add_subdirectory(needupdateversion/autotests)
+        add_subdirectory(verifynewversionwidget/autotests)
+    endif()
     add_subdirectory(explorepermissionsdialog/autotests)
     add_subdirectory(importexportdata/autotests)
     add_subdirectory(importexportdata/tests)
     add_subdirectory(offlinewidget/autotests)
-    add_subdirectory(needupdateversion/tests)
-    add_subdirectory(needupdateversion/autotests)
     add_subdirectory(configurenewserver/autotests)
     add_subdirectory(encryption/autotests)
     add_subdirectory(forwardmessage/autotests)
@@ -1219,7 +1233,6 @@ if(BUILD_TESTING)
     add_subdirectory(applicationssettingsdialog/autotests)
     add_subdirectory(autogenerateui/autotests)
     add_subdirectory(exploreappstranlationdialog/autotests)
-    add_subdirectory(verifynewversionwidget/autotests)
     add_subdirectory(webdav/autotests)
 endif()
 

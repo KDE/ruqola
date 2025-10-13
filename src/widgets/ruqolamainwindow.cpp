@@ -56,7 +56,12 @@
 #include "ruqolaserverconfig.h"
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include "teams/teamscreatejob.h"
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+#include "whatsnew/whatsnewtranslations.h"
+#include <TextAddonsWidgets/WhatsNewDialog>
+#else
 #include "whatsnew/whatsnewdialog.h"
+#endif
 
 #include "rooms/roomstartdiscussionjob.h"
 #include <KActionCollection>
@@ -747,7 +752,12 @@ void RuqolaMainWindow::slotMessageStyleChanged()
 
 void RuqolaMainWindow::slotWhatsNew()
 {
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+    WhatsNewTranslations translations;
+    TextAddonsWidgets::WhatsNewDialog dlg(translations.createWhatsNewInfo(), this);
+#else
     WhatsNewDialog dlg(this);
+#endif
     dlg.updateInformations();
     dlg.exec();
 }

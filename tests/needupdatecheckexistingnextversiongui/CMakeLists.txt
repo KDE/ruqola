@@ -9,7 +9,7 @@ target_sources(
         needupdatecheckexistingnextversionwidget.cpp
 )
 
-target_link_libraries(needupdatecheckexistingnextversiongui libruqolawidgets)
+target_link_libraries(needupdatecheckexistingnextversiongui libruqolawidgets KF6::TextAddonsWidgets)
 set_target_properties(
     needupdatecheckexistingnextversiongui
     PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
