@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-09 09:54+0000\n"
-"PO-Revision-Date: 2025-10-01 13:20+0200\n"
+"PO-Revision-Date: 2025-10-10 10:06+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -7961,9 +7961,7 @@ msgid "DataBase E2E"
 msgstr "E2E de la base de dades"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Copia"
@@ -11737,7 +11735,7 @@ msgstr "Què hi ha de nou en %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Copia blocs de codi amb més facilitat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 #, kde-format
@@ -12382,27 +12380,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Esmena d'errors:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Negreta"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Cursiva"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Barrat"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Bloc de codi"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Cita de text"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Inserix un enllaç"
