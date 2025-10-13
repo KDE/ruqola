@@ -460,23 +460,10 @@ static void convertHtmlChar(QString &str)
     str.replace(u"&amp;"_s, u"&"_s);
 }
 
-static QString convertMessageText(const TextConverter::ConvertMessageTextSettings &newSettings, const QString &quotedMessage)
+static QString convertMessageText2(const TextConverter::ConvertMessageTextSettings &settings)
 {
     int blockCodeIndex = 1;
     // Need to escaped text (avoid to interpret html code)
-    const TextConverter::ConvertMessageTextSettings settings{
-        quotedMessage + newSettings.str.toHtmlEscaped(),
-        newSettings.userName,
-        newSettings.allMessages,
-        newSettings.highlightWords,
-        newSettings.emojiManager,
-        newSettings.messageCache,
-        newSettings.mentions,
-        newSettings.channels,
-        newSettings.messageId,
-        newSettings.searchedText,
-        newSettings.maximumRecursiveQuotedText,
-    };
     const QByteArray ba = settings.str.toUtf8();
     cmark_node *doc = cmark_parse_document(ba.constData(), ba.length(), CMARK_OPT_DEFAULT);
     cmark_iter *iter = cmark_iter_new(doc);
@@ -609,7 +596,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
 
             str = str.left(startPos - 3) + str.mid(endPos + 1);
             const TextConverter::ConvertMessageTextSettings newsettings{
-                str,
+                str.toHtmlEscaped(),
                 settings.userName,
                 settings.allMessages,
                 settings.highlightWords,
@@ -621,7 +608,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                 settings.searchedText,
                 settings.maximumRecursiveQuotedText,
             };
-            str = convertMessageText(newsettings, QString());
+            str = convertMessageText2(newsettings);
 
             quotedMessage = Utils::formatQuotedRichText(info) + str;
             str.clear();
@@ -648,7 +635,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                     info.richText = text;
                     info.displayTime = msg->dateTime();
                     const TextConverter::ConvertMessageTextSettings newsettings{
-                        str,
+                        str.toHtmlEscaped(),
                         settings.userName,
                         settings.allMessages,
                         settings.highlightWords,
@@ -660,7 +647,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                         settings.searchedText,
                         settings.maximumRecursiveQuotedText,
                     };
-                    str = convertMessageText(newsettings, QString());
+                    str = convertMessageText2(newsettings);
 
                     quotedMessage = Utils::formatQuotedRichText(info) + str;
                     str.clear();
@@ -674,7 +661,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
 
     // Need to escaped text (avoid to interpret html code)
     const TextConverter::ConvertMessageTextSettings newsettings{
-        str,
+        quotedMessage + str.toHtmlEscaped(),
         settings.userName,
         settings.allMessages,
         settings.highlightWords,
@@ -686,8 +673,9 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
         settings.searchedText,
         settings.maximumRecursiveQuotedText,
     };
+
     // qDebug() << "settings.str  " << settings.str;
-    const QString result = convertMessageText(newsettings, quotedMessage);
+    const QString result = convertMessageText2(newsettings);
     // qDebug() << " RESULT ************ " << result;
     return "<qt>"_L1 + result + "</qt>"_L1;
 }
