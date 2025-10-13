@@ -8,7 +8,14 @@ target_link_libraries(
     cmarktestgui
     Qt::Widgets
     Qt::Gui
-    cmark-rc
     libruqolawidgets
 )
+
+if(NOT HAVE_TEXTUTILS_CMARK_SUPPORT)
+    target_link_libraries(
+        cmarktestgui
+        cmark-rc
+    )
+endif()
+
 set_target_properties(cmarktestgui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
