@@ -12,7 +12,6 @@
 #include "databasedialog/exploredatabasedialog.h"
 #include "directmessage/createdmjob.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
-#include "job/extractserverinfojob.h"
 #include "misc/changefontsizemenu.h"
 #include "notificationhistorymanager.h"
 #include "rocketchaturlutils.h"
