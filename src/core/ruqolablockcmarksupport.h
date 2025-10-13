@@ -17,8 +17,12 @@ public:
     void setSettings(TextConverter::ConvertMessageTextSettings *newSettings);
 
 protected:
-    [[nodiscard]] QString
-    addHighlighter(const QString &str, const QString &language, const QString &searchText, const QByteArray &uuid, int &blockCodeIndex) override;
+    [[nodiscard]] QString addHighlighter(const QString &str,
+                                         const QString &language,
+                                         const QString &searchText,
+                                         const QByteArray &uuid,
+                                         int &blockCodeIndex,
+                                         int &numberOfTextSearched) override;
 
 private:
     TextConverter::ConvertMessageTextSettings *mSettings = nullptr;
