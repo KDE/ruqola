@@ -96,7 +96,11 @@
 #include <KWindowSystem>
 #endif
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+#include <TextAddonsWidgets/VerifyNewVersionWidget>
+#else
 #include "verifynewversionwidget/verifynewversionwidgetaction.h"
+#endif
 #endif
 
 #if HAVE_KUSERFEEDBACK
@@ -118,7 +122,11 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
     , mSwitchChannelTreeManager(new SwitchChannelTreeViewManager(this))
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+    , mVerifyNewVersionWidgetAction(new TextAddonsWidgets::VerifyNewVersionWidget(this))
+#else
     , mVerifyNewVersionWidgetAction(new VerifyNewVersionWidgetAction(this))
+#endif
 #endif
 
 {
