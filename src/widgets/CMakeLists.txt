@@ -1176,10 +1176,6 @@ if(NOT WIN32 AND NOT APPLE)
     target_link_libraries(libruqolawidgets KF6::WindowSystem)
 endif()
 
-if (HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
-    target_link_libraries(libruqolawidgets KF6::TextAddonsWidgets)
-endif()
-
 set_target_properties(
     libruqolawidgets
     PROPERTIES
