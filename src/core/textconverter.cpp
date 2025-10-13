@@ -568,7 +568,7 @@ static QString convertMessageText2(TextConverter::ConvertMessageTextSettings *se
 {
     RuqolaBlockCMarkSupport cmarkSupport;
     cmarkSupport.setSettings(settings);
-    const QString result = cmarkSupport.convertMessageText(settings->str.toHtmlEscaped(), settings->messageId, settings->searchedText);
+    const QString result = cmarkSupport.convertMessageText(settings->str, settings->messageId, settings->searchedText);
     delete settings;
     return result;
 }
