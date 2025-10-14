@@ -567,9 +567,11 @@ static QString convertMessageText2(const TextConverter::ConvertMessageTextSettin
 static QString convertMessageText2(TextConverter::ConvertMessageTextSettings *settings)
 {
     int numberOfTextSearched = 0;
+    int hightLightStringIndex = 0;
     RuqolaBlockCMarkSupport cmarkSupport;
     cmarkSupport.setSettings(settings);
-    const QString result = cmarkSupport.convertMessageText(settings->str, settings->messageId, settings->searchedText, numberOfTextSearched);
+    const QString result =
+        cmarkSupport.convertMessageText(settings->str, settings->messageId, settings->searchedText, numberOfTextSearched, hightLightStringIndex);
     delete settings;
     return result;
 }

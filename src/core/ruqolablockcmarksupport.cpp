@@ -294,7 +294,8 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
                                                 [[maybe_unused]] const QString &searchText,
                                                 [[maybe_unused]] const QByteArray &uuid,
                                                 int &blockCodeIndex,
-                                                int &numberOfTextSearched)
+                                                int &numberOfTextSearched,
+                                                int hightLightStringIndex)
 {
     if (!mSettings) {
         qCWarning(RUQOLA_TEXTTOHTML_CMARK_LOG) << " TextConverter::ConvertMessageTextSettings is null. IT's a bug";
