@@ -9,7 +9,6 @@
 #include <QApplication>
 
 ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
-
 {
     regenerateColorScheme();
     qGuiApp->installEventFilter(this);
@@ -44,7 +43,7 @@ void ColorsAndMessageViewStyle::regenerateColorScheme()
     const KColorScheme colorScheme(QPalette::Active, KColorScheme::Window);
     if (!(mSchemeWindow == colorScheme)) {
         mSchemeView = KColorScheme();
-        mSchemeWindow = std::move(colorScheme);
+        mSchemeWindow = colorScheme;
         Q_EMIT needToUpdateColors();
     }
 }
