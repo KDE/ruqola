@@ -1378,7 +1378,4 @@
     <release version="1.6.1" date="2021-12-22"/>
     <release version="1.6.0" date="2021-12-03"/>
   </releases>
-  <custom>
-    <value key="KDE::supporters"> </value>
-  </custom>
 </component>
