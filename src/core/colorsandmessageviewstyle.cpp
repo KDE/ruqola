@@ -10,10 +10,13 @@
 
 ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
 {
+#if !HAVE_TEXTUTILS_COLOR_AND_MESSAGE_VIEW_STYLE_SUPPORT
     regenerateColorScheme();
     qGuiApp->installEventFilter(this);
+#endif
 }
 
+#if !HAVE_TEXTUTILS_COLOR_AND_MESSAGE_VIEW_STYLE_SUPPORT
 bool ColorsAndMessageViewStyle::eventFilter([[maybe_unused]] QObject *obj, QEvent *event)
 {
     if (event->type() == QEvent::ApplicationPaletteChange) {
@@ -21,13 +24,14 @@ bool ColorsAndMessageViewStyle::eventFilter([[maybe_unused]] QObject *obj, QEven
     }
     return false;
 }
+#endif
 
 ColorsAndMessageViewStyle &ColorsAndMessageViewStyle::self()
 {
     static ColorsAndMessageViewStyle c;
     return c;
 }
-
+#if !HAVE_TEXTUTILS_COLOR_AND_MESSAGE_VIEW_STYLE_SUPPORT
 KColorScheme ColorsAndMessageViewStyle::schemeView() const
 {
     return mSchemeView;
@@ -47,5 +51,6 @@ void ColorsAndMessageViewStyle::regenerateColorScheme()
         Q_EMIT needToUpdateColors();
     }
 }
+#endif
 
 #include "moc_colorsandmessageviewstyle.cpp"

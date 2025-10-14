@@ -5,21 +5,29 @@
 */
 
 #pragma once
-
+#include "config-ruqola.h"
+#if HAVE_TEXTUTILS_COLOR_AND_MESSAGE_VIEW_STYLE_SUPPORT
+#include <TextUtils/TextUtilsColorsAndMessageViewStyle>
+#endif
 #include <QObject>
 
 #include <KColorScheme>
 
 #include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_EXPORT ColorsAndMessageViewStyle : public QObject
+class LIBRUQOLACORE_EXPORT ColorsAndMessageViewStyle :
+#if HAVE_TEXTUTILS_COLOR_AND_MESSAGE_VIEW_STYLE_SUPPORT
+    public TextUtils::TextUtilsColorsAndMessageViewStyle
+#else
+    public QObject
+#endif
 {
     Q_OBJECT
 public:
     static ColorsAndMessageViewStyle &self();
 
     ColorsAndMessageViewStyle();
-
+#if !HAVE_TEXTUTILS_COLOR_AND_MESSAGE_VIEW_STYLE_SUPPORT
     [[nodiscard]] KColorScheme schemeView() const;
 
     [[nodiscard]] KColorScheme schemeWindow() const;
@@ -36,4 +44,5 @@ private:
     LIBRUQOLACORE_NO_EXPORT void regenerateColorScheme();
     KColorScheme mSchemeView;
     KColorScheme mSchemeWindow;
+#endif
 };
