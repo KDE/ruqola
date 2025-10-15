@@ -106,7 +106,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
 
                     int recursiveIndex = 0;
                     int numberOfTextSearched = 0;
-                    int hightLightStringIndex = 0;
+                    const int hightLightStringIndex = 0;
                     const QString contextString =
                         TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
                     if (!needUpdateMessageId.isEmpty() && connectToUpdates) {

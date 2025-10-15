@@ -28,7 +28,7 @@ CMarkTestGui::CMarkTestGui(QWidget *parent)
         QByteArray needUpdateMessageId;
         int recursiveIndex = 0;
         int numberOfTextSearched = 0;
-        int hightLightStringIndex = 0;
+        const int hightLightStringIndex = 0;
         mTextEditResultCMark->setHtml(
             TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex));
     });

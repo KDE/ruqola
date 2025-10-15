@@ -542,7 +542,7 @@ QString Room::displayTopic() const
     const TextConverter::ConvertMessageTextSettings settings(mTopic, {}, {}, {}, emojiManager, messageCache, {}, {}, {});
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
 }
 
@@ -596,7 +596,7 @@ QString Room::displayAnnouncement() const
     const TextConverter::ConvertMessageTextSettings settings(mAnnouncement, {}, {}, {}, emojiManager, messageCache, {}, {}, {});
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
 }
 

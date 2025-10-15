@@ -86,7 +86,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
 
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, info.width);
     auto ret = doc.get();
