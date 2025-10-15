@@ -235,6 +235,8 @@ public:
 
     [[nodiscard]] bool isEncryptedMessage() const;
 
+    [[nodiscard]] int numberOfTextSearched() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
@@ -322,5 +324,7 @@ private:
     SystemMessageTypeUtil::SystemMessageType mSystemMessageType = SystemMessageTypeUtil::SystemMessageType::Unknown;
     MessageType mMessageType = MessageType::NormalText;
     MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);
+
+    int mNumberOfTextSearched = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);

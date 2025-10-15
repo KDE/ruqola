@@ -105,7 +105,10 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                                                              maximumRecursiveQuotedText);
 
                     int recursiveIndex = 0;
-                    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+                    int numberOfTextSearched = 0;
+                    int hightLightStringIndex = 0;
+                    const QString contextString =
+                        TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
                     if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
                         connect(messageCache, &MessageCache::messageLoaded, this, [needUpdateMessageId, that, index](const QByteArray &msgId) {
                             if (msgId == needUpdateMessageId) {

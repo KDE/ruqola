@@ -214,7 +214,11 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
 
         // TODO use needUpdateIndex ?
         int recursiveIndex = 0;
-        const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex) + msgAttach.attachmentFieldsText();
+        int numberOfTextSearched = 0;
+        int hightLightStringIndex = 0;
+        const QString contextString =
+            TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex)
+            + msgAttach.attachmentFieldsText();
         auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
         auto ret = doc.get();
         mDocumentCache.insert(attachmentId, std::move(doc));

@@ -85,7 +85,9 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
                                                              maximumRecursiveQuotedText);
 
     int recursiveIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    int numberOfTextSearched = 0;
+    int hightLightStringIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, info.width);
     auto ret = doc.get();
     mDocumentCache.insert(info.documentId, std::move(doc));

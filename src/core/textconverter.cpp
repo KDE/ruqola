@@ -470,7 +470,7 @@ static void convertHtmlChar(QString &str)
     str.replace(u"&amp;"_s, u"&"_s);
 }
 
-static QString convertMessageText2(const TextConverter::ConvertMessageTextSettings &settings)
+static QString convertMessageText2(const TextConverter::ConvertMessageTextSettings &settings, int &numberOfTextSearched, int hightLightStringIndex)
 {
     int blockCodeIndex = 1;
     // Need to escaped text (avoid to interpret html code)
@@ -564,10 +564,8 @@ static QString convertMessageText2(const TextConverter::ConvertMessageTextSettin
     return result;
 }
 #else
-static QString convertMessageText2(TextConverter::ConvertMessageTextSettings *settings)
+static QString convertMessageText2(TextConverter::ConvertMessageTextSettings *settings, int &numberOfTextSearched, int hightLightStringIndex)
 {
-    int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
     RuqolaBlockCMarkSupport cmarkSupport;
     cmarkSupport.setSettings(settings);
     const QString result =
@@ -577,7 +575,11 @@ static QString convertMessageText2(TextConverter::ConvertMessageTextSettings *se
 }
 #endif
 
-QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
+QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTextSettings &settings,
+                                          QByteArray &needUpdateMessageId,
+                                          int &recusiveIndex,
+                                          int &numberOfTextSearched,
+                                          int hightLightStringIndex)
 {
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
@@ -611,7 +613,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                                                                        settings.searchedText,
                                                                        settings.maximumRecursiveQuotedText);
             recusiveIndex++;
-            const QString text = TextConverter::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
+            const QString text = TextConverter::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex, numberOfTextSearched, hightLightStringIndex);
             Utils::QuotedRichTextInfo info;
             info.url = url;
             info.richText = text;
@@ -648,7 +650,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
             };
 
 #endif
-            str = convertMessageText2(newsettings);
+            str = convertMessageText2(newsettings, numberOfTextSearched, hightLightStringIndex);
             quotedMessage = Utils::formatQuotedRichText(info) + str;
             str.clear();
         } else {
@@ -668,7 +670,8 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                                                                                settings.searchedText,
                                                                                settings.maximumRecursiveQuotedText);
                     recusiveIndex++;
-                    const QString text = TextConverter::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
+                    const QString text =
+                        TextConverter::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex, numberOfTextSearched, hightLightStringIndex);
                     Utils::QuotedRichTextInfo info;
                     info.url = url;
                     info.richText = text;
@@ -702,7 +705,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                         settings.maximumRecursiveQuotedText,
                     };
 #endif
-                    str = convertMessageText2(newsettings);
+                    str = convertMessageText2(newsettings, numberOfTextSearched, hightLightStringIndex);
 
                     quotedMessage = Utils::formatQuotedRichText(info) + str;
                     str.clear();
@@ -746,7 +749,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
 #endif
 
     // qDebug() << "settings.str  " << settings.str;
-    const QString result = convertMessageText2(newsettings);
+    const QString result = convertMessageText2(newsettings, numberOfTextSearched, hightLightStringIndex);
     // qDebug() << " RESULT ************ " << result;
     return "<qt>"_L1 + result + "</qt>"_L1;
 }

@@ -418,6 +418,11 @@ MessageExtra *Message::messageExtra()
     return mMessageExtra;
 }
 
+int Message::numberOfTextSearched() const
+{
+    return mNumberOfTextSearched;
+}
+
 QString Message::localTranslation() const
 {
     if (!mMessageExtra) {

@@ -551,7 +551,9 @@ QString MessagesModel::convertMessageText(const Message &message, const QString 
                                                              maximumRecursiveQuotedText);
 
     int recursiveIndex = 0;
-    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    int numberOfTextSearched = 0;
+    int hightLightStringIndex = 0;
+    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
 }
 
 void MessagesModel::setRoomId(const QByteArray &roomId)
