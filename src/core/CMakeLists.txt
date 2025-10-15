@@ -540,6 +540,8 @@ target_sources(
 
         ruqolacommandlineparser.cpp
         ruqolacommandlineparser.h
+        quicksearch/ruqolaquicksearchmessagesettings.cpp
+        quicksearch/ruqolaquicksearchmessagesettings.h
         emoji.qrc
 )
 
@@ -741,6 +743,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_messages_
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_subscription_parsing_debug.h IDENTIFIER RUQOLA_SUBSCRIPTION_PARSING_LOG
     CATEGORY_NAME org.kde.ruqola.subscription_parsing DESCRIPTION "ruqola subscription parsing message" EXPORT RUQOLA
+)
+
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_quick_search_debug.h IDENTIFIER RUQOLA_QUICK_SEARCH_LOG
+    CATEGORY_NAME org.kde.ruqola.quick_search DESCRIPTION "ruqola quick search message" EXPORT RUQOLA
 )
 
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
