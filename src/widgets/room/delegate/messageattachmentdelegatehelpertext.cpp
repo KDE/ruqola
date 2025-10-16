@@ -215,7 +215,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
         // TODO use needUpdateIndex ?
         int recursiveIndex = 0;
         int numberOfTextSearched = 0;
-        int hightLightStringIndex = 0;
+        const int hightLightStringIndex = 0;
         const QString contextString =
             TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex)
             + msgAttach.attachmentFieldsText();

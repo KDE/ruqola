@@ -235,7 +235,7 @@ MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const
 
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
