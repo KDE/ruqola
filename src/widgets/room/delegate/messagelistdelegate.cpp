@@ -218,41 +218,23 @@ void MessageListDelegate::setSearchText(const QString &newSearchText)
 {
     bool needClearDocumentCache = false;
     if (mHelperText->searchText() != newSearchText) {
+        needClearDocumentCache = true;
         mHelperText->setSearchText(newSearchText);
         mHelperText->clearTextDocumentCache();
-        needClearDocumentCache = true;
-    }
-    if (mPreviewEmbed) {
-        if (mHelperUrlPreview->searchText() != newSearchText) {
+        if (mPreviewEmbed) {
             mHelperUrlPreview->setSearchText(newSearchText);
             mHelperUrlPreview->clearTextDocumentCache();
-            needClearDocumentCache = true;
         }
-    }
-    if (mHelperAttachmentText->searchText() != newSearchText) {
         mHelperAttachmentText->setSearchText(newSearchText);
         mHelperAttachmentText->clearTextDocumentCache();
-        needClearDocumentCache = true;
-    }
-    if (mHelperAttachmentImage->searchText() != newSearchText) {
         mHelperAttachmentImage->setSearchText(newSearchText);
         mHelperAttachmentImage->clearTextDocumentCache();
-        needClearDocumentCache = true;
-    }
-    if (mHelperAttachmentFile->searchText() != newSearchText) {
         mHelperAttachmentFile->setSearchText(newSearchText);
         mHelperAttachmentFile->clearTextDocumentCache();
-        needClearDocumentCache = true;
-    }
-    if (mHelperAttachmentVideo->searchText() != newSearchText) {
         mHelperAttachmentVideo->setSearchText(newSearchText);
         mHelperAttachmentVideo->clearTextDocumentCache();
-        needClearDocumentCache = true;
-    }
-    if (mHelperAttachmentSound->searchText() != newSearchText) {
         mHelperAttachmentSound->setSearchText(newSearchText);
         mHelperAttachmentSound->clearTextDocumentCache();
-        needClearDocumentCache = true;
     }
     if (needClearDocumentCache) {
         mSizeHintCache.clear();
