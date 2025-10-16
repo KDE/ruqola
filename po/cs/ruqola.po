@@ -2107,7 +2107,7 @@ msgstr "Nastavit můj účet"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Prodleva:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
 #, fuzzy, kde-format
@@ -7691,12 +7691,12 @@ msgstr ""
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
 msgid "Restart is necessary for applying the changes."
-msgstr ""
+msgstr "Pro provedení změn je potřeba restartovat."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:101
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Moduly nástrojů"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:108
 #, kde-format
@@ -7704,18 +7704,15 @@ msgid "Text Plugins"
 msgstr ""
 
 #: widgets/configuredialog/configurepluginswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "..."
-msgstr "Přidat..."
+msgstr "..."
 
 #: widgets/configuredialog/configurepluginswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
-msgstr "Nastavení aplikace Ruqola"
+msgstr "Nastavit"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:66
 #, kde-format
@@ -7866,9 +7863,7 @@ msgid "Database Info"
 msgstr "Informace o databázi"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "Zprávy"
 
@@ -8476,7 +8471,7 @@ msgstr "Časové pásmo:"
 #: widgets/dialogs/directchannelinfowidget.cpp:136
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Místní čas:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #, kde-format
@@ -8813,11 +8808,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Kopírovat pozici do schránky"
 
 #: widgets/dialogs/showimagedialog.cpp:152
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Hledat aplikace"
+msgstr "Jiná aplikace..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -9413,8 +9406,7 @@ msgid "Decrease Font"
 msgstr "Zmenšit písmo"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Odstranit"
@@ -10291,7 +10283,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
-msgstr ""
+msgstr "Ladění"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
@@ -10306,11 +10298,10 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Otevřít přílohu <filename>%1</filename>?<nl/>"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr "Otevřít…"
+msgstr "Otevřít"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
@@ -10746,21 +10737,18 @@ msgid "Markdown Url"
 msgstr ""
 
 #: widgets/room/newmessageindicator.cpp:34
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgid "New Message"
-msgstr "Poslat správu"
+msgstr "Nová zpráva"
 
 #: widgets/room/quicktextformatmessage.cpp:39
-#, fuzzy, kde-format
-#| msgid "Bold"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Bold"
 msgstr "Tučné"
 
 #: widgets/room/quicktextformatmessage.cpp:51
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Italic"
 msgstr "Kurzíva"
@@ -11706,13 +11694,12 @@ msgstr "Přidat server"
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "Url:"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "UserName"
+#, kde-format
 msgid "UserName:"
-msgstr "Uživatelské jméno"
+msgstr "Uživatelské jméno:"
 
 #: widgets/welcome/welcomewidget.cpp:21
 #, kde-format
