@@ -216,27 +216,16 @@ MessageAttachmentDelegateHelperBase *MessageListDelegate::attachmentsHelper(cons
 
 void MessageListDelegate::setSearchText(const QString &newSearchText)
 {
-    bool needClearDocumentCache = false;
     if (mHelperText->searchText() != newSearchText) {
-        needClearDocumentCache = true;
         mHelperText->setSearchText(newSearchText);
-        mHelperText->clearTextDocumentCache();
         if (mPreviewEmbed) {
             mHelperUrlPreview->setSearchText(newSearchText);
-            mHelperUrlPreview->clearTextDocumentCache();
         }
         mHelperAttachmentText->setSearchText(newSearchText);
-        mHelperAttachmentText->clearTextDocumentCache();
         mHelperAttachmentImage->setSearchText(newSearchText);
-        mHelperAttachmentImage->clearTextDocumentCache();
         mHelperAttachmentFile->setSearchText(newSearchText);
-        mHelperAttachmentFile->clearTextDocumentCache();
         mHelperAttachmentVideo->setSearchText(newSearchText);
-        mHelperAttachmentVideo->clearTextDocumentCache();
         mHelperAttachmentSound->setSearchText(newSearchText);
-        mHelperAttachmentSound->clearTextDocumentCache();
-    }
-    if (needClearDocumentCache) {
         mSizeHintCache.clear();
     }
 }

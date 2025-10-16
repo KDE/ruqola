@@ -97,6 +97,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
 void MessageDelegateHelperBase::setSearchText(const QString &newSearchText)
 {
     mSearchText = newSearchText;
+    clearTextDocumentCache();
 }
 
 QString MessageDelegateHelperBase::searchText() const
