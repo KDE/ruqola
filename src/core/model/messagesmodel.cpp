@@ -719,7 +719,11 @@ QString MessagesModel::searchText() const
 
 void MessagesModel::setSearchText(const QString &searchText)
 {
-    mSearchText = searchText;
+    if (mSearchText != searchText) {
+        beginResetModel();
+        mSearchText = searchText;
+        endResetModel();
+    }
 }
 
 void MessagesModel::clearHistory()
