@@ -552,7 +552,7 @@ QString MessagesModel::convertMessageText(const Message &message, const QString 
 
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
 }
 
