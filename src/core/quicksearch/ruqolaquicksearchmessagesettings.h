@@ -28,10 +28,11 @@ public:
     void clear();
 Q_SIGNALS:
     void refreshMessage(const QByteArray &identifier, const QByteArray &previousIdentifier, int index);
+    void updateNextPreviousButtons(bool nextEnabled, bool previousEnabled);
 
 private:
-    [[nodiscard]] bool canSearchMessage() const;
-    void lastMessageUuid();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool canSearchMessage() const;
+    LIBRUQOLACORE_NO_EXPORT void lastMessageUuid();
     MessagesModel *const mMessageModel;
     QByteArray mCurrentMessageIdentifier;
     int mCurrentSearchIndex = -1;
