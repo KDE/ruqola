@@ -19,12 +19,17 @@ void RuqolaQuickSearchMessageSettings::clear()
 {
     mCurrentMessageIdentifier.clear();
     mCurrentSearchIndex = -1;
+    mFoundSearchCount = -1;
 }
 
 bool RuqolaQuickSearchMessageSettings::canSearchMessage() const
 {
     if (!mMessageModel) {
         qCWarning(RUQOLA_QUICK_SEARCH_LOG) << " Model is not defined. It's a bug";
+        return false;
+    }
+    if (mFoundSearchCount == -1) {
+        qCWarning(RUQOLA_QUICK_SEARCH_LOG) << "mFoundSearchCount == -1 it's a bug";
         return false;
     }
     if (mCurrentMessageIdentifier.isEmpty()) {
@@ -66,28 +71,30 @@ void RuqolaQuickSearchMessageSettings::next()
     } else {
         mCurrentSearchIndex++;
     }
-#if 0
     // qDebug() << " mCurrentSearchIndex " << mCurrentSearchIndex << " mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched() "
     //          << mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched();
+    const auto hasSearchedString = [](const Message &msg) {
+        return msg.numberOfTextSearched() > 0;
+    };
+#if 0
     if (mCurrentSearchIndex >= mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched()) {
-        auto hasSearchedString = [](const TextAutoGenerateMessage &msg) {
-            return msg.numberOfTextSearched() > 0;
-        };
-
         mCurrentSearchIndex = 0;
         auto msg = mMessageModel->findNextMessageAfter(mCurrentMessageIdentifier, hasSearchedString);
         if (msg.isValid()) {
             mCurrentMessageIdentifier = msg.uuid();
         } else {
             mCurrentSearchIndex = storeCurrentSearchIndex;
-            Q_EMIT updateNextPreviousButtons(false, true /*TODO ????*/);
+            Q_EMIT updateNextPreviousButtons(false, true);
             // Invalidate it.
             // clear();
             return;
         }
         Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0), true);
     } else {
-        Q_EMIT updateNextPreviousButtons((mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched() > 0), true);
+        Q_EMIT updateNextPreviousButtons(((mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched() > 0)
+                                          && (mCurrentSearchIndex < mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched() - 1))
+                                             || mMessageModel->findNextMessageAfter(mCurrentMessageIdentifier, hasSearchedString).isValid(),
+                                         true);
     }
     Q_EMIT refreshMessage(mCurrentMessageIdentifier, previousMessageIdentifier, mCurrentSearchIndex);
 #endif
@@ -111,10 +118,10 @@ void RuqolaQuickSearchMessageSettings::previous()
     } else {
         mCurrentSearchIndex--;
         if (mCurrentSearchIndex < 0) {
-#if 0
-            auto hasSearchedString = [](const TextAutoGenerateMessage &msg) {
+            const auto hasSearchedString = [](const Message &msg) {
                 return msg.numberOfTextSearched() > 0;
             };
+#if 0
 
             auto msg = mMessageModel->findLastMessageBefore(mCurrentMessageIdentifier, hasSearchedString);
             if (msg.isValid()) {
@@ -125,15 +132,18 @@ void RuqolaQuickSearchMessageSettings::previous()
                 mCurrentSearchIndex = 0;
                 // Invalidate it.
                 // clear();
-                Q_EMIT updateNextPreviousButtons(true, false); // TODO verify it
+                Q_EMIT updateNextPreviousButtons(true, false);
                 return;
             }
-            Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0), true);
+            Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0),
+                                             (mCurrentSearchIndex > 0)
+                                                 || mMessageModel->findLastMessageBefore(mCurrentMessageIdentifier, hasSearchedString).isValid());
 #endif
         } else {
-            Q_EMIT updateNextPreviousButtons(true, true);
+            Q_EMIT updateNextPreviousButtons((mFoundSearchCount > 1), true);
         }
     }
+    Q_EMIT refreshMessage(mCurrentMessageIdentifier, previousMessageIdentifier, mCurrentSearchIndex);
 }
 
 QByteArray RuqolaQuickSearchMessageSettings::currentMessageIdentifier() const
@@ -154,6 +164,16 @@ int RuqolaQuickSearchMessageSettings::currentSearchIndex() const
 void RuqolaQuickSearchMessageSettings::setCurrentSearchIndex(int newCurrentSearchIndex)
 {
     mCurrentSearchIndex = newCurrentSearchIndex;
+}
+
+int RuqolaQuickSearchMessageSettings::foundSearchCount() const
+{
+    return mFoundSearchCount;
+}
+
+void RuqolaQuickSearchMessageSettings::setFoundSearchCount(int newFoundSearchCount)
+{
+    mFoundSearchCount = newFoundSearchCount;
 }
 
 #include "moc_ruqolaquicksearchmessagesettings.cpp"

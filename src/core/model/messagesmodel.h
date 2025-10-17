@@ -16,6 +16,7 @@
 class RocketChatAccount;
 class LoadRecentHistoryManager;
 class Room;
+class RuqolaQuickSearchMessageSettings;
 class LIBRUQOLACORE_EXPORT MessagesModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -143,6 +144,8 @@ public:
 
     void addMessagesSyncAfterLoadingFromDatabase(QList<Message> messages);
 
+    [[nodiscard]] RuqolaQuickSearchMessageSettings *quickSearchMessageSettings() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**
@@ -171,6 +174,7 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
     QPointer<Room> mRoom;
     std::unique_ptr<LoadRecentHistoryManager> mLoadRecentHistoryManager;
+    RuqolaQuickSearchMessageSettings *const mQuickSearchMessageSettings;
 };
 Q_DECLARE_METATYPE(MessagesModel::AttachmentAndUrlPreviewVisibility)
 Q_DECLARE_TYPEINFO(MessagesModel::AttachmentAndUrlPreviewVisibility, Q_RELOCATABLE_TYPE);

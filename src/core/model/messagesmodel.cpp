@@ -13,6 +13,7 @@
 #include "emoticons/emojimanager.h"
 #include "loadrecenthistorymanager.h"
 #include "messagesmodel.h"
+#include "quicksearch/ruqolaquicksearchmessagesettings.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola_messages_model_debug.h"
@@ -28,6 +29,7 @@ MessagesModel::MessagesModel(const QByteArray &roomID, RocketChatAccount *accoun
     , mRocketChatAccount(account)
     , mRoom(room)
     , mLoadRecentHistoryManager(new LoadRecentHistoryManager)
+    , mQuickSearchMessageSettings(new RuqolaQuickSearchMessageSettings(this, this))
 {
     qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Creating message Model";
     if (mRoom) {
@@ -673,6 +675,11 @@ bool MessagesModel::messageReplies(const Message &message) const
         return message.replies() && message.replies()->replies().contains(mRocketChatAccount->userId());
     }
     return false;
+}
+
+RuqolaQuickSearchMessageSettings *MessagesModel::quickSearchMessageSettings() const
+{
+    return mQuickSearchMessageSettings;
 }
 
 bool MessagesModel::threadMessageFollowed(const QByteArray &threadMessageId) const
