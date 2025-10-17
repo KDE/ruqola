@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:42+0000\n"
+"POT-Creation-Date: 2025-10-17 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -10396,76 +10396,76 @@ msgstr "आबन्धम्"
 msgid "Link Preview"
 msgstr "लिङ्क पूर्वावलोकन"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:443
+#: widgets/room/delegate/messagelistdelegate.cpp:414
 #, kde-format
 msgid "User Info"
 msgstr "उपयोक्तृसूचना"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:453
+#: widgets/room/delegate/messagelistdelegate.cpp:424
 #: widgets/room/messagelistview.cpp:453
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "निजी वार्तालापं आरभत"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:469
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #: widgets/room/messagelistview.cpp:560 widgets/room/messagelistview.cpp:618
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "मूलसन्देशं दर्शयतु"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:469
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #: widgets/room/messagelistview.cpp:560 widgets/room/messagelistview.cpp:618
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "सन्देश का अनुवाद करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:697
+#: widgets/room/delegate/messagelistdelegate.cpp:668
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "१ उत्तरम्"
 msgstr[1] "%1 उत्तरं ददाति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:678
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "१ सन्देशः"
 msgstr[1] "%1 सन्देशाः"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:678
 #, kde-format
 msgid "No message yet"
 msgstr "अद्यापि कोऽपि सन्देशः नास्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:997
+#: widgets/room/delegate/messagelistdelegate.cpp:968
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "अनुसरण"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1001
+#: widgets/room/delegate/messagelistdelegate.cpp:972
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "सन्देशः पिन कृतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1005
+#: widgets/room/delegate/messagelistdelegate.cpp:976
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "सन्देशः अभिनीतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1009
+#: widgets/room/delegate/messagelistdelegate.cpp:980
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1013
+#: widgets/room/delegate/messagelistdelegate.cpp:984
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"

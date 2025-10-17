@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:42+0000\n"
+"POT-Creation-Date: 2025-10-17 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -10541,76 +10541,76 @@ msgstr "Csatlakozás"
 msgid "Link Preview"
 msgstr "Hivatkozás előnézete"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:443
+#: widgets/room/delegate/messagelistdelegate.cpp:414
 #, kde-format
 msgid "User Info"
 msgstr "Felhasználó-információk"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:453
+#: widgets/room/delegate/messagelistdelegate.cpp:424
 #: widgets/room/messagelistview.cpp:453
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Személyes beszélgetés indítása"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:469
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #: widgets/room/messagelistview.cpp:560 widgets/room/messagelistview.cpp:618
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Eredeti üzenet megjelenítése"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:469
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #: widgets/room/messagelistview.cpp:560 widgets/room/messagelistview.cpp:618
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Üzenet fordítása"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:697
+#: widgets/room/delegate/messagelistdelegate.cpp:668
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 válasz"
 msgstr[1] "%1 válasz"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:678
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 üzenet"
 msgstr[1] "%1 üzenet"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:678
 #, kde-format
 msgid "No message yet"
 msgstr "Még nincs üzenet"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:997
+#: widgets/room/delegate/messagelistdelegate.cpp:968
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Követés"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1001
+#: widgets/room/delegate/messagelistdelegate.cpp:972
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Az üzenet ki lett tűzve"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1005
+#: widgets/room/delegate/messagelistdelegate.cpp:976
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Az üzenet meg lett csillagozva"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1009
+#: widgets/room/delegate/messagelistdelegate.cpp:980
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Válasz szálban"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1013
+#: widgets/room/delegate/messagelistdelegate.cpp:984
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
