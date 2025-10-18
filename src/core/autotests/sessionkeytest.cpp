@@ -36,7 +36,7 @@ void SessionKeyTest::sessionKeyEncryptionDecryptionTest()
         const QByteArray sessionKey = EncryptionUtils::generateSessionKey();
         const QByteArray encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, EncryptionUtils::publicKeyFromPEM(publicKey));
         const QByteArray decryptedSessionKey = EncryptionUtils::decryptSessionKey(encryptedSessionKey, EncryptionUtils::privateKeyFromPEM(privateKey));
-        QVERIFY(sessionKey == decryptedSessionKey);
+        QCOMPARE(sessionKey, decryptedSessionKey);
     }
 }
 

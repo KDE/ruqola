@@ -51,28 +51,28 @@ void WebDavAddServerWidgetTest::shouldChangeEnableButtonStatus()
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
 
     mName->setText(u"dd"_s);
-    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.count(), 1);
     QCOMPARE(spyUpdateButton.at(0).at(0), false);
 
     spyUpdateButton.clear();
     mUrl->setText(u"dd"_s);
-    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.count(), 1);
     QCOMPARE(spyUpdateButton.at(0).at(0), false);
 
     spyUpdateButton.clear();
     mUserName->setText(u"foo"_s);
-    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.count(), 1);
     QCOMPARE(spyUpdateButton.at(0).at(0), false);
 
     spyUpdateButton.clear();
     mPasswordLineEdit->setPassword(u"AAAA"_s);
-    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.count(), 1);
     QCOMPARE(spyUpdateButton.at(0).at(0), true);
 
     // Empty
     spyUpdateButton.clear();
     mName->setText(u" "_s);
-    QVERIFY(spyUpdateButton.count() == 1);
+    QCOMPARE(spyUpdateButton.count(), 1);
     QCOMPARE(spyUpdateButton.at(0).at(0), false);
 }
 

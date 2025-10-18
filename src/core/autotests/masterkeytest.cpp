@@ -40,7 +40,7 @@ void MasterKeyTest::masterKeyDeterminismTest()
     for (int i = 0; i <= 10; i++) {
         masterKey1 = EncryptionUtils::getMasterKey(u"admin"_s, u"root"_s);
         masterKey2 = EncryptionUtils::getMasterKey(u"admin"_s, u"root"_s);
-        QVERIFY(masterKey1 == masterKey2);
+        QCOMPARE(masterKey1, masterKey2);
 
         masterKey1 = EncryptionUtils::getMasterKey(u"123"_s, u"abc"_s);
         masterKey2 = EncryptionUtils::getMasterKey(u"abc"_s, u"321"_s);
@@ -68,7 +68,7 @@ void MasterKeyTest::importRawKeyTest()
     for (int i = 0; i <= 10; i++) {
         baseKey1 = EncryptionUtils::importRawKey(u"admin"_s.toUtf8(), u"root"_s.toUtf8(), 1000);
         baseKey2 = EncryptionUtils::importRawKey(u"admin"_s.toUtf8(), u"root"_s.toUtf8(), 1000);
-        QVERIFY(baseKey1 == baseKey2);
+        QCOMPARE(baseKey1, baseKey2);
 
         baseKey1 = EncryptionUtils::importRawKey(u"admin"_s.toUtf8(), u"root"_s.toUtf8(), 1000);
         baseKey2 = EncryptionUtils::importRawKey(u"root"_s.toUtf8(), u"admin"_s.toUtf8(), 1000);

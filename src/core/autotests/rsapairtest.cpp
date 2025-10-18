@@ -63,7 +63,7 @@ void RsaPairTest::encryptDecryptDeterminismTest()
         encryptedPrivateKey = EncryptionUtils::encryptPrivateKey(rsaPair.privateKey, masterKey);
         decryptedPrivateKey = EncryptionUtils::decryptPrivateKey(encryptedPrivateKey, masterKey);
 
-        QVERIFY(decryptedPrivateKey == privateKey);
+        QCOMPARE(decryptedPrivateKey, privateKey);
     }
 }
 

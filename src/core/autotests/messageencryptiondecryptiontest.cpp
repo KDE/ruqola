@@ -29,7 +29,7 @@ void MessageEncryptionDecryptionTest::messageEncryptionDecryptionTest()
     const QByteArray sessionKey2 = EncryptionUtils::generateSessionKey();
     const QString decryptedMessage =
         QString::fromUtf8(EncryptionUtils::decryptMessage(EncryptionUtils::encryptMessage(message.toUtf8(), sessionKey1), sessionKey1));
-    QVERIFY(message == decryptedMessage);
+    QCOMPARE(message, decryptedMessage);
 
     for (int i = 1; i <= 10; ++i) {
         const QByteArray message2 = EncryptionUtils::generateRandomText(i).toUtf8();
