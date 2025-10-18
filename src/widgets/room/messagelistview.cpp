@@ -43,6 +43,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
+#include <TextUtils/TextUtilsBlockCodeManager>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
 #endif
 
@@ -178,6 +179,9 @@ void MessageListView::setChannelSelected(Room *room)
         oldModel->deactivate();
     }
     setRoom(room);
+#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_CLEAR_CACHE_SUPPORT
+    TextUtils::TextUtilsBlockCodeManager::self()->clear();
+#endif
     const QByteArray roomId = room->roomId();
     mCurrentRocketChatAccount->switchingToRoom(roomId);
     MessagesModel *model = mCurrentRocketChatAccount->messageModelForRoom(roomId);
