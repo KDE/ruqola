@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-17 00:42+0000\n"
+"POT-Creation-Date: 2025-10-18 00:42+0000\n"
 "PO-Revision-Date: 2025-10-09 18:08+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1336,17 +1336,17 @@ msgstr "Нічого не знайдено."
 msgid "Notify active users in this room"
 msgstr "Сповістити активних користувачів у цій кімнаті"
 
-#: core/model/messagesmodel.cpp:254
+#: core/model/messagesmodel.cpp:256
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Редаговано %1, %2"
 
-#: core/model/messagesmodel.cpp:408
+#: core/model/messagesmodel.cpp:410
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ігнороване повідомлення"
 
-#: core/model/messagesmodel.cpp:417
+#: core/model/messagesmodel.cpp:419
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Бачити це повідомлення можете лише ви"

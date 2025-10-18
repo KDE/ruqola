@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-17 00:42+0000\n"
+"POT-Creation-Date: 2025-10-18 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1340,17 +1340,17 @@ msgstr "Nincs találat."
 msgid "Notify active users in this room"
 msgstr "Aktív felhasználók értesítése ebben a szobában"
 
-#: core/model/messagesmodel.cpp:254
+#: core/model/messagesmodel.cpp:256
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 szerkesztette ekkor: %1"
 
-#: core/model/messagesmodel.cpp:408
+#: core/model/messagesmodel.cpp:410
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mellőzött üzenet"
 
-#: core/model/messagesmodel.cpp:417
+#: core/model/messagesmodel.cpp:419
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Csak Ön láthatja ezt az üzenetet"

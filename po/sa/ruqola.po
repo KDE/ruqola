@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-17 00:42+0000\n"
+"POT-Creation-Date: 2025-10-18 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1337,17 +1337,17 @@ msgstr "न परिणामः प्राप्तः।"
 msgid "Notify active users in this room"
 msgstr "अस्मिन् कक्षे सक्रियप्रयोक्तृभ्यः सूचयन्तु"
 
-#: core/model/messagesmodel.cpp:254
+#: core/model/messagesmodel.cpp:256
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 द्वारा %1 इत्यत्र सम्पादितम्"
 
-#: core/model/messagesmodel.cpp:408
+#: core/model/messagesmodel.cpp:410
 #, kde-format
 msgid "Ignored Message"
 msgstr "उपेक्षितः सन्देशः"
 
-#: core/model/messagesmodel.cpp:417
+#: core/model/messagesmodel.cpp:419
 #, kde-format
 msgid "Only you can see this message"
 msgstr "केवलं भवन्तः एव एतत् सन्देशं द्रष्टुं शक्नुवन्ति"
