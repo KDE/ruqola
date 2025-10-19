@@ -34,8 +34,15 @@ bool BannerInfosFilterProxyModel::showUnread() const
 void BannerInfosFilterProxyModel::setShowUnread(bool newShowUnread)
 {
     if (mShowUnread != newShowUnread) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+#endif
         mShowUnread = newShowUnread;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateFilter();
+#endif
     }
 }
 

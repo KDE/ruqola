@@ -56,8 +56,15 @@ bool StatusModelFilterProxyModel::allowOfflineSupport() const
 void StatusModelFilterProxyModel::setAllowOfflineSupport(bool newAllowOfflineSupport)
 {
     if (mAllowOfflineSupport != newAllowOfflineSupport) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+#endif
         mAllowOfflineSupport = newAllowOfflineSupport;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateFilter();
+#endif
     }
 }
 

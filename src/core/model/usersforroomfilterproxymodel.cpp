@@ -29,8 +29,15 @@ void UsersForRoomFilterProxyModel::clearFilter()
 void UsersForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     if (mFilterString != string) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+#endif
         mFilterString = string;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateFilter();
+#endif
     }
 }
 
@@ -56,8 +63,15 @@ bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QMode
 void UsersForRoomFilterProxyModel::setStatusType(UsersForRoomFilterProxyModel::FilterUserType statusType)
 {
     if (mStatusType != statusType) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+#endif
         mStatusType = statusType;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateFilter();
+#endif
     }
 }
 

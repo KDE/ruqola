@@ -29,8 +29,15 @@ FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel() = default;
 void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     if (mSearchText != string) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+#endif
         mSearchText = string;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateFilter();
+#endif
     }
 }
 
@@ -62,8 +69,15 @@ void FilesForRoomFilterProxyModel::clear()
 void FilesForRoomFilterProxyModel::setTypeGroup(const QString &typeGroup)
 {
     if (mTypeGroup != typeGroup) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+#endif
         mTypeGroup = typeGroup;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateFilter();
+#endif
     }
 }
 

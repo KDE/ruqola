@@ -49,15 +49,27 @@ bool RocketChatAccountFilterProxyModel::filterActivities() const
 void RocketChatAccountFilterProxyModel::setFilterActivities(bool newFilterActivities)
 {
     if (mFilterActivities != newFilterActivities) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+#endif
         mFilterActivities = newFilterActivities;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateFilter();
+#endif
     }
 }
 
 void RocketChatAccountFilterProxyModel::slotActivitiesChanged()
 {
 #if HAVE_ACTIVITY_SUPPORT
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+    beginFilterChange();
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
     invalidateFilter();
+#endif
 #endif
 }
 
@@ -73,7 +85,12 @@ void RocketChatAccountFilterProxyModel::setActivitiesManager(ActivitiesManager *
     if (mActivitiesManager) {
         connect(mActivitiesManager, &ActivitiesManager::activitiesChanged, this, [this]() {
             qCDebug(RUQOLA_PLASMAACTIVITIES_LOG) << " invalidate filter";
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+            beginFilterChange();
+            endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
             invalidateFilter();
+#endif
         });
     }
 }

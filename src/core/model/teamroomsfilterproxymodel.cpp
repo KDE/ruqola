@@ -46,8 +46,15 @@ bool TeamRoomsFilterProxyModel::sortByAutoJoin() const
 void TeamRoomsFilterProxyModel::setSortByAutoJoin(bool sortByAutoJoin)
 {
     if (mSortByAutoJoin != sortByAutoJoin) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+#endif
         mSortByAutoJoin = sortByAutoJoin;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateFilter();
+#endif
     }
 }
 
