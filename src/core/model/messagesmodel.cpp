@@ -697,7 +697,24 @@ MessagesModel::HighlightSearchStringIndexInMessage MessagesModel::highlightSearc
 
 void MessagesModel::setHighlightSearchStringIndexInMessage(const HighlightSearchStringIndexInMessage &newHighlightSearchStringIndexInMessage)
 {
-    mHighlightSearchStringIndexInMessage = newHighlightSearchStringIndexInMessage;
+    if (mHighlightSearchStringIndexInMessage != newHighlightSearchStringIndexInMessage) {
+        mHighlightSearchStringIndexInMessage = newHighlightSearchStringIndexInMessage;
+        auto it = findMessage(mHighlightSearchStringIndexInMessage.messageId);
+        if (it != mAllMessages.cend()) {
+            const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
+            Q_EMIT dataChanged(index, index);
+        }
+    }
+}
+
+void MessagesModel::clearHighlightSearchStringIndexInMessage()
+{
+    auto it = findMessage(mHighlightSearchStringIndexInMessage.messageId);
+    if (it != mAllMessages.cend()) {
+        const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
+        Q_EMIT dataChanged(index, index);
+    }
+    mHighlightSearchStringIndexInMessage.clear();
 }
 
 RuqolaQuickSearchMessageSettings *MessagesModel::quickSearchMessageSettings() const

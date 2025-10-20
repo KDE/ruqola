@@ -158,6 +158,7 @@ public:
 
     [[nodiscard]] HighlightSearchStringIndexInMessage highlightSearchStringIndexInMessage() const;
     void setHighlightSearchStringIndexInMessage(const HighlightSearchStringIndexInMessage &newHighlightSearchStringIndexInMessage);
+    void clearHighlightSearchStringIndexInMessage();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
