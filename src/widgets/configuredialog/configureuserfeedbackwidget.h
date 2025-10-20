@@ -27,6 +27,7 @@ public:
 
     void save();
     void load();
+    void restoreToDefaults();
 
 private:
 #if HAVE_KUSERFEEDBACK

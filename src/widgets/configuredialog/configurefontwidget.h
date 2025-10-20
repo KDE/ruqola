@@ -19,6 +19,8 @@ public:
     void save();
     void load();
 
+    void restoreToDefaults();
+
 private:
     QCheckBox *const mCustomFontCheck;
     KFontChooser *const mFontChooser;

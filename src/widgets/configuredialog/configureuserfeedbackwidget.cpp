@@ -48,4 +48,9 @@ void ConfigureUserFeedbackWidget::load()
 #endif
 }
 
+void ConfigureUserFeedbackWidget::restoreToDefaults()
+{
+    // TODO
+}
+
 #include "moc_configureuserfeedbackwidget.cpp"

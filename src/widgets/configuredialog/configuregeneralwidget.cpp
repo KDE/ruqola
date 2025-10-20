@@ -108,6 +108,7 @@ void ConfigureGeneralWidget::load()
 
 void ConfigureGeneralWidget::restoreToDefaults()
 {
+    // TODO
 }
 
 #include "moc_configuregeneralwidget.cpp"
