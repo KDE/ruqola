@@ -21,6 +21,7 @@ public:
     ~ConfigureSpellCheckingWidget() override;
     void save();
     void load();
+    void restoreToDefaults();
 
 private:
     Sonnet::ConfigWidget *const mConfigWidget;

@@ -38,6 +38,11 @@ void ConfigureAccessibilityWidget::load()
     mTextToSpeechWidget->initializeSettings();
 }
 
+void ConfigureAccessibilityWidget::restoreToDefaults()
+{
+    mTextToSpeechWidget->restoreDefaults();
+}
+
 void ConfigureAccessibilityWidget::showEvent(QShowEvent *event)
 {
     if (!event->spontaneous() && !mWasInitialized) {

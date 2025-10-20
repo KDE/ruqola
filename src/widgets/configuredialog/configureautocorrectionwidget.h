@@ -25,6 +25,7 @@ public:
 
     void save();
     void load();
+    void restoreToDefaults();
 
 private:
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS

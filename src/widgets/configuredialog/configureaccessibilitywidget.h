@@ -24,6 +24,7 @@ public:
 
     void save();
     void load();
+    void restoreToDefaults();
 
 protected:
     void showEvent(QShowEvent *event) override;

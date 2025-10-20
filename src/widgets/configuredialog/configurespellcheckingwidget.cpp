@@ -33,4 +33,9 @@ void ConfigureSpellCheckingWidget::load()
     // Nothing
 }
 
+void ConfigureSpellCheckingWidget::restoreToDefaults()
+{
+    mConfigWidget->slotDefault();
+}
+
 #include "moc_configurespellcheckingwidget.cpp"

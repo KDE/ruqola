@@ -106,4 +106,8 @@ void ConfigureGeneralWidget::load()
     mEnableTextToSpeech->setChecked(RuqolaGlobalConfig::self()->enableTextToSpeech());
 }
 
+void ConfigureGeneralWidget::restoreToDefaults()
+{
+}
+
 #include "moc_configuregeneralwidget.cpp"

@@ -47,4 +47,9 @@ void ConfigureAutoCorrectionWidget::load()
     mAutoCorrectionWidget->loadConfig();
 }
 
+void ConfigureAutoCorrectionWidget::restoreToDefaults()
+{
+    // TODO
+}
+
 #include "moc_configureautocorrectionwidget.cpp"
