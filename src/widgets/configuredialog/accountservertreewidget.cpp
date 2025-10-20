@@ -85,8 +85,8 @@ void AccountServerTreeWidget::save()
     }
 #endif
     // Add account or modify it
-    for (int i = 0; i < numberOfItems; ++i) {
-        QTreeWidgetItem *it = topLevelItem(i);
+    for (int accountIndex = 0; accountIndex < numberOfItems; ++accountIndex) {
+        QTreeWidgetItem *it = topLevelItem(accountIndex);
         auto serverListItem = static_cast<AccountServerListWidgetItem *>(it);
         AccountManager::AccountManagerInfo info = serverListItem->accountInfo();
 
