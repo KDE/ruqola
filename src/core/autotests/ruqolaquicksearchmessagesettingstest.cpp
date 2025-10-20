@@ -50,38 +50,35 @@ void RuqolaQuickSearchMessageSettingsTest::shouldTestNextSearchStringIndex()
     QList<Message> messages;
     {
         Message msg;
+        msg.setMessageId("foo1"_ba);
+        msg.setText(u"kde and kde"_s);
 #if 0
-        msg.setUuid("foo1"_ba);
-        msg.setContent(u"kde and kde"_s);
-        msg.setSender(Message::Sender::User);
         msg.generateHtml();
 #endif
         messages.append(msg);
     }
     {
         Message msg;
+        msg.setMessageId("foo2"_ba);
+        msg.setText(u"bla bla"_s);
 #if 0
-        msg.setUuid("foo2"_ba);
-        msg.setContent(u"bla bla"_s);
-        msg.setSender(Message::Sender::User);
         msg.generateHtml();
 #endif
         messages.append(msg);
     }
     {
         Message msg;
+        msg.setMessageId("foo3"_ba);
+        msg.setText(u"kde"_s);
 #if 0
-        msg.setUuid("foo3"_ba);
-        msg.setContent(u"kde"_s);
-        msg.setSender(Message::Sender::User);
         msg.generateHtml();
 #endif
         messages.append(msg);
     }
-#if 0
-    model.setMessages(messages);
-    const int nbSearchString = model.setSearchText(u"kde"_s);
-#endif
+    model.addMessages(messages);
+    model.setSearchText(u"kde"_s);
+    // TODO get found nb element
+
     RuqolaQuickSearchMessageSettings messageSettings(&model);
 
 #if 0
@@ -130,38 +127,34 @@ void RuqolaQuickSearchMessageSettingsTest::shouldTestPreviousSearchStringIndex()
     QList<Message> messages;
     {
         Message msg;
+        msg.setMessageId("foo1"_ba);
+        msg.setText(u"kde and kde"_s);
 #if 0
-        msg.setUuid("foo1"_ba);
-        msg.setContent(u"kde and kde"_s);
-        msg.setSender(Message::Sender::User);
         msg.generateHtml();
 #endif
         messages.append(msg);
     }
     {
         Message msg;
+        msg.setMessageId("foo2"_ba);
+        msg.setText(u"bla bla"_s);
 #if 0
-        msg.setUuid("foo2"_ba);
-        msg.setContent(u"bla bla"_s);
-        msg.setSender(Message::Sender::User);
         msg.generateHtml();
 #endif
         messages.append(msg);
     }
     {
         Message msg;
+        msg.setMessageId("foo3"_ba);
+        msg.setText(u"kde"_s);
 #if 0
-        msg.setUuid("foo3"_ba);
-        msg.setContent(u"kde"_s);
-        msg.setSender(Message::Sender::User);
         msg.generateHtml();
 #endif
         messages.append(msg);
     }
-#if 0
-    model.setMessages(messages);
-    const int nbSearchString = model.setSearchText(u"kde"_s);
-#endif
+    model.addMessages(messages);
+    model.setSearchText(u"kde"_s);
+    // TODO get found nb element
     RuqolaQuickSearchMessageSettings messageSettings(&model);
 #if 0
     messageSettings.setFoundSearchCount(nbSearchString);
