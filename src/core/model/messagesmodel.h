@@ -25,6 +25,13 @@ public:
         bool show = false;
         QByteArray elementId;
     };
+
+    struct LIBRUQOLACORE_EXPORT HighlightSearchStringIndexInMessage {
+        int index = -1;
+        QByteArray messageId;
+        void clear();
+    };
+
     enum MessageRoles {
         Username = Qt::UserRole + 1,
         MessagePointer,
@@ -148,6 +155,9 @@ public:
 
     [[nodiscard]] QByteArray lastMessageId() const;
 
+    [[nodiscard]] HighlightSearchStringIndexInMessage highlightSearchStringIndexInMessage() const;
+    void setHighlightSearchStringIndexInMessage(const HighlightSearchStringIndexInMessage &newHighlightSearchStringIndexInMessage);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**
@@ -170,6 +180,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertedText(const Message &message, const QString &searchedText) const;
     [[nodiscard]] bool messageReplies(const Message &message) const;
 
+    HighlightSearchStringIndexInMessage mHighlightSearchStringIndexInMessage;
     QString mSearchText;
     QByteArray mRoomId;
     QList<Message> mAllMessages;
@@ -180,3 +191,5 @@ private:
 };
 Q_DECLARE_METATYPE(MessagesModel::AttachmentAndUrlPreviewVisibility)
 Q_DECLARE_TYPEINFO(MessagesModel::AttachmentAndUrlPreviewVisibility, Q_RELOCATABLE_TYPE);
+Q_DECLARE_METATYPE(MessagesModel::HighlightSearchStringIndexInMessage)
+Q_DECLARE_TYPEINFO(MessagesModel::HighlightSearchStringIndexInMessage, Q_RELOCATABLE_TYPE);

@@ -563,8 +563,11 @@ QString MessagesModel::convertMessageText(const Message &message, const QString 
                                                              maximumRecursiveQuotedText);
 
     int recursiveIndex = 0;
+    int hightLightStringIndex = 0;
+    if (message.messageId() == mHighlightSearchStringIndexInMessage.messageId) {
+        hightLightStringIndex = mHighlightSearchStringIndexInMessage.index;
+    }
     int numberOfTextSearched = 0;
-    const int hightLightStringIndex = 0;
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
 }
 
@@ -687,6 +690,16 @@ bool MessagesModel::messageReplies(const Message &message) const
     return false;
 }
 
+MessagesModel::HighlightSearchStringIndexInMessage MessagesModel::highlightSearchStringIndexInMessage() const
+{
+    return mHighlightSearchStringIndexInMessage;
+}
+
+void MessagesModel::setHighlightSearchStringIndexInMessage(const HighlightSearchStringIndexInMessage &newHighlightSearchStringIndexInMessage)
+{
+    mHighlightSearchStringIndexInMessage = newHighlightSearchStringIndexInMessage;
+}
+
 RuqolaQuickSearchMessageSettings *MessagesModel::quickSearchMessageSettings() const
 {
     return mQuickSearchMessageSettings;
@@ -753,6 +766,12 @@ void MessagesModel::clearHistory()
             endResetModel();
         }
     }
+}
+
+void MessagesModel::HighlightSearchStringIndexInMessage::clear()
+{
+    index = -1;
+    messageId.clear();
 }
 
 #include "moc_messagesmodel.cpp"
