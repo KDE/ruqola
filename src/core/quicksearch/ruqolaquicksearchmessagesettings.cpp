@@ -42,14 +42,8 @@ bool RuqolaQuickSearchMessageSettings::canSearchMessage() const
 
 void RuqolaQuickSearchMessageSettings::lastMessageUuid()
 {
-#if 0
-    auto msg = mMessageModel->messages().constLast();
-    if (msg.isValid()) {
-        mCurrentMessageIdentifier = msg.uuid();
-    } else {
-        qCWarning(RUQOLA_QUICK_SEARCH_LOG) << "Invalid message. It's a bug";
-    }
-#endif
+    const QByteArray messageId = mMessageModel->lastMessageId();
+    mCurrentMessageIdentifier = messageId;
 }
 
 void RuqolaQuickSearchMessageSettings::next()
@@ -76,12 +70,11 @@ void RuqolaQuickSearchMessageSettings::next()
     const auto hasSearchedString = [](const Message &msg) {
         return msg.numberOfTextSearched() > 0;
     };
-#if 0
-    if (mCurrentSearchIndex >= mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched()) {
+    if (mCurrentSearchIndex >= mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched()) {
         mCurrentSearchIndex = 0;
         auto msg = mMessageModel->findNextMessageAfter(mCurrentMessageIdentifier, hasSearchedString);
-        if (msg.isValid()) {
-            mCurrentMessageIdentifier = msg.uuid();
+        if (!msg.messageId().isEmpty()) {
+            mCurrentMessageIdentifier = msg.messageId();
         } else {
             mCurrentSearchIndex = storeCurrentSearchIndex;
             Q_EMIT updateNextPreviousButtons(false, true);
@@ -91,13 +84,12 @@ void RuqolaQuickSearchMessageSettings::next()
         }
         Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0), true);
     } else {
-        Q_EMIT updateNextPreviousButtons(((mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched() > 0)
-                                          && (mCurrentSearchIndex < mMessageModel->message(mCurrentMessageIdentifier).numberOfTextSearched() - 1))
-                                             || mMessageModel->findNextMessageAfter(mCurrentMessageIdentifier, hasSearchedString).isValid(),
+        Q_EMIT updateNextPreviousButtons(((mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched() > 0)
+                                          && (mCurrentSearchIndex < mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched() - 1))
+                                             || !mMessageModel->findNextMessageAfter(mCurrentMessageIdentifier, hasSearchedString).messageId().isEmpty(),
                                          true);
     }
     Q_EMIT refreshMessage(mCurrentMessageIdentifier, previousMessageIdentifier, mCurrentSearchIndex);
-#endif
 }
 
 void RuqolaQuickSearchMessageSettings::previous()
@@ -121,11 +113,10 @@ void RuqolaQuickSearchMessageSettings::previous()
             const auto hasSearchedString = [](const Message &msg) {
                 return msg.numberOfTextSearched() > 0;
             };
-#if 0
 
             auto msg = mMessageModel->findLastMessageBefore(mCurrentMessageIdentifier, hasSearchedString);
-            if (msg.isValid()) {
-                mCurrentMessageIdentifier = msg.uuid();
+            if (!msg.messageId().isEmpty()) {
+                mCurrentMessageIdentifier = msg.messageId();
                 mCurrentSearchIndex = msg.numberOfTextSearched() - 1;
             } else {
                 // Keep in 0 index
@@ -137,8 +128,7 @@ void RuqolaQuickSearchMessageSettings::previous()
             }
             Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0),
                                              (mCurrentSearchIndex > 0)
-                                                 || mMessageModel->findLastMessageBefore(mCurrentMessageIdentifier, hasSearchedString).isValid());
-#endif
+                                                 || !mMessageModel->findLastMessageBefore(mCurrentMessageIdentifier, hasSearchedString).messageId().isEmpty());
         } else {
             Q_EMIT updateNextPreviousButtons((mFoundSearchCount > 1), true);
         }

@@ -146,6 +146,8 @@ public:
 
     [[nodiscard]] RuqolaQuickSearchMessageSettings *quickSearchMessageSettings() const;
 
+    [[nodiscard]] QByteArray lastMessageId() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**

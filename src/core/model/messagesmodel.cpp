@@ -103,6 +103,16 @@ QByteArray MessagesModel::messageIdFromIndex(int rowIndex)
     return {};
 }
 
+QByteArray MessagesModel::lastMessageId() const
+{
+    if (!mAllMessages.isEmpty()) {
+        // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
+        return mAllMessages.at(mAllMessages.count() - 1).messageId();
+    } else {
+        return {};
+    }
+}
+
 void MessagesModel::refresh()
 {
     beginResetModel();
