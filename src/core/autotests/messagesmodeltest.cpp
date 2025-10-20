@@ -5,7 +5,6 @@
 */
 
 #include "messagesmodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "model/messagesmodel.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(MessagesModelTest)
 
+using namespace Qt::Literals::StringLiterals;
 MessagesModelTest::MessagesModelTest(QObject *parent)
     : QObject(parent)
 {
@@ -39,6 +39,8 @@ void MessagesModelTest::shouldHaveDefaultValue()
     MessagesModel w("roomId"_ba, Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.searchText().isEmpty());
+    const MessagesModel::HighlightSearchStringIndexInMessage initValue = {.index = -1, .messageId = ""};
+    QCOMPARE(w.highlightSearchStringIndexInMessage(), initValue);
 }
 
 static void fillTestMessage(Message &input)

@@ -30,6 +30,7 @@ public:
         int index = -1;
         QByteArray messageId;
         void clear();
+        [[nodiscard]] bool operator==(const HighlightSearchStringIndexInMessage &other) const;
     };
 
     enum MessageRoles {
