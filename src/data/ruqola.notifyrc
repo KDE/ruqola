@@ -280,6 +280,7 @@ Name[pt_BR]=Token de convite inválido
 Name[ru]=Некорректный маркер приглашения
 Name[sl]=Neveljaven žeton povabila
 Name[sv]=Ogiltig inbjudningssymbol
+Name[tr]=Geçersiz davet jetonu
 Name[uk]=Некоректний жетон запрошення
 Action=Popup
 Urgency=Normal
