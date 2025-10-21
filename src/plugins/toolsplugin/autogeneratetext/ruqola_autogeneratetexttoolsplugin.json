@@ -13,6 +13,7 @@
         "Description[pt_BR]": "Este plugin permite que você gere respostas automaticamente.",
         "Description[sl]": "Ta vtičnik vam omogoča samodejno generiranje odgovorov.",
         "Description[sv]": "Insticksprogrammet låter dig generera svar automatiskt.",
+        "Description[tr]": "Bu eklenti, kendiliğinden yanıtlar üretilmesine olanak tanır.",
         "Description[uk]": "За допомогою цього додатка ви можете отримувати автоматичні відповіді на питання.",
         "EnabledByDefault": true,
         "Name": "Autogenerating Answer",
@@ -28,6 +29,7 @@
         "Name[pt_BR]": "Geração automática de respostas",
         "Name[sl]": "Samodejno generiranje odgovora",
         "Name[sv]": "Generera svar automatiskt",
+        "Name[tr]": "Kendiliğinden Üretilen Yanıt",
         "Name[uk]": "Автоматична відповідь",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
