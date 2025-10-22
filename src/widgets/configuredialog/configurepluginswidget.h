@@ -25,6 +25,7 @@ public:
 
     void save();
     void load();
+    void restoreToDefaults();
 
 Q_SIGNALS:
     void changed();

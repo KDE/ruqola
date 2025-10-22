@@ -83,6 +83,11 @@ void ConfigurePluginsWidget::load()
     initializeDone();
 }
 
+void ConfigurePluginsWidget::restoreToDefaults()
+{
+    // TODO
+}
+
 QString toolsPluginGroupName()
 {
     return u"pluginToolsPluginGroupName"_s;

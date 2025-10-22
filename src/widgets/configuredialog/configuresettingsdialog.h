@@ -31,6 +31,7 @@ public:
     ~ConfigureSettingsDialog() override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRestoreToDefault();
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAccepted();

@@ -147,6 +147,27 @@ void ConfigureSettingsDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
+void ConfigureSettingsDialog::slotRestoreToDefault()
+{
+    // TODO mConfigureAccountWidget->restoreToDefaults();
+    mConfigureSpellCheckingWidget->restoreToDefaults();
+#if HAVE_KUSERFEEDBACK
+    mConfigureUserFeedBackWidget->restoreToDefaults();
+#endif
+    mConfigureGeneralWidget->restoreToDefaults();
+    mConfigureFontWidget->restoreToDefaults();
+#if HAVE_TEXT_TRANSLATOR
+    // TODO mConfigureTranslateWidget->restoreToDefaults();
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    mConfigureAutoCorrectionWidget->restoreToDefaults();
+#endif
+#if HAVE_TEXT_TO_SPEECH
+    mConfigureTextToSpeechWidget->restoreToDefaults();
+#endif
+    mConfigurePluginsWidget->restoreToDefaults();
+}
+
 void ConfigureSettingsDialog::slotAccepted()
 {
     mConfigureAccountWidget->save();
