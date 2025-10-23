@@ -102,7 +102,20 @@ void ConfigureGeneralWidget::load()
 
 void ConfigureGeneralWidget::restoreToDefaults()
 {
-    // TODO
+    const bool bUseDefaults = RuqolaGlobalConfig::self()->useDefaults(true);
+    mSetOnlineForAllAccount->setChecked(RuqolaGlobalConfig::self()->setOnlineAccounts());
+    mShowImageByDefault->setChecked(RuqolaGlobalConfig::self()->showImage());
+    mMarkAsReadOnTextClicked->setChecked(RuqolaGlobalConfig::self()->markAsReadOnTextClicked());
+    mEnableSystemTray->setChecked(RuqolaGlobalConfig::self()->enableSystemTray());
+    mEnableLogging->setChecked(RuqolaGlobalConfig::self()->enableLogging());
+    mShowHoverHightLights->setChecked(RuqolaGlobalConfig::self()->showHoverHighlights());
+    mAnimateGif->setChecked(RuqolaGlobalConfig::self()->animateGifImage());
+    mStoreMessageInDataBase->setChecked(RuqolaGlobalConfig::self()->storeMessageInDataBase());
+    mShowPreviewUrlByDefault->setChecked(RuqolaGlobalConfig::self()->showPreviewUrl());
+#if HAVE_ACTIVITY_SUPPORT
+    mEnabledActivitySupport->setChecked(RuqolaGlobalConfig::self()->plasmaActivities());
+#endif
+    RuqolaGlobalConfig::self()->useDefaults(bUseDefaults);
 }
 
 #include "moc_configuregeneralwidget.cpp"

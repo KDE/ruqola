@@ -49,7 +49,10 @@ void ConfigureAccessibilityWidget::load()
 
 void ConfigureAccessibilityWidget::restoreToDefaults()
 {
-    // TODO
+    const bool bUseDefaults = RuqolaGlobalConfig::self()->useDefaults(true);
+    const bool enableTextToSpeech = RuqolaGlobalConfig::self()->enableTextToSpeech();
+    mEnableTextToSpeech->setChecked(enableTextToSpeech);
+    RuqolaGlobalConfig::self()->useDefaults(bUseDefaults);
     mTextToSpeechWidget->restoreDefaults();
 }
 

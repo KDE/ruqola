@@ -49,7 +49,12 @@ void ConfigureFontWidget::load()
 
 void ConfigureFontWidget::restoreToDefaults()
 {
-    // TODO
+    const bool bUseDefaults = RuqolaGlobalConfig::self()->useDefaults(true);
+    const bool customFontCheck = RuqolaGlobalConfig::self()->useCustomFont();
+    const QFont generalFont = RuqolaGlobalConfig::self()->generalFont();
+    mCustomFontCheck->setChecked(customFontCheck);
+    mFontChooser->setFont(generalFont);
+    RuqolaGlobalConfig::self()->useDefaults(bUseDefaults);
 }
 
 #include "moc_configurefontwidget.cpp"
