@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:42+0000\n"
+"POT-Creation-Date: 2025-10-23 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7756,22 +7756,22 @@ msgstr "Configure Text-To-Speech"
 msgid "Restart is necessary for applying the changes."
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:101
+#: widgets/configuredialog/configurepluginswidget.cpp:106
 #, kde-format
 msgid "Tools Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:108
+#: widgets/configuredialog/configurepluginswidget.cpp:113
 #, kde-format
 msgid "Text Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:170
+#: widgets/configuredialog/configurepluginswidget.cpp:175
 #, kde-format
 msgid "..."
 msgstr "..."
 
-#: widgets/configuredialog/configurepluginswidget.cpp:172
+#: widgets/configuredialog/configurepluginswidget.cpp:177
 #, fuzzy, kde-format
 #| msgid "Configure..."
 msgctxt "@info:tooltip"

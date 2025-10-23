@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:42+0000\n"
+"POT-Creation-Date: 2025-10-23 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7825,22 +7825,22 @@ msgstr ""
 msgid "Restart is necessary for applying the changes."
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:101
+#: widgets/configuredialog/configurepluginswidget.cpp:106
 #, kde-format
 msgid "Tools Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:108
+#: widgets/configuredialog/configurepluginswidget.cpp:113
 #, kde-format
 msgid "Text Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:170
+#: widgets/configuredialog/configurepluginswidget.cpp:175
 #, fuzzy, kde-format
 msgid "..."
 msgstr "Добавить..."
 
-#: widgets/configuredialog/configurepluginswidget.cpp:172
+#: widgets/configuredialog/configurepluginswidget.cpp:177
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
