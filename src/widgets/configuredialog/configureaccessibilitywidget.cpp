@@ -28,6 +28,7 @@ ConfigureAccessibilityWidget::ConfigureAccessibilityWidget(QWidget *parent)
 
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
+    connect(mEnableTextToSpeech, &QCheckBox::clicked, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechConfigWidget::setEnabled);
 }
 
 ConfigureAccessibilityWidget::~ConfigureAccessibilityWidget() = default;
