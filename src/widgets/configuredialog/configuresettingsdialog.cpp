@@ -5,13 +5,13 @@
 */
 
 #include "configuresettingsdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configureaccountwidget.h"
 #include "configurefontwidget.h"
 #include "configuregeneralwidget.h"
 #include "configurepluginswidget.h"
 #include "configurespellcheckingwidget.h"
+#include "ruqolawidgets_debug.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -43,6 +43,7 @@ namespace
 {
 const char myConfigGroupName[] = "ConfigureSettingsDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     : KPageDialog(parent)
     , mConfigureAccountWidget(new ConfigureAccountWidget(this))
@@ -149,23 +150,35 @@ void ConfigureSettingsDialog::writeConfig()
 
 void ConfigureSettingsDialog::slotRestoreToDefault()
 {
-    // TODO mConfigureAccountWidget->restoreToDefaults();
-    mConfigureSpellCheckingWidget->restoreToDefaults();
-#if HAVE_KUSERFEEDBACK
-    mConfigureUserFeedBackWidget->restoreToDefaults();
-#endif
-    mConfigureGeneralWidget->restoreToDefaults();
-    mConfigureFontWidget->restoreToDefaults();
-#if HAVE_TEXT_TRANSLATOR
-    // TODO mConfigureTranslateWidget->restoreToDefaults();
-#endif
+    if (currentPage() == mConfigureGeneralWidgetPage) {
+        mConfigureGeneralWidget->restoreToDefaults();
+    } else if (currentPage() == mConfigureAccountWidgetPage) {
+        // TODO mConfigureAccountWidget->restoreToDefaults();
+    } else if (currentPage() == mConfigureFontWidgetPage) {
+        mConfigureFontWidget->restoreToDefaults();
+    } else if (currentPage() == mConfigureAutoCorrectionWidgetPage) {
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
-    mConfigureAutoCorrectionWidget->restoreToDefaults();
+        mConfigureAutoCorrectionWidget->restoreToDefaults();
 #endif
+    } else if (currentPage() == mConfigureSpellCheckingWidgetPage) {
+        mConfigureSpellCheckingWidget->restoreToDefaults();
+    } else if (currentPage() == mConfigureTranslateWidgetPage) {
+#if HAVE_TEXT_TRANSLATOR
+        // TODO mConfigureTranslateWidget->restoreToDefaults();
+#endif
+    } else if (currentPage() == mConfigureUserFeedBackWidgetPage) {
+#if HAVE_KUSERFEEDBACK
+        mConfigureUserFeedBackWidget->restoreToDefaults();
+#endif
+    } else if (currentPage() == mConfigureTextToSpeechWidgetPage) {
 #if HAVE_TEXT_TO_SPEECH
-    mConfigureTextToSpeechWidget->restoreToDefaults();
+        mConfigureTextToSpeechWidget->restoreToDefaults();
 #endif
-    mConfigurePluginsWidget->restoreToDefaults();
+    } else if (currentPage() == mConfigurePluginsWidgetPage) {
+        mConfigurePluginsWidget->restoreToDefaults();
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Current page is not implemented yet";
+    }
 }
 
 void ConfigureSettingsDialog::slotAccepted()
