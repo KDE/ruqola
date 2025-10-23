@@ -26,7 +26,6 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
 #if HAVE_ACTIVITY_SUPPORT
     , mEnabledActivitySupport(new QCheckBox(i18nc("@option:check", "Enable Plasma Activities integration"), this))
 #endif
-    , mEnableTextToSpeech(new QCheckBox(i18nc("@option:check", "Enable Text To Speech"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -63,9 +62,6 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mainLayout->addWidget(mEnabledActivitySupport);
 #endif
 
-    mEnableTextToSpeech->setObjectName(u"mEnableTextToSpeech"_s);
-    mainLayout->addWidget(mEnableTextToSpeech);
-
     mainLayout->addStretch(1);
 }
 
@@ -85,7 +81,6 @@ void ConfigureGeneralWidget::save()
 #if HAVE_ACTIVITY_SUPPORT
     RuqolaGlobalConfig::self()->setPlasmaActivities(mEnabledActivitySupport->isChecked());
 #endif
-    RuqolaGlobalConfig::self()->setEnableTextToSpeech(mEnableTextToSpeech->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
 
@@ -103,7 +98,6 @@ void ConfigureGeneralWidget::load()
 #if HAVE_ACTIVITY_SUPPORT
     mEnabledActivitySupport->setChecked(RuqolaGlobalConfig::self()->plasmaActivities());
 #endif
-    mEnableTextToSpeech->setChecked(RuqolaGlobalConfig::self()->enableTextToSpeech());
 }
 
 void ConfigureGeneralWidget::restoreToDefaults()

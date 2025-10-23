@@ -14,7 +14,7 @@ namespace TextEditTextToSpeech
 {
 class TextToSpeechConfigWidget;
 }
-
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccessibilityWidget : public QWidget
 {
     Q_OBJECT
@@ -31,5 +31,6 @@ protected:
 
 private:
     TextEditTextToSpeech::TextToSpeechConfigWidget *const mTextToSpeechWidget;
+    QCheckBox *const mEnableTextToSpeech;
     bool mWasInitialized = false;
 };
