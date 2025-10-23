@@ -35,7 +35,7 @@ ConfigureAccessibilityWidget::~ConfigureAccessibilityWidget() = default;
 void ConfigureAccessibilityWidget::save()
 {
     if (mWasInitialized) {
-        mEnableTextToSpeech->setChecked(RuqolaGlobalConfig::self()->enableTextToSpeech());
+        RuqolaGlobalConfig::self()->setEnableTextToSpeech(mEnableTextToSpeech->isChecked());
         mTextToSpeechWidget->writeConfig();
     }
 }
@@ -43,7 +43,7 @@ void ConfigureAccessibilityWidget::save()
 void ConfigureAccessibilityWidget::load()
 {
     mTextToSpeechWidget->initializeSettings();
-    RuqolaGlobalConfig::self()->setEnableTextToSpeech(mEnableTextToSpeech->isChecked());
+    mEnableTextToSpeech->setChecked(RuqolaGlobalConfig::self()->enableTextToSpeech());
 }
 
 void ConfigureAccessibilityWidget::restoreToDefaults()
