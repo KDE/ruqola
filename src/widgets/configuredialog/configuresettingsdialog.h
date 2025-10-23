@@ -45,4 +45,13 @@ private:
     TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget = nullptr;
     ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget = nullptr;
     ConfigurePluginsWidget *const mConfigurePluginsWidget;
+    KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
+    KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
+    KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
+    KPageWidgetItem *mConfigureAutoCorrectionWidgetPage = nullptr;
+    KPageWidgetItem *mConfigureSpellCheckingWidgetPage = nullptr;
+    KPageWidgetItem *mConfigureTranslateWidgetPage = nullptr;
+    KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
+    KPageWidgetItem *mConfigureTextToSpeechWidgetPage = nullptr;
+    KPageWidgetItem *mConfigurePluginsWidgetPage = nullptr;
 };
