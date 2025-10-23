@@ -67,7 +67,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
     setFaceType(KPageDialog::List);
 
-    buttonBox()->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    buttonBox()->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::RestoreDefaults);
 
     const QString generalPageName = i18nc("@title Preferences page name", "General");
     mConfigureGeneralWidgetPage = new KPageWidgetItem(mConfigureGeneralWidget, generalPageName);
@@ -124,6 +124,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &ConfigureSettingsDialog::slotAccepted);
     connect(buttonBox()->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &ConfigureSettingsDialog::reject);
+    connect(buttonBox()->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &ConfigureSettingsDialog::slotRestoreToDefault);
     readConfig();
     load();
 }
