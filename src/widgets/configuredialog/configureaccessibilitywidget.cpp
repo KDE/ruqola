@@ -7,6 +7,7 @@
 #include "configureaccessibilitywidget.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include <TextEditTextToSpeech/TextToSpeech>
 #include <TextEditTextToSpeech/TextToSpeechConfigWidget>
 
 #include <QShowEvent>
@@ -30,6 +31,7 @@ void ConfigureAccessibilityWidget::save()
 {
     if (mWasInitialized) {
         mTextToSpeechWidget->writeConfig();
+        TextEditTextToSpeech::TextToSpeech::self()->reloadSettings();
     }
 }
 
