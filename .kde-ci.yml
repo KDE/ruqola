@@ -45,3 +45,4 @@ Options:
  require-passing-tests-on: ['Linux']
  tests-run-in-parallel: True
  use-ccache: True
+ cppcheck-arguments: '--enable=warning,performance,portability,style,unusedFunction --suppress-xml=cppcheck-suppressions.xml'
