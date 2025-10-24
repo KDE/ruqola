@@ -11,6 +11,7 @@
 #include <QCheckBox>
 #include <QShowEvent>
 #include <QVBoxLayout>
+#include <TextEditTextToSpeech/TextToSpeech>
 #include <TextEditTextToSpeech/TextToSpeechConfigWidget>
 
 using namespace Qt::Literals::StringLiterals;
@@ -38,6 +39,7 @@ void ConfigureAccessibilityWidget::save()
     if (mWasInitialized) {
         RuqolaGlobalConfig::self()->setEnableTextToSpeech(mEnableTextToSpeech->isChecked());
         mTextToSpeechWidget->writeConfig();
+        TextEditTextToSpeech::TextToSpeech::self()->reloadSettings();
     }
 }
 
