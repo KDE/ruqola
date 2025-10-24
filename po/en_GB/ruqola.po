@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-23 00:42+0000\n"
+"POT-Creation-Date: 2025-10-24 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7641,6 +7641,14 @@ msgstr "Provider:"
 msgid "Display Account in Current Activity"
 msgstr "Display Account in Current Activity"
 
+#: widgets/configuredialog/configureaccessibilitywidget.cpp:20
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Text-To-Speech"
+msgctxt "@option:check"
+msgid "Enable Text To Speech"
+msgstr "Configure Text-To-Speech"
+
 #: widgets/configuredialog/configureaccountserverwidget.cpp:31
 #, kde-format
 msgctxt "Move selected account up."
@@ -7743,14 +7751,6 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Enable Plasma Activities integration"
 
-#: widgets/configuredialog/configuregeneralwidget.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Text-To-Speech"
-msgctxt "@option:check"
-msgid "Enable Text To Speech"
-msgstr "Configure Text-To-Speech"
-
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
 msgid "Restart is necessary for applying the changes."
@@ -7778,61 +7778,61 @@ msgctxt "@info:tooltip"
 msgid "Configure"
 msgstr "Configure..."
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:66
+#: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configure Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:71
+#: widgets/configuredialog/configuresettingsdialog.cpp:72
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "General"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:76
+#: widgets/configuredialog/configuresettingsdialog.cpp:77
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:81
+#: widgets/configuredialog/configuresettingsdialog.cpp:82
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Font"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:87
+#: widgets/configuredialog/configuresettingsdialog.cpp:88
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Auto-Correction"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:93
+#: widgets/configuredialog/configuresettingsdialog.cpp:94
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Spell Checking"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:99
+#: widgets/configuredialog/configuresettingsdialog.cpp:100
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Translation"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:106
+#: widgets/configuredialog/configuresettingsdialog.cpp:107
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "User Feedback"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:113
+#: widgets/configuredialog/configuresettingsdialog.cpp:114
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Accessibility"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:119
+#: widgets/configuredialog/configuresettingsdialog.cpp:120
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-23 00:42+0000\n"
+"POT-Creation-Date: 2025-10-24 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -7948,6 +7948,12 @@ msgstr "Standard-Raum"
 msgid "Display Account in Current Activity"
 msgstr "Zugang einrichten"
 
+#: widgets/configuredialog/configureaccessibilitywidget.cpp:20
+#, kde-format
+msgctxt "@option:check"
+msgid "Enable Text To Speech"
+msgstr ""
+
 #: widgets/configuredialog/configureaccountserverwidget.cpp:31
 #, kde-format
 msgctxt "Move selected account up."
@@ -8059,12 +8065,6 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Keine Begrenzung"
 
-#: widgets/configuredialog/configuregeneralwidget.cpp:29
-#, kde-format
-msgctxt "@option:check"
-msgid "Enable Text To Speech"
-msgstr ""
-
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
 msgid "Restart is necessary for applying the changes."
@@ -8094,64 +8094,64 @@ msgctxt "@info:tooltip"
 msgid "Configure"
 msgstr "Ruqola einrichten"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:66
+#: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Ruqola einrichten"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:71
+#: widgets/configuredialog/configuresettingsdialog.cpp:72
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Allgemein"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:76
+#: widgets/configuredialog/configuresettingsdialog.cpp:77
 #, fuzzy, kde-format
 #| msgid "Account"
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Zugang"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:81
+#: widgets/configuredialog/configuresettingsdialog.cpp:82
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Schriftart"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:87
+#: widgets/configuredialog/configuresettingsdialog.cpp:88
 #, fuzzy, kde-format
 #| msgid "Invalid description"
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Ungültige Beschreibung"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:93
+#: widgets/configuredialog/configuresettingsdialog.cpp:94
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Rechtschreibprüfung"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:99
+#: widgets/configuredialog/configuresettingsdialog.cpp:100
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Übersetzung"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:106
+#: widgets/configuredialog/configuresettingsdialog.cpp:107
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Benutzer-Feedback"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:113
+#: widgets/configuredialog/configuresettingsdialog.cpp:114
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:119
+#: widgets/configuredialog/configuresettingsdialog.cpp:120
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
