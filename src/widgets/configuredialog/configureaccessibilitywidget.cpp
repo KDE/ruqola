@@ -45,6 +45,7 @@ void ConfigureAccessibilityWidget::load()
 {
     mTextToSpeechWidget->initializeSettings();
     mEnableTextToSpeech->setChecked(RuqolaGlobalConfig::self()->enableTextToSpeech());
+    mTextToSpeechWidget->setEnabled(mEnableTextToSpeech->isChecked());
 }
 
 void ConfigureAccessibilityWidget::restoreToDefaults()
