@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-24 00:42+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2025-10-16 00:32+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -7791,7 +7791,7 @@ msgstr "Ištrinti kambarį"
 msgid "Display Account in Current Activity"
 msgstr "Konfigūruoti paskyras"
 
-#: widgets/configuredialog/configureaccessibilitywidget.cpp:20
+#: widgets/configuredialog/configureaccessibilitywidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"

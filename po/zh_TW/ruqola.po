@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-24 00:42+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -7812,7 +7812,7 @@ msgstr "提供者："
 msgid "Display Account in Current Activity"
 msgstr "在目前活動中顯示帳戶"
 
-#: widgets/configuredialog/configureaccessibilitywidget.cpp:20
+#: widgets/configuredialog/configureaccessibilitywidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"

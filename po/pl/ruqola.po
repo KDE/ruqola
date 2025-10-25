@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-24 00:42+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2025-02-23 12:34+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -7664,7 +7664,7 @@ msgstr "Dostawca:"
 msgid "Display Account in Current Activity"
 msgstr "Wyświetl konto w bieżącej aktywności"
 
-#: widgets/configuredialog/configureaccessibilitywidget.cpp:20
+#: widgets/configuredialog/configureaccessibilitywidget.cpp:21
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Text-To-Speech"
