@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket-Chat-Client"
 
 #: apps/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2023 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
-msgstr "Copyright © 2017-2023 Ruqola-Autoren"
+msgstr "© 2020–2025 Ruqola-Autoren"
 
 #: apps/main.cpp:64
 #, fuzzy, kde-format
