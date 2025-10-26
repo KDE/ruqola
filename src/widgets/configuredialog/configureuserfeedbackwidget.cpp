@@ -50,7 +50,9 @@ void ConfigureUserFeedbackWidget::load()
 
 void ConfigureUserFeedbackWidget::restoreToDefaults()
 {
+#if HAVE_KUSERFEEDBACK
     // TODO
+#endif
 }
 
 #include "moc_configureuserfeedbackwidget.cpp"
