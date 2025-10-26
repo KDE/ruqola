@@ -75,7 +75,7 @@
                 {
                     "url": "https://invent.kde.org/libraries/ktextaddons.git",
                     "type": "git",
-                    "branch": "1.7"
+                    "branch": "1.8"
                 }
             ],
             "config-opts": [
