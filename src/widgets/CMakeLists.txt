@@ -270,8 +270,6 @@ target_sources(
         configuredialog/configuresettingsdialog.h
         configuredialog/configurespellcheckingwidget.cpp
         configuredialog/configurespellcheckingwidget.h
-        configuredialog/configureuserfeedbackwidget.cpp
-        configuredialog/configureuserfeedbackwidget.h
         configuredialog/removeaccountdialog.cpp
         configuredialog/removeaccountdialog.h
         configuredialog/removeaccountwidget.cpp
@@ -1059,6 +1057,15 @@ if(HAVE_TEXT_TO_SPEECH)
         PRIVATE
             configuredialog/configureaccessibilitywidget.h
             configuredialog/configureaccessibilitywidget.cpp
+    )
+endif()
+
+if(TARGET KF6::UserFeedbackWidgets)
+    target_sources(
+    libruqolawidgets
+    PRIVATE
+    configuredialog/configureuserfeedbackwidget.cpp
+    configuredialog/configureuserfeedbackwidget.h
     )
 endif()
 
