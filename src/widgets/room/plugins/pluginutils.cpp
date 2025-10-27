@@ -40,9 +40,9 @@ bool PluginUtils::isPluginActivated(const QStringList &enabledPluginsList,
     return false;
 }
 
-QPair<QStringList, QStringList> PluginUtils::loadPluginSetting(const QString &groupName, const QString &prefixSettingKey)
+PluginUtils::PluginsStateList PluginUtils::loadPluginSetting(const QString &groupName, const QString &prefixSettingKey)
 {
-    QPair<QStringList, QStringList> pair;
+    PluginUtils::PluginsStateList states;
     KSharedConfigPtr config = KSharedConfig::openConfig();
     QStringList enabledPlugins;
     QStringList disabledPlugins;
@@ -52,9 +52,9 @@ QPair<QStringList, QStringList> PluginUtils::loadPluginSetting(const QString &gr
         disabledPlugins = grp.readEntry(u"%1Disabled"_s.arg(prefixSettingKey), QStringList());
     }
 
-    pair.first = enabledPlugins;
-    pair.second = disabledPlugins;
-    return pair;
+    states.enabledPluginList = enabledPlugins;
+    states.disabledPluginList = disabledPlugins;
+    return states;
 }
 
 void PluginUtils::savePluginSettings(const QString &groupName,

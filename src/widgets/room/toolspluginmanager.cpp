@@ -41,7 +41,7 @@ QString ToolsPluginManager::configPrefixSettingKey() const
 void ToolsPluginManager::initializePluginList()
 {
     const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(u"ruqolaplugins/toolsplugins"_s);
-    const QPair<QStringList, QStringList> pair = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
+    const PluginUtils::PluginsStateList pair = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
     QSet<QString> unique;
@@ -52,7 +52,8 @@ void ToolsPluginManager::initializePluginList()
         // 1) get plugin data => name/description etc.
         info.pluginData = PluginUtils::createPluginMetaData(data);
         // 2) look at if plugin is activated
-        const bool isPluginActivated = PluginUtils::isPluginActivated(pair.first, pair.second, info.pluginData.mEnableByDefault, info.pluginData.mIdentifier);
+        const bool isPluginActivated =
+            PluginUtils::isPluginActivated(pair.enabledPluginList, pair.disabledPluginList, info.pluginData.mEnableByDefault, info.pluginData.mIdentifier);
         info.isEnabled = isPluginActivated;
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();

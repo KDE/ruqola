@@ -17,10 +17,15 @@ struct PluginUtilData {
     bool mHasConfigureDialog = false;
 };
 
+struct PluginsStateList {
+    QStringList enabledPluginList;
+    QStringList disabledPluginList;
+};
+
 [[nodiscard]] PluginUtils::PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
 [[nodiscard]] bool
 isPluginActivated(const QStringList &enabledPluginsList, const QStringList &disabledPluginsList, bool isEnabledByDefault, const QString &pluginId);
-[[nodiscard]] QPair<QStringList, QStringList> loadPluginSetting(const QString &groupName, const QString &prefixSettingKey);
+[[nodiscard]] PluginsStateList loadPluginSetting(const QString &groupName, const QString &prefixSettingKey);
 void savePluginSettings(const QString &groupName,
                         const QString &prefixSettingKey,
                         const QStringList &enabledPluginsList,

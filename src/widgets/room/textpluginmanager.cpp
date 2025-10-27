@@ -41,7 +41,7 @@ QString TextPluginManager::configPrefixSettingKey() const
 void TextPluginManager::initializePluginList()
 {
     const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(u"ruqolaplugins/textplugins"_s);
-    const QPair<QStringList, QStringList> pair = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
+    const PluginUtils::PluginsStateList states = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
 
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
@@ -53,7 +53,8 @@ void TextPluginManager::initializePluginList()
         // 1) get plugin data => name/description etc.
         info.pluginData = PluginUtils::createPluginMetaData(data);
         // 2) look at if plugin is activated
-        const bool isPluginActivated = PluginUtils::isPluginActivated(pair.first, pair.second, info.pluginData.mEnableByDefault, info.pluginData.mIdentifier);
+        const bool isPluginActivated =
+            PluginUtils::isPluginActivated(states.enabledPluginList, states.disabledPluginList, info.pluginData.mEnableByDefault, info.pluginData.mIdentifier);
         info.isEnabled = isPluginActivated;
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
