@@ -137,7 +137,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "startDateTime " << QDateTime::fromMSecsSinceEpoch(startDateTime) << " accountName " << accountName
                                              << " roomID " << info.roomId << " info.roomName " << info.roomName << " number of message " << lstMessages.count();
             if (lstMessages.count() == downloadMessage) {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database" << lstMessages.count();
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database: nb messages:" << lstMessages.count();
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
                 return;
             } else if (!lstMessages.isEmpty()) {
