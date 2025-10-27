@@ -75,6 +75,7 @@ void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QByt
 
 QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements)
 {
+#if 1
     QString query = u"SELECT * FROM MESSAGES"_s;
     if (startId != -1) {
         query += u" WHERE timestamp >= :startId"_s;
@@ -91,6 +92,38 @@ QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qi
     if (numberElements != -1) {
         query += u" LIMIT :limit"_s;
     }
+#else
+    QString query = u"SELECT * FROM MESSAGES"_s;
+    QString whereClause;
+
+    if (startId != -1) {
+        whereClause += u"timestamp >= :startId"_s;
+        if (endId != -1) {
+            whereClause += u" AND timestamp <= :endId"_s;
+        }
+    } else if (endId != -1) {
+        whereClause += u"timestamp <= :endId"_s;
+    }
+
+    if (!whereClause.isEmpty()) {
+        query += u" WHERE "_s + whereClause;
+    }
+
+    // Tri par timestamp descendant
+    query += u" ORDER BY timestamp DESC"_s;
+
+    // Use offset for go to last X elements
+    if (numberElements != -1) {
+        QString offsetQuery = u" OFFSET (SELECT COUNT(*) FROM MESSAGES"_s;
+        if (!whereClause.isEmpty()) {
+            offsetQuery += u" WHERE "_s + whereClause;
+        }
+        offsetQuery += u") - "_s + QString::number(numberElements);
+        query += u" LIMIT :limit"_s + offsetQuery;
+    }
+#endif
+    qDebug() << " query " << query;
+
     return query;
 }
 
