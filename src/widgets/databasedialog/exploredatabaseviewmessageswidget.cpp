@@ -113,7 +113,7 @@ void ExploreDatabaseViewMessagesWidget::slotLoad()
         }
     } else {
         Q_EMIT messagesLoaded({});
-        KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
+        KMessageBox::error(this, u"Room name not selected"_s, u"Database empty"_s);
     }
 }
 
