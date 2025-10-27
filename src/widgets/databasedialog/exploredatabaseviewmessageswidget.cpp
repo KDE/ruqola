@@ -37,7 +37,7 @@ ExploreDatabaseViewMessagesWidget::ExploreDatabaseViewMessagesWidget(RocketChatA
 {
     mNumberOfMessages->setObjectName(u"mNumberOfMessages"_s);
     mNumberOfMessages->setRange(-1, 9999);
-    mNumberOfMessages->setValue(-1);
+    mNumberOfMessages->setValue(50);
     mNumberOfMessages->setSpecialValueText(u"All messages"_s);
 
     mUseStartDateTime->setObjectName(u"mUseStartDateTime"_s);
