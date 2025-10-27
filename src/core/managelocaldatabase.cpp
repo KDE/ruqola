@@ -79,6 +79,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     Q_ASSERT(info.roomModel);
 
     qint64 endDateTime = info.roomModel->lastTimestamp();
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " ManageLocalDatabase::loadMessagesHistory endDateTime " << QDateTime::fromMSecsSinceEpoch(endDateTime);
     QJsonArray params;
     params.append(QJsonValue(QString::fromLatin1(info.roomId)));
     // Load history
@@ -96,7 +97,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             // FIXME: don't use  info.lastSeenAt until we store room information in database
             // We need to use last message timeStamp
             const qint64 firstDateTime = info.roomModel->firstTimestamp();
-            qDebug() << "endDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
+            qDebug() << "firstDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
             if (firstDateTime != 0) {
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << firstDateTime;
                 syncMessage(info.roomId, /*info.lastSeenAt*/ firstDateTime);
@@ -133,8 +134,8 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             const QString accountName{mRocketChatAccount->accountName()};
             const QList<Message> lstMessages =
                 mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, startDateTime, 50, mRocketChatAccount->emojiManager());
-            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
-                                             << " number of message " << lstMessages.count();
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "startDateTime " << QDateTime::fromMSecsSinceEpoch(startDateTime) << " accountName " << accountName
+                                             << " roomID " << info.roomId << " info.roomName " << info.roomName << " number of message " << lstMessages.count();
             if (lstMessages.count() == downloadMessage) {
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database" << lstMessages.count();
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
