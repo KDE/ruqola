@@ -127,15 +127,14 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(QJsonValue(175)); // Max number of messages to load;
         // qDebug() << " params" << params;
     } else {
-        const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
         int downloadMessage = 50;
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #ifdef USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
             const QList<Message> lstMessages =
-                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, startDateTime, 50, mRocketChatAccount->emojiManager());
-            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "startDateTime " << QDateTime::fromMSecsSinceEpoch(startDateTime) << " accountName " << accountName
-                                             << " roomID " << info.roomId << " info.roomName " << info.roomName << " number of message " << lstMessages.count();
+                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, endDateTime, 50, mRocketChatAccount->emojiManager());
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "startDateTime " << -1 << " accountName " << accountName << " roomID " << info.roomId << " info.roomName "
+                                             << info.roomName << " number of message " << lstMessages.count();
             if (lstMessages.count() == downloadMessage) {
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database: nb messages:" << lstMessages.count();
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
@@ -155,6 +154,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         }
         QJsonObject dateObjectEnd;
         dateObjectEnd["$date"_L1] = QJsonValue(endDateTime);
+        const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
 
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  <<
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
