@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-25 00:42+0000\n"
+"POT-Creation-Date: 2025-10-28 00:42+0000\n"
 "PO-Revision-Date: 2025-10-09 07:56-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7760,12 +7760,12 @@ msgstr "Plugins de Ferramentas"
 msgid "Text Plugins"
 msgstr "Plugins de texto"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:175
+#: widgets/configuredialog/configurepluginswidget.cpp:176
 #, kde-format
 msgid "..."
 msgstr "..."
 
-#: widgets/configuredialog/configurepluginswidget.cpp:177
+#: widgets/configuredialog/configurepluginswidget.cpp:178
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"

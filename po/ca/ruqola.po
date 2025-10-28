@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-25 00:42+0000\n"
+"POT-Creation-Date: 2025-10-28 00:42+0000\n"
 "PO-Revision-Date: 2025-10-10 10:06+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -7772,12 +7772,12 @@ msgstr "Connectors d'eines"
 msgid "Text Plugins"
 msgstr "Connectors de text"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:175
+#: widgets/configuredialog/configurepluginswidget.cpp:176
 #, kde-format
 msgid "..."
 msgstr "..."
 
-#: widgets/configuredialog/configurepluginswidget.cpp:177
+#: widgets/configuredialog/configurepluginswidget.cpp:178
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
