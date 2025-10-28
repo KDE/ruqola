@@ -77,12 +77,12 @@ void RuqolaQuickSearchMessageSettings::next()
             mCurrentMessageIdentifier = msg.messageId();
         } else {
             mCurrentSearchIndex = storeCurrentSearchIndex;
-            Q_EMIT updateNextPreviousButtons(false, true);
+            Q_EMIT updateNextPreviousButtons(false, mFoundSearchCount < 2 ? false : true);
             // Invalidate it.
             // clear();
             return;
         }
-        Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0), true);
+        Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0), mFoundSearchCount < 2 ? false : true);
     } else {
         Q_EMIT updateNextPreviousButtons(((mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched() > 0)
                                           && (mCurrentSearchIndex < mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched() - 1))
@@ -123,14 +123,14 @@ void RuqolaQuickSearchMessageSettings::previous()
                 mCurrentSearchIndex = 0;
                 // Invalidate it.
                 // clear();
-                Q_EMIT updateNextPreviousButtons(true, false);
+                Q_EMIT updateNextPreviousButtons(mFoundSearchCount < 2 ? false : true, false);
                 return;
             }
             Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0),
                                              (mCurrentSearchIndex > 0)
                                                  || !mMessageModel->findLastMessageBefore(mCurrentMessageIdentifier, hasSearchedString).messageId().isEmpty());
         } else {
-            Q_EMIT updateNextPreviousButtons((mFoundSearchCount > 1), true);
+            Q_EMIT updateNextPreviousButtons((mFoundSearchCount > 1), mFoundSearchCount < 2 ? false : true);
         }
     }
     Q_EMIT refreshMessage(mCurrentMessageIdentifier, previousMessageIdentifier, mCurrentSearchIndex);
