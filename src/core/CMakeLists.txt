@@ -545,6 +545,15 @@ target_sources(
         emoji.qrc
 )
 
+if (HAVE_TEXTTOSPEECH_ENQQUEUE_SUPPORT)
+    target_sources(
+        libruqolacore
+        PRIVATE
+        texttospeech/texttospeechenqueueinfo.h
+        texttospeech/texttospeechenqueueinfo.cpp
+    )
+endif()
+
 if (NOT HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT)
     target_sources(
         libruqolacore
@@ -559,7 +568,9 @@ endif()
 if(USE_E2E_SUPPORT)
     target_sources(
         libruqolacore
-        PRIVATE encryption/encryptionutils.h encryption/encryptionutils.cpp
+        PRIVATE
+        encryption/encryptionutils.h
+        encryption/encryptionutils.cpp
     )
 endif()
 
@@ -590,7 +601,9 @@ endif()
 if(TARGET Plasma::Activities)
     target_sources(
         libruqolacore
-        PRIVATE activities/activitiesmanager.h activities/activitiesmanager.cpp
+        PRIVATE
+        activities/activitiesmanager.h
+        activities/activitiesmanager.cpp
     )
     target_link_libraries(libruqolacore Plasma::Activities)
     if(BUILD_TESTING)
@@ -603,7 +616,9 @@ kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 if(UNITY_SUPPORT)
     target_sources(
         libruqolacore
-        PRIVATE unityservicemanager.cpp unityservicemanager.h
+        PRIVATE
+        unityservicemanager.cpp
+        unityservicemanager.h
     )
     target_link_libraries(libruqolacore Qt::DBus)
 endif()
