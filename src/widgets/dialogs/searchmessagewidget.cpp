@@ -72,7 +72,11 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
+#if HAVE_TEXTTOSPEECH_ENQQUEUE_SUPPORT
+    connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+#else
     connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
+#endif
 #endif
 
     mResultListWidget->setObjectName(u"mResultListWidget"_s);
