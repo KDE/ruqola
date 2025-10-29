@@ -64,10 +64,8 @@ void AddUsersWidget::slotRemoveUser(const QString &username)
 QList<QByteArray> AddUsersWidget::userIds() const
 {
     QList<QByteArray> addUsers;
-    QMapIterator<QString, ClickableWidget *> i(mMap);
-    while (i.hasNext()) {
-        i.next();
-        addUsers << i.value()->identifier();
+    for (const auto &[key, value] : mMap.asKeyValueRange()) {
+        addUsers << value->identifier();
     }
     return addUsers;
 }
@@ -75,10 +73,8 @@ QList<QByteArray> AddUsersWidget::userIds() const
 QStringList AddUsersWidget::userNames() const
 {
     QStringList addUsers;
-    QMapIterator<QString, ClickableWidget *> i(mMap);
-    while (i.hasNext()) {
-        i.next();
-        addUsers << i.value()->name();
+    for (const auto &[key, value] : mMap.asKeyValueRange()) {
+        addUsers << value->name();
     }
     return addUsers;
 }

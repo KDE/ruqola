@@ -85,12 +85,10 @@ QJsonDocument PermissionUpdateJob::json() const
 {
     QJsonObject jsonObj;
     QJsonArray array;
-    QMapIterator<QString, QStringList> i(mPermissions);
-    while (i.hasNext()) {
-        i.next();
+    for (const auto &[key, value] : mPermissions.asKeyValueRange()) {
         QJsonObject obj;
-        obj["_id"_L1] = i.key();
-        obj["roles"_L1] = QJsonArray::fromStringList(i.value());
+        obj["_id"_L1] = key;
+        obj["roles"_L1] = QJsonArray::fromStringList(value);
         array.append(std::move(obj));
     }
     jsonObj["permissions"_L1] = array;

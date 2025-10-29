@@ -143,11 +143,9 @@ QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
     QJsonObject o;
     const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> map = createStateInfos();
 
-    QMapIterator<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> i(map);
-    while (i.hasNext()) {
-        i.next();
+    for (const auto &[key, value] : map.asKeyValueRange()) {
         QJsonObject obj;
-        for (const auto &s : i.value()) {
+        for (const auto &s : value) {
             if (s.value.isValid()) {
                 if (s.value.metaType().id() == QMetaType::QStringList) {
                     obj[s.actionId] = QJsonArray::fromStringList(s.value.toStringList());
@@ -156,7 +154,7 @@ QJsonObject AutoGenerateInteractionUiViewBlocks::serializeState() const
                 }
             }
         }
-        o[i.key()] = obj;
+        o[key] = obj;
     }
 
     // qDebug() << " result " << map;

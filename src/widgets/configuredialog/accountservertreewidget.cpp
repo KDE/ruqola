@@ -69,10 +69,8 @@ void AccountServerTreeWidget::save()
 {
     // First remove account
     auto accountManager = Ruqola::self()->accountManager();
-    QMapIterator<QString, bool> i(mListRemovedAccount);
-    while (i.hasNext()) {
-        i.next();
-        accountManager->removeAccount(i.key(), i.value());
+    for (const auto &[key, value] : mListRemovedAccount.asKeyValueRange()) {
+        accountManager->removeAccount(key, value);
     }
 
     QStringList order;

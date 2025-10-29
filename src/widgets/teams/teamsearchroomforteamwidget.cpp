@@ -65,11 +65,9 @@ void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QString &name)
 QList<QByteArray> TeamSearchRoomForTeamWidget::roomIds() const
 {
     QList<QByteArray> addRooms;
-    QMapIterator<QString, ClickableWidget *> i(mMap);
     addRooms.reserve(mMap.count());
-    while (i.hasNext()) {
-        i.next();
-        addRooms << i.value()->identifier();
+    for (const auto &[key, value] : mMap.asKeyValueRange()) {
+        addRooms << value->identifier();
     }
     return addRooms;
 }

@@ -38,10 +38,8 @@ void MultiStaticSelectWidget::setUserCompletionInfos(const QList<MultiStaticSele
 QStringList MultiStaticSelectWidget::selectedUsers() const
 {
     QStringList addUsers;
-    QMapIterator<QString, ClickableWidget *> i(mMap);
-    while (i.hasNext()) {
-        i.next();
-        addUsers << QString::fromUtf8(i.value()->identifier());
+    for (const auto &[key, value] : mMap.asKeyValueRange()) {
+        addUsers << QString::fromUtf8(value->identifier());
     }
     return addUsers;
 }

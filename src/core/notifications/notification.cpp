@@ -64,23 +64,21 @@ void Notification::updateNotification(bool hasAlert, int unreadNumber, const QSt
 
 void Notification::createToolTip()
 {
-    QMapIterator<QString, TrayInfo> i(mListTrayIcon);
     QString str;
     bool firstElement = true;
     bool hasAlert = false;
     int unreadMessage = 0;
-    while (i.hasNext()) {
-        i.next();
+    for (const auto &[key, value] : mListTrayIcon.asKeyValueRange()) {
         if (firstElement && !str.isEmpty()) {
             firstElement = false;
             str += u'\n';
         }
-        const TrayInfo trayInfo = i.value();
+        const TrayInfo trayInfo = value;
         if (trayInfo.hasAlert) {
             hasAlert = trayInfo.hasAlert;
         }
         if (trayInfo.unreadMessage != 0) {
-            str += i18n("%1 has %2 Unread Message", i.key(), trayInfo.unreadMessage);
+            str += i18n("%1 has %2 Unread Message", key, trayInfo.unreadMessage);
             unreadMessage += trayInfo.unreadMessage;
         }
     }

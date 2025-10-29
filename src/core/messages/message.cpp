@@ -1257,13 +1257,11 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     // Mentions
     if (!message.mentions().isEmpty()) {
-        QMapIterator<QString, QByteArray> i(message.mentions());
         QJsonArray array;
-        while (i.hasNext()) {
-            i.next();
+        for (const auto &[key, value] : message.mentions().asKeyValueRange()) {
             QJsonObject mention;
-            mention.insert("_id"_L1, QString::fromLatin1(i.value()));
-            mention.insert("username"_L1, i.key());
+            mention.insert("_id"_L1, QString::fromLatin1(value));
+            mention.insert("username"_L1, key);
             array.append(std::move(mention));
         }
         o["mentions"_L1] = array;

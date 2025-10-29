@@ -457,10 +457,8 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
 
 void SettingsWidgetBase::fillComboBox(QComboBox *comboBox, const QMap<QString, QString> &items)
 {
-    QMapIterator<QString, QString> i(items);
-    while (i.hasNext()) {
-        i.next();
-        comboBox->addItem(i.value(), i.key());
+    for (const auto &[key, value] : items.asKeyValueRange()) {
+        comboBox->addItem(value, key);
     }
 }
 

@@ -68,11 +68,9 @@ QString MessageTranslations::translatedStringFromLanguage(const QString &lang) c
 QJsonArray MessageTranslations::serialize(const MessageTranslations &translation)
 {
     QJsonArray array;
-    QMapIterator<QString, QString> i(translation.mTranslatedString);
-    while (i.hasNext()) {
-        i.next();
+    for (const auto &[key, value] : translation.mTranslatedString.asKeyValueRange()) {
         QJsonObject obj;
-        obj.insert(i.key(), i.value());
+        obj.insert(key, value);
         array.append(obj);
     }
     return array;
@@ -83,7 +81,7 @@ MessageTranslations *MessageTranslations::deserialize(const QJsonArray &array)
     MessageTranslations *translationMessage = new MessageTranslations;
     QMap<QString, QString> translationStrings;
     for (int i = 0, total = array.count(); i < total; ++i) {
-        QJsonObject o = array.at(i).toObject();
+        const QJsonObject o = array.at(i).toObject();
         if (o.count() == 1) {
             translationStrings.insert(o.keys().at(0), o.value(o.keys().at(0)).toString());
         }

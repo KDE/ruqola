@@ -132,10 +132,8 @@ ApplictionSettingsCustomWidgetsComboBox::ApplictionSettingsCustomWidgetsComboBox
     mComboBox->setToolTip(getTranslatedIdentifier(lang, info.i18nDescription()));
     hbox->addWidget(mComboBox);
     // Fill Combobox
-    QMapIterator<QString, QString> i(info.values());
-    while (i.hasNext()) {
-        i.next();
-        mComboBox->addItem(getTranslatedIdentifier(lang, i.value()), i.key());
+    for (const auto &[key, value] : info.values().asKeyValueRange()) {
+        mComboBox->addItem(getTranslatedIdentifier(lang, value), key);
     }
     const QVariant r = info.value().isValid() ? info.value() : info.packageValue();
     mComboBox->setCurrentIndex(mComboBox->findData(r.toString()));

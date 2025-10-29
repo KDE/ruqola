@@ -46,11 +46,9 @@ void ActionElementWidget::setActionId(const QByteArray &newActionId)
 
 void ActionElementWidget::setErrorMessages(const QMap<QString, QString> &map)
 {
-    QMapIterator<QString, QString> i(map);
-    while (i.hasNext()) {
-        i.next();
-        if (i.key() == QString::fromLatin1(mActionId)) {
-            setErrorMessages(i.value());
+    for (const auto &[key, value] : map.asKeyValueRange()) {
+        if (key == QString::fromLatin1(mActionId)) {
+            setErrorMessages(value);
         } else {
             clearError();
         }

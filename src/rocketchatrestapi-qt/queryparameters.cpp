@@ -91,21 +91,18 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
 
     const QMap<QString, QString> custom = queryParameters.custom();
     if (!custom.isEmpty()) {
-        QMapIterator<QString, QString> i(custom);
         if (queryParameters.useSyntaxRc70()) {
-            while (i.hasNext()) {
-                i.next();
-                urlQuery.addQueryItem(i.key(), i.value());
+            for (const auto &[key, value] : custom.asKeyValueRange()) {
+                urlQuery.addQueryItem(key, value);
             }
         } else {
             QString str;
-            while (i.hasNext()) {
-                i.next();
+            for (const auto &[key, value] : custom.asKeyValueRange()) {
                 if (!str.isEmpty()) {
                     str += u',';
                 }
-                str += QLatin1Char('"') + i.key() + u'"' + u':';
-                str += u'"' + i.value() + u'"';
+                str += QLatin1Char('"') + key + u'"' + u':';
+                str += u'"' + value + u'"';
             }
             str = u"{%1}"_s.arg(str);
 
@@ -123,15 +120,13 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
 
     if (!queryParameters.sorting().isEmpty()) {
         // example    sort={"name" : -1,"status" : 1}
-        QMapIterator<QString, QueryParameters::SortOrder> i(queryParameters.sorting());
         QString str;
-        while (i.hasNext()) {
-            i.next();
+        for (const auto &[key, value] : queryParameters.sorting().asKeyValueRange()) {
             if (!str.isEmpty()) {
                 str += u',';
             }
-            str += QLatin1Char('"') + i.key() + u'"' + u':';
-            switch (i.value()) {
+            str += QLatin1Char('"') + key + u'"' + u':';
+            switch (value) {
             case QueryParameters::SortOrder::Ascendant:
                 str += QString::number(1);
                 break;
