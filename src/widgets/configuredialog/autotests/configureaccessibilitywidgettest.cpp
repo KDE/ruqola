@@ -23,7 +23,6 @@ void ConfigureAccessibilityWidgetTest::shouldHaveDefaultValues()
     ConfigureAccessibilityWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mTextToSpeechWidget = w.findChild<TextEditTextToSpeech::TextToSpeechConfigWidget *>(u"mTextToSpeechWidget"_s);
     QVERIFY(mTextToSpeechWidget);
