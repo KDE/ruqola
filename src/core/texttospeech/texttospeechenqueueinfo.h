@@ -5,8 +5,10 @@
 */
 
 #pragma once
+#include "libruqolacore_export.h"
+#include <QDebug>
 #include <QString>
-class TextToSpeechEnqueueInfo
+class LIBRUQOLACORE_EXPORT TextToSpeechEnqueueInfo
 {
 public:
     TextToSpeechEnqueueInfo();
@@ -21,8 +23,14 @@ public:
     [[nodiscard]] QString accountName() const;
     void setAccountName(const QString &newAccountName);
 
+    [[nodiscard]] bool operator==(const TextToSpeechEnqueueInfo &other) const;
+
+    [[nodiscard]] bool isValid() const;
+
 private:
     QByteArray mMessageId;
     QByteArray mRoomId;
     QString mAccountName;
 };
+Q_DECLARE_TYPEINFO(TextToSpeechEnqueueInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TextToSpeechEnqueueInfo &t);
