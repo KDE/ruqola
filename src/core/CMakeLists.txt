@@ -838,6 +838,7 @@ set_target_properties(
 if(BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(localdatabase/autotests)
+    add_subdirectory(texttospeech/autotests)
 endif()
 
 if(USE_E2E_SUPPORT)
