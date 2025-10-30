@@ -106,6 +106,7 @@ void Ruqola::setParentWidget(QWidget *newParentWidget)
 {
     mParentWidget = newParentWidget;
 }
+
 #if HAVE_TEXT_AUTOGENERATE_TEXT
 TextAutoGenerateText::TextAutoGenerateManager *Ruqola::textAutoGenerateManager() const
 {
