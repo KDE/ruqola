@@ -16,10 +16,12 @@ public:
     ~TextToSpeechEnqueueManager() override;
     void clear();
 
-    [[nodiscard]] TextToSpeechEnqueueInfo textToSpeechInfo(qsizetype index);
-    [[nodiscard]] bool contains(qsizetype index) const;
-    void insert(qsizetype index, const TextToSpeechEnqueueInfo &info);
+    [[nodiscard]] bool contains(const TextToSpeechEnqueueInfo &info) const;
+
+    void insert(const TextToSpeechEnqueueInfo &info);
+
+    [[nodiscard]] TextToSpeechEnqueueInfo value(qsizetype index) const;
 
 private:
-    QMap<qsizetype, TextToSpeechEnqueueInfo> mEnqueueList;
+    QList<TextToSpeechEnqueueInfo> mEnqueueList;
 };

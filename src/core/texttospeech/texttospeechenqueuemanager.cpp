@@ -17,28 +17,23 @@ void TextToSpeechEnqueueManager::clear()
     mEnqueueList.clear();
 }
 
-TextToSpeechEnqueueInfo TextToSpeechEnqueueManager::textToSpeechInfo(qsizetype index)
+TextToSpeechEnqueueInfo TextToSpeechEnqueueManager::value(qsizetype index) const
 {
-    const TextToSpeechEnqueueInfo info = mEnqueueList.take(index);
-    return info;
+    return mEnqueueList.value(index);
 }
 
-bool TextToSpeechEnqueueManager::contains(qsizetype index) const
+bool TextToSpeechEnqueueManager::contains(const TextToSpeechEnqueueInfo &info) const
 {
-    return mEnqueueList.contains(index);
-}
-
-void TextToSpeechEnqueueManager::insert(qsizetype index, const TextToSpeechEnqueueInfo &info)
-{
+    // we can have several invalid element. Necessary if we don't have info.
     if (!info.isValid()) {
-        return;
+        return false;
     }
-    for (const auto &[key, value] : mEnqueueList.asKeyValueRange()) {
-        if (value == info) {
-            return;
-        }
-    }
-    mEnqueueList.insert(index, info);
+    return mEnqueueList.contains(info);
+}
+
+void TextToSpeechEnqueueManager::insert(const TextToSpeechEnqueueInfo &info)
+{
+    mEnqueueList.append(info);
 }
 
 #include "moc_texttospeechenqueuemanager.cpp"
