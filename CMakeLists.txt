@@ -220,7 +220,7 @@ set_package_properties(
 if(TARGET KF6::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
     if(${KF6TextEditTextToSpeech_VERSION} VERSION_GREATER_EQUAL 1.8.55)
-        set(HAVE_TEXTTOSPEECH_ENQQUEUE_SUPPORT TRUE)
+        set(HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT TRUE)
     endif()
 endif()
 

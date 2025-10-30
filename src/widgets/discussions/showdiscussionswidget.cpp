@@ -53,7 +53,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-#if HAVE_TEXTTOSPEECH_ENQQUEUE_SUPPORT
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
 #else
     connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);

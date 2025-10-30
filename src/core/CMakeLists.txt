@@ -545,7 +545,7 @@ target_sources(
         emoji.qrc
 )
 
-if (HAVE_TEXTTOSPEECH_ENQQUEUE_SUPPORT)
+if (HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT)
     target_sources(
         libruqolacore
         PRIVATE
