@@ -30,6 +30,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.attachments());
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.privateMessage());
+    QVERIFY(!m.textToSpeechInProgress());
     // 14/03/2024 => size 816
     QCOMPARE(sizeof(Message), 432);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));

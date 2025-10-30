@@ -423,6 +423,16 @@ int Message::numberOfTextSearched() const
     return mNumberOfTextSearched;
 }
 
+bool Message::textToSpeechInProgress() const
+{
+    return messageStateValue(TextToSpeechInProgress);
+}
+
+void Message::setTextToSpeechInProgress(bool newTextToSpeechInProgress)
+{
+    assignMessageStateValue(TextToSpeechInProgress, newTextToSpeechInProgress);
+}
+
 QString Message::localTranslation() const
 {
     if (!mMessageExtra) {

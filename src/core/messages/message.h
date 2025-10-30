@@ -53,6 +53,7 @@ public:
         Translated = 128,
         ParsedUrl = 256,
         Encrypted = 512,
+        TextToSpeechInProgress = 1024,
     };
     Q_FLAGS(MessageState MessageStates)
     Q_DECLARE_FLAGS(MessageStates, MessageState)
@@ -236,6 +237,9 @@ public:
     [[nodiscard]] bool isEncryptedMessage() const;
 
     [[nodiscard]] int numberOfTextSearched() const;
+
+    [[nodiscard]] bool textToSpeechInProgress() const;
+    void setTextToSpeechInProgress(bool newTextToSpeechInProgress);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
