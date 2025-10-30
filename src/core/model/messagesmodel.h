@@ -87,6 +87,7 @@ public:
         OriginalMessageOrAttachmentDescription,
         MessageReplies,
         Unread,
+        TextToSpeechInProgress,
         PrivateMessage,
         LastMessageRoles = PrivateMessage,
     };

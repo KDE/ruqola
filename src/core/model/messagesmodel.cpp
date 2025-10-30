@@ -398,6 +398,8 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return messageReplies(message);
     case MessagesModel::Unread:
         return message.unread();
+    case MessagesModel::TextToSpeechInProgress:
+        return message.textToSpeechInProgress();
     default:
         break;
     }
@@ -501,6 +503,10 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
     case MessagesModel::HoverHighLight:
         message.setHoverHighlight(value.toBool());
         Q_EMIT dataChanged(index, index, {MessagesModel::HoverHighLight});
+        return true;
+    case MessagesModel::TextToSpeechInProgress:
+        message.setTextToSpeechInProgress(value.toBool());
+        Q_EMIT dataChanged(index, index, {MessagesModel::TextToSpeechInProgress});
         return true;
     case MessagesModel::LocalTranslation:
         message.setLocalTranslation(value.toString());
