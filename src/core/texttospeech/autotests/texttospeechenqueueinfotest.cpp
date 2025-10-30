@@ -21,3 +21,5 @@ void TextToSpeechEnqueueInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.roomId().isEmpty());
     QVERIFY(!info.isValid());
 }
+
+#include "moc_texttospeechenqueueinfotest.cpp"
