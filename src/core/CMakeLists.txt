@@ -551,6 +551,8 @@ if (HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT)
         PRIVATE
         texttospeech/texttospeechenqueueinfo.h
         texttospeech/texttospeechenqueueinfo.cpp
+        texttospeech/texttospeechenqueuemanager.h
+        texttospeech/texttospeechenqueuemanager.cpp
     )
 endif()
 
