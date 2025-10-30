@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:42+0000\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1850,7 +1850,7 @@ msgstr "Omanik"
 msgid "Offline"
 msgstr "Pole võrgus"
 
-#: core/notifications/notification.cpp:83
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 ei ole lugenud %2 sõnumit"
@@ -3492,10 +3492,10 @@ msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Mainitud sõnumite näitamine"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:186
-#: widgets/dialogs/showlistmessagebasewidget.cpp:103
-#: widgets/discussions/showdiscussionswidget.cpp:90
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
+#: widgets/dialogs/searchmessagewidget.cpp:190
+#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/discussions/showdiscussionswidget.cpp:94
 #: widgets/room/commandpreviewwidget.cpp:142
 #: widgets/room/usersinroomwidget.cpp:156
 #, fuzzy, kde-format
@@ -3503,16 +3503,16 @@ msgstr "Mainitud sõnumite näitamine"
 msgid "Loading…"
 msgstr "Laadimine ..."
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:190
-#: widgets/dialogs/showlistmessagebasewidget.cpp:105
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
+#: widgets/dialogs/searchmessagewidget.cpp:194
+#: widgets/dialogs/showlistmessagebasewidget.cpp:110
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
 msgid "No Message found"
 msgstr "Ühtegi sõnumit ei leitud"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
+#: widgets/dialogs/searchmessagewidget.cpp:200
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -8013,7 +8013,7 @@ msgstr "Serveri URL:"
 msgid "Provider:"
 msgstr "Toa kustutamine"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:209
+#: widgets/configuredialog/accountservertreewidget.cpp:207
 #, fuzzy, kde-format
 #| msgid "Configure Accounts"
 msgid "Display Account in Current Activity"
@@ -9311,8 +9311,8 @@ msgstr[0] "%1 manus toas (kokku: %2)"
 msgstr[1] "%1 manust toas (kokku: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showlistmessagebasewidget.cpp:113
-#: widgets/discussions/showdiscussionswidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:118
+#: widgets/discussions/showdiscussionswidget.cpp:105
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:131
 #: widgets/room/usersinroomwidget.cpp:167
@@ -9381,7 +9381,7 @@ msgstr ""
 msgid "Save Image"
 msgstr "Pildi salvestamine"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:111
+#: widgets/dialogs/showlistmessagebasewidget.cpp:116
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -9582,12 +9582,12 @@ msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Diskussiooni otsimine ..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:92
+#: widgets/discussions/showdiscussionswidget.cpp:96
 #, kde-format
 msgid "No Discussion found"
 msgstr "Ühtegi diskussiooni ei leitud"
 
-#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/discussions/showdiscussionswidget.cpp:103
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -11604,50 +11604,50 @@ msgstr "Vastamine lõimes"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Lõimesõnumid: %1"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:379
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want really remove history?"
 msgstr "Kas eemaldada konto \"%1\"?"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:380
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Laadi hiljutine ajalugu"
 
-#: widgets/room/roomwidget.cpp:410
+#: widgets/room/roomwidget.cpp:414
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: widgets/room/roomwidget.cpp:411
+#: widgets/room/roomwidget.cpp:415
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:571
+#: widgets/room/roomwidget.cpp:575
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "Otsesõnumeid ei saa arhiveerida"
 
-#: widgets/room/roomwidget.cpp:571
+#: widgets/room/roomwidget.cpp:575
 #, fuzzy, kde-format
 #| msgid "Search Message"
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Sõnumi otsimine"
 
-#: widgets/room/roomwidget.cpp:590
+#: widgets/room/roomwidget.cpp:594
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:591
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -12385,13 +12385,13 @@ msgctxt "@title:window"
 msgid "Thread"
 msgstr "Lõimed"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:123
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Follow Message"
 msgstr "Kõik sõnumid"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:123
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Unfollow Message"

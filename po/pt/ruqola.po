@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:42+0000\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1800,7 +1800,7 @@ msgstr "Dono"
 msgid "Offline"
 msgstr "Desligado"
 
-#: core/notifications/notification.cpp:83
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 Tem %2 Mensagens Não Lidas"
@@ -3401,10 +3401,10 @@ msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Mostrar as Mensagens de Menção - %1"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:186
-#: widgets/dialogs/showlistmessagebasewidget.cpp:103
-#: widgets/discussions/showdiscussionswidget.cpp:90
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
+#: widgets/dialogs/searchmessagewidget.cpp:190
+#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/discussions/showdiscussionswidget.cpp:94
 #: widgets/room/commandpreviewwidget.cpp:142
 #: widgets/room/usersinroomwidget.cpp:156
 #, fuzzy, kde-format
@@ -3412,16 +3412,16 @@ msgstr "Mostrar as Mensagens de Menção - %1"
 msgid "Loading…"
 msgstr "A carregar..."
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:190
-#: widgets/dialogs/showlistmessagebasewidget.cpp:105
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
+#: widgets/dialogs/searchmessagewidget.cpp:194
+#: widgets/dialogs/showlistmessagebasewidget.cpp:110
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
 msgid "No Message found"
 msgstr "Não foi encontrada nenhuma mensagem"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
+#: widgets/dialogs/searchmessagewidget.cpp:200
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -8159,7 +8159,7 @@ msgstr "URL da reunião:"
 msgid "Provider:"
 msgstr "Fornecedor:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:209
+#: widgets/configuredialog/accountservertreewidget.cpp:207
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Notification"
@@ -9462,8 +9462,8 @@ msgstr[0] "%1 Anexo na Sala (Total: %2)"
 msgstr[1] "%1 Anexos na Sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showlistmessagebasewidget.cpp:113
-#: widgets/discussions/showdiscussionswidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:118
+#: widgets/discussions/showdiscussionswidget.cpp:105
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:131
 #: widgets/room/usersinroomwidget.cpp:167
@@ -9534,7 +9534,7 @@ msgstr "Ajustar à Área"
 msgid "Save Image"
 msgstr "Gravar a Imagem"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:111
+#: widgets/dialogs/showlistmessagebasewidget.cpp:116
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -9718,12 +9718,12 @@ msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Procurar uma discussão..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:92
+#: widgets/discussions/showdiscussionswidget.cpp:96
 #, kde-format
 msgid "No Discussion found"
 msgstr "Nenhuma discussão encontrada"
 
-#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/discussions/showdiscussionswidget.cpp:103
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -11777,35 +11777,35 @@ msgstr "A responder num tópico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta no Tópico à Mensagem: '%1'"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:379
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Deseja realmente remover o histórico?"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:380
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remover o Histórico"
 
-#: widgets/room/roomwidget.cpp:410
+#: widgets/room/roomwidget.cpp:414
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: widgets/room/roomwidget.cpp:411
+#: widgets/room/roomwidget.cpp:415
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
 
-#: widgets/room/roomwidget.cpp:571
+#: widgets/room/roomwidget.cpp:575
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "As Mensagens Directas não podem ser arquivadas"
 
-#: widgets/room/roomwidget.cpp:571
+#: widgets/room/roomwidget.cpp:575
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11813,7 +11813,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Procurar por Mensagens"
 
-#: widgets/room/roomwidget.cpp:590
+#: widgets/room/roomwidget.cpp:594
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11821,7 +11821,7 @@ msgstr ""
 "É preciso um administrador da área de trabalho para instalar e configurar "
 "uma aplicação de chamadas em conferência."
 
-#: widgets/room/roomwidget.cpp:591
+#: widgets/room/roomwidget.cpp:595
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"
@@ -12540,12 +12540,12 @@ msgctxt "@title:window"
 msgid "Thread"
 msgstr "Tópico"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:123
 #, kde-format
 msgid "Follow Message"
 msgstr "Seguir a Mensagem"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:123
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Não Seguir a Mensagem"

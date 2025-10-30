@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:42+0000\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1711,7 +1711,7 @@ msgstr "Posedanto"
 msgid "Offline"
 msgstr "Senrete"
 
-#: core/notifications/notification.cpp:83
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 havas %2 Nelegitan Mesaĝon"
@@ -3267,26 +3267,26 @@ msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Montri Administrajn Mesaĝojn"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:186
-#: widgets/dialogs/showlistmessagebasewidget.cpp:103
-#: widgets/discussions/showdiscussionswidget.cpp:90
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
+#: widgets/dialogs/searchmessagewidget.cpp:190
+#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/discussions/showdiscussionswidget.cpp:94
 #: widgets/room/commandpreviewwidget.cpp:142
 #: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "Loading…"
 msgstr "Ŝargante…"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:190
-#: widgets/dialogs/showlistmessagebasewidget.cpp:105
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
+#: widgets/dialogs/searchmessagewidget.cpp:194
+#: widgets/dialogs/showlistmessagebasewidget.cpp:110
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
 msgid "No Message found"
 msgstr "Neniu Mesaĝo trovita"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
+#: widgets/dialogs/searchmessagewidget.cpp:200
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -7615,7 +7615,7 @@ msgstr "Renkontiĝa URL:"
 msgid "Provider:"
 msgstr "Provizanto:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:209
+#: widgets/configuredialog/accountservertreewidget.cpp:207
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "Montri Konton en Aktuala Aktiveco"
@@ -8819,8 +8819,8 @@ msgstr[0] "%1 Kunsendaĵo en ĉambro (Totalo: %2)"
 msgstr[1] "%1 Kunsendaĵoj en ĉambro (Totalo: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showlistmessagebasewidget.cpp:113
-#: widgets/discussions/showdiscussionswidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:118
+#: widgets/discussions/showdiscussionswidget.cpp:105
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:131
 #: widgets/room/usersinroomwidget.cpp:167
@@ -8886,7 +8886,7 @@ msgstr "Adapti al Vido"
 msgid "Save Image"
 msgstr "Konservi Bildon"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:111
+#: widgets/dialogs/showlistmessagebasewidget.cpp:116
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -9059,12 +9059,12 @@ msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Serĉi diskuton…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:92
+#: widgets/discussions/showdiscussionswidget.cpp:96
 #, kde-format
 msgid "No Discussion found"
 msgstr "Neniu Diskuto trovita"
 
-#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/discussions/showdiscussionswidget.cpp:103
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -10915,39 +10915,39 @@ msgstr "Respondante en fadeno"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Respondi en Fadeno por Mesaĝo: '%1'"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:379
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ĉu vi vere volas forigi la historion?"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:380
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Forigi Historion"
 
-#: widgets/room/roomwidget.cpp:410
+#: widgets/room/roomwidget.cpp:414
 #, kde-format
 msgid "Export Messages"
 msgstr "Eksporti Mesaĝojn"
 
-#: widgets/room/roomwidget.cpp:411
+#: widgets/room/roomwidget.cpp:415
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
 
-#: widgets/room/roomwidget.cpp:571
+#: widgets/room/roomwidget.cpp:575
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Ĉifritan enhavon ne eblas priserĉi."
 
-#: widgets/room/roomwidget.cpp:571
+#: widgets/room/roomwidget.cpp:575
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Serĉi Mesaĝoj"
 
-#: widgets/room/roomwidget.cpp:590
+#: widgets/room/roomwidget.cpp:594
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -10955,7 +10955,7 @@ msgstr ""
 "Administranto de laborspaco devas instali kaj agordi programojn pri "
 "konferencovoko."
 
-#: widgets/room/roomwidget.cpp:591
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11605,12 +11605,12 @@ msgctxt "@title:window"
 msgid "Thread"
 msgstr "Fadeno"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:123
 #, kde-format
 msgid "Follow Message"
 msgstr "Sekvi Mesaĝon"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:123
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Malsekvi Mesaĝon"

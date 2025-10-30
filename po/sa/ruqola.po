@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:42+0000\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1716,7 +1716,7 @@ msgstr "स्वामी"
 msgid "Offline"
 msgstr "अफलाइन"
 
-#: core/notifications/notification.cpp:83
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 इत्यस्य %2 अपठितसन्देशः अस्ति"
@@ -3256,26 +3256,26 @@ msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "संयमसन्देशान् दर्शयतु"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:186
-#: widgets/dialogs/showlistmessagebasewidget.cpp:103
-#: widgets/discussions/showdiscussionswidget.cpp:90
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
+#: widgets/dialogs/searchmessagewidget.cpp:190
+#: widgets/dialogs/showlistmessagebasewidget.cpp:108
+#: widgets/discussions/showdiscussionswidget.cpp:94
 #: widgets/room/commandpreviewwidget.cpp:142
 #: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "Loading…"
 msgstr "लोडिंग..."
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:190
-#: widgets/dialogs/showlistmessagebasewidget.cpp:105
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
+#: widgets/dialogs/searchmessagewidget.cpp:194
+#: widgets/dialogs/showlistmessagebasewidget.cpp:110
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
 msgid "No Message found"
 msgstr "कोऽपि सन्देशः न लब्धः"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
+#: widgets/dialogs/searchmessagewidget.cpp:200
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -7590,7 +7590,7 @@ msgstr "सभायाः URL :"
 msgid "Provider:"
 msgstr "प्रदाता :"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:209
+#: widgets/configuredialog/accountservertreewidget.cpp:207
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "वर्तमान क्रियाकलापमध्ये खाता प्रदर्शयन्तु"
@@ -8803,8 +8803,8 @@ msgstr[0] "%1 कक्षे आसक्तिः (कुलम्: %2)"
 msgstr[1] "%1 कक्षे संलग्नाः (कुलम्: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showlistmessagebasewidget.cpp:113
-#: widgets/discussions/showdiscussionswidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:118
+#: widgets/discussions/showdiscussionswidget.cpp:105
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:131
 #: widgets/room/usersinroomwidget.cpp:167
@@ -8874,7 +8874,7 @@ msgstr "Fit to View इति"
 msgid "Save Image"
 msgstr "चित्रं रक्षतु"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:111
+#: widgets/dialogs/showlistmessagebasewidget.cpp:116
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -9049,12 +9049,12 @@ msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "अन्वेषण चर्चा..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:92
+#: widgets/discussions/showdiscussionswidget.cpp:96
 #, kde-format
 msgid "No Discussion found"
 msgstr "No Discussion न लब्धम्"
 
-#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/discussions/showdiscussionswidget.cpp:103
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -10911,34 +10911,34 @@ msgstr "सूत्रेण उत्तरं ददाति"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "सन्देशस्य कृते सूत्रे उत्तरम्: '%1'."
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:379
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "किं भवन्तः वास्तवमेव इतिहासं दूरीकर्तुं इच्छन्ति ?"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:380
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "इतिहासं निष्कासयन्तु"
 
-#: widgets/room/roomwidget.cpp:410
+#: widgets/room/roomwidget.cpp:414
 #, kde-format
 msgid "Export Messages"
 msgstr "सन्देशान् निर्यातयन्तु"
 
-#: widgets/room/roomwidget.cpp:411
+#: widgets/room/roomwidget.cpp:415
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "भवतः ईमेल प्रेषणार्थं पङ्क्तिबद्धा अस्ति।"
 
-#: widgets/room/roomwidget.cpp:571
+#: widgets/room/roomwidget.cpp:575
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "प्रत्यक्षसन्देशाः संग्रहीतुं न शक्यन्ते"
 
-#: widgets/room/roomwidget.cpp:571
+#: widgets/room/roomwidget.cpp:575
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -10946,13 +10946,13 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "सन्देशान् अन्वेष्टुम्"
 
-#: widgets/room/roomwidget.cpp:590
+#: widgets/room/roomwidget.cpp:594
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "कार्यक्षेत्रप्रशासकेन सम्मेलन-कॉल-अनुप्रयोगाः संस्थापनं विन्यस्तं च करणीयम् ।"
 
-#: widgets/room/roomwidget.cpp:591
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11602,12 +11602,12 @@ msgctxt "@title:window"
 msgid "Thread"
 msgstr "सूत्र"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:123
 #, kde-format
 msgid "Follow Message"
 msgstr "अनुसरणं कुर्वन्तु सन्देशम्"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:123
 #, kde-format
 msgid "Unfollow Message"
 msgstr "अनफॉलो सन्देश"
