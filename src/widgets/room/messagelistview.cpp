@@ -980,17 +980,18 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
 {
     // TODO if (!isVideoConferenceMessage && RuqolaGlobalConfig::self()->enableTextToSpeech()) {
 #if HAVE_TEXT_TO_SPEECH
-    const QString accountName = mCurrentRocketChatAccount->accountName();
-    TextToSpeechEnqueueInfo info;
-    info.setAccountName(accountName);
-    info.setMessageId(index.data(MessagesModel::MessageId).toByteArray());
-    info.setRoomId(mRoom->roomId());
-    Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
     QString message = mMessageListDelegate->selectedText();
     if (message.isEmpty()) {
         message = index.data(MessagesModel::OriginalMessage).toString();
     }
     if (!message.isEmpty()) {
+        const QString accountName = mCurrentRocketChatAccount->accountName();
+        TextToSpeechEnqueueInfo info;
+        info.setAccountName(accountName);
+        info.setMessageId(index.data(MessagesModel::MessageId).toByteArray());
+        info.setRoomId(mRoom->roomId());
+        Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
+
         Q_EMIT textToSpeech(message);
     }
 #endif
