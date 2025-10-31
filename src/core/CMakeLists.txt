@@ -596,6 +596,11 @@ if(HAVE_TEXT_TRANSLATOR)
     )
 endif()
 
+# TODO remove it from core
+if(TARGET KF6::TextEditTextToSpeech)
+    target_link_libraries(libruqolacore KF6::TextEditTextToSpeech)
+endif()
+
 if(TARGET KF6::TextAutoGenerateText)
     target_link_libraries(libruqolacore KF6::TextAutoGenerateText)
 endif()

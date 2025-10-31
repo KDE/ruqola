@@ -17,7 +17,7 @@
 #include "ruqola_debug.h"
 #if HAVE_TEXT_TO_SPEECH
 #include "texttospeech/texttospeechenqueuemanager.h"
-// TODO #include <TextEditTextToSpeech/TextToSpeech>
+#include <TextEditTextToSpeech/TextToSpeech>
 #endif
 
 #include "ruqola.h"
@@ -61,13 +61,11 @@ AccountManager::AccountManager(QObject *parent)
     TextEmoticonsCore::UnicodeEmoticonManager::self(u":/emoji_ruqola.json"_s);
     loadAccount();
     connect(this, &AccountManager::activitiesChanged, mRocketChatAccountProxyModel, &RocketChatAccountFilterProxyModel::slotActivitiesChanged);
-#if HAVE_TEXT_TO_SPEECH
-#if 0 // TODO
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     connect(TextEditTextToSpeech::TextToSpeech::self(),
             &TextEditTextToSpeech::TextToSpeech::aboutToSynthesize,
             this,
             &AccountManager::slotAboutToSynthesizeChanged);
-#endif
 #endif
 }
 
@@ -178,7 +176,7 @@ TextToSpeechEnqueueManager *AccountManager::textToSpeechEnqueueManager() const
 void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetype currentId)
 {
     // qDebug() << " previousId " << previousId << " currentId " << currentId;
-#if HAVE_TEXT_TO_SPEECH
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     if (previousId != -1) {
         const TextToSpeechEnqueueInfo info = mTextToSpeechEnqueueManager->value(previousId);
         if (info.isValid()) {
