@@ -990,9 +990,10 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
         info.setAccountName(accountName);
         info.setMessageId(index.data(MessagesModel::MessageId).toByteArray());
         info.setRoomId(mRoom->roomId());
-        Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
-
-        Q_EMIT textToSpeech(message);
+        if (!Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->contains(info)) {
+            Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
+            Q_EMIT textToSpeech(message);
+        }
     }
 #endif
 }
