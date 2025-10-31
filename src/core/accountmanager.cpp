@@ -196,7 +196,7 @@ void AccountManager::loadAccount()
 
     mRocketChatAccountModel->setAccounts(lstAccounts);
 
-    QSettings settings;
+    const QSettings settings;
     const QString currentAccount = settings.value("currentAccount"_L1, QString()).toString();
     if (currentAccount.isEmpty()) {
         auto account = mRocketChatAccountModel->account(0);
