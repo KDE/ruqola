@@ -14,7 +14,7 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{kli18n("Copy block code more easily.")};
+    const QList<KLazyLocalizedString> info{kli18n("Copy block code more easily."), kli18n("Improve Text To Speech user interface.")};
     return info;
 }
 #if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
