@@ -689,7 +689,11 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
         mReplyInThreadIcon.paint(painter, layout.replyToThreadRect, Qt::AlignCenter);
-        mTextToSpeechIcon.paint(painter, layout.textToSpeechIconRect, Qt::AlignCenter);
+#if HAVE_TEXT_TO_SPEECH
+        if (RuqolaGlobalConfig::self()->enableTextToSpeech()) {
+            mTextToSpeechIcon.paint(painter, layout.textToSpeechIconRect, Qt::AlignCenter);
+        }
+#endif
     }
 
     painter->restore();
