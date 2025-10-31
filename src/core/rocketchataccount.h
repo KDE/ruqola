@@ -428,6 +428,9 @@ public:
     void addRoomToDataBase(Room *r);
     void updateRoomInDatabase(const QByteArray &roomId);
     void addMessagesToDataBase(const QByteArray &roomId, const QList<Message> &messages);
+
+    void updateTextToSpeech(const QByteArray &roomId, const QByteArray &messageId, bool inProgress);
+
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

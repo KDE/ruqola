@@ -3018,6 +3018,13 @@ void RocketChatAccount::addMessagesToDataBase(const QByteArray &roomId, const QL
     }
 }
 
+void RocketChatAccount::updateTextToSpeech(const QByteArray &roomId, const QByteArray &messageId, bool inProgress)
+{
+    if (auto r = mRoomModel->findRoom(roomId); r) {
+        r->messageModel()->updateTextToSpeech(messageId, inProgress);
+    }
+}
+
 void RocketChatAccount::deleteMessageFromDatabase(const QByteArray &roomId, const QByteArray &messageId)
 {
     mLocalDatabaseManager->deleteMessage(accountName(), roomId, messageId);

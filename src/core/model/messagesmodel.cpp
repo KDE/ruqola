@@ -723,6 +723,12 @@ void MessagesModel::clearHighlightSearchStringIndexInMessage()
     mHighlightSearchStringIndexInMessage.clear();
 }
 
+void MessagesModel::updateTextToSpeech(const QByteArray &messageId, bool inProgress)
+{
+    const QModelIndex index = indexForMessage(messageId);
+    setData(index, inProgress, MessagesModel::TextToSpeechInProgress);
+}
+
 RuqolaQuickSearchMessageSettings *MessagesModel::quickSearchMessageSettings() const
 {
     return mQuickSearchMessageSettings;

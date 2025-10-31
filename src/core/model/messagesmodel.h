@@ -161,6 +161,8 @@ public:
     void setHighlightSearchStringIndexInMessage(const HighlightSearchStringIndexInMessage &newHighlightSearchStringIndexInMessage);
     void clearHighlightSearchStringIndexInMessage();
 
+    void updateTextToSpeech(const QByteArray &messageId, bool inProgress);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**

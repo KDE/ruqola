@@ -182,28 +182,20 @@ void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetyp
     if (previousId != -1) {
         const TextToSpeechEnqueueInfo info = mTextToSpeechEnqueueManager->value(previousId);
         if (info.isValid()) {
-#if 0
-            auto messagesModel = messagesModelFromChatId(info.chatId());
-            if (messagesModel) {
-                messagesModel->changeTextToSpeechInProgress(info.messageId(), false);
-            } else {
-                qCWarning(RUQOLA_LOG) << "Impossible to find model for " << info.chatId();
+            RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName());
+            if (account) {
+                account->updateTextToSpeech(info.roomId(), info.messageId(), false);
             }
-#endif
         }
         // qDebug() << " enqueue list " << mTextAutoGenerateTextToSpeechEnqueueManager->enqueueList() << "previousId " << previousId;
     }
     if (currentId != -1) {
         const TextToSpeechEnqueueInfo info = mTextToSpeechEnqueueManager->value(currentId);
         if (info.isValid()) {
-#if 0
-            auto messagesModel = messagesModelFromChatId(info.chatId());
-            if (messagesModel) {
-                messagesModel->changeTextToSpeechInProgress(info.messageId(), true);
-            } else {
-                qCWarning(RUQOLA_LOG) << "Impossible to find model for " << info.chatId();
+            RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName());
+            if (account) {
+                account->updateTextToSpeech(info.roomId(), info.messageId(), true);
             }
-#endif
             // qDebug() << " enqueue list " << mTextAutoGenerateTextToSpeechEnqueueManager->enqueueList() << "currentId " << currentId;
         }
     } else {
