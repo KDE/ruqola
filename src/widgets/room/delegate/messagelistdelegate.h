@@ -154,7 +154,7 @@ private:
     QColor mOpenDiscussionColorMode;
     QColor mReplyThreadColorMode;
     QColor mHoverHightlightColor;
-    QColor mTextToSpeechInProgress;
+    QColor mTextToSpeechInProgressColor;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QListView *const mListView;
     TextSelectionImpl *const mTextSelectionImpl;
