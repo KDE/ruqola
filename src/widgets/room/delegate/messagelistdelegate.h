@@ -112,6 +112,8 @@ Q_SIGNALS:
     void updateView();
     void replyToThread(const QByteArray &messageId, const QString &threadPreview);
     void translateMessage(const QModelIndex &index, bool state);
+    void stopTextToSpeech(const QModelIndex &index);
+    void textToSpeech(const QModelIndex &index);
 
 private:
     struct IndexBackgroundColor {

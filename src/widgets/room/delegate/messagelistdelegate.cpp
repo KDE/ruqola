@@ -765,6 +765,15 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             } else if (layout.replyToThreadRect.contains(mev->pos())) {
                 Q_EMIT replyToThread(message->messageId(), message->text());
                 return true;
+#if HAVE_TEXT_TO_SPEECH
+            } else if (layout.textToSpeechIconRect.contains(mev->pos())) {
+                if (message->textToSpeechInProgress()) {
+                    Q_EMIT stopTextToSpeech(index);
+                } else {
+                    Q_EMIT textToSpeech(index);
+                }
+                return true;
+#endif
             }
         }
 
