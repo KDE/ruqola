@@ -159,6 +159,13 @@ bool AccountManager::needToHandleDataMigration() const
     return needMigration;
 }
 
+#if HAVE_TEXT_TO_SPEECH
+TextToSpeechEnqueueManager *AccountManager::textToSpeechEnqueueManager() const
+{
+    return mTextToSpeechEnqueueManager;
+}
+#endif
+
 void AccountManager::loadAccount()
 {
     const bool needDatabaseMigration = needToHandleDataMigration();
