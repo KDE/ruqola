@@ -61,6 +61,8 @@ public:
 
         QRect replyToThreadRect;
 
+        QRect textToSpeechIconRect;
+
         QString timeStampText;
         QPoint timeStampPos;
         QRect timeStampRect;

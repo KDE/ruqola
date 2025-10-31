@@ -5,6 +5,7 @@
 */
 
 #include "messagelistnormallayout.h"
+#include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
@@ -218,6 +219,10 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     if (layout.sameSenderAsPreviousMessage) {
         layout.addReactionRect.moveTop(layout.textRect.y());
     }
+#if HAVE_TEXT_TO_SPEECH
+    layout.textToSpeechIconRect = QRect(textLeft + textSize.width() + 3 * margin + iconSize * 2, layout.textRect.y(), iconSize, iconSize);
+#endif
+
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), senderRectY), timeSize);
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);

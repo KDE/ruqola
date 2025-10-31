@@ -5,6 +5,7 @@
 */
 
 #include "messagelistcozylayout.h"
+#include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
@@ -172,6 +173,9 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
 
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, senderRectY, iconSize, iconSize);
     layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, senderRectY, iconSize, iconSize);
+#if HAVE_TEXT_TO_SPEECH
+    layout.textToSpeechIconRect = QRect(textLeft + textSize.width() + 3 * margin + iconSize * 2, senderRectY, iconSize, iconSize);
+#endif
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), senderRectY), timeSize);
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);

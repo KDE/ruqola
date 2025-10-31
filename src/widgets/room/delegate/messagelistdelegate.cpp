@@ -66,6 +66,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mTranslatedIcon(QIcon::fromTheme(u"translate"_s))
     , mReplyInThreadIcon(QIcon::fromTheme(u"view-conversation-balloon-symbolic"_s))
     , mEncryptedIcon(QIcon::fromTheme(u"document-encrypt"_s))
+    , mTextToSpeechIcon(QIcon::fromTheme(u"player-volume"_s))
     , mListView(view)
     , mTextSelectionImpl(new TextSelectionImpl)
     , mHelperText(new MessageDelegateHelperText(account, view, mTextSelectionImpl))
@@ -688,6 +689,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
         mReplyInThreadIcon.paint(painter, layout.replyToThreadRect, Qt::AlignCenter);
+        mTextToSpeechIcon.paint(painter, layout.textToSpeechIconRect, Qt::AlignCenter);
     }
 
     painter->restore();
@@ -984,6 +986,14 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Add reaction"), view);
             return true;
         }
+#if HAVE_TEXT_TO_SPEECH
+        if (!isSystemMessage(message) && layout.textToSpeechIconRect.contains(helpEventPos) && RuqolaGlobalConfig::self()->enableTextToSpeech()) {
+            QToolTip::showText(helpEvent->globalPos(),
+                               message->textToSpeechInProgress() ? i18nc("@info:tooltip", "Stop") : i18nc("@info:tooltip", "Speak Text"),
+                               view);
+            return true;
+        }
+#endif
         if (layout.textRect.contains(helpEventPos) && mHelperText->handleHelpEvent(helpEvent, layout.textRect, index)) {
             return true;
         }
