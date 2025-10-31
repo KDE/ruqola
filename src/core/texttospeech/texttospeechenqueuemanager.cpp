@@ -31,6 +31,17 @@ bool TextToSpeechEnqueueManager::contains(const TextToSpeechEnqueueInfo &info) c
     return mEnqueueList.contains(info);
 }
 
+void TextToSpeechEnqueueManager::insertDummyInfo()
+{
+    TextToSpeechEnqueueInfo info;
+    mEnqueueList.append(info);
+}
+
+QList<TextToSpeechEnqueueInfo> TextToSpeechEnqueueManager::enqueueList() const
+{
+    return mEnqueueList;
+}
+
 void TextToSpeechEnqueueManager::insert(const TextToSpeechEnqueueInfo &info)
 {
     mEnqueueList.append(info);

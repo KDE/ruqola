@@ -22,6 +22,10 @@ public:
 
     [[nodiscard]] TextToSpeechEnqueueInfo value(qsizetype index) const;
 
+    void insertDummyInfo();
+
+    [[nodiscard]] QList<TextToSpeechEnqueueInfo> enqueueList() const;
+
 private:
     QList<TextToSpeechEnqueueInfo> mEnqueueList;
 };
