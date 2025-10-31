@@ -505,6 +505,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (it != mIndexBackgroundColorList.cend()) {
         goToMessageBackgroundColor = it->color;
     }
+    // TODO
+    if (message->textToSpeechInProgress()) {
+        QPen p;
+        p.setColor(Qt::blue);
+        p.setWidth(5);
+        painter->setPen(p);
+    }
     if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor != QColor(Qt::transparent)) {
         painter->fillRect(option.rect, goToMessageBackgroundColor);
     } else if (message->isEditingMode()) {
