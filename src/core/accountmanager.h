@@ -127,6 +127,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotSwitchToAccountAndRoomName(const QString &accountName, const QByteArray &roomId, const QString &channelType);
     LIBRUQOLACORE_NO_EXPORT void changeEnableState(RocketChatAccount *account, bool enabled);
     LIBRUQOLACORE_NO_EXPORT void disconnectAccount(RocketChatAccount *account);
+    LIBRUQOLACORE_NO_EXPORT void slotAboutToSynthesizeChanged(qsizetype previousId, qsizetype currentId);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool needToHandleDataMigration() const;
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;

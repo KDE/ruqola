@@ -17,6 +17,7 @@
 #include "ruqola_debug.h"
 #if HAVE_TEXT_TO_SPEECH
 #include "texttospeech/texttospeechenqueuemanager.h"
+// TODO #include <TextEditTextToSpeech/TextToSpeech>
 #endif
 
 #include "ruqola.h"
@@ -60,6 +61,14 @@ AccountManager::AccountManager(QObject *parent)
     TextEmoticonsCore::UnicodeEmoticonManager::self(u":/emoji_ruqola.json"_s);
     loadAccount();
     connect(this, &AccountManager::activitiesChanged, mRocketChatAccountProxyModel, &RocketChatAccountFilterProxyModel::slotActivitiesChanged);
+#if HAVE_TEXT_TO_SPEECH
+#if 0 // TODO
+    connect(TextEditTextToSpeech::TextToSpeech::self(),
+            &TextEditTextToSpeech::TextToSpeech::aboutToSynthesize,
+            this,
+            &AccountManager::slotAboutToSynthesizeChanged);
+#endif
+#endif
 }
 
 AccountManager::~AccountManager() = default;
@@ -165,6 +174,44 @@ TextToSpeechEnqueueManager *AccountManager::textToSpeechEnqueueManager() const
     return mTextToSpeechEnqueueManager;
 }
 #endif
+
+void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetype currentId)
+{
+    // qDebug() << " previousId " << previousId << " currentId " << currentId;
+#if HAVE_TEXT_TO_SPEECH
+    if (previousId != -1) {
+        const TextToSpeechEnqueueInfo info = mTextToSpeechEnqueueManager->value(previousId);
+        if (info.isValid()) {
+#if 0
+            auto messagesModel = messagesModelFromChatId(info.chatId());
+            if (messagesModel) {
+                messagesModel->changeTextToSpeechInProgress(info.messageId(), false);
+            } else {
+                qCWarning(RUQOLA_LOG) << "Impossible to find model for " << info.chatId();
+            }
+#endif
+        }
+        // qDebug() << " enqueue list " << mTextAutoGenerateTextToSpeechEnqueueManager->enqueueList() << "previousId " << previousId;
+    }
+    if (currentId != -1) {
+        const TextToSpeechEnqueueInfo info = mTextToSpeechEnqueueManager->value(currentId);
+        if (info.isValid()) {
+#if 0
+            auto messagesModel = messagesModelFromChatId(info.chatId());
+            if (messagesModel) {
+                messagesModel->changeTextToSpeechInProgress(info.messageId(), true);
+            } else {
+                qCWarning(RUQOLA_LOG) << "Impossible to find model for " << info.chatId();
+            }
+#endif
+            // qDebug() << " enqueue list " << mTextAutoGenerateTextToSpeechEnqueueManager->enqueueList() << "currentId " << currentId;
+        }
+    } else {
+        mTextToSpeechEnqueueManager->clear();
+        // qDebug() << mTextAutoGenerateTextToSpeechEnqueueManager->enqueueList();
+    }
+#endif
+}
 
 void AccountManager::loadAccount()
 {
