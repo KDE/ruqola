@@ -101,6 +101,10 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     connect(mMessageListDelegate, &MessageListDelegate::replyToThread, this, &MessageListView::replyInThreadRequested);
     connect(this, &MessageListView::needToClearSizeHintCache, mMessageListDelegate, &MessageListDelegate::clearSizeHintCache);
     connect(mMessageListDelegate, &MessageListDelegate::translateMessage, this, &MessageListView::slotTranslateMessage);
+#if HAVE_TEXT_TO_SPEECH
+    connect(mMessageListDelegate, &MessageListDelegate::textToSpeech, this, &MessageListView::slotTextToSpeech);
+    connect(mMessageListDelegate, &MessageListDelegate::stopTextToSpeech, this, &MessageListView::slotStopTextToSpeech);
+#endif
 }
 
 MessageListView::~MessageListView() = default;
@@ -721,16 +725,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         addTextPlugins(&menu, mMessageListDelegate->selectedText());
     }
 
-#if HAVE_TEXT_TO_SPEECH
-    if (!isVideoConferenceMessage && RuqolaGlobalConfig::self()->enableTextToSpeech()) {
-        createSeparator(menu);
-        auto speakAction = menu.addAction(QIcon::fromTheme(u"text-speak-symbolic"_s), i18nc("@action", "Speak Text"));
-        connect(speakAction, &QAction::triggered, this, [this, index]() {
-            slotTextToSpeech(index);
-        });
-    }
-#endif
-
     if (mMode != Mode::Moderation && isNotOwnerOfMessage) {
         createSeparator(menu);
         auto reportMessageAction = new QAction(QIcon::fromTheme(u"messagebox_warning"_s), i18nc("@action", "Report Message"), &menu);
@@ -970,8 +964,16 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
     }
 }
 
+void MessageListView::slotStopTextToSpeech(const QModelIndex &index)
+{
+    // TODO
+}
+
 void MessageListView::slotTextToSpeech(const QModelIndex &index)
 {
+    // TODO if (!isVideoConferenceMessage && RuqolaGlobalConfig::self()->enableTextToSpeech()) {
+#if HAVE_TEXT_TO_SPEECH
+    // TODO add in managertexttospeech
     QString message = mMessageListDelegate->selectedText();
     if (message.isEmpty()) {
         message = index.data(MessagesModel::OriginalMessage).toString();
@@ -979,6 +981,7 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
     if (!message.isEmpty()) {
         Q_EMIT textToSpeech(message);
     }
+#endif
 }
 
 void MessageListView::slotReportMessage(const QModelIndex &index)
