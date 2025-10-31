@@ -15,6 +15,9 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_debug.h"
+#if HAVE_TEXT_TO_SPEECH
+#include "texttospeech/texttospeechenqueuemanager.h"
+#endif
 
 #include "ruqola.h"
 #include "ruqola_sound_debug.h"
@@ -44,6 +47,9 @@ AccountManager::AccountManager(QObject *parent)
     , mRocketChatAccountProxyModel(new RocketChatAccountFilterProxyModel(this))
 #if HAVE_ACTIVITY_SUPPORT
     , mActivitiesManager(new ActivitiesManager(this))
+#endif
+#if HAVE_TEXT_TO_SPEECH
+    , mTextToSpeechEnqueueManager(new TextToSpeechEnqueueManager(this))
 #endif
 {
 #if HAVE_ACTIVITY_SUPPORT

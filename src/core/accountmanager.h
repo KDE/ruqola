@@ -20,6 +20,9 @@ class ActivitiesManager;
 #endif
 class RocketChatAccountModel;
 class RocketChatAccountFilterProxyModel;
+#if HAVE_TEXT_TO_SPEECH
+class TextToSpeechEnqueueManager;
+#endif
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
@@ -126,6 +129,9 @@ private:
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
 #if HAVE_ACTIVITY_SUPPORT
     ActivitiesManager *const mActivitiesManager;
+#endif
+#if HAVE_TEXT_TO_SPEECH
+    TextToSpeechEnqueueManager *const mTextToSpeechEnqueueManager;
 #endif
 };
 Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_RELOCATABLE_TYPE);
