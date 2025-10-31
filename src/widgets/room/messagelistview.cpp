@@ -66,9 +66,6 @@
 #include "translatetext/translatorenginemanager.h"
 #include <TextTranslator/TranslatorMenu>
 #endif
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
-#include <TextEditTextToSpeech/TextToSpeech>
-#endif
 #include <TextEmoticonsWidgets/EmoticonWidgetAction>
 
 using namespace Qt::Literals::StringLiterals;
@@ -967,13 +964,6 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start deleteMessage job";
         }
     }
-}
-
-void MessageListView::slotStopTextToSpeech([[maybe_unused]] const QModelIndex &index)
-{
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
-    TextEditTextToSpeech::TextToSpeech::self()->stop();
-#endif
 }
 
 void MessageListView::slotTextToSpeech(const QModelIndex &index)

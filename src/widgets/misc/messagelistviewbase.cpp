@@ -5,8 +5,7 @@
 */
 
 #include "messagelistviewbase.h"
-using namespace Qt::Literals::StringLiterals;
-
+#include "config-ruqola.h"
 #include "model/messagesmodel.h"
 #include "room/plugins/plugintext.h"
 #include "room/plugins/plugintextinterface.h"
@@ -16,7 +15,11 @@ using namespace Qt::Literals::StringLiterals;
 #include <QClipboard>
 #include <QMouseEvent>
 #include <QScrollBar>
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
+#include <TextEditTextToSpeech/TextToSpeech>
+#endif
 
+using namespace Qt::Literals::StringLiterals;
 MessageListViewBase::MessageListViewBase(QWidget *parent)
     : QListView(parent)
 {
@@ -63,6 +66,13 @@ void MessageListViewBase::resizeEvent(QResizeEvent *ev)
     maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
     updateVerticalPageStep();
     Q_EMIT needToClearSizeHintCache();
+}
+
+void MessageListViewBase::slotStopTextToSpeech([[maybe_unused]] const QModelIndex &index)
+{
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
+    TextEditTextToSpeech::TextToSpeech::self()->stop();
+#endif
 }
 
 void MessageListViewBase::checkIfAtBottom()

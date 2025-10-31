@@ -73,7 +73,6 @@ Q_SIGNALS:
     void uiInteractionRequested(const QJsonObject &obj);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotStopTextToSpeech(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotEditMessage(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteMessage(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReportMessage(const QModelIndex &index);
