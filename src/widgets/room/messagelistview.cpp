@@ -36,12 +36,15 @@
 #include "ruqolawidgets_debug.h"
 #include "selectedmessagebackgroundanimation.h"
 #include "subscriptions/markroomasunreadjob.h"
+#include "texttospeech/texttospeechenqueueinfo.h"
+#include "texttospeech/texttospeechenqueuemanager.h"
 #include "threadwidget/threadmessagedialog.h"
 
 #include "actionbuttons/actionbutton.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <textautogeneratetext/textautogeneratemanager.h>
 #if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
 #include <TextUtils/TextUtilsBlockCodeManager>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
@@ -977,7 +980,12 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
 {
     // TODO if (!isVideoConferenceMessage && RuqolaGlobalConfig::self()->enableTextToSpeech()) {
 #if HAVE_TEXT_TO_SPEECH
-    // TODO add in managertexttospeech
+    const QString accountName = mCurrentRocketChatAccount->accountName();
+    TextToSpeechEnqueueInfo info;
+    info.setAccountName(accountName);
+    info.setMessageId(index.data(MessagesModel::MessageId).toByteArray());
+    info.setRoomId(mRoom->roomId());
+    Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
     QString message = mMessageListDelegate->selectedText();
     if (message.isEmpty()) {
         message = index.data(MessagesModel::OriginalMessage).toString();
