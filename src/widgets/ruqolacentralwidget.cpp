@@ -48,7 +48,6 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
             if (hasNewFeature) {
 #if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
                 auto whatsNewMessageWidget = new TextAddonsWidgets::WhatsNewMessageWidget(this);
-                WhatsNewTranslations translations;
                 whatsNewMessageWidget->setWhatsNewInfos(translations.createWhatsNewInfo());
 #else
                 auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
