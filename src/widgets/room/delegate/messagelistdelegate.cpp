@@ -115,6 +115,7 @@ void MessageListDelegate::slotUpdateColors()
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
     mHoverHightlightColor = scheme.background(KColorScheme::AlternateBackground).color();
     mTranslatedMessageColor = scheme.background(KColorScheme::ActiveBackground).color();
+    mTextToSpeechInProgress = scheme.background(KColorScheme::PositiveBackground).color();
     Q_EMIT updateView();
 }
 
@@ -505,14 +506,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (it != mIndexBackgroundColorList.cend()) {
         goToMessageBackgroundColor = it->color;
     }
-    // TODO
     if (message->textToSpeechInProgress()) {
-        QPen p;
-        p.setColor(Qt::blue);
-        p.setWidth(5);
-        painter->setPen(p);
-    }
-    if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor != QColor(Qt::transparent)) {
+        painter->fillRect(option.rect, mTextToSpeechInProgress);
+    } else if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor != QColor(Qt::transparent)) {
         painter->fillRect(option.rect, goToMessageBackgroundColor);
     } else if (message->isEditingMode()) {
         painter->fillRect(option.rect, mEditColorMode);

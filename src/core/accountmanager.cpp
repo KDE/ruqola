@@ -175,10 +175,11 @@ TextToSpeechEnqueueManager *AccountManager::textToSpeechEnqueueManager() const
 
 void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetype currentId)
 {
-    // qDebug() << " previousId " << previousId << " currentId " << currentId;
+    qDebug() << " previousId " << previousId << " currentId " << currentId;
 #if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     if (previousId != -1) {
         const TextToSpeechEnqueueInfo info = mTextToSpeechEnqueueManager->value(previousId);
+        qDebug() << " previous info " << info;
         if (info.isValid()) {
             RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName());
             if (account) {
@@ -189,6 +190,7 @@ void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetyp
     }
     if (currentId != -1) {
         const TextToSpeechEnqueueInfo info = mTextToSpeechEnqueueManager->value(currentId);
+        qDebug() << " current info " << info;
         if (info.isValid()) {
             RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName());
             if (account) {
