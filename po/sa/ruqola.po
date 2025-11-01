@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 00:42+0000\n"
+"POT-Creation-Date: 2025-11-01 00:46+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -175,13 +175,13 @@ msgstr "नवीनं विशेषता"
 msgid "The following accounts are available:"
 msgstr "निम्नलिखितलेखाः उपलभ्यन्ते-"
 
-#: core/accountmanager.cpp:232
+#: core/accountmanager.cpp:284
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "अमान्य टोकन"
 
-#: core/accountmanager.cpp:233
+#: core/accountmanager.cpp:285
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -3399,7 +3399,7 @@ msgstr "सर्वाणि प्रतिवेदनानि निरस�
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:335
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
@@ -3410,7 +3410,7 @@ msgstr "प्रतिलिङ्कं लिङ्कं कुर्वन�
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
-#: widgets/room/messagelistview.cpp:331
+#: widgets/room/messagelistview.cpp:337
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3420,7 +3420,6 @@ msgstr "सन्देशं प्रतिलिपितु"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
 #: widgets/discussions/discussionlistview.cpp:71
 #: widgets/notificationhistory/notificationhistorylistview.cpp:102
-#: widgets/room/messagelistview.cpp:727
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
 #, kde-format
 msgctxt "@action"
@@ -3432,7 +3431,7 @@ msgstr "पाठं वदतु"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/room/messagelistview.cpp:362
+#: widgets/room/messagelistview.cpp:368
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7371,7 +7370,7 @@ msgid "Mark as Unread"
 msgstr "अपठितम् इति चिह्नं कुर्वन्तु"
 
 #: widgets/channellist/channellistview.cpp:133
-#: widgets/room/messagelistview.cpp:349
+#: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -10125,7 +10124,7 @@ msgid "Clear"
 msgstr "स्पष्टः"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
-#: widgets/room/messagelistview.cpp:709
+#: widgets/room/messagelistview.cpp:715
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10396,80 +10395,94 @@ msgstr "आबन्धम्"
 msgid "Link Preview"
 msgstr "लिङ्क पूर्वावलोकन"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:414
+#: widgets/room/delegate/messagelistdelegate.cpp:416
 #, kde-format
 msgid "User Info"
 msgstr "उपयोक्तृसूचना"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:424
-#: widgets/room/messagelistview.cpp:457
+#: widgets/room/delegate/messagelistdelegate.cpp:426
+#: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "निजी वार्तालापं आरभत"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:564 widgets/room/messagelistview.cpp:622
+#: widgets/room/delegate/messagelistdelegate.cpp:442
+#: widgets/room/messagelistview.cpp:570 widgets/room/messagelistview.cpp:628
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "मूलसन्देशं दर्शयतु"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:564 widgets/room/messagelistview.cpp:622
+#: widgets/room/delegate/messagelistdelegate.cpp:442
+#: widgets/room/messagelistview.cpp:570 widgets/room/messagelistview.cpp:628
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "सन्देश का अनुवाद करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:668
+#: widgets/room/delegate/messagelistdelegate.cpp:672
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "१ उत्तरम्"
 msgstr[1] "%1 उत्तरं ददाति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:678
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "१ सन्देशः"
 msgstr[1] "%1 सन्देशाः"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:678
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "No message yet"
 msgstr "अद्यापि कोऽपि सन्देशः नास्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:968
+#: widgets/room/delegate/messagelistdelegate.cpp:986
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "अनुसरण"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:972
+#: widgets/room/delegate/messagelistdelegate.cpp:990
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "सन्देशः पिन कृतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:976
+#: widgets/room/delegate/messagelistdelegate.cpp:994
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "सन्देशः अभिनीतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:980
+#: widgets/room/delegate/messagelistdelegate.cpp:998
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:984
+#: widgets/room/delegate/messagelistdelegate.cpp:1002
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "प्रतिक्रियां योजयन्तु"
+
+#: widgets/room/delegate/messagelistdelegate.cpp:1008
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Stop"
+msgstr ""
+
+#: widgets/room/delegate/messagelistdelegate.cpp:1008
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Speak Text"
+msgctxt "@info:tooltip"
+msgid "Speak Text"
+msgstr "पाठं वदतु"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
 #, fuzzy, kde-format
@@ -10590,142 +10603,142 @@ msgstr "सञ्चिका अपलोड्"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "सर्वरः एतां सञ्चिकां न अधिकृतयति (अवैधं mimetype)"
 
-#: widgets/room/messagelistview.cpp:128
+#: widgets/room/messagelistview.cpp:134
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "भवन्तः नूतनं प्रत्यक्षसन्देशं सम्मिलितवन्तः"
 
-#: widgets/room/messagelistview.cpp:130
+#: widgets/room/messagelistview.cpp:136
 #, kde-format
 msgid "Start of conversation"
 msgstr "संभाषणस्य आरम्भः"
 
-#: widgets/room/messagelistview.cpp:340
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "अनपिन सन्देश"
 
-#: widgets/room/messagelistview.cpp:340
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "पिन सन्देश"
 
-#: widgets/room/messagelistview.cpp:349
+#: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Favourite इति निष्कासयन्तु"
 
-#: widgets/room/messagelistview.cpp:356
+#: widgets/room/messagelistview.cpp:362
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "लुप्"
 
-#: widgets/room/messagelistview.cpp:369
+#: widgets/room/messagelistview.cpp:375
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "सन्देशं अपठितं इति चिह्नं कुर्वन्तु"
 
-#: widgets/room/messagelistview.cpp:374
+#: widgets/room/messagelistview.cpp:380
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "पूर्णसूत्रं दर्शयतु"
 
-#: widgets/room/messagelistview.cpp:379
+#: widgets/room/messagelistview.cpp:385
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "सम्पादन"
 
-#: widgets/room/messagelistview.cpp:384
+#: widgets/room/messagelistview.cpp:390
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "उद्धरण"
 
-#: widgets/room/messagelistview.cpp:389
+#: widgets/room/messagelistview.cpp:395
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "सन्देशस्य लिङ्कं प्रतिलिख्यताम्"
 
-#: widgets/room/messagelistview.cpp:394
+#: widgets/room/messagelistview.cpp:400
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "अग्रे सन्देशः"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "अनफॉलो सन्देश"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "अनुसरणं कुर्वन्तु सन्देशम्"
 
-#: widgets/room/messagelistview.cpp:425
+#: widgets/room/messagelistview.cpp:431
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL प्रतिलिपिं कुर्वन्तु"
 
-#: widgets/room/messagelistview.cpp:448 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:454 widgets/room/usersinroommenu.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "उपयोक्तृसूचना"
 
-#: widgets/room/messagelistview.cpp:494
+#: widgets/room/messagelistview.cpp:500
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "चर्चां आरभत"
 
-#: widgets/room/messagelistview.cpp:500
+#: widgets/room/messagelistview.cpp:506
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
-#: widgets/room/messagelistview.cpp:631
+#: widgets/room/messagelistview.cpp:637
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "प्रतिवेदनानि पश्यन्तु"
 
-#: widgets/room/messagelistview.cpp:654
+#: widgets/room/messagelistview.cpp:660
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "प्रतिवेदनानि निरस्तं कुर्वन्तु"
 
-#: widgets/room/messagelistview.cpp:736
+#: widgets/room/messagelistview.cpp:732
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "रिपोर्ट् सन्देशः"
 
-#: widgets/room/messagelistview.cpp:957
+#: widgets/room/messagelistview.cpp:953
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "किं भवान् एतत् सन्देशं विलोपयितुम् इच्छति ?"
 
-#: widgets/room/messagelistview.cpp:958
+#: widgets/room/messagelistview.cpp:954
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "सन्देशं विलोपयन्तु"
 
-#: widgets/room/messagelistview.cpp:1135
+#: widgets/room/messagelistview.cpp:1142
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11701,6 +11714,10 @@ msgstr "%2 मध्ये किं नवीनम् अस्ति । %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+msgid "Improve Text To Speech user interface."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37

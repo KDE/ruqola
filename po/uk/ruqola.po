@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 00:42+0000\n"
+"POT-Creation-Date: 2025-11-01 00:46+0000\n"
 "PO-Revision-Date: 2025-10-09 18:08+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -177,12 +177,12 @@ msgstr "Нова можливість"
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
 
-#: core/accountmanager.cpp:232
+#: core/accountmanager.cpp:284
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Некоректний жетон запрошення"
 
-#: core/accountmanager.cpp:233
+#: core/accountmanager.cpp:285
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Жетон запрошення є некоректним. Створення облікового запису скасовано."
@@ -3435,7 +3435,7 @@ msgstr "Відкинути усі скарги"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:335
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3444,7 +3444,7 @@ msgstr "Копіювати позначене"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
-#: widgets/room/messagelistview.cpp:331
+#: widgets/room/messagelistview.cpp:337
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3454,7 +3454,6 @@ msgstr "Копіювати повідомлення"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
 #: widgets/discussions/discussionlistview.cpp:71
 #: widgets/notificationhistory/notificationhistorylistview.cpp:102
-#: widgets/room/messagelistview.cpp:727
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
 #, kde-format
 msgctxt "@action"
@@ -3466,7 +3465,7 @@ msgstr "Декламувати текст"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/room/messagelistview.cpp:362
+#: widgets/room/messagelistview.cpp:368
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7456,7 +7455,7 @@ msgid "Mark as Unread"
 msgstr "Позначити як непрочитане"
 
 #: widgets/channellist/channellistview.cpp:133
-#: widgets/room/messagelistview.cpp:349
+#: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -10229,7 +10228,7 @@ msgid "Clear"
 msgstr "Спорожнити"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
-#: widgets/room/messagelistview.cpp:709
+#: widgets/room/messagelistview.cpp:715
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10499,33 +10498,33 @@ msgstr "Приєднатися"
 msgid "Link Preview"
 msgstr "Перегляд посилань"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:414
+#: widgets/room/delegate/messagelistdelegate.cpp:416
 #, kde-format
 msgid "User Info"
 msgstr "Інформація про користувача"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:424
-#: widgets/room/messagelistview.cpp:457
+#: widgets/room/delegate/messagelistdelegate.cpp:426
+#: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Почати конфіденційне спілкування"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:564 widgets/room/messagelistview.cpp:622
+#: widgets/room/delegate/messagelistdelegate.cpp:442
+#: widgets/room/messagelistview.cpp:570 widgets/room/messagelistview.cpp:628
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Показати початкове повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:564 widgets/room/messagelistview.cpp:622
+#: widgets/room/delegate/messagelistdelegate.cpp:442
+#: widgets/room/messagelistview.cpp:570 widgets/room/messagelistview.cpp:628
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Переклад повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:668
+#: widgets/room/delegate/messagelistdelegate.cpp:672
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10534,7 +10533,7 @@ msgstr[1] "%1 відповіді"
 msgstr[2] "%1 відповідей"
 msgstr[3] "%1 відповідь"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:678
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10543,40 +10542,55 @@ msgstr[1] "%1 повідомлення"
 msgstr[2] "%1 повідомлень"
 msgstr[3] "%1 повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:678
+#: widgets/room/delegate/messagelistdelegate.cpp:682
 #, kde-format
 msgid "No message yet"
 msgstr "Ще немає жодних повідомлень"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:968
+#: widgets/room/delegate/messagelistdelegate.cpp:986
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Стеження"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:972
+#: widgets/room/delegate/messagelistdelegate.cpp:990
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Повідомлення пришпилено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:976
+#: widgets/room/delegate/messagelistdelegate.cpp:994
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:980
+#: widgets/room/delegate/messagelistdelegate.cpp:998
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:984
+#: widgets/room/delegate/messagelistdelegate.cpp:1002
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Додати реакцію"
+
+#: widgets/room/delegate/messagelistdelegate.cpp:1008
+#, fuzzy, kde-format
+#| msgid "Stop"
+msgctxt "@info:tooltip"
+msgid "Stop"
+msgstr "Зупинити"
+
+#: widgets/room/delegate/messagelistdelegate.cpp:1008
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Speak Text"
+msgctxt "@info:tooltip"
+msgid "Speak Text"
+msgstr "Декламувати текст"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
 #, kde-format
@@ -10695,142 +10709,142 @@ msgstr "Вивантаження файла"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME)"
 
-#: widgets/room/messagelistview.cpp:128
+#: widgets/room/messagelistview.cpp:134
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Ви долучилися до нового безпосереднього обміну повідомленнями"
 
-#: widgets/room/messagelistview.cpp:130
+#: widgets/room/messagelistview.cpp:136
 #, kde-format
 msgid "Start of conversation"
 msgstr "Початок спілкування"
 
-#: widgets/room/messagelistview.cpp:340
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Відшпилити повідомлення"
 
-#: widgets/room/messagelistview.cpp:340
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Пришпилити повідомлення"
 
-#: widgets/room/messagelistview.cpp:349
+#: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Вилучити з улюблених"
 
-#: widgets/room/messagelistview.cpp:356
+#: widgets/room/messagelistview.cpp:362
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Вилучити"
 
-#: widgets/room/messagelistview.cpp:369
+#: widgets/room/messagelistview.cpp:375
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Позначити повідомлення як непрочитане"
 
-#: widgets/room/messagelistview.cpp:374
+#: widgets/room/messagelistview.cpp:380
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Показати усю гілку"
 
-#: widgets/room/messagelistview.cpp:379
+#: widgets/room/messagelistview.cpp:385
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Змінити"
 
-#: widgets/room/messagelistview.cpp:384
+#: widgets/room/messagelistview.cpp:390
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Цитувати"
 
-#: widgets/room/messagelistview.cpp:389
+#: widgets/room/messagelistview.cpp:395
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Копіювати посилання на повідомлення"
 
-#: widgets/room/messagelistview.cpp:394
+#: widgets/room/messagelistview.cpp:400
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Переспрямувати повідомлення"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Не стежити за повідомленням"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Стежити за повідомленням"
 
-#: widgets/room/messagelistview.cpp:425
+#: widgets/room/messagelistview.cpp:431
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Копіювати адресу"
 
-#: widgets/room/messagelistview.cpp:448 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:454 widgets/room/usersinroommenu.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Інформація про користувача"
 
-#: widgets/room/messagelistview.cpp:494
+#: widgets/room/messagelistview.cpp:500
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Розпочати обговорення"
 
-#: widgets/room/messagelistview.cpp:500
+#: widgets/room/messagelistview.cpp:506
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
 
-#: widgets/room/messagelistview.cpp:631
+#: widgets/room/messagelistview.cpp:637
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Переглянути скарги"
 
-#: widgets/room/messagelistview.cpp:654
+#: widgets/room/messagelistview.cpp:660
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Відкинути скарги"
 
-#: widgets/room/messagelistview.cpp:736
+#: widgets/room/messagelistview.cpp:732
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: widgets/room/messagelistview.cpp:957
+#: widgets/room/messagelistview.cpp:953
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Хочете вилучити це повідомлення?"
 
-#: widgets/room/messagelistview.cpp:958
+#: widgets/room/messagelistview.cpp:954
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Вилучення повідомлення"
 
-#: widgets/room/messagelistview.cpp:1135
+#: widgets/room/messagelistview.cpp:1142
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11801,6 +11815,12 @@ msgstr "Що нового у %2. %1"
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
 msgstr "Полегшено копіювання блоків коду."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+#, fuzzy
+#| msgid "Improve list of user in room."
+msgid "Improve Text To Speech user interface."
+msgstr "Удосконалено список користувачів у кімнаті."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
@@ -13149,9 +13169,6 @@ msgstr "Виправлення деяких вад:"
 
 #~ msgid "Speech text"
 #~ msgstr "Озвучити текст"
-
-#~ msgid "Stop"
-#~ msgstr "Зупинити"
 
 #~ msgid "Pause"
 #~ msgstr "Призупинити"
