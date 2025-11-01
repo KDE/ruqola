@@ -107,7 +107,7 @@ public:
 
     void addInvitedAccount(const AccountManagerInfo &info);
 
-#if HAVE_TEXT_TO_SPEECH
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     [[nodiscard]] TextToSpeechEnqueueManager *textToSpeechEnqueueManager() const;
 #endif
 Q_SIGNALS:
@@ -135,7 +135,7 @@ private:
 #if HAVE_ACTIVITY_SUPPORT
     ActivitiesManager *const mActivitiesManager;
 #endif
-#if HAVE_TEXT_TO_SPEECH
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     TextToSpeechEnqueueManager *const mTextToSpeechEnqueueManager;
 #endif
 };

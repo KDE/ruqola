@@ -49,7 +49,7 @@ AccountManager::AccountManager(QObject *parent)
 #if HAVE_ACTIVITY_SUPPORT
     , mActivitiesManager(new ActivitiesManager(this))
 #endif
-#if HAVE_TEXT_TO_SPEECH
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     , mTextToSpeechEnqueueManager(new TextToSpeechEnqueueManager(this))
 #endif
 {
@@ -166,7 +166,7 @@ bool AccountManager::needToHandleDataMigration() const
     return needMigration;
 }
 
-#if HAVE_TEXT_TO_SPEECH
+#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
 TextToSpeechEnqueueManager *AccountManager::textToSpeechEnqueueManager() const
 {
     return mTextToSpeechEnqueueManager;
