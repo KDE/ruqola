@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-01 00:46+0000\n"
-"PO-Revision-Date: 2025-10-11 18:10+0200\n"
+"PO-Revision-Date: 2025-11-01 17:05+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -10511,16 +10511,13 @@ msgid "Add reaction"
 msgstr "Reactie toevoegen"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Stoppen"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Tekst uitspreken"
@@ -11746,10 +11743,8 @@ msgid "Copy block code more easily."
 msgstr "Blokcode gemakkelijker kopiëren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Lijst van gebruikers in room."
+msgstr "Verbeter gebruikersinterface van tekst-naar-spraak."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format

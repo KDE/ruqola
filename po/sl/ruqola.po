@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-01 00:46+0000\n"
-"PO-Revision-Date: 2025-10-10 01:05+0200\n"
+"PO-Revision-Date: 2025-11-01 06:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -10500,16 +10500,13 @@ msgid "Add reaction"
 msgstr "Dodaj reakcijo"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr "Ustavi"
+msgstr "Zaustavi"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Govori besedilo"
@@ -11736,10 +11733,8 @@ msgid "Copy block code more easily."
 msgstr "Lažje kopiranje bloka kode."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Izboljšaj seznam uporabnikov v sobi."
+msgstr "Izboljšaj besedilo vmesniku za besedilo v govor."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format

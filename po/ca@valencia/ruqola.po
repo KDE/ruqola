@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-01 00:46+0000\n"
-"PO-Revision-Date: 2025-10-10 10:06+0200\n"
+"PO-Revision-Date: 2025-11-01 09:30+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -4586,7 +4586,7 @@ msgstr "IRC"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Webdav"
-msgstr "Webdav"
+msgstr "WebDAV"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #, kde-format
@@ -7106,7 +7106,7 @@ msgstr "Secret d'aplicació"
 #, kde-format
 msgctxt "@option:check"
 msgid "Webdav Integration Enabled"
-msgstr "Integració de Webdav activada"
+msgstr "Integració de WebDAV activada"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
 #, kde-format
@@ -10520,12 +10520,10 @@ msgstr "Afig una reacció"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "Para"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Llig el text"
@@ -10534,7 +10532,7 @@ msgstr "Llig el text"
 #, kde-format
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "Afig un servidor WebDav"
+msgstr "Afig un servidor WebDAV"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, kde-format
@@ -11751,10 +11749,8 @@ msgid "Copy block code more easily."
 msgstr "Copia blocs de codi amb més facilitat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Millora la llista d'usuaris de la sala."
+msgstr "Millora la interfície d'usuari del text a veu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
@@ -12297,7 +12293,7 @@ msgstr "Afig l'extensió de botó de línia de missatge."
 #: widgets/whatsnew/whatsnewtranslations.cpp:215
 #, kde-format
 msgid "Allow to Add WebDav Server."
-msgstr "Permet afegir un servidor WebDav."
+msgstr "Permet afegir un servidor WebDAV."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:216
 #, kde-format

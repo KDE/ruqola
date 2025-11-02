@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-01 00:46+0000\n"
-"PO-Revision-Date: 2025-10-10 10:06+0200\n"
+"PO-Revision-Date: 2025-11-01 09:30+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -10521,12 +10521,10 @@ msgstr "Afegeix una reacció"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "Atura"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Pronuncia el text"
@@ -11753,10 +11751,8 @@ msgid "Copy block code more easily."
 msgstr "Copia blocs de codi més fàcilment."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Millora la llista d'usuaris de la sala."
+msgstr "Millora la interfície d'usuari del text a veu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
