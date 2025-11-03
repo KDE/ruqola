@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-01 00:46+0000\n"
-"PO-Revision-Date: 2025-11-01 03:19+0100\n"
+"POT-Creation-Date: 2025-11-03 00:42+0000\n"
+"PO-Revision-Date: 2025-11-02 06:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -10712,7 +10712,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "შეტყობინების წაშლა"
 
-#: widgets/room/messagelistview.cpp:1142
+#: widgets/room/messagelistview.cpp:1147
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11684,7 +11684,7 @@ msgstr "დააკოპირეთ ბლოკის კოდი უფრ
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Improve Text To Speech user interface."
-msgstr "გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი"
+msgstr "გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format

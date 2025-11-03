@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-01 00:46+0000\n"
+"POT-Creation-Date: 2025-11-03 00:42+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -10742,7 +10742,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Forigi mesaĝon"
 
-#: widgets/room/messagelistview.cpp:1142
+#: widgets/room/messagelistview.cpp:1147
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"

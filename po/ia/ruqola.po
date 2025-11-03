@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-01 00:46+0000\n"
+"POT-Creation-Date: 2025-11-03 00:42+0000\n"
 "PO-Revision-Date: 2025-05-30 19:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -10575,7 +10575,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Dele Messages"
 
-#: widgets/room/messagelistview.cpp:1142
+#: widgets/room/messagelistview.cpp:1147
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"

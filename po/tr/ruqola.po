@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-01 00:46+0000\n"
-"PO-Revision-Date: 2025-10-10 23:00+0300\n"
+"POT-Creation-Date: 2025-11-03 00:42+0000\n"
+"PO-Revision-Date: 2025-11-02 22:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -10454,12 +10454,10 @@ msgstr "Tepki ekle"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "Durdur"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Metni Konuş"
@@ -10714,7 +10712,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "İleti Sil"
 
-#: widgets/room/messagelistview.cpp:1142
+#: widgets/room/messagelistview.cpp:1147
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11682,10 +11680,8 @@ msgid "Copy block code more easily."
 msgstr "Kod bloklarını daha kolay kopyala"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Odadaki kullanıcı listesini iyileştir"
+msgstr "Metin konuşma arayüzünü iyileştir"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format

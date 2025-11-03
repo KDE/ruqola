@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-01 00:46+0000\n"
+"POT-Creation-Date: 2025-11-03 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -11409,7 +11409,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Sõnumi kustutamine"
 
-#: widgets/room/messagelistview.cpp:1142
+#: widgets/room/messagelistview.cpp:1147
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title:window"
