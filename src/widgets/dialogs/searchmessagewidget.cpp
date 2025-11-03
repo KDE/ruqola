@@ -5,7 +5,8 @@
 */
 
 #include "searchmessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
+#include "ruqola.h"
+#include "texttospeech/texttospeechenqueuemanager.h"
 
 #include "chat/searchmessagejob.h"
 #include "connection.h"
@@ -29,6 +30,7 @@ using namespace Qt::Literals::StringLiterals;
 
 constexpr ushort numberOfElment = 20;
 
+using namespace Qt::Literals::StringLiterals;
 SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchMessageModel(new CommonMessagesModel(account, this))
@@ -73,7 +75,10 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
 #if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
-    connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+    connect(mResultListWidget, &MessageListView::textToSpeech, this, [this](const QString &str) {
+        Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insertDummyInfo();
+        mTextToSpeechWidget->enqueue(str);
+    });
 #else
     connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
