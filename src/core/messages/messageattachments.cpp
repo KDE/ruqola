@@ -13,7 +13,6 @@
 
 using namespace Qt::Literals::StringLiterals;
 MessageAttachments::MessageAttachments()
-
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageAttachments created " << this;
 }
@@ -71,25 +70,25 @@ QDebug operator<<(QDebug d, const MessageAttachments &t)
 QJsonArray MessageAttachments::serialize(const MessageAttachments &attachments)
 {
     QJsonArray array;
-    for (const auto &attachmentInfo : attachments.messageAttachments()) {
-        array.append(MessageAttachment::serialize(attachmentInfo));
+    for (const auto &att : attachments.messageAttachments()) {
+        array.append(MessageAttachment::serialize(att));
     }
     return array;
 }
 
 MessageAttachments *MessageAttachments::deserialize(const QJsonArray &attachmentsArray, const QByteArray &messageId)
 {
-    QList<MessageAttachment> attachmentInfo;
+    QList<MessageAttachment> attachmentList;
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
         MessageAttachment att = MessageAttachment::deserialize(attachment);
         att.setAttachmentId(MessageUtils::generateUniqueId(messageId, i));
         if (att.isValid()) {
-            attachmentInfo.append(std::move(att));
+            attachmentList.append(std::move(att));
         }
     }
     auto final = new MessageAttachments;
-    final->setMessageAttachments(attachmentInfo);
+    final->setMessageAttachments(attachmentList);
     return final;
 }
 
