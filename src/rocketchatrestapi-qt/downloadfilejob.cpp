@@ -79,8 +79,9 @@ QNetworkRequest DownloadFileJob::request() const
 {
     QNetworkRequest req(mUrl);
     addAuthRawHeader(req);
-    if (!mMimeType.isEmpty())
+    if (!mMimeType.isEmpty()) {
         req.setHeader(QNetworkRequest::ContentTypeHeader, mMimeType);
+    }
     req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
     return req;
