@@ -388,6 +388,8 @@ target_sources(
         rocketchatbackend.h
         rocketchatcache.cpp
         rocketchatcache.h
+        rocketchatcacheutils.h
+        rocketchatcacheutils.cpp
         rocketchatmessage.cpp
         rocketchatmessage.h
         roles/role.cpp
