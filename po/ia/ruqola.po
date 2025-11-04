@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-03 00:42+0000\n"
+"POT-Creation-Date: 2025-11-04 00:42+0000\n"
 "PO-Revision-Date: 2025-05-30 19:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3269,7 +3269,7 @@ msgid "Show Moderation Messages"
 msgstr "Monstra Messages de Moderation"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
-#: widgets/dialogs/searchmessagewidget.cpp:190
+#: widgets/dialogs/searchmessagewidget.cpp:195
 #: widgets/dialogs/showlistmessagebasewidget.cpp:108
 #: widgets/discussions/showdiscussionswidget.cpp:94
 #: widgets/room/commandpreviewwidget.cpp:142
@@ -3279,7 +3279,7 @@ msgid "Loading…"
 msgstr "Cargante..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
-#: widgets/dialogs/searchmessagewidget.cpp:194
+#: widgets/dialogs/searchmessagewidget.cpp:199
 #: widgets/dialogs/showlistmessagebasewidget.cpp:110
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
@@ -3287,7 +3287,7 @@ msgid "No Message found"
 msgstr "Necun message trovate."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
-#: widgets/dialogs/searchmessagewidget.cpp:200
+#: widgets/dialogs/searchmessagewidget.cpp:205
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -8578,13 +8578,13 @@ msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Cerca Messages…"
 
-#: widgets/dialogs/searchmessagewidget.cpp:49
+#: widgets/dialogs/searchmessagewidget.cpp:51
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Cerca Messages"
 
-#: widgets/dialogs/searchmessagewidget.cpp:52
+#: widgets/dialogs/searchmessagewidget.cpp:54
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"

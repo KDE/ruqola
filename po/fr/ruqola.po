@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-03 00:42+0000\n"
-"PO-Revision-Date: 2025-09-28 09:20+0200\n"
+"POT-Creation-Date: 2025-11-04 00:42+0000\n"
+"PO-Revision-Date: 2025-11-03 09:42+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -3283,7 +3283,7 @@ msgid "Show Moderation Messages"
 msgstr "Afficher les messages de modération"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
-#: widgets/dialogs/searchmessagewidget.cpp:190
+#: widgets/dialogs/searchmessagewidget.cpp:195
 #: widgets/dialogs/showlistmessagebasewidget.cpp:108
 #: widgets/discussions/showdiscussionswidget.cpp:94
 #: widgets/room/commandpreviewwidget.cpp:142
@@ -3293,7 +3293,7 @@ msgid "Loading…"
 msgstr "Chargement en cours..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
-#: widgets/dialogs/searchmessagewidget.cpp:194
+#: widgets/dialogs/searchmessagewidget.cpp:199
 #: widgets/dialogs/showlistmessagebasewidget.cpp:110
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
@@ -3301,7 +3301,7 @@ msgid "No Message found"
 msgstr "Aucun message trouvé"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
-#: widgets/dialogs/searchmessagewidget.cpp:200
+#: widgets/dialogs/searchmessagewidget.cpp:205
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -4932,7 +4932,7 @@ msgstr ""
 "Utilisez cette entrée « JSON » pour créer des attributs internes (clés) à "
 "partir d'attributs externes (valeur).\n"
 "Les noms d'attributs externes encadrés avec un caractère « % » seront "
-"interpolés dans les chaînes de valeurs. <br/>Exemple, { « courriel » : "
+"interpolés dans les chaines de valeurs. <br/>Exemple, { « courriel » : "
 "« %courriel% », « nom » : « %prénom%, %nom% »} \n"
 "La carte d'attributs est toujours interpolée. Dans « CAS 1.0 », seul "
 "l'attribut « Nom-utilisateur » est disponible. Les attributs internes "
@@ -5050,9 +5050,9 @@ msgid ""
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
 "[Attention ! ] Si l'option « Réponse directe » est activée, Rocket.Chat "
-"contrôlera la boîte de courriels configurée. \n"
+"contrôlera la boite de courriels configurée. \n"
 "Tous les courriels non lus sont chargés, marqués comme lus et traités. \n"
-"Cette option ne doit être activée que si la boîte aux lettres utilisée est "
+"Cette option ne doit être activée que si la boite aux lettres utilisée est "
 "destinée exclusivement pour accéder à Rocket.Chat \n"
 "et n'est pas lue / traitée « en parallèle » par des personnes réelles."
 
@@ -5502,7 +5502,7 @@ msgstr ""
 "Vérifie automatiquement l'existence de nouvelles mises à jour / de messages "
 "importants provenant des développeurs de Rocket.Chat et reçoit des "
 "notifications lorsqu'elles sont disponibles. \n"
-"La notification apparaît une fois par nouvelle version sous la forme d'une "
+"La notification apparait une fois par nouvelle version sous la forme d'une "
 "bannière cliquable et d'un message du robot « Rocket.Chat », \n"
 "tous deux visibles uniquement pour les administrateurs."
 
@@ -7774,7 +7774,7 @@ msgstr "Marquer le canal comme lu lors de l'écriture d'une réponse"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable system tray icon"
-msgstr "Activer l'icône de la boîte à miniatures"
+msgstr "Activer l'icône de la boite à miniatures"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
@@ -8012,9 +8012,7 @@ msgid "DataBase E2E"
 msgstr "Base de données « E2E »"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Copier"
@@ -8809,13 +8807,13 @@ msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Rechercher des messages..."
 
-#: widgets/dialogs/searchmessagewidget.cpp:49
+#: widgets/dialogs/searchmessagewidget.cpp:51
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Rechercher des messages"
 
-#: widgets/dialogs/searchmessagewidget.cpp:52
+#: widgets/dialogs/searchmessagewidget.cpp:54
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
@@ -10046,7 +10044,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
-"Période de temps jusqu'à une modification d'état avant de disparaître. La "
+"Période de temps jusqu'à une modification d'état avant de disparaitre. La "
 "valeur doit être en secondes."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
@@ -10477,18 +10475,15 @@ msgid "Save &As…"
 msgstr "Enregistrer &sous..."
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Impossible d'ouvrir un fichier"
+msgstr "Impossible d'ouvrir %1"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Erreur lors de l'enregistrement du fichier"
+msgstr "Erreur lors de l'ouverture du fichier"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
@@ -10583,16 +10578,13 @@ msgid "Add reaction"
 msgstr "Ajouter une réaction"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Arrêter"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Énoncer le texte"
@@ -11115,7 +11107,7 @@ msgstr "Utilisateurs"
 #: widgets/room/usersinroomflowwidget.cpp:137
 #, kde-format
 msgid "(Open External Dialog…)"
-msgstr "(Ouvrir une boîte de dialogue externe...)"
+msgstr "(Ouvrir une boite de dialogue externe...)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
@@ -11819,13 +11811,11 @@ msgstr "Quoi de neuf dans %2. %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Copiez le bloc de code plus facilement."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Améliorer la liste des utilisateurs dans le salon."
+msgstr "Améliorer l'interface utilisateur de la synthèse vocale."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
@@ -11841,7 +11831,7 @@ msgstr "Télécharger une icône de serveur à partir d'un serveur"
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
-"Afficher des informations d'erreur du serveur dans une boîte de dialogue "
+"Afficher des informations d'erreur du serveur dans une boite de dialogue "
 "spécifique"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:41
@@ -12145,14 +12135,14 @@ msgstr ""
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr ""
-"Correction de la traduction de messages dans la boîte de recherche de "
+"Correction de la traduction de messages dans la boite de recherche de "
 "messages."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
 msgid "Add delegate in search rooms in team dialog."
 msgstr ""
-"Ajouter un représentant pour les salons de recherche dans la boîte de "
+"Ajouter un représentant pour les salons de recherche dans la boite de "
 "dialogue d'équipe."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:142
@@ -12166,7 +12156,7 @@ msgstr ""
 #, kde-format
 msgid "Add restore button in administrator server settings dialog."
 msgstr ""
-"Ajouter un bouton de restauration dans la boîte de dialogue de configuration "
+"Ajouter un bouton de restauration dans la boite de dialogue de configuration "
 "pour le serveur d'administration."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:144
@@ -12280,7 +12270,7 @@ msgstr "Autoriser à rechercher des fils de discussions par non lu / suivant"
 #: widgets/whatsnew/whatsnewtranslations.cpp:179
 #, kde-format
 msgid "Show images from attachment dialog box"
-msgstr "Afficher les images à partir de la boîte de dialogue des pièce jointes"
+msgstr "Afficher les images à partir de la boite de dialogue des pièce jointes"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
@@ -12302,7 +12292,7 @@ msgstr "Déboguer : explorer la traduction à partir du serveur « RC »."
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
 "Mettre en œuvre la prise en charge de l'interface utilisateur du module "
-"externe (Créer une boîte de dialogue de configuration)."
+"externe (Créer une boite de dialogue de configuration)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
@@ -12369,7 +12359,7 @@ msgstr "Autoriser l'envoi de l'image."
 #, kde-format
 msgid "Add restore button in administration settings."
 msgstr ""
-"Ajouter un bouton « Restaurer » dans la boîte de dialogue de configuration."
+"Ajouter un bouton « Restaurer » dans la boite de dialogue de configuration."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:211
 #, kde-format
@@ -12431,7 +12421,7 @@ msgstr "Corriger l'affichage de l'utilisateur."
 #: widgets/whatsnew/whatsnewtranslations.cpp:225
 #, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Afficher le menu de traduction dans la boîte de dialogue des messages."
+msgstr "Afficher le menu de traduction dans la boite de dialogue des messages."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:226
 #, kde-format
@@ -12443,7 +12433,7 @@ msgstr "Ajouter la prise en charge des actions avec IA pour Rocket.Chat."
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
 "Boutons « Appliquer les corrections », « Restaurer », « Annuler » dans la "
-"boîte de dialogue de configuration."
+"boite de dialogue de configuration."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:228
 #, kde-format
@@ -12459,7 +12449,7 @@ msgstr "Correction de la langue d'extraction à partir du bloc de code"
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
-"Corrigez les informations sur les pièces jointes dans la boîte de dialogue "
+"Corrigez les informations sur les pièces jointes dans la boite de dialogue "
 "« Afficher le journal des canaux »."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:231
