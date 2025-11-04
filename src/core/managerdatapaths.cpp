@@ -5,11 +5,11 @@
 */
 
 #include "managerdatapaths.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QStandardPaths>
 
+using namespace Qt::Literals::StringLiterals;
 ManagerDataPaths::ManagerDataPaths()
 {
     initializePaths();
