@@ -14,4 +14,7 @@ class RocketChatCacheTest : public QObject
 public:
     explicit RocketChatCacheTest(QObject *parent = nullptr);
     ~RocketChatCacheTest() override = default;
+private Q_SLOTS:
+    void shouldGenerateFileCachePath();
+    void shouldGenerateFileCachePath_data();
 };
