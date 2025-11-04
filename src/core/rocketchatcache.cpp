@@ -9,6 +9,7 @@
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
+#include "rocketchatcacheutils.h"
 #include "ruqola_debug.h"
 #include <QDateTime>
 #include <QDir>
@@ -58,27 +59,12 @@ void RocketChatCache::setRestApiConnection(Connection *restApi)
 
 bool RocketChatCache::fileInCache(const QUrl &url)
 {
-    const QFileInfo f(fileCachePath(url));
-    return f.exists();
+    return QFileInfo::exists(fileCachePath(url));
 }
 
 QString RocketChatCache::fileCachePath(const QUrl &url, ManagerDataPaths::PathType type)
 {
-    QString cachePath = ManagerDataPaths::self()->path(type, mAccount->accountName());
-    QString relativePathInCache = url.path();
-    const QString host = url.host();
-    if (!host.isEmpty() && host != mAccountServerHost) {
-        relativePathInCache.prepend(host + u'/');
-    }
-    if (type == ManagerDataPaths::PathType::PreviewUrl) {
-        relativePathInCache = relativePathInCache.replace(u'/', u'_');
-    }
-    cachePath += u'/' + relativePathInCache;
-    if (url.hasQuery()) {
-        const QUrlQuery query(url);
-        cachePath += query.queryItemValue(u"etag"_s);
-    }
-    return cachePath;
+    return RocketChatCacheUtils::fileCachePath(url, type, mAccount->accountName(), mAccountServerHost);
 }
 
 void RocketChatCache::slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl)
