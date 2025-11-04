@@ -775,9 +775,6 @@ void MessageListView::addDebugMenu(QMenu &menu, const QModelIndex &index)
     }
     auto debugRoomAction = new QAction(u"Dump Room"_s, &menu); // Don't translate it.
     connect(debugRoomAction, &QAction::triggered, this, [this]() {
-        // Dump info about room => don't use qCDebug here.
-        qDebug() << " mRoom " << *mRoom;
-
         ShowDebugDialog d(this);
         d.setPlainText(QString::fromUtf8(Room::serialize(mRoom, false)));
         d.exec();
@@ -817,7 +814,7 @@ void MessageListView::slotDebugMessage(const QModelIndex &index)
 {
     // Show debug output.
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
-    qDebug() << " message " << *message << " MessageConvertedText " << index.data(MessagesModel::MessageConvertedText).toString();
+    // qDebug() << " message " << *message << " MessageConvertedText " << index.data(MessagesModel::MessageConvertedText).toString();
     ShowDebugDialog d(this);
     d.setPlainText(QString::fromUtf8(Message::serialize(*message, false)));
     d.exec();
