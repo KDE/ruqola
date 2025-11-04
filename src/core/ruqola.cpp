@@ -33,7 +33,6 @@ Ruqola::Ruqola(QObject *parent)
     , mManager(new TextAutoGenerateText::TextAutoGenerateManager(this))
 #endif
     , mCustomEmojiIconManager(new CustomEmojiIconManager(this))
-
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
     // Initialize paths
