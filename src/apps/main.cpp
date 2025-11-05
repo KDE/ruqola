@@ -37,7 +37,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <kdsingleapplication.h>
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS) && !defined(Q_OS_HAIKU)
 #include <private/qtx11extras_p.h>
 #endif
 #endif
@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
         QJsonObject obj;
         obj[QLatin1String("working_dir")] = QDir::currentPath();
         obj[QLatin1String("args")] = QJsonArray::fromStringList(app.arguments());
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS) && !defined(Q_OS_HAIKU)
         if (KWindowSystem::isPlatformWayland()) {
             obj[QLatin1String("xdg_activation_token")] = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
         } else if (KWindowSystem::isPlatformX11()) {
@@ -159,7 +159,7 @@ int main(int argc, char *argv[])
         QJsonDocument doc = QJsonDocument::fromJson(messageData);
         QJsonObject message = doc.object();
 
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS) && !defined(Q_OS_HAIKU)
         if (KWindowSystem::isPlatformWayland()) {
             qputenv("XDG_ACTIVATION_TOKEN", message[QLatin1String("xdg_activation_token")].toString().toUtf8());
         } else if (KWindowSystem::isPlatformX11()) {
