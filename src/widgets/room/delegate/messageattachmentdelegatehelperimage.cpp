@@ -192,7 +192,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
 
     layout.descriptionSize = documentDescriptionForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
 
-    if (previewImageUrl.isLocalFile()) {
+    if (!previewImageUrl.isEmpty() && previewImageUrl.isLocalFile()) {
         layout.imagePreviewPath = previewImageUrl.toLocalFile();
         layout.imageBigPath = msgAttach.link();
         layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePreviewPath);
