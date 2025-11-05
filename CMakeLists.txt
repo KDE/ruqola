@@ -288,10 +288,12 @@ if(UNIX AND NOT APPLE AND NOT HAIKU)
     set(USE_DBUS_DEFAULT ON)
 endif()
 
+if(NOT HAIKU)
 option(USE_DBUS "Build components using DBus" ${USE_DBUS_DEFAULT})
 if(USE_DBUS)
     set(WITH_DBUS TRUE)
     find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+endif()
 endif()
 
 find_package(KF6XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
