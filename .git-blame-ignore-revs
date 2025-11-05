@@ -11,3 +11,5 @@ ca38feaa6230169cf5f25940de61da179da310be
 1ddace8251cc8ced6a60601b564780478958cadb
 # Use string literals inline operators
 dde450ac0962cd2a8e32fc7f35e66b8ed0b7dde3
+# precommit CMakeList support
+802cf6419ac996116bad24ed6aa1ee8345794b65
