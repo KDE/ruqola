@@ -2,7 +2,12 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 add_executable(cmarktestgui)
-target_sources(cmarktestgui PRIVATE cmarktestgui.h cmarktestgui.cpp)
+target_sources(
+    cmarktestgui
+    PRIVATE
+        cmarktestgui.h
+        cmarktestgui.cpp
+)
 
 target_link_libraries(
     cmarktestgui
@@ -12,10 +17,12 @@ target_link_libraries(
 )
 
 if(NOT HAVE_TEXTUTILS_CMARK_SUPPORT)
-    target_link_libraries(
-        cmarktestgui
-        cmark-rc
-    )
+    target_link_libraries(cmarktestgui cmark-rc)
 endif()
 
-set_target_properties(cmarktestgui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+set_target_properties(
+    cmarktestgui
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
+)

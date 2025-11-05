@@ -6,7 +6,6 @@ set(TEST_SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/uploaddownloadrsakeypair.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/loginmanager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/envutils.cpp
-
     ${CMAKE_CURRENT_SOURCE_DIR}/uploaddownloadrsakeypair.h
     ${CMAKE_CURRENT_SOURCE_DIR}/loginmanager.h
     ${CMAKE_CURRENT_SOURCE_DIR}/envutils.h
@@ -15,15 +14,23 @@ set(TEST_SOURCE
 add_executable(encryptiontestgui)
 target_sources(
     encryptiontestgui
-    PRIVATE encryptiontestgui.h
-    encryptiontestgui.cpp
-    ${TEST_SOURCE}
+    PRIVATE
+        encryptiontestgui.h
+        encryptiontestgui.cpp
+        ${TEST_SOURCE}
 )
 
-target_link_libraries(encryptiontestgui Qt::Widgets Qt::Gui libruqolacore)
+target_link_libraries(
+    encryptiontestgui
+    Qt::Widgets
+    Qt::Gui
+    libruqolacore
+)
 set_target_properties(
     encryptiontestgui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )
 
 ########
@@ -31,11 +38,12 @@ add_executable(encryptiontestcli)
 target_sources(
     encryptiontestcli
     PRIVATE
-    encryptiontestcli.cpp
-    ${TEST_SOURCE}
+        encryptiontestcli.cpp
+        ${TEST_SOURCE}
 )
 
-target_link_libraries(encryptiontestcli
+target_link_libraries(
+    encryptiontestcli
     librocketchatrestapi-qt
     libruqolawidgets
     KF6::Crash

@@ -7,4 +7,8 @@ add_executable(
     testderivekeywidget.h
     testderivekeywidget.cpp
 )
-target_link_libraries(testderivekey_gui libruqolacore Qt::Widgets)
+target_link_libraries(
+    testderivekey_gui
+    libruqolacore
+    Qt::Widgets
+)

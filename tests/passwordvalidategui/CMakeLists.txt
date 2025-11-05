@@ -4,11 +4,20 @@
 add_executable(passwordvalidategui)
 target_sources(
     passwordvalidategui
-    PRIVATE passwordvalidategui.h passwordvalidategui.cpp
+    PRIVATE
+        passwordvalidategui.h
+        passwordvalidategui.cpp
 )
 
-target_link_libraries(passwordvalidategui Qt::Widgets Qt::Gui libruqolawidgets)
+target_link_libraries(
+    passwordvalidategui
+    Qt::Widgets
+    Qt::Gui
+    libruqolawidgets
+)
 set_target_properties(
     passwordvalidategui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

@@ -14,5 +14,7 @@ target_link_libraries(serializemessagesgui libruqolawidgets)
 
 set_target_properties(
     serializemessagesgui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

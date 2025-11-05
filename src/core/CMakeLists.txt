@@ -539,7 +539,6 @@ target_sources(
         actionbuttons/actionbuttonsmanager.cpp
         actionbuttons/actionbuttonutil.h
         actionbuttons/actionbuttonutil.cpp
-
         ruqolacommandlineparser.cpp
         ruqolacommandlineparser.h
         quicksearch/ruqolaquicksearchmessagesettings.cpp
@@ -547,25 +546,25 @@ target_sources(
         emoji.qrc
 )
 
-if (HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT)
+if(HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT)
     target_sources(
         libruqolacore
         PRIVATE
-        texttospeech/texttospeechenqueueinfo.h
-        texttospeech/texttospeechenqueueinfo.cpp
-        texttospeech/texttospeechenqueuemanager.h
-        texttospeech/texttospeechenqueuemanager.cpp
+            texttospeech/texttospeechenqueueinfo.h
+            texttospeech/texttospeechenqueueinfo.cpp
+            texttospeech/texttospeechenqueuemanager.h
+            texttospeech/texttospeechenqueuemanager.cpp
     )
 endif()
 
-if (NOT HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT)
+if(NOT HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT)
     target_sources(
         libruqolacore
         PRIVATE
-        syntaxhighlightingmanager.cpp
-        syntaxhighlightingmanager.h
-        texthighlighter.cpp
-        texthighlighter.h
+            syntaxhighlightingmanager.cpp
+            syntaxhighlightingmanager.h
+            texthighlighter.cpp
+            texthighlighter.h
     )
 endif()
 
@@ -573,17 +572,17 @@ if(USE_E2E_SUPPORT)
     target_sources(
         libruqolacore
         PRIVATE
-        encryption/encryptionutils.h
-        encryption/encryptionutils.cpp
+            encryption/encryptionutils.h
+            encryption/encryptionutils.cpp
     )
 endif()
 
-if (HAVE_TEXTUTILS_CMARK_SUPPORT)
+if(HAVE_TEXTUTILS_CMARK_SUPPORT)
     target_sources(
         libruqolacore
         PRIVATE
-        ruqolablockcmarksupport.h
-        ruqolablockcmarksupport.cpp
+            ruqolablockcmarksupport.h
+            ruqolablockcmarksupport.cpp
     )
 endif()
 
@@ -611,8 +610,8 @@ if(TARGET Plasma::Activities)
     target_sources(
         libruqolacore
         PRIVATE
-        activities/activitiesmanager.h
-        activities/activitiesmanager.cpp
+            activities/activitiesmanager.h
+            activities/activitiesmanager.cpp
     )
     target_link_libraries(libruqolacore Plasma::Activities)
     if(BUILD_TESTING)
@@ -626,12 +625,11 @@ if(UNITY_SUPPORT)
     target_sources(
         libruqolacore
         PRIVATE
-        unityservicemanager.cpp
-        unityservicemanager.h
+            unityservicemanager.cpp
+            unityservicemanager.h
     )
     target_link_libraries(libruqolacore Qt::DBus)
 endif()
-
 
 if(USE_E2E_SUPPORT)
     target_link_libraries(libruqolacore OpenSSL::Crypto)
@@ -776,7 +774,12 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_quick_sea
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(libruqolacore PROPERTIES UNITY_BUILD ON)
+    set_target_properties(
+        libruqolacore
+        PROPERTIES
+            UNITY_BUILD
+                ON
+    )
 endif()
 
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
@@ -809,10 +812,7 @@ target_link_libraries(
 )
 
 if(NOT HAVE_TEXTUTILS_CMARK_SUPPORT)
-    target_link_libraries(
-        libruqolacore
-        cmark-rc
-    )
+    target_link_libraries(libruqolacore cmark-rc)
 endif()
 
 if(HAVE_TEXT_TRANSLATOR)
@@ -839,9 +839,12 @@ endif()
 set_target_properties(
     libruqolacore
     PROPERTIES
-        OUTPUT_NAME ruqolacore
-        VERSION ${RUQOLA_LIB_VERSION}
-        SOVERSION ${RUQOLA_LIB_SOVERSION}
+        OUTPUT_NAME
+            ruqolacore
+        VERSION
+            ${RUQOLA_LIB_VERSION}
+        SOVERSION
+            ${RUQOLA_LIB_SOVERSION}
 )
 
 if(BUILD_TESTING)
@@ -857,6 +860,9 @@ if(USE_E2E_SUPPORT)
 endif()
 
 install(
-    TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
-    LIBRARY NAMELINK_SKIP
+    TARGETS
+        libruqolacore
+        ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
+    LIBRARY
+        NAMELINK_SKIP
 )

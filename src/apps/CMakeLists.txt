@@ -2,7 +2,11 @@
 # SPDX-License-Identifier: BSD-3-Clause
 include(ECMAddAppIcon)
 
-add_executable(ruqola main.cpp ruqola.qrc)
+add_executable(
+    ruqola
+    main.cpp
+    ruqola.qrc
+)
 
 target_link_libraries(
     ruqola
@@ -21,11 +25,12 @@ else()
     endif()
 endif()
 
-file(
-    GLOB_RECURSE RUQOLA_ICONS
-    "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png"
-)
+file(GLOB_RECURSE RUQOLA_ICONS "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png")
 ecm_add_app_icon(appIcons ICONS "${RUQOLA_ICONS}")
 target_sources(ruqola PRIVATE ${appIcons})
 
-install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(
+    TARGETS
+        ruqola
+        ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
+)

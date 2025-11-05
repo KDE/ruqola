@@ -15,7 +15,11 @@ set(o2_FIND_REQUIRED ${o2_FIND_REQUIRED})
 
 find_path(o2_INCLUDE_DIRS o2/o2.h)
 
-set(o2_NAMES ${o2_NAMES} o2 libo2)
+set(o2_NAMES
+    ${o2_NAMES}
+    o2
+    libo2
+)
 
 find_library(o2_LIBRARY NAMES ${o2_NAMES})
 
@@ -32,7 +36,12 @@ endif()
 # all listed variables are TRUE
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(o2 DEFAULT_MSG o2_LIBRARY o2_INCLUDE_DIRS)
+find_package_handle_standard_args(
+    o2
+    DEFAULT_MSG
+    o2_LIBRARY
+    o2_INCLUDE_DIRS
+)
 
 if(o2_FOUND)
     set(o2_INCLUDE_DIRS ${o2_INCLUDE_DIRS}/o2)

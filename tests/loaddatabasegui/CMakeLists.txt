@@ -1,7 +1,12 @@
 # SPDX-FileCopyrightText: 2023-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 add_executable(loaddatabasegui)
-target_sources(loaddatabasegui PRIVATE loaddatabasegui.h loaddatabasegui.cpp)
+target_sources(
+    loaddatabasegui
+    PRIVATE
+        loaddatabasegui.h
+        loaddatabasegui.cpp
+)
 
 target_link_libraries(
     loaddatabasegui
@@ -9,4 +14,9 @@ target_link_libraries(
     KF6::ItemViews
     libruqolawidgets
 )
-set_target_properties(loaddatabasegui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+set_target_properties(
+    loaddatabasegui
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
+)

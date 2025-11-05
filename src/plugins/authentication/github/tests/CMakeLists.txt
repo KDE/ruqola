@@ -18,5 +18,15 @@ ecm_qt_declare_logging_category(githubtestapps HEADER githubauthenticationplugin
     DESCRIPTION "ruqola (github authentication plugin)" EXPORT RUQOLA
 )
 
-target_link_libraries(githubtestapps Qt::Gui Qt::Network Qt::NetworkAuth)
-set_target_properties(githubtestapps PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+target_link_libraries(
+    githubtestapps
+    Qt::Gui
+    Qt::Network
+    Qt::NetworkAuth
+)
+set_target_properties(
+    githubtestapps
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
+)

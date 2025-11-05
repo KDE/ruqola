@@ -5,7 +5,10 @@ add_executable(gitlabtestapps)
 
 target_sources(
     gitlabtestapps
-    PRIVATE main.cpp ../gitlabauthenticationjob.h ../gitlabauthenticationjob.cpp
+    PRIVATE
+        main.cpp
+        ../gitlabauthenticationjob.h
+        ../gitlabauthenticationjob.cpp
 )
 
 ecm_qt_declare_logging_category(gitlabtestapps HEADER gitlabauthenticationplugin_debug.h
@@ -13,5 +16,15 @@ ecm_qt_declare_logging_category(gitlabtestapps HEADER gitlabauthenticationplugin
     DESCRIPTION "ruqola (gitlab authentication plugin)" EXPORT RUQOLA
 )
 
-target_link_libraries(gitlabtestapps Qt::Gui Qt::Network Qt::NetworkAuth)
-set_target_properties(gitlabtestapps PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+target_link_libraries(
+    gitlabtestapps
+    Qt::Gui
+    Qt::Network
+    Qt::NetworkAuth
+)
+set_target_properties(
+    gitlabtestapps
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
+)

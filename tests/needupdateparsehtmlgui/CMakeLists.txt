@@ -7,8 +7,14 @@ add_executable(
 )
 target_sources(needupdateparsehtmlgui PRIVATE needupdateparsehtmlgui.cpp)
 
-target_link_libraries(needupdateparsehtmlgui libruqolawidgets KF6::TextAddonsWidgets)
+target_link_libraries(
+    needupdateparsehtmlgui
+    libruqolawidgets
+    KF6::TextAddonsWidgets
+)
 set_target_properties(
     needupdateparsehtmlgui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

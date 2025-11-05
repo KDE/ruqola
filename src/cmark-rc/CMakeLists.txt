@@ -36,10 +36,7 @@ endfunction()
 # Check integrity of node structure when compiled as debug
 add_compile_options($<$<CONFIG:Debug>:-DCMARK_DEBUG_NODES>)
 
-configure_file(
-    cmark-rc_version.h.in
-    ${CMAKE_CURRENT_BINARY_DIR}/cmark-rc_version.h
-)
+configure_file(cmark-rc_version.h.in ${CMAKE_CURRENT_BINARY_DIR}/cmark-rc_version.h)
 # configure_file(libcmark.pc.in
 #   ${CMAKE_CURRENT_BINARY_DIR}/libcmark-rc.pc
 #   @ONLY)
@@ -72,13 +69,18 @@ cmark_add_compile_options(cmark-rc)
 set_target_properties(
     cmark-rc
     PROPERTIES
-        OUTPUT_NAME "cmark-rc"
+        OUTPUT_NAME
+            "cmark-rc"
         # Avoid name clash between PROGRAM and LIBRARY pdb files.
-        PDB_NAME libcmark-rc
-        POSITION_INDEPENDENT_CODE YES
+        PDB_NAME
+            libcmark-rc
+        POSITION_INDEPENDENT_CODE
+            YES
         # Include minor version and patch level in soname for now.
-        SOVERSION ${PROJECT_VERSION}
-        VERSION ${PROJECT_VERSION}
+        SOVERSION
+            ${PROJECT_VERSION}
+        VERSION
+            ${PROJECT_VERSION}
 )
 if(NOT BUILD_SHARED_LIBS)
     target_compile_definitions(cmark-rc PUBLIC CMARK_STATIC_DEFINE)
@@ -145,10 +147,19 @@ add_custom_target(cmark_static DEPENDS cmark-rc)
 # )
 set_target_properties(
     cmark-rc
-    PROPERTIES OUTPUT_NAME cmark-rc-copy VERSION "0.31.0" SOVERSION "0"
+    PROPERTIES
+        OUTPUT_NAME
+            cmark-rc-copy
+        VERSION
+            "0.31.0"
+        SOVERSION
+            "0"
 )
 
 install(
-    TARGETS cmark-rc ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
-    LIBRARY NAMELINK_SKIP
+    TARGETS
+        cmark-rc
+        ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
+    LIBRARY
+        NAMELINK_SKIP
 )

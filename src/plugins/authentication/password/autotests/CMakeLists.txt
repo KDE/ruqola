@@ -11,7 +11,11 @@ macro(add_ruqola_plugin_unittest _source _additional)
         ${_additional}
     )
     get_filename_component(_name ${_source} NAME_WE)
-    add_executable(${_name} ${_test} ${_name}.h)
+    add_executable(
+        ${_name}
+        ${_test}
+        ${_name}.h
+    )
     add_test(NAME ${_name} COMMAND ${_name})
 
     ecm_mark_as_test(${_name})
@@ -22,7 +26,12 @@ macro(add_ruqola_plugin_unittest _source _additional)
         libruqolacore
         libruqolawidgets
     )
-    set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+    set_target_properties(
+        ${_name}
+        PROPERTIES
+            DISABLE_PRECOMPILE_HEADERS
+                ON
+    )
 endmacro()
 
 add_ruqola_plugin_unittest(passwordpluginauthenticationtest.cpp "../passwordpluginauthentication.cpp;../passwordauthenticationinterface.cpp")

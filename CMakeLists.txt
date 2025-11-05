@@ -25,7 +25,10 @@ endif()
 set(RUQOLA_VERSION_STRING "${RUQOLA_VERSION}${RUQOLA_DEV_VERSION}")
 
 find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
-set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH
+    ${Ruqola_SOURCE_DIR}/cmake/modules
+    ${ECM_MODULE_PATH}
+)
 
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
@@ -73,17 +76,9 @@ option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
 option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
-option(
-    OPTION_DISABLE_NETWORKMANAGER
-    "Disable Network Manager support (mainly for debugging)"
-    OFF
-)
+option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
 
-option(
-    OPTION_ADD_AUTOGENERATETEXT
-    "Add support for autogenerate text plugin"
-    ON
-)
+option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" ON)
 
 if(OPTION_USE_PLASMA_ACTIVITIES)
     if(NOT WIN32 AND NOT APPLE)
@@ -106,22 +101,14 @@ if(OPTION_USE_SIZEHINT_CACHE_SUPPORT)
     set(USE_SIZEHINT_CACHE_SUPPORT true)
 endif()
 
-option(
-    USE_UNITY_CMAKE_SUPPORT
-    "Use UNITY cmake support (speedup compile time)"
-    OFF
-)
+option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT false)
 if(USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT true)
 endif()
 
-option(
-    PLUGINS_AUTHENTICATION_BASED_ON_O2
-    "Build authentication based on o2 lib (experimental)"
-    OFF
-)
+option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" OFF)
 if(NOT WIN32 AND NOT APPLE)
     option(UNITY_SUPPORT "Build unity support" ON)
 else()
@@ -177,8 +164,10 @@ if(OPTION_USE_PLASMA_ACTIVITIES)
         set_package_properties(
             PlasmaActivities
             PROPERTIES
-                DESCRIPTION "Allow to compile with plasma activities"
-                TYPE OPTIONAL
+                DESCRIPTION
+                    "Allow to compile with plasma activities"
+                TYPE
+                    OPTIONAL
         )
     endif()
 endif()
@@ -191,8 +180,10 @@ find_package(KF6TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextTranslator
     PROPERTIES
-        DESCRIPTION "Add support for text translation (ktextaddons)"
-        TYPE OPTIONAL
+        DESCRIPTION
+            "Add support for text translation (ktextaddons)"
+        TYPE
+            OPTIONAL
 )
 
 if(TARGET KF6::TextTranslator)
@@ -203,8 +194,10 @@ find_package(KF6TextAutoCorrectionWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextAutoCorrectionWidgets
     PROPERTIES
-        DESCRIPTION "Add support for text auto correction (ktextaddons)"
-        TYPE OPTIONAL
+        DESCRIPTION
+            "Add support for text auto correction (ktextaddons)"
+        TYPE
+            OPTIONAL
 )
 if(TARGET KF6::TextAutoCorrectionWidgets)
     set(HAVE_TEXT_AUTOCORRECTION_WIDGETS TRUE)
@@ -214,8 +207,10 @@ find_package(KF6TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextEditTextToSpeech
     PROPERTIES
-        DESCRIPTION "Add support for text to speech (ktextaddons)"
-        TYPE OPTIONAL
+        DESCRIPTION
+            "Add support for text to speech (ktextaddons)"
+        TYPE
+            OPTIONAL
 )
 if(TARGET KF6::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
@@ -228,16 +223,20 @@ find_package(KF6TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextEmoticonsWidgets
     PROPERTIES
-        DESCRIPTION "Add text emoticons support (ktextaddons)"
-        TYPE REQUIRED
+        DESCRIPTION
+            "Add text emoticons support (ktextaddons)"
+        TYPE
+            REQUIRED
 )
 
 find_package(KF6TextUtils ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextUtils
     PROPERTIES
-        DESCRIPTION "Add utils text functions (ktextaddons)"
-        TYPE OPTIONAL
+        DESCRIPTION
+            "Add utils text functions (ktextaddons)"
+        TYPE
+            OPTIONAL
 )
 
 if(TARGET KF6::TextUtils)
@@ -247,7 +246,11 @@ endif()
 find_package(KF6TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextCustomEditor
-    PROPERTIES DESCRIPTION "Add text custom editor (ktextaddons)" TYPE OPTIONAL
+    PROPERTIES
+        DESCRIPTION
+            "Add text custom editor (ktextaddons)"
+        TYPE
+            OPTIONAL
 )
 
 if(TARGET KF6::TextCustomEditor)
@@ -255,17 +258,16 @@ if(TARGET KF6::TextCustomEditor)
 endif()
 
 if(OPTION_ADD_AUTOGENERATETEXT)
-    find_package(
-        KF6TextAutoGenerateText
-        ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION}
-        CONFIG
-    )
+    find_package(KF6TextAutoGenerateText ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION} CONFIG)
     set_package_properties(
         KF6TextAutoGenerateText
         PROPERTIES
-            TYPE OPTIONAL
-            PURPOSE "Required for building AI plugins support"
-            DESCRIPTION "Use AI plugin"
+            TYPE
+                OPTIONAL
+            PURPOSE
+                "Required for building AI plugins support"
+            DESCRIPTION
+                "Use AI plugin"
     )
 endif()
 
@@ -277,8 +279,10 @@ find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextAddonsWidgets
     PROPERTIES
-        DESCRIPTION "Add text addons widget"
-        TYPE REQUIRED
+        DESCRIPTION
+            "Add text addons widget"
+        TYPE
+            REQUIRED
 )
 
 # shall we use DBus?
@@ -289,11 +293,11 @@ if(UNIX AND NOT APPLE AND NOT HAIKU)
 endif()
 
 if(NOT HAIKU)
-option(USE_DBUS "Build components using DBus" ${USE_DBUS_DEFAULT})
-if(USE_DBUS)
-    set(WITH_DBUS TRUE)
-    find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
-endif()
+    option(USE_DBUS "Build components using DBus" ${USE_DBUS_DEFAULT})
+    if(USE_DBUS)
+        set(WITH_DBUS TRUE)
+        find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+    endif()
 endif()
 
 find_package(KF6XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
@@ -308,7 +312,11 @@ endif()
 find_package(KF6DocTools ${KF_MIN_VERSION})
 set_package_properties(
     KF6DocTools
-    PROPERTIES DESCRIPTION "Tools to generate documentation" TYPE OPTIONAL
+    PROPERTIES
+        DESCRIPTION
+            "Tools to generate documentation"
+        TYPE
+            OPTIONAL
 )
 
 find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
@@ -317,9 +325,12 @@ find_package(Qt6Keychain ${QT6KEYCHAIN_LIB_VERSION} CONFIG)
 set_package_properties(
     Qt6Keychain
     PROPERTIES
-        DESCRIPTION "Provides support for secure credentials storage"
-        URL "https://github.com/frankosterfeld/qtkeychain"
-        TYPE REQUIRED
+        DESCRIPTION
+            "Provides support for secure credentials storage"
+        URL
+            "https://github.com/frankosterfeld/qtkeychain"
+        TYPE
+            REQUIRED
 )
 
 find_package(KF6UserFeedback ${KF_MIN_VERSION} CONFIG)
@@ -327,9 +338,12 @@ set(HAVE_KUSERFEEDBACK ${KF6UserFeedback_FOUND})
 set_package_properties(
     KF6UserFeedback
     PROPERTIES
-        DESCRIPTION "User Feedback lib"
-        TYPE OPTIONAL
-        PURPOSE "Allow to send Telemetry Information (optional)."
+        DESCRIPTION
+            "User Feedback lib"
+        TYPE
+            OPTIONAL
+        PURPOSE
+            "Allow to send Telemetry Information (optional)."
 )
 
 if(OPTION_DISABLE_NETWORKMANAGER)
@@ -340,16 +354,18 @@ else()
     set_package_properties(
         KF6NetworkManagerQt
         PROPERTIES
-            DESCRIPTION "Network management lib"
-            TYPE OPTIONAL
-            PURPOSE "Allows detecting network state changes."
+            DESCRIPTION
+                "Network management lib"
+            TYPE
+                OPTIONAL
+            PURPOSE
+                "Allows detecting network state changes."
     )
 endif()
 
 if(NOT USE_DBUS)
     find_package(KDSingleApplication-qt6 CONFIG REQUIRED)
 endif()
-
 
 if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.8.41)
     set(HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT TRUE)
@@ -358,7 +374,6 @@ endif()
 if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.8.49)
     set(HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_CLEAR_CACHE_SUPPORT TRUE)
 endif()
-
 
 if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.8.48)
     set(HAVE_TEXTUTILS_CMARK_SUPPORT TRUE)

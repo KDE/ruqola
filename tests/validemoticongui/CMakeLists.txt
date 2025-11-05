@@ -2,7 +2,12 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 add_executable(validemoticongui)
-target_sources(validemoticongui PRIVATE validemoticongui.cpp validemoticongui.h)
+target_sources(
+    validemoticongui
+    PRIVATE
+        validemoticongui.cpp
+        validemoticongui.h
+)
 
 target_link_libraries(
     validemoticongui
@@ -12,4 +17,9 @@ target_link_libraries(
     KF6::TextEmoticonsCore
     KF6::KIOWidgets
 )
-set_target_properties(validemoticongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+set_target_properties(
+    validemoticongui
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
+)

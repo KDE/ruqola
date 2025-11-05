@@ -3,7 +3,9 @@
 add_executable(notificationhistorygui)
 target_sources(
     notificationhistorygui
-    PRIVATE notificationhistorygui.h notificationhistorygui.cpp
+    PRIVATE
+        notificationhistorygui.h
+        notificationhistorygui.cpp
 )
 
 target_link_libraries(
@@ -14,5 +16,7 @@ target_link_libraries(
 )
 set_target_properties(
     unicodeemoticongui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

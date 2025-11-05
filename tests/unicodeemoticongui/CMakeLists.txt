@@ -18,5 +18,7 @@ target_link_libraries(
 )
 set_target_properties(
     unicodeemoticongui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

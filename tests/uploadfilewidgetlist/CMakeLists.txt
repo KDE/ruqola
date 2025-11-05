@@ -3,11 +3,20 @@
 add_executable(uploadfilewidgetlistgui)
 target_sources(
     uploadfilewidgetlistgui
-    PRIVATE main.cpp uploadwidget.h uploadwidget.cpp
+    PRIVATE
+        main.cpp
+        uploadwidget.h
+        uploadwidget.cpp
 )
 
-target_link_libraries(uploadfilewidgetlistgui Qt::Widgets libruqolawidgets)
+target_link_libraries(
+    uploadfilewidgetlistgui
+    Qt::Widgets
+    libruqolawidgets
+)
 set_target_properties(
     uploadfilewidgetlistgui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

@@ -3,12 +3,20 @@
 add_executable(autogenerateinteractiongui)
 target_sources(
     autogenerateinteractiongui
-    PRIVATE autogenerateinteractiongui.cpp autogenerateinteractiongui.h
+    PRIVATE
+        autogenerateinteractiongui.cpp
+        autogenerateinteractiongui.h
 )
 
-target_link_libraries(autogenerateinteractiongui Qt::Widgets libruqolawidgets)
+target_link_libraries(
+    autogenerateinteractiongui
+    Qt::Widgets
+    libruqolawidgets
+)
 
 set_target_properties(
     autogenerateinteractiongui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

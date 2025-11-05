@@ -3,11 +3,19 @@
 add_executable(restauthenticationgui)
 target_sources(
     restauthenticationgui
-    PRIVATE restauthenticationgui.cpp restauthenticationgui.h
+    PRIVATE
+        restauthenticationgui.cpp
+        restauthenticationgui.h
 )
 
-target_link_libraries(restauthenticationgui Qt::Widgets libruqolawidgets)
+target_link_libraries(
+    restauthenticationgui
+    Qt::Widgets
+    libruqolawidgets
+)
 set_target_properties(
     restauthenticationgui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

@@ -112,10 +112,8 @@ target_sources(
         administratordialog/users/administratoruserstabwidget.h
         administratordialog/users/administratoruserspendingactiondelegate.h
         administratordialog/users/administratoruserspendingactiondelegate.cpp
-
         administratordialog/featurepreview/featurepreviewwidget.cpp
         administratordialog/featurepreview/featurepreviewwidget.h
-
         administratorsettingsdialog/administratorsettingsdialog.cpp
         administratorsettingsdialog/administratorsettingsdialog.h
         administratorsettingsdialog/administratorsettingswidget.h
@@ -700,13 +698,11 @@ target_sources(
         room/messagelineextratoolbutton.h
         room/messagelineextratoolbutton.cpp
         room/debugdialog/showdebugdialog.h
-	room/debugdialog/showdebugdialog.cpp
+        room/debugdialog/showdebugdialog.cpp
         room/debugdialog/showdebugwidget.h
         room/debugdialog/showdebugwidget.cpp
-
         room/newmessageindicator.h
         room/newmessageindicator.cpp
-
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h
@@ -790,8 +786,8 @@ target_sources(
         databasedialog/exploredatabaselineedit.cpp
         databasedialog/exploredatabasejsonwidget.h
         databasedialog/exploredatabasejsonwidget.cpp
-	databasedialog/exploredatabasemessagesstoragewidget.cpp
-	databasedialog/exploredatabasemessagesstoragewidget.h
+        databasedialog/exploredatabasemessagesstoragewidget.cpp
+        databasedialog/exploredatabasemessagesstoragewidget.h
         databasedialog/exploredatabaseaccountstoragewidget.h
         databasedialog/exploredatabaseaccountstoragewidget.cpp
         databasedialog/exploredatabasebasestoragewidget.h
@@ -806,9 +802,8 @@ target_sources(
         databasedialog/exploredatabasetooltipdelegate.cpp
         databasedialog/exploredatabaseroomiddelegate.h
         databasedialog/exploredatabaseroomiddelegate.cpp
-	databasedialog/exploredatabasee2estoragewidget.cpp
-	databasedialog/exploredatabasee2estoragewidget.h
-
+        databasedialog/exploredatabasee2estoragewidget.cpp
+        databasedialog/exploredatabasee2estoragewidget.h
         whatsnew/whatsnewtranslations.h
         whatsnew/whatsnewtranslations.cpp
         explorepermissionsdialog/explorepermissionsdialog.h
@@ -989,7 +984,6 @@ target_sources(
         exploreappstranlationdialog/exploreappstranslationwidget.cpp
         exploreappstranlationdialog/exploreappstranslationdialog.h
         exploreappstranlationdialog/exploreappstranslationdialog.cpp
-
         webdav/webdavaddserverdialog.h
         webdav/webdavaddserverdialog.cpp
         webdav/webdavaddserverwidget.h
@@ -1000,34 +994,34 @@ if(NOT HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
     target_sources(
         libruqolawidgets
         PRIVATE
-        verifynewversionwidget/verifynewversionwidget.h
-        verifynewversionwidget/verifynewversionwidget.cpp
-        verifynewversionwidget/verifynewversiondialog.h
-        verifynewversionwidget/verifynewversiondialog.cpp
-        verifynewversionwidget/verifynewversionwidgetaction.h
-        verifynewversionwidget/verifynewversionwidgetaction.cpp
-        whatsnew/whatsnewdialog.h
-        whatsnew/whatsnewdialog.cpp
-        whatsnew/whatsnewwidget.h
-        whatsnew/whatsnewwidget.cpp
-        whatsnew/whatsnewmessagewidget.h
-        whatsnew/whatsnewmessagewidget.cpp
-        whatsnew/whatsnewcomboboxwidget.h
-        whatsnew/whatsnewcomboboxwidget.cpp
-        whatsnew/whatsnewtranslationbase.h
-        whatsnew/whatsnewtranslationbase.cpp
-        whatsnew/whatsnewinfo.h
-        whatsnew/whatsnewinfo.cpp
-        needupdateversion/needupdateversionwidget.h
-        needupdateversion/needupdateversionwidget.cpp
-        needupdateversion/needupdateversionutils.h
-        needupdateversion/needupdateversionutils.cpp
-        needupdateversion/needupdateparsehtmljob.h
-        needupdateversion/needupdateparsehtmljob.cpp
-        needupdateversion/needupdateparsehtmlutil.h
-        needupdateversion/needupdateparsehtmlutil.cpp
-        needupdateversion/needupdatecheckexistingnewversionjob.h
-        needupdateversion/needupdatecheckexistingnewversionjob.cpp
+            verifynewversionwidget/verifynewversionwidget.h
+            verifynewversionwidget/verifynewversionwidget.cpp
+            verifynewversionwidget/verifynewversiondialog.h
+            verifynewversionwidget/verifynewversiondialog.cpp
+            verifynewversionwidget/verifynewversionwidgetaction.h
+            verifynewversionwidget/verifynewversionwidgetaction.cpp
+            whatsnew/whatsnewdialog.h
+            whatsnew/whatsnewdialog.cpp
+            whatsnew/whatsnewwidget.h
+            whatsnew/whatsnewwidget.cpp
+            whatsnew/whatsnewmessagewidget.h
+            whatsnew/whatsnewmessagewidget.cpp
+            whatsnew/whatsnewcomboboxwidget.h
+            whatsnew/whatsnewcomboboxwidget.cpp
+            whatsnew/whatsnewtranslationbase.h
+            whatsnew/whatsnewtranslationbase.cpp
+            whatsnew/whatsnewinfo.h
+            whatsnew/whatsnewinfo.cpp
+            needupdateversion/needupdateversionwidget.h
+            needupdateversion/needupdateversionwidget.cpp
+            needupdateversion/needupdateversionutils.h
+            needupdateversion/needupdateversionutils.cpp
+            needupdateversion/needupdateparsehtmljob.h
+            needupdateversion/needupdateparsehtmljob.cpp
+            needupdateversion/needupdateparsehtmlutil.h
+            needupdateversion/needupdateparsehtmlutil.cpp
+            needupdateversion/needupdatecheckexistingnewversionjob.h
+            needupdateversion/needupdatecheckexistingnewversionjob.cpp
     )
 endif()
 
@@ -1062,10 +1056,10 @@ endif()
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(
-    libruqolawidgets
-    PRIVATE
-    configuredialog/configureuserfeedbackwidget.cpp
-    configuredialog/configureuserfeedbackwidget.h
+        libruqolawidgets
+        PRIVATE
+            configuredialog/configureuserfeedbackwidget.cpp
+            configuredialog/configureuserfeedbackwidget.h
     )
 endif()
 
@@ -1127,7 +1121,12 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_databa
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(libruqolawidgets PROPERTIES UNITY_BUILD ON)
+    set_target_properties(
+        libruqolawidgets
+        PROPERTIES
+            UNITY_BUILD
+                ON
+    )
 endif()
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
 
@@ -1186,9 +1185,12 @@ endif()
 set_target_properties(
     libruqolawidgets
     PROPERTIES
-        OUTPUT_NAME ruqolawidgets
-        VERSION ${RUQOLA_LIB_VERSION}
-        SOVERSION ${RUQOLA_LIB_SOVERSION}
+        OUTPUT_NAME
+            ruqolawidgets
+        VERSION
+            ${RUQOLA_LIB_VERSION}
+        SOVERSION
+            ${RUQOLA_LIB_SOVERSION}
 )
 
 if(BUILD_TESTING)
@@ -1219,7 +1221,7 @@ if(BUILD_TESTING)
     add_subdirectory(conferencecalldialog/autotests)
     add_subdirectory(servererrorinfohistory/autotests)
     add_subdirectory(databasedialog/autotests)
-    if (NOT HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
+    if(NOT HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
         add_subdirectory(whatsnew/autotests)
         add_subdirectory(needupdateversion/tests)
         add_subdirectory(needupdateversion/autotests)
@@ -1240,6 +1242,9 @@ if(BUILD_TESTING)
 endif()
 
 install(
-    TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
-    LIBRARY NAMELINK_SKIP
+    TARGETS
+        libruqolawidgets
+        ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
+    LIBRARY
+        NAMELINK_SKIP
 )

@@ -6,5 +6,7 @@ target_sources(whatsnewdialoggui PRIVATE whatsnewdialoggui.cpp)
 target_link_libraries(whatsnewdialoggui libruqolawidgets)
 set_target_properties(
     whatsnewdialoggui
-    PROPERTIES DISABLE_PRECOMPILE_HEADERS ON
+    PROPERTIES
+        DISABLE_PRECOMPILE_HEADERS
+            ON
 )

@@ -187,8 +187,8 @@ target_sources(
         e2e/resetroomkeyjob.h
         e2e/provideuserswithsuggestedgroupkeysjob.cpp
         e2e/provideuserswithsuggestedgroupkeysjob.h
-	e2e/getusersofroomwithoutkey.h
-	e2e/getusersofroomwithoutkey.cpp
+        e2e/getusersofroomwithoutkey.h
+        e2e/getusersofroomwithoutkey.cpp
         emoji/emojicustomalljob.cpp
         emoji/emojicustomalljob.h
         emoji/emojicustomcreatejob.cpp
@@ -523,15 +523,9 @@ ecm_qt_declare_logging_category(librocketchatrestapi_qt_debug_SRCS HEADER rocket
     OLD_CATEGORY_NAMES org.kde.rocketchatqtrestapi
     EXPORT RUQOLA
 )
-target_sources(
-    librocketchatrestapi-qt
-    PRIVATE ${librocketchatrestapi_qt_debug_SRCS}
-)
+target_sources(librocketchatrestapi-qt PRIVATE ${librocketchatrestapi_qt_debug_SRCS})
 
-generate_export_header(
-    librocketchatrestapi-qt
-    BASE_NAME librocketchatrestapi-qt
-)
+generate_export_header(librocketchatrestapi-qt BASE_NAME librocketchatrestapi-qt)
 target_link_libraries(
     librocketchatrestapi-qt
     Qt::Core
@@ -540,14 +534,22 @@ target_link_libraries(
     KF6::I18n
 )
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(librocketchatrestapi-qt PROPERTIES UNITY_BUILD ON)
+    set_target_properties(
+        librocketchatrestapi-qt
+        PROPERTIES
+            UNITY_BUILD
+                ON
+    )
 endif()
 set_target_properties(
     librocketchatrestapi-qt
     PROPERTIES
-        OUTPUT_NAME rocketchatrestapi-qt
-        VERSION ${RUQOLA_LIB_VERSION}
-        SOVERSION ${RUQOLA_LIB_SOVERSION}
+        OUTPUT_NAME
+            rocketchatrestapi-qt
+        VERSION
+            ${RUQOLA_LIB_VERSION}
+        SOVERSION
+            ${RUQOLA_LIB_SOVERSION}
 )
 
 if(BUILD_TESTING)
@@ -555,6 +557,9 @@ if(BUILD_TESTING)
 endif()
 
 install(
-    TARGETS librocketchatrestapi-qt ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
-    LIBRARY NAMELINK_SKIP
+    TARGETS
+        librocketchatrestapi-qt
+        ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
+    LIBRARY
+        NAMELINK_SKIP
 )

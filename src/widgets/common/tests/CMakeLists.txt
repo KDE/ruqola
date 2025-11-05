@@ -7,4 +7,8 @@ add_executable(
     authenticationoauthtestwidget.h
     authenticationoauthtestwidget.cpp
 )
-target_link_libraries(authenticationoauthwidget_gui libruqolawidgets KF6::I18n)
+target_link_libraries(
+    authenticationoauthwidget_gui
+    libruqolawidgets
+    KF6::I18n
+)

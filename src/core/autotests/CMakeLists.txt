@@ -6,11 +6,25 @@ add_definitions(-DRUQOLA_BINARY_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")
 macro(add_ruqola_test _source)
     set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
-    add_executable(${_name} ${_test} ${ARGN} ${_name}.h)
+    add_executable(
+        ${_name}
+        ${_test}
+        ${ARGN}
+        ${_name}.h
+    )
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
-    target_link_libraries(${_name} Qt::Test libruqolacore)
-    set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+    target_link_libraries(
+        ${_name}
+        Qt::Test
+        libruqolacore
+    )
+    set_target_properties(
+        ${_name}
+        PROPERTIES
+            DISABLE_PRECOMPILE_HEADERS
+                ON
+    )
 endmacro()
 
 add_ruqola_test(accountschannelsmodeltest.cpp)
@@ -171,34 +185,42 @@ if(USE_E2E_SUPPORT)
     #add_ruqola_test(uploaddownloadrsakeypairtest.cpp)
     add_ruqola_test(sessionkeydistributiontest.cpp)
 
-
-    target_sources(sessionkeydistributiontest PRIVATE
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/loginmanager.cpp
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/envutils.cpp
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/uploaddownloadrsakeypair.cpp
+    target_sources(
+        sessionkeydistributiontest
+        PRIVATE
+            ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/loginmanager.cpp
+            ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/envutils.cpp
+            ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/uploaddownloadrsakeypair.cpp
     )
     target_link_libraries(sessionkeydistributiontest librocketchatrestapi-qt)
 
-    target_include_directories(sessionkeydistributiontest PRIVATE
-          ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui
-          ${CMAKE_SOURCE_DIR}/src/core/encryption)
-
-if (0)
-    target_include_directories(uploaddownloadrsakeypairtest PRIVATE
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontest
-        ${CMAKE_SOURCE_DIR}/src/core/encryption
-        ${CMAKE_SOURCE_DIR}/src/rocketchatrestapi-qt
-        ${CMAKE_SOURCE_DIR}/src/rocketchatrestapi-qt/e2e
-        ${CMAKE_BINARY_DIR}/src/core
-        ${CMAKE_BINARY_DIR}/src/rocketchatrestapi-qt
+    target_include_directories(
+        sessionkeydistributiontest
+        PRIVATE
+            ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui
+            ${CMAKE_SOURCE_DIR}/src/core/encryption
     )
 
-    target_sources(uploaddownloadrsakeypairtest PRIVATE
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/loginmanager.cpp
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/uploaddownloadrsakeypair.cpp
-        ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/envutils.cpp
-    )
-endif()
+    if(0)
+        target_include_directories(
+            uploaddownloadrsakeypairtest
+            PRIVATE
+                ${CMAKE_SOURCE_DIR}/tests/encryptiontest
+                ${CMAKE_SOURCE_DIR}/src/core/encryption
+                ${CMAKE_SOURCE_DIR}/src/rocketchatrestapi-qt
+                ${CMAKE_SOURCE_DIR}/src/rocketchatrestapi-qt/e2e
+                ${CMAKE_BINARY_DIR}/src/core
+                ${CMAKE_BINARY_DIR}/src/rocketchatrestapi-qt
+        )
+
+        target_sources(
+            uploaddownloadrsakeypairtest
+            PRIVATE
+                ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/loginmanager.cpp
+                ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/uploaddownloadrsakeypair.cpp
+                ${CMAKE_SOURCE_DIR}/tests/encryptiontestgui/envutils.cpp
+        )
+    endif()
 endif()
 
 add_ruqola_test(channelstest.cpp)
