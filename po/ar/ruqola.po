@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:44+0000\n"
-"PO-Revision-Date: 2025-10-15 21:01+0400\n"
+"PO-Revision-Date: 2025-11-05 18:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -10513,15 +10513,13 @@ msgstr "أضف تفاعل"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "أوقف"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1008
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
-msgstr "نطق النص"
+msgstr "انطق النص"
 
 #: widgets/room/messagelineextratoolbutton.cpp:17
 #, kde-format
@@ -11744,10 +11742,8 @@ msgid "Copy block code more easily."
 msgstr "انسخ كتلة الرمز بسهولة أكبر."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "تحسين قائمة المستخدمين في الغرفة"
+msgstr "تحسين واجهة المستخدم لتحويل النص إلى كلام."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
