@@ -20,8 +20,8 @@ curl -X POST http://localhost:3000/api/v1/login \
 #include "restapimethod.h"
 #include <QCoreApplication>
 #include <QDebug>
+#include <QFile>
 #include <QJsonObject>
-#include <qfile.h>
 
 using namespace EncryptionUtils;
 using namespace RocketChatRestApi;
