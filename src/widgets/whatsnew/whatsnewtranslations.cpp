@@ -247,7 +247,7 @@ QList<WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
         }
         info.setNewFeatures(lst);
         info.setVersion(u"2.7"_s);
-        info.setBugFixings({});
+        info.setBugFixings({i18n("Save local translation to local database.")});
 
         listInfo.append(std::move(info));
     }
