@@ -994,6 +994,10 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Message has been starred"), view);
             return true;
         }
+        if (layout.translatedIconRect.contains(helpEventPos)) {
+            QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Message has a translated text"), view);
+            return true;
+        }
         if (!isSystemMessage(message) && layout.replyToThreadRect.contains(helpEventPos)) {
             QToolTip::showText(helpEvent->globalPos(), i18nc("@info:tooltip", "Reply in Thread"), view);
             return true;
