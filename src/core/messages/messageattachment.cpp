@@ -43,8 +43,9 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
         // prefer the title_link as the image_url may just serve us the tiny preview image
         setLink(attachment.value("title_link"_L1).toString());
         mImageUrlPreview = attachment.value("image_url"_L1).toString();
-        if (link().isEmpty()) // fallback to the image_url otherwise
+        if (link().isEmpty()) { // fallback to the image_url otherwise
             setLink(mImageUrlPreview);
+        }
         attType = AttachmentType::Image;
         // Image Size
         setAttachmentSize(attachment.value("image_size"_L1).toInteger(-1));
