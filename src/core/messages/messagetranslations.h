@@ -24,7 +24,7 @@ public:
     [[nodiscard]] QString translatedStringFromLanguage(const QString &lang) const;
 
     [[nodiscard]] static QJsonArray serialize(const MessageTranslations &translation);
-    static MessageTranslations *deserialize(const QJsonArray &o);
+    [[nodiscard]] static MessageTranslations *deserialize(const QJsonArray &o);
 
     [[nodiscard]] bool isEmpty() const;
 

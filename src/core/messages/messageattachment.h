@@ -40,8 +40,8 @@ public:
 
     [[nodiscard]] bool operator==(const MessageAttachment &other) const;
 
-    static QJsonObject serialize(const MessageAttachment &message);
-    static MessageAttachment deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const MessageAttachment &message);
+    [[nodiscard]] static MessageAttachment deserialize(const QJsonObject &o);
     [[nodiscard]] int imageWidth() const;
     void setImageWidth(int imageWidth);
 

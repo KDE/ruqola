@@ -21,8 +21,8 @@ public:
     [[nodiscard]] QString value() const;
     void setValue(const QString &value);
 
-    static QJsonObject serialize(const MessageAttachmentField &message);
-    static MessageAttachmentField deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const MessageAttachmentField &message);
+    [[nodiscard]] static MessageAttachmentField deserialize(const QJsonObject &o);
 
 private:
     QString mTitle;
