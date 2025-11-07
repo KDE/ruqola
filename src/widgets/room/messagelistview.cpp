@@ -226,6 +226,7 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
             const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();
             if (message) {
                 mMessageListDelegate->removeSizeHintCache(message->messageId());
+                mCurrentRocketChatAccount->addMessageToDataBase(mRoom->roomId(), *message);
             }
         }
     });

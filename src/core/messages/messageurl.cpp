@@ -415,6 +415,9 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     if (url.contentType() != MessageUrl::ContentType::None) {
         obj["contentType"_L1] = contentTypeEnumToString(url.contentType());
     }
+    if (!url.showPreview()) {
+        obj["showPreview"_L1] = false;
+    }
     return obj;
 }
 
@@ -432,6 +435,7 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setImageHeight(o.value("imageHeight"_L1).toInt(-1));
     url.setImageWidth(o.value("imageWidth"_L1).toInt(-1));
     url.setContentType(stringToContentTypeEnum(o.value("contentType"_L1).toString()));
+    url.setShowPreview(o.value("showPreview"_L1).toBool(true));
     url.generateMessageUrlInfo();
     return url;
 }
