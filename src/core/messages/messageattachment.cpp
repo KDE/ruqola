@@ -177,7 +177,7 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
         obj["collapsed"_L1] = true;
     }
     obj["attachmentType"_L1] = QJsonValue::fromVariant(QVariant::fromValue<MessageAttachment::AttachmentType>(messageAttach.attachmentType()));
-    if (bool show = messageAttach.showAttachment()) {
+    if (const bool show = messageAttach.showAttachment()) {
         obj["show_attachment"_L1] = show;
     }
     return obj;
