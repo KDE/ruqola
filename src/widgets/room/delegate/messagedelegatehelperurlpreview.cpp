@@ -105,12 +105,12 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     return layout;
 }
 
-MessageDelegateHelperBase::DocumentDescriptionInfo MessageDelegateHelperUrlPreview::convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl,
-                                                                                                                               int width) const
+MessageDelegateHelperBase::DocumentTypeInfo MessageDelegateHelperUrlPreview::convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl,
+                                                                                                                        int width) const
 {
-    MessageDelegateHelperBase::DocumentDescriptionInfo info;
-    info.documentId = messageUrl.urlId();
-    info.description = messageUrl.htmlDescription();
+    MessageDelegateHelperBase::DocumentTypeInfo info;
+    info.identifier = messageUrl.urlId();
+    info.text = messageUrl.htmlDescription();
     info.width = width;
     return info;
 }

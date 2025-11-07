@@ -43,16 +43,16 @@ void MessageDelegateHelperBase::clearTextDocumentCache()
     TextUiBase::clearCache();
 }
 
-QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const DocumentDescriptionInfo &info) const
+QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const DocumentTypeInfo &info) const
 {
     auto *doc = documentDescriptionForIndex(info);
     // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
     return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
 }
 
-QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const DocumentDescriptionInfo &info) const
+QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const DocumentTypeInfo &info) const
 {
-    auto it = mDocumentCache.find(info.documentId);
+    auto it = mDocumentCache.find(info.identifier);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
         if (info.width != -1 && !qFuzzyCompare(ret->textWidth(), info.width)) {
@@ -61,7 +61,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
         return ret;
     }
 
-    if (info.description.isEmpty()) {
+    if (info.text.isEmpty()) {
         return nullptr;
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
@@ -72,7 +72,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
     if (account) {
         maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
     }
-    const TextConverter::ConvertMessageTextSettings settings(info.description,
+    const TextConverter::ConvertMessageTextSettings settings(info.text,
                                                              account ? account->userName() : QString(),
                                                              {},
                                                              account ? account->highlightWords() : QStringList(),
@@ -90,7 +90,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, info.width);
     auto ret = doc.get();
-    mDocumentCache.insert(info.documentId, std::move(doc));
+    mDocumentCache.insert(info.identifier, std::move(doc));
     return ret;
 }
 
@@ -105,10 +105,10 @@ QString MessageDelegateHelperBase::searchText() const
     return mSearchText;
 }
 
-QDebug operator<<(QDebug d, const MessageDelegateHelperBase::DocumentDescriptionInfo &t)
+QDebug operator<<(QDebug d, const MessageDelegateHelperBase::DocumentTypeInfo &t)
 {
-    d.space() << "documentId:" << t.documentId;
-    d.space() << "description:" << t.description;
+    d.space() << "identifier:" << t.identifier;
+    d.space() << "text:" << t.text;
     d.space() << "width:" << t.width;
     return d;
 }

@@ -48,7 +48,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void dump(const PreviewLayout &layout);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperUrlPreview::PreviewLayout
     layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option, int urlsPreviewWidth, int urlsPreviewHeight) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentDescriptionInfo
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentTypeInfo
     convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT int
     charPosition(const QTextDocument *doc, const MessageUrl &messageUrl, QRect previewRect, const QPoint &pos, const QStyleOptionViewItem &option);

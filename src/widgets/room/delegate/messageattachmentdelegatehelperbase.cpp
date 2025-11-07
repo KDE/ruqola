@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
 
 #include <QAbstractTextDocumentLayout>
@@ -177,30 +178,44 @@ QTextDocument *MessageAttachmentDelegateHelperBase::documentForAttachement(const
     return documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, -1));
 }
 
-MessageDelegateHelperBase::DocumentDescriptionInfo MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach,
-                                                                                                                             int width) const
+MessageDelegateHelperBase::DocumentTypeInfo MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach,
+                                                                                                                      int width) const
 {
     return convertAttachmentToDocumentTypeInfo(MessageAttachmentDelegateHelperBase::DocumentIdType::Title, msgAttach, width);
 }
 
-MessageDelegateHelperBase::DocumentDescriptionInfo
-MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach, int width) const
+MessageDelegateHelperBase::DocumentTypeInfo MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach,
+                                                                                                                            int width) const
 {
     return convertAttachmentToDocumentTypeInfo(MessageAttachmentDelegateHelperBase::DocumentIdType::Description, msgAttach, width);
 }
 
-MessageDelegateHelperBase::DocumentDescriptionInfo
-MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentFieldsInfo(const MessageAttachment &msgAttach, int width) const
+MessageDelegateHelperBase::DocumentTypeInfo MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentFieldsInfo(const MessageAttachment &msgAttach,
+                                                                                                                       int width) const
 {
     return convertAttachmentToDocumentTypeInfo(MessageAttachmentDelegateHelperBase::DocumentIdType::Fields, msgAttach, width);
 }
 
-MessageDelegateHelperBase::DocumentDescriptionInfo
+MessageDelegateHelperBase::DocumentTypeInfo
 MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const
 {
-    MessageDelegateHelperBase::DocumentDescriptionInfo info;
-    info.documentId = documentId(type, msgAttach);
-    info.description = msgAttach.description();
+    MessageDelegateHelperBase::DocumentTypeInfo info;
+    info.identifier = documentId(type, msgAttach);
+    switch (type) {
+    case DocumentIdType::Description:
+        info.text = msgAttach.description();
+        break;
+    case DocumentIdType::Title:
+        info.text = msgAttach.title();
+        break;
+    case DocumentIdType::Fields:
+        info.text = msgAttach.attachmentFieldsText();
+        break;
+    case DocumentIdType::Unknown:
+        qCWarning(RUQOLAWIDGETS_LOG) << "Document type is unknown it's a bug ! " << msgAttach;
+        break;
+    }
+
     info.width = width;
     return info;
 }

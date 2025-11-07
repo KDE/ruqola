@@ -16,9 +16,9 @@ class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface, public TextUiBase
 {
 public:
-    struct DocumentDescriptionInfo {
-        QByteArray documentId;
-        QString description;
+    struct DocumentTypeInfo {
+        QByteArray identifier;
+        QString text;
         int width = -1;
     };
     explicit MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
@@ -34,11 +34,11 @@ public:
     [[nodiscard]] QString searchText() const;
 
 protected:
-    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const MessageDelegateHelperBase::DocumentDescriptionInfo &info) const;
-    [[nodiscard]] QSize documentDescriptionForIndexSize(const MessageDelegateHelperBase::DocumentDescriptionInfo &info) const;
+    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const MessageDelegateHelperBase::DocumentTypeInfo &info) const;
+    [[nodiscard]] QSize documentDescriptionForIndexSize(const MessageDelegateHelperBase::DocumentTypeInfo &info) const;
     void updateView(const QModelIndex &index);
     RocketChatAccount *mRocketChatAccount = nullptr;
     QString mSearchText;
 };
-Q_DECLARE_TYPEINFO(MessageDelegateHelperBase::DocumentDescriptionInfo, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageDelegateHelperBase::DocumentDescriptionInfo &t);
+Q_DECLARE_TYPEINFO(MessageDelegateHelperBase::DocumentTypeInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageDelegateHelperBase::DocumentTypeInfo &t);

@@ -80,11 +80,10 @@ protected:
      */
     [[nodiscard]] QTextDocument *documentForAttachement(const MessageAttachment &msgAttach) const override;
 
-    [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach,
-                                                                                                                int width) const;
+    [[nodiscard]] MessageDelegateHelperBase::DocumentTypeInfo convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach, int width) const;
 
     void drawTitle(const MessageAttachment &msgAttach, QPainter *painter);
-    [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach, int width) const;
+    [[nodiscard]] MessageDelegateHelperBase::DocumentTypeInfo convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach, int width) const;
 
     enum class DocumentIdType : uint8_t {
         Unknown = 0,
@@ -97,10 +96,10 @@ protected:
 
 private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentDescriptionInfo
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentTypeInfo
     convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const;
 
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentDescriptionInfo
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentTypeInfo
     convertAttachmentToDocumentFieldsInfo(const MessageAttachment &msgAttach, int width) const;
 
     QPersistentModelIndex mCurrentIndex;
