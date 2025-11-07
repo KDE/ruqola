@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-06 15:21+0000\n"
-"PO-Revision-Date: 2025-11-06 11:06+0100\n"
+"PO-Revision-Date: 2025-11-06 18:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -12383,7 +12383,7 @@ msgstr "Corregeix la visualització de la mida del fitxer adjunt."
 #: widgets/whatsnew/whatsnewtranslations.cpp:250
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "Desa la traducció local a la base de dades local."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

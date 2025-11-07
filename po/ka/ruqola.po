@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-06 15:21+0000\n"
-"PO-Revision-Date: 2025-11-02 06:44+0100\n"
+"PO-Revision-Date: 2025-11-06 20:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -10439,12 +10439,10 @@ msgid "Message has been starred"
 msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:998
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
+msgstr "შეტყობინებას აქვს ნათარგმნი ტექსტი"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1002
 #, kde-format
@@ -12306,7 +12304,7 @@ msgstr "გასწორდა მიმაგრებული ფაილ�
 #: widgets/whatsnew/whatsnewtranslations.cpp:250
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "ლოკალური თარგმანის შენახვა ლოკალურ მონაცემთა ბაზაში"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format
