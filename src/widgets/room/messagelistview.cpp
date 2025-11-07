@@ -218,9 +218,9 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
             const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();
             if (message) {
                 mMessageListDelegate->removeMessageCache(message);
-            }
-            if (roles.contains(MessagesModel::LocalTranslation) || roles.contains(MessagesModel::ShowTranslatedMessage)) {
-                mCurrentRocketChatAccount->addMessageToDataBase(mRoom->roomId(), *message);
+                if (roles.contains(MessagesModel::LocalTranslation) || roles.contains(MessagesModel::ShowTranslatedMessage)) {
+                    mCurrentRocketChatAccount->addMessageToDataBase(mRoom->roomId(), *message);
+                }
             }
         } else if (roles.contains(MessagesModel::DisplayUrlPreview) || roles.contains(MessagesModel::DisplayAttachment)) {
             const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();
