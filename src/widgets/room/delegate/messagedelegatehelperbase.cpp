@@ -43,14 +43,14 @@ void MessageDelegateHelperBase::clearTextDocumentCache()
     TextUiBase::clearCache();
 }
 
-QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const DocumentTypeInfo &info) const
+QSize MessageDelegateHelperBase::documentTypeForIndexSize(const DocumentTypeInfo &info) const
 {
-    auto *doc = documentDescriptionForIndex(info);
+    auto *doc = documentTypeForIndex(info);
     // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
     return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
 }
 
-QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const DocumentTypeInfo &info) const
+QTextDocument *MessageDelegateHelperBase::documentTypeForIndex(const DocumentTypeInfo &info) const
 {
     auto it = mDocumentCache.find(info.identifier);
     if (it != mDocumentCache.end()) {

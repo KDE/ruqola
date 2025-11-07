@@ -35,6 +35,7 @@ private:
         QString description;
         QSize titleSize;
         QSize descriptionSize;
+        QSize fieldsSize;
         QRect downloadButtonRect;
         int y; // relative
         int height;

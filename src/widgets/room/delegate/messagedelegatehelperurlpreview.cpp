@@ -99,8 +99,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.isShown = messageUrl.showPreview();
-    layout.descriptionSize =
-        layout.isShown ? documentDescriptionForIndexSize(convertMessageUrlToDocumentDescriptionInfo(messageUrl, urlsPreviewWidth)) : QSize();
+    layout.descriptionSize = layout.isShown ? documentTypeForIndexSize(convertMessageUrlToDocumentDescriptionInfo(messageUrl, urlsPreviewWidth)) : QSize();
 
     return layout;
 }
@@ -122,7 +121,7 @@ void MessageDelegateHelperUrlPreview::drawDescription(const MessageUrl &messageU
                                                       const QModelIndex &index,
                                                       const QStyleOptionViewItem &option) const
 {
-    auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
+    auto *doc = documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
     if (!doc) {
         return;
     }
@@ -160,7 +159,7 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
         return false;
     }
 
-    const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
+    const auto *doc = documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
     if (!doc) {
         return false;
     }
@@ -193,7 +192,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
             return true;
         }
         // Clicks on links
-        if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
+        if (const auto *doc = documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
             const QPoint mouseClickPos = relativePos(pos, layout, previewRect);
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
@@ -205,7 +204,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
     }
     case QEvent::MouseButtonPress:
         mTextSelectionImpl->setMightStartDrag(false);
-        if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
+        if (const auto *doc = documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
             const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
@@ -227,7 +226,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         break;
     case QEvent::MouseMove:
         if (!mTextSelectionImpl->mightStartDrag()) {
-            if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
+            if (const auto *doc = documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
                 const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
@@ -239,7 +238,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         break;
     case QEvent::MouseButtonDblClick:
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
+            if (const auto *doc = documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
                 const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
                 if (charPos == -1) {
@@ -286,7 +285,7 @@ QPoint MessageDelegateHelperUrlPreview::relativePos(const QPoint &pos, const Pre
 
 QString MessageDelegateHelperUrlPreview::urlAt(const QStyleOptionViewItem &option, const MessageUrl &messageUrl, QRect previewsRect, QPoint pos)
 {
-    auto document = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()));
+    auto document = documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()));
     if (!document) {
         return {};
     }
@@ -296,7 +295,7 @@ QString MessageDelegateHelperUrlPreview::urlAt(const QStyleOptionViewItem &optio
 
 QTextDocument *MessageDelegateHelperUrlPreview::documentForUrlPreview(const MessageUrl &messageUrl) const
 {
-    return documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, -1));
+    return documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, -1));
 }
 
 bool MessageDelegateHelperUrlPreview::maybeStartDrag(const MessageUrl &messageUrl,
@@ -309,7 +308,7 @@ bool MessageDelegateHelperUrlPreview::maybeStartDrag(const MessageUrl &messageUr
         return false;
     }
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
-        if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()))) {
+        if (const auto *doc = documentTypeForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()))) {
             const QPoint pos = mouseEvent->pos() - previewsRect.topLeft();
             const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {

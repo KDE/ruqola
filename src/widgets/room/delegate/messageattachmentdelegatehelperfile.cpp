@@ -69,8 +69,10 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
         painter->setPen(oldPen);
         painter->setFont(oldFont);
     }
-    const int descriptionY = y + layout.titleSize.height() + DelegatePaintUtil::margin();
-    drawDescription(msgAttach, attachmentsRect, painter, descriptionY, index, option);
+    int offsetY = y + layout.titleSize.height() + DelegatePaintUtil::margin();
+    drawDescription(msgAttach, attachmentsRect, painter, offsetY, index, option);
+    offsetY += layout.descriptionSize.height();
+    drawFields(msgAttach, attachmentsRect, painter, offsetY, index, option);
 }
 
 QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msgAttach,
@@ -93,12 +95,14 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     FileLayout layout;
     layout.title = msgAttach.attachmentGeneratedTitle();
     // TODO add fields text here qDebug() << " msgAttach " << msgAttach.attachmentFieldsText();
-    layout.description = msgAttach.description() /* + msgAttach.attachmentFieldsText()*/;
+    layout.description = msgAttach.description();
     layout.link = msgAttach.link();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.descriptionSize = documentDescriptionForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
+    layout.descriptionSize = documentTypeForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
+    layout.fieldsSize = documentTypeForIndexSize(convertAttachmentToDocumentFieldsInfo(msgAttach, attachmentsWidth));
     layout.y = y;
-    layout.height = layout.titleSize.height() + (layout.description.isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height());
+    layout.height = layout.titleSize.height()
+        + (layout.description.isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height() + layout.fieldsSize.height());
     if (msgAttach.canDownloadAttachment()) {
         layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, y, iconSize, iconSize);
     }

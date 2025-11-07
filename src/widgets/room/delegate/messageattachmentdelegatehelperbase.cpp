@@ -38,7 +38,7 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
     switch (mouseEvent->type()) {
     case QEvent::MouseMove: {
         if (!mTextSelectionImpl->mightStartDrag()) {
-            if (const auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
+            if (const auto *doc = documentTypeForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
                 const QPoint pos = mouseEvent->pos();
                 const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 if (charPos != -1) {
@@ -55,7 +55,7 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
         MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
         // Clicks on links
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
+            if (const auto *doc = documentTypeForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
                 const QPoint pos = mouseEvent->pos();
                 const QPoint mouseClickPos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
                 const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
@@ -74,7 +74,7 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
     case QEvent::MouseButtonDblClick: {
         qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double click";
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
+            if (const auto *doc = documentTypeForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
                 const QPoint pos = mouseEvent->pos();
                 const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
@@ -91,7 +91,7 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
         qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "mouse press";
         mTextSelectionImpl->setMightStartDrag(false);
         mCurrentIndex = QModelIndex();
-        if (const auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
+        if (const auto *doc = documentTypeForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()))) {
             const QPoint pos = mouseEvent->pos();
             const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
@@ -165,7 +165,22 @@ void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachmen
                                                           const QModelIndex &index,
                                                           const QStyleOptionViewItem &option) const
 {
-    auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, descriptionRect.width()));
+    auto *doc = documentTypeForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, descriptionRect.width()));
+    if (!doc) {
+        return;
+    }
+
+    MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mTextSelectionImpl->textSelection(), msgAttach, {});
+}
+
+void MessageAttachmentDelegateHelperBase::drawFields(const MessageAttachment &msgAttach,
+                                                     QRect descriptionRect,
+                                                     QPainter *painter,
+                                                     int topPos,
+                                                     const QModelIndex &index,
+                                                     const QStyleOptionViewItem &option) const
+{
+    auto *doc = documentTypeForIndex(convertAttachmentToDocumentFieldsInfo(msgAttach, descriptionRect.width()));
     if (!doc) {
         return;
     }
@@ -175,7 +190,7 @@ void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachmen
 
 QTextDocument *MessageAttachmentDelegateHelperBase::documentForAttachement(const MessageAttachment &msgAttach) const
 {
-    return documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, -1));
+    return documentTypeForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, -1));
 }
 
 MessageDelegateHelperBase::DocumentTypeInfo MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach,
@@ -254,7 +269,7 @@ bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
         return false;
     }
 
-    const auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, messageRect.width()));
+    const auto *doc = documentTypeForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, messageRect.width()));
     if (!doc) {
         return false;
     }
@@ -270,7 +285,7 @@ bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
 
 QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos)
 {
-    auto document = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()));
+    auto document = documentTypeForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()));
     if (!document) {
         return {};
     }

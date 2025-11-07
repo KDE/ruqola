@@ -72,6 +72,13 @@ protected:
                          const QModelIndex &index,
                          const QStyleOptionViewItem &option) const;
 
+    void drawFields(const MessageAttachment &msgAttach,
+                    QRect descriptionRect,
+                    QPainter *painter,
+                    int topPos,
+                    const QModelIndex &index,
+                    const QStyleOptionViewItem &option) const;
+
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)
@@ -81,6 +88,8 @@ protected:
     [[nodiscard]] QTextDocument *documentForAttachement(const MessageAttachment &msgAttach) const override;
 
     [[nodiscard]] MessageDelegateHelperBase::DocumentTypeInfo convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach, int width) const;
+
+    [[nodiscard]] MessageDelegateHelperBase::DocumentTypeInfo convertAttachmentToDocumentFieldsInfo(const MessageAttachment &msgAttach, int width) const;
 
     void drawTitle(const MessageAttachment &msgAttach, QPainter *painter);
     [[nodiscard]] MessageDelegateHelperBase::DocumentTypeInfo convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach, int width) const;
@@ -98,9 +107,6 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentTypeInfo
     convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const;
-
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentTypeInfo
-    convertAttachmentToDocumentFieldsInfo(const MessageAttachment &msgAttach, int width) const;
 
     QPersistentModelIndex mCurrentIndex;
 };

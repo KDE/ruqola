@@ -190,7 +190,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     layout.hasDescription = msgAttach.hasDescription();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
 
-    layout.descriptionSize = documentDescriptionForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
+    layout.descriptionSize = documentTypeForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
 
     if (!previewImageUrl.isEmpty() && previewImageUrl.isLocalFile()) {
         layout.imagePreviewPath = previewImageUrl.toLocalFile();
