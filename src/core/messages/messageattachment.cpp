@@ -366,19 +366,23 @@ QString MessageAttachment::attachmentGeneratedTitle() const
 
 void MessageAttachment::generateAttachmentFieldsText()
 {
-    QString result = QStringLiteral(R"(<qt><table width="100%"><tr>)");
-    QStringList values;
-    values.reserve(mAttachmentFields.count());
-    for (const MessageAttachmentField &field : std::as_const(mAttachmentFields)) {
-        result += u"<th><b>%1</b></th>"_s.arg(field.title());
-        values << field.value();
+    if (mAttachmentFields.isEmpty()) {
+        mAttachmentFieldsText.clear();
+    } else {
+        QString result = QStringLiteral(R"(<qt><table width="100%"><tr>)");
+        QStringList values;
+        values.reserve(mAttachmentFields.count());
+        for (const MessageAttachmentField &field : std::as_const(mAttachmentFields)) {
+            result += u"<th><b>%1</b></th>"_s.arg(field.title());
+            values << field.value();
+        }
+        result += u"</tr><tr>"_s;
+        for (const QString &res : std::as_const(values)) {
+            result += u"<td>%1</td>"_s.arg(res);
+        }
+        result += u"</tr></table></qt>"_s;
+        mAttachmentFieldsText += result;
     }
-    result += u"</tr><tr>"_s;
-    for (const QString &res : std::as_const(values)) {
-        result += u"<td>%1</td>"_s.arg(res);
-    }
-    result += u"</tr></table></qt>"_s;
-    mAttachmentFieldsText += result;
 }
 
 qint64 MessageAttachment::attachmentSize() const
