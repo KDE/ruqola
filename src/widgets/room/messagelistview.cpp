@@ -44,7 +44,6 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <textautogeneratetext/textautogeneratemanager.h>
 #if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
 #include <TextUtils/TextUtilsBlockCodeManager>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
