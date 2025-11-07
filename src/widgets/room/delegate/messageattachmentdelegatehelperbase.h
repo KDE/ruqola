@@ -90,6 +90,7 @@ protected:
         Unknown = 0,
         Title,
         Description,
+        Fields,
     };
     Q_ENUM(DocumentIdType);
     [[nodiscard]] QByteArray documentId(MessageAttachmentDelegateHelperBase::DocumentIdType type, const MessageAttachment &msgAttach) const;
@@ -98,5 +99,9 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentDescriptionInfo
     convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const;
+
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentDescriptionInfo
+    convertAttachmentToDocumentFieldsInfo(const MessageAttachment &msgAttach, int width) const;
+
     QPersistentModelIndex mCurrentIndex;
 };

@@ -92,7 +92,8 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     const int y = 0;
     FileLayout layout;
     layout.title = msgAttach.attachmentGeneratedTitle();
-    layout.description = msgAttach.description();
+    // TODO add fields text here qDebug() << " msgAttach " << msgAttach.attachmentFieldsText();
+    layout.description = msgAttach.description() /* + msgAttach.attachmentFieldsText()*/;
     layout.link = msgAttach.link();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     layout.descriptionSize = documentDescriptionForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));

@@ -190,6 +190,12 @@ MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentDescriptionInfo(
 }
 
 MessageDelegateHelperBase::DocumentDescriptionInfo
+MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentFieldsInfo(const MessageAttachment &msgAttach, int width) const
+{
+    return convertAttachmentToDocumentTypeInfo(MessageAttachmentDelegateHelperBase::DocumentIdType::Fields, msgAttach, width);
+}
+
+MessageDelegateHelperBase::DocumentDescriptionInfo
 MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const
 {
     MessageDelegateHelperBase::DocumentDescriptionInfo info;
@@ -218,6 +224,8 @@ QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType 
         return "title_"_ba;
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Description:
         return "description_"_ba;
+    case MessageAttachmentDelegateHelperBase::DocumentIdType::Fields:
+        return "fields_"_ba;
     }
     return {};
 }
