@@ -1185,6 +1185,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     if (o.contains("localTransation"_L1)) {
         message.setLocalTranslation(o["localTransation"_L1].toString());
+        message.setShowTranslatedMessage(o["showLocalTranslation"_L1].toBool());
     }
 
     if (o.contains("messageTranslation"_L1)) {
@@ -1318,6 +1319,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     if (!message.localTranslation().isEmpty()) {
         o["localTransation"_L1] = message.localTranslation();
+        o["showLocalTranslation"_L1] = message.showTranslatedMessage();
     }
     if (message.messageTranslation() && !message.messageTranslation()->isEmpty()) {
         o["messageTranslation"_L1] = MessageTranslations::serialize(*message.messageTranslation());
