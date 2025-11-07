@@ -95,14 +95,13 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     FileLayout layout;
     layout.title = msgAttach.attachmentGeneratedTitle();
     // TODO add fields text here qDebug() << " msgAttach " << msgAttach.attachmentFieldsText();
-    layout.description = msgAttach.description();
     layout.link = msgAttach.link();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     layout.descriptionSize = documentTypeForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
     layout.fieldsSize = documentTypeForIndexSize(convertAttachmentToDocumentFieldsInfo(msgAttach, attachmentsWidth));
     layout.y = y;
-    layout.height = layout.titleSize.height()
-        + (layout.description.isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height() + layout.fieldsSize.height());
+    layout.height = layout.titleSize.height() + (msgAttach.description().isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height())
+        + (msgAttach.attachmentFieldsText().isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.fieldsSize.height());
     if (msgAttach.canDownloadAttachment()) {
         layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, y, iconSize, iconSize);
     }

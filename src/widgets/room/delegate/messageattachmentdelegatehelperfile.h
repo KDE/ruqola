@@ -32,7 +32,7 @@ public:
 private:
     struct FileLayout {
         QString title;
-        QString description;
+        // QString description;
         QSize titleSize;
         QSize descriptionSize;
         QSize fieldsSize;

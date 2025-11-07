@@ -88,6 +88,7 @@ QTextDocument *MessageDelegateHelperBase::documentTypeForIndex(const DocumentTyp
     int numberOfTextSearched = 0;
     const int hightLightStringIndex = 0;
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
+    // qDebug() << " contextString ************* "<< contextString;
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, info.width);
     auto ret = doc.get();
     mDocumentCache.insert(info.identifier, std::move(doc));
