@@ -219,7 +219,7 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
             if (message) {
                 mMessageListDelegate->removeMessageCache(message);
             }
-            if (roles.contains(MessagesModel::LocalTranslation)) {
+            if (roles.contains(MessagesModel::LocalTranslation) || roles.contains(MessagesModel::ShowTranslatedMessage)) {
                 mCurrentRocketChatAccount->addMessageToDataBase(mRoom->roomId(), *message);
             }
         } else if (roles.contains(MessagesModel::DisplayUrlPreview) || roles.contains(MessagesModel::DisplayAttachment)) {
