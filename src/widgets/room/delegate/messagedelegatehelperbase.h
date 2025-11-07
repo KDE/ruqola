@@ -34,8 +34,8 @@ public:
     [[nodiscard]] QString searchText() const;
 
 protected:
-    [[nodiscard]] QTextDocument *documentTypeForIndex(const MessageDelegateHelperBase::DocumentTypeInfo &info) const;
-    [[nodiscard]] QSize documentTypeForIndexSize(const MessageDelegateHelperBase::DocumentTypeInfo &info) const;
+    [[nodiscard]] QTextDocument *documentTypeForIndex(const MessageDelegateHelperBase::DocumentTypeInfo &info, bool convertText = true) const;
+    [[nodiscard]] QSize documentTypeForIndexSize(const MessageDelegateHelperBase::DocumentTypeInfo &info, bool convertText = true) const;
     void updateView(const QModelIndex &index);
     RocketChatAccount *mRocketChatAccount = nullptr;
     QString mSearchText;

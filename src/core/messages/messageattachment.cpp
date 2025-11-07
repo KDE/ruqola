@@ -369,16 +369,21 @@ void MessageAttachment::generateAttachmentFieldsText()
     if (mAttachmentFields.isEmpty()) {
         mAttachmentFieldsText.clear();
     } else {
-        QString result = QStringLiteral(R"(<qt><table width="100%"><tr>)");
+        const QString formatFirstCell = QStringLiteral(R"( padding-left: 5px; border-left: 5px solid %1)").arg(color());
+        QString result = QStringLiteral(R"(<qt><table style="border-collapse: collapse; border-spacing: 0;" width="100%" align="center"><tr>)");
         QStringList values;
         values.reserve(mAttachmentFields.count());
+        int i = 0;
         for (const MessageAttachmentField &field : std::as_const(mAttachmentFields)) {
-            result += u"<th><b>%1</b></th>"_s.arg(field.title());
+            result += u"<td style=\"text-align: left;%2\"><b>%1</b></td>"_s.arg(field.title(), (i == 0) ? formatFirstCell : QString());
             values << field.value();
+            ++i;
         }
         result += u"</tr><tr>"_s;
+        i = 0;
         for (const QString &res : std::as_const(values)) {
-            result += u"<td>%1</td>"_s.arg(res);
+            result += u"<td style=\"text-align: left;%2\">%1</td>"_s.arg(res, (i == 0) ? formatFirstCell : QString());
+            ++i;
         }
         result += u"</tr></table></qt>"_s;
         mAttachmentFieldsText += result;

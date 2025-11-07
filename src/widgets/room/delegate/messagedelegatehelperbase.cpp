@@ -43,14 +43,14 @@ void MessageDelegateHelperBase::clearTextDocumentCache()
     TextUiBase::clearCache();
 }
 
-QSize MessageDelegateHelperBase::documentTypeForIndexSize(const DocumentTypeInfo &info) const
+QSize MessageDelegateHelperBase::documentTypeForIndexSize(const DocumentTypeInfo &info, bool convertText) const
 {
-    auto *doc = documentTypeForIndex(info);
+    auto *doc = documentTypeForIndex(info, convertText);
     // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
     return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
 }
 
-QTextDocument *MessageDelegateHelperBase::documentTypeForIndex(const DocumentTypeInfo &info) const
+QTextDocument *MessageDelegateHelperBase::documentTypeForIndex(const DocumentTypeInfo &info, bool convertText) const
 {
     auto it = mDocumentCache.find(info.identifier);
     if (it != mDocumentCache.end()) {
@@ -64,30 +64,35 @@ QTextDocument *MessageDelegateHelperBase::documentTypeForIndex(const DocumentTyp
     if (info.text.isEmpty()) {
         return nullptr;
     }
-    // Use TextConverter in case it starts with a [](URL) reply marker
-    QByteArray needUpdateMessageId; // TODO use it ?
-    // Laurent Ruqola::self()->rocketChatAccount() only for test.
-    auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
-    int maximumRecursiveQuotedText = -1;
-    if (account) {
-        maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
-    }
-    const TextConverter::ConvertMessageTextSettings settings(info.text,
-                                                             account ? account->userName() : QString(),
-                                                             {},
-                                                             account ? account->highlightWords() : QStringList(),
-                                                             account ? account->emojiManager() : nullptr,
-                                                             account ? account->messageCache() : nullptr,
-                                                             {},
-                                                             {},
-                                                             {},
-                                                             mSearchText,
-                                                             maximumRecursiveQuotedText);
+    QString contextString;
+    if (convertText) {
+        // Use TextConverter in case it starts with a [](URL) reply marker
+        QByteArray needUpdateMessageId; // TODO use it ?
+        // Laurent Ruqola::self()->rocketChatAccount() only for test.
+        auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
+        int maximumRecursiveQuotedText = -1;
+        if (account) {
+            maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
+        }
+        const TextConverter::ConvertMessageTextSettings settings(info.text,
+                                                                 account ? account->userName() : QString(),
+                                                                 {},
+                                                                 account ? account->highlightWords() : QStringList(),
+                                                                 account ? account->emojiManager() : nullptr,
+                                                                 account ? account->messageCache() : nullptr,
+                                                                 {},
+                                                                 {},
+                                                                 {},
+                                                                 mSearchText,
+                                                                 maximumRecursiveQuotedText);
 
-    int recursiveIndex = 0;
-    int numberOfTextSearched = 0;
-    const int hightLightStringIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
+        int recursiveIndex = 0;
+        int numberOfTextSearched = 0;
+        const int hightLightStringIndex = 0;
+        contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
+    } else {
+        contextString = info.text;
+    }
     // qDebug() << " contextString ************* "<< contextString;
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, info.width);
     auto ret = doc.get();
