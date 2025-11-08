@@ -21,6 +21,7 @@
 #include <KService>
 
 #include "ruqolawidgets_debug.h"
+#include "ruqolawidgets_selection_debug.h"
 #include <QAbstractTextDocumentLayout>
 #include <QDesktopServices>
 #include <QMessageBox>
