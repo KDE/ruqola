@@ -134,6 +134,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateApplicationsSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddInviteServer(const AccountManager::AccountManagerInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowAppsTranslation();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotWorkOfflineMode();
 
     bool mReallyClose{false};
 
@@ -199,6 +200,9 @@ private:
     QWidget *mContainerStatusInfo = nullptr;
     QAction *mClearRoomHistory = nullptr;
     QAction *mPrivateApplications = nullptr;
+#if ADD_OFFLINE_SUPPORT
+    QAction *mOfflineMode = nullptr;
+#endif
     MessageStyleLayoutMenu *mMessageStyleAction = nullptr;
     ChangeFontSizeMenu *mChangeFontSizeAction = nullptr;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)

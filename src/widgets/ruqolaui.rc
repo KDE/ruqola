@@ -3,7 +3,7 @@
   SPDX-License-Identifier: CC0-1.0
   SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 -->
-<gui name="ruqola" version="54">
+<gui name="ruqola" version="55">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -17,6 +17,8 @@
    <Action name="register_new_user" />
    <Separator/>
    <Action name="administration" />
+   <Separator/>
+   <Action name="work_offline" />
    <Separator/>
    <Action name="logout" />
    <Separator/>

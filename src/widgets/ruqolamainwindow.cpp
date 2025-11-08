@@ -750,6 +750,12 @@ void RuqolaMainWindow::setupActions()
     mClearRoomHistory = new QAction(QIcon::fromTheme(u"edit-clear-all"_s), i18n("Clear history"), this);
     connect(mClearRoomHistory, &QAction::triggered, this, &RuqolaMainWindow::slotClearRoomHistory);
     ac->addAction(u"clear_room_history"_s, mClearRoomHistory);
+
+#if ADD_OFFLINE_SUPPORT
+    mOfflineMode = new QAction(i18n("Work Offline"), this);
+    connect(mOfflineMode, &QAction::triggered, this, &RuqolaMainWindow::slotWorkOfflineMode);
+    ac->addAction(u"work_offline"_s, mOfflineMode);
+#endif
 }
 
 void RuqolaMainWindow::slotMessageStyleChanged()
@@ -1407,6 +1413,14 @@ void RuqolaMainWindow::slotAddInviteServer(const AccountManager::AccountManagerI
         mAccountManager->addAccount(std::move(newInfo));
     }
     delete dlg;
+}
+
+void RuqolaMainWindow::slotWorkOfflineMode()
+{
+#if ADD_OFFLINE_SUPPORT
+    // TODO
+#endif
+    // TODO
 }
 
 #include "moc_ruqolamainwindow.cpp"
