@@ -91,7 +91,12 @@ protected:
 
     [[nodiscard]] MessageDelegateHelperBase::DocumentTypeInfo convertAttachmentToDocumentFieldsInfo(const MessageAttachment &msgAttach, int width) const;
 
-    void drawTitle(const MessageAttachment &msgAttach, QPainter *painter);
+    void drawTitle(const MessageAttachment &msgAttach,
+                   QRect descriptionRect,
+                   QPainter *painter,
+                   int topPos,
+                   const QModelIndex &index,
+                   const QStyleOptionViewItem &option);
     [[nodiscard]] MessageDelegateHelperBase::DocumentTypeInfo convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach, int width) const;
 
     enum class DocumentIdType : uint8_t {

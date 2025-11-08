@@ -152,10 +152,19 @@ int MessageAttachmentDelegateHelperBase::charPosition(const QTextDocument *doc,
     return charPos;
 }
 
-void MessageAttachmentDelegateHelperBase::drawTitle(const MessageAttachment &msgAttach, QPainter *painter)
+void MessageAttachmentDelegateHelperBase::drawTitle(const MessageAttachment &msgAttach,
+                                                    QRect descriptionRect,
+                                                    QPainter *painter,
+                                                    int topPos,
+                                                    const QModelIndex &index,
+                                                    const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(msgAttach);
-    Q_UNUSED(painter);
+    auto *doc = documentTypeForIndex(convertAttachmentToDocumentTitleInfo(msgAttach, descriptionRect.width()));
+    if (!doc) {
+        return;
+    }
+
+    MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mTextSelectionImpl->textSelection(), msgAttach, {});
 }
 
 void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach,
