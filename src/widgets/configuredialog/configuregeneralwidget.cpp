@@ -22,7 +22,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     , mEnableLogging(new QCheckBox(i18nc("@option:check", "Enable logging"), this))
     , mShowHoverHightLights(new QCheckBox(i18nc("@option:check", "Highlight messages when hovering"), this))
     , mAnimateGif(new QCheckBox(i18nc("@option:check", "Animate GIFs"), this))
-    , mStoreMessageInDataBase(new QCheckBox(i18nc("@option:check", "Enable experimental local database"), this))
+    , mStoreMessageInDataBase(new QCheckBox(i18nc("@option:check", "Enable local database"), this))
 #if HAVE_ACTIVITY_SUPPORT
     , mEnabledActivitySupport(new QCheckBox(i18nc("@option:check", "Enable Plasma Activities integration"), this))
 #endif
