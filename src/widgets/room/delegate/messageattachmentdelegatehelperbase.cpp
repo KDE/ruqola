@@ -5,7 +5,6 @@
 */
 
 #include "messageattachmentdelegatehelperbase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
@@ -22,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
+using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperBase::~MessageAttachmentDelegateHelperBase() = default;
 
 MessageAttachmentDelegateHelperBase::MessageAttachmentDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)

@@ -5,7 +5,6 @@
 */
 
 #include "messagedelegatehelperconferencevideo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "conferencecalldialog/conferenceinfodialog.h"
@@ -23,6 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
+using namespace Qt::Literals::StringLiterals;
 MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageBlockDelegateHelperBase(account, view, textSelectionImpl)
     , mInfoIcon(QIcon::fromTheme(u"documentinfo"_s))

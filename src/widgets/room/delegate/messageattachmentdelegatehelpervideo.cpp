@@ -5,7 +5,6 @@
 */
 
 #include "messageattachmentdelegatehelpervideo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPainter>
 #include <QStyleOptionViewItem>
 
+using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
     , mDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))

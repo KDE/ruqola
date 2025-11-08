@@ -5,7 +5,6 @@
 */
 
 #include "messagedelegatehelpersection.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "autogenerateui/autogenerateinteractionutil.h"
 #include "common/delegatepaintutil.h"
@@ -23,6 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPainter>
 #include <QStyleOptionViewItem>
 
+using namespace Qt::Literals::StringLiterals;
 MessageDelegateHelperSection::MessageDelegateHelperSection(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageBlockDelegateHelperBase(account, view, textSelectionImpl)
     , mMenuIcon(QIcon::fromTheme(u"menu_new"_s))

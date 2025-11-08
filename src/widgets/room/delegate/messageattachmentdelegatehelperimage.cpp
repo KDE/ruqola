@@ -5,7 +5,6 @@
 */
 
 #include "messageattachmentdelegatehelperimage.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "dialogs/showimagedialog.h"
@@ -29,6 +28,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPixmapCache>
 #include <QStyleOptionViewItem>
 
+using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
 {
