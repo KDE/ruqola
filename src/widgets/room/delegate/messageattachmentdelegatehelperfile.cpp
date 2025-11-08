@@ -60,6 +60,7 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
         painter->setPen(option.palette.color(QPalette::Link));
         painter->setFont(underlinedFont);
     }
+    // drawTitle(msgAttach, attachmentsRect, painter, y, index, option);
     painter->drawText(attachmentsRect.x(), y + option.fontMetrics.ascent(), layout.title);
     if (layout.downloadButtonRect.isValid()) {
         mDownloadIcon.paint(painter, layout.downloadButtonRect.translated(attachmentsRect.topLeft()));
