@@ -1420,7 +1420,6 @@ void RuqolaMainWindow::slotWorkOfflineMode()
 #if ADD_OFFLINE_SUPPORT
     // TODO
 #endif
-    // TODO
 }
 
 #include "moc_ruqolamainwindow.cpp"
