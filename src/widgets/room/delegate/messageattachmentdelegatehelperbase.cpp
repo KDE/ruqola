@@ -157,7 +157,7 @@ void MessageAttachmentDelegateHelperBase::drawTitle(const MessageAttachment &msg
                                                     QPainter *painter,
                                                     int topPos,
                                                     const QModelIndex &index,
-                                                    const QStyleOptionViewItem &option)
+                                                    const QStyleOptionViewItem &option) const
 {
     auto *doc = documentTypeForIndex(convertAttachmentToDocumentTitleInfo(msgAttach, descriptionRect.width()));
     if (!doc) {

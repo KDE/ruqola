@@ -96,7 +96,7 @@ protected:
                    QPainter *painter,
                    int topPos,
                    const QModelIndex &index,
-                   const QStyleOptionViewItem &option);
+                   const QStyleOptionViewItem &option) const;
     [[nodiscard]] MessageDelegateHelperBase::DocumentTypeInfo convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach, int width) const;
 
     enum class DocumentIdType : uint8_t {
