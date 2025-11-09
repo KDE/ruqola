@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-08 00:41+0000\n"
-"PO-Revision-Date: 2025-11-07 10:39+0100\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"PO-Revision-Date: 2025-11-08 07:08+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1869,7 +1869,7 @@ msgid "Public Team"
 msgstr "Javna ekipa"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:25
+#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:27
 #, kde-format
 msgid "Channel"
 msgstr "Kanal"
@@ -7537,7 +7537,7 @@ msgid "Username or email:"
 msgstr "Uporabniško ime ali naslov e-pošte:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1087
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7547,7 +7547,7 @@ msgstr ""
 "Če ne prejmete e-pošte v kratkem, se vrnite in poskusite znova."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1088
+#: widgets/ruqolamainwindow.cpp:1094
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7724,10 +7724,11 @@ msgid "Animate GIFs"
 msgstr "Animiraj slike GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use local dataBase"
 msgctxt "@option:check"
-msgid "Enable experimental local database"
-msgstr "Omogoči poskusno lokalno podatkovno bazo"
+msgid "Enable local database"
+msgstr "Uporabi lokalno podatkovno zbirko"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -10356,54 +10357,54 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Razhrošči"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Ali želite odpreti priponko?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Odpri priponko <filename>%1</filename>?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Odpri"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Odpri z '%1'"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:131
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Odpri z…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Shr&ani kot…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "Ni mogoče odpreti %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Napaka pri odpiranju datoteke"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:193
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -11441,30 +11442,36 @@ msgstr "Razširjeno"
 msgid "Clear history"
 msgstr "Počisti zgodovino"
 
-#: widgets/ruqolamainwindow.cpp:792
+#: widgets/ruqolamainwindow.cpp:755
+#, fuzzy, kde-format
+#| msgid "Offline"
+msgid "Work Offline"
+msgstr "Brez povezave"
+
+#: widgets/ruqolamainwindow.cpp:798
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Ustvari ekipo"
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Ni mogoče pisati v datoteko dnevnika %1"
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Pokaži dnevnik kanala"
 
-#: widgets/ruqolamainwindow.cpp:1159
+#: widgets/ruqolamainwindow.cpp:1165
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stanje"
 
-#: widgets/ruqolamainwindow.cpp:1246
+#: widgets/ruqolamainwindow.cpp:1252
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11473,44 +11480,44 @@ msgstr ""
 "<qt>To bo skrilo v celoti skrilo menijsko vrstico. Lahko jo spet prikažete, "
 "če vtipkate %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1255
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Skrij menijsko vrstico"
 
 #. i18n: ectx: Menu (windows)
-#: widgets/ruqolaui.rc:40
+#: widgets/ruqolaui.rc:42
 #, kde-format
 msgid "&Window"
 msgstr "Okno"
 
 #. i18n: ectx: Menu (Tools)
-#: widgets/ruqolaui.rc:45
+#: widgets/ruqolaui.rc:47
 #, kde-format
 msgid "Tools"
 msgstr "Orodja"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:61
+#: widgets/ruqolaui.rc:63
 #, kde-format
 msgid "&Settings"
 msgstr "Na&stavitve"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:65
+#: widgets/ruqolaui.rc:67
 #, kde-format
 msgid "View"
 msgstr "Pogled"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:86
+#: widgets/ruqolaui.rc:88
 #, kde-format
 msgid "&Help"
 msgstr "Pomoč"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:93
+#: widgets/ruqolaui.rc:95
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Glavna orodna vrstica"
@@ -11743,11 +11750,8 @@ msgid "Improve Text To Speech user interface."
 msgstr "Izboljšaj besedilo vmesniku za besedilo v govor."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Pokaži priponke - %1"
+msgstr "Pokaži polja priponke."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
@@ -12385,6 +12389,10 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
 
+#~ msgctxt "@option:check"
+#~ msgid "Enable experimental local database"
+#~ msgstr "Omogoči poskusno lokalno podatkovno bazo"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "Bold"
 #~ msgstr "Krepko"
@@ -12809,9 +12817,6 @@ msgstr "Nekaj odprav napak:"
 
 #~ msgid "Add Smiley"
 #~ msgstr "Dodaj smeška"
-
-#~ msgid "Use local dataBase"
-#~ msgstr "Uporabi lokalno podatkovno zbirko"
 
 #~ msgid "file \"%1\" cannot be added to backup file."
 #~ msgstr "datoteke \"%1\" ni mogoče dodati v datoteko varovalne kopije."

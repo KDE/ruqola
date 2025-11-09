@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-08 00:41+0000\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1974,7 +1974,7 @@ msgid "Public Team"
 msgstr ""
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:25
+#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:27
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Channel"
@@ -7784,7 +7784,7 @@ msgid "Username or email:"
 msgstr "Meno používateľa: %1"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1087
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7792,7 +7792,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1088
+#: widgets/ruqolamainwindow.cpp:1094
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgctxt "@title:window"
@@ -7980,10 +7980,11 @@ msgid "Animate GIFs"
 msgstr "Obrázok"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Translation"
 msgctxt "@option:check"
-msgid "Enable experimental local database"
-msgstr ""
+msgid "Enable local database"
+msgstr "Preklad"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, fuzzy, kde-format
@@ -10781,56 +10782,56 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, fuzzy, kde-format
 #| msgid "Attachments"
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Prílohy"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:131
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, kde-format
 msgid "Impossible to open %1"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, fuzzy, kde-format
 #| msgid "Error"
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Chyba"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:193
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@title:window"
@@ -11996,77 +11997,83 @@ msgstr ""
 msgid "Clear history"
 msgstr "Neplatné heslo"
 
-#: widgets/ruqolamainwindow.cpp:792
+#: widgets/ruqolamainwindow.cpp:755
+#, fuzzy, kde-format
+#| msgid "Offline"
+msgid "Work Offline"
+msgstr "Nepripojený"
+
+#: widgets/ruqolamainwindow.cpp:798
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Opustiť kanál"
 
-#: widgets/ruqolamainwindow.cpp:1159
+#: widgets/ruqolamainwindow.cpp:1165
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stav:"
 
-#: widgets/ruqolamainwindow.cpp:1246
+#: widgets/ruqolamainwindow.cpp:1252
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1255
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
 #. i18n: ectx: Menu (windows)
-#: widgets/ruqolaui.rc:40
+#: widgets/ruqolaui.rc:42
 #, kde-format
 msgid "&Window"
 msgstr ""
 
 #. i18n: ectx: Menu (Tools)
-#: widgets/ruqolaui.rc:45
+#: widgets/ruqolaui.rc:47
 #, kde-format
 msgid "Tools"
 msgstr ""
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:61
+#: widgets/ruqolaui.rc:63
 #, kde-format
 msgid "&Settings"
 msgstr ""
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:65
+#: widgets/ruqolaui.rc:67
 #, kde-format
 msgid "View"
 msgstr ""
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:86
+#: widgets/ruqolaui.rc:88
 #, kde-format
 msgid "&Help"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:93
+#: widgets/ruqolaui.rc:95
 #, kde-format
 msgid "Main Toolbar"
 msgstr ""

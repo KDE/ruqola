@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-08 00:41+0000\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1862,7 +1862,7 @@ msgid "Public Team"
 msgstr "सार्वजनिक टीम"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:25
+#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:27
 #, kde-format
 msgid "Channel"
 msgstr "चैनल"
@@ -7522,7 +7522,7 @@ msgid "Username or email:"
 msgstr "उपयोगकर्ता का नाम या ईमेल:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1087
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7532,7 +7532,7 @@ msgstr ""
 "यदि आपको शीघ्र ही कोई ईमेल प्राप्त नहीं होता है, तो कृपया वापस आएं और पुनः प्रयास करें।"
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1088
+#: widgets/ruqolamainwindow.cpp:1094
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7709,9 +7709,11 @@ msgid "Animate GIFs"
 msgstr "GIFs को एनिमेट करें"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable experimental local database"
 msgctxt "@option:check"
-msgid "Enable experimental local database"
+msgid "Enable local database"
 msgstr "प्रायोगिक स्थानीय डेटाबेस सक्षम करें"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
@@ -10347,49 +10349,49 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "अनुलग्नक खोलें?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "अनुलग्नक <फ़ाइलनाम>%1</फ़ाइलनाम> खोलें?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&'%1' के साथ खोलें"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:131
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "के साथ खोलें…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "के रूप रक्षित करें…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "फ़ाइल खोलना असंभव"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error saving file"
@@ -10397,7 +10399,7 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "फ़ाइल सहेजने में त्रुटि"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:193
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -11443,30 +11445,36 @@ msgstr "विस्तारित"
 msgid "Clear history"
 msgstr "इतिहास मिटा दें"
 
-#: widgets/ruqolamainwindow.cpp:792
+#: widgets/ruqolamainwindow.cpp:755
+#, fuzzy, kde-format
+#| msgid "Offline"
+msgid "Work Offline"
+msgstr "ऑफलाइन"
+
+#: widgets/ruqolamainwindow.cpp:798
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "टीम बनाएं"
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "लॉग फ़ाइल %1 पर नहीं लिखा जा सकता"
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "चैनल लॉग दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:1159
+#: widgets/ruqolamainwindow.cpp:1165
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "स्थिति"
 
-#: widgets/ruqolamainwindow.cpp:1246
+#: widgets/ruqolamainwindow.cpp:1252
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11474,44 +11482,44 @@ msgid ""
 msgstr ""
 "<qt>इससे मेनू बार पूरी तरह छिप जाएगा। आप %1 लिखकर इसे फिर से दिखा सकते हैं।</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1255
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "मेनू बार छुपाएं"
 
 #. i18n: ectx: Menu (windows)
-#: widgets/ruqolaui.rc:40
+#: widgets/ruqolaui.rc:42
 #, kde-format
 msgid "&Window"
 msgstr "&खिड़की"
 
 #. i18n: ectx: Menu (Tools)
-#: widgets/ruqolaui.rc:45
+#: widgets/ruqolaui.rc:47
 #, kde-format
 msgid "Tools"
 msgstr "औजार"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:61
+#: widgets/ruqolaui.rc:63
 #, kde-format
 msgid "&Settings"
 msgstr "&सेटिंग्स"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:65
+#: widgets/ruqolaui.rc:67
 #, kde-format
 msgid "View"
 msgstr "देखना"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:86
+#: widgets/ruqolaui.rc:88
 #, kde-format
 msgid "&Help"
 msgstr "&मदद"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:93
+#: widgets/ruqolaui.rc:95
 #, kde-format
 msgid "Main Toolbar"
 msgstr "मुख्य टूलबार"

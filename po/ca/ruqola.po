@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-08 00:41+0000\n"
-"PO-Revision-Date: 2025-11-06 18:04+0100\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"PO-Revision-Date: 2025-11-08 14:57+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -1864,7 +1864,7 @@ msgid "Public Team"
 msgstr "Equip públic"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:25
+#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:27
 #, kde-format
 msgid "Channel"
 msgstr "Canal"
@@ -7558,7 +7558,7 @@ msgid "Username or email:"
 msgstr "Nom d'usuari o correu:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1087
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7568,7 +7568,7 @@ msgstr ""
 "Si no rebeu un correu ben aviat, torneu i intenteu-ho de nou."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1088
+#: widgets/ruqolamainwindow.cpp:1094
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7745,9 +7745,11 @@ msgid "Animate GIFs"
 msgstr "Anima els GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable experimental local database"
 msgctxt "@option:check"
-msgid "Enable experimental local database"
+msgid "Enable local database"
 msgstr "Activa la base de dades local experimental"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
@@ -10378,54 +10380,54 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Depuració"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Obro l'adjunt?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Obro l'adjunt <filename>%1</filename>?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Obre"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Obre amb «%1»"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:131
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "Obre &amb…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "Desa &com a…"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "Impossible obrir el fitxer %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Error en obrir el fitxer"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:193
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -11455,30 +11457,36 @@ msgstr "Ampliada"
 msgid "Clear history"
 msgstr "Neteja l'historial"
 
-#: widgets/ruqolamainwindow.cpp:792
+#: widgets/ruqolamainwindow.cpp:755
+#, fuzzy, kde-format
+#| msgid "Offline"
+msgid "Work Offline"
+msgstr "Desconnectat"
+
+#: widgets/ruqolamainwindow.cpp:798
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Creació d'un equip"
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "No s'ha pogut escriure al fitxer de registre %1"
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostra el registre del canal"
 
-#: widgets/ruqolamainwindow.cpp:1159
+#: widgets/ruqolamainwindow.cpp:1165
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
 
-#: widgets/ruqolamainwindow.cpp:1246
+#: widgets/ruqolamainwindow.cpp:1252
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11487,44 +11495,44 @@ msgstr ""
 "<qt>Això ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1255
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Ocultació de la barra de menús"
 
 #. i18n: ectx: Menu (windows)
-#: widgets/ruqolaui.rc:40
+#: widgets/ruqolaui.rc:42
 #, kde-format
 msgid "&Window"
 msgstr "&Finestra"
 
 #. i18n: ectx: Menu (Tools)
-#: widgets/ruqolaui.rc:45
+#: widgets/ruqolaui.rc:47
 #, kde-format
 msgid "Tools"
 msgstr "Eines"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:61
+#: widgets/ruqolaui.rc:63
 #, kde-format
 msgid "&Settings"
 msgstr "&Configuració"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:65
+#: widgets/ruqolaui.rc:67
 #, kde-format
 msgid "View"
 msgstr "Vista"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:86
+#: widgets/ruqolaui.rc:88
 #, kde-format
 msgid "&Help"
 msgstr "&Ajuda"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:93
+#: widgets/ruqolaui.rc:95
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
@@ -11761,11 +11769,8 @@ msgid "Improve Text To Speech user interface."
 msgstr "Millora la interfície d'usuari del text a veu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Mostra els adjunts - %1"
+msgstr "Mostra els camps dels adjunts."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format

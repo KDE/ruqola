@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-08 00:41+0000\n"
+"POT-Creation-Date: 2025-11-09 00:42+0000\n"
 "PO-Revision-Date: 2025-05-30 19:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1855,7 +1855,7 @@ msgid "Public Team"
 msgstr "Equipa Public"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:25
+#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:27
 #, kde-format
 msgid "Channel"
 msgstr "Canal"
@@ -7371,7 +7371,7 @@ msgid "Username or email:"
 msgstr "Nomine de usator o E-Posta"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1087
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7382,7 +7382,7 @@ msgstr ""
 "novemente."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1088
+#: widgets/ruqolamainwindow.cpp:1094
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7561,10 +7561,12 @@ msgid "Animate GIFs"
 msgstr "GIFs animate"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable collect log in data"
 msgctxt "@option:check"
-msgid "Enable experimental local database"
-msgstr ""
+msgid "Enable local database"
+msgstr "Habilita colliger registros in datos"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -10164,50 +10166,50 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Cribra (debug)"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
 msgstr "Aperir Attachamento?"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Aperir Attachamento <filename>%1</filename>?<nl/>"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
 #, fuzzy, kde-format
 #| msgid "Open…"
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Aperi..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:128
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open With '%1'"
 msgstr "&Aperi con '%1'"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:131
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
 #, kde-format
 msgctxt "@action:button"
 msgid "Open &With…"
 msgstr "A&peri con..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Save &As…"
 msgstr "S&alva como..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "Impossibile aperir file"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:177
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error saving file"
@@ -10215,7 +10217,7 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Error durante que il salveguardava "
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:193
+#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
@@ -11253,30 +11255,36 @@ msgstr "Extendite"
 msgid "Clear history"
 msgstr "Netta historia"
 
-#: widgets/ruqolamainwindow.cpp:792
+#: widgets/ruqolamainwindow.cpp:755
+#, fuzzy, kde-format
+#| msgid "Offline"
+msgid "Work Offline"
+msgstr "Foras de linea"
+
+#: widgets/ruqolamainwindow.cpp:798
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crea equipa"
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:989
+#: widgets/ruqolamainwindow.cpp:995
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Monstra registro de canal"
 
-#: widgets/ruqolamainwindow.cpp:1159
+#: widgets/ruqolamainwindow.cpp:1165
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1246
+#: widgets/ruqolamainwindow.cpp:1252
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11285,44 +11293,44 @@ msgstr ""
 "<qt>Isto celera completemente le barra de menu. Tu pote monstrar lo de nove "
 "per typar %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1255
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Cela barra de menu"
 
 #. i18n: ectx: Menu (windows)
-#: widgets/ruqolaui.rc:40
+#: widgets/ruqolaui.rc:42
 #, kde-format
 msgid "&Window"
 msgstr "&Fenestra"
 
 #. i18n: ectx: Menu (Tools)
-#: widgets/ruqolaui.rc:45
+#: widgets/ruqolaui.rc:47
 #, kde-format
 msgid "Tools"
 msgstr "Instrumentos"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:61
+#: widgets/ruqolaui.rc:63
 #, kde-format
 msgid "&Settings"
 msgstr "Preferentia&s"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:65
+#: widgets/ruqolaui.rc:67
 #, kde-format
 msgid "View"
 msgstr "Vista"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:86
+#: widgets/ruqolaui.rc:88
 #, kde-format
 msgid "&Help"
 msgstr "Ad&juta"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:93
+#: widgets/ruqolaui.rc:95
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barra de instrumento principal"
