@@ -10045,13 +10045,13 @@ msgstr ""
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, kde-format
 msgid "Impossible to open %1"
-msgstr ""
+msgstr "无法打开 %1"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr ""
+msgstr "打开文件时发生错误"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
@@ -10455,7 +10455,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Strike Through"
-msgstr ""
+msgstr "删除线"
 
 #: widgets/room/quicktextformatmessage.cpp:76
 #, kde-format
@@ -10467,13 +10467,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Quote Text"
-msgstr ""
+msgstr "引用文本"
 
 #: widgets/room/quicktextformatmessage.cpp:104
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Insert Link"
-msgstr ""
+msgstr "插入链接"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11396,10 +11396,8 @@ msgid "Add restore button in administration settings."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
-#, fuzzy
-#| msgid "Allow to activate/desactivate apps market."
 msgid "Allow to activate plugins."
-msgstr "允许启用/禁用应用市场。"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Add Open With button in show image."
@@ -11873,10 +11871,9 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, fuzzy, kde-format
-#| msgid "Allow to activate/desactivate apps market."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
-msgstr "允许启用/禁用应用市场。"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:172
 #, kde-format
@@ -11904,10 +11901,9 @@ msgid "Fix show date info."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
-#, fuzzy, kde-format
-#| msgid "Application does not have settings."
+#, kde-format
 msgid "Fix save application settings."
-msgstr "此应用无配置选项。"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
@@ -11983,7 +11979,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Restore"
-#~ msgstr "恢复"
