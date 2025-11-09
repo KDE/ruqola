@@ -76,6 +76,7 @@ public:
 Q_SIGNALS:
     void translatorMenuChanged();
     void addInviteServer(const AccountManager::AccountManagerInfo &info);
+    void offlineModeChanged();
 
 private:
     AccountManager *mAccountManager = nullptr;

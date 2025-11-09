@@ -125,7 +125,10 @@ bool Ruqola::offlineMode() const
 void Ruqola::setOfflineMode([[maybe_unused]] bool newOfflineMode)
 {
 #if ADD_OFFLINE_SUPPORT
-    mOfflineMode = newOfflineMode;
+    if (mOfflineMode != newOfflineMode) {
+        mOfflineMode = newOfflineMode;
+        Q_EMIT offlineModeChanged();
+    }
 #endif
 }
 
