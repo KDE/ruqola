@@ -70,6 +70,9 @@ public:
 #if HAVE_TEXT_AUTOGENERATE_TEXT
     [[nodiscard]] TextAutoGenerateText::TextAutoGenerateManager *textAutoGenerateManager() const;
 #endif
+    [[nodiscard]] bool offlineMode() const;
+    void setOfflineMode(bool newOfflineMode);
+
 Q_SIGNALS:
     void translatorMenuChanged();
     void addInviteServer(const AccountManager::AccountManagerInfo &info);
@@ -84,5 +87,8 @@ private:
 #endif
     CustomEmojiIconManager *const mCustomEmojiIconManager;
     bool mDebug = false;
+#if ADD_OFFLINE_SUPPORT
+    bool mOfflineMode = false;
+#endif
     QWidget *mParentWidget = nullptr;
 };

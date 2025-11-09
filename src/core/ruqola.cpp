@@ -113,6 +113,22 @@ TextAutoGenerateText::TextAutoGenerateManager *Ruqola::textAutoGenerateManager()
 }
 #endif
 
+bool Ruqola::offlineMode() const
+{
+#if ADD_OFFLINE_SUPPORT
+    return mOfflineMode;
+#else
+    return false;
+#endif
+}
+
+void Ruqola::setOfflineMode([[maybe_unused]] bool newOfflineMode)
+{
+#if ADD_OFFLINE_SUPPORT
+    mOfflineMode = newOfflineMode;
+#endif
+}
+
 void Ruqola::setCurrentAccount(const QString &accountName)
 {
     mAccountManager->setCurrentAccount(accountName);
