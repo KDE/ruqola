@@ -1422,7 +1422,7 @@ void RuqolaMainWindow::slotAddInviteServer(const AccountManager::AccountManagerI
 void RuqolaMainWindow::slotWorkOfflineMode()
 {
 #if ADD_OFFLINE_SUPPORT
-    // TODO
+    Ruqola::self()->setOfflineMode(!Ruqola::self()->offlineMode());
 #endif
 }
 
