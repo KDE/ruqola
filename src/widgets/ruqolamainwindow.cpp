@@ -149,6 +149,9 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
 
     connect(Ruqola::self(), &Ruqola::addInviteServer, this, &RuqolaMainWindow::slotAddInviteServer);
+#if ADD_OFFLINE_SUPPORT
+    connect(Ruqola::self(), &Ruqola::offlineModeChanged, this, &RuqolaMainWindow::slotOfflineModeChanged);
+#endif
 
     slotAccountChanged();
 #if HAVE_KUSERFEEDBACK
@@ -349,6 +352,7 @@ void RuqolaMainWindow::slotPermissionChanged()
 
 void RuqolaMainWindow::updateActions()
 {
+    const bool offlineMode = Ruqola::self()->offlineMode();
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ownUserPreferences().showUnread());
     const auto roomListSortOrder =
         mCurrentRocketChatAccount ? mCurrentRocketChatAccount->ownUserPreferences().roomListSortOrder() : OwnUserPreferences::RoomListSortOrder::Unknown;
@@ -362,7 +366,7 @@ void RuqolaMainWindow::updateActions()
     mRoomListDisplayExtended->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Extended);
 
     mRegisterNewUser->setVisible(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaServerConfig()->registrationFormEnabled());
-    mCreateDiscussion->setEnabled(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaServerConfig()->discussionEnabled()
+    mCreateDiscussion->setEnabled(!offlineMode && mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaServerConfig()->discussionEnabled()
                                   && (mCurrentRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn));
     const bool isAdministrator{mCurrentRocketChatAccount && mCurrentRocketChatAccount->isAdministrator()};
     mAdministrator->setVisible(isAdministrator);
@@ -370,10 +374,10 @@ void RuqolaMainWindow::updateActions()
     mShowRocketChatServerInfo->setVisible(hasBannerInfo());
     mRoomAvatar->setChecked(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
     mRoomFavorite->setChecked(mCurrentRocketChatAccount && mCurrentRocketChatAccount->ownUserPreferences().showFavorite());
-    mCreateNewChannel->setEnabled(canCreateChannels());
-    mCreateDirectMessages->setEnabled(canCreateDirectMessages());
-    mCreateTeam->setEnabled(canCreateTeams());
-    mRequestedApplications->setVisible(isAdministrator);
+    mCreateNewChannel->setEnabled(!offlineMode && canCreateChannels());
+    mCreateDirectMessages->setEnabled(!offlineMode && canCreateDirectMessages());
+    mCreateTeam->setEnabled(!offlineMode && canCreateTeams());
+    mRequestedApplications->setVisible(!offlineMode && isAdministrator);
 }
 
 bool RuqolaMainWindow::canCreateChannels() const
@@ -1419,6 +1423,13 @@ void RuqolaMainWindow::slotWorkOfflineMode()
 {
 #if ADD_OFFLINE_SUPPORT
     // TODO
+#endif
+}
+
+void RuqolaMainWindow::slotOfflineModeChanged()
+{
+#if ADD_OFFLINE_SUPPORT
+    updateActions();
 #endif
 }
 

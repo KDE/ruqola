@@ -135,6 +135,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddInviteServer(const AccountManager::AccountManagerInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowAppsTranslation();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotWorkOfflineMode();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
 
     bool mReallyClose{false};
 
