@@ -136,6 +136,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowAppsTranslation();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotWorkOfflineMode();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateOfflineAction();
 
     bool mReallyClose{false};
 

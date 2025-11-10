@@ -757,6 +757,7 @@ void RuqolaMainWindow::setupActions()
 
 #if ADD_OFFLINE_SUPPORT
     mOfflineMode = new QAction(i18n("Work Offline"), this);
+    updateOfflineAction();
     connect(mOfflineMode, &QAction::triggered, this, &RuqolaMainWindow::slotWorkOfflineMode);
     ac->addAction(u"work_offline"_s, mOfflineMode);
 #endif
@@ -1426,10 +1427,24 @@ void RuqolaMainWindow::slotWorkOfflineMode()
 #endif
 }
 
+void RuqolaMainWindow::updateOfflineAction()
+{
+#if ADD_OFFLINE_SUPPORT
+    if (Ruqola::self()->offlineMode()) {
+        mOfflineMode->setText(i18n("Work Offline"));
+        mOfflineMode->setIcon(QIcon::fromTheme(QStringLiteral("user-offline")));
+    } else {
+        mOfflineMode->setText(i18n("Work Online"));
+        mOfflineMode->setIcon(QIcon::fromTheme(QStringLiteral("user-online")));
+    }
+#endif
+}
+
 void RuqolaMainWindow::slotOfflineModeChanged()
 {
 #if ADD_OFFLINE_SUPPORT
     updateActions();
+    updateOfflineAction();
 #endif
 }
 
