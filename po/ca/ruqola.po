@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-09 00:42+0000\n"
-"PO-Revision-Date: 2025-11-08 14:57+0100\n"
+"PO-Revision-Date: 2025-11-09 09:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -7745,12 +7745,10 @@ msgid "Animate GIFs"
 msgstr "Anima els GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Activa la base de dades local experimental"
+msgstr "Activa la base de dades local"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -11458,10 +11456,9 @@ msgid "Clear history"
 msgstr "Neteja l'historial"
 
 #: widgets/ruqolamainwindow.cpp:755
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgid "Work Offline"
-msgstr "Desconnectat"
+msgstr "Treballa desconnectat"
 
 #: widgets/ruqolamainwindow.cpp:798
 #, kde-format

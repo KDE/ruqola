@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-09 00:42+0000\n"
-"PO-Revision-Date: 2025-11-08 07:08+0100\n"
+"PO-Revision-Date: 2025-11-09 07:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7724,11 +7724,10 @@ msgid "Animate GIFs"
 msgstr "Animiraj slike GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Use local dataBase"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Uporabi lokalno podatkovno zbirko"
+msgstr "Omogoči lokalno podatkovno zbirko"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -11443,10 +11442,9 @@ msgid "Clear history"
 msgstr "Počisti zgodovino"
 
 #: widgets/ruqolamainwindow.cpp:755
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgid "Work Offline"
-msgstr "Brez povezave"
+msgstr "Deluj brez povezave"
 
 #: widgets/ruqolamainwindow.cpp:798
 #, kde-format

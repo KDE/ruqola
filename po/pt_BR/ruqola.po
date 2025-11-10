@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-09 00:42+0000\n"
-"PO-Revision-Date: 2025-11-08 21:10-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
+"PO-Revision-Date: 2025-11-09 07:24-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -7733,12 +7733,10 @@ msgid "Animate GIFs"
 msgstr "GIFs animados"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Habilitar banco de dados local experimental"
+msgstr "Habilitar banco de dados local"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -11434,10 +11432,9 @@ msgid "Clear history"
 msgstr "Limpar histórico"
 
 #: widgets/ruqolamainwindow.cpp:755
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgid "Work Offline"
-msgstr "Desconectado"
+msgstr "Trabalhar desconectado"
 
 #: widgets/ruqolamainwindow.cpp:798
 #, kde-format

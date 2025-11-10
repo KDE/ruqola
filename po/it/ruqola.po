@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-09 00:42+0000\n"
-"PO-Revision-Date: 2025-10-10 08:58+0200\n"
+"PO-Revision-Date: 2025-11-09 07:40+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -10508,12 +10508,10 @@ msgid "Message has been starred"
 msgstr "Il messaggio ha ricevuto una stella"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:998
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "Il messaggio ha ricevuto una stella"
+msgstr "Il messaggio ha un testo tradotto"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1002
 #, kde-format
@@ -10528,16 +10526,13 @@ msgid "Add reaction"
 msgstr "Aggiungi reazione"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1012
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Ferma"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1012
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Pronuncia il testo"
@@ -11770,17 +11765,12 @@ msgid "Copy block code more easily."
 msgstr "Copia più facile dei blocchi di codice"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Migliora l'elenco degli utenti nella stanza."
+msgstr "Migliorare l'interfaccia utente della sintesi vocale."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Mostra allegati - %1"
+msgstr "Mostra i campi degli allegati."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
@@ -12411,7 +12401,7 @@ msgstr "Corregge la visualizzazione delle dimensioni degli allegati."
 #: widgets/whatsnew/whatsnewtranslations.cpp:252
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "Salva la traduzione locale nella banca dati locale."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:46
 #, kde-format

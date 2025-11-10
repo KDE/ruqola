@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-09 00:42+0000\n"
-"PO-Revision-Date: 2025-11-08 21:05+0300\n"
+"PO-Revision-Date: 2025-11-09 21:59+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7685,12 +7685,10 @@ msgid "Animate GIFs"
 msgstr "GIF’leri oynat"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Yerel veritabanını etkinleştir (deneysel)"
+msgstr "Yerel veritabanını etkinleştir"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -11391,10 +11389,9 @@ msgid "Clear history"
 msgstr "Geçmişi Temizle"
 
 #: widgets/ruqolamainwindow.cpp:755
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgid "Work Offline"
-msgstr "Çevrimdışı"
+msgstr "Çevrimdışı Çalış"
 
 #: widgets/ruqolamainwindow.cpp:798
 #, kde-format

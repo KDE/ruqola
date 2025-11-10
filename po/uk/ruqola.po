@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-09 00:42+0000\n"
-"PO-Revision-Date: 2025-11-08 17:57+0200\n"
+"PO-Revision-Date: 2025-11-09 18:11+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -7780,11 +7780,10 @@ msgid "Animate GIFs"
 msgstr "Анімувати GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Use local dataBase"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Скористатися локальною базою даних"
+msgstr "Увімкнути локальну базу даних"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -11523,10 +11522,9 @@ msgid "Clear history"
 msgstr "Спорожнити журнал"
 
 #: widgets/ruqolamainwindow.cpp:755
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgid "Work Offline"
-msgstr "Поза мережею"
+msgstr "Працювати автономно"
 
 #: widgets/ruqolamainwindow.cpp:798
 #, kde-format

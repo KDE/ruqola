@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-09 00:42+0000\n"
-"PO-Revision-Date: 2025-11-08 07:28+0100\n"
+"PO-Revision-Date: 2025-11-09 05:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7698,11 +7698,10 @@ msgid "Animate GIFs"
 msgstr "GIF-ების ანიმაცია"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Use local dataBase"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "ლოკალური ბაზის გამოყენება"
+msgstr "ლოკალური მონაცემთა ბაზის ჩართვა"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -11390,10 +11389,9 @@ msgid "Clear history"
 msgstr "ისტორიის გაწმენდა"
 
 #: widgets/ruqolamainwindow.cpp:755
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgid "Work Offline"
-msgstr "გათიშული"
+msgstr "ოფლაინ მუშაობა"
 
 #: widgets/ruqolamainwindow.cpp:798
 #, kde-format
