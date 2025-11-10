@@ -378,6 +378,9 @@ void RuqolaMainWindow::updateActions()
     mCreateDirectMessages->setEnabled(!offlineMode && canCreateDirectMessages());
     mCreateTeam->setEnabled(!offlineMode && canCreateTeams());
     mRequestedApplications->setVisible(!offlineMode && isAdministrator);
+    mJoinRoom->setEnabled(!offlineMode);
+    mJoinTeam->setEnabled(!offlineMode);
+    mOpenPrivateConversation->setEnabled(!offlineMode);
 }
 
 bool RuqolaMainWindow::canCreateChannels() const
