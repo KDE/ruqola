@@ -21,6 +21,9 @@ public:
 #if HAVE_KUSERFEEDBACK
         FeedBack,
 #endif
+#if ADD_OFFLINE_SUPPORT
+        Offline,
+#endif
     };
 
     explicit RuqolaCommandLineParser(QCommandLineParser *parser);

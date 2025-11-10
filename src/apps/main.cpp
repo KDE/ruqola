@@ -119,6 +119,11 @@ int main(int argc, char *argv[])
     if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::LoginDdpApi))) {
         Ruqola::self()->setUseRestApiLogin(false);
     }
+#if ADD_OFFLINE_SUPPORT
+    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Offline))) {
+        Ruqola::self()->setOfflineMode(true);
+    }
+#endif
 
     if (RuqolaGlobalConfig::self()->useCustomFont()) {
         qApp->setFont(RuqolaGlobalConfig::self()->generalFont());

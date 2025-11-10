@@ -23,6 +23,9 @@ void RuqolaCommandLineParserTest::shouldVerifyCommandLineFromEnumValues()
 #if HAVE_KUSERFEEDBACK
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::FeedBack), u"feedback"_s);
 #endif
+#if ADD_OFFLINE_SUPPORT
+    QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Offline), u"offline"_s);
+#endif
 }
 
 #include "moc_ruqolacommandlineparsertest.cpp"

@@ -31,6 +31,10 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
     case CommandLineName::FeedBack:
         return u"feedback"_s;
 #endif
+#if ADD_OFFLINE_SUPPORT
+    case CommandLineName::Offline:
+        return u"offline"_s;
+#endif
     }
     return {};
 }
@@ -46,5 +50,8 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
 #if HAVE_KUSERFEEDBACK
     parser->addOption(
         QCommandLineOption(commandLineFromEnum(CommandLineName::FeedBack), i18nc("@info:shell", "Lists the available options for user feedback")));
+#endif
+#if ADD_OFFLINE_SUPPORT
+    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Offline), i18nc("@info:shell", "Start as Offline")));
 #endif
 }
