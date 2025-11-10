@@ -17,7 +17,6 @@
 #include "room/messagelineextratoolbutton.h"
 #include "room/plugins/plugintextinterface.h"
 #include "room/plugins/plugintool.h"
-#include "ruqola.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
@@ -425,7 +424,9 @@ void MessageLineWidget::slotPrivateSettingsChanged()
 
 void MessageLineWidget::slotOfflineModeChanged()
 {
-    setEnabled(!Ruqola::self()->offlineMode());
+    if (mCurrentRocketChatAccount) {
+        setEnabled(!mCurrentRocketChatAccount->offlineMode());
+    }
 }
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)

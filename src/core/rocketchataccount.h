@@ -431,6 +431,8 @@ public:
 
     void updateTextToSpeech(const QByteArray &roomId, const QByteArray &messageId, bool inProgress);
 
+    [[nodiscard]] bool offlineMode() const;
+
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

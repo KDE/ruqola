@@ -3025,6 +3025,11 @@ void RocketChatAccount::updateTextToSpeech(const QByteArray &roomId, const QByte
     }
 }
 
+bool RocketChatAccount::offlineMode() const
+{
+    return Ruqola::self()->offlineMode();
+}
+
 void RocketChatAccount::deleteMessageFromDatabase(const QByteArray &roomId, const QByteArray &messageId)
 {
     mLocalDatabaseManager->deleteMessage(accountName(), roomId, messageId);
