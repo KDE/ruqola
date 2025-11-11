@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-09 00:42+0000\n"
+"POT-Creation-Date: 2025-11-11 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1878,35 +1878,42 @@ msgstr "सीधा संदेश"
 msgid "Omnichannel"
 msgstr "ओमनीचैनल"
 
-#: core/ruqolacommandlineparser.cpp:40
+#: core/ruqolacommandlineparser.cpp:44
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "खातों की सूची लौटाएँ"
 
-#: core/ruqolacommandlineparser.cpp:42
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "विशिष्ट खाते से प्रारंभ करें"
 
-#: core/ruqolacommandlineparser.cpp:44
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "संदेश दिखाएँ"
 
-#: core/ruqolacommandlineparser.cpp:45
+#: core/ruqolacommandlineparser.cpp:49
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "लॉगिन के लिए ddp api का उपयोग करें"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:52
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "उपयोगकर्ता फ़ीडबैक के लिए उपलब्ध विकल्पों की सूची बनाता है"
+
+#: core/ruqolacommandlineparser.cpp:55
+#, fuzzy, kde-format
+#| msgid "Offline"
+msgctxt "@info:shell"
+msgid "Start as Offline"
+msgstr "ऑफलाइन"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -7522,7 +7529,7 @@ msgid "Username or email:"
 msgstr "उपयोगकर्ता का नाम या ईमेल:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1093
+#: widgets/ruqolamainwindow.cpp:1101
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7532,7 +7539,7 @@ msgstr ""
 "यदि आपको शीघ्र ही कोई ईमेल प्राप्त नहीं होता है, तो कृपया वापस आएं और पुनः प्रयास करें।"
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1094
+#: widgets/ruqolamainwindow.cpp:1102
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8942,7 +8949,7 @@ msgid "Video: %1"
 msgstr "वीडियो: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:486
+#: widgets/room/messagelinewidget.cpp:493
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10616,18 +10623,18 @@ msgstr "संदेश%1 थ्रेड में"
 msgid "Send a message in %1…"
 msgstr "%1 में संदेश भेजें…"
 
-#: widgets/room/messagelinewidget.cpp:509
+#: widgets/room/messagelinewidget.cpp:516
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "चयनित फ़ाइल बहुत बड़ी है (अधिकतम आकार %1)"
 
-#: widgets/room/messagelinewidget.cpp:510
+#: widgets/room/messagelinewidget.cpp:517
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "फ़ाइल अपलोड"
 
-#: widgets/room/messagelinewidget.cpp:515
+#: widgets/room/messagelinewidget.cpp:522
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "सर्वर इस फ़ाइल को अधिकृत नहीं करता (अमान्य mimetype)"
@@ -11196,285 +11203,285 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "कमरे में %1 उपयोगकर्ता (कुल: %2)"
 msgstr[1] "कमरे में %1 उपयोगकर्ता (कुल: %2)"
 
-#: widgets/ruqolamainwindow.cpp:241
+#: widgets/ruqolamainwindow.cpp:244
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "नई सूचनाएं दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:243
+#: widgets/ruqolamainwindow.cpp:246
 #, kde-format
 msgid "Show New Notifications"
 msgstr "नई सूचनाएं दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:431
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "सर्वर जोड़ें…"
 
-#: widgets/ruqolamainwindow.cpp:436
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "सर्वर जानकारी…"
 
-#: widgets/ruqolamainwindow.cpp:440
+#: widgets/ruqolamainwindow.cpp:447
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "वर्तमान सर्वर से लॉगआउट करें"
 
-#: widgets/ruqolamainwindow.cpp:444
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "अगले अपठित चैनल पर जाएं"
 
-#: widgets/ruqolamainwindow.cpp:449
+#: widgets/ruqolamainwindow.cpp:456
 #, kde-format
 msgid "Create New Channel…"
 msgstr "नया चैनल बनाएं…"
 
-#: widgets/ruqolamainwindow.cpp:453
+#: widgets/ruqolamainwindow.cpp:460
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "प्रत्यक्ष संदेश बनाएं…"
 
-#: widgets/ruqolamainwindow.cpp:457
+#: widgets/ruqolamainwindow.cpp:464
 #, kde-format
 msgid "Create Discussion…"
 msgstr "चर्चा बनाएं…"
 
-#: widgets/ruqolamainwindow.cpp:461
+#: widgets/ruqolamainwindow.cpp:468
 #, kde-format
 msgid "Create Team…"
 msgstr "टीम बनाएं…"
 
-#: widgets/ruqolamainwindow.cpp:469
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "शीर्ष पर अपठित"
 
-#: widgets/ruqolamainwindow.cpp:477
+#: widgets/ruqolamainwindow.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "अंतिम संदेश द्वारा"
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "वर्णक्रम"
 
-#: widgets/ruqolamainwindow.cpp:489
+#: widgets/ruqolamainwindow.cpp:496
 #, kde-format
 msgid "Show Channel Log"
 msgstr "चैनल लॉग दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:493
+#: widgets/ruqolamainwindow.cpp:500
 #, kde-format
 msgid "Show Server Errors"
 msgstr "सर्वर त्रुटियाँ दिखाएँ"
 
-#: widgets/ruqolamainwindow.cpp:538
+#: widgets/ruqolamainwindow.cpp:545
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "सभी चैनलों को पढ़ा हुआ चिह्नित करें"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:550
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "नया उपयोगकर्ता पंजीकृत करें…"
 
-#: widgets/ruqolamainwindow.cpp:547
+#: widgets/ruqolamainwindow.cpp:554
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "मेरा खाता…"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgid "administration"
 msgstr "प्रशासन"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:559
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "प्रशासक…"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:565
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "सर्वर सेटिंग्स…"
 
-#: widgets/ruqolamainwindow.cpp:565
+#: widgets/ruqolamainwindow.cpp:572
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "अनुप्रयोग…"
 
-#: widgets/ruqolamainwindow.cpp:570
+#: widgets/ruqolamainwindow.cpp:577
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "अनुरोधित आवेदन…"
 
-#: widgets/ruqolamainwindow.cpp:575
+#: widgets/ruqolamainwindow.cpp:582
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "इंस्टॉल किए गए अनुप्रयोग…"
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "निजी अनुप्रयोग…"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:592
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "रूम में शामिल हों…"
 
-#: widgets/ruqolamainwindow.cpp:589
+#: widgets/ruqolamainwindow.cpp:596
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "टीम में शामिल हों…"
 
-#: widgets/ruqolamainwindow.cpp:593
+#: widgets/ruqolamainwindow.cpp:600
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "निजी वार्तालाप खोलें…"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgid "&Next Server"
 msgstr "&अगला सर्वर"
 
-#: widgets/ruqolamainwindow.cpp:619
+#: widgets/ruqolamainwindow.cpp:626
 #, kde-format
 msgid "&Previous Server"
 msgstr "&पिछला सर्वर"
 
-#: widgets/ruqolamainwindow.cpp:628
+#: widgets/ruqolamainwindow.cpp:635
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "स्थिति:"
 
-#: widgets/ruqolamainwindow.cpp:641
+#: widgets/ruqolamainwindow.cpp:648
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "पिछला चयनित चैनल"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:655
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "अगला चयनित चैनल"
 
-#: widgets/ruqolamainwindow.cpp:678
+#: widgets/ruqolamainwindow.cpp:685
 #, kde-format
 msgid "Show Notify History"
 msgstr "अधिसूचना इतिहास दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:682
+#: widgets/ruqolamainwindow.cpp:689
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "रॉकेटचैट जानकारी दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:686
+#: widgets/ruqolamainwindow.cpp:693
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "शो रूम अवतार"
 
-#: widgets/ruqolamainwindow.cpp:691
+#: widgets/ruqolamainwindow.cpp:698
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "पसंदीदा कमरा दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:700
+#: widgets/ruqolamainwindow.cpp:707
 #, kde-format
 msgid "What's new"
 msgstr "नया क्या है"
 
-#: widgets/ruqolamainwindow.cpp:704
+#: widgets/ruqolamainwindow.cpp:711
 #, kde-format
 msgid "Import Accounts"
 msgstr "खाते आयात करें"
 
-#: widgets/ruqolamainwindow.cpp:708
+#: widgets/ruqolamainwindow.cpp:715
 #, kde-format
 msgid "Export Accounts"
 msgstr "खाते निर्यात करें"
 
-#: widgets/ruqolamainwindow.cpp:725
+#: widgets/ruqolamainwindow.cpp:732
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "मध्यम"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:740
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "संघनित"
 
-#: widgets/ruqolamainwindow.cpp:742
+#: widgets/ruqolamainwindow.cpp:749
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "विस्तारित"
 
-#: widgets/ruqolamainwindow.cpp:750
+#: widgets/ruqolamainwindow.cpp:757
 #, kde-format
 msgid "Clear history"
 msgstr "इतिहास मिटा दें"
 
-#: widgets/ruqolamainwindow.cpp:755
+#: widgets/ruqolamainwindow.cpp:762 widgets/ruqolamainwindow.cpp:1437
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgid "Work Offline"
 msgstr "ऑफलाइन"
 
-#: widgets/ruqolamainwindow.cpp:798
+#: widgets/ruqolamainwindow.cpp:806
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "टीम बनाएं"
 
-#: widgets/ruqolamainwindow.cpp:995
+#: widgets/ruqolamainwindow.cpp:1003
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "लॉग फ़ाइल %1 पर नहीं लिखा जा सकता"
 
-#: widgets/ruqolamainwindow.cpp:995
+#: widgets/ruqolamainwindow.cpp:1003
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "चैनल लॉग दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:1165
+#: widgets/ruqolamainwindow.cpp:1173
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "स्थिति"
 
-#: widgets/ruqolamainwindow.cpp:1252
+#: widgets/ruqolamainwindow.cpp:1260
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11482,11 +11489,17 @@ msgid ""
 msgstr ""
 "<qt>इससे मेनू बार पूरी तरह छिप जाएगा। आप %1 लिखकर इसे फिर से दिखा सकते हैं।</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1255
+#: widgets/ruqolamainwindow.cpp:1263
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "मेनू बार छुपाएं"
+
+#: widgets/ruqolamainwindow.cpp:1440
+#, fuzzy, kde-format
+#| msgid "Offline"
+msgid "Work Online"
+msgstr "ऑफलाइन"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
