@@ -4,6 +4,8 @@
 #!/bin/bash
 
 echo "📦 Installing Python dependencies.."
+sudo zypper -n install python3
+
 #Create a virtual environment at $HOME/lintenv
 python3 -m venv $HOME/.reuselintenv
 
