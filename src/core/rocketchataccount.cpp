@@ -215,7 +215,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrat
     mListMessagesFilterProxyModel->setObjectName(u"listmessagesfiltermodelproxy"_s);
 
     mAutoTranslateLanguagesModel->setObjectName(u"autotranslatelanguagesmodel"_s);
-
+#if ADD_OFFLINE_SUPPORT
+    connect(Ruqola::self(), &Ruqola::offlineModeChanged, this, &RocketChatAccount::offlineModeChanged);
+#endif
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
     connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);

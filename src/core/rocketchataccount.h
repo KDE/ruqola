@@ -499,6 +499,7 @@ Q_SIGNALS:
     void permissionSettingLoaded(const QJsonObject &obj);
     void privateSettingLoaded(const QJsonObject &obj);
     void appsCountLoadDone();
+    void offlineModeChanged();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt);
