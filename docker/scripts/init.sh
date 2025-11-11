@@ -40,13 +40,6 @@ else
 	echo "✅ No system updates available. Skipping upgrade..."
 fi
 
-
-if ! sudo zypper info --type pattern kde_plasma | grep -q "Installed: Yes"; then
-	echo "📦 Installing KDE Plasma pattern..."
-	sudo zypper -v --non-interactive install pattern:kde_plasma
-	https://download.opensuse.org/tumbleweed/repo/oss/else
-	echo "✅ KDE Plasma pattern is already installed. Skipping installation..."
-fi
  
 sudo zypper --non-interactive refresh
 
