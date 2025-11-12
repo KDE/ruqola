@@ -41,7 +41,12 @@ QString ToolsPluginManager::configPrefixSettingKey() const
 void ToolsPluginManager::initializePluginList()
 {
     const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(u"ruqolaplugins/toolsplugins"_s);
+#if HAVE_PLUGIN_UTILS_SUPPORT
+    const TextAddonsWidgets::PluginUtil::PluginsStateList pair =
+        TextAddonsWidgets::PluginUtil::loadPluginSetting({}, configGroupName(), configPrefixSettingKey());
+#else
     const PluginUtils::PluginsStateList pair = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
+#endif
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
     QSet<QString> unique;
@@ -50,10 +55,21 @@ void ToolsPluginManager::initializePluginList()
         const KPluginMetaData data = i.previous();
 
         // 1) get plugin data => name/description etc.
+#if HAVE_PLUGIN_UTILS_SUPPORT
+        info.pluginData = TextAddonsWidgets::PluginUtil::createPluginMetaData(data);
+#else
         info.pluginData = PluginUtils::createPluginMetaData(data);
+#endif
         // 2) look at if plugin is activated
+#if HAVE_PLUGIN_UTILS_SUPPORT
+        const bool isPluginActivated = TextAddonsWidgets::PluginUtil::isPluginActivated(pair.enabledPluginList,
+                                                                                        pair.disabledPluginList,
+                                                                                        info.pluginData.mEnableByDefault,
+                                                                                        info.pluginData.mIdentifier);
+#else
         const bool isPluginActivated =
             PluginUtils::isPluginActivated(pair.enabledPluginList, pair.disabledPluginList, info.pluginData.mEnableByDefault, info.pluginData.mIdentifier);
+#endif
         info.isEnabled = isPluginActivated;
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
@@ -93,7 +109,11 @@ PluginTool *ToolsPluginManager::pluginFromIdentifier(const QString &identifier) 
     return nullptr;
 }
 
+#if HAVE_PLUGIN_UTILS_SUPPORT
+QList<TextAddonsWidgets::PluginUtilData> ToolsPluginManager::pluginDataList() const
+#else
 QList<PluginUtils::PluginUtilData> ToolsPluginManager::pluginDataList() const
+#endif
 {
     return mPluginDataList;
 }

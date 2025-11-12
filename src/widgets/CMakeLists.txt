@@ -621,8 +621,6 @@ target_sources(
         room/messagetextedit.h
         room/plugins/pluginbase.h
         room/plugins/pluginbase.cpp
-        room/plugins/pluginutils.h
-        room/plugins/pluginutils.cpp
         room/plugins/plugintext.cpp
         room/plugins/plugintext.h
         room/plugins/plugintextinterface.cpp
@@ -1022,6 +1020,15 @@ if(NOT HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
             needupdateversion/needupdateparsehtmlutil.cpp
             needupdateversion/needupdatecheckexistingnewversionjob.h
             needupdateversion/needupdatecheckexistingnewversionjob.cpp
+    )
+endif()
+
+if(NOT HAVE_PLUGIN_UTILS_SUPPORT)
+    target_sources(
+        libruqolawidgets
+        PRIVATE
+            room/plugins/pluginutils.h
+            room/plugins/pluginutils.cpp
     )
 endif()
 

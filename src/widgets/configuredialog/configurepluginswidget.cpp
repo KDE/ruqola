@@ -137,9 +137,22 @@ void ConfigurePluginsWidget::savePlugins(const QString &groupName, const QString
             disabledPlugins << item->mIdentifier;
         }
     }
+#if HAVE_PLUGIN_UTILS_SUPPORT
+    TextAddonsWidgets::PluginUtil::savePluginSettings({}, groupName, prefixSettingKey, enabledPlugins, disabledPlugins);
+#else
     PluginUtils::savePluginSettings(groupName, prefixSettingKey, enabledPlugins, disabledPlugins);
+#endif
 }
 
+#if HAVE_PLUGIN_UTILS_SUPPORT
+void ConfigurePluginsWidget::fillTopItems(const QList<TextAddonsWidgets::PluginUtilData> &lst,
+                                          const QString &topLevelItemName,
+                                          const QString &groupName,
+                                          const QString &prefixKey,
+                                          QList<PluginItem *> &itemsList,
+                                          const QString &configureGroupName,
+                                          bool checkable)
+#else
 void ConfigurePluginsWidget::fillTopItems(const QList<PluginUtils::PluginUtilData> &lst,
                                           const QString &topLevelItemName,
                                           const QString &groupName,
@@ -147,13 +160,18 @@ void ConfigurePluginsWidget::fillTopItems(const QList<PluginUtils::PluginUtilDat
                                           QList<PluginItem *> &itemsList,
                                           const QString &configureGroupName,
                                           bool checkable)
+#endif
 {
     itemsList.clear();
     if (!lst.isEmpty()) {
         auto topLevel = new QTreeWidgetItem(mTreePluginWidget, {topLevelItemName});
         topLevel->setFlags(topLevel->flags() & ~Qt::ItemIsSelectable);
+#if HAVE_PLUGIN_UTILS_SUPPORT
+        const TextAddonsWidgets::PluginUtil::PluginsStateList states = TextAddonsWidgets::PluginUtil::loadPluginSetting({}, groupName, prefixKey);
+#else
         const PluginUtils::PluginsStateList states = PluginUtils::loadPluginSetting(groupName, prefixKey);
-        for (const PluginUtils::PluginUtilData &data : lst) {
+#endif
+        for (const auto &data : lst) {
             auto subItem = new PluginItem(topLevel);
             subItem->setData(0, ConfigurePluginsWidget::PluginItemData::Description, data.mDescription);
             subItem->setText(0, data.mName);
@@ -161,8 +179,15 @@ void ConfigurePluginsWidget::fillTopItems(const QList<PluginUtils::PluginUtilDat
             subItem->mEnableByDefault = data.mEnableByDefault;
             subItem->mHasConfigureSupport = data.mHasConfigureDialog;
             if (checkable) {
+#if HAVE_PLUGIN_UTILS_SUPPORT
+                const bool isPluginActivated = TextAddonsWidgets::PluginUtil::isPluginActivated(states.enabledPluginList,
+                                                                                                states.disabledPluginList,
+                                                                                                data.mEnableByDefault,
+                                                                                                data.mIdentifier);
+#else
                 const bool isPluginActivated =
                     PluginUtils::isPluginActivated(states.enabledPluginList, states.disabledPluginList, data.mEnableByDefault, data.mIdentifier);
+#endif
                 subItem->mEnableFromUserSettings = isPluginActivated;
                 subItem->setCheckState(0, isPluginActivated ? Qt::Checked : Qt::Unchecked);
             }

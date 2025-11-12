@@ -41,7 +41,12 @@ QString TextPluginManager::configPrefixSettingKey() const
 void TextPluginManager::initializePluginList()
 {
     const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(u"ruqolaplugins/textplugins"_s);
+#if HAVE_PLUGIN_UTILS_SUPPORT
+    const TextAddonsWidgets::PluginUtil::PluginsStateList states =
+        TextAddonsWidgets::PluginUtil::loadPluginSetting({}, configGroupName(), configPrefixSettingKey());
+#else
     const PluginUtils::PluginsStateList states = PluginUtils::loadPluginSetting(configGroupName(), configPrefixSettingKey());
+#endif
 
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
@@ -51,10 +56,21 @@ void TextPluginManager::initializePluginList()
         const KPluginMetaData data = i.previous();
 
         // 1) get plugin data => name/description etc.
+#if HAVE_PLUGIN_UTILS_SUPPORT
+        info.pluginData = TextAddonsWidgets::PluginUtil::createPluginMetaData(data);
+#else
         info.pluginData = PluginUtils::createPluginMetaData(data);
+#endif
         // 2) look at if plugin is activated
+#if HAVE_PLUGIN_UTILS_SUPPORT
+        const bool isPluginActivated = TextAddonsWidgets::PluginUtil::isPluginActivated(states.enabledPluginList,
+                                                                                        states.disabledPluginList,
+                                                                                        info.pluginData.mEnableByDefault,
+                                                                                        info.pluginData.mIdentifier);
+#else
         const bool isPluginActivated =
             PluginUtils::isPluginActivated(states.enabledPluginList, states.disabledPluginList, info.pluginData.mEnableByDefault, info.pluginData.mIdentifier);
+#endif
         info.isEnabled = isPluginActivated;
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
@@ -83,7 +99,11 @@ void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
     }
 }
 
+#if HAVE_PLUGIN_UTILS_SUPPORT
+QList<TextAddonsWidgets::PluginUtilData> TextPluginManager::pluginDataList() const
+#else
 QList<PluginUtils::PluginUtilData> TextPluginManager::pluginDataList() const
+#endif
 {
     return mPluginDataList;
 }
