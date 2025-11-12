@@ -12,15 +12,11 @@ using namespace Qt::Literals::StringLiterals;
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "model/switchchannelhistorymodel.h"
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
-#include <TextAddonsWidgets/NeedUpdateVersionWidget>
-#else
-#include "needupdateversion/needupdateversionwidget.h"
-#endif
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "room/roomwidget.h"
 #include "ruqolawidgets_debug.h"
+#include <TextAddonsWidgets/NeedUpdateVersionWidget>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -84,7 +80,6 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
     if (TextAddonsWidgets::NeedUpdateVersionUtils::checkVersion()) {
         const auto status = TextAddonsWidgets::NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1StringView(RUQOLA_RELEASE_VERSION), QDate::currentDate());
         if (status != TextAddonsWidgets::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
@@ -94,17 +89,6 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
             needUpdateVersionWidget->setObsoleteVersion(status);
         }
     }
-#else
-    if (NeedUpdateVersionUtils::checkVersion()) {
-        const auto status = NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1StringView(RUQOLA_RELEASE_VERSION), QDate::currentDate());
-        if (status != NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
-            auto needUpdateVersionWidget = new NeedUpdateVersionWidget(this);
-            needUpdateVersionWidget->setObjectName(u"needUpdateVersionWidget"_s);
-            mTopLayout->insertWidget(0, needUpdateVersionWidget);
-            needUpdateVersionWidget->setObsoleteVersion(status);
-        }
-    }
-#endif
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()

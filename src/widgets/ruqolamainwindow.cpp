@@ -55,12 +55,8 @@
 #include "ruqolaserverconfig.h"
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include "teams/teamscreatejob.h"
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
 #include "whatsnew/whatsnewtranslations.h"
 #include <TextAddonsWidgets/WhatsNewDialog>
-#else
-#include "whatsnew/whatsnewdialog.h"
-#endif
 
 #include "rooms/roomstartdiscussionjob.h"
 #include <KActionCollection>
@@ -96,11 +92,7 @@
 #include <KWindowSystem>
 #endif
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
 #include <TextAddonsWidgets/VerifyNewVersionWidget>
-#else
-#include "verifynewversionwidget/verifynewversionwidgetaction.h"
-#endif
 #endif
 
 #if HAVE_KUSERFEEDBACK
@@ -122,11 +114,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
     , mSwitchChannelTreeManager(new SwitchChannelTreeViewManager(this))
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
     , mVerifyNewVersionWidgetAction(new TextAddonsWidgets::VerifyNewVersionWidget(this))
-#else
-    , mVerifyNewVersionWidgetAction(new VerifyNewVersionWidgetAction(this))
-#endif
 #endif
 
 {
@@ -776,12 +764,8 @@ void RuqolaMainWindow::slotMessageStyleChanged()
 
 void RuqolaMainWindow::slotWhatsNew()
 {
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
     WhatsNewTranslations translations;
     TextAddonsWidgets::WhatsNewDialog dlg(translations.createWhatsNewInfo(), this);
-#else
-    WhatsNewDialog dlg(this);
-#endif
     dlg.updateInformations();
     dlg.exec();
 }

@@ -988,41 +988,6 @@ target_sources(
         webdav/webdavaddserverwidget.cpp
 )
 
-if(NOT HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
-    target_sources(
-        libruqolawidgets
-        PRIVATE
-            verifynewversionwidget/verifynewversionwidget.h
-            verifynewversionwidget/verifynewversionwidget.cpp
-            verifynewversionwidget/verifynewversiondialog.h
-            verifynewversionwidget/verifynewversiondialog.cpp
-            verifynewversionwidget/verifynewversionwidgetaction.h
-            verifynewversionwidget/verifynewversionwidgetaction.cpp
-            whatsnew/whatsnewdialog.h
-            whatsnew/whatsnewdialog.cpp
-            whatsnew/whatsnewwidget.h
-            whatsnew/whatsnewwidget.cpp
-            whatsnew/whatsnewmessagewidget.h
-            whatsnew/whatsnewmessagewidget.cpp
-            whatsnew/whatsnewcomboboxwidget.h
-            whatsnew/whatsnewcomboboxwidget.cpp
-            whatsnew/whatsnewtranslationbase.h
-            whatsnew/whatsnewtranslationbase.cpp
-            whatsnew/whatsnewinfo.h
-            whatsnew/whatsnewinfo.cpp
-            needupdateversion/needupdateversionwidget.h
-            needupdateversion/needupdateversionwidget.cpp
-            needupdateversion/needupdateversionutils.h
-            needupdateversion/needupdateversionutils.cpp
-            needupdateversion/needupdateparsehtmljob.h
-            needupdateversion/needupdateparsehtmljob.cpp
-            needupdateversion/needupdateparsehtmlutil.h
-            needupdateversion/needupdateparsehtmlutil.cpp
-            needupdateversion/needupdatecheckexistingnewversionjob.h
-            needupdateversion/needupdatecheckexistingnewversionjob.cpp
-    )
-endif()
-
 if(NOT HAVE_PLUGIN_UTILS_SUPPORT)
     target_sources(
         libruqolawidgets
@@ -1228,12 +1193,6 @@ if(BUILD_TESTING)
     add_subdirectory(conferencecalldialog/autotests)
     add_subdirectory(servererrorinfohistory/autotests)
     add_subdirectory(databasedialog/autotests)
-    if(NOT HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT)
-        add_subdirectory(whatsnew/autotests)
-        add_subdirectory(needupdateversion/tests)
-        add_subdirectory(needupdateversion/autotests)
-        add_subdirectory(verifynewversionwidget/autotests)
-    endif()
     add_subdirectory(explorepermissionsdialog/autotests)
     add_subdirectory(importexportdata/autotests)
     add_subdirectory(importexportdata/tests)

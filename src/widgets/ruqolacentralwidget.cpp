@@ -16,15 +16,11 @@
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include "servererrorinfohistorymanager.h"
 #include "welcome/welcomewidget.h"
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
-#include <TextAddonsWidgets/WhatsNewMessageWidget>
-#else
-#include "whatsnew/whatsnewmessagewidget.h"
-#endif
 #include "whatsnew/whatsnewtranslations.h"
 #include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/WhatsNewMessageWidget>
 
 using namespace Qt::Literals::StringLiterals;
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
@@ -46,12 +42,8 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
         if (!previousNewFeaturesMD5.isEmpty()) {
             const bool hasNewFeature = (previousNewFeaturesMD5 != newFeaturesMD5);
             if (hasNewFeature) {
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
                 auto whatsNewMessageWidget = new TextAddonsWidgets::WhatsNewMessageWidget(this);
                 whatsNewMessageWidget->setWhatsNewInfos(translations.createWhatsNewInfo());
-#else
-                auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
-#endif
                 whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
                 mMainLayout->addWidget(whatsNewMessageWidget);
                 RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
