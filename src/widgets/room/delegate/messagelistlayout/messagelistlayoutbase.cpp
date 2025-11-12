@@ -5,7 +5,6 @@
 */
 
 #include "messagelistlayoutbase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
@@ -16,8 +15,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "room/delegate/messagedelegatehelperreactions.h"
 #include "room/delegate/messagedelegatehelpertext.h"
 #include "room/delegate/messagedelegatehelperurlpreview.h"
-#include "room/delegate/messagelistdelegate.h"
 
+using namespace Qt::Literals::StringLiterals;
 MessageListLayoutBase::MessageListLayoutBase(MessageListDelegate *delegate)
     : mDelegate(delegate)
 {
@@ -94,6 +93,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
         layout.reactionsY = attachmentsY;
     } else {
         int topAttachment = attachmentsY;
+        QRect attachmentsRect;
         if (message->attachments() && !message->attachments()->messageAttachments().isEmpty()) {
             const auto attachments = message->attachments()->messageAttachments();
             QSize attachmentsSize;
@@ -111,7 +111,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                     topAttachment += attSize.height();
                 }
             }
-            layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
+            attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
         }
         int topBlock = topAttachment;
         if (message->blocks() && !message->blocks()->blocks().isEmpty()) {
@@ -159,6 +159,6 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                 layout.messageUrlsRect = QRect(textLeft, topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height());
             }
         }
-        layout.reactionsY = attachmentsY + layout.attachmentsRect.height() + layout.blocksRect.height() + layout.messageUrlsRect.height();
+        layout.reactionsY = attachmentsY + attachmentsRect.height() + layout.blocksRect.height() + layout.messageUrlsRect.height();
     }
 }

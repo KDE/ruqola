@@ -112,14 +112,6 @@ void MessageListDelegateTest::layoutChecks()
     QCOMPARE(layout.senderText, u"@dfaure"_s);
     QCOMPARE(layout.timeStampText, u"04:07"_s);
     QVERIFY(option.rect.contains(layout.usableRect));
-    // FIXME: reactivate
-    // QVERIFY(option.rect.contains(layout.senderRect.toRect()));
-    if (!message.attachments()) {
-        QVERIFY(layout.attachmentsRect.isNull());
-    } else {
-        QVERIFY(sizeHint.height() > layout.senderRect.height() + 1);
-        QVERIFY(option.rect.contains(layout.attachmentsRect));
-    }
 
     // Text
     if (message.text().isEmpty()) {
@@ -129,9 +121,6 @@ void MessageListDelegateTest::layoutChecks()
         QCOMPARE(layout.usableRect.left(), layout.textRect.left());
         QVERIFY(layout.textRect.top() >= layout.usableRect.top());
         QVERIFY(!layout.senderRect.intersects(layout.textRect));
-        if (message.attachments() && !message.attachments()->isEmpty()) {
-            QCOMPARE(layout.attachmentsRect.top(), layout.textRect.y() + layout.textRect.height());
-        }
     }
 
 #if 0 // Need to reactivate it

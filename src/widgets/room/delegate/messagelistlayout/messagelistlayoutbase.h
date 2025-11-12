@@ -74,7 +74,6 @@ public:
         qreal baseLine; // used to draw sender/timestamp
 
         // Attachments
-        QRect attachmentsRect;
         QList<QRect> attachmentsRectList;
 
         // Blocks
