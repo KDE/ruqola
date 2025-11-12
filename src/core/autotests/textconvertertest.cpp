@@ -55,7 +55,6 @@ void TextConverterTest::shouldConvertText_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
-
     QTest::newRow("empty") << QString() << QString();
     QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("<p>foo</p>\n");
     QTest::newRow("customemojiwithoutmanager") << QStringLiteral(":foo:") << QStringLiteral("<p>:foo:</p>\n");
@@ -148,6 +147,8 @@ void TextConverterTest::shouldConvertText_data()
         << QStringLiteral(
                "<p><table><tr><td style='background-color:#f7f7f7; padding: 5px; border: 1px solid "
                "#707d8a'><code>&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;line&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n");
+    // We don't need to convert #1
+    QTest::newRow("href + #") << QStringLiteral("[test #1](http://www.kde.org)") << QStringLiteral("<p><a href=\"http://www.kde.org\">test #1</a></p>\n");
 }
 
 void TextConverterTest::shouldConvertText()
