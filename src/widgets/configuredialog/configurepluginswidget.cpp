@@ -5,7 +5,6 @@
 */
 
 #include "configurepluginswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configurepluginstreewidgetdelegate.h"
 #include "room/plugins/plugintext.h"
@@ -22,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QToolButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     : QWidget{parent}
     , mTreePluginWidget(new QTreeWidget(this))

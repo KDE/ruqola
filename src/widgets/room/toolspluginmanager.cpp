@@ -5,7 +5,6 @@
 */
 
 #include "toolspluginmanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "plugins/plugintool.h"
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFileInfo>
 #include <QSet>
 
+using namespace Qt::Literals::StringLiterals;
 ToolsPluginManager::ToolsPluginManager(QObject *parent)
     : QObject(parent)
 {

@@ -5,7 +5,6 @@
 */
 
 #include "textpluginmanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "plugins/plugintext.h"
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFileInfo>
 #include <QSet>
 
+using namespace Qt::Literals::StringLiterals;
 TextPluginManager::TextPluginManager(QObject *parent)
     : QObject(parent)
 {
