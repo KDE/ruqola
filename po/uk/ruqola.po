@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-11 00:42+0000\n"
-"PO-Revision-Date: 2025-11-09 18:11+0200\n"
+"POT-Creation-Date: 2025-11-12 00:43+0000\n"
+"PO-Revision-Date: 2025-11-11 21:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1797,7 +1797,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:680
+#: core/rocketchataccount.cpp:682
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1806,12 +1806,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
 #, kde-format
 msgid "Not connected"
 msgstr "Не з'єднано"
 
-#: core/rocketchataccount.cpp:695
+#: core/rocketchataccount.cpp:697
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ще не з'єднано"
@@ -1919,11 +1919,10 @@ msgid "Lists the available options for user feedback"
 msgstr "Показати доступні варіанти для відгуків користувача"
 
 #: core/ruqolacommandlineparser.cpp:55
-#, fuzzy, kde-format
-#| msgid "Work Offline"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Працювати автономно"
+msgstr "Запуск в автономному режимі"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11572,10 +11571,9 @@ msgid "Hide menu bar"
 msgstr "Приховати смужку меню"
 
 #: widgets/ruqolamainwindow.cpp:1440
-#, fuzzy, kde-format
-#| msgid "Work Offline"
+#, kde-format
 msgid "Work Online"
-msgstr "Працювати автономно"
+msgstr "Працювати у мережі"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42

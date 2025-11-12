@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-11 00:42+0000\n"
-"PO-Revision-Date: 2025-11-09 21:59+0300\n"
+"POT-Creation-Date: 2025-11-12 00:43+0000\n"
+"PO-Revision-Date: 2025-11-11 20:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1784,7 +1784,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:680
+#: core/rocketchataccount.cpp:682
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1793,12 +1793,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:688 core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
 #, kde-format
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#: core/rocketchataccount.cpp:695
+#: core/rocketchataccount.cpp:697
 #, kde-format
 msgid "Not connected yet"
 msgstr "Henüz bağlı değil"
@@ -1903,14 +1903,13 @@ msgstr "Oturum açma için ddp API’sini kullan"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
-msgstr "Kullanıcı bildirimi için kullanılabilir seçenekleri listeler"
+msgstr "Kullanıcı bildirimi için kullanılabilir seçenekleri liste"
 
 #: core/ruqolacommandlineparser.cpp:55
-#, fuzzy, kde-format
-#| msgid "Work Offline"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Çevrimdışı Çalış"
+msgstr "Çevrimdışı olarak başla"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11439,10 +11438,9 @@ msgid "Hide menu bar"
 msgstr "Menü Çubuğunu Gizle"
 
 #: widgets/ruqolamainwindow.cpp:1440
-#, fuzzy, kde-format
-#| msgid "Work Offline"
+#, kde-format
 msgid "Work Online"
-msgstr "Çevrimdışı Çalış"
+msgstr "Çevrimiçi olarak çalış"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
