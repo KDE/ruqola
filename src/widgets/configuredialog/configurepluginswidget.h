@@ -8,13 +8,9 @@
 
 #include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
-#if HAVE_PLUGIN_UTILS_SUPPORT
-#include <TextAddonsWidgets/PluginUtil>
-#else
-#include "room/plugins/pluginutils.h"
-#endif
 #include <QTreeWidgetItem>
 #include <QWidget>
+#include <TextAddonsWidgets/PluginUtil>
 class KTreeWidgetSearchLineWidget;
 class QTreeWidget;
 class KMessageWidget;
@@ -61,8 +57,6 @@ private:
     KMessageWidget *const mMessageWidget;
     bool mInitializeDone = false;
 
-#if HAVE_PLUGIN_UTILS_SUPPORT
-#include <TextAddonsWidgets/PluginUtil>
     LIBRUQOLAWIDGETS_NO_EXPORT void fillTopItems(const QList<TextAddonsWidgets::PluginUtilData> &lst,
                                                  const QString &topLevelItemName,
                                                  const QString &groupName,
@@ -71,15 +65,6 @@ private:
                                                  const QString &configureGroupName,
                                                  bool checkable = true);
 
-#else
-    LIBRUQOLAWIDGETS_NO_EXPORT void fillTopItems(const QList<PluginUtils::PluginUtilData> &lst,
-                                                 const QString &topLevelItemName,
-                                                 const QString &groupName,
-                                                 const QString &prefixKey,
-                                                 QList<PluginItem *> &itemsList,
-                                                 const QString &configureGroupName,
-                                                 bool checkable = true);
-#endif
     QList<PluginItem *> mPluginToolsItems;
     QList<PluginItem *> mPluginTextItems;
 };

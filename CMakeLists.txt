@@ -369,10 +369,6 @@ if(NOT USE_DBUS)
     find_package(KDSingleApplication-qt6 CONFIG REQUIRED)
 endif()
 
-if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.8.61)
-    set(HAVE_PLUGIN_UTILS_SUPPORT TRUE)
-endif()
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.11.0
     KF 6.20.0

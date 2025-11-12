@@ -988,15 +988,6 @@ target_sources(
         webdav/webdavaddserverwidget.cpp
 )
 
-if(NOT HAVE_PLUGIN_UTILS_SUPPORT)
-    target_sources(
-        libruqolawidgets
-        PRIVATE
-            room/plugins/pluginutils.h
-            room/plugins/pluginutils.cpp
-    )
-endif()
-
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(
         libruqolawidgets
