@@ -20,16 +20,11 @@
 #include "utils.h"
 
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
-#include <TextUtils/TextUtilsSyntaxHighlighter>
-#include <TextUtils/TextUtilsSyntaxHighlightingManager>
-#else
-#include "syntaxhighlightingmanager.h"
-#endif
-#include "texthighlighter.h"
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
+#include <TextUtils/TextUtilsSyntaxHighlighter>
+#include <TextUtils/TextUtilsSyntaxHighlightingManager>
 
 #include <KColorScheme>
 using namespace Qt::Literals::StringLiterals;
@@ -367,20 +362,11 @@ static QString addHighlighter(const QString &str, const TextConverter::ConvertMe
 
     QString highlighted;
     QTextStream stream(&highlighted);
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
     TextUtils::TextUtilsSyntaxHighlighter highlighter(&stream);
     const auto useHighlighter = TextUtils::TextUtilsSyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
-#else
-    TextHighlighter highlighter(&stream);
-    const auto useHighlighter = SyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
-#endif
 
     if (useHighlighter) {
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
         auto &repo = TextUtils::TextUtilsSyntaxHighlightingManager::self()->repo();
-#else
-        auto &repo = SyntaxHighlightingManager::self()->repo();
-#endif
         const auto theme = (codeBackgroundColor.lightness() < 128) ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                                                                    : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
         // qDebug() << " theme .n am" << theme.name();
@@ -393,27 +379,15 @@ static QString addHighlighter(const QString &str, const TextConverter::ConvertMe
         stream.reset();
         stream.seek(0);
         highlighted.clear();
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
         highlighter.highlight(codeBlock, settings.messageId, blockCodeIndex);
-#else
-        highlighter.highlight(codeBlock);
-#endif
         return highlighted;
     };
 
     auto addCodeChunk = [&](const QString &chunk) {
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
         auto definition = TextUtils::TextUtilsSyntaxHighlightingManager::self()->def(language);
         if (!definition.isValid()) {
             definition = TextUtils::TextUtilsSyntaxHighlightingManager::self()->defaultDef();
         }
-#else
-        auto definition = SyntaxHighlightingManager::self()->def(language);
-        if (!definition.isValid()) {
-            definition = SyntaxHighlightingManager::self()->defaultDef();
-        }
-#endif
-
         highlighter.setDefinition(definition);
         // Qt's support for borders is limited to tables, so we have to jump through some hoops...
         richTextStream << "<table><tr><td style='background-color:"_L1 << codeBackgroundColor.name() << "; padding: 5px; border: 1px solid "_L1

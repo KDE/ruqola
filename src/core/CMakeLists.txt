@@ -557,17 +557,6 @@ if(HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT)
     )
 endif()
 
-if(NOT HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT)
-    target_sources(
-        libruqolacore
-        PRIVATE
-            syntaxhighlightingmanager.cpp
-            syntaxhighlightingmanager.h
-            texthighlighter.cpp
-            texthighlighter.h
-    )
-endif()
-
 if(USE_E2E_SUPPORT)
     target_sources(
         libruqolacore

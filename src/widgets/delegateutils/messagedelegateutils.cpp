@@ -9,10 +9,8 @@
 #include "delegateutils/textselection.h"
 #include "model/messagesmodel.h"
 
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
-#include <TextUtils/TextUtilsSyntaxHighlighter>
-#endif
 #include <KLocalizedString>
+#include <TextUtils/TextUtilsSyntaxHighlighter>
 
 #include <QApplication>
 #include <QClipboard>
@@ -41,12 +39,10 @@ bool MessageDelegateUtils::generateToolTip(const QTextDocument *doc, const QPoin
     const auto format = doc->documentLayout()->formatAt(pos);
     const auto tooltip = format.property(QTextFormat::TextToolTip).toString();
     const auto href = format.property(QTextFormat::AnchorHref).toString();
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
     if (href.startsWith(TextUtils::TextUtilsSyntaxHighlighter::copyHref())) {
         formattedTooltip = i18nc("@info:tooltip", "Copy");
         return true;
     }
-#endif
     if (tooltip.isEmpty() && (href.isEmpty() || href.startsWith("ruqola:/"_L1))) {
         return false;
     }

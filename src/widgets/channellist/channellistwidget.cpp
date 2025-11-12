@@ -12,10 +12,8 @@
 #include "rocketchaturlutils.h"
 #include "ruqola_jitsi_debug.h"
 #include "ruqolawidgets_debug.h"
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
 #include <TextUtils/TextUtilsBlockCodeManager>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
-#endif
 
 #include "accountmanager.h"
 #include "rocketchataccount.h"
@@ -322,7 +320,6 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                 mCurrentRocketChatAccount->joinJitsiConfCall(roomId);
             }
         }
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
     } else if (link.startsWith(TextUtils::TextUtilsSyntaxHighlighter::copyHref())) {
         QString identifier = link;
         identifier.remove(TextUtils::TextUtilsSyntaxHighlighter::copyHref());
@@ -331,7 +328,6 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
         QClipboard *clipboard = QGuiApplication::clipboard();
         clipboard->setText(blockCodeStr, QClipboard::Clipboard);
         clipboard->setText(blockCodeStr, QClipboard::Selection);
-#endif
     } else {
         if (RocketChatUrlUtils::parseUrl(link)) {
             return;

@@ -44,10 +44,8 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
 #include <TextUtils/TextUtilsBlockCodeManager>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
-#endif
 
 #include <QApplication>
 #include <QClipboard>
@@ -424,11 +422,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         options.rect = visualRect(index);
         options.index = index;
         const QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
-        if (url.isEmpty() || url.startsWith(u"ruqola:/"_s)
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
-            || url.startsWith(TextUtils::TextUtilsSyntaxHighlighter::copyHref())
-#endif
-        ) {
+        if (url.isEmpty() || url.startsWith(u"ruqola:/"_s) || url.startsWith(TextUtils::TextUtilsSyntaxHighlighter::copyHref())) {
             return nullptr;
         }
         auto action = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy URL"), &menu);

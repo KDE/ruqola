@@ -325,11 +325,7 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
         stream.reset();
         stream.seek(0);
         highlighted.clear();
-#if HAVE_TEXTUTILS_SYNTAXHIGHLIGTHER_SUPPORT
         highlighter.highlight(codeBlock, mSettings->messageId, blockCodeIndex);
-#else
-        highlighter.highlight(codeBlock);
-#endif
         return highlighted;
     };
 
