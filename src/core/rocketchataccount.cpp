@@ -215,9 +215,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrat
     mListMessagesFilterProxyModel->setObjectName(u"listmessagesfiltermodelproxy"_s);
 
     mAutoTranslateLanguagesModel->setObjectName(u"autotranslatelanguagesmodel"_s);
-#if ADD_OFFLINE_SUPPORT
-    // connect(Ruqola::self(), &Ruqola::offlineModeChanged, this, &RocketChatAccount::offlineModeChanged);
-#endif
+
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
     connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);
@@ -289,6 +287,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrat
     // Initiate socket connections, once we're out of Ruqola::self()
     if (accountEnabled()) {
         QMetaObject::invokeMethod(this, &RocketChatAccount::startConnecting, Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this, &RocketChatAccount::connectOfflineMode, Qt::QueuedConnection);
     }
 }
 
@@ -299,6 +298,14 @@ RocketChatAccount::~RocketChatAccount()
 
     delete mRuqolaServerConfig;
     delete mAccountRoomSettings;
+}
+
+void RocketChatAccount::connectOfflineMode()
+{
+#if ADD_OFFLINE_SUPPORT
+    // Initiate offlineModeChanged connections, once we're out of Ruqola::self()
+    connect(Ruqola::self(), &Ruqola::offlineModeChanged, this, &RocketChatAccount::offlineModeChanged);
+#endif
 }
 
 void RocketChatAccount::loadSoundFiles()

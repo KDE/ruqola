@@ -303,6 +303,9 @@ void RuqolaMainWindow::slotAccountChanged()
         connect(mCurrentRocketChatAccount, &RocketChatAccount::customStatusChanged, this, &RuqolaMainWindow::slotUpdateCustomUserStatus);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
+#if ADD_OFFLINE_SUPPORT
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RuqolaMainWindow::slotOfflineModeChanged);
+#endif
     }
     if (!mCurrentRocketChatAccount) {
         slotDisableActions(true);

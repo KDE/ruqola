@@ -603,6 +603,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString ddpLoginStatusText() const;
     LIBRUQOLACORE_NO_EXPORT void slotFileLanguagesDownloaded();
     LIBRUQOLACORE_NO_EXPORT void customUserStatus();
+    LIBRUQOLACORE_NO_EXPORT void connectOfflineMode();
 
     AccountRoomSettings *const mAccountRoomSettings;
 
