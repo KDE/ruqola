@@ -566,14 +566,12 @@ if(USE_E2E_SUPPORT)
     )
 endif()
 
-if(HAVE_TEXTUTILS_CMARK_SUPPORT)
-    target_sources(
-        libruqolacore
-        PRIVATE
-            ruqolablockcmarksupport.h
-            ruqolablockcmarksupport.cpp
-    )
-endif()
+target_sources(
+    libruqolacore
+    PRIVATE
+        ruqolablockcmarksupport.h
+        ruqolablockcmarksupport.cpp
+)
 
 if(HAVE_TEXT_TRANSLATOR)
     target_sources(
@@ -799,10 +797,6 @@ target_link_libraries(
     Qt::Multimedia
     KF6::ColorScheme
 )
-
-if(NOT HAVE_TEXTUTILS_CMARK_SUPPORT)
-    target_link_libraries(libruqolacore cmark-rc)
-endif()
 
 if(HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolacore KF6::TextTranslator)
