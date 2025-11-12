@@ -5,7 +5,7 @@
 */
 
 #include "roomheaderwidget.h"
-using namespace Qt::Literals::StringLiterals;
+#include "config-ruqola.h"
 
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "actionbuttons/actionbuttonutil.h"
@@ -22,6 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QToolButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
     , mRoomName(new QLabel(this))
@@ -328,6 +329,9 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
                    &ActionButtonsManager::actionButtonsChanged,
                    this,
                    &RoomHeaderWidget::slotActionButtonChanged);
+#if ADD_OFFLINE_SUPPORT
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomHeaderWidget::slotOfflineModeChanged);
+#endif
     }
     mCurrentRocketChatAccount = account;
     mChannelActionPopupMenu->setCurrentRocketChatAccount(account);
@@ -338,12 +342,32 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
                 &ActionButtonsManager::actionButtonsChanged,
                 this,
                 &RoomHeaderWidget::slotActionButtonChanged);
+#if ADD_OFFLINE_SUPPORT
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomHeaderWidget::slotOfflineModeChanged);
+#endif
     }
 }
 
 QByteArray RoomHeaderWidget::roomId() const
 {
     return mRoom->roomId();
+}
+
+void RoomHeaderWidget::slotOfflineModeChanged()
+{
+#if ADD_OFFLINE_SUPPORT
+    const bool offlineMode = mCurrentRocketChatAccount ? mCurrentRocketChatAccount->offlineMode() : false;
+    mDiscussionBackButton->setEnabled(!offlineMode);
+    mFavoriteButton->setEnabled(!offlineMode);
+    mCallButton->setEnabled(!offlineMode);
+    mChannelInfoButton->setEnabled(!offlineMode);
+    mTeamChannelsButton->setEnabled(!offlineMode);
+    mListOfUsersButton->setEnabled(!offlineMode);
+    mSearchMessageButton->setEnabled(!offlineMode);
+    mEncryptedButton->setEnabled(!offlineMode);
+    mChannelActionButton->setEnabled(!offlineMode);
+    mAIActionButton->setEnabled(!offlineMode);
+#endif
 }
 
 void RoomHeaderWidget::slotActionButtonChanged()
@@ -355,8 +379,8 @@ void RoomHeaderWidget::slotActionButtonChanged()
         filterInfo.category = ActionButton::Category::AI;
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
         mAIActionButton->setVisible(!actionButtons.isEmpty());
-        const QByteArray roomId = mRoom->roomId();
-        mActionButtonsGenerator->generateRoomActionButtons(actionButtons, mAIActionButton->menu(), roomId);
+        const QByteArray roomIdentifier = mRoom->roomId();
+        mActionButtonsGenerator->generateRoomActionButtons(actionButtons, mAIActionButton->menu(), roomIdentifier);
     }
 }
 

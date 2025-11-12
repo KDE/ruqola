@@ -78,6 +78,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisabledEncryption();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray roomId() const;
     QList<PluginToolInterface *> mPluginToolInterface;
     QLabel *const mRoomName;
