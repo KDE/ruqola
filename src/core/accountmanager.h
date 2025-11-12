@@ -107,9 +107,7 @@ public:
 
     void addInvitedAccount(const AccountManagerInfo &info);
 
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     [[nodiscard]] TextToSpeechEnqueueManager *textToSpeechEnqueueManager() const;
-#endif
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
@@ -135,9 +133,7 @@ private:
 #if HAVE_ACTIVITY_SUPPORT
     ActivitiesManager *const mActivitiesManager;
 #endif
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     TextToSpeechEnqueueManager *const mTextToSpeechEnqueueManager;
-#endif
 };
 Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AccountManager::AccountDisplayInfo, Q_RELOCATABLE_TYPE);

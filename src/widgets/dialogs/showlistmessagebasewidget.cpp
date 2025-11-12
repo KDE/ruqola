@@ -53,11 +53,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
 
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     connect(mMessageListView, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
-#else
-    connect(mMessageListView, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
-#endif
 #endif
 
     mainLayout->addWidget(mMessageListView);

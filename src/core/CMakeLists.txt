@@ -546,16 +546,14 @@ target_sources(
         emoji.qrc
 )
 
-if(HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT)
-    target_sources(
-        libruqolacore
-        PRIVATE
-            texttospeech/texttospeechenqueueinfo.h
-            texttospeech/texttospeechenqueueinfo.cpp
-            texttospeech/texttospeechenqueuemanager.h
-            texttospeech/texttospeechenqueuemanager.cpp
-    )
-endif()
+target_sources(
+    libruqolacore
+    PRIVATE
+        texttospeech/texttospeechenqueueinfo.h
+        texttospeech/texttospeechenqueueinfo.cpp
+        texttospeech/texttospeechenqueuemanager.h
+        texttospeech/texttospeechenqueuemanager.cpp
+)
 
 if(USE_E2E_SUPPORT)
     target_sources(
@@ -833,9 +831,7 @@ set_target_properties(
 if(BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(localdatabase/autotests)
-    if(HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT)
-        add_subdirectory(texttospeech/autotests)
-    endif()
+    add_subdirectory(texttospeech/autotests)
 endif()
 
 if(USE_E2E_SUPPORT)

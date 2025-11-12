@@ -44,17 +44,10 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(RocketChatAccount *accoun
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     connect(mListNotificationsListView,
             &ModerationReportInfoListView::textToSpeech,
             mTextToSpeechWidget,
             &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
-#else
-    connect(mListNotificationsListView,
-            &ModerationReportInfoListView::textToSpeech,
-            mTextToSpeechWidget,
-            &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
-#endif
 #endif
 
     mListNotificationsListView->setObjectName(u"mListNotifications"_s);

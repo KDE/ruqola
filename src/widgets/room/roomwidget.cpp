@@ -130,11 +130,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mRoomWidgetLayout->addWidget(mTextToSpeechWidget);
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
-#else
-    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
-#endif
 #endif
 
     mRoomWidgetLayout->addWidget(mRoomWidgetBase);

@@ -15,9 +15,7 @@
 #include <QClipboard>
 #include <QMouseEvent>
 #include <QScrollBar>
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
 #include <TextEditTextToSpeech/TextToSpeech>
-#endif
 
 using namespace Qt::Literals::StringLiterals;
 MessageListViewBase::MessageListViewBase(QWidget *parent)
@@ -70,9 +68,7 @@ void MessageListViewBase::resizeEvent(QResizeEvent *ev)
 
 void MessageListViewBase::slotStopTextToSpeech([[maybe_unused]] const QModelIndex &index)
 {
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     TextEditTextToSpeech::TextToSpeech::self()->stop();
-#endif
 }
 
 void MessageListViewBase::checkIfAtBottom()

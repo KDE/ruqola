@@ -967,7 +967,6 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
         message = index.data(MessagesModel::OriginalMessage).toString();
     }
     if (!message.isEmpty()) {
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
         const QString accountName = mCurrentRocketChatAccount->accountName();
         TextToSpeechEnqueueInfo info;
         info.setAccountName(accountName);
@@ -978,9 +977,6 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
             Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
             Q_EMIT textToSpeech(message);
         }
-#else
-        Q_EMIT textToSpeech(message);
-#endif
     }
 #endif
 }

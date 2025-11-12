@@ -67,17 +67,10 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     connect(mListServerInfosListView,
             &ServerErrorInfoMessageHistoryListView::textToSpeech,
             mTextToSpeechWidget,
             &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
-#else
-    connect(mListServerInfosListView,
-            &ServerErrorInfoMessageHistoryListView::textToSpeech,
-            mTextToSpeechWidget,
-            &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
-#endif
 #endif
 
     mListServerInfosListView->setObjectName(u"mListServerInfosListView"_s);

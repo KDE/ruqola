@@ -49,9 +49,7 @@ AccountManager::AccountManager(QObject *parent)
 #if HAVE_ACTIVITY_SUPPORT
     , mActivitiesManager(new ActivitiesManager(this))
 #endif
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     , mTextToSpeechEnqueueManager(new TextToSpeechEnqueueManager(this))
-#endif
 {
 #if HAVE_ACTIVITY_SUPPORT
     mRocketChatAccountProxyModel->setActivitiesManager(mActivitiesManager);
@@ -61,12 +59,10 @@ AccountManager::AccountManager(QObject *parent)
     TextEmoticonsCore::UnicodeEmoticonManager::self(u":/emoji_ruqola.json"_s);
     loadAccount();
     connect(this, &AccountManager::activitiesChanged, mRocketChatAccountProxyModel, &RocketChatAccountFilterProxyModel::slotActivitiesChanged);
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     connect(TextEditTextToSpeech::TextToSpeech::self(),
             &TextEditTextToSpeech::TextToSpeech::aboutToSynthesize,
             this,
             &AccountManager::slotAboutToSynthesizeChanged);
-#endif
 }
 
 AccountManager::~AccountManager() = default;
@@ -166,17 +162,14 @@ bool AccountManager::needToHandleDataMigration() const
     return needMigration;
 }
 
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
 TextToSpeechEnqueueManager *AccountManager::textToSpeechEnqueueManager() const
 {
     return mTextToSpeechEnqueueManager;
 }
-#endif
 
 void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetype currentId)
 {
     // qDebug() << " previousId " << previousId << " currentId " << currentId;
-#if HAVE_TEXTTOSPEECH_ENQUEUE_SUPPORT
     if (previousId != -1) {
         const TextToSpeechEnqueueInfo info = mTextToSpeechEnqueueManager->value(previousId);
         // qDebug() << " previous info " << info;
@@ -202,7 +195,6 @@ void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetyp
         mTextToSpeechEnqueueManager->clear();
         // qDebug() << mTextAutoGenerateTextToSpeechEnqueueManager->enqueueList();
     }
-#endif
 }
 
 void AccountManager::loadAccount()
