@@ -114,6 +114,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
             attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
         }
         int topBlock = topAttachment;
+        QRect blocksRect;
         if (message->blocks() && !message->blocks()->blocks().isEmpty()) {
             const auto blocks = message->blocks()->blocks();
             QSize blocksSize;
@@ -131,7 +132,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                 }
             }
             // qDebug() << " topBlock " << topBlock;
-            layout.blocksRect = QRect(textLeft, topBlock, blocksSize.width(), blocksSize.height());
+            blocksRect = QRect(textLeft, topBlock, blocksSize.width(), blocksSize.height());
         }
         if (mRocketChatAccount && mRocketChatAccount->ruqolaServerConfig()->previewEmbed()) {
             if (message->urls() && !message->urls()->isEmpty()) {
@@ -159,6 +160,6 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                 layout.messageUrlsRect = QRect(textLeft, topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height());
             }
         }
-        layout.reactionsY = attachmentsY + attachmentsRect.height() + layout.blocksRect.height() + layout.messageUrlsRect.height();
+        layout.reactionsY = attachmentsY + attachmentsRect.height() + blocksRect.height() + layout.messageUrlsRect.height();
     }
 }

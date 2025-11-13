@@ -77,7 +77,6 @@ public:
         QList<QRect> attachmentsRectList;
 
         // Blocks
-        QRect blocksRect;
         QList<QRect> blocksRectList;
 
         // MessageUrl preview
