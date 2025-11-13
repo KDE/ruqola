@@ -422,20 +422,20 @@ void MessageLineWidget::slotPrivateSettingsChanged()
     mVideoMessageButton->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->videoRecorderEnabled());
 }
 
-void MessageLineWidget::slotOfflineModeChanged()
-{
-    if (mCurrentRocketChatAccount) {
-        setEnabled(!mCurrentRocketChatAccount->offlineMode());
-    }
-}
-
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineWidget::slotPrivateSettingsChanged);
+#if ADD_OFFLINE_SUPPORT
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &MessageLineWidget::slotOfflineModeChanged);
+#endif
     }
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineWidget::slotPrivateSettingsChanged);
+#if ADD_OFFLINE_SUPPORT
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &MessageLineWidget::slotOfflineModeChanged);
+#endif
+
     mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
     mMessageLineExtraToolButton->setCurrentRocketChatAccount(account);
@@ -692,6 +692,13 @@ void MessageLineWidget::textEditClicked()
     if (RuqolaGlobalConfig::self()->markAsReadOnTextClicked()) {
         mCurrentRocketChatAccount->markRoomAsRead(roomId());
     }
+}
+
+void MessageLineWidget::slotOfflineModeChanged()
+{
+#if ADD_OFFLINE_SUPPORT
+    setEnabled(!mCurrentRocketChatAccount->offlineMode());
+#endif
 }
 
 #include "moc_messagelinewidget.cpp"

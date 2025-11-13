@@ -70,7 +70,6 @@ public:
     void setRoomName(const QString &roomName, bool thread = false);
 
     void setSendPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
-    void slotOfflineModeChanged();
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
     void threadMessageIdChanged(const QByteArray &threadMessageId, const QString &text);
@@ -95,6 +94,7 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRunCommandFailed(const RocketChatRestApi::RunCommandJob::RunCommandInfo &info);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasCommandPreview(const QString &msg, const QByteArray &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
 
     QList<PluginToolInterface *> mPluginToolInterface;
     QByteArray mThreadMessageId;
