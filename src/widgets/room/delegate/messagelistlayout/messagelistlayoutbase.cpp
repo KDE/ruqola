@@ -134,6 +134,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
             // qDebug() << " topBlock " << topBlock;
             blocksRect = QRect(textLeft, topBlock, blocksSize.width(), blocksSize.height());
         }
+        QRect messageUrlsRect;
         if (mRocketChatAccount && mRocketChatAccount->ruqolaServerConfig()->previewEmbed()) {
             if (message->urls() && !message->urls()->isEmpty()) {
                 const auto urls = message->urls()->messageUrls();
@@ -157,9 +158,9 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                     }
                 }
                 // qDebug() << " topUrlPreview " << topUrlPreview;
-                layout.messageUrlsRect = QRect(textLeft, topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height());
+                messageUrlsRect = QRect(textLeft, topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height());
             }
         }
-        layout.reactionsY = attachmentsY + attachmentsRect.height() + blocksRect.height() + layout.messageUrlsRect.height();
+        layout.reactionsY = attachmentsY + attachmentsRect.height() + blocksRect.height() + messageUrlsRect.height();
     }
 }

@@ -80,7 +80,6 @@ public:
         QList<QRect> blocksRectList;
 
         // MessageUrl preview
-        QRect messageUrlsRect;
         QList<QRect> messageUrlsRectList;
 
         // Reactions
