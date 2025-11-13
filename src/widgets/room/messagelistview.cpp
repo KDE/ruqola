@@ -320,7 +320,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         return;
     }
-    if (mMode == Mode::ThreadEditing || mMode == Mode::Editing) {
+    const bool offline = mCurrentRocketChatAccount ? mCurrentRocketChatAccount->offlineMode() : false;
+    if ((mMode == Mode::ThreadEditing || mMode == Mode::Editing) && !offline) {
         createEmojiWidgetAction(&menu, index);
     }
 
@@ -340,7 +341,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         copyMessageToClipboard(index);
     });
     QAction *setPinnedMessage = nullptr;
-    if (mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessagePinningEnabled() && mRoom && mRoom->allowToPinMessage()) {
+    if (!offline && mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessagePinningEnabled() && mRoom && mRoom->allowToPinMessage()) {
         const bool isPinned = index.data(MessagesModel::Pinned).toBool();
         setPinnedMessage = new QAction(QIcon::fromTheme(u"pin"_s), isPinned ? i18nc("@action", "Unpin Message") : i18nc("@action", "Pin Message"), &menu);
         connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
@@ -348,7 +349,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
     }
     QAction *setAsFavoriteAction = nullptr;
-    if (mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessageStarringEnabled()) {
+    if (!offline && mCurrentRocketChatAccount->ruqolaServerConfig()->allowMessageStarringEnabled()) {
         const bool isStarred = index.data(MessagesModel::Starred).toBool();
         setAsFavoriteAction =
             new QAction(QIcon::fromTheme(u"favorite"_s), isStarred ? i18nc("@action", "Remove as Favorite") : i18nc("@action", "Set as Favorite"), &menu);
@@ -357,7 +358,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
     }
     QAction *deleteAction = nullptr;
-    if (index.data(MessagesModel::CanDeleteMessage).toBool()) {
+    if (!offline && index.data(MessagesModel::CanDeleteMessage).toBool()) {
         deleteAction = new QAction(QIcon::fromTheme(u"edit-delete"_s), i18nc("@action", "Delete"), &menu);
         connect(deleteAction, &QAction::triggered, this, [this, index]() {
             slotDeleteMessage(index);
@@ -492,139 +493,143 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     switch (mMode) {
     case Mode::Editing: {
-        auto startDiscussion = new QAction(i18nc("@action", "Start a Discussion"), &menu);
-        connect(startDiscussion, &QAction::triggered, this, [this, index]() {
-            slotStartDiscussion(index);
-        });
-        menu.addAction(startDiscussion);
-        menu.addSeparator();
-        auto replyInThreadAction = new QAction(QIcon::fromTheme(u"mail-replied-symbolic"_s), i18nc("@action", "Reply in Thread"), &menu);
-        connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
-            slotReplyInThread(index);
-        });
-        menu.addAction(replyInThreadAction);
-        for (auto action : threadInfoActions) {
-            menu.addAction(action);
-        }
-
-        if (!isVideoConferenceMessage) {
-            menu.addAction(quoteAction);
-        }
-        menu.addSeparator();
-        if (setPinnedMessage) {
-            menu.addAction(setPinnedMessage);
-        }
-        if (setAsFavoriteAction) {
-            menu.addAction(setAsFavoriteAction);
-        }
-        menu.addSeparator();
-
-        if (!isVideoConferenceMessage && index.data(MessagesModel::CanEditMessage).toBool()) {
-            menu.addAction(editAction);
+        if (!offline) {
+            auto startDiscussion = new QAction(i18nc("@action", "Start a Discussion"), &menu);
+            connect(startDiscussion, &QAction::triggered, this, [this, index]() {
+                slotStartDiscussion(index);
+            });
+            menu.addAction(startDiscussion);
             menu.addSeparator();
-        }
-        menu.addAction(copyAction);
-        if (copyUrlAction) {
-            menu.addAction(copyUrlAction);
-        }
-        menu.addAction(copyLinkToMessageAction);
-        if (!isVideoConferenceMessage) {
-            menu.addAction(forwardMessageAction);
+            auto replyInThreadAction = new QAction(QIcon::fromTheme(u"mail-replied-symbolic"_s), i18nc("@action", "Reply in Thread"), &menu);
+            connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
+                slotReplyInThread(index);
+            });
+            menu.addAction(replyInThreadAction);
+            for (auto action : threadInfoActions) {
+                menu.addAction(action);
+            }
+
+            if (!isVideoConferenceMessage) {
+                menu.addAction(quoteAction);
+            }
             menu.addSeparator();
-            // menu.addAction(selectAllAction);
-        }
+            if (setPinnedMessage) {
+                menu.addAction(setPinnedMessage);
+            }
+            if (setAsFavoriteAction) {
+                menu.addAction(setAsFavoriteAction);
+            }
+            menu.addSeparator();
 
-        menu.addSeparator();
-        if (isNotOwnerOfMessage) {
-            menu.addAction(markMessageAsUnReadAction);
-        }
+            if (!isVideoConferenceMessage && index.data(MessagesModel::CanEditMessage).toBool()) {
+                menu.addAction(editAction);
+                menu.addSeparator();
+            }
+            menu.addAction(copyAction);
+            if (copyUrlAction) {
+                menu.addAction(copyUrlAction);
+            }
+            menu.addAction(copyLinkToMessageAction);
+            if (!isVideoConferenceMessage) {
+                menu.addAction(forwardMessageAction);
+                menu.addSeparator();
+                // menu.addAction(selectAllAction);
+            }
 
-        menu.addSeparator();
-        menu.addAction(followingToMessageAction);
+            menu.addSeparator();
+            if (isNotOwnerOfMessage) {
+                menu.addAction(markMessageAsUnReadAction);
+            }
+
+            menu.addSeparator();
+            menu.addAction(followingToMessageAction);
 
 #if HAVE_TEXT_TRANSLATOR
-        if (!isVideoConferenceMessage) {
-            createTranslorMenu();
-            if (!mTranslatorMenu->isEmpty()) {
-                menu.addSeparator();
-                mTranslatorMenu->setModelIndex(index);
-                menu.addMenu(mTranslatorMenu->menu());
+            if (!isVideoConferenceMessage) {
+                createTranslorMenu();
+                if (!mTranslatorMenu->isEmpty()) {
+                    menu.addSeparator();
+                    mTranslatorMenu->setModelIndex(index);
+                    menu.addMenu(mTranslatorMenu->menu());
+                }
             }
-        }
 #endif
 
-        if (deleteAction) {
-            menu.addSeparator();
-            menu.addAction(deleteAction);
-        }
-        if (!isVideoConferenceMessage
-            && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
-                || !message->localTranslation().isEmpty())) {
-            createSeparator(menu);
-            const bool isTranslated = message->showTranslatedMessage();
-            auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
-            connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
-                slotTranslateMessage(index, !isTranslated);
-            });
-            menu.addAction(translateAction);
+            if (deleteAction) {
+                menu.addSeparator();
+                menu.addAction(deleteAction);
+            }
+            if (!isVideoConferenceMessage
+                && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
+                    || !message->localTranslation().isEmpty())) {
+                createSeparator(menu);
+                const bool isTranslated = message->showTranslatedMessage();
+                auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
+                connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
+                    slotTranslateMessage(index, !isTranslated);
+                });
+                menu.addAction(translateAction);
+            }
         }
         break;
     }
     case Mode::ThreadEditing: {
-        if (setPinnedMessage) {
-            menu.addAction(setPinnedMessage);
-        }
-        if (setAsFavoriteAction) {
-            menu.addAction(setAsFavoriteAction);
-        }
-
-        if (!isVideoConferenceMessage) {
-            menu.addSeparator();
-            menu.addAction(quoteAction);
-        }
-        menu.addSeparator();
-        menu.addAction(copyAction);
-        if (copyUrlAction) {
-            menu.addAction(copyUrlAction);
-        }
-        menu.addAction(copyLinkToMessageAction);
-        if (!isVideoConferenceMessage) {
-            menu.addAction(forwardMessageAction);
-            menu.addSeparator();
-            // menu.addAction(selectAllAction);
-        }
-        if (isNotOwnerOfMessage) {
-            menu.addAction(markMessageAsUnReadAction);
-            menu.addSeparator();
-        }
-        if (!isVideoConferenceMessage && index.data(MessagesModel::CanEditMessage).toBool()) {
-            menu.addSeparator();
-            menu.addAction(editAction);
-        }
-#if HAVE_TEXT_TRANSLATOR
-        if (!isVideoConferenceMessage) {
-            createTranslorMenu();
-            if (!mTranslatorMenu->isEmpty()) {
-                menu.addSeparator();
-                mTranslatorMenu->setModelIndex(index);
-                menu.addMenu(mTranslatorMenu->menu());
+        if (!offline) {
+            if (setPinnedMessage) {
+                menu.addAction(setPinnedMessage);
             }
-        }
-#endif
-        if (deleteAction) {
+            if (setAsFavoriteAction) {
+                menu.addAction(setAsFavoriteAction);
+            }
+
+            if (!isVideoConferenceMessage) {
+                menu.addSeparator();
+                menu.addAction(quoteAction);
+            }
             menu.addSeparator();
-            menu.addAction(deleteAction);
-        }
-        if (!isVideoConferenceMessage
-            && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
-                || !message->localTranslation().isEmpty())) {
-            createSeparator(menu);
-            const bool isTranslated = message->showTranslatedMessage();
-            auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
-            connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
-                slotTranslateMessage(index, !isTranslated);
-            });
-            menu.addAction(translateAction);
+            menu.addAction(copyAction);
+            if (copyUrlAction) {
+                menu.addAction(copyUrlAction);
+            }
+            menu.addAction(copyLinkToMessageAction);
+            if (!isVideoConferenceMessage) {
+                menu.addAction(forwardMessageAction);
+                menu.addSeparator();
+                // menu.addAction(selectAllAction);
+            }
+            if (isNotOwnerOfMessage) {
+                menu.addAction(markMessageAsUnReadAction);
+                menu.addSeparator();
+            }
+            if (!isVideoConferenceMessage && index.data(MessagesModel::CanEditMessage).toBool()) {
+                menu.addSeparator();
+                menu.addAction(editAction);
+            }
+#if HAVE_TEXT_TRANSLATOR
+            if (!isVideoConferenceMessage) {
+                createTranslorMenu();
+                if (!mTranslatorMenu->isEmpty()) {
+                    menu.addSeparator();
+                    mTranslatorMenu->setModelIndex(index);
+                    menu.addMenu(mTranslatorMenu->menu());
+                }
+            }
+#endif
+            if (deleteAction) {
+                menu.addSeparator();
+                menu.addAction(deleteAction);
+            }
+            if (!isVideoConferenceMessage
+                && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
+                    || !message->localTranslation().isEmpty())) {
+                createSeparator(menu);
+                const bool isTranslated = message->showTranslatedMessage();
+                auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
+                connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
+                    slotTranslateMessage(index, !isTranslated);
+                });
+                menu.addAction(translateAction);
+            }
         }
         break;
     }
@@ -676,7 +681,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(setPinnedMessage);
         }
 #endif
-        if (setAsFavoriteAction) {
+
+        if (!offline && setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
             menu.addSeparator();
         }
@@ -722,7 +728,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         addTextPlugins(&menu, mMessageListDelegate->selectedText());
     }
 
-    if (mMode != Mode::Moderation && isNotOwnerOfMessage) {
+    if (!offline && mMode != Mode::Moderation && isNotOwnerOfMessage) {
         createSeparator(menu);
         auto reportMessageAction = new QAction(QIcon::fromTheme(u"messagebox_warning"_s), i18nc("@action", "Report Message"), &menu);
         connect(reportMessageAction, &QAction::triggered, this, [this, index]() {

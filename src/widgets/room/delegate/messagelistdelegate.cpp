@@ -419,7 +419,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
         if (info.editMode) {
             if (info.roomType != Room::RoomType::Direct) {
-                if (mRocketChatAccount->hasPermission(u"create-d"_s)) {
+                if (mRocketChatAccount->hasPermission(u"create-d"_s) && !mRocketChatAccount->offlineMode()) {
                     menu.addSeparator();
                     auto startPrivateConversationAction =
                         new QAction(QIcon::fromTheme(u"document-send-symbolic"_s), i18nc("@action", "Start a Private Conversation"), &menu);
