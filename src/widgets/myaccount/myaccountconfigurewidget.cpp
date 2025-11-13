@@ -65,6 +65,13 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     if (account && !account->hasPermission(u"create-personal-access-tokens"_s)) {
         tabWidget->setTabVisible(pageIndex, false);
     }
+    if (account && account->offlineMode()) {
+        mMyAccount2FaConfigureWidget->setEnabled(false);
+        mMyAccount2ProfileConfigureWidget->setEnabled(false);
+        mMyAccountPreferenceConfigureWidget->setEnabled(false);
+        mMyAccount2e2ConfigureWidget->setEnabled(false);
+        mMyAccountPersonalAccessTokenConfigureWidget->setEnabled(false);
+    }
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;

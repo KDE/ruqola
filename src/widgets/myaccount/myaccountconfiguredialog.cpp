@@ -5,9 +5,9 @@
 */
 
 #include "myaccountconfiguredialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccountconfigurewidget.h"
+#include "rocketchataccount.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -21,6 +21,7 @@ namespace
 const char myMyAccountConfigureDialogConfigGroupName[] = "RegisterUserDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountConfigureDialog::MyAccountConfigureDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mMyAccountConfigWidget(new MyAccountConfigureWidget(account, this))
@@ -32,7 +33,9 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(RocketChatAccount *account, Q
     mMyAccountConfigWidget->setObjectName(u"mMyAccountConfigWidget"_s);
     mainLayout->addWidget(mMyAccountConfigWidget);
 
-    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(account ? (account->offlineMode() ? QDialogButtonBox::Close : QDialogButtonBox::Ok | QDialogButtonBox::Cancel)
+                                               : QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+                                       this);
     button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &MyAccountConfigureDialog::reject);
