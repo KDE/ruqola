@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-08 02:38+0000\n"
-"PO-Revision-Date: 2025-10-15 19:26+0300\n"
+"PO-Revision-Date: 2025-11-12 17:39+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -246,22 +246,22 @@ msgstr "Yksityisyyden yhteenveto"
 msgid "Permissions"
 msgstr "Käyttöoikeudet"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
 #: core/apps/appsmarketplaceinfo.cpp:605
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Access messages"
-msgstr "Kaikki viestit"
+msgstr "Pääsy viesteihin"
 
 #: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Lähetä ja muokkaa viestejä"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
 #: core/apps/appsmarketplaceinfo.cpp:609
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access room information"
-msgstr "Tilin tiedot"
+msgstr "Pääsy huonetietoihin"
 
 #: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
@@ -273,11 +273,11 @@ msgstr "Luo ja muuta huoneita"
 msgid "Access to this server network"
 msgstr "Käytä tämän palvelimen verkkoa"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
 #: core/apps/appsmarketplaceinfo.cpp:615
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access user information"
-msgstr "Tilin tiedot"
+msgstr "Pääsy käyttäjätietoihin"
 
 #: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
@@ -329,57 +329,61 @@ msgstr "Toimi pilvipalvelujen kanssa tämän palvelimen puolesta"
 msgid "Access minimal information about this server environment"
 msgstr "Käytä tästä palvelinympäristöstä vähimmäistietoja"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
 #: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Access to multiple Livechat departments information"
-msgstr ""
+msgstr "Pääsy usean livekeskustelun osastotietoihin"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
 #: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Access Livechat department information"
-msgstr ""
+msgstr "Pääsy livekeskustelun osastotietoihin"
 
 #: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Modify Livechat department information"
-msgstr ""
+msgstr "Muuta livekeskustelun osastotietoja"
 
 #: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Modify Livechat room information"
-msgstr ""
+msgstr "Muuta livekeskustelun huonetietoja"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?); ”livekeskustelu” on huono, mutta ainakin guuglattavissa (tosin yleensä muodossa ”Live-keskustelu”)
 #: core/apps/appsmarketplaceinfo.cpp:645
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat room information"
-msgstr "Tilin tiedot"
+msgstr "Pääsy livekeskustelun huonetietoihin"
 
 #: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Modify Livechat message information"
-msgstr ""
+msgstr "Muuta livekeskustelun viestitietoja"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
 #: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Access Livechat message information"
-msgstr ""
+msgstr "Pääsy livekeskustelun viestitietoihin"
 
 #: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Modify Livechat visitor information"
-msgstr ""
+msgstr "Muuta livekeskustelun vierailijatietoja"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
 #: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Access Livechat visitor information"
-msgstr ""
+msgstr "Pääsy livekeskustelun vierailijatietoihin"
 
+# Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?); ”livekeskustelu” on huono, mutta ainakin guuglattavissa (tosin yleensä muodossa ”Live-keskustelu”)
 #: core/apps/appsmarketplaceinfo.cpp:655
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access Livechat status information"
-msgstr "Tilin tiedot"
+msgstr "Pääsy livekeskustelun tilatietoihin"
 
 #: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
@@ -394,7 +398,7 @@ msgstr "Talleta sisäiset tiedot tietokantaan"
 #: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Modify Livechat custom field configuration"
-msgstr ""
+msgstr "Muuta livekeskustelun mukautetun kentän määritystä"
 
 #: core/apps/appsmarketplaceinfo.cpp:671
 #, kde-format
@@ -3822,16 +3826,16 @@ msgstr "Lisenssit"
 msgid "Auditing"
 msgstr "Auditointi"
 
+# Joutuu arvailemaan; can mm. = (slang) to put a stop or end to (M-W)
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Pinned Messages"
+#, kde-format
 msgid "Canned Responses"
-msgstr "Kiinnitetyt viestit"
+msgstr "Hylätyt vastaukset"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
 #, kde-format
 msgid "Engagement Dashboard"
-msgstr ""
+msgstr "Osallistumiskojelauta"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:114
 #, kde-format
@@ -4836,7 +4840,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow CAS User creation from data provided by the CAS ticket."
-msgstr ""
+msgstr "Salli CAS-käyttäjän luonti CAS-lipun tiedoista."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:59
 #, kde-format
@@ -4875,6 +4879,17 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Koosta tämän JSON-syötteen tiedoilla sisäiset määritteet (avain) ulkoisista "
+"määritteistä (arvo).\n"
+"”%”-merkein ympäröidyt ulkoisten määritteiden nimet interpoloidaan "
+"arvojonoihin.<br/>Esimerkki: {\"email\":\"%email\", \"name\":\"%firstname%, "
+"%lastname%\"}\n"
+"Määritekytkös interpoloidaan aina. CAS 1.0:ssa vain username-määrite on "
+"käytettävissä. Käytettävissä olevat sisäiset määritteet ovat: username, "
+"name, email, rooms,\n"
+"missä ”rooms” on pilkuin erotettu huoneluettelo, joihin käyttäjä liittyy "
+"luotaessa, esim. {\"rooms\": \"%team%,%department%\"] liittäisi CAS-"
+"käyttäjät luotaessa työryhmänsä ja osastonsa kanavaan."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
 #, kde-format
@@ -4896,12 +4911,10 @@ msgid "Enable in teams"
 msgstr "Käytä ryhmissä"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable logging"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "Käytä lokia"
+msgstr "Käytä mobiilisoittoa"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
@@ -5131,6 +5144,8 @@ msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
+"Ilmoita ihmisille ja korosta käyttäjä-, kanava- ja työryhmämaininnat "
+"salatussa sisällössä."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
 #, kde-format
@@ -5212,7 +5227,7 @@ msgstr "Asetuksen käyttöönotto voi johtaa kuvanlaadun heikkenemiseen"
 msgctxt "@info:tooltip"
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
-msgstr ""
+msgstr "Rajaa pääsy huoneisiin lähetettyihin tiedostoihin huoneiden jäsenille"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:55
 #, kde-format
@@ -6530,18 +6545,16 @@ msgid "Limit by Connection"
 msgstr "Rajoita yhteyden mukaan"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "List of Users"
+#, kde-format
 msgctxt "@option:check"
 msgid "Limit by User per Method"
-msgstr "Käyttäjäluettelo"
+msgstr "Rajoita käyttäjän mukaan menetelmittäin"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "List of Users"
+#, kde-format
 msgctxt "@option:check"
 msgid "Limit by Connection per Method"
-msgstr "Käyttäjäluettelo"
+msgstr "Rajoita yhteyden mukaan menetelmittäin"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:35
 #, kde-format
@@ -6709,7 +6722,7 @@ msgstr "Peru"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Palaa palvelimen oletusarvoon"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
@@ -6818,7 +6831,7 @@ msgstr "Poista istunnonvalvonta käytöstä"
 #, kde-format
 msgctxt "@option:check"
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "Poista livekeskustelun aktiviteettivalvonta käytöstä"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
 #, kde-format
@@ -6880,6 +6893,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"Tämä asetus lopettaa livekeskustelun vierailijaistuntojen käsittelyn, "
+"jolloin tilastot lakkaavat toimimasta kunnolla!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:54
 #, kde-format
@@ -7684,7 +7699,7 @@ msgstr "Käytä Plasman aktiviteettieheytystä"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr ""
+msgstr "Käytä puhesynteesiä"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:28
 #, kde-format
@@ -7865,39 +7880,35 @@ msgstr "Viestit"
 msgid "Json"
 msgstr "JSON"
 
+# Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgid "DataBase Messages"
-msgstr "Yksityisviestejä"
+msgstr "Tietokanta – viestit"
 
+# Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
 #: widgets/databasedialog/exploredatabasedialog.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete my Account"
+#, kde-format
 msgid "DataBase Accounts"
-msgstr "Poista tilini"
+msgstr "Tietokanta – tilit"
 
+# Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Delete Rooms"
+#, kde-format
 msgid "DataBase Rooms"
-msgstr "Poista huoneita"
+msgstr "Tietokanta – huoneet"
 
+# Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
+#, kde-format
 msgid "DataBase Global"
-msgstr "Tietokannan tiedot"
+msgstr "Tietokanta – yleisasetukset"
 
+# Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Tietokannan tiedot"
+msgstr "Tietokanta – salaus"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
@@ -9092,9 +9103,7 @@ msgid "Disable Encryption"
 msgstr "Poista salaus käytöstä"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Disable Encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Poista salaus käytöstä"
@@ -9108,6 +9117,11 @@ msgid ""
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
 msgstr ""
+"Salauksen poistaminen käytöstä vaarantaa ryhmän yksityisyyden. Kaikki ryhmän "
+"yksityiskäyttäjät menettävät pääsyn salattuun sisältöön.\n"
+"Salauksen voi palauttaa käyttöön myöhemmin. Jatka varoen.\n"
+"Ellei kenelläkään ole pääsyä salattuun sisältöön, salausavaimen voi "
+"palauttaa."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -9833,11 +9847,10 @@ msgid "Enable Auto Away"
 msgstr "Käytä automaattista poissaoloa"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Email Notification:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Offline Email notification:"
-msgstr "Sähköposti-ilmoitus:"
+msgstr "Yhteydetön sähköposti-ilmoitus:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:45
 #, kde-format
@@ -10089,11 +10102,10 @@ msgid "Otr Activated"
 msgstr "OTR aktivoitu"
 
 #: widgets/otr/otrwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Enable OTR"
+#, kde-format
 msgctxt "@action"
 msgid "End OTR"
-msgstr "Käytä OTR:ää"
+msgstr "Lopeta OTR"
 
 #: widgets/otr/otrwidget.cpp:27
 #, kde-format
@@ -10276,7 +10288,7 @@ msgstr "Salaa viestit"
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
-msgstr ""
+msgstr "Virheenpaikannus"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
@@ -10291,11 +10303,10 @@ msgid "Open attachment <filename>%1</filename>?<nl/>"
 msgstr "Avataanko liitetiedosto <filename>%1</filename>?"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr "Avaa…"
+msgstr "Avaa"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:125
 #, kde-format
@@ -11357,7 +11368,7 @@ msgstr "Vie tilejä"
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
-msgstr ""
+msgstr "Keskitaso"
 
 #: widgets/ruqolamainwindow.cpp:721
 #, kde-format
@@ -11694,9 +11705,10 @@ msgstr "Lisää kuvan näyttöön ”Avaa ohjelmalla” -painike."
 msgid "Add Quick Text Format."
 msgstr "Lisää pikatekstin muotoilu."
 
+# Ei mitään hajua
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Lisää viestin laajennusviivapainike"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Allow to Add WebDav Server."
@@ -11999,7 +12011,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
-msgstr ""
+msgstr "Tyhjennä kauppasovellusmalli 30 minuutissa (vähentää muistinkäyttöä)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:115
 #, kde-format
@@ -12071,12 +12083,12 @@ msgstr "Korjattu palvelimeen uudelleenyhdistäminen."
 #: widgets/whatsnew/whatsnewtranslations.cpp:140
 #, kde-format
 msgid "Fix single application on Windows/MacOs"
-msgstr ""
+msgstr "Korjaa yksittäisesiintymä Windowsissa/macOSissa"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:141
 #, kde-format
 msgid "Fix select created room/discussion/teams"
-msgstr ""
+msgstr "Korjaa luodun huoneen/keskustelun/työryhmän valinta"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:142
 #, kde-format
@@ -12091,7 +12103,7 @@ msgstr "Korjattu viestien videotuki"
 #: widgets/whatsnew/whatsnewtranslations.cpp:144
 #, kde-format
 msgid "Fix highlight text in quoted message"
-msgstr ""
+msgstr "Korjaa tekstin korostus lainatussa viestissä"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:145
 #, kde-format
@@ -12101,7 +12113,7 @@ msgstr "Korjattu keskustelukanavan avaaminen"
 #: widgets/whatsnew/whatsnewtranslations.cpp:146
 #, kde-format
 msgid "Allow to show application market settings"
-msgstr ""
+msgstr "Salli näyttää sovelluskauppa-asetukset"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:154
 #, kde-format
@@ -12123,12 +12135,12 @@ msgstr "Toteutettu mainintatuki."
 #: widgets/whatsnew/whatsnewtranslations.cpp:157
 #, kde-format
 msgid "Implement verify if a new Ruqola version exist"
-msgstr ""
+msgstr "Toteuta uudemman Ruqola-version tarkistus"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:158
 #, kde-format
 msgid "Allow to search threads by unread/following"
-msgstr ""
+msgstr "Salli etsiä säikeitä lukematta olevien/seurattujen mukaan"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:159
 #, kde-format
