@@ -34,9 +34,11 @@ public:
     [[nodiscard]] QString searchText() const;
 
 protected:
-    [[nodiscard]] QTextDocument *documentTypeForIndex(const MessageDelegateHelperBase::DocumentTypeInfo &info, bool convertText = true) const;
-    [[nodiscard]] QSize documentTypeForIndexSize(const MessageDelegateHelperBase::DocumentTypeInfo &info, bool convertText = true) const;
-    void updateView(const QModelIndex &index);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentTypeForIndex(const MessageDelegateHelperBase::DocumentTypeInfo &info,
+                                                                                 bool convertText = true) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QSize documentTypeForIndexSize(const MessageDelegateHelperBase::DocumentTypeInfo &info,
+                                                                            bool convertText = true) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateView(const QModelIndex &index);
     RocketChatAccount *mRocketChatAccount = nullptr;
     QString mSearchText;
 };
