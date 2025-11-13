@@ -6,7 +6,6 @@
 
 #pragma once
 #include "config-ruqola.h"
-#include <QObject>
 #include <TextUtils/TextUtilsColorsAndMessageViewStyle>
 
 #include <KColorScheme>

@@ -6,8 +6,6 @@
 
 #include "colorsandmessageviewstyle.h"
 
-#include <QApplication>
-
 ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
 {
 }

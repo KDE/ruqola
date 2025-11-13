@@ -26,7 +26,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <KMessageBox>
 #include <QLabel>
 #include <QMenu>
-#include <QPointer>
 #include <QTreeView>
 
 ModerationReportedMessageConsoleTreeWidget::ModerationReportedMessageConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)

@@ -9,10 +9,8 @@
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
-#include <QHeaderView>
-#include <QSqlTableModel>
+
 #include <QTableView>
-#include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseMessagesStorageWidget::ExploreDatabaseMessagesStorageWidget(RocketChatAccount *account, QWidget *parent)

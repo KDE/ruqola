@@ -17,10 +17,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "sessions/sessionslistjob.h"
 #include "sessions/sessionslogoutmejob.h"
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <QLabel>
 #include <QMenu>
-#include <QPointer>
 #include <QTreeView>
 
 MyAccountManageDeviceConfigureWidget::MyAccountManageDeviceConfigureWidget(RocketChatAccount *account, QWidget *parent)

@@ -11,12 +11,11 @@
 #include "rocketchataccount.h"
 #include "ruqola_database_debug.h"
 
-#include <QDir>
+#include <QFileInfo>
 #include <QJsonDocument>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
-#include <QSqlRecord>
 #include <QSqlTableModel>
 
 using namespace Qt::Literals::StringLiterals;

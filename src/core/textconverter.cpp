@@ -15,8 +15,6 @@
 #include "utils.h"
 
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
-#include <KSyntaxHighlighting/Definition>
-#include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
 #include <TextUtils/TextUtilsSyntaxHighlightingManager>

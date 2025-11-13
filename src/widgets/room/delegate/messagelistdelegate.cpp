@@ -46,7 +46,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QScreen>
 #include <QToolTip>
 
 #include <KColorScheme>

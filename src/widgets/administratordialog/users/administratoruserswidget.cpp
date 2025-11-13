@@ -32,11 +32,11 @@
 #include "utils.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
-#include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 
 AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::UsersType type, RocketChatAccount *account, QWidget *parent)

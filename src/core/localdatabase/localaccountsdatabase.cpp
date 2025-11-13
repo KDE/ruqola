@@ -12,7 +12,6 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
-#include <QSqlRecord>
 #include <QSqlTableModel>
 
 using namespace Qt::Literals::StringLiterals;

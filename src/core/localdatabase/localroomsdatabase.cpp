@@ -15,7 +15,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
-#include <QSqlRecord>
 #include <QSqlTableModel>
 
 static const char s_schemaRoomDataBase[] = "CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";

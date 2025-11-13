@@ -12,7 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_database_debug.h"
 #include "ruqolaglobalconfig.h"
 
-#include <QDir>
+#include <QFileInfo>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
