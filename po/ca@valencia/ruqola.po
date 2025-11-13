@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-12 00:43+0000\n"
+"POT-Creation-Date: 2025-11-13 00:42+0000\n"
 "PO-Revision-Date: 2025-11-01 09:30+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -176,12 +176,12 @@ msgstr "Característica nova"
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:284
+#: core/accountmanager.cpp:276
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Testimoni d'invitació no vàlid"
 
-#: core/accountmanager.cpp:285
+#: core/accountmanager.cpp:277
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1790,7 +1790,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:682
+#: core/rocketchataccount.cpp:689
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1799,12 +1799,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:690 core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:697 core/rocketchataccount.cpp:709
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:704
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
@@ -3276,26 +3276,26 @@ msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Mostra la moderació de missatges"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
-#: widgets/dialogs/searchmessagewidget.cpp:195
-#: widgets/dialogs/showlistmessagebasewidget.cpp:108
-#: widgets/discussions/showdiscussionswidget.cpp:94
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
+#: widgets/dialogs/searchmessagewidget.cpp:191
+#: widgets/dialogs/showlistmessagebasewidget.cpp:104
+#: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:142
 #: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "Loading…"
 msgstr "S'està carregant…"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
-#: widgets/dialogs/searchmessagewidget.cpp:199
-#: widgets/dialogs/showlistmessagebasewidget.cpp:110
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
+#: widgets/dialogs/searchmessagewidget.cpp:195
+#: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
 msgid "No Message found"
 msgstr "No s'ha trobat el missatge"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
-#: widgets/dialogs/searchmessagewidget.cpp:205
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
+#: widgets/dialogs/searchmessagewidget.cpp:201
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3423,7 +3423,7 @@ msgstr "Descarta tots els informes"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:338
+#: widgets/room/messagelistview.cpp:334
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3432,7 +3432,7 @@ msgstr "Copia la selecció"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
-#: widgets/room/messagelistview.cpp:340
+#: widgets/room/messagelistview.cpp:336
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3453,7 +3453,7 @@ msgstr "Llig el text"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/room/messagelistview.cpp:371
+#: widgets/room/messagelistview.cpp:367
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -4538,7 +4538,7 @@ msgid "Accounts"
 msgstr "Comptes"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:83
+#: widgets/room/roomheaderwidget.cpp:84
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptació"
@@ -7430,7 +7430,7 @@ msgid "Mark as Unread"
 msgstr "Marca com a sense llegir"
 
 #: widgets/channellist/channellistview.cpp:133
-#: widgets/room/messagelistview.cpp:358
+#: widgets/room/messagelistview.cpp:354
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -7511,25 +7511,25 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Convertix a un equip"
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:62
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Filtre de canals (%1)"
 
-#: widgets/channellist/channellistwidget.cpp:74
+#: widgets/channellist/channellistwidget.cpp:72
 #, kde-format
 msgctxt "@action"
 msgid "Search Channels"
 msgstr "Busca de canals"
 
-#: widgets/channellist/channellistwidget.cpp:81
+#: widgets/channellist/channellistwidget.cpp:79
 #, kde-format
 msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Canal anterior"
 
-#: widgets/channellist/channellistwidget.cpp:89
+#: widgets/channellist/channellistwidget.cpp:87
 #, kde-format
 msgctxt "@action"
 msgid "Next Channel"
@@ -7564,7 +7564,7 @@ msgid "Username or email:"
 msgstr "Nom d'usuari o correu:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1101
+#: widgets/ruqolamainwindow.cpp:1088
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7574,7 +7574,7 @@ msgstr ""
 "Si no rebeu un correu ben prompte, torneu i intenteu-ho de nou."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1102
+#: widgets/ruqolamainwindow.cpp:1089
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7779,12 +7779,12 @@ msgstr "Connectors d'eines"
 msgid "Text Plugins"
 msgstr "Connectors de text"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:176
+#: widgets/configuredialog/configurepluginswidget.cpp:178
 #, kde-format
 msgid "..."
 msgstr "…"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:178
+#: widgets/configuredialog/configurepluginswidget.cpp:180
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure"
@@ -7968,7 +7968,7 @@ msgstr "Base de dades global"
 msgid "DataBase E2E"
 msgstr "E2E de la base de dades"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:46
+#: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
@@ -8848,8 +8848,8 @@ msgstr[0] "%1 adjunt a la sala (Total: %2)"
 msgstr[1] "%1 adjunts a la sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showlistmessagebasewidget.cpp:118
-#: widgets/discussions/showdiscussionswidget.cpp:105
+#: widgets/dialogs/showlistmessagebasewidget.cpp:114
+#: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:131
 #: widgets/room/usersinroomwidget.cpp:167
@@ -8913,7 +8913,7 @@ msgstr "Ajusta a la vista"
 msgid "Save Image"
 msgstr "Guarda la imatge"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:116
+#: widgets/dialogs/showlistmessagebasewidget.cpp:112
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -9086,12 +9086,12 @@ msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Busca un debat…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:96
+#: widgets/discussions/showdiscussionswidget.cpp:92
 #, kde-format
 msgid "No Discussion found"
 msgstr "No s'ha trobat cap debat"
 
-#: widgets/discussions/showdiscussionswidget.cpp:103
+#: widgets/discussions/showdiscussionswidget.cpp:99
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -10140,32 +10140,6 @@ msgstr "Suprimiu el meu compte"
 msgid "Current Password"
 msgstr "Contrasenya actual"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:22
-#, kde-format
-msgctxt "@action"
-msgid "Disable version check"
-msgstr "Desactiva la comprovació de la versió"
-
-#: widgets/needupdateversion/needupdateversionwidget.cpp:26
-#, kde-format
-msgctxt "@action"
-msgid "Check new Version"
-msgstr "Comprova si hi ha una versió nova"
-
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
-#, kde-format
-msgid "Your version is older than 6 months, we encourage you to upgrade."
-msgstr ""
-"Esta versió té més de 6 mesos d'antiguitat, us animem que l'actualitzeu."
-
-#: widgets/needupdateversion/needupdateversionwidget.cpp:47
-#, kde-format
-msgid ""
-"Your version is older than 1 year, we strongly encourage you to upgrade."
-msgstr ""
-"Esta versió té més d'un any d'antiguitat, us animem completament que "
-"l'actualitzeu."
-
 #: widgets/notificationhistory/notificationhistorydialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
@@ -10180,7 +10154,7 @@ msgid "Clear"
 msgstr "Neteja"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
-#: widgets/room/messagelistview.cpp:718
+#: widgets/room/messagelistview.cpp:710
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10456,21 +10430,21 @@ msgid "User Info"
 msgstr "Informació d'usuari"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:426
-#: widgets/room/messagelistview.cpp:466
+#: widgets/room/messagelistview.cpp:458
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Inicia una conversa privada"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:442
-#: widgets/room/messagelistview.cpp:573 widgets/room/messagelistview.cpp:631
+#: widgets/room/messagelistview.cpp:565 widgets/room/messagelistview.cpp:623
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Mostra el missatge original"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:442
-#: widgets/room/messagelistview.cpp:573 widgets/room/messagelistview.cpp:631
+#: widgets/room/messagelistview.cpp:565 widgets/room/messagelistview.cpp:623
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10660,142 +10634,142 @@ msgstr "Pujada de fitxer"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no ha autoritzat este fitxer (tipus MIME no vàlid)"
 
-#: widgets/room/messagelistview.cpp:133
+#: widgets/room/messagelistview.cpp:131
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Vos heu unit a un missatge directe nou"
 
-#: widgets/room/messagelistview.cpp:135
+#: widgets/room/messagelistview.cpp:133
 #, kde-format
 msgid "Start of conversation"
 msgstr "Inici de la conversa"
 
-#: widgets/room/messagelistview.cpp:349
+#: widgets/room/messagelistview.cpp:345
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "No fixes el missatge"
 
-#: widgets/room/messagelistview.cpp:349
+#: widgets/room/messagelistview.cpp:345
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Fixa el missatge"
 
-#: widgets/room/messagelistview.cpp:358
+#: widgets/room/messagelistview.cpp:354
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Elimina com a preferit"
 
-#: widgets/room/messagelistview.cpp:365
+#: widgets/room/messagelistview.cpp:361
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Suprimix"
 
-#: widgets/room/messagelistview.cpp:378
+#: widgets/room/messagelistview.cpp:374
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Marca el missatge com a no llegit"
 
-#: widgets/room/messagelistview.cpp:383
+#: widgets/room/messagelistview.cpp:379
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Mostra el fil sencer"
 
-#: widgets/room/messagelistview.cpp:388
+#: widgets/room/messagelistview.cpp:384
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Edita"
 
-#: widgets/room/messagelistview.cpp:393
+#: widgets/room/messagelistview.cpp:389
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Cita"
 
-#: widgets/room/messagelistview.cpp:398
+#: widgets/room/messagelistview.cpp:394
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Copia l'enllaç cap al missatge"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:399
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Missatge reenviat"
 
-#: widgets/room/messagelistview.cpp:416
+#: widgets/room/messagelistview.cpp:412
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Deixa de seguir el missatge"
 
-#: widgets/room/messagelistview.cpp:416
+#: widgets/room/messagelistview.cpp:412
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Seguix un missatge"
 
-#: widgets/room/messagelistview.cpp:434
+#: widgets/room/messagelistview.cpp:426
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copia l'URL"
 
-#: widgets/room/messagelistview.cpp:457 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:449 widgets/room/usersinroommenu.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/room/messagelistview.cpp:503
+#: widgets/room/messagelistview.cpp:495
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Inicia un debat"
 
-#: widgets/room/messagelistview.cpp:509
+#: widgets/room/messagelistview.cpp:501
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Resposta al fil"
 
-#: widgets/room/messagelistview.cpp:640
+#: widgets/room/messagelistview.cpp:632
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Vista dels informes"
 
-#: widgets/room/messagelistview.cpp:663
+#: widgets/room/messagelistview.cpp:655
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Descarta els informes"
 
-#: widgets/room/messagelistview.cpp:735
+#: widgets/room/messagelistview.cpp:727
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: widgets/room/messagelistview.cpp:953
+#: widgets/room/messagelistview.cpp:945
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Voleu suprimir este missatge?"
 
-#: widgets/room/messagelistview.cpp:954
+#: widgets/room/messagelistview.cpp:946
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Suprimiu el missatge"
 
-#: widgets/room/messagelistview.cpp:1147
+#: widgets/room/messagelistview.cpp:1135
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -10880,85 +10854,85 @@ msgstr "(Mostra més informació…)"
 msgid "(Show Less Info…)"
 msgstr "(Mostra menys informació…)"
 
-#: widgets/room/roomheaderwidget.cpp:63
+#: widgets/room/roomheaderwidget.cpp:64
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Preferida"
 
-#: widgets/room/roomheaderwidget.cpp:65
+#: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
 msgid "Favorite"
 msgstr "Preferida"
 
-#: widgets/room/roomheaderwidget.cpp:81
+#: widgets/room/roomheaderwidget.cpp:82
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "S'ha habilitat E2E"
 
-#: widgets/room/roomheaderwidget.cpp:133
+#: widgets/room/roomheaderwidget.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Accions d'IA"
 
-#: widgets/room/roomheaderwidget.cpp:143
+#: widgets/room/roomheaderwidget.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Toca"
 
-#: widgets/room/roomheaderwidget.cpp:145
+#: widgets/room/roomheaderwidget.cpp:146
 #, kde-format
 msgid "Call"
 msgstr "Toca"
 
-#: widgets/room/roomheaderwidget.cpp:154
+#: widgets/room/roomheaderwidget.cpp:155
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:156 widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:157 widgets/room/roomheaderwidget.cpp:303
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:165
+#: widgets/room/roomheaderwidget.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:167
+#: widgets/room/roomheaderwidget.cpp:168
 #, kde-format
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:177
+#: widgets/room/roomheaderwidget.cpp:178
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:179
+#: widgets/room/roomheaderwidget.cpp:180
 #, kde-format
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:190
+#: widgets/room/roomheaderwidget.cpp:191
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Busca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:192
+#: widgets/room/roomheaderwidget.cpp:193
 #, kde-format
 msgid "Search Messages…"
 msgstr "Busca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:302
+#: widgets/room/roomheaderwidget.cpp:303
 #, kde-format
 msgid "Team's Information"
 msgstr "Informació de l'equip"
@@ -10978,39 +10952,39 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:379
+#: widgets/room/roomwidget.cpp:375
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:380
+#: widgets/room/roomwidget.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Elimina l'historial"
 
-#: widgets/room/roomwidget.cpp:414
+#: widgets/room/roomwidget.cpp:410
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: widgets/room/roomwidget.cpp:415
+#: widgets/room/roomwidget.cpp:411
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:571
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "El contingut encriptat no es pot buscar."
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:571
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Busca de missatge"
 
-#: widgets/room/roomwidget.cpp:594
+#: widgets/room/roomwidget.cpp:590
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11018,7 +10992,7 @@ msgstr ""
 "Un administrador de l'espai de treball necessita instal·lar i configurar una "
 "aplicació de tocades de conferència."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:591
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11216,285 +11190,285 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuari a la sala (Total: %2)"
 msgstr[1] "%1 usuaris a la sala (Total: %2)"
 
-#: widgets/ruqolamainwindow.cpp:244
+#: widgets/ruqolamainwindow.cpp:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Mostra les notificacions noves"
 
-#: widgets/ruqolamainwindow.cpp:246
+#: widgets/ruqolamainwindow.cpp:234
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Mostra les notificacions noves"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:429
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Afig un servidor…"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:434
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Informació del servidor…"
 
-#: widgets/ruqolamainwindow.cpp:447
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Desconnecta del servidor actual"
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Ves fins al següent canal sense llegir"
 
-#: widgets/ruqolamainwindow.cpp:456
+#: widgets/ruqolamainwindow.cpp:447
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Crea un canal nou…"
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Crea missatges directes…"
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:455
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Crea un debat…"
 
-#: widgets/ruqolamainwindow.cpp:468
+#: widgets/ruqolamainwindow.cpp:459
 #, kde-format
 msgid "Create Team…"
 msgstr "Crea un equip…"
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:467
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "No llegits en la part superior"
 
-#: widgets/ruqolamainwindow.cpp:484
+#: widgets/ruqolamainwindow.cpp:475
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Per últim missatge"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:481
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Alfabèticament"
 
-#: widgets/ruqolamainwindow.cpp:496
+#: widgets/ruqolamainwindow.cpp:487
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Mostra el registre del canal"
 
-#: widgets/ruqolamainwindow.cpp:500
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Mostra els errors del servidor"
 
-#: widgets/ruqolamainwindow.cpp:545
+#: widgets/ruqolamainwindow.cpp:536
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Marca tots els canals com a llegits"
 
-#: widgets/ruqolamainwindow.cpp:550
+#: widgets/ruqolamainwindow.cpp:541
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registra un usuari nou…"
 
-#: widgets/ruqolamainwindow.cpp:554
+#: widgets/ruqolamainwindow.cpp:545
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "El meu compte…"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgid "administration"
 msgstr "administració"
 
-#: widgets/ruqolamainwindow.cpp:559
+#: widgets/ruqolamainwindow.cpp:550
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administrador…"
 
-#: widgets/ruqolamainwindow.cpp:565
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Configura el servidor…"
 
-#: widgets/ruqolamainwindow.cpp:572
+#: widgets/ruqolamainwindow.cpp:563
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Aplicacions…"
 
-#: widgets/ruqolamainwindow.cpp:577
+#: widgets/ruqolamainwindow.cpp:568
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Aplicacions sol·licitades…"
 
-#: widgets/ruqolamainwindow.cpp:582
+#: widgets/ruqolamainwindow.cpp:573
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Aplicacions instal·lades…"
 
-#: widgets/ruqolamainwindow.cpp:587
+#: widgets/ruqolamainwindow.cpp:578
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Aplicacions privades…"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:583
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Unix-te a una sala…"
 
-#: widgets/ruqolamainwindow.cpp:596
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Unix-te a un equip…"
 
-#: widgets/ruqolamainwindow.cpp:600
+#: widgets/ruqolamainwindow.cpp:591
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Obri una conversa privada…"
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgid "&Next Server"
 msgstr "Servidor següe&nt"
 
-#: widgets/ruqolamainwindow.cpp:626
+#: widgets/ruqolamainwindow.cpp:617
 #, kde-format
 msgid "&Previous Server"
 msgstr "Servidor an&terior"
 
-#: widgets/ruqolamainwindow.cpp:635
+#: widgets/ruqolamainwindow.cpp:626
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Estat:"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:639
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Canal seleccionat anterior"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:646
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Canal seleccionat següent"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:676
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostra l'historial de notificacions"
 
-#: widgets/ruqolamainwindow.cpp:689
+#: widgets/ruqolamainwindow.cpp:680
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Mostra la informació de RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:693
+#: widgets/ruqolamainwindow.cpp:684
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Mostra l'avatar de la sala"
 
-#: widgets/ruqolamainwindow.cpp:698
+#: widgets/ruqolamainwindow.cpp:689
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Mostra la sala preferida"
 
-#: widgets/ruqolamainwindow.cpp:707
+#: widgets/ruqolamainwindow.cpp:698
 #, kde-format
 msgid "What's new"
 msgstr "Què hi ha de nou"
 
-#: widgets/ruqolamainwindow.cpp:711
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importació de comptes"
 
-#: widgets/ruqolamainwindow.cpp:715
+#: widgets/ruqolamainwindow.cpp:706
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportació de comptes"
 
-#: widgets/ruqolamainwindow.cpp:732
+#: widgets/ruqolamainwindow.cpp:723
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Mitjana"
 
-#: widgets/ruqolamainwindow.cpp:740
+#: widgets/ruqolamainwindow.cpp:731
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensada"
 
-#: widgets/ruqolamainwindow.cpp:749
+#: widgets/ruqolamainwindow.cpp:740
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Ampliada"
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:748
 #, kde-format
 msgid "Clear history"
 msgstr "Neteja l'historial"
 
-#: widgets/ruqolamainwindow.cpp:762 widgets/ruqolamainwindow.cpp:1437
+#: widgets/ruqolamainwindow.cpp:753 widgets/ruqolamainwindow.cpp:1424
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgid "Work Offline"
 msgstr "Desconnectat"
 
-#: widgets/ruqolamainwindow.cpp:806
+#: widgets/ruqolamainwindow.cpp:793
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Creeu un equip"
 
-#: widgets/ruqolamainwindow.cpp:1003
+#: widgets/ruqolamainwindow.cpp:990
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "No s'ha pogut escriure en el fitxer de registre %1"
 
-#: widgets/ruqolamainwindow.cpp:1003
+#: widgets/ruqolamainwindow.cpp:990
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostra el registre del canal"
 
-#: widgets/ruqolamainwindow.cpp:1173
+#: widgets/ruqolamainwindow.cpp:1160
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
 
-#: widgets/ruqolamainwindow.cpp:1260
+#: widgets/ruqolamainwindow.cpp:1247
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11503,13 +11477,13 @@ msgstr ""
 "<qt>Ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1263
+#: widgets/ruqolamainwindow.cpp:1250
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Ocultació de la barra de menús"
 
-#: widgets/ruqolamainwindow.cpp:1440
+#: widgets/ruqolamainwindow.cpp:1427
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgid "Work Online"
@@ -11679,12 +11653,12 @@ msgctxt "@title:window"
 msgid "Thread"
 msgstr "Fil"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:123
+#: widgets/threadwidget/threadmessagewidget.cpp:119
 #, kde-format
 msgid "Follow Message"
 msgstr "Seguix un missatge"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:123
+#: widgets/threadwidget/threadmessagewidget.cpp:119
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Deixa de seguir el missatge"
@@ -11698,30 +11672,6 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
-
-#: widgets/verifynewversionwidget/verifynewversiondialog.cpp:19
-#, kde-format
-msgctxt "@title:window"
-msgid "Check New Version"
-msgstr "Comprova si hi ha una versió nova"
-
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:73
-#, kde-format
-msgid "A new version found. Click <a href=\"%1\">here</a> for downloading it."
-msgstr ""
-"S'ha trobat una versió nova. Cliqueu <a href=\"%1\">ací</a> per a baixar-la."
-
-#: widgets/verifynewversionwidget/verifynewversionwidget.cpp:75
-#, kde-format
-msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-msgstr ""
-"No s'ha trobat cap versió nova. La construcció es pot trobar <a href="
-"\"%1\">ací</a>."
-
-#: widgets/verifynewversionwidget/verifynewversionwidgetaction.cpp:29
-#, kde-format
-msgid "Check New Version"
-msgstr "Comprova si hi ha una versió nova"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:17
 #, kde-format
@@ -11751,28 +11701,6 @@ msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Afig un compte…"
 
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:29
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Version:"
-msgstr "Versió:"
-
-#: widgets/whatsnew/whatsnewdialog.cpp:28
-#, kde-format
-msgctxt "@title:window"
-msgid "What's new in %1"
-msgstr "Què hi ha de nou en %1"
-
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
-#, kde-format
-msgid "(Show News)"
-msgstr "(Mostra les novetats)"
-
-#: widgets/whatsnew/whatsnewmessagewidget.cpp:21
-#, kde-format
-msgid "What's new in %2. %1"
-msgstr "Què hi ha de nou en %2. %1"
-
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
 msgid "Copy block code more easily."
 msgstr "Copia blocs de codi amb més facilitat."
@@ -11788,106 +11716,106 @@ msgstr "Millora la interfície d'usuari del text a veu."
 msgid "Show attachment fields."
 msgstr "Mostra els adjunts - %1"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:27
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "Emmagatzema els missatges en la base de dades local (experimental)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:29
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "Baixa la icona del servidor des del servidor"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
+#: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Mostra la informació d'error del servidor en un diàleg específic"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
+#: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Permet copiar la imatge a dins del porta-retalls"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:44
+#: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Millora la implementació de la depuració (permet mostrar els permisos "
 "actuals dels comptes)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:33
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Afig la implementació per al text citat (text que comença amb «>»)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:46
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Mostra el líder/moderador/propietari en la informació del canal."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
+#: widgets/whatsnew/whatsnewtranslations.cpp:35
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Implementació de missatges de vídeo i so (només KF6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "Importació/exportació de comptes."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:50
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Fix avatar support"
 msgstr "Corregix la implementació dels avatars"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:51
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Corregix la implementació dels emoji (utilitza el ktextaddons/textemoticons "
 "nou)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "Corregix els GIF animats en les reaccions"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:53
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "Corregix la implementació dels KF6"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:63
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Afig la consola de moderació (Administració, RC servidor 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:63
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Implement message style"
 msgstr "Implementa els estils dels missatges"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:63
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "Implementa la previsualització dels URL"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:65
+#: widgets/whatsnew/whatsnewtranslations.cpp:49
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "Corregix la implementació de Markdown (capçalera + marca de selecció)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:66
+#: widgets/whatsnew/whatsnewtranslations.cpp:50
 #, kde-format
 msgid "Fix mem leak"
 msgstr "Corregix una fuita de memòria"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:67
+#: widgets/whatsnew/whatsnewtranslations.cpp:51
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "Mida de la memòria cau dels missatges (optimització)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:68
+#: widgets/whatsnew/whatsnewtranslations.cpp:52
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -11896,7 +11824,7 @@ msgstr ""
 "Millora la selecció de la sala o l'usuari en editar la línia del missatge "
 "(mostra la icona, informa si l'usuari està en el canal)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:53
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -11905,43 +11833,43 @@ msgstr ""
 "Corregix la visualització d'ordres en l'edició de la línia de missatges "
 "(oculta l'acció quan la sala no ho admet)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Corregix la baixada del fitxer de so/vídeo quan no està en la memòria cau."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:55
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "Corregix la llista de mètodes d'autenticació."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "Corregix la visualització dels URL dels avatars."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:64
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Permet augmentar o disminuir la lletra («Ctrl++» o «Ctrl+-»)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:65
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Afig un estil de llista de canals (condensada, mitjana o ampliada)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:66
 #, kde-format
 msgid "Add forward message"
 msgstr "Afig els missatges reenviats"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
+#: widgets/whatsnew/whatsnewtranslations.cpp:67
 #, kde-format
 msgid "Improve mentions support."
 msgstr "Millora la implementació de les mencions."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:88
+#: widgets/whatsnew/whatsnewtranslations.cpp:68
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -11950,12 +11878,12 @@ msgstr ""
 "Afig la implementació per a l'enllaçat profund <a href=\"https://developer."
 "rocket.chat/getting-started/deep-linking\">Deep Linking</a>."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:89
+#: widgets/whatsnew/whatsnewtranslations.cpp:69
 #, kde-format
 msgid "Implement block actions."
 msgstr "Implementa les accions de bloqueig."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:90
+#: widgets/whatsnew/whatsnewtranslations.cpp:70
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -11964,111 +11892,111 @@ msgstr ""
 "Implementa l'autenticació de testimonis personals. Error <a href=\"https://"
 "bugs.kde.org/show_bug.cgi?id=481400\">481400</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:91
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "Afig el suport d'activitats de Plasma"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:92
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Add Report User Support"
 msgstr "Afig el suport d'informació d'un usuari"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:93
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "Implementa la notificació de so de canal."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:94
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "Implementa la notificació de so de sala nova."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:95
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "Implementa la llista ordenada/desordenada en Markdown."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:98
-#: widgets/whatsnew/whatsnewtranslations.cpp:197
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
+#: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "Corregix la implementació del mode fosc."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#: widgets/whatsnew/whatsnewtranslations.cpp:79
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "Corregix la implementació de Jitsi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:100
+#: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "Corregix el missatge de traducció en el canal directe."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "No mostra @here/@all com a usuari."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "Reduïx el consum de memòria."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
+#: widgets/whatsnew/whatsnewtranslations.cpp:83
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "Utilitza RESTAPI per al registre."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:104
+#: widgets/whatsnew/whatsnewtranslations.cpp:84
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "Permet enviar múltiples fitxers."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:105
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
 #, kde-format
 msgid "Fix preview url."
 msgstr "Corregix l'URL de la vista prèvia."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:117
+#: widgets/whatsnew/whatsnewtranslations.cpp:93
 #, kde-format
 msgid "Implement Rocket.Chat Marketplace."
 msgstr "Implementa el mercat d'aplicacions Rocket.Chat."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:118
+#: widgets/whatsnew/whatsnewtranslations.cpp:94
 #, kde-format
 msgid "Allow to clean room history."
 msgstr "Permet netejar l'historial de les sales."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:119
+#: widgets/whatsnew/whatsnewtranslations.cpp:95
 #, kde-format
 msgid "Allow to check new version."
 msgstr "Permet comprovar si hi ha una versió nova."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:120
+#: widgets/whatsnew/whatsnewtranslations.cpp:96
 #, kde-format
 msgid "Implement moderation (administrator mode)."
 msgstr "Implementa la moderació (mode administrador)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:121
+#: widgets/whatsnew/whatsnewtranslations.cpp:97
 #, kde-format
 msgid "Add welcome page."
 msgstr "Afig la pàgina de benvinguda."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:122
+#: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
 msgid "Implement pending users info (administrator mode)."
 msgstr ""
 "Implementa la informació sobre els usuaris pendents (mode administrador)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#: widgets/whatsnew/whatsnewtranslations.cpp:99
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
 "Utilitza «cmark-rc» (https://github.com/dfaure/cmark-rc) per a implementar "
 "Markdown."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
@@ -12077,7 +12005,7 @@ msgstr ""
 "Suprimix els fitxers més antics d'alguns directoris de la memòria cau («file-"
 "upload» i «media») perquè no cresca per sempre."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:128
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
@@ -12085,354 +12013,394 @@ msgstr ""
 "Neteja el model d'aplicacions del mercat després de 30 minuts (reduïx la "
 "petjada de memòria)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:129
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "Corregix la visualització del nom del debat a la compleció."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:130
+#: widgets/whatsnew/whatsnewtranslations.cpp:106
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr "Corregix els missatges duplicats en el diàleg de busca de missatges."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:131
+#: widgets/whatsnew/whatsnewtranslations.cpp:107
 #, kde-format
 msgid "Add delegate in search rooms in team dialog."
 msgstr "Afig un delegat a la busca de sales en el diàleg d'equip."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:144
+#: widgets/whatsnew/whatsnewtranslations.cpp:116
 #, kde-format
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr ""
 "Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa "
 "temps."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:145
+#: widgets/whatsnew/whatsnewtranslations.cpp:117
 #, kde-format
 msgid "Add restore button in administrator server settings dialog."
 msgstr ""
 "Afig el botó de restauració en el diàleg de configuració d'administració del "
 "servidor."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:146
+#: widgets/whatsnew/whatsnewtranslations.cpp:118
 #, kde-format
 msgid "Improve changing password (show validation info)."
 msgstr "Millora el canvi de contrasenya (mostra la informació de validació)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:147
+#: widgets/whatsnew/whatsnewtranslations.cpp:119
 #, kde-format
 msgid "Improve register new account (Add reason support)."
 msgstr ""
 "Millora el registre d'un compte nou (afegir la implementació del motiu)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:148
+#: widgets/whatsnew/whatsnewtranslations.cpp:120
 #, kde-format
 msgid "Implement mute/unmute user."
 msgstr "Implementa silenciar/deixar de silenciar un usuari."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:149
+#: widgets/whatsnew/whatsnewtranslations.cpp:121
 #, kde-format
 msgid "Add color to the text in the account tab"
 msgstr "Afig color al text en la pestanya dels comptes"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:150
+#: widgets/whatsnew/whatsnewtranslations.cpp:122
 #, kde-format
 msgid "Allow to show private installed applications"
 msgstr "Permet mostrar les aplicacions privades instal·lades"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:155
+#: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, kde-format
 msgid "Fix editing message."
 msgstr "Corregix l'edició de missatges."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:156
+#: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Mostra els permisos al mercat d'aplicacions Rocket.Chat."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:157
+#: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
 msgid "Fix reconnect server."
 msgstr "Corregix tornar a connectar del servidor."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:158
+#: widgets/whatsnew/whatsnewtranslations.cpp:130
 #, kde-format
 msgid "Fix single application on Windows/MacOs"
 msgstr "Corregix l'aplicació individual a Windows/MacOs"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:159
+#: widgets/whatsnew/whatsnewtranslations.cpp:131
 #, kde-format
 msgid "Fix select created room/discussion/teams"
 msgstr "Corregix la selecció de sales/debats/equips creats"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:160
+#: widgets/whatsnew/whatsnewtranslations.cpp:132
 #, kde-format
 msgid "Fix filter discussion in administrator mode"
 msgstr "Corregix el filtre de debats en mode administrador"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:161
+#: widgets/whatsnew/whatsnewtranslations.cpp:133
 #, kde-format
 msgid "Fix message video support"
 msgstr "Corregix la implementació dels missatges de vídeo"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:162
+#: widgets/whatsnew/whatsnewtranslations.cpp:134
 #, kde-format
 msgid "Fix highlight text in quoted message"
 msgstr "Corregix el text ressaltat en un missatge citat"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:163
+#: widgets/whatsnew/whatsnewtranslations.cpp:135
 #, kde-format
 msgid "Fix open discussion channel"
 msgstr "Corregix l'obertura d'un canal de debat"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:164
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
 #, kde-format
 msgid "Allow to show application market settings"
 msgstr "Permet mostrar la configuració del mercat d'aplicacions"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:176
+#: widgets/whatsnew/whatsnewtranslations.cpp:144
 #, kde-format
 msgid "Add support for tools plugins"
 msgstr "Afig la implementació dels connectors d'eines"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:177
+#: widgets/whatsnew/whatsnewtranslations.cpp:145
 #, kde-format
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 "Connector: afig un botó de captura de pantalla (prop del botó d'enviament de "
 "missatge)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:178
+#: widgets/whatsnew/whatsnewtranslations.cpp:146
 #, kde-format
 msgid "Implement invite RC url support"
 msgstr "Implementa el suport d'URL d'invitació RC"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:147
 #, kde-format
 msgid "Implement verify if a new Ruqola version exist"
 msgstr "Implementa la verificació de si existix una versió nova de Ruqola"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#: widgets/whatsnew/whatsnewtranslations.cpp:148
 #, kde-format
 msgid "Allow to search threads by unread/following"
 msgstr "Permet buscar fils per seguits/no llegits"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:181
+#: widgets/whatsnew/whatsnewtranslations.cpp:149
 #, kde-format
 msgid "Show images from attachment dialog box"
 msgstr "Mostra les imatges del diàleg de l'adjunt"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:182
+#: widgets/whatsnew/whatsnewtranslations.cpp:150
 #, kde-format
 msgid "Implement Rocket.Chat application support."
 msgstr "Implementa el suport d'aplicacions Rocket.Chat."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:183
+#: widgets/whatsnew/whatsnewtranslations.cpp:151
 #, kde-format
 msgid "Implement command preview."
 msgstr "Implementa la previsualització d'odres."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
+#: widgets/whatsnew/whatsnewtranslations.cpp:152
 #, kde-format
 msgid "Debug: explore translation from RC server."
 msgstr "Depuració: explora la traducció des del servidor RC."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#: widgets/whatsnew/whatsnewtranslations.cpp:153
 #, kde-format
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
 "Implementa el suport de la IU de connectors (crea el diàleg per a configurar "
 "les opcions)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
+#: widgets/whatsnew/whatsnewtranslations.cpp:157
 #, kde-format
 msgid "Allow to search file from username and filename."
 msgstr "Permet buscar fitxers a partir del nom d'usuari i el nom de fitxer."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
+#: widgets/whatsnew/whatsnewtranslations.cpp:158
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
 msgstr ""
 "Corregix el text de l'acció de còpia quan es copia una selecció de text."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:191
+#: widgets/whatsnew/whatsnewtranslations.cpp:159
 #, kde-format
 msgid "A command start with '/' and not /* or // "
 msgstr "Una ordre comença per «/» i no /* ni // "
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#: widgets/whatsnew/whatsnewtranslations.cpp:160
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 "Permet posar la línia d'ordres al porta-retalls quan s'ha produït un error"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#: widgets/whatsnew/whatsnewtranslations.cpp:161
 #, kde-format
 msgid "Allow to activate/deactivate apps market."
 msgstr "Permet activar/desactivar el mercat d'aplicacions."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:194
+#: widgets/whatsnew/whatsnewtranslations.cpp:162
 #, kde-format
 msgid "Improve list of user in room."
 msgstr "Millora la llista d'usuaris de la sala."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:195
+#: widgets/whatsnew/whatsnewtranslations.cpp:163
 #, kde-format
 msgid "Search in encrypted room is not possible."
 msgstr "No és possible la busca en una sala encriptada."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:196
+#: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Show roles for users in rooms."
 msgstr "Mostra els rols del d'usuaris de les sales."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:198
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "Fix download languages apps."
 msgstr "Corregix les aplicacions de baixada d'idiomes."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:210
+#: widgets/whatsnew/whatsnewtranslations.cpp:174
 #, kde-format
 msgid "Add AI plugin"
 msgstr "Afig un connector d'IA"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:211
+#: widgets/whatsnew/whatsnewtranslations.cpp:175
 #, kde-format
 msgid "Allow to dnd image."
 msgstr "Permet «dnd» una imatge."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:212
+#: widgets/whatsnew/whatsnewtranslations.cpp:176
 #, kde-format
 msgid "Add restore button in administration settings."
 msgstr "Afig el botó de restauració a la configuració d'administració."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:213
+#: widgets/whatsnew/whatsnewtranslations.cpp:177
 #, kde-format
 msgid "Allow to activate plugins."
 msgstr "Permet activar els connectors."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:214
+#: widgets/whatsnew/whatsnewtranslations.cpp:178
 #, kde-format
 msgid "Add Open With button in show image."
 msgstr "Afig el botó «Obri amb» en mostrar una imatge."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:215
+#: widgets/whatsnew/whatsnewtranslations.cpp:179
 #, kde-format
 msgid "Add Quick Text Format."
 msgstr "Afig el format ràpid del text."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:216
+#: widgets/whatsnew/whatsnewtranslations.cpp:180
 #, kde-format
 msgid "Add Extension message line button."
 msgstr "Afig l'extensió de botó de línia de missatge."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:217
+#: widgets/whatsnew/whatsnewtranslations.cpp:181
 #, kde-format
 msgid "Allow to Add WebDav Server."
 msgstr "Permet afegir un servidor WebDAV."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:218
+#: widgets/whatsnew/whatsnewtranslations.cpp:182
 #, kde-format
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
 "Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge "
 "escrit pendent."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:219
+#: widgets/whatsnew/whatsnewtranslations.cpp:183
 #, kde-format
 msgid "Allow to add emoticon from popup menu."
 msgstr "Permet afegir emoticones des d'un menú emergent."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:223
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Fix show date info."
 msgstr "Corregix la visualització de la informació de la data."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:224
+#: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
 msgid "Fix save application settings."
 msgstr "Corregix la guardada de la configuració de l'aplicació."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:225
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr "Corregix la selecció de text de l'adjunt."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:226
+#: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Fix display user."
 msgstr "Corregix la visualització de l'usuari."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:227
+#: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, kde-format
 msgid "Display translate menu in thread dialog."
 msgstr "Mostra el menú de traducció en el diàleg dels fils."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:228
+#: widgets/whatsnew/whatsnewtranslations.cpp:192
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
 msgstr "Afig la implementació d'accions d'IA de Rocket Chat."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:229
+#: widgets/whatsnew/whatsnewtranslations.cpp:193
 #, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
 "Corregix els botons «aplica», «restaura», «cancel·la» en el diàleg "
 "d'administració."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:230
+#: widgets/whatsnew/whatsnewtranslations.cpp:194
 #, kde-format
 msgid "Fix search users."
 msgstr "Corregix la busca d'usuaris."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:231
+#: widgets/whatsnew/whatsnewtranslations.cpp:195
 #, kde-format
 msgid "Fix extract language from code block."
 msgstr "Corregix el llenguatge d'extracció a partir del bloc de codi."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:232
+#: widgets/whatsnew/whatsnewtranslations.cpp:196
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
 "Corregix la informació dels adjunts al diàleg «Mostra el registre del canal»."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:233
+#: widgets/whatsnew/whatsnewtranslations.cpp:197
 #, kde-format
 msgid "Fix icon on windows."
 msgstr "Corregix una icona en Windows."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:234
+#: widgets/whatsnew/whatsnewtranslations.cpp:198
 #, kde-format
 msgid "Fix show file attachment size."
 msgstr "Corregix la visualització de la mida del fitxer adjunt."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:252
+#: widgets/whatsnew/whatsnewtranslations.cpp:212
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:46
-#, kde-format
-msgid "All Versions"
-msgstr "Totes les versions"
+#~ msgctxt "@action"
+#~ msgid "Disable version check"
+#~ msgstr "Desactiva la comprovació de la versió"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:49
-#, kde-format
-msgid "Version %1"
-msgstr "Versió %1"
+#~ msgctxt "@action"
+#~ msgid "Check new Version"
+#~ msgstr "Comprova si hi ha una versió nova"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:93
-#, kde-format
-msgid "Important changes since last version:"
-msgstr "Canvis importants des de l'última versió:"
+#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
+#~ msgstr ""
+#~ "Esta versió té més de 6 mesos d'antiguitat, us animem que l'actualitzeu."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:98
-#, kde-format
-msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
-"Algunes de les característiques noves d'esta versió de Ruqola inclouen:"
+#~ msgid ""
+#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
+#~ msgstr ""
+#~ "Esta versió té més d'un any d'antiguitat, us animem completament que "
+#~ "l'actualitzeu."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:103
-#, kde-format
-msgid "Some bug fixing:"
-msgstr "Esmena d'errors:"
+#~ msgctxt "@title:window"
+#~ msgid "Check New Version"
+#~ msgstr "Comprova si hi ha una versió nova"
+
+#~ msgid ""
+#~ "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+#~ msgstr ""
+#~ "S'ha trobat una versió nova. Cliqueu <a href=\"%1\">ací</a> per a baixar-"
+#~ "la."
+
+#~ msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
+#~ msgstr ""
+#~ "No s'ha trobat cap versió nova. La construcció es pot trobar <a href="
+#~ "\"%1\">ací</a>."
+
+#~ msgid "Check New Version"
+#~ msgstr "Comprova si hi ha una versió nova"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Version:"
+#~ msgstr "Versió:"
+
+#~ msgctxt "@title:window"
+#~ msgid "What's new in %1"
+#~ msgstr "Què hi ha de nou en %1"
+
+#~ msgid "(Show News)"
+#~ msgstr "(Mostra les novetats)"
+
+#~ msgid "What's new in %2. %1"
+#~ msgstr "Què hi ha de nou en %2. %1"
+
+#~ msgid "All Versions"
+#~ msgstr "Totes les versions"
+
+#~ msgid "Version %1"
+#~ msgstr "Versió %1"
+
+#~ msgid "Important changes since last version:"
+#~ msgstr "Canvis importants des de l'última versió:"
+
+#~ msgid "Some of the new features in this release of Ruqola include:"
+#~ msgstr ""
+#~ "Algunes de les característiques noves d'esta versió de Ruqola inclouen:"
+
+#~ msgid "Some bug fixing:"
+#~ msgstr "Esmena d'errors:"
