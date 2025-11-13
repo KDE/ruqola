@@ -5,16 +5,12 @@
 */
 
 #include "textconverter.h"
-#include "colorsandmessageviewstyle.h"
 #include "config-ruqola.h"
-#include "emoticons/emojimanager.h"
 #include "messagecache.h"
-#include "ruqola_texttohtml_cmark_debug.h"
 #include "ruqola_texttohtml_debug.h"
 #include "ruqolablockcmarksupport.h"
 #include "utils.h"
 
-#include "ktexttohtmlfork/ruqolaktexttohtml.h"
 #include <KSyntaxHighlighting/Theme>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
 #include <TextUtils/TextUtilsSyntaxHighlightingManager>
