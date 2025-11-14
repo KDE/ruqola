@@ -177,6 +177,9 @@ void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
             Ruqola::self()->setCurrentAccount(loadAccount);
         }
     }
+    if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Debug))) {
+        Ruqola::self()->setDebug(true);
+    }
 }
 
 void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, [[maybe_unused]] const QString &workingDirectory)
