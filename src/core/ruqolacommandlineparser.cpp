@@ -35,6 +35,8 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
     case CommandLineName::Offline:
         return u"offline"_s;
 #endif
+    case CommandLineName::Debug:
+        return u"debug"_s;
     }
     return {};
 }
@@ -54,4 +56,5 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
 #if ADD_OFFLINE_SUPPORT
     parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Offline), i18nc("@info:shell", "Start as Offline")));
 #endif
+    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Debug), i18nc("@info:shell", "Activate Debug Mode")));
 }

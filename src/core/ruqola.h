@@ -73,6 +73,8 @@ public:
     [[nodiscard]] bool offlineMode() const;
     void setOfflineMode(bool newOfflineMode);
 
+    void setDebug(bool newDebug);
+
 Q_SIGNALS:
     void translatorMenuChanged();
     void addInviteServer(const AccountManager::AccountManagerInfo &info);

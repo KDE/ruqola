@@ -132,6 +132,11 @@ void Ruqola::setOfflineMode([[maybe_unused]] bool newOfflineMode)
 #endif
 }
 
+void Ruqola::setDebug(bool newDebug)
+{
+    mDebug = newDebug;
+}
+
 void Ruqola::setCurrentAccount(const QString &accountName)
 {
     mAccountManager->setCurrentAccount(accountName);

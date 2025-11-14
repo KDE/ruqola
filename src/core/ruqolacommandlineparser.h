@@ -24,6 +24,7 @@ public:
 #if ADD_OFFLINE_SUPPORT
         Offline,
 #endif
+        Debug,
     };
 
     explicit RuqolaCommandLineParser(QCommandLineParser *parser);
