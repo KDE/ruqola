@@ -16,12 +16,13 @@ public:
     explicit ConfigurePluginsWidget(QWidget *parent = nullptr);
     ~ConfigurePluginsWidget() override;
 
-    void save() override;
+    void save(const QString &configFile = {}) override;
     void restoreToDefaults();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize() override;
-    LIBRUQOLAWIDGETS_NO_EXPORT void savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
+    LIBRUQOLAWIDGETS_NO_EXPORT void
+    savePlugins(const QString &configFile, const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureClicked(const QString &groupName, const QString &identifier);
 
     QList<PluginItem *> mPluginToolsItems;
