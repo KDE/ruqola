@@ -274,8 +274,6 @@ target_sources(
         configuredialog/removeaccountwidget.h
         configuredialog/configurepluginswidget.h
         configuredialog/configurepluginswidget.cpp
-        configuredialog/configurepluginstreewidgetdelegate.cpp
-        configuredialog/configurepluginstreewidgetdelegate.h
         configurenewserver/createnewserverdialog.cpp
         configurenewserver/createnewserverdialog.h
         configurenewserver/createnewserverwidget.cpp

@@ -8,62 +8,21 @@
 
 #include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
-#include <QTreeWidgetItem>
-#include <QWidget>
-#include <TextAddonsWidgets/PluginUtil>
-class KTreeWidgetSearchLineWidget;
-class QTreeWidget;
-class KMessageWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public QWidget
+#include <TextAddonsWidgets/ConfigurePluginsWidget>
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public TextAddonsWidgets::ConfigurePluginsWidget
 {
     Q_OBJECT
 public:
-    enum PluginItemData {
-        Description = Qt::UserRole + 1,
-    };
     explicit ConfigurePluginsWidget(QWidget *parent = nullptr);
     ~ConfigurePluginsWidget() override;
 
-    void save();
-    void load();
+    void save() override;
     void restoreToDefaults();
 
-Q_SIGNALS:
-    void changed();
-
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
-    LIBRUQOLAWIDGETS_NO_EXPORT void initializeDone();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotItemChanged(QTreeWidgetItem *item, int column);
-
-    class PluginItem : public QTreeWidgetItem
-    {
-    public:
-        explicit PluginItem(QTreeWidgetItem *parent)
-            : QTreeWidgetItem(parent)
-        {
-        }
-
-        QString mIdentifier;
-        bool mEnableByDefault = false;
-        bool mHasConfigureSupport = false;
-        bool mEnableFromUserSettings = false;
-    };
+    LIBRUQOLAWIDGETS_NO_EXPORT void initialize() override;
     LIBRUQOLAWIDGETS_NO_EXPORT void savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureClicked(QAction *act);
-
-    KTreeWidgetSearchLineWidget *mSearchLineEdit = nullptr;
-    QTreeWidget *const mTreePluginWidget;
-    KMessageWidget *const mMessageWidget;
-    bool mInitializeDone = false;
-
-    LIBRUQOLAWIDGETS_NO_EXPORT void fillTopItems(const QList<TextAddonsWidgets::PluginUtilData> &lst,
-                                                 const QString &topLevelItemName,
-                                                 const QString &groupName,
-                                                 const QString &prefixKey,
-                                                 QList<PluginItem *> &itemsList,
-                                                 const QString &configureGroupName,
-                                                 bool checkable = true);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureClicked(const QString &groupName, const QString &identifier);
 
     QList<PluginItem *> mPluginToolsItems;
     QList<PluginItem *> mPluginTextItems;
