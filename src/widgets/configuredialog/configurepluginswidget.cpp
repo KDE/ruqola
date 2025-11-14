@@ -22,10 +22,10 @@ ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
 
 ConfigurePluginsWidget::~ConfigurePluginsWidget() = default;
 
-void ConfigurePluginsWidget::save(const QString &configFile)
+void ConfigurePluginsWidget::save()
 {
-    savePlugins(configFile, ToolsPluginManager::self()->configGroupName(), ToolsPluginManager::self()->configPrefixSettingKey(), mPluginToolsItems);
-    savePlugins(configFile, TextPluginManager::self()->configGroupName(), TextPluginManager::self()->configPrefixSettingKey(), mPluginTextItems);
+    savePlugins(ToolsPluginManager::self()->configGroupName(), ToolsPluginManager::self()->configPrefixSettingKey(), mPluginToolsItems);
+    savePlugins(TextPluginManager::self()->configGroupName(), TextPluginManager::self()->configPrefixSettingKey(), mPluginTextItems);
 }
 
 void ConfigurePluginsWidget::restoreToDefaults()
@@ -63,10 +63,7 @@ void ConfigurePluginsWidget::initialize()
     mTreePluginWidget->expandAll();
 }
 
-void ConfigurePluginsWidget::savePlugins(const QString &configFile,
-                                         const QString &groupName,
-                                         const QString &prefixSettingKey,
-                                         const QList<PluginItem *> &listItems)
+void ConfigurePluginsWidget::savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems)
 {
     if (listItems.isEmpty()) {
         return;
@@ -80,7 +77,7 @@ void ConfigurePluginsWidget::savePlugins(const QString &configFile,
             disabledPlugins << item->mIdentifier;
         }
     }
-    TextAddonsWidgets::PluginUtil::savePluginSettings(configFile, groupName, prefixSettingKey, enabledPlugins, disabledPlugins);
+    TextAddonsWidgets::PluginUtil::savePluginSettings(groupName, prefixSettingKey, enabledPlugins, disabledPlugins);
 }
 
 void ConfigurePluginsWidget::slotConfigureClicked(const QString &groupName, const QString &identifier)
