@@ -8,7 +8,6 @@
 
 #include "channelgroupbasejob.h"
 #include "channels/channelhistoryjob.h"
-#include "chat/getthreadsjob.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
 #include "libruqolacore_export.h"
