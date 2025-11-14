@@ -81,15 +81,17 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotTextChanged(const QString 
 void MyAccountPersonalAccessTokenConfigureWidget::initialize()
 {
     if (mRocketChatAccount) {
-        auto job = new RocketChatRestApi::GetPersonalAccessTokensJob(this);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::GetPersonalAccessTokensJob::getPersonalAccessTokensDone, this, [this](const QJsonObject &obj) {
-            PersonalAccessTokenInfos info;
-            info.parsePersonalAccessTokenInfos(obj);
-            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GetPersonalAccessTokensJob job";
+        if (!mRocketChatAccount->offlineMode()) {
+            auto job = new RocketChatRestApi::GetPersonalAccessTokensJob(this);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::GetPersonalAccessTokensJob::getPersonalAccessTokensDone, this, [this](const QJsonObject &obj) {
+                PersonalAccessTokenInfos info;
+                info.parsePersonalAccessTokenInfos(obj);
+                mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GetPersonalAccessTokensJob job";
+            }
         }
     }
 }

@@ -58,7 +58,11 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     if (account && account->hasLicense(u"device-management"_s)) {
         auto manageDeviceWidget = new MyAccountManageDeviceConfigureWidget(mRocketChatAccount, this);
         tabWidget->addTab(manageDeviceWidget, i18n("Manage Device"));
-        manageDeviceWidget->initialize();
+        if (!account->offlineMode()) {
+            manageDeviceWidget->initialize();
+        } else {
+            manageDeviceWidget->setEnabled(false);
+        }
     }
     mMyAccountPersonalAccessTokenConfigureWidget->setObjectName(u"mMyAccountPersonalAccessTokenConfigureWidget"_s);
     const int pageIndex = tabWidget->addTab(mMyAccountPersonalAccessTokenConfigureWidget, i18n("Personal Access Token"));

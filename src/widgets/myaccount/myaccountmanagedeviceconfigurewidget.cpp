@@ -53,32 +53,34 @@ QString MyAccountManageDeviceConfigureWidget::displayShowMessage() const
 
 void MyAccountManageDeviceConfigureWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    auto job = new RocketChatRestApi::SessionsListJob(this);
+    if (!mRocketChatAccount->offlineMode()) {
+        auto job = new RocketChatRestApi::SessionsListJob(this);
 
-    RocketChatRestApi::QueryParameters parameters;
-    //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    //    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
-    //    parameters.setSorting(map);
-    if (offset != -1) {
-        parameters.setOffset(offset);
-    }
-    if (count != -1) {
-        parameters.setCount(count);
-    }
-    if (!searchName.isEmpty()) {
-        parameters.setFilter(searchName);
-    }
+        RocketChatRestApi::QueryParameters parameters;
+        //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
+        //    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+        //    parameters.setSorting(map);
+        if (offset != -1) {
+            parameters.setOffset(offset);
+        }
+        if (count != -1) {
+            parameters.setCount(count);
+        }
+        if (!searchName.isEmpty()) {
+            parameters.setFilter(searchName);
+        }
 
-    job->setQueryParameters(parameters);
+        job->setQueryParameters(parameters);
 
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    if (offset != -1) {
-        connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &MyAccountManageDeviceConfigureWidget::slotLoadMoreElementDone);
-    } else {
-        connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &MyAccountManageDeviceConfigureWidget::slotSearchDone);
-    }
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsListJob job";
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (offset != -1) {
+            connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &MyAccountManageDeviceConfigureWidget::slotLoadMoreElementDone);
+        } else {
+            connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &MyAccountManageDeviceConfigureWidget::slotSearchDone);
+        }
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsListJob job";
+        }
     }
 }
 
