@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-14 00:42+0000\n"
-"PO-Revision-Date: 2025-11-11 10:05+0100\n"
+"POT-Creation-Date: 2025-11-15 00:41+0000\n"
+"PO-Revision-Date: 2025-11-14 16:52+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1880,41 +1880,48 @@ msgstr "Missatge directe"
 msgid "Omnichannel"
 msgstr "Omnicanal"
 
-#: core/ruqolacommandlineparser.cpp:44
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Retorna la llista de comptes"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Comença amb un compte específic"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:50
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Mostra el missatge"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "Fa servir l'API DDP per a iniciar sessió"
 
-#: core/ruqolacommandlineparser.cpp:52
+#: core/ruqolacommandlineparser.cpp:54
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Llista les opcions disponibles per als comentaris dels usuaris"
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Inicia en desconnexió"
+
+#: core/ruqolacommandlineparser.cpp:59
+#, fuzzy, kde-format
+#| msgid "Activated"
+msgctxt "@info:shell"
+msgid "Activate Debug Mode"
+msgstr "Activat"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -2029,7 +2036,7 @@ msgid "Token:"
 msgstr "Testimoni:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountconfigurewidget.cpp:68
 #, kde-format
 msgid "Personal Access Token"
 msgstr "Testimoni d'accés personal"
@@ -7564,7 +7571,7 @@ msgid "Username or email:"
 msgstr "Nom d'usuari o correu:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1089
+#: widgets/ruqolamainwindow.cpp:1092
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7574,7 +7581,7 @@ msgstr ""
 "Si no rebeu un correu ben aviat, torneu i intenteu-ho de nou."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1090
+#: widgets/ruqolamainwindow.cpp:1093
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7762,31 +7769,15 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Activa la integració de les activitats del Plasma"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:28
-#, kde-format
-msgid "Restart is necessary for applying the changes."
-msgstr "Cal reiniciar per a aplicar els canvis."
-
-#: widgets/configuredialog/configurepluginswidget.cpp:106
+#: widgets/configuredialog/configurepluginswidget.cpp:51
 #, kde-format
 msgid "Tools Plugins"
 msgstr "Connectors d'eines"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:113
+#: widgets/configuredialog/configurepluginswidget.cpp:58
 #, kde-format
 msgid "Text Plugins"
 msgstr "Connectors de text"
-
-#: widgets/configuredialog/configurepluginswidget.cpp:178
-#, kde-format
-msgid "..."
-msgstr "..."
-
-#: widgets/configuredialog/configurepluginswidget.cpp:180
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Configure"
-msgstr "Configura"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
@@ -9820,7 +9811,7 @@ msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 dispositiu (Total: %2)"
 msgstr[1] "%1 dispositius (Total: %2)"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:98
 #, kde-format
 msgctxt "@action"
 msgid "Disconnect"
@@ -9844,8 +9835,8 @@ msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "Cerca un testimoni d'accés personal…"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:127
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:201
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
@@ -9854,24 +9845,24 @@ msgstr ""
 "<qt>Deseu el testimoni amb cura perquè ja no podreu veure'l després."
 "<br><b>Testimoni:</b> %1<br><b>El vostre ID d'usuari:</b> %2</qt>"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "S'ha creat el testimoni personal"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:168
 #, kde-format
 msgid "Personal Token removed."
 msgstr "S'ha eliminat el testimoni personal."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:168
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "Elimina el testimoni personal"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Personal Token Regenerated"
@@ -11186,284 +11177,279 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuari a la sala (Total: %2)"
 msgstr[1] "%1 usuaris a la sala (Total: %2)"
 
-#: widgets/ruqolamainwindow.cpp:232
+#: widgets/ruqolamainwindow.cpp:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Mostra les notificacions noves"
 
-#: widgets/ruqolamainwindow.cpp:234
+#: widgets/ruqolamainwindow.cpp:237
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Mostra les notificacions noves"
 
-#: widgets/ruqolamainwindow.cpp:430
+#: widgets/ruqolamainwindow.cpp:433
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Afegeix un servidor…"
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Informació del servidor…"
 
-#: widgets/ruqolamainwindow.cpp:439
+#: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Desconnecta del servidor actual"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:446
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Ves al següent canal sense llegir"
 
-#: widgets/ruqolamainwindow.cpp:448
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Crea un canal nou…"
 
-#: widgets/ruqolamainwindow.cpp:452
+#: widgets/ruqolamainwindow.cpp:455
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Crea missatges directes…"
 
-#: widgets/ruqolamainwindow.cpp:456
+#: widgets/ruqolamainwindow.cpp:459
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Crea un debat…"
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:463
 #, kde-format
 msgid "Create Team…"
 msgstr "Crea un equip…"
 
-#: widgets/ruqolamainwindow.cpp:468
+#: widgets/ruqolamainwindow.cpp:471
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "No llegits a la part superior"
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:479
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Per darrer missatge"
 
-#: widgets/ruqolamainwindow.cpp:482
+#: widgets/ruqolamainwindow.cpp:485
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Alfabèticament"
 
-#: widgets/ruqolamainwindow.cpp:488
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Mostra el registre del canal"
 
-#: widgets/ruqolamainwindow.cpp:492
+#: widgets/ruqolamainwindow.cpp:495
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Mostra els errors del servidor"
 
-#: widgets/ruqolamainwindow.cpp:537
+#: widgets/ruqolamainwindow.cpp:540
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Marca tots els canals com a llegits"
 
-#: widgets/ruqolamainwindow.cpp:542
+#: widgets/ruqolamainwindow.cpp:545
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registra un usuari nou…"
 
-#: widgets/ruqolamainwindow.cpp:546
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "El meu compte…"
 
-#: widgets/ruqolamainwindow.cpp:550
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgid "administration"
 msgstr "administració"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:554
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administrador…"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:560
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Configuració del servidor…"
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:567
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Aplicacions…"
 
-#: widgets/ruqolamainwindow.cpp:569
+#: widgets/ruqolamainwindow.cpp:572
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Aplicacions sol·licitades…"
 
-#: widgets/ruqolamainwindow.cpp:574
+#: widgets/ruqolamainwindow.cpp:577
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Aplicacions instal·lades…"
 
-#: widgets/ruqolamainwindow.cpp:579
+#: widgets/ruqolamainwindow.cpp:582
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Aplicacions privades…"
 
-#: widgets/ruqolamainwindow.cpp:584
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Uneix-te a una sala…"
 
-#: widgets/ruqolamainwindow.cpp:588
+#: widgets/ruqolamainwindow.cpp:591
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Uneix-te a un equip…"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:595
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Obre una conversa privada…"
 
-#: widgets/ruqolamainwindow.cpp:613
+#: widgets/ruqolamainwindow.cpp:616
 #, kde-format
 msgid "&Next Server"
 msgstr "Servidor següe&nt"
 
-#: widgets/ruqolamainwindow.cpp:618
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgid "&Previous Server"
 msgstr "Servidor an&terior"
 
-#: widgets/ruqolamainwindow.cpp:627
+#: widgets/ruqolamainwindow.cpp:630
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Estat:"
 
-#: widgets/ruqolamainwindow.cpp:640
+#: widgets/ruqolamainwindow.cpp:643
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Canal seleccionat anterior"
 
-#: widgets/ruqolamainwindow.cpp:647
+#: widgets/ruqolamainwindow.cpp:650
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Canal seleccionat següent"
 
-#: widgets/ruqolamainwindow.cpp:677
+#: widgets/ruqolamainwindow.cpp:680
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostra l'historial de notificacions"
 
-#: widgets/ruqolamainwindow.cpp:681
+#: widgets/ruqolamainwindow.cpp:684
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Mostra la informació del RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:688
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Mostra l'avatar de la sala"
 
-#: widgets/ruqolamainwindow.cpp:690
+#: widgets/ruqolamainwindow.cpp:693
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Mostra la sala preferida"
 
-#: widgets/ruqolamainwindow.cpp:699
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgid "What's new"
 msgstr "Què hi ha de nou"
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:706
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importació de comptes"
 
-#: widgets/ruqolamainwindow.cpp:707
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportació de comptes"
 
-#: widgets/ruqolamainwindow.cpp:724
+#: widgets/ruqolamainwindow.cpp:727
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Mitjana"
 
-#: widgets/ruqolamainwindow.cpp:732
+#: widgets/ruqolamainwindow.cpp:735
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensada"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:744
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Ampliada"
 
-#: widgets/ruqolamainwindow.cpp:749
+#: widgets/ruqolamainwindow.cpp:752
 #, kde-format
 msgid "Clear history"
 msgstr "Neteja l'historial"
 
-#: widgets/ruqolamainwindow.cpp:754 widgets/ruqolamainwindow.cpp:1425
-#, kde-format
-msgid "Work Offline"
-msgstr "Treballa desconnectat"
-
-#: widgets/ruqolamainwindow.cpp:794
+#: widgets/ruqolamainwindow.cpp:797
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Creació d'un equip"
 
-#: widgets/ruqolamainwindow.cpp:991
+#: widgets/ruqolamainwindow.cpp:994
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "No s'ha pogut escriure al fitxer de registre %1"
 
-#: widgets/ruqolamainwindow.cpp:991
+#: widgets/ruqolamainwindow.cpp:994
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostra el registre del canal"
 
-#: widgets/ruqolamainwindow.cpp:1161
+#: widgets/ruqolamainwindow.cpp:1164
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
 
-#: widgets/ruqolamainwindow.cpp:1248
+#: widgets/ruqolamainwindow.cpp:1251
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11472,16 +11458,25 @@ msgstr ""
 "<qt>Això ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1251
+#: widgets/ruqolamainwindow.cpp:1254
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Ocultació de la barra de menús"
 
 #: widgets/ruqolamainwindow.cpp:1428
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Work Online"
+msgctxt "@action"
 msgid "Work Online"
 msgstr "Treballa en línia"
+
+#: widgets/ruqolamainwindow.cpp:1431
+#, fuzzy, kde-format
+#| msgid "Work Offline"
+msgctxt "@action"
+msgid "Work Offline"
+msgstr "Treballa desconnectat"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11709,7 +11704,7 @@ msgstr "Mostra els camps dels adjunts."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "Implementa el mode desconnectat (experimental)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
@@ -12335,6 +12330,16 @@ msgstr "Corregeix la visualització de la mida del fitxer adjunt."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr "Desa la traducció local a la base de dades local."
+
+#~ msgid "Restart is necessary for applying the changes."
+#~ msgstr "Cal reiniciar per a aplicar els canvis."
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Configure"
+#~ msgstr "Configura"
 
 #~ msgctxt "@action"
 #~ msgid "Disable version check"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-14 00:42+0000\n"
+"POT-Creation-Date: 2025-11-15 00:41+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1908,42 +1908,49 @@ msgstr "私訊"
 msgid "Omnichannel"
 msgstr "下一個頻道"
 
-#: core/ruqolacommandlineparser.cpp:44
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "回傳帳戶列表"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "使用指定帳戶啟動"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:50
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "顯示訊息"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "登入使用 ddp API"
 
-#: core/ruqolacommandlineparser.cpp:52
+#: core/ruqolacommandlineparser.cpp:54
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "列出能用於使用者回饋的選項"
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:57
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "離線"
+
+#: core/ruqolacommandlineparser.cpp:59
+#, fuzzy, kde-format
+#| msgid "Active"
+msgctxt "@info:shell"
+msgid "Activate Debug Mode"
+msgstr "作用中"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -2058,7 +2065,7 @@ msgid "Token:"
 msgstr "權杖："
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountconfigurewidget.cpp:68
 #, kde-format
 msgid "Personal Access Token"
 msgstr "個人存取權杖 (Personal Access Token)"
@@ -7728,7 +7735,7 @@ msgid "Username or email:"
 msgstr "使用者名稱或電子郵件"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1089
+#: widgets/ruqolamainwindow.cpp:1092
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7736,7 +7743,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1090
+#: widgets/ruqolamainwindow.cpp:1093
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -7936,33 +7943,15 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "啟用 Plasma 活動"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:28
-#, kde-format
-msgid "Restart is necessary for applying the changes."
-msgstr ""
-
-#: widgets/configuredialog/configurepluginswidget.cpp:106
+#: widgets/configuredialog/configurepluginswidget.cpp:51
 #, kde-format
 msgid "Tools Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:113
+#: widgets/configuredialog/configurepluginswidget.cpp:58
 #, kde-format
 msgid "Text Plugins"
 msgstr ""
-
-#: widgets/configuredialog/configurepluginswidget.cpp:178
-#, fuzzy, kde-format
-#| msgid "Add..."
-msgid "..."
-msgstr "新增…"
-
-#: widgets/configuredialog/configurepluginswidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Configure Account"
-msgctxt "@info:tooltip"
-msgid "Configure"
-msgstr "設定帳戶"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
@@ -10064,7 +10053,7 @@ msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 個裝置 (總共：%2)"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:98
 #, fuzzy, kde-format
 #| msgid "Disconnect"
 msgctxt "@action"
@@ -10091,34 +10080,34 @@ msgctxt "@info:placeholder"
 msgid "Search Personal Access Token…"
 msgstr "搜尋個人存取權杖…"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:127
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:201
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
 "it afterwards.<br><b>Token:</b> %1<br><b>Your user Id:</b> %2</qt>"
 msgstr ""
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:130
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:132
 #, fuzzy, kde-format
 #| msgid "Personal Token Created"
 msgctxt "@title:window"
 msgid "Personal Token Created"
 msgstr "已建立個人權杖"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:168
 #, kde-format
 msgid "Personal Token removed."
 msgstr "已移除個人權杖。"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:168
 #, fuzzy, kde-format
 #| msgid "Remove Personal Token"
 msgctxt "@title:window"
 msgid "Remove Personal Token"
 msgstr "移除個人權杖"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:204
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:206
 #, fuzzy, kde-format
 #| msgid "Personal Token Regenerated"
 msgctxt "@title:window"
@@ -11549,131 +11538,131 @@ msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 名使用者 (總共：%2)"
 
-#: widgets/ruqolamainwindow.cpp:232
+#: widgets/ruqolamainwindow.cpp:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "顯示新通知"
 
-#: widgets/ruqolamainwindow.cpp:234
+#: widgets/ruqolamainwindow.cpp:237
 #, kde-format
 msgid "Show New Notifications"
 msgstr "顯示新通知"
 
-#: widgets/ruqolamainwindow.cpp:430
+#: widgets/ruqolamainwindow.cpp:433
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "新增伺服器…"
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "伺服器資訊…"
 
-#: widgets/ruqolamainwindow.cpp:439
+#: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "登出目前伺服器"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:446
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "跳到下一個未讀頻道"
 
-#: widgets/ruqolamainwindow.cpp:448
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgid "Create New Channel…"
 msgstr "建立新頻道…"
 
-#: widgets/ruqolamainwindow.cpp:452
+#: widgets/ruqolamainwindow.cpp:455
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "建立私訊…"
 
-#: widgets/ruqolamainwindow.cpp:456
+#: widgets/ruqolamainwindow.cpp:459
 #, kde-format
 msgid "Create Discussion…"
 msgstr "建立討論…"
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:463
 #, kde-format
 msgid "Create Team…"
 msgstr "建立團隊…"
 
-#: widgets/ruqolamainwindow.cpp:468
+#: widgets/ruqolamainwindow.cpp:471
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "未讀優先"
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:479
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "依最新的訊息"
 
-#: widgets/ruqolamainwindow.cpp:482
+#: widgets/ruqolamainwindow.cpp:485
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "依字母排序"
 
-#: widgets/ruqolamainwindow.cpp:488
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Show Channel Log"
 msgstr "顯示頻道紀錄"
 
-#: widgets/ruqolamainwindow.cpp:492
+#: widgets/ruqolamainwindow.cpp:495
 #, kde-format
 msgid "Show Server Errors"
 msgstr "顯示伺服器錯誤"
 
-#: widgets/ruqolamainwindow.cpp:537
+#: widgets/ruqolamainwindow.cpp:540
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "將所有頻道標為已讀"
 
-#: widgets/ruqolamainwindow.cpp:542
+#: widgets/ruqolamainwindow.cpp:545
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "註冊新使用者…"
 
-#: widgets/ruqolamainwindow.cpp:546
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "我的帳戶…"
 
-#: widgets/ruqolamainwindow.cpp:550
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgid "administration"
 msgstr "管理員"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:554
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "管理員…"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:560
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "伺服器設定…"
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:567
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "應用程式…"
 
-#: widgets/ruqolamainwindow.cpp:569
+#: widgets/ruqolamainwindow.cpp:572
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -11681,7 +11670,7 @@ msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "應用程式…"
 
-#: widgets/ruqolamainwindow.cpp:574
+#: widgets/ruqolamainwindow.cpp:577
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -11689,7 +11678,7 @@ msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "應用程式…"
 
-#: widgets/ruqolamainwindow.cpp:579
+#: widgets/ruqolamainwindow.cpp:582
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -11697,154 +11686,148 @@ msgctxt "@action"
 msgid "Private Applications…"
 msgstr "應用程式…"
 
-#: widgets/ruqolamainwindow.cpp:584
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:588
+#: widgets/ruqolamainwindow.cpp:591
 #, fuzzy, kde-format
 #| msgid "Joined this Team"
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "已加入此團隊"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:595
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "開始私人對話"
 
-#: widgets/ruqolamainwindow.cpp:613
+#: widgets/ruqolamainwindow.cpp:616
 #, kde-format
 msgid "&Next Server"
 msgstr "下一個伺服器(&N)"
 
-#: widgets/ruqolamainwindow.cpp:618
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgid "&Previous Server"
 msgstr "上一個伺服器(&P)"
 
-#: widgets/ruqolamainwindow.cpp:627
+#: widgets/ruqolamainwindow.cpp:630
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "狀態："
 
-#: widgets/ruqolamainwindow.cpp:640
+#: widgets/ruqolamainwindow.cpp:643
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "上一個選取的頻道"
 
-#: widgets/ruqolamainwindow.cpp:647
+#: widgets/ruqolamainwindow.cpp:650
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "下一個選取的頻道"
 
-#: widgets/ruqolamainwindow.cpp:677
+#: widgets/ruqolamainwindow.cpp:680
 #, kde-format
 msgid "Show Notify History"
 msgstr "顯示通知歷史"
 
-#: widgets/ruqolamainwindow.cpp:681
+#: widgets/ruqolamainwindow.cpp:684
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "顯示 RocketChat 資訊"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:688
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "顯示聊天室頭貼"
 
-#: widgets/ruqolamainwindow.cpp:690
+#: widgets/ruqolamainwindow.cpp:693
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "顯示最愛聊天室"
 
-#: widgets/ruqolamainwindow.cpp:699
+#: widgets/ruqolamainwindow.cpp:702
 #, kde-format
 msgid "What's new"
 msgstr "新功能"
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:706
 #, kde-format
 msgid "Import Accounts"
 msgstr "匯入名稱"
 
-#: widgets/ruqolamainwindow.cpp:707
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgid "Export Accounts"
 msgstr "匯出帳戶"
 
-#: widgets/ruqolamainwindow.cpp:724
+#: widgets/ruqolamainwindow.cpp:727
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "中等"
 
-#: widgets/ruqolamainwindow.cpp:732
+#: widgets/ruqolamainwindow.cpp:735
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "簡明"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:744
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "擴展"
 
-#: widgets/ruqolamainwindow.cpp:749
+#: widgets/ruqolamainwindow.cpp:752
 #, fuzzy, kde-format
 #| msgid "Password History"
 msgid "Clear history"
 msgstr "密碼歷史"
 
-#: widgets/ruqolamainwindow.cpp:754 widgets/ruqolamainwindow.cpp:1425
-#, fuzzy, kde-format
-#| msgid "Offline"
-msgid "Work Offline"
-msgstr "離線"
-
-#: widgets/ruqolamainwindow.cpp:794
+#: widgets/ruqolamainwindow.cpp:797
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立團隊"
 
-#: widgets/ruqolamainwindow.cpp:991
+#: widgets/ruqolamainwindow.cpp:994
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:991
+#: widgets/ruqolamainwindow.cpp:994
 #, fuzzy, kde-format
 #| msgid "Show Channel Log"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "顯示頻道紀錄"
 
-#: widgets/ruqolamainwindow.cpp:1161
+#: widgets/ruqolamainwindow.cpp:1164
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態"
 
-#: widgets/ruqolamainwindow.cpp:1248
+#: widgets/ruqolamainwindow.cpp:1251
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1251
+#: widgets/ruqolamainwindow.cpp:1254
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"
@@ -11854,7 +11837,15 @@ msgstr "隱藏選單列"
 #: widgets/ruqolamainwindow.cpp:1428
 #, fuzzy, kde-format
 #| msgid "Offline"
+msgctxt "@action"
 msgid "Work Online"
+msgstr "離線"
+
+#: widgets/ruqolamainwindow.cpp:1431
+#, fuzzy, kde-format
+#| msgid "Offline"
+msgctxt "@action"
+msgid "Work Offline"
 msgstr "離線"
 
 #. i18n: ectx: Menu (windows)
@@ -12724,6 +12715,17 @@ msgstr "顯示檔案附件…"
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgid "..."
+#~ msgstr "新增…"
+
+#, fuzzy
+#~| msgid "Configure Account"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Configure"
+#~ msgstr "設定帳戶"
 
 #, fuzzy
 #~| msgid "Disable version check"
