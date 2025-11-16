@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:41+0000\n"
-"PO-Revision-Date: 2025-11-01 09:30+0100\n"
+"PO-Revision-Date: 2025-11-15 13:54+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1912,18 +1912,16 @@ msgid "Lists the available options for user feedback"
 msgstr "Llista les opcions disponibles per als comentaris dels usuaris"
 
 #: core/ruqolacommandlineparser.cpp:57
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Desconnectat"
+msgstr "Inicia en desconnexió"
 
 #: core/ruqolacommandlineparser.cpp:59
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Activat"
+msgstr "Activa el mode de depuració"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -7758,12 +7756,10 @@ msgid "Animate GIFs"
 msgstr "Anima els GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Activa la base de dades local experimental"
+msgstr "Activa la base de dades local"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -10479,12 +10475,10 @@ msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:997
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "El missatge s'ha destacat"
+msgstr "El missatge té un text traduït"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, kde-format
@@ -11469,18 +11463,16 @@ msgid "Hide menu bar"
 msgstr "Ocultació de la barra de menús"
 
 #: widgets/ruqolamainwindow.cpp:1428
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Desconnectat"
+msgstr "Treballa en línia"
 
 #: widgets/ruqolamainwindow.cpp:1431
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Desconnectat"
+msgstr "Treballa desconnectat"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11703,15 +11695,12 @@ msgid "Improve Text To Speech user interface."
 msgstr "Millora la interfície d'usuari del text a veu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Mostra els adjunts - %1"
+msgstr "Mostra els camps dels adjunts."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "Implementa el mode desconnectat (experimental)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
@@ -12334,80 +12323,4 @@ msgstr "Corregix la visualització de la mida del fitxer adjunt."
 #: widgets/whatsnew/whatsnewtranslations.cpp:213
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
-
-#~ msgid "Restart is necessary for applying the changes."
-#~ msgstr "Cal reiniciar per a aplicar els canvis."
-
-#~ msgid "..."
-#~ msgstr "…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Configura"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "Desactiva la comprovació de la versió"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Comprova si hi ha una versió nova"
-
-#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
-#~ msgstr ""
-#~ "Esta versió té més de 6 mesos d'antiguitat, us animem que l'actualitzeu."
-
-#~ msgid ""
-#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
-#~ msgstr ""
-#~ "Esta versió té més d'un any d'antiguitat, us animem completament que "
-#~ "l'actualitzeu."
-
-#~ msgctxt "@title:window"
-#~ msgid "Check New Version"
-#~ msgstr "Comprova si hi ha una versió nova"
-
-#~ msgid ""
-#~ "A new version found. Click <a href=\"%1\">here</a> for downloading it."
-#~ msgstr ""
-#~ "S'ha trobat una versió nova. Cliqueu <a href=\"%1\">ací</a> per a baixar-"
-#~ "la."
-
-#~ msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-#~ msgstr ""
-#~ "No s'ha trobat cap versió nova. La construcció es pot trobar <a href="
-#~ "\"%1\">ací</a>."
-
-#~ msgid "Check New Version"
-#~ msgstr "Comprova si hi ha una versió nova"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Version:"
-#~ msgstr "Versió:"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in %1"
-#~ msgstr "Què hi ha de nou en %1"
-
-#~ msgid "(Show News)"
-#~ msgstr "(Mostra les novetats)"
-
-#~ msgid "What's new in %2. %1"
-#~ msgstr "Què hi ha de nou en %2. %1"
-
-#~ msgid "All Versions"
-#~ msgstr "Totes les versions"
-
-#~ msgid "Version %1"
-#~ msgstr "Versió %1"
-
-#~ msgid "Important changes since last version:"
-#~ msgstr "Canvis importants des de l'última versió:"
-
-#~ msgid "Some of the new features in this release of Ruqola include:"
-#~ msgstr ""
-#~ "Algunes de les característiques noves d'esta versió de Ruqola inclouen:"
-
-#~ msgid "Some bug fixing:"
-#~ msgstr "Esmena d'errors:"
+msgstr "Guarda la traducció local a la base de dades local."

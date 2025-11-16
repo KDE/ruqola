@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:41+0000\n"
-"PO-Revision-Date: 2025-10-12 01:37+0100\n"
+"PO-Revision-Date: 2025-11-16 00:24+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1910,18 +1910,16 @@ msgid "Lists the available options for user feedback"
 msgstr "Mostrar las opciones disponibles para comentarios de usuario"
 
 #: core/ruqolacommandlineparser.cpp:57
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Desconectado"
+msgstr "Iniciar como desconectado"
 
 #: core/ruqolacommandlineparser.cpp:59
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Activado"
+msgstr "Activar modo depuración"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -7765,12 +7763,10 @@ msgid "Animate GIFs"
 msgstr "Animar GIFs"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Activar la base de datos local experimental"
+msgstr "Activar la base de datos local"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -10484,12 +10480,10 @@ msgid "Message has been starred"
 msgstr "El mensaje se ha destacado"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:997
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "El mensaje se ha destacado"
+msgstr "El mensaje tiene texto traducido"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, kde-format
@@ -10507,12 +10501,10 @@ msgstr "Añadir reacción"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "Detener"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1011
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Dictar texto"
@@ -11477,18 +11469,16 @@ msgid "Hide menu bar"
 msgstr "Ocultar barra de menús"
 
 #: widgets/ruqolamainwindow.cpp:1428
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Desconectado"
+msgstr "Trabajar conectado"
 
 #: widgets/ruqolamainwindow.cpp:1431
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Desconectado"
+msgstr "Trabajar desconectado"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11707,21 +11697,16 @@ msgid "Copy block code more easily."
 msgstr "Facilitada la copia de bloques de código"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Mejoras en la lista de usuarios de una sala."
+msgstr "Mejoras en la interfaz de usuario de texto a habla."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Mostrar adjuntos - %1"
+msgstr "Mostrar campos adjuntos."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "Modo desconectado implementado (experimental)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
@@ -12347,80 +12332,4 @@ msgstr "Corrección del tamaño al mostrar archivos adjuntos."
 #: widgets/whatsnew/whatsnewtranslations.cpp:213
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
-
-#~ msgid "Restart is necessary for applying the changes."
-#~ msgstr "Un reinicio es necesario para aplicar los cambios."
-
-#~ msgid "..."
-#~ msgstr "…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Configurar"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "Desactivar comprobación de versión"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Comprobar nueva versión"
-
-#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
-#~ msgstr ""
-#~ "Su versión tiene más de 6 meses de antigüedad, le recomendamos que "
-#~ "actualice."
-
-#~ msgid ""
-#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
-#~ msgstr ""
-#~ "Su versión tiene más de 1 año de antigüedad, le recomendamos "
-#~ "encarecidamente que actualice."
-
-#~ msgctxt "@title:window"
-#~ msgid "Check New Version"
-#~ msgstr "Comprobar nueva versión"
-
-#~ msgid ""
-#~ "A new version found. Click <a href=\"%1\">here</a> for downloading it."
-#~ msgstr ""
-#~ "Nueva versión disponible. Pulse <a href=\"%1\">aquí</a> para descargarla."
-
-#~ msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-#~ msgstr ""
-#~ "No hay nuevas versiones. Los ejecutables pueden encontrarse <a href="
-#~ "\"%1\">aquí</a>."
-
-#~ msgid "Check New Version"
-#~ msgstr "Comprobar nueva versión"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Version:"
-#~ msgstr "Versión:"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in %1"
-#~ msgstr "¿Qué hay de nuevo en %1?"
-
-#~ msgid "(Show News)"
-#~ msgstr "(Mostrar noticias)"
-
-#~ msgid "What's new in %2. %1"
-#~ msgstr "¿Qué hay de nuevo en %2?. %1"
-
-#~ msgid "All Versions"
-#~ msgstr "Todas las versiones"
-
-#~ msgid "Version %1"
-#~ msgstr "Versión %1"
-
-#~ msgid "Important changes since last version:"
-#~ msgstr "Cambios importantes desde la última versión:"
-
-#~ msgid "Some of the new features in this release of Ruqola include:"
-#~ msgstr ""
-#~ "Algunas de las nuevas funcionalidades en esta versión de Ruqola incluyen:"
-
-#~ msgid "Some bug fixing:"
-#~ msgstr "Algunas correcciones de errores:"
+msgstr "Guardar traducción local a base de datos local."

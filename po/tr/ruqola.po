@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:41+0000\n"
-"PO-Revision-Date: 2025-11-14 18:43+0300\n"
+"PO-Revision-Date: 2025-11-15 19:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1912,11 +1912,10 @@ msgid "Start as Offline"
 msgstr "Çevrimdışı olarak başla"
 
 #: core/ruqolacommandlineparser.cpp:59
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Etkinleştirildi"
+msgstr "Hata ayıklama kipini etkinleştir"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11399,18 +11398,16 @@ msgid "Hide menu bar"
 msgstr "Menü Çubuğunu Gizle"
 
 #: widgets/ruqolamainwindow.cpp:1428
-#, fuzzy, kde-format
-#| msgid "Work Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Çevrimiçi olarak çalış"
+msgstr "Çevrimiçi Olarak Çalış"
 
 #: widgets/ruqolamainwindow.cpp:1431
-#, fuzzy, kde-format
-#| msgid "Work Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Çevrimdışı Çalış"
+msgstr "Çevrimdışı Olarak Çalış"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42

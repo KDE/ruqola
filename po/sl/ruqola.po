@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:41+0000\n"
-"PO-Revision-Date: 2025-11-14 07:07+0100\n"
+"PO-Revision-Date: 2025-11-15 07:57+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1922,11 +1922,10 @@ msgid "Start as Offline"
 msgstr "Zaženi kot brez povezave"
 
 #: core/ruqolacommandlineparser.cpp:59
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Aktivirana"
+msgstr "Aktiviran način odpravljanja napak"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11452,15 +11451,13 @@ msgid "Hide menu bar"
 msgstr "Skrij menijsko vrstico"
 
 #: widgets/ruqolamainwindow.cpp:1428
-#, fuzzy, kde-format
-#| msgid "Work Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Deluj s povezavo"
 
 #: widgets/ruqolamainwindow.cpp:1431
-#, fuzzy, kde-format
-#| msgid "Work Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
 msgstr "Deluj brez povezave"

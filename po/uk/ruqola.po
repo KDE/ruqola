@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:41+0000\n"
-"PO-Revision-Date: 2025-11-14 13:53+0200\n"
+"PO-Revision-Date: 2025-11-15 18:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1925,11 +1925,10 @@ msgid "Start as Offline"
 msgstr "Запуск в автономному режимі"
 
 #: core/ruqolacommandlineparser.cpp:59
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Задіяно"
+msgstr "Задіяти діагностичний режим"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11533,15 +11532,13 @@ msgid "Hide menu bar"
 msgstr "Приховати смужку меню"
 
 #: widgets/ruqolamainwindow.cpp:1428
-#, fuzzy, kde-format
-#| msgid "Work Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Працювати у мережі"
 
 #: widgets/ruqolamainwindow.cpp:1431
-#, fuzzy, kde-format
-#| msgid "Work Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
 msgstr "Працювати автономно"
