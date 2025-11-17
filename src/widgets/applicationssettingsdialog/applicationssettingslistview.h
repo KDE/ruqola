@@ -37,7 +37,6 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAskApplication(const QModelIndex &index);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowApplicationDescription(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUninstallApplication(const QModelIndex &index);

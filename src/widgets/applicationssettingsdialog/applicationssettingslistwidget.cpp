@@ -27,6 +27,7 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
 
     mApplicationsSettingsSearchWidget->setObjectName(u"mApplicationsSettingsSearchWidget"_s);
     mApplicationsSettingsListView->setObjectName(u"mApplicationsSettingsListView"_s);
+    mApplicationsSettingsDescriptionTabWidget->hide();
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
@@ -69,6 +70,7 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
             mAppsCountInfoWidget->setAppCountInfo(mCurrentRocketChatAccount->appsMarketPlaceModel()->appsCountInfo());
         });
     }
+    connect(mApplicationsSettingsListView, &ApplicationsSettingsListView::pressed, this, &ApplicationsSettingsListWidget::slotUpdateDescription);
 }
 
 ApplicationsSettingsListWidget::~ApplicationsSettingsListWidget() = default;
@@ -111,14 +113,19 @@ void ApplicationsSettingsListWidget::setFeature(ApplicationsSettingsSearchWidget
 
 void ApplicationsSettingsListWidget::slotUpdateDescription(const QModelIndex &index)
 {
-    const QString description = index.data(AppsMarketPlaceModel::ApplicationInformations).toString();
-    const QByteArray appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
-    const bool showLogAndSettings = mCurrentRocketChatAccount->isAdministrator() && index.data(AppsMarketPlaceModel::Installed).toBool()
-        && !index.data(AppsMarketPlaceModel::RequestedApps).toBool();
-    const bool showVersion = mCurrentRocketChatAccount->isAdministrator() && !index.data(AppsMarketPlaceModel::Private).toBool();
-    mApplicationsSettingsDescriptionTabWidget->setDescription(description);
-    mApplicationsSettingsDescriptionTabWidget->setApplicationId(appId);
-    mApplicationsSettingsDescriptionTabWidget->setShowLogAndSettingsInfo(showLogAndSettings);
-    mApplicationsSettingsDescriptionTabWidget->setShowVersionInfo(showVersion);
+    if (index.isValid()) {
+        const QString description = index.data(AppsMarketPlaceModel::ApplicationInformations).toString();
+        const QByteArray appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+        const bool showLogAndSettings = mCurrentRocketChatAccount->isAdministrator() && index.data(AppsMarketPlaceModel::Installed).toBool()
+            && !index.data(AppsMarketPlaceModel::RequestedApps).toBool();
+        const bool showVersion = mCurrentRocketChatAccount->isAdministrator() && !index.data(AppsMarketPlaceModel::Private).toBool();
+        mApplicationsSettingsDescriptionTabWidget->setDescription(description);
+        mApplicationsSettingsDescriptionTabWidget->setApplicationId(appId);
+        mApplicationsSettingsDescriptionTabWidget->setShowLogAndSettingsInfo(showLogAndSettings);
+        mApplicationsSettingsDescriptionTabWidget->setShowVersionInfo(showVersion);
+        mApplicationsSettingsDescriptionTabWidget->show();
+    } else {
+        mApplicationsSettingsDescriptionTabWidget->hide();
+    }
 }
 #include "moc_applicationssettingslistwidget.cpp"

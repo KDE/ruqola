@@ -89,7 +89,7 @@ void MessageListViewBase::updateVerticalPageStep()
     verticalScrollBar()->setPageStep(viewport()->height() * 3 / 4);
 }
 
-void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
+bool MessageListViewBase::handleMouseEvent(QMouseEvent *event)
 {
     const QPersistentModelIndex index = indexAt(event->pos());
     if (index.isValid()) {
@@ -108,13 +108,18 @@ void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
         options.rect = visualRect(mCurrentIndex);
         if (mouseEvent(event, options, mCurrentIndex)) {
             update(mCurrentIndex);
+        } else {
+            return false;
         }
     }
+    return true;
 }
 
 void MessageListViewBase::mouseReleaseEvent(QMouseEvent *event)
 {
-    handleMouseEvent(event);
+    if (!handleMouseEvent(event)) {
+        Q_EMIT pressed(mCurrentIndex);
+    }
 }
 
 void MessageListViewBase::mouseDoubleClickEvent(QMouseEvent *event)

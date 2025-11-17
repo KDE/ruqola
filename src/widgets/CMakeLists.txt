@@ -878,8 +878,6 @@ target_sources(
         applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp
         applicationssettingsdialog/applicationssettingsaskapplicationwidget.h
         applicationssettingsdialog/applicationssettingsaskapplicationwidget.cpp
-        applicationssettingsdialog/applicationssettingsdescriptiondialog.h
-        applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp
         applicationssettingsdialog/applicationssettingsdescriptionwidget.h
         applicationssettingsdialog/applicationssettingsdescriptionwidget.cpp
         applicationssettingsdialog/applicationssettingssortingcombobox.cpp

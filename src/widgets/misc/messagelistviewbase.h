@@ -52,7 +52,7 @@ protected:
     QList<PluginTextInterface *> mPluginTextInterface;
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void handleMouseEvent(QMouseEvent *event);
+    LIBRUQOLAWIDGETS_NO_EXPORT bool handleMouseEvent(QMouseEvent *event);
     bool mAtBottom = true;
     QPoint mPressedPosition;
     QPersistentModelIndex mCurrentIndex;

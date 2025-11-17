@@ -8,7 +8,6 @@
 #include "applicationspermissiondialog.h"
 #include "applicationssettingsaskapplicationdialog.h"
 #include "applicationssettingsdelegate.h"
-#include "applicationssettingsdescriptiondialog.h"
 #include "apps/appupdateinfojob.h"
 #include "apps/notifyadminsappsjob.h"
 #include "connection.h"
@@ -58,10 +57,6 @@ void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             QMenu menu(this);
-            menu.addAction(QIcon::fromTheme(u"description-symbolic"_s), i18nc("@action", "Show Description…"), this, [this, index]() {
-                slotShowApplicationDescription(index);
-            });
-
             if (!index.data(AppsMarketPlaceModel::Private).toBool() && !index.data(AppsMarketPlaceModel::Installed).toBool()) {
                 if (mRocketChatAccount->isAdministrator()) {
                     menu.addSeparator();
@@ -255,22 +250,6 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
         }
     }
     delete dlg;
-}
-
-void ApplicationsSettingsListView::slotShowApplicationDescription(const QModelIndex &index)
-{
-    ApplicationsSettingsDescriptionDialog dlg(mRocketChatAccount, this);
-    const QString description = index.data(AppsMarketPlaceModel::ApplicationInformations).toString();
-    const QByteArray appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
-    dlg.setDescription(description);
-    dlg.setApplicationId(appId);
-
-    const bool showLogAndSettings = mRocketChatAccount->isAdministrator() && index.data(AppsMarketPlaceModel::Installed).toBool()
-        && !index.data(AppsMarketPlaceModel::RequestedApps).toBool();
-    const bool showVersion = mRocketChatAccount->isAdministrator() && !index.data(AppsMarketPlaceModel::Private).toBool();
-    dlg.setShowLogAndSettingsInfo(showLogAndSettings);
-    dlg.setShowVersionInfo(showVersion);
-    dlg.exec();
 }
 
 bool ApplicationsSettingsListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
