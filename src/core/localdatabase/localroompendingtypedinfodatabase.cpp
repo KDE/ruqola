@@ -11,3 +11,5 @@ LocalRoomPendingTypedInfoDatabase::LocalRoomPendingTypedInfoDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localMessagesDatabasePath(), LocalDatabaseBase::DatabaseType::PendingTypedInfo)
 {
 }
+
+LocalRoomPendingTypedInfoDatabase::~LocalRoomPendingTypedInfoDatabase() = default;

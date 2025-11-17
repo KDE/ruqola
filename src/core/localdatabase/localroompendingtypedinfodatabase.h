@@ -5,10 +5,12 @@
 */
 #pragma once
 
+#include "libruqolacore_export.h"
 #include "localdatabasebase.h"
 
-class LocalRoomPendingTypedInfoDatabase : public LocalDatabaseBase
+class LIBRUQOLACORE_EXPORT LocalRoomPendingTypedInfoDatabase : public LocalDatabaseBase
 {
 public:
     LocalRoomPendingTypedInfoDatabase();
+    ~LocalRoomPendingTypedInfoDatabase() override;
 };
