@@ -172,6 +172,8 @@ target_sources(
         administratorsettingsdialog/oauth/oauthsettingswidget.cpp
         administratorsettingsdialog/analytics/analyticswidget.cpp
         administratorsettingsdialog/analytics/analyticswidget.h
+        applicationssettingsdialog/applicationssettingslistwidget.h
+        applicationssettingsdialog/applicationssettingslistwidget.cpp
         administratordialog/logs/viewlogplaintextedit.h
         administratordialog/logs/viewlogplaintextedit.cpp
         administratordialog/registration/registrationwidget.h
