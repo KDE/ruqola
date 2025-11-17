@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:41+0000\n"
+"POT-Creation-Date: 2025-11-17 11:52+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -246,178 +246,185 @@ msgstr "Adatvédelem összegzése"
 msgid "Permissions"
 msgstr "Jogosultságok"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access messages"
 msgstr "Üzenetek elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Üzenetek küldése és módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Access room information"
 msgstr "Szobainformációk elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Szobák létrehozása és módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Access to this server network"
 msgstr "Hozzáférés ehhez a kiszolgálóhálózathoz"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access user information"
 msgstr "Felhasználóinformációk elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify user information"
 msgstr "Felhasználóinformációk módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Új perjelparancsok regisztrálása"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Ütemezett feladatok regisztrálása és karbantartása"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Új HTTP-végpontok regisztrálása"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Ezen a kiszolgálón lévő beállítások elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Ezen a kiszolgálón lévő beállítások módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Fájlok feltöltése erre a kiszolgálóra"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Erre a kiszolgálóra feltöltött fájlok elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Interakció a felhőszolgáltatásokkal a kiszolgáló nevében"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Minimális információk elérése erről a kiszolgálókörnyezetről"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Több élő csevegés részleginformációinak elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Az élő csevegés részleginformációinak elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Az élő csevegés részleginformációinak módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Az élő csevegés szobainformációinak módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Az élő csevegés szobainformációinak elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Az élő csevegés üzenetinformációinak módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Az élő csevegés üzenetinformációinak elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Az élő csevegés látogatóinformációinak módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Az élő csevegés látogatóinformációinak elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Az élő csevegés állapotinformációinak elérése"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Interakció a felhasználói felülettel"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Belső adatok tárolása az adatbázisban"
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Az élő csevegés egyéni mező beállításának módosítása"
 
-#: core/apps/appsmarketplaceinfo.cpp:671
+#: core/apps/appsmarketplaceinfo.cpp:673
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:675
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:689
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to send email"
 msgstr "Több fájl küldésének lehetővé tétele."
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:691
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to write role"
 msgstr "Több fájl küldésének lehetővé tétele."
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:693
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to read role"
 msgstr "Több fájl küldésének lehetővé tétele."
+
+#: core/apps/appsmarketplaceinfo.cpp:695
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mute Focused Conversations"
+msgid "Out Bound Communication"
+msgstr "Fókuszált beszélgetések némítása"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format

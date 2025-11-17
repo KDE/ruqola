@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:41+0000\n"
-"PO-Revision-Date: 2025-11-15 14:50+0100\n"
+"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"PO-Revision-Date: 2025-11-16 14:00+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -246,176 +246,183 @@ msgstr "Résumé des renseignements personnels"
 msgid "Permissions"
 msgstr "Droits d'accès"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access messages"
 msgstr "Accéder aux messages"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Envoyer et modifier des messages"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Access room information"
 msgstr "Accéder aux informations sur les salons"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Créer et modifier des salons"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Access to this server network"
 msgstr "Accéder à ce réseau de serveurs"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access user information"
 msgstr "Accéder aux informations de comptes"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify user information"
 msgstr "Modifier les informations de comptes"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Enregistrer de nouvelles commandes"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Enregistrer et maintenir les tâches planifiées"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Enregistrer de nouveaux points de terminaison « HTTP »"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Accéder aux paramètres de ce serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Modifier les paramètres dans ce serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Envoyer des fichiers sur le serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Accéder aux fichiers téléchargés sur ce serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Interagir avec les services de Cloud au nom de ce serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
 "Accéder aux informations minimales concernant cet environnement de serveur"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Accéder aux informations de plusieurs départements de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Accéder aux informations de département de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Modifier les informations de département de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Modifier les informations de la salon de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Accéder aux informations de salons de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Modifier les informations du message de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Accéder aux informations de messages de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Modifier les informations des visiteurs de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Accéder aux informations de visiteurs de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Accéder aux informations d'état de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Interagir avec l'interface utilisateur"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Enregistrer les données internes dans la base de données"
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Modifier la configuration de champs personnalisés de Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:671
+#: core/apps/appsmarketplaceinfo.cpp:673
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Autoriser à écrire les paramètres de l'application « oauth »"
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:675
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Autoriser à lire les paramètres de l'application « oauth »"
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
 msgid "Allow to send email"
 msgstr "Autoriser l'envoi d'un courriel"
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:691
 #, kde-format
 msgid "Allow to write role"
 msgstr "Autoriser à écrire un rôle"
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
 msgid "Allow to read role"
 msgstr "Autoriser à lire un rôle"
+
+#: core/apps/appsmarketplaceinfo.cpp:695
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mute Focused Conversations"
+msgid "Out Bound Communication"
+msgstr "Mettre en pause les conversations spécialisées"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1916,11 +1923,10 @@ msgid "Start as Offline"
 msgstr "Démarrer en mode déconnecté"
 
 #: core/ruqolacommandlineparser.cpp:59
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Activé"
+msgstr "Activer le mode de débogage"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11527,15 +11533,13 @@ msgid "Hide menu bar"
 msgstr "Masquer la barre de menus"
 
 #: widgets/ruqolamainwindow.cpp:1428
-#, fuzzy, kde-format
-#| msgid "Work Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Travailler en mode connecté"
 
 #: widgets/ruqolamainwindow.cpp:1431
-#, fuzzy, kde-format
-#| msgid "Work Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
 msgstr "Travailler en mode déconnecté"

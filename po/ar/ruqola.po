@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:41+0000\n"
+"POT-Creation-Date: 2025-11-17 11:52+0000\n"
 "PO-Revision-Date: 2025-11-12 20:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -247,175 +247,182 @@ msgstr "ملخص الخصوصية"
 msgid "Permissions"
 msgstr "التّصاريح"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access messages"
 msgstr "الوصول إلى الرسائل"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Send and modify messages"
 msgstr "إرسال وتعديل الرسائل"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Access room information"
 msgstr "الوصول إلى معلومات الغرفة"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "إنشاء وتعديل الغرف"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Access to this server network"
 msgstr "الوصول إلى شبكة الخادم هذه"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access user information"
 msgstr "الوصول إلى معلومات المستخدم"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify user information"
 msgstr "تعديل معلومات المستخدم"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Register new slash commands"
 msgstr "تسجيل أوامر شرطة مائلة جديدة"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "تسجيل والحفاظ على الوظائف المجدولة"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "تسجيل نقاط نهاية HTTP جديدة"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Access settings in this server"
 msgstr "إعدادات الوصول في هذا الخادم"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "تعديل الإعدادات في هذا الخادم"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Upload files to this server"
 msgstr "رفع الملفات إلى هذا الخادم"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "الوصول إلى الملفات المرفوعة على هذا الخادم"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "التفاعل مع الخدمات السحابية نيابة عن هذا الخادم"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "الوصول إلى الحد الأدنى من المعلومات حول بيئة الخادم هذه"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "الوصول إلى معلومات أقسام الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "الوصول إلى معلومات قسم الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "تعديل معلومات قسم الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "تعديل معلومات غرفة الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "الوصول إلى معلومات غرفة الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "تعديل معلومات رسالة الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "الوصول إلى معلومات رسالة الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "تعديل معلومات زوار الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "الوصول إلى معلومات زوار الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "الوصول إلى معلومات حالة الدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Interact with the UI"
 msgstr "التفاعل مع واجهة المستخدم"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "تخزين البيانات الداخلية في قاعدة البيانات"
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "تعديل ضبط الحقل المخصص للدردشة المباشرة"
 
-#: core/apps/appsmarketplaceinfo.cpp:671
+#: core/apps/appsmarketplaceinfo.cpp:673
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "اسمح بكتابة إعدادات تطبيق أوث"
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:675
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "اسمح بقراءة إعدادات تطبيق أوث"
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
 msgid "Allow to send email"
 msgstr "السماح بإرسال البريد الإلكتروني"
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:691
 #, kde-format
 msgid "Allow to write role"
 msgstr "اسمح بكتابة دور"
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
 msgid "Allow to read role"
 msgstr "اسمح بقراءة دور"
+
+#: core/apps/appsmarketplaceinfo.cpp:695
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mute Focused Conversations"
+msgid "Out Bound Communication"
+msgstr "اكتم المحادثات المركزة"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
