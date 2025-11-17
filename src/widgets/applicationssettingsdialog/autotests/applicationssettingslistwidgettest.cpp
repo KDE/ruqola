@@ -43,3 +43,5 @@ void ApplicationsSettingsListWidgetTest::shouldHaveDefaultValues()
     auto mApplicationsSettingsDescriptionTabWidget = w.findChild<ApplicationsSettingsDescriptionTabWidget *>("mApplicationsSettingsDescriptionTabWidget"_L1);
     QVERIFY(mApplicationsSettingsDescriptionTabWidget);
 }
+
+#include "moc_applicationssettingslistwidgettest.cpp"
