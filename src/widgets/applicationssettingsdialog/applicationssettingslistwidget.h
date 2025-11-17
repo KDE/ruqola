@@ -22,10 +22,11 @@ public:
     void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
 
 private:
-    void slotFilterChanged();
-    void slotSortingChanged();
-    void slotRefreshCountApplications();
-    void slotRefreshListApplications();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSortingChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRefreshCountApplications();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRefreshListApplications();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateDescription(const QModelIndex &index);
 
     ApplicationsSettingsSearchWidget *const mApplicationsSettingsSearchWidget;
     ApplicationsSettingsListView *const mApplicationsSettingsListView;
