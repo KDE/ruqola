@@ -42,6 +42,8 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     mWidgetListView->setObjectName("mWidgetListView"_L1);
     mStackedWidget->addWidget(mWidgetListView);
 
+    // TODO QSplitter + description
+
     mAppsCountInfoWidget->setObjectName("mAppsCountInfoWidget"_L1);
     widgetLayout->addWidget(mAppsCountInfoWidget);
     mAppsCountInfoWidget->setVisible(false);
