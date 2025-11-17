@@ -19,6 +19,10 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
     , mAppsCountInfoWidget(new AppsCountInfoWidget(this))
     , mCurrentRocketChatAccount(account)
 {
+    mAppsCountInfoWidget->setObjectName(u"mAppsCountInfoWidget"_s);
+    mApplicationsSettingsSearchWidget->setObjectName(u"mApplicationsSettingsSearchWidget"_s);
+    mApplicationsSettingsSearchWidget->setObjectName(u"mApplicationsSettingsSearchWidget"_s);
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
     mainLayout->setContentsMargins({});
