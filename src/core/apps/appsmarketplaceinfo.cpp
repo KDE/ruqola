@@ -590,6 +590,8 @@ AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission:
         return AppsMarketPlaceInfo::Permission::PermissionType::RoleRead;
     } else if (str == "role.write"_L1) {
         return AppsMarketPlaceInfo::Permission::PermissionType::RoleWrite;
+    } else if (str == "outbound-communication.provide"_L1) {
+        return AppsMarketPlaceInfo::Permission::PermissionType::OutboundComms;
     }
 
     qCWarning(RUQOLA_LOG) << "PermissionType Unknown type " << str;
@@ -689,6 +691,8 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
         return i18n("Allow to write role");
     case Permission::PermissionType::RoleRead:
         return i18n("Allow to read role");
+    case Permission::PermissionType::OutboundComms:
+        return i18n("Out Bound Communication");
     }
     qCWarning(RUQOLA_LOG) << " i18n not found for " << int(type);
     return {};
