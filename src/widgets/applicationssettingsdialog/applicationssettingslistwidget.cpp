@@ -21,7 +21,7 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
 {
     mAppsCountInfoWidget->setObjectName(u"mAppsCountInfoWidget"_s);
     mApplicationsSettingsSearchWidget->setObjectName(u"mApplicationsSettingsSearchWidget"_s);
-    mApplicationsSettingsSearchWidget->setObjectName(u"mApplicationsSettingsSearchWidget"_s);
+    mApplicationsSettingsListView->setObjectName(u"mApplicationsSettingsListView"_s);
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
