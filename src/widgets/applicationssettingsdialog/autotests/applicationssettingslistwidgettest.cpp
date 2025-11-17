@@ -4,10 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationssettingslistwidgettest.h"
+#include "applicationssettingsdialog/applicationssettingsdescriptiontabwidget.h"
 #include "applicationssettingsdialog/applicationssettingslistview.h"
 #include "applicationssettingsdialog/applicationssettingslistwidget.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "applicationssettingsdialog/appscountinfowidget.h"
+#include <QSplitter>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ApplicationsSettingsListWidgetTest)
@@ -33,5 +35,11 @@ void ApplicationsSettingsListWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
-    // TODO
+
+    auto splitter = w.findChild<QSplitter *>("splitter"_L1);
+    QVERIFY(splitter);
+    QVERIFY(!splitter->childrenCollapsible());
+
+    auto mApplicationsSettingsDescriptionTabWidget = w.findChild<ApplicationsSettingsDescriptionTabWidget *>("mApplicationsSettingsDescriptionTabWidget"_L1);
+    QVERIFY(mApplicationsSettingsDescriptionTabWidget);
 }

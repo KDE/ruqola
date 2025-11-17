@@ -5,6 +5,7 @@
 */
 
 #include "applicationssettingslistwidget.h"
+#include "applicationssettingsdialog/applicationssettingsdescriptiontabwidget.h"
 #include "applicationssettingsdialog/applicationssettingslistview.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "applicationssettingsdialog/appscountinfowidget.h"
@@ -19,6 +20,7 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
     , mApplicationsSettingsListView(new ApplicationsSettingsListView(account, this))
     , mAppsCountInfoWidget(new AppsCountInfoWidget(this))
     , mCurrentRocketChatAccount(account)
+    , mApplicationsSettingsDescriptionTabWidget(new ApplicationsSettingsDescriptionTabWidget(account, this))
 {
     mAppsCountInfoWidget->setObjectName(u"mAppsCountInfoWidget"_s);
     mAppsCountInfoWidget->setVisible(false);
@@ -45,7 +47,11 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
     appsWidgetLayout->addWidget(mApplicationsSettingsSearchWidget);
     appsWidgetLayout->addWidget(mApplicationsSettingsListView);
 
+    mApplicationsSettingsDescriptionTabWidget->setObjectName("mApplicationsSettingsDescriptionTabWidget"_L1);
+
     splitter->addWidget(appsWidget);
+    splitter->addWidget(mApplicationsSettingsDescriptionTabWidget);
+    splitter->setChildrenCollapsible(false);
 
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsListWidget::slotFilterChanged);
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsListWidget::slotSortingChanged);

@@ -11,6 +11,7 @@ class ApplicationsSettingsSearchWidget;
 class ApplicationsSettingsListView;
 class AppsCountInfoWidget;
 class RocketChatAccount;
+class ApplicationsSettingsDescriptionTabWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsListWidget : public QWidget
 {
     Q_OBJECT
@@ -30,4 +31,5 @@ private:
     ApplicationsSettingsListView *const mApplicationsSettingsListView;
     AppsCountInfoWidget *const mAppsCountInfoWidget;
     RocketChatAccount *const mCurrentRocketChatAccount;
+    ApplicationsSettingsDescriptionTabWidget *const mApplicationsSettingsDescriptionTabWidget;
 };
