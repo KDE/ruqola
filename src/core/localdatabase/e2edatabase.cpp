@@ -19,7 +19,7 @@ enum class E2EFields {
 }; // in the same order as the table
 
 E2EDataBase::E2EDataBase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localDatabasePath() + QStringLiteral("e2e/"), LocalDatabaseBase::DatabaseType::E2E)
+    : LocalDatabaseBase(LocalDatabaseUtils::localE2EDatabasePath(), LocalDatabaseBase::DatabaseType::E2E)
 {
 }
 

@@ -47,6 +47,11 @@ QString LocalDatabaseUtils::localGlobalDatabasePath()
     return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global);
 }
 
+QString LocalDatabaseUtils::localE2EDatabasePath()
+{
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global);
+}
+
 QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathType)
 {
     switch (pathType) {
@@ -58,6 +63,8 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
         return u"account/"_s;
     case LocalDatabaseUtils::DatabasePath::Global:
         return u"global/"_s;
+    case LocalDatabaseUtils::DatabasePath::E2E:
+        return u"e2e/"_s;
     }
     Q_UNREACHABLE();
     return {};
