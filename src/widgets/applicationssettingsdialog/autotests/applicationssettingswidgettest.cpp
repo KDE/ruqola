@@ -5,18 +5,16 @@
 */
 
 #include "applicationssettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingsdialog/applicationssettingsinprogresswidget.h"
-#include "applicationssettingsdialog/applicationssettingslistview.h"
-#include "applicationssettingsdialog/applicationssettingssearchwidget.h"
+#include "applicationssettingsdialog/applicationssettingslistwidget.h"
 #include "applicationssettingsdialog/applicationssettingswidget.h"
-#include "applicationssettingsdialog/appscountinfowidget.h"
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
 
 QTEST_MAIN(ApplicationsSettingsWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsWidgetTest::ApplicationsSettingsWidgetTest(QObject *parent)
     : QObject{parent}
 {
@@ -29,18 +27,12 @@ void ApplicationsSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mApplicationsSettingsSearchWidget = d.findChild<ApplicationsSettingsSearchWidget *>(u"mApplicationsSettingsSearchWidget"_s);
-    QVERIFY(mApplicationsSettingsSearchWidget);
-    auto mApplicationsSettingsListView = d.findChild<ApplicationsSettingsListView *>(u"mApplicationsSettingsListView"_s);
-    QVERIFY(mApplicationsSettingsListView);
     auto mApplicationsSettingsInProgressWidget = d.findChild<ApplicationsSettingsInProgressWidget *>(u"mApplicationsSettingsInProgressWidget"_s);
     QVERIFY(mApplicationsSettingsInProgressWidget);
     auto mStackedWidget = d.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
-    auto mWidgetListView = d.findChild<QWidget *>(u"mWidgetListView"_s);
-    QVERIFY(mWidgetListView);
-    auto mAppsCountInfoWidget = d.findChild<AppsCountInfoWidget *>("mAppsCountInfoWidget");
-    QVERIFY(mAppsCountInfoWidget);
+    auto mApplicationsSettingsListWidget = d.findChild<ApplicationsSettingsListWidget *>(u"mApplicationsSettingsListWidget"_s);
+    QVERIFY(mApplicationsSettingsListWidget);
 }
 
 #include "moc_applicationssettingswidgettest.cpp"

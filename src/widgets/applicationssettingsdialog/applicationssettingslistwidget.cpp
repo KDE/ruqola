@@ -8,6 +8,7 @@
 #include "applicationssettingsdialog/applicationssettingslistview.h"
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "applicationssettingsdialog/appscountinfowidget.h"
+#include "model/appsmarketplacemodel.h"
 #include <QSplitter>
 #include <QVBoxLayout>
 
@@ -20,6 +21,8 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
     , mCurrentRocketChatAccount(account)
 {
     mAppsCountInfoWidget->setObjectName(u"mAppsCountInfoWidget"_s);
+    mAppsCountInfoWidget->setVisible(false);
+
     mApplicationsSettingsSearchWidget->setObjectName(u"mApplicationsSettingsSearchWidget"_s);
     mApplicationsSettingsListView->setObjectName(u"mApplicationsSettingsListView"_s);
 
@@ -54,6 +57,12 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
             &ApplicationsSettingsListView::refreshCountApplications,
             this,
             &ApplicationsSettingsListWidget::slotRefreshCountApplications);
+
+    if (mCurrentRocketChatAccount) {
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::appsCountLoadDone, this, [this]() {
+            mAppsCountInfoWidget->setAppCountInfo(mCurrentRocketChatAccount->appsMarketPlaceModel()->appsCountInfo());
+        });
+    }
 }
 
 ApplicationsSettingsListWidget::~ApplicationsSettingsListWidget() = default;
