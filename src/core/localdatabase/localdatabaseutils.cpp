@@ -49,7 +49,7 @@ QString LocalDatabaseUtils::localGlobalDatabasePath()
 
 QString LocalDatabaseUtils::localE2EDatabasePath()
 {
-    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global);
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E);
 }
 
 QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathType)
