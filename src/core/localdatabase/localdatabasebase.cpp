@@ -73,6 +73,9 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     case DatabaseType::E2E:
         prefix = u"e2e-"_s;
         break;
+    case DatabaseType::PendingTypedInfo:
+        prefix = u"pendingtypedinfo-"_s;
+        break;
     case DatabaseType::Logger:
         break;
     }
