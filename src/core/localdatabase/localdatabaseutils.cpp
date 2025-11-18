@@ -139,3 +139,15 @@ QString LocalDatabaseUtils::jsonAccount()
 {
     return u"SELECT json FROM ACCOUNT WHERE accountName = \"%1\""_s;
 }
+
+QString LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo()
+{
+    // TODO
+    return {};
+}
+
+QString LocalDatabaseUtils::deleteRoomPendingTypedInfo()
+{
+    // TODO
+    return {};
+}
