@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-11-18 00:43+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -3460,7 +3460,7 @@ msgid "Speak Text"
 msgstr "Paroli Tekston"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:112
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
@@ -7189,12 +7189,6 @@ msgid_plural "%1 requests"
 msgstr[0] "%1 alpeto"
 msgstr[1] "%1 alpetoj"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, kde-format
-msgctxt "@title:window"
-msgid "Description"
-msgstr "Priskribo"
-
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
@@ -7217,55 +7211,49 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Ŝargado en progreso…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:61
-#, kde-format
-msgctxt "@action"
-msgid "Show Description…"
-msgstr "Montri Priskribon…"
-
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Instali"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:73
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Demandi Aplikaĵon…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Uninstall"
 msgstr "Malinstali"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Disable"
 msgstr "Malŝalti"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
 #, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Ŝalti"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:103
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Kopii tekston"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
 #, kde-format
 msgid "Do you want to uninstall this application?"
 msgstr "Ĉu vi volas malinstali ĉi tiun aplikon?"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:171
 #, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
@@ -12305,6 +12293,14 @@ msgstr "Montri Dosierajn Aldonaĵojn…"
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Priskribo"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Montri Priskribon…"
 
 #, fuzzy
 #~| msgctxt "@action"

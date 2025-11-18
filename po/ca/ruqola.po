@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-11-18 00:43+0000\n"
 "PO-Revision-Date: 2025-11-15 13:54+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3460,7 +3460,7 @@ msgid "Speak Text"
 msgstr "Pronuncia el text"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:112
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
@@ -7217,12 +7217,6 @@ msgid_plural "%1 requests"
 msgstr[0] "%1 sol·licitud"
 msgstr[1] "%1 sol·licituds"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, kde-format
-msgctxt "@title:window"
-msgid "Description"
-msgstr "Descripció"
-
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
@@ -7245,55 +7239,49 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "La càrrega es troba en curs…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:61
-#, kde-format
-msgctxt "@action"
-msgid "Show Description…"
-msgstr "Mostra la descripció…"
-
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Instal·la"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:73
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Demana una aplicació…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Uninstall"
 msgstr "Desinstal·la"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Disable"
 msgstr "Desactiva"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
 #, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Activa"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:103
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Copia el text"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
 #, kde-format
 msgid "Do you want to uninstall this application?"
 msgstr "Voleu desinstal·lar aquesta aplicació?"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:171
 #, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
@@ -12334,6 +12322,14 @@ msgstr "Corregeix la visualització de la mida del fitxer adjunt."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr "Desa la traducció local a la base de dades local."
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Descripció"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Mostra la descripció…"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Cal reiniciar per a aplicar els canvis."

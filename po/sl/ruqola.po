@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-11-18 00:43+0000\n"
 "PO-Revision-Date: 2025-11-15 07:57+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3463,7 +3463,7 @@ msgid "Speak Text"
 msgstr "Govori besedilo"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:112
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
@@ -7190,12 +7190,6 @@ msgstr[1] "%1 zahtevek"
 msgstr[2] "%1 zahtevka"
 msgstr[3] "%1 zahtevki"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, kde-format
-msgctxt "@title:window"
-msgid "Description"
-msgstr "Opis"
-
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
@@ -7218,55 +7212,49 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Nalaganje v teku…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:61
-#, kde-format
-msgctxt "@action"
-msgid "Show Description…"
-msgstr "Pokaži opis…"
-
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Namesti"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:73
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Vprašaj aplikacijo…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Uninstall"
 msgstr "Odmesti"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Disable"
 msgstr "Onemogoči"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
 #, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Omogoči"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:103
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
 #, kde-format
 msgid "Do you want to uninstall this application?"
 msgstr "Ali želite odmestiti to aplikacijo?"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:171
 #, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
@@ -12307,6 +12295,14 @@ msgstr "Popravi prikaz velikosti priložene datoteke."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr "Shrani lokalni prevod v lokalno podatkovno bazo."
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Opis"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Pokaži opis…"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Za uveljavitev sprememb je potreben ponovni zagon."

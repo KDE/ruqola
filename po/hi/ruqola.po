@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-11-18 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -3449,7 +3449,7 @@ msgid "Speak Text"
 msgstr "पाठ बोलें"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:112
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
@@ -7170,12 +7170,6 @@ msgid_plural "%1 requests"
 msgstr[0] "%1 अनुरोध"
 msgstr[1] "%1 अनुरोध"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, kde-format
-msgctxt "@title:window"
-msgid "Description"
-msgstr "विवरण"
-
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
@@ -7198,25 +7192,19 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "लोड हो रहा है…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:61
-#, kde-format
-msgctxt "@action"
-msgid "Show Description…"
-msgstr "विवरण दिखाएं…"
-
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "स्थापित करना"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:73
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "आवेदन पूछें…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Install"
@@ -7224,14 +7212,14 @@ msgctxt "@action"
 msgid "Uninstall"
 msgstr "स्थापित करना"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #, fuzzy, kde-format
 #| msgid "Disabled"
 msgctxt "@action"
 msgid "Disable"
 msgstr "अक्षम"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Enable"
@@ -7239,20 +7227,20 @@ msgctxt "@action"
 msgid "Enable"
 msgstr "सक्षम"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:103
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "पाठ कॉपी करें"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
 #, fuzzy, kde-format
 #| msgid "Do you want to unarchive this room?"
 msgid "Do you want to uninstall this application?"
 msgstr "क्या आप इस कमरे को अनआर्काइव करना चाहते हैं?"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:171
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Installed Applications…"
@@ -12328,6 +12316,14 @@ msgstr "फ़ाइल अनुलग्नक दिखाएँ…"
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "विवरण"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "विवरण दिखाएं…"
 
 #, fuzzy
 #~| msgctxt "@action"

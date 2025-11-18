@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:41+0000\n"
+"POT-Creation-Date: 2025-11-18 00:43+0000\n"
 "PO-Revision-Date: 2025-11-15 23:44+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -246,175 +246,182 @@ msgstr "Samenvatting van privacy"
 msgid "Permissions"
 msgstr "Toegangsrechten"
 
-#: core/apps/appsmarketplaceinfo.cpp:605
+#: core/apps/appsmarketplaceinfo.cpp:607
 #, kde-format
 msgid "Access messages"
 msgstr "Toegang nemen tot berichten"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:609
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Berichten verzenden en wijzigen"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Access room information"
 msgstr "Toegang nemen tot informatie over room"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Rooms aanmaken en wijzigen"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Access to this server network"
 msgstr "Toegang tot dit servernetwerk"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access user information"
 msgstr "Toegang nemen tot gebruikersinformatie"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Modify user information"
 msgstr "Gebruikersinformatie wijzigen"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Registreer nieuwe slash-commando's"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Registreer en onderhoud geplande taken"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Registreer nieuwe HTTP eindpunten"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Toegang nemen tot instellingen in deze server"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Instellingen wijzigen in deze server"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Bestanden uploaden naar deze server"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Toegang nemen tot bestanden die naar deze server zijn geüpload"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Doe wat met Cloud-services namens deze server"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Toegang nemen tot minimale informatie over deze serveromgeving"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Toegang tot informatie van meerdere Livechat afdelingen"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Toegang nemen tot informatie van Livechat afdeling"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Informatie van Livechat afdeling wijzigen"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Livechat room-informatie wijzigen"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Toegang nemen tot Livechat room-informatie"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Livechat berichten-informatie wijzigen"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Toegang nemen tot Livechat berichten-informatie"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Livechat bezoekersinformatie wijzigen"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Toegang nemen tot Livechat bezoekersinformatie"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Toegang nemen tot Livechat statusinformatie"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Doe wat met de UI"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Interne gegevens in de database opslaan"
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Livechat aangepast veldconfiguratie wijzigen"
 
-#: core/apps/appsmarketplaceinfo.cpp:671
+#: core/apps/appsmarketplaceinfo.cpp:673
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Bied het schrijven van oauth-app-instellingen"
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:675
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Bied het lezen van oauth-app-instellingen"
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
 msgid "Allow to send email"
 msgstr "Verzenden van e-mail toestaan"
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:691
 #, kde-format
 msgid "Allow to write role"
 msgstr "Bied de rol van schrijven"
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
 msgid "Allow to read role"
 msgstr "Bied de rol van lezen"
+
+#: core/apps/appsmarketplaceinfo.cpp:695
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mute Focused Conversations"
+msgid "Out Bound Communication"
+msgstr "Conversaties met focus dempen"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -3453,7 +3460,7 @@ msgid "Speak Text"
 msgstr "Tekst uitspreken"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:112
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
@@ -7208,12 +7215,6 @@ msgid_plural "%1 requests"
 msgstr[0] "%1 verzoek"
 msgstr[1] "%1 verzoeken"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, kde-format
-msgctxt "@title:window"
-msgid "Description"
-msgstr "Beschrijving"
-
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, kde-format
 msgid "Versions"
@@ -7236,55 +7237,49 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Er wordt geladen…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:61
-#, kde-format
-msgctxt "@action"
-msgid "Show Description…"
-msgstr "Beschrijving tonen…"
-
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr "Installeren"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:73
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, kde-format
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Aan toepassing vragen…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Uninstall"
 msgstr "Installatie ongedaan maken"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Disable"
 msgstr "Uitschakelen"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
 #, kde-format
 msgctxt "@action"
 msgid "Enable"
 msgstr "Inschakelen"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:103
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
 msgstr "Tekst kopiëren"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
 #, kde-format
 msgid "Do you want to uninstall this application?"
 msgstr "Wilt u de installatie van deze toepassing ongedaan maken?"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:171
 #, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
@@ -12319,6 +12314,14 @@ msgstr "Repareren van grootte van bestandsbijlage tonen…"
 #, kde-format
 msgid "Save local translation to local database."
 msgstr "Lokale vertaling in lokale gegevensbank opslaan."
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Beschrijving"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Beschrijving tonen…"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Opnieuw opstarten is nodig om de wijzigingen toe te passen."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-11-18 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3626,7 +3626,7 @@ msgid "Speak Text"
 msgstr "Text vorlesen"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:112
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
@@ -7462,13 +7462,6 @@ msgid_plural "%1 requests"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsdescriptiondialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Description"
-msgctxt "@title:window"
-msgid "Description"
-msgstr "Beschreibung"
-
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Version"
@@ -7495,47 +7488,40 @@ msgctxt "@label:textbox"
 msgid "Loading in progress…"
 msgstr "Wird geladen ..."
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:61
-#, fuzzy, kde-format
-#| msgid "Mentions"
-msgctxt "@action"
-msgid "Show Description…"
-msgstr "Nennungen"
-
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:63
 #, kde-format
 msgctxt "@action"
 msgid "Install"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:73
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Programm nicht gefunden"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Uninstall"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
 #, fuzzy, kde-format
 #| msgid "Disable"
 msgctxt "@action"
 msgid "Disable"
 msgstr "Deaktivieren"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
 #, fuzzy, kde-format
 #| msgid "E2E Enabled"
 msgctxt "@action"
 msgid "Enable"
 msgstr "E2E aktiviert"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:103
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -7543,13 +7529,13 @@ msgctxt "@action"
 msgid "Copy Text"
 msgstr "Text vorlesen"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:175
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this user?"
 msgid "Do you want to uninstall this application?"
 msgstr "Möchten Sie diesen Benutzer entfernen?"
 
-#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:176
+#: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:171
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@title:window"
@@ -12976,6 +12962,18 @@ msgstr "Dateianhänge anzeigen ..."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Beschreibung"
+
+#, fuzzy
+#~| msgid "Mentions"
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Nennungen"
 
 #, fuzzy
 #~| msgid "Add..."
