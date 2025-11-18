@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabasedialog.h"
+#include "databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h"
 #include "exploredatabaseaccountstoragewidget.h"
 #include "exploredatabasee2estoragewidget.h"
 #include "exploredatabaseglobalstoragewidget.h"
@@ -36,6 +37,7 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     , mExploreDatabaseRoomsStorageWidget(new ExploreDatabaseRoomsStorageWidget(account, this))
     , mExploreDatabaseGlobalStorageWidget(new ExploreDatabaseGlobalStorageWidget(account, this))
     , mExploreDatabaseE2EStorageWidget(new ExploreDatabaseE2EStorageWidget(account, this))
+    , mExploreDatabaseRoomsPendingTypedInfoStorageWidget(new ExploreDatabaseRoomsPendingTypedInfoStorageWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
     auto mainLayout = new QVBoxLayout(this);
@@ -65,6 +67,9 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
 
     mExploreDatabaseE2EStorageWidget->setObjectName(u"mExploreDatabaseE2EStorageWidget"_s);
     tabWidget->addTab(mExploreDatabaseE2EStorageWidget, i18n("DataBase E2E"));
+
+    mExploreDatabaseRoomsPendingTypedInfoStorageWidget->setObjectName(u"mExploreDatabaseRoomsPendingTypedInfoStorageWidget"_s);
+    tabWidget->addTab(mExploreDatabaseRoomsPendingTypedInfoStorageWidget, i18n("DataBase Room Pending Typed Info"));
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(u"button"_s);
