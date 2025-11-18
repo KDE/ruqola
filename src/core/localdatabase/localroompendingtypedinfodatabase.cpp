@@ -59,3 +59,45 @@ std::unique_ptr<QSqlTableModel> LocalRoomPendingTypedInfoDatabase::createRoomsMo
     model->select();
     return model;
 }
+
+void LocalRoomPendingTypedInfoDatabase::updateRoomPendingTypedInfo(const QString &accountName,
+                                                                   const QByteArray &roomId,
+                                                                   const AccountRoomSettings::PendingTypedInfo &room)
+{
+    QSqlDatabase db;
+    if (initializeDataBase(accountName, db)) {
+        /*
+        QSqlQuery query(LocalDatabaseUtils::insertReplaceRoom(), db);
+        query.addBindValue(QString::fromLatin1(roomId));
+        query.addBindValue(AccountRoomSettings::serialize(room, false)); // TODO use binary ?
+        if (!query.exec()) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMPENDINGTYPED table" << db.databaseName() << query.lastError();
+        } else if (mRuqolaLogger) {
+            mRuqolaLogger->dataSaveFromDatabase("Update room " + room->displayRoomName().toUtf8() + " in account " + accountName.toUtf8());
+        }
+        */
+    }
+}
+
+void LocalRoomPendingTypedInfoDatabase::deleteRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId)
+{
+    QSqlDatabase db;
+    if (!checkDataBase(accountName, db)) {
+        return;
+    }
+    /*
+    QSqlQuery query(LocalDatabaseUtils::deleteRoom(), db);
+    query.addBindValue(QString::fromLatin1(roomId));
+    if (!query.exec()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
+    } else if (mRuqolaLogger) {
+        mRuqolaLogger->dataSaveFromDatabase("Delete room " + roomId + " in account " + accountName.toUtf8());
+    }
+    */
+}
+
+QList<AccountRoomSettings::PendingTypedInfo> LocalRoomPendingTypedInfoDatabase::loadRoomPendingTypedInfo(const QString &accountName) const
+{
+    // TODO
+    return {};
+}
