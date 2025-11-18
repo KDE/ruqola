@@ -179,6 +179,7 @@ void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
     }
     if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Debug))) {
         Ruqola::self()->setDebug(true);
+        mMenuDebug->setVisible(true);
     }
 }
 
@@ -496,46 +497,45 @@ void RuqolaMainWindow::setupActions()
     connect(mShowServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowServerInfo);
     ac->addAction(u"show_server_errors"_s, mShowServerInfo);
 
-    if (Ruqola::self()->debug()) {
-        mMenuDebug = new QAction(u"Debug"_s, this);
-        ac->addAction(u"debug_menu"_s, mMenuDebug);
-        auto menu = new QMenu(this);
-        mMenuDebug->setMenu(menu);
-        mShowDatabaseMessages = new QAction(u"Show Database Messages…"_s, this);
-        connect(mShowDatabaseMessages, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessages);
-        ac->addAction(u"show_database_messages"_s, mShowDatabaseMessages);
-        menu->addAction(mShowDatabaseMessages);
+    mMenuDebug = new QAction(u"Debug"_s, this);
+    mMenuDebug->setVisible(false);
+    ac->addAction(u"debug_menu"_s, mMenuDebug);
+    auto menu = new QMenu(this);
+    mMenuDebug->setMenu(menu);
+    mShowDatabaseMessages = new QAction(u"Show Database Messages…"_s, this);
+    connect(mShowDatabaseMessages, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessages);
+    ac->addAction(u"show_database_messages"_s, mShowDatabaseMessages);
+    menu->addAction(mShowDatabaseMessages);
 
-        menu->addSeparator();
-        mShowPermissions = new QAction(u"Show Permissions…"_s, this);
-        connect(mShowPermissions, &QAction::triggered, this, &RuqolaMainWindow::slotShowPermissions);
-        ac->addAction(u"show_permissions"_s, mShowPermissions);
-        menu->addAction(mShowPermissions);
+    menu->addSeparator();
+    mShowPermissions = new QAction(u"Show Permissions…"_s, this);
+    connect(mShowPermissions, &QAction::triggered, this, &RuqolaMainWindow::slotShowPermissions);
+    ac->addAction(u"show_permissions"_s, mShowPermissions);
+    menu->addAction(mShowPermissions);
 
-        menu->addSeparator();
-        mShowAppsTranslation = new QAction(u"Show Application Translation…"_s, this);
-        connect(mShowAppsTranslation, &QAction::triggered, this, &RuqolaMainWindow::slotShowAppsTranslation);
-        ac->addAction(u"show_apps_translation"_s, mShowAppsTranslation);
-        menu->addAction(mShowAppsTranslation);
+    menu->addSeparator();
+    mShowAppsTranslation = new QAction(u"Show Application Translation…"_s, this);
+    connect(mShowAppsTranslation, &QAction::triggered, this, &RuqolaMainWindow::slotShowAppsTranslation);
+    ac->addAction(u"show_apps_translation"_s, mShowAppsTranslation);
+    menu->addAction(mShowAppsTranslation);
 
-        menu->addSeparator();
-        mShowLogsFile = new QAction(u"Show Ruqola Logs…"_s, this);
-        connect(mShowLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowLogsFile);
-        ac->addAction(u"show_ruqola_logs"_s, mShowLogsFile);
-        menu->addAction(mShowLogsFile);
+    menu->addSeparator();
+    mShowLogsFile = new QAction(u"Show Ruqola Logs…"_s, this);
+    connect(mShowLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowLogsFile);
+    ac->addAction(u"show_ruqola_logs"_s, mShowLogsFile);
+    menu->addAction(mShowLogsFile);
 
-        menu->addSeparator();
-        mShowRestApiLogsFile = new QAction(u"Show Ruqola Logs (RESTAPI)…"_s, this);
-        connect(mShowRestApiLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowRestApiLogsFile);
-        ac->addAction(u"show_ruqola_restapi_logs"_s, mShowRestApiLogsFile);
-        menu->addAction(mShowRestApiLogsFile);
+    menu->addSeparator();
+    mShowRestApiLogsFile = new QAction(u"Show Ruqola Logs (RESTAPI)…"_s, this);
+    connect(mShowRestApiLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowRestApiLogsFile);
+    ac->addAction(u"show_ruqola_restapi_logs"_s, mShowRestApiLogsFile);
+    menu->addAction(mShowRestApiLogsFile);
 
-        menu->addSeparator();
-        mShowDatabaseLogsFile = new QAction(u"Show Ruqola Database Logs…"_s, this);
-        connect(mShowDatabaseLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseLogsFile);
-        ac->addAction(u"show_ruqola_database_logs"_s, mShowDatabaseLogsFile);
-        menu->addAction(mShowDatabaseLogsFile);
-    }
+    menu->addSeparator();
+    mShowDatabaseLogsFile = new QAction(u"Show Ruqola Database Logs…"_s, this);
+    connect(mShowDatabaseLogsFile, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseLogsFile);
+    ac->addAction(u"show_ruqola_database_logs"_s, mShowDatabaseLogsFile);
+    menu->addAction(mShowDatabaseLogsFile);
 
     mClearAlerts = new QAction(i18nc("@action", "Mark All Channels as Read"), this);
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);
