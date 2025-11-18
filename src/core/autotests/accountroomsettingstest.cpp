@@ -53,4 +53,34 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
     }
 }
 
+void AccountRoomSettingsTest::shouldSerializeDeserialize()
+{
+    {
+        AccountRoomSettings::PendingTypedInfo info;
+        info.messageIdBeingEdited = "foo"_ba;
+        info.text = u"bla"_s;
+
+        QCOMPARE(AccountRoomSettings::PendingTypedInfo::deserialize(AccountRoomSettings::PendingTypedInfo::serialize(info)), info);
+    }
+    {
+        AccountRoomSettings::PendingTypedInfo info;
+        info.messageIdBeingEdited = "foo"_ba;
+        info.text = u"bla"_s;
+        info.scrollbarPosition = 90;
+
+        QCOMPARE(AccountRoomSettings::PendingTypedInfo::deserialize(AccountRoomSettings::PendingTypedInfo::serialize(info)), info);
+    }
+    {
+        AccountRoomSettings::PendingTypedInfo info;
+        info.messageIdBeingEdited = "foo"_ba;
+        info.text = u"bla"_s;
+        info.scrollbarPosition = 90;
+        info.threadMessageId = "you"_ba;
+        info.quotePermalink = u"ddd"_s;
+        info.quoteText = u"kde5"_s;
+
+        QCOMPARE(AccountRoomSettings::PendingTypedInfo::deserialize(AccountRoomSettings::PendingTypedInfo::serialize(info)), info);
+    }
+}
+
 #include "moc_accountroomsettingstest.cpp"
