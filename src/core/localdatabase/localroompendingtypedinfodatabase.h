@@ -7,10 +7,15 @@
 
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
-
+class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT LocalRoomPendingTypedInfoDatabase : public LocalDatabaseBase
 {
 public:
     LocalRoomPendingTypedInfoDatabase();
     ~LocalRoomPendingTypedInfoDatabase() override;
+
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createRoomsModel(const QString &accountName) const;
+
+protected:
+    [[nodiscard]] QString schemaDataBase() const override;
 };
