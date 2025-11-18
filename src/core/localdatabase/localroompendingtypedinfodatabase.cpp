@@ -94,6 +94,7 @@ void LocalRoomPendingTypedInfoDatabase::deleteRoomPendingTypedInfo(const QString
 
 QList<AccountRoomSettings::PendingTypedInfo> LocalRoomPendingTypedInfoDatabase::loadRoomPendingTypedInfo(const QString &accountName) const
 {
+    QList<AccountRoomSettings::PendingTypedInfo> info;
     // TODO
-    return {};
+    return info;
 }
