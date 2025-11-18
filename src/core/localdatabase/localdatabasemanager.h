@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "accountroomsettings.h"
 #include "globaldatabase.h"
 #include "libruqolacore_export.h"
 #include "messages/message.h"
@@ -19,6 +20,7 @@ class LocalAccountsDatabase;
 class E2EDataBase;
 class Message;
 class Room;
+class LocalRoomPendingTypedInfoDatabase;
 namespace RocketChatRestApi
 {
 class AbstractLogger;
@@ -57,6 +59,13 @@ public:
 
     [[nodiscard]] E2EDataBase *e2EDatabase() const;
 
+    [[nodiscard]] LocalRoomPendingTypedInfoDatabase *roomPendingTypedInfoDatabase() const;
+
+    void updateRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId, const AccountRoomSettings::PendingTypedInfo &pendingTypedInfo);
+    void deleteRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId);
+
+    [[nodiscard]] QList<AccountRoomSettings::PendingTypedInfo> loadRoomPendingTypedInfo(const QString &accountName) const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void handleMigration();
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
@@ -65,4 +74,5 @@ private:
     std::unique_ptr<LocalAccountsDatabase> mAccountDatabase;
     std::unique_ptr<GlobalDatabase> mGlobalDatabase;
     std::unique_ptr<E2EDataBase> mE2EDatabase;
+    std::unique_ptr<LocalRoomPendingTypedInfoDatabase> mRoomPendingTypedInfoDatabase;
 };

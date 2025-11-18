@@ -10,6 +10,7 @@
 #include "localdatabaseutils.h"
 #include "localmessagelogger.h"
 #include "localmessagesdatabase.h"
+#include "localroompendingtypedinfodatabase.h"
 #include "localroomsdatabase.h"
 #include "room.h"
 #include "ruqola_database_debug.h"
@@ -23,6 +24,7 @@ LocalDatabaseManager::LocalDatabaseManager(bool migrateDataBase)
     , mAccountDatabase(std::make_unique<LocalAccountsDatabase>())
     , mGlobalDatabase(std::make_unique<GlobalDatabase>())
     , mE2EDatabase(std::make_unique<E2EDataBase>())
+    , mRoomPendingTypedInfoDatabase(std::make_unique<LocalRoomPendingTypedInfoDatabase>())
 {
     if (migrateDataBase) {
         handleMigration();
@@ -47,6 +49,11 @@ void LocalDatabaseManager::handleMigration()
 E2EDataBase *LocalDatabaseManager::e2EDatabase() const
 {
     return mE2EDatabase.get();
+}
+
+LocalRoomPendingTypedInfoDatabase *LocalDatabaseManager::roomPendingTypedInfoDatabase() const
+{
+    return mRoomPendingTypedInfoDatabase.get();
 }
 
 void LocalDatabaseManager::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
@@ -115,6 +122,7 @@ void LocalDatabaseManager::setDatabaseLogger(RocketChatRestApi::AbstractLogger *
     mAccountDatabase->setDatabaseLogger(logger);
     mGlobalDatabase->setDatabaseLogger(logger);
     mE2EDatabase->setDatabaseLogger(logger);
+    mRoomPendingTypedInfoDatabase->setDatabaseLogger(logger);
 }
 
 LocalMessagesDatabase *LocalDatabaseManager::messagesDatabase() const
@@ -161,4 +169,25 @@ qint64 LocalDatabaseManager::timeStamp(const QString &accountName, const QByteAr
         return mGlobalDatabase->timeStamp(accountName, roomId, type);
     }
     return -1;
+}
+
+void LocalDatabaseManager::updateRoomPendingTypedInfo(const QString &accountName,
+                                                      const QByteArray &roomId,
+                                                      const AccountRoomSettings::PendingTypedInfo &pendingTypedInfo)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        mRoomPendingTypedInfoDatabase->updateRoomPendingTypedInfo(accountName, roomId, pendingTypedInfo);
+    }
+}
+
+void LocalDatabaseManager::deleteRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        mRoomPendingTypedInfoDatabase->deleteRoomPendingTypedInfo(accountName, roomId);
+    }
+}
+
+QList<AccountRoomSettings::PendingTypedInfo> LocalDatabaseManager::loadRoomPendingTypedInfo(const QString &accountName) const
+{
+    return mRoomPendingTypedInfoDatabase->loadRoomPendingTypedInfo(accountName);
 }
