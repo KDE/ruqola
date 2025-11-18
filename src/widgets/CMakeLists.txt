@@ -802,6 +802,8 @@ target_sources(
         databasedialog/exploredatabaseroomiddelegate.cpp
         databasedialog/exploredatabasee2estoragewidget.cpp
         databasedialog/exploredatabasee2estoragewidget.h
+        databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.cpp
+        databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h
         whatsnew/whatsnewtranslations.h
         whatsnew/whatsnewtranslations.cpp
         explorepermissionsdialog/explorepermissionsdialog.h
