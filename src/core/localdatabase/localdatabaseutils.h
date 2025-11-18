@@ -16,6 +16,7 @@ enum class DatabasePath : uint8_t {
     Accounts,
     Global,
     E2E,
+    RoomPendingTypedInfo,
 };
 
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString fixRoomName(QString roomName);
@@ -26,6 +27,7 @@ enum class DatabasePath : uint8_t {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString localAccountsDatabasePath();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString localGlobalDatabasePath();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString localE2EDatabasePath();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString localRoomPendingTypedInfoDatabasePath();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString databasePath(LocalDatabaseUtils::DatabasePath pathType);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteMessage();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceMessage();

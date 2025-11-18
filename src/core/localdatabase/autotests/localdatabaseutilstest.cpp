@@ -34,6 +34,7 @@ void LocalDatabaseUtilsTest::shouldCheckPath()
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts), u"account/"_s);
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global), u"global/"_s);
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E), u"e2e/"_s);
+    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo), u"roompendingtypedinfo/"_s);
 }
 
 void LocalDatabaseUtilsTest::shouldCheckDataPathPath()
@@ -44,6 +45,8 @@ void LocalDatabaseUtilsTest::shouldCheckDataPathPath()
     QCOMPARE(LocalDatabaseUtils::localAccountsDatabasePath(), QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/account/"_s);
     QCOMPARE(LocalDatabaseUtils::localGlobalDatabasePath(), QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/global/"_s);
     QCOMPARE(LocalDatabaseUtils::localE2EDatabasePath(), QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/e2e/"_s);
+    QCOMPARE(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath(),
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/roompendingtypedinfo/"_s);
 }
 
 void LocalDatabaseUtilsTest::shouldCheckDataBase()

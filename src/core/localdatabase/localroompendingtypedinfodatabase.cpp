@@ -21,7 +21,7 @@ enum class RoomPendingTypedFields {
 }; // in the same order as the table
 
 LocalRoomPendingTypedInfoDatabase::LocalRoomPendingTypedInfoDatabase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localMessagesDatabasePath(), LocalDatabaseBase::DatabaseType::PendingTypedInfo)
+    : LocalDatabaseBase(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath(), LocalDatabaseBase::DatabaseType::PendingTypedInfo)
 {
 }
 
@@ -86,7 +86,7 @@ void LocalRoomPendingTypedInfoDatabase::deleteRoomPendingTypedInfo(const QString
     QSqlQuery query(LocalDatabaseUtils::deleteRoomPendingTypedInfo(), db);
     query.addBindValue(QString::fromLatin1(roomId));
     if (!query.exec()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMPENDINGTYPED table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
         mRuqolaLogger->dataSaveFromDatabase("Delete roomPendingTypedInfo " + roomId + " in account " + accountName.toUtf8());
     }

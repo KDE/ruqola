@@ -52,6 +52,11 @@ QString LocalDatabaseUtils::localE2EDatabasePath()
     return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E);
 }
 
+QString LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath()
+{
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo);
+}
+
 QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathType)
 {
     switch (pathType) {
@@ -65,6 +70,8 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
         return u"global/"_s;
     case LocalDatabaseUtils::DatabasePath::E2E:
         return u"e2e/"_s;
+    case LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo:
+        return u"roompendingtypedinfo/"_s;
     }
     Q_UNREACHABLE();
     return {};
@@ -142,12 +149,10 @@ QString LocalDatabaseUtils::jsonAccount()
 
 QString LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo()
 {
-    // TODO
-    return {};
+    return u"INSERT OR REPLACE INTO ROOMPENDINGTYPED VALUES (?, ?)"_s;
 }
 
 QString LocalDatabaseUtils::deleteRoomPendingTypedInfo()
 {
-    // TODO
-    return {};
+    return u"DELETE FROM GLOBAL ROOMPENDINGTYPED identifier = ?"_s;
 }
