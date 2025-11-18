@@ -13,4 +13,6 @@ class LocalRoomPendingTypedInfoDatabaseTest : public QObject
 public:
     explicit LocalRoomPendingTypedInfoDatabaseTest(QObject *parent = nullptr);
     ~LocalRoomPendingTypedInfoDatabaseTest() override = default;
+private Q_SLOTS:
+    void initTestCase();
 };
