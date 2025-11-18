@@ -8,12 +8,14 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabase/localdatabaseutils.h"
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(LocalDatabaseUtilsTest)
 
 LocalDatabaseUtilsTest::LocalDatabaseUtilsTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void LocalDatabaseUtilsTest::shouldAdaptRoomName()
@@ -32,6 +34,16 @@ void LocalDatabaseUtilsTest::shouldCheckPath()
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts), u"account/"_s);
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global), u"global/"_s);
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E), u"e2e/"_s);
+}
+
+void LocalDatabaseUtilsTest::shouldCheckDataPathPath()
+{
+    QCOMPARE(LocalDatabaseUtils::localMessagesDatabasePath(),
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/messages/"_s);
+    QCOMPARE(LocalDatabaseUtils::localRoomsDatabasePath(), QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/rooms/"_s);
+    QCOMPARE(LocalDatabaseUtils::localAccountsDatabasePath(), QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/account/"_s);
+    QCOMPARE(LocalDatabaseUtils::localGlobalDatabasePath(), QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/global/"_s);
+    QCOMPARE(LocalDatabaseUtils::localE2EDatabasePath(), QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/e2e/"_s);
 }
 
 void LocalDatabaseUtilsTest::shouldCheckDataBase()
