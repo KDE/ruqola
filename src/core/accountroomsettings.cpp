@@ -36,7 +36,11 @@ bool AccountRoomSettings::hasPendingMessageTyped(const QByteArray &roomId) const
 
 AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QByteArray &roomId)
 {
-    return mPendingTypedTexts.take(roomId);
+    const auto pending = mPendingTypedTexts.take(roomId);
+    if (pending.isValid()) {
+        mRocketChatAccount->localDatabaseManager()->deleteRoomPendingTypedInfo(mRocketChatAccount->accountName(), roomId);
+    }
+    return pending;
 }
 
 bool AccountRoomSettings::isEmpty() const
