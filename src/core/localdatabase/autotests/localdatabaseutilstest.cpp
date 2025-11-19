@@ -63,6 +63,9 @@ void LocalDatabaseUtilsTest::shouldCheckDataBase()
     QCOMPARE(LocalDatabaseUtils::deleteMessageFromLogs(), u"DELETE FROM LOGS WHERE messageId = ?"_s);
     QCOMPARE(LocalDatabaseUtils::insertReplaceMessageFromLogs(), u"INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"_s);
     QCOMPARE(LocalDatabaseUtils::jsonAccount(), u"SELECT json FROM ACCOUNT WHERE accountName = \"%1\""_s);
+
+    QCOMPARE(LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo(), u"INSERT OR REPLACE INTO ROOMPENDINGTYPED VALUES (?, ?)"_s);
+    QCOMPARE(LocalDatabaseUtils::deleteRoomPendingTypedInfo(), u"DELETE FROM ROOMPENDINGTYPED WHERE roomId = ?"_s);
 }
 
 #include "moc_localdatabaseutilstest.cpp"

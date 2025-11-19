@@ -154,5 +154,5 @@ QString LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo()
 
 QString LocalDatabaseUtils::deleteRoomPendingTypedInfo()
 {
-    return u"DELETE FROM GLOBAL ROOMPENDINGTYPED identifier = ?"_s;
+    return u"DELETE FROM ROOMPENDINGTYPED WHERE roomId = ?"_s;
 }
