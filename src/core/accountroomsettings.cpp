@@ -26,10 +26,10 @@ void AccountRoomSettings::remove(const QByteArray &roomId)
 
 void AccountRoomSettings::add(const QByteArray &roomId, const PendingTypedInfo &info)
 {
-#if 0
     mPendingTypedTexts[roomId] = info;
-#endif
+#if 0
     mRocketChatAccount->localDatabaseManager()->updateRoomPendingTypedInfo(mRocketChatAccount->accountName(), roomId, info);
+#endif
 }
 
 bool AccountRoomSettings::hasPendingMessageTyped(const QByteArray &roomId) const
