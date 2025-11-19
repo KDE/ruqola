@@ -18,25 +18,18 @@ AccountRoomSettings::~AccountRoomSettings() = default;
 
 void AccountRoomSettings::remove(const QByteArray &roomId)
 {
-#if 0
     mRocketChatAccount->localDatabaseManager()->deleteRoomPendingTypedInfo(mRocketChatAccount->accountName(), roomId);
-#endif
     mPendingTypedTexts.remove(roomId);
 }
 
 void AccountRoomSettings::add(const QByteArray &roomId, const PendingTypedInfo &info)
 {
     mPendingTypedTexts[roomId] = info;
-#if 0
     mRocketChatAccount->localDatabaseManager()->updateRoomPendingTypedInfo(mRocketChatAccount->accountName(), roomId, info);
-#endif
 }
 
 bool AccountRoomSettings::hasPendingMessageTyped(const QByteArray &roomId) const
 {
-#if 0
-    mRocketChatAccount->localDatabaseManager()->deleteRoomPendingTypedInfo(mRocketChatAccount->accountName(), roomId);
-#endif
     return mPendingTypedTexts.value(roomId).hasPendingMessageTyped();
 }
 
