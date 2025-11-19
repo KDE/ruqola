@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-18 00:43+0000\n"
+"POT-Creation-Date: 2025-11-19 00:42+0000\n"
 "PO-Revision-Date: 2025-11-12 17:39+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -7857,52 +7857,57 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Muokkaa tiliä"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:40
+#: widgets/databasedialog/exploredatabasedialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Tietokannan tiedot"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:49
+#: widgets/databasedialog/exploredatabasedialog.cpp:51
 #, kde-format
 msgid "Messages"
 msgstr "Viestit"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#: widgets/databasedialog/exploredatabasedialog.cpp:54
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
 # Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
-#: widgets/databasedialog/exploredatabasedialog.cpp:55
+#: widgets/databasedialog/exploredatabasedialog.cpp:57
 #, kde-format
 msgid "DataBase Messages"
 msgstr "Tietokanta – viestit"
 
 # Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
-#: widgets/databasedialog/exploredatabasedialog.cpp:58
+#: widgets/databasedialog/exploredatabasedialog.cpp:60
 #, kde-format
 msgid "DataBase Accounts"
 msgstr "Tietokanta – tilit"
 
 # Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
-#: widgets/databasedialog/exploredatabasedialog.cpp:61
+#: widgets/databasedialog/exploredatabasedialog.cpp:63
 #, kde-format
 msgid "DataBase Rooms"
 msgstr "Tietokanta – huoneet"
 
 # Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
-#: widgets/databasedialog/exploredatabasedialog.cpp:64
+#: widgets/databasedialog/exploredatabasedialog.cpp:66
 #, kde-format
 msgid "DataBase Global"
 msgstr "Tietokanta – yleisasetukset"
 
 # Tässä joutuu arvailemaan; arvaan että kyse on tietokannan osista (ja mahdollisesti olen väärässä)
-#: widgets/databasedialog/exploredatabasedialog.cpp:67
+#: widgets/databasedialog/exploredatabasedialog.cpp:69
 #, kde-format
 msgid "DataBase E2E"
 msgstr "Tietokanta – salaus"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:72
+#, kde-format
+msgid "DataBase Room Pending Typed Info"
+msgstr ""
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
@@ -11101,85 +11106,85 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Yksi käyttäjä huoneessa (yhteensä: %2)"
 msgstr[1] "%1 käyttäjää huoneessa (yhteensä: %2)"
 
-#: widgets/ruqolamainwindow.cpp:235
+#: widgets/ruqolamainwindow.cpp:236
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Näytä uudet ilmoitukset"
 
-#: widgets/ruqolamainwindow.cpp:237
+#: widgets/ruqolamainwindow.cpp:238
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Näytä uudet ilmoitukset"
 
-#: widgets/ruqolamainwindow.cpp:433
+#: widgets/ruqolamainwindow.cpp:434
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Lisää palvelin…"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:439
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Palvelintiedot…"
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Kirjaudu ulos nykyisestä palvelimesta"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:447
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Siirry seuraavaan lukematta olevaan kanavaan"
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:452
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Luo uusi kanava…"
 
-#: widgets/ruqolamainwindow.cpp:455
+#: widgets/ruqolamainwindow.cpp:456
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Luo suoraviestejä…"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:460
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Luo keskustelu…"
 
-#: widgets/ruqolamainwindow.cpp:463
+#: widgets/ruqolamainwindow.cpp:464
 #, kde-format
 msgid "Create Team…"
 msgstr "Luo työryhmä…"
 
-#: widgets/ruqolamainwindow.cpp:471
+#: widgets/ruqolamainwindow.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Lukematta olevat ylinnä"
 
-#: widgets/ruqolamainwindow.cpp:479
+#: widgets/ruqolamainwindow.cpp:480
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Viimeisimmän viestin mukaan"
 
-#: widgets/ruqolamainwindow.cpp:485
+#: widgets/ruqolamainwindow.cpp:486
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Aakkosta"
 
-#: widgets/ruqolamainwindow.cpp:491
+#: widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Näytä kanavaloki"
 
-#: widgets/ruqolamainwindow.cpp:495
+#: widgets/ruqolamainwindow.cpp:496
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Näytä palvelinvirheet"
