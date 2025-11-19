@@ -18,4 +18,7 @@ private Q_SLOTS:
     void shouldDefaultValues();
     void shouldVerifyDbFileName();
     void shouldStoreRoomPendingTypedInfo();
+    void shouldDeleteRoomPendingTypedInfo();
+    void shouldDeleteRoomPendingTypedInfoInvalidRoomId();
+    void shouldExtractJsonFromDatabase();
 };

@@ -102,4 +102,46 @@ void LocalRoomPendingTypedInfoDatabaseTest::shouldStoreRoomPendingTypedInfo()
     QCOMPARE(record1.value(int(RoomPendingTypedFields::RoomId)).toByteArray(), roomId2);
 }
 
+void LocalRoomPendingTypedInfoDatabaseTest::shouldDeleteRoomPendingTypedInfo() // this test depends on shouldStoreRoomPendingTypedInfo()
+{
+    // GIVEN
+    LocalRoomPendingTypedInfoDatabase logger;
+    const QByteArray roomId = "foo2"_ba;
+
+    // WHEN
+    logger.deleteRoomPendingTypedInfo(otherAccountName(), roomId);
+
+    // THEN
+    auto tableModel = logger.createRoomsModel(otherAccountName());
+    QVERIFY(tableModel);
+    QCOMPARE(tableModel->rowCount(), 2);
+}
+
+void LocalRoomPendingTypedInfoDatabaseTest::shouldDeleteRoomPendingTypedInfoInvalidRoomId() // this test depends on shouldStoreRoomPendingTypedInfo()
+{
+    // GIVEN
+    LocalRoomPendingTypedInfoDatabase logger;
+    const QByteArray roomId = "foo2"_ba;
+
+    // WHEN
+    logger.deleteRoomPendingTypedInfo(otherAccountName(), roomId);
+
+    // THEN
+    auto tableModel = logger.createRoomsModel(otherAccountName());
+    QVERIFY(tableModel);
+    QCOMPARE(tableModel->rowCount(), 2);
+}
+
+void LocalRoomPendingTypedInfoDatabaseTest::shouldExtractJsonFromDatabase()
+{
+    {
+        LocalRoomPendingTypedInfoDatabase logger;
+        QCOMPARE(logger.loadRoomPendingTypedInfo(otherAccountName()).count(), 2);
+    }
+    {
+        LocalRoomPendingTypedInfoDatabase logger;
+        QCOMPARE(logger.loadRoomPendingTypedInfo(accountName()).count(), 0);
+    }
+}
+
 #include "moc_localroompendingtypedinfodatabasetest.cpp"
