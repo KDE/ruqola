@@ -112,7 +112,7 @@
 using namespace Qt::Literals::StringLiterals;
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrateDatabase, QObject *parent)
     : QObject(parent)
-    , mAccountRoomSettings(new AccountRoomSettings)
+    , mAccountRoomSettings(new AccountRoomSettings(this))
     , mUserModel(new UsersModel(this))
     , mRoomModel(new RoomModel(this, this))
     , mRuqolaServerConfig(new RuqolaServerConfig)

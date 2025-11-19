@@ -11,7 +11,7 @@
 #include <QJsonObject>
 #include <QMap>
 #include <QString>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT AccountRoomSettings
 {
 public:
@@ -28,7 +28,7 @@ public:
         [[nodiscard]] static PendingTypedInfo deserialize(const QJsonObject &o);
         [[nodiscard]] bool operator==(const PendingTypedInfo &other) const;
     };
-    AccountRoomSettings();
+    explicit AccountRoomSettings(RocketChatAccount *account);
     ~AccountRoomSettings();
 
     void remove(const QByteArray &roomId);
@@ -42,5 +42,6 @@ public:
 
 private:
     QMap<QByteArray /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
+    RocketChatAccount *const mRocketChatAccount;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t);

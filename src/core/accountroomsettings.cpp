@@ -5,23 +5,38 @@
 */
 
 #include "accountroomsettings.h"
+#include "localdatabase/localdatabasemanager.h"
+#include "rocketchataccount.h"
+
 using namespace Qt::Literals::StringLiterals;
-AccountRoomSettings::AccountRoomSettings() = default;
+AccountRoomSettings::AccountRoomSettings(RocketChatAccount *account)
+    : mRocketChatAccount(account)
+{
+}
 
 AccountRoomSettings::~AccountRoomSettings() = default;
 
 void AccountRoomSettings::remove(const QByteArray &roomId)
 {
+#if 0
+    mRocketChatAccount->localDatabaseManager()->deleteRoomPendingTypedInfo(mRocketChatAccount->accountName(), roomId);
+#endif
     mPendingTypedTexts.remove(roomId);
 }
 
 void AccountRoomSettings::add(const QByteArray &roomId, const PendingTypedInfo &info)
 {
+#if 0
     mPendingTypedTexts[roomId] = info;
+#endif
+    mRocketChatAccount->localDatabaseManager()->updateRoomPendingTypedInfo(mRocketChatAccount->accountName(), roomId, info);
 }
 
 bool AccountRoomSettings::hasPendingMessageTyped(const QByteArray &roomId) const
 {
+#if 0
+    mRocketChatAccount->localDatabaseManager()->deleteRoomPendingTypedInfo(mRocketChatAccount->accountName(), roomId);
+#endif
     return mPendingTypedTexts.value(roomId).hasPendingMessageTyped();
 }
 
