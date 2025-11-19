@@ -14,10 +14,13 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{kli18n("Copy block code more easily."),
-                                           kli18n("Improve Text To Speech user interface."),
-                                           kli18n("Show attachment fields."),
-                                           kli18n("Implement Offline Mode (experimental).")};
+    const QList<KLazyLocalizedString> info{
+        kli18n("Copy block code more easily."),
+        kli18n("Improve Text To Speech user interface."),
+        kli18n("Show attachment fields."),
+        kli18n("Implement Offline Mode (experimental)."),
+        kli18n("Implement Pending Typed database storage."),
+    };
     return info;
 }
 QList<TextAddonsWidgets::WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
