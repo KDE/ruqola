@@ -187,7 +187,11 @@ void LocalDatabaseManager::deleteRoomPendingTypedInfo(const QString &accountName
     }
 }
 
-QList<AccountRoomSettings::PendingTypedInfo> LocalDatabaseManager::loadRoomPendingTypedInfo(const QString &accountName) const
+QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalDatabaseManager::loadRoomPendingTypedInfo(const QString &accountName) const
 {
-    return mRoomPendingTypedInfoDatabase->loadRoomPendingTypedInfo(accountName);
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        return mRoomPendingTypedInfoDatabase->loadRoomPendingTypedInfo(accountName);
+    } else {
+        return {};
+    }
 }

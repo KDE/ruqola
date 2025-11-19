@@ -48,6 +48,16 @@ bool AccountRoomSettings::isEmpty() const
     return mPendingTypedTexts.isEmpty();
 }
 
+void AccountRoomSettings::loadRoomPendingTypedInfo()
+{
+    setPendingTypedTexts(mRocketChatAccount->localDatabaseManager()->loadRoomPendingTypedInfo(mRocketChatAccount->accountName()));
+}
+
+void AccountRoomSettings::setPendingTypedTexts(const QMap<QByteArray, PendingTypedInfo> &newPendingTypedTexts)
+{
+    mPendingTypedTexts = newPendingTypedTexts;
+}
+
 bool AccountRoomSettings::PendingTypedInfo::hasPendingMessageTyped() const
 {
     return !text.isEmpty();

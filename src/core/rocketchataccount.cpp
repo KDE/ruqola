@@ -1162,6 +1162,7 @@ void RocketChatAccount::startConnecting()
     ddp();
     // Initiate first REST call, once we're out of Ruqola::self()
     QMetaObject::invokeMethod(mRocketChatBackend, &RocketChatBackend::loadServerInfo, Qt::QueuedConnection);
+    mAccountRoomSettings->loadRoomPendingTypedInfo();
 }
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)

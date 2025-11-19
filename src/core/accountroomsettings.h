@@ -40,6 +40,10 @@ public:
 
     [[nodiscard]] bool isEmpty() const;
 
+    void loadRoomPendingTypedInfo();
+
+    void setPendingTypedTexts(const QMap<QByteArray, PendingTypedInfo> &newPendingTypedTexts);
+
 private:
     QMap<QByteArray /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
     RocketChatAccount *const mRocketChatAccount;

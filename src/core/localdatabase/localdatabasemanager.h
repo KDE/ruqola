@@ -11,6 +11,7 @@
 #include "libruqolacore_export.h"
 #include "messages/message.h"
 #include <QList>
+#include <QMap>
 #include <QString>
 #include <memory>
 class LocalMessageLogger;
@@ -64,7 +65,7 @@ public:
     void updateRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId, const AccountRoomSettings::PendingTypedInfo &pendingTypedInfo);
     void deleteRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId);
 
-    [[nodiscard]] QList<AccountRoomSettings::PendingTypedInfo> loadRoomPendingTypedInfo(const QString &accountName) const;
+    [[nodiscard]] QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> loadRoomPendingTypedInfo(const QString &accountName) const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void handleMigration();

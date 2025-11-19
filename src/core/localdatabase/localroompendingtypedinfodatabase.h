@@ -8,6 +8,7 @@
 #include "accountroomsettings.h"
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
+#include <QMap>
 class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT LocalRoomPendingTypedInfoDatabase : public LocalDatabaseBase
 {
@@ -20,8 +21,11 @@ public:
     void updateRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId, const AccountRoomSettings::PendingTypedInfo &pendingTypedInfo);
     void deleteRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId);
 
-    [[nodiscard]] QList<AccountRoomSettings::PendingTypedInfo> loadRoomPendingTypedInfo(const QString &accountName) const;
+    [[nodiscard]] QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> loadRoomPendingTypedInfo(const QString &accountName);
 
 protected:
     [[nodiscard]] QString schemaDataBase() const override;
+
+private:
+    [[nodiscard]] AccountRoomSettings::PendingTypedInfo convertJsonToRoomPendingTypedInfo(const QString &json);
 };
