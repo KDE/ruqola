@@ -68,7 +68,7 @@ void LocalRoomPendingTypedInfoDatabase::updateRoomPendingTypedInfo(const QString
     if (initializeDataBase(accountName, db)) {
         QSqlQuery query(LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo(), db);
         query.addBindValue(QString::fromLatin1(roomId));
-        query.addBindValue(AccountRoomSettings::PendingTypedInfo::serialize(room));
+        query.addBindValue(QJsonDocument(AccountRoomSettings::PendingTypedInfo::serialize(room)).toJson(QJsonDocument::Compact));
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMPENDINGTYPED table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
