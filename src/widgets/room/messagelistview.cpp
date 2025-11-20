@@ -745,7 +745,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (Ruqola::self()->debug()) {
         addDebugMenu(menu, index);
     }
-    if (mCurrentRocketChatAccount && mRoom) {
+    if (!offline && mCurrentRocketChatAccount && mRoom) {
         ActionButton::FilterActionInfo filterInfo;
         filterInfo.buttonContext = ActionButton::ButtonContext::MessageAction;
         filterInfo.roomTypeFilter = ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(mRoom);
