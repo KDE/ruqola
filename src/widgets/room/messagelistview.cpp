@@ -773,6 +773,12 @@ void MessageListView::addDebugMenu(QMenu &menu, const QModelIndex &index)
         });
         menu.addAction(debugMessageAction);
         createSeparator(menu);
+        auto debugGeneratedTextMessageAction = new QAction(u"Show Generated Text"_s, &menu); // Don't translate it.
+        connect(debugGeneratedTextMessageAction, &QAction::triggered, this, [this, index]() {
+            slotShowGeneratedMessage(index);
+        });
+        menu.addAction(debugGeneratedTextMessageAction);
+        createSeparator(menu);
     }
     auto debugRoomAction = new QAction(u"Dump Room"_s, &menu); // Don't translate it.
     connect(debugRoomAction, &QAction::triggered, this, [this]() {
@@ -818,6 +824,16 @@ void MessageListView::slotDebugMessage(const QModelIndex &index)
     // qDebug() << " message " << *message << " MessageConvertedText " << index.data(MessagesModel::MessageConvertedText).toString();
     ShowDebugDialog d(this);
     d.setPlainText(QString::fromUtf8(Message::serialize(*message, false)));
+    d.exec();
+}
+
+void MessageListView::slotShowGeneratedMessage(const QModelIndex &index)
+{
+    // Show debug output.
+    const QString str = index.data(MessagesModel::MessageConvertedText).toString();
+    // qDebug() << " message " << *message << " MessageConvertedText " << index.data(MessagesModel::MessageConvertedText).toString();
+    ShowDebugDialog d(this);
+    d.setPlainText(str);
     d.exec();
 }
 
