@@ -2,7 +2,6 @@
     "fname": "ruqola-team",
     "name": "ruqola-team",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "",
         "mobilePushNotifications": ""

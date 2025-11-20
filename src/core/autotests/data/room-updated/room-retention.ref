@@ -2,7 +2,6 @@
     "fname": "test-",
     "name": "test-",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "",
         "mobilePushNotifications": ""

@@ -52,7 +52,9 @@ void NotificationOptions::setAudioNotificationValue(const QByteArray &newAudioNo
 QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 {
     QJsonObject obj;
-    obj["audioNotificationValue"_L1] = QString::fromLatin1(options.audioNotificationValue());
+    if (!options.audioNotificationValue().isEmpty()) {
+        obj["audioNotificationValue"_L1] = QString::fromLatin1(options.audioNotificationValue());
+    }
     if (options.disableNotifications()) {
         obj["disableNotifications"_L1] = true;
     }

@@ -1,7 +1,6 @@
 {
     "name": "general",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "",
         "mobilePushNotifications": ""

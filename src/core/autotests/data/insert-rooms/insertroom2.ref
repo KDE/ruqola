@@ -3,7 +3,6 @@
     "description": "description channel",
     "name": "channeltest",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "",
         "mobilePushNotifications": ""

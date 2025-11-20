@@ -2,7 +2,6 @@
     "jitsiTimeout": 1518524726234,
     "name": "bla1",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "",
         "mobilePushNotifications": ""

@@ -6,7 +6,6 @@
     "lastSeenAt": 1537889519424,
     "name": "test-add-user-ruqola",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "",
         "mobilePushNotifications": ""

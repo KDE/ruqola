@@ -3,7 +3,6 @@
     "lastSeenAt": 1519924629624,
     "name": "foo",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "nothing",
         "mobilePushNotifications": ""

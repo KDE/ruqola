@@ -4,7 +4,6 @@
     "lastSeenAt": 1520852615485,
     "name": "all",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "",
         "mobilePushNotifications": ""

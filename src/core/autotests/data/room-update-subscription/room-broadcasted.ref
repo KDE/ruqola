@@ -4,7 +4,6 @@
     "lastSeenAt": 1550143648425,
     "name": "ruqola-broadcast",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "mentions",
         "mobilePushNotifications": ""

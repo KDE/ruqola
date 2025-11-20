@@ -5,7 +5,6 @@
     ],
     "name": "foo",
     "notifications": {
-        "audioNotificationValue": "",
         "desktopNotifications": "",
         "emailNotifications": "",
         "mobilePushNotifications": ""
