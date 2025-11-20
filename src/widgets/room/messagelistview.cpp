@@ -819,9 +819,7 @@ void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checke
 
 void MessageListView::slotDebugMessage(const QModelIndex &index)
 {
-    // Show debug output.
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
-    // qDebug() << " message " << *message << " MessageConvertedText " << index.data(MessagesModel::MessageConvertedText).toString();
     ShowDebugDialog d(this);
     d.setPlainText(QString::fromUtf8(Message::serialize(*message, false)));
     d.exec();
@@ -829,9 +827,7 @@ void MessageListView::slotDebugMessage(const QModelIndex &index)
 
 void MessageListView::slotShowGeneratedMessage(const QModelIndex &index)
 {
-    // Show debug output.
     const QString str = index.data(MessagesModel::MessageConvertedText).toString();
-    // qDebug() << " message " << *message << " MessageConvertedText " << index.data(MessagesModel::MessageConvertedText).toString();
     ShowDebugDialog d(this);
     d.setPlainText(str);
     d.exec();
