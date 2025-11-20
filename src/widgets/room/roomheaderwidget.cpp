@@ -197,14 +197,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     for (PluginTool *plugin : plugins) {
         if (plugin->enabled()) {
             if (plugin->toolType() == PluginTool::ToolType::MessageViewHeaderToolBar) {
-                auto pluginButton = new QToolButton(this);
-                pluginButton->setAutoRaise(true);
+                mPluginButton = new QToolButton(this);
+                mPluginButton->setAutoRaise(true);
                 const QString desc = plugin->description();
                 if (desc.isEmpty()) {
-                    pluginButton->setText(desc);
+                    mPluginButton->setText(desc);
                 }
-                pluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
-                pluginButton->setToolTip(plugin->toolTip());
+                mPluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
+                mPluginButton->setToolTip(plugin->toolTip());
                 auto interface = plugin->createInterface(this);
                 mPluginToolInterface.append(interface);
                 connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
@@ -218,12 +218,12 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
                     interface->activateTool();
                 });
                 if (plugin->hasMenu()) {
-                    pluginButton->setMenu(interface->menu(this));
-                    pluginButton->setPopupMode(QToolButton::InstantPopup);
+                    mPluginButton->setMenu(interface->menu(this));
+                    mPluginButton->setPopupMode(QToolButton::InstantPopup);
                 } else {
-                    connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);
+                    connect(mPluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);
                 }
-                buttonLayout->addWidget(pluginButton, 0, Qt::AlignTop);
+                buttonLayout->addWidget(mPluginButton, 0, Qt::AlignTop);
             }
         }
     }
@@ -367,6 +367,9 @@ void RoomHeaderWidget::slotOfflineModeChanged()
     mEncryptedButton->setEnabled(!offlineMode);
     mChannelActionButton->setEnabled(!offlineMode);
     mAIActionButton->setEnabled(!offlineMode);
+    if (mPluginButton) {
+        mPluginButton->setEnabled(!offlineMode);
+    }
 #endif
 }
 

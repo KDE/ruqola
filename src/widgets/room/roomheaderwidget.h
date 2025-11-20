@@ -92,6 +92,7 @@ private:
     QToolButton *const mTeamChannelsButton;
     QToolButton *const mListOfUsersButton;
     QToolButton *const mSearchMessageButton;
+    QToolButton *mPluginButton = nullptr;
 
     QToolButton *const mEncryptedButton;
     QToolButton *const mChannelActionButton;
