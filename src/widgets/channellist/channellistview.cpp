@@ -105,6 +105,9 @@ void ChannelListView::slotClicked(const QModelIndex &index)
 
 void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 {
+    if (mCurrentRocketChatAccount->offlineMode()) {
+        return;
+    }
     const QModelIndex qmi = indexAt(event->pos());
     if (!qmi.isValid()) {
         return;
