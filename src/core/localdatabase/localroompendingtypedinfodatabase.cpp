@@ -100,7 +100,7 @@ QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalRoomPend
         qCWarning(RUQOLA_DATABASE_LOG) << "Could not initialize database from " << accountName << " filename : " << dbFileName(accountName);
         return info;
     }
-    qDebug() << " const QString fileName = dbFileName(accountName);" << dbFileName(accountName);
+    // qDebug() << " const QString fileName = dbFileName(accountName);" << dbFileName(accountName);
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
 
