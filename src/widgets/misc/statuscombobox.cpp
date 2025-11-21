@@ -5,11 +5,11 @@
 */
 
 #include "statuscombobox.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/statusmodel.h"
 #include "model/statusmodelfilterproxymodel.h"
 
+using namespace Qt::Literals::StringLiterals;
 StatusCombobox::StatusCombobox(QWidget *parent)
     : QComboBox(parent)
 {
