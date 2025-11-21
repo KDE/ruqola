@@ -52,6 +52,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <QMenu>
 
+#include <TextUtils/TextUtilsCopyBlockIconCache>
+
 // #define DEBUG_PAINTING
 
 MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *view)
@@ -108,6 +110,7 @@ MessageListDelegate::~MessageListDelegate()
 
 void MessageListDelegate::slotUpdateColors()
 {
+    TextUtils::TextUtilsCopyBlockIconCache::self()->clear();
     const KColorScheme scheme = ColorsAndMessageViewStyle::self().schemeView();
     mThreadedMessageBackgroundColor = ColorsAndMessageViewStyle::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = qApp->palette().link().color();
