@@ -788,10 +788,12 @@ void RocketChatAccount::clearAllUnreadMessages()
 
 void RocketChatAccount::markRoomAsRead(const QByteArray &roomId)
 {
-    mMarkUnreadThreadsAsReadOnNextReply = true;
-    restApi()->markRoomAsRead(roomId);
-    if (mRuqolaServerConfig->threadsEnabled()) {
-        getListMessages(roomId, ListMessagesModel::UnreadThreadsMessages);
+    if (!offlineMode()) {
+        mMarkUnreadThreadsAsReadOnNextReply = true;
+        restApi()->markRoomAsRead(roomId);
+        if (mRuqolaServerConfig->threadsEnabled()) {
+            getListMessages(roomId, ListMessagesModel::UnreadThreadsMessages);
+        }
     }
 }
 
