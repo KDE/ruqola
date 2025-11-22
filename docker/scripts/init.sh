@@ -40,21 +40,54 @@ else
 	echo "✅ No system updates available. Skipping upgrade..."
 fi
 
-if ! sudo zypper info --type pattern kde_plasma | grep -q "Installed: Yes"; then
-	echo "📦 Installing KDE Plasma pattern..."
-	sudo zypper -v --non-interactive install pattern:kde_plasma
-	https://download.opensuse.org/tumbleweed/repo/oss/else
-	echo "✅ KDE Plasma pattern is already installed. Skipping installation..."
-fi
+sudo zypper --non-interactive refresh
+
+echo "📦 Installing  Core build tools..."
+sudo zypper --non-interactive install --auto-agree-with-licenses \
+	cmake \
+	make \
+	ninja \
+	meson \
+	extra-cmake-modules \
+	clang \
+	ccache \
+	gdb \
+	gcc-c++
+
+echo "📦 Installing Qt6 base and modules..."
+sudo zypper --non-interactive install --auto-agree-with-licenses \
+	qt6-base-devel \
+	qt6-core-devel \
+	qt6-charts-devel \
+	qt6-chartsqml-devel \
+	qt6-charts-imports \
+	qt6-declarative-tools \
+	qt6-tools-qdbus \
+	qt6-qt5compat-imports \
+	qt6-networkinformation-nm \
+	qt6-multimedia-imports \
+	qt6-multimedia-devel \
+	qt6-multimediawidgets-devel \
+	qt6-location \
+	qt6-positioning-imports \
+	qt6-translations \
+	qt6-websockets-devel \
+	qt6-networkauth-devel \
+	qt6-sql-devel \
+	qt6-sql-mysql \
+	qt6-sql-postgresql \
+	qt6-sql-sqlite \
+	libQt6Sql6 \
+	qtkeychain-qt6-devel \
+	qtkeychain-qt6-lang \
+	qtkeychain-qt6-debugsource \
+	qt6-wayland-devel \
+	qt6-wayland \
+	qca-qt6-devel
 
 echo "📦 Installing KDE Frameworks 6 development libraries..."
-sudo zypper --non-interactive install -y \
-	cmake make ninja meson \
-	extra-cmake-modules \
-	clang ccache \
+sudo zypper --non-interactive install --auto-agree-with-licenses \
 	kf6-kcoreaddons-devel \
-	xvfb-run openbox \
-	AppStream \
 	kf6-ki18n-devel \
 	kf6-kcrash-devel \
 	kf6-knotifications-devel \
@@ -69,56 +102,24 @@ sudo zypper --non-interactive install -y \
 	kf6-prison-devel \
 	kf6-karchive-devel \
 	kf6-kcodecs-devel \
-	ktextaddons-devel \
 	kf6-kdbusaddons-devel \
-	kdbusaddons-devel \
-	kdbusaddons-tools \
 	kf6-purpose-devel \
 	kf6-kstatusnotifieritem-devel \
-	xclock \
-	qt6-core-devel \
-	qt6-charts-imports \
-	qt6-declarative-tools \
-	qt6-tools-qdbus \
-	qt6-qt5compat-imports \
-	qt6-networkinformation-nm \
-	qt6-multimedia-imports \
-	qt6-location \
-	qt6-positioning-imports \
-	qt6-translations \
-	qca-qt6-devel qt6-mqtt-devel qt6-charts-devel qt6-chartsqml-devel \
-	qt6-base-devel \
-	qt6-websockets-devel \
-	qt6-multimedia-devel \
-	qt6-networkauth-devel \
-	qt6-multimediawidgets-devel \
-	qt6-sql-mysql \
-	qt6-sql-devel \
-	libQt6Sql6 \
-	qt6-sql-sqlite \
-	qt6-sql-postgresql \
 	kf6-kuserfeedback-devel \
 	kf6-kuserfeedback \
 	kf6-kdoctools-devel \
 	kf6-networkmanager-qt-devel \
 	libKF6UserFeedbackCore6 \
 	libKF6UserFeedbackWidgets6 \
-	qtkeychain-qt6-devel \
-	qtkeychain-qt6-lang \
-	qtkeychain-qt6-debugsource \
-	qt6-wayland-devel \
-	qt6-wayland \
-	libQt5Gui5 \
-	libQt5Widgets5 \
-	xorgproto-devel \
-	gdb
+	ktextaddons-devel \
+	kdbusaddons-devel \
+	kdbusaddons-tools
 
-sudo zypper install libxcb1 libxcb-render0 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libxcb-glx0 libxcb-icccm4 libxcb-composite0 libxcb-cursor0 libxcb-damage0 libxcb-dbe0 libxcb-devel libxcb-dpms0 libxcb-dri2-0 libxcb-dri3-0 libxcb-res0 libxcb-screensaver0 libxcb-sync1 libxcb-xf86dri0 libxcb-xinerama0 libxcb-xinput0 libxcb-xkb1 libxcb-xtest0 libxcb-xv0 libxcb-xvmc0
+echo "📦 Installing Optional / GUI / helper packages..."
+sudo zypper --non-interactive install --auto-agree-with-licenses \
+	xclock
 
-RUN zypper --non-interactive install \
-	ffmpeg-6-libavcodec-devel ffmpeg-6-libavfilter-devel \
-	ffmpeg-6-libavformat-devel ffmpeg-6-libavdevice-devel \
-	ffmpeg-6-libavutil-devel ffmpeg-6-libswscale-devel ffmpeg-6-libpostproc-devel
+sudo zypper --non-interactive install libxcb1 libxcb-render0 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libxcb-glx0 libxcb-icccm4 libxcb-composite0 libxcb-cursor0 libxcb-damage0 libxcb-dbe0 libxcb-devel libxcb-dpms0 libxcb-dri2-0 libxcb-dri3-0 libxcb-res0 libxcb-screensaver0 libxcb-sync1 libxcb-xf86dri0 libxcb-xinerama0 libxcb-xinput0 libxcb-xkb1 libxcb-xtest0 libxcb-xv0 libxcb-xvmc0
 
 sudo zypper --non-interactive install fontconfig fontconfig-devel fonts-KanjiStrokeOrders libkfont0
 
