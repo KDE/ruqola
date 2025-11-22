@@ -378,6 +378,7 @@ void RuqolaMainWindow::updateActions()
     mOpenPrivateConversation->setEnabled(!offlineMode);
     mAdministrationMenu->setEnabled(!offlineMode);
     mStatusComboBox->setEnabled(!offlineMode);
+    mClearAlerts->setEnabled(!offlineMode);
 }
 
 bool RuqolaMainWindow::canCreateChannels() const
