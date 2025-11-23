@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:42+0000\n"
+"POT-Creation-Date: 2025-11-23 00:42+0000\n"
 "PO-Revision-Date: 2025-11-20 21:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -7503,7 +7503,7 @@ msgid "Username or email:"
 msgstr "Kullanıcı adı veya e-posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1093
+#: widgets/ruqolamainwindow.cpp:1094
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7513,7 +7513,7 @@ msgstr ""
 "Kısa bir süre içinde bir e-posta almazsanız yeniden deneyin."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1094
+#: widgets/ruqolamainwindow.cpp:1095
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -11119,268 +11119,268 @@ msgstr "Yeni bildirimleri göster"
 msgid "Show New Notifications"
 msgstr "Yeni Bildirimleri Göster"
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:436
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Sunucu Ekle…"
 
-#: widgets/ruqolamainwindow.cpp:440
+#: widgets/ruqolamainwindow.cpp:441
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Sunucu Bilgisi…"
 
-#: widgets/ruqolamainwindow.cpp:444
+#: widgets/ruqolamainwindow.cpp:445
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Geçerli Sunucu Oturumunu Kapat"
 
-#: widgets/ruqolamainwindow.cpp:448
+#: widgets/ruqolamainwindow.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Sonraki Okunmamış Kanala Atla"
 
-#: widgets/ruqolamainwindow.cpp:453
+#: widgets/ruqolamainwindow.cpp:454
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Yeni Bir Kanal Oluştur…"
 
-#: widgets/ruqolamainwindow.cpp:457
+#: widgets/ruqolamainwindow.cpp:458
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Doğrudan İleti Oluştur…"
 
-#: widgets/ruqolamainwindow.cpp:461
+#: widgets/ruqolamainwindow.cpp:462
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Tartışma Oluştur…"
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:466
 #, kde-format
 msgid "Create Team…"
 msgstr "Takım Oluştur…"
 
-#: widgets/ruqolamainwindow.cpp:473
+#: widgets/ruqolamainwindow.cpp:474
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Okunmamışlar En Üstte"
 
-#: widgets/ruqolamainwindow.cpp:481
+#: widgets/ruqolamainwindow.cpp:482
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Son İletiye Göre"
 
-#: widgets/ruqolamainwindow.cpp:487
+#: widgets/ruqolamainwindow.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Abecesel"
 
-#: widgets/ruqolamainwindow.cpp:493
+#: widgets/ruqolamainwindow.cpp:494
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Kanal Günlüğünü Göster"
 
-#: widgets/ruqolamainwindow.cpp:497
+#: widgets/ruqolamainwindow.cpp:498
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Sunucu Hatalarını Göster"
 
-#: widgets/ruqolamainwindow.cpp:541
+#: widgets/ruqolamainwindow.cpp:542
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Tüm Kanalları Okundu Olarak İmle"
 
-#: widgets/ruqolamainwindow.cpp:546
+#: widgets/ruqolamainwindow.cpp:547
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Yeni Kullanıcı Kaydet…"
 
-#: widgets/ruqolamainwindow.cpp:550
+#: widgets/ruqolamainwindow.cpp:551
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Hesabım…"
 
-#: widgets/ruqolamainwindow.cpp:554
+#: widgets/ruqolamainwindow.cpp:555
 #, kde-format
 msgid "administration"
 msgstr "Yönetim"
 
-#: widgets/ruqolamainwindow.cpp:555
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Yönetici…"
 
-#: widgets/ruqolamainwindow.cpp:561
+#: widgets/ruqolamainwindow.cpp:562
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Sunucu Ayarları…"
 
-#: widgets/ruqolamainwindow.cpp:568
+#: widgets/ruqolamainwindow.cpp:569
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Uygulamalar…"
 
-#: widgets/ruqolamainwindow.cpp:573
+#: widgets/ruqolamainwindow.cpp:574
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "İstenen Uygulamalar…"
 
-#: widgets/ruqolamainwindow.cpp:578
+#: widgets/ruqolamainwindow.cpp:579
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "İstenen Uygulamalar…"
 
-#: widgets/ruqolamainwindow.cpp:583
+#: widgets/ruqolamainwindow.cpp:584
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Özel Uygulamalar…"
 
-#: widgets/ruqolamainwindow.cpp:588
+#: widgets/ruqolamainwindow.cpp:589
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Odaya Katıl…"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:593
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Takıma Katıl…"
 
-#: widgets/ruqolamainwindow.cpp:596
+#: widgets/ruqolamainwindow.cpp:597
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Özel Bir Konuşma Aç…"
 
-#: widgets/ruqolamainwindow.cpp:617
+#: widgets/ruqolamainwindow.cpp:618
 #, kde-format
 msgid "&Next Server"
 msgstr "&Sonraki Sunucu"
 
-#: widgets/ruqolamainwindow.cpp:622
+#: widgets/ruqolamainwindow.cpp:623
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Önceki Sunucu"
 
-#: widgets/ruqolamainwindow.cpp:631
+#: widgets/ruqolamainwindow.cpp:632
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Durum:"
 
-#: widgets/ruqolamainwindow.cpp:644
+#: widgets/ruqolamainwindow.cpp:645
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Önceki Seçili Kanal"
 
-#: widgets/ruqolamainwindow.cpp:651
+#: widgets/ruqolamainwindow.cpp:652
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Sonraki Seçili Kanal"
 
-#: widgets/ruqolamainwindow.cpp:681
+#: widgets/ruqolamainwindow.cpp:682
 #, kde-format
 msgid "Show Notify History"
 msgstr "Bildiri Geçmişini Göster"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:686
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat Bilgisini Göster"
 
-#: widgets/ruqolamainwindow.cpp:689
+#: widgets/ruqolamainwindow.cpp:690
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Oda Avatarını Göster"
 
-#: widgets/ruqolamainwindow.cpp:694
+#: widgets/ruqolamainwindow.cpp:695
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Sık Kullanılan Odayı Göster"
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:704
 #, kde-format
 msgid "What's new"
 msgstr "Neler yeni"
 
-#: widgets/ruqolamainwindow.cpp:707
+#: widgets/ruqolamainwindow.cpp:708
 #, kde-format
 msgid "Import Accounts"
 msgstr "Hesaplar İçe Aktar"
 
-#: widgets/ruqolamainwindow.cpp:711
+#: widgets/ruqolamainwindow.cpp:712
 #, kde-format
 msgid "Export Accounts"
 msgstr "Hesapları Dışa Aktar"
 
-#: widgets/ruqolamainwindow.cpp:728
+#: widgets/ruqolamainwindow.cpp:729
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Orta"
 
-#: widgets/ruqolamainwindow.cpp:736
+#: widgets/ruqolamainwindow.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Sıkıştırılmış"
 
-#: widgets/ruqolamainwindow.cpp:745
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Genişletilmiş"
 
-#: widgets/ruqolamainwindow.cpp:753
+#: widgets/ruqolamainwindow.cpp:754
 #, kde-format
 msgid "Clear history"
 msgstr "Geçmişi Temizle"
 
-#: widgets/ruqolamainwindow.cpp:798
+#: widgets/ruqolamainwindow.cpp:799
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Takım Oluştur"
 
-#: widgets/ruqolamainwindow.cpp:995
+#: widgets/ruqolamainwindow.cpp:996
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "%1 günlük dosyasına yazılamıyor"
 
-#: widgets/ruqolamainwindow.cpp:995
+#: widgets/ruqolamainwindow.cpp:996
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kanal Günlüğünü Göster"
 
-#: widgets/ruqolamainwindow.cpp:1165
+#: widgets/ruqolamainwindow.cpp:1166
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Durum"
 
-#: widgets/ruqolamainwindow.cpp:1252
+#: widgets/ruqolamainwindow.cpp:1253
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11389,19 +11389,19 @@ msgstr ""
 "<qt>Bu, menü çubuğunu tümüyle gizleyecektir. %1 ile yeniden "
 "gösterebilirsiniz.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1255
+#: widgets/ruqolamainwindow.cpp:1256
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Menü Çubuğunu Gizle"
 
-#: widgets/ruqolamainwindow.cpp:1429
+#: widgets/ruqolamainwindow.cpp:1430
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Çevrimiçi Olarak Çalış"
 
-#: widgets/ruqolamainwindow.cpp:1432
+#: widgets/ruqolamainwindow.cpp:1433
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
