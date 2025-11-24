@@ -275,6 +275,7 @@ QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType 
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Fields:
         return "fields_"_ba;
     }
+    qCWarning(RUQOLAWIDGETS_LOG) << "documendIdPrefix is unknown it's a bug ! " << type;
     return {};
 }
 
