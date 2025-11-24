@@ -379,6 +379,7 @@ void RuqolaMainWindow::updateActions()
     mAdministrationMenu->setEnabled(!offlineMode);
     mStatusComboBox->setEnabled(!offlineMode);
     mClearAlerts->setEnabled(!offlineMode);
+    mAddServer->setEnabled(!offlineMode);
 }
 
 bool RuqolaMainWindow::canCreateChannels() const
@@ -433,9 +434,9 @@ void RuqolaMainWindow::setupActions()
     KStandardActions::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
     KStandardActions::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
 
-    auto act = new QAction(i18nc("@action", "Add Server…"), this);
-    connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
-    ac->addAction(u"add_server"_s, act);
+    mAddServer = new QAction(i18nc("@action", "Add Server…"), this);
+    connect(mAddServer, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
+    ac->addAction(u"add_server"_s, mAddServer);
 
     // Move in specific server widget
     mServerInfo = new QAction(i18nc("@action", "Server Info…"), this);

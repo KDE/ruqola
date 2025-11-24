@@ -198,6 +198,7 @@ private:
     QWidget *mContainerStatusInfo = nullptr;
     QAction *mClearRoomHistory = nullptr;
     QAction *mPrivateApplications = nullptr;
+    QAction *mAddServer = nullptr;
 #if ADD_OFFLINE_SUPPORT
     QAction *mOfflineMode = nullptr;
 #endif
