@@ -13,7 +13,7 @@ OffLineWidget::OffLineWidget(QWidget *parent)
     setPosition(KMessageWidget::Header);
     setVisible(false);
     setCloseButtonVisible(false);
-    setMessageType(Information);
+    setMessageType(Warning);
     setText(i18n("Network is offline mode."));
     setTextFormat(Qt::PlainText);
 }
