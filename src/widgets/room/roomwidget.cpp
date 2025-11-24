@@ -1001,8 +1001,10 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
+#if USE_E2E_SUPPORT
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::createE2eSaveEncryptionKeyWidget);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
+#endif
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::showUiInteraction, this, &RoomWidget::slotShowUiInteraction);
     }
     mCurrentRocketChatAccount = account;
