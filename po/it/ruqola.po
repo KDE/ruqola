@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-23 00:42+0000\n"
-"PO-Revision-Date: 2025-11-15 15:23+0100\n"
+"PO-Revision-Date: 2025-11-22 08:46+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -418,11 +418,9 @@ msgid "Allow to read role"
 msgstr "Ruolo che consente la lettura"
 
 #: core/apps/appsmarketplaceinfo.cpp:695
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mute Focused Conversations"
+#, kde-format
 msgid "Out Bound Communication"
-msgstr "Silenzia tutte le conversazioni attive"
+msgstr "Comunicazioni in uscita"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -7957,7 +7955,7 @@ msgstr "DataBase E2E"
 #: widgets/databasedialog/exploredatabasedialog.cpp:72
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
-msgstr ""
+msgstr "Stanza della banca dati in attesa di informazioni digitate"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
@@ -11706,6 +11704,8 @@ msgstr "Implementa la modalità non in linea (sperimentale)."
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
 msgstr ""
+"Implementa l'archiviazione della banca di dati per le informazioni in attesa "
+"di digitazione."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
