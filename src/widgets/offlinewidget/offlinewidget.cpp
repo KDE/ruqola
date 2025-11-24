@@ -6,7 +6,7 @@
 
 #include "offlinewidget.h"
 #include <KLocalizedString>
-
+using namespace Qt::Literals::StringLiterals;
 OffLineWidget::OffLineWidget(QWidget *parent)
     : KMessageWidget{parent}
 {
@@ -14,8 +14,8 @@ OffLineWidget::OffLineWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Warning);
-    setText(i18n("Network is offline mode."));
-    setTextFormat(Qt::PlainText);
+    setText(u"<qt><b>"_s + i18n("Network is offline mode.") + u"</b><qt>"_s);
+    setTextFormat(Qt::RichText);
 }
 
 OffLineWidget::~OffLineWidget() = default;
