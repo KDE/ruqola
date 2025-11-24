@@ -5,7 +5,9 @@
 */
 
 #include "managelocaldatabase.h"
+#include "config-ruqola.h"
 #include "misc/methodcalljob.h"
+#include "ruqola_offline_mode_debug.h"
 
 #include "chat/syncmessagesjob.h"
 #include "connection.h"
@@ -96,6 +98,12 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
             // FIXME: don't use  info.lastSeenAt until we store room information in database
             // We need to use last message timeStamp
+#if ADD_OFFLINE_SUPPORT
+            if (mRocketChatAccount->offlineMode()) {
+                qCDebug(RUQOLA_OFFLINE_MODE_LOG) << " Offline mode we don't load messages from server";
+                return;
+            }
+#endif
             const qint64 firstDateTime = info.roomModel->firstTimestamp();
             qDebug() << "firstDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
             if (firstDateTime != 0) {
@@ -106,6 +114,9 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no sync message ";
             }
 #endif
+        } else if (mRocketChatAccount->offlineMode()) {
+            qCDebug(RUQOLA_OFFLINE_MODE_LOG) << " no sync message in offline mode";
+            return;
         }
 
         params.append(QJsonValue(QJsonValue::Null));
@@ -114,6 +125,9 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
         dateObject["$date"_L1] = QJsonValue(info.lastSeenAt);
         params.append(dateObject);
+    } else if (mRocketChatAccount->offlineMode()) {
+        qCDebug(RUQOLA_OFFLINE_MODE_LOG) << " no sync message in offline mode";
+        return;
     } else if (info.timeStamp != 0) {
         params.append(info.timeStamp);
 

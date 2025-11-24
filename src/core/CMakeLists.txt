@@ -760,6 +760,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_quick_sea
     CATEGORY_NAME org.kde.ruqola.quick_search DESCRIPTION "ruqola quick search message" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_offline_mode_debug.h IDENTIFIER RUQOLA_OFFLINE_MODE_LOG
+    CATEGORY_NAME org.kde.ruqola.offline_mode DESCRIPTION "ruqola offline mode" EXPORT RUQOLA
+)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
