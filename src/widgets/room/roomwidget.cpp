@@ -1006,6 +1006,9 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
 #endif
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::showUiInteraction, this, &RoomWidget::slotShowUiInteraction);
+#if ADD_OFFLINE_SUPPORT
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomWidget::slotOfflineModeChanged);
+#endif
     }
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
@@ -1015,6 +1018,10 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::showUiInteraction, this, &RoomWidget::slotShowUiInteraction);
+
+#if ADD_OFFLINE_SUPPORT
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomWidget::slotOfflineModeChanged);
+#endif
 
 #if USE_E2E_SUPPORT
     auto showE2eDecodeEncryptionKeyWidget = [this] {
@@ -1056,6 +1063,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
     mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);
+    slotOfflineModeChanged();
 }
 
 void RoomWidget::slotLoginStatusChanged()
@@ -1122,6 +1130,22 @@ void RoomWidget::slotCloseOtr()
 void RoomWidget::slotRefreshOtrKeys()
 {
     // TODO
+}
+
+void RoomWidget::slotOfflineModeChanged()
+{
+#if ADD_OFFLINE_SUPPORT
+    if (mCurrentRocketChatAccount->offlineMode()) {
+        if (!mOffLineWidget) {
+            createOffLineWidget();
+        }
+        mOffLineWidget->animatedShow();
+    } else {
+        if (mOffLineWidget) {
+            mOffLineWidget->animatedHide();
+        }
+    }
+#endif
 }
 
 #include "moc_roomwidget.cpp"
