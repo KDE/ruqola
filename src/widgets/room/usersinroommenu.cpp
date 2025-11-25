@@ -103,9 +103,13 @@ void UsersInRoomMenu::slotRemoveFromRoom()
 
 void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    const bool canManageUsersInRoom = mRoom->canChangeRoles();
-    const bool isAdministrator = Ruqola::self()->rocketChatAccount()->ownUser().isAdministrator();
     auto account = Ruqola::self()->rocketChatAccount();
+    const bool offline = account->offlineMode();
+    if (offline) {
+        return;
+    }
+    const bool canManageUsersInRoom = mRoom->canChangeRoles();
+    const bool isAdministrator = account->ownUser().isAdministrator();
     const QByteArray ownUserId = account->userId();
     const bool isAdirectChannel = mRoom->channelType() == Room::RoomType::Direct;
     const bool isNotMe = mUserId != ownUserId;

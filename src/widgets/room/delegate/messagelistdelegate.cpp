@@ -759,7 +759,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
         const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
-        if (!isSystemMessage(message) && mEmojiMenuEnabled) {
+        if (!isSystemMessage(message) && mEmojiMenuEnabled && !mRocketChatAccount->offlineMode()) {
             if (layout.addReactionRect.contains(mev->pos())) {
                 auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
                 mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
@@ -787,14 +787,14 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
 
         if (auto react = message->reactions()) {
-            if (!react->isEmpty()) {
+            if (!react->isEmpty() && !mRocketChatAccount->offlineMode()) {
                 const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
                 if (mHelperReactions->handleMouseEvent(mev, reactionsRect, option, message)) {
                     return true;
                 }
             }
         }
-        if (message->threadCount() > 0) {
+        if (message->threadCount() > 0 && !mRocketChatAccount->offlineMode()) {
             qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "Click on thread area";
             const QRect threadRect(layout.usableRect.x(), layout.repliesY, layout.usableRect.width(), layout.repliesHeight);
             if (threadRect.contains(mev->pos())) {
