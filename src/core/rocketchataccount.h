@@ -666,7 +666,7 @@ private:
     VideoConferenceManager *const mVideoConferenceManager;
     VideoConferenceMessageInfoManager *const mVideoConferenceMessageInfoManager;
     std::unique_ptr<LocalDatabaseManager> mLocalDatabaseManager;
-    ManageLocalDatabase *const mManageLoadHistory;
+    ManageLocalDatabase *const mManageLocalDatabase;
     PreviewUrlCacheManager *const mPreviewUrlCacheManager;
     NotificationPreferences *const mNotificationPreferences;
     E2eKeyManager *const mE2eKeyManager;

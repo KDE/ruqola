@@ -135,7 +135,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrat
     , mVideoConferenceManager(new VideoConferenceManager(this, this))
     , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this, this))
     , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>(migrateDatabase))
-    , mManageLoadHistory(new ManageLocalDatabase(this, this))
+    , mManageLocalDatabase(new ManageLocalDatabase(this, this))
     , mPreviewUrlCacheManager(new PreviewUrlCacheManager(this, this))
     , mNotificationPreferences(new NotificationPreferences(this))
     , mE2eKeyManager(new E2eKeyManager(this, this))
@@ -1796,7 +1796,7 @@ void RocketChatAccount::loadHistory(const QByteArray &roomID, bool initial, qint
         info.timeStamp = timeStamp;
         info.roomName = room->displayFName();
         info.lastSeenAt = room->lastSeenAt();
-        mManageLoadHistory->loadMessagesHistory(info);
+        mManageLocalDatabase->loadMessagesHistory(info);
     } else {
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
     }
@@ -1804,7 +1804,7 @@ void RocketChatAccount::loadHistory(const QByteArray &roomID, bool initial, qint
 
 void RocketChatAccount::loadAccountSettings()
 {
-    mManageLoadHistory->loadAccountSettings();
+    mManageLocalDatabase->loadAccountSettings();
 }
 
 void RocketChatAccount::setServerVersion(const QString &version)
