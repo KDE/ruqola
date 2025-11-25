@@ -46,8 +46,9 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
     parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::ListAccount), i18nc("@info:shell", "Return lists of accounts")));
     parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Account),
                                          i18nc("@info:shell", "Start with specific account"),
-                                         u"accountname"_s));
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::MessageUrl), i18nc("@info:shell", "Show Message"), u"url"_s));
+                                         i18n("Account Name")));
+    parser->addOption(
+        QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::MessageUrl), i18nc("@info:shell", "Show Message"), i18n("Message Url")));
     parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::LoginDdpApi), i18nc("@info:shell", "Use ddp api for login")));
 #if HAVE_KUSERFEEDBACK
     parser->addOption(
