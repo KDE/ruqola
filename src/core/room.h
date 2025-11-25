@@ -64,8 +64,8 @@ public:
         BroadCast = 2048,
         AutoTranslate = 4096,
     };
-    Q_FLAGS(RoomState RoomStates)
     Q_DECLARE_FLAGS(RoomStates, RoomState)
+    Q_FLAG(RoomStates)
 
     [[nodiscard]] static QString roomFromRoomType(RoomType type);
 

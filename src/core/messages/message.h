@@ -55,8 +55,8 @@ public:
         Encrypted = 512,
         TextToSpeechInProgress = 1024,
     };
-    Q_FLAGS(MessageState MessageStates)
     Q_DECLARE_FLAGS(MessageStates, MessageState)
+    Q_FLAG(MessageStates)
 
     [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &roomId);

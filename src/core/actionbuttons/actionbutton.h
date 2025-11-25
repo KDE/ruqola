@@ -27,8 +27,8 @@ public:
         LiveChat = 256,
     };
     Q_ENUM(RoomTypeFilter)
-    Q_FLAGS(RoomTypeFilter RoomTypeFilters)
     Q_DECLARE_FLAGS(RoomTypeFilters, RoomTypeFilter)
+    Q_FLAG(RoomTypeFilters)
 
     enum class ButtonContext : uint8_t {
         Unknown,
@@ -55,8 +55,8 @@ public:
         Starred = 8,
     };
     Q_ENUM(MessageActionContext)
-    Q_FLAGS(MessageActionContext MessageActionContexts)
     Q_DECLARE_FLAGS(MessageActionContexts, MessageActionContext)
+    Q_FLAG(MessageActionContexts)
 
     struct FilterActionInfo {
         RoomTypeFilter roomTypeFilter = RoomTypeFilter::Unknown;

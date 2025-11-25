@@ -23,8 +23,8 @@ public:
         Omnichannel = 32,
         All = DirectRooms | PublicRooms | DiscussionRooms | PrivateRooms | TeamRooms | Omnichannel,
     };
-    Q_FLAGS(FilterRoom FilterRooms)
     Q_DECLARE_FLAGS(FilterRooms, FilterRoom)
+    Q_FLAG(FilterRooms)
 
     explicit AdminRoomsFilterProxyModel(CustomBaseModel *model = nullptr, QObject *parent = nullptr);
     ~AdminRoomsFilterProxyModel() override;
