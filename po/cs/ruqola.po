@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:42+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1892,32 +1892,44 @@ msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Spustit s určitým účtem"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:49
+#, fuzzy, kde-format
+#| msgid "Account name:"
+msgid "Account Name"
+msgstr "Název účtu:"
+
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Zobrazit zprávu"
 
 #: core/ruqolacommandlineparser.cpp:51
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Message Url"
+msgstr "Zpráva"
+
+#: core/ruqolacommandlineparser.cpp:52
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:54
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Seznam dostupných voleb pro uživatelskou zpětnou vazbu"
 
-#: core/ruqolacommandlineparser.cpp:57
+#: core/ruqolacommandlineparser.cpp:58
 #, fuzzy, kde-format
 #| msgid "Work Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Pracovat v odpojeném režimu"
 
-#: core/ruqolacommandlineparser.cpp:59
+#: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
 #| msgid "Activated"
 msgctxt "@info:shell"
@@ -10420,7 +10432,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopírovat URL"
 
-#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -10791,91 +10803,91 @@ msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignorovat uživatele"
 
-#: widgets/room/usersinroommenu.cpp:116
+#: widgets/room/usersinroommenu.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Zahájit rozhovor"
 
-#: widgets/room/usersinroommenu.cpp:133
+#: widgets/room/usersinroommenu.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Odebrat jako vlastníka"
 
-#: widgets/room/usersinroommenu.cpp:133
+#: widgets/room/usersinroommenu.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Přidat jako vlastníka"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Odebrat jako vedoucího"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Přidat jako vedoucího"
 
-#: widgets/room/usersinroommenu.cpp:158
+#: widgets/room/usersinroommenu.cpp:162
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Odebrat jako moderátora"
 
-#: widgets/room/usersinroommenu.cpp:158
+#: widgets/room/usersinroommenu.cpp:162
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Přidat jako moderátora"
 
-#: widgets/room/usersinroommenu.cpp:169
+#: widgets/room/usersinroommenu.cpp:173
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:180
+#: widgets/room/usersinroommenu.cpp:184
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:180
+#: widgets/room/usersinroommenu.cpp:184
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:189
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:189
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: widgets/room/usersinroommenu.cpp:191
+#: widgets/room/usersinroommenu.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:191
+#: widgets/room/usersinroommenu.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:199
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Report User"

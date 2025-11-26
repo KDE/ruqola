@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:42+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1901,32 +1901,44 @@ msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Indítás adott fiókkal"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:49
+#, fuzzy, kde-format
+#| msgid "Account name:"
+msgid "Account Name"
+msgstr "Fióknév:"
+
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Üzenet megjelenítése"
 
 #: core/ruqolacommandlineparser.cpp:51
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Message Url"
+msgstr "Üzenet"
+
+#: core/ruqolacommandlineparser.cpp:52
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "Ddp API használata a bejelentkezéshez"
 
-#: core/ruqolacommandlineparser.cpp:54
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Listázza a felhasználói visszajelzés lehetséges opcióit"
 
-#: core/ruqolacommandlineparser.cpp:57
+#: core/ruqolacommandlineparser.cpp:58
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Kilépett"
 
-#: core/ruqolacommandlineparser.cpp:59
+#: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
 #| msgid "Activated"
 msgctxt "@info:shell"
@@ -10826,7 +10838,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL másolása"
 
-#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11205,91 +11217,91 @@ msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Felhasználó mellőzése"
 
-#: widgets/room/usersinroommenu.cpp:116
+#: widgets/room/usersinroommenu.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Beszélgetés indítása"
 
-#: widgets/room/usersinroommenu.cpp:133
+#: widgets/room/usersinroommenu.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Eltávolítás tulajdonosként"
 
-#: widgets/room/usersinroommenu.cpp:133
+#: widgets/room/usersinroommenu.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Hozzáadás tulajdonosként"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Eltávolítás vezetőként"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Hozzáadás vezetőként"
 
-#: widgets/room/usersinroommenu.cpp:158
+#: widgets/room/usersinroommenu.cpp:162
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Eltávolítás moderátorként"
 
-#: widgets/room/usersinroommenu.cpp:158
+#: widgets/room/usersinroommenu.cpp:162
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Hozzáadás moderátorként"
 
-#: widgets/room/usersinroommenu.cpp:169
+#: widgets/room/usersinroommenu.cpp:173
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Eltávolítás a szobából"
 
-#: widgets/room/usersinroommenu.cpp:180
+#: widgets/room/usersinroommenu.cpp:184
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Felhasználó tiltásának feloldása"
 
-#: widgets/room/usersinroommenu.cpp:180
+#: widgets/room/usersinroommenu.cpp:184
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Felhasználó tiltása"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:189
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Mellőzés feloldása"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:189
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Mellőzés"
 
-#: widgets/room/usersinroommenu.cpp:191
+#: widgets/room/usersinroommenu.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Felhasználó némításának megszüntetése"
 
-#: widgets/room/usersinroommenu.cpp:191
+#: widgets/room/usersinroommenu.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Felhasználó némítása"
 
-#: widgets/room/usersinroommenu.cpp:199
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Report User"

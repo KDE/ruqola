@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:42+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1926,32 +1926,43 @@ msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "使用指定帳戶啟動"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:49
+#, kde-format
+msgid "Account Name"
+msgstr "帳戶名稱"
+
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "顯示訊息"
 
 #: core/ruqolacommandlineparser.cpp:51
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Message Url"
+msgstr "訊息"
+
+#: core/ruqolacommandlineparser.cpp:52
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "登入使用 ddp API"
 
-#: core/ruqolacommandlineparser.cpp:54
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "列出能用於使用者回饋的選項"
 
-#: core/ruqolacommandlineparser.cpp:57
+#: core/ruqolacommandlineparser.cpp:58
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "離線"
 
-#: core/ruqolacommandlineparser.cpp:59
+#: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
 #| msgid "Active"
 msgctxt "@info:shell"
@@ -11028,7 +11039,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "複製網址"
 
-#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:128
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
@@ -11426,104 +11437,104 @@ msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "無視使用者"
 
-#: widgets/room/usersinroommenu.cpp:116
+#: widgets/room/usersinroommenu.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "開始對話"
 
-#: widgets/room/usersinroommenu.cpp:133
+#: widgets/room/usersinroommenu.cpp:137
 #, fuzzy, kde-format
 #| msgid "Remove as Owner"
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "從擁有者中移除"
 
-#: widgets/room/usersinroommenu.cpp:133
+#: widgets/room/usersinroommenu.cpp:137
 #, fuzzy, kde-format
 #| msgid "Add as Owner"
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "加入擁有者"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:150
 #, fuzzy, kde-format
 #| msgid "Remove as Leader"
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "從領導者中移除"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:150
 #, fuzzy, kde-format
 #| msgid "Add as Leader"
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "加入領導者"
 
-#: widgets/room/usersinroommenu.cpp:158
+#: widgets/room/usersinroommenu.cpp:162
 #, fuzzy, kde-format
 #| msgid "Remove as Moderator"
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "從 Mod 中移除"
 
-#: widgets/room/usersinroommenu.cpp:158
+#: widgets/room/usersinroommenu.cpp:162
 #, fuzzy, kde-format
 #| msgid "Add as Moderator"
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "加入 Mod"
 
-#: widgets/room/usersinroommenu.cpp:169
+#: widgets/room/usersinroommenu.cpp:173
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "移除"
 
-#: widgets/room/usersinroommenu.cpp:180
+#: widgets/room/usersinroommenu.cpp:184
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "解除封鎖使用者"
 
-#: widgets/room/usersinroommenu.cpp:180
+#: widgets/room/usersinroommenu.cpp:184
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgctxt "@action"
 msgid "Block User"
 msgstr "封鎖使用者"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:189
 #, fuzzy, kde-format
 #| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "不再無視"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:189
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action"
 msgid "Ignore"
 msgstr "無視"
 
-#: widgets/room/usersinroommenu.cpp:191
+#: widgets/room/usersinroommenu.cpp:195
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "邀請使用者"
 
-#: widgets/room/usersinroommenu.cpp:191
+#: widgets/room/usersinroommenu.cpp:195
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@action"
 msgid "Mute User"
 msgstr "邀請使用者"
 
-#: widgets/room/usersinroommenu.cpp:199
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
@@ -13339,9 +13350,6 @@ msgstr ""
 #~| msgid "Search Channel..."
 #~ msgid "Search Channels..."
 #~ msgstr "搜尋頻道…"
-
-#~ msgid "Account Name"
-#~ msgstr "帳戶名稱"
 
 #, fuzzy
 #~| msgid "Delete Room"

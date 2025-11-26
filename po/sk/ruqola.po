@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:42+0000\n"
+"POT-Creation-Date: 2025-11-26 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2013,7 +2013,12 @@ msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:49
+#, kde-format
+msgid "Account Name"
+msgstr "Meno účtu"
+
+#: core/ruqolacommandlineparser.cpp:51
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@info:shell"
@@ -2021,25 +2026,31 @@ msgid "Show Message"
 msgstr "Všetky správy"
 
 #: core/ruqolacommandlineparser.cpp:51
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Message Url"
+msgstr "Správa"
+
+#: core/ruqolacommandlineparser.cpp:52
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:54
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:57
+#: core/ruqolacommandlineparser.cpp:58
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Nepripojený"
 
-#: core/ruqolacommandlineparser.cpp:59
+#: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgctxt "@info:shell"
@@ -11158,7 +11169,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopírovať"
 
-#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:124
+#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:128
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
@@ -11569,104 +11580,104 @@ msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignorovať"
 
-#: widgets/room/usersinroommenu.cpp:116
+#: widgets/room/usersinroommenu.cpp:120
 #, fuzzy, kde-format
 #| msgid "Conversation"
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Konverzácia"
 
-#: widgets/room/usersinroommenu.cpp:133
+#: widgets/room/usersinroommenu.cpp:137
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Odstrániť účet"
 
-#: widgets/room/usersinroommenu.cpp:133
+#: widgets/room/usersinroommenu.cpp:137
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Heslo:"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:150
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Odstrániť účet"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:150
 #, fuzzy, kde-format
 #| msgid "Leader"
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Leader"
 
-#: widgets/room/usersinroommenu.cpp:158
+#: widgets/room/usersinroommenu.cpp:162
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Obľúbené"
 
-#: widgets/room/usersinroommenu.cpp:158
+#: widgets/room/usersinroommenu.cpp:162
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:169
+#: widgets/room/usersinroommenu.cpp:173
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Odstrániť účet"
 
-#: widgets/room/usersinroommenu.cpp:180
+#: widgets/room/usersinroommenu.cpp:184
 #, fuzzy, kde-format
 #| msgid "Unblock user"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Odblokovať používateľa"
 
-#: widgets/room/usersinroommenu.cpp:180
+#: widgets/room/usersinroommenu.cpp:184
 #, fuzzy, kde-format
 #| msgid "Block user"
 msgctxt "@action"
 msgid "Block User"
 msgstr "Blokovať používateľa"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:189
 #, fuzzy, kde-format
 #| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Zrušiť ignoráciu"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:189
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorovať"
 
-#: widgets/room/usersinroommenu.cpp:191
+#: widgets/room/usersinroommenu.cpp:195
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/room/usersinroommenu.cpp:191
+#: widgets/room/usersinroommenu.cpp:195
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/room/usersinroommenu.cpp:199
+#: widgets/room/usersinroommenu.cpp:203
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
@@ -13455,9 +13466,6 @@ msgstr ""
 #~| msgid "User name: %1"
 #~ msgid "User Name:"
 #~ msgstr "Meno používateľa: %1"
-
-#~ msgid "Account Name"
-#~ msgstr "Meno účtu"
 
 #, fuzzy
 #~| msgid "Default"
