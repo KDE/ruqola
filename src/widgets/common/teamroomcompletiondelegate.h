@@ -12,6 +12,7 @@ class AvatarCacheManager;
 class RocketChatAccount;
 class TeamRoomCompletionDelegate : public QItemDelegate
 {
+    Q_OBJECT
 public:
     explicit TeamRoomCompletionDelegate(QObject *parent = nullptr);
     ~TeamRoomCompletionDelegate() override;

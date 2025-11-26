@@ -22,6 +22,7 @@ void SystemMessagesModelTest::shouldHaveDefaultValues()
     QVERIFY(w.systemMessagesSelected().isEmpty());
     QStringList lst;
     const int rowCountNb = w.rowCount();
+    lst.reserve(rowCountNb);
     // First one is not a message type
     for (int i = 1; i < rowCountNb; i++) {
         QStandardItem *itemModel = w.item(i);

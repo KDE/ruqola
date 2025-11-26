@@ -27,7 +27,7 @@ public:
     [[nodiscard]] bool requireHttpAuthentication() const override;
 
 Q_SIGNALS:
-    void groupRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 protected:
     [[nodiscard]] QString jobName() const override;

@@ -139,7 +139,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     setFocusProxy(mMessageTextEdit);
 
-    for (PluginTool *plugin : plugins) {
+    for (PluginTool *plugin : std::as_const(plugins)) {
         if (plugin->enabled()) {
             if (plugin->toolType() == PluginTool::ToolType::MessageViewToolBar) {
                 auto pluginButton = new QToolButton(this);

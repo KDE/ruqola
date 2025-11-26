@@ -23,3 +23,5 @@ bool MessageBlockDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent, QRec
     Q_UNUSED(block);
     return false;
 }
+
+#include "moc_messageblockdelegatehelperbase.cpp"

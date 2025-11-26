@@ -100,3 +100,5 @@ bool UsersForRoomModelDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemVi
     }
     return false;
 }
+
+#include "moc_usersforroommodeldelegate.cpp"

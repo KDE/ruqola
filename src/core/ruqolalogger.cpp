@@ -101,3 +101,5 @@ void RuqolaLogger::dataSaveFromDatabase(const QByteArray &data)
     mDatabaseLogFile.write('[' + QDateTime::currentDateTime().toString().toUtf8() + "] Save: " + data.trimmed() + '\n');
     mDatabaseLogFile.flush();
 }
+
+#include "moc_ruqolalogger.cpp"

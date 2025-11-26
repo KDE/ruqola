@@ -45,3 +45,5 @@ void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         drawDisplay(painter, option, displayRect, text);
     }
 }
+
+#include "moc_emojicompletiondelegate.cpp"

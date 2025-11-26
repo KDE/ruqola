@@ -47,7 +47,7 @@ CreateVideoMessageWizard::~CreateVideoMessageWizard()
 void CreateVideoMessageWizard::slotAccepted()
 {
     mCreateVideoMessagePage->saveSettings();
-    accepted();
+    accept();
 }
 
 void CreateVideoMessageWizard::slotCurrentIdChanged(int id)

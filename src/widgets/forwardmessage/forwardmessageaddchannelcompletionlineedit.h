@@ -20,6 +20,5 @@ Q_SIGNALS:
     void fowardToChannel(const ForwardMessageAddChannelCompletionLineEdit::JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void
-    slotJoinedChannelFound(const ForwardMessageAddChannelCompletionLineEdit::JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotJoinedChannelFound(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info);
 };

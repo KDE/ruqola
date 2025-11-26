@@ -118,3 +118,5 @@ QDebug operator<<(QDebug d, const MessageDelegateHelperBase::DocumentTypeInfo &t
     d.space() << "width:" << t.width;
     return d;
 }
+
+#include "moc_messagedelegatehelperbase.cpp"

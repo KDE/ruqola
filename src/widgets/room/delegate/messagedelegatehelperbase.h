@@ -15,6 +15,7 @@ class RocketChatAccount;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface, public TextUiBase
 {
+    Q_OBJECT
 public:
     struct DocumentTypeInfo {
         QByteArray identifier;

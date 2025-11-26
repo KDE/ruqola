@@ -12,6 +12,7 @@ class AvatarCacheManager;
 class RocketChatAccount;
 class UsersForRoomModelDelegate : public QItemDelegate
 {
+    Q_OBJECT
 public:
     explicit UsersForRoomModelDelegate(QObject *parent = nullptr);
     ~UsersForRoomModelDelegate() override;

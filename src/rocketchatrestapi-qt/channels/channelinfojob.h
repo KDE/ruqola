@@ -23,7 +23,7 @@ public:
     [[nodiscard]] QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void channelInfoDone(const QJsonObject &replyObjectj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void channelInfoDone(const QJsonObject &replyObjectj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

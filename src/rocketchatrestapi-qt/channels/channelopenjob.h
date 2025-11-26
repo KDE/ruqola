@@ -29,7 +29,7 @@ protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 Q_SIGNALS:
-    void channelOpenDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void channelOpenDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

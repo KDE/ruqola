@@ -10,6 +10,7 @@
 
 class EmojiCompletionDelegate : public QItemDelegate
 {
+    Q_OBJECT
 public:
     explicit EmojiCompletionDelegate(QObject *parent = nullptr);
     ~EmojiCompletionDelegate() override;

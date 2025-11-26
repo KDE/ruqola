@@ -80,6 +80,7 @@ void CustomUserStatusTreeWidget::addClicked()
     const CustomUserStatuses statuses = mRocketChatAccount->customUserStatuses();
     const QList<CustomUserStatus> customUserses = statuses.customUserStatusList();
     QStringList names;
+    names.reserve(customUserses.count());
     for (const CustomUserStatus &status : customUserses) {
         names << status.name();
     }

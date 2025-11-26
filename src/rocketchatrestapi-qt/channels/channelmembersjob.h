@@ -37,7 +37,7 @@ public:
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
-    void channelMembersDone(const QJsonObject &replyObjectj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void channelMembersDone(const QJsonObject &replyObjectj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 protected:
     [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;

@@ -83,3 +83,5 @@ QSize UserCompletionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     const QSize size = QItemDelegate::sizeHint(option, index);
     return size + QSize(0, 4 * option.widget->devicePixelRatioF());
 }
+
+#include "moc_usercompletiondelegate.cpp"

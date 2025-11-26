@@ -59,3 +59,5 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
 
     painter->setPen(oldPen);
 }
+
+#include "moc_commandcompletiondelegate.cpp"

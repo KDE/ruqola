@@ -10,6 +10,7 @@
 
 class CommandCompletionDelegate : public QItemDelegate
 {
+    Q_OBJECT
 public:
     explicit CommandCompletionDelegate(QObject *parent = nullptr);
     ~CommandCompletionDelegate() override;

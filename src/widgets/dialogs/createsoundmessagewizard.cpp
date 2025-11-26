@@ -34,7 +34,7 @@ CreateSoundMessageWizard::CreateSoundMessageWizard(RocketChatAccount *account, Q
 void CreateSoundMessageWizard::slotAccepted()
 {
     mCreateSoundMessagePage->saveSettings();
-    accepted();
+    accept();
 }
 
 CreateSoundMessageWizard::CreateSoundMessageInfo CreateSoundMessageWizard::soundMessageInfo() const

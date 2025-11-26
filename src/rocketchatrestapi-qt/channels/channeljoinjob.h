@@ -32,9 +32,9 @@ protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 Q_SIGNALS:
-    void setChannelJoinDone(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void missingChannelPassword(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void openArchivedRoom(const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

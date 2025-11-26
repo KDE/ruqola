@@ -13,6 +13,7 @@ class QMouseEvent;
 class QHelpEvent;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageBlockDelegateHelperBase : public MessageDelegateHelperBase
 {
+    Q_OBJECT
 public:
     explicit MessageBlockDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     virtual ~MessageBlockDelegateHelperBase();
