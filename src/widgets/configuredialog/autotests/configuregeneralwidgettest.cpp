@@ -71,7 +71,7 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
 
     auto mStoreMessageInDataBase = w.findChild<QCheckBox *>(u"mStoreMessageInDataBase"_s);
     QVERIFY(mStoreMessageInDataBase);
-    QVERIFY(!mStoreMessageInDataBase->isChecked());
+    QVERIFY(mStoreMessageInDataBase->isChecked());
     QVERIFY(!mStoreMessageInDataBase->text().isEmpty());
 }
 
