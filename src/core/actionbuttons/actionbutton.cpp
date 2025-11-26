@@ -146,7 +146,7 @@ ActionButton::Category ActionButton::category() const
     return mCategory;
 }
 
-void ActionButton::setCategory(const Category &newCategory)
+void ActionButton::setCategory(Category newCategory)
 {
     mCategory = newCategory;
 }
@@ -185,7 +185,7 @@ ActionButton::MessageActionContexts ActionButton::messageActionContexts() const
     return mMessageActionContexts;
 }
 
-void ActionButton::setMessageActionContexts(const MessageActionContexts &newMessageActionContexts)
+void ActionButton::setMessageActionContexts(MessageActionContexts newMessageActionContexts)
 {
     mMessageActionContexts = newMessageActionContexts;
 }

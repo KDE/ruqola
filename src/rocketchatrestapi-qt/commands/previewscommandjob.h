@@ -45,7 +45,7 @@ public:
     [[nodiscard]] static PreviewsCommandInfo parseString(const QString &str, const QByteArray &roomId);
 Q_SIGNALS:
     void previewsCommandDone(const QJsonObject &replyObject);
-    void previewsCommandFailed(const PreviewsCommandJob::PreviewsCommandInfo &info);
+    void previewsCommandFailed(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

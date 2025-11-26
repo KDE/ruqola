@@ -30,7 +30,7 @@ protected:
     [[nodiscard]] QString jobName() const override;
 
 Q_SIGNALS:
-    void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
+    void avatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

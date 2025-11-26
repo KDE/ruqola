@@ -102,10 +102,10 @@ public:
     void setHasAllPermissions(const QStringList &newHasAllPermissions);
 
     [[nodiscard]] MessageActionContexts messageActionContexts() const;
-    void setMessageActionContexts(const MessageActionContexts &newMessageActionContexts);
+    void setMessageActionContexts(MessageActionContexts newMessageActionContexts);
 
     [[nodiscard]] Category category() const;
-    void setCategory(const Category &newCategory);
+    void setCategory(Category newCategory);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;

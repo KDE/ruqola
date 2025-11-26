@@ -216,7 +216,7 @@ NotificationInfo::NotificationType NotificationInfo::notificationType() const
     return mNotificationType;
 }
 
-void NotificationInfo::setNotificationType(const NotificationType &newNotificationType)
+void NotificationInfo::setNotificationType(NotificationType newNotificationType)
 {
     mNotificationType = newNotificationType;
 }

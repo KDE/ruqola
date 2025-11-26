@@ -139,7 +139,7 @@ QString LocalDatabaseUtils::insertReplaceMessageFromLogs()
 
 qint64 LocalDatabaseUtils::currentTimeStamp()
 {
-    return QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
+    return QDateTime::currentMSecsSinceEpoch();
 }
 
 QString LocalDatabaseUtils::jsonAccount()

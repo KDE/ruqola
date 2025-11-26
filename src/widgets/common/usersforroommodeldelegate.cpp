@@ -52,7 +52,7 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
         xPos = margin + option.rect.height();
     }
 
-    const QString iconStatusStr = index.data(UsersForRoomModel::IconStatus).value<QString>();
+    const QString iconStatusStr = index.data(UsersForRoomModel::IconStatus).toString();
     if (!iconStatusStr.isEmpty()) {
         const QIcon iconStatus = QIcon::fromTheme(iconStatusStr);
         const QRect displayRect(margin + xPos, option.rect.y(), option.rect.height(), option.rect.height());

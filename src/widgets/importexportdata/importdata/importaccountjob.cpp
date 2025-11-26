@@ -188,7 +188,7 @@ QString ImportAccountJob::verifyExistingAccount(QString accountName) const
     int i = 1;
     QString orginalAccountName = accountName;
     while (QDir(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + u"/ruqola/"_s + accountName).exists()) {
-        accountName = u"%1_%2"_s.arg(orginalAccountName).arg(QString::number(i));
+        accountName = u"%1_%2"_s.arg(orginalAccountName, QString::number(i));
         ++i;
     }
     return accountName;

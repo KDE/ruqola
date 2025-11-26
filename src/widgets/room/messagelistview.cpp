@@ -738,7 +738,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
     if (!userInfoActions.isEmpty()) {
         menu.addSeparator();
-        for (auto action : userInfoActions) {
+        for (auto action : std::as_const(userInfoActions)) {
             menu.addAction(action);
         }
     }

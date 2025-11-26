@@ -60,7 +60,7 @@ void BannerMessageWidget::updateInfo()
     if (mBannerInfos.isEmpty()) {
         animatedHide();
     } else {
-        const auto info = mBannerInfos.first();
+        const auto info = mBannerInfos.constFirst();
         setText(info.i18nMessage);
         animatedShow();
     }

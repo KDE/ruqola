@@ -40,7 +40,7 @@ public:
     [[nodiscard]] static RunCommandInfo parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid, const QString &forceUuid = {});
 Q_SIGNALS:
     void runCommandDone();
-    void runCommandFailed(const RunCommandJob::RunCommandInfo &info);
+    void runCommandFailed(const RocketChatRestApi::RunCommandJob::RunCommandInfo &info);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

@@ -141,7 +141,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
 
 void AutoGenerateInteractionUiViewActionsBlock::setErrorMessages(const QMap<QString, QString> &map)
 {
-    for (const auto &e : mElements) {
+    for (const auto &e : std::as_const(mElements)) {
         e->setErrorMessages(map);
     }
 }

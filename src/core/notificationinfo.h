@@ -69,7 +69,7 @@ public:
     void setMessageId(const QByteArray &newMessageId);
 
     [[nodiscard]] NotificationType notificationType() const;
-    void setNotificationType(const NotificationType &newNotificationType);
+    void setNotificationType(NotificationType newNotificationType);
 
     [[nodiscard]] bool operator==(const NotificationInfo &other) const;
 

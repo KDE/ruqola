@@ -125,7 +125,7 @@ public:
     void setAlias(const QString &alias);
 
     [[nodiscard]] SystemMessageTypeUtil::SystemMessageType systemMessageType() const;
-    void setSystemMessageType(const SystemMessageTypeUtil::SystemMessageType &systemMessageType);
+    void setSystemMessageType(SystemMessageTypeUtil::SystemMessageType systemMessageType);
 
     [[nodiscard]] MessageType messageType() const;
     void setMessageType(Message::MessageType messageType);

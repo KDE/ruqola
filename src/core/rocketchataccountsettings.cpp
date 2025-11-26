@@ -161,7 +161,7 @@ AuthenticationManager::AuthMethodType RocketChatAccountSettings::authMethodType(
     return mAuthMethodType;
 }
 
-void RocketChatAccountSettings::setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType)
+void RocketChatAccountSettings::setAuthMethodType(AuthenticationManager::AuthMethodType newAuthMethodType)
 {
     if (mAuthMethodType != newAuthMethodType) {
         mAuthMethodType = newAuthMethodType;
@@ -244,7 +244,7 @@ void RocketChatAccountSettings::setExpireToken(qint64 expireToken)
 
 bool RocketChatAccountSettings::tokenExpired() const
 {
-    return mExpireToken < QDateTime::currentDateTime().toMSecsSinceEpoch();
+    return mExpireToken < QDateTime::currentMSecsSinceEpoch();
 }
 
 QByteArray RocketChatAccountSettings::userId() const

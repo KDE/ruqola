@@ -59,6 +59,7 @@ QJsonArray Replies::serialize(const Replies &replies)
 {
     QJsonArray array;
     QStringList serialize;
+    serialize.reserve(replies.replies().count());
     for (const QByteArray &i : replies.replies()) {
         serialize << QString::fromLatin1(i);
     }

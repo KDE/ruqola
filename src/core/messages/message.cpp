@@ -763,7 +763,7 @@ SystemMessageTypeUtil::SystemMessageType Message::systemMessageType() const
     return mSystemMessageType;
 }
 
-void Message::setSystemMessageType(const SystemMessageTypeUtil::SystemMessageType &systemMessageType)
+void Message::setSystemMessageType(SystemMessageTypeUtil::SystemMessageType systemMessageType)
 {
     mSystemMessageType = systemMessageType;
 }

@@ -71,7 +71,7 @@ public:
     void setLastCheckedPreviewUrlCacheDate(const QDate &newLastCheckedPreviewUrlCacheDate);
 
     [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
-    void setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType);
+    void setAuthMethodType(AuthenticationManager::AuthMethodType newAuthMethodType);
 
     [[nodiscard]] QStringList activities() const;
     void setActivities(const QStringList &newActivities);

@@ -53,7 +53,7 @@ public:
     void openWith(const KService::Ptr &p);
 
 Q_SIGNALS:
-    void updateMenu(const ImageInfo &info);
+    void updateMenu(const ShowImageWidget::ImageInfo &info);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

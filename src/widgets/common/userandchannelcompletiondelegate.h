@@ -11,6 +11,7 @@ class AvatarCacheManager;
 class RocketChatAccount;
 class UserAndChannelCompletionDelegate : public QItemDelegate
 {
+    Q_OBJECT
 public:
     explicit UserAndChannelCompletionDelegate(QObject *parent = nullptr);
     ~UserAndChannelCompletionDelegate() override;

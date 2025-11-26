@@ -67,7 +67,6 @@ void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
     for (const auto &info : array) {
         const QString version = info["version"_L1].toString();
         QString changesNote = info["changesNote"_L1].toString();
-        const QString createdDate = info["createdDate"_L1].toString();
         if (changesNote.isEmpty()) {
             changesNote = i18n("No release information provided");
         }
@@ -75,6 +74,7 @@ void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
 
         message += u"<b>%1</b><br/>"_s.arg(version);
         message += changesNote + u"<br/><br/>"_s;
+        // const QString createdDate = info["createdDate"_L1].toString();
         // TODO add createdDate
     }
     if (message.isEmpty()) {

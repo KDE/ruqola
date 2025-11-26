@@ -37,7 +37,7 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
             return left->order() < right->order();
         });
     }
-    for (PluginText *plugin : plugins) {
+    for (PluginText *plugin : std::as_const(plugins)) {
         if (plugin->enabled()) {
             connect(plugin, &PluginText::errorMessage, this, &MessageListViewBase::errorMessage);
             connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);
