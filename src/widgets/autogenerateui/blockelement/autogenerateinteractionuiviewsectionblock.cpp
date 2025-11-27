@@ -122,7 +122,8 @@ void AutoGenerateInteractionUiViewSectionBlock::parseBlock(const QJsonObject &js
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewSectionBlock Unknown type " << type;
         }
     }
-    for (const auto &r : json["fields"_L1].toArray()) {
+    const auto fields = json["fields"_L1].toArray();
+    for (const auto &r : fields) {
         auto e = new AutoGenerateInteractionUiViewText;
         e->parse(r.toObject());
         mFields.append(e);

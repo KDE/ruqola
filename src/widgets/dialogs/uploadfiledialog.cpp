@@ -14,10 +14,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
-namespace
-{
-const char myUploadFileDialogGroupName[] = "UploadFileDialog";
-}
 UploadFileDialog::UploadFileDialog(QWidget *parent)
     : QDialog(parent)
     , mUploadFileWidget(new UploadFileWidget(this))

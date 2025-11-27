@@ -107,7 +107,8 @@ QStringList CreateNewChannelWidget::members(bool userId) const
 {
     if (userId) {
         QStringList lst;
-        for (const QByteArray &b : mUsers->userIds()) {
+        const auto ids = mUsers->userIds();
+        for (const QByteArray &b : ids) {
             lst.append(QString::fromLatin1(b));
         }
         return lst;

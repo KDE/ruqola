@@ -53,7 +53,8 @@ QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *pare
 
 void AutoGenerateInteractionUiViewContextBlock::parseBlock(const QJsonObject &json)
 {
-    for (const auto &r : json["elements"_L1].toArray()) {
+    const auto elements = json["elements"_L1].toArray();
+    for (const auto &r : elements) {
         const QString type = r["type"_L1].toString();
         if (type == "plain_text"_L1 || type == "mrkdwn"_L1) {
             auto text = new AutoGenerateInteractionUiViewText;

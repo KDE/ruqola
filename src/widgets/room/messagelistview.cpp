@@ -505,7 +505,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 slotReplyInThread(index);
             });
             menu.addAction(replyInThreadAction);
-            for (auto action : threadInfoActions) {
+            for (auto action : std::as_const(threadInfoActions)) {
                 menu.addAction(action);
             }
 
@@ -689,7 +689,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
         if (!threadInfoActions.isEmpty()) {
             menu.addSeparator();
-            for (auto action : threadInfoActions) {
+            for (auto action : std::as_const(threadInfoActions)) {
                 menu.addAction(action);
             }
         }

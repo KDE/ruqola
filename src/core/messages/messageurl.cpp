@@ -312,14 +312,16 @@ void MessageUrl::parseUrl(const QJsonObject &url)
 
     const QJsonObject meta = url.value("meta"_L1).toObject();
     if (!meta.isEmpty()) {
-        for (const QString &element : pageTitleElements()) {
+        const auto titleElements = pageTitleElements();
+        for (const QString &element : titleElements) {
             const QJsonValue pageTitleStr = meta.value(element);
             if (!pageTitleStr.isUndefined()) {
                 setPageTitle(pageTitleStr.toString());
                 break;
             }
         }
-        for (const QString &element : descriptionElements()) {
+        const auto descElements = descriptionElements();
+        for (const QString &element : descElements) {
             const QJsonValue descriptionStr = meta.value(element);
             if (!descriptionStr.isUndefined()) {
                 setDescription(descriptionStr.toString());

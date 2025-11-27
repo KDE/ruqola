@@ -49,7 +49,7 @@ void ModerationMessage::parse(const QJsonObject &obj)
 {
     mModerationId = obj["_id"_L1].toString().toLatin1();
     // TODO add timestamp
-    const QJsonObject messageObject = obj["message"_L1].toObject();
+    // const QJsonObject messageObject = obj["message"_L1].toObject();
     parseRoom(obj["room"_L1].toObject());
 }
 

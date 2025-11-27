@@ -194,7 +194,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 #endif
     buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
-    for (PluginTool *plugin : plugins) {
+    for (PluginTool *plugin : std::as_const(plugins)) {
         if (plugin->enabled()) {
             if (plugin->toolType() == PluginTool::ToolType::MessageViewHeaderToolBar) {
                 mPluginButton = new QToolButton(this);
