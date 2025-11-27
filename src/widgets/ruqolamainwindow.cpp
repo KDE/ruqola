@@ -114,7 +114,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
     , mSwitchChannelTreeManager(new SwitchChannelTreeViewManager(this))
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    , mVerifyNewVersionWidgetAction(new TextAddonsWidgets::VerifyNewVersionWidget(this))
+    , mVerifyNewVersionWidget(new TextAddonsWidgets::VerifyNewVersionWidget(this))
 #endif
 
 {
@@ -717,7 +717,6 @@ void RuqolaMainWindow::setupActions()
     const QString url = defaultUrlPath + u"/master/macos-x86_64/"_s;
 #endif
     mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::MacOsArm64, url);
-#endif
 #else
 #if RUQOLA_STABLE_VERSION
     const QString url = defaultUrlPath + u"/2.6/macos-arm64/"_s;
@@ -726,8 +725,8 @@ void RuqolaMainWindow::setupActions()
 #endif
     mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::MacOsArm64, url);
 #endif
-
-    auto verifyNewVersionAction = mVerifyNewVersionWidgetAction->verifyNewVersionAction();
+#endif
+    auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
     ac->addAction(u"verify_check_version"_s, verifyNewVersionAction);
 #endif
 

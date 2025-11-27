@@ -205,6 +205,6 @@ private:
     MessageStyleLayoutMenu *mMessageStyleAction = nullptr;
     ChangeFontSizeMenu *mChangeFontSizeAction = nullptr;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    TextAddonsWidgets::VerifyNewVersionWidget *const mVerifyNewVersionWidgetAction;
+    TextAddonsWidgets::VerifyNewVersionWidget *const mVerifyNewVersionWidget;
 #endif
 };
