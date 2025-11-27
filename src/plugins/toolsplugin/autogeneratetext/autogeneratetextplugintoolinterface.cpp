@@ -5,7 +5,6 @@
 */
 #include "autogeneratetextplugintoolinterface.h"
 #include "ruqola.h"
-#include <TextAutoGenerateText/TextAutoGenerateQuickAskDialog>
 AutoGenerateTextPluginToolInterface::AutoGenerateTextPluginToolInterface(QObject *parent)
     : PluginToolInterface{parent}
 {
@@ -15,8 +14,14 @@ AutoGenerateTextPluginToolInterface::~AutoGenerateTextPluginToolInterface() = de
 
 void AutoGenerateTextPluginToolInterface::activateTool()
 {
-    TextAutoGenerateText::TextAutoGenerateQuickAskDialog d(Ruqola::self()->textAutoGenerateManager(), nullptr);
-    d.exec();
+    if (!mQuickAskDialog) {
+        mQuickAskDialog = new TextAutoGenerateText::TextAutoGenerateQuickAskDialog(Ruqola::self()->textAutoGenerateManager(), nullptr);
+        mQuickAskDialog->setAttribute(Qt::WA_DeleteOnClose);
+        mQuickAskDialog->show();
+    } else {
+        mQuickAskDialog->raise();
+        mQuickAskDialog->activateWindow();
+    }
 }
 
 #include "moc_autogeneratetextplugintoolinterface.cpp"

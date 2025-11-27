@@ -6,7 +6,8 @@
 
 #pragma once
 #include "room/plugins/plugintoolinterface.h"
-
+#include <QPointer>
+#include <TextAutoGenerateText/TextAutoGenerateQuickAskDialog>
 class AutoGenerateTextPluginToolInterface : public PluginToolInterface
 {
     Q_OBJECT
@@ -14,4 +15,7 @@ public:
     explicit AutoGenerateTextPluginToolInterface(QObject *parent = nullptr);
     ~AutoGenerateTextPluginToolInterface() override;
     void activateTool() override;
+
+private:
+    QPointer<TextAutoGenerateText::TextAutoGenerateQuickAskDialog> mQuickAskDialog;
 };
