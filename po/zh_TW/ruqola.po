@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-11-27 00:43+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3070,7 +3070,7 @@ msgstr "移除表情符號"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:168
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:103
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:108
@@ -3084,7 +3084,7 @@ msgstr "新增…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:178
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:107
@@ -3098,7 +3098,7 @@ msgstr "變更…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:182
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:173
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:122
@@ -3173,14 +3173,14 @@ msgstr "狀態："
 msgid "Presence"
 msgstr ""
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:152
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:153
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:213
 #, fuzzy, kde-format
 #| msgid "Do you want to open this channel: \"%1\"?"
 msgid "Do you want to remove \"%1\"?"
 msgstr "您確定要開啟這個頻道：「%1」嗎？"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:153
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:154
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom User Status"
@@ -7530,7 +7530,7 @@ msgstr "狀態"
 msgid "Fetching version information in progress..."
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:72
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
 #, kde-format
 msgid "No release information provided"
 msgstr ""
@@ -7738,7 +7738,7 @@ msgid "Username or email:"
 msgstr "使用者名稱或電子郵件"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1095
+#: widgets/ruqolamainwindow.cpp:1124
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7746,7 +7746,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1096
+#: widgets/ruqolamainwindow.cpp:1125
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -11765,91 +11765,91 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "顯示最愛聊天室"
 
-#: widgets/ruqolamainwindow.cpp:705
+#: widgets/ruqolamainwindow.cpp:734
 #, kde-format
 msgid "What's new"
 msgstr "新功能"
 
-#: widgets/ruqolamainwindow.cpp:709
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgid "Import Accounts"
 msgstr "匯入名稱"
 
-#: widgets/ruqolamainwindow.cpp:713
+#: widgets/ruqolamainwindow.cpp:742
 #, kde-format
 msgid "Export Accounts"
 msgstr "匯出帳戶"
 
-#: widgets/ruqolamainwindow.cpp:730
+#: widgets/ruqolamainwindow.cpp:759
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "中等"
 
-#: widgets/ruqolamainwindow.cpp:738
+#: widgets/ruqolamainwindow.cpp:767
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "簡明"
 
-#: widgets/ruqolamainwindow.cpp:747
+#: widgets/ruqolamainwindow.cpp:776
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "擴展"
 
-#: widgets/ruqolamainwindow.cpp:755
+#: widgets/ruqolamainwindow.cpp:784
 #, fuzzy, kde-format
 #| msgid "Password History"
 msgid "Clear history"
 msgstr "密碼歷史"
 
-#: widgets/ruqolamainwindow.cpp:800
+#: widgets/ruqolamainwindow.cpp:829
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立團隊"
 
-#: widgets/ruqolamainwindow.cpp:997
+#: widgets/ruqolamainwindow.cpp:1026
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:997
+#: widgets/ruqolamainwindow.cpp:1026
 #, fuzzy, kde-format
 #| msgid "Show Channel Log"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "顯示頻道紀錄"
 
-#: widgets/ruqolamainwindow.cpp:1167
+#: widgets/ruqolamainwindow.cpp:1196
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態"
 
-#: widgets/ruqolamainwindow.cpp:1254
+#: widgets/ruqolamainwindow.cpp:1283
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1257
+#: widgets/ruqolamainwindow.cpp:1286
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "隱藏選單列"
 
-#: widgets/ruqolamainwindow.cpp:1431
+#: widgets/ruqolamainwindow.cpp:1460
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "離線"
 
-#: widgets/ruqolamainwindow.cpp:1434
+#: widgets/ruqolamainwindow.cpp:1463
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
