@@ -344,6 +344,7 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
                 &RoomHeaderWidget::slotActionButtonChanged);
 #if ADD_OFFLINE_SUPPORT
         connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomHeaderWidget::slotOfflineModeChanged);
+        slotOfflineModeChanged();
 #endif
     }
 }

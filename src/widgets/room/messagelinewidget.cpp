@@ -434,6 +434,7 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, 
     connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineWidget::slotPrivateSettingsChanged);
 #if ADD_OFFLINE_SUPPORT
     connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &MessageLineWidget::slotOfflineModeChanged);
+    slotOfflineModeChanged();
 #endif
 
     mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
