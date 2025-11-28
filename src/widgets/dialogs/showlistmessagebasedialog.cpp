@@ -5,7 +5,6 @@
 */
 
 #include "showlistmessagebasedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ShowListMessageBaseDialog::ShowListMessageBaseDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowListMessage(new ShowListMessageBaseWidget(account, this))

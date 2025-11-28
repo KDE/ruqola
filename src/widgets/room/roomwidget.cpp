@@ -530,15 +530,19 @@ void RoomWidget::slotShowThreads()
     if (!mRoom) {
         return;
     }
-    QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(mCurrentRocketChatAccount, this);
-    dlg->setFilterProxyModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
+    if (!mShowThreadsDialog) {
+        mShowThreadsDialog = new ShowThreadsDialog(mCurrentRocketChatAccount, this);
+    }
+    mShowThreadsDialog->setFilterProxyModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     const QByteArray currentRoomId{mRoomWidgetBase->roomId()};
-    dlg->setRoomId(currentRoomId);
-    dlg->setRoom(mRoom);
+    mShowThreadsDialog->setRoomId(currentRoomId);
+    mShowThreadsDialog->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(currentRoomId, ListMessagesModel::ThreadsMessages);
-    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
-    dlg->exec();
-    delete dlg;
+    connect(mShowThreadsDialog, &ShowListMessageBaseDialog::goToMessageRequested, this, [this](const QByteArray &messageId, const QString &messageDateTimeUtc) {
+        slotGotoMessage(messageId, messageDateTimeUtc);
+    });
+    mShowThreadsDialog->exec();
+    delete mShowThreadsDialog;
 }
 
 void RoomWidget::slotShowDiscussions()
@@ -1098,6 +1102,7 @@ void RoomWidget::slotOpenThreadRequested(const QByteArray &threadMessageId,
     info.messageThread = threadMessage;
     dlg->setThreadMessageInfo(info);
     dlg->show();
+    delete mShowThreadsDialog;
 }
 
 void RoomWidget::setLayoutSpacing(int spacing)

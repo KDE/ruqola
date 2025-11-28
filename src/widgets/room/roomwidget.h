@@ -12,6 +12,7 @@
 #include "roomheaderwidget.h"
 #include <QPointer>
 class QVBoxLayout;
+class ShowThreadsDialog;
 
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
@@ -137,4 +138,5 @@ private:
     E2eSaveEncryptionKeyWidget *mE2eSaveEncryptionKeyWidget = nullptr;
     E2eDecodeEncryptionKeyFailedWidget *mE2eDecodeEncryptionKeyFailedWidget = nullptr;
     E2eDecodeEncryptionKeyWidget *mE2eDecodeEncryptionKeyWidget = nullptr;
+    QPointer<ShowThreadsDialog> mShowThreadsDialog;
 };

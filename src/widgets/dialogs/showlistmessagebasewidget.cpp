@@ -5,7 +5,6 @@
 */
 
 #include "showlistmessagebasewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/searchmessagelinewidget.h"
 #include "room/messagelistview.h"
@@ -20,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchMessageLineWidget(new SearchMessageLineWidget(this))
