@@ -11,7 +11,7 @@
 class GrabScreenPluginToolInterface : public PluginToolInterface
 {
 public:
-    explicit GrabScreenPluginToolInterface(QObject *parent = nullptr);
+    explicit GrabScreenPluginToolInterface(QWidget *parentWidget, QObject *parent = nullptr);
     ~GrabScreenPluginToolInterface() override;
     void activateTool() override;
 

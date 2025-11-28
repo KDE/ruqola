@@ -12,7 +12,7 @@ class AutoGenerateTextPluginToolInterface : public PluginToolInterface
 {
     Q_OBJECT
 public:
-    explicit AutoGenerateTextPluginToolInterface(QObject *parent = nullptr);
+    explicit AutoGenerateTextPluginToolInterface(QWidget *parentWidget, QObject *parent = nullptr);
     ~AutoGenerateTextPluginToolInterface() override;
     void activateTool() override;
 

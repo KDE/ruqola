@@ -45,9 +45,9 @@ QString AiActionsPluginTool::description() const
     return {};
 }
 
-PluginToolInterface *AiActionsPluginTool::createInterface(QObject *parent)
+PluginToolInterface *AiActionsPluginTool::createInterface(QWidget *parentWidget, QObject *parent)
 {
-    return new AiActionsPluginToolInterface(parent);
+    return new AiActionsPluginToolInterface(parentWidget, parent);
 }
 
 int AiActionsPluginTool::order() const

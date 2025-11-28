@@ -150,7 +150,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
                 }
                 pluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
                 pluginButton->setToolTip(plugin->toolTip());
-                auto interface = plugin->createInterface(this);
+                auto interface = plugin->createInterface(this, this);
                 mPluginToolInterface.append(interface);
                 connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
                     const PluginToolInterface::PluginToolInfo info{
@@ -163,7 +163,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
                     interface->activateTool();
                 });
                 if (plugin->hasMenu()) {
-                    pluginButton->setMenu(interface->menu(this));
+                    pluginButton->setMenu(interface->menu());
                     pluginButton->setPopupMode(QToolButton::InstantPopup);
                 } else {
                     connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);

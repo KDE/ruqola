@@ -6,8 +6,9 @@
 
 #include "plugintoolinterface.h"
 
-PluginToolInterface::PluginToolInterface(QObject *parent)
+PluginToolInterface::PluginToolInterface(QWidget *parentWidget, QObject *parent)
     : QObject{parent}
+    , mParentWidget(parentWidget)
 {
 }
 
@@ -28,7 +29,7 @@ void PluginToolInterface::setInfo(const PluginToolInfo &newInfo)
     mInfo = newInfo;
 }
 
-QMenu *PluginToolInterface::menu([[maybe_unused]] QWidget *parentWidget) const
+QMenu *PluginToolInterface::menu() const
 {
     return nullptr;
 }

@@ -20,7 +20,7 @@ public:
     [[nodiscard]] QString iconName() const override;
     [[nodiscard]] QString toolTip() const override;
     [[nodiscard]] QString description() const override;
-    [[nodiscard]] PluginToolInterface *createInterface(QObject *parent) override;
+    [[nodiscard]] PluginToolInterface *createInterface(QWidget *parentWidget, QObject *parent) override;
     [[nodiscard]] int order() const override;
     [[nodiscard]] bool hasMenu() const override;
     [[nodiscard]] bool hasConfigureDialog() const override;

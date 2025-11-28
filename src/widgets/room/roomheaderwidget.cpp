@@ -205,7 +205,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
                 }
                 mPluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
                 mPluginButton->setToolTip(plugin->toolTip());
-                auto interface = plugin->createInterface(this);
+                auto interface = plugin->createInterface(this, this);
                 mPluginToolInterface.append(interface);
                 connect(interface, &PluginToolInterface::activateRequested, this, [this, interface]() {
                     const PluginToolInterface::PluginToolInfo info{
@@ -218,7 +218,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
                     interface->activateTool();
                 });
                 if (plugin->hasMenu()) {
-                    mPluginButton->setMenu(interface->menu(this));
+                    mPluginButton->setMenu(interface->menu());
                     mPluginButton->setPopupMode(QToolButton::InstantPopup);
                 } else {
                     connect(mPluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);

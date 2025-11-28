@@ -46,9 +46,9 @@ QString AutoGenerateTextPluginTool::description() const
     return {};
 }
 
-PluginToolInterface *AutoGenerateTextPluginTool::createInterface(QObject *parent)
+PluginToolInterface *AutoGenerateTextPluginTool::createInterface(QWidget *parentWidget, QObject *parent)
 {
-    return new AutoGenerateTextPluginToolInterface(parent);
+    return new AutoGenerateTextPluginToolInterface(parentWidget, parent);
 }
 
 int AutoGenerateTextPluginTool::order() const

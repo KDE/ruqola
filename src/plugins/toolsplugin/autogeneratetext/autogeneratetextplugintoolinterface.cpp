@@ -5,8 +5,8 @@
 */
 #include "autogeneratetextplugintoolinterface.h"
 #include "ruqola.h"
-AutoGenerateTextPluginToolInterface::AutoGenerateTextPluginToolInterface(QObject *parent)
-    : PluginToolInterface{parent}
+AutoGenerateTextPluginToolInterface::AutoGenerateTextPluginToolInterface(QWidget *parentWidget, QObject *parent)
+    : PluginToolInterface{parentWidget, parent}
 {
 }
 

@@ -17,10 +17,10 @@ public:
         // TODO add more action
     };
 
-    explicit AiActionsPluginToolInterface(QObject *parent = nullptr);
+    explicit AiActionsPluginToolInterface(QWidget *parentWidget, QObject *parent = nullptr);
     ~AiActionsPluginToolInterface() override;
     void activateTool() override;
-    [[nodiscard]] QMenu *menu(QWidget *parentWidget) const override;
+    [[nodiscard]] QMenu *menu() const override;
 
 private:
     void slotSummarize();

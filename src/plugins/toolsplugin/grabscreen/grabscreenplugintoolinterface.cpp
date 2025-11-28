@@ -20,8 +20,8 @@
 #include <QPointer>
 #include <QUrl>
 
-GrabScreenPluginToolInterface::GrabScreenPluginToolInterface(QObject *parent)
-    : PluginToolInterface{parent}
+GrabScreenPluginToolInterface::GrabScreenPluginToolInterface(QWidget *parentWidget, QObject *parent)
+    : PluginToolInterface{parentWidget, parent}
 {
 }
 

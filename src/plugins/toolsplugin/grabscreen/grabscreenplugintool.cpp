@@ -48,9 +48,9 @@ QString GrabScreenPluginTool::description() const
     return i18n("This tool allows to create screenshot.");
 }
 
-PluginToolInterface *GrabScreenPluginTool::createInterface(QObject *parent)
+PluginToolInterface *GrabScreenPluginTool::createInterface(QWidget *parentWidget, QObject *parent)
 {
-    return new GrabScreenPluginToolInterface(parent);
+    return new GrabScreenPluginToolInterface(parentWidget, parent);
 }
 
 int GrabScreenPluginTool::order() const

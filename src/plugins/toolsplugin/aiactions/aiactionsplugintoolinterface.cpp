@@ -9,8 +9,8 @@
 #include <KLocalizedString>
 #include <QMenu>
 #include <TextAutoGenerateText/TextAutoGenerateQuickAskDialog>
-AiActionsPluginToolInterface::AiActionsPluginToolInterface(QObject *parent)
-    : PluginToolInterface{parent}
+AiActionsPluginToolInterface::AiActionsPluginToolInterface(QWidget *parentWidget, QObject *parent)
+    : PluginToolInterface{parentWidget, parent}
 {
 }
 
@@ -29,9 +29,9 @@ void AiActionsPluginToolInterface::activateTool()
     }
 }
 
-QMenu *AiActionsPluginToolInterface::menu(QWidget *parentWidget) const
+QMenu *AiActionsPluginToolInterface::menu() const
 {
-    auto menu = new QMenu(parentWidget);
+    auto menu = new QMenu(mParentWidget);
     QAction *act = menu->addAction(i18n("Summarize Unreads"));
     connect(act, &QAction::triggered, this, &AiActionsPluginToolInterface::slotSummarize);
     return menu;
@@ -46,7 +46,7 @@ void AiActionsPluginToolInterface::slotSummarize()
 void AiActionsPluginToolInterface::slotSummarizeUnreadMessages()
 {
     // TODO get message model info()
-    TextAutoGenerateText::TextAutoGenerateQuickAskDialog d(Ruqola::self()->textAutoGenerateManager(), nullptr);
+    TextAutoGenerateText::TextAutoGenerateQuickAskDialog d(Ruqola::self()->textAutoGenerateManager(), mParentWidget);
     d.exec();
 }
 

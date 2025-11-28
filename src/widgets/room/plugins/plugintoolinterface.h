@@ -20,7 +20,7 @@ public:
         QByteArray msgId;
     };
 
-    explicit PluginToolInterface(QObject *parent = nullptr);
+    explicit PluginToolInterface(QWidget *parentWidget, QObject *parent = nullptr);
     ~PluginToolInterface() override;
 
     virtual void activateTool();
@@ -28,12 +28,13 @@ public:
     [[nodiscard]] PluginToolInfo info() const;
     void setInfo(const PluginToolInfo &newInfo);
 
-    [[nodiscard]] virtual QMenu *menu(QWidget *parentWidget) const;
+    [[nodiscard]] virtual QMenu *menu() const;
 Q_SIGNALS:
     void executed();
     void activateRequested();
 
 protected:
     PluginToolInfo mInfo;
+    QWidget *mParentWidget = nullptr;
 };
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const PluginToolInterface::PluginToolInfo &t);
