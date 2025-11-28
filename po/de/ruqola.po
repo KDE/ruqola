@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:43+0000\n"
+"POT-Creation-Date: 2025-11-28 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2207,7 +2207,7 @@ msgstr ""
 msgid "AI Actions"
 msgstr "Programm nicht gefunden"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
 #, kde-format
 msgid "Summarize Unreads"
 msgstr ""
@@ -7553,13 +7553,13 @@ msgctxt "@title:window"
 msgid "Uninstall Application"
 msgstr "Programm nicht gefunden"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:64
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:65
 #, fuzzy, kde-format
 #| msgid "%1: %2"
 msgid "%1 Caller: %2"
 msgstr "%1: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
 #, fuzzy, kde-format
 #| msgid "No room found"
 msgid "No logs info found."
@@ -7868,7 +7868,7 @@ msgid "Username or email:"
 msgstr "Benutzername"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1123
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7876,7 +7876,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1125
+#: widgets/ruqolamainwindow.cpp:1124
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -9355,14 +9355,14 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr "Video: %1"
 
-#: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:493
+#: widgets/dialogs/uploadfiledialog.cpp:21
+#: widgets/room/messagelinewidget.cpp:494
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Datei hochladen"
 
-#: widgets/dialogs/uploadfiledialog.cpp:37
+#: widgets/dialogs/uploadfiledialog.cpp:33
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Display Image"
@@ -11123,19 +11123,19 @@ msgstr "Nachricht angeheftet"
 msgid "Send a message in %1…"
 msgstr "Nachrichten suchen ..."
 
-#: widgets/room/messagelinewidget.cpp:516
+#: widgets/room/messagelinewidget.cpp:517
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:517
+#: widgets/room/messagelinewidget.cpp:518
 #, fuzzy, kde-format
 #| msgid "File Uploaded:"
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Datei hochgeladen:"
 
-#: widgets/room/messagelinewidget.cpp:522
+#: widgets/room/messagelinewidget.cpp:523
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
@@ -12013,93 +12013,93 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Räume löschen"
 
-#: widgets/ruqolamainwindow.cpp:734
+#: widgets/ruqolamainwindow.cpp:733
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:738
+#: widgets/ruqolamainwindow.cpp:737
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Import Accounts"
 msgstr "Zugang"
 
-#: widgets/ruqolamainwindow.cpp:742
+#: widgets/ruqolamainwindow.cpp:741
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Export Accounts"
 msgstr "Zugang"
 
-#: widgets/ruqolamainwindow.cpp:759
+#: widgets/ruqolamainwindow.cpp:758
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:767
+#: widgets/ruqolamainwindow.cpp:766
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:776
+#: widgets/ruqolamainwindow.cpp:775
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:784
+#: widgets/ruqolamainwindow.cpp:783
 #, fuzzy, kde-format
 #| msgid "Invalid password"
 msgid "Clear history"
 msgstr "Ungültiges Passwort"
 
-#: widgets/ruqolamainwindow.cpp:829
+#: widgets/ruqolamainwindow.cpp:828
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Team erstellen"
 
-#: widgets/ruqolamainwindow.cpp:1026
+#: widgets/ruqolamainwindow.cpp:1025
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1026
+#: widgets/ruqolamainwindow.cpp:1025
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kein Kanal gefunden"
 
-#: widgets/ruqolamainwindow.cpp:1196
+#: widgets/ruqolamainwindow.cpp:1195
 #, fuzzy, kde-format
 #| msgid "Status"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1283
+#: widgets/ruqolamainwindow.cpp:1282
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1286
+#: widgets/ruqolamainwindow.cpp:1285
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1460
+#: widgets/ruqolamainwindow.cpp:1459
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Offline"
 
-#: widgets/ruqolamainwindow.cpp:1463
+#: widgets/ruqolamainwindow.cpp:1462
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"

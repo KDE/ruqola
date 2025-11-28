@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:43+0000\n"
+"POT-Creation-Date: 2025-11-28 00:42+0000\n"
 "PO-Revision-Date: 2025-11-26 03:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2075,7 +2075,7 @@ msgstr ""
 msgid "AI Actions"
 msgstr "ხი-ის ქმედებები"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "წაუკითხავების შეჯამება"
@@ -7247,12 +7247,12 @@ msgctxt "@title:window"
 msgid "Uninstall Application"
 msgstr "აპლიკაციის წაშლა"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:64
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:65
 #, kde-format
 msgid "%1 Caller: %2"
 msgstr "%1 გამომძახებელი: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
 #, kde-format
 msgid "No logs info found."
 msgstr "ჟურნალის ინფორმაცია ვერ მოიძებნა."
@@ -7526,7 +7526,7 @@ msgid "Username or email:"
 msgstr "მომხმარებლის სახელი ან ელფოსტა:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1123
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7536,7 +7536,7 @@ msgstr ""
 "თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1125
+#: widgets/ruqolamainwindow.cpp:1124
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8906,14 +8906,14 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr "ვიდეო: %1"
 
-#: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:493
+#: widgets/dialogs/uploadfiledialog.cpp:21
+#: widgets/room/messagelinewidget.cpp:494
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "ფაილის ატვირთვა"
 
-#: widgets/dialogs/uploadfiledialog.cpp:37
+#: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
@@ -10548,18 +10548,18 @@ msgstr "შეტყობინება %1 დისკუსიაში"
 msgid "Send a message in %1…"
 msgstr "შეტყობინების გაგზავნა %1-ში…"
 
-#: widgets/room/messagelinewidget.cpp:516
+#: widgets/room/messagelinewidget.cpp:517
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "მონიშნული ფაილი ძალიან დიდია (მაქსიმალური ზომაა %1)"
 
-#: widgets/room/messagelinewidget.cpp:517
+#: widgets/room/messagelinewidget.cpp:518
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "ფაილის ატვირთვა"
 
-#: widgets/room/messagelinewidget.cpp:522
+#: widgets/room/messagelinewidget.cpp:523
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "სერვერმა ამ ფაილს ავტორიზაცია არ მიანიჭა (არასწორი mimetype)"
@@ -11331,68 +11331,68 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "რჩეული ოთახის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:734
+#: widgets/ruqolamainwindow.cpp:733
 #, kde-format
 msgid "What's new"
 msgstr "სიახლეები"
 
-#: widgets/ruqolamainwindow.cpp:738
+#: widgets/ruqolamainwindow.cpp:737
 #, kde-format
 msgid "Import Accounts"
 msgstr "ანგარიშების შემოტანა"
 
-#: widgets/ruqolamainwindow.cpp:742
+#: widgets/ruqolamainwindow.cpp:741
 #, kde-format
 msgid "Export Accounts"
 msgstr "ანგარიშების გატანა"
 
-#: widgets/ruqolamainwindow.cpp:759
+#: widgets/ruqolamainwindow.cpp:758
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "საშუალო"
 
-#: widgets/ruqolamainwindow.cpp:767
+#: widgets/ruqolamainwindow.cpp:766
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "შესქელებული"
 
-#: widgets/ruqolamainwindow.cpp:776
+#: widgets/ruqolamainwindow.cpp:775
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "გაფართოებული"
 
-#: widgets/ruqolamainwindow.cpp:784
+#: widgets/ruqolamainwindow.cpp:783
 #, kde-format
 msgid "Clear history"
 msgstr "ისტორიის გაწმენდა"
 
-#: widgets/ruqolamainwindow.cpp:829
+#: widgets/ruqolamainwindow.cpp:828
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "გუნდის შექმნა"
 
-#: widgets/ruqolamainwindow.cpp:1026
+#: widgets/ruqolamainwindow.cpp:1025
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "ჩაწერა შეუძლებელია ჟურნალის ფაილში %1"
 
-#: widgets/ruqolamainwindow.cpp:1026
+#: widgets/ruqolamainwindow.cpp:1025
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "არხის ჟურნალის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:1196
+#: widgets/ruqolamainwindow.cpp:1195
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "სტატუსი"
 
-#: widgets/ruqolamainwindow.cpp:1283
+#: widgets/ruqolamainwindow.cpp:1282
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11401,19 +11401,19 @@ msgstr ""
 "<qt>მენიუს ზოლი მთლიანად დაიმალება. მისი თავიდან საჩვენებლად დააწექით: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1286
+#: widgets/ruqolamainwindow.cpp:1285
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "მენიუს ზოლის დამალვა"
 
-#: widgets/ruqolamainwindow.cpp:1460
+#: widgets/ruqolamainwindow.cpp:1459
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "ონლაინ-მუშაობა"
 
-#: widgets/ruqolamainwindow.cpp:1463
+#: widgets/ruqolamainwindow.cpp:1462
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"

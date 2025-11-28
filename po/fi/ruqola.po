@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:43+0000\n"
+"POT-Creation-Date: 2025-11-28 00:42+0000\n"
 "PO-Revision-Date: 2025-11-12 17:39+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2086,7 +2086,7 @@ msgstr "<qt>Löydät uuden pyynnön osoitteesta:<br /><a href='%1'>%1</a> </qt>"
 msgid "AI Actions"
 msgstr "Tekoälytoiminnot"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:41
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Tee lukematta olevista yhteenveto"
@@ -7243,12 +7243,12 @@ msgctxt "@title:window"
 msgid "Uninstall Application"
 msgstr "Poista sovelluksen asennus"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:64
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:65
 #, kde-format
 msgid "%1 Caller: %2"
 msgstr "%1 kutsuja: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:70
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
 #, kde-format
 msgid "No logs info found."
 msgstr "Lokitietoa ei löytynyt."
@@ -7522,7 +7522,7 @@ msgid "Username or email:"
 msgstr "Käyttäjätunnus tai sähköposti:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1123
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7532,7 +7532,7 @@ msgstr ""
 "Ellei viestiä pikapuoliin kuulu, palaa yrittämään uudestaan."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1125
+#: widgets/ruqolamainwindow.cpp:1124
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8909,14 +8909,14 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr "Video: %1"
 
-#: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:493
+#: widgets/dialogs/uploadfiledialog.cpp:21
+#: widgets/room/messagelinewidget.cpp:494
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Lähetä tiedosto"
 
-#: widgets/dialogs/uploadfiledialog.cpp:37
+#: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
@@ -10543,18 +10543,18 @@ msgstr "Viesti %1 säikeessä"
 msgid "Send a message in %1…"
 msgstr "Lähetä viesti: %1…"
 
-#: widgets/room/messagelinewidget.cpp:516
+#: widgets/room/messagelinewidget.cpp:517
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Valittu tiedosto on liian iso (enimmäiskoko %1)"
 
-#: widgets/room/messagelinewidget.cpp:517
+#: widgets/room/messagelinewidget.cpp:518
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Tiedoston lähetys"
 
-#: widgets/room/messagelinewidget.cpp:522
+#: widgets/room/messagelinewidget.cpp:523
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Palvelin ei valtuuta tätä tiedostoa (virheellinen MIME-tyyppi)"
@@ -11328,68 +11328,68 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Näytä suosikkihuone"
 
-#: widgets/ruqolamainwindow.cpp:734
+#: widgets/ruqolamainwindow.cpp:733
 #, kde-format
 msgid "What's new"
 msgstr "Mitä uutta"
 
-#: widgets/ruqolamainwindow.cpp:738
+#: widgets/ruqolamainwindow.cpp:737
 #, kde-format
 msgid "Import Accounts"
 msgstr "Tuo tilejä"
 
-#: widgets/ruqolamainwindow.cpp:742
+#: widgets/ruqolamainwindow.cpp:741
 #, kde-format
 msgid "Export Accounts"
 msgstr "Vie tilejä"
 
-#: widgets/ruqolamainwindow.cpp:759
+#: widgets/ruqolamainwindow.cpp:758
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Keskitaso"
 
-#: widgets/ruqolamainwindow.cpp:767
+#: widgets/ruqolamainwindow.cpp:766
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Tiivis"
 
-#: widgets/ruqolamainwindow.cpp:776
+#: widgets/ruqolamainwindow.cpp:775
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Laajennettu"
 
-#: widgets/ruqolamainwindow.cpp:784
+#: widgets/ruqolamainwindow.cpp:783
 #, kde-format
 msgid "Clear history"
 msgstr "Tyhjennä historia"
 
-#: widgets/ruqolamainwindow.cpp:829
+#: widgets/ruqolamainwindow.cpp:828
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Luo työryhmä"
 
-#: widgets/ruqolamainwindow.cpp:1026
+#: widgets/ruqolamainwindow.cpp:1025
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Ei voida kirjoittaa lokitiedostoon %1"
 
-#: widgets/ruqolamainwindow.cpp:1026
+#: widgets/ruqolamainwindow.cpp:1025
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Näytä kanavaloki"
 
-#: widgets/ruqolamainwindow.cpp:1196
+#: widgets/ruqolamainwindow.cpp:1195
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Tila"
 
-#: widgets/ruqolamainwindow.cpp:1283
+#: widgets/ruqolamainwindow.cpp:1282
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11398,20 +11398,20 @@ msgstr ""
 "<qt>Tämä piilottaa valikkorivin kokonaan. Saat sen uudelleen näkyviin "
 "painamalla %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1286
+#: widgets/ruqolamainwindow.cpp:1285
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Piilota valikkorivi"
 
-#: widgets/ruqolamainwindow.cpp:1460
+#: widgets/ruqolamainwindow.cpp:1459
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Ei verkossa"
 
-#: widgets/ruqolamainwindow.cpp:1463
+#: widgets/ruqolamainwindow.cpp:1462
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
