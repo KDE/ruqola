@@ -15,7 +15,7 @@ AutoGenerateTextPluginToolInterface::~AutoGenerateTextPluginToolInterface() = de
 void AutoGenerateTextPluginToolInterface::activateTool()
 {
     if (!mQuickAskDialog) {
-        mQuickAskDialog = new TextAutoGenerateText::TextAutoGenerateQuickAskDialog(Ruqola::self()->textAutoGenerateManager(), nullptr);
+        mQuickAskDialog = new TextAutoGenerateText::TextAutoGenerateQuickAskDialog(Ruqola::self()->textAutoGenerateManager(), mParentWidget);
         mQuickAskDialog->setAttribute(Qt::WA_DeleteOnClose);
         mQuickAskDialog->show();
     } else {
