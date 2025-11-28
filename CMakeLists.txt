@@ -83,7 +83,7 @@ option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
 option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
 
 option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" ON)
-option(OPTION_ADD_OFFLINE_SUPPORT "Allow to build with offline support (experimental)" OFF)
+option(OPTION_ADD_OFFLINE_SUPPORT "Allow to build with offline support (experimental)" ON)
 
 if(OPTION_ADD_OFFLINE_SUPPORT)
     set(ADD_OFFLINE_SUPPORT true)
