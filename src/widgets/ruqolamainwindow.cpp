@@ -712,18 +712,18 @@ void RuqolaMainWindow::setupActions()
 #if defined(Q_OS_MACOS)
 #ifdef Q_PROCESSOR_ARM_64
 #if RUQOLA_STABLE_VERSION
-    const QString url = defaultUrlPath + u"/2.6/macos-x86_64/"_s;
-#else
-    const QString url = defaultUrlPath + u"/master/macos-x86_64/"_s;
-#endif
-    mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::MacOsArm64, url);
-#else
-#if RUQOLA_STABLE_VERSION
     const QString url = defaultUrlPath + u"/2.6/macos-arm64/"_s;
 #else
     const QString url = defaultUrlPath + u"/master/macos-arm64/"_s;
 #endif
     mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::MacOsArm64, url);
+#else
+#if RUQOLA_STABLE_VERSION
+    const QString url = defaultUrlPath + u"/2.6/macos-x86_64/"_s;
+#else
+    const QString url = defaultUrlPath + u"/master/macos-x86_64/"_s;
+#endif
+    mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::MacOs, url);
 #endif
 #endif
     auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
