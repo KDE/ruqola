@@ -702,7 +702,7 @@ void RuqolaMainWindow::setupActions()
     const QString defaultUrlPath = QStringLiteral("https://origin.cdn.kde.org/ci-builds/network/ruqola/");
     const QString stableBranch = u"2.6"_s;
     bool stableVersion = false;
-#if KAICHAT_STABLE_VERSION
+#if RUQOLA_STABLE_VERSION
     stableVersion = true;
 #endif
     mVerifyNewVersionWidget->generateUrlInfo(stableBranch, defaultUrlPath, stableVersion);
