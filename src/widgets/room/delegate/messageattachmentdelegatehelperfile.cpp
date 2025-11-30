@@ -7,7 +7,6 @@
 #include "messageattachmentdelegatehelperfile.h"
 
 #include "common/delegatepaintutil.h"
-#include "common/delegateutil.h"
 #include "connection.h"
 #include "downloadfilejob.h"
 #include "rocketchataccount.h"
@@ -19,6 +18,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KService>
+#include <TextAddonsWidgets/SaveFileUtils>
 
 #include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
@@ -192,7 +192,7 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     const UserChoice choice = askUser(url, offer, widget);
     switch (choice) {
     case UserChoice::Save: {
-        const QString file = DelegateUtil::querySaveFileName(widget, i18nc("@title:window", "Save File"), url);
+        const QString file = TextAddonsWidgets::SaveFileUtils::querySaveFileName(widget, i18nc("@title:window", "Save File"), url);
         if (!file.isEmpty()) {
             const QUrl fileUrl = QUrl::fromLocalFile(file);
             mRocketChatAccount->downloadFile(link, fileUrl);

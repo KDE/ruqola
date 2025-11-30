@@ -10,12 +10,12 @@
 #include <kjobuidelegate.h>
 using namespace Qt::Literals::StringLiterals;
 
-#include "common/delegateutil.h"
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "rooms/roomsimagesjob.h"
 #include "showimagegraphicsview.h"
 #include "showimageprevnextimagewidget.h"
+#include <TextAddonsWidgets/SaveFileUtils>
 
 #include "ruqolawidgets_showimage_debug.h"
 #include <KLocalizedString>
@@ -202,9 +202,9 @@ const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const
 
 void ShowImageWidget::saveAs()
 {
-    DelegateUtil::saveFile(this,
-                           mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile(),
-                           i18n("Save Image"));
+    TextAddonsWidgets::SaveFileUtils::saveFile(this,
+                                               mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile(),
+                                               i18n("Save Image"));
 }
 
 void ShowImageWidget::copyImage()

@@ -5,11 +5,11 @@
 */
 
 #include "messageattachmentdownloadandsavejob.h"
-#include "common/delegateutil.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QProgressDialog>
+#include <TextAddonsWidgets/SaveFileUtils>
 
 MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadAndSaveJob(QObject *parent)
     : QObject{parent}
@@ -23,7 +23,7 @@ void MessageAttachmentDownloadAndSaveJob::slotDownloadDone(const QString &path)
 {
     switch (mInfo.actionType) {
     case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave:
-        DelegateUtil::saveFile(mInfo.parentWidget, path, saveFileString());
+        TextAddonsWidgets::SaveFileUtils::saveFile(mInfo.parentWidget, path, saveFileString());
         break;
     case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadOnly:
         Q_EMIT attachmentFileDownloadDone(path);

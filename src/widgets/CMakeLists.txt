@@ -240,8 +240,6 @@ target_sources(
         common/completionlistview.h
         common/delegatepaintutil.cpp
         common/delegatepaintutil.h
-        common/delegateutil.cpp
-        common/delegateutil.h
         common/emojicompletiondelegate.cpp
         common/emojicompletiondelegate.h
         common/flowlayout.cpp

@@ -7,7 +7,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
-#include "common/delegateutil.h"
 #include "model/filesforroommodel.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyle>
+#include <TextAddonsWidgets/SaveFileUtils>
 
 ListAttachmentDelegate::ListAttachmentDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
@@ -85,7 +85,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 void ListAttachmentDelegate::saveAttachment(const QStyleOptionViewItem &option, const File *file)
 {
     auto parentWidget = const_cast<QWidget *>(option.widget);
-    const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl(file->url()));
+    const QString fileName = TextAddonsWidgets::SaveFileUtils::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl(file->url()));
 
     if (!fileName.isEmpty()) {
         mRocketChatAccount->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
