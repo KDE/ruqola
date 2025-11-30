@@ -697,35 +697,15 @@ void RuqolaMainWindow::setupActions()
     mRoomFavorite->setCheckable(true);
     connect(mRoomFavorite, &QAction::triggered, this, &RuqolaMainWindow::slotShowFavoriteRoom);
     ac->addAction(u"room_favorite"_s, mRoomFavorite);
+
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     const QString defaultUrlPath = QStringLiteral("https://origin.cdn.kde.org/ci-builds/network/ruqola/");
-
-#if defined(Q_OS_WIN)
-#if RUQOLA_STABLE_VERSION
-    const QString url = defaultUrlPath + u"/2.6/windows/"_s;
-#else
-    const QString url = defaultUrlPath + u"/master/windows/"_s;
+    const QString stableBranch = u"2.6"_s;
+    bool stableVersion = false;
+#if KAICHAT_STABLE_VERSION
+    stableVersion = true;
 #endif
-    mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::Windows, url);
-#endif
-
-#if defined(Q_OS_MACOS)
-#ifdef Q_PROCESSOR_ARM_64
-#if RUQOLA_STABLE_VERSION
-    const QString url = defaultUrlPath + u"/2.6/macos-arm64/"_s;
-#else
-    const QString url = defaultUrlPath + u"/master/macos-arm64/"_s;
-#endif
-    mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::MacOsArm64, url);
-#else
-#if RUQOLA_STABLE_VERSION
-    const QString url = defaultUrlPath + u"/2.6/macos-x86_64/"_s;
-#else
-    const QString url = defaultUrlPath + u"/master/macos-x86_64/"_s;
-#endif
-    mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::MacOs, url);
-#endif
-#endif
+    mVerifyNewVersionWidget->generateUrlInfo(stableBranch, defaultUrlPath, stableVersion);
     auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
     ac->addAction(u"verify_check_version"_s, verifyNewVersionAction);
 #endif
