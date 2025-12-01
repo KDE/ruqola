@@ -611,6 +611,8 @@ target_sources(
         room/delegate/runninganimatedimage.h
         room/delegate/messagedelegatehelperurlpreview.h
         room/delegate/messagedelegatehelperurlpreview.cpp
+        room/delegate/messageattachmentdelegatehelperopenfilejob.h
+        room/delegate/messageattachmentdelegatehelperopenfilejob.cpp
         room/messagelinewidget.cpp
         room/messagelinewidget.h
         room/messagelistview.cpp
