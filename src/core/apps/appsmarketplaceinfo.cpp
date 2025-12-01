@@ -674,13 +674,13 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
     case Permission::PermissionType::OauthAppRead:
         return i18n("Allow to read oauth app settings");
     case Permission::PermissionType::VideoConferenceWrite:
-        break;
+        return i18n("Allow to write video conference settings");
     case Permission::PermissionType::VideoConferenceRead:
-        break;
+        return i18n("Allow to read video conference settings");
     case Permission::PermissionType::VideoConferenceProvider:
-        break;
+        return i18n("Allow to change video conference provider settings");
     case Permission::PermissionType::UiRegistrerButtons:
-        break;
+        return i18n("Allow to register button");
     case Permission::PermissionType::ContactRead:
         break;
     case Permission::PermissionType::ContactWrite:
