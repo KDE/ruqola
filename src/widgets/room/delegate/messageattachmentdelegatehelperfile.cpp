@@ -20,6 +20,7 @@
 #include <KService>
 #include <TextAddonsWidgets/SaveFileUtils>
 
+#include "messageattachmentdelegatehelperopenfilejob.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
 #include <QAbstractTextDocumentLayout>
