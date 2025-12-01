@@ -10,6 +10,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QDesktopServices>
 #include <QMimeDatabase>
 #include <QTemporaryDir>
@@ -67,7 +68,7 @@ void MessageAttachmentDelegateHelperOpenFileJob::openUrl()
 
     const QUrl downloadUrl = account->urlForLink(mLink);
     auto *job = account->restApi()->downloadFile(downloadUrl, fileUrl, "text/plain"_ba);
-    QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, mParentWidget, [this](const QUrl &, const QUrl &localFileUrl) {
+    QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, this, [this](const QUrl &, const QUrl &localFileUrl) {
         if (!QDesktopServices::openUrl(localFileUrl)) {
             KMessageBox::error(mParentWidget, i18n("Impossible to open %1", localFileUrl.toDisplayString()), i18nc("@title:window", "Error Opening File"));
         }
