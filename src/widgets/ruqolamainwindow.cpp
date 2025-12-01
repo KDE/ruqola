@@ -1021,17 +1021,18 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
 
 void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
 {
-    mCreateNewChannel->setEnabled(!loginPageActivated && canCreateChannels());
-    mCreateDirectMessages->setEnabled(!loginPageActivated && canCreateDirectMessages());
+    const bool offline = mCurrentRocketChatAccount->offlineMode();
+    mCreateNewChannel->setEnabled(!loginPageActivated && canCreateChannels() && !offline);
+    mCreateDirectMessages->setEnabled(!loginPageActivated && canCreateDirectMessages() && !offline);
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
     mContainerStatusInfo->setEnabled(!loginPageActivated);
-    mCreateDiscussion->setEnabled(!loginPageActivated);
-    mCreateTeam->setEnabled(!loginPageActivated && canCreateTeams());
-    mJoinRoom->setEnabled(!loginPageActivated);
-    mOpenPrivateConversation->setEnabled(!loginPageActivated);
-    mJoinTeam->setEnabled(!loginPageActivated);
+    mCreateDiscussion->setEnabled(!loginPageActivated && !offline);
+    mCreateTeam->setEnabled(!loginPageActivated && canCreateTeams() && !offline);
+    mJoinRoom->setEnabled(!loginPageActivated && !offline);
+    mOpenPrivateConversation->setEnabled(!loginPageActivated && !offline);
+    mJoinTeam->setEnabled(!loginPageActivated && !offline);
     mNextUnreadChannel->setEnabled(!loginPageActivated);
     mShowLog->setEnabled(!loginPageActivated);
     mShowRocketChatServerInfo->setVisible(!loginPageActivated && hasBannerInfo());
@@ -1045,9 +1046,9 @@ void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
     mRoomListDisplayExtended->setEnabled(!loginPageActivated);
     mClearRoomHistory->setEnabled(!loginPageActivated);
 
-    mApplications->setEnabled(!loginPageActivated);
-    mRequestedApplications->setEnabled(!loginPageActivated);
-    mInstalledApplications->setEnabled(!loginPageActivated);
+    mApplications->setEnabled(!loginPageActivated && !offline);
+    mRequestedApplications->setEnabled(!loginPageActivated && !offline);
+    mInstalledApplications->setEnabled(!loginPageActivated && !offline);
 
     mRoomFavorite->setEnabled(!loginPageActivated);
     if (mContextStatusMenu) {
@@ -1062,7 +1063,7 @@ void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
     if (mShowAppsTranslation) {
         mShowAppsTranslation->setEnabled(!loginPageActivated);
     }
-    mAdministrationMenu->setEnabled(!loginPageActivated);
+    mAdministrationMenu->setEnabled(!loginPageActivated && !offline);
     mMessageStyleAction->setEnabled(!loginPageActivated);
     mChangeFontSizeAction->setEnabled(!loginPageActivated);
     const bool enableLogsStatus = mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaLogger();
