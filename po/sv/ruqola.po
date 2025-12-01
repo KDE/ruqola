@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-29 00:42+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2025-10-10 21:34+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -7533,7 +7533,7 @@ msgid "Username or email:"
 msgstr "Användarnamn eller e-post:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1123
+#: widgets/ruqolamainwindow.cpp:1103
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7543,17 +7543,11 @@ msgstr ""
 "Om du inte tar emot det inom kort, kom tillbaka och försök igen."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Registrera ny användare"
-
-#: widgets/common/delegateutil.cpp:65
-#, kde-format
-msgctxt "@title:window"
-msgid "Error saving file"
-msgstr "Fel när filen skulle sparas"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:95
 #, kde-format
@@ -11344,68 +11338,68 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Visa favoritrum"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgid "What's new"
 msgstr "Vad är nytt"
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importera konton"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportera konton"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Medium"
 
-#: widgets/ruqolamainwindow.cpp:766
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Komprimerad"
 
-#: widgets/ruqolamainwindow.cpp:775
+#: widgets/ruqolamainwindow.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Utökad"
 
-#: widgets/ruqolamainwindow.cpp:783
+#: widgets/ruqolamainwindow.cpp:763
 #, kde-format
 msgid "Clear history"
 msgstr "Rensa historik"
 
-#: widgets/ruqolamainwindow.cpp:828
+#: widgets/ruqolamainwindow.cpp:808
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Skapa lag"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Kan inte skriva till loggfil %1"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Visa kanallogg"
 
-#: widgets/ruqolamainwindow.cpp:1195
+#: widgets/ruqolamainwindow.cpp:1175
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1282
+#: widgets/ruqolamainwindow.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11414,20 +11408,20 @@ msgstr ""
 "<qt>Det här döljer menyraden fullständigt. Du kan visa den igen genom att "
 "skriva %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1285
+#: widgets/ruqolamainwindow.cpp:1265
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Dölj menyrad"
 
-#: widgets/ruqolamainwindow.cpp:1459
+#: widgets/ruqolamainwindow.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Nerkopplad"
 
-#: widgets/ruqolamainwindow.cpp:1462
+#: widgets/ruqolamainwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12279,6 +12273,10 @@ msgstr "Rätta visning av filbilagors storlek."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Fel när filen skulle sparas"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"

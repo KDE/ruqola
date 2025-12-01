@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-29 00:42+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -7623,7 +7623,7 @@ msgid "Username or email:"
 msgstr "Felhasználónév vagy e-mail"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1123
+#: widgets/ruqolamainwindow.cpp:1103
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7633,17 +7633,11 @@ msgstr ""
 "Ha nem kap rövidesen e-mailt, akkor térjen vissza, és próbálja meg újra."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Új felhasználó regisztrálása"
-
-#: widgets/common/delegateutil.cpp:65
-#, kde-format
-msgctxt "@title:window"
-msgid "Error saving file"
-msgstr "Hiba a fájl mentésekor"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:95
 #, kde-format
@@ -11527,68 +11521,68 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Kedvenc szoba megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgid "What's new"
 msgstr "Újdonságok"
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgid "Import Accounts"
 msgstr "Fiókok importálása"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgid "Export Accounts"
 msgstr "Fiókok exportálása"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Közepes"
 
-#: widgets/ruqolamainwindow.cpp:766
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Sűrített"
 
-#: widgets/ruqolamainwindow.cpp:775
+#: widgets/ruqolamainwindow.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Kiterjesztett"
 
-#: widgets/ruqolamainwindow.cpp:783
+#: widgets/ruqolamainwindow.cpp:763
 #, kde-format
 msgid "Clear history"
 msgstr "Előzmények törlése"
 
-#: widgets/ruqolamainwindow.cpp:828
+#: widgets/ruqolamainwindow.cpp:808
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Csapat létrehozása"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Csatornanapló megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:1195
+#: widgets/ruqolamainwindow.cpp:1175
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Állapot"
 
-#: widgets/ruqolamainwindow.cpp:1282
+#: widgets/ruqolamainwindow.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11597,20 +11591,20 @@ msgstr ""
 "<qt>Teljesen elrejti a menüsávot. Ezzel a paranccsal állítható vissza: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1285
+#: widgets/ruqolamainwindow.cpp:1265
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Menüsáv elrejtése"
 
-#: widgets/ruqolamainwindow.cpp:1459
+#: widgets/ruqolamainwindow.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Kilépett"
 
-#: widgets/ruqolamainwindow.cpp:1462
+#: widgets/ruqolamainwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12496,6 +12490,10 @@ msgstr "Fájlmellékletek megjelenítése…"
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Hiba a fájl mentésekor"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"

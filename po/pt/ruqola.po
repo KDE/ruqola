@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-29 00:42+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -8087,7 +8087,7 @@ msgid "Username or email:"
 msgstr "Utilizador ou e-mail"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1123
+#: widgets/ruqolamainwindow.cpp:1103
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8097,19 +8097,12 @@ msgstr ""
 "Se não receber em breve um e-mail, por favor regresse e tente de novo."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1104
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Registar um Novo Utilizador"
-
-#: widgets/common/delegateutil.cpp:65
-#, fuzzy, kde-format
-#| msgid "Error saving file"
-msgctxt "@title:window"
-msgid "Error saving file"
-msgstr "Erro ao gravar o ficheiro"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:95
 #, fuzzy, kde-format
@@ -12284,70 +12277,70 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Mostrar a Sala Favorita"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgid "What's new"
 msgstr "Novidades"
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importar as Contas"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportar as Contas"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:766
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:775
+#: widgets/ruqolamainwindow.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:783
+#: widgets/ruqolamainwindow.cpp:763
 #, fuzzy, kde-format
 #| msgid "Password History"
 msgid "Clear history"
 msgstr "Histórico de Senhas"
 
-#: widgets/ruqolamainwindow.cpp:828
+#: widgets/ruqolamainwindow.cpp:808
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Criar uma Equipa"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, fuzzy, kde-format
 #| msgid "Show Channel Log"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostrar o Registo do Canal"
 
-#: widgets/ruqolamainwindow.cpp:1195
+#: widgets/ruqolamainwindow.cpp:1175
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estado"
 
-#: widgets/ruqolamainwindow.cpp:1282
+#: widgets/ruqolamainwindow.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -12356,21 +12349,21 @@ msgstr ""
 "<qt>Isto irá esconder a barra do menu por completo. Podê-la-á mostrar de "
 "novo se escrever %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1285
+#: widgets/ruqolamainwindow.cpp:1265
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Esconder o menu"
 
-#: widgets/ruqolamainwindow.cpp:1459
+#: widgets/ruqolamainwindow.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Desligado"
 
-#: widgets/ruqolamainwindow.cpp:1462
+#: widgets/ruqolamainwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -13258,6 +13251,12 @@ msgstr "Mostrar os Anexos de Ficheiros..."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Error saving file"
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Erro ao gravar o ficheiro"
 
 #, fuzzy
 #~| msgid "Description"

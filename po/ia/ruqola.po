@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-29 00:42+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2025-05-30 19:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -7392,7 +7392,7 @@ msgid "Username or email:"
 msgstr "Nomine de usator o E-Posta"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1123
+#: widgets/ruqolamainwindow.cpp:1103
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7403,17 +7403,11 @@ msgstr ""
 "novemente."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Registra nove usator"
-
-#: widgets/common/delegateutil.cpp:65
-#, kde-format
-msgctxt "@title:window"
-msgid "Error saving file"
-msgstr "Error durante que il salveguardava "
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:95
 #, kde-format
@@ -11201,68 +11195,68 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Monstra Sala Favorite"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgid "What's new"
 msgstr "Que es de novo"
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importa Contos"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exporta Contos"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Medie"
 
-#: widgets/ruqolamainwindow.cpp:766
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensate"
 
-#: widgets/ruqolamainwindow.cpp:775
+#: widgets/ruqolamainwindow.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Extendite"
 
-#: widgets/ruqolamainwindow.cpp:783
+#: widgets/ruqolamainwindow.cpp:763
 #, kde-format
 msgid "Clear history"
 msgstr "Netta historia"
 
-#: widgets/ruqolamainwindow.cpp:828
+#: widgets/ruqolamainwindow.cpp:808
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crea equipa"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Monstra registro de canal"
 
-#: widgets/ruqolamainwindow.cpp:1195
+#: widgets/ruqolamainwindow.cpp:1175
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1282
+#: widgets/ruqolamainwindow.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11271,20 +11265,20 @@ msgstr ""
 "<qt>Isto celera completemente le barra de menu. Tu pote monstrar lo de nove "
 "per typar %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1285
+#: widgets/ruqolamainwindow.cpp:1265
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Cela barra de menu"
 
-#: widgets/ruqolamainwindow.cpp:1459
+#: widgets/ruqolamainwindow.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Foras de linea"
 
-#: widgets/ruqolamainwindow.cpp:1462
+#: widgets/ruqolamainwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12127,6 +12121,10 @@ msgstr "Monstra Attachamentos de File..."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Error durante que il salveguardava "
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-29 00:42+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -7525,7 +7525,7 @@ msgid "Username or email:"
 msgstr "उपयोक्तृनाम अथवा ईमेल :"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1123
+#: widgets/ruqolamainwindow.cpp:1103
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7535,17 +7535,11 @@ msgstr ""
 "यदि भवान् शीघ्रमेव ईमेल न प्राप्नोति तर्हि कृपया पुनः आगत्य पुनः प्रयासं कुर्वन्तु।"
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "नवीन उपयोक्तारं पञ्जीकरणं कुर्वन्तु"
-
-#: widgets/common/delegateutil.cpp:65
-#, kde-format
-msgctxt "@title:window"
-msgid "Error saving file"
-msgstr "सञ्चिकां रक्षितुं त्रुटिः"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:95
 #, kde-format
@@ -11371,68 +11365,68 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "प्रियं कक्षं दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgid "What's new"
 msgstr "किं नवीनम्"
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgid "Import Accounts"
 msgstr "आयात लेखा"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgid "Export Accounts"
 msgstr "निर्यात लेखा"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "मध्यम"
 
-#: widgets/ruqolamainwindow.cpp:766
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "सघनितम्"
 
-#: widgets/ruqolamainwindow.cpp:775
+#: widgets/ruqolamainwindow.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "विस्तृत"
 
-#: widgets/ruqolamainwindow.cpp:783
+#: widgets/ruqolamainwindow.cpp:763
 #, kde-format
 msgid "Clear history"
 msgstr "इतिहासं स्पष्टं कुरुत"
 
-#: widgets/ruqolamainwindow.cpp:828
+#: widgets/ruqolamainwindow.cpp:808
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "दल रचयतु"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "%1 लॉग् सञ्चिकायां लिखितुं न शक्यते"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Channel Log दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:1195
+#: widgets/ruqolamainwindow.cpp:1175
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "स्थितिः"
 
-#: widgets/ruqolamainwindow.cpp:1282
+#: widgets/ruqolamainwindow.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11440,20 +11434,20 @@ msgid ""
 msgstr ""
 "<qt>एतेन मेनू-पट्टिका पूर्णतया गोप्यते । %1.</qt> इति टङ्कयित्वा पुनः दर्शयितुं शक्नुवन्ति"
 
-#: widgets/ruqolamainwindow.cpp:1285
+#: widgets/ruqolamainwindow.cpp:1265
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "मेनू-पट्टिकां गोपयन्तु"
 
-#: widgets/ruqolamainwindow.cpp:1459
+#: widgets/ruqolamainwindow.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "अफलाइन"
 
-#: widgets/ruqolamainwindow.cpp:1462
+#: widgets/ruqolamainwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12320,6 +12314,10 @@ msgstr "सञ्चिकासंलग्नकानि दर्शयत�
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "सञ्चिकां रक्षितुं त्रुटिः"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"

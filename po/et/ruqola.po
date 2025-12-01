@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-29 00:42+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7940,7 +7940,7 @@ msgid "Username or email:"
 msgstr "Kasutajanimi"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1123
+#: widgets/ruqolamainwindow.cpp:1103
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7948,19 +7948,12 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1104
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Kutsu kasutajaid"
-
-#: widgets/common/delegateutil.cpp:65
-#, fuzzy, kde-format
-#| msgid "Error saving file"
-msgctxt "@title:window"
-msgid "Error saving file"
-msgstr "Tõrge faili salvestamisel"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:95
 #, fuzzy, kde-format
@@ -12120,94 +12113,94 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Toa kustutamine"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:717
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Import Accounts"
 msgstr "Konto"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:721
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Export Accounts"
 msgstr "Konto"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:766
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:775
+#: widgets/ruqolamainwindow.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:783
+#: widgets/ruqolamainwindow.cpp:763
 #, fuzzy, kde-format
 #| msgid "Invalid password"
 msgid "Clear history"
 msgstr "Vigane parool"
 
-#: widgets/ruqolamainwindow.cpp:828
+#: widgets/ruqolamainwindow.cpp:808
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Loo uus kanal ..."
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Ühtegi kanalit ei leitud"
 
-#: widgets/ruqolamainwindow.cpp:1195
+#: widgets/ruqolamainwindow.cpp:1175
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Olek:"
 
-#: widgets/ruqolamainwindow.cpp:1282
+#: widgets/ruqolamainwindow.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1285
+#: widgets/ruqolamainwindow.cpp:1265
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1459
+#: widgets/ruqolamainwindow.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Pole võrgus"
 
-#: widgets/ruqolamainwindow.cpp:1462
+#: widgets/ruqolamainwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -13091,6 +13084,12 @@ msgstr "Näita failimanuseid ..."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Error saving file"
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Tõrge faili salvestamisel"
 
 #, fuzzy
 #~| msgid "Description"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-29 00:42+0000\n"
-"PO-Revision-Date: 2025-11-22 08:46+0100\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
+"PO-Revision-Date: 2025-11-26 14:17+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1904,10 +1904,9 @@ msgid "Show Message"
 msgstr "Mostra messaggio"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "Messaggio"
+msgstr "URL messaggio"
 
 #: core/ruqolacommandlineparser.cpp:52
 #, kde-format
@@ -7577,7 +7576,7 @@ msgid "Username or email:"
 msgstr "Nome utente o indirizzo di posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1123
+#: widgets/ruqolamainwindow.cpp:1103
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7587,17 +7586,11 @@ msgstr ""
 "Se non lo ricevi a breve, torna indietro e riprova."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Registra nuovo utente"
-
-#: widgets/common/delegateutil.cpp:65
-#, kde-format
-msgctxt "@title:window"
-msgid "Error saving file"
-msgstr "Errore nel salvataggio del file"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:95
 #, kde-format
@@ -11396,68 +11389,68 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Mostra la stanza preferita"
 
-#: widgets/ruqolamainwindow.cpp:733
+#: widgets/ruqolamainwindow.cpp:713
 #, kde-format
 msgid "What's new"
 msgstr "Cosa c'è di nuovo"
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:717
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importa account"
 
-#: widgets/ruqolamainwindow.cpp:741
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgid "Export Accounts"
 msgstr "Esporta account"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:738
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Medio"
 
-#: widgets/ruqolamainwindow.cpp:766
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensato"
 
-#: widgets/ruqolamainwindow.cpp:775
+#: widgets/ruqolamainwindow.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Esteso"
 
-#: widgets/ruqolamainwindow.cpp:783
+#: widgets/ruqolamainwindow.cpp:763
 #, kde-format
 msgid "Clear history"
 msgstr "Cancella la cronologia"
 
-#: widgets/ruqolamainwindow.cpp:828
+#: widgets/ruqolamainwindow.cpp:808
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crea squadra"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Impossibile scrivere nel file di registro %1"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostra il registro del canale"
 
-#: widgets/ruqolamainwindow.cpp:1195
+#: widgets/ruqolamainwindow.cpp:1175
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1282
+#: widgets/ruqolamainwindow.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11466,19 +11459,19 @@ msgstr ""
 "<qt>Questo nasconderà completamente la barra dei menu. Potrai mostrarla "
 "nuovamente digitando %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1285
+#: widgets/ruqolamainwindow.cpp:1265
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Nascondi la barra dei menu"
 
-#: widgets/ruqolamainwindow.cpp:1459
+#: widgets/ruqolamainwindow.cpp:1439
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Lavora in modalità in linea"
 
-#: widgets/ruqolamainwindow.cpp:1462
+#: widgets/ruqolamainwindow.cpp:1442
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
@@ -12348,6 +12341,10 @@ msgstr "Corregge la visualizzazione delle dimensioni degli allegati."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr "Salva la traduzione locale nella banca dati locale."
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Errore nel salvataggio del file"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"
