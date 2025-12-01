@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-10-05 09:54+0200\n"
+"PO-Revision-Date: 2025-11-30 11:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -10413,7 +10413,7 @@ msgstr "Desa &com a…"
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, kde-format
 msgid "Impossible to open %1"
-msgstr "Impossible obrir el fitxer %1"
+msgstr "Impossible obrir %1"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, kde-format
@@ -12401,10 +12401,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Restore"
-#~ msgstr "Restaura"
-
-#~ msgid "Loading..."
-#~ msgstr "S'està carregant..."
