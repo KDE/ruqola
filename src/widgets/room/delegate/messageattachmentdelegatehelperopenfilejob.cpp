@@ -79,3 +79,5 @@ void MessageAttachmentDelegateHelperOpenFileJob::setRocketChatAccount(RocketChat
 {
     mRocketChatAccount = newRocketChatAccount;
 }
+
+#include "moc_messageattachmentdelegatehelperopenfilejob.cpp"
