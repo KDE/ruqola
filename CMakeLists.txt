@@ -375,7 +375,7 @@ endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.11.0
-    KF 6.20.0
+    KF 6.21.0
 )
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
