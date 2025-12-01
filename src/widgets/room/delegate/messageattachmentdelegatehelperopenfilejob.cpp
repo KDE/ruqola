@@ -30,6 +30,7 @@ MessageAttachmentDelegateHelperOpenFileJob::~MessageAttachmentDelegateHelperOpen
 void MessageAttachmentDelegateHelperOpenFileJob::downloadFile(const QUrl &fileUrl)
 {
     mRocketChatAccount->downloadFile(mLink, fileUrl);
+    deleteLater();
 }
 
 void MessageAttachmentDelegateHelperOpenFileJob::runApplication(const KService::Ptr &offer)
@@ -37,6 +38,7 @@ void MessageAttachmentDelegateHelperOpenFileJob::runApplication(const KService::
     std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + "/ruqola_attachment_XXXXXX"_L1));
     if (!tempDir->isValid()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to create attachment temporary file";
+        deleteLater();
         return;
     }
     tempDir->setAutoRemove(false); // can't delete them, same problem as in messagelib ViewerPrivate::attachmentOpenWith
@@ -51,6 +53,7 @@ void MessageAttachmentDelegateHelperOpenFileJob::runApplication(const KService::
         job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
         job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, mParentWidget));
         job->start();
+        deleteLater();
     });
 }
 
@@ -66,12 +69,13 @@ void MessageAttachmentDelegateHelperOpenFileJob::openUrl()
     const QString tempFile = tempDir->filePath(QUrl(mLink).fileName());
     const QUrl fileUrl = QUrl::fromLocalFile(tempFile);
 
-    const QUrl downloadUrl = account->urlForLink(mLink);
-    auto *job = account->restApi()->downloadFile(downloadUrl, fileUrl, "text/plain"_ba);
-    QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, this, [this](const QUrl &, const QUrl &localFileUrl) {
+    const QUrl downloadUrl = mRocketChatAccount->urlForLink(mLink);
+    auto *job = mRocketChatAccount->restApi()->downloadFile(downloadUrl, fileUrl, "text/plain"_ba);
+    connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, this, [this](const QUrl &, const QUrl &localFileUrl) {
         if (!QDesktopServices::openUrl(localFileUrl)) {
             KMessageBox::error(mParentWidget, i18n("Impossible to open %1", localFileUrl.toDisplayString()), i18nc("@title:window", "Error Opening File"));
         }
+        deleteLater();
     });
 #endif
 }
