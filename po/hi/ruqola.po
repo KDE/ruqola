@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:42+0000\n"
+"POT-Creation-Date: 2025-12-02 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -404,6 +404,29 @@ msgstr "oauth ऐप सेटिंग लिखने की अनुमत�
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "oauth ऐप सेटिंग पढ़ने की अनुमति दें"
+
+#: core/apps/appsmarketplaceinfo.cpp:677
+#, fuzzy, kde-format
+#| msgid "Allow to write oauth app settings"
+msgid "Allow to write video conference settings"
+msgstr "oauth ऐप सेटिंग लिखने की अनुमति दें"
+
+#: core/apps/appsmarketplaceinfo.cpp:679
+#, fuzzy, kde-format
+#| msgid "Allow to read oauth app settings"
+msgid "Allow to read video conference settings"
+msgstr "oauth ऐप सेटिंग पढ़ने की अनुमति दें"
+
+#: core/apps/appsmarketplaceinfo.cpp:681
+#, kde-format
+msgid "Allow to change video conference provider settings"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:683
+#, fuzzy, kde-format
+#| msgid "Allow to write oauth app settings"
+msgid "Allow to register button"
+msgstr "oauth ऐप सेटिंग लिखने की अनुमति दें"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
@@ -7543,7 +7566,7 @@ msgid "Username or email:"
 msgstr "उपयोगकर्ता का नाम या ईमेल:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1103
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7553,7 +7576,7 @@ msgstr ""
 "यदि आपको शीघ्र ही कोई ईमेल प्राप्त नहीं होता है, तो कृपया वापस आएं और पुनः प्रयास करें।"
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1104
+#: widgets/ruqolamainwindow.cpp:1105
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -10326,61 +10349,19 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Attachment?"
-msgstr "अनुलग्नक खोलें?"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Open attachment <filename>%1</filename>?<nl/>"
-msgstr "अनुलग्नक <फ़ाइलनाम>%1</फ़ाइलनाम> खोलें?<nl/>"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
-#, kde-format
-msgctxt "@action:button"
-msgid "Open"
-msgstr ""
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
-#, kde-format
-msgctxt "@action:button"
-msgid "&Open With '%1'"
-msgstr "&'%1' के साथ खोलें"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
-#, kde-format
-msgctxt "@action:button"
-msgid "Open &With…"
-msgstr "के साथ खोलें…"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
-#, kde-format
-msgctxt "@action:button"
-msgid "Save &As…"
-msgstr "के रूप रक्षित करें…"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "फ़ाइल खोलना असंभव"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error saving file"
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "फ़ाइल सहेजने में त्रुटि"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
-#, kde-format
-msgctxt "@title:window"
-msgid "Save File"
-msgstr "फाइल सुरक्षित करें"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
@@ -11439,13 +11420,13 @@ msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "चैनल लॉग दिखाएं"
 
-#: widgets/ruqolamainwindow.cpp:1175
+#: widgets/ruqolamainwindow.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "स्थिति"
 
-#: widgets/ruqolamainwindow.cpp:1262
+#: widgets/ruqolamainwindow.cpp:1263
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11453,20 +11434,20 @@ msgid ""
 msgstr ""
 "<qt>इससे मेनू बार पूरी तरह छिप जाएगा। आप %1 लिखकर इसे फिर से दिखा सकते हैं।</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1265
+#: widgets/ruqolamainwindow.cpp:1266
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "मेनू बार छुपाएं"
 
-#: widgets/ruqolamainwindow.cpp:1439
+#: widgets/ruqolamainwindow.cpp:1440
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "ऑफलाइन"
 
-#: widgets/ruqolamainwindow.cpp:1442
+#: widgets/ruqolamainwindow.cpp:1443
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12331,6 +12312,30 @@ msgstr "फ़ाइल अनुलग्नक दिखाएँ…"
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "अनुलग्नक खोलें?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "अनुलग्नक <फ़ाइलनाम>%1</फ़ाइलनाम> खोलें?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&'%1' के साथ खोलें"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "के साथ खोलें…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "के रूप रक्षित करें…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "फाइल सुरक्षित करें"
 
 #~ msgctxt "@title:window"
 #~ msgid "Error saving file"

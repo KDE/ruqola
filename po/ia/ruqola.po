@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:42+0000\n"
+"POT-Creation-Date: 2025-12-02 00:42+0000\n"
 "PO-Revision-Date: 2025-05-30 19:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -401,6 +401,29 @@ msgstr ""
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:677
+#, fuzzy, kde-format
+#| msgid "Allow to show application market settings"
+msgid "Allow to write video conference settings"
+msgstr "Permitte monstrar preferentias de application de mercato "
+
+#: core/apps/appsmarketplaceinfo.cpp:679
+#, fuzzy, kde-format
+#| msgid "Allow to show application market settings"
+msgid "Allow to read video conference settings"
+msgstr "Permitte monstrar preferentias de application de mercato "
+
+#: core/apps/appsmarketplaceinfo.cpp:681
+#, kde-format
+msgid "Allow to change video conference provider settings"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:683
+#, fuzzy, kde-format
+#| msgid "Allow to write role"
+msgid "Allow to register button"
+msgstr "Permitte scriber rolo"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
@@ -7392,7 +7415,7 @@ msgid "Username or email:"
 msgstr "Nomine de usator o E-Posta"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1103
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7403,7 +7426,7 @@ msgstr ""
 "novemente."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1104
+#: widgets/ruqolamainwindow.cpp:1105
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -10144,62 +10167,19 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Cribra (debug)"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Attachment?"
-msgstr "Aperir Attachamento?"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Open attachment <filename>%1</filename>?<nl/>"
-msgstr "Aperir Attachamento <filename>%1</filename>?<nl/>"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
-#, fuzzy, kde-format
-#| msgid "Open…"
-msgctxt "@action:button"
-msgid "Open"
-msgstr "Aperi..."
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
-#, kde-format
-msgctxt "@action:button"
-msgid "&Open With '%1'"
-msgstr "&Aperi con '%1'"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
-#, kde-format
-msgctxt "@action:button"
-msgid "Open &With…"
-msgstr "A&peri con..."
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
-#, kde-format
-msgctxt "@action:button"
-msgid "Save &As…"
-msgstr "S&alva como..."
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "Impossibile aperir file"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error saving file"
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Error durante que il salveguardava "
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
-#, kde-format
-msgctxt "@title:window"
-msgid "Save File"
-msgstr "Salveguarda file"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
@@ -11250,13 +11230,13 @@ msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Monstra registro de canal"
 
-#: widgets/ruqolamainwindow.cpp:1175
+#: widgets/ruqolamainwindow.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1262
+#: widgets/ruqolamainwindow.cpp:1263
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11265,20 +11245,20 @@ msgstr ""
 "<qt>Isto celera completemente le barra de menu. Tu pote monstrar lo de nove "
 "per typar %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1265
+#: widgets/ruqolamainwindow.cpp:1266
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Cela barra de menu"
 
-#: widgets/ruqolamainwindow.cpp:1439
+#: widgets/ruqolamainwindow.cpp:1440
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Foras de linea"
 
-#: widgets/ruqolamainwindow.cpp:1442
+#: widgets/ruqolamainwindow.cpp:1443
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12121,6 +12101,36 @@ msgstr "Monstra Attachamentos de File..."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Aperir Attachamento?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Aperir Attachamento <filename>%1</filename>?<nl/>"
+
+#, fuzzy
+#~| msgid "Open…"
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Aperi..."
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Aperi con '%1'"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "A&peri con..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "S&alva como..."
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "Salveguarda file"
 
 #~ msgctxt "@title:window"
 #~ msgid "Error saving file"

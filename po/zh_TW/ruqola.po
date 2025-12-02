@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:42+0000\n"
+"POT-Creation-Date: 2025-12-02 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -420,6 +420,31 @@ msgstr ""
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:677
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgid "Allow to write video conference settings"
+msgstr "應用程式…"
+
+#: core/apps/appsmarketplaceinfo.cpp:679
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Applications…"
+msgid "Allow to read video conference settings"
+msgstr "應用程式…"
+
+#: core/apps/appsmarketplaceinfo.cpp:681
+#, kde-format
+msgid "Allow to change video conference provider settings"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:683
+#, fuzzy, kde-format
+#| msgid "Allow to send multi files."
+msgid "Allow to register button"
+msgstr "允許傳送多個檔案。"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, fuzzy, kde-format
@@ -7738,7 +7763,7 @@ msgid "Username or email:"
 msgstr "使用者名稱或電子郵件"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1103
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7746,7 +7771,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1104
+#: widgets/ruqolamainwindow.cpp:1105
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -10633,65 +10658,18 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Attachment?"
-msgstr "開啟附件？"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Open attachment <filename>%1</filename>?<nl/>"
-msgstr ""
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
-#, fuzzy, kde-format
-#| msgid "Open Room"
-msgctxt "@action:button"
-msgid "Open"
-msgstr "開啟聊天室"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Open With '%1'"
-msgctxt "@action:button"
-msgid "&Open With '%1'"
-msgstr "用「%1」開啟(&O)"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
-#, fuzzy, kde-format
-#| msgid "Open &With…"
-msgctxt "@action:button"
-msgid "Open &With…"
-msgstr "開啟方式(&W)…"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
-#, fuzzy, kde-format
-#| msgid "Save &As…"
-msgctxt "@action:button"
-msgid "Save &As…"
-msgstr "另存為(&A)…"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, fuzzy, kde-format
 #| msgid "Impossible to open log."
 msgid "Impossible to open %1"
 msgstr "無法開啟日誌。"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, fuzzy, kde-format
 #| msgid "Error saving file"
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "儲存檔案時發生錯誤"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
-#, fuzzy, kde-format
-#| msgid "Save File"
-msgctxt "@title:window"
-msgid "Save File"
-msgstr "儲存檔案"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
@@ -11815,34 +11793,34 @@ msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "顯示頻道紀錄"
 
-#: widgets/ruqolamainwindow.cpp:1175
+#: widgets/ruqolamainwindow.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態"
 
-#: widgets/ruqolamainwindow.cpp:1262
+#: widgets/ruqolamainwindow.cpp:1263
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1265
+#: widgets/ruqolamainwindow.cpp:1266
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "隱藏選單列"
 
-#: widgets/ruqolamainwindow.cpp:1439
+#: widgets/ruqolamainwindow.cpp:1440
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "離線"
 
-#: widgets/ruqolamainwindow.cpp:1442
+#: widgets/ruqolamainwindow.cpp:1443
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12720,6 +12698,40 @@ msgstr "顯示檔案附件…"
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "開啟附件？"
+
+#, fuzzy
+#~| msgid "Open Room"
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "開啟聊天室"
+
+#, fuzzy
+#~| msgid "&Open With '%1'"
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "用「%1」開啟(&O)"
+
+#, fuzzy
+#~| msgid "Open &With…"
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "開啟方式(&W)…"
+
+#, fuzzy
+#~| msgid "Save &As…"
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "另存為(&A)…"
+
+#, fuzzy
+#~| msgid "Save File"
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "儲存檔案"
 
 #, fuzzy
 #~| msgid "Error saving file"

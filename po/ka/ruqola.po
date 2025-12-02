@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:42+0000\n"
+"POT-Creation-Date: 2025-12-02 00:42+0000\n"
 "PO-Revision-Date: 2025-11-26 03:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -401,6 +401,29 @@ msgstr "OAuth აპის პარამეტრების ჩაწერ�
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "OAuth აპის პარამეტრების წაკითხვის დაშვება"
+
+#: core/apps/appsmarketplaceinfo.cpp:677
+#, fuzzy, kde-format
+#| msgid "Allow to write oauth app settings"
+msgid "Allow to write video conference settings"
+msgstr "OAuth აპის პარამეტრების ჩაწერის დაშვება"
+
+#: core/apps/appsmarketplaceinfo.cpp:679
+#, fuzzy, kde-format
+#| msgid "Allow to read oauth app settings"
+msgid "Allow to read video conference settings"
+msgstr "OAuth აპის პარამეტრების წაკითხვის დაშვება"
+
+#: core/apps/appsmarketplaceinfo.cpp:681
+#, kde-format
+msgid "Allow to change video conference provider settings"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:683
+#, fuzzy, kde-format
+#| msgid "Allow to write role"
+msgid "Allow to register button"
+msgstr "როლის ჩაწერის უფლება"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
@@ -7526,7 +7549,7 @@ msgid "Username or email:"
 msgstr "მომხმარებლის სახელი ან ელფოსტა:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1103
+#: widgets/ruqolamainwindow.cpp:1104
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7536,7 +7559,7 @@ msgstr ""
 "თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1104
+#: widgets/ruqolamainwindow.cpp:1105
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -10286,58 +10309,16 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "გამართვა"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:122
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Attachment?"
-msgstr "გავხსნა მიმაგრებული ფაილი?"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:123
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Open attachment <filename>%1</filename>?<nl/>"
-msgstr "გავხსნა მიმარებული ფაილი <filename>%1</filename>?<nl/>"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:127
-#, kde-format
-msgctxt "@action:button"
-msgid "Open"
-msgstr "გახსნა"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:130
-#, kde-format
-msgctxt "@action:button"
-msgid "&Open With '%1'"
-msgstr "'%1'-ით &გახსნა"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:133
-#, kde-format
-msgctxt "@action:button"
-msgid "Open &With…"
-msgstr "&გამხსნელი პროგრამა…"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:135
-#, kde-format
-msgctxt "@action:button"
-msgid "Save &As…"
-msgstr "შეინახვა &როგორც…"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "%1-ის გახსნა შეუძლებელია"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:179
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "ფაილის გახსნის შეცდომა"
-
-#: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:195
-#, kde-format
-msgctxt "@title:window"
-msgid "Save File"
-msgstr "ფაილის შენახვა"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
@@ -11380,13 +11361,13 @@ msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "არხის ჟურნალის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:1175
+#: widgets/ruqolamainwindow.cpp:1176
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "სტატუსი"
 
-#: widgets/ruqolamainwindow.cpp:1262
+#: widgets/ruqolamainwindow.cpp:1263
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11395,19 +11376,19 @@ msgstr ""
 "<qt>მენიუს ზოლი მთლიანად დაიმალება. მისი თავიდან საჩვენებლად დააწექით: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1265
+#: widgets/ruqolamainwindow.cpp:1266
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "მენიუს ზოლის დამალვა"
 
-#: widgets/ruqolamainwindow.cpp:1439
+#: widgets/ruqolamainwindow.cpp:1440
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "ონლაინ-მუშაობა"
 
-#: widgets/ruqolamainwindow.cpp:1442
+#: widgets/ruqolamainwindow.cpp:1443
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
@@ -12258,6 +12239,34 @@ msgstr "გასწორდა მიმაგრებული ფაილ�
 #, kde-format
 msgid "Save local translation to local database."
 msgstr "ლოკალური თარგმანის შენახვა ლოკალურ მონაცემთა ბაზაში."
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "გავხსნა მიმაგრებული ფაილი?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "გავხსნა მიმარებული ფაილი <filename>%1</filename>?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "გახსნა"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "'%1'-ით &გახსნა"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "&გამხსნელი პროგრამა…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "შეინახვა &როგორც…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "ფაილის შენახვა"
 
 #~ msgctxt "@title:window"
 #~ msgid "Error saving file"
