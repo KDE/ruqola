@@ -51,7 +51,7 @@ ConferenceCallWidget::ConferenceCallStart ConferenceCallWidget::conferenceCallIn
     return info;
 }
 
-void ConferenceCallWidget::setConferenceCallInfo(const ConferenceCallStart &infoCallStart)
+void ConferenceCallWidget::setConferenceCallInfo(ConferenceCallStart infoCallStart)
 {
     mCameraButton->setChecked(infoCallStart.useCamera);
     mMicroButton->setChecked(infoCallStart.useMic);

@@ -81,7 +81,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
     if (TextAddonsWidgets::NeedUpdateVersionUtils::checkVersion()) {
-        const auto status = TextAddonsWidgets::NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1StringView(RUQOLA_RELEASE_VERSION), QDate::currentDate());
+        const auto status = TextAddonsWidgets::NeedUpdateVersionUtils::obsoleteVersionStatus(QStringLiteral(RUQOLA_RELEASE_VERSION), QDate::currentDate());
         if (status != TextAddonsWidgets::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
             auto needUpdateVersionWidget = new TextAddonsWidgets::NeedUpdateVersionWidget(this);
             needUpdateVersionWidget->setObjectName(u"needUpdateVersionWidget"_s);

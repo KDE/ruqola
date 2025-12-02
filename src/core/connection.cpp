@@ -174,7 +174,7 @@ void Connection::slotResult(QNetworkReply *reply)
 {
     const auto error = reply->error();
     if (error != QNetworkReply::NoError) {
-        const auto jobClassName = reply->property("jobClassName").value<QByteArray>();
+        const auto jobClassName = reply->property("jobClassName").toByteArray();
         qCWarning(RUQOLA_LOG) << jobClassName << "error reply: " << reply->errorString() << " ERROR type " << error;
 
         if (RocketChatRestApi::networkErrorsNeedingReconnect().contains(error) && !mNetworkErrorEmitted) {

@@ -85,7 +85,9 @@ QJsonArray Channels::serialize(const Channels &channels)
 Channels *Channels::deserialize(const QJsonArray &channelsArray)
 {
     QList<ChannelInfo> channels;
-    for (int i = 0, total = channelsArray.count(); i < total; ++i) {
+    const int total = channelsArray.count();
+    channels.reserve(total);
+    for (int i = 0; i < total; ++i) {
         const QJsonObject channel = channelsArray.at(i).toObject();
         ChannelInfo info;
         info.name = channel.value("name"_L1).toString();

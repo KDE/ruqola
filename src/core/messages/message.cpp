@@ -1421,7 +1421,7 @@ Message::MessageStates Message::messageStates() const
     return mMessageStates;
 }
 
-void Message::setMessageStates(const MessageStates &newMessageStates)
+void Message::setMessageStates(MessageStates newMessageStates)
 {
     mMessageStates = newMessageStates;
 }

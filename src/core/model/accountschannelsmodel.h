@@ -12,6 +12,7 @@
 
 class LIBRUQOLACORE_EXPORT AccountsChannelsModel : public QAbstractItemModel
 {
+    Q_OBJECT
 public:
     explicit AccountsChannelsModel(QObject *parent = nullptr);
     ~AccountsChannelsModel() override;

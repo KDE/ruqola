@@ -232,7 +232,7 @@ public:
     void setPrivateMessage(bool newPrivateMessage);
 
     [[nodiscard]] MessageStates messageStates() const;
-    void setMessageStates(const MessageStates &newMessageStates);
+    void setMessageStates(MessageStates newMessageStates);
 
     [[nodiscard]] bool isEncryptedMessage() const;
 

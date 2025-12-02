@@ -239,13 +239,13 @@ QString MessageUrl::contentTypeEnumToString(ContentType type)
     case ContentType::None:
         return {};
     case ContentType::Image:
-        return QLatin1StringView("image");
+        return QStringLiteral("image");
     case ContentType::ImageAnimated:
-        return QLatin1StringView("image_animated");
+        return QStringLiteral("image_animated");
     case ContentType::Audio:
-        return QLatin1StringView("audio");
+        return QStringLiteral("audio");
     case ContentType::Video:
-        return QLatin1StringView("video");
+        return QStringLiteral("video");
     }
     return {};
 }

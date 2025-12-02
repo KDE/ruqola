@@ -38,7 +38,7 @@ ConferenceCallWidget::ConferenceCallStart ConferenceCallDialog::conferenceCallIn
     return mConferenceCallWidget->conferenceCallInfo();
 }
 
-void ConferenceCallDialog::setConferenceCallInfo(const ConferenceCallWidget::ConferenceCallStart &infoCallStart)
+void ConferenceCallDialog::setConferenceCallInfo(ConferenceCallWidget::ConferenceCallStart infoCallStart)
 {
     mConferenceCallWidget->setConferenceCallInfo(infoCallStart);
 }

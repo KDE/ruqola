@@ -456,7 +456,7 @@ void DDPClient::deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpMa
         return;
     }
 
-    const auto registerParams = mMethodResponseHash[methodId];
+    const auto registerParams = mMethodResponseHash.value(methodId);
     const QPair<DDPManager *, int> deregisterParams{ddpManager, operationId};
     if (registerParams != deregisterParams) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Registration parameters for this method don't match the ones in the unregister request.";
@@ -486,7 +486,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             // Checking first if any of the new DDPManager claimed the result,
             // otherwise defaulting to old behaviour.
             if (mMethodResponseHash.contains(id)) {
-                const QPair<DDPManager *, int> managerOperationPair = mMethodResponseHash[id];
+                const QPair<DDPManager *, int> managerOperationPair = mMethodResponseHash.value(id);
                 managerOperationPair.first->processMethodResponse(managerOperationPair.second, root);
 
                 deregisterFromMethodResponse(id, managerOperationPair.first, managerOperationPair.second);

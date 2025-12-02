@@ -21,7 +21,7 @@ public:
     ~ConferenceCallWidget() override;
 
     [[nodiscard]] ConferenceCallStart conferenceCallInfo() const;
-    void setConferenceCallInfo(const ConferenceCallStart &infoCallStart);
+    void setConferenceCallInfo(ConferenceCallStart infoCallStart);
 
 private:
     QToolButton *const mMicroButton;

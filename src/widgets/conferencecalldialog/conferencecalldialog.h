@@ -18,7 +18,7 @@ public:
     ~ConferenceCallDialog() override;
 
     [[nodiscard]] ConferenceCallWidget::ConferenceCallStart conferenceCallInfo() const;
-    void setConferenceCallInfo(const ConferenceCallWidget::ConferenceCallStart &infoCallStart);
+    void setConferenceCallInfo(ConferenceCallWidget::ConferenceCallStart infoCallStart);
 
 private:
     ConferenceCallWidget *const mConferenceCallWidget;
