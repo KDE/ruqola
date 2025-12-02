@@ -7,6 +7,7 @@
 #include "misc/jsonplaintexteditwidget.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
+#include <QHeaderView>
 #include <QLineEdit>
 #include <QSortFilterProxyModel>
 #include <QSplitter>
@@ -44,6 +45,7 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     tableLayout->addWidget(mTableView);
     mTableView->setModel(mSortFilterProxyModel);
     mTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    mTableView->verticalHeader()->hide();
     mSortFilterProxyModel->setFilterKeyColumn(-1); // don't select specific column
     mSortFilterProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
 
