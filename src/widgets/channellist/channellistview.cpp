@@ -5,7 +5,6 @@
 */
 
 #include "channellistview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channellistdelegate.h"
 #include "connection.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 #include "rocketchataccount.h"
+#include "room/debugdialog/showdebugdialog.h"
+#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "subscriptions/markroomasunreadjob.h"
 #include "teams/channelsconverttoteamjob.h"
@@ -35,6 +36,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QPointer>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelListView::ChannelListView(QWidget *parent)
     : QTreeView(parent)
     , mChannelListDelegate(new ChannelListDelegate(this))
@@ -211,6 +213,16 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 slotConfigureNotification(room);
             });
             menu.addAction(configureNotificationChannel);
+            if (Ruqola::self()->debug()) {
+                menu.addSeparator();
+                auto debugRoomAction = new QAction(u"Dump Room"_s, &menu); // Don't translate it.
+                connect(debugRoomAction, &QAction::triggered, this, [this, room]() {
+                    ShowDebugDialog d(this);
+                    d.setPlainText(QString::fromUtf8(Room::serialize(room, false)));
+                    d.exec();
+                });
+                menu.addAction(debugRoomAction);
+            }
         }
         menu.addSeparator();
         auto quitChannel = new QAction(QIcon::fromTheme(u"dialog-close"_s), i18nc("@action", "Quit Channel"), &menu);
