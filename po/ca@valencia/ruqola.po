@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-10-05 09:54+0200\n"
+"PO-Revision-Date: 2025-11-30 11:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -455,7 +455,7 @@ msgstr "Ha finalitzat la sessió"
 #: core/authenticationmanager.cpp:99
 #, kde-format
 msgid "Failed to login due to plugin problem"
-msgstr "No s'ha pogut iniciar la sessió per un problema del connector"
+msgstr "Ha fallat mentre s'iniciava la sessió per un problema del connector"
 
 #: core/authenticationmanager.cpp:101
 #, kde-format
@@ -2038,7 +2038,7 @@ msgstr "Compartix el text…"
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:64
 #, kde-format
 msgid "There was a problem sharing the document: %1"
-msgstr "S'ha produït un problema en compartir el document: %1"
+msgstr "S'ha produït un problema mentre es compartia el document: %1"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:68
 #, kde-format
@@ -2299,7 +2299,8 @@ msgstr "El domini del correu electrònic es troba en la llista negra"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
 msgid "Error trying to send email: %1"
-msgstr "S'ha produït un error en intentar enviar el correu electrònic: %1"
+msgstr ""
+"S'ha produït un error mentre s'intentava enviar el correu electrònic: %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
@@ -2319,7 +2320,7 @@ msgstr "No s'ha definit correctament l'importador, falta la classe Import."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 #, kde-format
 msgid "Failed to extract import file."
-msgstr "No s'ha pogut extraure el fitxer importat."
+msgstr "Ha fallat mentre s'extragué el fitxer importat."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 #, kde-format
@@ -2880,8 +2881,8 @@ msgstr "URL d'avatar no vàlid: %1"
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr ""
-"S'ha produït un error en gestionar la definició d'avatar des de l'URL (%1) "
-"per a %2"
+"S'ha produït un error mentre es gestionava la definició d'avatar des de "
+"l'URL (%1) per a %2"
 
 #: rocketchatrestapi-qt/users/setstatusjob.cpp:138
 #, kde-format
@@ -2901,7 +2902,8 @@ msgstr "Paràmetres no vàlids"
 #: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
 #, kde-format
 msgid "Error trying to send email %1"
-msgstr "S'ha produït un error en intentar enviar el correu electrònic %1"
+msgstr ""
+"S'ha produït un error mentre s'intentava enviar el correu electrònic %1"
 
 #: widgets/administratordialog/administratordialog.cpp:29
 #, kde-format
@@ -3198,7 +3200,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File Error"
-msgstr "S'ha produït un error en guardar el fitxer"
+msgstr "S'ha produït un error mentre es guardava el fitxer"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:33
 #, kde-format
@@ -4588,7 +4590,7 @@ msgstr "IRC"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Webdav"
-msgstr "Webdav"
+msgstr "WebDAV"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #, kde-format
@@ -7108,7 +7110,7 @@ msgstr "Secret d'aplicació"
 #, kde-format
 msgctxt "@option:check"
 msgid "Webdav Integration Enabled"
-msgstr "Integració de Webdav activada"
+msgstr "Integració de WebDAV activada"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
 #, kde-format
@@ -7579,7 +7581,7 @@ msgstr "Registra un usuari nou"
 #, kde-format
 msgctxt "@title:window"
 msgid "Error saving file"
-msgstr "S'ha produït un error en guardar el fitxer"
+msgstr "S'ha produït un error mentre es guardava el fitxer"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:95
 #, kde-format
@@ -7875,7 +7877,7 @@ msgstr "URL del servidor:"
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:112
 #, kde-format
 msgid "Failed to connect to server: %1"
-msgstr "No s'ha pogut connectar amb el servidor: %1"
+msgstr "Ha fallat mentre es connectava amb el servidor: %1"
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:27
 #, kde-format
@@ -10412,13 +10414,13 @@ msgstr "Anomena i gu&arda…"
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, kde-format
 msgid "Impossible to open %1"
-msgstr "Impossible obrir el fitxer %1"
+msgstr "Impossible obrir %1"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:174
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "S'ha produït un error en obrir el fitxer"
+msgstr "S'ha produït un error mentre s'obria el fitxer"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:190
 #, kde-format
@@ -10516,7 +10518,7 @@ msgstr "Afig una reacció"
 #, kde-format
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "Afig un servidor WebDav"
+msgstr "Afig un servidor WebDAV"
 
 #: widgets/room/messagelineextratoolbutton.cpp:20
 #, kde-format
@@ -11794,7 +11796,7 @@ msgstr "Afig l'extensió de botó de línia de missatge."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Allow to Add WebDav Server."
-msgstr "Permet afegir un servidor WebDav."
+msgstr "Permet afegir un servidor WebDAV."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:26
 msgid "Show room info (italic text) when there is some pending message typed."
