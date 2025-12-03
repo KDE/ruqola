@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:42+0000\n"
+"POT-Creation-Date: 2025-12-03 00:43+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3528,7 +3528,7 @@ msgstr "全部選取"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
-#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:51
+#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
 #: widgets/notificationhistory/notificationhistorywidget.cpp:47
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
@@ -7593,21 +7593,21 @@ msgid "Show Unread"
 msgstr "顯示未讀"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, fuzzy, kde-format
 #| msgid "Mark as Read"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "標記為已讀"
 
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, fuzzy, kde-format
 #| msgid "Mark As Unread"
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "標記為未讀"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #: widgets/room/messagelistview.cpp:355
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
@@ -7615,86 +7615,86 @@ msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "收藏"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #, fuzzy, kde-format
 #| msgid "Unset as Favorite"
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "取消收藏"
 
-#: widgets/channellist/channellistview.cpp:145
+#: widgets/channellist/channellistview.cpp:147
 #, fuzzy, kde-format
 #| msgid "Hide Channel"
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "隱藏頻道"
 
-#: widgets/channellist/channellistview.cpp:162
+#: widgets/channellist/channellistview.cpp:164
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "轉換為團隊"
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:175
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "轉換為頻道"
 
-#: widgets/channellist/channellistview.cpp:176
+#: widgets/channellist/channellistview.cpp:178
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this attachment?"
 msgid "Do you want to convert team to channel?"
 msgstr "您確定要刪除此附件嗎？"
 
-#: widgets/channellist/channellistview.cpp:177
+#: widgets/channellist/channellistview.cpp:179
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "轉換為頻道"
 
-#: widgets/channellist/channellistview.cpp:193
+#: widgets/channellist/channellistview.cpp:195
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "移動到團隊"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:211
 #, fuzzy, kde-format
 #| msgid "Configure Notification"
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "設定通知"
 
-#: widgets/channellist/channellistview.cpp:216
+#: widgets/channellist/channellistview.cpp:228
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "離開頻道"
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, kde-format
 msgid "Any team selected."
 msgstr "任何選取的團隊。"
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, fuzzy, kde-format
 #| msgid "Move To Team"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "移動到團隊"
 
-#: widgets/channellist/channellistview.cpp:307
+#: widgets/channellist/channellistview.cpp:319
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "您確定要將它轉換為團隊？這個動作無法復原。"
 
-#: widgets/channellist/channellistview.cpp:308
+#: widgets/channellist/channellistview.cpp:320
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"

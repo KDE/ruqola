@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:42+0000\n"
-"PO-Revision-Date: 2025-11-26 16:30+0200\n"
+"POT-Creation-Date: 2025-12-03 00:43+0000\n"
+"PO-Revision-Date: 2025-12-02 09:21+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -407,27 +407,24 @@ msgid "Allow to read oauth app settings"
 msgstr "Дозволити читання параметрів oauth програми"
 
 #: core/apps/appsmarketplaceinfo.cpp:677
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Дозволити запис параметрів oauth програми"
+msgstr "Дозволити записування параметрів відеоконференції"
 
 #: core/apps/appsmarketplaceinfo.cpp:679
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Дозволити читання параметрів oauth програми"
+msgstr "Дозволити читання параметрів відеоконференції"
 
 #: core/apps/appsmarketplaceinfo.cpp:681
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Дозволити зміну параметрів надавача послуг відеоконференції"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Дозволити роль писання"
+msgstr "Дозволити реєстрацію кнопки"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
@@ -3524,7 +3521,7 @@ msgstr "Вибрати все"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
-#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:51
+#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
 #: widgets/notificationhistory/notificationhistorywidget.cpp:47
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
@@ -7480,97 +7477,97 @@ msgid "Show Unread"
 msgstr "Показати непрочитані"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Позначити як прочитане"
 
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Позначити як непрочитане"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Зробити улюбленим"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Скасувати позначення улюбленим"
 
-#: widgets/channellist/channellistview.cpp:145
+#: widgets/channellist/channellistview.cpp:147
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Приховати канал"
 
-#: widgets/channellist/channellistview.cpp:162
+#: widgets/channellist/channellistview.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Перетворити на команду"
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Перетворити на канал"
 
-#: widgets/channellist/channellistview.cpp:176
+#: widgets/channellist/channellistview.cpp:178
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Хочете перетворити команду на канал?"
 
-#: widgets/channellist/channellistview.cpp:177
+#: widgets/channellist/channellistview.cpp:179
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Перетворення на канал"
 
-#: widgets/channellist/channellistview.cpp:193
+#: widgets/channellist/channellistview.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Пересунути до команди"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:211
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Налаштувати сповіщення…"
 
-#: widgets/channellist/channellistview.cpp:216
+#: widgets/channellist/channellistview.cpp:228
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Вийти з каналу"
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, kde-format
 msgid "Any team selected."
 msgstr "Не вибрано жодної команди."
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Пересунути до команди"
 
-#: widgets/channellist/channellistview.cpp:307
+#: widgets/channellist/channellistview.cpp:319
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Ви справді хочете перетворити це на команду? Наслідки дії не можна буде "
 "скасувати."
 
-#: widgets/channellist/channellistview.cpp:308
+#: widgets/channellist/channellistview.cpp:320
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"

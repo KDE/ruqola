@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:42+0000\n"
+"POT-Creation-Date: 2025-12-03 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3663,7 +3663,7 @@ msgstr "Vybrať súbor..."
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
-#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:51
+#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
 #: widgets/notificationhistory/notificationhistorywidget.cpp:47
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
@@ -7655,21 +7655,21 @@ msgid "Show Unread"
 msgstr "Vlákna"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Súkromné adresy"
 
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Súkromné adresy"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #: widgets/room/messagelistview.cpp:355
 #, fuzzy, kde-format
 #| msgid "Favorites"
@@ -7677,86 +7677,86 @@ msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Obľúbené"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Obľúbené"
 
-#: widgets/channellist/channellistview.cpp:145
+#: widgets/channellist/channellistview.cpp:147
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistview.cpp:162
+#: widgets/channellist/channellistview.cpp:164
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Odstrániť účet"
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:175
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistview.cpp:176
+#: widgets/channellist/channellistview.cpp:178
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Do you want to convert team to channel?"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistview.cpp:177
+#: widgets/channellist/channellistview.cpp:179
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistview.cpp:193
+#: widgets/channellist/channellistview.cpp:195
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Odstrániť účet"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:211
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Upozornenia"
 
-#: widgets/channellist/channellistview.cpp:216
+#: widgets/channellist/channellistview.cpp:228
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Odstrániť účet"
 
-#: widgets/channellist/channellistview.cpp:307
+#: widgets/channellist/channellistview.cpp:319
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:308
+#: widgets/channellist/channellistview.cpp:320
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title:window"

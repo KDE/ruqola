@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:42+0000\n"
-"PO-Revision-Date: 2025-11-20 10:31+0100\n"
+"POT-Creation-Date: 2025-12-03 00:43+0000\n"
+"PO-Revision-Date: 2025-12-02 10:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -407,27 +407,24 @@ msgid "Allow to read oauth app settings"
 msgstr "Permetre llegir paràmetres de l'aplicació «oauth»"
 
 #: core/apps/appsmarketplaceinfo.cpp:677
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Permetre escriure paràmetres de l'aplicació «oauth»"
+msgstr "Permetre escriure paràmetres de les conferències de vídeo"
 
 #: core/apps/appsmarketplaceinfo.cpp:679
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Permetre llegir paràmetres de l'aplicació «oauth»"
+msgstr "Permetre llegir paràmetres de les conferències de vídeo"
 
 #: core/apps/appsmarketplaceinfo.cpp:681
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Permetre canviar paràmetres de proveïdor de les conferències de vídeo"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Permetre el rol d'escriptura"
+msgstr "Permetre registrar botons"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
@@ -483,7 +480,7 @@ msgstr "Ha finalitzat la sessió"
 #: core/authenticationmanager.cpp:99
 #, kde-format
 msgid "Failed to login due to plugin problem"
-msgstr "No s'ha pogut iniciar la sessió per un problema del connector"
+msgstr "Ha fallat mentre s'iniciava la sessió per un problema del connector"
 
 #: core/authenticationmanager.cpp:101
 #, kde-format
@@ -1922,10 +1919,9 @@ msgid "Start with specific account"
 msgstr "Comença amb un compte específic"
 
 #: core/ruqolacommandlineparser.cpp:49
-#, fuzzy, kde-format
-#| msgid "Account name:"
+#, kde-format
 msgid "Account Name"
-msgstr "Nom del compte:"
+msgstr "Nom del compte"
 
 #: core/ruqolacommandlineparser.cpp:51
 #, kde-format
@@ -1934,10 +1930,9 @@ msgid "Show Message"
 msgstr "Mostra el missatge"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "Missatge"
+msgstr "URL del missatge"
 
 #: core/ruqolacommandlineparser.cpp:52
 #, kde-format
@@ -2089,7 +2084,7 @@ msgstr "Compartix el text…"
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:64
 #, kde-format
 msgid "There was a problem sharing the document: %1"
-msgstr "S'ha produït un problema en compartir el document: %1"
+msgstr "S'ha produït un problema mentre es compartia el document: %1"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:68
 #, kde-format
@@ -2350,7 +2345,8 @@ msgstr "El domini del correu electrònic es troba en la llista negra"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
 msgid "Error trying to send email: %1"
-msgstr "S'ha produït un error en intentar enviar el correu electrònic: %1"
+msgstr ""
+"S'ha produït un error mentre s'intentava enviar el correu electrònic: %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
@@ -2370,7 +2366,7 @@ msgstr "No s'ha definit correctament l'importador, falta la classe Import."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 #, kde-format
 msgid "Failed to extract import file."
-msgstr "No s'ha pogut extraure el fitxer importat."
+msgstr "Ha fallat mentre s'extragué el fitxer importat."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 #, kde-format
@@ -2931,8 +2927,8 @@ msgstr "URL d'avatar no vàlid: %1"
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr ""
-"S'ha produït un error en gestionar la definició d'avatar des de l'URL (%1) "
-"per a %2"
+"S'ha produït un error mentre es gestionava la definició d'avatar des de "
+"l'URL (%1) per a %2"
 
 #: rocketchatrestapi-qt/users/setstatusjob.cpp:138
 #, kde-format
@@ -2952,7 +2948,8 @@ msgstr "Paràmetres no vàlids"
 #: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
 #, kde-format
 msgid "Error trying to send email %1"
-msgstr "S'ha produït un error en intentar enviar el correu electrònic %1"
+msgstr ""
+"S'ha produït un error mentre s'intentava enviar el correu electrònic %1"
 
 #: widgets/administratordialog/administratordialog.cpp:29
 #, kde-format
@@ -3249,7 +3246,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File Error"
-msgstr "S'ha produït un error en guardar el fitxer"
+msgstr "S'ha produït un error mentre es guardava el fitxer"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:33
 #, kde-format
@@ -3507,7 +3504,7 @@ msgstr "Selecciona-ho tot"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
-#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:51
+#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
 #: widgets/notificationhistory/notificationhistorywidget.cpp:47
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
@@ -7450,95 +7447,95 @@ msgid "Show Unread"
 msgstr "Mostra els no llegits"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marca com a llegit"
 
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Marca com a sense llegir"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Establix com a preferit"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Desmarca com a preferit"
 
-#: widgets/channellist/channellistview.cpp:145
+#: widgets/channellist/channellistview.cpp:147
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Oculta el canal"
 
-#: widgets/channellist/channellistview.cpp:162
+#: widgets/channellist/channellistview.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Convertix a un equip"
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Convertix a un canal"
 
-#: widgets/channellist/channellistview.cpp:176
+#: widgets/channellist/channellistview.cpp:178
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Voleu convertir l'equip a un canal?"
 
-#: widgets/channellist/channellistview.cpp:177
+#: widgets/channellist/channellistview.cpp:179
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Convertix a un canal"
 
-#: widgets/channellist/channellistview.cpp:193
+#: widgets/channellist/channellistview.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mou cap a un equip"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:211
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Configura la notificació…"
 
-#: widgets/channellist/channellistview.cpp:216
+#: widgets/channellist/channellistview.cpp:228
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Ix de canal"
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, kde-format
 msgid "Any team selected."
 msgstr "Qualsevol equip seleccionat."
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mou cap a un equip"
 
-#: widgets/channellist/channellistview.cpp:307
+#: widgets/channellist/channellistview.cpp:319
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Segur de convertir-ho a un equip? Açò no es podrà desfer."
 
-#: widgets/channellist/channellistview.cpp:308
+#: widgets/channellist/channellistview.cpp:320
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -7891,7 +7888,7 @@ msgstr "URL del servidor:"
 #: widgets/configurenewserver/checknewserverurlwidget.cpp:112
 #, kde-format
 msgid "Failed to connect to server: %1"
-msgstr "No s'ha pogut connectar amb el servidor: %1"
+msgstr "Ha fallat mentre es connectava amb el servidor: %1"
 
 #: widgets/configurenewserver/configureactivitiesdialog.cpp:27
 #, kde-format
@@ -10377,13 +10374,13 @@ msgstr "Depuració"
 #: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, kde-format
 msgid "Impossible to open %1"
-msgstr "Impossible obrir el fitxer %1"
+msgstr "Impossible obrir %1"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "S'ha produït un error en obrir el fitxer"
+msgstr "S'ha produït un error mentre s'obria el fitxer"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
@@ -12313,35 +12310,3 @@ msgstr "Corregix la visualització de la mida del fitxer adjunt."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr "Guarda la traducció local a la base de dades local."
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Voleu obrir l'adjunt?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Voleu obrir l'adjunt <filename>%1</filename>?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Obri"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "O&bri amb «%1»"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Obri &amb…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Anomena i gu&arda…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Guarda el fitxer"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "S'ha produït un error en guardar el fitxer"

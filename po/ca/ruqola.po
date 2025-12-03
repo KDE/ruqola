@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:42+0000\n"
-"PO-Revision-Date: 2025-11-30 11:06+0100\n"
+"POT-Creation-Date: 2025-12-03 00:43+0000\n"
+"PO-Revision-Date: 2025-12-02 10:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -407,27 +407,24 @@ msgid "Allow to read oauth app settings"
 msgstr "Permetre llegir paràmetres de l'aplicació «oauth»"
 
 #: core/apps/appsmarketplaceinfo.cpp:677
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Permetre escriure paràmetres de l'aplicació «oauth»"
+msgstr "Permetre escriure paràmetres de les conferències de vídeo"
 
 #: core/apps/appsmarketplaceinfo.cpp:679
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Permetre llegir paràmetres de l'aplicació «oauth»"
+msgstr "Permetre llegir paràmetres de les conferències de vídeo"
 
 #: core/apps/appsmarketplaceinfo.cpp:681
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Permetre canviar paràmetres de proveïdor de les conferències de vídeo"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Permetre el rol d'escriptura"
+msgstr "Permetre registrar botons"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
@@ -3504,7 +3501,7 @@ msgstr "Selecciona-ho tot"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
-#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:51
+#: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
 #: widgets/notificationhistory/notificationhistorywidget.cpp:47
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
@@ -7449,95 +7446,95 @@ msgid "Show Unread"
 msgstr "Mostra els no llegits"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marca com a llegit"
 
-#: widgets/channellist/channellistview.cpp:126
+#: widgets/channellist/channellistview.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Marca com a sense llegir"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Estableix com a preferit"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Desmarca com a preferit"
 
-#: widgets/channellist/channellistview.cpp:145
+#: widgets/channellist/channellistview.cpp:147
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Oculta el canal"
 
-#: widgets/channellist/channellistview.cpp:162
+#: widgets/channellist/channellistview.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Converteix a un equip"
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Converteix a un canal"
 
-#: widgets/channellist/channellistview.cpp:176
+#: widgets/channellist/channellistview.cpp:178
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Voleu convertir l'equip a un canal?"
 
-#: widgets/channellist/channellistview.cpp:177
+#: widgets/channellist/channellistview.cpp:179
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Converteix a un canal"
 
-#: widgets/channellist/channellistview.cpp:193
+#: widgets/channellist/channellistview.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mou a un equip"
 
-#: widgets/channellist/channellistview.cpp:209
+#: widgets/channellist/channellistview.cpp:211
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Configura la notificació…"
 
-#: widgets/channellist/channellistview.cpp:216
+#: widgets/channellist/channellistview.cpp:228
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Surt del canal"
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, kde-format
 msgid "Any team selected."
 msgstr "Qualsevol equip seleccionat."
 
-#: widgets/channellist/channellistview.cpp:258
+#: widgets/channellist/channellistview.cpp:270
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mou a un equip"
 
-#: widgets/channellist/channellistview.cpp:307
+#: widgets/channellist/channellistview.cpp:319
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Esteu segur de convertir-ho a un equip? Això no es pot desfer."
 
-#: widgets/channellist/channellistview.cpp:308
+#: widgets/channellist/channellistview.cpp:320
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
