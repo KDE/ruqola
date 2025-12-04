@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <QDebug>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -36,4 +35,5 @@ private:
     QLineEdit *const mApplicationName;
     QLineEdit *const mRedirectUrl;
 };
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorOauthCreateWidget::OauthCreateInfo &t);

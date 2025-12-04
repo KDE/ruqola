@@ -6,7 +6,7 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QObject>
 #include <QString>
 
 class LIBRUQOLACORE_EXPORT PreviewCommand
@@ -51,4 +51,5 @@ private:
 
 Q_DECLARE_METATYPE(PreviewCommand)
 Q_DECLARE_TYPEINFO(PreviewCommand, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PreviewCommand &t);

@@ -5,7 +5,6 @@
 */
 #pragma once
 #include "librocketchatrestapi-qt_export.h"
-#include <QDebug>
 #include <QMap>
 #include <QString>
 #include <QUrlQuery>
@@ -60,4 +59,5 @@ private:
 };
 
 } // namespace RocketChatRestApi
+class QDebug;
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::QueryParameters &t);

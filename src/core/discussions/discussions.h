@@ -8,7 +8,6 @@
 
 #include "discussion.h"
 #include "libruqola_private_export.h"
-#include <QDebug>
 #include <QList>
 
 class LIBRUQOLACORE_TESTS_EXPORT Discussions
@@ -46,4 +45,5 @@ private:
     int mTotal = 0;
 };
 Q_DECLARE_METATYPE(Discussions)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussions &t);

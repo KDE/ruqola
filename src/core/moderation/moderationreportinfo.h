@@ -6,7 +6,6 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT ModerationReportInfo
@@ -51,4 +50,5 @@ private:
 };
 Q_DECLARE_METATYPE(ModerationReportInfo)
 Q_DECLARE_TYPEINFO(ModerationReportInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportInfo &t);

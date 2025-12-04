@@ -8,7 +8,6 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
-#include <QDebug>
 
 namespace RocketChatRestApi
 {
@@ -76,4 +75,5 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &t);

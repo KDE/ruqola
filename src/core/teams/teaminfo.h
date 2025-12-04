@@ -6,7 +6,6 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QJsonObject>
 class LIBRUQOLACORE_EXPORT TeamInfo
 {
@@ -47,4 +46,5 @@ private:
 
 Q_DECLARE_METATYPE(TeamInfo)
 Q_DECLARE_TYPEINFO(TeamInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamInfo &t);

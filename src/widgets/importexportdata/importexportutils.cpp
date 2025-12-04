@@ -5,6 +5,7 @@
 */
 
 #include "importexportutils.h"
+#include <QDebug>
 using namespace Qt::Literals::StringLiterals;
 
 QString ImportExportUtils::configPath()

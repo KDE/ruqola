@@ -8,7 +8,6 @@
 #include "libruqola_private_export.h"
 
 #include "messages/message.h"
-#include <QDebug>
 using namespace Qt::Literals::StringLiterals;
 class LIBRUQOLACORE_TESTS_EXPORT ListMessages
 {
@@ -43,4 +42,5 @@ private:
     int mTotal = 0;
 };
 Q_DECLARE_METATYPE(ListMessages)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ListMessages &t);

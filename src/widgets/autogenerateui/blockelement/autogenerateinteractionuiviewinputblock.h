@@ -9,7 +9,6 @@
 #include "autogenerateinteractionuiviewblockbase.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "libruqolawidgets_private_export.h"
-#include <QDebug>
 
 // see ./packages/ui-kit/src/blocks/layout/InputBlock.ts
 class AutoGenerateInteractionUiViewActionable;
@@ -48,4 +47,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewInputBlock)
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t);

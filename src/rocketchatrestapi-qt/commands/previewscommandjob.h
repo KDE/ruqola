@@ -8,7 +8,6 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
-#include <QDebug>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT PreviewsCommandJob : public RestApiAbstractJob
@@ -57,5 +56,6 @@ Q_DECLARE_METATYPE(RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInf
 Q_DECLARE_TYPEINFO(RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_METATYPE(RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &t);
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInfo &t);

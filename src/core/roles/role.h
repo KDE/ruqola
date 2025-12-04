@@ -6,9 +6,8 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QObject>
 #include <QString>
-
 class LIBRUQOLACORE_EXPORT Role
 {
 public:
@@ -46,4 +45,5 @@ private:
 };
 Q_DECLARE_METATYPE(Role)
 Q_DECLARE_TYPEINFO(Role, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Role &t);

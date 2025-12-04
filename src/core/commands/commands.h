@@ -8,7 +8,6 @@
 
 #include "command.h"
 #include "libruqola_private_export.h"
-#include <QDebug>
 #include <QList>
 class DownloadAppsLanguagesManager;
 class LIBRUQOLACORE_TESTS_EXPORT Commands
@@ -49,4 +48,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(Commands)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Commands &t);

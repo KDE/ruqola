@@ -6,8 +6,7 @@
 
 #pragma once
 #include "libruqola_private_export.h"
-#include <QDebug>
-
+#include <QObject>
 class LIBRUQOLACORE_TESTS_EXPORT PersonalAccessTokenInfo
 {
 public:
@@ -41,4 +40,5 @@ private:
 
 Q_DECLARE_METATYPE(PersonalAccessTokenInfo)
 Q_DECLARE_TYPEINFO(PersonalAccessTokenInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t);

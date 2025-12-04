@@ -8,7 +8,6 @@
 
 #include "appsmarketplaceinstalledinfo.h"
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QJsonObject>
 #include <QPixmap>
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
@@ -191,5 +190,6 @@ private:
 
 Q_DECLARE_METATYPE(AppsMarketPlaceInfo)
 Q_DECLARE_TYPEINFO(AppsMarketPlaceInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t);

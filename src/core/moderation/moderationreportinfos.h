@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include "moderationreportinfo.h"
-#include <QDebug>
 #include <QList>
 
 class LIBRUQOLACORE_EXPORT ModerationReportInfos
@@ -47,4 +46,5 @@ private:
     int mTotal = 0;
 };
 Q_DECLARE_METATYPE(ModerationReportInfos)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportInfos &t);

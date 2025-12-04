@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include <QDateTime>
-#include <QDebug>
 
 class LIBRUQOLACORE_EXPORT InviteInfo
 {
@@ -51,4 +50,5 @@ private:
 
 Q_DECLARE_METATYPE(InviteInfo)
 Q_DECLARE_TYPEINFO(InviteInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const InviteInfo &t);

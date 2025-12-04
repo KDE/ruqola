@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include <QDateTime>
-#include <QDebug>
 #include <QJsonObject>
 class LIBRUQOLACORE_EXPORT ChannelCounterInfo : public QSharedData
 {
@@ -46,4 +45,5 @@ private:
 };
 Q_DECLARE_METATYPE(ChannelCounterInfo)
 Q_DECLARE_TYPEINFO(ChannelCounterInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ChannelCounterInfo &t);

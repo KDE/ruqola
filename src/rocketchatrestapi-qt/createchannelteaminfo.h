@@ -6,8 +6,8 @@
 #pragma once
 
 #include "librocketchatrestapi-qt_export.h"
-#include <QDebug>
 #include <QJsonDocument>
+#include <QObject>
 #include <QString>
 #include <QStringList>
 namespace RocketChatRestApi
@@ -41,4 +41,5 @@ public:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateChannelTeamInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t);

@@ -7,7 +7,6 @@
 #include "libruqolacore_export.h"
 #include "moderationreportuserinfo.h"
 #include "user.h"
-#include <QDebug>
 #include <QJsonObject>
 class LIBRUQOLACORE_EXPORT ModerationReportUserInfos
 {
@@ -43,4 +42,5 @@ private:
     int mModerationReportUserInfosCount = 0;
 };
 Q_DECLARE_METATYPE(ModerationReportUserInfos)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportUserInfos &t);

@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 
-#include <QDebug>
 #include <QJsonObject>
 class LIBRUQOLACORE_EXPORT ServicePassword
 {
@@ -35,4 +34,5 @@ private:
 
 Q_DECLARE_METATYPE(ServicePassword)
 Q_DECLARE_TYPEINFO(ServicePassword, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServicePassword &t);

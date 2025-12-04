@@ -7,7 +7,8 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include <QDebug>
+#include <QObject>
+#include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguage
 {
@@ -23,6 +24,7 @@ private:
     QString mLanguage;
     QString mDisplayLanguage;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguage &t);
 Q_DECLARE_METATYPE(AutotranslateLanguage)
 Q_DECLARE_TYPEINFO(AutotranslateLanguage, Q_RELOCATABLE_TYPE);

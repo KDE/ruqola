@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include "reaction.h"
 #include <QList>
+#include <QSharedData>
 class EmojiManager;
 class LIBRUQOLACORE_EXPORT Reactions : public QSharedData
 {

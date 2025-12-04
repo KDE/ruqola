@@ -5,6 +5,7 @@
 */
 
 #include "messageutils.h"
+#include <QDebug>
 
 QByteArray MessageUtils::generateUniqueId(const QByteArray &messageId, int index)
 {

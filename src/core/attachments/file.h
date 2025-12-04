@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QJsonObject>
 #include <QString>
 
 class LIBRUQOLACORE_EXPORT File
@@ -77,4 +77,5 @@ private:
     qint64 mUploadedAt = -1;
 };
 Q_DECLARE_TYPEINFO(File, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const File &t);

@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include <QDebug>
+#include <QJsonObject>
 class LIBRUQOLACORE_TESTS_EXPORT MessageStarred
 {
 public:
@@ -21,4 +21,5 @@ public:
 private:
     bool mIsStarred = false;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, MessageStarred t);

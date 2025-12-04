@@ -8,7 +8,6 @@
 
 #include "customemoji.h"
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QList>
 class LIBRUQOLACORE_EXPORT CustomEmojisInfo
 {
@@ -46,4 +45,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(CustomEmojisInfo)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmojisInfo &t);

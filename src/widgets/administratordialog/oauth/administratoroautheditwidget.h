@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <QDebug>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -44,5 +43,6 @@ private:
     QLineEdit *const mAuthorizationUrl;
     QLineEdit *const mAccessTokenUrl;
 };
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorOauthEditWidget::OauthEditInfo &t);
 Q_DECLARE_TYPEINFO(AdministratorOauthEditWidget::OauthEditInfo, Q_RELOCATABLE_TYPE);

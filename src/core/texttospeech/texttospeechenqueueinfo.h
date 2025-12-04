@@ -6,7 +6,6 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QString>
 class LIBRUQOLACORE_EXPORT TextToSpeechEnqueueInfo
 {
@@ -33,4 +32,5 @@ private:
     QString mAccountName;
 };
 Q_DECLARE_TYPEINFO(TextToSpeechEnqueueInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TextToSpeechEnqueueInfo &t);

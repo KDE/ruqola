@@ -7,8 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
-
+#include <QObject>
+#include <QString>
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT ModerationReportedMessageInfo
 {
 public:
@@ -64,4 +65,5 @@ private:
 
 Q_DECLARE_METATYPE(ModerationReportedMessageInfo)
 Q_DECLARE_TYPEINFO(ModerationReportedMessageInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportedMessageInfo &t);

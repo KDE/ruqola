@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QJsonArray>
 #include <QMap>
 class LIBRUQOLACORE_EXPORT MessageTranslations : public QSharedData
 {
@@ -31,4 +31,5 @@ public:
 private:
     QMap<QString, QString> mTranslatedString;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageTranslations &t);

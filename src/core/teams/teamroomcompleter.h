@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT TeamRoomCompleter
@@ -32,6 +31,7 @@ private:
     QString mFname;
     QByteArray mIdentifier;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoomCompleter &t);
 Q_DECLARE_METATYPE(TeamRoomCompleter)
 Q_DECLARE_TYPEINFO(TeamRoomCompleter, Q_RELOCATABLE_TYPE);

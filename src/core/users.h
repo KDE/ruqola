@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include "user.h"
-#include <QDebug>
 #include <QList>
 class LIBRUQOLACORE_EXPORT Users
 {
@@ -56,4 +55,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(Users)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Users &t);

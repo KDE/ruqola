@@ -8,7 +8,6 @@
 
 #include "customuserstatus.h"
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QList>
 
 class LIBRUQOLACORE_EXPORT CustomUserStatuses
@@ -42,4 +41,5 @@ private:
     int mOffset = 0;
     int mTotal = 0;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatuses &t);

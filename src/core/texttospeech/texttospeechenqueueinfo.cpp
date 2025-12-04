@@ -5,6 +5,7 @@
 */
 
 #include "texttospeechenqueueinfo.h"
+#include <QDebug>
 
 TextToSpeechEnqueueInfo::TextToSpeechEnqueueInfo() = default;
 

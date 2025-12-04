@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QDebug>
 #include <QIcon>
 #include <QUrl>
 #include <QWidget>
@@ -53,4 +52,5 @@ private:
     QLabel *const mWarningLabel;
     QLabel *const mIconLabel;
 };
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &t);

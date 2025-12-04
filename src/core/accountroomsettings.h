@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QJsonObject>
 #include <QMap>
 #include <QString>
@@ -48,4 +47,5 @@ private:
     QMap<QByteArray /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
     RocketChatAccount *const mRocketChatAccount;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t);

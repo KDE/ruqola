@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QJsonObject>
 #include <QString>
 
 class LIBRUQOLACORE_EXPORT DeviceInfo
@@ -60,4 +60,5 @@ private:
 
 Q_DECLARE_METATYPE(DeviceInfo)
 Q_DECLARE_TYPEINFO(DeviceInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const DeviceInfo &t);

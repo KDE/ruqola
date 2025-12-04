@@ -6,8 +6,6 @@
 
 #include "customsoundinfo.h"
 
-#include <QJsonObject>
-
 using namespace Qt::Literals::StringLiterals;
 CustomSoundInfo::CustomSoundInfo() = default;
 

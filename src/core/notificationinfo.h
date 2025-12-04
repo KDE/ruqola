@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QJsonArray>
 #include <QPixmap>
 
@@ -90,4 +89,5 @@ private:
     NotificationType mNotificationType = NotificationType::StandardMessage;
 };
 Q_DECLARE_TYPEINFO(NotificationInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationInfo &t);

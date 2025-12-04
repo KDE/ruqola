@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include "roominfo.h"
-#include <QDebug>
 #include <QList>
 class LIBRUQOLACORE_EXPORT RoomsInfo
 {
@@ -51,4 +50,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(RoomsInfo)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoomsInfo &t);

@@ -7,8 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QList>
+#include <QObject>
 #include <QSharedData>
 class LIBRUQOLACORE_EXPORT Channels : public QSharedData
 {
@@ -41,5 +41,6 @@ private:
 };
 Q_DECLARE_METATYPE(Channels)
 Q_DECLARE_TYPEINFO(Channels::ChannelInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels::ChannelInfo &t);

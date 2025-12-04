@@ -9,7 +9,6 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 #include <QDateTime>
-#include <QDebug>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsExportJob : public RestApiAbstractJob
@@ -65,4 +64,5 @@ private:
 }
 Q_DECLARE_METATYPE(RocketChatRestApi::RoomsExportJob::RoomsExportInfo::FileFormat)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::RoomsExportJob::RoomsExportInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &t);

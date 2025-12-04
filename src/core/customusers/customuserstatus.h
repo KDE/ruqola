@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include "user.h"
-#include <QDebug>
 
 class LIBRUQOLACORE_EXPORT CustomUserStatus
 {
@@ -42,4 +41,5 @@ private:
 };
 Q_DECLARE_METATYPE(CustomUserStatus)
 Q_DECLARE_TYPEINFO(CustomUserStatus, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatus &t);

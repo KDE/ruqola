@@ -5,7 +5,7 @@
 */
 
 #include "plugintoolinterface.h"
-
+#include <QDebug>
 PluginToolInterface::PluginToolInterface(QWidget *parentWidget, QObject *parent)
     : QObject{parent}
     , mParentWidget(parentWidget)

@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT BlockAccessoryOption
@@ -32,6 +31,6 @@ private:
     QString mText;
     QString mValue;
 };
-
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAccessoryOption &t);
 Q_DECLARE_TYPEINFO(BlockAccessoryOption, Q_RELOCATABLE_TYPE);

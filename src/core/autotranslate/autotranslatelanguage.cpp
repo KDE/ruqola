@@ -5,6 +5,7 @@
 */
 
 #include "autotranslatelanguage.h"
+#include <QDebug>
 
 AutotranslateLanguage::AutotranslateLanguage() = default;
 

@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QObject>
 class EmojiManager;
 class LIBRUQOLACORE_EXPORT Reaction
 {
@@ -38,4 +38,5 @@ private:
     bool mIsAnimatedImage = false;
 };
 Q_DECLARE_TYPEINFO(Reaction, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reaction &t);

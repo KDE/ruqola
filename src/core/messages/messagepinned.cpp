@@ -6,7 +6,6 @@
 
 #include "messagepinned.h"
 #include "ruqola_message_memory_debug.h"
-#include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 MessagePinned::MessagePinned()
 

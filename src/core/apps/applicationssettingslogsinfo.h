@@ -8,7 +8,6 @@
 #include "libruqolacore_export.h"
 
 #include <QDateTime>
-#include <QDebug>
 
 class LIBRUQOLACORE_EXPORT ApplicationsSettingsLogsInfo
 {
@@ -50,5 +49,6 @@ private:
 
 Q_DECLARE_METATYPE(ApplicationsSettingsLogsInfo)
 Q_DECLARE_TYPEINFO(ApplicationsSettingsLogsInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo::LogsArgument &arg);

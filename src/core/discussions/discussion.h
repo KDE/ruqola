@@ -7,7 +7,8 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include <QDebug>
+#include <QObject>
+
 class LIBRUQOLACORE_TESTS_EXPORT Discussion
 {
     Q_GADGET
@@ -60,5 +61,6 @@ private:
     qint64 mLastMessage = -1;
     qint64 mTimeStamp = -1;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussion &t);
 Q_DECLARE_TYPEINFO(Discussion, Q_RELOCATABLE_TYPE);

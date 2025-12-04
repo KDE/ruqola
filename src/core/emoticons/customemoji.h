@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include <QDebug>
+#include <QObject>
 #include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT CustomEmoji
@@ -66,4 +66,5 @@ private:
     qint64 mUpdatedAt = 0;
 };
 Q_DECLARE_TYPEINFO(CustomEmoji, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmoji &t);

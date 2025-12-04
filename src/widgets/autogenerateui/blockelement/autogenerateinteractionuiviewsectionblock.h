@@ -8,7 +8,6 @@
 
 #include "autogenerateinteractionuiviewblockbase.h"
 #include "libruqolawidgets_private_export.h"
-#include <QDebug>
 // packages/ui-kit/src/blocks/layout/SectionBlock.ts:14
 class AutoGenerateInteractionUiViewText;
 class AutoGenerateInteractionUiViewActionable;
@@ -48,4 +47,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewSectionBlock)
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t);

@@ -9,7 +9,6 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 #include <QDateTime>
-#include <QDebug>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsCleanHistoryJob : public RestApiAbstractJob
@@ -51,4 +50,5 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &t);

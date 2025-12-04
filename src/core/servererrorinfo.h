@@ -7,7 +7,6 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include <QDateTime>
-#include <QDebug>
 
 class LIBRUQOLACORE_EXPORT ServerErrorInfo
 {
@@ -39,4 +38,5 @@ private:
     QString mDateTimeStr;
 };
 Q_DECLARE_TYPEINFO(ServerErrorInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServerErrorInfo &t);

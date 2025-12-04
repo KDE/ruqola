@@ -8,7 +8,6 @@
 
 #include "libruqola_private_export.h"
 #include "user.h"
-#include <QDebug>
 #include <QJsonDocument>
 #include <QString>
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
@@ -95,5 +94,5 @@ private:
 
     QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
 };
-
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t);

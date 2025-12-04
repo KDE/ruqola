@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 
-#include <QDebug>
 #include <QJsonArray>
 
 struct CryptoSettings {
@@ -56,5 +55,6 @@ private:
     CryptoSettings mCrypto;
 };
 Q_DECLARE_TYPEINFO(Otr, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Otr &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CryptoSettings &t);

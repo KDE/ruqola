@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QDebug>
 #include <QWidget>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditBaseWidget : public QWidget
 {
@@ -33,5 +32,5 @@ public:
     [[nodiscard]] virtual RoomEditInfo roomEditInfo() const = 0;
     virtual void setRoomEditInfo(const RoomEditInfo &newRoomEditInfo) = 0;
 };
-
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo &t);

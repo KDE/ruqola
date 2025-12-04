@@ -8,7 +8,6 @@
 
 #include "deviceinfo.h"
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QList>
 
 class LIBRUQOLACORE_EXPORT DeviceInfos
@@ -46,4 +45,5 @@ private:
     int mTotal = 0;
 };
 Q_DECLARE_METATYPE(DeviceInfos)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const DeviceInfos &t);

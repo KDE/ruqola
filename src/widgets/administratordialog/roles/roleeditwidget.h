@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <QDebug>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -49,4 +48,5 @@ private:
     QCheckBox *const mTwoFactor;
     RoleScopeComboBox *const mRoleScopeComboBox;
 };
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const RoleEditWidget::RoleEditDialogInfo &t);

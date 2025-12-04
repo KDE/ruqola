@@ -8,7 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelgetallusermentionsjob.h"
-#include "restapimethod.h"
+
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(ChannelGetAllUserMentionsJobTest)
 using namespace RocketChatRestApi;

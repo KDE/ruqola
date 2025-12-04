@@ -6,7 +6,6 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QObject>
 class LIBRUQOLACORE_EXPORT TranslateTextJob : public QObject
 {
@@ -34,4 +33,5 @@ private:
     LIBRUQOLACORE_NO_EXPORT void initializeTranslateEngine();
     TranslateInfo mInfo;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t);

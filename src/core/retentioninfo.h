@@ -7,7 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QObject>
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT RetentionInfo
 {
 public:
@@ -45,4 +46,5 @@ private:
 };
 Q_DECLARE_METATYPE(RetentionInfo)
 Q_DECLARE_TYPEINFO(RetentionInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, RetentionInfo t);

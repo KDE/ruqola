@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QDebug>
 #include <QJsonObject>
 #include <QString>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase : public QObject
@@ -53,5 +52,6 @@ protected:
     QByteArray mType;
 };
 Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlockBase)
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase::StateInfo &t);

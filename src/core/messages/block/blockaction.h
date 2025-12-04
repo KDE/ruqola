@@ -6,7 +6,6 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT BlockAction
@@ -50,4 +49,5 @@ private:
     QString mUrl;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAction &t);
+class QDebug;
 Q_DECLARE_TYPEINFO(BlockAction, Q_RELOCATABLE_TYPE);

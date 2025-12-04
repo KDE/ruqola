@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include "teams/teaminfo.h"
-#include <QDebug>
 #include <QJsonObject>
 #include <QString>
 
@@ -120,4 +119,5 @@ private:
 };
 Q_DECLARE_METATYPE(RoomInfo)
 Q_DECLARE_TYPEINFO(RoomInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoomInfo &t);

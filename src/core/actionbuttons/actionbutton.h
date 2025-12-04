@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QObject>
 class LIBRUQOLACORE_EXPORT ActionButton
 {
     Q_GADGET
@@ -131,5 +131,6 @@ private:
 Q_DECLARE_METATYPE(ActionButton)
 Q_DECLARE_TYPEINFO(ActionButton, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(ActionButton::FilterActionInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ActionButton &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ActionButton::FilterActionInfo &t);

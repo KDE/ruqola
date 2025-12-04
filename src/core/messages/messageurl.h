@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QJsonObject>
 class LIBRUQOLACORE_EXPORT MessageUrl
 {
     Q_GADGET
@@ -114,5 +114,6 @@ private:
     bool mShowPreview = true;
     ContentType mContentType = ContentType::None;
 };
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_RELOCATABLE_TYPE);

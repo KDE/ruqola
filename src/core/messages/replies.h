@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QJsonArray>
 #include <QList>
 #include <QSharedData>
 class LIBRUQOLACORE_EXPORT Replies : public QSharedData
@@ -33,4 +33,5 @@ private:
     QList<QByteArray> mReplies;
 };
 Q_DECLARE_METATYPE(Replies)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Replies &t);

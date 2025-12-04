@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QDebug>
+#include <QJsonObject>
 class LIBRUQOLACORE_EXPORT AppsCategoryInfo
 {
 public:
@@ -35,4 +35,5 @@ private:
 
 Q_DECLARE_METATYPE(AppsCategoryInfo)
 Q_DECLARE_TYPEINFO(AppsCategoryInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsCategoryInfo &t);

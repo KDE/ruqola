@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include <QDateTime>
-#include <QDebug>
 
 class LIBRUQOLACORE_EXPORT OauthInfo
 {
@@ -55,4 +54,5 @@ private:
 
 Q_DECLARE_METATYPE(OauthInfo)
 Q_DECLARE_TYPEINFO(OauthInfo, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OauthInfo &t);

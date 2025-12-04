@@ -8,7 +8,6 @@
 
 #include "file.h"
 #include "libruqolacore_export.h"
-#include <QDebug>
 #include <QList>
 
 class LIBRUQOLACORE_EXPORT FileAttachments
@@ -47,4 +46,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(FileAttachments)
+class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const FileAttachments &t);
