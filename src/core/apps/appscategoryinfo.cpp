@@ -6,7 +6,6 @@
 
 #include "appscategoryinfo.h"
 
-#include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 AppsCategoryInfo::AppsCategoryInfo() = default;
 

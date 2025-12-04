@@ -7,8 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonObject>
-
+#include <QString>
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT BlockAccessoryOption
 {
 public:

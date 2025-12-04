@@ -8,7 +8,6 @@
 
 #include "ruqola_message_url_debug.h"
 #include "ruqolaglobalconfig.h"
-#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 MessageUrl::MessageUrl()

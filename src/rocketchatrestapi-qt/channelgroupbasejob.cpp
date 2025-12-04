@@ -7,7 +7,9 @@
 #include "channelgroupbasejob.h"
 
 #include "rocketchatqtrestapi_debug.h"
+#include <QJsonObject>
 #include <QUrlQuery>
+
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
 ChannelGroupBaseJob::ChannelGroupBaseJob(QObject *parent)

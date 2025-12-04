@@ -5,6 +5,7 @@
 */
 
 #include "blockaccessoryoption.h"
+#include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 BlockAccessoryOption::BlockAccessoryOption() = default;
 

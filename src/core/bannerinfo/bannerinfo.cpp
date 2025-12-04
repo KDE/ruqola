@@ -8,7 +8,6 @@
 
 #include <KLocalizedString>
 #include <QJsonArray>
-#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 BannerInfo::BannerInfo() = default;

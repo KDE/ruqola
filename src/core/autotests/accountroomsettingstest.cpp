@@ -6,6 +6,7 @@
 
 #include "accountroomsettingstest.h"
 #include "accountroomsettings.h"
+#include <QJsonObject>
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(AccountRoomSettingsTest)

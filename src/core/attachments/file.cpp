@@ -7,7 +7,6 @@
 #include "file.h"
 #include "utils.h"
 #include <QDateTime>
-#include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 File::File() = default;
 

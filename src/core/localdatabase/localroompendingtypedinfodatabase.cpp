@@ -8,6 +8,8 @@
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 #include <QFileInfo>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>

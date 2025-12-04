@@ -9,7 +9,6 @@
 #include "ruqola_commands_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
-#include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 
 Command::Command() = default;

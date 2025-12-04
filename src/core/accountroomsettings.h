@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonObject>
 #include <QMap>
 #include <QString>
+class QJsonObject;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT AccountRoomSettings
 {
