@@ -17,7 +17,6 @@ class ShowThreadsDialog;
 class RocketChatAccount;
 class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
-class Room;
 class RoomWidgetBase;
 class ReconnectInfoWidget;
 class OtrWidget;
