@@ -36,6 +36,5 @@ private:
     // TODO add description
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOption)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewOption, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOption &t);

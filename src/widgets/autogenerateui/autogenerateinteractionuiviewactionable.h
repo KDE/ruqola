@@ -53,5 +53,4 @@ protected:
     ActionElementWidget *mActionElementWidget = nullptr;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewActionable)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionable &t);

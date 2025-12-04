@@ -33,6 +33,5 @@ private:
     QString mImageUrl;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewImage)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewImage, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImage &t);

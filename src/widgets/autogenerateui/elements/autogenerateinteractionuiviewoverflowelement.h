@@ -31,5 +31,4 @@ private:
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewOverflowElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &t);

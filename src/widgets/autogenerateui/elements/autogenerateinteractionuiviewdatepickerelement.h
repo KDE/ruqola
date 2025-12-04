@@ -40,5 +40,4 @@ private:
     QDateEdit *mDateTime = nullptr;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewDatePickerElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDatePickerElement &t);

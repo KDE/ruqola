@@ -45,6 +45,5 @@ private:
     QString mText;
     bool mEmoji = false;
 };
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewText)
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewText, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewText &t);

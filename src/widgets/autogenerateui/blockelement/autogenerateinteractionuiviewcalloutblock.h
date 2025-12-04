@@ -39,5 +39,4 @@ private:
     // TODO title
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCalloutBlock)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCalloutBlock &t);

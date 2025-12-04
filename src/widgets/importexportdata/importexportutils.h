@@ -25,4 +25,3 @@ struct AccountImportExportInfo {
 class QDebug;
 LIBRUQOLAWIDGETS_TESTS_EXPORT QDebug operator<<(QDebug d, const ImportExportUtils::AccountImportExportInfo &t);
 Q_DECLARE_TYPEINFO(ImportExportUtils::AccountImportExportInfo, Q_RELOCATABLE_TYPE);
-Q_DECLARE_METATYPE(ImportExportUtils::AccountImportExportInfo)

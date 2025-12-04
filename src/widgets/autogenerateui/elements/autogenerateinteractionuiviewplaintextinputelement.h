@@ -54,5 +54,5 @@ private:
     QPlainTextEdit *mPlainTextEdit = nullptr;
     QLineEdit *mLineEdit = nullptr;
 };
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewPlainTextInputElement)
+
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewPlainTextInputElement &t);

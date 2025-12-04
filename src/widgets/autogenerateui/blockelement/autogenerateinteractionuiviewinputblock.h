@@ -46,6 +46,5 @@ private:
     bool mOptional = false;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewInputBlock)
 class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t);

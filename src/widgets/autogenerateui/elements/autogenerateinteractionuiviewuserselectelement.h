@@ -36,5 +36,5 @@ private:
     AutoGenerateInteractionUiViewText *mPlaceHolder = nullptr;
     QPlainTextEdit *mPlainTextEdit = nullptr;
 };
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewUserSelectElement)
+
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewUserSelectElement &t);

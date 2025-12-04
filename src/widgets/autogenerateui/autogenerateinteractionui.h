@@ -64,5 +64,5 @@ private:
     AutoGenerateInteractionUiView *mView = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };
-Q_DECLARE_METATYPE(AutoGenerateInteractionUi)
+
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUi &t);

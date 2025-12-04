@@ -38,5 +38,4 @@ private:
     QList<AutoGenerateInteractionUiViewBlockBase *> mBlockElements;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlocks)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlocks &t);

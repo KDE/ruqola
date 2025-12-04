@@ -31,5 +31,4 @@ private:
     AutoGenerateInteractionUiViewImage mImage;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewImageElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageElement &t);

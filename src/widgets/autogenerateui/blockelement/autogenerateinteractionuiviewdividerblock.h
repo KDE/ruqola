@@ -26,6 +26,5 @@ protected:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> serializeBlockState() const override;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewDividerBlock)
 class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDividerBlock &t);

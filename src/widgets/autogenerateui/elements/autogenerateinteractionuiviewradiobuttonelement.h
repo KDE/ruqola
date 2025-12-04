@@ -37,5 +37,5 @@ private:
     QList<AutoGenerateInteractionUiViewOption *> mOptions;
     AutoGenerateInteractionUiViewOption *mInitialOption = nullptr;
 };
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewRadioButtonElement)
+
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewRadioButtonElement &t);

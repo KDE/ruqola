@@ -46,6 +46,5 @@ private:
     */
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewSectionBlock)
 class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t);

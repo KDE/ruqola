@@ -53,5 +53,5 @@ private:
     QString mValue;
     bool mSecondary = false;
 };
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewButtonElement)
+
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewButtonElement &t);

@@ -40,5 +40,4 @@ private:
     QTimeEdit *mTimeEdit = nullptr;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewTimePickerElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewTimePickerElement &t);

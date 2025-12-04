@@ -51,5 +51,4 @@ private:
     QSpinBox *mSpinbox = nullptr;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewLinearScaleElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewLinearScaleElement &t);

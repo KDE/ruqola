@@ -73,5 +73,4 @@ private:
     AutoGenerateInteractionUiViewBlocks *mBlocks = nullptr;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiView)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t);

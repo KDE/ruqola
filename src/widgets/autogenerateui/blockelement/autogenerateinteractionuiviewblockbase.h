@@ -51,7 +51,7 @@ protected:
     QByteArray mBlockId;
     QByteArray mType;
 };
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewBlockBase)
+
 class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase::StateInfo &t);

@@ -54,5 +54,4 @@ private:
     int mMaxSelectItems = -1;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewMultiStaticSelectElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelectElement &t);

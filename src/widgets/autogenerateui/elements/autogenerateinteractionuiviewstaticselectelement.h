@@ -47,5 +47,4 @@ private:
     // TODO initialOption
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewStaticSelectElement)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewStaticSelectElement &t);

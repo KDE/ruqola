@@ -38,5 +38,5 @@ private:
     QList<AutoGenerateInteractionUiViewOption *> mInitialOptions;
     QCheckBox *mCheckBox = nullptr;
 };
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewCheckboxElement)
+
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewCheckboxElement &t);

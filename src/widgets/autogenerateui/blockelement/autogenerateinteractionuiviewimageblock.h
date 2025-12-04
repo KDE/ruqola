@@ -40,5 +40,4 @@ private:
     AutoGenerateInteractionUiViewText *mTitle = nullptr;
 };
 
-Q_DECLARE_METATYPE(AutoGenerateInteractionUiViewImageBlock)
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageBlock &t);
