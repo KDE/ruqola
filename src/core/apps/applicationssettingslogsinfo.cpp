@@ -12,6 +12,7 @@
 #include <QJsonObject>
 #include <QTimeZone>
 using namespace Qt::Literals::StringLiterals;
+QT_IMPL_METATYPE_EXTERN_TAGGED(ApplicationsSettingsLogsInfo, Ruqola_ApplicationsSettingsLogsInfo)
 
 ApplicationsSettingsLogsInfo::ApplicationsSettingsLogsInfo() = default;
 

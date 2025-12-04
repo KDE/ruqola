@@ -128,7 +128,7 @@ private:
     MessageActionContexts mMessageActionContexts = MessageActionContext::Unknown;
 };
 
-Q_DECLARE_METATYPE(ActionButton)
+QT_DECL_METATYPE_EXTERN_TAGGED(ActionButton, Ruqola_ActionButton, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ActionButton, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(ActionButton::FilterActionInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
