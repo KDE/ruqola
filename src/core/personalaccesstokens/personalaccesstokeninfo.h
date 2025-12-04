@@ -38,7 +38,7 @@ private:
     bool mBypassTwoFactor = false;
 };
 
-Q_DECLARE_METATYPE(PersonalAccessTokenInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfo, Ruqola_PersonalAccessTokenInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(PersonalAccessTokenInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t);

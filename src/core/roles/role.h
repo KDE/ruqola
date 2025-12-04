@@ -43,7 +43,7 @@ private:
     bool mIsLeader = false;
     bool mIsOwner = false;
 };
-Q_DECLARE_METATYPE(Role)
+QT_DECL_METATYPE_EXTERN_TAGGED(Role, Ruqola_Role, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Role, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Role &t);

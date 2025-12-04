@@ -49,7 +49,7 @@ private:
     PreviewCommand::TypePreview mType = PreviewCommand::TypePreview::Unknown;
 };
 
-Q_DECLARE_METATYPE(PreviewCommand)
+QT_DECL_METATYPE_EXTERN_TAGGED(PreviewCommand, Ruqola_PreviewCommand, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(PreviewCommand, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PreviewCommand &t);

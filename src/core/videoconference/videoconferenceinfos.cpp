@@ -5,6 +5,7 @@
 */
 
 #include "videoconferenceinfos.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(VideoConferenceInfos, Ruqola_VideoConferenceInfos)
 
 #include "ruqola_debug.h"
 

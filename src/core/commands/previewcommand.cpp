@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "previewcommand.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(PreviewCommand, Ruqola_PreviewCommand)
+
 #include "ruqola_commands_debug.h"
 #include <QJsonObject>
 

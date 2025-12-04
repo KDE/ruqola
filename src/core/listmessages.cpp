@@ -5,6 +5,7 @@
 */
 
 #include "listmessages.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(ListMessages, Ruqola_ListMessages)
 
 #include "ruqola_debug.h"
 #include <QJsonArray>

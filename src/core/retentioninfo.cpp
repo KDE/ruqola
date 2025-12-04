@@ -5,6 +5,7 @@
 */
 
 #include "retentioninfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(RetentionInfo, Ruqola_RetentionInfo)
 
 #include <QJsonObject>
 

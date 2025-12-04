@@ -45,6 +45,6 @@ private:
     int mOffset = 0;
     int mTotal = 0;
 };
-Q_DECLARE_METATYPE(ModerationReportedMessageInfos)
+QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportedMessageInfos, Ruqola_ModerationReportedMessageInfos, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportedMessageInfos &t);

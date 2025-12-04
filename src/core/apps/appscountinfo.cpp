@@ -5,6 +5,8 @@
 */
 
 #include "appscountinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(AppsCountInfo, Ruqola_AppsCountInfo)
+
 using namespace Qt::Literals::StringLiterals;
 AppsCountInfo::AppsCountInfo() = default;
 

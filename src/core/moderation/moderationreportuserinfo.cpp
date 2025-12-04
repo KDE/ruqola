@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportuserinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfo, Ruqola_ModerationReportUserInfo)
+
 #include "utils.h"
 using namespace Qt::Literals::StringLiterals;
 ModerationReportUserInfo::ModerationReportUserInfo() = default;

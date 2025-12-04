@@ -5,6 +5,7 @@
 */
 
 #include "teamroom.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(TeamRoom, Ruqola_TeamRoom)
 
 #include <QJsonArray>
 

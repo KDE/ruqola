@@ -188,7 +188,7 @@ private:
     bool mIsEnterpriseOnly = false;
 };
 
-Q_DECLARE_METATYPE(AppsMarketPlaceInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(AppsMarketPlaceInfo, Ruqola_AppsMarketPlaceInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(AppsMarketPlaceInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t);

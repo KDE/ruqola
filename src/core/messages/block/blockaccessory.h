@@ -8,8 +8,9 @@
 
 #include "blockaccessoryoption.h"
 #include "libruqolacore_export.h"
-#include <QJsonObject>
-
+#include <QList>
+#include <QMetaType>
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT BlockAccessory
 {
     Q_GADGET

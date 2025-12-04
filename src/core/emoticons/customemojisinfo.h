@@ -44,6 +44,6 @@ private:
     int mTotal = 0;
 };
 
-Q_DECLARE_METATYPE(CustomEmojisInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(CustomEmojisInfo, Ruqola_CustomEmojisInfo, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmojisInfo &t);

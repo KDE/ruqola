@@ -33,5 +33,5 @@ public:
 private:
     QList<Block> mBlocks;
 };
-Q_DECLARE_METATYPE(Blocks)
+QT_DECL_METATYPE_EXTERN_TAGGED(Blocks, Ruqola_Blocks, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Blocks &t);

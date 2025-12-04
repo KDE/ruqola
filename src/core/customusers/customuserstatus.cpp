@@ -5,6 +5,7 @@
 */
 
 #include "customuserstatus.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(CustomUserStatus, Ruqola_CustomUserStatus)
 
 #include "utils.h"
 

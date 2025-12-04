@@ -39,7 +39,7 @@ public:
 private:
     QList<ChannelInfo> mChannels;
 };
-Q_DECLARE_METATYPE(Channels)
+QT_DECL_METATYPE_EXTERN_TAGGED(Channels, Ruqola_Channels, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Channels::ChannelInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels &t);

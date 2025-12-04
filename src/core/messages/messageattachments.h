@@ -31,5 +31,5 @@ public:
 private:
     QList<MessageAttachment> mMessageAttachments;
 };
-Q_DECLARE_METATYPE(MessageAttachments)
+QT_DECL_METATYPE_EXTERN_TAGGED(MessageAttachments, Ruqola_MessageAttachments, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachments &t);

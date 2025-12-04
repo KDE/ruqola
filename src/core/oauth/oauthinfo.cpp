@@ -5,6 +5,7 @@
 */
 
 #include "oauthinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(OauthInfo, Ruqola_OauthInfo)
 
 #include "utils.h"
 

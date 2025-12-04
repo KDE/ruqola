@@ -5,6 +5,7 @@
 */
 
 #include "command.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Command, Ruqola_Command)
 
 #include "ruqola_commands_debug.h"
 #include <KLocalizedString>

@@ -41,6 +41,6 @@ private:
     int mTotal = 0;
     int mModerationReportUserInfosCount = 0;
 };
-Q_DECLARE_METATYPE(ModerationReportUserInfos)
+QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfos, Ruqola_ModerationReportUserInfos, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportUserInfos &t);

@@ -5,6 +5,7 @@
 */
 
 #include "user.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(User, Ruqola_User)
 
 #include "ruqola_debug.h"
 #include "ruqola_specialwarning_debug.h"

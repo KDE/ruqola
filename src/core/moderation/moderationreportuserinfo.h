@@ -41,7 +41,7 @@ private:
     qint64 mTimeStamp = -1;
 };
 
-Q_DECLARE_METATYPE(ModerationReportUserInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfo, Ruqola_ModerationReportUserInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ModerationReportUserInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportUserInfo &t);

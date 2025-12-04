@@ -43,7 +43,7 @@ private:
     qint64 mUnreadMessageTimeStep = 0;
     bool mJoined = false;
 };
-Q_DECLARE_METATYPE(ChannelCounterInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(ChannelCounterInfo, Ruqola_ChannelCounterInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ChannelCounterInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ChannelCounterInfo &t);

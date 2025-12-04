@@ -5,6 +5,7 @@
 */
 
 #include "appscategoryinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(AppsCategoryInfo, Ruqola_AppsCategoryInfo)
 
 using namespace Qt::Literals::StringLiterals;
 AppsCategoryInfo::AppsCategoryInfo() = default;

@@ -48,7 +48,7 @@ private:
     int mMaxUses = 0;
 };
 
-Q_DECLARE_METATYPE(InviteInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(InviteInfo, Ruqola_InviteInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(InviteInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const InviteInfo &t);

@@ -5,6 +5,7 @@
 */
 
 #include "moderationreporteduserinfos.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportedUserInfos, Ruqola_ModerationReportedUserInfos)
 
 #include "ruqola_debug.h"
 

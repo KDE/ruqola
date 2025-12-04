@@ -5,6 +5,7 @@
 */
 
 #include "channels.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Channels, Ruqola_Channels)
 
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>

@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include "messageurl.h"
 #include <QList>
+#include <QSharedData>
 class LIBRUQOLACORE_EXPORT MessageUrls : public QSharedData
 {
 public:
@@ -31,5 +32,5 @@ public:
 private:
     QList<MessageUrl> mMessageUrls;
 };
-Q_DECLARE_METATYPE(MessageUrls)
+QT_DECL_METATYPE_EXTERN_TAGGED(MessageUrls, Ruqola_MessageUrls, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrls &t);

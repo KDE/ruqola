@@ -5,6 +5,7 @@
 */
 
 #include "autotranslatelanguages.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(AutotranslateLanguages, Ruqola_AutotranslateLanguages)
 
 #include "ruqola_debug.h"
 #include <QJsonArray>

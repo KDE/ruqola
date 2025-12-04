@@ -5,6 +5,7 @@
 */
 
 #include "discussions/discussions.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Discussions, Ruqola_Discussions)
 
 #include "ruqola_debug.h"
 #include <QJsonArray>

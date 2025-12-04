@@ -44,6 +44,6 @@ private:
     int mOffset = 0;
     int mTotal = 0;
 };
-Q_DECLARE_METATYPE(DeviceInfos)
+QT_DECL_METATYPE_EXTERN_TAGGED(DeviceInfos, Ruqola_DeviceInfos, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const DeviceInfos &t);

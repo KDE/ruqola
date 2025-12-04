@@ -5,6 +5,7 @@
 */
 
 #include "deviceinfos.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(DeviceInfos, Ruqola_DeviceInfos)
 
 #include "ruqola_debug.h"
 

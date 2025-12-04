@@ -5,6 +5,7 @@
 */
 
 #include "channelcounterinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(ChannelCounterInfo, Ruqola_ChannelCounterInfo)
 
 #include "ruqola_room_memory_debug.h"
 

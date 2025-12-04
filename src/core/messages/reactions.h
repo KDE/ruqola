@@ -33,5 +33,5 @@ public:
 private:
     QList<Reaction> mReactions;
 };
-Q_DECLARE_METATYPE(Reactions)
+QT_DECL_METATYPE_EXTERN_TAGGED(Reactions, Ruqola_Reactions, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reactions &t);

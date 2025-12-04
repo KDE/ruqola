@@ -5,6 +5,7 @@
 */
 
 #include "commands.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Commands, Ruqola_Commands)
 
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "ruqola_commands_debug.h"

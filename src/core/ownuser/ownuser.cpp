@@ -5,6 +5,8 @@
 */
 
 #include "ownuser/ownuser.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(OwnUser, Ruqola_OwnUser)
+
 #include "utils.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;

@@ -48,6 +48,6 @@ private:
     int mTotal = 0;
 };
 
-Q_DECLARE_METATYPE(CustomSoundsInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(CustomSoundsInfo, Ruqola_CustomSoundsInfo, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomSoundsInfo &t);

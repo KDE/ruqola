@@ -5,6 +5,8 @@
 */
 
 #include "moderationreportuserinfos.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfos, Ruqola_ModerationReportUserInfos)
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;

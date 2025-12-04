@@ -53,7 +53,7 @@ private:
     bool mProvidesPreview = false;
     bool mClientOnly = false;
 };
-Q_DECLARE_METATYPE(Command)
+QT_DECL_METATYPE_EXTERN_TAGGED(Command, Ruqola_Command, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Command, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Command &t);

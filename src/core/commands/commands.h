@@ -47,6 +47,6 @@ private:
     DownloadAppsLanguagesManager *mDownloadManager = nullptr;
 };
 
-Q_DECLARE_METATYPE(Commands)
+QT_DECL_METATYPE_EXTERN_TAGGED(Commands, Ruqola_Commands, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Commands &t);

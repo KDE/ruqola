@@ -5,6 +5,7 @@
 */
 
 #include "fileattachments.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(FileAttachments, Ruqola_FileAttachments)
 
 #include "ruqola_debug.h"
 #include <QJsonArray>

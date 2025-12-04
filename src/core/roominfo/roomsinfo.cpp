@@ -5,6 +5,7 @@
 */
 
 #include "roominfo/roomsinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(RoomsInfo, Ruqola_RoomsInfo)
 
 #include "ruqola_debug.h"
 #include <QJsonArray>

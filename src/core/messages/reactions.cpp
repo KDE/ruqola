@@ -5,6 +5,7 @@
 */
 
 #include "reactions.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Reactions, Ruqola_Reactions)
 
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>

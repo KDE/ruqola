@@ -5,6 +5,8 @@
 */
 
 #include "teamroomcompleter.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(TeamRoomCompleter, Ruqola_TeamRoomCompleter)
+
 using namespace Qt::Literals::StringLiterals;
 
 TeamRoomCompleter::TeamRoomCompleter() = default;

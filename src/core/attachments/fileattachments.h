@@ -9,6 +9,7 @@
 #include "file.h"
 #include "libruqolacore_export.h"
 #include <QList>
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT FileAttachments
 {
@@ -45,6 +46,6 @@ private:
     int mTotal = 0;
 };
 
-Q_DECLARE_METATYPE(FileAttachments)
+QT_DECL_METATYPE_EXTERN_TAGGED(FileAttachments, Ruqola_FileAttachments, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const FileAttachments &t);

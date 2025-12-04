@@ -69,7 +69,7 @@ private:
     bool mRequired = false;
     bool mMultiLine = false;
 };
-Q_DECLARE_METATYPE(ApplicationsSettingsSettingsInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(ApplicationsSettingsSettingsInfo, Ruqola_ApplicationsSettingsSettingsInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ApplicationsSettingsSettingsInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ApplicationsSettingsSettingsInfo &t);

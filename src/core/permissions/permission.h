@@ -37,7 +37,7 @@ private:
     QStringList mRoles;
     QString mIdentifier;
 };
-Q_DECLARE_METATYPE(Permission)
+QT_DECL_METATYPE_EXTERN_TAGGED(Permission, Ruqola_Permission, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Permission, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Permission &t);

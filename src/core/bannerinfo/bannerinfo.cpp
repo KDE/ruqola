@@ -5,6 +5,7 @@
 */
 
 #include "bannerinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(BannerInfo, Ruqola_BannerInfo)
 
 #include <KLocalizedString>
 #include <QJsonArray>

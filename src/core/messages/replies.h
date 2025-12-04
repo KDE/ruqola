@@ -32,6 +32,6 @@ public:
 private:
     QList<QByteArray> mReplies;
 };
-Q_DECLARE_METATYPE(Replies)
+QT_DECL_METATYPE_EXTERN_TAGGED(Replies, Ruqola_Replies, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Replies &t);

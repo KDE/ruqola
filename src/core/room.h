@@ -10,7 +10,6 @@
 
 #include "notifications/notificationoptions.h"
 #include "roles/roles.h"
-#include <QJsonObject>
 #include <QObject>
 #include <QPointer>
 
@@ -27,6 +26,7 @@
 class UsersForRoomModel;
 class MessagesModel;
 class RocketChatAccount;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT Room : public QObject
 {
     Q_OBJECT

@@ -29,6 +29,6 @@ private:
     QList<AutotranslateLanguage> mAutotranslateLanguages;
 };
 
-Q_DECLARE_METATYPE(AutotranslateLanguages)
+QT_DECL_METATYPE_EXTERN_TAGGED(AutotranslateLanguages, Ruqola_AutotranslateLanguages, LIBRUQOLACORE_EXPORT)
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguages &t);

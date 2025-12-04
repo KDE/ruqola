@@ -7,6 +7,7 @@
 #include "messagestarred.h"
 
 #include <QJsonArray>
+#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 MessageStarred::MessageStarred() = default;

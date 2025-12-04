@@ -5,6 +5,7 @@
 */
 
 #include "users.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Users, Ruqola_Users)
 
 #include "ruqola_debug.h"
 #include <QJsonArray>

@@ -7,8 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+#include <QMetaType>
 #include <QString>
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT CustomSoundInfo
 {
 public:
@@ -40,7 +41,7 @@ private:
     bool mDefaultSound = false;
 };
 
-Q_DECLARE_METATYPE(CustomSoundInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(CustomSoundInfo, Ruqola_CustomSoundInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(CustomSoundInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomSoundInfo &t);

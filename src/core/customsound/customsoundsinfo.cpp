@@ -5,6 +5,7 @@
 */
 
 #include "customsoundsinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(CustomSoundsInfo, Ruqola_CustomSoundsInfo)
 
 #include "ruqola_debug.h"
 #include <QJsonArray>

@@ -5,6 +5,7 @@
 */
 
 #include "roleinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(RoleInfo, Ruqola_RoleInfo)
 
 #include <QJsonObject>
 

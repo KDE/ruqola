@@ -5,6 +5,7 @@
 */
 
 #include "customemojisinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(CustomEmojisInfo, Ruqola_CustomEmojisInfo)
 
 #include "ruqola_debug.h"
 #include <QJsonArray>

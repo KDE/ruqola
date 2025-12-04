@@ -44,7 +44,7 @@ private:
     bool mAutoJoin = false;
 };
 
-Q_DECLARE_METATYPE(TeamInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(TeamInfo, Ruqola_TeamInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(TeamInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamInfo &t);

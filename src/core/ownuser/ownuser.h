@@ -78,6 +78,6 @@ private:
     OwnUserPreferences mOwnUserPreferences;
     double mUtcOffset = 0.0;
 };
-Q_DECLARE_METATYPE(OwnUser)
+QT_DECL_METATYPE_EXTERN_TAGGED(OwnUser, Ruqola_OwnUser, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(OwnUser, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUser &t);

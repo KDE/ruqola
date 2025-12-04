@@ -5,6 +5,7 @@
 */
 
 #include "role.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Role, Ruqola_Role)
 
 #include "ruqola_debug.h"
 

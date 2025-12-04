@@ -5,6 +5,8 @@
 */
 
 #include "applicationssettingssettingsinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(ApplicationsSettingsSettingsInfo, Ruqola_ApplicationsSettingsSettingsInfo)
+
 #include "ruqola_debug.h"
 #include <QJsonArray>
 using namespace Qt::Literals::StringLiterals;

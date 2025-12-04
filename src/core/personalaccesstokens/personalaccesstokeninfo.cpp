@@ -5,6 +5,7 @@
 */
 
 #include "personalaccesstokeninfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfo, Ruqola_PersonalAccessTokenInfo)
 
 #include "utils.h"
 

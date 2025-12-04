@@ -33,5 +33,5 @@ private:
 };
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoomCompleter &t);
-Q_DECLARE_METATYPE(TeamRoomCompleter)
+QT_DECL_METATYPE_EXTERN_TAGGED(TeamRoomCompleter, Ruqola_TeamRoomCompleter, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(TeamRoomCompleter, Q_RELOCATABLE_TYPE);

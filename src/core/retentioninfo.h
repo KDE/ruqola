@@ -44,7 +44,7 @@ private:
     bool mExcludePinned = false;
     bool mFilesOnly = false;
 };
-Q_DECLARE_METATYPE(RetentionInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(RetentionInfo, Ruqola_RetentionInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(RetentionInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, RetentionInfo t);

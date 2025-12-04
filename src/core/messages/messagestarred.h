@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include <QJsonObject>
+class QJsonObject;
 class LIBRUQOLACORE_TESTS_EXPORT MessageStarred
 {
 public:

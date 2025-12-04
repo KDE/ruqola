@@ -5,6 +5,8 @@
 */
 
 #include "appsmarketplaceinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(AppsMarketPlaceInfo, Ruqola_AppsMarketPlaceInfo)
+
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
 #include "ruqola_debug.h"
 #include "utils.h"

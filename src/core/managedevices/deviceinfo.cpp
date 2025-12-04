@@ -5,6 +5,8 @@
 */
 
 #include "deviceinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(DeviceInfo, Ruqola_DeviceInfo)
+
 #include "utils.h"
 using namespace Qt::Literals::StringLiterals;
 DeviceInfo::DeviceInfo() = default;

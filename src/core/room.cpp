@@ -20,6 +20,7 @@
 #include <QIcon>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 Room::Room(RocketChatAccount *account, QObject *parent)

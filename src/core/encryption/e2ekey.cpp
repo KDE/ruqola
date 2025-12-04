@@ -5,6 +5,8 @@
 */
 
 #include "e2ekey.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(E2eKey, Ruqola_E2eKey)
+
 using namespace Qt::Literals::StringLiterals;
 
 E2eKey::E2eKey() = default;

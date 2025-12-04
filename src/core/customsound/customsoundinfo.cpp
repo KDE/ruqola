@@ -5,6 +5,8 @@
 */
 
 #include "customsoundinfo.h"
+#include <QJsonObject>
+QT_IMPL_METATYPE_EXTERN_TAGGED(CustomSoundInfo, Ruqola_CustomSoundInfo)
 
 using namespace Qt::Literals::StringLiterals;
 CustomSoundInfo::CustomSoundInfo() = default;

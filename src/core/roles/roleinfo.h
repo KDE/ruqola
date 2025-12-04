@@ -45,7 +45,7 @@ private:
     bool mMandatory2fa = false;
 };
 
-Q_DECLARE_METATYPE(RoleInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(RoleInfo, Ruqola_RoleInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(RoleInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoleInfo &t);

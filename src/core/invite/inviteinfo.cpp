@@ -5,6 +5,7 @@
 */
 
 #include "inviteinfo.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(InviteInfo, Ruqola_InviteInfo)
 
 #include "utils.h"
 

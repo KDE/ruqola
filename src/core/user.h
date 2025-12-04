@@ -127,7 +127,7 @@ private:
     bool mActive = true;
     bool mRequirePasswordChange = false;
 };
-Q_DECLARE_METATYPE(User)
+QT_DECL_METATYPE_EXTERN_TAGGED(User, Ruqola_User, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(User, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(User::UserEmailsInfo, Q_RELOCATABLE_TYPE);
 class QDebug;
