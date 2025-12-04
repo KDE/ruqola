@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-03 00:43+0000\n"
-"PO-Revision-Date: 2025-11-26 15:08+0100\n"
+"PO-Revision-Date: 2025-12-02 10:17+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -402,27 +402,25 @@ msgid "Allow to read oauth app settings"
 msgstr "Bied het lezen van oauth-app-instellingen"
 
 #: core/apps/appsmarketplaceinfo.cpp:677
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Bied het schrijven van oauth-app-instellingen"
+msgstr "Bied het schrijven van instellingen voor videoconferentie"
 
 #: core/apps/appsmarketplaceinfo.cpp:679
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Bied het lezen van oauth-app-instellingen"
+msgstr "Bied het lezen van instellingen voor videoconferentie"
 
 #: core/apps/appsmarketplaceinfo.cpp:681
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr ""
+"Bied het wijzigen van instellingen voor leverancier van videoconferentie"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Bied de rol van schrijven"
+msgstr "Bied het registreren van knop"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
