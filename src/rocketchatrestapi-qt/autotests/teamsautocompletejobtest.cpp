@@ -7,7 +7,6 @@
 #include "teamsautocompletejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "teams/teamsautocompletejob.h"
 QTEST_GUILESS_MAIN(TeamsAutoCompleteJobTest)

@@ -8,7 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "moderation/moderationreportsjob.h"
-#include "restapimethod.h"
+
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(ModerationReportInfoJobTest)
 using namespace RocketChatRestApi;

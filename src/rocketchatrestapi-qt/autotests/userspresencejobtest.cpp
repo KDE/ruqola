@@ -7,7 +7,6 @@
 #include "userspresencejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/userspresencejob.h"
 QTEST_GUILESS_MAIN(UsersPresenceJobTest)

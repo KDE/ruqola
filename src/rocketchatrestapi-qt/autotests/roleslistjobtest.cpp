@@ -8,7 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "misc/roleslistjob.h"
-#include "restapimethod.h"
+
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(RolesListJobTest)
 using namespace RocketChatRestApi;

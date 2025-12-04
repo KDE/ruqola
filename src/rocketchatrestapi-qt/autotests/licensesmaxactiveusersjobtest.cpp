@@ -8,7 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "license/licensesisenterprisejob.h"
-#include "restapimethod.h"
+
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(LicensesMaxActiveUsersJobTest)
 using namespace RocketChatRestApi;

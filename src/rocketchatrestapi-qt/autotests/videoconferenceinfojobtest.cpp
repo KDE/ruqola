@@ -7,7 +7,6 @@
 #include "videoconferenceinfojobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "video-conference/videoconferenceinfojob.h"
 QTEST_GUILESS_MAIN(VideoConferenceInfoJobTest)

@@ -6,7 +6,6 @@
 
 #include "managechannels.h"
 
-#include "channelgroupbasejob.h"
 #include "channels/channeljoinjob.h"
 #include "channels/channelopenjob.h"
 #include "connection.h"

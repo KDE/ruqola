@@ -7,7 +7,6 @@
 #include "teamslistjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "teams/teamslistjob.h"
 QTEST_GUILESS_MAIN(TeamsListJobTest)

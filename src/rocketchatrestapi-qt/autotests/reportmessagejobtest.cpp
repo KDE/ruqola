@@ -8,7 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/reportmessagejob.h"
-#include "restapimethod.h"
+
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 
