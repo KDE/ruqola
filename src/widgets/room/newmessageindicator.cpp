@@ -5,7 +5,6 @@
 */
 #include "newmessageindicator.h"
 #include <KLocalizedString>
-#include <KMessageWidget>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 NewMessageIndicator::NewMessageIndicator(QWidget *parent)

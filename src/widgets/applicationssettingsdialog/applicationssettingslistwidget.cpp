@@ -7,7 +7,6 @@
 #include "applicationssettingslistwidget.h"
 #include "applicationssettingsdialog/applicationssettingsdescriptiontabwidget.h"
 #include "applicationssettingsdialog/applicationssettingslistview.h"
-#include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "applicationssettingsdialog/appscountinfowidget.h"
 #include "model/appsmarketplacemodel.h"
 #include <QSplitter>

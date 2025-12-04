@@ -10,7 +10,6 @@
 #include <KSyntaxHighlighting/SyntaxHighlighter>
 #include <KSyntaxHighlighting/Theme>
 #include <QVBoxLayout>
-#include <TextCustomEditor/PlainTextEditor>
 #include <TextCustomEditor/PlainTextEditorWidget>
 using namespace Qt::Literals::StringLiterals;
 

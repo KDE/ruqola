@@ -5,7 +5,6 @@
 */
 
 #include "textconverter.h"
-#include "config-ruqola.h"
 #include "messagecache.h"
 #include "ruqola_texttohtml_debug.h"
 #include "ruqolablockcmarksupport.h"
