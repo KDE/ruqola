@@ -8,6 +8,7 @@
 #include "messages/block/block.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(BlockTest)
 BlockTest::BlockTest(QObject *parent)

@@ -7,7 +7,10 @@
 #include "customsoundsmanagertest.h"
 #include "customsound/customsoundsmanager.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonArray>
+#include <QJsonObject>
 #include <QSignalSpy>
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(CustomSoundsManagerTest)
 

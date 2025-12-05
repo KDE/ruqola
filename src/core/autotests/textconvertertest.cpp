@@ -15,6 +15,7 @@
 #include <QRegularExpression>
 
 #include <KColorScheme>
+#include <QTest>
 
 QTEST_GUILESS_MAIN(TextConverterTest)
 using namespace Qt::Literals::StringLiterals;

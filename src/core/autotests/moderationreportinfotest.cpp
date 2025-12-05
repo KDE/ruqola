@@ -7,6 +7,8 @@
 #include "moderationreportinfotest.h"
 #include "moderation/moderationreportinfo.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonObject>
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ModerationReportInfoTest)
 ModerationReportInfoTest::ModerationReportInfoTest(QObject *parent)

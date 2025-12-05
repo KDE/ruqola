@@ -8,6 +8,7 @@
 
 #include "ruqola_autotest_helper.h"
 #include "ruqolaserverconfig.h"
+#include <QTest>
 
 QTEST_GUILESS_MAIN(RuqolaServerConfigTest)
 

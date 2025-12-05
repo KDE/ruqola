@@ -7,6 +7,8 @@
 #include "videoconferenceinfotest.h"
 #include "ruqola_autotest_helper.h"
 #include "videoconference/videoconferenceinfo.h"
+#include <QJsonObject>
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(VideoConferenceInfoTest)
 VideoConferenceInfoTest::VideoConferenceInfoTest(QObject *parent)

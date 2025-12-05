@@ -14,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
+#include <QTest>
 
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
 QTEST_GUILESS_MAIN(EmojiManagerTest)

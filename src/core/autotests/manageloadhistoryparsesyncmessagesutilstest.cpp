@@ -5,11 +5,12 @@
 */
 
 #include "manageloadhistoryparsesyncmessagesutilstest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "manageloadhistoryparsesyncmessagesutils.h"
 #include "ruqola_autotest_helper.h"
+#include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ManageLoadHistoryParseSyncMessagesUtilsTest)
 ManageLoadHistoryParseSyncMessagesUtilsTest::ManageLoadHistoryParseSyncMessagesUtilsTest(QObject *parent)
     : QObject{parent}

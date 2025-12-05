@@ -1,6 +1,20 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>,
 # SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
 # SPDX-License-Identifier: BSD-3-Clause
+
+add_library(ruqolacorehelper STATIC)
+target_sources(
+    ruqolacorehelper
+    PRIVATE
+        ruqola_autotest_helper.cpp
+        ruqola_autotest_helper.h
+)
+target_link_libraries(
+    ruqolacorehelper
+    Qt::Test
+    Qt::Core
+)
+
 add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 add_definitions(-DRUQOLA_BINARY_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")
 macro(add_ruqola_test _source)
@@ -18,6 +32,7 @@ macro(add_ruqola_test _source)
         ${_name}
         Qt::Test
         libruqolacore
+        ruqolacorehelper
     )
     set_target_properties(
         ${_name}

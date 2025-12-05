@@ -7,6 +7,8 @@
 #include "permissionsmanagertest.h"
 #include "permissions/permissionsmanager.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonArray>
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(PermissionsManagerTest)
 PermissionsManagerTest::PermissionsManagerTest(QObject *parent)

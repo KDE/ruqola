@@ -7,6 +7,8 @@
 #include "deviceinfotest.h"
 #include "managedevices/deviceinfo.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonObject>
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(DeviceInfoTest)
 DeviceInfoTest::DeviceInfoTest(QObject *parent)

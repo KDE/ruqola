@@ -6,6 +6,8 @@
 #include "bannerinfotest.h"
 #include "bannerinfo/bannerinfo.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonObject>
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(BannerInfoTest)
 BannerInfoTest::BannerInfoTest(QObject *parent)

@@ -7,6 +7,7 @@
 #include "rocketchatmessagetest.h"
 #include "rocketchatmessage.h"
 #include "ruqola_autotest_helper.h"
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RocketChatMessageTest)
 

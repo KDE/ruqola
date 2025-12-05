@@ -7,6 +7,8 @@
 #include "permissiontest.h"
 #include "permissions/permission.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonObject>
+#include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(PermissionTest)
 PermissionTest::PermissionTest(QObject *parent)
