@@ -7,7 +7,7 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include <QJsonDocument>
-#include <QObject>
+#include <QMetaType>
 #include <QString>
 #include <QStringList>
 namespace RocketChatRestApi

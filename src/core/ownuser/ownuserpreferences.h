@@ -8,7 +8,8 @@
 
 #include "libruqolacore_export.h"
 
-#include <QObject>
+#include <QMetaType>
+#include <QStringList>
 
 class LIBRUQOLACORE_EXPORT OwnUserPreferences
 {

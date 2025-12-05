@@ -7,7 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QObject>
+#include <QMetaType>
+#include <QStringList>
+
 class EmojiManager;
 class LIBRUQOLACORE_EXPORT Reaction
 {

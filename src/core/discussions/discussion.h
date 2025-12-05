@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include <QObject>
+#include <QMetaType>
 
 class LIBRUQOLACORE_TESTS_EXPORT Discussion
 {

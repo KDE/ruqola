@@ -7,7 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QObject>
+#include <QMetaType>
+
 class LIBRUQOLACORE_EXPORT VideoConference
 {
     Q_GADGET

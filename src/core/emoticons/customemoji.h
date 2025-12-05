@@ -7,8 +7,9 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include <QObject>
+#include <QMetaType>
 #include <QString>
+#include <QStringList>
 
 class LIBRUQOLACORE_TESTS_EXPORT CustomEmoji
 {

@@ -7,7 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QObject>
+#include <QMetaType>
+#include <QStringList>
 class LIBRUQOLACORE_EXPORT ActionButton
 {
     Q_GADGET

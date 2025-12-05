@@ -6,7 +6,7 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QObject>
+#include <QMetaType>
 #include <QString>
 
 class LIBRUQOLACORE_EXPORT PreviewCommand
