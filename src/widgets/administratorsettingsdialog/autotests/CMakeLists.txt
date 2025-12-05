@@ -10,6 +10,9 @@ macro(add_administratorsettings_test _source)
         settingswidgetshelper.h
     )
     add_test(NAME ${_name} COMMAND ${_name})
+    if(ENABLE_PCH)
+        target_precompile_headers(${_name} REUSE_FROM ruqolawidgetspch_tests)
+    endif()
     ecm_mark_as_test(${_name})
     target_link_libraries(
         ${_name}

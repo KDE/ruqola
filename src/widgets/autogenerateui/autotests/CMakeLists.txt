@@ -13,6 +13,9 @@ macro(add_ruqola_autogenerateui_test _source)
     )
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
+    if(ENABLE_PCH)
+        target_precompile_headers(${_name} REUSE_FROM ruqolawidgetspch_tests)
+    endif()
     target_link_libraries(
         ${_name}
         Qt::Test
