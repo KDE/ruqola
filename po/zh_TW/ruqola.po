@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-03 00:43+0000\n"
+"POT-Creation-Date: 2025-12-05 00:42+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -189,282 +189,282 @@ msgstr "無效的權杖"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:109
+#: core/apps/appsmarketplaceinfo.cpp:111
 #, kde-format
 msgid "per %1"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:158
+#: core/apps/appsmarketplaceinfo.cpp:160
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "This month"
 msgid "month"
 msgstr "這個月"
 
-#: core/apps/appsmarketplaceinfo.cpp:160
+#: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
 msgid "year"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:406 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:408 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "描述"
 
-#: core/apps/appsmarketplaceinfo.cpp:415
+#: core/apps/appsmarketplaceinfo.cpp:417
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
 #, kde-format
 msgid "Version"
 msgstr "版本"
 
-#: core/apps/appsmarketplaceinfo.cpp:418 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:420 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "分類"
 
-#: core/apps/appsmarketplaceinfo.cpp:422
+#: core/apps/appsmarketplaceinfo.cpp:424
 #, fuzzy, kde-format
 #| msgid "Authentication"
 msgid "Documentation"
 msgstr "認證"
 
-#: core/apps/appsmarketplaceinfo.cpp:433
+#: core/apps/appsmarketplaceinfo.cpp:435
 #, kde-format
 msgid "Author"
 msgstr "作者"
 
-#: core/apps/appsmarketplaceinfo.cpp:445
+#: core/apps/appsmarketplaceinfo.cpp:447
 #, kde-format
 msgid "Homepage"
 msgstr "首頁"
 
-#: core/apps/appsmarketplaceinfo.cpp:457
+#: core/apps/appsmarketplaceinfo.cpp:459
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Support"
 msgstr "回報臭蟲"
 
-#: core/apps/appsmarketplaceinfo.cpp:462
+#: core/apps/appsmarketplaceinfo.cpp:464
 #, fuzzy, kde-format
 #| msgid "Privacy"
 msgid "Privacy Summary"
 msgstr "隱私"
 
-#: core/apps/appsmarketplaceinfo.cpp:473
+#: core/apps/appsmarketplaceinfo.cpp:475
 #: widgets/administratordialog/administratorwidget.cpp:78
 #, kde-format
 msgid "Permissions"
 msgstr "權限"
 
-#: core/apps/appsmarketplaceinfo.cpp:607
+#: core/apps/appsmarketplaceinfo.cpp:609
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "Access messages"
 msgstr "%1 則訊息"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, fuzzy, kde-format
 #| msgid "Search moderation message…"
 msgid "Send and modify messages"
 msgstr "搜尋站務訊息…"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access room information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Create and modify rooms"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access to this server network"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access user information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Modify user information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Register new slash commands"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Access settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Modify settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Upload files to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Access Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access Livechat room information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Access Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access Livechat status information"
 msgstr "帳戶資訊"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Interact with the UI"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Store internal data in the database"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:663
+#: core/apps/appsmarketplaceinfo.cpp:665
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:673
+#: core/apps/appsmarketplaceinfo.cpp:675
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:675
+#: core/apps/appsmarketplaceinfo.cpp:677
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:677
+#: core/apps/appsmarketplaceinfo.cpp:679
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
 msgid "Allow to write video conference settings"
 msgstr "應用程式…"
 
-#: core/apps/appsmarketplaceinfo.cpp:679
+#: core/apps/appsmarketplaceinfo.cpp:681
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
 msgid "Allow to read video conference settings"
 msgstr "應用程式…"
 
-#: core/apps/appsmarketplaceinfo.cpp:681
+#: core/apps/appsmarketplaceinfo.cpp:683
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:683
+#: core/apps/appsmarketplaceinfo.cpp:685
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to register button"
 msgstr "允許傳送多個檔案。"
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:691
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to send email"
 msgstr "允許傳送多個檔案。"
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:693
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to write role"
 msgstr "允許傳送多個檔案。"
 
-#: core/apps/appsmarketplaceinfo.cpp:693
+#: core/apps/appsmarketplaceinfo.cpp:695
 #, fuzzy, kde-format
 #| msgid "Allow to send multi files."
 msgid "Allow to read role"
 msgstr "允許傳送多個檔案。"
 
-#: core/apps/appsmarketplaceinfo.cpp:695
+#: core/apps/appsmarketplaceinfo.cpp:697
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Out Bound Communication"
@@ -1764,7 +1764,7 @@ msgstr "已加入此團隊"
 msgid "(Autojoin)"
 msgstr "（自動加入）"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1157
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1158
 #, kde-format
 msgid "Owner"
 msgstr "擁有者"
@@ -1875,64 +1875,64 @@ msgstr "帳戶已新增"
 msgid "A new account was added."
 msgstr "輸入帳戶名稱"
 
-#: core/room.cpp:1160
+#: core/room.cpp:1161
 #, kde-format
 msgid "Leader"
 msgstr "領導者"
 
-#: core/room.cpp:1163
+#: core/room.cpp:1164
 #, kde-format
 msgid "Moderator"
 msgstr "Mod"
 
-#: core/room.cpp:1553
+#: core/room.cpp:1554
 #, kde-format
 msgid "Channel is read only."
 msgstr "頻道是唯讀的。"
 
-#: core/room.cpp:1556
+#: core/room.cpp:1557
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "您已封鎖此頻道。"
 
-#: core/room.cpp:1559
+#: core/room.cpp:1560
 #, kde-format
 msgid "Channel was blocked."
 msgstr "頻道已封鎖。"
 
-#: core/roominfo/roominfo.cpp:128
+#: core/roominfo/roominfo.cpp:129
 #, fuzzy, kde-format
 #| msgid "Discussions"
 msgid "Discussion"
 msgstr "討論"
 
-#: core/roominfo/roominfo.cpp:132
+#: core/roominfo/roominfo.cpp:133
 #, kde-format
 msgid "Private Team"
 msgstr "私人團隊"
 
-#: core/roominfo/roominfo.cpp:134
+#: core/roominfo/roominfo.cpp:135
 #, kde-format
 msgid "Group"
 msgstr "群組"
 
-#: core/roominfo/roominfo.cpp:138
+#: core/roominfo/roominfo.cpp:139
 #, kde-format
 msgid "Public Team"
 msgstr "公開團隊"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:27
+#: core/roominfo/roominfo.cpp:141 widgets/ruqolaui.rc:27
 #, kde-format
 msgid "Channel"
 msgstr "頻道"
 
-#: core/roominfo/roominfo.cpp:143
+#: core/roominfo/roominfo.cpp:144
 #, kde-format
 msgid "Direct message"
 msgstr "私訊"
 
-#: core/roominfo/roominfo.cpp:145
+#: core/roominfo/roominfo.cpp:146
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:110
 #, fuzzy, kde-format
 #| msgid "Next Channel"
@@ -1999,17 +1999,17 @@ msgstr "作用中"
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/user.cpp:209
+#: core/user.cpp:210
 #, kde-format
 msgid "User"
 msgstr "使用者"
 
-#: core/user.cpp:211
+#: core/user.cpp:212
 #, kde-format
 msgid "Administrator"
 msgstr "管理員"
 
-#: core/user.cpp:213
+#: core/user.cpp:214
 #, kde-format
 msgid "Bot"
 msgstr "機器人"
@@ -11105,7 +11105,7 @@ msgstr "程式碼區塊"
 msgid "Markdown Url"
 msgstr "Markdown 網址"
 
-#: widgets/room/newmessageindicator.cpp:34
+#: widgets/room/newmessageindicator.cpp:33
 #, fuzzy, kde-format
 #| msgid "Send Message"
 msgid "New Message"
