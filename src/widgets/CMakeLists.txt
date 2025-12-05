@@ -1026,6 +1026,19 @@ if(TARGET KF6::UserFeedbackWidgets)
     )
 endif()
 
+# precompiled headers support
+if(ENABLE_PCH)
+    target_precompile_headers(
+        libruqolawidgets
+        PRIVATE
+            <QObject>
+            <QDebug>
+            <QStringList>
+            <QString>
+            <QByteArray>
+    )
+endif()
+
 ki18n_wrap_ui(libruqolawidgets
     configuredialog/configureaccountserverwidget.ui
 )

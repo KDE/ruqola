@@ -586,6 +586,19 @@ if(HAVE_TEXT_TRANSLATOR)
     )
 endif()
 
+# precompiled headers support
+if(ENABLE_PCH)
+    target_precompile_headers(
+        libruqolacore
+        PRIVATE
+            <QObject>
+            <QDebug>
+            <QJsonObject>
+            <QStringList>
+            <QSortFilterProxyModel>
+    )
+endif()
+
 # TODO remove it from core
 if(TARGET KF6::TextEditTextToSpeech)
     target_link_libraries(libruqolacore KF6::TextEditTextToSpeech)

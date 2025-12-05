@@ -1,5 +1,25 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
+
+if(ENABLE_PCH)
+    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp "/*empty file*/")
+    file(
+        WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch.h
+        "#pragma once\n"
+        "#include <QObject>\n"
+        "#include <QTest>\n"
+        "#include <QJsonDocument>\n"
+        "#include <QJsonObject>\n"
+    )
+    add_library(librocketchatrestapi-qt_test_pch STATIC ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp)
+    target_link_libraries(
+        librocketchatrestapi-qt_test_pch
+        librocketchatrestapi-qt
+        Qt6::Test
+    )
+    target_precompile_headers(librocketchatrestapi-qt_test_pch PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/pch.h)
+endif()
+
 add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 macro(add_rocketchatrestapi_test _source)
     set(_test ${_source})
@@ -12,6 +32,9 @@ macro(add_rocketchatrestapi_test _source)
     )
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
+    if(ENABLE_PCH)
+        target_precompile_headers(${_name} REUSE_FROM librocketchatrestapi-qt_test_pch)
+    endif()
     target_link_libraries(
         ${_name}
         Qt::Test

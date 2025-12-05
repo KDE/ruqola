@@ -516,6 +516,19 @@ target_sources(
         queryparameters.cpp
 )
 
+# precompiled headers support
+if(ENABLE_PCH)
+    target_precompile_headers(
+        librocketchatrestapi-qt
+        PRIVATE
+            <QObject>
+            <QDebug>
+            <QJsonDocument>
+            <QJsonObject>
+            <QUrlQuery>
+    )
+endif()
+
 ecm_qt_declare_logging_category(librocketchatrestapi_qt_debug_SRCS HEADER rocketchatqtrestapi_debug.h
     IDENTIFIER ROCKETCHATQTRESTAPI_LOG
     CATEGORY_NAME org.kde.ruqola.rocketchatqtrestapi
