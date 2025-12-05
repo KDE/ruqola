@@ -20,7 +20,7 @@ ModerationReportsByUsersJobTest::ModerationReportsByUsersJobTest(QObject *parent
 void ModerationReportsByUsersJobTest::shouldHaveDefaultValue()
 {
     ModerationReportsByUsersJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -33,7 +33,7 @@ void ModerationReportsByUsersJobTest::shouldGenerateRequest()
     {
         ModerationReportsByUsersJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.reportsByUsers"_s));
     }
     {
@@ -43,7 +43,7 @@ void ModerationReportsByUsersJobTest::shouldGenerateRequest()
         info.mLatest = QDateTime(QDate(2023, 1, 5), QTime(5, 10, 3));
         info.mOldest = QDateTime(QDate(2022, 1, 5), QTime(5, 10, 3));
         job.setModerationReportsByUsersInfo(info);
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.reportsByUsers?oldest=2022-01-05T05:10:03&latest=2023-01-05T05:10:03"_s));
     }
 }

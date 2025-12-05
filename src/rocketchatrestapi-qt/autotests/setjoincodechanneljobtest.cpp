@@ -20,7 +20,7 @@ SetJoinCodeChannelJobTest::SetJoinCodeChannelJobTest(QObject *parent)
 void SetJoinCodeChannelJobTest::shouldHaveDefaultValue()
 {
     SetJoinCodeChannelJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void SetJoinCodeChannelJobTest::shouldGenerateRequest()
 {
     SetJoinCodeChannelJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.setJoinCode"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

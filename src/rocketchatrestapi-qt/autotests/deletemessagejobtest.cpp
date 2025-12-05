@@ -20,7 +20,7 @@ DeleteMessageJobTest::DeleteMessageJobTest(QObject *parent)
 void DeleteMessageJobTest::shouldHaveDefaultValue()
 {
     DeleteMessageJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.messageId().isEmpty());
@@ -31,7 +31,7 @@ void DeleteMessageJobTest::shouldGenerateRequest()
 {
     DeleteMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.delete"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

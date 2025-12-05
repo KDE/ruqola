@@ -22,7 +22,7 @@ void RoomsMuteUserJobTest::shouldHaveDefaultValue()
     RoomsMuteUserJob job;
     QVERIFY(job.userName().isEmpty());
     QVERIFY(job.roomId().isEmpty());
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -31,7 +31,7 @@ void RoomsMuteUserJobTest::shouldGenerateRequest()
 {
     RoomsMuteUserJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.muteUser"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

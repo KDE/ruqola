@@ -20,7 +20,7 @@ SetAvatarJobTest::SetAvatarJobTest(QObject *parent)
 void SetAvatarJobTest::shouldHaveDefaultValue()
 {
     SetAvatarJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.avatarInfo().isValid());
     QVERIFY(!job.hasUserIdentifier());
@@ -38,7 +38,7 @@ void SetAvatarJobTest::shouldGenerateRequest()
         avatarInfo.mAvatarUrl = avatarurl;
         job.setAvatarInfo(avatarInfo);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.setAvatar"_s));
         QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
     }
@@ -51,7 +51,7 @@ void SetAvatarJobTest::shouldGenerateRequest()
         avatarInfo.mImageUrl = QUrl::fromUserInput(avatarurl);
         job.setAvatarInfo(avatarInfo);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.setAvatar"_s));
         QVERIFY(request.header(QNetworkRequest::ContentTypeHeader).toString() != u"application/json"_s);
     }

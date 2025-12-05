@@ -20,7 +20,7 @@ AppsUiInteractionJobTest::AppsUiInteractionJobTest(QObject *parent)
 void AppsUiInteractionJobTest::shouldHaveDefaultValue()
 {
     AppsUiInteractionJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     AppsUiInteractionJob::AppsUiInteractionJobInfo info;
     job.setAppsUiInteractionJobInfo(info);
@@ -31,14 +31,14 @@ void AppsUiInteractionJobTest::shouldGenerateRequest()
 {
     AppsUiInteractionJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/ui.interaction"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
     AppsUiInteractionJob::AppsUiInteractionJobInfo info;
     info.methodName = u"login"_s;
     job.setAppsUiInteractionJobInfo(info);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/ui.interaction/login"_s));
 }
 

@@ -20,7 +20,7 @@ RemovePersonalAccessTokenJobTest::RemovePersonalAccessTokenJobTest(QObject *pare
 void RemovePersonalAccessTokenJobTest::shouldHaveDefaultValue()
 {
     RemovePersonalAccessTokenJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.tokenName().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -31,7 +31,7 @@ void RemovePersonalAccessTokenJobTest::shouldGenerateRequest()
 {
     RemovePersonalAccessTokenJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.removePersonalAccessToken"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

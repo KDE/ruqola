@@ -20,7 +20,7 @@ ChannelInviteJobTest::ChannelInviteJobTest(QObject *parent)
 void ChannelInviteJobTest::shouldHaveDefaultValue()
 {
     ChannelInviteJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.inviteUserId().isEmpty());
     QVERIFY(job.inviteUserName().isEmpty());
     QVERIFY(!job.hasIdentifier());
@@ -31,7 +31,7 @@ void ChannelInviteJobTest::shouldGenerateRequest()
 {
     ChannelInviteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.invite"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

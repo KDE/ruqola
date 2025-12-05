@@ -20,7 +20,7 @@ GetCommandsJobTest::GetCommandsJobTest(QObject *parent)
 void GetCommandsJobTest::shouldHaveDefaultValue()
 {
     GetCommandsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.commandName().isEmpty());
@@ -31,7 +31,7 @@ void GetCommandsJobTest::shouldGenerateRequest()
     GetCommandsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     job.setCommandName(u"foo"_s);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/commands.get?command=foo"_s));
 }
 

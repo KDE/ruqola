@@ -22,7 +22,7 @@ PinMessageJobTest::PinMessageJobTest(QObject *parent)
 void PinMessageJobTest::shouldHaveDefaultValue()
 {
     PinMessageJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.pinMessage());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -32,7 +32,7 @@ void PinMessageJobTest::shouldHaveMessageId()
 {
     PinMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     RestApiMethod method;
     method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
@@ -54,7 +54,7 @@ void PinMessageJobTest::shouldGeneratePinMessageRequest()
 {
     PinMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.pinMessage"_s));
 }
 
@@ -63,7 +63,7 @@ void PinMessageJobTest::shouldGenerateUnPinMessageRequest()
     PinMessageJob job;
     job.setPinMessage(false);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.unPinMessage"_s));
 }
 

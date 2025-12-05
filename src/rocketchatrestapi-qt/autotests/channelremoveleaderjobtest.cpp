@@ -20,7 +20,7 @@ ChannelRemoveLeaderJobTest::ChannelRemoveLeaderJobTest(QObject *parent)
 void ChannelRemoveLeaderJobTest::shouldHaveDefaultValue()
 {
     ChannelRemoveLeaderJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.removeUserId().isEmpty());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ChannelRemoveLeaderJobTest::shouldGenerateRequest()
 {
     ChannelRemoveLeaderJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.removeLeader"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

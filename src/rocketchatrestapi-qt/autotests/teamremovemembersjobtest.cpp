@@ -20,7 +20,7 @@ TeamRemoveMembersJobTest::TeamRemoveMembersJobTest(QObject *parent)
 void TeamRemoveMembersJobTest::shouldHaveDefaultValue()
 {
     TeamRemoveMembersJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomsId().isEmpty());
     QVERIFY(job.teamId().isEmpty());
@@ -31,7 +31,7 @@ void TeamRemoveMembersJobTest::shouldGenerateRequest()
 {
     TeamRemoveMembersJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.removeMember"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

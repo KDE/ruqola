@@ -20,7 +20,7 @@ ResetRoomKeyJobTest::ResetRoomKeyJobTest(QObject *parent)
 void ResetRoomKeyJobTest::shouldHaveDefaultValue()
 {
     ResetRoomKeyJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void ResetRoomKeyJobTest::shouldGenerateRequest()
 {
     ResetRoomKeyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.resetRoomKey"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

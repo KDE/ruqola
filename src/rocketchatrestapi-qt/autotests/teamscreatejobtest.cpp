@@ -20,7 +20,7 @@ TeamsCreateJobTest::TeamsCreateJobTest(QObject *parent)
 void TeamsCreateJobTest::shouldHaveDefaultValue()
 {
     TeamsCreateJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     CreateChannelTeamInfo info = job.teamsCreateJobInfo();
     QVERIFY(!info.readOnly);
@@ -33,7 +33,7 @@ void TeamsCreateJobTest::shouldGenerateRequest()
 {
     TeamsCreateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.create"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

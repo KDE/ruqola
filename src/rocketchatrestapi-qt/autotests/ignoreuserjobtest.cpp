@@ -20,7 +20,7 @@ IgnoreUserJobTest::IgnoreUserJobTest(QObject *parent)
 void IgnoreUserJobTest::shouldHaveDefaultValue()
 {
     IgnoreUserJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.ignoreUserId().isEmpty());
     QVERIFY(job.ignore());
@@ -34,7 +34,7 @@ void IgnoreUserJobTest::shouldGenerateRequest()
     QNetworkRequest request = QNetworkRequest(QUrl());
     job.setRoomId("foo"_ba);
     job.setIgnoreUserId("bla"_ba);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     // TODO verify
     // TODO add ignore == false
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.ignoreUser?rid=foo&userId=bla&ignore=true"_s));

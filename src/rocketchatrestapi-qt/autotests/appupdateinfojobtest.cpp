@@ -19,7 +19,7 @@ AppUpdateInfoJobTest::AppUpdateInfoJobTest(QObject *parent)
 void AppUpdateInfoJobTest::shouldHaveDefaultValue()
 {
     AppUpdateInfoJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -36,7 +36,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
         job.setAppUpdateInfo(info);
 
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/foo"_s));
     }
 
@@ -49,7 +49,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
         job.setAppUpdateInfo(info);
 
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/foo/settings"_s));
     }
 
@@ -62,7 +62,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
         job.setAppUpdateInfo(info);
 
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/foo/icon"_s));
     }
 
@@ -75,7 +75,7 @@ void AppUpdateInfoJobTest::shouldGenerateRequest()
         job.setAppUpdateInfo(info);
 
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/actionButtons"_s));
     }
 }

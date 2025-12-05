@@ -20,7 +20,7 @@ ListOauthAppsJobTest::ListOauthAppsJobTest(QObject *parent)
 void ListOauthAppsJobTest::shouldHaveDefaultValue()
 {
     ListOauthAppsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -30,7 +30,7 @@ void ListOauthAppsJobTest::shouldGenerateRequest()
 {
     ListOauthAppsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/oauth-apps.list"_s));
 }
 

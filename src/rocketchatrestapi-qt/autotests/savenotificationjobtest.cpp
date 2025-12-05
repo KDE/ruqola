@@ -20,7 +20,7 @@ SaveNotificationJobTest::SaveNotificationJobTest(QObject *parent)
 void SaveNotificationJobTest::shouldHaveDefaultValue()
 {
     SaveNotificationJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
 
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.disableNotifications());
@@ -44,7 +44,7 @@ void SaveNotificationJobTest::shouldGenerateRequest()
 {
     SaveNotificationJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.saveNotification"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

@@ -20,7 +20,7 @@ ChannelAddLeaderJobTest::ChannelAddLeaderJobTest(QObject *parent)
 void ChannelAddLeaderJobTest::shouldHaveDefaultValue()
 {
     ChannelAddLeaderJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.addLeaderUserId().isEmpty());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ChannelAddLeaderJobTest::shouldGenerateRequest()
 {
     ChannelAddLeaderJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.addLeader"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

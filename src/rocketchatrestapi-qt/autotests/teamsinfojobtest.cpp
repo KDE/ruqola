@@ -19,7 +19,7 @@ TeamsInfoJobTest::TeamsInfoJobTest(QObject *parent)
 void TeamsInfoJobTest::shouldHaveDefaultValue()
 {
     TeamInfoJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.teamId().isEmpty());
@@ -31,7 +31,7 @@ void TeamsInfoJobTest::shouldGenerateRequest()
     const QString teamId = u"blu"_s;
     job.setTeamId(teamId);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.info?teamId=%1"_s.arg(teamId)));
 }
 

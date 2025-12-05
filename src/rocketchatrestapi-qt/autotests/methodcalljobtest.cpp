@@ -20,7 +20,7 @@ MethodCallJobTest::MethodCallJobTest(QObject *parent)
 void MethodCallJobTest::shouldHaveDefaultValue()
 {
     MethodCallJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     MethodCallJob::MethodCallJobInfo info;
@@ -33,7 +33,7 @@ void MethodCallJobTest::shouldGenerateRequest()
 {
     MethodCallJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/method.call"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
@@ -41,7 +41,7 @@ void MethodCallJobTest::shouldGenerateRequest()
     info.methodName = u"login"_s;
     info.anonymous = true;
     job.setMethodCallJobInfo(info);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/method.callAnon/login"_s));
 }
 

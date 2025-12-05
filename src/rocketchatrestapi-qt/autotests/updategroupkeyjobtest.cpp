@@ -20,7 +20,7 @@ UpdateGroupKeyJobTest::UpdateGroupKeyJobTest(QObject *parent)
 void UpdateGroupKeyJobTest::shouldHaveDefaultValue()
 {
     UpdateGroupKeyJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.updateGroupInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void UpdateGroupKeyJobTest::shouldGenerateRequest()
 {
     UpdateGroupKeyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.updateGroupKey"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

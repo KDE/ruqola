@@ -20,7 +20,7 @@ OauthAppsJobTest::OauthAppsJobTest(QObject *parent)
 void OauthAppsJobTest::shouldHaveDefaultValue()
 {
     OauthAppsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -34,7 +34,7 @@ void OauthAppsJobTest::shouldGenerateRequest()
     const QString appId = u"appId"_s;
     job.setAppId(appId);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/oauth-apps.get?clientId=%1&appId=%2"_s.arg(clientId, appId)));
 }
 

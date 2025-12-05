@@ -20,7 +20,7 @@ TranslateSaveSettingsJobTest::TranslateSaveSettingsJobTest(QObject *parent)
 void TranslateSaveSettingsJobTest::shouldHaveDefaultValue()
 {
     TranslateSaveSettingsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.language().isEmpty());
@@ -34,7 +34,7 @@ void TranslateSaveSettingsJobTest::shouldGenerateRequest()
 {
     TranslateSaveSettingsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/autotranslate.saveSettings"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

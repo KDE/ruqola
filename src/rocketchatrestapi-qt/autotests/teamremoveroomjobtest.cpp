@@ -20,7 +20,7 @@ TeamRemoveRoomJobTest::TeamRemoveRoomJobTest(QObject *parent)
 void TeamRemoveRoomJobTest::shouldHaveDefaultValue()
 {
     TeamRemoveRoomJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.teamId().isEmpty());
@@ -31,7 +31,7 @@ void TeamRemoveRoomJobTest::shouldGenerateRequest()
 {
     TeamRemoveRoomJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.removeRoom"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

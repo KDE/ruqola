@@ -20,7 +20,7 @@ ChangeGroupsReadonlyJobTest::ChangeGroupsReadonlyJobTest(QObject *parent)
 void ChangeGroupsReadonlyJobTest::shouldHaveDefaultValue()
 {
     ChangeGroupsReadonlyJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.readOnly());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ChangeGroupsReadonlyJobTest::shouldGenerateRequest()
 {
     ChangeGroupsReadonlyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.setReadOnly"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

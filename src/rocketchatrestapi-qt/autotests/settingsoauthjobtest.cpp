@@ -20,7 +20,7 @@ SettingsOauthJobTest::SettingsOauthJobTest(QObject *parent)
 void SettingsOauthJobTest::shouldHaveDefaultValue()
 {
     SettingsOauthJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -30,7 +30,7 @@ void SettingsOauthJobTest::shouldGenerateRequest()
 {
     SettingsOauthJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/settings.oauth"_s));
 }
 

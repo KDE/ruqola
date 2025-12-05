@@ -20,7 +20,7 @@ CustomUserStatusCreateTestJob::CustomUserStatusCreateTestJob(QObject *parent)
 void CustomUserStatusCreateTestJob::shouldHaveDefaultValue()
 {
     CustomUserStatusCreateJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void CustomUserStatusCreateTestJob::shouldGenerateRequest()
 {
     CustomUserStatusCreateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/custom-user-status.create"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

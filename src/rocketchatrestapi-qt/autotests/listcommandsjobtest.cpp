@@ -20,7 +20,7 @@ ListCommandsJobTest::ListCommandsJobTest(QObject *parent)
 void ListCommandsJobTest::shouldHaveDefaultValue()
 {
     ListCommandsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void ListCommandsJobTest::shouldGenerateRequest()
 {
     ListCommandsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/commands.list"_s));
 }
 

@@ -20,7 +20,7 @@ ModerationUserReportedMessagesJobTest::ModerationUserReportedMessagesJobTest(QOb
 void ModerationUserReportedMessagesJobTest::shouldHaveDefaultValue()
 {
     ModerationUserReportedMessagesJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -33,7 +33,7 @@ void ModerationUserReportedMessagesJobTest::shouldGenerateRequest()
     job.setReportedMessageFromUserId("bla"_ba);
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.user.reportedMessages?userId=bla"_s));
     }
 }

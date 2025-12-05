@@ -20,7 +20,7 @@ PreviewsCommandJobTest::PreviewsCommandJobTest(QObject *parent)
 void PreviewsCommandJobTest::shouldHaveDefaultValue()
 {
     PreviewsCommandJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.previewsCommandInfo().isValid());
@@ -31,7 +31,7 @@ void PreviewsCommandJobTest::shouldGenerateRequest()
 {
     PreviewsCommandJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/commands.preview"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

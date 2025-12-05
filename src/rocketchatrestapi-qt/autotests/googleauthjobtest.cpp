@@ -20,7 +20,7 @@ GoogleAuthJobTest::GoogleAuthJobTest(QObject *parent)
 void GoogleAuthJobTest::shouldHaveDefaultValue()
 {
     GoogleAuthJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(job.idToken().isEmpty());
     QVERIFY(job.accessToken().isEmpty());

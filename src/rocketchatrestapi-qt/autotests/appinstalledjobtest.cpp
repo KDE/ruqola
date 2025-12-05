@@ -19,7 +19,7 @@ AppInstalledJobTest::AppInstalledJobTest(QObject *parent)
 void AppInstalledJobTest::shouldHaveDefaultValue()
 {
     AppCountJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -28,7 +28,7 @@ void AppInstalledJobTest::shouldGenerateRequest()
 {
     AppCountJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/count"_s));
 }
 

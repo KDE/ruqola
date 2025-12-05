@@ -21,7 +21,7 @@ AddUserToRoleJobTest::AddUserToRoleJobTest(QObject *parent)
 void AddUserToRoleJobTest::shouldHaveDefaultValue()
 {
     AddUserToRoleJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.username().isEmpty());
@@ -31,7 +31,7 @@ void AddUserToRoleJobTest::shouldGenerateRequest()
 {
     AddUserToRoleJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/roles.addUserToRole"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

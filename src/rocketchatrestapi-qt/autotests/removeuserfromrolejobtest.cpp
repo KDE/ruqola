@@ -20,7 +20,7 @@ RemoveUserFromRoleJobTest::RemoveUserFromRoleJobTest(QObject *parent)
 void RemoveUserFromRoleJobTest::shouldHaveDefaultValue()
 {
     RemoveUserFromRoleJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void RemoveUserFromRoleJobTest::shouldGenerateRequest()
 {
     RemoveUserFromRoleJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/roles.removeUserFromRole"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

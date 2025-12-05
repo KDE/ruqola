@@ -20,7 +20,7 @@ CreateChannelJobTest::CreateChannelJobTest(QObject *parent)
 void CreateChannelJobTest::shouldHaveDefaultValue()
 {
     CreateChannelJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     CreateChannelTeamInfo info = job.createChannelInfo();
     QVERIFY(!info.readOnly);
@@ -33,7 +33,7 @@ void CreateChannelJobTest::shouldGenerateRequest()
 {
     CreateChannelJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.create"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

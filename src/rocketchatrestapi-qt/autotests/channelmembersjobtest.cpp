@@ -19,7 +19,7 @@ ChannelMembersJobTest::ChannelMembersJobTest(QObject *parent)
 void ChannelMembersJobTest::shouldHaveDefaultValue()
 {
     ChannelMembersJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasIdentifier());
     QCOMPARE(job.channelType(), ChannelMembersJob::ChannelType::Unknown);
@@ -37,15 +37,15 @@ void ChannelMembersJobTest::shouldGenerateRequest()
     job.setChannelGroupInfo(info);
 
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.members?roomId=foo"_s));
 
     job.setChannelType(ChannelMembersJob::ChannelType::Direct);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/im.members?roomId=foo"_s));
 
     job.setChannelType(ChannelMembersJob::ChannelType::Groups);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.members?roomId=foo"_s));
 }
 

@@ -19,7 +19,7 @@ ChannelFilesJobTest::ChannelFilesJobTest(QObject *parent)
 void ChannelFilesJobTest::shouldHaveDefaultValue()
 {
     ChannelFilesJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasIdentifier());
     QCOMPARE(job.channelType(), ChannelFilesJob::ChannelType::Unknown);
@@ -37,15 +37,15 @@ void ChannelFilesJobTest::shouldGenerateRequest()
     job.setChannelGroupInfo(info);
 
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.files?roomId=foo"_s));
 
     job.setChannelType(ChannelFilesJob::ChannelType::Direct);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/im.files?roomId=foo"_s));
 
     job.setChannelType(ChannelFilesJob::ChannelType::Groups);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.files?roomId=foo"_s));
 }
 

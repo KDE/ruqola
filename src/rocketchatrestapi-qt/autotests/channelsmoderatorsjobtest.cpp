@@ -19,7 +19,7 @@ ChannelsModeratorsJobTest::ChannelsModeratorsJobTest(QObject *parent)
 void ChannelsModeratorsJobTest::shouldHaveDefaultValue()
 {
     ChannelsModeratorsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -33,7 +33,7 @@ void ChannelsModeratorsJobTest::shouldGenerateRequest()
     info.identifier = u"foo"_s;
     job.setChannelGroupInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.moderators?roomId=foo"_s));
 }
 

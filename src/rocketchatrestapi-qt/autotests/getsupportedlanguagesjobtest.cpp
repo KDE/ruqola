@@ -20,7 +20,7 @@ GetSupportedLanguagesJobTest::GetSupportedLanguagesJobTest(QObject *parent)
 void GetSupportedLanguagesJobTest::shouldHaveDefaultValue()
 {
     GetSupportedLanguagesJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.needTargetLanguage());
@@ -30,7 +30,7 @@ void GetSupportedLanguagesJobTest::shouldGenerateRequest()
 {
     GetSupportedLanguagesJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/autotranslate.getSupportedLanguages"_s));
 }
 

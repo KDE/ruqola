@@ -20,7 +20,7 @@ ChannelAddModeratorJobTest::ChannelAddModeratorJobTest(QObject *parent)
 void ChannelAddModeratorJobTest::shouldHaveDefaultValue()
 {
     ChannelAddModeratorJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.addModeratorUserId().isEmpty());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ChannelAddModeratorJobTest::shouldGenerateRequest()
 {
     ChannelAddModeratorJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.addModerator"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

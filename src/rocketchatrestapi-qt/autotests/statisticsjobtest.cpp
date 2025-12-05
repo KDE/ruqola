@@ -20,7 +20,7 @@ StatisticsJobTest::StatisticsJobTest(QObject *parent)
 void StatisticsJobTest::shouldHaveDefaultValue()
 {
     StatisticsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.refresh());
@@ -32,13 +32,13 @@ void StatisticsJobTest::shouldGenerateRequest()
     StatisticsJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/statistics?refresh=false"_s));
     }
     {
         job.setRefresh(true);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/statistics?refresh=true"_s));
     }
 }

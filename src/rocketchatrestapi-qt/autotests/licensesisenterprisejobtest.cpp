@@ -20,7 +20,7 @@ LicensesIsEnterpriseJobTest::LicensesIsEnterpriseJobTest(QObject *parent)
 void LicensesIsEnterpriseJobTest::shouldHaveDefaultValue()
 {
     LicensesIsEnterpriseJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,7 +31,7 @@ void LicensesIsEnterpriseJobTest::shouldGenerateRequest()
     LicensesIsEnterpriseJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/licenses.isEnterprise"_s));
     }
 }

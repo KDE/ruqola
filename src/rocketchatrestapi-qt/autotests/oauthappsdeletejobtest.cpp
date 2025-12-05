@@ -20,7 +20,7 @@ OauthAppsDeleteJobTest::OauthAppsDeleteJobTest(QObject *parent)
 void OauthAppsDeleteJobTest::shouldHaveDefaultValue()
 {
     OauthAppsDeleteJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.identifier().isEmpty());
@@ -30,7 +30,7 @@ void OauthAppsDeleteJobTest::shouldGenerateRequest()
 {
     OauthAppsDeleteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/oauth-apps.delete"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

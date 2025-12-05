@@ -20,7 +20,7 @@ LeaveGroupsJobTest::LeaveGroupsJobTest(QObject *parent)
 void LeaveGroupsJobTest::shouldHaveDefaultValue()
 {
     LeaveGroupsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void LeaveGroupsJobTest::shouldGenerateRequest()
 {
     LeaveGroupsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.leave"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

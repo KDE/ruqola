@@ -19,7 +19,7 @@ UsersListJobTest::UsersListJobTest(QObject *parent)
 void UsersListJobTest::shouldHaveDefaultValue()
 {
     UsersListJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasUserIdentifier());
     QVERIFY(job.hasQueryParameterSupport());
@@ -34,7 +34,7 @@ void UsersListJobTest::shouldGenerateRequest()
     info.userInfoType = UsersListJob::UserInfoType::UserId;
     job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QEXPECT_FAIL("", "Problem with argument", Continue);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.list?userId=foo1"_s));
 }
@@ -47,7 +47,7 @@ void UsersListJobTest::shouldGenerateRequestUsername()
     info.userInfoType = UsersListJob::UserInfoType::UserName;
     job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QEXPECT_FAIL("", "Problem with argument", Continue);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.list?username=foo1"_s));
 }

@@ -21,7 +21,7 @@ void RoomsExportJobTest::shouldHaveDefaultValue()
 {
     RoomsExportJob job;
     QVERIFY(!job.roomExportInfo().isValid());
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 
@@ -42,7 +42,7 @@ void RoomsExportJobTest::shouldGenerateRequest()
 {
     RoomsExportJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.export"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

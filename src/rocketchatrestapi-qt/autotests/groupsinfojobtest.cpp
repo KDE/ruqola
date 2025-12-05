@@ -19,7 +19,7 @@ GroupsInfoJobTest::GroupsInfoJobTest(QObject *parent)
 void GroupsInfoJobTest::shouldHaveDefaultValue()
 {
     GroupsInfoJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void GroupsInfoJobTest::shouldGenerateRequest()
     GroupsInfoJob job;
     job.setRoomId(u"foo"_s);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.info?roomId=foo"_s));
 }
 

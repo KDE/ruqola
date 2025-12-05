@@ -20,7 +20,7 @@ FacebookAuthJobTest::FacebookAuthJobTest(QObject *parent)
 void FacebookAuthJobTest::shouldHaveDefaultValue()
 {
     FacebookAuthJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(job.secret().isEmpty());
     QVERIFY(job.accessToken().isEmpty());

@@ -20,7 +20,7 @@ UsersSendWelcomeEmailJobTest::UsersSendWelcomeEmailJobTest(QObject *parent)
 void UsersSendWelcomeEmailJobTest::shouldHaveDefaultValue()
 {
     UsersSendWelcomeEmailJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,7 +31,7 @@ void UsersSendWelcomeEmailJobTest::shouldGenerateRequest()
 {
     UsersSendWelcomeEmailJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.sendWelcomeEmail"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

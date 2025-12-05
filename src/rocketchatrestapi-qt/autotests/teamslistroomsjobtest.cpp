@@ -19,7 +19,7 @@ TeamsListRoomsJobTest::TeamsListRoomsJobTest(QObject *parent)
 void TeamsListRoomsJobTest::shouldHaveDefaultValue()
 {
     TeamsListRoomsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.teamId().isEmpty());
@@ -32,7 +32,7 @@ void TeamsListRoomsJobTest::shouldGenerateRequest()
     const QByteArray teamId("blu");
     job.setTeamId(teamId);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.listRooms?teamId=%1"_s.arg(QLatin1StringView(teamId))));
 }
 

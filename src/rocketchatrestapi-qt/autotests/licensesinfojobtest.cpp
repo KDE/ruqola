@@ -19,7 +19,7 @@ LicensesInfoJobTest::LicensesInfoJobTest(QObject *parent)
 void LicensesInfoJobTest::shouldHaveDefaultValue()
 {
     LicensesInfoJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -30,7 +30,7 @@ void LicensesInfoJobTest::shouldGenerateRequest()
     LicensesInfoJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/licenses.info"_s));
     }
 }

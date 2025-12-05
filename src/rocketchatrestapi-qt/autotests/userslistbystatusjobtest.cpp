@@ -19,7 +19,7 @@ UsersListByStatusJobTest::UsersListByStatusJobTest(QObject *parent)
 void UsersListByStatusJobTest::shouldHaveDefaultValue()
 {
     UsersListByStatusJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
 }
@@ -28,7 +28,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
 {
     UsersListByStatusJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.listByStatus"_s));
 
     {
@@ -36,7 +36,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
         info.status = RocketChatRestApi::UsersListByStatusJob::Status::Activated;
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         job.setUsersListByStatusJobInfo(info);
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.listByStatus?status=active&type=user"_s));
     }
     {
@@ -45,7 +45,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
         info.type = RocketChatRestApi::UsersListByStatusJob::StatusType::User;
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         job.setUsersListByStatusJobInfo(info);
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=true&status=deactivated&type=user"_s));
     }
     {
@@ -55,7 +55,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.roles = {"user"_L1};
         job.setUsersListByStatusJobInfo(info);
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=true&status=deactivated&type=user&roles[]=user"_s));
     }
     {
@@ -65,7 +65,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
         info.hasLoggedIn = RocketChatRestApi::UsersListByStatusJob::LoggedStatus::Logged;
         info.roles = {"user"_L1, "admin"_L1};
         job.setUsersListByStatusJobInfo(info);
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(),
                  QUrl(u"http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=true&status=deactivated&type=user&roles[]=user&roles[]=admin"_s));
     }
@@ -78,7 +78,7 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
         info.roles = {"user"_L1, "admin"_L1};
         info.searchName = "gla"_L1;
         job.setUsersListByStatusJobInfo(info);
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(),
                  QUrl(QStringLiteral(
                      "http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=true&status=deactivated&type=user&roles[]=user&roles[]=admin&searchTerm=gla")));

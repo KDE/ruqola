@@ -19,7 +19,7 @@ ServerInfoJobTest::ServerInfoJobTest(QObject *parent)
 void ServerInfoJobTest::shouldHaveDefaultValue()
 {
     ServerInfoJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }

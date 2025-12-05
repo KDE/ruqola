@@ -20,7 +20,7 @@ ListInviteJobTest::ListInviteJobTest(QObject *parent)
 void ListInviteJobTest::shouldHaveDefaultValue()
 {
     ListInviteJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,7 +31,7 @@ void ListInviteJobTest::shouldGenerateRequest()
     ListInviteJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/listInvites"_s));
     }
 }

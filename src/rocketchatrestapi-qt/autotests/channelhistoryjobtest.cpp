@@ -20,7 +20,7 @@ ChannelHistoryJobTest::ChannelHistoryJobTest(QObject *parent)
 void ChannelHistoryJobTest::shouldHaveDefaultValue()
 {
     ChannelHistoryJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasIdentifier());
     const ChannelHistoryJob::ChannelHistoryInfo info = job.channelHistoryInfo();
@@ -42,26 +42,26 @@ void ChannelHistoryJobTest::shouldGenerateRequest()
     info.channelType = ChannelHistoryJob::ChannelType::Channel;
     job.setChannelHistoryInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.history?inclusive=false&unreads=false"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
     info.channelType = ChannelHistoryJob::ChannelType::Direct;
     job.setChannelHistoryInfo(info);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/im.history?inclusive=false&unreads=false"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
     info.channelType = ChannelHistoryJob::ChannelType::Groups;
     job.setChannelHistoryInfo(info);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.history?inclusive=false&unreads=false"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
     info.roomId = "foo"_ba;
     info.channelType = ChannelHistoryJob::ChannelType::Groups;
     job.setChannelHistoryInfo(info);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.history?roomId=foo&inclusive=false&unreads=false"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

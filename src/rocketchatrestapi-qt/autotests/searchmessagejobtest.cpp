@@ -19,7 +19,7 @@ searchMessageJobTest::searchMessageJobTest(QObject *parent)
 void searchMessageJobTest::shouldHaveDefaultValue()
 {
     SearchMessageJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.searchText().isEmpty());
     QVERIFY(job.roomId().isEmpty());
@@ -36,7 +36,7 @@ void searchMessageJobTest::shouldGenerateRequest()
     QNetworkRequest request = QNetworkRequest(QUrl());
     job.setRoomId(u"foo"_s);
     job.setSearchText(u"bla"_s);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla"_s));
 }
 
@@ -47,7 +47,7 @@ void searchMessageJobTest::shouldGenerateRequestWithLimit()
     job.setRoomId(u"foo"_s);
     job.setSearchText(u"bla"_s);
     job.setCount(5);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla&count=5"_s));
 }
 

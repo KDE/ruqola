@@ -20,7 +20,7 @@ CreateDmJobTest::CreateDmJobTest(QObject *parent)
 void CreateDmJobTest::shouldHaveDefaultValue()
 {
     CreateDmJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.userNames().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void CreateDmJobTest::shouldGenerateRequest()
 {
     CreateDmJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/im.create"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

@@ -19,7 +19,7 @@ AppFeaturedAppsJobTest::AppFeaturedAppsJobTest(QObject *parent)
 void AppFeaturedAppsJobTest::shouldHaveDefaultValue()
 {
     AppFeaturedAppsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -28,7 +28,7 @@ void AppFeaturedAppsJobTest::shouldGenerateRequest()
 {
     AppFeaturedAppsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/featured-apps"_s));
 }
 

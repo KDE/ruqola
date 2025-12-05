@@ -19,7 +19,7 @@ UsersPresenceJobTest::UsersPresenceJobTest(QObject *parent)
 void UsersPresenceJobTest::shouldHaveDefaultValue()
 {
     UsersPresenceJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -28,7 +28,7 @@ void UsersPresenceJobTest::shouldGenerateRequest()
 {
     UsersPresenceJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.presence"_s));
 }
 

@@ -20,7 +20,7 @@ MarkRoomAsUnReadJobTest::MarkRoomAsUnReadJobTest(QObject *parent)
 void MarkRoomAsUnReadJobTest::shouldHaveDefaultValue()
 {
     MarkRoomAsUnReadJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.objectId().isEmpty());
     QCOMPARE(job.unReadObject(), MarkRoomAsUnReadJob::MarkAsUnReadObject::Unknown);
@@ -31,7 +31,7 @@ void MarkRoomAsUnReadJobTest::shouldGenerateRequest()
 {
     MarkRoomAsUnReadJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/subscriptions.unread"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

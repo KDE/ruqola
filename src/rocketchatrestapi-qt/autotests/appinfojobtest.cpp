@@ -19,7 +19,7 @@ AppInfoJobTest::AppInfoJobTest(QObject *parent)
 void AppInfoJobTest::shouldHaveDefaultValue()
 {
     AppInfoJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -31,7 +31,7 @@ void AppInfoJobTest::shouldGenerateRequest()
         const QByteArray ba{"foo-bla-bli"_ba};
         job.setAppsId(ba);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/%1/"_s.arg(QString::fromLatin1(ba))));
     }
     {
@@ -40,7 +40,7 @@ void AppInfoJobTest::shouldGenerateRequest()
         job.setAppsId(ba);
         job.setAppInfoType(AppInfoJob::AppInfoType::Logs);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/%1/logs"_s.arg(QString::fromLatin1(ba))));
     }
     {
@@ -49,7 +49,7 @@ void AppInfoJobTest::shouldGenerateRequest()
         job.setAppsId(ba);
         job.setAppInfoType(AppInfoJob::AppInfoType::Versions);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/%1/versions"_s.arg(QString::fromLatin1(ba))));
     }
     {
@@ -58,7 +58,7 @@ void AppInfoJobTest::shouldGenerateRequest()
         job.setAppsId(ba);
         job.setAppInfoType(AppInfoJob::AppInfoType::ScreenShots);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/%1/screenshots"_s.arg(QString::fromLatin1(ba))));
     }
     {
@@ -67,7 +67,7 @@ void AppInfoJobTest::shouldGenerateRequest()
         job.setAppsId(ba);
         job.setAppInfoType(AppInfoJob::AppInfoType::Settings);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/%1/settings"_s.arg(QString::fromLatin1(ba))));
     }
 }

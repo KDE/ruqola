@@ -20,7 +20,7 @@ AcceptSuggestedGroupKeyJobTest::AcceptSuggestedGroupKeyJobTest(QObject *parent)
 void AcceptSuggestedGroupKeyJobTest::shouldHaveDefaultValue()
 {
     ResetOwnE2eKeyJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void AcceptSuggestedGroupKeyJobTest::shouldGenerateRequest()
 {
     ResetOwnE2eKeyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.resetOwnE2EKey"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

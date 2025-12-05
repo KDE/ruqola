@@ -20,7 +20,7 @@ ModerationUserDeleteReportedMessagesJobTest::ModerationUserDeleteReportedMessage
 void ModerationUserDeleteReportedMessagesJobTest::shouldHaveDefaultValue()
 {
     ModerationUserDeleteReportedMessagesJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.userIdForMessages().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ModerationUserDeleteReportedMessagesJobTest::shouldGenerateRequest()
 {
     ModerationUserDeleteReportedMessagesJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.user.deleteReportedMessages"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

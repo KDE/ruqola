@@ -20,7 +20,7 @@ ChangeChannelTopicJobTest::ChangeChannelTopicJobTest(QObject *parent)
 void ChangeChannelTopicJobTest::shouldHaveDefaultValue()
 {
     ChangeChannelTopicJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.topic().isEmpty());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ChangeChannelTopicJobTest::shouldGenerateRequest()
 {
     ChangeChannelTopicJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.setTopic"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

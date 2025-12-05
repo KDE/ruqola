@@ -20,7 +20,7 @@ VideoConferenceCancelJobTest::VideoConferenceCancelJobTest(QObject *parent)
 void VideoConferenceCancelJobTest::shouldHaveDefaultValue()
 {
     VideoConferenceCancelJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.callId().isEmpty());
@@ -30,7 +30,7 @@ void VideoConferenceCancelJobTest::shouldGenerateRequest()
 {
     VideoConferenceCancelJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.cancel"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

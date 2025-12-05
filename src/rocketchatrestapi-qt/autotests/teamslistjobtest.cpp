@@ -19,7 +19,7 @@ TeamsListJobTest::TeamsListJobTest(QObject *parent)
 void TeamsListJobTest::shouldHaveDefaultValue()
 {
     TeamsListJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -30,7 +30,7 @@ void TeamsListJobTest::shouldGenerateRequest()
 {
     TeamsListJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.list"_s));
 }
 
@@ -38,7 +38,7 @@ void TeamsListJobTest::shouldGenerateRequestUsername()
 {
     TeamsListJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.list"_s));
 }
 

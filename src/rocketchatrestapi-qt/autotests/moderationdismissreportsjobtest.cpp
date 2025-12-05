@@ -20,7 +20,7 @@ ModerationDismissReportsJobTest::ModerationDismissReportsJobTest(QObject *parent
 void ModerationDismissReportsJobTest::shouldHaveDefaultValue()
 {
     ModerationDismissReportsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.userIdForMessages().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -32,7 +32,7 @@ void ModerationDismissReportsJobTest::shouldGenerateRequest()
 {
     ModerationDismissReportsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.dismissReports"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

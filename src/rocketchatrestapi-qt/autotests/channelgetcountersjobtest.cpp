@@ -40,7 +40,7 @@ void ChannelGetCountersJobTest::shouldGenerateRequest()
     info.identifier = u"avat"_s;
     job.setChannelGroupInfo(info);
     QNetworkRequest request = job.request();
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.counters?roomId=avat"_s));
 }
 

@@ -20,7 +20,7 @@ RolesListJobTest::RolesListJobTest(QObject *parent)
 void RolesListJobTest::shouldHaveDefaultValue()
 {
     RolesListJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,7 +31,7 @@ void RolesListJobTest::shouldGenerateRequest()
     RolesListJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/roles.list"_s));
     }
 }

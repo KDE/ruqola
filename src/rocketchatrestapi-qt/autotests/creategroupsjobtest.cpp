@@ -20,7 +20,7 @@ CreateGroupsJobTest::CreateGroupsJobTest(QObject *parent)
 void CreateGroupsJobTest::shouldHaveDefaultValue()
 {
     CreateGroupsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     CreateChannelTeamInfo info = job.createGroupsInfo();
     QVERIFY(!info.readOnly);
@@ -33,7 +33,7 @@ void CreateGroupsJobTest::shouldGenerateRequest()
 {
     CreateGroupsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.create"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

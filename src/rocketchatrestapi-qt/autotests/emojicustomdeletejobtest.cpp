@@ -20,7 +20,7 @@ EmojiCustomDeleteJobTest::EmojiCustomDeleteJobTest(QObject *parent)
 void EmojiCustomDeleteJobTest::shouldHaveDefaultValue()
 {
     EmojiCustomDeleteJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.emojiId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void EmojiCustomDeleteJobTest::shouldGenerateRequest()
 {
     EmojiCustomDeleteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/emoji-custom.delete"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

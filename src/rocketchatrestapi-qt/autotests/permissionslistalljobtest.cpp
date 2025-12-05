@@ -20,7 +20,7 @@ PermissionsListAllJobTest::PermissionsListAllJobTest(QObject *parent)
 void PermissionsListAllJobTest::shouldHaveDefaultValue()
 {
     PermissionsListAllJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void PermissionsListAllJobTest::shouldGenerateRequest()
 {
     PermissionsListAllJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/permissions.listAll"_s));
 }
 

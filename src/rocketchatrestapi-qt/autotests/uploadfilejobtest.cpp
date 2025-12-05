@@ -19,7 +19,7 @@ UploadFileJobTest::UploadFileJobTest(QObject *parent)
 void UploadFileJobTest::shouldHaveDefaultValue()
 {
     UploadFileJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.uploadFileInfo().isValid());
     QVERIFY(job.uploadFileInfo().description.isEmpty());
     QVERIFY(job.uploadFileInfo().messageText.isEmpty());
@@ -47,7 +47,7 @@ void UploadFileJobTest::shouldGenerateRequest()
 {
     UploadFileJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.upload"_s));
 }
 

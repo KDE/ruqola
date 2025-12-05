@@ -20,7 +20,7 @@ ValidateInviteTokenJobTest::ValidateInviteTokenJobTest(QObject *parent)
 void ValidateInviteTokenJobTest::shouldHaveDefaultValue()
 {
     ValidateInviteTokenJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,7 +31,7 @@ void ValidateInviteTokenJobTest::shouldGenerateRequest()
 {
     ValidateInviteTokenJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/validateInviteToken"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

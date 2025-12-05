@@ -42,7 +42,7 @@ void ChangeChannelDescriptionJobTest::shouldNotStarting()
 void ChangeChannelDescriptionJobTest::shouldHaveDefaultValue()
 {
     ChangeChannelDescriptionJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.description().isEmpty());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -52,7 +52,7 @@ void ChangeChannelDescriptionJobTest::shouldGenerateRequest()
 {
     ChangeChannelDescriptionJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.setDescription"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

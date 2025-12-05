@@ -20,7 +20,7 @@ CustomUserStatusDeleteTestJob::CustomUserStatusDeleteTestJob(QObject *parent)
 void CustomUserStatusDeleteTestJob::shouldHaveDefaultValue()
 {
     CustomUserStatusDeleteJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void CustomUserStatusDeleteTestJob::shouldGenerateRequest()
 {
     CustomUserStatusDeleteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/custom-user-status.delete"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

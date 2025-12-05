@@ -7,13 +7,15 @@
 #pragma once
 
 #include "restapiabstractjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 
 #include <QNetworkRequest>
 #include <QTest>
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
+namespace RuqolaRestApiHelper
+{
 void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
 {
     const QString authToken = u"foo"_s;
@@ -38,4 +40,5 @@ void verifyDefaultValue(RestApiAbstractJob *job)
     QVERIFY(job->authToken().isEmpty());
     QVERIFY(job->userId().isEmpty());
     QVERIFY(!job->restApiLogger());
+}
 }

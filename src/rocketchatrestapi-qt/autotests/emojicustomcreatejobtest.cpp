@@ -20,7 +20,7 @@ EmojiCustomCreateJobTest::EmojiCustomCreateJobTest(QObject *parent)
 void EmojiCustomCreateJobTest::shouldHaveDefaultValue()
 {
     EmojiCustomCreateJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.emojiInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void EmojiCustomCreateJobTest::shouldGenerateRequest()
 {
     EmojiCustomCreateJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/emoji-custom.create"_s));
 }
 

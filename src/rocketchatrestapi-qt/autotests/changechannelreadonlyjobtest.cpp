@@ -20,7 +20,7 @@ ChangeChannelReadonlyJobTest::ChangeChannelReadonlyJobTest(QObject *parent)
 void ChangeChannelReadonlyJobTest::shouldHaveDefaultValue()
 {
     ChangeChannelReadonlyJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.readOnly());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ChangeChannelReadonlyJobTest::shouldGenerateRequest()
 {
     ChangeChannelReadonlyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.setReadOnly"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

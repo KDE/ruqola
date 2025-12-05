@@ -20,7 +20,7 @@ SetChannelTypeJobTest::SetChannelTypeJobTest(QObject *parent)
 void SetChannelTypeJobTest::shouldHaveDefaultValue()
 {
     SetChannelTypeJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasIdentifier());
     QCOMPARE(job.type(), SetChannelTypeJob::GroupType::Unknown);
@@ -32,7 +32,7 @@ void SetChannelTypeJobTest::shouldGenerateRequest()
 {
     SetChannelTypeJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.setType"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

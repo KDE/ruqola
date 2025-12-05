@@ -20,7 +20,7 @@ TwitterAuthJobTest::TwitterAuthJobTest(QObject *parent)
 void TwitterAuthJobTest::shouldHaveDefaultValue()
 {
     TwitterAuthJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(job.secret().isEmpty());
     QVERIFY(job.accessToken().isEmpty());

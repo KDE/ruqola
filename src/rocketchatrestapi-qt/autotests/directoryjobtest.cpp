@@ -20,7 +20,7 @@ DirectoryJobTest::DirectoryJobTest(QObject *parent)
 void DirectoryJobTest::shouldHaveDefaultValue()
 {
     DirectoryJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,7 +31,7 @@ void DirectoryJobTest::shouldGenerateRequest()
     DirectoryJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/directory"_s));
     }
 }

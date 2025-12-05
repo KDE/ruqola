@@ -19,7 +19,7 @@ TeamsAutoCompleteJobTest::TeamsAutoCompleteJobTest(QObject *parent)
 void TeamsAutoCompleteJobTest::shouldHaveDefaultValue()
 {
     TeamsAutoCompleteJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.name().isEmpty());
@@ -31,7 +31,7 @@ void TeamsAutoCompleteJobTest::shouldGenerateRequest()
     const QString name = u"blu"_s;
     job.setName(name);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/teams.autocomplete?name=%1"_s.arg(name)));
 }
 

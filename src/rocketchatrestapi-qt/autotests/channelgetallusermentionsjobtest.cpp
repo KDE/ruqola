@@ -43,7 +43,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()
     parameters.setOffset(12);
     job.setQueryParameters(parameters);
     QNetworkRequest request = job.request();
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(), u"http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12"_s);
 }
 
@@ -65,7 +65,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSorting()
 
     job.setQueryParameters(parameters);
     QNetworkRequest request = job.request();
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(),
              u"http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12&sort=%7B%22foo%22:-1%7D"_s);
 }
@@ -89,7 +89,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSortingTwoParam
 
     job.setQueryParameters(parameters);
     QNetworkRequest request = job.request();
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(),
              u"http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12&sort=%7B%22bla%22:1,%22foo%22:-1%7D"_s);
 }
@@ -103,7 +103,7 @@ void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()
     const QString roomId = u"avat"_s;
     job.setRoomId(roomId);
     QNetworkRequest request = job.request();
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat"_s));
 }
 

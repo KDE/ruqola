@@ -20,7 +20,7 @@ VideoConferenceJoinJobTest::VideoConferenceJoinJobTest(QObject *parent)
 void VideoConferenceJoinJobTest::shouldHaveDefaultValue()
 {
     VideoConferenceJoinJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.info().isValid());
@@ -30,7 +30,7 @@ void VideoConferenceJoinJobTest::shouldGenerateRequest()
 {
     VideoConferenceJoinJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.join"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

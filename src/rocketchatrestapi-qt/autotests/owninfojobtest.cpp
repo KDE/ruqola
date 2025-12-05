@@ -20,7 +20,7 @@ OwnInfoJobTest::OwnInfoJobTest(QObject *parent)
 void OwnInfoJobTest::shouldHaveDefaultValue()
 {
     OwnInfoJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void OwnInfoJobTest::shouldGenerateRequest()
 {
     OwnInfoJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/me"_s));
 }
 

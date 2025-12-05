@@ -20,7 +20,7 @@ User2FASendEmailCodeJobTest::User2FASendEmailCodeJobTest(QObject *parent)
 void User2FASendEmailCodeJobTest::shouldHaveDefaultValue()
 {
     User2FASendEmailCodeJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,7 +29,7 @@ void User2FASendEmailCodeJobTest::shouldGenerateRequest()
 {
     User2FASendEmailCodeJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.2fa.sendEmailCode"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

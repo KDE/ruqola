@@ -19,7 +19,7 @@ ModerationDismissUserReportsJobTest::ModerationDismissUserReportsJobTest(QObject
 void ModerationDismissUserReportsJobTest::shouldHaveDefaultValue()
 {
     ModerationDismissUserReportsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,14 +31,14 @@ void ModerationDismissUserReportsJobTest::shouldGenerateRequest()
     {
         ModerationDismissUserReportsJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.dismissUserReports?userId"_s));
     }
     {
         ModerationDismissUserReportsJob job;
         job.setModerationReportedUserId("foo"_ba);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.dismissUserReports?userId=foo"_s));
     }
 }

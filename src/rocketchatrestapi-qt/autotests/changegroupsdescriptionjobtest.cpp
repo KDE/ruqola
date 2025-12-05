@@ -20,7 +20,7 @@ ChangeGroupsDescriptionJobTest::ChangeGroupsDescriptionJobTest(QObject *parent)
 void ChangeGroupsDescriptionJobTest::shouldHaveDefaultValue()
 {
     ChangeGroupsDescriptionJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.description().isEmpty());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ChangeGroupsDescriptionJobTest::shouldGenerateRequest()
 {
     ChangeGroupsDescriptionJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.setDescription"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

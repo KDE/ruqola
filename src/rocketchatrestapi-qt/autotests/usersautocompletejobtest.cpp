@@ -19,7 +19,7 @@ UsersAutocompleteJobTest::UsersAutocompleteJobTest(QObject *parent)
 void UsersAutocompleteJobTest::shouldHaveDefaultValue()
 {
     UsersAutocompleteJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 
@@ -36,7 +36,7 @@ void UsersAutocompleteJobTest::shouldGenerateRequest()
     info.pattern = u"foo"_s;
     job.setUsersCompleterInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(), u"http://www.kde.org/api/v1/users.autocomplete?selector=%7B%22term%22: %22foo%22%7D"_s);
 }
 

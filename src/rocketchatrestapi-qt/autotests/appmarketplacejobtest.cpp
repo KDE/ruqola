@@ -19,7 +19,7 @@ AppMarketPlaceJobTest::AppMarketPlaceJobTest(QObject *parent)
 void AppMarketPlaceJobTest::shouldHaveDefaultValue()
 {
     AppMarketPlaceJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -29,13 +29,13 @@ void AppMarketPlaceJobTest::shouldGenerateRequest()
     AppMarketPlaceJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/marketplace?isAdminUser=false"_s));
     }
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         job.setIsAdminUser(true);
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/marketplace?isAdminUser=true"_s));
     }
 }

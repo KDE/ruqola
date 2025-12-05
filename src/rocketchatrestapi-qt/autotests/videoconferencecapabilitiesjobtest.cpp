@@ -19,7 +19,7 @@ VideoConferenceCapabilitiesJobTest::VideoConferenceCapabilitiesJobTest(QObject *
 void VideoConferenceCapabilitiesJobTest::shouldHaveDefaultValue()
 {
     VideoConferenceCapabilitiesJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -30,7 +30,7 @@ void VideoConferenceCapabilitiesJobTest::shouldGenerateRequest()
     VideoConferenceCapabilitiesJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.capabilities"_s));
     }
 }

@@ -19,7 +19,7 @@ AppCategoriesJobTest::AppCategoriesJobTest(QObject *parent)
 void AppCategoriesJobTest::shouldHaveDefaultValue()
 {
     AppCategoriesJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -28,7 +28,7 @@ void AppCategoriesJobTest::shouldGenerateRequest()
 {
     AppCategoriesJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/categories"_s));
 }
 

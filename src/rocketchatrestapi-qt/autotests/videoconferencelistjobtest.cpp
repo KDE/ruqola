@@ -19,7 +19,7 @@ VideoConferenceListJobTest::VideoConferenceListJobTest(QObject *parent)
 void VideoConferenceListJobTest::shouldHaveDefaultValue()
 {
     VideoConferenceListJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,14 +31,14 @@ void VideoConferenceListJobTest::shouldGenerateRequest()
     VideoConferenceListJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.list?roomId"_s));
     }
     {
         const QString roomId = u"foo"_s;
         job.setRoomId(roomId);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/video-conference.list?roomId=%1"_s.arg(roomId)));
     }
 }

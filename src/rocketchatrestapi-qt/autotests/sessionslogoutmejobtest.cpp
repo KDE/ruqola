@@ -20,7 +20,7 @@ SessionsLogoutMeJobTest::SessionsLogoutMeJobTest(QObject *parent)
 void SessionsLogoutMeJobTest::shouldHaveDefaultValue()
 {
     SessionsLogoutMeJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.sessionId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void SessionsLogoutMeJobTest::shouldGenerateRequest()
 {
     SessionsLogoutMeJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/sessions/logout.me"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

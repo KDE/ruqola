@@ -20,7 +20,7 @@ NotifyAdminsAppsJobTest::NotifyAdminsAppsJobTest(QObject *parent)
 void NotifyAdminsAppsJobTest::shouldHaveDefaultValue()
 {
     NotifyAdminsAppsJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.info().isValid());
@@ -30,7 +30,7 @@ void NotifyAdminsAppsJobTest::shouldGenerateRequest()
 {
     NotifyAdminsAppsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/apps/notify-admins"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

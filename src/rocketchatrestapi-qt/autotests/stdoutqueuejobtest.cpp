@@ -20,7 +20,7 @@ StdoutQueueJobTest::StdoutQueueJobTest(QObject *parent)
 void StdoutQueueJobTest::shouldHaveDefaultValue()
 {
     StdoutQueueJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -31,7 +31,7 @@ void StdoutQueueJobTest::shouldGenerateRequest()
     StdoutQueueJob job;
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
-        verifyAuthentication(&job, request);
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/stdout.queue"_s));
     }
 }

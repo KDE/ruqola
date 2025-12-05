@@ -20,7 +20,7 @@ BannersDismissJobTest::BannersDismissJobTest(QObject *parent)
 void BannersDismissJobTest::shouldHaveDefaultValue()
 {
     BannersDismissJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.bannerId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void BannersDismissJobTest::shouldGenerateRequest()
 {
     BannersDismissJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/banners.dismiss"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

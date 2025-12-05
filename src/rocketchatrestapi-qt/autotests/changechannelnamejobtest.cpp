@@ -20,7 +20,7 @@ ChangeChannelNameJobTest::ChangeChannelNameJobTest(QObject *parent)
 void ChangeChannelNameJobTest::shouldHaveDefaultValue()
 {
     ChangeChannelNameJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.name().isEmpty());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void ChangeChannelNameJobTest::shouldGenerateRequest()
 {
     ChangeChannelNameJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.rename"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

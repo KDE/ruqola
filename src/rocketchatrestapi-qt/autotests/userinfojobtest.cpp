@@ -19,7 +19,7 @@ UserInfoJobTest::UserInfoJobTest(QObject *parent)
 void UserInfoJobTest::shouldHaveDefaultValue()
 {
     UserInfoJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasUserIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -33,7 +33,7 @@ void UserInfoJobTest::shouldGenerateRequest()
     info.userInfoType = UserInfoJob::UserInfoType::UserId;
     job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.info?userId=foo1"_s));
 }
 
@@ -45,7 +45,7 @@ void UserInfoJobTest::shouldGenerateRequestUsername()
     info.userInfoType = UserInfoJob::UserInfoType::UserName;
     job.setUserInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/users.info?username=foo1"_s));
 }
 

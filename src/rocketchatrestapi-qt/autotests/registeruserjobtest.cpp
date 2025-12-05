@@ -20,7 +20,7 @@ RegisterUserJobTest::RegisterUserJobTest(QObject *parent)
 void RegisterUserJobTest::shouldHaveDefaultValue()
 {
     RegisterUserJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.registerUserInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());

@@ -20,7 +20,7 @@ ModerationReportUserJobTest::ModerationReportUserJobTest(QObject *parent)
 void ModerationReportUserJobTest::shouldHaveDefaultValue()
 {
     ModerationReportUserJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.reportedUserId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -31,7 +31,7 @@ void ModerationReportUserJobTest::shouldGenerateRequest()
 {
     ModerationReportUserJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.reportUser"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

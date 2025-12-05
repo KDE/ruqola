@@ -22,7 +22,7 @@ ReportMessageJobTest::ReportMessageJobTest(QObject *parent)
 void ReportMessageJobTest::shouldHaveDefaultValue()
 {
     ReportMessageJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.reportMessage().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -32,7 +32,7 @@ void ReportMessageJobTest::shouldHaveMessageId()
 {
     ReportMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     RestApiMethod method;
     method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
@@ -56,7 +56,7 @@ void ReportMessageJobTest::shouldGenerateJobRequest()
 {
     ReportMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.reportMessage"_s));
 }
 

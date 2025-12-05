@@ -20,7 +20,7 @@ ChannelCloseJobTest::ChannelCloseJobTest(QObject *parent)
 void ChannelCloseJobTest::shouldHaveDefaultValue()
 {
     ChannelCloseJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasIdentifier());
     QCOMPARE(job.channelType(), ChannelCloseJob::ChannelType::Unknown);
@@ -32,17 +32,17 @@ void ChannelCloseJobTest::shouldGenerateRequest()
     ChannelCloseJob job;
     job.setChannelType(ChannelCloseJob::ChannelType::Channel);
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/channels.close"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
     job.setChannelType(ChannelCloseJob::ChannelType::Direct);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/im.close"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 
     job.setChannelType(ChannelCloseJob::ChannelType::Groups);
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.close"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }

@@ -20,7 +20,7 @@ GroupsConvertToTeamJobTest::GroupsConvertToTeamJobTest(QObject *parent)
 void GroupsConvertToTeamJobTest::shouldHaveDefaultValue()
 {
     GroupsConvertToTeamJob job;
-    verifyDefaultValue(&job);
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,7 +30,7 @@ void GroupsConvertToTeamJobTest::shouldGenerateRequest()
 {
     GroupsConvertToTeamJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
+    RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/groups.convertToTeam"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
