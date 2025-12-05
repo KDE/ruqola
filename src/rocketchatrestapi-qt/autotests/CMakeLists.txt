@@ -15,7 +15,7 @@ if(ENABLE_PCH)
     target_link_libraries(
         librocketchatrestapi-qt_test_pch
         librocketchatrestapi-qt
-        Qt6::Test
+        Qt::Test
     )
     target_precompile_headers(librocketchatrestapi-qt_test_pch PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/pch.h)
 endif()

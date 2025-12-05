@@ -84,7 +84,7 @@ option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly fo
 option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" ON)
 option(OPTION_ADD_OFFLINE_SUPPORT "Allow to build with offline support (experimental)" ON)
 
-option(ENABLE_PCH "Enable Precompiled Headers support" OFF)
+option(ENABLE_PCH "Enable Precompiled Headers support" ON)
 
 if(OPTION_ADD_OFFLINE_SUPPORT)
     set(ADD_OFFLINE_SUPPORT true)
