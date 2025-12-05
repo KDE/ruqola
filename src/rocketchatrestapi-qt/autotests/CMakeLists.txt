@@ -8,6 +8,7 @@ macro(add_rocketchatrestapi_test _source)
         ${_name}
         ${_test}
         ${_name}.h
+        ruqola_restapi_helper.h
     )
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
