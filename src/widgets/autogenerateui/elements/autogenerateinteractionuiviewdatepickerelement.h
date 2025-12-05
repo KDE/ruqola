@@ -7,7 +7,7 @@
 
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+class QJsonObject;
 // ./packages/ui-kit/src/blocks/elements/DatePickerElement.ts
 class AutoGenerateInteractionUiViewText;
 class QDateEdit;

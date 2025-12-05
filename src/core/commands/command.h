@@ -7,8 +7,11 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include <QJsonObject>
+#include <QMetaType>
 #include <QString>
+#include <QStringList>
+class QJsonObject;
+
 class LIBRUQOLACORE_TESTS_EXPORT Command
 {
 public:

@@ -5,10 +5,11 @@
 */
 
 #include "customuserstatus.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(CustomUserStatus, Ruqola_CustomUserStatus)
-
 #include "utils.h"
 
+#include <QJsonObject>
+
+QT_IMPL_METATYPE_EXTERN_TAGGED(CustomUserStatus, Ruqola_CustomUserStatus)
 using namespace Qt::Literals::StringLiterals;
 CustomUserStatus::CustomUserStatus() = default;
 

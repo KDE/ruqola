@@ -5,9 +5,11 @@
 */
 
 #include "oauthinfo.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(OauthInfo, Ruqola_OauthInfo)
 
 #include "utils.h"
+#include <QJsonObject>
+
+QT_IMPL_METATYPE_EXTERN_TAGGED(OauthInfo, Ruqola_OauthInfo)
 
 using namespace Qt::Literals::StringLiterals;
 OauthInfo::OauthInfo() = default;

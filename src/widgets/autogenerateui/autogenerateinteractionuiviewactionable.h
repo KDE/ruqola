@@ -7,7 +7,8 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+#include <QObject>
+class QJsonObject;
 class ActionElementWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewActionable : public QObject
 {

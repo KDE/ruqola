@@ -5,12 +5,13 @@
 */
 
 #include "personalaccesstokeninfo.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfo, Ruqola_PersonalAccessTokenInfo)
 
 #include "utils.h"
 
+#include <QJsonObject>
 #include <QLocale>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfo, Ruqola_PersonalAccessTokenInfo)
 using namespace Qt::Literals::StringLiterals;
 PersonalAccessTokenInfo::PersonalAccessTokenInfo() = default;
 

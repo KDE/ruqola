@@ -8,6 +8,7 @@
 QT_IMPL_METATYPE_EXTERN_TAGGED(TeamRoom, Ruqola_TeamRoom)
 
 #include <QJsonArray>
+#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 TeamRoom::TeamRoom() = default;

@@ -7,7 +7,8 @@
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+class QJsonObject;
+
 // see ./packages/ui-kit/src/blocks/elements/RadioButtonElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewRadioButtonElement : public AutoGenerateInteractionUiViewActionable
 {

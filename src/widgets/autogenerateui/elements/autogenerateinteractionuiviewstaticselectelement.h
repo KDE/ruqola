@@ -7,11 +7,12 @@
 
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
 class AutoGenerateInteractionUiViewText;
 class AutoGenerateInteractionUiViewOption;
 class QComboBox;
 class ActionElementWidget;
+class QJsonObject;
+
 // see ./packages/ui-kit/src/blocks/elements/StaticSelectElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewStaticSelectElement : public AutoGenerateInteractionUiViewActionable
 {

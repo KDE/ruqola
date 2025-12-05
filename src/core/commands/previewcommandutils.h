@@ -8,8 +8,9 @@
 
 #include "commands/previewcommand.h"
 #include "libruqolacore_export.h"
-#include <QJsonObject>
 #include <QList>
+class QJsonObject;
+
 namespace PreviewCommandUtils
 {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QList<PreviewCommand> parsePreviewJson(const QJsonObject &replyObject);

@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewblockbase.h"
+#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewBlockBase::AutoGenerateInteractionUiViewBlockBase(QObject *parent)

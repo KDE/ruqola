@@ -5,6 +5,9 @@
 */
 
 #include "servicepassword.h"
+
+#include <QJsonObject>
+
 QT_IMPL_METATYPE_EXTERN_TAGGED(ServicePassword, Ruqola_ServicePassword)
 
 using namespace Qt::Literals::StringLiterals;

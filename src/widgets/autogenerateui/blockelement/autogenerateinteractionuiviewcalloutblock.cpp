@@ -12,6 +12,7 @@
 #include "ruqola_autogenerateui_debug.h"
 
 #include <QHBoxLayout>
+#include <QJsonObject>
 #include <QLabel>
 #include <QWidget>
 using namespace Qt::Literals::StringLiterals;

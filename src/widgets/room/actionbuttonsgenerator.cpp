@@ -11,6 +11,7 @@
 #include "misc/appsuiinteractionjob.h"
 #include "ruqolawidgets_debug.h"
 
+#include <QJsonObject>
 #include <QLocale>
 #include <QMenu>
 #include <QUuid>

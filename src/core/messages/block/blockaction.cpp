@@ -5,6 +5,9 @@
 */
 
 #include "blockaction.h"
+
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 
 BlockAction::BlockAction() = default;

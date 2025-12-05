@@ -10,6 +10,8 @@
 #include "autogenerateui/widgets/actionelementwidget.h"
 #include <QComboBox>
 #include <QJsonArray>
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 
 AutoGenerateInteractionUiViewStaticSelectElement::AutoGenerateInteractionUiViewStaticSelectElement(QObject *parent)

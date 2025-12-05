@@ -7,6 +7,7 @@
 #include "autogenerateinteractionuiviewimageblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "ruqola_autogenerateui_debug.h"
+#include <QJsonObject>
 
 // Look at /apps/uikit-playground/src/Payload/actionBlock/image
 

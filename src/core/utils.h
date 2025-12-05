@@ -10,8 +10,8 @@
 #include "user.h"
 
 #include <QJsonArray>
-#include <QJsonObject>
 #include <QUrl>
+class QJsonObject;
 
 class RocketChatAccount;
 

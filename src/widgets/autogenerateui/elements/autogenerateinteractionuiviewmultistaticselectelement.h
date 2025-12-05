@@ -8,7 +8,8 @@
 
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+class QJsonObject;
+
 class AutoGenerateInteractionUiViewText;
 class AutoGenerateInteractionUiViewOption;
 class MultiStaticSelectWidget;

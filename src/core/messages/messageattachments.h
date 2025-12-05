@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include "messageattachment.h"
 #include <QList>
+#include <QSharedData>
 class LIBRUQOLACORE_EXPORT MessageAttachments : public QSharedData
 {
 public:

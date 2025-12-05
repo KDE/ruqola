@@ -5,10 +5,11 @@
 */
 
 #include "permission.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(Permission, Ruqola_Permission)
 
 #include "utils.h"
+#include <QJsonObject>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(Permission, Ruqola_Permission)
 using namespace Qt::Literals::StringLiterals;
 Permission::Permission() = default;
 

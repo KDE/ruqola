@@ -7,7 +7,8 @@
 #include "libruqolacore_export.h"
 #include "moderationreportuserinfo.h"
 #include "user.h"
-#include <QJsonObject>
+class QJsonObject;
+
 class LIBRUQOLACORE_EXPORT ModerationReportUserInfos
 {
 public:

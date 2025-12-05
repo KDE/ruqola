@@ -6,6 +6,8 @@
 
 #include "adminroomsmodel.h"
 #include <KLocalizedString>
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 AdminRoomsModel::AdminRoomsModel(QObject *parent)
     : CustomBaseModel(parent)

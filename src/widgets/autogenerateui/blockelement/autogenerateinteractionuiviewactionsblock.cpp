@@ -20,6 +20,7 @@
 #include "common/flowlayout.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QLayout>
 #include <QWidget>
 using namespace Qt::Literals::StringLiterals;

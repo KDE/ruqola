@@ -5,6 +5,8 @@
 */
 #include "previewcommandutils.h"
 #include <QJsonArray>
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 QList<PreviewCommand> PreviewCommandUtils::parsePreviewJson(const QJsonObject &replyObject)
 {

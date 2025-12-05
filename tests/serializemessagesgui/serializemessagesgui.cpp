@@ -5,7 +5,6 @@
 */
 
 #include "serializemessagesgui.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messages/message.h"
 #include "serializemessagewidget.h"
@@ -13,12 +12,14 @@ using namespace Qt::Literals::StringLiterals;
 #include <QApplication>
 #include <QFileDialog>
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QSplitter>
 #include <QStandardPaths>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 SerializeMessagesGui::SerializeMessagesGui(QWidget *parent)
     : QWidget(parent)
     , mOriginal(new SerializeMessageWidget(this))

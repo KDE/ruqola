@@ -10,7 +10,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewblocks.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+class QJsonObject;
 
 // Rocket.Chat/packages/ui-kit/src/surfaces/modal/ModalView.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiView : public QObject

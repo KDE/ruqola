@@ -8,9 +8,12 @@
 
 #include "libruqolacore_export.h"
 #include "teams/teaminfo.h"
-#include <QJsonObject>
-#include <QString>
 
+#include <QMetaType>
+#include <QString>
+#include <QStringList>
+
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT RoomInfo
 {
 public:

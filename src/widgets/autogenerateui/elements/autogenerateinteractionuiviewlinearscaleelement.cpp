@@ -5,7 +5,9 @@
 */
 #include "autogenerateinteractionuiviewlinearscaleelement.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
+#include <QJsonObject>
 #include <QSpinBox>
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewLinearScaleElement::AutoGenerateInteractionUiViewLinearScaleElement(QObject *parent)
     : AutoGenerateInteractionUiViewActionable(parent)

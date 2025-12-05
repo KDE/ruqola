@@ -37,4 +37,5 @@ private:
 };
 
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewOption, Q_RELOCATABLE_TYPE);
+class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOption &t);

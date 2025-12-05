@@ -7,8 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonObject>
 #include <QList>
+#include <QMetaType>
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT TeamRoom
 {

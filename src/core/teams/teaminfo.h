@@ -6,7 +6,9 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+#include <QMetaType>
+class QJsonObject;
+
 class LIBRUQOLACORE_EXPORT TeamInfo
 {
 public:

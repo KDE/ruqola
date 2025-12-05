@@ -11,6 +11,8 @@
 #include "ddpapi/ddpclient.h"
 
 #include <QJsonArray>
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent)
     : DDPManager(ddpClient, parent)

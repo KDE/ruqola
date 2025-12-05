@@ -7,8 +7,8 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
 #include <QWidget>
+class QJsonObject;
 class QTreeWidget;
 class QTreeWidgetItem;
 class KTreeWidgetSearchLineWidget;

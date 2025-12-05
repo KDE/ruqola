@@ -6,6 +6,8 @@
 
 #include "messageattachmentfield.h"
 
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentField::MessageAttachmentField() = default;
 

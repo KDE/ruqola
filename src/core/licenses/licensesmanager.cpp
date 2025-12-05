@@ -6,6 +6,9 @@
 
 #include "licensesmanager.h"
 #include <QJsonArray>
+
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 
 LicensesManager::LicensesManager() = default;

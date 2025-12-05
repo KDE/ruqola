@@ -5,6 +5,8 @@
 */
 
 #include "teaminfo.h"
+#include <QJsonObject>
+
 QT_IMPL_METATYPE_EXTERN_TAGGED(TeamInfo, Ruqola_TeamInfo)
 
 using namespace Qt::Literals::StringLiterals;

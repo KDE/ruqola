@@ -4,13 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "roominfo/roominfo.h"
+#include "roominfo.h"
 QT_IMPL_METATYPE_EXTERN_TAGGED(RoomInfo, Ruqola_RoomInfo)
 
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QLocale>
 
 using namespace Qt::Literals::StringLiterals;

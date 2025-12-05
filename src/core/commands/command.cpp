@@ -5,11 +5,13 @@
 */
 
 #include "command.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(Command, Ruqola_Command)
-
 #include "ruqola_commands_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
+
+#include <QJsonObject>
+
+QT_IMPL_METATYPE_EXTERN_TAGGED(Command, Ruqola_Command)
 using namespace Qt::Literals::StringLiterals;
 
 Command::Command() = default;

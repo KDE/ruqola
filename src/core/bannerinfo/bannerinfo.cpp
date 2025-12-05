@@ -5,11 +5,13 @@
 */
 
 #include "bannerinfo.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(BannerInfo, Ruqola_BannerInfo)
 
 #include <KLocalizedString>
 #include <QJsonArray>
 
+#include <QJsonObject>
+
+QT_IMPL_METATYPE_EXTERN_TAGGED(BannerInfo, Ruqola_BannerInfo)
 using namespace Qt::Literals::StringLiterals;
 BannerInfo::BannerInfo() = default;
 

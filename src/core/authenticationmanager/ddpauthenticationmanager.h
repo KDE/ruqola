@@ -11,8 +11,7 @@
 #include "ddpapi/ddpmanager.h"
 #include "libruqolacore_export.h"
 
-#include <QJsonObject>
-
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT DDPAuthenticationManager : public DDPManager
 {
     Q_OBJECT

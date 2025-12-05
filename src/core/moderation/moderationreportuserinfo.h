@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "user.h"
-#include <QJsonObject>
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT ModerationReportUserInfo
 {

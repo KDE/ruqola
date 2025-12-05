@@ -8,7 +8,7 @@
 
 #include "authenticationmanager/authenticationmanagerbase.h"
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+class QJsonObject;
 class QObject;
 
 class Connection;

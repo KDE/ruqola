@@ -9,6 +9,9 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfos, Ruqola_ModerationRepor
 
 #include "ruqola_debug.h"
 #include <QJsonArray>
+
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 ModerationReportUserInfos::ModerationReportUserInfos() = default;
 

@@ -11,6 +11,8 @@
 #include <QDateTime>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 Message::Message() = default;
 

@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include "messageattachmentfield.h"
+#include <QList>
 class MessageAttachmentField;
 class LIBRUQOLACORE_EXPORT MessageAttachment
 {

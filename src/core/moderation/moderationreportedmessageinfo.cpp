@@ -5,10 +5,11 @@
 */
 
 #include "moderationreportedmessageinfo.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportedMessageInfo, Ruqola_ModerationReportedMessageInfo)
 
 #include "utils.h"
+#include <QJsonObject>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportedMessageInfo, Ruqola_ModerationReportedMessageInfo)
 using namespace Qt::Literals::StringLiterals;
 ModerationReportedMessageInfo::ModerationReportedMessageInfo() = default;
 

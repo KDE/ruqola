@@ -14,6 +14,7 @@
 #include "blockelement/autogenerateinteractionuiviewsectionblock.h"
 #include "ruqola_autogenerateui_debug.h"
 
+#include <QJsonObject>
 #include <QLayout>
 #include <QWidget>
 

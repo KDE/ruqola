@@ -9,6 +9,7 @@
 #include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QMenu>
 #include <QToolButton>
 using namespace Qt::Literals::StringLiterals;

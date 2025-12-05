@@ -5,7 +5,6 @@
 */
 
 #include "appsmarketplaceinfo.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(AppsMarketPlaceInfo, Ruqola_AppsMarketPlaceInfo)
 
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
 #include "ruqola_debug.h"
@@ -13,6 +12,9 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(AppsMarketPlaceInfo, Ruqola_AppsMarketPlaceInfo)
 #include <KLocalizedString>
 
 #include <QJsonArray>
+#include <QJsonObject>
+
+QT_IMPL_METATYPE_EXTERN_TAGGED(AppsMarketPlaceInfo, Ruqola_AppsMarketPlaceInfo)
 using namespace Qt::Literals::StringLiterals;
 AppsMarketPlaceInfo::AppsMarketPlaceInfo() = default;
 

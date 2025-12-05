@@ -7,7 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+#include <QSharedData>
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT MessagePinned : public QSharedData
 {

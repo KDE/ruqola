@@ -7,7 +7,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+class QJsonObject;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewButtonElement : public AutoGenerateInteractionUiViewActionable
 {

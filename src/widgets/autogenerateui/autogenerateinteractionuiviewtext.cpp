@@ -7,7 +7,9 @@
 #include "autogenerateinteractionuiviewtext.h"
 #include "ruqola_autogenerateui_debug.h"
 
+#include <QJsonObject>
 #include <QTextDocument>
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewText::AutoGenerateInteractionUiViewText()
 

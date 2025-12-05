@@ -6,6 +6,8 @@
 
 #include "autogenerateinteractionuiviewactionable.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewActionable::AutoGenerateInteractionUiViewActionable(QObject *parent)
     : QObject(parent)

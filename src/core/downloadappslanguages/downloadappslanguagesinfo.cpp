@@ -8,6 +8,8 @@
 
 #include <QVariant>
 
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo() = default;
 

@@ -5,10 +5,11 @@
 */
 
 #include "inviteinfo.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(InviteInfo, Ruqola_InviteInfo)
-
 #include "utils.h"
 
+#include <QJsonObject>
+
+QT_IMPL_METATYPE_EXTERN_TAGGED(InviteInfo, Ruqola_InviteInfo)
 using namespace Qt::Literals::StringLiterals;
 InviteInfo::InviteInfo() = default;
 

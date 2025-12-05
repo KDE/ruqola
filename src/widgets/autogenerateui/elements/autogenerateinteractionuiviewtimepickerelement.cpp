@@ -7,6 +7,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
+#include <QJsonObject>
 #include <QTimeEdit>
 
 using namespace Qt::Literals::StringLiterals;

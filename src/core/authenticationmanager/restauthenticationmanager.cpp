@@ -9,6 +9,8 @@
 #include "misc/methodcalljob.h"
 #include "ruqola_restapi_authentication_debug.h"
 #include <QJsonArray>
+#include <QJsonObject>
+
 // We use method.callAnon here.
 using namespace Qt::Literals::StringLiterals;
 

@@ -5,12 +5,13 @@
 */
 
 #include "moderationreportinfos.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportInfos, Ruqola_ModerationReportInfos)
 
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
+#include <QJsonObject>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportInfos, Ruqola_ModerationReportInfos)
 using namespace Qt::Literals::StringLiterals;
 ModerationReportInfos::ModerationReportInfos() = default;
 

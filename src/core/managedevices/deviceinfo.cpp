@@ -5,9 +5,11 @@
 */
 
 #include "deviceinfo.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(DeviceInfo, Ruqola_DeviceInfo)
-
 #include "utils.h"
+
+#include <QJsonObject>
+
+QT_IMPL_METATYPE_EXTERN_TAGGED(DeviceInfo, Ruqola_DeviceInfo)
 using namespace Qt::Literals::StringLiterals;
 DeviceInfo::DeviceInfo() = default;
 

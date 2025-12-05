@@ -7,8 +7,10 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+#include <QObject>
 #include <QString>
+#include <QVariant>
+class QJsonObject;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase : public QObject
 {
     Q_OBJECT

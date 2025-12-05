@@ -7,8 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+#include <QMetaType>
 #include <QPixmap>
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInstalledInfo
 {
     Q_GADGET

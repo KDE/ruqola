@@ -7,10 +7,11 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-
-#include <QJsonObject>
+#include <QMetaType>
 #include <QString>
+#include <QStringList>
 
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT BannerInfo
 {
 public:

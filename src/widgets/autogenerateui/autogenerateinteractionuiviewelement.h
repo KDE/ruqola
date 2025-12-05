@@ -6,7 +6,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+class QJsonObject;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewElement
 {

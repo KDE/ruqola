@@ -7,6 +7,7 @@
 #include "autogenerateui/widgets/actionelementwidget.h"
 #include "colorsandmessageviewstyle.h"
 #include "ruqola_autogenerateui_debug.h"
+#include <QJsonObject>
 #include <QPushButton>
 
 using namespace Qt::Literals::StringLiterals;

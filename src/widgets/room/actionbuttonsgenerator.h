@@ -8,11 +8,11 @@
 
 #include "actionbuttons/actionbutton.h"
 #include "rocketchataccount.h"
-class QAction;
-#include <QJsonObject>
 #include <QList>
 #include <QPointer>
 class QMenu;
+class QAction;
+class QJsonObject;
 class ActionButtonsGenerator : public QObject
 {
     Q_OBJECT

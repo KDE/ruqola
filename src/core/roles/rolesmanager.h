@@ -7,11 +7,13 @@
 #pragma once
 
 #include "roleinfo.h"
-#include <QJsonObject>
+
 #include <QList>
 #include <QObject>
 
 #include "libruqola_private_export.h"
+class QJsonObject;
+
 class LIBRUQOLACORE_TESTS_EXPORT RolesManager : public QObject
 {
     Q_OBJECT

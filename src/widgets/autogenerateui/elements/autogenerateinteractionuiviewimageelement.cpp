@@ -5,6 +5,8 @@
 */
 #include "autogenerateinteractionuiviewimageelement.h"
 #include "ruqola_autogenerateui_debug.h"
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageElement(QObject *parent)
     : AutoGenerateInteractionUiViewActionable(parent)

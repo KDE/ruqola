@@ -6,7 +6,8 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+#include <QMetaType>
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT BlockAction
 {
@@ -48,6 +49,6 @@ private:
     QString mValue;
     QString mUrl;
 };
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAction &t);
 class QDebug;
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAction &t);
 Q_DECLARE_TYPEINFO(BlockAction, Q_RELOCATABLE_TYPE);

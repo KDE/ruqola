@@ -17,6 +17,7 @@
 #include <QDateTime>
 #include <QIcon>
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QRegularExpression>
 
 #include <TextEmoticonsCore/EmoticonUnicodeUtils>

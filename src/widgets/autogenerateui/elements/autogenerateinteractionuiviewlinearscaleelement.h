@@ -7,7 +7,7 @@
 
 #include "autogenerateui/autogenerateinteractionuiviewactionable.h"
 #include "libruqolawidgets_private_export.h"
-#include <QJsonObject>
+class QJsonObject;
 class QSpinBox;
 // ./packages/ui-kit/src/blocks/elements/LinearScaleElement.ts range ?
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewLinearScaleElement : public AutoGenerateInteractionUiViewActionable

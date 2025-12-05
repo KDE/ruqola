@@ -8,7 +8,9 @@
 
 #include "libruqolacore_export.h"
 #include <QDateTime>
-#include <QJsonObject>
+#include <QMetaType>
+class QJsonObject;
+
 class LIBRUQOLACORE_EXPORT ChannelCounterInfo : public QSharedData
 {
 public:

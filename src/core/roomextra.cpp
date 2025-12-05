@@ -7,6 +7,7 @@
 #include "roomextra.h"
 #include "ruqola_memory_management_debug.h"
 #include "ruqola_room_memory_debug.h"
+#include <QDateTime>
 
 RoomExtra::RoomExtra()
 {

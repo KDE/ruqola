@@ -6,8 +6,10 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+
 #include <QMap>
+class QJsonObject;
+
 class LIBRUQOLACORE_EXPORT DownloadAppsLanguagesInfo
 {
 public:

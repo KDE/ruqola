@@ -8,6 +8,9 @@
 
 #include "ruqola_debug.h"
 #include <QJsonArray>
+
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 RolesManager::RolesManager(QObject *parent)
     : QObject{parent}

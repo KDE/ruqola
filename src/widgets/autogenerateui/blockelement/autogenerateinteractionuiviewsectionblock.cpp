@@ -15,6 +15,7 @@
 #include "autogenerateui/widgets/actionelementwidget.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QLabel>
 #include <QLayout>
 using namespace Qt::Literals::StringLiterals;

@@ -8,6 +8,7 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
+#include <QJsonObject>
 #include <QLineEdit>
 #include <QPlainTextEdit>
 using namespace Qt::Literals::StringLiterals;

@@ -6,9 +6,11 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+
+#include <QMetaType>
 #include <QString>
 
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT E2eKey
 {
 public:

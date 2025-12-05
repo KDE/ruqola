@@ -9,9 +9,11 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QLabel>
 #include <QLayout>
 #include <QWidget>
+
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewContextBlock::AutoGenerateInteractionUiViewContextBlock(QObject *parent)
     : AutoGenerateInteractionUiViewBlockBase(parent)

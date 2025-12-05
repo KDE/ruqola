@@ -5,6 +5,8 @@
 */
 
 #include "autogenerateinteractionuiviewimage.h"
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 
 AutoGenerateInteractionUiViewImage::AutoGenerateInteractionUiViewImage()

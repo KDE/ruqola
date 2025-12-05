@@ -9,6 +9,8 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(OwnUser, Ruqola_OwnUser)
 
 #include "utils.h"
 #include <QJsonArray>
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 OwnUser::OwnUser() = default;
 

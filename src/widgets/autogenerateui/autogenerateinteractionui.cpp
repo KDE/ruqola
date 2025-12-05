@@ -10,6 +10,7 @@
 #include "rocketchataccount.h"
 #include "ruqola_autogenerateui_debug.h"
 
+#include <QJsonObject>
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;

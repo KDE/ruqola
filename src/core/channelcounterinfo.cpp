@@ -5,12 +5,12 @@
 */
 
 #include "channelcounterinfo.h"
-QT_IMPL_METATYPE_EXTERN_TAGGED(ChannelCounterInfo, Ruqola_ChannelCounterInfo)
-
 #include "ruqola_room_memory_debug.h"
 
+#include <QJsonObject>
 #include <QTimeZone>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(ChannelCounterInfo, Ruqola_ChannelCounterInfo)
 using namespace Qt::Literals::StringLiterals;
 ChannelCounterInfo::ChannelCounterInfo()
 

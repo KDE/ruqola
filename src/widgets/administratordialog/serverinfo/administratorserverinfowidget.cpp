@@ -20,10 +20,12 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QHeaderView>
+#include <QJsonObject>
 #include <QMenu>
 #include <QPushButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
+
 using namespace Qt::Literals::StringLiterals;
 
 AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *account, QWidget *parent)

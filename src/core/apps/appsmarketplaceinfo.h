@@ -8,8 +8,9 @@
 
 #include "appsmarketplaceinstalledinfo.h"
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+#include <QMetaType>
 #include <QPixmap>
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
 public:

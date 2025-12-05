@@ -6,6 +6,8 @@
 #include "autogenerateinteractionuiviewtoggleswitchelement.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
+#include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 
 AutoGenerateInteractionUiViewToggleSwitchElement::AutoGenerateInteractionUiViewToggleSwitchElement(QObject *parent)

@@ -8,6 +8,7 @@
 #include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QDateEdit>
+#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewDatePickerElement::AutoGenerateInteractionUiViewDatePickerElement(QObject *parent)

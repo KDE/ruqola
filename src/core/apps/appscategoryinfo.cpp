@@ -5,6 +5,8 @@
 */
 
 #include "appscategoryinfo.h"
+#include <QJsonObject>
+
 QT_IMPL_METATYPE_EXTERN_TAGGED(AppsCategoryInfo, Ruqola_AppsCategoryInfo)
 
 using namespace Qt::Literals::StringLiterals;
