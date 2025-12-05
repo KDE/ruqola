@@ -2,6 +2,27 @@
 # SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
 # SPDX-License-Identifier: BSD-3-Clause
 
+if(ENABLE_PCH)
+    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp "/*empty file*/")
+    file(
+        WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch.h
+        "#pragma once\n"
+        "#include <QObject>\n"
+        "#include <QTest>\n"
+        "#include <QJsonDocument>\n"
+        "#include <QJsonObject>\n"
+        "#include <QSignalSpy>\n"
+    )
+    add_library(libruqolacore_test_pch STATIC ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp)
+    target_link_libraries(
+        libruqolacore_test_pch
+        libruqolacore
+        ruqolacorehelper
+        Qt::Test
+    )
+    target_precompile_headers(libruqolacore_test_pch PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/pch.h)
+endif()
+
 add_library(ruqolacorehelper STATIC)
 target_sources(
     ruqolacorehelper
@@ -34,6 +55,9 @@ macro(add_ruqola_test _source)
         libruqolacore
         ruqolacorehelper
     )
+    if(ENABLE_PCH)
+        target_precompile_headers(${_name} REUSE_FROM libruqolacore_test_pch)
+    endif()
     set_target_properties(
         ${_name}
         PROPERTIES
