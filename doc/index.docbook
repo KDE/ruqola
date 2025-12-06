@@ -33,8 +33,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2018-03-12</date>
-<releaseinfo></releaseinfo>
+<date>2025-12-06</date>
+<releaseinfo>2.7.0</releaseinfo>
 
 <abstract>
 <para>
@@ -67,7 +67,7 @@
 
 <para>&i18n-kapplication;</para>
 <para>
-Program copyright 2018-2019 &Laurent.Montel; &Laurent.Montel.mail;
+Program copyright 2018-2025 &Laurent.Montel; &Laurent.Montel.mail;
 </para>
 <para>
 Documentation Copyright &copy; &Laurent.Montel; &Laurent.Montel.mail;
