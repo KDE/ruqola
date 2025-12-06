@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-05 00:42+0000\n"
+"POT-Creation-Date: 2025-12-06 00:42+0000\n"
 "PO-Revision-Date: 2025-12-02 06:19+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -185,261 +185,261 @@ msgstr "Neveljaven žeton povabila"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Žeton povabila je neveljaven. Kreiranje računa preklicano."
 
-#: core/apps/appsmarketplaceinfo.cpp:111
+#: core/apps/appsmarketplaceinfo.cpp:113
 #, kde-format
 msgid "per %1"
 msgstr "za %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:160
+#: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
 msgid "month"
 msgstr "mesec"
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:164
 #, kde-format
 msgid "year"
 msgstr "leto"
 
-#: core/apps/appsmarketplaceinfo.cpp:408 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:410 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Opis"
 
-#: core/apps/appsmarketplaceinfo.cpp:417
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
+#: core/apps/appsmarketplaceinfo.cpp:419
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
 #, kde-format
 msgid "Version"
 msgstr "Različica"
 
-#: core/apps/appsmarketplaceinfo.cpp:420 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:34
 #, kde-format
 msgid "Categories"
 msgstr "Katagorije"
 
-#: core/apps/appsmarketplaceinfo.cpp:424
+#: core/apps/appsmarketplaceinfo.cpp:426
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentacija"
 
-#: core/apps/appsmarketplaceinfo.cpp:435
+#: core/apps/appsmarketplaceinfo.cpp:437
 #, kde-format
 msgid "Author"
 msgstr "Avtor"
 
-#: core/apps/appsmarketplaceinfo.cpp:447
+#: core/apps/appsmarketplaceinfo.cpp:449
 #, kde-format
 msgid "Homepage"
 msgstr "Domača stran"
 
-#: core/apps/appsmarketplaceinfo.cpp:459
+#: core/apps/appsmarketplaceinfo.cpp:461
 #, kde-format
 msgid "Support"
 msgstr "Podpora"
 
-#: core/apps/appsmarketplaceinfo.cpp:464
+#: core/apps/appsmarketplaceinfo.cpp:466
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Povzetek zasebnosti"
 
-#: core/apps/appsmarketplaceinfo.cpp:475
+#: core/apps/appsmarketplaceinfo.cpp:477
 #: widgets/administratordialog/administratorwidget.cpp:78
 #, kde-format
 msgid "Permissions"
 msgstr "Dovoljenja"
 
-#: core/apps/appsmarketplaceinfo.cpp:609
+#: core/apps/appsmarketplaceinfo.cpp:611
 #, kde-format
 msgid "Access messages"
 msgstr "Dostop do sporočil"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Pošiljaj in spreminjaj sporočila"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Access room information"
 msgstr "Dostop do informacij o sobi"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Ustvari in spremeni sobe"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Access to this server network"
 msgstr "Dostop do omrežja strežnikov"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Access user information"
 msgstr "Dostop do informacij o uporabniku"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Modify user information"
 msgstr "Spremeni informacije o uporabniku"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Registriraj nove ukaze s poševnico"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Registriraj in vzdržuj načrtovana dela"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Registriraj nove končne točke HTTP"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Dostop do nastavitev na tem strežniku"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Spremeni nastavitve na tem strežniku"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Prenesi datoteke na ta strežnik"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Dostop do datotek, prenesenih na ta strežnik"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Interakcija s storitvami v oblaku v imenu tega strežnika"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Dostop do minimalnih informacij o tem strežniškem okolju"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Dostop do več informacij o oddelkih LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Dostop do informacij oddelka LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Spremeni podatke oddelka LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Spremeni podatke sobe LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Dostop do informacij o sobi LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Spremeni informacije o sporočilu LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Dostop do informacij o sporočilih LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Spremeni podatke o obiskovalcu Livechata"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Dostop do informacij o obiskovalcu LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Dostop do informacij o stanju Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Interakcija z uporabniškim vmesnikom"
 
-#: core/apps/appsmarketplaceinfo.cpp:663
+#: core/apps/appsmarketplaceinfo.cpp:665
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Shrani interne podatke v podatkovno bazo"
 
-#: core/apps/appsmarketplaceinfo.cpp:665
+#: core/apps/appsmarketplaceinfo.cpp:667
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Spremeni konfiguracijo polja po meri LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:675
+#: core/apps/appsmarketplaceinfo.cpp:677
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Dovoli pisanje nastavitev aplikacije oauth"
 
-#: core/apps/appsmarketplaceinfo.cpp:677
+#: core/apps/appsmarketplaceinfo.cpp:679
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Dovoli branje nastavitev aplikacije oauth"
 
-#: core/apps/appsmarketplaceinfo.cpp:679
+#: core/apps/appsmarketplaceinfo.cpp:681
 #, kde-format
 msgid "Allow to write video conference settings"
 msgstr "Dovoli pisanje nastavitev videokonference"
 
-#: core/apps/appsmarketplaceinfo.cpp:681
+#: core/apps/appsmarketplaceinfo.cpp:683
 #, kde-format
 msgid "Allow to read video conference settings"
 msgstr "Dovoli branje nastavitev videokonference"
 
-#: core/apps/appsmarketplaceinfo.cpp:683
+#: core/apps/appsmarketplaceinfo.cpp:685
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr "Dovoli spreminjanje nastavitev ponudnika videokonference"
 
-#: core/apps/appsmarketplaceinfo.cpp:685
+#: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Allow to register button"
 msgstr "Dovoli gumb za registracijo"
 
-#: core/apps/appsmarketplaceinfo.cpp:691
+#: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
 msgid "Allow to send email"
 msgstr "Dovoli pošiljanje elektronske pošte"
 
-#: core/apps/appsmarketplaceinfo.cpp:693
+#: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
 msgid "Allow to write role"
 msgstr "Dovoli pisanje vloge"
 
-#: core/apps/appsmarketplaceinfo.cpp:695
+#: core/apps/appsmarketplaceinfo.cpp:697
 #, kde-format
 msgid "Allow to read role"
 msgstr "Dovoli branje vloge"
 
-#: core/apps/appsmarketplaceinfo.cpp:697
+#: core/apps/appsmarketplaceinfo.cpp:699
 #, kde-format
 msgid "Out Bound Communication"
 msgstr "Omejena komunikacija navzven"
@@ -535,7 +535,7 @@ msgstr "Uspešno odjavljen"
 msgid "Unknown state"
 msgstr "Neznano stanje"
 
-#: core/bannerinfo/bannerinfo.cpp:47
+#: core/bannerinfo/bannerinfo.cpp:49
 #, kde-format
 msgid "New version available %1"
 msgstr "Nova verzija na voljo %1"
@@ -545,132 +545,132 @@ msgstr "Nova verzija na voljo %1"
 msgid "(link)"
 msgstr "(povezava)"
 
-#: core/commands/command.cpp:55
+#: core/commands/command.cpp:57
 #, kde-format
 msgid "Status message"
 msgstr "Sporočilo o stanju"
 
-#: core/commands/command.cpp:57
+#: core/commands/command.cpp:59
 #, kde-format
 msgid "Topic message"
 msgstr "Sporočilo teme"
 
-#: core/commands/command.cpp:59
+#: core/commands/command.cpp:61
 #, kde-format
 msgid "your message"
 msgstr "vaše sporočilo"
 
-#: core/commands/command.cpp:61
+#: core/commands/command.cpp:63
 #, kde-format
 msgid "your message (optional)"
 msgstr "vaše sporočilo (neobvezno)"
 
-#: core/commands/command.cpp:77
+#: core/commands/command.cpp:79
 #, kde-format
 msgid "Archive"
 msgstr "Arhiviraj"
 
-#: core/commands/command.cpp:79
+#: core/commands/command.cpp:81
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
 msgstr "Prikaže ༼ つ◕_◕ ༽つ pred vašim sporočilom"
 
-#: core/commands/command.cpp:81
+#: core/commands/command.cpp:83
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
 msgstr "Prikaže ( ͡° ͜ʖ ͡°) po vašem sporočilu"
 
-#: core/commands/command.cpp:83
+#: core/commands/command.cpp:85
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
 msgstr "Prikaže ̄\\_(ツ)_/ ̄ po vašem sporočilu"
 
-#: core/commands/command.cpp:85
+#: core/commands/command.cpp:87
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Prikaže (╯°□°)╯( ┻━┻"
 
-#: core/commands/command.cpp:87
+#: core/commands/command.cpp:89
 #, kde-format
 msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
 msgstr "Prikaže ┬─┬<feff> ノ( ゜-゜ノ)"
 
-#: core/commands/command.cpp:89
+#: core/commands/command.cpp:91
 #, kde-format
 msgid "Create a New Channel"
 msgstr "Ustvari nov kanal"
 
-#: core/commands/command.cpp:91
+#: core/commands/command.cpp:93
 #, kde-format
 msgid "Show the keyboard shortcut list"
 msgstr "Pokaži seznam tipkovnih bližnjic"
 
-#: core/commands/command.cpp:93
+#: core/commands/command.cpp:95
 #, kde-format
 msgid "Hide Room"
 msgstr "Skrij sobo"
 
-#: core/commands/command.cpp:95
+#: core/commands/command.cpp:97
 #, kde-format
 msgid "Invite one user to join this channel"
 msgstr "Povabite enega uporabnika, da se pridruži temu kanalu"
 
-#: core/commands/command.cpp:97
+#: core/commands/command.cpp:99
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
 msgstr "Povabi vse uporabnike iz tega kanala, da se pridružijo [#channel]"
 
-#: core/commands/command.cpp:99
+#: core/commands/command.cpp:101
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
 msgstr "Povabi vse uporabnike iz [#channel], da se pridružijo temu kanalu"
 
-#: core/commands/command.cpp:101
+#: core/commands/command.cpp:103
 #, kde-format
 msgid "Join the given channel"
 msgstr "Pridružite se danem kanalu"
 
-#: core/commands/command.cpp:103
+#: core/commands/command.cpp:105
 #, kde-format
 msgid "Remove someone from the room"
 msgstr "Odstranite nekoga iz sobe"
 
-#: core/commands/command.cpp:105
+#: core/commands/command.cpp:107
 #, kde-format
 msgid "Leave the current channel"
 msgstr "Zapustite trenutni kanal"
 
-#: core/commands/command.cpp:107
+#: core/commands/command.cpp:109
 #, kde-format
 msgid "Displays action text"
 msgstr "Prikaže besedilo dejanja"
 
-#: core/commands/command.cpp:109
+#: core/commands/command.cpp:111
 #, kde-format
 msgid "Direct message someone"
 msgstr "Neposredno sporočajte drugim"
 
-#: core/commands/command.cpp:111
+#: core/commands/command.cpp:113
 #, kde-format
 msgid "Mute someone in the room"
 msgstr "Utišajte nekatere uporabnike v sobi"
 
-#: core/commands/command.cpp:113
+#: core/commands/command.cpp:115
 #, kde-format
 msgid "Unmute someone in the room"
 msgstr "Prekličite utišanje uporabnika v sobi"
 
-#: core/commands/command.cpp:115
+#: core/commands/command.cpp:117
 #, kde-format
 msgid "Set your status message"
 msgstr "Nastavite sporočilo o stanju"
 
-#: core/commands/command.cpp:117
+#: core/commands/command.cpp:119
 #, kde-format
 msgid "Set topic"
 msgstr "Nastavi temo"
 
-#: core/commands/command.cpp:119
+#: core/commands/command.cpp:121
 #, kde-format
 msgid "Unarchive"
 msgstr "Povrni iz arhiva"
@@ -770,120 +770,120 @@ msgstr "Manjka strežnikov url."
 msgid "Socket was unexpectedly closed."
 msgstr "Vtičnica je bila nepričakovano zaprta."
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:884
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:886
 #: core/model/notificationhistorymodel.cpp:65
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "Conference Call"
 msgstr "Konferenčni klic"
 
-#: core/messages/message.cpp:780
+#: core/messages/message.cpp:782
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 se je pridružil(a) kanalu"
 
-#: core/messages/message.cpp:782
+#: core/messages/message.cpp:784
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 je zapustil(a) kanal"
 
-#: core/messages/message.cpp:784
+#: core/messages/message.cpp:786
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 je zapustil to ekipo"
 
-#: core/messages/message.cpp:787
+#: core/messages/message.cpp:789
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Temo je počistil: %1"
 
-#: core/messages/message.cpp:789
+#: core/messages/message.cpp:791
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 je spremenil temo na: <i>%1</i>"
 
-#: core/messages/message.cpp:792
+#: core/messages/message.cpp:794
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 je pogovoru dodal %1"
 
-#: core/messages/message.cpp:794
+#: core/messages/message.cpp:796
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 je spremenil ime sobe v <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:796
+#: core/messages/message.cpp:798
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 je odstranil uporabnika %1"
 
-#: core/messages/message.cpp:799
+#: core/messages/message.cpp:801
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "Opis je počistil %1"
 
-#: core/messages/message.cpp:801
+#: core/messages/message.cpp:803
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 je spremenil opis sobe na %1"
 
-#: core/messages/message.cpp:805
+#: core/messages/message.cpp:807
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "Obvestilo je počistil %1"
 
-#: core/messages/message.cpp:807
+#: core/messages/message.cpp:809
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 je spremenil obvestilo sobe na %1"
 
-#: core/messages/message.cpp:810
+#: core/messages/message.cpp:812
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 je spremenil zasebnost sobe v %1"
 
-#: core/messages/message.cpp:812
+#: core/messages/message.cpp:814
 #, kde-format
 msgid "Click to join to video"
 msgstr "Kliknite, če se želite pridružiti videopogovoru"
 
-#: core/messages/message.cpp:815
+#: core/messages/message.cpp:817
 #, kde-format
 msgid "Message Deleted"
 msgstr "Sporočilo izbrisano"
 
-#: core/messages/message.cpp:817
+#: core/messages/message.cpp:819
 #, kde-format
 msgid "Message Pinned"
 msgstr "Sporočilo pripeto"
 
-#: core/messages/message.cpp:819
+#: core/messages/message.cpp:821
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Šifrirano sporočilo"
 
-#: core/messages/message.cpp:821
+#: core/messages/message.cpp:823
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "uporabniku %1 je preklical utišanje %2"
 
-#: core/messages/message.cpp:823
+#: core/messages/message.cpp:825
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "uporabnika %1 je utišal %2"
 
-#: core/messages/message.cpp:825
+#: core/messages/message.cpp:827
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "Vlogo »%3« je dodal v %1 uporabnik %2"
 
-#: core/messages/message.cpp:827
+#: core/messages/message.cpp:829
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "Vlogo »%3« je odstranil iz %1 uporabbnik %2"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:831
+#: core/messages/message.cpp:833
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -892,122 +892,122 @@ msgstr ""
 "To sporočilo je šifrirano od začetka do konca. Če si ga želite ogledati, "
 "morate vnesti svoj ključ šifriranja v nastavitvah vašega računa."
 
-#: core/messages/message.cpp:833
+#: core/messages/message.cpp:835
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Razprava, ustvarjena o »%1«"
 
-#: core/messages/message.cpp:835
+#: core/messages/message.cpp:837
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 se je pridružil pogovoru"
 
-#: core/messages/message.cpp:837
+#: core/messages/message.cpp:839
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "To soba je arhiviral uporabnik %1"
 
-#: core/messages/message.cpp:839
+#: core/messages/message.cpp:841
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "To sobo je povrnil iz arhiva uporabnik %1"
 
-#: core/messages/message.cpp:842 core/messages/message.cpp:889
+#: core/messages/message.cpp:844 core/messages/message.cpp:891
 #, kde-format
 msgid "Unknown action!"
 msgstr "Neznano dejanje!"
 
-#: core/messages/message.cpp:846
+#: core/messages/message.cpp:848
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Dobrodošli %1!"
 
-#: core/messages/message.cpp:848
+#: core/messages/message.cpp:850
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Avatar sobe je spremenil %1"
 
-#: core/messages/message.cpp:850
+#: core/messages/message.cpp:852
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Šifriranje te sobe je omogočil %1"
 
-#: core/messages/message.cpp:852
+#: core/messages/message.cpp:854
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Šifriranje te sobe je onemogočil %1"
 
-#: core/messages/message.cpp:854
+#: core/messages/message.cpp:856
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Sobo je samo za branje nastavil %1"
 
-#: core/messages/message.cpp:856
+#: core/messages/message.cpp:858
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Dovoljenje za pisanje je sobi dodal %1"
 
-#: core/messages/message.cpp:858
+#: core/messages/message.cpp:860
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 je dodal @%2 v to ekipo"
 
-#: core/messages/message.cpp:860
+#: core/messages/message.cpp:862
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 je odstranil @%2 iz te ekipe"
 
-#: core/messages/message.cpp:862
+#: core/messages/message.cpp:864
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 je pretvoril #%2 v ekipo"
 
-#: core/messages/message.cpp:864
+#: core/messages/message.cpp:866
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 je pretvoril #%2 v kanal"
 
-#: core/messages/message.cpp:866
+#: core/messages/message.cpp:868
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 je odstranil #%2 iz te ekipe"
 
-#: core/messages/message.cpp:868
+#: core/messages/message.cpp:870
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 je izbrisal #%2"
 
-#: core/messages/message.cpp:870
+#: core/messages/message.cpp:872
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 je dodal #%2 v to ekipo"
 
-#: core/messages/message.cpp:872
+#: core/messages/message.cpp:874
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "Dovoljenje za reakcije je sobi dodal %1"
 
-#: core/messages/message.cpp:874
+#: core/messages/message.cpp:876
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "Dovoljenje za reakcijo je sobi odstranil %1"
 
-#: core/messages/message.cpp:876
+#: core/messages/message.cpp:878
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 se je pridružil tej ekipi"
 
-#: core/messages/message.cpp:878
+#: core/messages/message.cpp:880
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 se je pridružil(a) klepetu OTR."
 
-#: core/messages/message.cpp:880
+#: core/messages/message.cpp:882
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 ključ se je uspešno osvežil"
 
-#: core/messages/message.cpp:882
+#: core/messages/message.cpp:884
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1 Je zahteval(a) osvežitev ključa."
@@ -1029,7 +1029,7 @@ msgstr "%1 in %2"
 
 #: core/model/admincustomemojimodel.cpp:36
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
-#: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
+#: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:32
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
@@ -1048,7 +1048,7 @@ msgstr "Ime"
 
 #: core/model/admincustomemojimodel.cpp:38
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
-#: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
+#: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
 #: core/model/directoryroomsmodel.cpp:124 core/model/directoryteamsmodel.cpp:96
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
 #, kde-format
@@ -1147,32 +1147,32 @@ msgstr "Zaščiteno"
 msgid "Two Factors Authentication"
 msgstr "Dvostopenjsko preverjanje pristnosti"
 
-#: core/model/adminroomsmodel.cpp:32
+#: core/model/adminroomsmodel.cpp:34
 #, kde-format
 msgid "Number of Messages"
 msgstr "Število sporočil"
 
-#: core/model/adminroomsmodel.cpp:34
+#: core/model/adminroomsmodel.cpp:36
 #, kde-format
 msgid "Number of Users"
 msgstr "Število uporabnikov"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:122
+#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Topic"
 msgstr "Tema"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:126
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:126
 #, kde-format
 msgid "Read-only"
 msgstr "Samo za branje"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:128
+#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:128
 #, kde-format
 msgid "Default Room"
 msgstr "Privzeta soba"
 
-#: core/model/adminroomsmodel.cpp:45
+#: core/model/adminroomsmodel.cpp:47
 #, kde-format
 msgid "Type"
 msgstr "Vrsta"
@@ -1743,7 +1743,7 @@ msgstr "(Samodejno pridruži)"
 msgid "Owner"
 msgstr "Lastnik"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:93 core/utils.cpp:358
+#: core/model/usersmodel.cpp:77 core/utils.cpp:94 core/utils.cpp:359
 #, kde-format
 msgid "Offline"
 msgstr "Brez povezave"
@@ -1873,39 +1873,39 @@ msgstr "Blokirali ste ta kanal."
 msgid "Channel was blocked."
 msgstr "Kanal je bil blokiran."
 
-#: core/roominfo/roominfo.cpp:129
+#: core/roominfo/roominfo.cpp:130
 #, kde-format
 msgid "Discussion"
 msgstr "Razprava"
 
-#: core/roominfo/roominfo.cpp:133
+#: core/roominfo/roominfo.cpp:134
 #, kde-format
 msgid "Private Team"
 msgstr "Zasebna ekipa"
 
-#: core/roominfo/roominfo.cpp:135
+#: core/roominfo/roominfo.cpp:136
 #, kde-format
 msgid "Group"
 msgstr "Skupina"
 
-#: core/roominfo/roominfo.cpp:139
+#: core/roominfo/roominfo.cpp:140
 #, kde-format
 msgid "Public Team"
 msgstr "Javna ekipa"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:141 widgets/ruqolaui.rc:27
+#: core/roominfo/roominfo.cpp:142 widgets/ruqolaui.rc:27
 #, kde-format
 msgid "Channel"
 msgstr "Kanal"
 
-#: core/roominfo/roominfo.cpp:144
+#: core/roominfo/roominfo.cpp:145
 #, kde-format
 msgid "Direct message"
 msgstr "Neposredno sporočilo"
 
-#: core/roominfo/roominfo.cpp:146
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:110
+#: core/roominfo/roominfo.cpp:147
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
 #, kde-format
 msgid "Omnichannel"
 msgstr "Večkanalno"
@@ -1982,17 +1982,17 @@ msgstr "Skrbnik"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:87 core/utils.cpp:352
+#: core/utils.cpp:88 core/utils.cpp:353
 #, kde-format
 msgid "Online"
 msgstr "Povezan"
 
-#: core/utils.cpp:89 core/utils.cpp:354 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:90 core/utils.cpp:355 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Zaseden"
 
-#: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:92 core/utils.cpp:357 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Odsoten"
@@ -2952,7 +2952,7 @@ msgid "Administrator"
 msgstr "Skrbnik"
 
 #: widgets/administratordialog/administratorwidget.cpp:54
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:235
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
 #, kde-format
 msgid "Server Info"
 msgstr "Podatki o strežniku"
@@ -3874,195 +3874,195 @@ msgctxt "@title"
 msgid "Remove Room"
 msgstr "Odstrani sobo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:49
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "Osveži"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:68
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:70
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:106
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:108
 #, kde-format
 msgid "Licenses"
 msgstr "Licence"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:111
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
 #, kde-format
 msgid "Auditing"
 msgstr "Revidiranje"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:114
 #, kde-format
 msgid "Canned Responses"
 msgstr "Pripravljeni odzivi"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:115
 #, kde-format
 msgid "Engagement Dashboard"
 msgstr "Nadzorna plošča vključenosti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:114
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:116
 #, kde-format
 msgid "Read Receipts"
 msgstr "Beri prejemke"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
 #, kde-format
 msgid "Deployment ID"
 msgstr "ID uvajanja"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:161
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "Uporabniki programa Rocket.Chat"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "Skupna velikost nalaganj"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
 #, kde-format
 msgid "Total Uploads"
 msgstr "Skupaj nalaganj"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, kde-format
 msgid "Online Users"
 msgstr "Povezani uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
 #, kde-format
 msgid "Away Users"
 msgstr "Odsotni uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
 #, kde-format
 msgid "Offline Users"
 msgstr "Nepovezani uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
 #, kde-format
 msgid "Busy Users"
 msgstr "Zaposleni uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
 #, kde-format
 msgid "Activated Users"
 msgstr "Aktivirani uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
 #, kde-format
 msgid "Activated Guests"
 msgstr "Aktivirani gostje"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
 #, kde-format
 msgid "Deactivated Users"
 msgstr "Deaktivirani uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Total Channels"
 msgstr "Skupaj kanalov"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, kde-format
 msgid "Total Rooms"
 msgstr "Skupaj sob"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Total Private Groups"
 msgstr "Skupaj zasebnih skupin"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "Skupaj sob z neposrednimi sporočili"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Total Threads"
 msgstr "Skupaj niti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Total Users"
 msgstr "Skupaj uporabnilov"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Total Discussions"
 msgstr "Skupaj razprav"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "Skupaj omnikanalnih sob"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Messages"
 msgstr "Skupaj sporočila"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "Skupaj sporočil v kanalih"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "Skupaj sporočil v zasebnih skupinah"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "Skupaj sporočil v neposrednih sporočilih"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Connected Users"
 msgstr "Skupaj povezanih uporabnikov"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:221
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
 #, kde-format
 msgid "OS Release"
 msgstr "Izdaja OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:222
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:224
 #, kde-format
 msgid "OS Type"
 msgstr "Vrsta OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
 #, kde-format
 msgid "OS Platform"
 msgstr "Platforma OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:224
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
 #, kde-format
 msgid "OS Total Memory"
 msgstr "Skupaj pomnilnika OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
 #, kde-format
 msgid "OS Free Memory"
 msgstr "Prosti pomnilnik OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:242
 #, kde-format
 msgid "Usage"
 msgstr "Raba"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Izvajalno okolje"
