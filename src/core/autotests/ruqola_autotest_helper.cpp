@@ -12,7 +12,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QProcess>
-#include <QString>
 #include <QTest>
 
 void AutoTestHelper::diffFile(const QString &refFile, const QString &generatedFile)
