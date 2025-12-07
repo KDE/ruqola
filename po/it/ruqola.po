@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-06 00:42+0000\n"
-"PO-Revision-Date: 2025-11-26 14:17+0100\n"
+"PO-Revision-Date: 2025-12-04 18:14+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -403,27 +403,25 @@ msgid "Allow to read oauth app settings"
 msgstr "Consenti di leggere le impostazioni dell'applicazione oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:681
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Consenti di scrivere le impostazioni dell'applicazione oauth"
+msgstr "Consenti di scrivere le impostazioni della videoconferenza"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Consenti di leggere le impostazioni dell'applicazione oauth"
+msgstr "Consenti di leggere le impostazioni della videoconferenza"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr ""
+"Consenti di modificare le impostazioni del fornitore di videoconferenza"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Ruolo che consente la scrittura"
+msgstr "Pulsante per consentire la registrazione"
 
 #: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format

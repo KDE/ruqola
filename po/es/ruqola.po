@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-06 00:42+0000\n"
-"PO-Revision-Date: 2025-11-22 21:06+0100\n"
+"PO-Revision-Date: 2025-12-06 22:03+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -406,27 +406,24 @@ msgid "Allow to read oauth app settings"
 msgstr "Permitir leer las preferencias de la aplicación oauth"
 
 #: core/apps/appsmarketplaceinfo.cpp:681
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Permitir escribir las preferencias de la aplicación oauth"
+msgstr "Permitir escribir las preferencias de las conferencias de vídeo"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Permitir leer las preferencias de la aplicación oauth"
+msgstr "Permitir leer las preferencias de las conferencias de vídeo"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Permitir cambiar las preferencias del proveedor de vídeo conferencias."
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Permitir el papel de escritura"
+msgstr "Permitir registrar un botón"
 
 #: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
@@ -1920,10 +1917,9 @@ msgid "Start with specific account"
 msgstr "Iniciar con una cuenta específica"
 
 #: core/ruqolacommandlineparser.cpp:49
-#, fuzzy, kde-format
-#| msgid "Account name:"
+#, kde-format
 msgid "Account Name"
-msgstr "Nombre de la cuenta:"
+msgstr "Nombre de la cuenta"
 
 #: core/ruqolacommandlineparser.cpp:51
 #, kde-format
@@ -1932,10 +1928,9 @@ msgid "Show Message"
 msgstr "Mostrar mensaje"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "Mensaje"
+msgstr "URL del mensaje"
 
 #: core/ruqolacommandlineparser.cpp:52
 #, kde-format
@@ -12322,35 +12317,3 @@ msgstr "Corrección del tamaño al mostrar archivos adjuntos."
 #, kde-format
 msgid "Save local translation to local database."
 msgstr "Guardar traducción local a base de datos local."
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "¿Abrir adjunto?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "¿Abrir adjunto <filename>%1</filename>?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Abrir"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Abrir con «%1»"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Abrir &con…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Gu&ardar como…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Guardar archivo"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Error guardando archivo"
