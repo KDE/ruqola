@@ -38,7 +38,6 @@
                 }
             ],
             "config-opts": [
-                "-Dgcrypt=false",
                 "-Dgtk_doc=false",
                 "-Dintrospection=false",
                 "-Dmanpage=false",
