@@ -112,7 +112,7 @@ public:
     void desktopDurationNotifications(const QByteArray &roomId, int value);
     void desktopSoundNotifications(const QByteArray &roomId, const QString &value);
 
-    void getDiscussions(const Utils::ListMessagesInfo &info);
+    void getDiscussions(Utils::ListMessagesInfo &&info);
     void getThreadsList(const Utils::ListMessagesInfo &info);
     void getPinnedMessages(const Utils::ListMessagesInfo &info);
     void getStarredMessages(const Utils::ListMessagesInfo &info);

@@ -1007,7 +1007,7 @@ void Connection::groupDelete(const QByteArray &roomId)
     }
 }
 
-void Connection::getDiscussions(const Utils::ListMessagesInfo &info)
+void Connection::getDiscussions(Utils::ListMessagesInfo &&info)
 {
     auto job = new GetDiscussionsJob(this);
     initializeRestApiJob(job);
