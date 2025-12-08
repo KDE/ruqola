@@ -8,7 +8,6 @@
 #include <kio/applicationlauncherjob.h>
 #include <kio/jobuidelegatefactory.h>
 #include <kjobuidelegate.h>
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -30,6 +29,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSlider>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mImageGraphicsView(new ShowImageGraphicsView(account, this))
