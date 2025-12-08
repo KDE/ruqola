@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-06 00:42+0000\n"
-"PO-Revision-Date: 2025-10-18 16:26+0200\n"
+"PO-Revision-Date: 2025-12-07 20:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -405,27 +405,24 @@ msgid "Allow to read oauth app settings"
 msgstr "Baimendu «oauth» aplikazioen ezarpenak irakurtzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:681
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Baimendu «oauth» aplikazioen ezarpenak idaztea"
+msgstr "Baimendu bideo-konferentzia ezarpenak idaztea"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Baimendu «oauth» aplikazioen ezarpenak irakurtzea"
+msgstr "Baimendu bideo-konferentzia ezarpenak irakurtzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Baimendu bideo-konferentzia hornitzaile ezarpenak aldatzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Baimendu eginkizuna idaztea"
+msgstr "Baimendu botoia erregistratzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
@@ -443,11 +440,9 @@ msgid "Allow to read role"
 msgstr "Baimendu eginkizuna irakurtzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:699
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mute Focused Conversations"
+#, kde-format
 msgid "Out Bound Communication"
-msgstr "Isilarazi fokua duten elkarrizketak"
+msgstr "Kanporanzko komunikazioa"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1934,10 +1929,9 @@ msgid "Start with specific account"
 msgstr "Hasi kontu jakin batekin"
 
 #: core/ruqolacommandlineparser.cpp:49
-#, fuzzy, kde-format
-#| msgid "Account Name:"
+#, kde-format
 msgid "Account Name"
-msgstr "Kontuaren izena:"
+msgstr "Kontuaren izena"
 
 #: core/ruqolacommandlineparser.cpp:51
 #, kde-format
@@ -1946,10 +1940,9 @@ msgid "Show Message"
 msgstr "Erakutsi mezua"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "Mezua"
+msgstr "Mezuaren URL"
 
 #: core/ruqolacommandlineparser.cpp:52
 #, kde-format
@@ -1965,18 +1958,16 @@ msgstr ""
 "Erabiltzailearen atzera-elikadurarako aukera erabilgarriak zerrendatzen ditu"
 
 #: core/ruqolacommandlineparser.cpp:58
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Lerroz kanpo"
+msgstr "Hasi lerroz kanpo"
 
 #: core/ruqolacommandlineparser.cpp:60
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Aktibatuta"
+msgstr "Aktibatu arazteko modua"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -7778,12 +7769,10 @@ msgid "Animate GIFs"
 msgstr "GIFak animatzea"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Gaitu datu-base lokal esperimentala"
+msgstr "Gaitu datu-base lokala"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -7982,7 +7971,7 @@ msgstr "Datu-baseko (E2E) muturren arteko zifratzea"
 #: widgets/databasedialog/exploredatabasedialog.cpp:72
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
-msgstr ""
+msgstr "Datu-baseko, gela tekleatutakoaren zain, informazioa"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
@@ -10455,12 +10444,10 @@ msgid "Message has been starred"
 msgstr "Mezuari izarri markatu diote"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1000
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "Mezuari izarri markatu diote"
+msgstr "Mezuak itzulitako testu bat du"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1004
 #, kde-format
@@ -10478,12 +10465,10 @@ msgstr "Gehitu erreakzioa"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "Gelditu"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1014
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Esan testua"
@@ -11447,18 +11432,16 @@ msgid "Hide menu bar"
 msgstr "Ezkutatu menu-barra"
 
 #: widgets/ruqolamainwindow.cpp:1440
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Lerroz kanpo"
+msgstr "Lerroan lan egin"
 
 #: widgets/ruqolamainwindow.cpp:1443
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Lerroz kanpo"
+msgstr "Lerroz kanpo lan egin"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11677,25 +11660,20 @@ msgid "Copy block code more easily."
 msgstr "Kode-blokea errazago kopiatzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Gelako erabiltzaileen zerrenda hobetzea."
+msgstr "Testutik ahotserako erabiltzaile interfazea hobetzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Erakutsi eranskinak - %1"
+msgstr "Erakutsi eranskin-eremuak."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "Lerroz kanpoko modua inplementatu (esperimentala)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
-msgstr ""
+msgstr "\"Tekleatutakoa zain\" datu-basean biltegiratzea inplementatu da."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
@@ -12313,7 +12291,7 @@ msgstr "Erakutsi fitxategi-eranskinaren neurria konpontzea."
 #: widgets/whatsnew/whatsnewtranslations.cpp:216
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "Itzulpen lokala datu-base lokalera gordetzea."
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
