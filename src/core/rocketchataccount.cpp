@@ -634,6 +634,7 @@ void RocketChatAccount::leaveRoom(const QByteArray &identifier, Room::RoomType c
 
 DDPClient *RocketChatAccount::ddp()
 {
+    // TODO offlineMode ?
     if (!mDdp && accountEnabled()) {
         qCDebug(RUQOLA_RECONNECT_LOG) << "creating new DDPClient" << accountName();
         mDdp.reset(new DDPClient(this));
