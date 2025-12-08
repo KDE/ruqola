@@ -76,6 +76,10 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(!w.imageInfo().isAnimatedImage);
     QVERIFY(!w.imageInfo().pixmap.isNull());
+
+    auto fitToViewButton = w.findChild<QPushButton *>(u"fitToViewButton"_s);
+    QVERIFY(fitToViewButton);
+    QVERIFY(!fitToViewButton->text().isEmpty());
 }
 
 #include "moc_showimagewidgettest.cpp"
