@@ -701,8 +701,9 @@ QString RocketChatAccount::restLoginStatusText() const
 QString RocketChatAccount::ddpLoginStatusText() const
 {
     if (mDdp) {
-        if (!mDdp->isConnected())
+        if (!mDdp->isConnected()) {
             return i18n("Not connected yet");
+        }
         if (mDdp->authenticationManager()) {
             return AuthenticationManager::loginStatusToText(mDdp->authenticationManager()->loginStatus());
         }
