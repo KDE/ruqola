@@ -1860,7 +1860,7 @@ void RocketChatAccount::setRoomListDisplay(OwnUserPreferences::RoomListDisplay r
         qCWarning(RUQOLA_LOG) << " OwnUserPreferences::setRoomListDisplay::Unknown is a bug";
         return;
     }
-    setUserPreferences(std::move(info));
+    setUserPreferences(info);
 }
 
 void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder)
@@ -1878,7 +1878,7 @@ void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrd
         qCWarning(RUQOLA_LOG) << " OwnUserPreferences::RoomListSortOrder::Unknown is a bug";
         return;
     }
-    setUserPreferences(std::move(info));
+    setUserPreferences(info);
 }
 
 OwnUserPreferences::RoomListSortOrder RocketChatAccount::roomListSortOrder() const
