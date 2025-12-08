@@ -6,11 +6,10 @@
 
 #pragma once
 
-#include <QGraphicsView>
-class QWidget;
-
 #include "libruqolawidgets_private_export.h"
 #include "showimagewidget.h"
+#include <QGraphicsView>
+
 class RocketChatAccount;
 class ShowImageGraphicsImageLabel;
 class ShowImageGraphicsPixmapItem;
