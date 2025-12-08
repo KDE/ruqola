@@ -110,3 +110,5 @@ std::unique_ptr<QSqlTableModel> LocalRoomsDatabase::createRoomsModel(const QStri
     model->select();
     return model;
 }
+
+// TODO load all rooms at beginning
