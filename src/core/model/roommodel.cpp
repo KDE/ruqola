@@ -232,7 +232,7 @@ Room *RoomModel::createNewRoom()
 void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread, bool &hasMentions) const
 {
     for (int i = 0; i < mRoomsList.count(); ++i) {
-        Room *room = mRoomsList.at(i);
+        const Room *const room = mRoomsList.at(i);
         if (room->open()) {
             if (room->alert()) {
                 hasAlert = true;
