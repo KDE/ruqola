@@ -824,7 +824,7 @@ void RocketChatAccount::joinJitsiConfCall(const QByteArray &roomId)
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)" << roomId;
     // const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
     const QString hash = mRuqolaServerConfig->uniqueId() + QString::fromLatin1(roomId);
-#if defined(Q_OS_IOS)
+#ifdef Q_OS_IOS
     const QString scheme = u"org.jitsi.meet://"_s;
 #else
     const QString scheme = u"https://"_s;
@@ -1648,9 +1648,7 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                     updateInstalledApps();
                     updateCountApplications();
                     mActionButtonsManager->fetchActionButtons();
-                } else if (type == "command/removed"_L1) {
-                    slotUpdateCommands();
-                } else if (type == "command/added"_L1) {
+                } else if (type == "command/removed"_L1 || type == "command/added"_L1) {
                     slotUpdateCommands();
                 } else if (type == "actions/disabled"_L1) {
                     qWarning() << " actions/disabled not implemented ";
@@ -1786,7 +1784,7 @@ void RocketChatAccount::loadHistory(const QByteArray &roomID, bool initial, qint
 {
     MessagesModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
-        Room *room = mRoomModel->findRoom(roomID);
+        Room *const room = mRoomModel->findRoom(roomID);
         // qDebug() << " room->numberMessages() " << room->numberMessages() << " roomModel->rowCount() " << roomModel->rowCount();
         if (!initial && (room->numberMessages() == roomModel->rowCount())) {
             return;
@@ -2504,7 +2502,7 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     commands.setDownloadManager(mDownloadAppsLanguagesManager);
     commands.parseCommands(obj);
     if (!mCommandsModel->commands().isEmpty()) { // Don't show command listview if we already have command (for example when we logout/login)
-        QSignalBlocker blockSignal(mCommandsModel);
+        const QSignalBlocker blockSignal(mCommandsModel);
         mCommandsModel->setCommands(commands);
     } else {
         // Initialize it after loading otherwise we will see listview at startup
@@ -2898,7 +2896,7 @@ bool RocketChatAccount::hasPermission(const QString &permissionId, const QByteAr
     if (roomId.isEmpty()) {
         currentRoles = mOwnUser.roles();
     } else {
-        Room *r = room(roomId);
+        Room *const r = room(roomId);
         if (r) {
             currentRoles = r->roles();
         }
