@@ -1022,7 +1022,7 @@ void Connection::getDiscussions(Utils::ListMessagesInfo &&info)
     }
 }
 
-void Connection::getThreadsList(const Utils::ListMessagesInfo &info)
+void Connection::getThreadsList(Utils::ListMessagesInfo &&info)
 {
     auto job = new GetThreadsJob(this);
     job->setUseSyntaxRc70(info.useSyntaxRc70);
