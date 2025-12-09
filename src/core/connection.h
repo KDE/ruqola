@@ -114,10 +114,10 @@ public:
 
     void getDiscussions(Utils::ListMessagesInfo &&info);
     void getThreadsList(Utils::ListMessagesInfo &&info);
-    void getPinnedMessages(const Utils::ListMessagesInfo &info);
-    void getStarredMessages(const Utils::ListMessagesInfo &info);
-    void getSnippetedMessages(const Utils::ListMessagesInfo &info);
-    void getMentionedMessages(const Utils::ListMessagesInfo &info);
+    void getPinnedMessages(Utils::ListMessagesInfo &&info);
+    void getStarredMessages(Utils::ListMessagesInfo &&info);
+    void getSnippetedMessages(Utils::ListMessagesInfo &&info);
+    void getMentionedMessages(Utils::ListMessagesInfo &&info);
 
     void getThreadMessages(const QByteArray &threadMessageId);
     void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());

@@ -1045,7 +1045,7 @@ void Connection::getThreadsList(Utils::ListMessagesInfo &&info)
     }
 }
 
-void Connection::getPinnedMessages(const Utils::ListMessagesInfo &info)
+void Connection::getPinnedMessages(Utils::ListMessagesInfo &&info)
 {
     auto job = new GetPinnedMessagesJob(this);
     initializeRestApiJob(job);
@@ -1063,7 +1063,7 @@ void Connection::getPinnedMessages(const Utils::ListMessagesInfo &info)
     }
 }
 
-void Connection::getMentionedMessages(const Utils::ListMessagesInfo &info)
+void Connection::getMentionedMessages(Utils::ListMessagesInfo &&info)
 {
     auto job = new GetMentionedMessagesJob(this);
     initializeRestApiJob(job);
@@ -1082,7 +1082,7 @@ void Connection::getMentionedMessages(const Utils::ListMessagesInfo &info)
     }
 }
 
-void Connection::getStarredMessages(const Utils::ListMessagesInfo &info)
+void Connection::getStarredMessages(Utils::ListMessagesInfo &&info)
 {
     auto job = new GetStarredMessagesJob(this);
     initializeRestApiJob(job);
@@ -1101,7 +1101,7 @@ void Connection::getStarredMessages(const Utils::ListMessagesInfo &info)
     }
 }
 
-void Connection::getSnippetedMessages(const Utils::ListMessagesInfo &info)
+void Connection::getSnippetedMessages(Utils::ListMessagesInfo &&info)
 {
     auto job = new GetSnippetedMessagesJob(this);
     initializeRestApiJob(job);

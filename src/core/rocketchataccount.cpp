@@ -1202,7 +1202,7 @@ void RocketChatAccount::getMentionsMessages(const QByteArray &roomId)
     mListMessageModel->setLoadMoreListMessagesInProgress(true);
     Utils::ListMessagesInfo info;
     info.roomId = roomId;
-    restApi()->getMentionedMessages(info);
+    restApi()->getMentionedMessages(std::move(info));
 }
 
 void RocketChatAccount::getPinnedMessages(const QByteArray &roomId)
@@ -1212,7 +1212,7 @@ void RocketChatAccount::getPinnedMessages(const QByteArray &roomId)
     mListMessageModel->setRoomId(roomId);
     Utils::ListMessagesInfo info;
     info.roomId = roomId;
-    restApi()->getPinnedMessages(info);
+    restApi()->getPinnedMessages(std::move(info));
 }
 
 void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
@@ -1223,7 +1223,7 @@ void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
     Utils::ListMessagesInfo info;
     info.roomId = roomId;
 
-    restApi()->getStarredMessages(info);
+    restApi()->getStarredMessages(std::move(info));
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType)
@@ -1356,13 +1356,13 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
                 qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
                 break;
             case ListMessagesModel::StarredMessages:
-                restApi()->getStarredMessages(info);
+                restApi()->getStarredMessages(std::move(info));
                 break;
             case ListMessagesModel::PinnedMessages:
-                restApi()->getPinnedMessages(info);
+                restApi()->getPinnedMessages(std::move(info));
                 break;
             case ListMessagesModel::MentionsMessages:
-                restApi()->getMentionedMessages(info);
+                restApi()->getMentionedMessages(std::move(info));
                 break;
             case ListMessagesModel::ThreadsMessages:
                 // TODO allow to search by type
@@ -1789,13 +1789,14 @@ void RocketChatAccount::loadHistory(const QByteArray &roomID, bool initial, qint
         if (!initial && (room->numberMessages() == roomModel->rowCount())) {
             return;
         }
-        ManageLocalDatabase::ManageLoadHistoryInfo info;
-        info.roomModel = roomModel;
-        info.roomId = roomID;
-        info.initial = initial;
-        info.timeStamp = timeStamp;
-        info.roomName = room->displayFName();
-        info.lastSeenAt = room->lastSeenAt();
+        const ManageLocalDatabase::ManageLoadHistoryInfo info{
+            .roomModel = roomModel,
+            .roomName = room->displayFName(),
+            .roomId = roomID,
+            .initial = initial,
+            .timeStamp = timeStamp,
+            .lastSeenAt = room->lastSeenAt(),
+        };
         mManageLocalDatabase->loadMessagesHistory(info);
     } else {
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
