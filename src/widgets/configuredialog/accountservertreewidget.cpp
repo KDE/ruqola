@@ -94,12 +94,12 @@ void AccountServerTreeWidget::save()
             info.activitiesSettings.changeActivities(serverListItem->checkState(1) == Qt::Checked, currentActivity);
         }
 #endif
-        if (serverListItem->newAccount()) {
-            accountManager->addAccount(info);
-        } else {
-            accountManager->modifyAccount(info);
-        }
         order << info.accountName;
+        if (serverListItem->newAccount()) {
+            accountManager->addAccount(std::move(info));
+        } else {
+            accountManager->modifyAccount(std::move(info));
+        }
     }
     Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->setAccountOrder(order);
     RuqolaGlobalConfig::self()->setAccountOrder(order);

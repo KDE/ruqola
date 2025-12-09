@@ -283,7 +283,7 @@ void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
     job->start();
 }
 
-void AccountManager::addAccount(const AccountManagerInfo &info)
+void AccountManager::addAccount(AccountManagerInfo &&info)
 {
     const QString newAccountName = Utils::createUniqueAccountName(accountsName(), info.accountName);
     auto account = new RocketChatAccount();
@@ -314,7 +314,7 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     addAccount(account);
 }
 
-void AccountManager::modifyAccount(const AccountManagerInfo &info)
+void AccountManager::modifyAccount(AccountManagerInfo &&info)
 {
     RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName);
     if (account) {

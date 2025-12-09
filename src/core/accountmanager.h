@@ -79,7 +79,7 @@ public:
     ~AccountManager() override;
 
     void removeAccount(const QString &accountName, bool removeLogFiles = false);
-    void addAccount(const AccountManagerInfo &info);
+    void addAccount(AccountManagerInfo &&info);
 
     [[nodiscard]] RocketChatAccount *account() const;
     [[nodiscard]] RocketChatAccountModel *rocketChatAccountModel() const;
@@ -91,7 +91,7 @@ public:
     void setCurrentAccount(const QString &accountName);
     [[nodiscard]] QString currentAccount() const;
 
-    void modifyAccount(const AccountManagerInfo &info);
+    void modifyAccount(AccountManagerInfo &&info);
     [[nodiscard]] QStringList accountsName() const;
 
     [[nodiscard]] bool isEmpty() const;

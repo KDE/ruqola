@@ -920,7 +920,7 @@ void RuqolaMainWindow::slotAddServer()
     const QStringList lst = mAccountManager->accountsName();
     dlg->setExistingAccountName(lst);
     if (dlg->exec()) {
-        const AccountManager::AccountManagerInfo info = dlg->accountInfo();
+        AccountManager::AccountManagerInfo info = dlg->accountInfo();
         mAccountManager->addAccount(std::move(info));
     }
     delete dlg;
