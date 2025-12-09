@@ -48,9 +48,10 @@ QList<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() co
     for (int i = 0; i < mBanners.size(); ++i) {
         const auto banner = mBanners.at(i);
         if (!banner.read()) {
-            BannerInfos::UnreadInformation info;
-            info.i18nMessage = generateText(banner);
-            info.identifier = banner.identifier();
+            const BannerInfos::UnreadInformation info{
+                .identifier = banner.identifier(),
+                .i18nMessage = generateText(banner),
+            };
             infos.append(std::move(info));
         }
     }

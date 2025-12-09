@@ -160,9 +160,10 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
             qCWarning(RUQOLA_LOG) << " Users info has more that 1 emails. Bug or missing feature" << emails;
         } else {
             const QJsonObject emailObj = emails.at(0).toObject();
-            UserEmailsInfo info;
-            info.email = emailObj.value("address"_L1).toString();
-            info.verified = emailObj.value("verified"_L1).toBool();
+            const UserEmailsInfo info{
+                .email = emailObj.value("address"_L1).toString(),
+                .verified = emailObj.value("verified"_L1).toBool(),
+            };
             setUserEmailsInfo(std::move(info));
         }
     }

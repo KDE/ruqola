@@ -132,8 +132,9 @@ QList<QByteArray> LocalRoomsDatabase::loadRooms(const QString &accountName)
     }
 
     while (resultQuery.next()) {
-        const QByteArray value = resultQuery.value(0).toByteArray();
+        QByteArray value = resultQuery.value(0).toByteArray();
         qDebug() << " value " << value;
+        infos.append(std::move(value));
     }
     return infos;
 }
