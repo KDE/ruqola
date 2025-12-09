@@ -1035,7 +1035,7 @@ void Connection::getThreadsList(Utils::ListMessagesInfo &&info)
     parameters.setSorting(map);
     parameters.setCount(info.count);
     parameters.setOffset(info.offset);
-    bool onlyUnread = info.type == GetThreadsJob::TheadSearchType::Unread;
+    const bool onlyUnread = (info.type == GetThreadsJob::TheadSearchType::Unread);
     job->setQueryParameters(parameters);
     connect(job, &GetThreadsJob::getThreadsDone, this, [this, onlyUnread](const QJsonObject &obj, const QString &roomId) {
         Q_EMIT getThreadsDone(obj, roomId, onlyUnread);
