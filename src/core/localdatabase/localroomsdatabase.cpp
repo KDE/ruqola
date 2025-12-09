@@ -112,3 +112,33 @@ std::unique_ptr<QSqlTableModel> LocalRoomsDatabase::createRoomsModel(const QStri
 }
 
 // TODO load all rooms at beginning
+void LocalRoomsDatabase::loadRooms(const QString &accountName) const
+{
+#if 0
+    QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> info;
+    QSqlDatabase db;
+    if (!initializeDataBase(accountName, db)) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Could not initialize database from " << accountName << " filename : " << dbFileName(accountName);
+        return info;
+    }
+    // qDebug() << " const QString fileName = dbFileName(accountName);" << dbFileName(accountName);
+    Q_ASSERT(db.isValid());
+    Q_ASSERT(db.isOpen());
+
+    const QString query = u"SELECT * FROM ROOMS"_s;
+    QSqlQuery resultQuery(db);
+    resultQuery.prepare(query);
+    if (!resultQuery.exec()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << " Impossible to execute query: " << resultQuery.lastError() << " query: " << query;
+        return info;
+    }
+
+    while (resultQuery.next()) {
+        const QString json = resultQuery.value(u"json"_s).toString();
+        const QByteArray roomId = resultQuery.value(u"roomId"_s).toByteArray();
+        info.insert(roomId, convertJsonToRoomPendingTypedInfo(json));
+    }
+    return info;
+#endif
+    // TODO
+}

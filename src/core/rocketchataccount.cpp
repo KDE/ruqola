@@ -3424,6 +3424,7 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
 
 void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
 {
+    // TODO in offline mode we need to load all rooms list
     const QJsonObject obj = root.value("result"_L1).toObject();
     RoomModel *model = roomModel();
     qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << " RocketChatAccount::getsubscriptionParsing " << root;

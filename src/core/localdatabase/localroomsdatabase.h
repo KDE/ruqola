@@ -21,6 +21,8 @@ public:
 
     [[nodiscard]] std::unique_ptr<QSqlTableModel> createRoomsModel(const QString &accountName) const;
 
+    void loadRooms(const QString &accountName) const;
+
 protected:
     [[nodiscard]] QString schemaDataBase() const override;
 };
