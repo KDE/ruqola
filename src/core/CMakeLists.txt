@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolacore
-    localdatabase/localroompendingtypedinfodatabase.h
-    localdatabase/localroompendingtypedinfodatabase.cpp
-)
+add_library(libruqolacore)
 
 target_sources(
     libruqolacore
@@ -485,10 +481,12 @@ target_sources(
         localdatabase/e2edatabase.cpp
         localdatabase/globaldatabase.h
         localdatabase/globaldatabase.cpp
-        customemojiiconmanager.h
-        customemojiiconmanager.cpp
+        localdatabase/localroompendingtypedinfodatabase.h
+        localdatabase/localroompendingtypedinfodatabase.cpp
         managelocaldatabase.h
         managelocaldatabase.cpp
+        customemojiiconmanager.h
+        customemojiiconmanager.cpp
         manageloadhistoryparsesyncmessagesutils.h
         manageloadhistoryparsesyncmessagesutils.cpp
         moderation/moderationreportedmessageinfo.h
