@@ -111,15 +111,13 @@ std::unique_ptr<QSqlTableModel> LocalRoomsDatabase::createRoomsModel(const QStri
     return model;
 }
 
-// TODO load all rooms at beginning
-void LocalRoomsDatabase::loadRooms(const QString &accountName) const
+QList<QByteArray> LocalRoomsDatabase::loadRooms(const QString &accountName)
 {
-#if 0
-    QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> info;
+    QList<QByteArray> infos;
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Could not initialize database from " << accountName << " filename : " << dbFileName(accountName);
-        return info;
+        return infos;
     }
     // qDebug() << " const QString fileName = dbFileName(accountName);" << dbFileName(accountName);
     Q_ASSERT(db.isValid());
@@ -130,15 +128,13 @@ void LocalRoomsDatabase::loadRooms(const QString &accountName) const
     resultQuery.prepare(query);
     if (!resultQuery.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Impossible to execute query: " << resultQuery.lastError() << " query: " << query;
-        return info;
+        return infos;
     }
 
     while (resultQuery.next()) {
         const QString json = resultQuery.value(u"json"_s).toString();
         const QByteArray roomId = resultQuery.value(u"roomId"_s).toByteArray();
-        info.insert(roomId, convertJsonToRoomPendingTypedInfo(json));
+        // info.insert(roomId, convertJsonToRoomPendingTypedInfo(json));
     }
-    return info;
-#endif
-    // TODO
+    return infos;
 }
