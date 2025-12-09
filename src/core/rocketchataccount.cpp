@@ -2205,10 +2205,11 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
             const QString roomId = obj["rid"_L1].toString();
             const QString etag = obj["etag"_L1].toString();
             qDebug() << "need to update room avatar " << accountName() << "room" << roomId << "etag " << etag;
-            Utils::AvatarInfo info;
-            info.avatarType = Utils::AvatarType::Room;
-            info.etag = etag; // Etag
-            info.identifier = roomId; // roomId
+            const Utils::AvatarInfo info{
+                .etag = etag, // Etag
+                .identifier = roomId, // roomId
+                .avatarType = Utils::AvatarType::Room,
+            };
             Q_EMIT avatarWasChanged(info);
         } else {
             qWarning() << "avatar changed but missing roomId or userId. It seems to be a regression in RC? " << contents;
