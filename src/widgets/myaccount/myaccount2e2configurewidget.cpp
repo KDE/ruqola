@@ -76,11 +76,12 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
     // it uses "/api/v1/method.call/e2e.resetOwnE2EKey"
     // => use restapi for calling ddp method
     auto job = new RocketChatRestApi::MethodCallJob(this);
-    RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-    info.methodName = u"e2e.resetOwnE2EKey"_s;
     const QJsonArray params;
-    info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
-    info.anonymous = false;
+    const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
+        .messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params),
+        .methodName = u"e2e.resetOwnE2EKey"_s,
+        .anonymous = false,
+    };
     job->setMethodCallJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyDone);

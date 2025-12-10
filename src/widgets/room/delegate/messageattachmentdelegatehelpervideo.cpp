@@ -85,7 +85,7 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
             info.parentWidget = const_cast<QWidget *>(option.widget);
             auto job = new MessageAttachmentDownloadAndSaveJob(this);
             job->setRocketChatAccount(mRocketChatAccount);
-            job->setInfo(std::move(info));
+            job->setInfo(info);
             job->start();
             return true;
         } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)

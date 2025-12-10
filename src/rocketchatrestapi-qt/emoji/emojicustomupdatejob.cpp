@@ -60,17 +60,17 @@ bool EmojiCustomUpdateJob::start()
     QHttpPart identifierPart;
     identifierPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"_id\""_L1));
     identifierPart.setBody(mEmojiInfo.emojiId.toUtf8());
-    multiPart->append(std::move(identifierPart));
+    multiPart->append(identifierPart);
 
     QHttpPart namePart;
     namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"name\""_L1));
     namePart.setBody(mEmojiInfo.name.toUtf8());
-    multiPart->append(std::move(namePart));
+    multiPart->append(namePart);
 
     QHttpPart aliasesPart;
     aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"aliases\""_L1));
     aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
-    multiPart->append(std::move(aliasesPart));
+    multiPart->append(aliasesPart);
 
     mReply = networkAccessManager()->post(request(), multiPart);
     connect(mReply.data(), &QNetworkReply::finished, this, &EmojiCustomUpdateJob::slotEmojiCustomUpdateFinished);

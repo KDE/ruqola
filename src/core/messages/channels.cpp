@@ -45,10 +45,11 @@ void Channels::parseChannels(const QJsonArray &channels)
     mChannels.clear();
     for (int i = 0, total = channels.size(); i < total; ++i) {
         const QJsonObject channel = channels.at(i).toObject();
-        ChannelInfo info;
-        info.name = channel.value("name"_L1).toString();
-        info.fname = channel.value("fname"_L1).toString();
-        info.identifier = channel.value("_id"_L1).toString().toLatin1();
+        const ChannelInfo info{
+            .fname = channel.value("fname"_L1).toString(),
+            .name = channel.value("name"_L1).toString(),
+            .identifier = channel.value("_id"_L1).toString().toLatin1(),
+        };
 
         mChannels.append(std::move(info));
     }

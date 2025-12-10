@@ -342,7 +342,7 @@ void Room::parseTeamInfo(const QJsonObject &json)
 {
     TeamInfo info;
     info.parseTeamInfo(json);
-    setTeamInfo(std::move(info));
+    setTeamInfo(info);
 }
 
 QStringList Room::threadUnread() const

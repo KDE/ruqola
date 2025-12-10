@@ -61,9 +61,10 @@ void MultiStaticSelectLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString text = index.data(MultiStaticSelectLineEditModel::Text).toString();
     const QByteArray value = index.data(MultiStaticSelectLineEditModel::Value).toByteArray();
-    MultiStaticSelectLineEditModel::SelectItemCompletionInfo info;
-    info.text = text;
-    info.value = QString::fromLatin1(value);
+    const MultiStaticSelectLineEditModel::SelectItemCompletionInfo info{
+        .text = text,
+        .value = QString::fromLatin1(value),
+    };
     mCompletionListView->hide();
     if (info.isValid()) {
         disconnect(this, &QLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
