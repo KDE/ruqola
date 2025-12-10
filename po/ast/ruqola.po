@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:42+0000\n"
+"POT-Creation-Date: 2025-12-10 00:43+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -537,7 +537,7 @@ msgstr ""
 msgid "New version available %1"
 msgstr ""
 
-#: core/bannerinfo/bannerinfos.cpp:64
+#: core/bannerinfo/bannerinfos.cpp:65
 #, kde-format
 msgid "(link)"
 msgstr ""
@@ -1950,17 +1950,17 @@ msgstr ""
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/user.cpp:210
+#: core/user.cpp:211
 #, kde-format
 msgid "User"
 msgstr ""
 
-#: core/user.cpp:212
+#: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
 msgstr ""
 
-#: core/user.cpp:214
+#: core/user.cpp:215
 #, kde-format
 msgid "Bot"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:42+0000\n"
+"POT-Creation-Date: 2025-12-10 00:43+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -574,7 +574,7 @@ msgstr "Teadmata olek"
 msgid "New version available %1"
 msgstr ""
 
-#: core/bannerinfo/bannerinfos.cpp:64
+#: core/bannerinfo/bannerinfos.cpp:65
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgid "(link)"
@@ -2114,18 +2114,18 @@ msgstr "Kasutaja ei ole aktiveeritud"
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/user.cpp:210
+#: core/user.cpp:211
 #, fuzzy, kde-format
 #| msgid "Users:"
 msgid "User"
 msgstr "Kasutajad:"
 
-#: core/user.cpp:212
+#: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
 msgstr ""
 
-#: core/user.cpp:214
+#: core/user.cpp:215
 #, kde-format
 msgid "Bot"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:42+0000\n"
+"POT-Creation-Date: 2025-12-10 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -548,7 +548,7 @@ msgstr "अज्ञात स्थिति"
 msgid "New version available %1"
 msgstr "नया संस्करण उपलब्ध %1"
 
-#: core/bannerinfo/bannerinfos.cpp:64
+#: core/bannerinfo/bannerinfos.cpp:65
 #, kde-format
 msgid "(link)"
 msgstr "(जोड़ना)"
@@ -1969,17 +1969,17 @@ msgstr "सक्रिय"
 msgid "Missing translator info. It's a bug"
 msgstr "अनुवादक की जानकारी गायब है। यह एक बग है"
 
-#: core/user.cpp:210
+#: core/user.cpp:211
 #, kde-format
 msgid "User"
 msgstr "उपयोगकर्ता"
 
-#: core/user.cpp:212
+#: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
 msgstr "प्रशासक"
 
-#: core/user.cpp:214
+#: core/user.cpp:215
 #, kde-format
 msgid "Bot"
 msgstr "बीओटी"

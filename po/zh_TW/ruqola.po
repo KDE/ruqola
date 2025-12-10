@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:42+0000\n"
+"POT-Creation-Date: 2025-12-10 00:43+0000\n"
 "PO-Revision-Date: 2025-05-24 21:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -567,7 +567,7 @@ msgstr "未知狀態"
 msgid "New version available %1"
 msgstr "有新版可用 %1"
 
-#: core/bannerinfo/bannerinfos.cpp:64
+#: core/bannerinfo/bannerinfos.cpp:65
 #, kde-format
 msgid "(link)"
 msgstr "（連結）"
@@ -1999,17 +1999,17 @@ msgstr "作用中"
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/user.cpp:210
+#: core/user.cpp:211
 #, kde-format
 msgid "User"
 msgstr "使用者"
 
-#: core/user.cpp:212
+#: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
 msgstr "管理員"
 
-#: core/user.cpp:214
+#: core/user.cpp:215
 #, kde-format
 msgid "Bot"
 msgstr "機器人"

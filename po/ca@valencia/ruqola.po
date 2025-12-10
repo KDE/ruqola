@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:42+0000\n"
+"POT-Creation-Date: 2025-12-10 00:43+0000\n"
 "PO-Revision-Date: 2025-12-02 10:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -545,7 +545,7 @@ msgstr "Estat desconegut"
 msgid "New version available %1"
 msgstr "Hi ha disponible una versió nova %1"
 
-#: core/bannerinfo/bannerinfos.cpp:64
+#: core/bannerinfo/bannerinfos.cpp:65
 #, kde-format
 msgid "(link)"
 msgstr "(enllaç)"
@@ -1963,17 +1963,17 @@ msgstr "Activa el mode de depuració"
 msgid "Missing translator info. It's a bug"
 msgstr "Falta la informació del traductor. És un error"
 
-#: core/user.cpp:210
+#: core/user.cpp:211
 #, kde-format
 msgid "User"
 msgstr "Usuari"
 
-#: core/user.cpp:212
+#: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
 msgstr "Administrador"
 
-#: core/user.cpp:214
+#: core/user.cpp:215
 #, kde-format
 msgid "Bot"
 msgstr "Bot"

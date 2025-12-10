@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:42+0000\n"
+"POT-Creation-Date: 2025-12-10 00:43+0000\n"
 "PO-Revision-Date: 2025-12-04 18:14+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -540,7 +540,7 @@ msgstr "Stato sconosciuto"
 msgid "New version available %1"
 msgstr "Nuova versione disponibile %1"
 
-#: core/bannerinfo/bannerinfos.cpp:64
+#: core/bannerinfo/bannerinfos.cpp:65
 #, kde-format
 msgid "(link)"
 msgstr "(collegamento)"
@@ -1958,17 +1958,17 @@ msgstr "Attiva la modalità di debug"
 msgid "Missing translator info. It's a bug"
 msgstr "Informazioni mancanti sul traduttore. È un bug."
 
-#: core/user.cpp:210
+#: core/user.cpp:211
 #, kde-format
 msgid "User"
 msgstr "Utente"
 
-#: core/user.cpp:212
+#: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
 msgstr "Amministratore"
 
-#: core/user.cpp:214
+#: core/user.cpp:215
 #, kde-format
 msgid "Bot"
 msgstr "Bot"

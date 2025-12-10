@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:42+0000\n"
+"POT-Creation-Date: 2025-12-10 00:43+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -537,7 +537,7 @@ msgstr "Neznámý stav"
 msgid "New version available %1"
 msgstr "Je dostupná nová verze %1"
 
-#: core/bannerinfo/bannerinfos.cpp:64
+#: core/bannerinfo/bannerinfos.cpp:65
 #, kde-format
 msgid "(link)"
 msgstr "(odkaz)"
@@ -1913,10 +1913,9 @@ msgid "Start with specific account"
 msgstr "Spustit s určitým účtem"
 
 #: core/ruqolacommandlineparser.cpp:49
-#, fuzzy, kde-format
-#| msgid "Account name:"
+#, kde-format
 msgid "Account Name"
-msgstr "Název účtu:"
+msgstr "Název účtu"
 
 #: core/ruqolacommandlineparser.cpp:51
 #, kde-format
@@ -1961,17 +1960,17 @@ msgstr "Zapnuto"
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/user.cpp:210
+#: core/user.cpp:211
 #, kde-format
 msgid "User"
 msgstr "Uživatel"
 
-#: core/user.cpp:212
+#: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
 msgstr "Administrátor"
 
-#: core/user.cpp:214
+#: core/user.cpp:215
 #, kde-format
 msgid "Bot"
 msgstr ""

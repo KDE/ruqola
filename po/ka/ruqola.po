@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-09 00:42+0000\n"
+"POT-Creation-Date: 2025-12-10 00:43+0000\n"
 "PO-Revision-Date: 2025-12-02 05:00+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -538,7 +538,7 @@ msgstr "უცნობი მდგომარეობა"
 msgid "New version available %1"
 msgstr "ხელმისაწვდომია ახალი ვერსია: %1"
 
-#: core/bannerinfo/bannerinfos.cpp:64
+#: core/bannerinfo/bannerinfos.cpp:65
 #, kde-format
 msgid "(link)"
 msgstr "(ბმული)"
@@ -1955,17 +1955,17 @@ msgstr "გამართვის რეჟიმის გააქტიუ�
 msgid "Missing translator info. It's a bug"
 msgstr "მთარგმნელის ინფორმაცია ვერ ვიპოვე. ეს შეცდომაა"
 
-#: core/user.cpp:210
+#: core/user.cpp:211
 #, kde-format
 msgid "User"
 msgstr "User"
 
-#: core/user.cpp:212
+#: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
 msgstr "ადმინისტრატორი"
 
-#: core/user.cpp:214
+#: core/user.cpp:215
 #, kde-format
 msgid "Bot"
 msgstr "ბოტი"
