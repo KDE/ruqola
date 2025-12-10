@@ -31,8 +31,6 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
         videoConference.parseVideoConference(videoConfObject);
         if (videoConference.isValid()) {
             if (!mVideoConferenceList.contains(videoConference)) {
-                mVideoConferenceList.append(std::move(videoConference));
-
                 switch (videoConference.action()) {
                 case VideoConference::Action::Unknown:
                     break;
@@ -56,6 +54,7 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
                     qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << " Ring not implemented yet";
                     break;
                 }
+                mVideoConferenceList.append(std::move(videoConference));
             }
         }
     }
