@@ -3486,14 +3486,16 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         // TODO load only list
     }
 
-    // We need to load all room after get subscription to update parameters
-    QJsonObject params;
-    // TODO offline use date
-    // TODO use timeStamp too from last session
-    params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
-    // Add timestamp https://developer.rocket.chat/apidocs/get-rooms-realtime?highlight=getrooms
+    if (!offlineMode()) {
+        // We need to load all room after get subscription to update parameters
+        QJsonObject params;
+        // TODO offline use date
+        // TODO use timeStamp too from last session
+        params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
+        // Add timestamp https://developer.rocket.chat/apidocs/get-rooms-realtime?highlight=getrooms
 
-    ddp()->getRooms(params);
+        ddp()->getRooms(params);
+    }
 
     initializeAccount();
 }
