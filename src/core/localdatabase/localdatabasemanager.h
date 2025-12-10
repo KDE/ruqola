@@ -67,6 +67,8 @@ public:
 
     [[nodiscard]] QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> loadRoomPendingTypedInfo(const QString &accountName) const;
 
+    [[nodiscard]] QList<QByteArray> loadRooms(const QString &accountName);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void handleMigration();
     std::unique_ptr<LocalMessageLogger> mMessageLogger;

@@ -3483,6 +3483,8 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
     }
 
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
+        // qDebug() << " roomsInfo " << roomsInfo;
         // TODO load only list
     }
 

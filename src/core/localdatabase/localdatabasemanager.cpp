@@ -195,3 +195,12 @@ QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalDatabase
         return {};
     }
 }
+
+QList<QByteArray> LocalDatabaseManager::loadRooms(const QString &accountName)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        return mRoomsDatabase->loadRooms(accountName);
+    } else {
+        return {};
+    }
+}
