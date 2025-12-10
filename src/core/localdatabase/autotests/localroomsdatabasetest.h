@@ -22,4 +22,5 @@ private Q_SLOTS:
     void shouldStoreRoomsSettings();
     void shouldStoreRooms();
     void shouldDeleteRooms();
+    void shouldGetRoomsFromDataBase();
 };

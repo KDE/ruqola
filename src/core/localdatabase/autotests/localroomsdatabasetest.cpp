@@ -149,4 +149,10 @@ void LocalRoomsDatabaseTest::shouldDeleteRooms() // this test depends on shouldS
     QCOMPARE(tableModel->rowCount(), 2);
 }
 
+void LocalRoomsDatabaseTest::shouldGetRoomsFromDataBase()
+{
+    LocalRoomsDatabase logger;
+    QCOMPARE(logger.loadRooms(otherAccountName()).count(), 2);
+}
+
 #include "moc_localroomsdatabasetest.cpp"
