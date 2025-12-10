@@ -90,10 +90,11 @@ Channels *Channels::deserialize(const QJsonArray &channelsArray)
     channels.reserve(total);
     for (int i = 0; i < total; ++i) {
         const QJsonObject channel = channelsArray.at(i).toObject();
-        ChannelInfo info;
-        info.name = channel.value("name"_L1).toString();
-        info.fname = channel.value("fname"_L1).toString();
-        info.identifier = channel.value("_id"_L1).toString().toLatin1();
+        const ChannelInfo info{
+            .fname = channel.value("fname"_L1).toString(),
+            .name = channel.value("name"_L1).toString(),
+            .identifier = channel.value("_id"_L1).toString().toLatin1(),
+        };
         channels.append(std::move(info));
     }
     auto final = new Channels;

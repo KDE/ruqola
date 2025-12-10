@@ -1134,12 +1134,13 @@ void Connection::sendMessage(const QByteArray &roomId, const QString &text, cons
 {
     auto job = new SendMessageJob(this);
     initializeRestApiJob(job);
-    SendMessageJob::SendMessageArguments args;
-    args.roomId = QString::fromLatin1(roomId);
-    args.message = text;
-    args.messageId = messageId;
-    args.threadMessageId = QString::fromLatin1(threadMessageId);
-    job->setSendMessageArguments(std::move(args));
+    const SendMessageJob::SendMessageArguments args{
+        .messageId = messageId,
+        .roomId = QString::fromLatin1(roomId),
+        .threadMessageId = QString::fromLatin1(threadMessageId),
+        .message = text,
+    };
+    job->setSendMessageArguments(args);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start job";
     }

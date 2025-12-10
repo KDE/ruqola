@@ -164,9 +164,10 @@ void InputTextManager::setInputTextChanged(const QByteArray &roomId, const QStri
         } else if (word.startsWith(u'#')) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             mCurrentCompletionPattern = str;
-            InputCompleterModel::SearchInfo searchInfo;
-            searchInfo.searchType = InputCompleterModel::SearchInfo::SearchType::Channels;
-            searchInfo.searchString = str;
+            const InputCompleterModel::SearchInfo searchInfo{
+                .searchType = InputCompleterModel::SearchInfo::SearchType::Channels,
+                .searchString = str,
+            };
             mInputCompleterModel->setSearchInfo(std::move(searchInfo));
             Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::Channel);
             // slotCompletionChannels(str);
