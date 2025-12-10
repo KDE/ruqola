@@ -116,10 +116,11 @@ void CommandPreviewWidget::slotParsePreviewCommandItems(const QJsonObject &reply
 void CommandPreviewWidget::slotDoubleClicked(const QModelIndex &index)
 {
     const PreviewCommand command = index.data(static_cast<int>(PreviewCommandModel::PreviewCommandRoles::PreviewCommandInfo)).value<PreviewCommand>();
-    RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInfo info;
-    info.value = command.value();
-    info.id = command.id();
-    info.type = command.typeStr();
+    const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandItemInfo info{
+        .id = command.id(),
+        .value = command.value(),
+        .type = command.typeStr(),
+    };
 
     mPreviewCommandInfo.itemInfo = std::move(info);
     setVisible(false);

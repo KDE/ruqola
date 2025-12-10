@@ -103,9 +103,10 @@ void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(TeamRoomCompleterModel::TeamName).toString();
     const QByteArray roomId = index.data(TeamRoomCompleterModel::TeamId).toByteArray();
-    RoomCompletionInfo info;
-    info.roomName = completerName;
-    info.roomId = roomId;
+    const RoomCompletionInfo info{
+        .roomId = roomId,
+        .roomName = completerName,
+    };
     mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT newRoomName(std::move(info));

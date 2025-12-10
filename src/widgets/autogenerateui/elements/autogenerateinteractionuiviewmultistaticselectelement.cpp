@@ -105,9 +105,10 @@ ActionElementWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::gene
     QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> lst;
     lst.reserve(mOptions.count());
     for (const auto &opt : std::as_const(mOptions)) {
-        MultiStaticSelectLineEditModel::SelectItemCompletionInfo info;
-        info.text = opt->text().generateText(true);
-        info.value = opt->value();
+        const MultiStaticSelectLineEditModel::SelectItemCompletionInfo info{
+            .text = opt->text().generateText(true),
+            .value = opt->value(),
+        };
         lst.append(std::move(info));
     }
     mMultiStaticSelectWidget->setUserCompletionInfos(lst);

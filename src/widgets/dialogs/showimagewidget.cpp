@@ -225,11 +225,12 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
 {
     mDownloadInProgress = true;
     auto job = new RocketChatRestApi::RoomsImagesJob(this);
-    RocketChatRestApi::RoomsImagesJob::RoomsImagesJobInfo info;
-    info.roomId = roomId;
-    info.count = 5;
-    info.offset = offset;
-    info.startingFromId = fileId;
+    const RocketChatRestApi::RoomsImagesJob::RoomsImagesJobInfo info{
+        .roomId = roomId,
+        .startingFromId = fileId,
+        .offset = offset,
+        .count = 5,
+    };
     job->setRoomsImagesJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this, info](const QJsonObject &replyObject) {

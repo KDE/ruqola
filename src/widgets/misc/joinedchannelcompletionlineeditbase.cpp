@@ -97,9 +97,10 @@ void JoinedChannelCompletionLineEditBase::slotComplete(const QModelIndex &index)
     if (completerName.isEmpty() || roomId.isEmpty()) {
         return;
     }
-    JoinedChannelCompletionInfo info;
-    info.name = completerName;
-    info.channelId = roomId;
+    const JoinedChannelCompletionInfo info{
+        .name = completerName,
+        .channelId = roomId,
+    };
     mCompletionListView->hide();
     Q_EMIT joinedChannelFound(std::move(info));
 }

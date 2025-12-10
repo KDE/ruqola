@@ -74,9 +74,10 @@ void ExportDataWizard::loadAccountInfo()
     QList<ImportExportUtils::AccountImportExportInfo> lstAccountInfo;
     while (it.hasNext()) {
         const QString val = it.next();
-        ImportExportUtils::AccountImportExportInfo info;
-        info.path = val;
-        info.accountName = QFileInfo(val).dir().dirName();
+        const ImportExportUtils::AccountImportExportInfo info{
+            .path = val,
+            .accountName = QFileInfo(val).dir().dirName(),
+        };
         lstAccountInfo.append(std::move(info));
     }
     mExportDataSelectAccountPage->setAccountList(lstAccountInfo);

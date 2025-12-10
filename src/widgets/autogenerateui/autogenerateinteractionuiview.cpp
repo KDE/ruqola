@@ -138,12 +138,13 @@ void AutoGenerateInteractionUiView::setBlocks(AutoGenerateInteractionUiViewBlock
 
 void AutoGenerateInteractionUiView::slotActionChanged(const QByteArray &blockId, const QByteArray &actionId, const QString &value)
 {
-    AutoGenerateInteractionUtil::ViewBlockActionUserInfo info;
-    info.actionId = actionId;
-    info.valuePayload = value;
-    info.blockIdPayload = blockId;
-    info.idContainer = mId;
-    info.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
+    const AutoGenerateInteractionUtil::ViewBlockActionUserInfo info{
+        .actionId = actionId,
+        .blockIdPayload = blockId,
+        .valuePayload = value,
+        .idContainer = mId,
+        .triggerId = QUuid::createUuid().toByteArray(QUuid::Id128),
+    };
     Q_EMIT actionChanged(std::move(info));
 }
 
