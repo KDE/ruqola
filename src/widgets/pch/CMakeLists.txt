@@ -11,6 +11,7 @@ file(
 #include <QStringList>
 #include <QDebug>
 #include <QTest>
+#include <QWidget>
 "
 )
 add_library(ruqolawidgetspch_tests STATIC ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp)
@@ -20,4 +21,5 @@ target_link_libraries(
     PRIVATE
         Qt::Core
         Qt::Test
+        Qt::Widgets
 )

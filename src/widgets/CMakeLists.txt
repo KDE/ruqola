@@ -1036,6 +1036,7 @@ if(ENABLE_PCH)
             <QStringList>
             <QString>
             <QByteArray>
+            <QWidget>
     )
 endif()
 
