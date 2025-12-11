@@ -281,10 +281,21 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
     }
 }
 
+void RoomModel::deserializeRoom(const QJsonObject &room)
+{
+    Room *r = createNewRoom();
+    Room::deserialize(r, room);
+    qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room" << r->name() << r->roomId() << r->topic();
+    if (!addRoom(r)) {
+        qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to insert Room";
+    }
+}
+
 QByteArray RoomModel::insertRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
     r->parseInsertRoom(room);
+    qDebug() << " room " << room << " *r " << *r;
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room" << r->name() << r->roomId() << r->topic();
     if (addRoom(r)) {
         return r->roomId();
