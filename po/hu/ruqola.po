@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-10 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3345,7 +3345,7 @@ msgstr "Moderációs üzenetek megjelenítése"
 #: widgets/dialogs/searchmessagewidget.cpp:191
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
-#: widgets/room/commandpreviewwidget.cpp:142
+#: widgets/room/commandpreviewwidget.cpp:143
 #: widgets/room/usersinroomwidget.cpp:156
 #, kde-format
 msgid "Loading…"

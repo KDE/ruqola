@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-10 00:43+0000\n"
+"POT-Creation-Date: 2025-12-11 00:44+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3550,7 +3550,7 @@ msgstr "Mainitud sõnumite näitamine"
 #: widgets/dialogs/searchmessagewidget.cpp:191
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
-#: widgets/room/commandpreviewwidget.cpp:142
+#: widgets/room/commandpreviewwidget.cpp:143
 #: widgets/room/usersinroomwidget.cpp:156
 #, fuzzy, kde-format
 #| msgid "Loading..."
