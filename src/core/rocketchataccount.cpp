@@ -3486,7 +3486,10 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
         RoomModel *model = roomModel();
         for (const auto &info : roomsInfo) {
+#if 0 // Disable for the moment
+            const QByteArray roomId = model->insertRoom(QJsonDocument::fromJson(info).object());
             // todo insertRoom ?
+#endif
         }
         // qDebug() << " roomsInfo " << roomsInfo;
     }

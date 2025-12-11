@@ -49,9 +49,12 @@ QString GlobalDatabase::generateIdentifier(const QString &accountName, const QBy
     case TimeStampType::AccountTimeStamp:
         identifier = u"account-"_s;
         break;
+    case TimeStampType::UpdateGlobalRoomsTimeStamp:
+        identifier = u"update-global-rooms-"_s;
+        break;
     }
     identifier += accountName;
-    if (roomId.isEmpty() && type != TimeStampType::AccountTimeStamp) {
+    if (roomId.isEmpty() && (type != TimeStampType::AccountTimeStamp && type != TimeStampType::UpdateGlobalRoomsTimeStamp)) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Missing roomName! It's a bug!!!";
     }
     if (!roomId.isEmpty()) {

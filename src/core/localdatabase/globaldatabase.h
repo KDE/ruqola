@@ -16,6 +16,7 @@ public:
         MessageTimeStamp,
         RoomTimeStamp,
         AccountTimeStamp,
+        UpdateGlobalRoomsTimeStamp,
         // Etc.
     };
     GlobalDatabase();
