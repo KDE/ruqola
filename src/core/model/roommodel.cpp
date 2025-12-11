@@ -321,9 +321,10 @@ Room::TeamRoomInfo RoomModel::roomFromTeamId(const QByteArray &teamId)
         const QModelIndex modelIndex = index(row, 0);
         if (modelIndex.data(RoomModel::RoomTeamIsMain).toBool()) {
             if (modelIndex.data(RoomModel::RoomTeamId).toByteArray() == teamId) {
-                Room::TeamRoomInfo teamInfo;
-                teamInfo.teamName = modelIndex.data(RoomModel::RoomName).toString();
-                teamInfo.teamIdentifier = modelIndex.data(RoomModel::RoomId).toByteArray();
+                const Room::TeamRoomInfo teamInfo{
+                    .teamName = modelIndex.data(RoomModel::RoomName).toString(),
+                    .teamIdentifier = modelIndex.data(RoomModel::RoomId).toByteArray(),
+                };
                 return teamInfo;
             }
         }
@@ -445,7 +446,7 @@ void RoomModel::userStatusChanged(const User &user)
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
+        const Room *const room = mRoomsList.at(i);
         if (room->name() == user.userName()) {
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
@@ -458,7 +459,7 @@ UsersForRoomModel *RoomModel::usersModelForRoom(const QByteArray &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
+        const Room *const room = mRoomsList.at(i);
         if (room->roomId() == roomId) {
             return room->usersModelForRoom();
         }
@@ -471,7 +472,7 @@ MessagesModel *RoomModel::messageModel(const QByteArray &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
+        const Room *const room = mRoomsList.at(i);
         if (room->roomId() == roomId) {
             return room->messageModel();
         }
