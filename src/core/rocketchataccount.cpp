@@ -3482,26 +3482,31 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         }
     }
 
+    qint64 timeStamp = -1;
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
         RoomModel *model = roomModel();
-        for (const auto &info : roomsInfo) {
+        timeStamp = mLocalDatabaseManager->timeStamp(accountName(), {}, GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp);
+        qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << timeStamp;
+        if (timeStamp > -1) {
+            for (const auto &info : roomsInfo) {
 #if 0 // Disable for the moment
-            const QByteArray roomId = model->insertRoom(QJsonDocument::fromJson(info).object());
-            // todo insertRoom ?
+                model->deserializeRoom(QJsonDocument::fromJson(info).object());
 #endif
+            }
         }
         // qDebug() << " roomsInfo " << roomsInfo;
     }
 
+    timeStamp = -1;
     if (!offlineMode()) {
         // We need to load all room after get subscription to update parameters
         QJsonObject params;
-        // TODO offline use date
         // TODO use timeStamp too from last session
-        params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
+        params["$date"_L1] = QJsonValue(timeStamp); // get ALL rooms we've ever seen
         // Add timestamp https://developer.rocket.chat/apidocs/get-rooms-realtime?highlight=getrooms
 
+        // qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC";
         ddp()->getRooms(params);
     }
 
