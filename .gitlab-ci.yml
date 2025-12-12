@@ -16,3 +16,4 @@ include:
       - /gitlab-templates/alpine-qt6.yml
       - /gitlab-templates/linux-qt6-next.yml
       - /gitlab-templates/pre-commit.yml
+      - /gitlab-templates/documentation.yml
