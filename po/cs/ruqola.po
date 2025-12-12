@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-11 00:44+0000\n"
+"POT-Creation-Date: 2025-12-12 00:42+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1319,7 +1319,7 @@ msgstr "Typ kanálu"
 msgid "Belongs To"
 msgstr "Patří"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:596
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:608
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1458,7 +1458,7 @@ msgstr "Dvoufaktorové ověření"
 msgid "Last token part"
 msgstr "Poslední část tokenu"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:538
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1466,7 +1466,7 @@ msgstr[0] "%1 Zmínka"
 msgstr[1] "%1 Zmínky"
 msgstr[2] "%1 Zmínek"
 
-#: core/model/roommodel.cpp:530
+#: core/model/roommodel.cpp:542
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1474,7 +1474,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: core/model/roommodel.cpp:534
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1482,7 +1482,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: core/model/roommodel.cpp:538
+#: core/model/roommodel.cpp:550
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1490,52 +1490,52 @@ msgstr[0] "%1 Nepřečtená zpráva"
 msgstr[1] "%1 Nepřečtené zprávy"
 msgstr[2] "%1 Nepřečtených zpráv"
 
-#: core/model/roommodel.cpp:564
+#: core/model/roommodel.cpp:576
 #, kde-format
 msgid "Teams Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:582
 #, kde-format
 msgid "Private Room"
 msgstr "Soukromá místnost"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:588
 #, kde-format
 msgid "Channel Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:590 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:602 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Nepřečteno"
 
-#: core/model/roommodel.cpp:592
+#: core/model/roommodel.cpp:604
 #, kde-format
 msgid "Favorites"
 msgstr "Oblíbené"
 
-#: core/model/roommodel.cpp:594
+#: core/model/roommodel.cpp:606
 #, kde-format
 msgid "Teams"
 msgstr "Týmy"
 
-#: core/model/roommodel.cpp:598
+#: core/model/roommodel.cpp:610
 #, kde-format
 msgid "Discussions"
 msgstr "Diskuze"
 
-#: core/model/roommodel.cpp:600
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Private Messages"
 msgstr "Soukromé zprávy"
 
-#: core/model/roommodel.cpp:602 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:614 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Neznámý"
@@ -1943,10 +1943,10 @@ msgstr "Seznam dostupných voleb pro uživatelskou zpětnou vazbu"
 
 #: core/ruqolacommandlineparser.cpp:58
 #, fuzzy, kde-format
-#| msgid "Work Offline"
+#| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Pracovat v odpojeném režimu"
+msgstr "Odpojen"
 
 #: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
@@ -11161,17 +11161,17 @@ msgstr "Skrýt nabídku"
 
 #: widgets/ruqolamainwindow.cpp:1440
 #, fuzzy, kde-format
-#| msgid "Work Offline"
+#| msgid "Online"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Pracovat v odpojeném režimu"
+msgstr "Připojen"
 
 #: widgets/ruqolamainwindow.cpp:1443
 #, fuzzy, kde-format
-#| msgid "Work Offline"
+#| msgid "Offline"
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Pracovat v odpojeném režimu"
+msgstr "Odpojen"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11988,90 +11988,3 @@ msgstr ""
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Otevřít přílohu?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Otevřít přílohu <filename>%1</filename>?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Otevřít"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Otevřít pomocí '%1'"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Ote&vřít pomocí…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Uložit j&ako…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Uložit soubor"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Chyba při ukládání souboru"
-
-#~ msgctxt "@title:window"
-#~ msgid "Description"
-#~ msgstr "Popis"
-
-#~ msgctxt "@action"
-#~ msgid "Show Description…"
-#~ msgstr "Zobrazit popis…"
-
-#~ msgid "Restart is necessary for applying the changes."
-#~ msgstr "Pro provedení změn je potřeba restartovat."
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Nastavit"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "Vypnout kontrolu verze"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Zkontrolovat novou verzi"
-
-#~ msgid "Check New Version"
-#~ msgstr "Zkontrolovat novou verzi"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Version:"
-#~ msgstr "Verze:"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in %1"
-#~ msgstr "Co je nového v %1"
-
-#~ msgid "(Show News)"
-#~ msgstr "(Zobrazit novinky)"
-
-#~ msgid "What's new in %2. %1"
-#~ msgstr "Co je nového v %2. %1"
-
-#~ msgid "Version %1"
-#~ msgstr "Verze %1"
-
-#~ msgid "Important changes since last version:"
-#~ msgstr "Důležité změny od poslední verze:"
-
-#~ msgid "Some of the new features in this release of Ruqola include:"
-#~ msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"
-
-#~ msgid "Some bug fixing:"
-#~ msgstr "Nějaké opravy chyb:"
