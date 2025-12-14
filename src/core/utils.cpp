@@ -401,25 +401,6 @@ QString Utils::createUniqueAccountName(const QStringList &list, const QString &a
     return newAccountName;
 }
 
-QString Utils::findExecutable(const QString &exec)
-{
-#ifdef Q_OS_WIN
-    const QString executableName = exec + u".exe"_s;
-    QString path = QStandardPaths::findExecutable(executableName, {QCoreApplication::applicationDirPath()});
-    if (path.isEmpty()) {
-        path = QStandardPaths::findExecutable(executableName);
-    }
-#else
-    const QString path = QStandardPaths::findExecutable(exec);
-#endif
-    return path;
-}
-
-bool Utils::executableFound(const QString &exec)
-{
-    return !Utils::findExecutable(exec).isEmpty();
-}
-
 bool Utils::userActivity(const QJsonArray &contents)
 {
     if (contents.toVariantList().isEmpty()) {

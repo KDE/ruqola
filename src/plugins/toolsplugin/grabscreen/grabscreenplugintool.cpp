@@ -5,15 +5,15 @@
 */
 
 #include "grabscreenplugintool.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "grabscreenplugintoolconfiguredialog.h"
 #include "grabscreenplugintoolinterface.h"
-#include "utils.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QStandardPaths>
+#include <TextAddonsWidgets/ExecutableUtils>
 
+using namespace Qt::Literals::StringLiterals;
 K_PLUGIN_CLASS_WITH_JSON(GrabScreenPluginTool, "ruqola_grabscreentoolsplugin.json")
 
 GrabScreenPluginTool::GrabScreenPluginTool(QObject *parent, const QVariantList &)
@@ -25,7 +25,7 @@ GrabScreenPluginTool::~GrabScreenPluginTool() = default;
 
 bool GrabScreenPluginTool::toolFound() const
 {
-    return Utils::executableFound(u"spectacle"_s);
+    return TextAddonsWidgets::ExecutableUtils::executableFound(u"spectacle"_s);
 }
 
 PluginTool::ToolType GrabScreenPluginTool::toolType() const
