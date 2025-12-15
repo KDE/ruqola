@@ -546,14 +546,20 @@ target_link_libraries(
     Qt::NetworkAuth
     KF6::I18n
 )
-if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(
-        librocketchatrestapi-qt
-        PROPERTIES
-            UNITY_BUILD
-                ON
-    )
-endif()
+
+set_target_properties(
+    librocketchatrestapi-qt
+    PROPERTIES
+        UNITY_BUILD
+            ON
+)
+set_target_properties(
+    librocketchatrestapi-qt
+    PROPERTIES
+        UNITY_BUILD_BATCH_SIZE
+            32
+)
+
 set_target_properties(
     librocketchatrestapi-qt
     PROPERTIES
