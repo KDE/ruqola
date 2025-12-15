@@ -5,7 +5,6 @@
 */
 
 #include "exportaccountjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_importexport_accounts_debug.h"
 #include <KLocalizedString>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTemporaryFile>
 
+using namespace Qt::Literals::StringLiterals;
 ExportAccountJob::ExportAccountJob(const QString &fileName, QObject *parent)
     : QThread{parent}
     , mArchive(new KZip(fileName))
@@ -63,7 +63,12 @@ void ExportAccountJob::exportAccount()
 void ExportAccountJob::finishExportAccount()
 {
     QTemporaryFile tmp;
-    tmp.open();
+    if (!tmp.open()) {
+        qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to create temporary file";
+        Q_EMIT exportFailed(i18n("Impossible to export account.") + u'\n');
+        deleteLater();
+        return;
+    }
     QTextStream text(&tmp);
     text << mAccountNames.join(u'\n');
     tmp.close();

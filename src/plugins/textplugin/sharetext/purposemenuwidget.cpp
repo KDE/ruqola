@@ -48,7 +48,9 @@ void PurposeMenuWidget::slotInitializeShareMenu()
 {
     delete mTemporaryShareFile;
     mTemporaryShareFile = new QTemporaryFile();
-    mTemporaryShareFile->open();
+    if (!mTemporaryShareFile->open()) {
+        qWarning() << " Impossible to open temporary share file";
+    }
     mTemporaryShareFile->setPermissions(QFile::ReadUser);
     mTemporaryShareFile->write(text());
     mTemporaryShareFile->close();
