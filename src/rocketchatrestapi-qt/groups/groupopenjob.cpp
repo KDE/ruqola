@@ -13,7 +13,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
-
 using namespace RocketChatRestApi;
 GroupOpenJob::GroupOpenJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

@@ -12,7 +12,6 @@
 #include <QJsonObject>
 #include <QNetworkRequest>
 
-
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 AppUpdateInfoJob::AppUpdateInfoJob(QObject *parent)

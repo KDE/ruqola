@@ -12,7 +12,6 @@
 #include <QJsonObject>
 #include <QNetworkRequest>
 
-
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 AppCountJob::AppCountJob(QObject *parent)

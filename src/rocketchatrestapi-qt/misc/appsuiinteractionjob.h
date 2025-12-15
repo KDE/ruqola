@@ -11,7 +11,6 @@
 #include <QJsonObject>
 #include <QNetworkRequest>
 
-
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT AppsUiInteractionJob : public RestApiAbstractJob

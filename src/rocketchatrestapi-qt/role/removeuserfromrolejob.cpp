@@ -13,7 +13,6 @@
 #include <QJsonObject>
 #include <QNetworkRequest>
 
-
 #include <KLocalizedString>
 
 using namespace Qt::Literals::StringLiterals;

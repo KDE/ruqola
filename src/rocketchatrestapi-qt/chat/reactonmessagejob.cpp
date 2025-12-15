@@ -14,7 +14,6 @@
 #include <QJsonObject>
 #include <QNetworkRequest>
 
-
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
 ReactOnMessageJob::ReactOnMessageJob(QObject *parent)
