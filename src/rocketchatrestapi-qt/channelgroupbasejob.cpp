@@ -8,6 +8,8 @@
 
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 #include <QUrlQuery>
 
 using namespace RocketChatRestApi;

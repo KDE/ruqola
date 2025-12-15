@@ -12,6 +12,7 @@
 #include "model/filesforroommodel.h"
 #include "model/listmessagesfilterproxymodel.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include <QStandardPaths>
 #include <QTest>
 

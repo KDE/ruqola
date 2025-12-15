@@ -12,6 +12,7 @@
 #include "model/messagesmodel.h"
 #include "model/threadmessagemodel.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include "utils.h"

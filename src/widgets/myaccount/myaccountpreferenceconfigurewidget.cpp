@@ -10,6 +10,7 @@
 
 #include "connection.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
 #include "users/userrequestdatadownloadjob.h"
 #include <KLineEditEventHandler>

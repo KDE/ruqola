@@ -11,6 +11,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace RocketChatRestApi;
 ChangeGroupsDescriptionJob::ChangeGroupsDescriptionJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

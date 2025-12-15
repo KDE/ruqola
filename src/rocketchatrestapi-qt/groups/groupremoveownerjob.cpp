@@ -12,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace RocketChatRestApi;
 GroupRemoveOwnerJob::GroupRemoveOwnerJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

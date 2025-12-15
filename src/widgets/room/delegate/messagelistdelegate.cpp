@@ -40,6 +40,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "messagedelegatehelperurlpreview.h"
 #include "ruqola_thread_message_widgets_debug.h"
 #include "ruqolaglobalconfig.h"
+#include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
 
 #include <QAbstractItemView>

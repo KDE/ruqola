@@ -9,7 +9,9 @@ if(ENABLE_PCH)
         "#include <QObject>\n"
         "#include <QTest>\n"
         "#include <QJsonDocument>\n"
-        "#include <QJsonObject>\n"
+        "#include <QJsonObject>
+#include <QNetworkRequest>
+\n"
     )
     add_library(librocketchatrestapi-qt_test_pch STATIC ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp)
     target_link_libraries(

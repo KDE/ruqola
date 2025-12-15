@@ -9,6 +9,8 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 
+#include <QUrl>
+
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT FindOrCreateInviteJob : public RestApiAbstractJob

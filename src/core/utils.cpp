@@ -9,6 +9,7 @@
 #include "colorsandmessageviewstyle.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#include "ruqolaserverconfig.h"
 #include <KLocalizedString>
 
 #include <KColorScheme>

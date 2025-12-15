@@ -9,6 +9,8 @@
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
 GetUsersOfRoomWithoutKey::GetUsersOfRoomWithoutKey(QObject *parent)

@@ -12,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace RocketChatRestApi;
 User2FASendEmailCodeJob::User2FASendEmailCodeJob(QObject *parent)
     : RestApiAbstractJob(parent)

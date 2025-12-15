@@ -19,6 +19,7 @@
 #include "rocketchatbackend.h"
 #include "ruqola_loadhistory_debug.h"
 #include "ruqolaglobalconfig.h"
+#include "ruqolaserverconfig.h"
 
 using namespace Qt::Literals::StringLiterals;
 #define USE_LOCALDATABASE

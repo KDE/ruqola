@@ -15,6 +15,8 @@
 #include <QHttpMultiPart>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 #include <QMimeDatabase>
 #include <QNetworkReply>
 using namespace Qt::Literals::StringLiterals;

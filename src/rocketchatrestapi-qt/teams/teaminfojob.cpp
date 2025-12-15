@@ -11,6 +11,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
 TeamInfoJob::TeamInfoJob(QObject *parent)

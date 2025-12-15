@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "delegateutils/textselectionimpl.h"
 
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"

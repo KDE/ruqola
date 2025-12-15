@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "misc/adduserswidget.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include <KLocalizedString>
 #include <KStatefulBrush>
 #include <QLabel>

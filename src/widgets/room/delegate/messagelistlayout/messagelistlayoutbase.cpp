@@ -9,6 +9,7 @@
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messagelistdelegate.h"
+#include "ruqolaserverconfig.h"
 
 #include "room/delegate/messageattachmentdelegatehelperbase.h"
 #include "room/delegate/messageblockdelegatehelperbase.h"

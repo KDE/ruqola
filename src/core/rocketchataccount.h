@@ -10,7 +10,6 @@
 #include "bannerinfo/bannerinfos.h"
 #include "channelgroupbasejob.h"
 
-#include "createchannelteaminfo.h"
 #include "customusers/customuserstatuses.h"
 
 #include "ddpapi/ddpclient.h"
@@ -18,7 +17,6 @@
 #include "inputtextmanager.h"
 #include "libruqolacore_export.h"
 #include "licenses/licensesmanager.h"
-#include "messages/message.h"
 #include "model/listmessagesmodel.h"
 #include "notificationinfo.h"
 #include "ownuser/ownuser.h"
@@ -28,10 +26,8 @@
 
 #include "roles/rolesmanager.h"
 #include "room.h"
-#include "ruqolaserverconfig.h"
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
-#include "utils.h"
 #include <QObject>
 #include <QUrl>
 #include <TextEmoticonsCore/CustomEmoji>
@@ -86,6 +82,12 @@ class AppsMarketPlaceModel;
 class AppsCategoriesModel;
 class MemoryManager;
 class ServerConfigInfo;
+class RuqolaServerConfig;
+
+namespace RocketChatRestApi
+{
+struct CreateChannelTeamInfo;
+}
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {

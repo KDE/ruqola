@@ -14,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "myaccountpreferenceconfigurewidget.h"
 #include "myaccountprofileconfigurewidget.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>

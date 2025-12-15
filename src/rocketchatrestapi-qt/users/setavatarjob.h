@@ -8,6 +8,9 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "userbasejob.h"
+
+#include <QUrl>
+
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT SetAvatarJob : public UserBaseJob

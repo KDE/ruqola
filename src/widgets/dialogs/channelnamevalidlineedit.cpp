@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "rooms/roomsnameexistsjob.h"
+#include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
 
 #include <KColorScheme>

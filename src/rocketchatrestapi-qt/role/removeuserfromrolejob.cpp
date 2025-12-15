@@ -11,6 +11,8 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 
 #include <KLocalizedString>
 

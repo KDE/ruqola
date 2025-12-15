@@ -10,6 +10,8 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ChangeGroupsEncryptedJob::ChangeGroupsEncryptedJob(QObject *parent)

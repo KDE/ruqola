@@ -7,7 +7,9 @@
 #include "librocketchatrestapi-qt_export.h"
 #include <QMap>
 #include <QString>
-#include <QUrlQuery>
+
+class QUrlQuery;
+
 namespace RocketChatRestApi
 {
 

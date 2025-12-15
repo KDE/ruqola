@@ -9,6 +9,7 @@
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include "textconverter.h"
 
 #include <KColorScheme>

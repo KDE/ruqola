@@ -9,6 +9,8 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 
+#include <QDateTime>
+
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT SyncMessagesJob : public RestApiAbstractJob

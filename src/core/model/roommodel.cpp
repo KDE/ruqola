@@ -14,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "ruqola_rooms_debug.h"
+#include "ruqolaserverconfig.h"
 #include "usersforroommodel.h"
 #include <KLocalizedString>
 

@@ -8,28 +8,17 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "queryparameters.h"
-#include <QNetworkReply>
-#include <QNetworkRequest>
 #include <QObject>
 #include <QPointer>
 
 class QNetworkAccessManager;
+class QNetworkReply;
+class QNetworkRequest;
 using namespace Qt::Literals::StringLiterals;
 namespace RocketChatRestApi
 {
 class RestApiMethod;
 class AbstractLogger;
-
-inline static const QList<QNetworkReply::NetworkError> &networkErrorsNeedingReconnect()
-{
-    // QNetworkReply::NetworkSessionFailedError = connection was broken due to disconnection from the network or failure to start the network
-    static const QList<QNetworkReply::NetworkError> sNetworkErrorsNeedingReconnect = {QNetworkReply::NetworkSessionFailedError,
-                                                                                      QNetworkReply::HostNotFoundError,
-                                                                                      QNetworkReply::TemporaryNetworkFailureError,
-                                                                                      QNetworkReply::UnknownNetworkError}; // maybe others need to be added
-
-    return sNetworkErrorsNeedingReconnect;
-}
 
 class LIBROCKETCHATRESTAPI_QT_EXPORT RestApiAbstractJob : public QObject
 {

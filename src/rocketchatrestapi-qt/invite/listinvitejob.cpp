@@ -7,7 +7,9 @@
 #include "listinvitejob.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
+#include <QNetworkRequest>
 #include <QUrlQuery>
+
 using namespace RocketChatRestApi;
 ListInviteJob::ListInviteJob(QObject *parent)
     : RestApiAbstractJob(parent)

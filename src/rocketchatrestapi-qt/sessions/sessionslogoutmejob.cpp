@@ -11,6 +11,8 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
 SessionsLogoutMeJob::SessionsLogoutMeJob(QObject *parent)

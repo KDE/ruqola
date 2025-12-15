@@ -7,6 +7,7 @@
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "actionbuttonsgenerator.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include <KLocalizedString>
 #include <QMenu>
 using namespace Qt::Literals::StringLiterals;

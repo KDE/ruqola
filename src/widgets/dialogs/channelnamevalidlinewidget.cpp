@@ -8,6 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 
 #include <KColorScheme>
 #include <KLocalizedString>

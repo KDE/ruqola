@@ -9,6 +9,8 @@
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GetUsernameSuggestionJob::GetUsernameSuggestionJob(QObject *parent)

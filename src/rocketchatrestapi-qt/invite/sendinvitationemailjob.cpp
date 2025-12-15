@@ -12,6 +12,8 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SendInvitationEmailJob::SendInvitationEmailJob(QObject *parent)

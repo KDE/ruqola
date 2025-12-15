@@ -12,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "actionbuttonsgenerator.h"
 #include "rocketchataccount.h"
 #include "room.h"
+#include "ruqolaserverconfig.h"
 #include <KLocalizedString>
 #include <QMenu>
 

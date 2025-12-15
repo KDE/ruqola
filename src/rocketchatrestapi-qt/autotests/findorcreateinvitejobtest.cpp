@@ -10,6 +10,8 @@
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(FindOrCreateInviteJobTest)
 using namespace RocketChatRestApi;

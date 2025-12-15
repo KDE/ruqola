@@ -11,6 +11,8 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 using namespace RocketChatRestApi;
 ResetOwnE2eKeyJob::ResetOwnE2eKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)

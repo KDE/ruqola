@@ -9,6 +9,9 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
 
+#include <QNetworkReply>
+#include <QNetworkRequest>
+
 using namespace RocketChatRestApi;
 GetAvatarJob::GetAvatarJob(QObject *parent)
     : UserBaseJob(parent)

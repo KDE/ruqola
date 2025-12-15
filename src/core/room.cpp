@@ -13,6 +13,7 @@
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include "ruqola_memory_management_debug.h"
+#include "ruqolaserverconfig.h"
 #include "textconverter.h"
 
 #include <KLocalizedString>

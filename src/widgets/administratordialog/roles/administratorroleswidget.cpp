@@ -12,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "rocketchataccount.h"
 #include "roleeditdialog.h"
 #include "rolestreeview.h"
+#include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
 #include "userinroleeditdialog.h"
 #include <KLineEditEventHandler>

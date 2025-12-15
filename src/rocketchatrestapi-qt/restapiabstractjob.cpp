@@ -7,10 +7,13 @@
 #include "restapiabstractjob.h"
 
 #include "abstractlogger.h"
+#include "privateutils.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkRequest>
+
 #include <QUrlQuery>
 
 using namespace RocketChatRestApi;

@@ -8,6 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "authenticationmanager/restauthenticationmanager.h"
+#include "privateutils.h"
 #include "restapimethod.h"
 #include "rooms/roomsmembersorderedbyrolejob.h"
 #include "ruqola.h"
@@ -177,7 +178,7 @@ void Connection::slotResult(QNetworkReply *reply)
         const auto jobClassName = reply->property("jobClassName").toByteArray();
         qCWarning(RUQOLA_LOG) << jobClassName << "error reply: " << reply->errorString() << " ERROR type " << error;
 
-        if (RocketChatRestApi::networkErrorsNeedingReconnect().contains(error) && !mNetworkErrorEmitted) {
+        if (networkErrorsNeedingReconnect().contains(error) && !mNetworkErrorEmitted) {
             mNetworkErrorEmitted = true;
             QTimer::singleShot(1ms, this, [this] {
                 // This will delete "this" Connection, so no need to reset mNetworkErrorEmitted
