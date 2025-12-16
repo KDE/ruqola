@@ -3,25 +3,17 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 if(ENABLE_PCH)
-    if(NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp)
-        file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp "/*empty file*/")
-    endif()
+    file(GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp CONTENT "/*empty file*/")
     file(
-        WRITE ${CMAKE_CURRENT_BINARY_DIR}/ruqolacore_pch_tmp.h
-        "#pragma once\n"
-        "#include <QObject>\n"
-        "#include <QTest>\n"
-        "#include <QJsonDocument>\n"
-        "#include <QJsonObject>\n"
-        "#include <QSignalSpy>\n"
+        GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/ruqolacore_pch.h
+        CONTENT
+            "#pragma once\n
+        #include <QObject>\n
+        #include <QTest>\n
+        #include <QJsonDocument>\n
+        #include <QJsonObject>\n
+        #include <QSignalSpy>\n"
     )
-    # avoid rebuilding if there was no change
-    execute_process(
-        COMMAND
-            ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_CURRENT_BINARY_DIR}/ruqolacore_pch_tmp.h"
-            "${CMAKE_CURRENT_BINARY_DIR}/ruqolacore_pch.h"
-    )
-
     add_library(libruqolacore_test_pch STATIC ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp)
     target_precompile_headers(libruqolacore_test_pch PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/ruqolacore_pch.h)
     target_link_libraries(

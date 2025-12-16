@@ -16,15 +16,16 @@ target_link_libraries(
 )
 
 if(ENABLE_PCH)
-    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp "/*empty file*/")
+    file(GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp CONTENT "/*empty file*/")
     file(
-        WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch.h
-        "#pragma once\n"
-        "#include <QObject>\n"
-        "#include <QTest>\n"
-        "#include <QJsonDocument>\n"
-        "#include <QJsonObject>\n"
-        "#include <QNetworkRequest>\n"
+        GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/pch.h
+        CONTENT
+            "#pragma once\n
+        #include <QObject>\n
+        #include <QTest>\n
+        #include <QJsonDocument>\n
+        #include <QJsonObject>\n
+        #include <QNetworkRequest>\n"
     )
     add_library(librocketchatrestapi-qt_test_pch STATIC ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp)
     target_link_libraries(
