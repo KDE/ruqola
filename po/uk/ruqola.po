@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-16 06:51+0000\n"
+"POT-Creation-Date: 2025-12-16 13:25+0000\n"
 "PO-Revision-Date: 2025-12-02 09:21+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -4601,7 +4601,7 @@ msgid "Accounts"
 msgstr "Облікові записи"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:84
+#: widgets/room/roomheaderwidget.cpp:85
 #, kde-format
 msgid "Encryption"
 msgstr "Шифрування"
@@ -7367,25 +7367,25 @@ msgstr "безкоштовні програми"
 msgid "Paid Apps"
 msgstr "платні програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:79
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Applications"
 msgstr "Програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:82
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
 msgstr "Потрібні програми…"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:85
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "Шукати потрібні програми"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
@@ -10892,85 +10892,85 @@ msgstr "(Показати більше відомостей…)"
 msgid "(Show Less Info…)"
 msgstr "(Показати менше відомостей…)"
 
-#: widgets/room/roomheaderwidget.cpp:64
+#: widgets/room/roomheaderwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Улюблене"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:67
 #, kde-format
 msgid "Favorite"
 msgstr "Улюблене"
 
-#: widgets/room/roomheaderwidget.cpp:82
+#: widgets/room/roomheaderwidget.cpp:83
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "Увімкнено E2E"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Дії ШІ"
 
-#: widgets/room/roomheaderwidget.cpp:144
+#: widgets/room/roomheaderwidget.cpp:145
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Виклик"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:147
 #, kde-format
 msgid "Call"
 msgstr "Виклик"
 
-#: widgets/room/roomheaderwidget.cpp:155
+#: widgets/room/roomheaderwidget.cpp:156
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
 
-#: widgets/room/roomheaderwidget.cpp:157 widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:158 widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:167
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Канали команди"
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:169
 #, kde-format
 msgid "Team Channels"
 msgstr "Канали команди"
 
-#: widgets/room/roomheaderwidget.cpp:178
+#: widgets/room/roomheaderwidget.cpp:179
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Показувати список користувачів"
 
-#: widgets/room/roomheaderwidget.cpp:180
+#: widgets/room/roomheaderwidget.cpp:181
 #, kde-format
 msgid "Show List of Users"
 msgstr "Показувати список користувачів"
 
-#: widgets/room/roomheaderwidget.cpp:191
+#: widgets/room/roomheaderwidget.cpp:192
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Шукати повідомлення…"
 
-#: widgets/room/roomheaderwidget.cpp:193
+#: widgets/room/roomheaderwidget.cpp:194
 #, kde-format
 msgid "Search Messages…"
 msgstr "Шукати повідомлення…"
 
-#: widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Team's Information"
 msgstr "Дані щодо команди"

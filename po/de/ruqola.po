@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-16 06:51+0000\n"
+"POT-Creation-Date: 2025-12-16 13:25+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -4836,7 +4836,7 @@ msgid "Accounts"
 msgstr "Zugang"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:84
+#: widgets/room/roomheaderwidget.cpp:85
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgid "Encryption"
@@ -7603,28 +7603,28 @@ msgstr ""
 msgid "Paid Apps"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:79
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Applications"
 msgstr "Programm nicht gefunden"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
 msgstr "Programm nicht gefunden"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:85
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "Programm nicht gefunden"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:placeholder"
@@ -11366,80 +11366,80 @@ msgstr "Nennungen"
 msgid "(Show Less Info…)"
 msgstr "Nennungen"
 
-#: widgets/room/roomheaderwidget.cpp:64
+#: widgets/room/roomheaderwidget.cpp:65
 #, fuzzy, kde-format
 #| msgid "Favorite"
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Favoriten"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:67
 #, kde-format
 msgid "Favorite"
 msgstr "Favoriten"
 
-#: widgets/room/roomheaderwidget.cpp:82
+#: widgets/room/roomheaderwidget.cpp:83
 #, fuzzy, kde-format
 #| msgid "E2E Enabled"
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E aktiviert"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Programm nicht gefunden"
 
-#: widgets/room/roomheaderwidget.cpp:144
+#: widgets/room/roomheaderwidget.cpp:145
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:147
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:155
+#: widgets/room/roomheaderwidget.cpp:156
 #, fuzzy, kde-format
 #| msgid "Channel's Information"
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Kanalinformation"
 
-#: widgets/room/roomheaderwidget.cpp:157 widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:158 widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Channel's Information"
 msgstr "Kanalinformation"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:167
 #, fuzzy, kde-format
 #| msgid "Team Channels"
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Team-Kanäle"
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:169
 #, kde-format
 msgid "Team Channels"
 msgstr "Team-Kanäle"
 
-#: widgets/room/roomheaderwidget.cpp:178
+#: widgets/room/roomheaderwidget.cpp:179
 #, fuzzy, kde-format
 #| msgid "Show List of Users"
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Liste der Benutzer anzeigen"
 
-#: widgets/room/roomheaderwidget.cpp:180
+#: widgets/room/roomheaderwidget.cpp:181
 #, kde-format
 msgid "Show List of Users"
 msgstr "Liste der Benutzer anzeigen"
 
-#: widgets/room/roomheaderwidget.cpp:191
+#: widgets/room/roomheaderwidget.cpp:192
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11447,14 +11447,14 @@ msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Nachrichten suchen"
 
-#: widgets/room/roomheaderwidget.cpp:193
+#: widgets/room/roomheaderwidget.cpp:194
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages…"
 msgstr "Nachrichten suchen"
 
-#: widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Team's Information"
 msgstr "Team-Information"

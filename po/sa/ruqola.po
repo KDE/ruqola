@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-16 06:51+0000\n"
+"POT-Creation-Date: 2025-12-16 13:25+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4564,7 +4564,7 @@ msgid "Accounts"
 msgstr "लेखा"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:84
+#: widgets/room/roomheaderwidget.cpp:85
 #, kde-format
 msgid "Encryption"
 msgstr "एन्क्रिप्शन"
@@ -7292,25 +7292,25 @@ msgstr "निःशुल्क एप्स"
 msgid "Paid Apps"
 msgstr "सशुल्क एप्स"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:79
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Applications"
 msgstr "अनुप्रयोगाः अन्वेषणं कुर्वन्तु"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:82
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
 msgstr "संस्थापितानि अनुप्रयोगाः अन्वेष्टुम्"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:85
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "अनुरोधित-अनुप्रयोगाः अन्वेष्टुम्"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
@@ -10800,24 +10800,24 @@ msgstr "(अधिकं सूचनां दर्शयतु...)"
 msgid "(Show Less Info…)"
 msgstr "(कमाधिकं सूचनां दर्शयतु...)"
 
-#: widgets/room/roomheaderwidget.cpp:64
+#: widgets/room/roomheaderwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "प्रिय"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:67
 #, kde-format
 msgid "Favorite"
 msgstr "प्रिय"
 
-#: widgets/room/roomheaderwidget.cpp:82
+#: widgets/room/roomheaderwidget.cpp:83
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E सक्षमम्"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:135
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Ask Application"
@@ -10825,62 +10825,62 @@ msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "आवेदनम् पृच्छतु"
 
-#: widgets/room/roomheaderwidget.cpp:144
+#: widgets/room/roomheaderwidget.cpp:145
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "आह्वानम्‌"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:147
 #, kde-format
 msgid "Call"
 msgstr "आह्वानम्‌"
 
-#: widgets/room/roomheaderwidget.cpp:155
+#: widgets/room/roomheaderwidget.cpp:156
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "चैनलस्य सूचना"
 
-#: widgets/room/roomheaderwidget.cpp:157 widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:158 widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Channel's Information"
 msgstr "चैनलस्य सूचना"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:167
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "टीम चैनल्स्"
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:169
 #, kde-format
 msgid "Team Channels"
 msgstr "टीम चैनल्स्"
 
-#: widgets/room/roomheaderwidget.cpp:178
+#: widgets/room/roomheaderwidget.cpp:179
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "उपयोक्तृणां सूचीं दर्शयतु"
 
-#: widgets/room/roomheaderwidget.cpp:180
+#: widgets/room/roomheaderwidget.cpp:181
 #, kde-format
 msgid "Show List of Users"
 msgstr "उपयोक्तृणां सूचीं दर्शयतु"
 
-#: widgets/room/roomheaderwidget.cpp:191
+#: widgets/room/roomheaderwidget.cpp:192
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "अन्वेषणसन्देशाः..."
 
-#: widgets/room/roomheaderwidget.cpp:193
+#: widgets/room/roomheaderwidget.cpp:194
 #, kde-format
 msgid "Search Messages…"
 msgstr "अन्वेषणसन्देशाः..."
 
-#: widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Team's Information"
 msgstr "दलस्य सूचना"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-16 06:51+0000\n"
+"POT-Creation-Date: 2025-12-16 13:25+0000\n"
 "PO-Revision-Date: 2025-10-16 00:32+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -4745,7 +4745,7 @@ msgid "Accounts"
 msgstr "Paskyra"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:84
+#: widgets/room/roomheaderwidget.cpp:85
 #, kde-format
 msgid "Encryption"
 msgstr "Šifravimas"
@@ -7449,28 +7449,28 @@ msgstr ""
 msgid "Paid Apps"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:79
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Applications"
 msgstr "Programa nerasta"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
 msgstr "Programa nerasta"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:85
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "Programa nerasta"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:placeholder"
@@ -11145,92 +11145,92 @@ msgstr "(Rodyti daugiau informacijos…)"
 msgid "(Show Less Info…)"
 msgstr "(Rodyti mažiau informacijos…)"
 
-#: widgets/room/roomheaderwidget.cpp:64
+#: widgets/room/roomheaderwidget.cpp:65
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Ištrinti kambarį"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:67
 #, kde-format
 msgid "Favorite"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:82
+#: widgets/room/roomheaderwidget.cpp:83
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Programa nerasta"
 
-#: widgets/room/roomheaderwidget.cpp:144
+#: widgets/room/roomheaderwidget.cpp:145
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:147
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:155
+#: widgets/room/roomheaderwidget.cpp:156
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informacija apie kanalą"
 
-#: widgets/room/roomheaderwidget.cpp:157 widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:158 widgets/room/roomheaderwidget.cpp:304
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Channel's Information"
 msgstr "Informacija apie kanalą"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:167
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:169
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Team Channels"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/room/roomheaderwidget.cpp:178
+#: widgets/room/roomheaderwidget.cpp:179
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Rodyti naudotojų sąrašą"
 
-#: widgets/room/roomheaderwidget.cpp:180
+#: widgets/room/roomheaderwidget.cpp:181
 #, kde-format
 msgid "Show List of Users"
 msgstr "Rodyti naudotojų sąrašą"
 
-#: widgets/room/roomheaderwidget.cpp:191
+#: widgets/room/roomheaderwidget.cpp:192
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:193
+#: widgets/room/roomheaderwidget.cpp:194
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search Messages…"
 msgstr "Ieškoti žinučių..."
 
-#: widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Team's Information"
 msgstr ""

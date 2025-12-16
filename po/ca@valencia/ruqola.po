@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-16 06:51+0000\n"
+"POT-Creation-Date: 2025-12-16 13:25+0000\n"
 "PO-Revision-Date: 2025-12-02 10:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4580,7 +4580,7 @@ msgid "Accounts"
 msgstr "Comptes"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:84
+#: widgets/room/roomheaderwidget.cpp:85
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptació"
@@ -7341,25 +7341,25 @@ msgstr "Aplicacions debades"
 msgid "Paid Apps"
 msgstr "Aplicacions de pagament"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:79
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Applications"
 msgstr "Busca aplicacions"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:82
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
 msgstr "Busca aplicacions instal·lades"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:85
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "Busca aplicacions sol·licitades"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
@@ -10827,85 +10827,85 @@ msgstr "(Mostra més informació…)"
 msgid "(Show Less Info…)"
 msgstr "(Mostra menys informació…)"
 
-#: widgets/room/roomheaderwidget.cpp:64
+#: widgets/room/roomheaderwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Preferida"
 
-#: widgets/room/roomheaderwidget.cpp:66
+#: widgets/room/roomheaderwidget.cpp:67
 #, kde-format
 msgid "Favorite"
 msgstr "Preferida"
 
-#: widgets/room/roomheaderwidget.cpp:82
+#: widgets/room/roomheaderwidget.cpp:83
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "S'ha habilitat E2E"
 
-#: widgets/room/roomheaderwidget.cpp:134
+#: widgets/room/roomheaderwidget.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Accions d'IA"
 
-#: widgets/room/roomheaderwidget.cpp:144
+#: widgets/room/roomheaderwidget.cpp:145
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Toca"
 
-#: widgets/room/roomheaderwidget.cpp:146
+#: widgets/room/roomheaderwidget.cpp:147
 #, kde-format
 msgid "Call"
 msgstr "Toca"
 
-#: widgets/room/roomheaderwidget.cpp:155
+#: widgets/room/roomheaderwidget.cpp:156
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:157 widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:158 widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:166
+#: widgets/room/roomheaderwidget.cpp:167
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:168
+#: widgets/room/roomheaderwidget.cpp:169
 #, kde-format
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:178
+#: widgets/room/roomheaderwidget.cpp:179
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:180
+#: widgets/room/roomheaderwidget.cpp:181
 #, kde-format
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:191
+#: widgets/room/roomheaderwidget.cpp:192
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Busca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:193
+#: widgets/room/roomheaderwidget.cpp:194
 #, kde-format
 msgid "Search Messages…"
 msgstr "Busca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:303
+#: widgets/room/roomheaderwidget.cpp:304
 #, kde-format
 msgid "Team's Information"
 msgstr "Informació de l'equip"
