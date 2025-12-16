@@ -7,10 +7,12 @@
 #include "markroomasreadjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "subscriptions/markroomasreadjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(MarkRoomAsReadJobTest)
 using namespace RocketChatRestApi;
 MarkRoomAsReadJobTest::MarkRoomAsReadJobTest(QObject *parent)

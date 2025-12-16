@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "emoji/emojicustomdeletejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(EmojiCustomDeleteJobTest)
 using namespace RocketChatRestApi;
 EmojiCustomDeleteJobTest::EmojiCustomDeleteJobTest(QObject *parent)

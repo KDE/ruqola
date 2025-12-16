@@ -7,10 +7,12 @@
 #include "setuseractivestatusjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/setuseractivestatusjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(SetUserActiveStatusJobTest)
 using namespace RocketChatRestApi;
 SetUserActiveStatusJobTest::SetUserActiveStatusJobTest(QObject *parent)

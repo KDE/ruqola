@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/resetowne2ekeyjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(RejectSuggestedGroupKeyJobTest)
 using namespace RocketChatRestApi;
 RejectSuggestedGroupKeyJobTest::RejectSuggestedGroupKeyJobTest(QObject *parent)

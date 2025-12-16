@@ -8,8 +8,10 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/searchmessagejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(searchMessageJobTest)
 using namespace RocketChatRestApi;
 searchMessageJobTest::searchMessageJobTest(QObject *parent)

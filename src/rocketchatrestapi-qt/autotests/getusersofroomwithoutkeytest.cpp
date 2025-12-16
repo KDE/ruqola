@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "e2e/getusersofroomwithoutkey.h"
 #include "restapimethod.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(GetUsersOfRoomWithoutKeyTest)
 using namespace RocketChatRestApi;
 GetUsersOfRoomWithoutKeyTest::GetUsersOfRoomWithoutKeyTest(QObject *parent)

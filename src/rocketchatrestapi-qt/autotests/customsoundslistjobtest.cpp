@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "custom/customsoundslistjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(CustomSoundsListJobTest)
 using namespace RocketChatRestApi;
 CustomSoundsListJobTest::CustomSoundsListJobTest(QObject *parent)

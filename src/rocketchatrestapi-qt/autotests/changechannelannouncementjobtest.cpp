@@ -9,9 +9,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/changechannelannouncementjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ChangeChannelAnnouncementJobTest)
 using namespace RocketChatRestApi;
 ChangeChannelAnnouncementJobTest::ChangeChannelAnnouncementJobTest(QObject *parent)

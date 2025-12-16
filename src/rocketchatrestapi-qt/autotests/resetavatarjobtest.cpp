@@ -7,10 +7,12 @@
 #include "resetavatarjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/resetavatarjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ResetAvatarJobTest)
 using namespace RocketChatRestApi;
 ResetAvatarJobTest::ResetAvatarJobTest(QObject *parent)

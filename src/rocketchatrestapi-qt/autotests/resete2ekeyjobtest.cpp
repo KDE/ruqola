@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "users/resete2ekeyjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ResetE2EKeyJobTest)
 using namespace RocketChatRestApi;
 ResetE2EKeyJobTest::ResetE2EKeyJobTest(QObject *parent)

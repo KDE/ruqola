@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "users/resettotpjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ResetTOTPJobTest)
 using namespace RocketChatRestApi;
 ResetTOTPJobTest::ResetTOTPJobTest(QObject *parent)

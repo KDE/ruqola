@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "2fa/user2faenableemailjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(User2FAEnableEmailJobTest)
 using namespace RocketChatRestApi;
 User2FAEnableEmailJobTest::User2FAEnableEmailJobTest(QObject *parent)

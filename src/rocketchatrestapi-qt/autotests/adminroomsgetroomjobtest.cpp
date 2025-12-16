@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "rooms/adminroomsgetroomjob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(AdminRoomsGetRoomJobTest)
 using namespace RocketChatRestApi;
 AdminRoomsGetRoomJobTest::AdminRoomsGetRoomJobTest(QObject *parent)

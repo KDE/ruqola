@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "chat/syncmessagesjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(SyncMessagesJobTest)
 using namespace RocketChatRestApi;
 SyncMessagesJobTest::SyncMessagesJobTest(QObject *parent)

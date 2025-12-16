@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "users/userrequestdatadownloadjob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(UserRequestDataDownloadJobTest)
 using namespace RocketChatRestApi;
 UserRequestDataDownloadJobTest::UserRequestDataDownloadJobTest(QObject *parent)

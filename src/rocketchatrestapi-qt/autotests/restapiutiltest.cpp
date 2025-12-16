@@ -7,6 +7,7 @@
 #include "restapiutiltest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "restapiutil.h"
 #include <QTest>
 

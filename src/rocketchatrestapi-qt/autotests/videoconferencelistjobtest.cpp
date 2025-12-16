@@ -7,9 +7,11 @@
 #include "videoconferencelistjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "video-conference/videoconferencelistjob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(VideoConferenceListJobTest)
 using namespace RocketChatRestApi;
 VideoConferenceListJobTest::VideoConferenceListJobTest(QObject *parent)

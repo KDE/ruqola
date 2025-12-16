@@ -7,10 +7,12 @@
 #include "roledeletejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "role/roledeletejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(RoleDeleteJobTest)
 using namespace RocketChatRestApi;
 RoleDeleteJobTest::RoleDeleteJobTest(QObject *parent)

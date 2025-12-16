@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "teams/roomsautocompleteavailableforteamsjob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(RoomsAutocompleteAvailableForTeamsJobTest)
 using namespace RocketChatRestApi;
 RoomsAutocompleteAvailableForTeamsJobTest::RoomsAutocompleteAvailableForTeamsJobTest(QObject *parent)

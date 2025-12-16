@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "channellistjob.h"
 
+#include "restapimethod.h"
 #include <QTest>
 
 #include "restapimethod.h"

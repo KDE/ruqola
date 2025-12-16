@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupaddownerjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(GroupAddOwnerJobTest)
 using namespace RocketChatRestApi;
 GroupAddOwnerJobTest::GroupAddOwnerJobTest(QObject *parent)

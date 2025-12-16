@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "emoji/emojicustomalljob.h"
 #include "restapimethod.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(EmojiCustomAllJobTest)
 using namespace RocketChatRestApi;
 EmojiCustomAllJobTest::EmojiCustomAllJobTest(QObject *parent)

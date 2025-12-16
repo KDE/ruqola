@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/unfollowmessagejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(UnFollowMessageJobTest)
 using namespace RocketChatRestApi;
 UnFollowMessageJobTest::UnFollowMessageJobTest(QObject *parent)

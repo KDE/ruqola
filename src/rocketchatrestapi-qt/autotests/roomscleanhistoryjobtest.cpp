@@ -7,10 +7,12 @@
 #include "roomscleanhistoryjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(RoomsCleanHistoryJobTest)
 using namespace RocketChatRestApi;
 RoomsCleanHistoryJobTest::RoomsCleanHistoryJobTest(QObject *parent)

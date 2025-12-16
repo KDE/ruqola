@@ -9,8 +9,10 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/getsnippetedmessagesjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(GetSnippetedMessagesJobTest)
 using namespace RocketChatRestApi;
 GetSnippetedMessagesJobTest::GetSnippetedMessagesJobTest(QObject *parent)

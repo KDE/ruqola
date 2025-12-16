@@ -7,10 +7,12 @@
 #include "saveroomsettingsjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "rooms/saveroomsettingsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(SaveRoomSettingsJobTest)
 using namespace RocketChatRestApi;
 SaveRoomSettingsJobTest::SaveRoomSettingsJobTest(QObject *parent)

@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(LoginJobTest)
 
 using namespace RocketChatRestApi;

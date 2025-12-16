@@ -7,10 +7,12 @@
 #include "usersupdatejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/usersupdatejob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(UsersUpdateJobTest)
 using namespace RocketChatRestApi;
 UsersUpdateJobTest::UsersUpdateJobTest(QObject *parent)

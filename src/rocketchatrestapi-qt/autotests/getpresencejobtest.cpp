@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "users/getpresencejob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(GetPresenceJobTest)
 using namespace RocketChatRestApi;
 GetPresenceJobTest::GetPresenceJobTest(QObject *parent)

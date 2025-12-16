@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/reactonmessagejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ReactOnMessageJobTest)
 using namespace RocketChatRestApi;
 ReactOnMessageJobTest::ReactOnMessageJobTest(QObject *parent)

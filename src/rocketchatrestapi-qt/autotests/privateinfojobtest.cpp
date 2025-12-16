@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "settings/privateinfojob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(PrivateInfoJobTest)
 using namespace RocketChatRestApi;
 PrivateInfoJobTest::PrivateInfoJobTest(QObject *parent)

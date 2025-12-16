@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "rooms/roomsnameexistsjob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(RoomsNameExistsJobTest)
 using namespace RocketChatRestApi;
 RoomsNameExistsJobTest::RoomsNameExistsJobTest(QObject *parent)

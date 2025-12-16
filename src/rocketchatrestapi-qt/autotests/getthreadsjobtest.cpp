@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "chat/getthreadsjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(GetThreadsJobTest)
 using namespace RocketChatRestApi;
 GetThreadsJobTest::GetThreadsJobTest(QObject *parent)

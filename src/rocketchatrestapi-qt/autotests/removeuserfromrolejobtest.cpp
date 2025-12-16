@@ -7,10 +7,12 @@
 #include "removeuserfromrolejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "role/removeuserfromrolejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(RemoveUserFromRoleJobTest)
 using namespace RocketChatRestApi;
 RemoveUserFromRoleJobTest::RemoveUserFromRoleJobTest(QObject *parent)

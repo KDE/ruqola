@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "personalaccesstoken/getpersonalaccesstokensjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(GetPersonalAccessTokensJobTest)
 using namespace RocketChatRestApi;
 GetPersonalAccessTokensJobTest::GetPersonalAccessTokensJobTest(QObject *parent)

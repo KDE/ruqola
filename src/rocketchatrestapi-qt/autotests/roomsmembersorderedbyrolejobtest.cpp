@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "rooms/roomsmembersorderedbyrolejob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(RoomsMembersOrderedByRoleJobTest)
 using namespace RocketChatRestApi;
 RoomsMembersOrderedByRoleJobTest::RoomsMembersOrderedByRoleJobTest(QObject *parent)

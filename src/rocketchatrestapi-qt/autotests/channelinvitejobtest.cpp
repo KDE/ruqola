@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelinvitejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ChannelInviteJobTest)
 using namespace RocketChatRestApi;
 ChannelInviteJobTest::ChannelInviteJobTest(QObject *parent)

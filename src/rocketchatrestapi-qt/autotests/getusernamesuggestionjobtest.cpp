@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "users/getusernamesuggestionjob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(GetUsernameSuggestionJobTest)
 using namespace RocketChatRestApi;
 GetUsernameSuggestionJobTest::GetUsernameSuggestionJobTest(QObject *parent)

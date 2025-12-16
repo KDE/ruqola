@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "spotlightjob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(SpotlightJobTest)
 using namespace RocketChatRestApi;
 SpotlightJobTest::SpotlightJobTest(QObject *parent)

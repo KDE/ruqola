@@ -7,9 +7,11 @@
 #include "usersautocompletejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/usersautocompletejob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(UsersAutocompleteJobTest)
 using namespace RocketChatRestApi;
 UsersAutocompleteJobTest::UsersAutocompleteJobTest(QObject *parent)

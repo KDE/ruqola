@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "banner/getbannersjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(GetBannersJobTest)
 using namespace RocketChatRestApi;
 GetBannersJobTest::GetBannersJobTest(QObject *parent)

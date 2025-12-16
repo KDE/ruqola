@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/resetowne2ekeyjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ResetOwnE2eKeyJobTest)
 using namespace RocketChatRestApi;
 ResetOwnE2eKeyJobTest::ResetOwnE2eKeyJobTest(QObject *parent)

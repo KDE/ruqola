@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "users/forgotpasswordjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ForgotPasswordJobTest)
 using namespace RocketChatRestApi;
 ForgotPasswordJobTest::ForgotPasswordJobTest(QObject *parent)

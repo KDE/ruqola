@@ -8,7 +8,9 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "queryparameters.h"
+#include "restapimethod.h"
 #include <QTest>
+
 #include <QUrlQuery>
 QTEST_GUILESS_MAIN(QueryParametersTest)
 

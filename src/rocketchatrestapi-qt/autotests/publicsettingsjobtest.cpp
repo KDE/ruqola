@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "settings/publicsettingsjob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(PublicSettingsJobTest)
 using namespace RocketChatRestApi;
 PublicSettingsJobTest::PublicSettingsJobTest(QObject *parent)

@@ -9,8 +9,10 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelmembersjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ChannelMembersJobTest)
 using namespace RocketChatRestApi;
 ChannelMembersJobTest::ChannelMembersJobTest(QObject *parent)

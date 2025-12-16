@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "channels/changechanneltopicjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ChangeChannelTopicJobTest)
 using namespace RocketChatRestApi;
 ChangeChannelTopicJobTest::ChangeChannelTopicJobTest(QObject *parent)

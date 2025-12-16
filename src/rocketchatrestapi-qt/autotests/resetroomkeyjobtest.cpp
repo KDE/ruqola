@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/resetroomkeyjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ResetRoomKeyJobTest)
 using namespace RocketChatRestApi;
 ResetRoomKeyJobTest::ResetRoomKeyJobTest(QObject *parent)

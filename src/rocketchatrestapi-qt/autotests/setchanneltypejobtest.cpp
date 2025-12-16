@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/setchanneltypejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(SetChannelTypeJobTest)
 using namespace RocketChatRestApi;
 SetChannelTypeJobTest::SetChannelTypeJobTest(QObject *parent)

@@ -7,10 +7,12 @@
 #include "setavatarjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/setavatarjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(SetAvatarJobTest)
 using namespace RocketChatRestApi;
 SetAvatarJobTest::SetAvatarJobTest(QObject *parent)

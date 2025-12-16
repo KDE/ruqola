@@ -9,8 +9,10 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "moderation/moderationuserreportsjob.h"
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ModerationUserReportsJobTest)
 using namespace RocketChatRestApi;
 ModerationUserReportsJobTest::ModerationUserReportsJobTest(QObject *parent)

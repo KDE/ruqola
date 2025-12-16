@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelremoveownerjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ChannelRemoveOwnerJobTest)
 using namespace RocketChatRestApi;
 ChannelRemoveOwnerJobTest::ChannelRemoveOwnerJobTest(QObject *parent)

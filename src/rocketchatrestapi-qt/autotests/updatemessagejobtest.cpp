@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/updatemessagejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(UpdateMessageJobTest)
 using namespace RocketChatRestApi;
 UpdateMessageJobTest::UpdateMessageJobTest(QObject *parent)

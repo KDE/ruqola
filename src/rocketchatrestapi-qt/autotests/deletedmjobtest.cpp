@@ -8,9 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "directmessage/deletedmjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(DeleteDmJobTest)
 using namespace RocketChatRestApi;
 DeleteDmJobTest::DeleteDmJobTest(QObject *parent)

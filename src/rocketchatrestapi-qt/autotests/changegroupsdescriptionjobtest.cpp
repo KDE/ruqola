@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "groups/changegroupsdescriptionjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ChangeGroupsDescriptionJobTest)
 using namespace RocketChatRestApi;
 ChangeGroupsDescriptionJobTest::ChangeGroupsDescriptionJobTest(QObject *parent)

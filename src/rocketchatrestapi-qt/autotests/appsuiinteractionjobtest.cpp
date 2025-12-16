@@ -9,6 +9,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "misc/appsuiinteractionjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

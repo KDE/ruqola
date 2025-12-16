@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "users/userslogoutotherclientsjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(UsersLogoutOtherClientsJobTest)
 using namespace RocketChatRestApi;
 UsersLogoutOtherClientsJobTest::UsersLogoutOtherClientsJobTest(QObject *parent)

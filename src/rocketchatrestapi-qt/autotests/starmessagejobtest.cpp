@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(StarMessageJobTest)
 using namespace RocketChatRestApi;
 StarMessageJobTest::StarMessageJobTest(QObject *parent)

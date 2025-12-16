@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "e2e/fetchmykeysjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(FetchMyKeysJobTest)
 using namespace RocketChatRestApi;
 FetchMyKeysJobTest::FetchMyKeysJobTest(QObject *parent)

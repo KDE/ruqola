@@ -9,9 +9,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "custom/customuserstatuscreatejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(CustomUserStatusCreateTestJob)
 using namespace RocketChatRestApi;
 CustomUserStatusCreateTestJob::CustomUserStatusCreateTestJob(QObject *parent)

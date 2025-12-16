@@ -9,8 +9,10 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "commands/listcommandsjob.h"
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(ListCommandsJobTest)
 using namespace RocketChatRestApi;
 ListCommandsJobTest::ListCommandsJobTest(QObject *parent)

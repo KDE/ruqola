@@ -8,10 +8,12 @@
 #include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/deleteuserjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(DeleteUserJobTest)
 using namespace RocketChatRestApi;
 DeleteUserJobTest::DeleteUserJobTest(QObject *parent)

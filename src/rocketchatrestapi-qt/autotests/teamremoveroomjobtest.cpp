@@ -7,10 +7,12 @@
 #include "teamremoveroomjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "teams/teamremoveroomjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(TeamRemoveRoomJobTest)
 using namespace RocketChatRestApi;
 TeamRemoveRoomJobTest::TeamRemoveRoomJobTest(QObject *parent)

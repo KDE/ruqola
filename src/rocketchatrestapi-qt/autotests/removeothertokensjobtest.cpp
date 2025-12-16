@@ -7,10 +7,12 @@
 #include "removeothertokensjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/removeothertokensjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
 QTEST_GUILESS_MAIN(RemoveOtherTokensJobTest)
 using namespace RocketChatRestApi;
 RemoveOtherTokensJobTest::RemoveOtherTokensJobTest(QObject *parent)

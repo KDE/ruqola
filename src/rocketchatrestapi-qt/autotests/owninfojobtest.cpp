@@ -9,8 +9,10 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "misc/owninfojob.h"
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(OwnInfoJobTest)
 using namespace RocketChatRestApi;
 OwnInfoJobTest::OwnInfoJobTest(QObject *parent)

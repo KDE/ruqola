@@ -7,9 +7,11 @@
 #include "teamsinfojobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "teams/teaminfojob.h"
 #include <QTest>
+
 QTEST_GUILESS_MAIN(TeamsInfoJobTest)
 using namespace RocketChatRestApi;
 TeamsInfoJobTest::TeamsInfoJobTest(QObject *parent)
