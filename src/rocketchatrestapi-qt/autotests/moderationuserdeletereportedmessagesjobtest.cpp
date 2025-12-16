@@ -13,7 +13,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 #include <QJsonDocument>
-#include <QTest>
 
 QTEST_GUILESS_MAIN(ModerationUserDeleteReportedMessagesJobTest)
 using namespace RocketChatRestApi;

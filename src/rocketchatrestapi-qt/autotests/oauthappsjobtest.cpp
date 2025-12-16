@@ -13,8 +13,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 
-#include <QTest>
-
 QTEST_GUILESS_MAIN(OauthAppsJobTest)
 using namespace RocketChatRestApi;
 OauthAppsJobTest::OauthAppsJobTest(QObject *parent)
