@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include <QWidget>
-
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class RocketChatAccount;

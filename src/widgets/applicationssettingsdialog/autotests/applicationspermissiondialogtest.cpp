@@ -11,7 +11,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QDialogButtonBox>
 #include <QStandardPaths>
-#include <QTest>
 #include <QVBoxLayout>
 
 #include <QTest>

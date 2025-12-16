@@ -5,8 +5,6 @@
 */
 #pragma once
 
-#include <QSortFilterProxyModel>
-
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
 
