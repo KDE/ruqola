@@ -9,7 +9,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 
 #include "users/setstatusjob.h"
 #include <QJsonDocument>

@@ -6,6 +6,7 @@
 #pragma once
 #include "librocketchatrestapi-qt_export.h"
 #include <QMap>
+#include <QMetaType>
 #include <QString>
 
 class QUrlQuery;

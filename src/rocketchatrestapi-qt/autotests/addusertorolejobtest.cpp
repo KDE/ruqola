@@ -11,7 +11,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "role/addusertorolejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 
 #include <QJsonDocument>
 #include <QTest>

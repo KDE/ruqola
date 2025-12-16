@@ -9,7 +9,6 @@
 #include "invite/findorcreateinvitejob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 
 #include <QJsonDocument>
 #include <QJsonObject>

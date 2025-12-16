@@ -10,7 +10,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "role/removeuserfromrolejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 
 #include <QJsonDocument>
 #include <QTest>

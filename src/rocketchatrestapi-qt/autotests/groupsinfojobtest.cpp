@@ -11,7 +11,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "groups/groupsinfojob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 
 #include <QTest>
 

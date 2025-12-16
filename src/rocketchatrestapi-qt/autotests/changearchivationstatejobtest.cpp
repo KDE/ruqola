@@ -11,7 +11,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "rooms/changearchivationstatejob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 
 #include <QJsonDocument>
 #include <QTest>
