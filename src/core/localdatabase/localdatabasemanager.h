@@ -9,11 +9,11 @@
 #include "accountroomsettings.h"
 #include "globaldatabase.h"
 #include "libruqolacore_export.h"
-#include "messages/message.h"
 #include <QList>
 #include <QMap>
 #include <QString>
 #include <memory>
+class EmojiManager;
 class LocalMessageLogger;
 class LocalMessagesDatabase;
 class LocalRoomsDatabase;
