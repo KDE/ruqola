@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "authentication/twitterauthjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(TwitterAuthJobTest)
 using namespace RocketChatRestApi;
 TwitterAuthJobTest::TwitterAuthJobTest(QObject *parent)

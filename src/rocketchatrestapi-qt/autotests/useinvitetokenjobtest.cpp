@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "invite/useinvitetokenjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UseInviteTokenJobTest)
 using namespace RocketChatRestApi;
 UseInviteTokenJobTest::UseInviteTokenJobTest(QObject *parent)

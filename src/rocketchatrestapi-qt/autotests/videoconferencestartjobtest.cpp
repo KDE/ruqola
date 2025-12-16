@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 #include "video-conference/videoconferencestartjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(VideoConferenceStartJobTest)
 using namespace RocketChatRestApi;
 VideoConferenceStartJobTest::VideoConferenceStartJobTest(QObject *parent)

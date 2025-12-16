@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "chat/ignoreuserjob.h"
 
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(IgnoreUserJobTest)
 using namespace RocketChatRestApi;
 IgnoreUserJobTest::IgnoreUserJobTest(QObject *parent)

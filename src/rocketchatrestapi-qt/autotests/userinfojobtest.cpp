@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_restapi_helper.h"
 #include "users/userinfojob.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(UserInfoJobTest)
 using namespace RocketChatRestApi;
 UserInfoJobTest::UserInfoJobTest(QObject *parent)

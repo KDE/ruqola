@@ -1,6 +1,20 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
+add_library(rocketchatrestapiqthelper STATIC)
+target_sources(
+    rocketchatrestapiqthelper
+    PRIVATE
+        ruqola_restapi_helper.cpp
+        ruqola_restapi_helper.h
+)
+target_link_libraries(
+    rocketchatrestapiqthelper
+    Qt::Test
+    librocketchatrestapi-qt
+    Qt::Core
+)
+
 if(ENABLE_PCH)
     file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp "/*empty file*/")
     file(
@@ -30,7 +44,6 @@ macro(add_rocketchatrestapi_test _source)
         ${_name}
         ${_test}
         ${_name}.h
-        ruqola_restapi_helper.h
     )
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
@@ -41,6 +54,7 @@ macro(add_rocketchatrestapi_test _source)
         ${_name}
         Qt::Test
         librocketchatrestapi-qt
+        rocketchatrestapiqthelper
     )
     set_target_properties(
         ${_name}

@@ -5,11 +5,13 @@
 */
 
 #include "channelclosejobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelclosejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ChannelCloseJobTest)
 using namespace RocketChatRestApi;
 ChannelCloseJobTest::ChannelCloseJobTest(QObject *parent)

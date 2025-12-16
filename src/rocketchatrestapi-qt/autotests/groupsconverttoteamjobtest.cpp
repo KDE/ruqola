@@ -5,11 +5,13 @@
 */
 
 #include "groupsconverttoteamjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_restapi_helper.h"
 #include "teams/groupsconverttoteamjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(GroupsConvertToTeamJobTest)
 using namespace RocketChatRestApi;
 GroupsConvertToTeamJobTest::GroupsConvertToTeamJobTest(QObject *parent)

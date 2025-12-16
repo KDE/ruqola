@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 #include "users/usersupdateownbasicinfojob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UsersUpdateOwnBasicInfoJobTest)
 using namespace RocketChatRestApi;
 UsersUpdateOwnBasicInfoJobTest::UsersUpdateOwnBasicInfoJobTest(QObject *parent)

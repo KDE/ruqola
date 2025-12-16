@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "misc/stdoutqueuejob.h"
 
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(StdoutQueueJobTest)
 using namespace RocketChatRestApi;
 StdoutQueueJobTest::StdoutQueueJobTest(QObject *parent)

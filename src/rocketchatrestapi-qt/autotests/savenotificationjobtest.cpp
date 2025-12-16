@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "rooms/savenotificationjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(SaveNotificationJobTest)
 using namespace RocketChatRestApi;
 SaveNotificationJobTest::SaveNotificationJobTest(QObject *parent)

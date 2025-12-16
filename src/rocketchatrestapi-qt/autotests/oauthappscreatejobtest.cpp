@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "misc/oauthappscreatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(OauthAppsCreateJobTest)
 using namespace RocketChatRestApi;
 OauthAppsCreateJobTest::OauthAppsCreateJobTest(QObject *parent)

@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "rooms/roomstartdiscussionjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RoomStartDiscussionJobTest)
 using namespace RocketChatRestApi;
 RoomStartDiscussionJobTest::RoomStartDiscussionJobTest(QObject *parent)

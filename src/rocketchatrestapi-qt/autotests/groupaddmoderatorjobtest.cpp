@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "groups/groupaddmoderatorjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(GroupAddModeratorJobTest)
 using namespace RocketChatRestApi;
 GroupAddModeratorJobTest::GroupAddModeratorJobTest(QObject *parent)

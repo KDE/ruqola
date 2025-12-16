@@ -5,11 +5,13 @@
 */
 
 #include "leavegroupsjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/leavegroupsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(LeaveGroupsJobTest)
 using namespace RocketChatRestApi;
 LeaveGroupsJobTest::LeaveGroupsJobTest(QObject *parent)

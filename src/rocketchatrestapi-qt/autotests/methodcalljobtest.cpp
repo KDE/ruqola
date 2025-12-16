@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "misc/methodcalljob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(MethodCallJobTest)
 using namespace RocketChatRestApi;
 MethodCallJobTest::MethodCallJobTest(QObject *parent)

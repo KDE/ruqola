@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_restapi_helper.h"
 #include "teams/teamslistroomsjob.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(TeamsListRoomsJobTest)
 using namespace RocketChatRestApi;
 TeamsListRoomsJobTest::TeamsListRoomsJobTest(QObject *parent)

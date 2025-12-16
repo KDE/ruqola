@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "autotranslate/translatemessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(TranslateMessageJobTest)
 using namespace RocketChatRestApi;
 TranslateMessageJobTest::TranslateMessageJobTest(QObject *parent)

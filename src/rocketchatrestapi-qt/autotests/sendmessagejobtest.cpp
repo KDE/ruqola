@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "chat/sendmessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(SendMessageJobTest)
 using namespace RocketChatRestApi;
 SendMessageJobTest::SendMessageJobTest(QObject *parent)

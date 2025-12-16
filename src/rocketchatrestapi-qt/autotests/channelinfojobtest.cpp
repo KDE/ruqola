@@ -5,10 +5,12 @@
 */
 
 #include "channelinfojobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelinfojob.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(ChannelInfoJobTest)
 using namespace RocketChatRestApi;
 ChannelInfoJobTest::ChannelInfoJobTest(QObject *parent)

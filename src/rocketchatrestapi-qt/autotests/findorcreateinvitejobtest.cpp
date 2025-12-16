@@ -7,10 +7,12 @@
 #include "findorcreateinvitejobtest.h"
 
 #include "invite/findorcreateinvitejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <QTest>
 
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(FindOrCreateInviteJobTest)

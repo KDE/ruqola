@@ -5,11 +5,13 @@
 */
 
 #include "customuserstatusupdatetestjob.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "custom/customuserstatusupdatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(CustomUserStatusUpdateTestJob)
 using namespace RocketChatRestApi;
 CustomUserStatusUpdateTestJob::CustomUserStatusUpdateTestJob(QObject *parent)

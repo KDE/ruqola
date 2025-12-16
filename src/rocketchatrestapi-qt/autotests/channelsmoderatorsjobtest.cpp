@@ -5,10 +5,12 @@
 */
 
 #include "channelsmoderatorsjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelsmoderatorsjob.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(ChannelsModeratorsJobTest)
 using namespace RocketChatRestApi;
 ChannelsModeratorsJobTest::ChannelsModeratorsJobTest(QObject *parent)

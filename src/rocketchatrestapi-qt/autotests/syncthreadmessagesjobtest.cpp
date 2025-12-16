@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "chat/syncthreadmessagesjob.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(SyncThreadMessagesJobTest)
 using namespace RocketChatRestApi;
 SyncThreadMessagesJobTest::SyncThreadMessagesJobTest(QObject *parent)

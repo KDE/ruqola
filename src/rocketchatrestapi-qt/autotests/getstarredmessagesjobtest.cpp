@@ -5,10 +5,12 @@
 */
 
 #include "getstarredmessagesjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/getstarredmessagesjob.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(GetStarredMessagesJobTest)
 using namespace RocketChatRestApi;
 GetStarredMessagesJobTest::GetStarredMessagesJobTest(QObject *parent)

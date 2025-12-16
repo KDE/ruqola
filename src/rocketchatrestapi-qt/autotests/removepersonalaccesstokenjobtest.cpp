@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "personalaccesstoken/removepersonalaccesstokenjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RemovePersonalAccessTokenJobTest)
 using namespace RocketChatRestApi;
 RemovePersonalAccessTokenJobTest::RemovePersonalAccessTokenJobTest(QObject *parent)

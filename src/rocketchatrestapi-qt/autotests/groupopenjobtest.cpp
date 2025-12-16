@@ -5,11 +5,13 @@
 */
 
 #include "groupopenjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupopenjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(GroupOpenJobTest)
 using namespace RocketChatRestApi;
 GroupOpenJobTest::GroupOpenJobTest(QObject *parent)

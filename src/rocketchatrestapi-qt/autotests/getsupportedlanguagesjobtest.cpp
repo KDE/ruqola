@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "autotranslate/getsupportedlanguagesjob.h"
 
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(GetSupportedLanguagesJobTest)
 using namespace RocketChatRestApi;
 GetSupportedLanguagesJobTest::GetSupportedLanguagesJobTest(QObject *parent)

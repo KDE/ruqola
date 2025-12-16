@@ -5,11 +5,13 @@
 */
 
 #include "channelsconverttoteamjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_restapi_helper.h"
 #include "teams/channelsconverttoteamjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ChannelsConvertToTeamJobTest)
 using namespace RocketChatRestApi;
 ChannelsConvertToTeamJobTest::ChannelsConvertToTeamJobTest(QObject *parent)

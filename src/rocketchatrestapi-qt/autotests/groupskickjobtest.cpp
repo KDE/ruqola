@@ -5,11 +5,13 @@
 */
 
 #include "groupskickjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupskickjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(GroupsKickJobTest)
 using namespace RocketChatRestApi;
 GroupsKickJobTest::GroupsKickJobTest(QObject *parent)

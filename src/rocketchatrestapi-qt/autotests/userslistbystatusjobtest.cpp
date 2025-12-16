@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_restapi_helper.h"
 #include "users/userslistbystatusjob.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(UsersListByStatusJobTest)
 using namespace RocketChatRestApi;
 UsersListByStatusJobTest::UsersListByStatusJobTest(QObject *parent)

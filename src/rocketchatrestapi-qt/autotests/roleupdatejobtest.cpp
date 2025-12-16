@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "role/roleupdatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RoleUpdateJobTest)
 using namespace RocketChatRestApi;
 RoleUpdateJobTest::RoleUpdateJobTest(QObject *parent)

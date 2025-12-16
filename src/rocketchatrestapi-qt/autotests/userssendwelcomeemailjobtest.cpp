@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 #include "users/userssendwelcomeemailjob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(UsersSendWelcomeEmailJobTest)
 using namespace RocketChatRestApi;
 UsersSendWelcomeEmailJobTest::UsersSendWelcomeEmailJobTest(QObject *parent)

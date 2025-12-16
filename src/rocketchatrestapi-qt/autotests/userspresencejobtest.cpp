@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_restapi_helper.h"
 #include "users/userspresencejob.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(UsersPresenceJobTest)
 using namespace RocketChatRestApi;
 UsersPresenceJobTest::UsersPresenceJobTest(QObject *parent)

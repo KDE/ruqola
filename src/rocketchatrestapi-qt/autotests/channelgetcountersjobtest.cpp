@@ -5,11 +5,13 @@
 */
 
 #include "channelgetcountersjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelgetcountersjob.h"
 
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(ChannelGetCountersJobTest)
 using namespace RocketChatRestApi;
 ChannelGetCountersJobTest::ChannelGetCountersJobTest(QObject *parent)

@@ -5,11 +5,13 @@
 */
 
 #include "deletemessagejobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/deletemessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(DeleteMessageJobTest)
 using namespace RocketChatRestApi;
 DeleteMessageJobTest::DeleteMessageJobTest(QObject *parent)

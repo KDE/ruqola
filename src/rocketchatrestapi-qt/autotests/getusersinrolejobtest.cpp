@@ -38,7 +38,7 @@ void GetUsersInRoleJobTest::shouldGenerateRequest()
     job.setRestApiMethod(&method);
     const QString roleId{u"bla"_s};
     job.setRoleId(roleId);
-    QNetworkRequest request = job.request();
+    const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/roles.getUsersInRole?role=%1"_s.arg(roleId)));
 }
 

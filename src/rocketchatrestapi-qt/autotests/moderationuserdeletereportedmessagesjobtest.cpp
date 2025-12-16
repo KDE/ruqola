@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "moderation/moderationuserdeletereportedmessagesjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(ModerationUserDeleteReportedMessagesJobTest)
 using namespace RocketChatRestApi;
 ModerationUserDeleteReportedMessagesJobTest::ModerationUserDeleteReportedMessagesJobTest(QObject *parent)

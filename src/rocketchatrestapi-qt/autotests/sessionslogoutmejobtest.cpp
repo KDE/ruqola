@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 #include "sessions/sessionslogoutmejob.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(SessionsLogoutMeJobTest)
 using namespace RocketChatRestApi;
 SessionsLogoutMeJobTest::SessionsLogoutMeJobTest(QObject *parent)

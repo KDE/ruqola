@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "rooms/roomsunmuteuserjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
 QTEST_GUILESS_MAIN(RoomsUnmuteUserJobTest)
 using namespace RocketChatRestApi;
 RoomsUnmuteUserJobTest::RoomsUnmuteUserJobTest(QObject *parent)

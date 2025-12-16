@@ -5,11 +5,14 @@
 */
 
 #include "appsuiinteractionjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "misc/appsuiinteractionjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
+#include <QTest>
+
 QTEST_GUILESS_MAIN(AppsUiInteractionJobTest)
 using namespace RocketChatRestApi;
 AppsUiInteractionJobTest::AppsUiInteractionJobTest(QObject *parent)

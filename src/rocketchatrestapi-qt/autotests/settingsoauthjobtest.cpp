@@ -10,6 +10,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "misc/settingsoauthjob.h"
 
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(SettingsOauthJobTest)
 using namespace RocketChatRestApi;
 SettingsOauthJobTest::SettingsOauthJobTest(QObject *parent)

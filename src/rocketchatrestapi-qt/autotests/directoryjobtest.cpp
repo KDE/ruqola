@@ -5,11 +5,13 @@
 */
 
 #include "directoryjobtest.h"
+#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "misc/directoryjob.h"
 
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(DirectoryJobTest)
 using namespace RocketChatRestApi;
 DirectoryJobTest::DirectoryJobTest(QObject *parent)
