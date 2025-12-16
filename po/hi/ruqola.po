@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-12 00:42+0000\n"
+"POT-Creation-Date: 2025-12-16 06:51+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -695,8 +695,8 @@ msgstr "कोई नहीं"
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
 #: widgets/dialogs/showvideowidget.cpp:124
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Default"
 msgstr "गलती करना"
@@ -1225,7 +1225,7 @@ msgstr "भूमिका"
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #, kde-format
 msgid "Disabled"
 msgstr "अक्षम"
@@ -1330,7 +1330,7 @@ msgstr "चैनल प्रकार"
 msgid "Belongs To"
 msgstr "से संबंधित"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:608
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1367,17 +1367,17 @@ msgstr "कोई परिणाम नहीं मिला."
 msgid "Notify active users in this room"
 msgstr "इस कमरे में सक्रिय उपयोगकर्ताओं को सूचित करें"
 
-#: core/model/messagesmodel.cpp:266
+#: core/model/messagesmodel.cpp:267
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%1 पर %2 द्वारा संपादित"
 
-#: core/model/messagesmodel.cpp:422
+#: core/model/messagesmodel.cpp:423
 #, kde-format
 msgid "Ignored Message"
 msgstr "अनदेखा किया गया संदेश"
 
-#: core/model/messagesmodel.cpp:431
+#: core/model/messagesmodel.cpp:432
 #, kde-format
 msgid "Only you can see this message"
 msgstr "यह संदेश केवल आप ही देख सकते हैं"
@@ -1419,19 +1419,19 @@ msgstr[0] "%1 सेकंड"
 msgstr[1] "%1 सेकंड"
 
 #: core/model/notificationpreferencemodel.cpp:54
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:243
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
 #, kde-format
 msgid "All Messages"
 msgstr "सभी संदेश"
 
 #: core/model/notificationpreferencemodel.cpp:60
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
 #, kde-format
 msgid "Mentions"
 msgstr "का उल्लेख है"
 
 #: core/model/notificationpreferencemodel.cpp:66
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "Nothing"
 msgstr "कुछ नहीं"
@@ -1468,80 +1468,80 @@ msgstr "दो कारक प्रमाणीकरण"
 msgid "Last token part"
 msgstr "अंतिम टोकन भाग"
 
-#: core/model/roommodel.cpp:538
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 उल्लेख"
 msgstr[1] "%1 उल्लेख"
 
-#: core/model/roommodel.cpp:542
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 समूह उल्लेख"
 msgstr[1] "%1 समूह उल्लेख"
 
-#: core/model/roommodel.cpp:546
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 अपठित थ्रेडेड संदेश"
 msgstr[1] "%1 अपठित थ्रेडेड संदेश"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 अपठित संदेश"
 msgstr[1] "%1 अपठित संदेश"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:577
 #, kde-format
 msgid "Teams Room"
 msgstr "टीम रूम"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Private Room"
 msgstr "निजी कमरा"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Discussion Room"
 msgstr "चर्चा कक्ष"
 
-#: core/model/roommodel.cpp:588
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Channel Room"
 msgstr "चैनल रूम"
 
-#: core/model/roommodel.cpp:602 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "अपठित ग"
 
-#: core/model/roommodel.cpp:604
+#: core/model/roommodel.cpp:605
 #, kde-format
 msgid "Favorites"
 msgstr "पसंदीदा"
 
-#: core/model/roommodel.cpp:606
+#: core/model/roommodel.cpp:607
 #, kde-format
 msgid "Teams"
 msgstr "टीमें"
 
-#: core/model/roommodel.cpp:610
+#: core/model/roommodel.cpp:611
 #, kde-format
 msgid "Discussions"
 msgstr "चर्चाएँ"
 
-#: core/model/roommodel.cpp:612
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "Private Messages"
 msgstr "निजी संदेश"
 
-#: core/model/roommodel.cpp:614 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -1736,12 +1736,12 @@ msgstr "इस टीम में शामिल हुए"
 msgid "(Autojoin)"
 msgstr "(ऑटोज्वाइन)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1158
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1159
 #, kde-format
 msgid "Owner"
 msgstr "मालिक"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:94 core/utils.cpp:359
+#: core/model/usersmodel.cpp:77 core/utils.cpp:95 core/utils.cpp:360
 #, kde-format
 msgid "Offline"
 msgstr "ऑफलाइन"
@@ -1817,7 +1817,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:690
+#: core/rocketchataccount.cpp:694
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1826,12 +1826,12 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:698 core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:702 core/rocketchataccount.cpp:715
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:709
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
@@ -1846,27 +1846,27 @@ msgstr "खाता जोड़ा गया"
 msgid "A new account was added."
 msgstr "एक नया खाता जोड़ा गया."
 
-#: core/room.cpp:1161
+#: core/room.cpp:1162
 #, kde-format
 msgid "Leader"
 msgstr "नेता"
 
-#: core/room.cpp:1164
+#: core/room.cpp:1165
 #, kde-format
 msgid "Moderator"
 msgstr "मध्यस्थ"
 
-#: core/room.cpp:1554
+#: core/room.cpp:1555
 #, kde-format
 msgid "Channel is read only."
 msgstr "चैनल केवल पढ़ने के लिए है."
 
-#: core/room.cpp:1557
+#: core/room.cpp:1558
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "आपने इस चैनल को ब्लॉक कर दिया है।"
 
-#: core/room.cpp:1560
+#: core/room.cpp:1561
 #, kde-format
 msgid "Channel was blocked."
 msgstr "चैनल अवरुद्ध कर दिया गया."
@@ -1984,17 +1984,17 @@ msgstr "प्रशासक"
 msgid "Bot"
 msgstr "बीओटी"
 
-#: core/utils.cpp:88 core/utils.cpp:353
+#: core/utils.cpp:89 core/utils.cpp:354
 #, kde-format
 msgid "Online"
 msgstr "ऑनलाइन"
 
-#: core/utils.cpp:90 core/utils.cpp:355 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "व्यस्त"
 
-#: core/utils.cpp:92 core/utils.cpp:357 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:93 core/utils.cpp:358 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "दूर"
@@ -2054,14 +2054,14 @@ msgstr "लॉगिन पासवर्ड"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:38
 #: widgets/common/authenticationloginwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:46
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:47
 #, kde-format
 msgid "Server URL:"
 msgstr "सर्वर यूआरएल:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:39
 #: widgets/common/authenticationloginwidget.cpp:41
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:36
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:37
 #, kde-format
 msgid "Account name:"
 msgstr "खाता नाम:"
@@ -2077,7 +2077,7 @@ msgid "Token:"
 msgstr "टोकन:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:68
+#: widgets/myaccount/myaccountconfigurewidget.cpp:69
 #, kde-format
 msgid "Personal Access Token"
 msgstr "व्यक्तिगत एक्सेस टोकन"
@@ -2087,17 +2087,17 @@ msgstr "व्यक्तिगत एक्सेस टोकन"
 msgid "Share Text…"
 msgstr "पाठ साझा करें…"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:64
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:66
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "दस्तावेज़ साझा करने में समस्या हुई: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:68
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "File was shared."
 msgstr "फ़ाइल साझा की गई."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>आप नया अनुरोध यहां पा सकते हैं:<br /> <a href='%1'>%1</a></qt>"
@@ -2153,472 +2153,472 @@ msgid_plural "%v seconds"
 msgstr[0] "%1 सेकंड"
 msgstr[1] "%1 सेकंड"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "अमान्य मापदण्ड"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:107
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
 msgstr "प्रदान किया गया आवश्यक '%1' पैरामीटर किसी भी चैनल से मेल नहीं खाता"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:110
 #, kde-format
 msgid "The room required a password."
 msgstr "कमरे के लिए पासवर्ड की आवश्यकता थी।"
 
-#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
+#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:51
 #, kde-format
 msgid "Get Members not authorized in this room"
 msgstr "इस कमरे में अधिकृत नहीं सदस्यों को प्राप्त करें"
 
-#: rocketchatrestapi-qt/channels/channelopenjob.cpp:78
+#: rocketchatrestapi-qt/channels/channelopenjob.cpp:79
 #, kde-format
 msgid "The required channel is not found."
 msgstr "आवश्यक चैनल नहीं मिला."
 
-#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:101
+#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:103
 #, kde-format
 msgid "User is not a moderator."
 msgstr "उपयोगकर्ता मॉडरेटर नहीं है."
 
-#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:101
+#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:103
 #, kde-format
 msgid "User is not an owner."
 msgstr "उपयोगकर्ता स्वामी नहीं है."
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:61
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "'%1' नाम वाला एक चैनल मौजूद है"
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:64
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:65
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:66
 #, kde-format
 msgid "'%1' is not a valid room name"
 msgstr "'%1' मान्य कक्ष नाम नहीं है"
 
-#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:80
-#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:66
+#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:81
+#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:68
 #, kde-format
 msgid "Extract Roles"
 msgstr "भूमिकाएँ निकालें"
 
-#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:116
+#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:118
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "संदेश हटाने की अनुमति नहीं है."
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
 #, kde-format
 msgid "Not allowed to get message %1"
 msgstr "संदेश %1 प्राप्त करने की अनुमति नहीं है"
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:107
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
 msgstr "कक्ष %1 में संदेश %2 प्राप्त करने की अनुमति नहीं है"
 
-#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:93
+#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:95
 #, kde-format
 msgid "Invalid message: '%1'"
 msgstr "अमान्य संदेश: '%1'"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
 #, kde-format
 msgid "This room is blocked"
 msgstr "यह कमरा अवरुद्ध है"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "आपको म्यूट कर दिया गया है और आप इस कमरे में बात नहीं कर सकते"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:136
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:138
 #, kde-format
 msgid "Invalid channel"
 msgstr "अमान्य चैनल"
 
-#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:124
+#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:125
 #, kde-format
 msgid "Invalid emoji provided."
 msgstr "अमान्य इमोजी प्रदान किया गया."
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:38
-#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:39
-#: rocketchatrestapi-qt/uploadfilejob.cpp:56
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:43
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:40
+#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:41
+#: rocketchatrestapi-qt/uploadfilejob.cpp:58
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:45
 #, kde-format
 msgid "File not found '%1'"
 msgstr "फ़ाइल '%1' नहीं मिली"
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:140
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
 msgstr "कस्टम इमोजी या उसका कोई उपनाम पहले से ही उपयोग में है."
 
-#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:46
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:401
+#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:48
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
 msgstr "यह अंतिम स्वामी है। कृपया इसे हटाने से पहले नया स्वामी निर्धारित करें।"
 
-#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:138
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:140
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "इस चैनल में लिंक उत्पन्न करना अधिकृत नहीं है."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:215
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:218
 #, kde-format
 msgid "Unauthorized"
 msgstr "अनधिकृत"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:233
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:244
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "'%1' की अनुमति नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:246
 #, kde-format
 msgid "Application not found"
 msgstr "अनुप्रयोग नहीं मिला"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:246
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr "'%1' नाम से एक संग्रहीत चैनल है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:248
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
 msgid "Can't invite user to direct rooms"
 msgstr "उपयोगकर्ता को डायरेक्ट रूम में आमंत्रित नहीं किया जा सकता"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:250
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr "चैनल की डिफ़ॉल्ट सेटिंग वही है जिसमें इसे बदला जाएगा।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:252
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
 #, kde-format
 msgid "The bodyParam 'default' is required"
 msgstr "bodyParam 'डिफ़ॉल्ट' आवश्यक है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:254
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
 #, kde-format
 msgid "Could not change email"
 msgstr "ईमेल बदला नहीं जा सका"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:256
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
 msgid "Could not change name"
 msgstr "नाम नहीं बदला जा सका"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:258
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:261
 #, kde-format
 msgid "Could not change username"
 msgstr "उपयोगकर्ता नाम बदला नहीं जा सका"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:260
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:263
 #, kde-format
 msgid "Cannot delete a protected role"
 msgstr "संरक्षित भूमिका को हटाया नहीं जा सकता"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:265
 #, kde-format
 msgid "Department not found"
 msgstr "विभाग नहीं मिला"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 #, kde-format
 msgid "File sharing not allowed in direct messages"
 msgstr "प्रत्यक्ष संदेशों में फ़ाइल साझा करने की अनुमति नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
 msgid "Editing permissions is not allowed"
 msgstr "संपादन की अनुमति नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
 msgid "The email domain is blacklisted"
 msgstr "ईमेल डोमेन को ब्लैकलिस्ट कर दिया गया है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr "ईमेल भेजने का प्रयास करते समय त्रुटि: %1"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr "'%1' पहले से ही उपयोग में है :("
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
 msgid "File is too large"
 msgstr "फ़ाइल बहुत बड़ी है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
 #, kde-format
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "आयातक को सही ढंग से परिभाषित नहीं किया गया था, इसमें आयात वर्ग गायब है।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
 msgid "Failed to extract import file."
 msgstr "आयात फ़ाइल निकालने में विफल."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 #, kde-format
 msgid "Imported file seems to be empty."
 msgstr "आयातित फ़ाइल रिक्त प्रतीत होती है."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
 msgstr "आयात की जाने वाली फ़ाइल निर्दिष्ट पथ पर नहीं मिली."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr "%1 वैध %2 नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 #, kde-format
 msgid "Invalid action link"
 msgstr "अमान्य कार्रवाई लिंक"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 #, kde-format
 msgid "Invalid Account"
 msgstr "अवैध खाता"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 #, kde-format
 msgid "Invalid arguments"
 msgstr "अमान्य तर्क"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 #, kde-format
 msgid "Invalid asset"
 msgstr "अमान्य संपत्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 #, kde-format
 msgid "Invalid channel."
 msgstr "अमान्य चैनल."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
 msgstr "अमान्य चैनल. @ या # से शुरू करें"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
 #, kde-format
 msgid "Invalid custom field"
 msgstr "अमान्य कस्टम फ़ील्ड"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
 #, kde-format
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
 "underscores."
 msgstr "अमान्य कस्टम फ़ील्ड नाम. केवल अक्षर, संख्या, हाइफ़न और अंडरस्कोर का उपयोग करें."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
 #, kde-format
 msgid "Invalid date provided."
 msgstr "अमान्य तारीख प्रदान की गई."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
 #, kde-format
 msgid "Invalid description"
 msgstr "अमान्य विवरण"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
 #, kde-format
 msgid "Invalid domain"
 msgstr "अमान्य डोमेन"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 #, kde-format
 msgid "Invalid email '%1'"
 msgstr "अमान्य ईमेल '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 #, kde-format
 msgid "Invalid email address"
 msgstr "अमान्य ईमेल पता"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid file height"
 msgstr "फ़ाइल की ऊंचाई अमान्य है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 #, kde-format
 msgid "Invalid file type"
 msgstr "अमान्य फ़ाइल प्रकार"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 #, kde-format
 msgid "Invalid file width"
 msgstr "फ़ाइल की चौड़ाई अमान्य है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 #, kde-format
 msgid "You informed an invalid FROM address."
 msgstr "आपने एक अमान्य FROM पता सूचित किया है।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 #, kde-format
 msgid "Invalid integration"
 msgstr "अमान्य एकीकरण"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 #, kde-format
 msgid "Invalid message"
 msgstr "अमान्य संदेश"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 #, kde-format
 msgid "Invalid method"
 msgstr "अमान्य विधि"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 #, kde-format
 msgid "Invalid name"
 msgstr "अमान्य नाम"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
 #, kde-format
 msgid "Invalid password"
 msgstr "अवैध पासवर्ड"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
 #, kde-format
 msgid "Invalid permission"
 msgstr "अमान्य अनुमति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
 #, kde-format
 msgid "Invalid redirectUri"
 msgstr "अमान्य रीडायरेक्टयूरी"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
 msgid "Invalid role"
 msgstr "अमान्य भूमिका"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:174
 #, kde-format
 msgid "Invalid room"
 msgstr "अमान्य कमरा"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "'%1' वैध कक्ष प्रकार नहीं है."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
 #, kde-format
 msgid "Invalid settings provided"
 msgstr "अमान्य सेटिंग प्रदान की गई"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 #, kde-format
 msgid "Invalid subscription"
 msgstr "अमान्य सदस्यता"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
 #, kde-format
 msgid "Invalid token"
 msgstr "अमान्य टोकन"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 #, kde-format
 msgid "Invalid triggerWords"
 msgstr "अमान्य ट्रिगर शब्द"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 #, kde-format
 msgid "Invalid URLs"
 msgstr "अमान्य URL"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 #, kde-format
 msgid "Invalid user"
 msgstr "अमान्य उपयोगकर्ता"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
 #, kde-format
 msgid "Invalid username"
 msgstr "अमान्य उपयोगकर्ता नाम"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
 msgstr "वेबहुक URL ने 200 के अलावा किसी अन्य स्थिति के साथ प्रतिक्रिया दी"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:368
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
 #, kde-format
 msgid "Message deleting is blocked"
 msgstr "संदेश हटाना अवरुद्ध है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:370
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
 #, kde-format
 msgid "Message editing is blocked"
 msgstr "संदेश संपादन अवरुद्ध है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:372
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:375
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "संदेश का आकार Message_MaxAllowedSize से अधिक है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:374
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:377
 #, kde-format
 msgid "You must provide the [unsubscribe] link."
 msgstr "आपको [सदस्यता समाप्त] लिंक प्रदान करना होगा."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:376
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:379
 #, kde-format
 msgid "There are no tokens for this user"
 msgstr "इस उपयोगकर्ता के लिए कोई टोकन नहीं हैं"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
 #, kde-format
 msgid "Not allowed"
 msgstr "अनुमति नहीं"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, kde-format
 msgid "Not authorized"
 msgstr "अधिकृत नहीं हैं"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
 #, kde-format
 msgid "Password does not meet the server's policy"
 msgstr "पासवर्ड सर्वर की नीति के अनुरूप नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
 "long)"
 msgstr "पासवर्ड सर्वर की अधिकतम लंबाई की नीति को पूरा नहीं करता (पासवर्ड बहुत लंबा है)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
@@ -2626,34 +2626,34 @@ msgid ""
 msgstr ""
 "पासवर्ड सर्वर की न्यूनतम लंबाई की नीति को पूरा नहीं करता है (पासवर्ड बहुत छोटा है)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
 msgstr "पासवर्ड सर्वर की कम से कम एक लोअरकेस अक्षर की नीति को पूरा नहीं करता है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:393
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
 msgstr "पासवर्ड सर्वर की कम से कम एक संख्यात्मक वर्ण की नीति को पूरा नहीं करता है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:395
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr "पासवर्ड सर्वर की कम से कम एक विशेष वर्ण की नीति को पूरा नहीं करता है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:397
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
 msgstr "पासवर्ड सर्वर की कम से कम एक अपरकेस अक्षर की नीति को पूरा नहीं करता है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:397
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
@@ -2662,52 +2662,52 @@ msgstr ""
 "पासवर्ड सर्वर की निषिद्ध दोहराए जाने वाले वर्णों की नीति को पूरा नहीं करता है (आपके पास "
 "एक दूसरे के बगल में बहुत सारे समान वर्ण हैं)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:399
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
 #, kde-format
 msgid "Push is disabled"
 msgstr "पुश अक्षम है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:403
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:406
 #, kde-format
 msgid "Cannot delete role because it's in use"
 msgstr "भूमिका हटाई नहीं जा सकती क्योंकि वह उपयोग में है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:405
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:408
 #, kde-format
 msgid "Role name is required"
 msgstr "भूमिका नाम आवश्यक है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
 #, kde-format
 msgid "Room is not closed"
 msgstr "कमरा बंद नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "फ़ील्ड '%1' आवश्यक है."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:412
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:415
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "यह कोई लाइवचैट रूम नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:414
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:417
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "व्यक्तिगत एक्सेस टोकन वर्तमान में अक्षम हैं"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "इस नाम का एक टोकन पहले से मौजूद है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
 #, kde-format
 msgid "Token does not exists"
 msgstr "टोकन मौजूद नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2716,17 +2716,17 @@ msgstr ""
 "त्रुटि, बहुत अधिक अनुरोध। कृपया धीमा करें। आपको पुनः प्रयास करने से पहले %1 सेकंड प्रतीक्षा "
 "करनी होगी।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:423
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "User has no roles"
 msgstr "उपयोगकर्ता की कोई भूमिका नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:425
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "User is not activated"
 msgstr "उपयोगकर्ता सक्रिय नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:427
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2735,87 +2735,87 @@ msgstr ""
 "आप जिन उपयोगकर्ताओं को #channel_name पर आमंत्रित करने का प्रयास कर रहे हैं उनकी संख्या "
 "व्यवस्थापक द्वारा निर्धारित सीमा से अधिक है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:429
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
 #, kde-format
 msgid "User is not in this room"
 msgstr "उपयोगकर्ता इस कमरे में नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "आप कमरे `%s` में नहीं हैं"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
 #, kde-format
 msgid "User registration is disabled"
 msgstr "उपयोगकर्ता पंजीकरण अक्षम है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "उपयोगकर्ता पंजीकरण केवल गुप्त URL के माध्यम से ही अनुमत है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr "आप अंतिम मालिक हैं। कृपया कमरा छोड़ने से पहले नया मालिक तय करें।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
 #, kde-format
 msgid "The private group is archived"
 msgstr "निजी समूह संग्रहीत है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:444
 #, kde-format
 msgid "User is already an owner"
 msgstr "उपयोगकर्ता पहले से ही स्वामी है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:446
 #, kde-format
 msgid "User is already a leader"
 msgstr "उपयोगकर्ता पहले से ही लीडर है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:448
 #, kde-format
 msgid "User is already a moderator"
 msgstr "उपयोगकर्ता पहले से ही मॉडरेटर है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:450
 #, kde-format
 msgid "Invalid message id"
 msgstr "आमान्य संदेश आईडी"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:452
 #, kde-format
 msgid "User is not a leader"
 msgstr "उपयोगकर्ता नेता नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:454
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "ऐप उपयोगकर्ता को लॉग इन करने की अनुमति नहीं है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:456
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "प्रत्यक्ष संदेश संग्रहीत नहीं किए जा सकते"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:458
 #, kde-format
 msgid "Message not found."
 msgstr "संदेश नहीं मिला."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:460
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "दो प्रमाणीकरण पासवर्ड आवश्यक"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Invalid Password"
 msgstr "अवैध पासवर्ड"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2824,77 +2824,77 @@ msgstr ""
 "प्रदान किया गया आवश्यक \\\"roomId\\\" या \\\"roomName\\\" पैरामीटर किसी भी चैनल "
 "से मेल नहीं खाता"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:466
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "इस नाम वाली एक भूमिका पहले से मौजूद है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:468
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "संदेश पिन नहीं किया जा सका"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:470
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "दर्ज किया गया पासवर्ड पहले भी उपयोग किया जा चुका है"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:472
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "प्रति अतिथि कमरों की अधिकतम संख्या पहुँच गई है।"
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:52
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:53
 #, kde-format
 msgid "This user is not in this role."
 msgstr "यह उपयोगकर्ता इस भूमिका में नहीं है."
 
-#: rocketchatrestapi-qt/role/rolecreatejob.cpp:99
+#: rocketchatrestapi-qt/role/rolecreatejob.cpp:101
 #, kde-format
 msgid "This is an enterprise feature"
 msgstr "यह एक उद्यम सुविधा है"
 
-#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:63
+#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:65
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "अमान्य सदस्यता"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:71
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
 msgstr "केवल समूह या प्रत्यक्ष चैनल ही एन्क्रिप्शन सक्षम कर सकते हैं"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:71
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
 #, kde-format
 msgid "Room does not have retention policy"
 msgstr "कमरे में प्रतिधारण नीति नहीं है"
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
 msgid "Unread message not authorized."
 msgstr "अपठित संदेश अधिकृत नहीं है."
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:66
 #, kde-format
 msgid "There are no messages to mark unread."
 msgstr "अपठित चिह्नित करने के लिए कोई संदेश नहीं है."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:98
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:99
 #, kde-format
 msgid "Channel can not convert to Team."
 msgstr "चैनल को टीम में परिवर्तित नहीं किया जा सकता."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:100
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:101
 #, kde-format
 msgid "Team already exists."
 msgstr "टीम पहले से ही मौजूद है."
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:119
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:121
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr "आपको इस चैनल को टीम में जोड़ने की अनुमति नहीं है"
 
-#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:94
+#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:96
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2903,42 +2903,42 @@ msgstr ""
 "प्रदान किया गया आवश्यक \\\"roomId\\\" या \\\"roomName\\\" पैरामीटर किसी भी टीम "
 "से मेल नहीं खाता"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:77
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:80
 #, kde-format
 msgid "Get Avatar"
 msgstr "अवतार प्राप्त करें"
 
-#: rocketchatrestapi-qt/users/registeruserjob.cpp:72
+#: rocketchatrestapi-qt/users/registeruserjob.cpp:74
 #, kde-format
 msgid "Invalid Email '%1'."
 msgstr "अवैध ईमेल '%1'."
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:112
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:114
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "अमान्य अवतार URL: %1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:116
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:118
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "%2 के लिए URL \"%1\" से अवतार सेटिंग संभालते समय त्रुटि"
 
-#: rocketchatrestapi-qt/users/setstatusjob.cpp:138
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:140
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr "अदृश्य स्थिति अक्षम है"
 
-#: rocketchatrestapi-qt/users/userscreatejob.cpp:94
+#: rocketchatrestapi-qt/users/userscreatejob.cpp:96
 #, kde-format
 msgid "%1 is already in use."
 msgstr "%1 पहले से ही उपयोग में है."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:162
 #, kde-format
 msgid "Invalid parameters"
 msgstr "अमान्य मापदण्ड"
 
-#: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
+#: rocketchatrestapi-qt/users/usersupdatejob.cpp:67
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr "ईमेल %1 भेजने का प्रयास करते समय त्रुटि"
@@ -3079,9 +3079,9 @@ msgstr "इमोजी हटाएँ"
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:103
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:108
-#: widgets/administratordialog/users/administratoruserswidget.cpp:295
+#: widgets/administratordialog/users/administratoruserswidget.cpp:296
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3093,9 +3093,9 @@ msgstr "जोड़ना…"
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:107
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:303
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3106,10 +3106,10 @@ msgstr "संशोधित करें…"
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:122
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:112
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
-#: widgets/administratordialog/users/administratoruserswidget.cpp:339
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3614,24 +3614,24 @@ msgctxt "@info:placeholder"
 msgid "Search permissions…"
 msgstr "खोज अनुमतियाँ…"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:48
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:49
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search roles…"
 msgstr "भूमिकाएँ खोजें…"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:114
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:115
 #, kde-format
 msgctxt "@action"
 msgid "Add Users In Role…"
 msgstr "उपयोगकर्ताओं को भूमिका में जोड़ें…"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:231
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:232
 #, kde-format
 msgid "Do you want to remove this role '%1'?"
 msgstr "क्या आप यह भूमिका '%1' हटाना चाहते हैं?"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:232
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Role"
@@ -3682,7 +3682,7 @@ msgid "Users in Role"
 msgstr "भूमिका में उपयोगकर्ता"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:38
-#: widgets/administratordialog/users/administratoruserswidget.cpp:80
+#: widgets/administratordialog/users/administratoruserswidget.cpp:81
 #: widgets/dialogs/addusersinroomwidget.cpp:25
 #: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:44
@@ -3703,20 +3703,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "क्या आप इस उपयोगकर्ता \"%1\" को हटाना चाहते हैं?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:83
-#: widgets/administratordialog/users/administratoruserswidget.cpp:237
+#: widgets/administratordialog/users/administratoruserswidget.cpp:238
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "उपयोगकर्ता हटाएँ"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:121
-#: widgets/administratordialog/users/administratoruserswidget.cpp:352
+#: widgets/administratordialog/users/administratoruserswidget.cpp:353
 #, kde-format
 msgid "No user found"
 msgstr "कोई उपयोगकर्ता नहीं मिला"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:126
-#: widgets/administratordialog/users/administratoruserswidget.cpp:357
+#: widgets/administratordialog/users/administratoruserswidget.cpp:358
 #: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4094,7 +4094,7 @@ msgstr "ईमेल को सत्यापित के रूप में 
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:99
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:41
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
 #, kde-format
@@ -4158,54 +4158,54 @@ msgstr "सभी"
 msgid "Activated"
 msgstr "सक्रिय"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:236
+#: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "क्या आप इस उपयोगकर्ता को हटाना चाहते हैं?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:289
+#: widgets/administratordialog/users/administratoruserswidget.cpp:290
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "आमंत्रित करना…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:311
+#: widgets/administratordialog/users/administratoruserswidget.cpp:312
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "निष्क्रिय करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:311
+#: widgets/administratordialog/users/administratoruserswidget.cpp:312
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "सक्रिय"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:320
+#: widgets/administratordialog/users/administratoruserswidget.cpp:321
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "व्यवस्थापक हटाएँ"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:320
+#: widgets/administratordialog/users/administratoruserswidget.cpp:321
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "एडमिन बनाएं"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:326
+#: widgets/administratordialog/users/administratoruserswidget.cpp:327
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "E2E कुंजी रीसेट करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:332
+#: widgets/administratordialog/users/administratoruserswidget.cpp:333
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "रीसेट टॉप"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:435
+#: widgets/administratordialog/users/administratoruserswidget.cpp:436
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4220,24 +4220,24 @@ msgstr ""
 "प्रकृति के कारण, Rocket.Chat किसी भी एन्क्रिप्टेड कमरे तक पहुंच बहाल करने में सक्षम नहीं "
 "होगा जिसमें कोई सदस्य ऑनलाइन नहीं है।"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:439
+#: widgets/administratordialog/users/administratoruserswidget.cpp:440
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "E2E कुंजी रीसेट करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:471
+#: widgets/administratordialog/users/administratoruserswidget.cpp:472
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1 के लिए E2E कुंजी रीसेट कर दी गई है."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:471
+#: widgets/administratordialog/users/administratoruserswidget.cpp:472
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "E2E रीसेट करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:484
+#: widgets/administratordialog/users/administratoruserswidget.cpp:485
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4246,14 +4246,14 @@ msgstr ""
 "वर्तमान टू फैक्टर TOTP को रीसेट करने से उपयोगकर्ता लॉग आउट हो जाएगा। उपयोगकर्ता बाद में "
 "फिर से टू फैक्टर सेट कर सकेगा।"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:485
-#: widgets/administratordialog/users/administratoruserswidget.cpp:516
+#: widgets/administratordialog/users/administratoruserswidget.cpp:486
+#: widgets/administratordialog/users/administratoruserswidget.cpp:517
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "TOTP रीसेट करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:516
+#: widgets/administratordialog/users/administratoruserswidget.cpp:517
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1 के लिए TOTP कुंजी रीसेट कर दी गई है"
@@ -4633,7 +4633,7 @@ msgid "Layout"
 msgstr "लेआउट"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
 #, kde-format
 msgid "Enterprise"
 msgstr "उद्यम"
@@ -8171,17 +8171,17 @@ msgctxt "@label:textbox"
 msgid "Maximum message age in days (default: 30):"
 msgstr "दिनों में अधिकतम संदेश आयु (डिफ़ॉल्ट: 30):"
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:64
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
 #, kde-format
 msgid "%1 name is already used."
 msgstr "%1 नाम पहले से उपयोग किया जा चुका है."
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:70
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:71
 #, kde-format
 msgid "Invalid characters found."
 msgstr "अमान्य वर्ण पाए गए."
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:71
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:72
 #, kde-format
 msgid "Invalid characters found. (Valid characters: %1)"
 msgstr "अमान्य वर्ण पाए गए. (मान्य वर्ण: %1)"
@@ -8317,13 +8317,13 @@ msgctxt "@action:button"
 msgid "Create"
 msgstr "बनाएं"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:21
+#: widgets/dialogs/createdirectmessageswidget.cpp:22
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Too many users selected."
 msgstr "बहुत अधिक उपयोगकर्ता चयनित."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:28
+#: widgets/dialogs/createdirectmessageswidget.cpp:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8333,7 +8333,7 @@ msgstr ""
 "आप कई उपयोगकर्ताओं के साथ चैट बनाने जा रहे हैं। उन सभी लोगों को जोड़ें जिनसे आप बात करना "
 "चाहते हैं, सभी को एक ही स्थान पर, सीधे संदेशों का उपयोग करके।"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:36
+#: widgets/dialogs/createdirectmessageswidget.cpp:37
 #: widgets/prunemessages/prunemessageswidget.cpp:68
 #, kde-format
 msgctxt "@info:placeholder"
@@ -8778,17 +8778,17 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "सर्वर जानकारी"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, kde-format
 msgid "Server version:"
 msgstr "सर्वर संस्करण:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
 #, kde-format
 msgid "License:"
 msgstr "लाइसेंस:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No license"
@@ -9324,27 +9324,33 @@ msgstr "डेटा निर्यात करना असंभव है."
 msgid "Impossible to create zip file."
 msgstr "ज़िप फ़ाइल बनाना असंभव है."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:72
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to export account."
+msgstr "डेटा निर्यात करना असंभव है."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format
 msgid "Export Done."
 msgstr "निर्यात पूर्ण."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:98
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "खाता %1: कॉन्फ़िगरेशन निर्यात किया गया."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:110
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "खाता %1: कैश निर्यात पूर्ण हुआ."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:120
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "खाता %1: लॉग निर्यात किया गया."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "निर्देशिका \"%1\" को बैकअप फ़ाइल में नहीं जोड़ा जा सकता."
@@ -9683,13 +9689,13 @@ msgstr ""
 "प्रकृति के कारण, Rocket.Chat किसी भी एन्क्रिप्टेड रूम तक पहुँच बहाल नहीं कर पाएगा जिसमें "
 "कोई सदस्य ऑनलाइन नहीं है।"
 
-#: widgets/myaccount/myaccount2faconfigurewidget.cpp:25
+#: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via Email"
 msgstr "ईमेल के माध्यम से दो प्रमाणीकरण कारक सक्रिय करें"
 
-#: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
+#: widgets/myaccount/myaccount2faconfigurewidget.cpp:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
@@ -9776,27 +9782,27 @@ msgctxt "@title:window"
 msgid "Configure my Account"
 msgstr "मेरा खाता कॉन्फ़िगर करें"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountconfigurewidget.cpp:40
 #, kde-format
 msgid "Profile"
 msgstr "प्रोफ़ाइल"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:45
+#: widgets/myaccount/myaccountconfigurewidget.cpp:46
 #, kde-format
 msgid "Preference"
 msgstr "वरीयता"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:48
+#: widgets/myaccount/myaccountconfigurewidget.cpp:49
 #, kde-format
 msgid "Two Authentication Factor"
 msgstr "दो प्रमाणीकरण कारक"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:54
+#: widgets/myaccount/myaccountconfigurewidget.cpp:55
 #, kde-format
 msgid "E2E Encryption"
 msgstr "E2E एन्क्रिप्शन"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:60
+#: widgets/myaccount/myaccountconfigurewidget.cpp:61
 #, kde-format
 msgid "Manage Device"
 msgstr "डिवाइस प्रबंधित करें"
@@ -9893,134 +9899,134 @@ msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "टोकन हटाएँ"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
 msgctxt "@option:check"
 msgid "Receive login detection emails"
 msgstr "लॉगिन पहचान ईमेल प्राप्त करें"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Emojis"
 msgstr "इमोजी का उपयोग करें"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Convert Ascii to Emoji"
 msgstr "Ascii को इमोजी में बदलें"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgctxt "@option:check"
 msgid "Hide roles"
 msgstr "भूमिकाएँ छिपाएँ"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Display avatars"
 msgstr "अवतार प्रदर्शित करें"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Auto Away"
 msgstr "ऑटो अवे सक्षम करें"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:42
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Offline Email notification:"
 msgstr "ऑफ़लाइन ईमेल अधिसूचना:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:45
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
 msgctxt "@option:check"
 msgid "Mute Focused Conversations"
 msgstr "केंद्रित वार्तालापों को म्यूट करें"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Highlight words:"
 msgstr "शब्दों को हाइलाइट करें:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "शब्दों को अलग करने के लिए ',' का प्रयोग करें"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "प्रत्येक शब्द को ',' से अलग करें।"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Desktop notification:"
 msgstr "डेस्कटॉप अधिसूचना:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
 msgstr "सर्वर पुश नोटीफिकेशन:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
 msgstr "जब भी आपके खाते में कोई नया लॉगिन पाया जाएगा, आपको एक ईमेल प्राप्त होगा।"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Idle Time Limit:"
 msgstr "निष्क्रिय समय सीमा:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "स्थिति के दूर में बदलने तक की समयावधि। मान सेकंड में होना चाहिए।"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:132
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Room Notification:"
 msgstr "नये कमरे की अधिसूचना:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:138
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Message Notification:"
 msgstr "नया संदेश अधिसूचना:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:147
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
 msgstr "अधिसूचना ध्वनि मात्रा:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr "मेरा डेटा डाउनलोड करें (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:185
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "मेरा डेटा निर्यात करें (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:236
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -10029,29 +10035,29 @@ msgstr ""
 "आपकी डेटा फ़ाइल तैयार हो जाएगी। तैयार होने पर इसे डाउनलोड करने के लिए एक लिंक आपके ईमेल "
 "पते पर भेजा जाएगा।"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgctxt "@title:window"
 msgid "Download File Requested"
 msgstr "फ़ाइल डाउनलोड करने का अनुरोध किया गया"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:256
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
 #, kde-format
 msgid "Default (%1)"
 msgstr "डिफ़ॉल्ट (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:272
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "डिफ़ॉल्ट (प्रत्येक उल्लेख/डीएम)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "हर उल्लेख/डीएम"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "आपके Rocket.Chat व्यवस्थापक ने ईमेल सूचनाएँ अक्षम कर दी हैं"
@@ -10256,88 +10262,88 @@ msgstr "पंजीकरण करवाना"
 msgid "Reason:"
 msgstr "कारण:"
 
-#: widgets/room/channelactionpopupmenu.cpp:36
+#: widgets/room/channelactionpopupmenu.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Prune Messages…"
 msgstr "संदेश छाँटें…"
 
-#: widgets/room/channelactionpopupmenu.cpp:44
+#: widgets/room/channelactionpopupmenu.cpp:45
 #, kde-format
 msgctxt "@action"
 msgid "Show Mentions…"
 msgstr "उल्लेख दिखाएं…"
 
-#: widgets/room/channelactionpopupmenu.cpp:50
+#: widgets/room/channelactionpopupmenu.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr "पिन किए गए संदेश दिखाएं…"
 
-#: widgets/room/channelactionpopupmenu.cpp:56
+#: widgets/room/channelactionpopupmenu.cpp:57
 #, kde-format
 msgctxt "@action"
 msgid "Show Starred Messages…"
 msgstr "तारांकित संदेश दिखाएं…"
 
-#: widgets/room/channelactionpopupmenu.cpp:62
+#: widgets/room/channelactionpopupmenu.cpp:63
 #, kde-format
 msgid "Show File Attachments…"
 msgstr "फ़ाइल अनुलग्नक दिखाएँ…"
 
-#: widgets/room/channelactionpopupmenu.cpp:68
+#: widgets/room/channelactionpopupmenu.cpp:69
 #, kde-format
 msgctxt "@action"
 msgid "Show Discussions…"
 msgstr "चर्चाएँ दिखाएँ…"
 
-#: widgets/room/channelactionpopupmenu.cpp:74
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgctxt "@action"
 msgid "Show Threads…"
 msgstr "थ्रेड दिखाएं…"
 
-#: widgets/room/channelactionpopupmenu.cpp:82
+#: widgets/room/channelactionpopupmenu.cpp:83
 #, kde-format
 msgid "Configure Notification…"
 msgstr "अधिसूचना कॉन्फ़िगर करें…"
 
-#: widgets/room/channelactionpopupmenu.cpp:89
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgctxt "@action"
 msgid "Configure Auto-Translate…"
 msgstr "स्वतः अनुवाद कॉन्फ़िगर करें…"
 
-#: widgets/room/channelactionpopupmenu.cpp:97
+#: widgets/room/channelactionpopupmenu.cpp:98
 #, kde-format
 msgctxt "@action"
 msgid "Invite Users"
 msgstr "उपयोगकर्ताओं को आमंत्रित करें"
 
-#: widgets/room/channelactionpopupmenu.cpp:104
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr "चैनल में उपयोगकर्ता जोड़ें…"
 
-#: widgets/room/channelactionpopupmenu.cpp:112
+#: widgets/room/channelactionpopupmenu.cpp:113
 #, kde-format
 msgid "Video Chat"
 msgstr "वीडियो चैट"
 
-#: widgets/room/channelactionpopupmenu.cpp:119
+#: widgets/room/channelactionpopupmenu.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Export Messages…"
 msgstr "संदेश निर्यात करें…"
 
-#: widgets/room/channelactionpopupmenu.cpp:126
+#: widgets/room/channelactionpopupmenu.cpp:127
 #, kde-format
 msgctxt "@action"
 msgid "OTR"
 msgstr "ओटीआर"
 
-#: widgets/room/channelactionpopupmenu.cpp:133
+#: widgets/room/channelactionpopupmenu.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "Encrypt Messages"
@@ -10374,70 +10380,70 @@ msgstr "जोड़ना"
 msgid "Link Preview"
 msgstr "लिंक पूर्वावलोकन"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:418
+#: widgets/room/delegate/messagelistdelegate.cpp:419
 #, kde-format
 msgid "User Info"
 msgstr "उपयोगकर्ता जानकारी"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:428
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "निजी बातचीत शुरू करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:445
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "मूल संदेश दिखाएं"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:445
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "संदेश का अनुवाद करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:674
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 उत्तर"
 msgstr[1] "%1 उत्तर"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:684
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 संदेश"
 msgstr[1] "%1 संदेश"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:684
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "No message yet"
 msgstr "अभी तक कोई संदेश नहीं"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:988
+#: widgets/room/delegate/messagelistdelegate.cpp:989
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "अगले"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:992
+#: widgets/room/delegate/messagelistdelegate.cpp:993
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "संदेश पिन कर दिया गया है"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:996
+#: widgets/room/delegate/messagelistdelegate.cpp:997
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "संदेश को तारांकित कर दिया गया है"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1000
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Message has been starred"
@@ -10445,25 +10451,25 @@ msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "संदेश को तारांकित कर दिया गया है"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1004
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "थ्रेड में उत्तर दें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1008
+#: widgets/room/delegate/messagelistdelegate.cpp:1009
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "प्रतिक्रिया जोड़ें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1014
+#: widgets/room/delegate/messagelistdelegate.cpp:1015
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1014
+#: widgets/room/delegate/messagelistdelegate.cpp:1015
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Speak Text"
@@ -10471,7 +10477,7 @@ msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "पाठ बोलें"
 
-#: widgets/room/messagelineextratoolbutton.cpp:17
+#: widgets/room/messagelineextratoolbutton.cpp:18
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Server"
@@ -10479,7 +10485,7 @@ msgctxt "@action"
 msgid "Add WebDav Server"
 msgstr "सर्वर जोड़ें"
 
-#: widgets/room/messagelineextratoolbutton.cpp:20
+#: widgets/room/messagelineextratoolbutton.cpp:21
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Ask Application"
@@ -11529,48 +11535,48 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr "टीम चैनल"
 
-#: widgets/teams/teamchannelswidget.cpp:61
+#: widgets/teams/teamchannelswidget.cpp:62
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "कमरा खोजें…"
 
-#: widgets/teams/teamchannelswidget.cpp:117
+#: widgets/teams/teamchannelswidget.cpp:118
 #, kde-format
 msgid "Add Existing Room"
 msgstr "मौजूदा कमरा जोड़ें"
 
-#: widgets/teams/teamchannelswidget.cpp:119
+#: widgets/teams/teamchannelswidget.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "जगह बनाना"
 
-#: widgets/teams/teamchannelswidget.cpp:125
+#: widgets/teams/teamchannelswidget.cpp:126
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "ऑटोजॉइन हटाएँ"
 
-#: widgets/teams/teamchannelswidget.cpp:125
+#: widgets/teams/teamchannelswidget.cpp:126
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "ऑटोजॉइन जोड़ें"
 
-#: widgets/teams/teamchannelswidget.cpp:132
+#: widgets/teams/teamchannelswidget.cpp:133
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "टीम से निकालें"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "क्या आप इस चैनल को टीम से हटाना चाहेंगे?"
 
-#: widgets/teams/teamchannelswidget.cpp:168
+#: widgets/teams/teamchannelswidget.cpp:169
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"

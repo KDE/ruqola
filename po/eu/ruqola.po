@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-12 00:42+0000\n"
+"POT-Creation-Date: 2025-12-16 06:51+0000\n"
 "PO-Revision-Date: 2025-12-07 20:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -688,8 +688,8 @@ msgstr "Bat ere ez"
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
 #: widgets/dialogs/showvideowidget.cpp:124
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Default"
 msgstr "Lehenetsia"
@@ -1233,7 +1233,7 @@ msgstr "Rola"
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #, kde-format
 msgid "Disabled"
 msgstr "Ezgaituta"
@@ -1338,7 +1338,7 @@ msgstr "Kanal-mota"
 msgid "Belongs To"
 msgstr "Honi dagokio,"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:608
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1375,17 +1375,17 @@ msgstr "Ez da emaitzarik aurkitu."
 msgid "Notify active users in this room"
 msgstr "Jakinarazi gela honetako erabiltzaile aktiboei"
 
-#: core/model/messagesmodel.cpp:266
+#: core/model/messagesmodel.cpp:267
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%1(e)an %2(e)k editatua"
 
-#: core/model/messagesmodel.cpp:422
+#: core/model/messagesmodel.cpp:423
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ezikusitako mezua"
 
-#: core/model/messagesmodel.cpp:431
+#: core/model/messagesmodel.cpp:432
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Zuk bakarrik ikus dezakezu mezu hau"
@@ -1427,19 +1427,19 @@ msgstr[0] "segundo 1"
 msgstr[1] "%1 segundo"
 
 #: core/model/notificationpreferencemodel.cpp:54
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:243
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
 #, kde-format
 msgid "All Messages"
 msgstr "Mezu guztiak"
 
 #: core/model/notificationpreferencemodel.cpp:60
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:245
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
 #, kde-format
 msgid "Mentions"
 msgstr "Aipamenak"
 
 #: core/model/notificationpreferencemodel.cpp:66
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:247
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
 #, kde-format
 msgid "Nothing"
 msgstr "Ezer ez"
@@ -1476,80 +1476,80 @@ msgstr "Bi faktoreko kautotzea"
 msgid "Last token part"
 msgstr "Tokenaren azken zatia"
 
-#: core/model/roommodel.cpp:538
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "Aipamen %1"
 msgstr[1] "%1 aipamen"
 
-#: core/model/roommodel.cpp:542
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "Taldearen aipamen %1"
 msgstr[1] "Taldearen %1 aipamen"
 
-#: core/model/roommodel.cpp:546
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Hariko mezu %1 irakurri gabe"
 msgstr[1] "Hariko %1 mezu irakurri gabe"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "Irakurri gabeko mezu %1"
 msgstr[1] "Irakurri gabeko %1 mezu"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:577
 #, kde-format
 msgid "Teams Room"
 msgstr "Taldearen gela"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Private Room"
 msgstr "Gela pribatua"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Discussion Room"
 msgstr "Elkarrizketa-gela"
 
-#: core/model/roommodel.cpp:588
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanalaren gela"
 
-#: core/model/roommodel.cpp:602 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Irakurri gabea"
 
-#: core/model/roommodel.cpp:604
+#: core/model/roommodel.cpp:605
 #, kde-format
 msgid "Favorites"
 msgstr "Gogokoak"
 
-#: core/model/roommodel.cpp:606
+#: core/model/roommodel.cpp:607
 #, kde-format
 msgid "Teams"
 msgstr "Taldeak"
 
-#: core/model/roommodel.cpp:610
+#: core/model/roommodel.cpp:611
 #, kde-format
 msgid "Discussions"
 msgstr "Eztabaidak"
 
-#: core/model/roommodel.cpp:612
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "Private Messages"
 msgstr "Mezu pribatua"
 
-#: core/model/roommodel.cpp:614 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
@@ -1744,12 +1744,12 @@ msgstr "Talde honetara batu da"
 msgid "(Autojoin)"
 msgstr "(automatikoki batu)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1158
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1159
 #, kde-format
 msgid "Owner"
 msgstr "Jabea"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:94 core/utils.cpp:359
+#: core/model/usersmodel.cpp:77 core/utils.cpp:95 core/utils.cpp:360
 #, kde-format
 msgid "Offline"
 msgstr "Lerroz kanpo"
@@ -1825,7 +1825,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira…"
 
-#: core/rocketchataccount.cpp:690
+#: core/rocketchataccount.cpp:694
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1834,12 +1834,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:698 core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:702 core/rocketchataccount.cpp:715
 #, kde-format
 msgid "Not connected"
 msgstr "Konektatu gabe"
 
-#: core/rocketchataccount.cpp:705
+#: core/rocketchataccount.cpp:709
 #, kde-format
 msgid "Not connected yet"
 msgstr "Oraindik konektatu gabe"
@@ -1854,27 +1854,27 @@ msgstr "Kontua gehitu da"
 msgid "A new account was added."
 msgstr "Kontu berria gehitu da."
 
-#: core/room.cpp:1161
+#: core/room.cpp:1162
 #, kde-format
 msgid "Leader"
 msgstr "Buruzagia"
 
-#: core/room.cpp:1164
+#: core/room.cpp:1165
 #, kde-format
 msgid "Moderator"
 msgstr "Moderatzailea"
 
-#: core/room.cpp:1554
+#: core/room.cpp:1555
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanala irakur-soilekoa da."
 
-#: core/room.cpp:1557
+#: core/room.cpp:1558
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Kanal hau oztopatu duzu."
 
-#: core/room.cpp:1560
+#: core/room.cpp:1561
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanala oztopatu egin da."
@@ -1989,17 +1989,17 @@ msgstr "Administratzailea"
 msgid "Bot"
 msgstr "Bota"
 
-#: core/utils.cpp:88 core/utils.cpp:353
+#: core/utils.cpp:89 core/utils.cpp:354
 #, kde-format
 msgid "Online"
 msgstr "Lerroan"
 
-#: core/utils.cpp:90 core/utils.cpp:355 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Lanpetuta"
 
-#: core/utils.cpp:92 core/utils.cpp:357 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:93 core/utils.cpp:358 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Aldendua"
@@ -2059,14 +2059,14 @@ msgstr "Saio-sarrera/Pasahitza"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:38
 #: widgets/common/authenticationloginwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:46
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:47
 #, kde-format
 msgid "Server URL:"
 msgstr "Zerbitzariaren URL:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:39
 #: widgets/common/authenticationloginwidget.cpp:41
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:36
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:37
 #, kde-format
 msgid "Account name:"
 msgstr "Kontu-izena:"
@@ -2082,7 +2082,7 @@ msgid "Token:"
 msgstr "Tokena:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:68
+#: widgets/myaccount/myaccountconfigurewidget.cpp:69
 #, kde-format
 msgid "Personal Access Token"
 msgstr "Sarbide pertsonaleko tokena"
@@ -2092,17 +2092,17 @@ msgstr "Sarbide pertsonaleko tokena"
 msgid "Share Text…"
 msgstr "Partekatu testua…"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:64
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:66
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Arazoa bat egon da dokumentua partekatzean: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:68
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "File was shared."
 msgstr "Fitxategia partekatu da."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
@@ -2152,283 +2152,283 @@ msgid_plural "%v seconds"
 msgstr[0] "segundo %v"
 msgstr[1] "%v segundo"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:80
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Parametro baliogabeak"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:107
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
 msgstr "Emandako, beharrezko '%1' parametroa, ez dator bat inongo kanalekin"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:110
 #, kde-format
 msgid "The room required a password."
 msgstr "Gelak pasahitz bat eskatu du."
 
-#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
+#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:51
 #, kde-format
 msgid "Get Members not authorized in this room"
 msgstr "Lortu gela honetan baimenik ez duten kideak"
 
-#: rocketchatrestapi-qt/channels/channelopenjob.cpp:78
+#: rocketchatrestapi-qt/channels/channelopenjob.cpp:79
 #, kde-format
 msgid "The required channel is not found."
 msgstr "Eskatutako kanala ez da aurkitu."
 
-#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:101
+#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:103
 #, kde-format
 msgid "User is not a moderator."
 msgstr "Erabiltzaile ez de moderatzailea"
 
-#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:101
+#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:103
 #, kde-format
 msgid "User is not an owner."
 msgstr "Erabiltzailea ez da jabea."
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:61
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "'%1' izeneko kanal bat dago"
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:64
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:65
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:66
 #, kde-format
 msgid "'%1' is not a valid room name"
 msgstr "'%1' ez da gela-izen balioduna"
 
-#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:80
-#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:66
+#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:81
+#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:68
 #, kde-format
 msgid "Extract Roles"
 msgstr "Atera eginkizunak"
 
-#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:116
+#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:118
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "Mezuak ezabatzea ez dago baimenduta."
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
 #, kde-format
 msgid "Not allowed to get message %1"
 msgstr "%1 mezua lortzeko baimenik ez"
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:107
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
 msgstr "%1 gelan %2 mezua lortzeko baimenik ez"
 
-#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:93
+#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:95
 #, kde-format
 msgid "Invalid message: '%1'"
 msgstr "Mezu baliogabea: '%1'"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
 #, kde-format
 msgid "This room is blocked"
 msgstr "Gela hau oztopatuta dago"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Isilarazi zaituzte eta ezin duzu gela honetan hitz egin"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:136
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:138
 #, kde-format
 msgid "Invalid channel"
 msgstr "Kanal baliogabea"
 
-#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:124
+#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:125
 #, kde-format
 msgid "Invalid emoji provided."
 msgstr "Emoji baliogabea eman da."
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:38
-#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:39
-#: rocketchatrestapi-qt/uploadfilejob.cpp:56
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:43
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:40
+#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:41
+#: rocketchatrestapi-qt/uploadfilejob.cpp:58
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:45
 #, kde-format
 msgid "File not found '%1'"
 msgstr "Fitxategia ez da aurkitu '%1'"
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:140
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
 msgstr ""
 "Neurrira ipinitako emojia edo haren ezizenetako bat dagoneko erabilita dago."
 
-#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:46
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:401
+#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:48
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
 msgstr "Hau da azken jabea. Mesedez, ezarri jabe berri bat hau kendu aurretik."
 
-#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:138
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:140
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "Esteka sortzea ez dago baimenduta kanal honetan."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:215
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:218
 #, kde-format
 msgid "Unauthorized"
 msgstr "Baimenik gabe"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:233
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:244
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "'%1' ez dago baimenduta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:246
 #, kde-format
 msgid "Application not found"
 msgstr "Aplikazioa ez da aurkitu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:246
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr "'%1' izeneko artxibatutako kanal bat dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:248
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
 msgid "Can't invite user to direct rooms"
 msgstr "Ezin erabiltzaile bat zuzeneko geletara gonbidatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:250
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr "Kanalaren ezarpen lehenetsia, aldaketarekin izango zenaren berdina da."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:252
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
 #, kde-format
 msgid "The bodyParam 'default' is required"
 msgstr "«bodyParam 'default' beharrezkoa da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:254
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
 #, kde-format
 msgid "Could not change email"
 msgstr "Ezin izan du e-posta aldatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:256
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
 msgid "Could not change name"
 msgstr "Ezin izan du izena aldatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:258
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:261
 #, kde-format
 msgid "Could not change username"
 msgstr "Ezin izan du erabiltzaile-izena aldatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:260
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:263
 #, kde-format
 msgid "Cannot delete a protected role"
 msgstr "Ezin da ezabatu babestutako eginkizun bat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:265
 #, kde-format
 msgid "Department not found"
 msgstr "Departamentua ez da aurkitu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 #, kde-format
 msgid "File sharing not allowed in direct messages"
 msgstr "Fitxategi partekatzea ez dago baimenduta zuzeneko mezuetan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
 msgid "Editing permissions is not allowed"
 msgstr "Baimenak editatzea ez dago baimenduta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
 msgid "The email domain is blacklisted"
 msgstr "E-postaren domeinua zerrenda beltzean dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr "Errorea e-posta bidaltzen saiatzean: %1"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr "%1 dagoeneko erabiltzen ari dira :("
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
 msgid "File is too large"
 msgstr "Fitxategia luzeegia da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
 #, kde-format
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "Inportatzailea ez da zuzen definitu, «Import» klasea falta du."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
 msgid "Failed to extract import file."
 msgstr "Inportatutako fitxategi erauztea huts egin du."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 #, kde-format
 msgid "Imported file seems to be empty."
 msgstr "Inportatutako fitxategia hutsik dagoela dirudi."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
 msgstr "Inportatu beharreko fitxategia ez da aurkitu zehaztutako bide-izenean."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr "%1 ez da %2 balioduna"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 #, kde-format
 msgid "Invalid action link"
 msgstr "Ekintza esteka baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 #, kde-format
 msgid "Invalid Account"
 msgstr "Kontu baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 #, kde-format
 msgid "Invalid arguments"
 msgstr "Argumentu baliogabeak"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 #, kde-format
 msgid "Invalid asset"
 msgstr "Aktibo baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 #, kde-format
 msgid "Invalid channel."
 msgstr "Kanal baliogabea."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
 msgstr "Kanal baliogabea. Hasi @ edo # erabiliz"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
 #, kde-format
 msgid "Invalid custom field"
 msgstr "Neurrira ipinitako eremu baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
 #, kde-format
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
@@ -2437,183 +2437,183 @@ msgstr ""
 "Neurrira ipinitako eremu baliogabea. Erabili bakarrik letrak, zenbakiak, "
 "marratxoak eta azpimarrak."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
 #, kde-format
 msgid "Invalid date provided."
 msgstr "Data baliogabea eman da."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
 #, kde-format
 msgid "Invalid description"
 msgstr "Deskribapen baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
 #, kde-format
 msgid "Invalid domain"
 msgstr "Domeinu baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 #, kde-format
 msgid "Invalid email '%1'"
 msgstr "E-posta baliogabea '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 #, kde-format
 msgid "Invalid email address"
 msgstr "E-posta helbide baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid file height"
 msgstr "Fitxategi altuera baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 #, kde-format
 msgid "Invalid file type"
 msgstr "Fitxategi-mota baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 #, kde-format
 msgid "Invalid file width"
 msgstr "Fitxategi-zabalera baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 #, kde-format
 msgid "You informed an invalid FROM address."
 msgstr "NORK helbide baliogabe baten berri eman duzu."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 #, kde-format
 msgid "Invalid integration"
 msgstr "Bateratze baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 #, kde-format
 msgid "Invalid message"
 msgstr "Mezu baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 #, kde-format
 msgid "Invalid method"
 msgstr "Metodo baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 #, kde-format
 msgid "Invalid name"
 msgstr "Izen baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
 #, kde-format
 msgid "Invalid password"
 msgstr "Pasahitz baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
 #, kde-format
 msgid "Invalid permission"
 msgstr "Baimen baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
 #, kde-format
 msgid "Invalid redirectUri"
 msgstr "«redirectUri» baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
 msgid "Invalid role"
 msgstr "Eginkizun baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:173
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:174
 #, kde-format
 msgid "Invalid room"
 msgstr "Gela baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "'%1' ez da gela-mota balioduna."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
 #, kde-format
 msgid "Invalid settings provided"
 msgstr "Ezarpen baliogabeak eman dira"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 #, kde-format
 msgid "Invalid subscription"
 msgstr "Harpidetza baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
 #, kde-format
 msgid "Invalid token"
 msgstr "Token baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 #, kde-format
 msgid "Invalid triggerWords"
 msgstr "«triggerWords» baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 #, kde-format
 msgid "Invalid URLs"
 msgstr "URL baliogabeak"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 #, kde-format
 msgid "Invalid user"
 msgstr "Erabiltzaile baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
 #, kde-format
 msgid "Invalid username"
 msgstr "Erabiltzaile-izen baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
 msgstr "«webhook» URLak 200 ez den beste egoera bat erantzun du"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:368
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
 #, kde-format
 msgid "Message deleting is blocked"
 msgstr "Mezuak ezabatzea oztopatuta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:370
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
 #, kde-format
 msgid "Message editing is blocked"
 msgstr "Mezuak editatzea blokeatuta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:372
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:375
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "Mezuaren neurriak Message_MaxAllowedSize gainditzen du"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:374
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:377
 #, kde-format
 msgid "You must provide the [unsubscribe] link."
 msgstr "[unsubscribe] esteka eman behar duzu."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:376
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:379
 #, kde-format
 msgid "There are no tokens for this user"
 msgstr "Ez dago erabiltzaile honen tokenik"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
 #, kde-format
 msgid "Not allowed"
 msgstr "Ez da onartzen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, kde-format
 msgid "Not authorized"
 msgstr "Baimenik gabe"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
 #, kde-format
 msgid "Password does not meet the server's policy"
 msgstr "Pasahitzak ez du betetzen zerbitzariaren gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
@@ -2622,7 +2622,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gehieneko luzera, zerbitzariaren gidalerroa "
 "(pasahitz luzeegia)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
@@ -2631,7 +2631,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxieneko luzera, zerbitzariaren gidalerroa "
 "(pasahitz laburregia)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
@@ -2640,7 +2640,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxienez karaktere xehe bat, zerbitzariaren "
 "gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:393
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
@@ -2649,7 +2649,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxienez zenbaki karaktere bat, zerbitzariaren "
 "gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:395
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
@@ -2657,7 +2657,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxienez karaktere berezi bat, zerbitzariaren "
 "gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:397
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
@@ -2666,7 +2666,7 @@ msgstr ""
 "Pasahitzak ez du betetzen, gutxienez karaktere larri bat, zerbitzariaren "
 "gidalerroa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:397
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
@@ -2675,52 +2675,52 @@ msgstr ""
 "Pasahitzak ez du betetzen zerbitzariaren karaktere errepikapen debeku "
 "gidalerroa (karaktere berdin gehiegi dituzu elkarren ondoan)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:399
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
 #, kde-format
 msgid "Push is disabled"
 msgstr "Bultza egitea ezgaituta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:403
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:406
 #, kde-format
 msgid "Cannot delete role because it's in use"
 msgstr "Ezin da eginkizuna ezabatu erabilita dagoelako"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:405
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:408
 #, kde-format
 msgid "Role name is required"
 msgstr "Eginkizunaren izena beharrezkoa da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
 #, kde-format
 msgid "Room is not closed"
 msgstr "Gela ez dago itxita"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "'%1' eremua beharrezkoa da."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:412
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:415
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "Gela hau ez da «Livechat» bat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:414
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:417
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Sarbide pertsonaleko tokenak, egun, ezgaituta daude"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "Izen hori duen token bat existitzen da dagoeneko"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
 #, kde-format
 msgid "Token does not exists"
 msgstr "Tokena ez da existitzen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2729,17 +2729,17 @@ msgstr ""
 "Errorea, eskaera gehiegi. Mesedez, polikiago. Berriz saiatu aurretik %1 "
 "segundoz itxoin behar duzu."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:423
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "User has no roles"
 msgstr "Erabiltzaileak ez dauka eginkizunik"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:425
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "User is not activated"
 msgstr "Erabiltzailea ez dago aktibatuta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:427
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2748,88 +2748,88 @@ msgstr ""
 "#channel_name kanalera gonbidatzen saiatzen ari zaren erabiltzaile kopuruak "
 "administratzaileak ezarritako muga gainditzen du"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:429
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
 #, kde-format
 msgid "User is not in this room"
 msgstr "Erabiltzailea ez dago gela honetan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "Ez zaude `%s` gelan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
 #, kde-format
 msgid "User registration is disabled"
 msgstr "Erabiltzaileen izen-ematea ezgaituta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "Erabiltzaileen izen-ematea URL sekretu bidez bakarrik baimenduta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 "Zu zara azken jabea. Mesedez, ezarri jabe berria gelatik alde egin aurretik."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
 #, kde-format
 msgid "The private group is archived"
 msgstr "Talde pribatua artxibatuta dago"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:444
 #, kde-format
 msgid "User is already an owner"
 msgstr "Erabiltzailea dagoeneko jabe bat da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:446
 #, kde-format
 msgid "User is already a leader"
 msgstr "Erabiltzailea dagoeneko buruzagia da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:448
 #, kde-format
 msgid "User is already a moderator"
 msgstr "Erabiltzailea dagoeneko moderatzaile bat da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:450
 #, kde-format
 msgid "Invalid message id"
 msgstr "Mezu ID baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:452
 #, kde-format
 msgid "User is not a leader"
 msgstr "Erabiltzailea ez da buruzagia"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:454
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "Aplikazio-erabiltzailea ez dago saioan sartzeko baimenduta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:456
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "Zuzeneko-mezuak ezin dira artxibatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:458
 #, kde-format
 msgid "Message not found."
 msgstr "Mezua ez da aurkitu."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:460
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "Bi autentifikazio pasahitz beharrezko dira"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Invalid Password"
 msgstr "Pasahitz baliogabea"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2838,77 +2838,77 @@ msgstr ""
 "Emandako beharrezko \\\"roomId\\\" edo \\\"roomName\\\"  parametroa, ez "
 "dator bat inongo kanalekin"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:466
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "Izen hori duen eginkizun bat jada existitzen da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:468
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "Ezin izan da mezua iltzatu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:470
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "Sartutako pasahitza aurrez erabili da"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:472
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Gonbidatuko gehienezko gela kopurura iritsi da."
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:52
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:53
 #, kde-format
 msgid "This user is not in this role."
 msgstr "Erabiltzaile hori ez dago eginkizun horretan."
 
-#: rocketchatrestapi-qt/role/rolecreatejob.cpp:99
+#: rocketchatrestapi-qt/role/rolecreatejob.cpp:101
 #, kde-format
 msgid "This is an enterprise feature"
 msgstr "Hori enpresarako ezaugarri bat da"
 
-#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:63
+#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:65
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "Harpidetza baliogabea"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:71
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
 msgstr "Taldeek edo zuzeneko kanalek bakarrik gaitu dezakete enkriptatzea"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:71
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
 #, kde-format
 msgid "Room does not have retention policy"
 msgstr "Gelak ez dauka atxikitze-gidalerrorik"
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
 msgid "Unread message not authorized."
 msgstr "Mezua irakurri gabeko gisa ipintzea ez dago baimenduta."
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:66
 #, kde-format
 msgid "There are no messages to mark unread."
 msgstr "Ez dago irakurri-gabe gisa markatzeko mezurik."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:98
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:99
 #, kde-format
 msgid "Channel can not convert to Team."
 msgstr "Kanala ezin da talde bihurtu."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:100
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:101
 #, kde-format
 msgid "Team already exists."
 msgstr "Taldea jada existitzen da."
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:119
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:121
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr "Ez daukazu kanal hau taldera gehitzeko baimenik"
 
-#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:94
+#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:96
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2917,42 +2917,42 @@ msgstr ""
 "Emandako beharrezko \\\"roomId\\\" edo \\\"roomName\\\"  parametroa, ez "
 "dator bat inongo talderekin"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:77
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:80
 #, kde-format
 msgid "Get Avatar"
 msgstr "Lortu abatara"
 
-#: rocketchatrestapi-qt/users/registeruserjob.cpp:72
+#: rocketchatrestapi-qt/users/registeruserjob.cpp:74
 #, kde-format
 msgid "Invalid Email '%1'."
 msgstr "E-posta baliogabea '%1'."
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:112
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:114
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "Abatararen URL baliogabea: %1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:116
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:118
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Errorea %2(e)rentzako abatararen ezarpenak \"%1\" URLtik maneiatzean"
 
-#: rocketchatrestapi-qt/users/setstatusjob.cpp:138
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:140
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr "Ikusezin egoera ezgaituta dago"
 
-#: rocketchatrestapi-qt/users/userscreatejob.cpp:94
+#: rocketchatrestapi-qt/users/userscreatejob.cpp:96
 #, kde-format
 msgid "%1 is already in use."
 msgstr "%1 lehendik erabiltzen ari da."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:160
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:162
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Parametro baliogabeak"
 
-#: rocketchatrestapi-qt/users/usersupdatejob.cpp:65
+#: rocketchatrestapi-qt/users/usersupdatejob.cpp:67
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr "Errorea %1 e-posta bidaltzen saiatzean"
@@ -3093,9 +3093,9 @@ msgstr "Kendu Emojia"
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:103
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:108
-#: widgets/administratordialog/users/administratoruserswidget.cpp:295
+#: widgets/administratordialog/users/administratoruserswidget.cpp:296
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3107,9 +3107,9 @@ msgstr "Gehitu…"
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:107
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:303
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3120,10 +3120,10 @@ msgstr "Aldatu…"
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:122
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:112
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
-#: widgets/administratordialog/users/administratoruserswidget.cpp:339
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3627,24 +3627,24 @@ msgctxt "@info:placeholder"
 msgid "Search permissions…"
 msgstr "Bilatu baimenak…"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:48
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:49
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search roles…"
 msgstr "Bilatu eginkizunak…"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:114
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:115
 #, kde-format
 msgctxt "@action"
 msgid "Add Users In Role…"
 msgstr "Gehitu erabiltzailek eginkizunera…"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:231
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:232
 #, kde-format
 msgid "Do you want to remove this role '%1'?"
 msgstr "Eginkizun hori, '%1', kendu nahi duzu?"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:232
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Role"
@@ -3695,7 +3695,7 @@ msgid "Users in Role"
 msgstr "Eginkizuneko erabiltzaileak"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:38
-#: widgets/administratordialog/users/administratoruserswidget.cpp:80
+#: widgets/administratordialog/users/administratoruserswidget.cpp:81
 #: widgets/dialogs/addusersinroomwidget.cpp:25
 #: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:44
@@ -3716,20 +3716,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "\"%1\" erabiltzaile hau ezabatu nahi duzu?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:83
-#: widgets/administratordialog/users/administratoruserswidget.cpp:237
+#: widgets/administratordialog/users/administratoruserswidget.cpp:238
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Kendu erabiltzailea"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:121
-#: widgets/administratordialog/users/administratoruserswidget.cpp:352
+#: widgets/administratordialog/users/administratoruserswidget.cpp:353
 #, kde-format
 msgid "No user found"
 msgstr "Ez da erabiltzaileri aurkitu"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:126
-#: widgets/administratordialog/users/administratoruserswidget.cpp:357
+#: widgets/administratordialog/users/administratoruserswidget.cpp:358
 #: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4107,7 +4107,7 @@ msgstr "E-posta egiaztatu gisa markatu"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/directchannelinfowidget.cpp:99
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:41
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
 #, kde-format
@@ -4171,54 +4171,54 @@ msgstr "Guztiak"
 msgid "Activated"
 msgstr "Aktibatuta"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:236
+#: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Erabiltzaile hori kendu nahi duzu?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:289
+#: widgets/administratordialog/users/administratoruserswidget.cpp:290
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Gonbidatu…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:311
+#: widgets/administratordialog/users/administratoruserswidget.cpp:312
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Desaktibatu"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:311
+#: widgets/administratordialog/users/administratoruserswidget.cpp:312
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Aktibo"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:320
+#: widgets/administratordialog/users/administratoruserswidget.cpp:321
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Kendu administratzailea"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:320
+#: widgets/administratordialog/users/administratoruserswidget.cpp:321
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Egin administratzaile"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:326
+#: widgets/administratordialog/users/administratoruserswidget.cpp:327
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Berrezarri E2E gakoa"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:332
+#: widgets/administratordialog/users/administratoruserswidget.cpp:333
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Berrezarri Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:435
+#: widgets/administratordialog/users/administratoruserswidget.cpp:436
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4234,24 +4234,24 @@ msgstr ""
 "eta, Rocket.Chat-ek ezingo du lehengoratu lerroan erabiltzailerik ez duen "
 "zifratutako geletarako sarbidea."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:439
+#: widgets/administratordialog/users/administratoruserswidget.cpp:440
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Berrezarri E2E gakoa"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:471
+#: widgets/administratordialog/users/administratoruserswidget.cpp:472
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1(e)rako E2E gakoa berrezarri da."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:471
+#: widgets/administratordialog/users/administratoruserswidget.cpp:472
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Berrezarri E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:484
+#: widgets/administratordialog/users/administratoruserswidget.cpp:485
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4260,14 +4260,14 @@ msgstr ""
 "Uneko Bi faktoreko TOTP berrezartzeak erabiltzailearen saioa itxiko du. "
 "Erabiltzaileak beranduago Bi faktorekoa berriz ezarri ahal izango du."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:485
-#: widgets/administratordialog/users/administratoruserswidget.cpp:516
+#: widgets/administratordialog/users/administratoruserswidget.cpp:486
+#: widgets/administratordialog/users/administratoruserswidget.cpp:517
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Berrezarri TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:516
+#: widgets/administratordialog/users/administratoruserswidget.cpp:517
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1(e)rako TOTP gakoa berrezarri da"
@@ -4650,7 +4650,7 @@ msgid "Layout"
 msgstr "Antolamendua"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
 #, kde-format
 msgid "Enterprise"
 msgstr "Enpresa"
@@ -8178,17 +8178,17 @@ msgctxt "@label:textbox"
 msgid "Maximum message age in days (default: 30):"
 msgstr "Mezuen gehienezko adina egunetan (lehenetsia. 30):"
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:64
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
 #, kde-format
 msgid "%1 name is already used."
 msgstr "%1 izena jada erabiltzen da."
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:70
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:71
 #, kde-format
 msgid "Invalid characters found."
 msgstr "Karaktere baliogabeak aurkitu dira."
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:71
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:72
 #, kde-format
 msgid "Invalid characters found. (Valid characters: %1)"
 msgstr "Karaktere baliogabeak aurkitu dira. (Karaktere baliodunak: %1)"
@@ -8325,13 +8325,13 @@ msgctxt "@action:button"
 msgid "Create"
 msgstr "Sortu"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:21
+#: widgets/dialogs/createdirectmessageswidget.cpp:22
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Too many users selected."
 msgstr "Erabiltzaile gehiegi aukeratu dira."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:28
+#: widgets/dialogs/createdirectmessageswidget.cpp:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8341,7 +8341,7 @@ msgstr ""
 "Erabiltzaile anizkoitzak dituen berriketa bat sortzera zoaz. Gehitu hitz "
 "egin nahi duzun horiek, denak leku berean, zuzeneko mezuak erabiliz."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:36
+#: widgets/dialogs/createdirectmessageswidget.cpp:37
 #: widgets/prunemessages/prunemessageswidget.cpp:68
 #, kde-format
 msgctxt "@info:placeholder"
@@ -8786,17 +8786,17 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Zerbitzariaren informazioa"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, kde-format
 msgid "Server version:"
 msgstr "Zerbitzariaren bertsioa:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
 #, kde-format
 msgid "License:"
 msgstr "Lizentzia:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
 #, kde-format
 msgctxt "No license"
 msgid "None"
@@ -9321,27 +9321,33 @@ msgstr "Ezin dira datuak esportatu."
 msgid "Impossible to create zip file."
 msgstr "Ezin da ZIP fitxategia sortu."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:72
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to export account."
+msgstr "Ezin dira datuak esportatu."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format
 msgid "Export Done."
 msgstr "Esportatzea burutu da."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:98
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "%1 kontua: konfigurazioa esportatzea burutu da."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:110
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "%1 kontua: cachea esportatzea burutu da."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:120
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "%1 kontua: egunkariak esportatzea burutu da."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "\"%1\" direktorioa ezin da gehitu babeskopia fitxategira."
@@ -9686,13 +9692,13 @@ msgstr ""
 "ezingo du lehengoratu lerroan erabiltzailerik ez duen zifratutako geletarako "
 "sarbidea."
 
-#: widgets/myaccount/myaccount2faconfigurewidget.cpp:25
+#: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via Email"
 msgstr "Aktibatu bi faktoreko autentifikazioa e-posta bidez"
 
-#: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
+#: widgets/myaccount/myaccount2faconfigurewidget.cpp:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
@@ -9778,27 +9784,27 @@ msgctxt "@title:window"
 msgid "Configure my Account"
 msgstr "Konfiguratu nire kontua"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountconfigurewidget.cpp:40
 #, kde-format
 msgid "Profile"
 msgstr "Profila"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:45
+#: widgets/myaccount/myaccountconfigurewidget.cpp:46
 #, kde-format
 msgid "Preference"
 msgstr "Hobespena"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:48
+#: widgets/myaccount/myaccountconfigurewidget.cpp:49
 #, kde-format
 msgid "Two Authentication Factor"
 msgstr "Bi faktoreko autentifikazioa"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:54
+#: widgets/myaccount/myaccountconfigurewidget.cpp:55
 #, kde-format
 msgid "E2E Encryption"
 msgstr "E2E zifratzea"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:60
+#: widgets/myaccount/myaccountconfigurewidget.cpp:61
 #, kde-format
 msgid "Manage Device"
 msgstr "Kudeatu gailua"
@@ -9895,85 +9901,85 @@ msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Kendu tokena"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
 #, kde-format
 msgctxt "@option:check"
 msgid "Receive login detection emails"
 msgstr "Jaso saio-sarrera antzemate e-postak"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:35
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Emojis"
 msgstr "Erabili Emojiak"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Convert Ascii to Emoji"
 msgstr "ASCII -> Emoji bihurtzea"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
 #, kde-format
 msgctxt "@option:check"
 msgid "Hide roles"
 msgstr "Ezkutatu eginkizunak"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:38
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Display avatars"
 msgstr "Azaldu abatarak"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:39
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:40
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Auto Away"
 msgstr "Gaitu aldentze automatikoa"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:42
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Offline Email notification:"
 msgstr "Lerroz kanpoko e-posta jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:45
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
 msgctxt "@option:check"
 msgid "Mute Focused Conversations"
 msgstr "Isilarazi fokua duten elkarrizketak"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:58
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Highlight words:"
 msgstr "Nabarmendu hitzak:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:64
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "Erabili ',' hitzak bereizteko"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "Bereizi hitz bakoitza ',' erabiliz."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Desktop notification:"
 msgstr "Mahaigaineko jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
 msgstr "Bultzada jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
@@ -9981,13 +9987,13 @@ msgstr ""
 "Jaso e-posta bat zure kontuan saio-sarrera berri bat antzematen den "
 "bakoitzean."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Idle Time Limit:"
 msgstr "Jarduera ezaren muga:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -9996,37 +10002,37 @@ msgstr ""
 "Egoera aldendura aldatu arteko denbora bitartea. Balioa segundotan egon "
 "behar da."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:132
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Room Notification:"
 msgstr "Gela berriaren jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:138
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Message Notification:"
 msgstr "Mezu berriaren jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:147
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
 msgstr "Jakinarazpenen soinuaren bolumena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr "Zama-jaitsi nire datuak (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:185
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "Esportatu nire datuak (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:236
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -10035,29 +10041,29 @@ msgstr ""
 "Zure datuen fitxategia sortuko da. Prest dagoenean, hura zama-jaisteko "
 "esteka bat bidaliko da zure e-postara."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
 #, kde-format
 msgctxt "@title:window"
 msgid "Download File Requested"
 msgstr "Fitxategia zama-jaistea eskatu da"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:256
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
 #, kde-format
 msgid "Default (%1)"
 msgstr "Lehenetsia (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:272
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "Lehenetsia (Aipamen/DM oro)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "Aipamen/DM oro"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
@@ -10265,88 +10271,88 @@ msgstr "Erregistratu"
 msgid "Reason:"
 msgstr "Arrazoia:"
 
-#: widgets/room/channelactionpopupmenu.cpp:36
+#: widgets/room/channelactionpopupmenu.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Prune Messages…"
 msgstr "Mezuak inausi…"
 
-#: widgets/room/channelactionpopupmenu.cpp:44
+#: widgets/room/channelactionpopupmenu.cpp:45
 #, kde-format
 msgctxt "@action"
 msgid "Show Mentions…"
 msgstr "Erakutsi aipamenak…"
 
-#: widgets/room/channelactionpopupmenu.cpp:50
+#: widgets/room/channelactionpopupmenu.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
 msgstr "Erakutsi iltzatutako mezuak…"
 
-#: widgets/room/channelactionpopupmenu.cpp:56
+#: widgets/room/channelactionpopupmenu.cpp:57
 #, kde-format
 msgctxt "@action"
 msgid "Show Starred Messages…"
 msgstr "Erakutsi izardun mezuak…"
 
-#: widgets/room/channelactionpopupmenu.cpp:62
+#: widgets/room/channelactionpopupmenu.cpp:63
 #, kde-format
 msgid "Show File Attachments…"
 msgstr "Erakutsi fitxategi-eranskinak…"
 
-#: widgets/room/channelactionpopupmenu.cpp:68
+#: widgets/room/channelactionpopupmenu.cpp:69
 #, kde-format
 msgctxt "@action"
 msgid "Show Discussions…"
 msgstr "Erakutsi elkarrizketak…"
 
-#: widgets/room/channelactionpopupmenu.cpp:74
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgctxt "@action"
 msgid "Show Threads…"
 msgstr "Erakutsi hariak…"
 
-#: widgets/room/channelactionpopupmenu.cpp:82
+#: widgets/room/channelactionpopupmenu.cpp:83
 #, kde-format
 msgid "Configure Notification…"
 msgstr "Konfiguratu jakinarazpena…"
 
-#: widgets/room/channelactionpopupmenu.cpp:89
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgctxt "@action"
 msgid "Configure Auto-Translate…"
 msgstr "Konfiguratu itzulpen automatikoa…"
 
-#: widgets/room/channelactionpopupmenu.cpp:97
+#: widgets/room/channelactionpopupmenu.cpp:98
 #, kde-format
 msgctxt "@action"
 msgid "Invite Users"
 msgstr "Gonbidatu erabiltzaileak"
 
-#: widgets/room/channelactionpopupmenu.cpp:104
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr "Gehitu erabiltzaileak kanalean…"
 
-#: widgets/room/channelactionpopupmenu.cpp:112
+#: widgets/room/channelactionpopupmenu.cpp:113
 #, kde-format
 msgid "Video Chat"
 msgstr "Bideo-berriketa"
 
-#: widgets/room/channelactionpopupmenu.cpp:119
+#: widgets/room/channelactionpopupmenu.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Export Messages…"
 msgstr "Esportatu mezuak…"
 
-#: widgets/room/channelactionpopupmenu.cpp:126
+#: widgets/room/channelactionpopupmenu.cpp:127
 #, kde-format
 msgctxt "@action"
 msgid "OTR"
 msgstr "OTR"
 
-#: widgets/room/channelactionpopupmenu.cpp:133
+#: widgets/room/channelactionpopupmenu.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "Encrypt Messages"
@@ -10380,106 +10386,106 @@ msgstr "Elkartu"
 msgid "Link Preview"
 msgstr "Estekaren aurreikuspegia"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:418
+#: widgets/room/delegate/messagelistdelegate.cpp:419
 #, kde-format
 msgid "User Info"
 msgstr "Erabiltzailearen informazioa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:428
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Hasi elkarrizketa pribatu bat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:445
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Erakutsi jatorrizko mezua"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:445
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Itzuli mezua"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:674
+#: widgets/room/delegate/messagelistdelegate.cpp:675
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "Erantzun 1"
 msgstr[1] "%1 erantzun"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:684
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "Mezua 1"
 msgstr[1] "%1 mezu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:684
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "No message yet"
 msgstr "Oraindik mezurik ez"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:988
+#: widgets/room/delegate/messagelistdelegate.cpp:989
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Jarraitzen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:992
+#: widgets/room/delegate/messagelistdelegate.cpp:993
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Mezua iltzatu dute"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:996
+#: widgets/room/delegate/messagelistdelegate.cpp:997
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Mezuari izarri markatu diote"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1000
+#: widgets/room/delegate/messagelistdelegate.cpp:1001
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Mezuak itzulitako testu bat du"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1004
+#: widgets/room/delegate/messagelistdelegate.cpp:1005
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Erantzun harian"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1008
+#: widgets/room/delegate/messagelistdelegate.cpp:1009
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Gehitu erreakzioa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1014
+#: widgets/room/delegate/messagelistdelegate.cpp:1015
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Gelditu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1014
+#: widgets/room/delegate/messagelistdelegate.cpp:1015
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Esan testua"
 
-#: widgets/room/messagelineextratoolbutton.cpp:17
+#: widgets/room/messagelineextratoolbutton.cpp:18
 #, kde-format
 msgctxt "@action"
 msgid "Add WebDav Server"
 msgstr "Gehitu WebDav zerbitzaria"
 
-#: widgets/room/messagelineextratoolbutton.cpp:20
+#: widgets/room/messagelineextratoolbutton.cpp:21
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
@@ -11518,48 +11524,48 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr "Talde kanalak"
 
-#: widgets/teams/teamchannelswidget.cpp:61
+#: widgets/teams/teamchannelswidget.cpp:62
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Bilatu gela…"
 
-#: widgets/teams/teamchannelswidget.cpp:117
+#: widgets/teams/teamchannelswidget.cpp:118
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Gehitu existitzen den gela"
 
-#: widgets/teams/teamchannelswidget.cpp:119
+#: widgets/teams/teamchannelswidget.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Sortu gela"
 
-#: widgets/teams/teamchannelswidget.cpp:125
+#: widgets/teams/teamchannelswidget.cpp:126
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Kendu batze automatikoa"
 
-#: widgets/teams/teamchannelswidget.cpp:125
+#: widgets/teams/teamchannelswidget.cpp:126
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Gehitu batze automatikoa"
 
-#: widgets/teams/teamchannelswidget.cpp:132
+#: widgets/teams/teamchannelswidget.cpp:133
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Kendu taldetik"
 
-#: widgets/teams/teamchannelswidget.cpp:167
+#: widgets/teams/teamchannelswidget.cpp:168
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Kanal hau taldetik kendu nahi zenuke?"
 
-#: widgets/teams/teamchannelswidget.cpp:168
+#: widgets/teams/teamchannelswidget.cpp:169
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
