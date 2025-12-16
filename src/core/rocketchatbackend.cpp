@@ -242,8 +242,13 @@ void RocketChatBackend::slotLoginStatusChanged()
             connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
 
             auto ddp = mRocketChatAccount->ddp();
+
+            const qint64 timeStamp = mRocketChatAccount->globalRoomsTimeStamp();
+            // TODO use it
+
+            qint64 date = -1;
             // TODO add timestamp
-            ddp->initializeSubscription();
+            ddp->initializeSubscription(date);
         }
         restApi->listAllPermissions();
         restApi->getPrivateSettings();

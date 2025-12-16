@@ -3490,7 +3490,7 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
         RoomModel *model = roomModel();
-        timeStamp = mLocalDatabaseManager->timeStamp(accountName(), {}, GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp);
+        timeStamp = globalRoomsTimeStamp();
         qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << timeStamp;
         if (timeStamp > -1) {
             for (const auto &info : roomsInfo) {

@@ -684,18 +684,18 @@ void DDPClient::loadPublicSettingsAdministrator(qint64 timeStamp)
     method(u"public-settings/get"_s, params, MethodRequestedType::PublicsettingsAdministrator);
 }
 
-void DDPClient::initializeSubscription()
+void DDPClient::initializeSubscription(qint64 timeStamp)
 {
     // https://developer.rocket.chat/apidocs/get-all-subscriptions?highlight=subscription%2Fget
     QJsonObject params;
     // TODO use timeStamp too
-    params["$date"_L1] = QJsonValue(0); // get ALL rooms we've ever seen
+    params["$date"_L1] = QJsonValue(timeStamp); // get ALL rooms we've ever seen
 
     // Add Query parameters
     // updatedSince
 
     // Date and time from which to fetch changes. Format: ISO 8601 datetime. Optional seconds, optional milliseconds, optional timezone, always with colon time
-    // separators. Example2017-11-25T15:08:17.248Z
+    // separators. Example 2017-11-25T15:08:17.248Z
 
     method(u"subscriptions/get"_s, params, MethodRequestedType::GetsubscriptionParsing);
 }

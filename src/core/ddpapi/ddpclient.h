@@ -200,7 +200,7 @@ public:
     void loadPermissionsAdministrator(qint64 timeStamp = -1);
     void loadPrivateSettingsAdministrator(qint64 timeStamp = -1);
     void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
-    void initializeSubscription();
+    void initializeSubscription(qint64 timeStamp = -1);
     void setDDPClientAccountParameter(DDPClientAccountParameter *newDDPClientAccountParameter);
 
     quint64 getRooms(const QJsonObject &params);
