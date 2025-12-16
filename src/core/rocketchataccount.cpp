@@ -3516,6 +3516,11 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
     initializeAccount();
 }
 
+qint64 RocketChatAccount::globalRoomsTimeStamp() const
+{
+    return mLocalDatabaseManager->timeStamp(accountName(), {}, GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp);
+}
+
 void RocketChatAccount::listCustomSounds(const QJsonObject &root)
 {
     displayLogInfo("list custom sounds"_ba, root);
