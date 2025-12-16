@@ -5,10 +5,12 @@
 */
 
 #include "authenticationoauthwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authenticationbutton.h"
+#include "authenticationinfo.h"
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
     : QWidget{parent}

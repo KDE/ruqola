@@ -9,6 +9,7 @@
 #include "autogenerateui/autogenerateinteractionutil.h"
 #include "connection.h"
 #include "misc/appsuiinteractionjob.h"
+#include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
 #include <QJsonObject>

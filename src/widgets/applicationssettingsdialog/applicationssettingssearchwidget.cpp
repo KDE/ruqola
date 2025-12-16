@@ -9,6 +9,7 @@
 #include "applicationssettingspricecombobox.h"
 #include "applicationssettingssortingcombobox.h"
 #include "applicationssettingsstatuscombobox.h"
+#include "rocketchataccount.h"
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>

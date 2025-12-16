@@ -9,6 +9,7 @@
 #include "libruqola_private_export.h"
 #include "rocketchataccount.h"
 #include <QObject>
+
 class LIBRUQOLACORE_TESTS_EXPORT ManageChannels : public QObject
 {
     Q_OBJECT

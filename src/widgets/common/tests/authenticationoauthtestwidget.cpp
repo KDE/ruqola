@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "authenticationoauthtestwidget.h"
+#include "authenticationinfo.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "common/authenticationoauthwidget.h"

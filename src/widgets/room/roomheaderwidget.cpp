@@ -6,6 +6,7 @@
 
 #include "roomheaderwidget.h"
 #include "config-ruqola.h"
+#include "rocketchataccount.h"
 
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "actionbuttons/actionbuttonutil.h"

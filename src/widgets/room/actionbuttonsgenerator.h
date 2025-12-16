@@ -7,12 +7,12 @@
 #pragma once
 
 #include "actionbuttons/actionbutton.h"
-#include "rocketchataccount.h"
 #include <QList>
 #include <QPointer>
 class QMenu;
 class QAction;
 class QJsonObject;
+class RocketChatAccount;
 class ActionButtonsGenerator : public QObject
 {
     Q_OBJECT

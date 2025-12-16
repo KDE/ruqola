@@ -9,6 +9,8 @@
 #include "applicationssettingsdialog/applicationssettingslistview.h"
 #include "applicationssettingsdialog/appscountinfowidget.h"
 #include "model/appsmarketplacemodel.h"
+#include "rocketchataccount.h"
+
 #include <QSplitter>
 #include <QVBoxLayout>
 
