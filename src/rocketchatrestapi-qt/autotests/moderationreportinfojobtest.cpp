@@ -13,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 
+#include <QTest>
+
 QTEST_GUILESS_MAIN(ModerationReportInfoJobTest)
 using namespace RocketChatRestApi;
 ModerationReportInfoJobTest::ModerationReportInfoJobTest(QObject *parent)

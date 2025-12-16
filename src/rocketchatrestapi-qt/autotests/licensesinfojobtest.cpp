@@ -12,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 
+#include <QTest>
+
 QTEST_GUILESS_MAIN(LicensesInfoJobTest)
 using namespace RocketChatRestApi;
 LicensesInfoJobTest::LicensesInfoJobTest(QObject *parent)

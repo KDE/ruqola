@@ -10,6 +10,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "restapimethod.h"
 #include "rooms/roomsdeletejob.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
+
 #include <QJsonDocument>
 #include <QTest>
 

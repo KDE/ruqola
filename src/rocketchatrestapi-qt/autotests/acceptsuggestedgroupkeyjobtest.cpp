@@ -11,6 +11,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "e2e/resetowne2ekeyjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
+
 #include <QJsonDocument>
 #include <QTest>
 

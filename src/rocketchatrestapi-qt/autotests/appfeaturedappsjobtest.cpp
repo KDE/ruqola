@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "apps/appfeaturedappsjob.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
 QTEST_GUILESS_MAIN(AppFeaturedAppsJobTest)
 using namespace RocketChatRestApi;
 AppFeaturedAppsJobTest::AppFeaturedAppsJobTest(QObject *parent)

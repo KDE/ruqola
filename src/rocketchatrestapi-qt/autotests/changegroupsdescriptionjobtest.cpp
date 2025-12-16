@@ -8,7 +8,10 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/changegroupsdescriptionjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
+
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ChangeGroupsDescriptionJobTest)

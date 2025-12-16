@@ -10,6 +10,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "e2e/updategroupkeyjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
+#include <QTest>
+
 #include <QJsonDocument>
 #include <QTest>
 
