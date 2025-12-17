@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-16 13:25+0000\n"
-"PO-Revision-Date: 2025-12-02 09:21+0200\n"
+"PO-Revision-Date: 2025-12-16 21:57+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -9392,10 +9392,9 @@ msgid "Impossible to create zip file."
 msgstr "Не вдалося створити файл zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Не вдалося експортувати дані."
+msgstr "Не вдалося експортувати дані облікового запису."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format

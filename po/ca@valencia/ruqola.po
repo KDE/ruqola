@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-16 13:25+0000\n"
-"PO-Revision-Date: 2025-12-02 10:06+0100\n"
+"PO-Revision-Date: 2025-12-16 09:44+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2366,7 +2366,7 @@ msgstr "No s'ha definit correctament l'importador, falta la classe Import."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
 msgid "Failed to extract import file."
-msgstr "Ha fallat mentre s'extragué el fitxer importat."
+msgstr "Ha fallat mentre s'extreia el fitxer importat."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 #, kde-format
@@ -5673,7 +5673,7 @@ msgstr "RFC2813"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The port to bind to on the IRC host server."
-msgstr "El port al qual vincular-se en el servidor d'IRC."
+msgstr "El port al qual vincular-se en el servidor amfitrió d'IRC."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:53
 #, kde-format
@@ -6363,17 +6363,17 @@ msgstr "Secret de LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:124
 #, kde-format
 msgid "Proxy"
-msgstr "Servidor intermediari"
+msgstr "Amfitrió intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:129
 #, kde-format
 msgid "Proxy Host"
-msgstr "Servidor intermediari"
+msgstr "Amfitrió intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:132
 #, kde-format
 msgid "Proxy Services"
-msgstr "Serveis del servidor intermediari"
+msgstr "Serveis de l'amfitrió intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:135
 #, kde-format
@@ -9332,10 +9332,9 @@ msgid "Impossible to create zip file."
 msgstr "Impossible crear el fitxer Zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Impossible exportar les dades."
+msgstr "Impossible exportar el compte."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format

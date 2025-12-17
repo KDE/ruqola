@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-16 13:25+0000\n"
-"PO-Revision-Date: 2025-12-02 06:19+0100\n"
+"PO-Revision-Date: 2025-12-16 16:43+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -9320,10 +9320,9 @@ msgid "Impossible to create zip file."
 msgstr "Ni mogoče ustvariti datoteke zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Ni mogoče izvoziti podatkov."
+msgstr "Ni mogoče izvoziti računa."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format
