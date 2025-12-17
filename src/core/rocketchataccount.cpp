@@ -3499,7 +3499,6 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
 #endif
             }
         }
-        // qDebug() << " roomsInfo " << roomsInfo;
     }
 
     timeStamp = -1;
@@ -3508,8 +3507,6 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         QJsonObject params;
         params["$date"_L1] = QJsonValue(timeStamp); // get ALL rooms we've ever seen
         // Add timestamp https://developer.rocket.chat/apidocs/get-rooms-realtime?highlight=getrooms
-
-        // qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC";
         ddp()->getRooms(params);
     }
 
