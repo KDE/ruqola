@@ -243,13 +243,12 @@ void RocketChatBackend::slotLoginStatusChanged()
 
             auto ddp = mRocketChatAccount->ddp();
 
-            const qint64 timeStamp = mRocketChatAccount->globalRoomsTimeStamp();
-            // TODO use it
-
+            // TODO replace date by timeStamp
             qint64 date = -1;
-            // TODO add timestamp
+            const qint64 timeStamp = mRocketChatAccount->globalRoomsTimeStamp();
             ddp->initializeSubscription(date);
         }
+        // TODO how we do in offline mode ?
         restApi->listAllPermissions();
         restApi->getPrivateSettings();
         restApi->getOwnInfo();

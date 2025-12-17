@@ -244,6 +244,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::DateTimeUtc:
         return QDateTime::fromMSecsSinceEpoch(message.timeStamp(), QTimeZone::UTC).toString(Qt::ISODateWithMs);
     case MessagesModel::MessageConvertedText:
+        // Cache result here.
         return convertedText(message, mSearchText);
     case MessagesModel::Timestamp:
         return message.displayTime();
