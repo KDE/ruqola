@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-16 13:25+0000\n"
-"PO-Revision-Date: 2025-12-03 10:08+0100\n"
+"POT-Creation-Date: 2025-12-18 00:43+0000\n"
+"PO-Revision-Date: 2025-12-17 09:49+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.11.90\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -1360,17 +1360,17 @@ msgstr "Aucun résultat trouvé."
 msgid "Notify active users in this room"
 msgstr "Envoyer des notifications à tous les personnes actives de ce salon"
 
-#: core/model/messagesmodel.cpp:267
+#: core/model/messagesmodel.cpp:268
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Modifié à %1 par %2"
 
-#: core/model/messagesmodel.cpp:423
+#: core/model/messagesmodel.cpp:424
 #, kde-format
 msgid "Ignored Message"
 msgstr "Message ignoré"
 
-#: core/model/messagesmodel.cpp:432
+#: core/model/messagesmodel.cpp:433
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Vous ne pouvez voir que ce message"
@@ -9389,10 +9389,9 @@ msgid "Impossible to create zip file."
 msgstr "Impossible de créer un fichier au format « ZIP »."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Impossible d'exporter des données."
+msgstr "Impossible d'exporter le compte."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format

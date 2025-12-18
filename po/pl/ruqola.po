@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-16 13:25+0000\n"
+"POT-Creation-Date: 2025-12-18 00:43+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -1364,17 +1364,17 @@ msgstr "Nie znaleziono żadnych wyników."
 msgid "Notify active users in this room"
 msgstr "Powiadom aktywnych użytkowników w tym pokoju"
 
-#: core/model/messagesmodel.cpp:267
+#: core/model/messagesmodel.cpp:268
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Zmieniono o %1 przez %2"
 
-#: core/model/messagesmodel.cpp:423
+#: core/model/messagesmodel.cpp:424
 #, kde-format
 msgid "Ignored Message"
 msgstr "Pominięta wiadomość"
 
-#: core/model/messagesmodel.cpp:432
+#: core/model/messagesmodel.cpp:433
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Tylko ty możesz zobaczyć tę wiadomość"

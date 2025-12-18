@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-16 13:25+0000\n"
+"POT-Creation-Date: 2025-12-18 00:43+0000\n"
 "PO-Revision-Date: 2025-11-12 17:39+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1370,17 +1370,17 @@ msgstr "Tuloksia ei löytynyt."
 msgid "Notify active users in this room"
 msgstr "Ilmoita huoneen aktiivisille käyttäjille"
 
-#: core/model/messagesmodel.cpp:267
+#: core/model/messagesmodel.cpp:268
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 muokannut %1"
 
-#: core/model/messagesmodel.cpp:423
+#: core/model/messagesmodel.cpp:424
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ohitettu viesti"
 
-#: core/model/messagesmodel.cpp:432
+#: core/model/messagesmodel.cpp:433
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Vain sinä voit nähdä tämän viestin"
