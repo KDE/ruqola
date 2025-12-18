@@ -3426,8 +3426,32 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
     }
 }
 
+qint64 RocketChatAccount::loadRoomsFromDatabase()
+{
+    qint64 timeStamp = -1;
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        timeStamp = globalRoomsTimeStamp();
+        qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << timeStamp;
+        if (timeStamp > -1) {
+            RoomModel *model = roomModel();
+            const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
+            for (const auto &info : roomsInfo) {
+#if 0 // Disable for the moment
+                model->deserializeRoom(QJsonDocument::fromJson(info).object());
+#endif
+            }
+        }
+    }
+    return timeStamp;
+}
+
 void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
 {
+    // 1) if removed => remove from database
+    // 2) load rooms from database
+    // 3) update rooms
+
+    // qDebug() << " SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS " << root;
     // TODO in offline mode we need to load all rooms list
     const QJsonObject obj = root.value("result"_L1).toObject();
     RoomModel *model = roomModel();
@@ -3486,22 +3510,8 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         }
     }
 
-    qint64 timeStamp = -1;
-    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
-        RoomModel *model = roomModel();
-        timeStamp = globalRoomsTimeStamp();
-        qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << timeStamp;
-        if (timeStamp > -1) {
-            for (const auto &info : roomsInfo) {
-#if 0 // Disable for the moment
-                model->deserializeRoom(QJsonDocument::fromJson(info).object());
-#endif
-            }
-        }
-    }
-
-    timeStamp = -1;
+    qint64 timeStamp = loadRoomsFromDatabase();
+    timeStamp = -1; // TODO Remove this line when load will be ok
     if (!offlineMode()) {
         // We need to load all room after get subscription to update parameters
         QJsonObject params;

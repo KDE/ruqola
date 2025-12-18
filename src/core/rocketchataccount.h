@@ -607,6 +607,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotFileLanguagesDownloaded();
     LIBRUQOLACORE_NO_EXPORT void customUserStatus();
     LIBRUQOLACORE_NO_EXPORT void connectOfflineMode();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT qint64 loadRoomsFromDatabase();
 
     AccountRoomSettings *const mAccountRoomSettings;
 
