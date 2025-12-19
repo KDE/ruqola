@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-18 00:43+0000\n"
-"PO-Revision-Date: 2025-12-03 16:46+0400\n"
+"PO-Revision-Date: 2025-12-18 09:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -9331,10 +9331,9 @@ msgid "Impossible to create zip file."
 msgstr "من المستحيل إنشاء ملف مضغوط."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "من المستحيل تصدير البيانات."
+msgstr "من المستحيل تصدير الحساب."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format

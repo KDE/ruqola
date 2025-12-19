@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-18 00:43+0000\n"
-"PO-Revision-Date: 2025-11-26 12:22+0300\n"
+"PO-Revision-Date: 2025-12-18 15:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -403,27 +403,24 @@ msgid "Allow to read oauth app settings"
 msgstr "OAuth uygulama ayarlarını okumaya izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:681
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "OAuth uygulama ayarlarını yazmaya izin ver"
+msgstr "Video konferans ayarlarını yazmaya izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "OAuth uygulama ayarlarını okumaya izin ver"
+msgstr "Video konferans ayarlarını okumaya izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Video konferans sağlayıcısı ayarlarını değiştirmeye izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Rolü yazmaya izin ver"
+msgstr "Kaydolma düğmesine izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
@@ -9272,10 +9269,9 @@ msgid "Impossible to create zip file."
 msgstr "Zip dosyası oluşturmak olanaksız."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Veriyi dışa aktarmak olanaksız."
+msgstr "Hesabı dışa aktarmak olanaksız."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format
