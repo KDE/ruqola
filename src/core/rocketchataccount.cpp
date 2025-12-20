@@ -3426,10 +3426,11 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
     }
 }
 
-#define ADD_LOAD_ROOMS_FROM_DATABASE 1
+#define ADD_LOAD_ROOMS_FROM_DATABASE 0
 qint64 RocketChatAccount::loadRoomsFromDatabase()
 {
     qint64 timeStamp = -1;
+#if ADD_LOAD_ROOMS_FROM_DATABASE // Disable for the moment
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         timeStamp = globalRoomsTimeStamp();
         qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << timeStamp;
@@ -3437,12 +3438,11 @@ qint64 RocketChatAccount::loadRoomsFromDatabase()
             RoomModel *model = roomModel();
             const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
             for (const auto &info : roomsInfo) {
-#if ADD_LOAD_ROOMS_FROM_DATABASE // Disable for the moment
                 model->deserializeRoom(QJsonDocument::fromJson(info).object());
-#endif
             }
         }
     }
+#endif
     return timeStamp;
 }
 
@@ -3490,40 +3490,40 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         ddp()->getRooms(params);
     }
 
-#if !ADD_LOAD_ROOMS_FROM_DATABASE
-    const QJsonArray updated = obj.value("update"_L1).toArray();
-    // qDebug() << " updated : "<< updated;
+    if (timeStamp == -1) {
+        const QJsonArray updated = obj.value("update"_L1).toArray();
+        // qDebug() << " updated : "<< updated;
 
-    for (int i = 0; i < updated.size(); i++) {
-        const QJsonObject room = updated.at(i).toObject();
+        for (int i = 0; i < updated.size(); i++) {
+            const QJsonObject room = updated.at(i).toObject();
 
-        const QString roomType = room.value("t"_L1).toString();
-        if (mRuqolaLogger) {
-            QJsonDocument d;
-            d.setObject(room);
+            const QString roomType = room.value("t"_L1).toString();
+            if (mRuqolaLogger) {
+                QJsonDocument d;
+                d.setObject(room);
 
-            mRuqolaLogger->dataReceived("Rooms subscriptions:"_ba + d.toJson());
-        }
-        if (roomType == u'c' // Chat
-            || roomType == u'p' // Private chat
-            || roomType == u'd') { // Direct chat
-            // let's be extra safe around crashes
-            if (loginStatus() == AuthenticationManager::LoggedIn) {
-                const QByteArray roomId = model->addRoom(room);
-                if (!roomId.isEmpty()) {
-                    updateRoomInDatabase(roomId);
-                } else {
-                    qDebug() << "insert room root : " << root;
-                    Q_ASSERT(false);
-                }
+                mRuqolaLogger->dataReceived("Rooms subscriptions:"_ba + d.toJson());
             }
-        } else if (roomType == u'l') { // Live chat
-            qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Live Chat not implemented yet";
-        } else {
-            qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Not supported roomType: " << roomType;
+            if (roomType == u'c' // Chat
+                || roomType == u'p' // Private chat
+                || roomType == u'd') { // Direct chat
+                // let's be extra safe around crashes
+                if (loginStatus() == AuthenticationManager::LoggedIn) {
+                    const QByteArray roomId = model->addRoom(room);
+                    if (!roomId.isEmpty()) {
+                        updateRoomInDatabase(roomId);
+                    } else {
+                        qDebug() << "insert room root : " << root;
+                        Q_ASSERT(false);
+                    }
+                }
+            } else if (roomType == u'l') { // Live chat
+                qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Live Chat not implemented yet";
+            } else {
+                qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Not supported roomType: " << roomType;
+            }
         }
     }
-#endif
 
     initializeAccount();
 }
