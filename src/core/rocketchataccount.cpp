@@ -3490,25 +3490,25 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         ddp()->getRooms(params);
     }
 
-    if (timeStamp == -1) {
-        const QJsonArray updated = obj.value("update"_L1).toArray();
-        // qDebug() << " updated : "<< updated;
+    const QJsonArray updated = obj.value("update"_L1).toArray();
+    // qDebug() << " updated : "<< updated;
 
-        for (int i = 0; i < updated.size(); i++) {
-            const QJsonObject room = updated.at(i).toObject();
+    for (int i = 0; i < updated.size(); i++) {
+        const QJsonObject room = updated.at(i).toObject();
 
-            const QString roomType = room.value("t"_L1).toString();
-            if (mRuqolaLogger) {
-                QJsonDocument d;
-                d.setObject(room);
+        const QString roomType = room.value("t"_L1).toString();
+        if (mRuqolaLogger) {
+            QJsonDocument d;
+            d.setObject(room);
 
-                mRuqolaLogger->dataReceived("Rooms subscriptions:"_ba + d.toJson());
-            }
-            if (roomType == u'c' // Chat
-                || roomType == u'p' // Private chat
-                || roomType == u'd') { // Direct chat
-                // let's be extra safe around crashes
-                if (loginStatus() == AuthenticationManager::LoggedIn) {
+            mRuqolaLogger->dataReceived("Rooms subscriptions:"_ba + d.toJson());
+        }
+        if (roomType == u'c' // Chat
+            || roomType == u'p' // Private chat
+            || roomType == u'd') { // Direct chat
+            // let's be extra safe around crashes
+            if (loginStatus() == AuthenticationManager::LoggedIn) {
+                if (timeStamp == -1) {
                     const QByteArray roomId = model->addRoom(room);
                     if (!roomId.isEmpty()) {
                         updateRoomInDatabase(roomId);
@@ -3516,12 +3516,16 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
                         qDebug() << "insert room root : " << root;
                         Q_ASSERT(false);
                     }
+                } else {
+                    model->updateSubscriptionRoom(room);
+                    // TODO update database updateRoomInDatabase(room.id);
+                    // TODO update rooms
                 }
-            } else if (roomType == u'l') { // Live chat
-                qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Live Chat not implemented yet";
-            } else {
-                qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Not supported roomType: " << roomType;
             }
+        } else if (roomType == u'l') { // Live chat
+            qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Live Chat not implemented yet";
+        } else {
+            qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Not supported roomType: " << roomType;
         }
     }
 
