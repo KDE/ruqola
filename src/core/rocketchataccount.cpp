@@ -3426,6 +3426,7 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
     }
 }
 
+#define ADD_LOAD_ROOMS_FROM_DATABASE 1
 qint64 RocketChatAccount::loadRoomsFromDatabase()
 {
     qint64 timeStamp = -1;
@@ -3436,7 +3437,7 @@ qint64 RocketChatAccount::loadRoomsFromDatabase()
             RoomModel *model = roomModel();
             const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
             for (const auto &info : roomsInfo) {
-#if 0 // Disable for the moment
+#if ADD_LOAD_ROOMS_FROM_DATABASE // Disable for the moment
                 model->deserializeRoom(QJsonDocument::fromJson(info).object());
 #endif
             }
@@ -3477,6 +3478,19 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         }
     }
 
+    qint64 timeStamp = loadRoomsFromDatabase();
+#if !ADD_LOAD_ROOMS_FROM_DATABASE
+    timeStamp = -1; // TODO Remove this line when load will be ok
+#endif
+    if (!offlineMode()) {
+        // We need to load all room after get subscription to update parameters
+        QJsonObject params;
+        params["$date"_L1] = QJsonValue(timeStamp); // get ALL rooms we've ever seen
+        // Add timestamp https://developer.rocket.chat/apidocs/get-rooms-realtime?highlight=getrooms
+        ddp()->getRooms(params);
+    }
+
+#if !ADD_LOAD_ROOMS_FROM_DATABASE
     const QJsonArray updated = obj.value("update"_L1).toArray();
     // qDebug() << " updated : "<< updated;
 
@@ -3509,16 +3523,7 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "Not supported roomType: " << roomType;
         }
     }
-
-    qint64 timeStamp = loadRoomsFromDatabase();
-    timeStamp = -1; // TODO Remove this line when load will be ok
-    if (!offlineMode()) {
-        // We need to load all room after get subscription to update parameters
-        QJsonObject params;
-        params["$date"_L1] = QJsonValue(timeStamp); // get ALL rooms we've ever seen
-        // Add timestamp https://developer.rocket.chat/apidocs/get-rooms-realtime?highlight=getrooms
-        ddp()->getRooms(params);
-    }
+#endif
 
     initializeAccount();
 }
