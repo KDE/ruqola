@@ -163,6 +163,8 @@ public:
 
     void updateTextToSpeech(const QByteArray &messageId, bool inProgress);
 
+    void generateText(const Message &message, const QString &searchText, int hightLightStringIndex);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**

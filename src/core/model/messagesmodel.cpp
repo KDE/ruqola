@@ -409,6 +409,16 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+void MessagesModel::generateText(const Message &message, const QString &searchText, int hightLightStringIndex)
+{
+    // TODO
+    /*
+    int numberOfTextSearched = 0;
+    mHtmlGenerated = TextAutoGenerateMessageUtils::convertTextToHtml(mContent, mUuid, searchText, numberOfTextSearched, hightLightStringIndex);
+    mNumberOfTextSearched = numberOfTextSearched;
+    */
+}
+
 QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
 {
     if (message.messageType() == Message::System) {
