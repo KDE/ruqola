@@ -19,6 +19,7 @@
         "Description[sv]": "Insticksprogrammet låter dig fråga på webben.",
         "Description[tr]": "Bu eklenti, web üzerinde soru sormanıza olanak tanır.",
         "Description[uk]": "За допомогою цього додатка ви можете надсилати пошукові записи до інтернету.",
+        "Description[zh_TW]": "這個外掛程式讓您在網路上進行詢問。",
         "EnabledByDefault": true,
         "Name": "Web Shortcut",
         "Name[ar]": "اختصار وبّ",
@@ -39,6 +40,7 @@
         "Name[sv]": "Webbgenvägar",
         "Name[tr]": "Web Kısayolu",
         "Name[uk]": "Вебскорочення",
+        "Name[zh_TW]": "網頁捷徑",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
