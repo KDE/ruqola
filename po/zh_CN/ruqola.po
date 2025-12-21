@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:43+0000\n"
+"POT-Creation-Date: 2025-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1359,12 +1359,12 @@ msgstr ""
 msgid "Edited at %1 by %2"
 msgstr ""
 
-#: core/model/messagesmodel.cpp:424
+#: core/model/messagesmodel.cpp:434
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
 
-#: core/model/messagesmodel.cpp:433
+#: core/model/messagesmodel.cpp:443
 #, kde-format
 msgid "Only you can see this message"
 msgstr ""
@@ -9011,10 +9011,9 @@ msgid "Impossible to create zip file."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to open %1"
+#, kde-format
 msgid "Impossible to export account."
-msgstr "无法打开 %1"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format
