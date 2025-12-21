@@ -95,6 +95,7 @@ Name[sl]=Off the record končan
 Name[sv]=Utanför protokollet slutade
 Name[tr]=Kayıt Dışı Sohbet Bitti
 Name[uk]=Режим без записування завершено
+Name[zh_TW]=無紀錄聊天已結束
 Action=Popup
 Urgency=Normal
 
@@ -127,6 +128,7 @@ Name[sl]=Off the record zanikan
 Name[sv]=Utanför protokollet nekades
 Name[tr]=Kayıt Dışı Sohbet Reddedildi
 Name[uk]=У режимі без записування відмовлено
+Name[zh_TW]=無紀錄聊天已被拒絕
 Action=Popup
 Urgency=Normal
 
@@ -158,6 +160,7 @@ Name[sl]=Prosi za kreiranje Otr-ja
 Name[sv]=Be om att få skapa OTR
 Name[tr]=Kayıt Dışı Sohbet İsteği
 Name[uk]=Запит щодо створення OTR
+Name[zh_TW]=請求建立無紀錄聊天
 Action=Popup
 Urgency=Normal
 
@@ -282,6 +285,7 @@ Name[sl]=Neveljaven žeton povabila
 Name[sv]=Ogiltig inbjudningssymbol
 Name[tr]=Geçersiz davet jetonu
 Name[uk]=Некоректний жетон запрошення
+Name[zh_TW]=無效的邀請權杖
 Action=Popup
 Urgency=Normal
 
@@ -311,5 +315,6 @@ Name[sl]=Nov račun dodan
 Name[sv]=Nytt konto tillagt
 Name[tr]=Yeni Hesap Eklendi
 Name[uk]=Додано новий обліковий запис
+Name[zh_TW]=帳戶已新增
 Action=Popup
 Urgency=Normal

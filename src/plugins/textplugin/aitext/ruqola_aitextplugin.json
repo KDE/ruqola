@@ -18,6 +18,7 @@
         "Description[sv]": "Insticksprogrammet låter dig fråga en AI.",
         "Description[tr]": "Bu eklenti, yapay zekâya soru sormanıza olanak tanır.",
         "Description[uk]": "За допомогою цього додатка ви можете ставити питання ШІ",
+        "Description[zh_TW]": "這個外掛程式讓您向 AI 進行詢問。",
         "EnabledByDefault": true,
         "Name": "AI Text",
         "Name[ar]": "نص الذكاء الاصطناعي",
@@ -37,6 +38,7 @@
         "Name[sv]": "AI-text",
         "Name[tr]": "Yapay Zekâ Metni",
         "Name[uk]": "Текст ШІ",
+        "Name[zh_TW]": "AI 文字",
         "ServiceTypes": [
             "Ruqola/TextPlugin"
         ],
