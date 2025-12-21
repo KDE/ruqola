@@ -579,7 +579,7 @@ void RuqolaMainWindow::setupActions()
 
     mInstalledApplications = new QAction(i18nc("@action", "Installed Applications…"), this);
     connect(mInstalledApplications, &QAction::triggered, this, &RuqolaMainWindow::slotApplicationsInstalledSettings);
-    ac->addAction(u"applications_requested_settings"_s, mInstalledApplications);
+    ac->addAction(u"applications_installed_settings"_s, mInstalledApplications);
     mAdministrationMenu->addAction(mInstalledApplications);
 
     mPrivateApplications = new QAction(i18nc("@action", "Private Applications…"), this);
