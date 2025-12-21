@@ -637,8 +637,10 @@ void RuqolaMainWindow::setupActions()
         mStatusComboBox = new StatusCombobox(mContainerStatusInfo);
         mStatusComboBox->setObjectName(u"mStatusComboBox"_s);
         layout->addWidget(mStatusComboBox);
-        connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotStatusChanged);
-        connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotUpdateStatusMenu);
+        connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, [this]() {
+            slotStatusChanged();
+            slotUpdateStatusMenu();
+        });
     }
 
     {
