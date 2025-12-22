@@ -11,6 +11,7 @@
 class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT GlobalDatabase : public LocalDatabaseBase
 {
+    Q_GADGET
 public:
     enum class TimeStampType {
         MessageTimeStamp,
@@ -19,6 +20,7 @@ public:
         UpdateGlobalRoomsTimeStamp,
         // Etc.
     };
+    Q_ENUM(TimeStampType);
     GlobalDatabase();
     ~GlobalDatabase() override;
 
