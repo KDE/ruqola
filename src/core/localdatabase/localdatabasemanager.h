@@ -29,7 +29,7 @@ class AbstractLogger;
 class LIBRUQOLACORE_EXPORT LocalDatabaseManager
 {
 public:
-    explicit LocalDatabaseManager(bool migrateDataBase = false);
+    LocalDatabaseManager();
     ~LocalDatabaseManager();
 
     void deleteMessage(const QString &accountName, const QByteArray &roomId, const QByteArray &messageId);
@@ -70,7 +70,6 @@ public:
     [[nodiscard]] QList<QByteArray> loadRooms(const QString &accountName);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void handleMigration();
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
     std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;
     std::unique_ptr<LocalRoomsDatabase> mRoomsDatabase;

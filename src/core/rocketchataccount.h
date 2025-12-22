@@ -93,7 +93,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
 public:
-    explicit RocketChatAccount(const QString &accountName = QString(), bool migrateDatabase = false, QObject *parent = nullptr);
+    explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount() override;
 
     enum class ChannelTypeInfo : uint8_t {

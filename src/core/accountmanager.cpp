@@ -234,7 +234,7 @@ void AccountManager::loadAccount()
     while (it.hasNext()) {
         const QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
-        auto account = new RocketChatAccount(val, needDatabaseMigration);
+        auto account = new RocketChatAccount(val);
         if (account->settings()->isValid()) {
             if (account->accountEnabled()) {
                 connectToAccount(account);

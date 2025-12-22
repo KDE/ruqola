@@ -27,7 +27,7 @@ enum class Fields {
 }; // in the same order as the table
 LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     : QWidget{parent}
-    , mMessageListView(new MessageListView(new RocketChatAccount(u"test"_s, false, this), MessageListView::Mode::Viewing, this))
+    , mMessageListView(new MessageListView(new RocketChatAccount(u"test"_s, this), MessageListView::Mode::Viewing, this))
     , mLocalMessageDatabase(new LocalMessagesDatabase())
     , mAccountName(new QLineEdit(this))
     , mRoomName(new QLineEdit(this))

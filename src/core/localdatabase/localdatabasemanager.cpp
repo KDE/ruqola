@@ -18,7 +18,7 @@
 #include "ruqolaglobalconfig.h"
 #include <QDir>
 
-LocalDatabaseManager::LocalDatabaseManager(bool migrateDataBase)
+LocalDatabaseManager::LocalDatabaseManager()
     : mMessageLogger(std::make_unique<LocalMessageLogger>())
     , mMessagesDatabase(std::make_unique<LocalMessagesDatabase>())
     , mRoomsDatabase(std::make_unique<LocalRoomsDatabase>())
@@ -27,25 +27,9 @@ LocalDatabaseManager::LocalDatabaseManager(bool migrateDataBase)
     , mE2EDatabase(std::make_unique<E2EDataBase>())
     , mRoomPendingTypedInfoDatabase(std::make_unique<LocalRoomPendingTypedInfoDatabase>())
 {
-    if (migrateDataBase) {
-        handleMigration();
-    }
 }
 
 LocalDatabaseManager::~LocalDatabaseManager() = default;
-
-void LocalDatabaseManager::handleMigration()
-{
-    const QStringList lst = {LocalDatabaseUtils::localMessageLoggerPath(), LocalDatabaseUtils::localDatabasePath()};
-    for (const QString &path : lst) {
-        QDir dir(path);
-        if (dir.exists()) {
-            if (!dir.removeRecursively()) {
-                qCWarning(RUQOLA_DATABASE_LOG) << "Impossible to remove database from " << dir.absolutePath();
-            }
-        }
-    }
-}
 
 E2EDataBase *LocalDatabaseManager::e2EDatabase() const
 {

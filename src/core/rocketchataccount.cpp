@@ -114,7 +114,7 @@
 #include "users/usersautocompletejob.h"
 
 using namespace Qt::Literals::StringLiterals;
-RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrateDatabase, QObject *parent)
+RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings(this))
     , mUserModel(new UsersModel(this))
@@ -138,7 +138,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, bool migrat
     , mUploadFileManager(new UploadFileManager(this, this))
     , mVideoConferenceManager(new VideoConferenceManager(this, this))
     , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this, this))
-    , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>(migrateDatabase))
+    , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
     , mManageLocalDatabase(new ManageLocalDatabase(this, this))
     , mPreviewUrlCacheManager(new PreviewUrlCacheManager(this, this))
     , mNotificationPreferences(new NotificationPreferences(this))
