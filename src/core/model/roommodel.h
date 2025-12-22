@@ -115,7 +115,7 @@ public:
     [[nodiscard]] MessagesModel *messageModel(const QByteArray &roomId) const;
 
     [[nodiscard]] Room *findRoom(const QByteArray &roomID) const;
-    void updateSubscriptionRoom(const QJsonObject &room);
+    QByteArray updateSubscriptionRoom(const QJsonObject &room);
     [[nodiscard]] QByteArray insertRoom(const QJsonObject &room);
 
     [[nodiscard]] static QString sectionName(RoomModel::Section sectionId);

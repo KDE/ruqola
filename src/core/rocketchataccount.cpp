@@ -3517,9 +3517,12 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
                         Q_ASSERT(false);
                     }
                 } else {
-                    model->updateSubscriptionRoom(room);
-                    // TODO update database updateRoomInDatabase(room.id);
-                    // TODO update rooms
+                    const QByteArray roomId = model->updateSubscriptionRoom(room);
+                    if (!roomId.isEmpty()) {
+                        updateRoomInDatabase(roomId);
+                    } else {
+                        qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "RoomId is empty";
+                    }
                 }
             }
         } else if (roomType == u'l') { // Live chat

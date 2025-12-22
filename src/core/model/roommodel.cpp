@@ -249,7 +249,7 @@ void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread, bool &h
     }
 }
 
-void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
+QByteArray RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
 {
     // Use "_id"
     QByteArray rId = roomData.value("rid"_L1).toString().toLatin1();
@@ -280,6 +280,7 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
     } else {
         qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateSubscriptionRoom incorrect jsonobject " << roomData;
     }
+    return rId;
 }
 
 void RoomModel::deserializeRoom(const QJsonObject &room)
