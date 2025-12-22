@@ -5,7 +5,6 @@
 */
 
 #include "loaddatabasegui.h"
-#include "messages/message.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
