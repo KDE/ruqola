@@ -3440,7 +3440,6 @@ void RocketChatAccount::loadRoomsFromDatabase()
         if (mAccountTimeStamp > -1) {
             RoomModel *model = roomModel();
             const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
-            qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " << roomsInfo.count();
             if (roomsInfo.isEmpty()) {
                 mAccountTimeStamp = -1;
                 return;
@@ -3518,18 +3517,18 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             if (loginStatus() == AuthenticationManager::LoggedIn) {
                 if (timeStamp == -1) {
                     const QByteArray roomId = model->addRoom(room);
-                    if (!roomId.isEmpty()) {
-                        updateRoomInDatabase(roomId);
-                    } else {
+                    if (roomId.isEmpty()) {
                         qDebug() << "insert room root : " << root;
                         Q_ASSERT(false);
+                    } else {
+                        updateRoomInDatabase(roomId);
                     }
                 } else {
                     const QByteArray roomId = model->updateSubscriptionRoom(room);
-                    if (!roomId.isEmpty()) {
-                        updateRoomInDatabase(roomId);
+                    if (roomId.isEmpty()) {
+                        qCWarning(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "RoomId is empty";
                     } else {
-                        qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "RoomId is empty";
+                        updateRoomInDatabase(roomId);
                     }
                 }
             }

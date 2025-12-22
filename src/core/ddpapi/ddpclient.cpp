@@ -641,6 +641,7 @@ void DDPClient::executeSubsCallBack(const QJsonObject &root)
 
 void DDPClient::loadPermissionsAdministrator(qint64 timeStamp)
 {
+    // TODO implement + store in database
     if (!isConnected()) {
         return;
     }
