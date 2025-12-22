@@ -15,6 +15,7 @@ macro(add_ruqola_localdatabase_test _source)
     target_link_libraries(
         ${_name}
         Qt::Test
+        Qt::Sql
         libruqolacore
     )
     set_target_properties(

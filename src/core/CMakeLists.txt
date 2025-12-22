@@ -599,11 +599,11 @@ endif()
 
 # TODO remove it from core
 if(TARGET KF6::TextEditTextToSpeech)
-    target_link_libraries(libruqolacore KF6::TextEditTextToSpeech)
+    target_link_libraries(libruqolacore PRIVATE KF6::TextEditTextToSpeech)
 endif()
 
 if(TARGET KF6::TextAutoGenerateText)
-    target_link_libraries(libruqolacore KF6::TextAutoGenerateText)
+    target_link_libraries(libruqolacore PRIVATE KF6::TextAutoGenerateText)
 endif()
 
 if(TARGET Plasma::Activities)
@@ -613,7 +613,7 @@ if(TARGET Plasma::Activities)
             activities/activitiesmanager.h
             activities/activitiesmanager.cpp
     )
-    target_link_libraries(libruqolacore Plasma::Activities)
+    target_link_libraries(libruqolacore PUBLIC Plasma::Activities)
     if(BUILD_TESTING)
         add_subdirectory(activities/autotests)
     endif()
@@ -628,11 +628,11 @@ if(UNITY_SUPPORT)
             unityservicemanager.cpp
             unityservicemanager.h
     )
-    target_link_libraries(libruqolacore Qt::DBus)
+    target_link_libraries(libruqolacore PUBLIC Qt::DBus)
 endif()
 
 if(USE_E2E_SUPPORT)
-    target_link_libraries(libruqolacore OpenSSL::Crypto)
+    target_link_libraries(libruqolacore PUBLIC OpenSSL::Crypto)
 endif()
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG
@@ -789,51 +789,53 @@ endif()
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
 if(HAVE_NETWORKMANAGER)
-    target_link_libraries(libruqolacore KF6::NetworkManagerQt)
+    target_link_libraries(libruqolacore PUBLIC KF6::NetworkManagerQt)
 endif()
 
 target_link_libraries(
     libruqolacore
-    Qt::Core
-    Qt::Gui
-    Qt::Sql
-    Qt::WebSockets
-    Qt::Network
-    Qt::NetworkAuth
-    KF6::CoreAddons
-    KF6::I18n
-    KF6::Notifications
-    KF6::SyntaxHighlighting
-    librocketchatrestapi-qt
-    KF6::ConfigGui
-    KF6::IdleTime
-    KF6::WindowSystem
-    qt6keychain
-    KF6::StatusNotifierItem
-    KF6::KIOCore
-    Qt::Multimedia
-    KF6::ColorScheme
+    PUBLIC
+        Qt::Core
+        Qt::Gui
+        Qt::WebSockets
+        Qt::Network
+        Qt::NetworkAuth
+        KF6::CoreAddons
+        KF6::I18n
+        KF6::Notifications
+        KF6::SyntaxHighlighting
+        librocketchatrestapi-qt
+        KF6::ConfigGui
+        KF6::IdleTime
+        KF6::WindowSystem
+        KF6::StatusNotifierItem
+        KF6::KIOCore
+        Qt::Multimedia
+        KF6::ColorScheme
+    PRIVATE
+        Qt::Sql
+        qt6keychain
 )
 
 if(HAVE_TEXT_TRANSLATOR)
-    target_link_libraries(libruqolacore KF6::TextTranslator)
+    target_link_libraries(libruqolacore PUBLIC KF6::TextTranslator)
 endif()
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
-    target_link_libraries(libruqolacore KF6::TextAutoCorrectionWidgets)
+    target_link_libraries(libruqolacore PRIVATE KF6::TextAutoCorrectionCore)
 endif()
 
 if(HAVE_TEXT_UTILS)
-    target_link_libraries(libruqolacore KF6::TextUtils)
+    target_link_libraries(libruqolacore PUBLIC KF6::TextUtils)
 endif()
 
 if(WIN32 OR APPLE)
-    target_link_libraries(libruqolacore KF6::IconThemes)
+    target_link_libraries(libruqolacore PUBLIC KF6::IconThemes)
 endif()
 target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
 
 if(TARGET KF6::TextEmoticonsCore)
-    target_link_libraries(libruqolacore KF6::TextEmoticonsCore)
+    target_link_libraries(libruqolacore PUBLIC KF6::TextEmoticonsCore)
 endif()
 
 set_target_properties(
