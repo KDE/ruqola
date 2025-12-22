@@ -607,7 +607,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotFileLanguagesDownloaded();
     LIBRUQOLACORE_NO_EXPORT void customUserStatus();
     LIBRUQOLACORE_NO_EXPORT void connectOfflineMode();
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT qint64 loadRoomsFromDatabase();
+    LIBRUQOLACORE_NO_EXPORT void loadRoomsFromDatabase();
 
     AccountRoomSettings *const mAccountRoomSettings;
 
@@ -680,6 +680,7 @@ private:
     MemoryManager *const mMemoryManager;
     ActionButtonsManager *const mActionButtonsManager;
     int mDelayReconnect = 100;
+    qint64 mAccountTimeStamp = -1;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
     bool mE2EPasswordMustBeSave = false;
     bool mE2EPasswordMustBeDecrypt = false;

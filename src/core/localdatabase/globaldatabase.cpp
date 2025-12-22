@@ -65,6 +65,9 @@ QString GlobalDatabase::generateIdentifier(const QString &accountName, const QBy
 
 void GlobalDatabase::insertOrReplaceTimeStamp(const QString &accountName, const QByteArray &roomId, qint64 timestamp, TimeStampType type)
 {
+    qCDebug(RUQOLA_DATABASE_LOG) << " void GlobalDatabase::insertOrReplaceTimeStamp(const QString &accountName, const QByteArray &roomId, qint64 timestamp, "
+                                    "TimeStampType type)*****************"
+                                 << accountName << " timeStamp " << timestamp << " roomId " << roomId << " type " << type;
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         const QString identifier = generateIdentifier(accountName, roomId, type);

@@ -164,6 +164,11 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     if (mRuqolaLogger) {
         mLocalDatabaseManager->setDatabaseLogger(mRuqolaLogger);
     }
+    // Initialize
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        mAccountTimeStamp = globalRoomsTimeStamp();
+        qDebug() << " mAccountTimeStamp " << mAccountTimeStamp;
+    }
     mServerConfigInfo = new ServerConfigInfo(this, this);
     // Create it before loading settings
 
@@ -3427,23 +3432,25 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
 }
 
 #define ADD_LOAD_ROOMS_FROM_DATABASE 1
-qint64 RocketChatAccount::loadRoomsFromDatabase()
+void RocketChatAccount::loadRoomsFromDatabase()
 {
-    qint64 timeStamp = -1;
 #if ADD_LOAD_ROOMS_FROM_DATABASE // Disable for the moment
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        timeStamp = globalRoomsTimeStamp();
-        qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << timeStamp;
-        if (timeStamp > -1) {
+        qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << mAccountTimeStamp;
+        if (mAccountTimeStamp > -1) {
             RoomModel *model = roomModel();
             const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
+            qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX " << roomsInfo.count();
+            if (roomsInfo.isEmpty()) {
+                mAccountTimeStamp = -1;
+                return;
+            }
             for (const auto &info : roomsInfo) {
                 model->deserializeRoom(QJsonDocument::fromJson(info).object());
             }
         }
     }
 #endif
-    return timeStamp;
 }
 
 void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
@@ -3478,7 +3485,8 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
         }
     }
 #if ADD_LOAD_ROOMS_FROM_DATABASE
-    const qint64 timeStamp = loadRoomsFromDatabase();
+    loadRoomsFromDatabase();
+    const qint64 timeStamp = mAccountTimeStamp;
 #else
     const qint64 timeStamp = -1; // TODO Remove this line when load will be ok
 #endif
