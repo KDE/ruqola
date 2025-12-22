@@ -3426,7 +3426,7 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
     }
 }
 
-#define ADD_LOAD_ROOMS_FROM_DATABASE 0
+#define ADD_LOAD_ROOMS_FROM_DATABASE 1
 qint64 RocketChatAccount::loadRoomsFromDatabase()
 {
     qint64 timeStamp = -1;
