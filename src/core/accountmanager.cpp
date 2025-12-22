@@ -39,7 +39,9 @@
 using namespace Qt::Literals::StringLiterals;
 namespace
 {
-constexpr int currentDataBaseVersion = 1;
+// constexpr int currentDataBaseVersion = 1;
+// Version 2 we need to delete local database as before we never supported remove room => we have some invalid rooms
+constexpr int currentDataBaseVersion = 2;
 }
 
 AccountManager::AccountManager(QObject *parent)
@@ -156,10 +158,14 @@ void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, 
     Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
 }
 
-bool AccountManager::needToHandleDataMigration() const
+AccountManager::MigrateDatabaseType AccountManager::needToHandleDataMigration() const
 {
-    const bool needMigration = RuqolaGlobalConfig::self()->databaseVersion() < currentDataBaseVersion;
-    return needMigration;
+    if (RuqolaGlobalConfig::self()->databaseVersion() == 0 && currentDataBaseVersion == 1) {
+        return MigrateDatabaseType::All;
+    } else if (RuqolaGlobalConfig::self()->databaseVersion() == 1 && currentDataBaseVersion == 2) {
+        return MigrateDatabaseType::DatabaseWithoutLogger;
+    }
+    return MigrateDatabaseType::None;
 }
 
 TextToSpeechEnqueueManager *AccountManager::textToSpeechEnqueueManager() const
@@ -199,10 +205,24 @@ void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetyp
 
 void AccountManager::loadAccount()
 {
-    const bool needDatabaseMigration = needToHandleDataMigration();
-    if (needDatabaseMigration) {
+    const AccountManager::MigrateDatabaseType needDatabaseMigration = needToHandleDataMigration();
+    if (needDatabaseMigration != AccountManager::MigrateDatabaseType::None) {
         RuqolaGlobalConfig::self()->setDatabaseVersion(currentDataBaseVersion);
         RuqolaGlobalConfig::self()->save();
+
+        QStringList lst = {LocalDatabaseUtils::localDatabasePath()};
+        if (needDatabaseMigration == AccountManager::MigrateDatabaseType::All) {
+            lst += LocalDatabaseUtils::localMessageLoggerPath();
+        }
+        qDebug() << " Delete database : " << lst;
+        for (const QString &path : lst) {
+            QDir dir(path);
+            if (dir.exists()) {
+                if (!dir.removeRecursively()) {
+                    qCWarning(RUQOLA_LOG) << "Impossible to remove database from " << dir.absolutePath();
+                }
+            }
+        }
     }
 
     qCDebug(RUQOLA_LOG) << " void AccountManager::loadAccount()" << ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
