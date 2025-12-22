@@ -3477,10 +3477,10 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             }
         }
     }
-
-    qint64 timeStamp = loadRoomsFromDatabase();
-#if !ADD_LOAD_ROOMS_FROM_DATABASE
-    timeStamp = -1; // TODO Remove this line when load will be ok
+#if ADD_LOAD_ROOMS_FROM_DATABASE
+    const qint64 timeStamp = loadRoomsFromDatabase();
+#else
+    const qint64 timeStamp = -1; // TODO Remove this line when load will be ok
 #endif
     if (!offlineMode()) {
         // We need to load all room after get subscription to update parameters
