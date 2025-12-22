@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:43+0000\n"
+"POT-Creation-Date: 2025-12-22 00:42+0000\n"
 "PO-Revision-Date: 2025-06-21 12:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -7617,7 +7617,7 @@ msgid "Username or email:"
 msgstr "Nome de persoa usuaria ou enderezo de correo electrónico:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1104
+#: widgets/ruqolamainwindow.cpp:1106
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7627,7 +7627,7 @@ msgstr ""
 "Se non recibe a mensaxe en breves, volva aquí e inténteo de novo."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1105
+#: widgets/ruqolamainwindow.cpp:1107
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -11395,123 +11395,123 @@ msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Estado:"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:648
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Canle seleccionada anterior"
 
-#: widgets/ruqolamainwindow.cpp:653
+#: widgets/ruqolamainwindow.cpp:655
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Seguinte canle seleccionada"
 
-#: widgets/ruqolamainwindow.cpp:683
+#: widgets/ruqolamainwindow.cpp:685
 #, kde-format
 msgid "Show Notify History"
 msgstr "Amosar o historial de notificacións"
 
-#: widgets/ruqolamainwindow.cpp:687
+#: widgets/ruqolamainwindow.cpp:689
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Amosar información de Rocket.Chat"
 
-#: widgets/ruqolamainwindow.cpp:691
+#: widgets/ruqolamainwindow.cpp:693
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Amosar o avatar da sala"
 
-#: widgets/ruqolamainwindow.cpp:696
+#: widgets/ruqolamainwindow.cpp:698
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Amosar a sala favorita"
 
-#: widgets/ruqolamainwindow.cpp:713
+#: widgets/ruqolamainwindow.cpp:715
 #, kde-format
 msgid "What's new"
 msgstr "Novidades"
 
-#: widgets/ruqolamainwindow.cpp:717
+#: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importar contas"
 
-#: widgets/ruqolamainwindow.cpp:721
+#: widgets/ruqolamainwindow.cpp:723
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportar contas"
 
-#: widgets/ruqolamainwindow.cpp:738
+#: widgets/ruqolamainwindow.cpp:740
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Media"
 
-#: widgets/ruqolamainwindow.cpp:746
+#: widgets/ruqolamainwindow.cpp:748
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensada"
 
-#: widgets/ruqolamainwindow.cpp:755
+#: widgets/ruqolamainwindow.cpp:757
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Ampliada"
 
-#: widgets/ruqolamainwindow.cpp:763
+#: widgets/ruqolamainwindow.cpp:765
 #, kde-format
 msgid "Clear history"
 msgstr "Borrar o historial"
 
-#: widgets/ruqolamainwindow.cpp:808
+#: widgets/ruqolamainwindow.cpp:810
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crear un equipo"
 
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1007
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Non é posíbel escribir no ficheiro de rexistro %1."
 
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1007
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Amosar o rexistro da canle"
 
-#: widgets/ruqolamainwindow.cpp:1176
+#: widgets/ruqolamainwindow.cpp:1178
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estado"
 
-#: widgets/ruqolamainwindow.cpp:1263
+#: widgets/ruqolamainwindow.cpp:1265
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>Isto agocha a barra de menú. Prema %1 para amosala de novo.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1266
+#: widgets/ruqolamainwindow.cpp:1268
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Agochar a barra de menú"
 
-#: widgets/ruqolamainwindow.cpp:1440
+#: widgets/ruqolamainwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Sen conexión"
 
-#: widgets/ruqolamainwindow.cpp:1443
+#: widgets/ruqolamainwindow.cpp:1445
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"

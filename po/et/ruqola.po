@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:43+0000\n"
+"POT-Creation-Date: 2025-12-22 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7963,7 +7963,7 @@ msgid "Username or email:"
 msgstr "Kasutajanimi"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1104
+#: widgets/ruqolamainwindow.cpp:1106
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7971,7 +7971,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1105
+#: widgets/ruqolamainwindow.cpp:1107
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@title:window"
@@ -12055,135 +12055,135 @@ msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Olek:"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:648
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Eelmine kanal"
 
-#: widgets/ruqolamainwindow.cpp:653
+#: widgets/ruqolamainwindow.cpp:655
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Kanali loomine"
 
-#: widgets/ruqolamainwindow.cpp:683
+#: widgets/ruqolamainwindow.cpp:685
 #, fuzzy, kde-format
 #| msgid "Disable Notification:"
 msgid "Show Notify History"
 msgstr "Märguande keelamine:"
 
-#: widgets/ruqolamainwindow.cpp:687
+#: widgets/ruqolamainwindow.cpp:689
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chati sisselogimine"
 
-#: widgets/ruqolamainwindow.cpp:691
+#: widgets/ruqolamainwindow.cpp:693
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Hangi avatar"
 
-#: widgets/ruqolamainwindow.cpp:696
+#: widgets/ruqolamainwindow.cpp:698
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Toa kustutamine"
 
-#: widgets/ruqolamainwindow.cpp:713
+#: widgets/ruqolamainwindow.cpp:715
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:717
+#: widgets/ruqolamainwindow.cpp:719
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Import Accounts"
 msgstr "Konto"
 
-#: widgets/ruqolamainwindow.cpp:721
+#: widgets/ruqolamainwindow.cpp:723
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Export Accounts"
 msgstr "Konto"
 
-#: widgets/ruqolamainwindow.cpp:738
+#: widgets/ruqolamainwindow.cpp:740
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:746
+#: widgets/ruqolamainwindow.cpp:748
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:755
+#: widgets/ruqolamainwindow.cpp:757
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:763
+#: widgets/ruqolamainwindow.cpp:765
 #, fuzzy, kde-format
 #| msgid "Invalid password"
 msgid "Clear history"
 msgstr "Vigane parool"
 
-#: widgets/ruqolamainwindow.cpp:808
+#: widgets/ruqolamainwindow.cpp:810
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Loo uus kanal ..."
 
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1007
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1007
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Ühtegi kanalit ei leitud"
 
-#: widgets/ruqolamainwindow.cpp:1176
+#: widgets/ruqolamainwindow.cpp:1178
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Olek:"
 
-#: widgets/ruqolamainwindow.cpp:1263
+#: widgets/ruqolamainwindow.cpp:1265
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1266
+#: widgets/ruqolamainwindow.cpp:1268
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1440
+#: widgets/ruqolamainwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Pole võrgus"
 
-#: widgets/ruqolamainwindow.cpp:1443
+#: widgets/ruqolamainwindow.cpp:1445
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
