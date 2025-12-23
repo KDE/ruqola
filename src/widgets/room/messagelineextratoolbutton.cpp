@@ -30,7 +30,10 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     // TODO see apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/MessageBoxActionsToolbar.tsx
 }
 
-MessageLineExtraToolButton::~MessageLineExtraToolButton() = default;
+MessageLineExtraToolButton::~MessageLineExtraToolButton()
+{
+    delete mMenu;
+}
 
 void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
