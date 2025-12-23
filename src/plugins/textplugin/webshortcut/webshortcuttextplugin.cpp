@@ -17,9 +17,9 @@ WebShortcutTextPlugin::WebShortcutTextPlugin(QObject *parent, const QVariantList
 
 WebShortcutTextPlugin::~WebShortcutTextPlugin() = default;
 
-PluginTextInterface *WebShortcutTextPlugin::createInterface(QObject *parent)
+PluginTextInterface *WebShortcutTextPlugin::createInterface(QWidget *parentWidget, QObject *parent)
 {
-    return new WebShortcutTextInterface(parent);
+    return new WebShortcutTextInterface(parentWidget, parent);
 }
 
 int WebShortcutTextPlugin::order() const

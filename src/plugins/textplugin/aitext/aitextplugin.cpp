@@ -19,9 +19,9 @@ AiTextPlugin::AiTextPlugin(QObject *parent, const QVariantList &)
 
 AiTextPlugin::~AiTextPlugin() = default;
 
-PluginTextInterface *AiTextPlugin::createInterface(QObject *parent)
+PluginTextInterface *AiTextPlugin::createInterface(QWidget *parentWidget, QObject *parent)
 {
-    return new AiTextInterface(mManager, parent);
+    return new AiTextInterface(mManager, parentWidget, parent);
 }
 
 int AiTextPlugin::order() const

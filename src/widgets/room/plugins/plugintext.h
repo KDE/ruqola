@@ -16,7 +16,7 @@ public:
     explicit PluginText(QObject *parent = nullptr);
     ~PluginText() override;
 
-    virtual PluginTextInterface *createInterface(QObject *parent) = 0;
+    virtual PluginTextInterface *createInterface(QWidget *parentWidget, QObject *parent) = 0;
 
     [[nodiscard]] virtual int order() const = 0;
 Q_SIGNALS:

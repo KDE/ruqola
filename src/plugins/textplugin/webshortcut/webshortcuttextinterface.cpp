@@ -10,8 +10,8 @@
 
 #include <QMenu>
 
-WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)
-    : PluginTextInterface(parent)
+WebShortcutTextInterface::WebShortcutTextInterface(QWidget *parentWidget, QObject *parent)
+    : PluginTextInterface(parentWidget, parent)
     , mWebShortcutMenuManager(new KIO::KUriFilterSearchProviderActions(this))
 {
 }

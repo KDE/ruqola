@@ -15,7 +15,7 @@ class WebShortcutTextInterface : public PluginTextInterface
 {
     Q_OBJECT
 public:
-    explicit WebShortcutTextInterface(QObject *parent = nullptr);
+    explicit WebShortcutTextInterface(QWidget *parentWidget, QObject *parent = nullptr);
     ~WebShortcutTextInterface() override;
 
     void addAction(QMenu *menu) override;

@@ -19,7 +19,7 @@ public:
     explicit AiTextPlugin(QObject *parent = nullptr, const QVariantList & = {});
     ~AiTextPlugin() override;
 
-    [[nodiscard]] PluginTextInterface *createInterface(QObject *parent) override;
+    [[nodiscard]] PluginTextInterface *createInterface(QWidget *parentWidget, QObject *parent) override;
     [[nodiscard]] int order() const override;
 
     [[nodiscard]] bool hasConfigureDialog() const override;

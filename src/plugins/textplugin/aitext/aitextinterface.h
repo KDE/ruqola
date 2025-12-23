@@ -16,7 +16,7 @@ class AiTextInterface : public PluginTextInterface
 {
     Q_OBJECT
 public:
-    explicit AiTextInterface(TextAutoGenerateText::TextAutoGenerateMenuTextManager *manager, QObject *parent = nullptr);
+    explicit AiTextInterface(TextAutoGenerateText::TextAutoGenerateMenuTextManager *manager, QWidget *parentWidget, QObject *parent = nullptr);
     ~AiTextInterface() override;
 
     void addAction(QMenu *menu) override;

@@ -12,7 +12,7 @@ class ShareTextInterface : public PluginTextInterface
 {
     Q_OBJECT
 public:
-    explicit ShareTextInterface(QObject *parent = nullptr);
+    explicit ShareTextInterface(QWidget *parentWidget, QObject *parent = nullptr);
     ~ShareTextInterface() override;
 
     void addAction(QMenu *menu) override;

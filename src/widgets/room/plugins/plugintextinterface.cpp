@@ -6,8 +6,9 @@
 
 #include "plugintextinterface.h"
 
-PluginTextInterface::PluginTextInterface(QObject *parent)
+PluginTextInterface::PluginTextInterface(QWidget *parentWidget, QObject *parent)
     : QObject(parent)
+    , mParentWidget(parentWidget)
 {
 }
 

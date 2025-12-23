@@ -10,11 +10,12 @@
 
 #include <QMenu>
 
-AiTextInterface::AiTextInterface(TextAutoGenerateText::TextAutoGenerateMenuTextManager *manager, QObject *parent)
-    : PluginTextInterface(parent)
+AiTextInterface::AiTextInterface(TextAutoGenerateText::TextAutoGenerateMenuTextManager *manager, QWidget *parentWidget, QObject *parent)
+    : PluginTextInterface(parentWidget, parent)
     , mMenuWidget(new TextAutoGenerateText::TextAutoGenerateMenuWidget(manager, this))
 {
     mMenuWidget->setManager(Ruqola::self()->textAutoGenerateManager());
+    mMenuWidget->setParentWidget(mParentWidget);
 }
 
 AiTextInterface::~AiTextInterface() = default;

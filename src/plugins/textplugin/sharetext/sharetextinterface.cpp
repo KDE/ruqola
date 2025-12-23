@@ -5,14 +5,14 @@
 */
 
 #include "sharetextinterface.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "purposemenuwidget.h"
 
 #include <QMenu>
 
-ShareTextInterface::ShareTextInterface(QObject *parent)
-    : PluginTextInterface(parent)
+using namespace Qt::Literals::StringLiterals;
+ShareTextInterface::ShareTextInterface(QWidget *parentWidget, QObject *parent)
+    : PluginTextInterface(parentWidget, parent)
     , mPurposeMenuWidget(new PurposeMenuWidget(this))
 {
     connect(mPurposeMenuWidget, &PurposeMenuWidget::errorMessage, this, &ShareTextInterface::errorMessage);

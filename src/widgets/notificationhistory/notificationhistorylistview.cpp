@@ -5,7 +5,6 @@
 */
 
 #include "notificationhistorylistview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/notificationhistorymodel.h"
 #include "notificationhistorydelegate.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 
+using namespace Qt::Literals::StringLiterals;
 NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     : MessageListViewBase(parent)
     , mListNotificationsDelegate(new NotificationHistoryDelegate(this, this))

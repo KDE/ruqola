@@ -13,10 +13,13 @@ class LIBRUQOLAWIDGETS_EXPORT PluginTextInterface : public QObject
 {
     Q_OBJECT
 public:
-    explicit PluginTextInterface(QObject *parent = nullptr);
+    explicit PluginTextInterface(QWidget *parentWidget, QObject *parent = nullptr);
     ~PluginTextInterface() override;
 
     virtual void addAction(QMenu *menu) = 0;
 
     virtual void setSelectedText(const QString &str) = 0;
+
+protected:
+    QWidget *mParentWidget = nullptr;
 };
