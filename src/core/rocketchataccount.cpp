@@ -168,6 +168,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mAccountTimeStamp = globalRoomsTimeStamp();
         qDebug() << " mAccountTimeStamp " << mAccountTimeStamp;
+        if (mAccountTimeStamp != -1) {
+            qDebug() << " datetime : " << QDateTime::fromMSecsSinceEpoch(mAccountTimeStamp);
+        }
     }
     mServerConfigInfo = new ServerConfigInfo(this, this);
     // Create it before loading settings
