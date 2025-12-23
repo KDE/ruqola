@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2025-12-23 00:41+0000\n"
 "PO-Revision-Date: 2025-12-16 16:43+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -175,12 +175,12 @@ msgstr "Nova zmožnost"
 msgid "The following accounts are available:"
 msgstr "Na voljo so naslednji računi:"
 
-#: core/accountmanager.cpp:276
+#: core/accountmanager.cpp:296
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Neveljaven žeton povabila"
 
-#: core/accountmanager.cpp:277
+#: core/accountmanager.cpp:297
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Žeton povabila je neveljaven. Kreiranje računa preklicano."
@@ -1322,7 +1322,7 @@ msgstr "Vrsta kanala"
 msgid "Belongs To"
 msgstr "Pripada k"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:610
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1462,7 +1462,7 @@ msgstr "Dvostopenjsko preverjanje pristnosti"
 msgid "Last token part"
 msgstr "Zadnji del žetona"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1471,7 +1471,7 @@ msgstr[1] "%1 Omembi"
 msgstr[2] "%1 Omembe"
 msgstr[3] "%1 Omemb"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1480,7 +1480,7 @@ msgstr[1] "%1 omembi skupine"
 msgstr[2] "%1 omembe skupine"
 msgstr[3] "%1 omemb skupine"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1489,7 +1489,7 @@ msgstr[1] "%1 Neprebrani sporočila niti"
 msgstr[2] "%1 Neprebrana sporočila niti"
 msgstr[3] "%1 Neprebranih sporočil niti"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1498,52 +1498,52 @@ msgstr[1] "%1 neprebrani sporočili"
 msgstr[2] "%1 neprebrana sporočila"
 msgstr[3] "%1 neprebranih sporočil"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:578
 #, kde-format
 msgid "Teams Room"
 msgstr "Soba za ekipe"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Private Room"
 msgstr "Zasebna soba"
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:586
 #, kde-format
 msgid "Discussion Room"
 msgstr "Soba za razprave"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Channel Room"
 msgstr "Soba s kanali"
 
-#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:604 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Neprebrano"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:606
 #, kde-format
 msgid "Favorites"
 msgstr "Priljubljeni"
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:608
 #, kde-format
 msgid "Teams"
 msgstr "Ekipe"
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Discussions"
 msgstr "Razprave"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:614
 #, kde-format
 msgid "Private Messages"
 msgstr "Zasebna sporočila"
 
-#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:616 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Neznano"
@@ -1819,7 +1819,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:694
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1828,12 +1828,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:702 core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"

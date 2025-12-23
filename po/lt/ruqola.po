@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2025-12-23 00:41+0000\n"
 "PO-Revision-Date: 2025-10-16 00:32+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -174,12 +174,12 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Yra prieinamos šios paskyros:"
 
-#: core/accountmanager.cpp:276
+#: core/accountmanager.cpp:296
 #, kde-format
 msgid "Invalid invite token"
 msgstr ""
 
-#: core/accountmanager.cpp:277
+#: core/accountmanager.cpp:297
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1355,7 +1355,7 @@ msgstr "Kanalo tipas"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:610
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1504,7 +1504,7 @@ msgstr "Tapatybės nustatymo metodas"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1513,7 +1513,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1522,7 +1522,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:548
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "%1 Unread Threaded Message"
@@ -1532,7 +1532,7 @@ msgstr[1] "Ištrinti žinutę"
 msgstr[2] "Ištrinti žinutę"
 msgstr[3] "Ištrinti žinutę"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:552
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "%1 Unread Message"
@@ -1542,58 +1542,58 @@ msgstr[1] "Šifruota žinutė"
 msgstr[2] "Šifruota žinutė"
 msgstr[3] "Šifruota žinutė"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:578
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Teams Room"
 msgstr "Ištrinti kambarį"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Private Room"
 msgstr "Privatus kambarys"
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:586
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgid "Discussion Room"
 msgstr "Atverti diskusiją"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:590
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Informacija apie kanalą"
 
-#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:604 widgets/dialogs/showtheadscombobox.cpp:17
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
 msgid "Unread"
 msgstr "Gijos"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:606
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:608
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:614
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:616 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Nežinoma"
@@ -1884,19 +1884,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:694
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:702 core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:714
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Not connected yet"

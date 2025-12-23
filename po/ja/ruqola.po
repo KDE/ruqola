@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2025-12-23 00:41+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -169,12 +169,12 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr ""
 
-#: core/accountmanager.cpp:276
+#: core/accountmanager.cpp:296
 #, kde-format
 msgid "Invalid invite token"
 msgstr ""
 
-#: core/accountmanager.cpp:277
+#: core/accountmanager.cpp:297
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1314,7 +1314,7 @@ msgstr ""
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:610
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1451,76 +1451,76 @@ msgstr ""
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:578
 #, kde-format
 msgid "Teams Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Private Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:586
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Channel Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:604 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr ""
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:606
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:608
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:614
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:616 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr ""
@@ -1796,19 +1796,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:694
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:702 core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid "Not connected yet"
 msgstr ""

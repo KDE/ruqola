@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
+"POT-Creation-Date: 2025-12-23 00:41+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -173,12 +173,12 @@ msgstr "Nowa możliwość"
 msgid "The following accounts are available:"
 msgstr "Następujące konta są dostępne:"
 
-#: core/accountmanager.cpp:276
+#: core/accountmanager.cpp:296
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Nieprawidłowy token zaproszenia"
 
-#: core/accountmanager.cpp:277
+#: core/accountmanager.cpp:297
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Token zaproszenia jest nieprawidłowy. Zaniechano tworzenia konta."
@@ -1327,7 +1327,7 @@ msgstr "Rodzaj kanału"
 msgid "Belongs To"
 msgstr "Należy do"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:610
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1466,7 +1466,7 @@ msgstr "Dwustopniowe uwierzytelnianie"
 msgid "Last token part"
 msgstr "Ostatnia część tokena"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1474,7 +1474,7 @@ msgstr[0] "%1 wzmianka"
 msgstr[1] "%1 wzmianki"
 msgstr[2] "%1 wzmianek"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1482,7 +1482,7 @@ msgstr[0] "%1 wzmianka o grupie"
 msgstr[1] "%1 wzmianki o grupie"
 msgstr[2] "%1 wzmianek o grupie"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1490,7 +1490,7 @@ msgstr[0] "%1 nieprzeczytana wiadomość w wątku"
 msgstr[1] "%1 nieprzeczytane wiadomości w wątku"
 msgstr[2] "%1 nieprzeczytanych wiadomości w wątku"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1498,52 +1498,52 @@ msgstr[0] "%1 nieprzeczytana wiadomość"
 msgstr[1] "%1 nieprzeczytane wiadomości"
 msgstr[2] "%1 nieprzeczytanych wiadomości"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:578
 #, kde-format
 msgid "Teams Room"
 msgstr "Pokój zespołów"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Private Room"
 msgstr "Pokój prywatny"
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:586
 #, kde-format
 msgid "Discussion Room"
 msgstr "Pokój rozmów"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Channel Room"
 msgstr "Pokój kanału"
 
-#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:604 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Nieprzeczytana"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:606
 #, kde-format
 msgid "Favorites"
 msgstr "Ulubione"
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:608
 #, kde-format
 msgid "Teams"
 msgstr "Zespoły"
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Discussions"
 msgstr "Rozmowy"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:614
 #, kde-format
 msgid "Private Messages"
 msgstr "Wiadomości prywatne"
 
-#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:616 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Nieznana"
@@ -1819,7 +1819,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pisze..."
 
-#: core/rocketchataccount.cpp:694
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1828,12 +1828,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:702 core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
 #, kde-format
 msgid "Not connected"
 msgstr "Niepodłączony"
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid "Not connected yet"
 msgstr "Jeszcze niepodłączony"

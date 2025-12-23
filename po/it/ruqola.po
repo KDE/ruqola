@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-22 00:42+0000\n"
-"PO-Revision-Date: 2025-12-04 18:14+0100\n"
+"POT-Creation-Date: 2025-12-23 00:41+0000\n"
+"PO-Revision-Date: 2025-12-18 09:28+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -173,12 +173,12 @@ msgstr "Nuova funzionalità"
 msgid "The following accounts are available:"
 msgstr "Sono disponibili i seguenti account:"
 
-#: core/accountmanager.cpp:276
+#: core/accountmanager.cpp:296
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Token di invito non valido"
 
-#: core/accountmanager.cpp:277
+#: core/accountmanager.cpp:297
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Il token di invito non è valido. Creazione dell'account annullata."
@@ -1323,7 +1323,7 @@ msgstr "Tipo di canale"
 msgid "Belongs To"
 msgstr "Appartiene a"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:610
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1461,80 +1461,80 @@ msgstr "Autenticazione a due fattori"
 msgid "Last token part"
 msgstr "Ultima parte del token"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 menzione"
 msgstr[1] "%1 menzioni"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 menzione di gruppo"
 msgstr[1] "%1 menzioni di gruppo"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 messaggio di una conversazione non letto"
 msgstr[1] "%1 messaggi di una conversazione non letti"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 messaggio non letto"
 msgstr[1] "%1 messaggi non letti"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:578
 #, kde-format
 msgid "Teams Room"
 msgstr "Stanza delle squadre"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Private Room"
 msgstr "Stanza privata"
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:586
 #, kde-format
 msgid "Discussion Room"
 msgstr "Stanza di discussione"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Channel Room"
 msgstr "Stanza del canale"
 
-#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:604 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Non letto"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:606
 #, kde-format
 msgid "Favorites"
 msgstr "Preferiti"
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:608
 #, kde-format
 msgid "Teams"
 msgstr "Squadre"
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Discussions"
 msgstr "Discussioni"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:614
 #, kde-format
 msgid "Private Messages"
 msgstr "Messaggi privati"
 
-#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:616 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Sconosciuto"
@@ -1810,7 +1810,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:694
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1819,12 +1819,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:702 core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
 #, kde-format
 msgid "Not connected"
 msgstr "Non connesso"
 
-#: core/rocketchataccount.cpp:709
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid "Not connected yet"
 msgstr "Non ancora connesso"
@@ -9334,10 +9334,9 @@ msgid "Impossible to create zip file."
 msgstr "Impossibile creare il file zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Impossibile esportare i dati."
+msgstr "Impossibile esportare l'account."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format
