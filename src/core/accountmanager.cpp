@@ -215,7 +215,7 @@ void AccountManager::loadAccount()
             lst += LocalDatabaseUtils::localMessageLoggerPath();
         }
         qDebug() << " Delete database : " << lst;
-        for (const QString &path : lst) {
+        for (const QString &path : std::as_const(lst)) {
             QDir dir(path);
             if (dir.exists()) {
                 if (!dir.removeRecursively()) {
