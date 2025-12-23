@@ -5,6 +5,7 @@
  */
 
 #include "config-ruqola.h"
+#include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "ruqola.h"
 #include "ruqolacommandlineparser.h"
@@ -13,6 +14,7 @@
 #include <KLocalizedString>
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QDebug>
 
 #include "ruqolamainwindow.h"
 
@@ -110,6 +112,20 @@ int main(int argc, char *argv[])
             result.remove(configPath + u'/');
             result.remove(u"/ruqola.conf"_s);
             std::cout << "   " << result.toLocal8Bit().data() << '\n';
+        }
+        return 0;
+    }
+
+    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::CleanDatabase))) {
+        const QStringList lst = {LocalDatabaseUtils::localDatabasePath()};
+        qWarning() << " Delete database : " << lst;
+        for (const QString &path : std::as_const(lst)) {
+            QDir dir(path);
+            if (dir.exists()) {
+                if (!dir.removeRecursively()) {
+                    qWarning() << "Impossible to remove database from " << dir.absolutePath();
+                }
+            }
         }
         return 0;
     }

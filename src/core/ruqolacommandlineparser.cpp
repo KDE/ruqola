@@ -37,6 +37,8 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
 #endif
     case CommandLineName::Debug:
         return u"debug"_s;
+    case CommandLineName::CleanDatabase:
+        return u"clean-database"_s;
     }
     return {};
 }
@@ -58,4 +60,6 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
     parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Offline), i18nc("@info:shell", "Start as Offline")));
 #endif
     parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Debug), i18nc("@info:shell", "Activate Debug Mode")));
+    parser->addOption(
+        QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::CleanDatabase), i18nc("@info:shell", "Clean Database (Use with caution)")));
 }

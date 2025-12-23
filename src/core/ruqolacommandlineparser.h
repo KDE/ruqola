@@ -24,6 +24,7 @@ public:
 #if ADD_OFFLINE_SUPPORT
         Offline,
 #endif
+        CleanDatabase,
         Debug,
     };
 

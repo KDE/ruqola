@@ -27,6 +27,7 @@ void RuqolaCommandLineParserTest::shouldVerifyCommandLineFromEnumValues()
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Offline), u"offline"_s);
 #endif
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Debug), u"debug"_s);
+    QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::CleanDatabase), u"clean-database"_s);
 }
 
 #include "moc_ruqolacommandlineparsertest.cpp"
