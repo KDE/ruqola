@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-12-22 18:01+0300\n"
+"PO-Revision-Date: 2025-12-23 11:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7863,7 +7863,7 @@ msgstr "Hesabı Değiştir"
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
-msgstr "Veritabanı Bilgisi"
+msgstr "Veri Tabanı Bilgisi"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:49
 #, kde-format
@@ -7879,27 +7879,27 @@ msgstr "JSON"
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
 #, kde-format
 msgid "DataBase Messages"
-msgstr "Veritabanı İletileri"
+msgstr "Veri Tabanı İletileri"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:58
 #, kde-format
 msgid "DataBase Accounts"
-msgstr "Veritabanı Hesapları"
+msgstr "Veri Tabanı Hesapları"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:61
 #, kde-format
 msgid "DataBase Rooms"
-msgstr "Veritabanı Odaları"
+msgstr "Veri Tabanı Odaları"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:64
 #, kde-format
 msgid "DataBase Global"
-msgstr "Veritabanı Global"
+msgstr "Veri Tabanı Global"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:67
 #, kde-format
 msgid "DataBase E2E"
-msgstr "Veritabanı Uçtan Uca Şifreleme"
+msgstr "Veri Tabanı Uçtan Uca Şifreleme"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:27
 #, kde-format
