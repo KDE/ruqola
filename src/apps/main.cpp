@@ -47,7 +47,7 @@ using namespace Qt::Literals::StringLiterals;
 int main(int argc, char *argv[])
 {
     KIconTheme::initTheme();
-    QApplication app(argc, argv);
+    const QApplication app(argc, argv);
     app.setWindowIcon(QIcon(u":/ruqola/ruqola.svg"_s));
 
     KStyleManager::initStyle();
