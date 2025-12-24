@@ -412,11 +412,9 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
 void MessagesModel::generateText(const Message &message, const QString &searchText, int hightLightStringIndex)
 {
     // TODO
-    /*
-    int numberOfTextSearched = 0;
-    mHtmlGenerated = TextAutoGenerateMessageUtils::convertTextToHtml(mContent, mUuid, searchText, numberOfTextSearched, hightLightStringIndex);
-    mNumberOfTextSearched = numberOfTextSearched;
-    */
+    // int numberOfTextSearched = 0;
+    const QString mHtmlGenerated = convertedText(message, searchText);
+    // mNumberOfTextSearched = numberOfTextSearched;
 }
 
 QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
@@ -438,7 +436,9 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
         }
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
         const QStringList highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords;
-        const QString convertedMessage{convertMessageText(message, userName, highlightWordsLst, searchedText)};
+        int numberOfTextSearched = 0;
+        int hightLightStringIndex = 0;
+        const QString convertedMessage{convertMessageText(message, userName, highlightWordsLst, searchedText, numberOfTextSearched, hightLightStringIndex)};
         if (message.privateMessage()) {
             return i18n("Only you can see this message") + convertedMessage;
         }
@@ -538,7 +538,12 @@ QStringList MessagesModel::roomRoles(const QByteArray &userId) const
     return {};
 }
 
-QString MessagesModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords, const QString &searchedText) const
+QString MessagesModel::convertMessageText(const Message &message,
+                                          const QString &userName,
+                                          const QStringList &highlightWords,
+                                          const QString &searchedText,
+                                          int &numberOfTextSearched,
+                                          int hightLightStringIndex) const
 {
     QString messageStr = message.text();
     EmojiManager *emojiManager = nullptr;
@@ -581,11 +586,11 @@ QString MessagesModel::convertMessageText(const Message &message, const QString 
                                                              maximumRecursiveQuotedText);
 
     int recursiveIndex = 0;
-    int hightLightStringIndex = 0;
+    // int hightLightStringIndex = 0;
     if (message.messageId() == mHighlightSearchStringIndexInMessage.messageId) {
         hightLightStringIndex = mHighlightSearchStringIndexInMessage.index;
     }
-    int numberOfTextSearched = 0;
+    // int numberOfTextSearched = 0;
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
 }
 
@@ -688,7 +693,14 @@ QString MessagesModel::threadMessagePreview(const QByteArray &threadMessageId) c
         auto it = findMessage(threadMessageId);
         if (it != mAllMessages.cend()) {
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            QString str = convertMessageText((*it), userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(), QString());
+            int numberOfTextSearched = 0;
+            int hightLightStringIndex = 0;
+            QString str = convertMessageText((*it),
+                                             userName,
+                                             mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
+                                             QString(),
+                                             numberOfTextSearched,
+                                             hightLightStringIndex);
             if (str.length() > 80) {
                 str = str.left(80) + u"..."_s;
             }

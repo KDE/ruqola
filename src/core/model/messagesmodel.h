@@ -180,7 +180,9 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,
                                                                      const QString &userName,
                                                                      const QStringList &highlightWords,
-                                                                     const QString &searchedText) const;
+                                                                     const QString &searchedText,
+                                                                     int &numberOfTextSearched,
+                                                                     int hightLightStringIndex) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString threadMessagePreview(const QByteArray &threadMessageId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::iterator findMessage(const QByteArray &messageId);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::const_iterator findMessage(const QByteArray &messageId) const;
