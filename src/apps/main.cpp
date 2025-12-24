@@ -127,9 +127,10 @@ int main(int argc, char *argv[])
                 }
             }
         }
+
+        qWarning() << " Delete database was deleted. Quit";
         return 0;
     }
-
     (void)Ruqola::self();
 
     if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::LoginDdpApi))) {
