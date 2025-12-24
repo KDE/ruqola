@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-23 00:41+0000\n"
+"POT-Creation-Date: 2025-12-24 00:43+0000\n"
 "PO-Revision-Date: 2025-11-12 17:39+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -17,157 +17,157 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: apps/main.cpp:58 core/notifications/notification.cpp:36
+#: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:62
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Rocket-keskusteluasiakas"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:64
 #, kde-format
 msgid "Copyright © 2020-2025 Ruqola authors"
 msgstr "Tekijänoikeudet © 2020–2025 Ruqolan tekijät"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:66
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:66
 #, kde-format
 msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:67
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:67
 #, kde-format
 msgid "Original Author"
 msgstr "Alkuperäinen tekijä"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Virheiden korjaus, delegaatit jne."
 
-#: apps/main.cpp:70
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:70 apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:74
-#: apps/main.cpp:75
+#: apps/main.cpp:72 apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:76
+#: apps/main.cpp:77
 #, kde-format
 msgid "Bug fixing"
 msgstr "Virheenkorjaus"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:75
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Windows-koosteen viankorjaus"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Virheiden korjaus Windowsissa/Macissä"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:79
 #, kde-format
 msgid "Packaging"
 msgstr "Paketointi"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:80
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "Ohjelmavirheiden korjaus (kääntäminen, verkkokaatuminen…)"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:81
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Optimointi, Windows/Mac-tuen korjaus"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr "Daniele E. Domenichelli"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:82
 #, kde-format
 msgid "New feature"
 msgstr "Uusi ominaisuus"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:109
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Käytettävissä ovat seuraavat tilit:"
@@ -1820,7 +1820,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:699
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1829,12 +1829,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:714
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ei vielä yhteyttä"
@@ -1911,60 +1911,66 @@ msgstr "Suoraviesti"
 msgid "Omnichannel"
 msgstr "Omnichannel"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Palauta tililuettelo"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:50
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Aloita tietyllä tilillä"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgid "Account Name"
 msgstr "Tilin nimi"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:53
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Näytä viesti"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:53
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Message Url"
 msgstr "Viesti"
 
-#: core/ruqolacommandlineparser.cpp:52
+#: core/ruqolacommandlineparser.cpp:54
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "Käytä kirjautumiseen DDP-APIa."
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Luettelee käyttäjäpalautemahdollisuudet"
 
-#: core/ruqolacommandlineparser.cpp:58
+#: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Ei verkossa"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:62
 #, fuzzy, kde-format
 #| msgid "Activated"
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Käytössä"
+
+#: core/ruqolacommandlineparser.cpp:64
+#, kde-format
+msgctxt "@info:shell"
+msgid "Clean Database (Use with caution)"
+msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format

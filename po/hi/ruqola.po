@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-23 00:41+0000\n"
+"POT-Creation-Date: 2025-12-24 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -19,158 +19,158 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: apps/main.cpp:58 core/notifications/notification.cpp:36
+#: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
 msgid "Ruqola"
 msgstr "आर्गुला"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:62
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "रॉकेट चैट क्लाइंट"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:64
 #, fuzzy, kde-format
 #| msgid "Copyright © 2020-2024 Ruqola authors"
 msgid "Copyright © 2020-2025 Ruqola authors"
 msgstr "कॉपीराइट © 2020-2024 रुकोला लेखक"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:66
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "लॉरेंट मोंटेल"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:66
 #, kde-format
 msgid "Maintainer"
 msgstr "मेंटेनर"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:67
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "रिकार्डो इकोनेली"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:67
 #, kde-format
 msgid "Original Author"
 msgstr "मूल लेखक"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "डेविड फॉरे"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "बग फिक्सिंग, प्रतिनिधि आदि।"
 
-#: apps/main.cpp:70
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "केविन फंक"
 
-#: apps/main.cpp:70 apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:74
-#: apps/main.cpp:75
+#: apps/main.cpp:72 apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:76
+#: apps/main.cpp:77
 #, kde-format
 msgid "Bug fixing"
 msgstr "बग फिक्सिंग"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "ओलिवियर जे.जी."
 
-#: apps/main.cpp:72
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "मिलियन वोल्फ"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "एडम को"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:75
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "विंडोज़ संकलन बग फिक्सिंग"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "एलेसेंड्रो एम्ब्रोसनो"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "हन्ना वॉन रेथ"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "विंडोज/मैक के लिए बग फिक्सिंग"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "सारी सर्दी"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:79
 #, kde-format
 msgid "Packaging"
 msgstr "पैकेजिंग"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "वकार अहमद"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:80
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "बग फिक्सिंग (संकलन, नेटवर्क क्रैश...)"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "निकोलस फेल्ला"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:81
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "अनुकूलन, विंडोज़/मैक समर्थन को ठीक करें"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr "डेनियल ई. डोमेनिचेली"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:82
 #, kde-format
 msgid "New feature"
 msgstr "नई सुविधा"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:109
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "निम्नलिखित खाते उपलब्ध हैं:"
@@ -1817,7 +1817,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:699
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1826,12 +1826,12 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:714
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
@@ -1908,61 +1908,67 @@ msgstr "सीधा संदेश"
 msgid "Omnichannel"
 msgstr "ओमनीचैनल"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "खातों की सूची लौटाएँ"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:50
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "विशिष्ट खाते से प्रारंभ करें"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:51
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Account Name"
 msgstr "खाता नाम:"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:53
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "संदेश दिखाएँ"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:53
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Message Url"
 msgstr "संदेश"
 
-#: core/ruqolacommandlineparser.cpp:52
+#: core/ruqolacommandlineparser.cpp:54
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
 msgstr "लॉगिन के लिए ddp api का उपयोग करें"
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "उपयोगकर्ता फ़ीडबैक के लिए उपलब्ध विकल्पों की सूची बनाता है"
 
-#: core/ruqolacommandlineparser.cpp:58
+#: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "ऑफलाइन"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:62
 #, fuzzy, kde-format
 #| msgid "Activated"
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "सक्रिय"
+
+#: core/ruqolacommandlineparser.cpp:64
+#, kde-format
+msgctxt "@info:shell"
+msgid "Clean Database (Use with caution)"
+msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
