@@ -1080,7 +1080,7 @@
       <li xml:lang="sa">सन्देशं स्थानीयदत्तांशकोशे संग्रहयन्तु येन वयं अफलाइनरूपेण अन्वेषणं कर्तुं शक्नुमः</li>
       <li xml:lang="sl">Shrani sporočilo v lokalni bazi podatkov, da jo bomo lahko iskali tudi brez povezave</li>
       <li xml:lang="sv">Lagra meddelanden i lokal databas så de går att söka i nerkopplad</li>
-      <li xml:lang="tr">İletileri yerel bir veritabanında depola, böylece çevrimdışıyken aranabilir</li>
+      <li xml:lang="tr">İletileri yerel bir veri tabanında depola, böylece çevrimdışıyken aranabilir</li>
       <li xml:lang="uk">Зберігання повідомлення у локальній базі даних для пошуку в автономному режимі</li>
       <li xml:lang="zh-TW">將訊息儲存在本地資料庫以利離線搜尋</li>
       <li>Mark All Channels are read</li>
