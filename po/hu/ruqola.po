@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:43+0000\n"
+"POT-Creation-Date: 2025-12-25 00:43+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1377,7 +1377,7 @@ msgstr "Aktív felhasználók értesítése ebben a szobában"
 msgid "Edited at %1 by %2"
 msgstr "%2 szerkesztette ekkor: %1"
 
-#: core/model/messagesmodel.cpp:434
+#: core/model/messagesmodel.cpp:432
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mellőzött üzenet"

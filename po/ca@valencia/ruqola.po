@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:43+0000\n"
-"PO-Revision-Date: 2025-12-16 09:44+0100\n"
+"POT-Creation-Date: 2025-12-25 00:43+0000\n"
+"PO-Revision-Date: 2025-12-24 09:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1276,7 +1276,7 @@ msgstr "enllaç"
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
 msgid "Host"
-msgstr "Servidor"
+msgstr "Amfitrió"
 
 #: core/model/deviceinfomodel.cpp:34
 #, kde-format
@@ -1370,7 +1370,7 @@ msgstr "Notifica als usuaris actius en esta sala"
 msgid "Edited at %1 by %2"
 msgstr "Editat a les %1 per %2"
 
-#: core/model/messagesmodel.cpp:434
+#: core/model/messagesmodel.cpp:432
 #, kde-format
 msgid "Ignored Message"
 msgstr "Missatge ignorat"
@@ -1962,7 +1962,7 @@ msgstr "Activa el mode de depuració"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Neteja la base de dades (utilitzeu amb precaució)"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -5611,7 +5611,7 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
-"IP o servidor d'emissió de transmissió central de Rocket.Chat. P. ex., "
+"IP o amfitrió d'emissió de transmissió central de Rocket.Chat. P. ex., "
 "192.168.1.1:3000 o localhost:4000"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:148

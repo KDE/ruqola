@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:43+0000\n"
-"PO-Revision-Date: 2025-12-23 11:55+0300\n"
+"POT-Creation-Date: 2025-12-25 00:43+0000\n"
+"PO-Revision-Date: 2025-12-24 11:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1364,7 +1364,7 @@ msgstr "Odadaki etkin herkesi haberdar et"
 msgid "Edited at %1 by %2"
 msgstr "%2 tarafından %1 tarihinde düzenlendi"
 
-#: core/model/messagesmodel.cpp:434
+#: core/model/messagesmodel.cpp:432
 #, kde-format
 msgid "Ignored Message"
 msgstr "Yok Sayılan İleti"
@@ -1956,7 +1956,7 @@ msgstr "Hata ayıklama kipini etkinleştir"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Veritabanını temizle (Dikkatli kullanın)"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format

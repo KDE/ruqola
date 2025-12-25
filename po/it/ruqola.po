@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:43+0000\n"
+"POT-Creation-Date: 2025-12-25 00:43+0000\n"
 "PO-Revision-Date: 2025-12-18 09:28+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1365,7 +1365,7 @@ msgstr "Avvisa gli utenti attivi in questa stanza"
 msgid "Edited at %1 by %2"
 msgstr "Modificato alle %1 da %2"
 
-#: core/model/messagesmodel.cpp:434
+#: core/model/messagesmodel.cpp:432
 #, kde-format
 msgid "Ignored Message"
 msgstr "Messaggio ignorato"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:43+0000\n"
-"PO-Revision-Date: 2025-12-16 21:57+0200\n"
+"POT-Creation-Date: 2025-12-25 00:43+0000\n"
+"PO-Revision-Date: 2025-12-24 16:17+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1366,7 +1366,7 @@ msgstr "Сповістити активних користувачів у цій
 msgid "Edited at %1 by %2"
 msgstr "Редаговано %1, %2"
 
-#: core/model/messagesmodel.cpp:434
+#: core/model/messagesmodel.cpp:432
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ігнороване повідомлення"
@@ -1969,7 +1969,7 @@ msgstr "Задіяти діагностичний режим"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Очистити базу даних (обережно!)"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format

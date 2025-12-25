@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:43+0000\n"
-"PO-Revision-Date: 2025-12-16 16:43+0100\n"
+"POT-Creation-Date: 2025-12-25 00:43+0000\n"
+"PO-Revision-Date: 2025-12-24 12:32+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1364,7 +1364,7 @@ msgstr "Obvesti vse aktivne uporabnike v tej sobi"
 msgid "Edited at %1 by %2"
 msgstr "Uredil %2: %1"
 
-#: core/model/messagesmodel.cpp:434
+#: core/model/messagesmodel.cpp:432
 #, kde-format
 msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
@@ -1966,7 +1966,7 @@ msgstr "Aktiviran način odpravljanja napak"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Počisti podatkovno bazo (Uporabljajte previdno)"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
