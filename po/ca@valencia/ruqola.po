@@ -1251,7 +1251,7 @@ msgstr "enllaç"
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
 msgid "Host"
-msgstr "Servidor"
+msgstr "Amfitrió"
 
 #: core/model/deviceinfomodel.cpp:34
 #, kde-format
@@ -2320,7 +2320,7 @@ msgstr "No s'ha definit correctament l'importador, falta la classe Import."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 #, kde-format
 msgid "Failed to extract import file."
-msgstr "Ha fallat mentre s'extragué el fitxer importat."
+msgstr "Ha fallat mentre s'extreia el fitxer importat."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 #, kde-format
@@ -5560,7 +5560,7 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
-"IP o servidor d'emissió de transmissió central de Rocket.Chat. P. ex., "
+"IP o amfitrió d'emissió de transmissió central de Rocket.Chat. P. ex., "
 "192.168.1.1:3000 o localhost:4000"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:148
@@ -5628,7 +5628,7 @@ msgstr "RFC2813"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The port to bind to on the IRC host server."
-msgstr "El port al qual vincular-se en el servidor d'IRC."
+msgstr "El port al qual vincular-se en el servidor amfitrió d'IRC."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:53
 #, kde-format
@@ -6318,17 +6318,17 @@ msgstr "Secret de LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:124
 #, kde-format
 msgid "Proxy"
-msgstr "Servidor intermediari"
+msgstr "Amfitrió intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:129
 #, kde-format
 msgid "Proxy Host"
-msgstr "Servidor intermediari"
+msgstr "Amfitrió intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:132
 #, kde-format
 msgid "Proxy Services"
-msgstr "Serveis del servidor intermediari"
+msgstr "Serveis de l'amfitrió intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:135
 #, kde-format
