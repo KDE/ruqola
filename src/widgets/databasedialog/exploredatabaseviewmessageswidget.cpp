@@ -109,11 +109,11 @@ void ExploreDatabaseViewMessagesWidget::slotLoad()
         Q_EMIT messagesLoaded(listMessages);
         Q_EMIT loadModelFromDataBase(mRocketChatAccount->accountName(), roomId);
         if (listMessages.isEmpty()) {
-            KMessageBox::error(this, u"Room '%1' does not have database"_s.arg(roomName), u"Database empty"_s);
+            KMessageBox::error(this, u"Room '%1' does not have messages in database."_s.arg(roomName), u"Database empty"_s);
         }
     } else {
         Q_EMIT messagesLoaded({});
-        KMessageBox::error(this, u"Room name not selected"_s, u"Database empty"_s);
+        KMessageBox::error(this, u"Room name not selected."_s, u"Database empty"_s);
     }
 }
 
