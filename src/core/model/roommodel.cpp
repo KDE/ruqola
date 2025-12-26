@@ -9,10 +9,6 @@
 #include "roommodel.h"
 #include "accountroomsettings.h"
 #include "localdatabase/localdatabasemanager.h"
-#include "localdatabase/localmessagesdatabase.h"
-#include "localdatabase/localroomsdatabase.h"
-using namespace Qt::Literals::StringLiterals;
-
 #include "rocketchataccount.h"
 #include "ruqola_rooms_debug.h"
 #include "ruqolaserverconfig.h"
@@ -22,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QIcon>
 #include <QJsonArray>
 
+using namespace Qt::Literals::StringLiterals;
 RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRocketChatAccount(account)
@@ -366,14 +363,7 @@ void RoomModel::removeRoom(const QByteArray &roomId)
             mRoomsList.takeAt(i)->deleteLater();
             endRemoveRows();
             if (mRocketChatAccount) {
-                mRocketChatAccount->localDatabaseManager()->roomsDatabase()->deleteRoom(mRocketChatAccount->accountName(), roomId);
-                mRocketChatAccount->localDatabaseManager()->messagesDatabase()->deleteDatabaseFromRoomId(mRocketChatAccount->accountName(), roomId);
-                mRocketChatAccount->localDatabaseManager()->globalDatabase()->removeTimeStamp(mRocketChatAccount->accountName(),
-                                                                                              roomId,
-                                                                                              GlobalDatabase::TimeStampType::RoomTimeStamp);
-                mRocketChatAccount->localDatabaseManager()->globalDatabase()->removeTimeStamp(mRocketChatAccount->accountName(),
-                                                                                              roomId,
-                                                                                              GlobalDatabase::TimeStampType::MessageTimeStamp);
+                mRocketChatAccount->localDatabaseManager()->deleteRoom(mRocketChatAccount->accountName(), roomId);
             }
             break;
         }
