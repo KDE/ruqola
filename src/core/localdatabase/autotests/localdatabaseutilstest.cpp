@@ -35,6 +35,7 @@ void LocalDatabaseUtilsTest::shouldCheckPath()
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global), u"global/"_s);
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E), u"e2e/"_s);
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo), u"roompendingtypedinfo/"_s);
+    QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomSubscriptions), u"roomsubscriptions/"_s);
 }
 
 void LocalDatabaseUtilsTest::shouldCheckDataPathPath()
