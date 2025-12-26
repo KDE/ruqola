@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-25 00:43+0000\n"
-"PO-Revision-Date: 2025-12-17 09:49+0100\n"
+"PO-Revision-Date: 2025-12-24 08:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1961,7 +1961,7 @@ msgstr "Activer le mode de débogage"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Nettoyer la base de données (À utiliser avec précaution)"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
