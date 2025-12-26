@@ -366,6 +366,12 @@ void RoomModel::removeRoom(const QByteArray &roomId)
             endRemoveRows();
             if (mRocketChatAccount) {
                 mRocketChatAccount->localDatabaseManager()->roomsDatabase()->deleteRoom(mRocketChatAccount->accountName(), roomId);
+                mRocketChatAccount->localDatabaseManager()->globalDatabase()->removeTimeStamp(mRocketChatAccount->accountName(),
+                                                                                              roomId,
+                                                                                              GlobalDatabase::TimeStampType::RoomTimeStamp);
+                mRocketChatAccount->localDatabaseManager()->globalDatabase()->removeTimeStamp(mRocketChatAccount->accountName(),
+                                                                                              roomId,
+                                                                                              GlobalDatabase::TimeStampType::MessageTimeStamp);
             }
             break;
         }
