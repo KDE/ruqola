@@ -76,6 +76,9 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     case DatabaseType::PendingTypedInfo:
         prefix = u"pendingtypedinfo-"_s;
         break;
+    case DatabaseType::RoomSubscriptions:
+        prefix = u"roomsubscriptions-"_s;
+        break;
     case DatabaseType::Logger:
         break;
     }
