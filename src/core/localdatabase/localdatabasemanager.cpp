@@ -152,8 +152,9 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArr
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mRoomsDatabase->deleteRoom(accountName, roomId);
-        // Remove timestamp.
+        mMessagesDatabase->deleteDatabaseFromRoomId(accountName, roomId);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::RoomTimeStamp);
+        mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::MessageTimeStamp);
     }
 }
 
