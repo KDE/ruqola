@@ -180,3 +180,5 @@ void AccountsChannelsModel::unproxyModel(QAbstractItemModel *model)
         mProxied.erase(it);
     }
 }
+
+#include "moc_accountschannelsmodel.cpp"
