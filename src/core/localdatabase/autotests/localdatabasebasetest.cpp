@@ -56,5 +56,13 @@ void LocalDatabaseBaseTest::shouldHaveDefaultValues()
         TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::E2E);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"e2e-kde"_s);
     }
+    {
+        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::PendingTypedInfo);
+        QCOMPARE(w.currentDatabaseName(u"kde"_s), u"pendingtypedinfo-kde"_s);
+    }
+    {
+        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::RoomSubscriptions);
+        QCOMPARE(w.currentDatabaseName(u"kde"_s), u"roomsubscriptions-kde"_s);
+    }
 }
 #include "moc_localdatabasebasetest.cpp"
