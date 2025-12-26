@@ -18,3 +18,5 @@ void LocalRoomSubscriptionsDatabaseTest::shouldDefaultValues()
     LocalRoomSubscriptionsDatabase roomSubscriptionDataBase;
     QCOMPARE(roomSubscriptionDataBase.schemaDatabaseStr(), u"CREATE TABLE ROOMSUBSCRIPTION (subscriptionId TEXT PRIMARY KEY NOT NULL, roomId TEXT)"_s);
 }
+
+#include "moc_localroomsubscriptionsdatabasetest.cpp"
