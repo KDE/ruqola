@@ -137,3 +137,5 @@ std::unique_ptr<QSqlTableModel> GlobalDatabase::createGlobalModel(const QString 
     model->select();
     return model;
 }
+
+#include "moc_globaldatabase.cpp"
