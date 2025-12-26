@@ -13,4 +13,7 @@ class LocalRoomSubscriptionsDatabaseTest : public QObject
 public:
     explicit LocalRoomSubscriptionsDatabaseTest(QObject *parent = nullptr);
     ~LocalRoomSubscriptionsDatabaseTest() override = default;
+
+private Q_SLOTS:
+    void shouldDefaultValues();
 };

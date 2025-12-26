@@ -6,11 +6,15 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include "localdatabasebase.h"
 
-class LocalRoomSubscriptionsDatabase : public LocalDatabaseBase
+class LIBRUQOLACORE_EXPORT LocalRoomSubscriptionsDatabase : public LocalDatabaseBase
 {
 public:
     LocalRoomSubscriptionsDatabase();
     ~LocalRoomSubscriptionsDatabase() override;
+
+protected:
+    [[nodiscard]] QString schemaDataBase() const override;
 };
