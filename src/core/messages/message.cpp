@@ -1137,28 +1137,28 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     if (o.contains("attachments"_L1)) {
         const QJsonArray attachmentsArray = o.value("attachments"_L1).toArray();
-        MessageAttachments *attachments = MessageAttachments::deserialize(attachmentsArray, message.messageId());
+        const MessageAttachments *const attachments = MessageAttachments::deserialize(attachmentsArray, message.messageId());
         message.setAttachments(*attachments);
         delete attachments;
     }
 
     if (o.contains("urls"_L1)) {
         const QJsonArray urlsArray = o.value("urls"_L1).toArray();
-        MessageUrls *urls = MessageUrls::deserialize(urlsArray, message.messageId());
+        const MessageUrls *const urls = MessageUrls::deserialize(urlsArray, message.messageId());
         message.setUrls(*urls);
         delete urls;
     }
 
     if (o.contains("reactions"_L1)) {
         const QJsonObject reactionsArray = o.value("reactions"_L1).toObject();
-        Reactions *reaction = Reactions::deserialize(reactionsArray, emojiManager);
+        const Reactions *const reaction = Reactions::deserialize(reactionsArray, emojiManager);
         message.setReactions(*reaction);
         delete reaction;
     }
 
     if (o.contains("replies"_L1)) {
         const QJsonArray repliesArray = o.value("replies"_L1).toArray();
-        Replies *replies = Replies::deserialize(repliesArray);
+        const Replies *const replies = Replies::deserialize(repliesArray);
         message.setReplies(*replies);
         delete replies;
     }
@@ -1173,14 +1173,14 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     if (o.contains("channels"_L1)) {
         const QJsonArray channelsArray = o.value("channels"_L1).toArray();
-        Channels *channels = Channels::deserialize(channelsArray);
+        const Channels *const channels = Channels::deserialize(channelsArray);
         message.setChannels(*channels);
         delete channels;
     }
 
     if (o.contains("blocks"_L1)) {
         const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
-        Blocks *blocks = Blocks::deserialize(blocksArray);
+        const Blocks *const blocks = Blocks::deserialize(blocksArray);
         message.setBlocks(*blocks);
         delete blocks;
     }
@@ -1191,7 +1191,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     if (o.contains("messageTranslation"_L1)) {
-        MessageTranslations *translation = MessageTranslations::deserialize(o["messageTranslation"_L1].toArray());
+        const MessageTranslations *const translation = MessageTranslations::deserialize(o["messageTranslation"_L1].toArray());
         message.setMessageTranslation(*translation);
         delete translation;
     }
