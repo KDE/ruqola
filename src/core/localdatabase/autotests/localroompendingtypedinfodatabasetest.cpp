@@ -37,20 +37,20 @@ void LocalRoomPendingTypedInfoDatabaseTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalRoomPendingTypedInfoDatabase roomPendingTypedInfoDataBase;
+    const LocalRoomPendingTypedInfoDatabase roomPendingTypedInfoDataBase;
     QFile::remove(roomPendingTypedInfoDataBase.dbFileName(accountName()));
     QFile::remove(roomPendingTypedInfoDataBase.dbFileName(otherAccountName()));
 }
 
 void LocalRoomPendingTypedInfoDatabaseTest::shouldDefaultValues()
 {
-    LocalRoomPendingTypedInfoDatabase roomPendingTypedInfoDataBase;
+    const LocalRoomPendingTypedInfoDatabase roomPendingTypedInfoDataBase;
     QCOMPARE(roomPendingTypedInfoDataBase.schemaDatabaseStr(), u"CREATE TABLE ROOMPENDINGTYPED (roomId TEXT PRIMARY KEY NOT NULL, json TEXT)"_s);
 }
 
 void LocalRoomPendingTypedInfoDatabaseTest::shouldVerifyDbFileName()
 {
-    LocalRoomPendingTypedInfoDatabase roomPendingTypedInfoDataBase;
+    const LocalRoomPendingTypedInfoDatabase roomPendingTypedInfoDataBase;
     QCOMPARE(roomPendingTypedInfoDataBase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/roompendingtypedinfo/myAccount/myAccount.sqlite"_s);
 }
