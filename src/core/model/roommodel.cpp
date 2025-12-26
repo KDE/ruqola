@@ -498,14 +498,8 @@ RoomModel::Section RoomModel::section(Room *r) const
         return Section::Teams;
     }
     switch (roomType) {
+    case Room::RoomType::Channel:
     case Room::RoomType::Private: {
-        if (r->parentRid().isEmpty()) {
-            return Section::Rooms;
-        } else {
-            return Section::Discussions;
-        }
-    }
-    case Room::RoomType::Channel: {
         if (r->parentRid().isEmpty()) {
             return Section::Rooms;
         } else {
