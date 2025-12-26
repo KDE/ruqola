@@ -33,6 +33,13 @@ LocalMessagesDatabase::LocalMessagesDatabase()
 
 LocalMessagesDatabase::~LocalMessagesDatabase() = default;
 
+void LocalMessagesDatabase::deleteDatabaseFromRoomId(const QString &accountName, const QByteArray &roomId)
+{
+    // TODO
+    // QSqlDatabase db;
+    // const QString dbName = generateDatabaseName(accountName, roomId);
+}
+
 QString LocalMessagesDatabase::schemaDataBase() const
 {
     return QString::fromLatin1(s_schemaMessagesDataBase);

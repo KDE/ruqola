@@ -9,6 +9,7 @@
 #include "roommodel.h"
 #include "accountroomsettings.h"
 #include "localdatabase/localdatabasemanager.h"
+#include "localdatabase/localmessagesdatabase.h"
 #include "localdatabase/localroomsdatabase.h"
 using namespace Qt::Literals::StringLiterals;
 
@@ -366,6 +367,7 @@ void RoomModel::removeRoom(const QByteArray &roomId)
             endRemoveRows();
             if (mRocketChatAccount) {
                 mRocketChatAccount->localDatabaseManager()->roomsDatabase()->deleteRoom(mRocketChatAccount->accountName(), roomId);
+                mRocketChatAccount->localDatabaseManager()->messagesDatabase()->deleteDatabaseFromRoomId(mRocketChatAccount->accountName(), roomId);
                 mRocketChatAccount->localDatabaseManager()->globalDatabase()->removeTimeStamp(mRocketChatAccount->accountName(),
                                                                                               roomId,
                                                                                               GlobalDatabase::TimeStampType::RoomTimeStamp);

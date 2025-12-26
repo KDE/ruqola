@@ -5,7 +5,6 @@
 */
 
 #include "localdatabasebase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_database_debug.h"
 
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlError>
 #include <QSqlQuery>
 
+using namespace Qt::Literals::StringLiterals;
 LocalDatabaseBase::LocalDatabaseBase(const QString &basePath, LocalDatabaseBase::DatabaseType type)
     : mBasePath(basePath)
     , mDatabaseType(type)

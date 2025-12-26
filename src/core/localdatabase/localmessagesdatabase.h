@@ -20,6 +20,7 @@ class LIBRUQOLACORE_EXPORT LocalMessagesDatabase : public LocalDatabaseBase
 public:
     LocalMessagesDatabase();
     ~LocalMessagesDatabase() override;
+    void deleteDatabaseFromRoomId(const QString &accountName, const QByteArray &roomId);
     void deleteMessage(const QString &accountName, const QByteArray &roomId, const QString &messageId);
     void addMessage(const QString &accountName, const QByteArray &roomId, const Message &m);
 
