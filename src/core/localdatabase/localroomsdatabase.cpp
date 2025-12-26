@@ -5,7 +5,6 @@
 */
 
 #include "localroomsdatabase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabaseutils.h"
 #include "room.h"
@@ -24,6 +23,7 @@ enum class RoomFields {
     Json,
 }; // in the same order as the table
 
+using namespace Qt::Literals::StringLiterals;
 LocalRoomsDatabase::LocalRoomsDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localRoomsDatabasePath(), LocalDatabaseBase::DatabaseType::Rooms)
 {
