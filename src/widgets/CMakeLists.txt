@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolawidgets
-    databasedialog/exploredatabaseroomsubscriptionswidget.h
-    databasedialog/exploredatabaseroomsubscriptionswidget.cpp
-)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(
@@ -808,6 +804,8 @@ target_sources(
         databasedialog/exploredatabasee2estoragewidget.h
         databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.cpp
         databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h
+        databasedialog/exploredatabaseroomsubscriptionswidget.h
+        databasedialog/exploredatabaseroomsubscriptionswidget.cpp
         whatsnew/whatsnewtranslations.h
         whatsnew/whatsnewtranslations.cpp
         explorepermissionsdialog/explorepermissionsdialog.h
