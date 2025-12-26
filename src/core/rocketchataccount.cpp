@@ -3434,10 +3434,8 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
     }
 }
 
-#define ADD_LOAD_ROOMS_FROM_DATABASE 1
 void RocketChatAccount::loadRoomsFromDatabase()
 {
-#if ADD_LOAD_ROOMS_FROM_DATABASE // Disable for the moment
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << mAccountTimeStamp;
         if (mAccountTimeStamp > -1) {
@@ -3452,16 +3450,15 @@ void RocketChatAccount::loadRoomsFromDatabase()
             }
         }
     }
-#endif
 }
 
+#define ADD_LOAD_ROOMS_FROM_DATABASE 1
 void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
 {
     // 1) if removed => remove from database
     // 2) load rooms from database
     // 3) update rooms
 
-    // qDebug() << " SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS " << root;
     // TODO in offline mode we need to load all rooms list
     const QJsonObject obj = root.value("result"_L1).toObject();
     RoomModel *model = roomModel();
