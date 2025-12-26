@@ -19,6 +19,7 @@ class LocalMessagesDatabase;
 class LocalRoomsDatabase;
 class LocalAccountsDatabase;
 class E2EDataBase;
+class LocalRoomSubscriptionsDatabase;
 class Message;
 class Room;
 class LocalRoomPendingTypedInfoDatabase;
@@ -62,6 +63,8 @@ public:
 
     [[nodiscard]] LocalRoomPendingTypedInfoDatabase *roomPendingTypedInfoDatabase() const;
 
+    [[nodiscard]] LocalRoomSubscriptionsDatabase *roomSubscriptionsDatabase() const;
+
     void updateRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId, const AccountRoomSettings::PendingTypedInfo &pendingTypedInfo);
     void deleteRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId);
 
@@ -77,4 +80,5 @@ private:
     std::unique_ptr<GlobalDatabase> mGlobalDatabase;
     std::unique_ptr<E2EDataBase> mE2EDatabase;
     std::unique_ptr<LocalRoomPendingTypedInfoDatabase> mRoomPendingTypedInfoDatabase;
+    std::unique_ptr<LocalRoomSubscriptionsDatabase> mRoomSubscriptionsDatabase;
 };

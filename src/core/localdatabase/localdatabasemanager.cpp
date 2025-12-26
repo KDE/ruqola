@@ -12,6 +12,7 @@
 #include "localmessagesdatabase.h"
 #include "localroompendingtypedinfodatabase.h"
 #include "localroomsdatabase.h"
+#include "localroomsubscriptionsdatabase.h"
 #include "messages/message.h"
 #include "room.h"
 #include "ruqola_database_debug.h"
@@ -26,6 +27,7 @@ LocalDatabaseManager::LocalDatabaseManager()
     , mGlobalDatabase(std::make_unique<GlobalDatabase>())
     , mE2EDatabase(std::make_unique<E2EDataBase>())
     , mRoomPendingTypedInfoDatabase(std::make_unique<LocalRoomPendingTypedInfoDatabase>())
+    , mRoomSubscriptionsDatabase(std::make_unique<LocalRoomSubscriptionsDatabase>())
 {
 }
 
@@ -127,6 +129,11 @@ LocalMessagesDatabase *LocalDatabaseManager::messagesDatabase() const
 LocalRoomsDatabase *LocalDatabaseManager::roomsDatabase() const
 {
     return mRoomsDatabase.get();
+}
+
+LocalRoomSubscriptionsDatabase *LocalDatabaseManager::roomSubscriptionsDatabase() const
+{
+    return mRoomSubscriptionsDatabase.get();
 }
 
 LocalAccountsDatabase *LocalDatabaseManager::accountDatabase() const
