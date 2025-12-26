@@ -213,7 +213,7 @@ QList<TextAddonsWidgets::WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo(
         }
         info.setNewFeatures(lst);
         info.setVersion(u"2.7"_s);
-        info.setBugFixings({i18n("Save local translation to local database.")});
+        info.setBugFixings({i18n("Save local translation to local database."), i18n("Fix remove room (in local database).")});
 
         listInfo.append(std::move(info));
     }
