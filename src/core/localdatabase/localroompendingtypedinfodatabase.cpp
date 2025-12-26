@@ -17,7 +17,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 static const char s_schemaRoomPendingTypedDataBase[] = "CREATE TABLE ROOMPENDINGTYPED (roomId TEXT PRIMARY KEY NOT NULL, json TEXT)";
-enum class RoomPendingTypedFields {
+enum class RoomSubscriptionFields {
     RoomId,
     Json,
 }; // in the same order as the table
@@ -57,7 +57,7 @@ std::unique_ptr<QSqlTableModel> LocalRoomPendingTypedInfoDatabase::createRoomsMo
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"ROOMPENDINGTYPED"_s);
-    model->setSort(int(RoomPendingTypedFields::RoomId), Qt::AscendingOrder);
+    model->setSort(int(RoomSubscriptionFields::RoomId), Qt::AscendingOrder);
     model->select();
     return model;
 }

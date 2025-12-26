@@ -6,11 +6,17 @@
 
 #include "localroomsubscriptionsdatabase.h"
 #include "localdatabase/localdatabaseutils.h"
+#include "ruqola_database_debug.h"
+#include <QFileInfo>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlTableModel>
 
 using namespace Qt::Literals::StringLiterals;
 
-static const char s_schemaRoomPSubscriptionsDataBase[] = "CREATE TABLE ROOMSUBSCRIPTION (subscriptionId TEXT PRIMARY KEY NOT NULL, roomId TEXT)";
-enum class RoomPendingTypedFields {
+static const char s_schemaRoomPSubscriptionsDataBase[] = "CREATE TABLE ROOMSUBSCRIPTIONS (subscriptionId TEXT PRIMARY KEY NOT NULL, roomId TEXT)";
+enum class RoomSubscriptionFields {
     SubscriptionId,
     RoomId,
 }; // in the same order as the table

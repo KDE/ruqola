@@ -22,7 +22,7 @@ static QString otherAccountName()
     return u"myOtherAccount"_s;
 }
 
-enum class RoomPendingTypedFields {
+enum class RoomSubscriptionFields {
     RoomId,
     Json,
 }; // in the same order as the table
@@ -92,14 +92,14 @@ void LocalRoomPendingTypedInfoDatabaseTest::shouldStoreRoomPendingTypedInfo()
     QVERIFY(tableModel);
     QCOMPARE(tableModel->rowCount(), 3);
     const QSqlRecord record0 = tableModel->record(0);
-    QCOMPARE(record0.value(int(RoomPendingTypedFields::Json)).toByteArray(),
+    QCOMPARE(record0.value(int(RoomSubscriptionFields::Json)).toByteArray(),
              QJsonDocument(AccountRoomSettings::PendingTypedInfo::serialize(info1)).toJson(QJsonDocument::Compact));
-    QCOMPARE(record0.value(int(RoomPendingTypedFields::RoomId)).toByteArray(), roomId);
+    QCOMPARE(record0.value(int(RoomSubscriptionFields::RoomId)).toByteArray(), roomId);
 
     const QSqlRecord record1 = tableModel->record(1);
-    QCOMPARE(record1.value(int(RoomPendingTypedFields::Json)).toByteArray(),
+    QCOMPARE(record1.value(int(RoomSubscriptionFields::Json)).toByteArray(),
              QJsonDocument(AccountRoomSettings::PendingTypedInfo::serialize(info2)).toJson(QJsonDocument::Compact));
-    QCOMPARE(record1.value(int(RoomPendingTypedFields::RoomId)).toByteArray(), roomId2);
+    QCOMPARE(record1.value(int(RoomSubscriptionFields::RoomId)).toByteArray(), roomId2);
 }
 
 void LocalRoomPendingTypedInfoDatabaseTest::shouldDeleteRoomPendingTypedInfo() // this test depends on shouldStoreRoomPendingTypedInfo()
