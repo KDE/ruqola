@@ -57,6 +57,11 @@ QString LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath()
     return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo);
 }
 
+QString LocalDatabaseUtils::localRoomSubscriptionsDatabasePath()
+{
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomSubscriptions);
+}
+
 QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathType)
 {
     switch (pathType) {

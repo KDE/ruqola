@@ -48,6 +48,8 @@ void LocalDatabaseUtilsTest::shouldCheckDataPathPath()
     QCOMPARE(LocalDatabaseUtils::localE2EDatabasePath(), QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/e2e/"_s);
     QCOMPARE(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath(),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/roompendingtypedinfo/"_s);
+    QCOMPARE(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath(),
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/roomsubscriptions/"_s);
 }
 
 void LocalDatabaseUtilsTest::shouldCheckDataBase()
