@@ -72,6 +72,8 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
         return u"e2e/"_s;
     case LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo:
         return u"roompendingtypedinfo/"_s;
+    case LocalDatabaseUtils::DatabasePath::RoomSubscriptions:
+        return u"roomsubscriptions/"_s;
     }
     Q_UNREACHABLE();
     return {};

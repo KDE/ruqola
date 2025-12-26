@@ -17,6 +17,7 @@ enum class DatabasePath : uint8_t {
     Global,
     E2E,
     RoomPendingTypedInfo,
+    RoomSubscriptions,
 };
 
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString fixRoomName(QString roomName);
