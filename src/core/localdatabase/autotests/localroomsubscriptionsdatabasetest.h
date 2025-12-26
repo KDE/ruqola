@@ -15,5 +15,10 @@ public:
     ~LocalRoomSubscriptionsDatabaseTest() override = default;
 
 private Q_SLOTS:
+    void initTestCase();
     void shouldDefaultValues();
+    void shouldVerifyDbFileName();
+    void shouldStoreRoomSubscription();
+    void shouldDeleteRoomSubscription();
+    void shouldDeleteSubscriptionInvalidSubscriptionId();
 };
