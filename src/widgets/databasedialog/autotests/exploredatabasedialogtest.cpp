@@ -14,6 +14,7 @@
 #include "databasedialog/exploredatabasemessagesstoragewidget.h"
 #include "databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h"
 #include "databasedialog/exploredatabaseroomsstoragewidget.h"
+#include "databasedialog/exploredatabaseroomsubscriptionswidget.h"
 #include "databasedialog/exploredatabaseviewmessageswidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
@@ -64,6 +65,9 @@ void ExploreDatabaseDialogTest::shouldHaveDefaultValues()
     auto mExploreDatabaseRoomsPendingTypedInfoStorageWidget =
         d.findChild<ExploreDatabaseRoomsPendingTypedInfoStorageWidget *>(u"mExploreDatabaseRoomsPendingTypedInfoStorageWidget"_s);
     QVERIFY(mExploreDatabaseRoomsPendingTypedInfoStorageWidget);
+
+    auto mExploreDatabaseRoomSubscriptionsWidget = d.findChild<ExploreDatabaseRoomSubscriptionsWidget *>(u"mExploreDatabaseRoomSubscriptionsWidget"_s);
+    QVERIFY(mExploreDatabaseRoomSubscriptionsWidget);
 
     auto button = d.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);
