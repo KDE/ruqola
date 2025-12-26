@@ -189,6 +189,20 @@ void LocalDatabaseManager::deleteRoomPendingTypedInfo(const QString &accountName
     }
 }
 
+void LocalDatabaseManager::deleteRoomSubscription(const QString &accountName, const QByteArray &subscriptionId)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        mRoomSubscriptionsDatabase->deleteRoomSubscription(accountName, subscriptionId);
+    }
+}
+
+void LocalDatabaseManager::insertRoomSubscription(const QString &accountName, const QByteArray &subscriptionId, const QByteArray &roomId)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        mRoomSubscriptionsDatabase->insertRoomSubscription(accountName, subscriptionId, roomId);
+    }
+}
+
 QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalDatabaseManager::loadRoomPendingTypedInfo(const QString &accountName) const
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {

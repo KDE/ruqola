@@ -68,6 +68,9 @@ public:
     void updateRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId, const AccountRoomSettings::PendingTypedInfo &pendingTypedInfo);
     void deleteRoomPendingTypedInfo(const QString &accountName, const QByteArray &roomId);
 
+    void deleteRoomSubscription(const QString &accountName, const QByteArray &subscriptionId);
+    void insertRoomSubscription(const QString &accountName, const QByteArray &subscriptionId, const QByteArray &roomId);
+
     [[nodiscard]] QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> loadRoomPendingTypedInfo(const QString &accountName) const;
 
     [[nodiscard]] QList<QByteArray> loadRooms(const QString &accountName);
