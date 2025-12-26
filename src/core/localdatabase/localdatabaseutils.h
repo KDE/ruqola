@@ -47,4 +47,6 @@ enum class DatabasePath : uint8_t {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString jsonAccount();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceRoomPendingTypedInfo();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteRoomPendingTypedInfo();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteRoomSubscription();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString insertRoomSubscription();
 };

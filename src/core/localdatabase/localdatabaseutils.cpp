@@ -163,3 +163,13 @@ QString LocalDatabaseUtils::deleteRoomPendingTypedInfo()
 {
     return u"DELETE FROM ROOMPENDINGTYPED WHERE roomId = ?"_s;
 }
+
+QString LocalDatabaseUtils::deleteRoomSubscription()
+{
+    return u"DELETE FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = ?"_s;
+}
+
+QString LocalDatabaseUtils::insertRoomSubscription()
+{
+    return u"INSERT OR REPLACE INTO ROOMSUBSCRIPTIONS VALUES (?, ?)"_s;
+}
