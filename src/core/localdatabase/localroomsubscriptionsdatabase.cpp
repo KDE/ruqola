@@ -97,16 +97,11 @@ QByteArray LocalRoomSubscriptionsDatabase::roomId(const QString &accountName, co
     if (!initializeDataBase(accountName, db)) {
         return {};
     }
-    /*
-    const QString identifier = generateIdentifier(accountName, roomId, type);
-    QSqlQuery query(LocalDatabaseUtils::timestampGlobal().arg(identifier), db);
-    qint64 value = -1;
+    QSqlQuery query(LocalDatabaseUtils::roomIdFromSubscription().arg(subscriptionId), db);
     // We have one element
+    QByteArray roomId;
     if (query.first()) {
-        value = query.value(0).toLongLong();
+        roomId = query.value(0).toByteArray();
     }
-    return value;
-    */
-    // TODO
-    return {};
+    return roomId;
 }
