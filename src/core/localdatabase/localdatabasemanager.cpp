@@ -155,6 +155,11 @@ void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
     }
 }
 
+QByteArray LocalDatabaseManager::roomId(const QString &accountName, const QByteArray &subscriptionId)
+{
+    return mRoomSubscriptionsDatabase->roomId(accountName, subscriptionId);
+}
+
 void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArray &roomId)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {

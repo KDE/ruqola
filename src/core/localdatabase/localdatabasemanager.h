@@ -75,6 +75,8 @@ public:
 
     [[nodiscard]] QList<QByteArray> loadRooms(const QString &accountName);
 
+    [[nodiscard]] QByteArray roomId(const QString &accountName, const QByteArray &subscriptionId);
+
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
     std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;
