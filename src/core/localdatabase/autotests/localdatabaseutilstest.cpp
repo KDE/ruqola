@@ -70,6 +70,7 @@ void LocalDatabaseUtilsTest::shouldCheckDataBase()
     QCOMPARE(LocalDatabaseUtils::deleteRoomPendingTypedInfo(), u"DELETE FROM ROOMPENDINGTYPED WHERE roomId = ?"_s);
     QCOMPARE(LocalDatabaseUtils::deleteRoomSubscription(), u"DELETE FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = ?"_s);
     QCOMPARE(LocalDatabaseUtils::insertRoomSubscription(), u"INSERT OR REPLACE INTO ROOMSUBSCRIPTIONS VALUES (?, ?)"_s);
+    QCOMPARE(LocalDatabaseUtils::roomIdFromSubscription(), u"SELECT roomId FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = \"%1\""_s);
 }
 
 #include "moc_localdatabaseutilstest.cpp"

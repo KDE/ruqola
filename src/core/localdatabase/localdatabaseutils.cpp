@@ -5,11 +5,11 @@
 */
 
 #include "localdatabaseutils.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QDateTime>
 #include <QStandardPaths>
 
+using namespace Qt::Literals::StringLiterals;
 QString LocalDatabaseUtils::fixRoomName(QString roomName)
 {
     roomName.remove(u'/');
@@ -172,4 +172,9 @@ QString LocalDatabaseUtils::deleteRoomSubscription()
 QString LocalDatabaseUtils::insertRoomSubscription()
 {
     return u"INSERT OR REPLACE INTO ROOMSUBSCRIPTIONS VALUES (?, ?)"_s;
+}
+
+QString LocalDatabaseUtils::roomIdFromSubscription()
+{
+    return u"SELECT roomId FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = \"%1\""_s;
 }
