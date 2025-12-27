@@ -41,7 +41,8 @@ namespace
 {
 // constexpr int currentDataBaseVersion = 1;
 // Version 2 we need to delete local database as before we never supported remove room => we have some invalid rooms
-constexpr int currentDataBaseVersion = 2;
+// Version 3 Fix delete room. We need subscription database support
+constexpr int currentDataBaseVersion = 3;
 }
 
 AccountManager::AccountManager(QObject *parent)
@@ -163,6 +164,8 @@ AccountManager::MigrateDatabaseType AccountManager::needToHandleDataMigration() 
     if (RuqolaGlobalConfig::self()->databaseVersion() == 0 && currentDataBaseVersion == 1) {
         return MigrateDatabaseType::All;
     } else if (RuqolaGlobalConfig::self()->databaseVersion() == 1 && currentDataBaseVersion == 2) {
+        return MigrateDatabaseType::DatabaseWithoutLogger;
+    } else if (RuqolaGlobalConfig::self()->databaseVersion() == 2 && currentDataBaseVersion <= 3) {
         return MigrateDatabaseType::DatabaseWithoutLogger;
     }
     return MigrateDatabaseType::None;
