@@ -162,6 +162,7 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArr
         mMessagesDatabase->deleteDatabaseFromRoomId(accountName, roomId);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::RoomTimeStamp);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::MessageTimeStamp);
+        // TODO remove info in roomsubscription too
     }
 }
 

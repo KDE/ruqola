@@ -20,6 +20,8 @@ public:
     void deleteRoomSubscription(const QString &accountName, const QByteArray &subscriptionId);
     void insertRoomSubscription(const QString &accountName, const QByteArray &subscriptionId, const QByteArray &roomId);
 
+    [[nodiscard]] QByteArray roomId(const QString &accountName, const QByteArray &subscriptionId);
+
 protected:
     [[nodiscard]] QString schemaDataBase() const override;
 };
