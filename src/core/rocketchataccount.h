@@ -426,7 +426,6 @@ public:
 
     [[nodiscard]] bool isFileDeletable(const QByteArray &roomId, const QByteArray &fileUserId, qint64 uploadedAt) const;
 
-    void deleteRoomFromDatabase(const QByteArray &roomId);
     void addRoomToDataBase(Room *r);
     void updateRoomInDatabase(const QByteArray &roomId);
     void addMessagesToDataBase(const QByteArray &roomId, const QList<Message> &messages);
@@ -505,6 +504,7 @@ Q_SIGNALS:
     void offlineModeChanged();
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void deleteRoomFromDatabase(const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void setE2EPasswordMustBeDecrypt(bool newE2EPasswordMustBeDecrypt);
 
     LIBRUQOLACORE_NO_EXPORT void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
