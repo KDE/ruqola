@@ -3522,12 +3522,14 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             || roomType == u'd') { // Direct chat
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
+                const QByteArray subscriptionId = room.value("_id"_L1).toString().toLatin1();
                 if (timeStamp == -1) {
                     const QByteArray roomId = model->addRoom(room);
                     if (roomId.isEmpty()) {
                         qDebug() << "insert room root : " << root;
                         Q_ASSERT(false);
                     } else {
+                        insertRoomSubscription(subscriptionId, roomId);
                         updateRoomInDatabase(roomId);
                     }
                 } else {
@@ -3535,6 +3537,7 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
                     if (roomId.isEmpty()) {
                         qCWarning(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "RoomId is empty";
                     } else {
+                        insertRoomSubscription(subscriptionId, roomId);
                         updateRoomInDatabase(roomId);
                     }
                 }
