@@ -3423,6 +3423,11 @@ void RocketChatAccount::roomsParsing(const QJsonObject &root)
     }
 }
 
+void RocketChatAccount::insertRoomSubscription(const QByteArray &subscriptionId, const QByteArray &roomId)
+{
+    mLocalDatabaseManager->insertRoomSubscription(accountName(), subscriptionId, roomId);
+}
+
 void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
 {
     if (!roomId.isEmpty()) {

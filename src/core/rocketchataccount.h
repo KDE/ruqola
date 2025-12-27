@@ -435,6 +435,8 @@ public:
     [[nodiscard]] bool offlineMode() const;
 
     [[nodiscard]] qint64 globalRoomsTimeStamp() const;
+    void insertRoomSubscription(const QByteArray &subscriptionId, const QByteArray &roomId);
+
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);
