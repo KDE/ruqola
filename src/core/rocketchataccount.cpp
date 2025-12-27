@@ -3478,12 +3478,14 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             qCDebug(RUQOLA_SUBSCRIPTION_PARSING_LOG) << " room removed " << removed;
             for (int i = 0; i < removed.size(); i++) {
                 const QJsonObject removedRoom = removed.at(i).toObject();
-                const QByteArray roomId = removedRoom["_id"_L1].toString().toLatin1();
-                if (!roomId.isEmpty()) {
-                    deleteRoomFromDatabase(roomId);
+                const QByteArray subscriptionId = removedRoom["_id"_L1].toString().toLatin1();
+                const QByteArray roomId = mLocalDatabaseManager->roomId(accountName(), subscriptionId);
+                if (roomId.isEmpty()) {
+                    qCWarning(RUQOLA_SUBSCRIPTION_PARSING_LOG) << "subscriptionId is not defined in database: " << subscriptionId;
                 } else {
-                    qCWarning(RUQOLA_SUBSCRIPTION_PARSING_LOG) << " root : " << root;
-                    Q_ASSERT(false);
+                    deleteRoomFromDatabase(roomId);
+                    // Delete from database
+                    mLocalDatabaseManager->deleteRoomSubscription(accountName(), subscriptionId);
                 }
             }
         }
