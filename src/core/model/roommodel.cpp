@@ -376,15 +376,21 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     const QJsonObject roomData = array[1].toObject();
     if (actionName == "removed"_L1) {
         qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name " << " rid " << roomData.value("rid"_L1);
-        const QByteArray id = roomData.value("rid"_L1).toString().toLatin1();
-        removeRoom(id);
+        const QByteArray subscriptionId = roomData.value("rid"_L1).toString().toLatin1();
+        // TODO remove subscriptionId in database
+        const QByteArray roomId = roomData.value("rid"_L1).toString().toLatin1();
+        removeRoom(roomId);
     } else if (actionName == "inserted"_L1) {
-        qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value("name"_L1) << " rid " << roomData.value("rid"_L1);
+        const QByteArray roomId = roomData.value("rid"_L1).toString().toLatin1();
+        const QByteArray subscriptionId = roomData.value("_id"_L1).toString().toLatin1();
+        qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value("name"_L1) << " subscriptionId " << subscriptionId << " roomId " << roomId;
+
         if (const auto roomId = addRoom(roomData); roomId.isEmpty()) {
             qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to add room";
         } else {
             if (mRocketChatAccount) {
                 mRocketChatAccount->updateRoomInDatabase(roomId);
+                mRocketChatAccount->insertRoomSubscription(subscriptionId, roomId);
             }
         }
 
