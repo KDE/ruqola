@@ -22,12 +22,10 @@ ExploreDatabaseRoomSubscriptionsWidget::~ExploreDatabaseRoomSubscriptionsWidget(
 
 void ExploreDatabaseRoomSubscriptionsWidget::slotLoadModelFromDataBase(const QString &accountName)
 {
-#if 0
-        mModel = mLocalRoomSubscriptions->createRoomsModel(accountName);
-        if (mModel) {
-            setModel(mModel.get());
-        } else {
-            qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
-        }
-#endif
+    mModel = mLocalRoomSubscriptions->createRoomSubscriptionsModel(accountName);
+    if (mModel) {
+        setModel(mModel.get());
+    } else {
+        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
+    }
 }
