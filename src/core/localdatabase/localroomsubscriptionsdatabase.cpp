@@ -93,11 +93,11 @@ void LocalRoomSubscriptionsDatabase::insertRoomSubscription(const QString &accou
 
 QByteArray LocalRoomSubscriptionsDatabase::roomId(const QString &accountName, const QByteArray &subscriptionId)
 {
-    /*
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {
-        return -1;
+        return {};
     }
+    /*
     const QString identifier = generateIdentifier(accountName, roomId, type);
     QSqlQuery query(LocalDatabaseUtils::timestampGlobal().arg(identifier), db);
     qint64 value = -1;
