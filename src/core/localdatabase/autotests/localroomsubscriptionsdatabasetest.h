@@ -21,4 +21,5 @@ private Q_SLOTS:
     void shouldStoreRoomSubscription();
     void shouldDeleteRoomSubscription();
     void shouldDeleteSubscriptionInvalidSubscriptionId();
+    void shouldGetRoomId();
 };

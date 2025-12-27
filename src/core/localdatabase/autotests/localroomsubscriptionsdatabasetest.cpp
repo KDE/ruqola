@@ -115,4 +115,16 @@ void LocalRoomSubscriptionsDatabaseTest::shouldDeleteSubscriptionInvalidSubscrip
     QVERIFY(tableModel);
     QCOMPARE(tableModel->rowCount(), 2);
 }
+
+void LocalRoomSubscriptionsDatabaseTest::shouldGetRoomId()
+{
+    LocalRoomSubscriptionsDatabase logger;
+
+    const QByteArray subscriptionId2 = "sub2"_ba;
+    QCOMPARE(logger.roomId(otherAccountName(), subscriptionId2), "foo2"_ba);
+
+    // No existing subscription5
+    const QByteArray subscriptionId5 = "sub5"_ba;
+    QCOMPARE(logger.roomId(otherAccountName(), subscriptionId5), QByteArray{});
+}
 #include "moc_localroomsubscriptionsdatabasetest.cpp"
