@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-27 00:42+0000\n"
+"POT-Creation-Date: 2025-12-28 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -173,13 +173,13 @@ msgstr "New feature"
 msgid "The following accounts are available:"
 msgstr "The following accounts are available:"
 
-#: core/accountmanager.cpp:296
+#: core/accountmanager.cpp:299
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "Invalid token"
 
-#: core/accountmanager.cpp:297
+#: core/accountmanager.cpp:300
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1331,7 +1331,7 @@ msgstr "Channel Type"
 msgid "Belongs To"
 msgstr "Belongs To"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:602
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:608
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1469,80 +1469,80 @@ msgstr "Two Factor Authentication"
 msgid "Last token part"
 msgstr "Last token part"
 
-#: core/model/roommodel.cpp:532
+#: core/model/roommodel.cpp:538
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 Mention"
 msgstr[1] "%1 Mentions"
 
-#: core/model/roommodel.cpp:536
+#: core/model/roommodel.cpp:542
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 Group Mention"
 msgstr[1] "%1 Group Mentions"
 
-#: core/model/roommodel.cpp:540
+#: core/model/roommodel.cpp:546
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 Unread Threaded Message"
 msgstr[1] "%1 Unread Threaded Messages"
 
-#: core/model/roommodel.cpp:544
+#: core/model/roommodel.cpp:550
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 Unread Message"
 msgstr[1] "%1 Unread Messages"
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:576
 #, kde-format
 msgid "Teams Room"
 msgstr "Teams Room"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:582
 #, kde-format
 msgid "Private Room"
 msgstr "Private Room"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Discussion Room"
 msgstr "Discussion Room"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:588
 #, kde-format
 msgid "Channel Room"
 msgstr "Channel Room"
 
-#: core/model/roommodel.cpp:596 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:602 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Unread"
 
-#: core/model/roommodel.cpp:598
+#: core/model/roommodel.cpp:604
 #, kde-format
 msgid "Favorites"
 msgstr "Favourites"
 
-#: core/model/roommodel.cpp:600
+#: core/model/roommodel.cpp:606
 #, kde-format
 msgid "Teams"
 msgstr "Teams"
 
-#: core/model/roommodel.cpp:604
+#: core/model/roommodel.cpp:610
 #, kde-format
 msgid "Discussions"
 msgstr "Discussions"
 
-#: core/model/roommodel.cpp:606
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Private Messages"
 msgstr "Private Messages"
 
-#: core/model/roommodel.cpp:608 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:614 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Unknown"
