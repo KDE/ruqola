@@ -12,6 +12,8 @@ if(TARGET KF6::UserFeedbackWidgets)
             userfeedback/ruqolauserfeedbackprovider.h
             userfeedback/accountinfosource.h
             userfeedback/userfeedbackmanager.h
+            configuredialog/configureuserfeedbackwidget.cpp
+            configuredialog/configureuserfeedbackwidget.h
     )
 endif()
 
@@ -1016,15 +1018,6 @@ if(HAVE_TEXT_TO_SPEECH)
         PRIVATE
             configuredialog/configureaccessibilitywidget.h
             configuredialog/configureaccessibilitywidget.cpp
-    )
-endif()
-
-if(TARGET KF6::UserFeedbackWidgets)
-    target_sources(
-        libruqolawidgets
-        PRIVATE
-            configuredialog/configureuserfeedbackwidget.cpp
-            configuredialog/configureuserfeedbackwidget.h
     )
 endif()
 
