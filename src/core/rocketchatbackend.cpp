@@ -242,11 +242,12 @@ void RocketChatBackend::slotLoginStatusChanged()
             connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
 
             auto ddp = mRocketChatAccount->ddp();
-
-            // TODO replace date by timeStamp
-            qint64 date = -1;
+#if 0
+            const qint64 timeStamp = -1;
+#else
             const qint64 timeStamp = mRocketChatAccount->globalRoomsTimeStamp();
-            ddp->initializeSubscription(date);
+#endif
+            ddp->initializeSubscription(timeStamp);
         }
         // TODO how we do in offline mode ?
         restApi->listAllPermissions();
