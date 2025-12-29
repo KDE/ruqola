@@ -54,8 +54,10 @@ void LocalRoomsDatabase::updateRoom(const QString &accountName, Room *room)
 
 void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QByteArray &roomId)
 {
+    // qDebug() << " void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QByteArray &roomId)" << roomId << " accountName " << accountName;
     QSqlDatabase db;
-    if (!checkDataBase(accountName, db)) {
+    if (!initializeDataBase(accountName, db)) {
+        qCDebug(RUQOLA_DATABASE_LOG) << "Database not found for: " << accountName << " roomId " << roomId;
         return;
     }
     QSqlQuery query(LocalDatabaseUtils::deleteRoom(), db);
