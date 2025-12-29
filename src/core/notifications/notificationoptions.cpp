@@ -78,7 +78,6 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 
 NotificationOptions NotificationOptions::deserialize(const QJsonObject &o)
 {
-    qCWarning(RUQOLA_LOG) << "Not implemented yet";
     NotificationOptions options;
     options.setAudioNotificationValue(o["audioNotificationValue"_L1].toString().toLatin1());
     options.setDisableNotifications(o["disableNotifications"_L1].toBool(false));
