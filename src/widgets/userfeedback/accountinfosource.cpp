@@ -5,13 +5,13 @@
 */
 
 #include "accountinfosource.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "ruqola.h"
 #include <KLocalizedString>
 #include <QVariant>
 
+using namespace Qt::Literals::StringLiterals;
 AccountInfoSource::AccountInfoSource()
     : KUserFeedback::AbstractDataSource(u"accounts"_s, KUserFeedback::Provider::DetailedSystemInformation)
 {

@@ -5,7 +5,6 @@
 */
 
 #include "ruqolauserfeedbackprovider.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountinfosource.h"
 
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KUserFeedback/StartCountSource>
 #include <KUserFeedback/UsageTimeSource>
 
+using namespace Qt::Literals::StringLiterals;
 RuqolaUserFeedbackProvider::RuqolaUserFeedbackProvider(QObject *parent)
     : KUserFeedback::Provider(parent)
 {
