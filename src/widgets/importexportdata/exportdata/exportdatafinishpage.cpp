@@ -67,11 +67,13 @@ void ExportDataFinishPage::setListAccounts(const QList<ImportExportUtils::Accoun
 
 void ExportDataFinishPage::exportAccounts()
 {
+    const QString fileNamePath = generateExportZipFileName();
     auto job = new ExportAccountJob(generateExportZipFileName(), this);
     connect(job, &ExportAccountJob::exportDone, this, &ExportDataFinishPage::slotExportDone);
     connect(job, &ExportAccountJob::exportFailed, this, &ExportDataFinishPage::slotExportFailed);
     connect(job, &ExportAccountJob::exportInfo, this, &ExportDataFinishPage::slotExportInfo);
-    connect(job, &ExportAccountJob::finished, this, [this]() {
+    connect(job, &ExportAccountJob::finished, this, [this, fileNamePath]() {
+        slotExportInfo(i18n("Generated Zip: %1", fileNamePath) + u'\n');
         mExportDone = true;
         Q_EMIT completeChanged();
     });
