@@ -5,7 +5,6 @@
 */
 
 #include "importdatafinishpage.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importaccountjob.h"
 #include <KLocalizedString>
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QUrl>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
     , mInfos(new QLabel(this))
@@ -23,6 +23,7 @@ ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
+    mainLayout->setContentsMargins({});
 
     mInfos->setObjectName(u"mInfos"_s);
     mainLayout->addWidget(mInfos);

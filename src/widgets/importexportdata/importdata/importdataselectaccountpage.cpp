@@ -17,6 +17,7 @@ ImportDataSelectAccountPage::ImportDataSelectAccountPage(QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
+    mainLayout->setContentsMargins({});
 
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setObjectName(u"hboxLayout"_s);

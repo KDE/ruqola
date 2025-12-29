@@ -24,6 +24,7 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
+    mainLayout->setContentsMargins({});
 
     mInfos->setObjectName(u"mInfos"_s);
     mainLayout->addWidget(mInfos);
