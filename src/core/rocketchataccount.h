@@ -436,6 +436,7 @@ public:
 
     [[nodiscard]] qint64 globalRoomsTimeStamp() const;
     void insertRoomSubscription(const QByteArray &subscriptionId, const QByteArray &roomId);
+    void deleteRoomSubscription(const QByteArray &subscriptionId);
 
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
