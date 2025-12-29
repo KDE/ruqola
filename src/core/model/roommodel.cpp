@@ -377,7 +377,9 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     if (actionName == "removed"_L1) {
         qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name " << " rid " << roomData.value("rid"_L1);
         const QByteArray subscriptionId = roomData.value("rid"_L1).toString().toLatin1();
-        mRocketChatAccount->deleteRoomSubscription(subscriptionId);
+        if (mRocketChatAccount) {
+            mRocketChatAccount->deleteRoomSubscription(subscriptionId);
+        }
         const QByteArray roomId = roomData.value("rid"_L1).toString().toLatin1();
         removeRoom(roomId);
     } else if (actionName == "inserted"_L1) {
