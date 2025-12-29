@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-28 00:42+0000\n"
-"PO-Revision-Date: 2025-12-06 22:03+0100\n"
+"PO-Revision-Date: 2025-12-29 00:51+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1960,7 +1960,7 @@ msgstr "Activar modo depuración"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Limpiar base de datos (Usar con cuidado)"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -7991,10 +7991,9 @@ msgid "DataBase Room Pending Typed Info"
 msgstr "Información pendiente de tipo de la base de datos de la sala"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase Room Subscriptions"
-msgstr "Salas de la base de datos"
+msgstr "Base de datos de subscripciones de salas"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
@@ -9346,10 +9345,9 @@ msgid "Impossible to create zip file."
 msgstr "No se pudo crear el archivo zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "No se pudo exportar datos."
+msgstr "No se pudo exportar la cuenta."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
 #, kde-format
@@ -12339,4 +12337,4 @@ msgstr "Guardar traducción local a base de datos local."
 #: widgets/whatsnew/whatsnewtranslations.cpp:216
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr ""
+msgstr "Corrección al eliminar sala (en base de datos local)."
