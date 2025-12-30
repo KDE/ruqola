@@ -476,10 +476,10 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
         const QString originalUpdateJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/room-update-subscription/"_L1 + updateFile + ".json"_L1;
         QFile f(originalUpdateJsonFile);
         QVERIFY(f.open(QIODevice::ReadOnly));
-        const QByteArray content = f.readAll();
+        const QByteArray udpateSubscriptionContent = f.readAll();
         f.close();
-        const QJsonDocument doc = QJsonDocument::fromJson(content);
-        const QJsonObject fields = doc.object();
+        const QJsonDocument docSubscription = QJsonDocument::fromJson(udpateSubscriptionContent);
+        const QJsonObject fields = docSubscription.object();
 
         r.parseUpdateRoom(fields);
     }

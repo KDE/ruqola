@@ -60,12 +60,12 @@ void ExtractServerInfoJob::start()
             const QList<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
             QList<AuthenticationInfo> authenticationMethodInfos;
             for (PluginAuthentication *abstractPlugin : lstPlugins) {
-                AuthenticationInfo info;
-                info.setIconName(abstractPlugin->iconName());
-                info.setName(abstractPlugin->name());
-                info.setOauthType(abstractPlugin->authenticationType());
-                if (info.isValid()) {
-                    authenticationMethodInfos.append(std::move(info));
+                AuthenticationInfo authenticationInfo;
+                authenticationInfo.setIconName(abstractPlugin->iconName());
+                authenticationInfo.setName(abstractPlugin->name());
+                authenticationInfo.setOauthType(abstractPlugin->authenticationType());
+                if (authenticationInfo.isValid()) {
+                    authenticationMethodInfos.append(std::move(authenticationInfo));
                 }
                 config.addRuqolaAuthenticationSupport(abstractPlugin->authenticationType());
             }

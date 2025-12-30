@@ -36,31 +36,31 @@ void ConferenceInfoWidget::initializeInfo()
     conferenceInfoJob->setCallId(mConferenceId);
     mRocketChatAccount->restApi()->initializeRestApiJob(conferenceInfoJob);
     connect(conferenceInfoJob, &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone, this, [this](const QJsonObject &obj) {
-        VideoConferenceInfo info;
-        info.parse(obj);
+        VideoConferenceInfo videoInfo;
+        videoInfo.parse(obj);
         auto meetingUrlLabel = new QLabel(this);
-        meetingUrlLabel->setText(u"<a href=\"%1\">%1</a>"_s.arg(info.url()));
+        meetingUrlLabel->setText(u"<a href=\"%1\">%1</a>"_s.arg(videoInfo.url()));
         meetingUrlLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
         meetingUrlLabel->setOpenExternalLinks(true);
 
         mFormLayout->addRow(i18n("Meeting URL:"), meetingUrlLabel);
-        mFormLayout->addRow(i18n("Provider:"), new QLabel(info.providerName(), this));
+        mFormLayout->addRow(i18n("Provider:"), new QLabel(videoInfo.providerName(), this));
 
-        const QString statusInformation = info.statusInformation();
+        const QString statusInformation = videoInfo.statusInformation();
         if (!statusInformation.isEmpty()) {
             mFormLayout->addRow(i18n("Status:"), new QLabel(statusInformation, this));
         }
-        const auto users = info.users();
+        const auto users = videoInfo.users();
         if (!users.isEmpty()) {
             auto avatarLayout = new FlowLayout;
             mFormLayout->addItem(avatarLayout);
             for (const auto &user : users) {
                 auto avatarLabel = new QLabel(this);
                 mFormLayout->addWidget(avatarLabel);
-                Utils::AvatarInfo info;
-                info.avatarType = Utils::AvatarType::User;
-                info.identifier = user.userName();
-                const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
+                Utils::AvatarInfo avatarInfo;
+                avatarInfo.avatarType = Utils::AvatarType::User;
+                avatarInfo.identifier = user.userName();
+                const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(avatarInfo));
                 if (!iconUrlStr.isEmpty()) {
                     const QSize pixmapAvatarSize = QSize(80, 80) * screen()->devicePixelRatio();
                     avatarLabel->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));

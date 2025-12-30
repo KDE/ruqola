@@ -32,7 +32,6 @@ void ModerationReportsByUsersJobTest::shouldHaveDefaultValue()
 
 void ModerationReportsByUsersJobTest::shouldGenerateRequest()
 {
-    ModerationReportsByUsersJob job;
     {
         ModerationReportsByUsersJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());

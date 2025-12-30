@@ -81,10 +81,10 @@ bool UploadFileJob::start()
     multiPart->append(msgPart);
 
     if (!mUploadFileInfo.threadMessageId.isEmpty()) {
-        QHttpPart msgPart;
-        msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"tmid\""_L1));
-        msgPart.setBody(mUploadFileInfo.threadMessageId);
-        multiPart->append(msgPart);
+        QHttpPart msgThreadPart;
+        msgThreadPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"tmid\""_L1));
+        msgThreadPart.setBody(mUploadFileInfo.threadMessageId);
+        multiPart->append(msgThreadPart);
     }
 
     QHttpPart descriptionPart;
