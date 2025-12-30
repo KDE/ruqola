@@ -409,6 +409,12 @@ set(RUQOLA_LIB_SOVERSION "0")
 configure_file(config-ruqola.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
 
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    # Not setting for GNU due to too many warnings related to private members of base classes or around lambdas
+    # see e.g. https://gcc.gnu.org/bugzilla/show_bug.cgi?id=56556 or https://gcc.gnu.org/bugzilla/show_bug.cgi?id=79328
+    string(APPEND CMAKE_CXX_FLAGS " -Wshadow")
+endif()
+
 if(BUILD_TESTING)
     find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
     add_definitions(-DBUILD_TESTING)
