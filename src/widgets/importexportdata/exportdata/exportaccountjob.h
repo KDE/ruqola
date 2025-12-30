@@ -32,6 +32,7 @@ Q_SIGNALS:
 
     void exportCacheData(const ImportExportUtils::AccountImportExportInfo &info);
     void exportLogsData(const ImportExportUtils::AccountImportExportInfo &info);
+    void exportDatabaseData(const ImportExportUtils::AccountImportExportInfo &info);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void storeDirectory(const QString &subDirectory, const QString &subfolderPath);
