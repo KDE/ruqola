@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-28 00:42+0000\n"
+"POT-Creation-Date: 2025-12-30 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1330,7 +1330,7 @@ msgstr "चैनल प्रकार"
 msgid "Belongs To"
 msgstr "से संबंधित"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:608
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:610
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1468,80 +1468,80 @@ msgstr "दो कारक प्रमाणीकरण"
 msgid "Last token part"
 msgstr "अंतिम टोकन भाग"
 
-#: core/model/roommodel.cpp:538
+#: core/model/roommodel.cpp:540
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 उल्लेख"
 msgstr[1] "%1 उल्लेख"
 
-#: core/model/roommodel.cpp:542
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 समूह उल्लेख"
 msgstr[1] "%1 समूह उल्लेख"
 
-#: core/model/roommodel.cpp:546
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 अपठित थ्रेडेड संदेश"
 msgstr[1] "%1 अपठित थ्रेडेड संदेश"
 
-#: core/model/roommodel.cpp:550
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 अपठित संदेश"
 msgstr[1] "%1 अपठित संदेश"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:578
 #, kde-format
 msgid "Teams Room"
 msgstr "टीम रूम"
 
-#: core/model/roommodel.cpp:582
+#: core/model/roommodel.cpp:584
 #, kde-format
 msgid "Private Room"
 msgstr "निजी कमरा"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:586
 #, kde-format
 msgid "Discussion Room"
 msgstr "चर्चा कक्ष"
 
-#: core/model/roommodel.cpp:588
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Channel Room"
 msgstr "चैनल रूम"
 
-#: core/model/roommodel.cpp:602 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:604 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "अपठित ग"
 
-#: core/model/roommodel.cpp:604
+#: core/model/roommodel.cpp:606
 #, kde-format
 msgid "Favorites"
 msgstr "पसंदीदा"
 
-#: core/model/roommodel.cpp:606
+#: core/model/roommodel.cpp:608
 #, kde-format
 msgid "Teams"
 msgstr "टीमें"
 
-#: core/model/roommodel.cpp:610
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Discussions"
 msgstr "चर्चाएँ"
 
-#: core/model/roommodel.cpp:612
+#: core/model/roommodel.cpp:614
 #, kde-format
 msgid "Private Messages"
 msgstr "निजी संदेश"
 
-#: core/model/roommodel.cpp:614 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:616 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -9368,12 +9368,17 @@ msgstr "खाता %1: लॉग निर्यात किया गया.
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "निर्देशिका \"%1\" को बैकअप फ़ाइल में नहीं जोड़ा जा सकता."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:40
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:41
 #, kde-format
 msgid "Accounts Exported."
 msgstr "खाते निर्यात किये गये."
 
-#: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:22
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
+#, kde-format
+msgid "Generated Zip: %1"
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Select Accounts:"
@@ -9405,12 +9410,12 @@ msgstr "फ़ाइल खोलना असंभव"
 msgid "Import Done."
 msgstr "आयात पूर्ण."
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:36
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:37
 #, kde-format
 msgid "Accounts imported."
 msgstr "खाते आयातित."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:35
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:36
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Select Zip file:"
