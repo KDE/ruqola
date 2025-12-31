@@ -128,7 +128,6 @@ void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExpo
 {
     const QString localPath = info.accountName + u'/' + ImportExportUtils::databasePath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
-    // FIX PATH
     storeDirectory(LocalDatabaseUtils::localMessagesDatabasePath() + info.accountName,
                    localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Messages));
     storeDirectory(LocalDatabaseUtils::localRoomsDatabasePath() + info.accountName,

@@ -5,15 +5,15 @@
 */
 
 #include "exportdatafinishpagetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importexportdata/exportdata/exportdatafinishpage.h"
 #include <KMessageWidget>
 #include <QLabel>
-#include <QPlainTextEdit>
 #include <QTest>
+#include <QTextBrowser>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ExportDataFinishPageTest)
 ExportDataFinishPageTest::ExportDataFinishPageTest(QObject *parent)
     : QObject{parent}
@@ -37,10 +37,9 @@ void ExportDataFinishPageTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mDetails = w.findChild<QPlainTextEdit *>(u"mDetails"_s);
+    auto mDetails = w.findChild<QTextBrowser *>(u"mDetails"_s);
     QVERIFY(mDetails);
     QVERIFY(mDetails->toPlainText().isEmpty());
-    QVERIFY(mDetails->isReadOnly());
 }
 
 #include "moc_exportdatafinishpagetest.cpp"

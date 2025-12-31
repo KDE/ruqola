@@ -5,7 +5,6 @@
 */
 
 #include "exportdatafinishpage.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "exportaccountjob.h"
 #include <KLocalizedString>
@@ -13,14 +12,15 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDateTime>
 #include <QDir>
 #include <QLabel>
-#include <QPlainTextEdit>
+#include <QTextBrowser>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
     , mInfos(new QLabel(this))
     , mMessageWidget(new KMessageWidget(this))
-    , mDetails(new QPlainTextEdit(this))
+    , mDetails(new QTextBrowser(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -98,7 +98,7 @@ void ExportDataFinishPage::slotExportFailed(const QString &msg)
 
 void ExportDataFinishPage::slotExportInfo(const QString &msg)
 {
-    mDetails->appendPlainText(msg);
+    mDetails->append(msg);
 }
 
 #include "moc_exportdatafinishpage.cpp"

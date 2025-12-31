@@ -10,7 +10,7 @@
 #include <QWizardPage>
 class QLabel;
 class KMessageWidget;
-class QPlainTextEdit;
+class QTextBrowser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataFinishPage : public QWizardPage
 {
     Q_OBJECT
@@ -30,6 +30,6 @@ private:
     QList<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;
-    QPlainTextEdit *const mDetails;
+    QTextBrowser *const mDetails;
     bool mExportDone = false;
 };
