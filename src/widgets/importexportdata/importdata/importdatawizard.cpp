@@ -5,7 +5,6 @@
 */
 
 #include "importdatawizard.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include "importexportdata/importdata/importdataselectaccountpage.h"
@@ -21,6 +20,7 @@ namespace
 {
 const char myConfigImportDataWizardGroupName[] = "ImportDataWizard";
 }
+using namespace Qt::Literals::StringLiterals;
 ImportDataWizard::ImportDataWizard(QWidget *parent)
     : QWizard(parent)
     , mImportDataSelectAccountPage(new ImportDataSelectAccountPage(this))
