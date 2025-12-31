@@ -222,7 +222,8 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
                                     const QString &accountName,
                                     const QString &databasePath,
                                     const QString &subfolder,
-                                    const QString &dest)
+                                    const QString &dest,
+                                    bool renameFiles)
 {
     // TODO rename file
     auto messageDirectory = databaseDirectory->entry(subfolder);

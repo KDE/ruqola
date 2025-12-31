@@ -34,7 +34,8 @@ private:
                                                  const QString &accountName,
                                                  const QString &databasePath,
                                                  const QString &subfolder,
-                                                 const QString &dest);
+                                                 const QString &dest,
+                                                 bool renameFiles = false);
 
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString verifyExistingAccount(QString accountName) const;
     QStringList mAccountInfos;
