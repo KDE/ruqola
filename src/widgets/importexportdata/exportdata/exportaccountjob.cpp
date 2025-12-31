@@ -129,13 +129,20 @@ void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExpo
     const QString localPath = info.accountName + u'/' + ImportExportUtils::databasePath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
     // FIX PATH
-    storeDirectory(LocalDatabaseUtils::localMessagesDatabasePath() + info.accountName, localPath);
-    storeDirectory(LocalDatabaseUtils::localRoomsDatabasePath() + info.accountName, localPath);
-    storeDirectory(LocalDatabaseUtils::localAccountsDatabasePath() + info.accountName, localPath);
-    storeDirectory(LocalDatabaseUtils::localGlobalDatabasePath() + info.accountName, localPath);
-    storeDirectory(LocalDatabaseUtils::localE2EDatabasePath() + info.accountName, localPath);
-    storeDirectory(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath() + info.accountName, localPath);
-    storeDirectory(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath() + info.accountName, localPath);
+    storeDirectory(LocalDatabaseUtils::localMessagesDatabasePath() + info.accountName,
+                   localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Messages));
+    storeDirectory(LocalDatabaseUtils::localRoomsDatabasePath() + info.accountName,
+                   localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Rooms));
+    storeDirectory(LocalDatabaseUtils::localAccountsDatabasePath() + info.accountName,
+                   localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts));
+    storeDirectory(LocalDatabaseUtils::localGlobalDatabasePath() + info.accountName,
+                   localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global));
+    storeDirectory(LocalDatabaseUtils::localE2EDatabasePath() + info.accountName,
+                   localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E));
+    storeDirectory(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath() + info.accountName,
+                   localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo));
+    storeDirectory(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath() + info.accountName,
+                   localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomSubscriptions));
 
     Q_EMIT exportInfo(i18n("Account %1: export database done.", info.accountName));
     Q_EMIT exportLogsData(info);
