@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-30 00:41+0000\n"
-"PO-Revision-Date: 2025-12-27 06:38-0300\n"
+"POT-Creation-Date: 2025-12-31 00:43+0000\n"
+"PO-Revision-Date: 2025-12-30 06:21-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -9319,42 +9319,48 @@ msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
 msgstr "Selecione pelo menos um canal para encaminhar a mensagem."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:37
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to export data."
 msgstr "Impossível exportar dados."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:44
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:46
 #, kde-format
 msgid "Impossible to create zip file."
 msgstr "Impossível criar arquivo zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
 #, kde-format
 msgid "Impossible to export account."
 msgstr "Impossível exportar a conta."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
 msgid "Export Done."
 msgstr "Exportação feita."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:98
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "Conta %1: exportação da configuração feita."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:110
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "Conta %1: exportação da cache feita."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:120
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "Conta %1: exportação dos logs feita."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "Account %1: export database done."
+msgstr "Conta %1: exportação da cache feita."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "A pasta \"%1\" não pode ser adicionada ao arquivo de backup."
@@ -9367,7 +9373,7 @@ msgstr "Contas exportadas."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "Zip gerado: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format

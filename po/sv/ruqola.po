@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-30 00:41+0000\n"
+"POT-Creation-Date: 2025-12-31 00:43+0000\n"
 "PO-Revision-Date: 2025-10-10 21:34+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -9292,43 +9292,49 @@ msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
 msgstr "Välj minst en kanal att vidarebefordra meddelandet till."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:37
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to export data."
 msgstr "Omöjligt att exportera data."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:44
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:46
 #, kde-format
 msgid "Impossible to create zip file."
 msgstr "Omöjligt att skapa zip-fil."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to export account."
 msgstr "Omöjligt att exportera data."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
 msgid "Export Done."
 msgstr "Export klar."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:98
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "Konto %1: export av inställning klar."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:110
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "Konto %1: export av cache klar."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:120
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "Konto %1: export av loggar klar."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "Account %1: export database done."
+msgstr "Konto %1: export av cache klar."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Katalogen \"%1\" kan inte läggas till i säkerhetskopia."

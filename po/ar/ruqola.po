@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-30 00:41+0000\n"
+"POT-Creation-Date: 2025-12-31 00:43+0000\n"
 "PO-Revision-Date: 2025-12-24 17:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -9332,42 +9332,48 @@ msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
 msgstr "حدد قناة واحدة على الأقل لإعادة توجيه الرسالة إليها."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:37
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to export data."
 msgstr "من المستحيل تصدير البيانات."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:44
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:46
 #, kde-format
 msgid "Impossible to create zip file."
 msgstr "من المستحيل إنشاء ملف مضغوط."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
 #, kde-format
 msgid "Impossible to export account."
 msgstr "من المستحيل تصدير الحساب."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
 msgid "Export Done."
 msgstr "انتهى التصدير."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:98
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "الحساب %1: انتهى تصدير الإعدادات"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:110
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "الحساب %1: انتهى تصدير الخبيئة"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:120
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "الحساب %1: انتهى تصدير السجلات"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "Account %1: export database done."
+msgstr "الحساب %1: انتهى تصدير الخبيئة"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "تعذّرت إضافة ”%1“ إلى ملفّ النّسخة الاحتياطيّة."

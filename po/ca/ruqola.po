@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-30 00:41+0000\n"
-"PO-Revision-Date: 2025-12-27 10:28+0100\n"
+"POT-Creation-Date: 2025-12-31 00:43+0000\n"
+"PO-Revision-Date: 2025-12-30 08:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -9331,42 +9331,48 @@ msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
 msgstr "Seleccioneu almenys un canal al qual reenviar el missatge."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:37
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to export data."
 msgstr "Impossible exportar les dades."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:44
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:46
 #, kde-format
 msgid "Impossible to create zip file."
 msgstr "Impossible crear el fitxer Zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
 #, kde-format
 msgid "Impossible to export account."
 msgstr "Impossible exportar el compte."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:77
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
 msgid "Export Done."
 msgstr "S'ha efectuat l'exportació."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:98
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "Compte %1: s'ha efectuat l'exportació de la configuració."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:110
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "Compte %1: s'ha efectuat l'exportació de la memòria cau."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:120
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "Compte %1: s'ha efectuat l'exportació dels registres."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "Account %1: export database done."
+msgstr "Compte %1: s'ha efectuat l'exportació de la memòria cau."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -9380,7 +9386,7 @@ msgstr "S'han exportat els comptes."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "Zip generat: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
