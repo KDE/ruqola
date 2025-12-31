@@ -5,9 +5,9 @@
 */
 
 #include "importaccountjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importexportdata/importexportutils.h"
+#include "localdatabase/localdatabaseutils.h"
 #include "ruqola_importexport_accounts_debug.h"
 #include <KLocalizedString>
 #include <KZip>
@@ -16,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTemporaryDir>
 #include <QTimer>
 
+using namespace Qt::Literals::StringLiterals;
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
     : QThread{parent}
     , mArchive(new KZip(fileName))
@@ -170,16 +171,79 @@ void ImportAccountJob::importAccount(QString accountName)
             }
         }
     }
-    // TODO import database
+    {
+        const QString databasePath = oldAccountName + u'/' + ImportExportUtils::databasePath();
+        const KArchiveEntry *databasePathEntry = mArchive->directory()->entry(databasePath);
+        if (databasePathEntry && databasePathEntry->isDirectory()) {
+            const auto databaseDirectory = static_cast<const KArchiveDirectory *>(databasePathEntry);
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Messages),
+                         LocalDatabaseUtils::localMessagesDatabasePath());
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Rooms),
+                         LocalDatabaseUtils::localRoomsDatabasePath());
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo),
+                         LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath());
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomSubscriptions),
+                         LocalDatabaseUtils::localRoomSubscriptionsDatabasePath());
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global),
+                         LocalDatabaseUtils::localGlobalDatabasePath());
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts),
+                         LocalDatabaseUtils::localAccountsDatabasePath());
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E),
+                         LocalDatabaseUtils::localE2EDatabasePath());
+        }
+    }
 
     mAccountIndex++;
     QTimer::singleShot(0, this, &ImportAccountJob::importAccounts);
 }
 
-void ImportAccountJob::copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest)
+void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
+                                    const QString &accountName,
+                                    const QString &databasePath,
+                                    const QString &subfolder,
+                                    const QString &dest)
 {
-    if (!subfolderDir->copyTo(dest)) {
-        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "directory cannot copy to " << dest;
+    // TODO rename file
+    auto messageDirectory = databaseDirectory->entry(subfolder);
+    if (messageDirectory && messageDirectory->isDirectory()) {
+        const auto directory = static_cast<const KArchiveDirectory *>(messageDirectory);
+        const QStringList messageList = directory->entries();
+        const QString newCachePath = dest + u'/' + accountName;
+        if (!QDir().mkpath(newCachePath)) {
+            qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to create directory " << newCachePath;
+        }
+        for (const QString &file : messageList) {
+            const KArchiveEntry *filePathEntry = mArchive->directory()->entry(databasePath + subfolder + u"/%1"_s.arg(file));
+            if (filePathEntry->isDirectory()) {
+                const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
+                if (!filePath->copyTo(newCachePath + u"/%1"_s.arg(file))) {
+                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
+                }
+            } else {
+                qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Missing import file ? " << messageList;
+            }
+        }
     }
 }
 
