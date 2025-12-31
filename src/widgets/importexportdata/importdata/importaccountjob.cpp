@@ -245,7 +245,17 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
             const KArchiveEntry *filePathEntry = mArchive->directory()->entry(databasePath + subfolder + u"/%1"_s.arg(file));
             if (filePathEntry->isDirectory()) {
                 const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
-                if (!filePath->copyTo(newCachePath + u"/%1"_s.arg(file))) {
+                QString newFileName = file;
+                if (renameFiles) {
+                    if (file.endsWith(u".sqlite-shm"_s)) {
+                        newFileName = u"%1.sqlite-shm"_s.arg(file);
+                    } else if (file.endsWith(u".sqlite-wal"_s)) {
+                        newFileName = u"%1.sqlite-wal"_s.arg(file);
+                    } else if (file.endsWith(u".sqlite"_s)) {
+                        newFileName = u"%1.sqlite"_s.arg(file);
+                    }
+                }
+                if (!filePath->copyTo(newCachePath + u"/%1"_s.arg(newFileName))) {
                     qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
                 }
             } else {
