@@ -430,8 +430,38 @@ void AccountManager::removeLogs(const QString &accountName)
 
 void AccountManager::removeDatabaseAccount(const QString &accountName)
 {
-    const QString directory = LocalDatabaseUtils::localAccountsDatabasePath() + accountName;
-    removeDirectory(directory);
+    {
+        const QString directory = LocalDatabaseUtils::localAccountsDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
+    {
+        const QString directory = LocalDatabaseUtils::localDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
+    {
+        const QString directory = LocalDatabaseUtils::localMessagesDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
+    {
+        const QString directory = LocalDatabaseUtils::localRoomsDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
+    {
+        const QString directory = LocalDatabaseUtils::localGlobalDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
+    {
+        const QString directory = LocalDatabaseUtils::localE2EDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
+    {
+        const QString directory = LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
+    {
+        const QString directory = LocalDatabaseUtils::localRoomSubscriptionsDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
 }
 
 void AccountManager::removeDirectory(const QString &directory)
@@ -450,7 +480,6 @@ void AccountManager::removeAccount(const QString &accountName, bool removeLogFil
     if (mRocketChatAccountModel->accountNumber() > 0) {
         mCurrentAccount = mRocketChatAccountModel->account(0);
         removeDatabaseAccount(accountName);
-        // TODO remove others files
         if (removeLogFiles) {
             removeLogs(accountName);
         }
