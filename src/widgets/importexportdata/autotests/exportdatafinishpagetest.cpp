@@ -10,7 +10,7 @@
 #include <KMessageWidget>
 #include <QLabel>
 #include <QTest>
-#include <QTextBrowser>
+#include <QTextEdit>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -37,8 +37,9 @@ void ExportDataFinishPageTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    auto mDetails = w.findChild<QTextBrowser *>(u"mDetails"_s);
+    auto mDetails = w.findChild<QTextEdit *>(u"mDetails"_s);
     QVERIFY(mDetails);
+    QVERIFY(mDetails->isReadOnly());
     QVERIFY(mDetails->toPlainText().isEmpty());
 }
 

@@ -12,7 +12,7 @@
 #include <QDateTime>
 #include <QDir>
 #include <QLabel>
-#include <QTextBrowser>
+#include <QTextEdit>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -20,7 +20,7 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
     , mInfos(new QLabel(this))
     , mMessageWidget(new KMessageWidget(this))
-    , mDetails(new QTextBrowser(this))
+    , mDetails(new QTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -31,7 +31,7 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     mInfos->setVisible(false);
 
     mDetails->setObjectName(u"mDetails"_s);
-    mDetails->setOpenExternalLinks(true);
+    mDetails->setReadOnly(true);
 
     mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mMessageWidget->setVisible(false);
