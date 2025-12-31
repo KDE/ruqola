@@ -5,13 +5,13 @@
 */
 
 #include "removeaccountwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QLabel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RemoveAccountWidget::RemoveAccountWidget(QWidget *parent)
     : QWidget{parent}
     , mRemoveLogs(new QCheckBox(i18nc("@option:check", "Remove logs stored on disk"), this))
@@ -26,6 +26,7 @@ RemoveAccountWidget::RemoveAccountWidget(QWidget *parent)
 
     mRemoveLogs->setObjectName(u"mRemoveLogs"_s);
     mainLayout->addWidget(mRemoveLogs);
+    mainLayout->addStretch(1);
 }
 
 RemoveAccountWidget::~RemoveAccountWidget() = default;
