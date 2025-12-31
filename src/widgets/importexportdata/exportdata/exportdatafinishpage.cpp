@@ -31,7 +31,7 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     mInfos->setVisible(false);
 
     mDetails->setObjectName(u"mDetails"_s);
-    mDetails->setReadOnly(true);
+    mDetails->setOpenExternalLinks(true);
 
     mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mMessageWidget->setVisible(false);
@@ -73,7 +73,7 @@ void ExportDataFinishPage::exportAccounts()
     connect(job, &ExportAccountJob::exportFailed, this, &ExportDataFinishPage::slotExportFailed);
     connect(job, &ExportAccountJob::exportInfo, this, &ExportDataFinishPage::slotExportInfo);
     connect(job, &ExportAccountJob::finished, this, [this, fileNamePath]() {
-        slotExportInfo(i18n("Generated Zip: %1", fileNamePath) + u'\n');
+        slotExportInfo(i18n("Generated Zip: %1", u"<a href=\"%1\">%1</a>"_s.arg(fileNamePath)) + u'\n');
         mExportDone = true;
         Q_EMIT completeChanged();
     });

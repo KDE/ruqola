@@ -97,7 +97,7 @@ void ExportAccountJob::exportConfig(const ImportExportUtils::AccountImportExport
     const QString configPath = info.accountName + u'/' + ImportExportUtils::configPath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " configPath " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + u"/ruqola/"_s + info.accountName, configPath);
-    Q_EMIT exportInfo(i18n("Account %1: export config done.", info.accountName));
+    Q_EMIT exportInfo(i18n("<b>Account %1:</b> export config done.", info.accountName));
     Q_EMIT exportCacheData(info);
 }
 
@@ -109,7 +109,7 @@ void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportI
     const QString storeCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/' + info.accountName + u'/';
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "QStandardPaths::writableLocation(QStandardPaths::CacheLocation) " << storeCachePath;
     storeDirectory(storeCachePath, cachePath);
-    Q_EMIT exportInfo(i18n("Account %1: export cache done.", info.accountName));
+    Q_EMIT exportInfo(i18n("<b>Account %1:</b> export cache done.", info.accountName));
     Q_EMIT exportDatabaseData(info);
 }
 
@@ -119,7 +119,7 @@ void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportIn
     const QString localPath = info.accountName + u'/' + ImportExportUtils::logsPath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
     storeDirectory(LocalDatabaseUtils::localMessageLoggerPath() + info.accountName, localPath);
-    Q_EMIT exportInfo(i18n("Account %1: export logs done.", info.accountName));
+    Q_EMIT exportInfo(i18n("<b>Account %1:</b> export logs done.", info.accountName));
     mAccountIndex++;
     exportAccount();
 }
@@ -143,7 +143,7 @@ void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExpo
     storeDirectory(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath() + info.accountName,
                    localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomSubscriptions));
 
-    Q_EMIT exportInfo(i18n("Account %1: export database done.", info.accountName));
+    Q_EMIT exportInfo(i18n("<b>Account %1:</b> export database done.", info.accountName));
     Q_EMIT exportLogsData(info);
 }
 
@@ -167,7 +167,7 @@ void ExportAccountJob::storeDirectory(const QString &subDirectory, const QString
             Q_EMIT exportFailed(i18n("Directory \"%1\" cannot be added to backup file.", directoryToStore.path()));
         }
     } else {
-        qWarning() << " directoryToStore " << directoryToStore << "doesn't exit";
+        qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " directoryToStore " << directoryToStore << "doesn't exit";
     }
 }
 
