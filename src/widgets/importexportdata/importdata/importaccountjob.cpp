@@ -180,37 +180,44 @@ void ImportAccountJob::importAccount(QString accountName)
                          accountName,
                          databasePath,
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Messages),
-                         LocalDatabaseUtils::localMessagesDatabasePath());
+                         LocalDatabaseUtils::localMessagesDatabasePath(),
+                         false);
             copyDatabase(databaseDirectory,
                          accountName,
                          databasePath,
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Rooms),
-                         LocalDatabaseUtils::localRoomsDatabasePath());
+                         LocalDatabaseUtils::localRoomsDatabasePath(),
+                         true);
             copyDatabase(databaseDirectory,
                          accountName,
                          databasePath,
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo),
-                         LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath());
+                         LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath(),
+                         true);
             copyDatabase(databaseDirectory,
                          accountName,
                          databasePath,
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomSubscriptions),
-                         LocalDatabaseUtils::localRoomSubscriptionsDatabasePath());
+                         LocalDatabaseUtils::localRoomSubscriptionsDatabasePath(),
+                         true);
             copyDatabase(databaseDirectory,
                          accountName,
                          databasePath,
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global),
-                         LocalDatabaseUtils::localGlobalDatabasePath());
+                         LocalDatabaseUtils::localGlobalDatabasePath(),
+                         true);
             copyDatabase(databaseDirectory,
                          accountName,
                          databasePath,
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Accounts),
-                         LocalDatabaseUtils::localAccountsDatabasePath());
+                         LocalDatabaseUtils::localAccountsDatabasePath(),
+                         true);
             copyDatabase(databaseDirectory,
                          accountName,
                          databasePath,
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E),
-                         LocalDatabaseUtils::localE2EDatabasePath());
+                         LocalDatabaseUtils::localE2EDatabasePath(),
+                         true); // TODO verify this one in the future as not implemented yet
         }
     }
 
