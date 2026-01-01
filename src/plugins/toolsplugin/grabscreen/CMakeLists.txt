@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024-2025 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
 kcoreaddons_add_plugin(ruqola_grabscreenplugin INSTALL_NAMESPACE ruqolaplugins/toolsplugins)

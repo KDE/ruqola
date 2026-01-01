@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024-2025 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
 ecm_qt_declare_logging_category(ruqola_personalaccesstokenauthenticationplugin_test_SRCS HEADER personalaccesstokenauthenticationplugin_debug.h

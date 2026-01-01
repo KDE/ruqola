@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2025-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 add_definitions(-DRUQOLA_AUTOGENERATEUI_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 add_definitions(-DRUQOLA_BINARY_AUTOGENERATEUI_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")

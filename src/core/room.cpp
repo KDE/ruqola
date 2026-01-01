@@ -1,6 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2016 Riccardo Iaconelli <riccardo@kde.org>
- * SPDX-FileCopyrightText: 2017-2025 Laurent Montel <montel@kde.org>
+ * SPDX-FileCopyrightText: 2017-2026 Laurent Montel <montel@kde.org>
  *
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *

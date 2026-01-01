@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022-2025 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2022-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 add_executable(uploadfilewidgetlistgui)
 target_sources(

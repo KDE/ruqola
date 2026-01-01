@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   SPDX-License-Identifier: GPL-2.0-or-later
-  SPDX-FileCopyrightText: 2020-2025 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 -->
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
