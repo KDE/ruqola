@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-31 00:43+0000\n"
+"POT-Creation-Date: 2026-01-01 00:42+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -7855,7 +7855,7 @@ msgctxt "@option:check"
 msgid "Remove logs stored on disk"
 msgstr "Forigi protokolojn konservitajn sur disko"
 
-#: widgets/configuredialog/removeaccountwidget.cpp:40
+#: widgets/configuredialog/removeaccountwidget.cpp:41
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
 msgstr "Ĉu vi volas forigi ĉi tiun konton '%1'?"
@@ -9335,27 +9335,30 @@ msgid "Export Done."
 msgstr "Eksporto Farita."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, kde-format
-msgid "Account %1: export config done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export config done."
+msgid "<b>Account %1:</b> export config done."
 msgstr "Konto %1: eksporta agordo farita."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, kde-format
-msgid "Account %1: export cache done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "<b>Account %1:</b> export cache done."
 msgstr "Konto %1: eksporta kaŝmemoro farita."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, kde-format
-msgid "Account %1: export logs done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export logs done."
+msgid "<b>Account %1:</b> export logs done."
 msgstr "Konto %1: eksporto protokoloj farita."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
 #, fuzzy, kde-format
 #| msgid "Account %1: export cache done."
-msgid "Account %1: export database done."
+msgid "<b>Account %1:</b> export database done."
 msgstr "Konto %1: eksporta kaŝmemoro farita."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Dosierujo \"%1\" ne povas esti aldonita al rezerva dosiero."
@@ -9382,22 +9385,22 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Eksporto-Kontoj"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:38
+#: widgets/importexportdata/importdata/importaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Neeble malfermi zip-dosieron."
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:50
+#: widgets/importexportdata/importdata/importaccountjob.cpp:51
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "Neeble kopii dosieron"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:58
+#: widgets/importexportdata/importdata/importaccountjob.cpp:59
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Neeble malfermi dosieron"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:86
+#: widgets/importexportdata/importdata/importaccountjob.cpp:87
 #, kde-format
 msgid "Import Done."
 msgstr "Importo Farita."
@@ -12324,6 +12327,12 @@ msgstr ""
 #, kde-format
 msgid "Fix remove room (in local database)."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:216
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Fix export database."
+msgstr "Raporta dato"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-31 00:43+0000\n"
-"PO-Revision-Date: 2025-12-30 06:19+0100\n"
+"POT-Creation-Date: 2026-01-01 00:42+0000\n"
+"PO-Revision-Date: 2025-12-31 03:48+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7826,7 +7826,7 @@ msgctxt "@option:check"
 msgid "Remove logs stored on disk"
 msgstr "დისკზე დამახსოვრებული ჟურნალის წაშლა"
 
-#: widgets/configuredialog/removeaccountwidget.cpp:40
+#: widgets/configuredialog/removeaccountwidget.cpp:41
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
 msgstr "მართლა გნებავთ ამ ანგარიშის (%1) წაშლა?"
@@ -9299,27 +9299,30 @@ msgid "Export Done."
 msgstr "გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, kde-format
-msgid "Account %1: export config done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export config done."
+msgid "<b>Account %1:</b> export config done."
 msgstr "ანგარიში %1: კონფიგურაციის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, kde-format
-msgid "Account %1: export cache done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "<b>Account %1:</b> export cache done."
 msgstr "ანგარიში %1: კეშის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, kde-format
-msgid "Account %1: export logs done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export logs done."
+msgid "<b>Account %1:</b> export logs done."
 msgstr "ანგარიში %1: ჟურნალის გატანა დასრულდა."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
 #, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
-msgid "Account %1: export database done."
-msgstr "ანგარიში %1: კეშის გატანა დასრულდა."
+#| msgid "Account %1: export database done."
+msgid "<b>Account %1:</b> export database done."
+msgstr "ანგარიში %1: მონაცემთა ბაზის გატანა დასრულდა."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "საქაღალდე \"%1\" მარქაფის ფაილში ვერ ჩაემატება."
@@ -9346,22 +9349,22 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "ანგარიშების გატანა"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:38
+#: widgets/importexportdata/importdata/importaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Zip ფაილის გახსნა შეუძლებელია."
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:50
+#: widgets/importexportdata/importdata/importaccountjob.cpp:51
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "ფაილის კოპირება შეუძლებელია"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:58
+#: widgets/importexportdata/importdata/importaccountjob.cpp:59
 #, kde-format
 msgid "Impossible to open file"
 msgstr "ფაილის გახსნა შეუძლებელია"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:86
+#: widgets/importexportdata/importdata/importaccountjob.cpp:87
 #, kde-format
 msgid "Import Done."
 msgstr "შემოტანა დასრულდა."
@@ -12268,6 +12271,12 @@ msgstr "ლოკალური თარგმანის შენახვ�
 #, kde-format
 msgid "Fix remove room (in local database)."
 msgstr "გასწორდა ოთახის წაშლა (ლოკალურ მონაცემთა ბაზებში)."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:216
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Fix export database."
+msgstr "ანგარიშის თარიღი"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

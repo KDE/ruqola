@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-31 00:43+0000\n"
-"PO-Revision-Date: 2025-12-30 08:47+0100\n"
+"POT-Creation-Date: 2026-01-01 00:42+0000\n"
+"PO-Revision-Date: 2025-12-31 08:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -7874,7 +7874,7 @@ msgctxt "@option:check"
 msgid "Remove logs stored on disk"
 msgstr "Elimina els registres emmagatzemats en el disc"
 
-#: widgets/configuredialog/removeaccountwidget.cpp:40
+#: widgets/configuredialog/removeaccountwidget.cpp:41
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
 msgstr "Voleu eliminar este compte «%1»?"
@@ -9353,27 +9353,30 @@ msgid "Export Done."
 msgstr "S'ha efectuat l'exportació."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, kde-format
-msgid "Account %1: export config done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export config done."
+msgid "<b>Account %1:</b> export config done."
 msgstr "Compte %1: s'ha efectuat l'exportació de la configuració."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, kde-format
-msgid "Account %1: export cache done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "<b>Account %1:</b> export cache done."
 msgstr "Compte %1: s'ha efectuat l'exportació de la memòria cau."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, kde-format
-msgid "Account %1: export logs done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export logs done."
+msgid "<b>Account %1:</b> export logs done."
 msgstr "Compte %1: s'ha efectuat l'exportació dels registres."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
 #, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
-msgid "Account %1: export database done."
-msgstr "Compte %1: s'ha efectuat l'exportació de la memòria cau."
+#| msgid "Account %1: export database done."
+msgid "<b>Account %1:</b> export database done."
+msgstr "Compte %1: s'ha efectuat l'exportació de la base de dades."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -9401,22 +9404,22 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Exportació de comptes"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:38
+#: widgets/importexportdata/importdata/importaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Impossible obrir el fitxer Zip."
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:50
+#: widgets/importexportdata/importdata/importaccountjob.cpp:51
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "Impossible copiar el fitxer"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:58
+#: widgets/importexportdata/importdata/importaccountjob.cpp:59
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Impossible obrir el fitxer"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:86
+#: widgets/importexportdata/importdata/importaccountjob.cpp:87
 #, kde-format
 msgid "Import Done."
 msgstr "S'ha efectuat la importació."
@@ -12342,3 +12345,9 @@ msgstr "Guarda la traducció local a la base de dades local."
 #, kde-format
 msgid "Fix remove room (in local database)."
 msgstr "Corregix l'eliminació de sala (a la base de dades local)."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:216
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Fix export database."
+msgstr "Data de l'informe"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-31 00:43+0000\n"
-"PO-Revision-Date: 2025-12-30 13:01+0300\n"
+"POT-Creation-Date: 2026-01-01 00:42+0000\n"
+"PO-Revision-Date: 2025-12-31 12:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7813,7 +7813,7 @@ msgctxt "@option:check"
 msgid "Remove logs stored on disk"
 msgstr "Diskte depolanan günlükleri kaldır"
 
-#: widgets/configuredialog/removeaccountwidget.cpp:40
+#: widgets/configuredialog/removeaccountwidget.cpp:41
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
 msgstr "“%1” hesabını kaldırmak istediğinizden emin misiniz?"
@@ -9290,27 +9290,30 @@ msgid "Export Done."
 msgstr "Dışa aktarma tamamlandı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, kde-format
-msgid "Account %1: export config done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export config done."
+msgid "<b>Account %1:</b> export config done."
 msgstr "Hesap %1: Yapılandırma dışa aktarıldı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, kde-format
-msgid "Account %1: export cache done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "<b>Account %1:</b> export cache done."
 msgstr "Hesap %1: Önbellek dışa aktarıldı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, kde-format
-msgid "Account %1: export logs done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export logs done."
+msgid "<b>Account %1:</b> export logs done."
 msgstr "Hesap %1: Günlükler dışa aktarıldı."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
 #, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
-msgid "Account %1: export database done."
-msgstr "Hesap %1: Önbellek dışa aktarıldı."
+#| msgid "Account %1: export database done."
+msgid "<b>Account %1:</b> export database done."
+msgstr "Hesap %1: Veri tabanı dışa aktarıldı."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "“%1” dizini yedek dosyasına eklenemedi."
@@ -9337,22 +9340,22 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Hesapları Dışa Aktar"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:38
+#: widgets/importexportdata/importdata/importaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Zip dosyasını açmak olanaksız."
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:50
+#: widgets/importexportdata/importdata/importaccountjob.cpp:51
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "Dosyayı kopyalamak olanaksız"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:58
+#: widgets/importexportdata/importdata/importaccountjob.cpp:59
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Dosyayı açmak olanaksız"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:86
+#: widgets/importexportdata/importdata/importaccountjob.cpp:87
 #, kde-format
 msgid "Import Done."
 msgstr "İçe aktarma tamamlandı."
@@ -12255,6 +12258,12 @@ msgstr "Yerel çeviriyi yerel veri tabanına kaydet"
 #, kde-format
 msgid "Fix remove room (in local database)."
 msgstr "Oda kaldırmayı onar (yerel veri tabanında)"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:216
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Fix export database."
+msgstr "Bildirim tarihi"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-31 00:43+0000\n"
-"PO-Revision-Date: 2025-12-30 09:49+0200\n"
+"POT-Creation-Date: 2026-01-01 00:42+0000\n"
+"PO-Revision-Date: 2025-12-31 08:32+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -7908,7 +7908,7 @@ msgctxt "@option:check"
 msgid "Remove logs stored on disk"
 msgstr "Вилучити журнал, що зберігається на диску"
 
-#: widgets/configuredialog/removeaccountwidget.cpp:40
+#: widgets/configuredialog/removeaccountwidget.cpp:41
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
 msgstr "Хочете вилучити обліковий запис «%1»?"
@@ -9413,27 +9413,30 @@ msgid "Export Done."
 msgstr "Експортування виконано."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, kde-format
-msgid "Account %1: export config done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export config done."
+msgid "<b>Account %1:</b> export config done."
 msgstr "Обліковий запис %1: виконано експортування налаштувань."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, kde-format
-msgid "Account %1: export cache done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
+msgid "<b>Account %1:</b> export cache done."
 msgstr "Обліковий запис %1: виконано експортування кешу."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, kde-format
-msgid "Account %1: export logs done."
+#, fuzzy, kde-format
+#| msgid "Account %1: export logs done."
+msgid "<b>Account %1:</b> export logs done."
 msgstr "Обліковий запис %1: виконано експортування журналу."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:140
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
 #, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
-msgid "Account %1: export database done."
-msgstr "Обліковий запис %1: виконано експортування кешу."
+#| msgid "Account %1: export database done."
+msgid "<b>Account %1:</b> export database done."
+msgstr "Обліковий запис %1: виконано експортування бази даних."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:161
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Каталог «%1» не вдалося додавати до файла резервної копії."
@@ -9460,22 +9463,22 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Експортування облікових записів"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:38
+#: widgets/importexportdata/importdata/importaccountjob.cpp:39
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Не вдалося відкрити файл zip."
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:50
+#: widgets/importexportdata/importdata/importaccountjob.cpp:51
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "Не вдалося скопіювати файл"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:58
+#: widgets/importexportdata/importdata/importaccountjob.cpp:59
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Не вдалося відкрити файл"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:86
+#: widgets/importexportdata/importdata/importaccountjob.cpp:87
 #, kde-format
 msgid "Import Done."
 msgstr "Імпортування виконано."
@@ -12407,6 +12410,12 @@ msgstr "Реалізовано збереження локального пер�
 #, kde-format
 msgid "Fix remove room (in local database)."
 msgstr "Виправлено вилучення кімнати (у локальній базі даних)."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:216
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Fix export database."
+msgstr "Дата скарги"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
