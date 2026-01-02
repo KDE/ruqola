@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-01 00:42+0000\n"
+"POT-Creation-Date: 2026-01-02 00:44+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -30,7 +30,7 @@ msgstr "Rocket Chat Client"
 #: apps/main.cpp:64
 #, fuzzy, kde-format
 #| msgid "Copyright © 2020-2024 Ruqola authors"
-msgid "Copyright © 2020-2025 Ruqola authors"
+msgid "Copyright © 2020-2026 Ruqola authors"
 msgstr "Copyright © 2020-2024 Ruqola authors"
 
 #: apps/main.cpp:66
