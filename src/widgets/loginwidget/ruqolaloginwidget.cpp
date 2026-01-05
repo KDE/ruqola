@@ -130,6 +130,7 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
 
 void RuqolaLoginWidget::slotCancelLogin()
 {
+    mRocketChatAccount->logOut();
 }
 
 void RuqolaLoginWidget::slotLogin()
