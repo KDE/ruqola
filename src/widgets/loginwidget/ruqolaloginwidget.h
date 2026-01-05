@@ -15,6 +15,7 @@ class KBusyIndicatorWidget;
 class TwoAuthenticationPasswordWidget;
 class RuqolaLoginStackWidget;
 class RocketChatAccount;
+class RuqolaLoginButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginWidget : public QWidget
 {
     Q_OBJECT
@@ -34,7 +35,7 @@ private:
 
     RuqolaLoginStackWidget *const mRuqolaLoginStackWidget;
     QMetaObject::Connection mUpdatePasswordConnection;
-    QPushButton *const mLoginButton;
+    RuqolaLoginButton *const mLoginButton;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     QLabel *const mFailedError;
     TwoAuthenticationPasswordWidget *const mTwoFactorAuthenticationPasswordLineEdit;

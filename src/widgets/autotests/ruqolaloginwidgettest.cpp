@@ -5,8 +5,8 @@
 */
 
 #include "ruqolaloginwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
+#include "loginwidget/ruqolaloginbutton.h"
 #include "loginwidget/ruqolaloginstackwidget.h"
 #include "loginwidget/ruqolaloginwidget.h"
 #include <KBusyIndicatorWidget>
@@ -18,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 
 QTEST_MAIN(RuqolaLoginWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 RuqolaLoginWidgetTest::RuqolaLoginWidgetTest(QObject *parent)
     : QObject(parent)
 {
@@ -33,9 +34,10 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     auto mRuqolaLoginStackWidget = w.findChild<RuqolaLoginStackWidget *>(u"mRuqolaLoginStackWidget"_s);
     QVERIFY(mRuqolaLoginStackWidget);
 
-    auto mLoginButton = w.findChild<QPushButton *>(u"mLoginButton"_s);
+    auto mLoginButton = w.findChild<RuqolaLoginButton *>(u"mLoginButton"_s);
     QVERIFY(mLoginButton);
     QVERIFY(!mLoginButton->text().isEmpty());
+    QVERIFY(!mLoginButton->loginInProgress());
 
     auto mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(u"mBusyIndicatorWidget"_s);
     QVERIFY(mBusyIndicatorWidget);

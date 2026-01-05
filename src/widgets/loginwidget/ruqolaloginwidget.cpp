@@ -5,10 +5,10 @@
 */
 
 #include "ruqolaloginwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "colorsandmessageviewstyle.h"
 #include "common/authenticationoauthwidget.h"
+#include "loginwidget/ruqolaloginbutton.h"
 #include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
@@ -22,10 +22,11 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
     , mRuqolaLoginStackWidget(new RuqolaLoginStackWidget(this))
-    , mLoginButton(new QPushButton(i18nc("@action:button", "Login"), this))
+    , mLoginButton(new RuqolaLoginButton(this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new QLabel(this))
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
@@ -56,6 +57,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addWidget(mTwoFactorAuthenticationWidget);
 
     mLoginButton->setObjectName(u"mLoginButton"_s);
+    mLoginButton->setLoginInProgress(false);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
     connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::tryLogin, this, &RuqolaLoginWidget::slotLogin);
     auto loginButtonLayout = new QHBoxLayout;
@@ -151,17 +153,20 @@ void RuqolaLoginWidget::setLoginStatus(AuthenticationManager::LoginStatus status
     case AuthenticationManager::LoginStatus::Connecting:
     case AuthenticationManager::LoginStatus::LoginOngoing:
         mBusyIndicatorWidget->show();
+        mLoginButton->setLoginInProgress(true);
         changeWidgetStatus(false);
         mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case AuthenticationManager::LoginStatus::LoggedOut:
     case AuthenticationManager::LoginStatus::LoggedIn:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case AuthenticationManager::LoginStatus::LoginFailedInvalidUserOrPassword:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         showError(i18n("Login Failed: invalid username or password"));
         mTwoFactorAuthenticationWidget->setVisible(false);
@@ -171,41 +176,48 @@ void RuqolaLoginWidget::setLoginStatus(AuthenticationManager::LoginStatus status
         Q_FALLTHROUGH();
     case AuthenticationManager::LoginStatus::LoginOtpRequired:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         mTwoFactorAuthenticationWidget->setVisible(true);
         break;
     case AuthenticationManager::LoginStatus::FailedToLoginPluginProblem:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         showError(i18n("Installation Problem found. No plugins found here."));
         mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case AuthenticationManager::GenericError:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         showError(i18n("Login Failed: generic error"));
         mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case AuthenticationManager::LoginFailedLoginBlockForIp:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         showError(i18n("Login Failed: Login has been temporarily blocked For IP."));
         mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case AuthenticationManager::LoginFailedLoginBlockedForUser:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         showError(i18n("Login Failed: Login has been temporarily blocked For User."));
         mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case AuthenticationManager::LoginFailedUserNotActivated:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         showError(i18n("Login Failed: User is not activated."));
         mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case AuthenticationManager::LoginFailedLoginAppNotAllowedToLogin:
         mBusyIndicatorWidget->hide();
+        mLoginButton->setLoginInProgress(false);
         changeWidgetStatus(true);
         showError(i18n("Login Failed: App user is not allowed to login."));
         mTwoFactorAuthenticationWidget->setVisible(false);
@@ -216,6 +228,7 @@ void RuqolaLoginWidget::setLoginStatus(AuthenticationManager::LoginStatus status
     case AuthenticationManager::LoggedOutAndCleanedUp:
         // TODO
         mTwoFactorAuthenticationWidget->setVisible(false);
+        mLoginButton->setLoginInProgress(false);
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         break;

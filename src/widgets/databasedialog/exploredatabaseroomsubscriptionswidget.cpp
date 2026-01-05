@@ -29,3 +29,5 @@ void ExploreDatabaseRoomSubscriptionsWidget::slotLoadModelFromDataBase(const QSt
         qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
     }
 }
+
+#include "moc_exploredatabaseroomsubscriptionswidget.cpp"
