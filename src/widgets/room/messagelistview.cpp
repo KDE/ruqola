@@ -978,22 +978,24 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
 
 void MessageListView::slotTextToSpeech(const QModelIndex &index)
 {
-    // TODO if (!isVideoConferenceMessage && RuqolaGlobalConfig::self()->enableTextToSpeech()) {
 #if HAVE_TEXT_TO_SPEECH
-    QString message = mMessageListDelegate->selectedText();
-    if (message.isEmpty()) {
-        message = index.data(MessagesModel::OriginalMessage).toString();
-    }
-    if (!message.isEmpty()) {
-        const QString accountName = mCurrentRocketChatAccount->accountName();
-        TextToSpeechEnqueueInfo info;
-        info.setAccountName(accountName);
-        info.setMessageId(index.data(MessagesModel::MessageId).toByteArray());
-        info.setRoomId(mRoom->roomId());
+    const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
+    if (messageType != Message::VideoConference) {
+        QString message = mMessageListDelegate->selectedText();
+        if (message.isEmpty()) {
+            message = index.data(MessagesModel::OriginalMessage).toString();
+        }
+        if (!message.isEmpty()) {
+            const QString accountName = mCurrentRocketChatAccount->accountName();
+            TextToSpeechEnqueueInfo info;
+            info.setAccountName(accountName);
+            info.setMessageId(index.data(MessagesModel::MessageId).toByteArray());
+            info.setRoomId(mRoom->roomId());
 
-        if (!Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->contains(info)) {
-            Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
-            Q_EMIT textToSpeech(message);
+            if (!Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->contains(info)) {
+                Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
+                Q_EMIT textToSpeech(message);
+            }
         }
     }
 #endif
