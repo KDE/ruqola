@@ -18,6 +18,10 @@ public:
     [[nodiscard]] bool loginInProgress() const;
     void setLoginInProgress(bool newLoginInProgress);
 
+Q_SIGNALS:
+    void loginRequested();
+    void cancelLoginRequested();
+
 private:
     bool mLoginInProgress = false;
 };

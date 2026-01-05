@@ -9,6 +9,13 @@
 RuqolaLoginButton::RuqolaLoginButton(QWidget *parent)
     : QPushButton(parent)
 {
+    connect(this, &QPushButton::clicked, this, [this]() {
+        if (mLoginInProgress) {
+            Q_EMIT cancelLoginRequested();
+        } else {
+            Q_EMIT loginRequested();
+        }
+    });
 }
 
 RuqolaLoginButton::~RuqolaLoginButton() = default;

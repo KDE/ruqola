@@ -58,7 +58,8 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mLoginButton->setObjectName(u"mLoginButton"_s);
     mLoginButton->setLoginInProgress(false);
-    connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
+    connect(mLoginButton, &RuqolaLoginButton::loginRequested, this, &RuqolaLoginWidget::slotLogin);
+    connect(mLoginButton, &RuqolaLoginButton::cancelLoginRequested, this, &RuqolaLoginWidget::slotCancelLogin);
     connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::tryLogin, this, &RuqolaLoginWidget::slotLogin);
     auto loginButtonLayout = new QHBoxLayout;
     loginButtonLayout->setContentsMargins({});
@@ -125,6 +126,10 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     });
 #endif
     mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(mRocketChatAccount);
+}
+
+void RuqolaLoginWidget::slotCancelLogin()
+{
 }
 
 void RuqolaLoginWidget::slotLogin()
