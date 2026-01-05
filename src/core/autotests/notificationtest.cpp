@@ -5,12 +5,12 @@
 */
 
 #include "notificationtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "notifications/notification.h"
 #include <QTest>
 QTEST_MAIN(NotificationTest)
 
+using namespace Qt::Literals::StringLiterals;
 NotificationTest::NotificationTest(QObject *parent)
     : QObject(parent)
 {

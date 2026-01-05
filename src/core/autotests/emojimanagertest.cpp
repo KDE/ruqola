@@ -5,7 +5,6 @@
 */
 
 #include "emojimanagertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "emoticons/customemoji.h"
 #include "emoticons/emojimanager.h"
@@ -19,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
 QTEST_GUILESS_MAIN(EmojiManagerTest)
 
+using namespace Qt::Literals::StringLiterals;
 EmojiManagerTest::EmojiManagerTest(QObject *parent)
     : QObject(parent)
 {

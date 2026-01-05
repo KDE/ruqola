@@ -5,7 +5,6 @@
 */
 
 #include "rocketchataccountsettingstest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccountsettings.h"
 #include <QSignalSpy>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RocketChatAccountSettingsTest)
 
+using namespace Qt::Literals::StringLiterals;
 RocketChatAccountSettingsTest::RocketChatAccountSettingsTest(QObject *parent)
     : QObject(parent)
 {

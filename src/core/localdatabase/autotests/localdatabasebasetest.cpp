@@ -5,11 +5,11 @@
 */
 
 #include "localdatabasebasetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabase/localdatabasebase.h"
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 class TestLocalDatabaseBase : public LocalDatabaseBase
 {
 public:

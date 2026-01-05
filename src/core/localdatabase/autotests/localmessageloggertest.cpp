@@ -5,7 +5,6 @@
 */
 
 #include "localmessageloggertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabase/localmessagelogger.h"
 #include "messages/message.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(LocalMessageLoggerTest)
 
+using namespace Qt::Literals::StringLiterals;
 static QString accountName()
 {
     return u"myAccount"_s;

@@ -4,11 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "servererrorinfotest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "servererrorinfo.h"
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ServerErrorInfoTest)
 ServerErrorInfoTest::ServerErrorInfoTest(QObject *parent)
     : QObject{parent}

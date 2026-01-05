@@ -5,7 +5,6 @@
 */
 
 #include "messagecachetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #ifdef USE_GET_MESSAGE_JOB
 #include "chat/getmessagejob.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QTimer>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(MessageCacheTest)
 
 class MyMessageCache : public MessageCache

@@ -5,7 +5,6 @@
 */
 
 #include "rocketchataccountmodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RocketChatAccountModelTest)
 
 RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)

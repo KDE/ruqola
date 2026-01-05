@@ -5,7 +5,6 @@
 */
 
 #include "utilstest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "utils.h"
 #include <QJsonDocument>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(UtilsTest)
 
+using namespace Qt::Literals::StringLiterals;
 UtilsTest::UtilsTest(QObject *parent)
     : QObject(parent)
 {

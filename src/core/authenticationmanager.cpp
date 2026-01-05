@@ -5,7 +5,6 @@
 */
 
 #include "authenticationmanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "plugins/pluginauthentication.h"
 
+using namespace Qt::Literals::StringLiterals;
 AuthenticationManager::AuthenticationManager(QObject *parent)
     : QObject(parent)
 {

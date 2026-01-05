@@ -5,12 +5,12 @@
 */
 
 #include "authenticationinfotest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authenticationinfo.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(AuthenticationInfoTest)
 
+using namespace Qt::Literals::StringLiterals;
 AuthenticationInfoTest::AuthenticationInfoTest(QObject *parent)
     : QObject(parent)
 {

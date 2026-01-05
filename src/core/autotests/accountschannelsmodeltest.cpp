@@ -5,7 +5,6 @@
 */
 
 #include "accountschannelsmodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "model/accountschannelsmodel.h"
@@ -19,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(AccountsChannelsModelTest)
 
+using namespace Qt::Literals::StringLiterals;
 AccountsChannelsModelTest::AccountsChannelsModelTest(QObject *parent)
     : QObject(parent)
 {

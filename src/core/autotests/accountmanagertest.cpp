@@ -5,7 +5,6 @@
 */
 
 #include "accountmanagertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 QTEST_GUILESS_MAIN(AccountManagerTest)
 
+using namespace Qt::Literals::StringLiterals;
 AccountManagerTest::AccountManagerTest(QObject *parent)
     : QObject(parent)
 {
