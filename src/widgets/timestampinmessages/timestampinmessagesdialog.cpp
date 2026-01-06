@@ -32,3 +32,5 @@ TimeStampInMessagesDialog::TimeStampInMessagesDialog(QWidget *parent)
 }
 
 TimeStampInMessagesDialog::~TimeStampInMessagesDialog() = default;
+
+#include "moc_timestampinmessagesdialog.cpp"

@@ -15,3 +15,5 @@ TimeStampInMessagesWidget::TimeStampInMessagesWidget(QWidget *parent)
 }
 
 TimeStampInMessagesWidget::~TimeStampInMessagesWidget() = default;
+
+#include "moc_timestampinmessageswidget.cpp"
