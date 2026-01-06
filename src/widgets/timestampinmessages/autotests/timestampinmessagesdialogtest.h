@@ -13,4 +13,7 @@ class TimeStampInMessagesDialogTest : public QObject
 public:
     explicit TimeStampInMessagesDialogTest(QObject *parent = nullptr);
     ~TimeStampInMessagesDialogTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
