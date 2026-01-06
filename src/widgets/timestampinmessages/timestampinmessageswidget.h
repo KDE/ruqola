@@ -5,13 +5,22 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
-class TimeStampInMessagesWidget : public QWidget
+class QDateEdit;
+class QTimeEdit;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT TimeStampInMessagesWidget : public QWidget
 {
     Q_OBJECT
 public:
+    struct TimeStampInfo {
+        // TODO
+    };
+
     explicit TimeStampInMessagesWidget(QWidget *parent = nullptr);
     ~TimeStampInMessagesWidget() override;
+
+private:
+    QDateEdit *const mDateEdit;
+    QTimeEdit *const mTimeEdit;
 };

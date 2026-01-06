@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessageswidgettest.h"
+#include "timestampinmessages/timestampinmessageswidget.h"
 #include <QTest>
 QTEST_MAIN(TimeStampInMessagesWidgetTest)
 
