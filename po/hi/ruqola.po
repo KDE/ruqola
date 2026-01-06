@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-06 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -498,7 +498,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr "लॉगइन प्रक्रिया को पूरा करने के लिए वन-टाइम पासवर्ड की आवश्यकता होती है।"
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:170
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "लॉगिन विफल: अमान्य OTP कोड."
@@ -9436,13 +9436,21 @@ msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "खाते आयात करें"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:28
+#: widgets/loginwidget/ruqolaloginbutton.cpp:32
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "रद्द करना"
+
+#: widgets/loginwidget/ruqolaloginbutton.cpp:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "लॉग इन करें"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:49
+#: widgets/loginwidget/ruqolaloginwidget.cpp:50
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9452,37 +9460,37 @@ msgstr ""
 "आपने दूसरा कारक प्रमाणीकरण सक्षम किया है। कृपया जनरेट किया गया कोड या बैकअप कोड दर्ज "
 "करें।"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:166
+#: widgets/loginwidget/ruqolaloginwidget.cpp:177
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "लॉगिन विफल: उपयोगकर्ता नाम या पासवर्ड अमान्य है"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:180
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "स्थापना समस्या पाई गई। यहां कोई प्लगइन नहीं मिला।"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:186
+#: widgets/loginwidget/ruqolaloginwidget.cpp:200
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "लॉगिन विफल: सामान्य त्रुटि"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:192
+#: widgets/loginwidget/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "लॉगिन विफल: आईपी के लिए लॉगिन अस्थायी रूप से अवरुद्ध कर दिया गया है।"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:198
+#: widgets/loginwidget/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "लॉगिन विफल: उपयोगकर्ता के लिए लॉगिन अस्थायी रूप से अवरुद्ध कर दिया गया है।"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:204
+#: widgets/loginwidget/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "लॉगिन विफल: उपयोगकर्ता सक्रिय नहीं है."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:210
+#: widgets/loginwidget/ruqolaloginwidget.cpp:228
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "लॉगिन विफल: ऐप उपयोगकर्ता को लॉगिन करने की अनुमति नहीं है।"
@@ -10758,7 +10766,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "संदेश को हटाएं"
 
-#: widgets/room/messagelistview.cpp:1153
+#: widgets/room/messagelistview.cpp:1155
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"

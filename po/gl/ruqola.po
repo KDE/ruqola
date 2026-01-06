@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-06 00:43+0000\n"
 "PO-Revision-Date: 2025-06-21 12:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -495,7 +495,7 @@ msgstr ""
 "Requírese un contrasinal dun uso para completar o procedemento de acceso."
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:170
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "O acceso fallou: o código de pase dun uso non é válido."
@@ -9486,13 +9486,20 @@ msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "Importar contas"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:28
+#: widgets/loginwidget/ruqolaloginbutton.cpp:32
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: widgets/loginwidget/ruqolaloginbutton.cpp:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Acceso"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:49
+#: widgets/loginwidget/ruqolaloginwidget.cpp:50
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9502,41 +9509,41 @@ msgstr ""
 "Activou a autenticación mediante un segundo factor.\n"
 "Insira o código xerado ou un código de salvagarda."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:166
+#: widgets/loginwidget/ruqolaloginwidget.cpp:177
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 "O acceso fallou: o nome de persoa usuaria ou o contrasinal son incorrectos."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:180
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Atopouse un problema na instalación. Non se atoparon complementos aquí."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:186
+#: widgets/loginwidget/ruqolaloginwidget.cpp:200
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "O acceso fallou: erro xenérico."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:192
+#: widgets/loginwidget/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "O acceso fallou: o acceso está temporalmente bloqueado para o seu IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:198
+#: widgets/loginwidget/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "O acceso fallou: o acceso está temporalmente bloqueado para a súa persoa "
 "usuaria."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:204
+#: widgets/loginwidget/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "O acceso fallou: a persoa usuaria non está activada."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:210
+#: widgets/loginwidget/ruqolaloginwidget.cpp:228
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -10825,7 +10832,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Eliminar a mensaxe"
 
-#: widgets/room/messagelistview.cpp:1153
+#: widgets/room/messagelistview.cpp:1155
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"

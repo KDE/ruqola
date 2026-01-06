@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-06 00:43+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -494,7 +494,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr "Unufoja pasvorto estas postulata por plenumi la ensaluta proceduro."
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:170
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Ensaluto malsukcesis: Nevalida OTP-kodo."
@@ -9423,13 +9423,20 @@ msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "Importi Kontojn"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:28
+#: widgets/loginwidget/ruqolaloginbutton.cpp:32
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: widgets/loginwidget/ruqolaloginbutton.cpp:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Ensaluti"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:49
+#: widgets/loginwidget/ruqolaloginwidget.cpp:50
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9439,37 +9446,37 @@ msgstr ""
 "Vi ebligis duan faktoran aŭtentigon.\n"
 "Bonvolu enigi la generitan kodon aŭ rezervan kodon."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:166
+#: widgets/loginwidget/ruqolaloginwidget.cpp:177
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Ensaluto Malsukcesa: nevalida uzantnomo aŭ pasvorto"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:180
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Instala problemo trovita. Neniuj kromaĵoj trovitaj ĉi tie."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:186
+#: widgets/loginwidget/ruqolaloginwidget.cpp:200
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Ensaluto Malsukcesa: ĝenerala eraro"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:192
+#: widgets/loginwidget/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Ensaluto Malsukcesa: Ensaluto estis provizore blokita Por IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:198
+#: widgets/loginwidget/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Ensaluto Malsukcesa: Ensaluto estis provizore blokita Por Uzanto."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:204
+#: widgets/loginwidget/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Ensaluto Malsukcesa: Uzanto ne estas aktivigita."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:210
+#: widgets/loginwidget/ruqolaloginwidget.cpp:228
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Ensaluto Malsukcesa: App-uzanto ne rajtas ensaluti."
@@ -10745,7 +10752,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Forigi mesaĝon"
 
-#: widgets/room/messagelistview.cpp:1153
+#: widgets/room/messagelistview.cpp:1155
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"

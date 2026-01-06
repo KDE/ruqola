@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-06 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -514,7 +514,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:170
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login failed: Invalid OTP code."
@@ -9803,14 +9803,20 @@ msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "Pridať účet"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:28
+#: widgets/loginwidget/ruqolaloginbutton.cpp:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr ""
+
+#: widgets/loginwidget/ruqolaloginbutton.cpp:34
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:49
+#: widgets/loginwidget/ruqolaloginwidget.cpp:50
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9818,39 +9824,39 @@ msgid ""
 "Please enter the generated code or a backup code."
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:166
+#: widgets/loginwidget/ruqolaloginwidget.cpp:177
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:180
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:186
+#: widgets/loginwidget/ruqolaloginwidget.cpp:200
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: generic error"
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:192
+#: widgets/loginwidget/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:198
+#: widgets/loginwidget/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:204
+#: widgets/loginwidget/ruqolaloginwidget.cpp:221
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: User is not activated."
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:210
+#: widgets/loginwidget/ruqolaloginwidget.cpp:228
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -11225,7 +11231,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Zmazať správu"
 
-#: widgets/room/messagelistview.cpp:1153
+#: widgets/room/messagelistview.cpp:1155
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title:window"
