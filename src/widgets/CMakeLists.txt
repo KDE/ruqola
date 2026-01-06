@@ -1211,6 +1211,7 @@ if(BUILD_TESTING)
     add_subdirectory(autogenerateui/autotests)
     add_subdirectory(exploreappstranlationdialog/autotests)
     add_subdirectory(webdav/autotests)
+    add_subdirectory(timestampinmessages/autotests)
 endif()
 
 install(
