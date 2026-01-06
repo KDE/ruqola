@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessageswidget.h"
+#include "timestampinmessages/timestampinmessagesformatcombobox.h"
 #include <KLocalizedString>
 #include <QDateEdit>
 #include <QFormLayout>
@@ -12,6 +13,7 @@ TimeStampInMessagesWidget::TimeStampInMessagesWidget(QWidget *parent)
     : QWidget{parent}
     , mDateEdit(new QDateEdit(this))
     , mTimeEdit(new QTimeEdit(this))
+    , mTimeStampInMessagesFormatComboBox(new TimeStampInMessagesFormatComboBox(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -22,6 +24,9 @@ TimeStampInMessagesWidget::TimeStampInMessagesWidget(QWidget *parent)
 
     mTimeEdit->setObjectName(u"mTimeEdit"_s);
     mainLayout->addRow(i18n("Time"), mTimeEdit);
+
+    mTimeStampInMessagesFormatComboBox->setObjectName(u"mTimeStampInMessagesFormatComboBox"_s);
+    mainLayout->addRow(i18n("Format"), mTimeStampInMessagesFormatComboBox);
 }
 
 TimeStampInMessagesWidget::~TimeStampInMessagesWidget() = default;

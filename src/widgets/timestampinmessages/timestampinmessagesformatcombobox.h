@@ -13,4 +13,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TimeStampInMessagesFormatComboBox : public Q
 public:
     explicit TimeStampInMessagesFormatComboBox(QWidget *parent = nullptr);
     ~TimeStampInMessagesFormatComboBox() override;
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
 };

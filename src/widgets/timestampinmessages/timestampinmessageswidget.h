@@ -9,6 +9,7 @@
 #include <QWidget>
 class QDateEdit;
 class QTimeEdit;
+class TimeStampInMessagesFormatComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TimeStampInMessagesWidget : public QWidget
 {
     Q_OBJECT
@@ -23,4 +24,5 @@ public:
 private:
     QDateEdit *const mDateEdit;
     QTimeEdit *const mTimeEdit;
+    TimeStampInMessagesFormatComboBox *const mTimeStampInMessagesFormatComboBox;
 };

@@ -8,8 +8,14 @@
 TimeStampInMessagesFormatComboBox::TimeStampInMessagesFormatComboBox(QWidget *parent)
     : QComboBox(parent)
 {
+    initialize();
 }
 
 TimeStampInMessagesFormatComboBox::~TimeStampInMessagesFormatComboBox() = default;
+
+void TimeStampInMessagesFormatComboBox::initialize()
+{
+    // TODO
+}
 
 #include "moc_timestampinmessagesformatcombobox.cpp"
