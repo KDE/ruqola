@@ -28,3 +28,4 @@ endmacro()
 
 add_ruqolawidget_timestampinmessages_test(timestampinmessagesdialogtest.cpp)
 add_ruqolawidget_timestampinmessages_test(timestampinmessageswidgettest.cpp)
+add_ruqolawidget_timestampinmessages_test(timestampinmessagesformatcomboboxtest.cpp)
