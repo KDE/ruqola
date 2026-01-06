@@ -11,3 +11,5 @@ TimeStampInMessagesWidgetTest::TimeStampInMessagesWidgetTest(QObject *parent)
     : QObject{parent}
 {
 }
+
+#include "moc_timestampinmessageswidgettest.cpp"

@@ -11,3 +11,5 @@ TimeStampInMessagesDialogTest::TimeStampInMessagesDialogTest(QObject *parent)
     : QObject{parent}
 {
 }
+
+#include "moc_timestampinmessagesdialogtest.cpp"
