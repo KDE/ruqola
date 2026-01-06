@@ -25,3 +25,6 @@ macro(add_ruqolawidget_timestampinmessages_test _source)
                 ON
     )
 endmacro()
+
+add_ruqolawidget_timestampinmessages_test(timestampinmessagesdialogtest.cpp)
+add_ruqolawidget_timestampinmessages_test(timestampinmessageswidgettest.cpp)
