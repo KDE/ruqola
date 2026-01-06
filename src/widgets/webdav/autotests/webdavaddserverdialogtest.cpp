@@ -12,7 +12,6 @@
 using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(WebDavAddServerDialogTest)
 
-using namespace Qt::Literals::StringLiterals;
 WebDavAddServerDialogTest::WebDavAddServerDialogTest(QObject *parent)
     : QObject{parent}
 {
