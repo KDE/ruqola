@@ -18,7 +18,7 @@ FeaturePreviewWidgetTest::FeaturePreviewWidgetTest(QObject *parent)
 
 void FeaturePreviewWidgetTest::shouldHaveDefaultValues()
 {
-    FeaturePreviewWidget w(nullptr);
+    const FeaturePreviewWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -29,6 +29,9 @@ void FeaturePreviewWidgetTest::shouldHaveDefaultValues()
 
     auto mQuickReactions = w.findChild<QCheckBox *>(u"mQuickReactions"_s);
     QVERIFY(mQuickReactions);
+
+    auto mTimestampInMessages = w.findChild<QCheckBox *>(u"mTimestampInMessages"_s);
+    QVERIFY(mTimestampInMessages);
 }
 
 #include "moc_featurepreviewwidgettest.cpp"

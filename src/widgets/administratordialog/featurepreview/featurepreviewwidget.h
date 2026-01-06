@@ -20,4 +20,5 @@ public:
 private:
     QCheckBox *const mAllowFeaturePreview;
     QCheckBox *const mQuickReactions;
+    QCheckBox *const mTimestampInMessages;
 };
