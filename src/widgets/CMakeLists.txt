@@ -992,6 +992,10 @@ target_sources(
         webdav/webdavaddserverdialog.cpp
         webdav/webdavaddserverwidget.h
         webdav/webdavaddserverwidget.cpp
+        timestampinmessages/timestampinmessagesdialog.h
+        timestampinmessages/timestampinmessagesdialog.cpp
+        timestampinmessages/timestampinmessageswidget.h
+        timestampinmessages/timestampinmessageswidget.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
