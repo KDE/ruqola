@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessagesdialog.h"
+#include "timestampinmessageswidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -11,16 +12,16 @@
 using namespace Qt::Literals::StringLiterals;
 TimeStampInMessagesDialog::TimeStampInMessagesDialog(QWidget *parent)
     : QDialog(parent)
+    , mTimeStampInMessagesWidget(new TimeStampInMessagesWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Add New WebDAV Server"));
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
 
-    /*
-    mWebDavAddServerWidget->setObjectName(u"mWebDavAddServerWidget"_s);
-    mainLayout->addWidget(mWebDavAddServerWidget);
-*/
+    mTimeStampInMessagesWidget->setObjectName(u"mTimeStampInMessagesWidget"_s);
+    mainLayout->addWidget(mTimeStampInMessagesWidget);
+
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(u"buttonBox"_s);
     mainLayout->addWidget(buttonBox);
