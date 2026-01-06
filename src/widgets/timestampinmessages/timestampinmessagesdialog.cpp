@@ -25,11 +25,8 @@ TimeStampInMessagesDialog::TimeStampInMessagesDialog(QWidget *parent)
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(u"buttonBox"_s);
     mainLayout->addWidget(buttonBox);
-    auto buttonOk = buttonBox->button(QDialogButtonBox::Ok);
-    buttonOk->setText(i18nc("@action:button", "Add WebDAV Server"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &TimeStampInMessagesDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &TimeStampInMessagesDialog::accept);
-    buttonOk->setEnabled(false);
 }
 
 TimeStampInMessagesDialog::~TimeStampInMessagesDialog() = default;
