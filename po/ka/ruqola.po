@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
-"PO-Revision-Date: 2026-01-02 04:53+0100\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
+"PO-Revision-Date: 2026-01-06 09:35+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3198,6 +3198,13 @@ msgstr "ფუნქციის გადახედვის დაშვე�
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "სწრაფი რეაქციები"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in Messages"
+msgstr "შეტყობინებები სულ"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -9383,8 +9390,7 @@ msgid "Import Accounts"
 msgstr "ანგარიშების შემოტანა"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "გაუქმება"
@@ -11598,6 +11604,30 @@ msgstr "შეტყობინების მიყოლა"
 msgid "Unfollow Message"
 msgstr "შეტყობინების მიყოლის გაუქმება"
 
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "ახალი WebDAV სერვერის დამატება"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "TimeZone"
+msgid "Time"
+msgstr "დროის სარტყელი"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#, fuzzy, kde-format
+#| msgid "Alias Format"
+msgid "Format"
+msgstr "ფორმატი"
+
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
 msgid "Account information"
@@ -11607,12 +11637,6 @@ msgstr "ანგარიშის ინფორმაცია"
 #, kde-format
 msgid "Return the number of account."
 msgstr "ანგარიშების რაოდენობის დაბრუნება."
-
-#: widgets/webdav/webdavaddserverdialog.cpp:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Add New WebDAV Server"
-msgstr "ახალი WebDAV სერვერის დამატება"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
 #, kde-format

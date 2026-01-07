@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -3216,6 +3216,13 @@ msgstr "Zezwól na podgląd funkcji"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Szybkie odzewy"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in Messages"
+msgstr "Wszystkie wiadomości"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -11682,6 +11689,30 @@ msgstr "Podążaj za wiadomością"
 msgid "Unfollow Message"
 msgstr "Przestań podążać za wiadomością"
 
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Dodaj nowy serwer WebDAV"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "TimeZone"
+msgid "Time"
+msgstr "Strefa czasowa"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#, fuzzy, kde-format
+#| msgid "Alias Format"
+msgid "Format"
+msgstr "Format aliasu"
+
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
 msgid "Account information"
@@ -11691,12 +11722,6 @@ msgstr "Szczegóły konta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Zwróć numer konta."
-
-#: widgets/webdav/webdavaddserverdialog.cpp:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Add New WebDAV Server"
-msgstr "Dodaj nowy serwer WebDAV"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
 #, kde-format

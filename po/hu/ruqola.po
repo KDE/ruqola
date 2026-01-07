@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3237,6 +3237,13 @@ msgstr "Funkció előnézetének engedélyezése"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Reakciók"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in Messages"
+msgstr "Összes üzenet"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -11808,6 +11815,32 @@ msgstr "Üzenet követése"
 msgid "Unfollow Message"
 msgstr "Üzenet követésének leállítása"
 
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Kiszolgáló hozzáadása"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "TimeZone"
+msgid "Time"
+msgstr "Időzóna"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#, fuzzy, kde-format
+#| msgid "Alias Format"
+msgid "Format"
+msgstr "Álnév formátuma"
+
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
 msgid "Account information"
@@ -11817,14 +11850,6 @@ msgstr "Fiókinformációk"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Visszaadja a fiókok számát."
-
-#: widgets/webdav/webdavaddserverdialog.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgctxt "@title:window"
-msgid "Add New WebDAV Server"
-msgstr "Kiszolgáló hozzáadása"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
 #, fuzzy, kde-format

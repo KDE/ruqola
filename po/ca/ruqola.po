@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
-"PO-Revision-Date: 2026-01-02 08:52+0100\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
+"PO-Revision-Date: 2026-01-06 12:31+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -3210,6 +3210,13 @@ msgstr "Permet la vista prèvia de característiques"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Reaccions ràpides"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in Messages"
+msgstr "Missatges en total"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -9437,8 +9444,7 @@ msgid "Import Accounts"
 msgstr "Importació de comptes"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -11662,6 +11668,30 @@ msgstr "Segueix un missatge"
 msgid "Unfollow Message"
 msgstr "Deixa de seguir el missatge"
 
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Afegeix un servidor WebDAV nou"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "TimeZone"
+msgid "Time"
+msgstr "Zona horària"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#, fuzzy, kde-format
+#| msgid "Alias Format"
+msgid "Format"
+msgstr "Format de l'àlies"
+
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
 msgid "Account information"
@@ -11671,12 +11701,6 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
-
-#: widgets/webdav/webdavaddserverdialog.cpp:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Add New WebDAV Server"
-msgstr "Afegeix un servidor WebDAV nou"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
 #, kde-format

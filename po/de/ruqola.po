@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3364,6 +3364,13 @@ msgstr "Nachricht gelöscht"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Nennungen"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in Messages"
+msgstr "Gesamtzahl Nachrichten"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, fuzzy, kde-format
@@ -12303,6 +12310,32 @@ msgstr "Alle Nachrichten"
 msgid "Unfollow Message"
 msgstr "Alle Nachrichten"
 
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Server hinzufügen"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Timezone:"
+msgid "Time"
+msgstr "Zeitzone:"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#, fuzzy, kde-format
+#| msgid "Format"
+msgid "Format"
+msgstr "Format"
+
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
 msgid "Account information"
@@ -12312,14 +12345,6 @@ msgstr "Zugangsinformationen"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Anzahl der Zugänge zurückgeben."
-
-#: widgets/webdav/webdavaddserverdialog.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
-msgctxt "@title:window"
-msgid "Add New WebDAV Server"
-msgstr "Server hinzufügen"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
 #, fuzzy, kde-format

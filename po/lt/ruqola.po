@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
 "PO-Revision-Date: 2025-12-29 17:10+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -3291,6 +3291,13 @@ msgstr "Žinutė ištrinta"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Aprašas:"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "@option:check"
+msgid "Timestamp in Messages"
+msgstr "Šifruota žinutė"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, fuzzy, kde-format
@@ -12074,6 +12081,30 @@ msgstr "Šifruota žinutė"
 msgid "Unfollow Message"
 msgstr "Šifruota žinutė"
 
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "Server Info..."
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Informacija apie serverį..."
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "TimeZone:"
+msgid "Time"
+msgstr "Laiko juosta:"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#, kde-format
+msgid "Format"
+msgstr ""
+
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
 msgid "Account information"
@@ -12084,13 +12115,6 @@ msgstr "Informacija apie paskyrą"
 #| msgid "Return lists of accounts"
 msgid "Return the number of account."
 msgstr "Grąžinti paskyrų sąrašus"
-
-#: widgets/webdav/webdavaddserverdialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Server Info..."
-msgctxt "@title:window"
-msgid "Add New WebDAV Server"
-msgstr "Informacija apie serverį..."
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
 #, fuzzy, kde-format

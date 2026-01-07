@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
-"PO-Revision-Date: 2026-01-02 15:20+0100\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
+"PO-Revision-Date: 2026-01-06 11:42+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3210,6 +3210,13 @@ msgstr "Voorvertoning van mogelijkheid toestaan"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Snelle reacties"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in Messages"
+msgstr "Totaal aantal berichten"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -9436,8 +9443,7 @@ msgid "Import Accounts"
 msgstr "Accounts importeren"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annuleren"
@@ -11657,6 +11663,30 @@ msgstr "Bericht volgen"
 msgid "Unfollow Message"
 msgstr "Bericht niet volgen"
 
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Nieuwe WebDAV-server toevoegen"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "TimeZone"
+msgid "Time"
+msgstr "Tijdzone"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#, fuzzy, kde-format
+#| msgid "Alias Format"
+msgid "Format"
+msgstr "Alias-formaat"
+
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
 msgid "Account information"
@@ -11666,12 +11696,6 @@ msgstr "Account-informatie"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Het nummer van het account teruggeven."
-
-#: widgets/webdav/webdavaddserverdialog.cpp:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Add New WebDAV Server"
-msgstr "Nieuwe WebDAV-server toevoegen"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
 #, kde-format

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
-"PO-Revision-Date: 2026-01-05 10:19+0100\n"
+"POT-Creation-Date: 2026-01-07 00:44+0000\n"
+"PO-Revision-Date: 2026-01-06 10:35+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -3220,6 +3220,13 @@ msgstr "Baimendu ezaugarriaren aurreikuspegia"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Erreakzio azkarrak"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in Messages"
+msgstr "Mezuak guztira"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -9427,11 +9434,10 @@ msgid "Import Accounts"
 msgstr "Inportatu kontuak"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "Utzi"
+msgstr "Ezeztatu"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:34
 #, kde-format
@@ -11650,6 +11656,30 @@ msgstr "Jarraitu mezuari"
 msgid "Unfollow Message"
 msgstr "Utzi mezua jarraitzeari"
 
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/webdav/webdavaddserverdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Add New WebDAV Server"
+msgstr "Gehitu WebDAV zerbitzari berria"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "TimeZone"
+msgid "Time"
+msgstr "Ordu-eremua"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#, fuzzy, kde-format
+#| msgid "Alias Format"
+msgid "Format"
+msgstr "Goitizenen formatua"
+
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
 msgid "Account information"
@@ -11659,12 +11689,6 @@ msgstr "Kontuaren informazioa"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Itzuli kontuaren zenbakia."
-
-#: widgets/webdav/webdavaddserverdialog.cpp:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Add New WebDAV Server"
-msgstr "Gehitu WebDAV zerbitzari berria"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
 #, kde-format
