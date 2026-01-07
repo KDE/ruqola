@@ -5,13 +5,12 @@
 */
 
 #include "uploadfileprogressstatuslistwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "ruqolawidgets_debug.h"
 #include "uploadfileprogressstatuswidget.h"
 #include <QScrollBar>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 UploadFileProgressStatusListWidget::UploadFileProgressStatusListWidget(QWidget *parent)
     : QScrollArea{parent}
     , mBigBox(new QWidget(this))
