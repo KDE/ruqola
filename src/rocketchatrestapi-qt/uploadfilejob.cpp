@@ -145,8 +145,10 @@ void UploadFileJob::slotUploadFinished()
                     deleteLater();
                     return;
                 }
-                // TODO verify it !
-                Q_EMIT failed(mReply->errorString() + u'\n' + errorStr(replyObject));
+                // Don't report cancel job when we canceled job
+                if (reply->error() != QNetworkReply::OperationCanceledError) {
+                    Q_EMIT failed(mReply->errorString() + u'\n' + errorStr(replyObject));
+                }
             } else {
                 emitFailedMessage(reply->errorString(), replyObject);
                 addLoggerWarning("UploadFileJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
