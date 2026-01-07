@@ -7,14 +7,16 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "timestampinmessageswidget.h"
 #include <QDialog>
-class TimeStampInMessagesWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TimeStampInMessagesDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit TimeStampInMessagesDialog(QWidget *parent = nullptr);
     ~TimeStampInMessagesDialog() override;
+
+    [[nodiscard]] TimeStampInMessagesWidget::TimeStampInfo timeStampInfo() const;
 
 private:
     TimeStampInMessagesWidget *const mTimeStampInMessagesWidget;

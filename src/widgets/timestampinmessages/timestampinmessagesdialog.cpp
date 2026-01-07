@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessagesdialog.h"
-#include "timestampinmessageswidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -30,5 +29,10 @@ TimeStampInMessagesDialog::TimeStampInMessagesDialog(QWidget *parent)
 }
 
 TimeStampInMessagesDialog::~TimeStampInMessagesDialog() = default;
+
+TimeStampInMessagesWidget::TimeStampInfo TimeStampInMessagesDialog::timeStampInfo() const
+{
+    return mTimeStampInMessagesWidget->timeStampInfo();
+}
 
 #include "moc_timestampinmessagesdialog.cpp"

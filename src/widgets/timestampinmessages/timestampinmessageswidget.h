@@ -21,6 +21,8 @@ public:
     explicit TimeStampInMessagesWidget(QWidget *parent = nullptr);
     ~TimeStampInMessagesWidget() override;
 
+    [[nodiscard]] TimeStampInfo timeStampInfo() const;
+
 private:
     QDateEdit *const mDateEdit;
     QTimeEdit *const mTimeEdit;
