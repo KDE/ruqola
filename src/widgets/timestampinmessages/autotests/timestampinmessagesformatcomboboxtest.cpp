@@ -12,4 +12,10 @@ TimeStampInMessagesFormatComboBoxTest::TimeStampInMessagesFormatComboBoxTest(QOb
 {
 }
 
+void TimeStampInMessagesFormatComboBoxTest::shouldHaveDefaultValues()
+{
+    const TimeStampInMessagesFormatComboBox w;
+    QVERIFY(w.count() > 0);
+}
+
 #include "moc_timestampinmessagesformatcomboboxtest.cpp"

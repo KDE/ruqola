@@ -14,6 +14,8 @@ public:
     explicit TimeStampInMessagesFormatComboBox(QWidget *parent = nullptr);
     ~TimeStampInMessagesFormatComboBox() override;
 
+    [[nodiscard]] QString currentFormat() const;
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
 };

@@ -13,4 +13,7 @@ class TimeStampInMessagesFormatComboBoxTest : public QObject
 public:
     explicit TimeStampInMessagesFormatComboBoxTest(QObject *parent = nullptr);
     ~TimeStampInMessagesFormatComboBoxTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

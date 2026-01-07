@@ -25,4 +25,9 @@ void TimeStampInMessagesFormatComboBox::initialize()
     addItem(i18n("Relative time"), u"relative"_s);
 }
 
+QString TimeStampInMessagesFormatComboBox::currentFormat() const
+{
+    return currentData().toString();
+}
+
 #include "moc_timestampinmessagesformatcombobox.cpp"
