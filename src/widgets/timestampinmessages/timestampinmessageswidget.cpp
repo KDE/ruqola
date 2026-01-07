@@ -33,7 +33,22 @@ TimeStampInMessagesWidget::~TimeStampInMessagesWidget() = default;
 
 TimeStampInMessagesWidget::TimeStampInfo TimeStampInMessagesWidget::timeStampInfo() const
 {
-    return {};
+    const TimeStampInfo info{
+        .format = mTimeStampInMessagesFormatComboBox->currentFormat(),
+        .date = mDateEdit->time().toString(),
+        .time = mTimeEdit->time().toString(),
+        .timeZone = {} // TODO
+    };
+    return info;
+}
+
+QDebug operator<<(QDebug d, const TimeStampInMessagesWidget::TimeStampInfo &t)
+{
+    d.space() << "format:" << t.format;
+    d.space() << "time:" << t.time;
+    d.space() << "date:" << t.date;
+    d.space() << "timeZone:" << t.timeZone;
+    return d;
 }
 
 #include "moc_timestampinmessageswidget.cpp"
