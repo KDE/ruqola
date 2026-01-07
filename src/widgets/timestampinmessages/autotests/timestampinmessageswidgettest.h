@@ -13,4 +13,8 @@ class TimeStampInMessagesWidgetTest : public QObject
 public:
     explicit TimeStampInMessagesWidgetTest(QObject *parent = nullptr);
     ~TimeStampInMessagesWidgetTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+    void shouldHaveTimeStampInfoDefaultValues();
 };

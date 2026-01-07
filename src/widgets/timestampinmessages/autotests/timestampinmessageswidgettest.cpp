@@ -13,4 +13,16 @@ TimeStampInMessagesWidgetTest::TimeStampInMessagesWidgetTest(QObject *parent)
 {
 }
 
+void TimeStampInMessagesWidgetTest::shouldHaveDefaultValues()
+{
+    const TimeStampInMessagesWidget d(nullptr);
+    // TODO
+}
+
+void TimeStampInMessagesWidgetTest::shouldHaveTimeStampInfoDefaultValues()
+{
+    const TimeStampInMessagesWidget::TimeStampInfo info;
+    // TODO
+}
+
 #include "moc_timestampinmessageswidgettest.cpp"
