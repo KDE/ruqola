@@ -5,6 +5,7 @@
 */
 #include "timestampinmessageswidget.h"
 #include "timestampinmessages/timestampinmessagesformatcombobox.h"
+#include "timestampinmessages/timestampinmessagestimezonecombobox.h"
 #include <KLocalizedString>
 #include <QDateEdit>
 #include <QFormLayout>
@@ -14,6 +15,7 @@ TimeStampInMessagesWidget::TimeStampInMessagesWidget(QWidget *parent)
     , mDateEdit(new QDateEdit(this))
     , mTimeEdit(new QTimeEdit(this))
     , mTimeStampInMessagesFormatComboBox(new TimeStampInMessagesFormatComboBox(this))
+    , mTimeStampInMessagesTimeZoneComboBox(new TimeStampInMessagesTimeZoneComboBox(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -27,18 +29,19 @@ TimeStampInMessagesWidget::TimeStampInMessagesWidget(QWidget *parent)
 
     mTimeStampInMessagesFormatComboBox->setObjectName(u"mTimeStampInMessagesFormatComboBox"_s);
     mainLayout->addRow(i18n("Format"), mTimeStampInMessagesFormatComboBox);
+
+    mTimeStampInMessagesTimeZoneComboBox->setObjectName(u"mTimeStampInMessagesTimeZoneComboBox"_s);
+    mainLayout->addRow(i18n("TimeZone"), mTimeStampInMessagesTimeZoneComboBox);
 }
 
 TimeStampInMessagesWidget::~TimeStampInMessagesWidget() = default;
 
 TimeStampInMessagesWidget::TimeStampInfo TimeStampInMessagesWidget::timeStampInfo() const
 {
-    const TimeStampInfo info{
-        .format = mTimeStampInMessagesFormatComboBox->currentFormat(),
-        .date = mDateEdit->time().toString(),
-        .time = mTimeEdit->time().toString(),
-        .timeZone = {} // TODO
-    };
+    const TimeStampInfo info{.format = mTimeStampInMessagesFormatComboBox->currentFormat(),
+                             .date = mDateEdit->time().toString(),
+                             .time = mTimeEdit->time().toString(),
+                             .timeZone = mTimeStampInMessagesTimeZoneComboBox->currentTimeZone()};
     return info;
 }
 

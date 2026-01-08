@@ -11,6 +11,7 @@ class QDebug;
 class QDateEdit;
 class QTimeEdit;
 class TimeStampInMessagesFormatComboBox;
+class TimeStampInMessagesTimeZoneComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TimeStampInMessagesWidget : public QWidget
 {
     Q_OBJECT
@@ -20,7 +21,6 @@ public:
         QString date;
         QString time;
         QString timeZone;
-        // TODO
     };
 
     explicit TimeStampInMessagesWidget(QWidget *parent = nullptr);
@@ -32,5 +32,6 @@ private:
     QDateEdit *const mDateEdit;
     QTimeEdit *const mTimeEdit;
     TimeStampInMessagesFormatComboBox *const mTimeStampInMessagesFormatComboBox;
+    TimeStampInMessagesTimeZoneComboBox *const mTimeStampInMessagesTimeZoneComboBox;
 };
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const TimeStampInMessagesWidget::TimeStampInfo &t);

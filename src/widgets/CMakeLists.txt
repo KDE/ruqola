@@ -4,6 +4,8 @@ add_library(
     libruqolawidgets
     timestampinmessages/timestampinmessagesformatcombobox.h
     timestampinmessages/timestampinmessagesformatcombobox.cpp
+    timestampinmessages/timestampinmessagestimezonecombobox.h
+    timestampinmessages/timestampinmessagestimezonecombobox.cpp
 )
 
 if(TARGET KF6::UserFeedbackWidgets)

@@ -5,6 +5,7 @@
 */
 #include "timestampinmessageswidgettest.h"
 #include "timestampinmessages/timestampinmessagesformatcombobox.h"
+#include "timestampinmessages/timestampinmessagestimezonecombobox.h"
 #include "timestampinmessages/timestampinmessageswidget.h"
 #include <QDateEdit>
 #include <QFormLayout>
@@ -32,12 +33,19 @@ void TimeStampInMessagesWidgetTest::shouldHaveDefaultValues()
 
     auto mTimeStampInMessagesFormatComboBox = d.findChild<TimeStampInMessagesFormatComboBox *>(u"mTimeStampInMessagesFormatComboBox"_s);
     QVERIFY(mTimeStampInMessagesFormatComboBox);
+
+    auto mTimeStampInMessagesTimeZoneComboBox = d.findChild<TimeStampInMessagesTimeZoneComboBox *>(u"mTimeStampInMessagesTimeZoneComboBox"_s);
+    QVERIFY(mTimeStampInMessagesTimeZoneComboBox);
 }
 
 void TimeStampInMessagesWidgetTest::shouldHaveTimeStampInfoDefaultValues()
 {
     const TimeStampInMessagesWidget::TimeStampInfo info;
-    // TODO
+
+    QVERIFY(info.format.isEmpty());
+    QVERIFY(info.date.isEmpty());
+    QVERIFY(info.time.isEmpty());
+    QVERIFY(info.timeZone.isEmpty());
 }
 
 #include "moc_timestampinmessageswidgettest.cpp"
