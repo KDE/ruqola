@@ -25,3 +25,5 @@ QString TimeStampInMessagesTimeZoneComboBox::currentTimeZone() const
 {
     return currentData().toString();
 }
+
+#include "moc_timestampinmessagestimezonecombobox.cpp"
