@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "timestampinmessagesutils.h"
 #include <QWidget>
 class QDebug;
 class QDateEdit;
@@ -16,17 +17,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TimeStampInMessagesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    struct TimeStampInfo {
-        QString format;
-        QString date;
-        QString time;
-        QString timeZone;
-    };
-
     explicit TimeStampInMessagesWidget(QWidget *parent = nullptr);
     ~TimeStampInMessagesWidget() override;
 
-    [[nodiscard]] TimeStampInfo timeStampInfo() const;
+    [[nodiscard]] TimeStampInMessagesUtils::TimeStampInfo timeStampInfo() const;
 
 private:
     QDateEdit *const mDateEdit;
@@ -34,4 +28,3 @@ private:
     TimeStampInMessagesFormatComboBox *const mTimeStampInMessagesFormatComboBox;
     TimeStampInMessagesTimeZoneComboBox *const mTimeStampInMessagesTimeZoneComboBox;
 };
-LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const TimeStampInMessagesWidget::TimeStampInfo &t);

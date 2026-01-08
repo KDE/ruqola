@@ -30,7 +30,7 @@ TimeStampInMessagesDialog::TimeStampInMessagesDialog(QWidget *parent)
 
 TimeStampInMessagesDialog::~TimeStampInMessagesDialog() = default;
 
-TimeStampInMessagesWidget::TimeStampInfo TimeStampInMessagesDialog::timeStampInfo() const
+TimeStampInMessagesUtils::TimeStampInfo TimeStampInMessagesDialog::timeStampInfo() const
 {
     return mTimeStampInMessagesWidget->timeStampInfo();
 }

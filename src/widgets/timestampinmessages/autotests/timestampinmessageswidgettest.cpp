@@ -40,7 +40,7 @@ void TimeStampInMessagesWidgetTest::shouldHaveDefaultValues()
 
 void TimeStampInMessagesWidgetTest::shouldHaveTimeStampInfoDefaultValues()
 {
-    const TimeStampInMessagesWidget::TimeStampInfo info;
+    const TimeStampInMessagesUtils::TimeStampInfo info;
 
     QVERIFY(info.format.isEmpty());
     QVERIFY(info.date.isEmpty());

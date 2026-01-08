@@ -16,7 +16,7 @@ public:
     explicit TimeStampInMessagesDialog(QWidget *parent = nullptr);
     ~TimeStampInMessagesDialog() override;
 
-    [[nodiscard]] TimeStampInMessagesWidget::TimeStampInfo timeStampInfo() const;
+    [[nodiscard]] TimeStampInMessagesUtils::TimeStampInfo timeStampInfo() const;
 
 private:
     TimeStampInMessagesWidget *const mTimeStampInMessagesWidget;
