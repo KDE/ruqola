@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:44+0000\n"
-"PO-Revision-Date: 2026-01-06 11:42+0100\n"
+"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"PO-Revision-Date: 2026-01-07 13:15+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3212,11 +3212,10 @@ msgid "Quick Reactions"
 msgstr "Snelle reacties"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "Totaal aantal berichten"
+msgstr "Tijdstempel in berichten"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -11663,29 +11662,65 @@ msgstr "Bericht volgen"
 msgid "Unfollow Message"
 msgstr "Bericht niet volgen"
 
-#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
 #: widgets/webdav/webdavaddserverdialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Nieuwe WebDAV-server toevoegen"
 
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:19
+#, kde-format
+msgid "Short Time"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "Local Time:"
+msgid "Long Time"
+msgstr "Lokale tijd:"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Short Date"
+msgstr "Rapportagedatum"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
+#, fuzzy, kde-format
+#| msgid "Date"
+msgid "Long Date"
+msgstr "Datum"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
+#, kde-format
+msgid "Full Date and Time"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
+#, kde-format
+msgid "Full Date and Time (long)"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
+#, kde-format
+msgid "Relative time"
+msgstr ""
+
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "Tijdzone"
+msgstr "Tijd"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
-msgstr "Alias-formaat"
+msgstr "Opmaak"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format

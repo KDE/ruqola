@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:44+0000\n"
+"POT-Creation-Date: 2026-01-08 00:42+0000\n"
 "PO-Revision-Date: 2025-04-09 14:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -11811,7 +11811,7 @@ msgstr "Отслеживать сообщение"
 msgid "Unfollow Message"
 msgstr "Прекратить отслеживание сообщения"
 
-#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
 #: widgets/webdav/webdavaddserverdialog.cpp:17
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -11819,6 +11819,43 @@ msgstr "Прекратить отслеживание сообщения"
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Добавление сервера"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:19
+#, kde-format
+msgid "Short Time"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "TimeZone"
+msgid "Long Time"
+msgstr "Часовой пояс"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Short Date"
+msgstr "Дата жалобы"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
+#, kde-format
+msgid "Long Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
+#, kde-format
+msgid "Full Date and Time"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
+#, kde-format
+msgid "Full Date and Time (long)"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
+#, kde-format
+msgid "Relative time"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
 #, kde-format

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:44+0000\n"
-"PO-Revision-Date: 2026-01-01 12:10+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"PO-Revision-Date: 2026-01-07 20:05+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -29,10 +29,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket Chat İstemcisi"
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "© 2020–2025 Roka yazarları"
+msgstr "© 2020–2026 Roka yazarları"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -3188,11 +3187,10 @@ msgid "Quick Reactions"
 msgstr "Tez Tepkiler"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "Toplam İleti"
+msgstr "İletilerdeki zaman damgaları"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -9382,8 +9380,7 @@ msgid "Import Accounts"
 msgstr "Hesaplar İçe Aktar"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "İptal"
@@ -11603,29 +11600,65 @@ msgstr "İletiyi Takip Et"
 msgid "Unfollow Message"
 msgstr "İletiyi Takipten Çıkar"
 
-#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
 #: widgets/webdav/webdavaddserverdialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Yeni WebDAV Sunucusu Ekle"
 
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:19
+#, kde-format
+msgid "Short Time"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "Local Time:"
+msgid "Long Time"
+msgstr "Yerel zaman:"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Short Date"
+msgstr "Bildirim tarihi"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
+#, fuzzy, kde-format
+#| msgid "Date"
+msgid "Long Date"
+msgstr "Tarih"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
+#, kde-format
+msgid "Full Date and Time"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
+#, kde-format
+msgid "Full Date and Time (long)"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
+#, kde-format
+msgid "Relative time"
+msgstr ""
+
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Tarih"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "Zaman Dilimi"
+msgstr "Zaman"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
-msgstr "Arma Biçimi"
+msgstr "Biçim"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format

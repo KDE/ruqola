@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:44+0000\n"
+"POT-Creation-Date: 2026-01-08 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -12310,7 +12310,7 @@ msgstr "Alle Nachrichten"
 msgid "Unfollow Message"
 msgstr "Alle Nachrichten"
 
-#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:17
+#: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
 #: widgets/webdav/webdavaddserverdialog.cpp:17
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -12318,6 +12318,43 @@ msgstr "Alle Nachrichten"
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
 msgstr "Server hinzufügen"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:19
+#, kde-format
+msgid "Short Time"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "Timezone:"
+msgid "Long Time"
+msgstr "Zeitzone:"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Short Date"
+msgstr "Nachricht"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
+#, kde-format
+msgid "Long Date"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
+#, kde-format
+msgid "Full Date and Time"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
+#, kde-format
+msgid "Full Date and Time (long)"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
+#, kde-format
+msgid "Relative time"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
 #, kde-format
@@ -12331,8 +12368,7 @@ msgid "Time"
 msgstr "Zeitzone:"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Format"
 msgstr "Format"
 
