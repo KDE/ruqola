@@ -19,3 +19,5 @@ void TimeStampInMessagesTimeZoneComboBoxTest::shouldHaveDefaultValues()
     const TimeStampInMessagesTimeZoneComboBox w;
     QVERIFY(w.count() > 0);
 }
+
+#include "moc_timestampinmessagestimezonecomboboxtest.cpp"
