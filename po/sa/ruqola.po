@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-09 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -5509,6 +5509,7 @@ msgstr ""
 "उभयम् अपि केवलं प्रशासकानाम् कृते दृश्यते।"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
 #, kde-format
 msgid "TimeZone"
 msgstr "समयक्षेत्रम्"
@@ -11703,18 +11704,23 @@ msgstr ""
 msgid "Relative time"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
+#, kde-format
+msgid "Locale"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "TimeZone"
 msgid "Time"
 msgstr "समयक्षेत्रम्"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Alias Format"
 msgid "Format"

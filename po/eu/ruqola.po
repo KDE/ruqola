@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-09 00:43+0000\n"
 "PO-Revision-Date: 2026-01-06 10:35+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -5538,6 +5538,7 @@ msgstr ""
 "biak administratzailearentzako bakarrik ikusgai."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
 #, kde-format
 msgid "TimeZone"
 msgstr "Ordu-eremua"
@@ -11700,18 +11701,24 @@ msgstr ""
 msgid "Relative time"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "Local Time:"
+msgid "Locale"
+msgstr "Ordu lokala:"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "TimeZone"
 msgid "Time"
 msgstr "Ordu-eremua"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Alias Format"
 msgid "Format"

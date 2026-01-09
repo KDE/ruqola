@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-09 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -5780,6 +5780,7 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Timezone:"
 msgid "TimeZone"
@@ -12356,18 +12357,23 @@ msgstr ""
 msgid "Relative time"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
+#, kde-format
+msgid "Locale"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Timezone:"
 msgid "Time"
 msgstr "Zeitzone:"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
 #, kde-format
 msgid "Format"
 msgstr "Format"

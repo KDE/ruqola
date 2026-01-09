@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
-# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
-"PO-Revision-Date: 2025-12-24 17:00+0400\n"
+"POT-Creation-Date: 2026-01-09 00:43+0000\n"
+"PO-Revision-Date: 2026-01-08 13:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -29,10 +29,9 @@ msgid "Rocket Chat Client"
 msgstr "عميل روكت تشات"
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "حقوق الطبع والنشر © 2020-2025 مُؤلفو رقولة"
+msgstr "حقوق الطبع والنشر © 2020-2026 مُؤلفو رقولة"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -3225,11 +3224,10 @@ msgid "Quick Reactions"
 msgstr "تفاعلات سريعة"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "إجمالي الرسائل"
+msgstr "الطابع الزمني في الرسائل"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -5541,6 +5539,7 @@ msgstr ""
 "كلاهما مرئي للمسؤولين فقط."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
 #, kde-format
 msgid "TimeZone"
 msgstr "المنطقة الزمنية"
@@ -7969,10 +7968,9 @@ msgid "DataBase Room Pending Typed Info"
 msgstr "غرفة قاعدة البيانات معلومات مكتوبة قيد الانتظار"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase Room Subscriptions"
-msgstr "غرف قاعدة البيانات"
+msgstr "اشتراكات غرفة قاعدة البيانات"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
@@ -9361,28 +9359,24 @@ msgid "Export Done."
 msgstr "انتهى التصدير."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, fuzzy, kde-format
-#| msgid "Account %1: export config done."
+#, kde-format
 msgid "<b>Account %1:</b> export config done."
-msgstr "الحساب %1: انتهى تصدير الإعدادات"
+msgstr "<b>حساب %1:</b> انتهى تصدير الإعدادات"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export cache done."
-msgstr "الحساب %1: انتهى تصدير الخبيئة"
+msgstr "<b>حساب %1:</b> انتهى تصدير الخبيئة"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, fuzzy, kde-format
-#| msgid "Account %1: export logs done."
+#, kde-format
 msgid "<b>Account %1:</b> export logs done."
-msgstr "الحساب %1: انتهى تصدير السجلات"
+msgstr "<b>حساب %1:</b> انتهى تصدير السجلات"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export database done."
-msgstr "الحساب %1: انتهى تصدير الخبيئة"
+msgstr "<b>حساب %1:</b> انتهى تصدير قاعدة البيانات"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
@@ -9397,7 +9391,7 @@ msgstr "صُدرت الحسابات."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "ملف Zip المولّد: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9449,8 +9443,7 @@ msgid "Import Accounts"
 msgstr "استورد حسابات"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ألغِ"
@@ -11683,56 +11676,58 @@ msgstr "أضف خادم WebDav جديدًأ"
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:19
 #, kde-format
 msgid "Short Time"
-msgstr ""
+msgstr "الوقت القصير"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Long Time"
-msgstr "التوقيت المحلي:"
+msgstr "الوقت الطويل"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Short Date"
-msgstr "تاريخ التبليغ"
+msgstr "التاريخ القصير"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Long Date"
-msgstr ""
+msgstr "التاريخ الطويل"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
 #, kde-format
 msgid "Full Date and Time"
-msgstr ""
+msgstr "كامل الوقت والتاريخ"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Full Date and Time (long)"
-msgstr ""
+msgstr "كامل التاريخ والوقت (طويل)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
 #, kde-format
 msgid "Relative time"
-msgstr ""
+msgstr "الوقت النسبي"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "Local Time:"
+msgid "Locale"
+msgstr "التوقيت المحلي:"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "التاريخ"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
+#, kde-format
 msgid "Time"
-msgstr "المنطقة الزمنية"
+msgstr "الوقت"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
+#, kde-format
 msgid "Format"
-msgstr "تنسيق الاسم المستعار"
+msgstr "التنسيق"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
@@ -12385,13 +12380,12 @@ msgstr "حفظ الترجمة المحلية في قاعدة البيانات ا
 #: widgets/whatsnew/whatsnewtranslations.cpp:216
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr ""
+msgstr "إصلاح إزالة الغرفة (في قاعدة البيانات المحلية)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:216
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Fix export database."
-msgstr "تاريخ التبليغ"
+msgstr "إصلاح تصدير قاعدة البيانات."
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

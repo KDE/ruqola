@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
-"PO-Revision-Date: 2026-01-07 09:28+0100\n"
+"POT-Creation-Date: 2026-01-09 00:43+0000\n"
+"PO-Revision-Date: 2026-01-08 10:35+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -5535,6 +5535,7 @@ msgstr ""
 "tots dos visibles només per als administradors."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
 #, kde-format
 msgid "TimeZone"
 msgstr "Zona horària"
@@ -11677,52 +11678,55 @@ msgstr "Afegeix un servidor WebDAV nou"
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:19
 #, kde-format
 msgid "Short Time"
-msgstr ""
+msgstr "Hora curta"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Long Time"
-msgstr "Hora local:"
+msgstr "Hora llarga"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Short Date"
-msgstr "Data de l'informe"
+msgstr "Data curta"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Date"
+#, kde-format
 msgid "Long Date"
-msgstr "Data"
+msgstr "Data llarga"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
 #, kde-format
 msgid "Full Date and Time"
-msgstr ""
+msgstr "Data i hora completa"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Full Date and Time (long)"
-msgstr ""
+msgstr "Data i hora completa (llarga)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
 #, kde-format
 msgid "Relative time"
-msgstr ""
+msgstr "Hora relativa"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "Local Time:"
+msgid "Locale"
+msgstr "Hora local:"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
 #, kde-format
 msgid "Time"
 msgstr "Hora"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
 #, kde-format
 msgid "Format"
 msgstr "Format"

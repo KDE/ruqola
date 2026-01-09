@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
-"PO-Revision-Date: 2026-01-07 06:47+0100\n"
+"POT-Creation-Date: 2026-01-09 00:43+0000\n"
+"PO-Revision-Date: 2026-01-08 04:51+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5508,6 +5508,7 @@ msgstr ""
 "ორივე, მხოლოდ, ადმინისტრატორებისთვისაა ხილული."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
 #, kde-format
 msgid "TimeZone"
 msgstr "დროის სარტყელი"
@@ -11613,52 +11614,55 @@ msgstr "ახალი WebDAV სერვერის დამატება
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:19
 #, kde-format
 msgid "Short Time"
-msgstr ""
+msgstr "მოკლე დრო"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Long Time"
-msgstr "ლოკალური დრო:"
+msgstr "გრძელი დრო"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Short Date"
-msgstr "ანგარიშის თარიღი"
+msgstr "მოკლე თარიღი"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Date"
+#, kde-format
 msgid "Long Date"
-msgstr "თარიღი"
+msgstr "გრძელი თარიღი"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
 #, kde-format
 msgid "Full Date and Time"
-msgstr ""
+msgstr "სრული თარიღი და დრო"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Full Date and Time (long)"
-msgstr ""
+msgstr "სრული თარიღი და დრო (გრძელი)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
 #, kde-format
 msgid "Relative time"
-msgstr ""
+msgstr "ფარდობით დრო"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:23
+#: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "Local Time:"
+msgid "Locale"
+msgstr "ლოკალური დრო:"
+
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
 msgstr "თარიღი"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
 #, kde-format
 msgid "Time"
 msgstr "დრო"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
 #, kde-format
 msgid "Format"
 msgstr "ფორმატი"
