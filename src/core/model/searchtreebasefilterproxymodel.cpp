@@ -12,6 +12,7 @@ SearchTreeBaseFilterProxyModel::SearchTreeBaseFilterProxyModel(QAbstractListMode
 {
     setSourceModel(model);
 
+    setSortCaseSensitivity(Qt::CaseInsensitive);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0, Qt::DescendingOrder);
 }
