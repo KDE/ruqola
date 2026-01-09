@@ -5,17 +5,18 @@
 */
 #pragma once
 #include "libruqolawidgets_export.h"
+#include <QDate>
+#include <QTime>
 class QDebug;
 namespace TimeStampInMessagesUtils
 {
 struct TimeStampInfo {
     QString format;
-    QString date;
-    QString time;
+    QDate date;
+    QTime time;
     QString timeZone;
 };
 [[nodiscard]] QString generateTimeStampStr(const TimeStampInfo &info);
-// TODO allow to convert to string
 };
 
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t);

@@ -39,8 +39,8 @@ TimeStampInMessagesWidget::~TimeStampInMessagesWidget() = default;
 TimeStampInMessagesUtils::TimeStampInfo TimeStampInMessagesWidget::timeStampInfo() const
 {
     const TimeStampInMessagesUtils::TimeStampInfo info{.format = mTimeStampInMessagesFormatComboBox->currentFormat(),
-                                                       .date = mDateEdit->time().toString(),
-                                                       .time = mTimeEdit->time().toString(),
+                                                       .date = mDateEdit->date(),
+                                                       .time = mTimeEdit->time(),
                                                        .timeZone = mTimeStampInMessagesTimeZoneComboBox->currentTimeZone()};
     return info;
 }
