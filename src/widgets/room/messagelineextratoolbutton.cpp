@@ -16,6 +16,7 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
     , mMenu(new QMenu)
     , mWebdavAddServerAction(new QAction(i18nc("@action", "Add WebDav Server"), this))
+    , mTimeStampAction(new QAction(i18nc("@action", "Insert TimeStamp"), this))
 {
     setIcon(QIcon::fromTheme(u"list-add"_s));
     setToolTip(i18nc("@info:tooltip", "More Actions"));
@@ -25,6 +26,7 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     setMenu(mMenu);
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &MessageLineExtraToolButton::uiInteractionRequested);
     connect(mWebdavAddServerAction, &QAction::triggered, this, &MessageLineExtraToolButton::addWebDavServer);
+    connect(mTimeStampAction, &QAction::triggered, this, &MessageLineExtraToolButton::insertTimeStamp);
     // TODO use apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/hooks/useShareLocationAction.tsx
     // TODO ./apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/hooks/useWebdavActions.tsx
     // TODO see apps/meteor/client/views/room/composer/messageBox/MessageBoxActionsToolbar/MessageBoxActionsToolbar.tsx
@@ -53,6 +55,7 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
     }
     mCurrentRocketChatAccount = account;
     updateWebDavSupport();
+    updateTimeStampSupport();
 }
 
 void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
@@ -63,13 +66,25 @@ void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
     }
 }
 
-void MessageLineExtraToolButton::updateWebDavSupport()
+void MessageLineExtraToolButton::updateTimeStampSupport()
 {
     if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
         mMenu->addAction(mWebdavAddServerAction);
     } else {
         mMenu->removeAction(mWebdavAddServerAction);
     }
+}
+
+void MessageLineExtraToolButton::updateWebDavSupport()
+{
+    // TODO
+    /*
+    if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
+        mMenu->addAction(mTimeStampAction);
+    } else {
+        mMenu->removeAction(mTimeStampAction);
+    }
+    */
 }
 
 void MessageLineExtraToolButton::slotActionButtonChanged()

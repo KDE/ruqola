@@ -23,13 +23,16 @@ public:
 Q_SIGNALS:
     void uiInteractionRequested(const QJsonObject &obj);
     void addWebDavServer();
+    void insertTimeStamp();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateWebDavSupport();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateTimeStampSupport();
     QByteArray mRoomId;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     ActionButtonsGenerator *const mActionButtonsGenerator;
     QMenu *const mMenu;
     QAction *const mWebdavAddServerAction;
+    QAction *const mTimeStampAction;
 };
