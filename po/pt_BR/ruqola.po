@@ -3,15 +3,15 @@
 #
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020, 2021, 2022, 2023.
 # Vinícius Santos <vinicius_maria@outlook.com>, 2020.
-# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 # SPDX-FileCopyrightText: 2025, 2026 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-09 00:43+0000\n"
-"PO-Revision-Date: 2026-01-08 07:30-0300\n"
-"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"PO-Revision-Date: 2026-01-09 01:27-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -10507,7 +10507,13 @@ msgctxt "@action"
 msgid "Add WebDav Server"
 msgstr "Adicionar servidor WebDav"
 
-#: widgets/room/messagelineextratoolbutton.cpp:21
+#: widgets/room/messagelineextratoolbutton.cpp:19
+#, kde-format
+msgctxt "@action"
+msgid "Insert TimeStamp"
+msgstr ""
+
+#: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
@@ -11689,10 +11695,9 @@ msgid "Relative time"
 msgstr "Tempo relativo"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "Hora local:"
+msgstr "Localidade"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format

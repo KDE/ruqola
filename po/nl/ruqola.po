@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-09 00:43+0000\n"
-"PO-Revision-Date: 2026-01-08 17:49+0100\n"
+"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"PO-Revision-Date: 2026-01-09 11:30+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -10525,7 +10525,13 @@ msgctxt "@action"
 msgid "Add WebDav Server"
 msgstr "WebDav-server toevoegen"
 
-#: widgets/room/messagelineextratoolbutton.cpp:21
+#: widgets/room/messagelineextratoolbutton.cpp:19
+#, kde-format
+msgctxt "@action"
+msgid "Insert TimeStamp"
+msgstr ""
+
+#: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
@@ -11706,10 +11712,9 @@ msgid "Relative time"
 msgstr "Relatieve tijd"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "Lokale tijd:"
+msgstr "Taalcode"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format

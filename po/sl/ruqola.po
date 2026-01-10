@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-09 00:43+0000\n"
-"PO-Revision-Date: 2026-01-08 07:47+0100\n"
+"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"PO-Revision-Date: 2026-01-09 06:50+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -10513,7 +10513,13 @@ msgctxt "@action"
 msgid "Add WebDav Server"
 msgstr "Dodaj strežnik WebDav"
 
-#: widgets/room/messagelineextratoolbutton.cpp:21
+#: widgets/room/messagelineextratoolbutton.cpp:19
+#, kde-format
+msgctxt "@action"
+msgid "Insert TimeStamp"
+msgstr ""
+
+#: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
@@ -11698,10 +11704,9 @@ msgid "Relative time"
 msgstr "Relativni čas"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "Lokalni čas:"
+msgstr "Lokalno"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format

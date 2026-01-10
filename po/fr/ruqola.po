@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-09 00:43+0000\n"
-"PO-Revision-Date: 2026-01-07 09:54+0100\n"
+"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"PO-Revision-Date: 2026-01-08 09:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -3227,11 +3227,10 @@ msgid "Quick Reactions"
 msgstr "Réactions rapides"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "Total des messages"
+msgstr "Horodatage dans les messages"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -10591,7 +10590,13 @@ msgctxt "@action"
 msgid "Add WebDav Server"
 msgstr "Ajouter un serveur « WebDav »"
 
-#: widgets/room/messagelineextratoolbutton.cpp:21
+#: widgets/room/messagelineextratoolbutton.cpp:19
+#, kde-format
+msgctxt "@action"
+msgid "Insert TimeStamp"
+msgstr ""
+
+#: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
@@ -11785,13 +11790,12 @@ msgstr "Heure locale :"
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "Fuseau horaire"
+msgstr "Heure"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
 #, kde-format
