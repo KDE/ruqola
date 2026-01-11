@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-10 00:43+0000\n"
-"PO-Revision-Date: 2026-01-09 05:53+0100\n"
+"PO-Revision-Date: 2026-01-10 02:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -10470,7 +10470,7 @@ msgstr "WebDav სერვერის დამატება"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "დროის შტამპის ჩასმა"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format

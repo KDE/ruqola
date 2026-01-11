@@ -9198,8 +9198,7 @@ msgid "Import Accounts"
 msgstr "Importovat účty"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Zrušit"
@@ -11413,12 +11412,12 @@ msgstr "Místní čas:"
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
 #, kde-format
 msgid "Short Date"
-msgstr ""
+msgstr "Zkrácené datum"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Long Date"
-msgstr ""
+msgstr "Dlouhé datum"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
 #, kde-format
@@ -11433,31 +11432,27 @@ msgstr ""
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
 #, kde-format
 msgid "Relative time"
-msgstr ""
+msgstr "Relativní čas"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "Místní čas:"
+msgstr "Lokalizace"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "Časové pásmo"
+msgstr "Čas"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "Message Style"
-#| msgid "Normal"
+#, kde-format
 msgid "Format"
-msgstr "Normální"
+msgstr "Formát"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
