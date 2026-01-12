@@ -4,6 +4,8 @@ add_library(
     libruqolacore
     localdatabase/localroomsubscriptionsdatabase.h
     localdatabase/localroomsubscriptionsdatabase.cpp
+    ownuser/featurepreviewpreferences.h
+    ownuser/featurepreviewpreferences.cpp
 )
 
 target_sources(

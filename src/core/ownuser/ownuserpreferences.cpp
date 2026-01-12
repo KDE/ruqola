@@ -60,6 +60,8 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setNewRoomNotification(replyObject.value("newRoomNotification"_L1).toString().toLatin1());
     setNotificationsSoundVolume(replyObject.value("notificationsSoundVolume"_L1).toInt());
     setMuteFocusedConversations(replyObject.value("muteFocusedConversations"_L1).toBool(false));
+
+    // featuresPreview
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
