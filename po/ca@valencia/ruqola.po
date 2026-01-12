@@ -6318,17 +6318,17 @@ msgstr "Secret de LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:124
 #, kde-format
 msgid "Proxy"
-msgstr "Amfitrió intermediari"
+msgstr "Servidor intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:129
 #, kde-format
 msgid "Proxy Host"
-msgstr "Amfitrió intermediari"
+msgstr "Servidor intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:132
 #, kde-format
 msgid "Proxy Services"
-msgstr "Serveis de l'amfitrió intermediari"
+msgstr "Serveis del servidor intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:135
 #, kde-format
