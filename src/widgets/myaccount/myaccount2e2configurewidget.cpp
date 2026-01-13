@@ -5,7 +5,6 @@
 */
 
 #include "myaccount2e2configurewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
@@ -19,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))

@@ -5,7 +5,6 @@
 */
 
 #include "myaccountconfigurewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccount/myaccount2faconfigurewidget.h"
 #include "myaccount/myaccountconfigurewidget.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(MyAccountConfigureWidgetTest)
 MyAccountConfigureWidgetTest::MyAccountConfigureWidgetTest(QObject *parent)
     : QObject(parent)
