@@ -12,6 +12,7 @@
 class MyAccount2FaConfigureWidget;
 class MyAccountProfileConfigureWidget;
 class MyAccountPreferenceConfigureWidget;
+class MyAccountFeaturePreviewConfigureWidget;
 class MyAccount2e2ConfigureWidget;
 class RocketChatAccount;
 class MyAccountPersonalAccessTokenConfigureWidget;
@@ -32,5 +33,6 @@ private:
     MyAccountPreferenceConfigureWidget *const mMyAccountPreferenceConfigureWidget;
     MyAccount2e2ConfigureWidget *const mMyAccount2e2ConfigureWidget;
     MyAccountPersonalAccessTokenConfigureWidget *const mMyAccountPersonalAccessTokenConfigureWidget;
+    MyAccountFeaturePreviewConfigureWidget *const mMyAccountFeaturePreviewConfigureWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

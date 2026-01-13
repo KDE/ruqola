@@ -5,7 +5,7 @@
 */
 
 #include "myaccountconfigurewidget.h"
-using namespace Qt::Literals::StringLiterals;
+#include "myaccountfeaturepreviewconfigurewidget.h"
 
 #include "myaccount2e2configurewidget.h"
 #include "myaccount2faconfigurewidget.h"
@@ -19,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTabWidget>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mMyAccount2FaConfigureWidget(new MyAccount2FaConfigureWidget(account, this))
@@ -26,6 +27,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     , mMyAccountPreferenceConfigureWidget(new MyAccountPreferenceConfigureWidget(account, this))
     , mMyAccount2e2ConfigureWidget(new MyAccount2e2ConfigureWidget(account, this))
     , mMyAccountPersonalAccessTokenConfigureWidget(new MyAccountPersonalAccessTokenConfigureWidget(account, this))
+    , mMyAccountFeaturePreviewConfigureWidget(new MyAccountFeaturePreviewConfigureWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -70,12 +72,19 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     if (account && !account->hasPermission(u"create-personal-access-tokens"_s)) {
         tabWidget->setTabVisible(pageIndex, false);
     }
+    mMyAccountFeaturePreviewConfigureWidget->setObjectName(u"mMyAccountFeaturePreviewConfigureWidget"_s);
+    const int pagePreviewIndex = tabWidget->addTab(mMyAccountFeaturePreviewConfigureWidget, i18n("Personal Access Token"));
+    if (/*account && !account->hasPermission(u"create-personal-access-tokens"_s)*/ false) {
+        tabWidget->setTabVisible(pagePreviewIndex, false);
+    }
+
     if (account && account->offlineMode()) {
         mMyAccount2FaConfigureWidget->setEnabled(false);
         mMyAccount2ProfileConfigureWidget->setEnabled(false);
         mMyAccountPreferenceConfigureWidget->setEnabled(false);
         mMyAccount2e2ConfigureWidget->setEnabled(false);
         mMyAccountPersonalAccessTokenConfigureWidget->setEnabled(false);
+        mMyAccountFeaturePreviewConfigureWidget->setEnabled(false);
     }
 }
 
@@ -83,6 +92,7 @@ MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;
 
 void MyAccountConfigureWidget::save()
 {
+    // TODO MyAccountFeaturePreviewConfigureWidget
     mMyAccountPreferenceConfigureWidget->save();
     if (mRocketChatAccount) {
         if (mRocketChatAccount->ruqolaServerConfig()->allowProfileChange()) {
@@ -96,6 +106,7 @@ void MyAccountConfigureWidget::save()
 
 void MyAccountConfigureWidget::load()
 {
+    // TODO MyAccountFeaturePreviewConfigureWidget
     mMyAccountPreferenceConfigureWidget->load();
     if (mRocketChatAccount) {
         if (mRocketChatAccount->ruqolaServerConfig()->allowProfileChange()) {
@@ -109,6 +120,7 @@ void MyAccountConfigureWidget::load()
 
 void MyAccountConfigureWidget::initialize()
 {
+    // TODO MyAccountFeaturePreviewConfigureWidget
     mMyAccount2ProfileConfigureWidget->initialize();
     mMyAccount2FaConfigureWidget->initialize();
     if (mRocketChatAccount && mRocketChatAccount->hasPermission(u"create-personal-access-tokens"_s)) {

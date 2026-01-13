@@ -8,6 +8,7 @@
 
 #include "myaccount/myaccount2faconfigurewidget.h"
 #include "myaccount/myaccountconfigurewidget.h"
+#include "myaccount/myaccountfeaturepreviewconfigurewidget.h"
 #include "myaccount/myaccountpersonalaccesstokenconfigurewidget.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
@@ -49,6 +50,9 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mStackedWidget = w.findChild<QStackedWidget *>(u"mStackedWidget"_s);
     QVERIFY(mStackedWidget);
+
+    auto mMyAccountFeaturePreviewConfigureWidget = w.findChild<MyAccountFeaturePreviewConfigureWidget *>(u"mMyAccountFeaturePreviewConfigureWidget"_s);
+    QVERIFY(mMyAccountFeaturePreviewConfigureWidget);
 }
 
 #include "moc_myaccountconfigurewidgettest.cpp"
