@@ -16,13 +16,13 @@ TimeStampInMessagesFormatComboBox::~TimeStampInMessagesFormatComboBox() = defaul
 
 void TimeStampInMessagesFormatComboBox::initialize()
 {
-    addItem(i18n("Short Time"), u"p"_s);
-    addItem(i18n("Long Time"), u"pp"_s);
-    addItem(i18n("Short Date"), u"P"_s);
-    addItem(i18n("Long Date"), u"Pp"_s);
-    addItem(i18n("Full Date and Time"), u"PPPppp"_s);
-    addItem(i18n("Full Date and Time (long)"), u"PPPPpppp"_s);
-    addItem(i18n("Relative time"), u"relative"_s);
+    addItem(i18n("Short Time"), u"t"_s);
+    addItem(i18n("Long Time"), u"T"_s);
+    addItem(i18n("Short Date"), u"d"_s);
+    addItem(i18n("Long Date"), u"D"_s);
+    addItem(i18n("Full Date and Time"), u"f"_s);
+    addItem(i18n("Full Date and Time (long)"), u"F"_s);
+    addItem(i18n("Relative time"), u"R"_s);
 }
 
 QString TimeStampInMessagesFormatComboBox::currentFormat() const
