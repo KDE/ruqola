@@ -8,6 +8,8 @@ add_library(
     timestampinmessages/timestampinmessagestimezonecombobox.cpp
     timestampinmessages/timestampinmessagesutils.h
     timestampinmessages/timestampinmessagesutils.cpp
+    myaccount/myaccountfeaturepreviewconfigurewidget.h
+    myaccount/myaccountfeaturepreviewconfigurewidget.cpp
 )
 
 if(TARGET KF6::UserFeedbackWidgets)
