@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-10 00:43+0000\n"
-"PO-Revision-Date: 2026-01-09 23:14+0200\n"
+"PO-Revision-Date: 2026-01-12 03:21+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -10596,7 +10596,7 @@ msgstr "Додати сервер WebDav"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "Вставити позначку часу"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
