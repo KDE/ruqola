@@ -30,6 +30,8 @@ public:
 
     [[nodiscard]] bool hasFeature(FeaturePreviewType type) const;
 
+    [[nodiscard]] bool hasFeaturePreview() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, FeaturePreviewType type);
     FeaturePreviewTypes mFeaturePreviewTypes = FeaturePreviewType::None;

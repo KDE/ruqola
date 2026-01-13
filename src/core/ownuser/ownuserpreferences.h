@@ -6,8 +6,8 @@
 
 #pragma once
 
+#include "featurepreviewpreferences.h"
 #include "libruqolacore_export.h"
-
 #include <QMetaType>
 #include <QStringList>
 
@@ -95,7 +95,14 @@ public:
     [[nodiscard]] bool muteFocusedConversations() const;
     void setMuteFocusedConversations(bool newMuteFocusedConversations);
 
+    [[nodiscard]] bool hasFeature(FeaturePreviewPreferences::FeaturePreviewType type) const;
+
+    [[nodiscard]] bool hasFeaturePreview() const;
+
+    [[nodiscard]] FeaturePreviewPreferences featurePreviewPreferences() const;
+
 private:
+    FeaturePreviewPreferences mFeaturePreviewPreferences;
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
     QString mDesktopNotifications;

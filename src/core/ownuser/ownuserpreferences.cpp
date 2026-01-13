@@ -309,7 +309,23 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d.space() << "newRoomNotification" << t.newRoomNotification();
     d.space() << "notificationsSoundVolume" << t.notificationsSoundVolume();
     d.space() << "muteFocusedConversations" << t.muteFocusedConversations();
+    d.space() << "featurePreviewPreferences" << t.featurePreviewPreferences();
     return d;
+}
+
+bool OwnUserPreferences::hasFeature(FeaturePreviewPreferences::FeaturePreviewType type) const
+{
+    return mFeaturePreviewPreferences.hasFeature(type);
+}
+
+bool OwnUserPreferences::hasFeaturePreview() const
+{
+    return mFeaturePreviewPreferences.hasFeaturePreview();
+}
+
+FeaturePreviewPreferences OwnUserPreferences::featurePreviewPreferences() const
+{
+    return mFeaturePreviewPreferences;
 }
 
 #include "moc_ownuserpreferences.cpp"

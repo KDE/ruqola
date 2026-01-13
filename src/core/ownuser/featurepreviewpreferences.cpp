@@ -60,4 +60,9 @@ void FeaturePreviewPreferences::setFeaturePreviewTypes(const FeaturePreviewTypes
     mFeaturePreviewTypes = newFeaturePreviewTypes;
 }
 
+bool FeaturePreviewPreferences::hasFeaturePreview() const
+{
+    return mFeaturePreviewTypes != FeaturePreviewType::None;
+}
+
 #include "moc_featurepreviewpreferences.cpp"
