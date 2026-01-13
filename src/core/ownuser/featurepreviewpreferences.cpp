@@ -38,11 +38,22 @@ void FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array)
 
 void FeaturePreviewPreferences::assignSettingValue(bool value, FeaturePreviewType type)
 {
+    mServerHasFeaturePreview = true;
     if (value) {
         mFeaturePreviewTypes |= type;
     } else {
         mFeaturePreviewTypes &= ~type;
     }
+}
+
+bool FeaturePreviewPreferences::serverHasFeaturePreview() const
+{
+    return mServerHasFeaturePreview;
+}
+
+void FeaturePreviewPreferences::setServerHasFeaturePreview(bool newServerHasFeaturePreview)
+{
+    mServerHasFeaturePreview = newServerHasFeaturePreview;
 }
 
 bool FeaturePreviewPreferences::hasFeature(FeaturePreviewType type) const

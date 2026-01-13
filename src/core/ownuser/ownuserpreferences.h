@@ -101,6 +101,8 @@ public:
 
     [[nodiscard]] FeaturePreviewPreferences featurePreviewPreferences() const;
 
+    [[nodiscard]] bool serverHasFeaturePreview() const;
+
 private:
     FeaturePreviewPreferences mFeaturePreviewPreferences;
     QStringList mHighlightWords;

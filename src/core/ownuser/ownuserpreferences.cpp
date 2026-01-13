@@ -328,4 +328,9 @@ FeaturePreviewPreferences OwnUserPreferences::featurePreviewPreferences() const
     return mFeaturePreviewPreferences;
 }
 
+bool OwnUserPreferences::serverHasFeaturePreview() const
+{
+    return mFeaturePreviewPreferences.serverHasFeaturePreview();
+}
+
 #include "moc_ownuserpreferences.cpp"

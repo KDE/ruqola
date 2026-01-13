@@ -32,9 +32,13 @@ public:
 
     [[nodiscard]] bool hasFeaturePreview() const;
 
+    [[nodiscard]] bool serverHasFeaturePreview() const;
+    void setServerHasFeaturePreview(bool newServerHasFeaturePreview);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, FeaturePreviewType type);
     FeaturePreviewTypes mFeaturePreviewTypes = FeaturePreviewType::None;
+    bool mServerHasFeaturePreview = false;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const FeaturePreviewPreferences &t);
