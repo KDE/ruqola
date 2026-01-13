@@ -5,7 +5,6 @@
 */
 
 #include "myaccountprofileconfigurewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "dialogs/asktwoauthenticationpassworddialog.h"
@@ -28,6 +27,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPointer>
 #include <QPushButton>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mConfigureAvatarWidget(new MyAccountProfileConfigureAvatarWidget(account, this))

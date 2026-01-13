@@ -5,7 +5,6 @@
 */
 
 #include "myaccountpersonalaccesstokentreeview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/personalaccesstokeninfosmodel.h"
 
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KMessageBox>
 #include <QMenu>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(QWidget *parent)
     : QTreeView(parent)
 {

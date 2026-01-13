@@ -5,7 +5,6 @@
 */
 
 #include "myaccount2faconfigurewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "2fa/user2fadisableemailjob.h"
 #include "2fa/user2faenableemailjob.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mActivate2FAViaEmailCheckbox(new QCheckBox(i18nc("@option:check", "Activate Two Authentication Factor via Email"), this))

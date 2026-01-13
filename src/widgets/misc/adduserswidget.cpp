@@ -5,12 +5,12 @@
 */
 
 #include "adduserswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchUserLineEdit(new AddUsersCompletionLineEdit(account, this))

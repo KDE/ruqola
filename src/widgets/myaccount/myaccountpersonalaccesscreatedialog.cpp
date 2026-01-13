@@ -5,7 +5,6 @@
 */
 
 #include "myaccountpersonalaccesscreatedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccountpersonalaccesscreatewidget.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountPersonalAccessCreateDialog::MyAccountPersonalAccessCreateDialog(QWidget *parent)
     : QDialog(parent)
     , mCreateWidget(new MyAccountPersonalAccessCreateWidget(this))

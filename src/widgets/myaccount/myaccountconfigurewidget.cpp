@@ -74,7 +74,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     }
     mMyAccountFeaturePreviewConfigureWidget->setObjectName(u"mMyAccountFeaturePreviewConfigureWidget"_s);
     const int pagePreviewIndex = tabWidget->addTab(mMyAccountFeaturePreviewConfigureWidget, i18n("Personal Access Token"));
-    if (/*account && !account->hasPermission(u"create-personal-access-tokens"_s)*/ false) {
+    if (account && !account->ownUserPreferences().serverHasFeaturePreview()) {
         tabWidget->setTabVisible(pagePreviewIndex, false);
     }
 
@@ -92,7 +92,7 @@ MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;
 
 void MyAccountConfigureWidget::save()
 {
-    // TODO MyAccountFeaturePreviewConfigureWidget
+    mMyAccountFeaturePreviewConfigureWidget->save();
     mMyAccountPreferenceConfigureWidget->save();
     if (mRocketChatAccount) {
         if (mRocketChatAccount->ruqolaServerConfig()->allowProfileChange()) {
@@ -106,8 +106,8 @@ void MyAccountConfigureWidget::save()
 
 void MyAccountConfigureWidget::load()
 {
-    // TODO MyAccountFeaturePreviewConfigureWidget
     mMyAccountPreferenceConfigureWidget->load();
+    mMyAccountFeaturePreviewConfigureWidget->load();
     if (mRocketChatAccount) {
         if (mRocketChatAccount->ruqolaServerConfig()->allowProfileChange()) {
             mMyAccount2ProfileConfigureWidget->load();
@@ -120,9 +120,9 @@ void MyAccountConfigureWidget::load()
 
 void MyAccountConfigureWidget::initialize()
 {
-    // TODO MyAccountFeaturePreviewConfigureWidget
     mMyAccount2ProfileConfigureWidget->initialize();
     mMyAccount2FaConfigureWidget->initialize();
+    mMyAccountFeaturePreviewConfigureWidget->initialize();
     if (mRocketChatAccount && mRocketChatAccount->hasPermission(u"create-personal-access-tokens"_s)) {
         mMyAccountPersonalAccessTokenConfigureWidget->initialize();
     }

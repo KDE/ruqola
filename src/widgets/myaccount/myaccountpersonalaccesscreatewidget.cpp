@@ -5,7 +5,6 @@
 */
 
 #include "myaccountpersonalaccesscreatewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountPersonalAccessCreateWidget::MyAccountPersonalAccessCreateWidget(QWidget *parent)
     : QWidget{parent}
     , mBypassTwoFactor(new QCheckBox(i18nc("@option:check", "Ignore Two Factor Authentication"), this))

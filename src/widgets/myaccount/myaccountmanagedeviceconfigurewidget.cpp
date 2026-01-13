@@ -5,7 +5,6 @@
 */
 
 #include "myaccountmanagedeviceconfigurewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QTreeView>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccountManageDeviceConfigureWidget::MyAccountManageDeviceConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
 {
