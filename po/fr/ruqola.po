@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-11-03 09:42+0100\n"
+"PO-Revision-Date: 2026-01-11 16:32+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -5609,7 +5609,7 @@ msgstr ""
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
 msgstr ""
-"Nombre limite d’utilisateurs lors de l’ajout de tous les utilisateurs au "
+"Nombre limite d'utilisateurs lors de l'ajout de tous les utilisateurs au "
 "canal"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
@@ -8471,7 +8471,7 @@ msgid ""
 "End-to-end encrypted channel. Search will not work with encrypted channel "
 "and notifications may not show the messages content."
 msgstr ""
-"Canal chiffré de bout en bout. La recherche ne fonctionnera pas  avec un "
+"Canal chiffré de bout en bout. La recherche ne fonctionnera pas avec un "
 "canal. De plus, les notifications pourraient ne pas afficher le contenu des "
 "messages."
 
@@ -12402,7 +12402,7 @@ msgstr "Corriger les applications de téléchargement de langues"
 #: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Fix show date info."
-msgstr "Corriger la date d’affichage des informations."
+msgstr "Corriger la date d'affichage des informations."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:191
 #, kde-format
