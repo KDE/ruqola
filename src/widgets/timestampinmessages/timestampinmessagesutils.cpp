@@ -4,7 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessagesutils.h"
-
+using namespace Qt::Literals::StringLiterals;
+//./apps/meteor/client/lib/utils/timestamp/conversion.ts
 QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t)
 {
     d.space() << "format:" << t.format;
@@ -17,5 +18,5 @@ QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t)
 QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info)
 {
     // TODO
-    return {};
+    return u"<t:%1:%2>"_s.arg(info.date.toString(), info.format);
 }

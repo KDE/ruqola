@@ -10,13 +10,13 @@
 class QDebug;
 namespace TimeStampInMessagesUtils
 {
-struct TimeStampInfo {
+struct LIBRUQOLAWIDGETS_EXPORT TimeStampInfo {
     QString format;
     QDate date;
     QTime time;
     QString timeZone;
 };
-[[nodiscard]] QString generateTimeStampStr(const TimeStampInfo &info);
+[[nodiscard]] LIBRUQOLAWIDGETS_EXPORT QString generateTimeStampStr(const TimeStampInfo &info);
 };
 
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t);
