@@ -73,7 +73,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         tabWidget->setTabVisible(pageIndex, false);
     }
     mMyAccountFeaturePreviewConfigureWidget->setObjectName(u"mMyAccountFeaturePreviewConfigureWidget"_s);
-    const int pagePreviewIndex = tabWidget->addTab(mMyAccountFeaturePreviewConfigureWidget, i18n("Personal Access Token"));
+    const int pagePreviewIndex = tabWidget->addTab(mMyAccountFeaturePreviewConfigureWidget, i18n("Feature Preview"));
     if (account && !account->ownUserPreferences().serverHasFeaturePreview()) {
         tabWidget->setTabVisible(pagePreviewIndex, false);
     }
