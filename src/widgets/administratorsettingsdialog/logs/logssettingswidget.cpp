@@ -5,7 +5,6 @@
 */
 
 #include "logssettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QSpinBox>
 
+using namespace Qt::Literals::StringLiterals;
 LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
     , mLogExceptionsChannel(new QLineEdit(this))
