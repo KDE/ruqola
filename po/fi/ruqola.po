@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"POT-Creation-Date: 2026-01-14 00:44+0000\n"
 "PO-Revision-Date: 2025-11-12 17:39+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2087,7 +2087,8 @@ msgid "Token:"
 msgstr "Pääsymerkki:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:69
+#: widgets/myaccount/myaccountconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountconfigurewidget.cpp:76
 #, kde-format
 msgid "Personal Access Token"
 msgstr "Henkilökohtainen pääsymerkit"
@@ -9776,30 +9777,37 @@ msgctxt "@title:window"
 msgid "Configure my Account"
 msgstr "Tiliasetukset"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountconfigurewidget.cpp:42
 #, kde-format
 msgid "Profile"
 msgstr "Profiili"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountconfigurewidget.cpp:48
 #, kde-format
 msgid "Preference"
 msgstr "Suosio"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountconfigurewidget.cpp:51
 #, kde-format
 msgid "Two Authentication Factor"
 msgstr "Kahden tekijän todennus"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountconfigurewidget.cpp:57
 #, kde-format
 msgid "E2E Encryption"
 msgstr "E2E-salaus"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountconfigurewidget.cpp:63
 #, kde-format
 msgid "Manage Device"
 msgstr "Hallinnoi laitetta"
+
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in messages"
+msgstr "Viestejä yhteensä"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format

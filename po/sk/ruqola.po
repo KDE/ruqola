@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"POT-Creation-Date: 2026-01-14 00:44+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2204,7 +2204,8 @@ msgid "Token:"
 msgstr ""
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:69
+#: widgets/myaccount/myaccountconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountconfigurewidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Personal Access Token"
@@ -10195,32 +10196,39 @@ msgctxt "@title:window"
 msgid "Configure my Account"
 msgstr "Nastaviť účet"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountconfigurewidget.cpp:42
 #, kde-format
 msgid "Profile"
 msgstr ""
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountconfigurewidget.cpp:48
 #, kde-format
 msgid "Preference"
 msgstr ""
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountconfigurewidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Two Authentication Factor"
 msgstr "Autentifikačná metóda"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountconfigurewidget.cpp:57
 #, kde-format
 msgid "E2E Encryption"
 msgstr ""
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountconfigurewidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Manage Device"
 msgstr "Hľadať súbor..."
+
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "All Messages"
+msgctxt "@option:check"
+msgid "Timestamp in messages"
+msgstr "Všetky správy"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format

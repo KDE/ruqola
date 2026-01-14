@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"POT-Creation-Date: 2026-01-14 00:44+0000\n"
 "PO-Revision-Date: 2026-01-12 03:21+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2084,7 +2084,8 @@ msgid "Token:"
 msgstr "Жетон:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:69
+#: widgets/myaccount/myaccountconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountconfigurewidget.cpp:76
 #, kde-format
 msgid "Personal Access Token"
 msgstr "Особистий жетон доступу"
@@ -9884,30 +9885,38 @@ msgctxt "@title:window"
 msgid "Configure my Account"
 msgstr "Налаштовування облікового запису"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountconfigurewidget.cpp:42
 #, kde-format
 msgid "Profile"
 msgstr "Профіль"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountconfigurewidget.cpp:48
 #, kde-format
 msgid "Preference"
 msgstr "Пріоритет"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountconfigurewidget.cpp:51
 #, kde-format
 msgid "Two Authentication Factor"
 msgstr "Двофакторне розпізнавання"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountconfigurewidget.cpp:57
 #, kde-format
 msgid "E2E Encryption"
 msgstr "Шифрування E2E"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountconfigurewidget.cpp:63
 #, kde-format
 msgid "Manage Device"
 msgstr "Керування пристроєм"
+
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Timestamp in Messages"
+msgctxt "@option:check"
+msgid "Timestamp in messages"
+msgstr "Часова позначка у повідомленнях"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format

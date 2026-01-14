@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"POT-Creation-Date: 2026-01-14 00:44+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2068,7 +2068,8 @@ msgid "Token:"
 msgstr "權杖："
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:69
+#: widgets/myaccount/myaccountconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountconfigurewidget.cpp:76
 #, kde-format
 msgid "Personal Access Token"
 msgstr "個人存取權杖 (Personal Access Token)"
@@ -9570,30 +9571,37 @@ msgctxt "@title:window"
 msgid "Configure my Account"
 msgstr "設定我的帳戶"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountconfigurewidget.cpp:42
 #, kde-format
 msgid "Profile"
 msgstr "個人資料"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountconfigurewidget.cpp:48
 #, kde-format
 msgid "Preference"
 msgstr "偏好設定"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountconfigurewidget.cpp:51
 #, kde-format
 msgid "Two Authentication Factor"
 msgstr "兩步驟驗證"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountconfigurewidget.cpp:57
 #, kde-format
 msgid "E2E Encryption"
 msgstr "點對點加密"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountconfigurewidget.cpp:63
 #, kde-format
 msgid "Manage Device"
 msgstr "管理裝置"
+
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Total Messages"
+msgctxt "@option:check"
+msgid "Timestamp in messages"
+msgstr "總訊息數"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format

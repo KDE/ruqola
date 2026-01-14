@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:43+0000\n"
+"POT-Creation-Date: 2026-01-14 00:44+0000\n"
 "PO-Revision-Date: 2026-01-10 02:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2069,7 +2069,8 @@ msgid "Token:"
 msgstr "ტოკენი:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
-#: widgets/myaccount/myaccountconfigurewidget.cpp:69
+#: widgets/myaccount/myaccountconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountconfigurewidget.cpp:76
 #, kde-format
 msgid "Personal Access Token"
 msgstr "პირადი წვდომის კოდი"
@@ -9767,30 +9768,38 @@ msgctxt "@title:window"
 msgid "Configure my Account"
 msgstr "ჩემი ანგარიშის მორგება"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:40
+#: widgets/myaccount/myaccountconfigurewidget.cpp:42
 #, kde-format
 msgid "Profile"
 msgstr "პროფილი"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountconfigurewidget.cpp:48
 #, kde-format
 msgid "Preference"
 msgstr "მორგება"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountconfigurewidget.cpp:51
 #, kde-format
 msgid "Two Authentication Factor"
 msgstr "2FA"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:55
+#: widgets/myaccount/myaccountconfigurewidget.cpp:57
 #, kde-format
 msgid "E2E Encryption"
 msgstr "E2E დაშიფვრა"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountconfigurewidget.cpp:63
 #, kde-format
 msgid "Manage Device"
 msgstr "მოწყობილობის მართვა"
+
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Timestamp in Messages"
+msgctxt "@option:check"
+msgid "Timestamp in messages"
+msgstr "დროის შტამპი შეტყობინებებში"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
