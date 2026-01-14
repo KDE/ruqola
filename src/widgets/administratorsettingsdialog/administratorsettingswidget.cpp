@@ -121,7 +121,11 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mEnterpriseSettingsWidget, i18n("Enterprise"));
     mTabWidget->addTab(mUserDataDownloadWidget, i18n("User Data Download"));
     mTabWidget->addTab(mSlackBridgeWidget, i18n("Slack Bridge"));
-    mTabWidget->addTab(mLogsSettingsWidget, i18n("Logs"));
+    const int logPage = mTabWidget->addTab(mLogsSettingsWidget, i18n("Logs"));
+    if (mRocketChatAccount && mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
+        // Hide it
+        mTabWidget->setTabVisible(logPage, false);
+    }
     mTabWidget->addTab(mEmailSettingsWidget, i18n("Email"));
     mTabWidget->addTab(mMobileSettingsWidget, i18n("Mobile"));
     mTabWidget->addTab(mTroubleshootSettingsWidget, i18n("Troubleshoot"));
@@ -193,7 +197,9 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mEnterpriseSettingsWidget, mapSettings);
     initializeValues(mUserDataDownloadWidget, mapSettings);
     initializeValues(mSlackBridgeWidget, mapSettings);
-    initializeValues(mLogsSettingsWidget, mapSettings);
+    if (mRocketChatAccount && !mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
+        initializeValues(mLogsSettingsWidget, mapSettings);
+    }
     initializeValues(mEmailSettingsWidget, mapSettings);
     initializeValues(mMobileSettingsWidget, mapSettings);
     initializeValues(mTroubleshootSettingsWidget, mapSettings);

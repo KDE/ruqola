@@ -6,7 +6,6 @@
 
 #include "administratorwidget.h"
 #include "administratordialog/featurepreview/featurepreviewwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/logs/viewlogwidget.h"
 #include "administratordialog/moderationconsole/administratormoderationconsolewidget.h"
@@ -25,6 +24,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTabWidget>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTabWidget(new QTabWidget(this))
@@ -72,7 +72,10 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     mTabWidget->addTab(mAdministratorInvitesWidget, i18n("Invites"));
 
     mViewLogWidget->setObjectName(u"mViewLogWidget"_s);
-    mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
+    const int logPage = mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
+    if (mRocketChatAccount && mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
+        mTabWidget->setTabVisible(logPage, false);
+    }
 
     mPermissionsWidget->setObjectName(u"mPermissionsWidget"_s);
     mTabWidget->addTab(mPermissionsWidget, i18n("Permissions"));
