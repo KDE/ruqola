@@ -5,13 +5,13 @@
 */
 
 #include "uploadfilejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "uploadfilejob.h"
 QTEST_GUILESS_MAIN(UploadFileJobTest)
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 UploadFileJobTest::UploadFileJobTest(QObject *parent)
     : QObject(parent)
 {
@@ -34,7 +34,7 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
 
-    UploadFileJob::UploadFileInfo info;
+    const UploadFileJob::UploadFileInfo info;
     QVERIFY(info.filenameUrl.isEmpty());
     QVERIFY(info.roomId.isEmpty());
     QVERIFY(info.description.isEmpty());
@@ -42,14 +42,38 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     QVERIFY(info.threadMessageId.isEmpty());
     QVERIFY(!info.deleteTemporaryFile);
     QVERIFY(info.fileName.isEmpty());
+    QVERIFY(!info.rc80Server);
 }
 
 void UploadFileJobTest::shouldGenerateRequest()
 {
-    UploadFileJob job;
-    QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.upload"_s));
+    {
+        UploadFileJob job;
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.upload"_s));
+    }
+    {
+        UploadFileJob job;
+        UploadFileJob::UploadFileInfo info;
+        info.rc80Server = false;
+        info.roomId = "kde"_ba;
+        job.setUploadFileInfo(info);
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.upload/kde"_s));
+    }
+
+    {
+        UploadFileJob job;
+        UploadFileJob::UploadFileInfo info;
+        info.rc80Server = true;
+        info.roomId = "ddd"_ba;
+        job.setUploadFileInfo(info);
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.media/ddd"_s));
+    }
 }
 
 void UploadFileJobTest::shouldStart()

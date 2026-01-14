@@ -23,6 +23,7 @@ public:
         QUrl filenameUrl;
         QString fileName;
         bool deleteTemporaryFile = false;
+        bool rc80Server = false;
         [[nodiscard]] bool isValid() const;
     };
 
