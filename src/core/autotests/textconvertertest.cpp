@@ -411,7 +411,8 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     if (QLatin1StringView(QTest::currentDataTag()) == "quotedcode7"_L1) {
         // remove additional highlighting of the ':)' symbols within the <code> block
         // the text color is syntax highlighting theme dependent, so hard for us to check
-        actualOutput.replace(QRegularExpression(QStringLiteral("<code><span style=\".+\">:\\)</span></code>")), QStringLiteral("<code>:)</code>"));
+        static const auto codespan = QRegularExpression(QStringLiteral("<code><span style=\".+\">:\\)</span></code>"));
+        actualOutput.replace(codespan, QStringLiteral("<code>:)</code>"));
     }
     QEXPECT_FAIL("url-with-emoji", "Currently it if we have a emoji char in url", Continue);
     const bool isEqual = (actualOutput == output);
