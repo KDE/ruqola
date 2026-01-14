@@ -66,7 +66,7 @@ void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
     }
 }
 
-void MessageLineExtraToolButton::updateTimeStampSupport()
+void MessageLineExtraToolButton::updateWebDavSupport()
 {
     if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
         mMenu->addAction(mWebdavAddServerAction);
@@ -75,7 +75,7 @@ void MessageLineExtraToolButton::updateTimeStampSupport()
     }
 }
 
-void MessageLineExtraToolButton::updateWebDavSupport()
+void MessageLineExtraToolButton::updateTimeStampSupport()
 {
     // TODO
     /*
