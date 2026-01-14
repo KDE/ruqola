@@ -344,6 +344,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.threadMessageId = mThreadMessageId;
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
+    info.rc80Server = mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0);
     if (!mReplyInThreadDialogBox) {
         setThreadMessageId({});
     }

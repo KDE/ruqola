@@ -181,6 +181,7 @@ enum class RestApiUrlType {
     RoomsSaveSettings,
     RoomsAdminRooms,
     RoomsAdminRoomsGetRoom,
+    RoomsMedia,
     ImClose,
     ImCreate,
     ImHistory,
