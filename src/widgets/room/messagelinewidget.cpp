@@ -20,6 +20,7 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
+#include "timestampinmessages/timestampinmessagesdialog.h"
 #include "toolspluginmanager.h"
 
 #include <KLocalizedString>
@@ -176,11 +177,21 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->addWidget(mMessageLineExtraToolButton);
     connect(mMessageLineExtraToolButton, &MessageLineExtraToolButton::uiInteractionRequested, this, &MessageLineWidget::uiInteractionRequested);
     connect(mMessageLineExtraToolButton, &MessageLineExtraToolButton::addWebDavServer, this, &MessageLineWidget::addWebDavServer);
+    connect(mMessageLineExtraToolButton, &MessageLineExtraToolButton::insertTimeStamp, this, &MessageLineWidget::insertTimeStamp);
 }
 
 MessageLineWidget::~MessageLineWidget()
 {
     qDeleteAll(mPluginToolInterface);
+}
+
+void MessageLineWidget::insertTimeStamp()
+{
+    QPointer<TimeStampInMessagesDialog> dlg = new TimeStampInMessagesDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 bool MessageLineWidget::runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid)

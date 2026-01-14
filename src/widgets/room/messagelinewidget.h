@@ -95,6 +95,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRunCommandFailed(const RocketChatRestApi::RunCommandJob::RunCommandInfo &info);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasCommandPreview(const QString &msg, const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void insertTimeStamp();
 
     QList<PluginToolInterface *> mPluginToolInterface;
     QByteArray mThreadMessageId;
