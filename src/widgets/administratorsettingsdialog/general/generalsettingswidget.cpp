@@ -5,6 +5,7 @@
 */
 
 #include "generalsettingswidget.h"
+#include "rocketchataccount.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
@@ -156,7 +157,13 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
                u"API_Upper_Count_Limit"_s);
 
     mUseRestForDDPCalls->setObjectName(u"mUseRestForDDPCalls"_s);
-    addCheckBox(mUseRestForDDPCalls, u"API_Use_REST_For_DDP_Calls"_s);
+    if (mAccount) {
+        if (!mAccount->hasAtLeastVersion(8, 0, 0)) {
+            addCheckBox(mUseRestForDDPCalls, u"API_Use_REST_For_DDP_Calls"_s);
+        } else {
+            mUseRestForDDPCalls->hide();
+        }
+    }
 
     mApiUserLimit->setObjectName(u"mApiUserLimit"_s);
     mApiUserLimit->setMaximum(999);
@@ -185,7 +192,9 @@ void GeneralSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mUpdateLatestAvailableVersion, mapSettings, u"0.0.0"_s);
     initializeWidget(mStreamCastAddress, mapSettings, QString());
     initializeWidget(mRestApiUpperCountLimit, mapSettings, 100);
-    initializeWidget(mUseRestForDDPCalls, mapSettings, true);
+    if (mAccount && !mAccount->hasAtLeastVersion(8, 0, 0)) {
+        initializeWidget(mUseRestForDDPCalls, mapSettings, true);
+    }
     initializeWidget(mApiUserLimit, mapSettings, 500);
 }
 
