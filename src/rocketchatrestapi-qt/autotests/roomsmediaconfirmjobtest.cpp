@@ -26,7 +26,7 @@ void RoomsMediaConfirmJobTest::shouldHaveDefaultValue()
     RoomsMediaConfirmJob job;
     QVERIFY(job.fileId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
-    RuqolaRestApiHelper::verifyDefaultValue(&job);
+    verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -35,7 +35,7 @@ void RoomsMediaConfirmJobTest::shouldGenerateRequest()
 {
     RoomsMediaConfirmJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    RuqolaRestApiHelper::verifyAuthentication(&job, request);
+    verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.mediaConfirm"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
