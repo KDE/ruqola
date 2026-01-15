@@ -7,6 +7,7 @@
 #include "uploadfilemanager.h"
 #include "connection.h"
 #include "rocketchataccount.h"
+#include "rooms/roomsmediaconfirmjob.h"
 #include "ruqola_debug.h"
 
 #include <QFile>
@@ -43,6 +44,7 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
         }
         mUploadMap.remove(jobIdentifier);
     });
+    connect(job, &RocketChatRestApi::UploadFileJob::confirmMediaRequested, this, &UploadFileManager::confirmMedia);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start UploadFileJob job";
         return -1;
@@ -50,6 +52,11 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
         mUploadMap.insert(uploadIdentifier, job);
         return uploadIdentifier;
     }
+}
+
+void UploadFileManager::confirmMedia(const RocketChatRestApi::UploadFileJob::ConfirmMediaInfo &info)
+{
+    // TODO
 }
 
 void UploadFileManager::removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info)
