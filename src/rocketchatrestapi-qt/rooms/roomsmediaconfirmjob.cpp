@@ -46,6 +46,16 @@ void RoomsMediaConfirmJob::onPostRequestResponse(const QString &replyErrorString
     }
 }
 
+QString RoomsMediaConfirmJob::description() const
+{
+    return mDescription;
+}
+
+void RoomsMediaConfirmJob::setDescription(const QString &newDescription)
+{
+    mDescription = newDescription;
+}
+
 QByteArray RoomsMediaConfirmJob::fileId() const
 {
     return mFileId;
@@ -87,8 +97,8 @@ bool RoomsMediaConfirmJob::canStart() const
 QJsonDocument RoomsMediaConfirmJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["roomId"_L1] = QString::fromLatin1(mRoomId);
-    jsonObj["fileId"_L1] = QString::fromLatin1(mFileId);
+    jsonObj["description"_L1] = mDescription;
+    // TODO jsonObj["msg"_L1] = QString::fromLatin1(mFileId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData**************** " << postData;
     return postData;
@@ -96,7 +106,9 @@ QJsonDocument RoomsMediaConfirmJob::json() const
 
 QNetworkRequest RoomsMediaConfirmJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsMediaConfirm);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsMediaConfirm,
+                                                 RestApiUtil::RestApiUrlExtensionType::V1,
+                                                 QStringLiteral("%1/%2").arg(QString::fromLatin1(mRoomId), QString::fromLatin1(mFileId)));
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
