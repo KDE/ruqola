@@ -5,12 +5,12 @@
 */
 
 #include "administratorcustomuserstatuswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "customuserstatustreewidget.h"
 
 #include <KTreeWidgetSearchLineWidget>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mCustomUserStatusTreeWidget(new CustomUserStatusTreeWidget(account, this))

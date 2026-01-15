@@ -5,6 +5,7 @@
 */
 
 #include "featurepreviewwidget.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QVBoxLayout>
@@ -13,6 +14,7 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
     : QWidget{parent}
     , mAllowFeaturePreview(new QCheckBox(i18nc("@option:check", "Allow Feature Preview"), this))
     , mQuickReactions(new QCheckBox(i18nc("@option:check", "Quick Reactions"), this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -24,6 +26,11 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
 
     mQuickReactions->setObjectName(u"mQuickReactions"_s);
     mainLayout->addWidget(mQuickReactions);
+
+    // Move in stable in RC 8.0.0
+    if (account && account->hasAtLeastVersion(8, 0, 0)) {
+        mQuickReactions->hide();
+    }
 
     mainLayout->addStretch(1);
 }

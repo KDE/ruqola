@@ -5,7 +5,6 @@
 */
 
 #include "customuserstatustreewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorcustomuserstatuscreatedialog.h"
 #include "connection.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QPointer>
 
+using namespace Qt::Literals::StringLiterals;
 CustomUserStatusTreeWidgetItem::CustomUserStatusTreeWidgetItem(QTreeWidget *parent)
     : QTreeWidgetItem(parent)
 {
