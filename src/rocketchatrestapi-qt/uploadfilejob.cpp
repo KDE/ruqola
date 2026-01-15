@@ -122,7 +122,6 @@ QNetworkRequest UploadFileJob::request() const
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
-
     return request;
 }
 
