@@ -26,6 +26,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
+    LIBRUQOLACORE_NO_EXPORT void confirmMedia(const RocketChatRestApi::UploadFileJob::ConfirmMediaInfo &info);
     RocketChatAccount *const mRocketChatAccount;
     QMap<int, QPointer<RocketChatRestApi::UploadFileJob>> mUploadMap;
     static int uploadIdentifier;
