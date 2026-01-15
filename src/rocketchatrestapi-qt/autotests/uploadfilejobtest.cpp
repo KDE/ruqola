@@ -50,7 +50,7 @@ void UploadFileJobTest::shouldGenerateRequest()
     {
         UploadFileJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
-        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.upload"_s));
     }
     {
@@ -60,7 +60,7 @@ void UploadFileJobTest::shouldGenerateRequest()
         info.roomId = "kde"_ba;
         job.setUploadFileInfo(info);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.upload/kde"_s));
     }
 
@@ -71,7 +71,7 @@ void UploadFileJobTest::shouldGenerateRequest()
         info.roomId = "ddd"_ba;
         job.setUploadFileInfo(info);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.media/ddd"_s));
     }
 }
