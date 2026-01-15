@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:44+0000\n"
-"PO-Revision-Date: 2026-01-10 06:58-0300\n"
+"POT-Creation-Date: 2026-01-15 00:43+0000\n"
+"PO-Revision-Date: 2026-01-14 06:13-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -244,7 +244,7 @@ msgid "Privacy Summary"
 msgstr "Resumo de privacidade"
 
 #: core/apps/appsmarketplaceinfo.cpp:477
-#: widgets/administratordialog/administratorwidget.cpp:78
+#: widgets/administratordialog/administratorwidget.cpp:81
 #, kde-format
 msgid "Permissions"
 msgstr "Permissões"
@@ -773,7 +773,7 @@ msgstr "O soquete foi fechado inesperadamente."
 
 #: core/messages/block/block.cpp:162 core/messages/message.cpp:886
 #: core/model/notificationhistorymodel.cpp:65
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:132
 #, kde-format
 msgid "Conference Call"
 msgstr "Chamada de conferência"
@@ -1200,7 +1200,7 @@ msgstr "Nome do usuário"
 #: core/model/adminusersallmodel.cpp:72
 #: core/model/adminuserspendingmodel.cpp:70
 #: core/model/adminusersstatusmodel.cpp:28
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
 #: widgets/dialogs/configurenotificationwidget.cpp:116
 #, kde-format
 msgid "Email"
@@ -1430,7 +1430,7 @@ msgid "Nothing"
 msgstr "Nada"
 
 #: core/model/permissionsmodel.cpp:35 core/model/rolesmodel.cpp:33
-#: widgets/administratordialog/administratorwidget.cpp:81
+#: widgets/administratordialog/administratorwidget.cpp:84
 #: widgets/dialogs/channelrolesinfowidget.cpp:23
 #, kde-format
 msgid "Roles"
@@ -2073,7 +2073,6 @@ msgstr "Token:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
 #: widgets/myaccount/myaccountconfigurewidget.cpp:71
-#: widgets/myaccount/myaccountconfigurewidget.cpp:76
 #, kde-format
 msgid "Personal Access Token"
 msgstr "Token de acesso pessoal"
@@ -2992,18 +2991,19 @@ msgstr "Convites"
 msgid "View Log"
 msgstr "Visualizar log"
 
-#: widgets/administratordialog/administratorwidget.cpp:84
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
+#: widgets/administratordialog/administratorwidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:135
 #, kde-format
 msgid "Oauth"
 msgstr "Oauth"
 
-#: widgets/administratordialog/administratorwidget.cpp:87
+#: widgets/administratordialog/administratorwidget.cpp:90
+#: widgets/myaccount/myaccountconfigurewidget.cpp:76
 #, kde-format
 msgid "Feature Preview"
 msgstr "Funcionalidade de visualização"
 
-#: widgets/administratordialog/administratorwidget.cpp:90
+#: widgets/administratordialog/administratorwidget.cpp:93
 #, kde-format
 msgid "Moderation Console"
 msgstr "Console de moderação"
@@ -4670,28 +4670,28 @@ msgstr "Ponte Slack"
 msgid "Logs"
 msgstr "Registros"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
 #: widgets/dialogs/configurenotificationwidget.cpp:98
 #, kde-format
 msgid "Mobile"
 msgstr "Celular"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:127
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
 #, kde-format
 msgid "Troubleshoot"
 msgstr "Solução de problemas"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
 msgid "WebRTC"
 msgstr "WebRTC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:134
 #, kde-format
 msgid "CAS"
 msgstr "CAS"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:136
 #, kde-format
 msgid "Analytics"
 msgstr "Análise"
@@ -8980,7 +8980,7 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:494
+#: widgets/room/messagelinewidget.cpp:506
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9836,9 +9836,7 @@ msgid "Manage Device"
 msgstr "Gerenciar dispositivo"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Timestamp in Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
 msgstr "Marca de tempo nas mensagens"
@@ -10528,106 +10526,106 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Mais ações"
 
-#: widgets/room/messagelinewidget.cpp:74
+#: widgets/room/messagelinewidget.cpp:75
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Anexar um arquivo…"
 
-#: widgets/room/messagelinewidget.cpp:77
+#: widgets/room/messagelinewidget.cpp:78
 #, kde-format
 msgid "Attach File"
 msgstr "Anexar arquivo"
 
-#: widgets/room/messagelinewidget.cpp:85
+#: widgets/room/messagelinewidget.cpp:86
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Enviar uma mensagem de vídeo…"
 
-#: widgets/room/messagelinewidget.cpp:87
+#: widgets/room/messagelinewidget.cpp:88
 #, kde-format
 msgid "Video Message"
 msgstr "Mensagem de vídeo"
 
-#: widgets/room/messagelinewidget.cpp:96 widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:97 widgets/room/messagelinewidget.cpp:104
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Enviar uma mensagem de som…"
 
-#: widgets/room/messagelinewidget.cpp:98
+#: widgets/room/messagelinewidget.cpp:99
 #, kde-format
 msgid "Sound Message"
 msgstr "Mensagem de som"
 
-#: widgets/room/messagelinewidget.cpp:110
+#: widgets/room/messagelinewidget.cpp:111
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Adicionar emoticon…"
 
-#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:113
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Adicionar emoticon"
 
-#: widgets/room/messagelinewidget.cpp:119
+#: widgets/room/messagelinewidget.cpp:120
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Enviar mensagem"
 
-#: widgets/room/messagelinewidget.cpp:121
+#: widgets/room/messagelinewidget.cpp:122
 #, kde-format
 msgid "Send Message"
 msgstr "Enviar mensagem"
 
-#: widgets/room/messagelinewidget.cpp:205
+#: widgets/room/messagelinewidget.cpp:216
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 "O comando falhou. Deseja copiar o comando para a área de transferência?"
 
-#: widgets/room/messagelinewidget.cpp:206
+#: widgets/room/messagelinewidget.cpp:217
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Erro de comando"
 
-#: widgets/room/messagelinewidget.cpp:263
+#: widgets/room/messagelinewidget.cpp:274
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Você deseja converter este texto grande como anexo?"
 
-#: widgets/room/messagelinewidget.cpp:264
+#: widgets/room/messagelinewidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Mensagem muito grande"
 
-#: widgets/room/messagelinewidget.cpp:367
+#: widgets/room/messagelinewidget.cpp:379
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Mensagem %1 no tópico"
 
-#: widgets/room/messagelinewidget.cpp:367
+#: widgets/room/messagelinewidget.cpp:379
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Enviar uma mensagem em %1…"
 
-#: widgets/room/messagelinewidget.cpp:517
+#: widgets/room/messagelinewidget.cpp:529
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "O arquivo selecionado é muito grande (tamanho máximo %1)"
 
-#: widgets/room/messagelinewidget.cpp:518
+#: widgets/room/messagelinewidget.cpp:530
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Envio de arquivo"
 
-#: widgets/room/messagelinewidget.cpp:523
+#: widgets/room/messagelinewidget.cpp:535
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "O servidor não autorizou este arquivo (tipo MIME inválido)"
