@@ -56,7 +56,17 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
 
 void UploadFileManager::confirmMedia(const RocketChatRestApi::UploadFileJob::ConfirmMediaInfo &info)
 {
-    // TODO
+    const auto job = new RocketChatRestApi::RoomsMediaConfirmJob(this);
+    job->setFileId(info.fileId);
+    job->setRoomId(info.roomId);
+    job->setDescription(info.description);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RoomsMediaConfirmJob::roomsMediaConfirmDone, this, []() {
+        qDebug() << " media confirm ********";
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMediaConfirmJob job";
+    }
 }
 
 void UploadFileManager::removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info)
