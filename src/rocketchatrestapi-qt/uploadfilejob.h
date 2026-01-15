@@ -9,12 +9,21 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 #include <QUrl>
+class QJsonObject;
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT UploadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT ConfirmMediaInfo {
+        QByteArray roomId;
+        QByteArray fileId;
+        QString description;
+        QString messageText;
+        void parse(const QJsonObject &obj);
+    };
+
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UploadFileInfo {
         QByteArray roomId;
         QString description;
@@ -50,6 +59,7 @@ public:
 Q_SIGNALS:
     void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     void uploadFinished();
+    void confirmMediaRequested(const RocketChatRestApi::UploadFileJob::ConfirmMediaInfo &info);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
@@ -57,8 +67,11 @@ private:
     UploadFileInfo mUploadFileInfo;
 };
 }
+Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::ConfirmMediaInfo)
+Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::ConfirmMediaInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadFileInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadFileInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadStatusInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadStatusInfo, Q_RELOCATABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UploadFileJob::UploadFileInfo &t);
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UploadFileJob::ConfirmMediaInfo &t);

@@ -140,6 +140,15 @@ void UploadFileJob::slotUploadFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject.value("success"_L1).toBool()) {
+            qDebug() << " replyObject " << replyObject;
+            if (mUploadFileInfo.rc80Server) {
+                UploadFileJob::ConfirmMediaInfo confirmInfo;
+                confirmInfo.parse(replyObject.value("file"_L1).toObject());
+                confirmInfo.roomId = mUploadFileInfo.roomId;
+                confirmInfo.description = mUploadFileInfo.description;
+                confirmInfo.messageText = mUploadFileInfo.messageText;
+                Q_EMIT confirmMediaRequested(confirmInfo);
+            }
             addLoggerInfo("UploadFileJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         } else {
             if (reply->error() != QNetworkReply::NoError) {
@@ -158,6 +167,7 @@ void UploadFileJob::slotUploadFinished()
         }
         reply->deleteLater();
     }
+
     Q_EMIT uploadFinished();
     deleteLater();
 }
@@ -193,4 +203,19 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UploadFileJob::UploadFileIn
     d.space() << "deleteTemporaryFile:" << t.deleteTemporaryFile;
     return d;
 }
+
+QDebug operator<<(QDebug d, const RocketChatRestApi::UploadFileJob::ConfirmMediaInfo &t)
+{
+    d.space() << "roomId:" << t.roomId;
+    d.space() << "fileId:" << t.fileId;
+    d.space() << "description:" << t.description;
+    d.space() << "messageText:" << t.messageText;
+    return d;
+}
+
+void UploadFileJob::ConfirmMediaInfo::parse(const QJsonObject &obj)
+{
+    fileId = obj["_id"_L1].toString().toLatin1();
+}
+
 #include "moc_uploadfilejob.cpp"
