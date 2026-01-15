@@ -20,6 +20,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Show attachment fields."),
         kli18n("Implement Offline Mode (experimental)."),
         kli18n("Implement Pending Typed database storage."),
+        kli18n("Fix RC 8.0.0 support."),
     };
     return info;
 }
