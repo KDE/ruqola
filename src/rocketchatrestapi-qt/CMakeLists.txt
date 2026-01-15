@@ -358,6 +358,8 @@ target_sources(
         rooms/roomsimagesjob.h
         rooms/roomsmembersorderedbyrolejob.cpp
         rooms/roomsmembersorderedbyrolejob.h
+        rooms/roomsmediaconfirmjob.cpp
+        rooms/roomsmediaconfirmjob.h
         serverinfojob.cpp
         serverinfojob.h
         sessions/sessionslistjob.cpp
