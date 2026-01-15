@@ -288,6 +288,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"rooms.upload"_s;
     case RestApiUtil::RestApiUrlType::RoomsMedia:
         return u"rooms.media"_s;
+    case RestApiUtil::RestApiUrlType::RoomsMediaConfirm:
+        return u"rooms.mediaConfirm"_s;
     case RestApiUtil::RestApiUrlType::RoomsSaveNotification:
         return u"rooms.saveNotification"_s;
     case RestApiUtil::RestApiUrlType::RoomsSaveSettings:
