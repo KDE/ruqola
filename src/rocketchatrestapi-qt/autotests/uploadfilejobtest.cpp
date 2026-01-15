@@ -46,6 +46,12 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     QVERIFY(!info.deleteTemporaryFile);
     QVERIFY(info.fileName.isEmpty());
     QVERIFY(!info.rc80Server);
+
+    const UploadFileJob::ConfirmMediaInfo confirmInfo;
+    QVERIFY(confirmInfo.fileId.isEmpty());
+    QVERIFY(confirmInfo.description.isEmpty());
+    QVERIFY(confirmInfo.messageText.isEmpty());
+    QVERIFY(confirmInfo.roomId.isEmpty());
 }
 
 void UploadFileJobTest::shouldGenerateRequest()
