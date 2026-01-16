@@ -24,9 +24,14 @@ void NotifierJob::start()
 {
     if (mInfo.isValid()) {
         auto notification = new KNotification(u"new-notification"_s, KNotification::CloseOnTimeout);
-        notification->setTitle(mInfo.title());
         const QString userName = mInfo.senderName().isEmpty() ? mInfo.senderUserName() : mInfo.senderName();
-        notification->setText(i18n("%1: %2", userName, mInfo.message().toHtmlEscaped()));
+        QString title = mInfo.title();
+        if (mInfo.forceShowAccountName()) {
+            title += u" (%1)"_s.arg(mInfo.accountName());
+        }
+        notification->setTitle(title);
+        const QString notificationText = i18n("%1: %2", userName, mInfo.message().toHtmlEscaped());
+        notification->setText(notificationText);
         if (!mInfo.pixmap().isNull()) {
             notification->setPixmap(mInfo.pixmap());
         }

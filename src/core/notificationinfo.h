@@ -9,7 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QJsonArray>
 #include <QPixmap>
-
+class QDebug;
 class LIBRUQOLACORE_EXPORT NotificationInfo
 {
     Q_GADGET
@@ -72,6 +72,9 @@ public:
 
     [[nodiscard]] bool operator==(const NotificationInfo &other) const;
 
+    [[nodiscard]] bool forceShowAccountName() const;
+    void setForceShowAccountName(bool newForceShowAccountName);
+
 private:
     QByteArray mMessageId;
     QString mAccountName;
@@ -87,7 +90,7 @@ private:
     QDateTime mDateTime;
     QPixmap mPixmap;
     NotificationType mNotificationType = NotificationType::StandardMessage;
+    bool mForceShowAccountName = false;
 };
 Q_DECLARE_TYPEINFO(NotificationInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationInfo &t);

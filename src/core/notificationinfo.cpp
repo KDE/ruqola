@@ -28,6 +28,7 @@ QDebug operator<<(QDebug d, const NotificationInfo &t)
     d.space() << "date time" << t.dateTime();
     d.space() << "messageId" << t.messageId();
     d.space() << "mNotificationType" << t.notificationType();
+    d.space() << "forceShowAccountName" << t.forceShowAccountName();
     return d;
 }
 
@@ -226,7 +227,18 @@ bool NotificationInfo::operator==(const NotificationInfo &other) const
     return other.mMessageId == mMessageId && other.mAccountName == mAccountName && other.mMessage == mMessage && other.mTitle == mTitle
         && other.mSenderId == mSenderId && other.mSenderName == mSenderName && other.mSenderUserName == mSenderUserName && other.mRoomName == mRoomName
         && other.mRoomId == mRoomId && other.mChannelType == mChannelType && other.mTmId == mTmId && other.mDateTime == mDateTime
-        && other.mPixmap.cacheKey() == mPixmap.cacheKey() && other.mNotificationType == mNotificationType;
+        && other.mPixmap.cacheKey() == mPixmap.cacheKey() && other.mNotificationType == mNotificationType
+        && other.mForceShowAccountName == mForceShowAccountName;
+}
+
+bool NotificationInfo::forceShowAccountName() const
+{
+    return mForceShowAccountName;
+}
+
+void NotificationInfo::setForceShowAccountName(bool newForceShowAccountName)
+{
+    mForceShowAccountName = newForceShowAccountName;
 }
 
 #include "moc_notificationinfo.cpp"

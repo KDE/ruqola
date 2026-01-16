@@ -122,7 +122,11 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
                 qCWarning(RUQOLA_SOUND_LOG) << "Room doesn't exist!" << info.roomId();
             }
             auto job = new NotifierJob;
-            job->setInfo(info);
+            NotificationInfo newNotification = info;
+            if (mCurrentAccount->accountName() != info.accountName()) {
+                newNotification.setForceShowAccountName(true);
+            }
+            job->setInfo(newNotification);
             connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
             connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QByteArray &roomId, const QByteArray &tmId) {
                 if (tmId.isEmpty()) {

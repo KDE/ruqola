@@ -32,6 +32,7 @@ void NotificationInfoTest::shouldHaveDefaultValues()
     QVERIFY(t.pixmap().isNull());
     QVERIFY(t.messageId().isEmpty());
     QCOMPARE(t.notificationType(), NotificationInfo::NotificationType::StandardMessage);
+    QVERIFY(!t.forceShowAccountName());
 }
 
 void NotificationInfoTest::shouldParseNotification_data()
