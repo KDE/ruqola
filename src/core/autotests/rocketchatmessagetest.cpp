@@ -163,14 +163,6 @@ void RocketChatMessageTest::listCustomSounds()
     compareFile(r.result, u"listCustomSounds"_s);
 }
 
-void RocketChatMessageTest::deleteFileMessage()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage("fileid"_ba, 43);
-    compareFile(r.result, u"deleteFileMessage"_s);
-}
-
 void RocketChatMessageTest::deleteCustomSound()
 {
     RocketChatMessage m;

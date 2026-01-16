@@ -140,13 +140,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QBy
     return generateMethod(u"openRoom"_s, params, id);
 }
 
-// Verify
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteFileMessage(const QByteArray &fileId, quint64 id)
-{
-    const QJsonArray params{{QString::fromLatin1(fileId)}};
-    return generateMethod(u"deleteFileMessage"_s, params, id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QByteArray &roomId, const QString &userId, bool typingStatus, quint64 id)
 {
     const QString eventName = QString::fromLatin1(roomId) + u"/user-activity"_s;

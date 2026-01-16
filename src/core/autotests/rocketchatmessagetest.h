@@ -37,7 +37,6 @@ private Q_SLOTS:
 
     void blockUser();
     void unBlockUser();
-    void deleteFileMessage();
 
     void streamNotifyUserOtrEnd();
     void streamNotifyUserOtrHandshake();

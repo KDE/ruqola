@@ -42,8 +42,6 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QByteArray &fileId, quint64 id);
-
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
