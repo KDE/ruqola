@@ -98,4 +98,12 @@ bool MethodCallJob::MethodCallJobInfo::isValid() const
     return !methodName.isEmpty() /* && !messageObj.isEmpty()*/;
 }
 
+QDebug operator<<(QDebug d, const RocketChatRestApi::MethodCallJob::MethodCallJobInfo &t)
+{
+    d.space() << "messageObj:" << t.messageObj;
+    d.space() << "methodName:" << t.methodName;
+    d.space() << "anonymous:" << t.anonymous;
+    return d;
+}
+
 #include "moc_methodcalljob.cpp"

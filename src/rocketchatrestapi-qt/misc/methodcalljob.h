@@ -9,7 +9,8 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 #include <QJsonObject>
-
+#include <QNetworkRequest>
+class QDebug;
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT MethodCallJob : public RestApiAbstractJob
@@ -44,3 +45,4 @@ private:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::MethodCallJob::MethodCallJobInfo, Q_RELOCATABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::MethodCallJob::MethodCallJobInfo &t);
