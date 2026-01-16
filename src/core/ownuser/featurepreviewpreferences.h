@@ -6,7 +6,7 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-
+#include <QMetaType>
 class QDebug;
 class LIBRUQOLACORE_EXPORT FeaturePreviewPreferences
 {

@@ -843,9 +843,9 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
 
 void RuqolaServerConfig::deserialize(const QJsonObject &obj)
 {
-    QJsonArray configs = obj.value("result"_L1).toArray();
+    const QJsonArray configs = obj.value("result"_L1).toArray();
     mServerConfigFeatureTypes = ServerConfigFeatureType::None;
-    for (const QJsonValueRef currentConfig : configs) {
+    for (const auto currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
         loadSettings(currentConfObject);
     }
@@ -964,11 +964,11 @@ void RuqolaServerConfig::setUseRealName(bool newUIUseRealName)
 void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj, bool update)
 {
     // qDebug() << " void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)" << obj;
-    QJsonArray configs = obj.value("result"_L1).toArray();
+    const QJsonArray configs = obj.value("result"_L1).toArray();
     if (!update) {
         mServerConfigFeatureTypes = ServerConfigFeatureType::None;
     }
-    for (const QJsonValueRef currentConfig : configs) {
+    for (const auto &currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
         loadSettings(currentConfObject);
     }

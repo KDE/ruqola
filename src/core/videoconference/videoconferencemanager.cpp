@@ -71,7 +71,6 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
 
         auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
         RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
-        QJsonObject obj;
         joinInfo.callId = QString::fromLatin1(videoConference.callId());
         // TODO joinInfo.useCamera = callInfo.useCamera;
         // TODO joinInfo.useMicro = callInfo.useMic;

@@ -74,7 +74,8 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
     if (m.messageType() == Message::MessageType::VideoConference) {
         if (m.blocks()) {
             const auto blocks{m.blocks()};
-            for (const auto &b : blocks->blocks()) {
+            const auto blocksElements = blocks->blocks();
+            for (const auto &b : blocksElements) {
                 if (!b.callId().isEmpty()) {
                     mRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(b.callId());
                 }

@@ -6,6 +6,7 @@
 #include "featurepreviewpreferences.h"
 #include <QDebug>
 #include <QJsonArray>
+#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 FeaturePreviewPreferences::FeaturePreviewPreferences() = default;

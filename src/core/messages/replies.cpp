@@ -56,10 +56,10 @@ bool Replies::operator==(const Replies &other) const
 
 QJsonArray Replies::serialize(const Replies &replies)
 {
-    QJsonArray array;
     QStringList serialize;
-    serialize.reserve(replies.replies().count());
-    for (const QByteArray &i : replies.replies()) {
+    const auto repliesElement = replies.replies();
+    serialize.reserve(repliesElement.count());
+    for (const QByteArray &i : repliesElement) {
         serialize << QString::fromLatin1(i);
     }
     return QJsonArray::fromStringList(serialize);

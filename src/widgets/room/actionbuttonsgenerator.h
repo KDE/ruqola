@@ -8,6 +8,7 @@
 
 #include "actionbuttons/actionbutton.h"
 #include <QList>
+#include <QObject>
 #include <QPointer>
 class QMenu;
 class QAction;
