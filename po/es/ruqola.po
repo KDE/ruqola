@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 02:59+0000\n"
+"POT-Creation-Date: 2026-01-16 03:01+0000\n"
 "PO-Revision-Date: 2025-10-05 15:07+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3146,14 +3146,14 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Eliminar estado personalizado de usuario"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:14
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Permitir previsualización"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
 #, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
@@ -5339,135 +5339,135 @@ msgstr "Sistema de archivos"
 msgid "Storage Type"
 msgstr "Tipo de almacenamiento"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Favorite Rooms"
 msgstr "Activar salas favoritas"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:27
 #, kde-format
 msgctxt "@option:check"
 msgid "UTF8 Names Slugify"
 msgstr "Convertir nombres UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:34
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable the Update Checker"
 msgstr "Activar la comprobación de actualizaciones"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:36
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Statistics to Rocket.Chat"
 msgstr "Enviar estadísticas a Rocket.Chat"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:40
 #, kde-format
 msgctxt "@option:check"
 msgid "Use REST instead of websocket for Meteor calls"
 msgstr "Usar REST en lugar de websockets en las llamadas a Meteor"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
 #, kde-format
 msgid "Site URL"
 msgstr "URL del sitio"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:50
 #, kde-format
 msgid "Site Name"
 msgstr "Nombre del sitio"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:52
 #, kde-format
 msgid "UTF8"
 msgstr "UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate usernames"
 msgstr "Expresión regular a usar para validar nombres de usuario"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:58
 #, kde-format
 msgid "UTF8 Usernames Validation"
 msgstr "Validación de nombres de usuario UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:60
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate channel names"
 msgstr "Expresión regular a usar para validar nombres de canales"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
 #, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr "Validación de nombres de canales UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:67
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:68
 #, kde-format
 msgid "First Channel After Login"
 msgstr "Primer canal tras el acceso"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
 #, kde-format
 msgid "Deep Link Url"
 msgstr "Uri de Deep Link"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:74
 #, kde-format
 msgid "CDN Prefix"
 msgstr "Prefijo CDN"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
 #, kde-format
 msgid "All messages"
 msgstr "Todos los mensajes"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
 #, kde-format
 msgid "User mentions only"
 msgstr "Solo menciones de usuario"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:81
 #, kde-format
 msgid "Group mentions only"
 msgstr "Solo menciones de grupo"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:82
 #, kde-format
 msgid "User and group mentions only"
 msgstr "Solo menciones a usuario y grupo"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
 #, kde-format
 msgid "Unread Count"
 msgstr "Cuenta de no leídos"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:89
 #, kde-format
 msgid "Mentions only"
 msgstr "Solo menciones"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:91
 #, kde-format
 msgid "Unread Count for Direct Messages"
 msgstr "Cuenta de no leídos para mensajes directos"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:93
 #, kde-format
 msgid "Update"
 msgstr "Actualizar"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
 #, kde-format
 msgid "Update Latest Available Version"
 msgstr "Actualizar a la última versión disponible"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:103
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -5483,12 +5483,12 @@ msgstr ""
 "puede pulsar y como un mensaje del bot Rocket.Cat,\n"
 " ambos solo visibles para administradores."
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
 #, kde-format
 msgid "TimeZone"
 msgstr "Zona horaria"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5498,37 +5498,37 @@ msgstr ""
 "Establece el uso horario por omisión que se usará al mostrar el panel de "
 "instrumentos o enviar correos electrónicos"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
 msgid "Server Timezone"
 msgstr "Zona horaria del servidor"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
 #, kde-format
 msgid "Custom Timezone"
 msgstr "Zona horaria personalizada"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
 msgid "User's current Timezone"
 msgstr "El uso horario actual del usuario"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
 #, kde-format
 msgid "Default timezone for reporting"
 msgstr "El uso horario por omisión al reportar"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:121
 #, kde-format
 msgid "Reporting"
 msgstr "Reportando"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:127
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:128
 #, kde-format
 msgid "Notifications"
 msgstr "Notificaciones"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:134
 #, kde-format
 msgid ""
 "Max number of members in room when notifications for all messages gets "
@@ -5540,24 +5540,24 @@ msgstr ""
 "sala para recibir todas las notificaciones de manera individual (0 para "
 "desactivar)"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:137
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
 "Máximo número de miembros en la sala antes de desactivar las notificaciones "
 "a todos los mensajes"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:141
 #, kde-format
 msgid "Stream Cast"
 msgstr "Transmisión"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
 msgid "Stream Cast Address"
 msgstr "Dirección de la transmisión"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:147
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5567,12 +5567,12 @@ msgstr ""
 "IP o anfitrión de su transmisión central de Rocket.Chat. Por ejemplo: "
 "192.168.1.1:3000 o localhost:4000"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:148
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
 msgid "REST API"
 msgstr "API REST"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:154
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:155
 #, kde-format
 msgid ""
 "What is the maximum number of records the REST API should return (when not "
@@ -5581,7 +5581,7 @@ msgstr ""
 "¿Cual es el máximo número de registros que la API REST debería devolver "
 "(cuando no es ilimitado)?"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:163
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:170
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
 msgstr "Limite de usuarios al añadir a todos los usuarios al canal"
@@ -8954,7 +8954,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:25
-#: widgets/room/messagelinewidget.cpp:486
+#: widgets/room/messagelinewidget.cpp:487
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10606,28 +10606,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "El mensaje es demasiado grande"
 
-#: widgets/room/messagelinewidget.cpp:367
+#: widgets/room/messagelinewidget.cpp:368
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Mensaje %1 en el hilo"
 
-#: widgets/room/messagelinewidget.cpp:367
+#: widgets/room/messagelinewidget.cpp:368
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Enviar un mensaje en %1…"
 
-#: widgets/room/messagelinewidget.cpp:509
+#: widgets/room/messagelinewidget.cpp:510
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "El archivo seleccionado es demasiado grande (Tamaño máximo %1)"
 
-#: widgets/room/messagelinewidget.cpp:510
+#: widgets/room/messagelinewidget.cpp:511
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Subida del archivo"
 
-#: widgets/room/messagelinewidget.cpp:515
+#: widgets/room/messagelinewidget.cpp:516
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no autoriza este archivo (tipo mime no soportado)"
