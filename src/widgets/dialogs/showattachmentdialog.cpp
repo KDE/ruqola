@@ -68,9 +68,10 @@ void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
 {
     auto job = new RocketChatRestApi::MethodCallJob(this);
     const QJsonArray params{{QString::fromLatin1(fileId)}};
+    const QString methodName{u"deleteFileMessage"_s};
     const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
-        .messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params),
-        .methodName = u"deleteFileMessage"_s,
+        .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
+        .methodName = methodName,
         .anonymous = false,
     };
     job->setMethodCallJobInfo(std::move(info));
