@@ -30,6 +30,12 @@ public:
     [[nodiscard]] const QString &username() const;
     void setUsername(const QString &newUsername);
 
+    [[nodiscard]] const QString &roleId() const;
+    void setRoleId(const QString &newRoleId);
+
+    [[nodiscard]] bool useRC80() const;
+    void setUseRC80(bool newUseRC80);
+
 Q_SIGNALS:
     void removeUsersFromRoleDone(const QJsonObject &replyObject);
 
@@ -40,5 +46,7 @@ private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoleName;
     QString mUsername;
+    QString mRoleId;
+    bool mUseRC80 = false;
 };
 }

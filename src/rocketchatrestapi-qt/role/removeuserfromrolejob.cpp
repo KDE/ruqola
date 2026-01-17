@@ -46,6 +46,26 @@ void RemoveUserFromRoleJob::onPostRequestResponse(const QString &replyErrorStrin
     }
 }
 
+bool RemoveUserFromRoleJob::useRC80() const
+{
+    return mUseRC80;
+}
+
+void RemoveUserFromRoleJob::setUseRC80(bool newUseRC80)
+{
+    mUseRC80 = newUseRC80;
+}
+
+const QString &RemoveUserFromRoleJob::roleId() const
+{
+    return mRoleId;
+}
+
+void RemoveUserFromRoleJob::setRoleId(const QString &newRoleId)
+{
+    mRoleId = newRoleId;
+}
+
 QString RemoveUserFromRoleJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == "error-user-not-in-role"_L1) {
@@ -84,9 +104,16 @@ bool RemoveUserFromRoleJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mRoleName.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUsersFromRoleJob: mRoleName is not valid.";
-        return false;
+    if (mUseRC80) {
+        if (mRoleId.isEmpty()) {
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUsersFromRoleJob: mRoleId is not valid.";
+            return false;
+        }
+    } else {
+        if (mRoleName.isEmpty()) {
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUsersFromRoleJob: mRoleName is not valid.";
+            return false;
+        }
     }
     if (mUsername.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUsersFromRoleJob: mUsername is not valid.";
@@ -108,8 +135,12 @@ QJsonDocument RemoveUserFromRoleJob::json() const
 {
     // TODO restapi seems to not working. Need to report bug.
     QJsonObject jsonObj;
-    jsonObj["roleName"_L1] = mRoleName;
     jsonObj["username"_L1] = mUsername;
+    if (mUseRC80) {
+        jsonObj["roleId"_L1] = mRoleId;
+    } else {
+        jsonObj["roleName"_L1] = mRoleName;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
