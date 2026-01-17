@@ -146,4 +146,13 @@ bool SearchMessageJob::canStart() const
     return true;
 }
 
+QDebug operator<<(QDebug d, const RocketChatRestApi::SearchMessageJob &t)
+{
+    d.space() << "roomId:" << t.roomId();
+    d.space() << "searchText:" << t.searchText();
+    d.space() << "count:" << t.count();
+    d.space() << "useRegularExpression:" << t.useRegularExpression();
+    d.space() << "offset:" << t.offset();
+    return d;
+}
 #include "moc_searchmessagejob.cpp"
