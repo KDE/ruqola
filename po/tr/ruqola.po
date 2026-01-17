@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2026-01-14 19:18+0300\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"PO-Revision-Date: 2026-01-16 22:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -173,12 +173,12 @@ msgstr "Yeni özellik"
 msgid "The following accounts are available:"
 msgstr "Aşağıdaki hesaplar kullanılabilir:"
 
-#: core/accountmanager.cpp:299
+#: core/accountmanager.cpp:303
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Geçersiz Davet Jetonu"
 
-#: core/accountmanager.cpp:300
+#: core/accountmanager.cpp:304
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Geçersiz davet jetonu. Hesap oluşturma iptal ediliyor."
@@ -1743,23 +1743,23 @@ msgstr "Çevrimdışı"
 msgid "%1 has %2 Unread Message"
 msgstr "%1 kişisinin %2 okunmamış iletisi var"
 
-#: core/notifications/notifierjob.cpp:29
+#: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:39
+#: core/notifications/notifierjob.cpp:44
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Kanal Aç"
 
-#: core/notifications/notifierjob.cpp:43
+#: core/notifications/notifierjob.cpp:48
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: core/notifications/notifierjob.cpp:44
+#: core/notifications/notifierjob.cpp:49
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply…"
@@ -11729,10 +11729,8 @@ msgid "Implement Pending Typed database storage."
 msgstr "Bekleyen türdeki veri tabanı depolaması gerçeklendi"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "Jitsi desteğini onar"
+msgstr "RC 8.0.0 desteğini onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2026-01-14 04:51+0200\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"PO-Revision-Date: 2026-01-16 05:23+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -177,12 +177,12 @@ msgstr "Нова можливість"
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
 
-#: core/accountmanager.cpp:299
+#: core/accountmanager.cpp:303
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Некоректний жетон запрошення"
 
-#: core/accountmanager.cpp:300
+#: core/accountmanager.cpp:304
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Жетон запрошення є некоректним. Створення облікового запису скасовано."
@@ -1756,23 +1756,23 @@ msgstr "Поза мережею"
 msgid "%1 has %2 Unread Message"
 msgstr "%1 має %2 непрочитане повідомлення"
 
-#: core/notifications/notifierjob.cpp:29
+#: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:39
+#: core/notifications/notifierjob.cpp:44
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Відкрити канал"
 
-#: core/notifications/notifierjob.cpp:43
+#: core/notifications/notifierjob.cpp:48
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
 
-#: core/notifications/notifierjob.cpp:44
+#: core/notifications/notifierjob.cpp:49
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply…"
@@ -11864,10 +11864,8 @@ msgid "Implement Pending Typed database storage."
 msgstr "Реалізовано сховище у базі даних для черги введення."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "Виправлено підтримку jitsi."
+msgstr "Виправлено підтримку RC 8.0.0."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format

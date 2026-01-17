@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -184,13 +184,13 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Saadaval on järgmised kontod:"
 
-#: core/accountmanager.cpp:299
+#: core/accountmanager.cpp:303
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "Vigane pääsmik"
 
-#: core/accountmanager.cpp:300
+#: core/accountmanager.cpp:304
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1884,23 +1884,23 @@ msgstr "Pole võrgus"
 msgid "%1 has %2 Unread Message"
 msgstr "%1 ei ole lugenud %2 sõnumit"
 
-#: core/notifications/notifierjob.cpp:29
+#: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:39
+#: core/notifications/notifierjob.cpp:44
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Ava kanal"
 
-#: core/notifications/notifierjob.cpp:43
+#: core/notifications/notifierjob.cpp:48
 #, kde-format
 msgid "Reply"
 msgstr "Vasta"
 
-#: core/notifications/notifierjob.cpp:44
+#: core/notifications/notifierjob.cpp:49
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgctxt "@info:placeholder"

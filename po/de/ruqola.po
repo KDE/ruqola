@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -187,13 +187,13 @@ msgstr "Natur"
 msgid "The following accounts are available:"
 msgstr "Die folgenden Zugänge sind vorhanden:"
 
-#: core/accountmanager.cpp:299
+#: core/accountmanager.cpp:303
 #, fuzzy, kde-format
 #| msgid "Invalid file type"
 msgid "Invalid invite token"
 msgstr "Ungültiger Dateityp"
 
-#: core/accountmanager.cpp:300
+#: core/accountmanager.cpp:304
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1855,23 +1855,23 @@ msgstr "Offline"
 msgid "%1 has %2 Unread Message"
 msgstr "%1 hat %2 ungelesene Nachrichten"
 
-#: core/notifications/notifierjob.cpp:29
+#: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:39
+#: core/notifications/notifierjob.cpp:44
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Kanal öffnen"
 
-#: core/notifications/notifierjob.cpp:43
+#: core/notifications/notifierjob.cpp:48
 #, kde-format
 msgid "Reply"
 msgstr "Antworten"
 
-#: core/notifications/notifierjob.cpp:44
+#: core/notifications/notifierjob.cpp:49
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgctxt "@info:placeholder"

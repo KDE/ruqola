@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -173,12 +173,12 @@ msgstr "Új funkció"
 msgid "The following accounts are available:"
 msgstr "A következő fiókok érhetők el:"
 
-#: core/accountmanager.cpp:299
+#: core/accountmanager.cpp:303
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Érvénytelen meghívási token"
 
-#: core/accountmanager.cpp:300
+#: core/accountmanager.cpp:304
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1757,23 +1757,23 @@ msgstr "Kilépett"
 msgid "%1 has %2 Unread Message"
 msgstr "%2 olvasatlan üzenet itt: %1"
 
-#: core/notifications/notifierjob.cpp:29
+#: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:39
+#: core/notifications/notifierjob.cpp:44
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Csatorna megnyitása"
 
-#: core/notifications/notifierjob.cpp:43
+#: core/notifications/notifierjob.cpp:48
 #, kde-format
 msgid "Reply"
 msgstr "Válasz"
 
-#: core/notifications/notifierjob.cpp:44
+#: core/notifications/notifierjob.cpp:49
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply…"

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2026-01-12 10:16+0100\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"PO-Revision-Date: 2026-01-15 11:19+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -171,12 +171,12 @@ msgstr "Nouvelle fonctionnalité"
 msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
 
-#: core/accountmanager.cpp:299
+#: core/accountmanager.cpp:303
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Jeton d'invitation non valable"
 
-#: core/accountmanager.cpp:300
+#: core/accountmanager.cpp:304
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1748,23 +1748,23 @@ msgstr "Déconnecté"
 msgid "%1 has %2 Unread Message"
 msgstr "%1 a %2 messages non lus"
 
-#: core/notifications/notifierjob.cpp:29
+#: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
 msgstr "%1 : %2"
 
-#: core/notifications/notifierjob.cpp:39
+#: core/notifications/notifierjob.cpp:44
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Ouvrir un canal"
 
-#: core/notifications/notifierjob.cpp:43
+#: core/notifications/notifierjob.cpp:48
 #, kde-format
 msgid "Reply"
 msgstr "Répondre"
 
-#: core/notifications/notifierjob.cpp:44
+#: core/notifications/notifierjob.cpp:49
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply…"
@@ -9913,9 +9913,7 @@ msgid "Manage Device"
 msgstr "Gérer un périphérique"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Timestamp in Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
 msgstr "Horodatage dans les messages"

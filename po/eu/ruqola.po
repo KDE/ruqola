@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2026-01-06 10:35+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -175,12 +175,12 @@ msgstr "Ezaugarri berria"
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
 
-#: core/accountmanager.cpp:299
+#: core/accountmanager.cpp:303
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Gonbidapen token baliogabea"
 
-#: core/accountmanager.cpp:300
+#: core/accountmanager.cpp:304
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Gonbidapen tokena baliogabea da. Kontua sortzea bertan behera utzi da."
@@ -1759,23 +1759,23 @@ msgstr "Lerroz kanpo"
 msgid "%1 has %2 Unread Message"
 msgstr "%1(e)k irakurri gabeko %2 mezu ditu"
 
-#: core/notifications/notifierjob.cpp:29
+#: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:39
+#: core/notifications/notifierjob.cpp:44
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Ireki kanala"
 
-#: core/notifications/notifierjob.cpp:43
+#: core/notifications/notifierjob.cpp:48
 #, kde-format
 msgid "Reply"
 msgstr "Erantzun"
 
-#: core/notifications/notifierjob.cpp:44
+#: core/notifications/notifierjob.cpp:49
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply…"
