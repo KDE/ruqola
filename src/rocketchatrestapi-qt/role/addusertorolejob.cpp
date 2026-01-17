@@ -45,6 +45,26 @@ void AddUserToRoleJob::onPostRequestResponse(const QString &replyErrorString, co
     }
 }
 
+bool AddUserToRoleJob::useRC80() const
+{
+    return mUseRC80;
+}
+
+void AddUserToRoleJob::setUseRC80(bool newUseRC80)
+{
+    mUseRC80 = newUseRC80;
+}
+
+const QString &AddUserToRoleJob::roleId() const
+{
+    return mRoleId;
+}
+
+void AddUserToRoleJob::setRoleId(const QString &newRoleId)
+{
+    mRoleId = newRoleId;
+}
+
 const QString &AddUserToRoleJob::username() const
 {
     return mUsername;
@@ -75,9 +95,16 @@ bool AddUserToRoleJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mRoleName.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "AddUserToRoleJob: mRoleName is not valid.";
-        return false;
+    if (mUseRC80) {
+        if (mRoleId.isEmpty()) {
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "AddUserToRoleJob: mRoleId is empty.";
+            return false;
+        }
+    } else {
+        if (mRoleName.isEmpty()) {
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "AddUserToRoleJob: mRoleName is empty.";
+            return false;
+        }
     }
     if (mUsername.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "AddUserToRoleJob: mUsername is not valid.";
@@ -98,8 +125,12 @@ QNetworkRequest AddUserToRoleJob::request() const
 QJsonDocument AddUserToRoleJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["roleName"_L1] = mRoleName;
     jsonObj["username"_L1] = mUsername;
+    if (mUseRC80) {
+        jsonObj["roleId"_L1] = mRoleId;
+    } else {
+        jsonObj["roleName"_L1] = mRoleName;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
