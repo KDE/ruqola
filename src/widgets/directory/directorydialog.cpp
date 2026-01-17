@@ -5,7 +5,6 @@
 */
 
 #include "directorydialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directorycontainerwidget.h"
 #include "rocketchataccount.h"
@@ -23,6 +22,7 @@ namespace
 {
 const char myDirectoryDialog[] = "DirectoryDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent)
     : QDialog(parent)
     , mDirectoryContainerWidget(new DirectoryContainerWidget(account, type, this))

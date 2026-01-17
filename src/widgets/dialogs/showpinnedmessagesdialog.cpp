@@ -5,7 +5,6 @@
 */
 
 #include "showpinnedmessagesdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 
@@ -19,6 +18,7 @@ namespace
 const char myShowPinnedMessagesDialogGroupName[] = "ShowPinnedMessagesDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : ShowListMessageBaseDialog(account, parent)
 {

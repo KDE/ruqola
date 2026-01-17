@@ -5,12 +5,12 @@
 */
 
 #include "directorycontainerwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directorystackedwidget.h"
 #include "rocketchataccount.h"
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 DirectoryContainerWidget::DirectoryContainerWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent)
     : QWidget{parent}
     , mDirectoryStackedWidget(new DirectoryStackedWidget(account, type, this))

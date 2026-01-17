@@ -5,7 +5,6 @@
 */
 
 #include "showstarredmessagesdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include <KConfigGroup>
@@ -18,6 +17,7 @@ namespace
 const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 ShowStarredMessagesDialog::ShowStarredMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : ShowListMessageBaseDialog(account, parent)
 {

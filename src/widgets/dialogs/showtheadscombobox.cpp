@@ -5,10 +5,10 @@
 */
 
 #include "showtheadscombobox.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 ShowTheadsComboBox::ShowTheadsComboBox(QWidget *parent)
     : QComboBox(parent)
 {

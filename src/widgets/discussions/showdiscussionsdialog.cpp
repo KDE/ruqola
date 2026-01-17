@@ -5,7 +5,6 @@
 */
 
 #include "showdiscussionsdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -24,6 +23,7 @@ namespace
 {
 const char myShowDiscussionsDialogGroupName[] = "ShowDiscussionsDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ShowDiscussionsDialog::ShowDiscussionsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowDiscussionsWidget(new ShowDiscussionsWidget(account, this))

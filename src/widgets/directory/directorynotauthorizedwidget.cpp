@@ -5,12 +5,12 @@
 */
 
 #include "directorynotauthorizedwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
 
+using namespace Qt::Literals::StringLiterals;
 DirectoryNotAuthorizedWidget::DirectoryNotAuthorizedWidget(QWidget *parent)
     : QWidget{parent}
 {

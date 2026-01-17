@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "showimagegraphicspixmapitem.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QApplication>
 #include <QDrag>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QUrl>
 #include <QWidget>
 
+using namespace Qt::Literals::StringLiterals;
 ShowImageGraphicsPixmapItem::ShowImageGraphicsPixmapItem(QGraphicsItem *parent)
     : QGraphicsPixmapItem(parent)
 {

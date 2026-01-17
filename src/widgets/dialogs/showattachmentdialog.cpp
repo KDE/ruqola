@@ -5,7 +5,6 @@
 */
 
 #include "showattachmentdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "attachments/fileattachments.h"
 #include "connection.h"
@@ -28,6 +27,7 @@ namespace
 const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 ShowAttachmentDialog::ShowAttachmentDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowAttachmentWidget(new ShowAttachmentWidget(account, this))

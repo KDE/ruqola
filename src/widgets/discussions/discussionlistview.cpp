@@ -5,7 +5,6 @@
 */
 
 #include "discussionlistview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ddpapi/ddpclient.h"
 #include "discussion/listdiscussiondelegate.h"
@@ -19,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 
+using namespace Qt::Literals::StringLiterals;
 DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
     , mListDiscussionDelegate(new ListDiscussionDelegate(this, account, this))

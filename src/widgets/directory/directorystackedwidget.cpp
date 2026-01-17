@@ -5,10 +5,10 @@
 */
 
 #include "directorystackedwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directorynotauthorizedwidget.h"
 
+using namespace Qt::Literals::StringLiterals;
 DirectoryStackedWidget::DirectoryStackedWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent)
     : QStackedWidget(parent)
     , mDirectoryWidget(new DirectoryWidget(account, type, this))

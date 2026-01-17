@@ -5,7 +5,6 @@
 */
 
 #include "uploadfiledialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "uploadfilewidget.h"
 #include <KLocalizedString>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 UploadFileDialog::UploadFileDialog(QWidget *parent)
     : QDialog(parent)
     , mUploadFileWidget(new UploadFileWidget(this))

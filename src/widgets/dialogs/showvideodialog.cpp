@@ -5,7 +5,6 @@
 */
 
 #include "showvideodialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "showvideowidget.h"
 #include <KConfigGroup>
@@ -21,6 +20,7 @@ namespace
 const char myShowVideoDialogGroupName[] = "ShowVideoDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 ShowVideoDialog::ShowVideoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowVideoWidget(new ShowVideoWidget(account, this))

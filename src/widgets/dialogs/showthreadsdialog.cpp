@@ -5,7 +5,6 @@
 */
 
 #include "showthreadsdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/listmessagesfilterproxymodel.h"
 #include "rocketchataccount.h"
@@ -21,6 +20,7 @@ namespace
 {
 const char myShowThreadsDialogGroupName[] = "ShowThreadsDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent)
     : ShowListMessageBaseDialog(account, parent)
     , mShowTheadsComboBox(new ShowTheadsComboBox(this))

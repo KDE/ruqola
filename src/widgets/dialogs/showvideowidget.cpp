@@ -5,7 +5,6 @@
 */
 
 #include "showvideowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
@@ -28,6 +27,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QComboBox>
 #include <QMediaDevices>
 
+using namespace Qt::Literals::StringLiterals;
 ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mMediaPlayer(new QMediaPlayer(this))

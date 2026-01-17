@@ -4,11 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "showimageprevnextimagewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QToolButton>
+using namespace Qt::Literals::StringLiterals;
 ShowImagePrevNextImageWidget::ShowImagePrevNextImageWidget(QWidget *parent)
     : QWidget{parent}
     , mNextButton(new QToolButton(this))

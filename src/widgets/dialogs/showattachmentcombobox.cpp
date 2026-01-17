@@ -5,9 +5,9 @@
 */
 
 #include "showattachmentcombobox.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
+using namespace Qt::Literals::StringLiterals;
 ShowAttachmentComboBox::ShowAttachmentComboBox(QWidget *parent)
     : QComboBox(parent)
 {

@@ -5,7 +5,6 @@
 */
 
 #include "showdiscussionswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "discussionlistview.h"
 #include "model/discussionsfilterproxymodel.h"
@@ -22,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchDiscussionLineEdit(new QLineEdit(this))

@@ -4,12 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "searchmessagewithdelaylineedit.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include <QCompleter>
 #include <QStringListModel>
 #define MAX_COMPLETION_ITEMS 20
+using namespace Qt::Literals::StringLiterals;
 SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount *account, QWidget *parent)
     : SearchWithDelayLineEdit(parent)
     , mCompleter(new QCompleter(this))

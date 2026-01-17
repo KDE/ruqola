@@ -5,7 +5,6 @@
 */
 
 #include "showattachmentwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "attachment/listattachmentdelegate.h"
 #include "model/filesforroomfilterproxymodel.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ShowAttachmentWidget::ShowAttachmentWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchAttachmentFileLineEdit(new QLineEdit(this))

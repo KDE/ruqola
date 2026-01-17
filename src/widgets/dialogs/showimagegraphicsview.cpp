@@ -5,7 +5,6 @@
 */
 
 #include "showimagegraphicsview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "ruqolawidgets_showimage_debug.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMovie>
 #include <QScopedValueRollback>
 #include <QTimer>
+using namespace Qt::Literals::StringLiterals;
 namespace
 {
 constexpr qreal defaultMinimumZoomScale = (qreal)0.1;

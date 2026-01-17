@@ -5,13 +5,13 @@
 */
 
 #include "showimagegraphicsimagelabel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QApplication>
 #include <QDrag>
 #include <QMimeData>
 #include <QMouseEvent>
 
+using namespace Qt::Literals::StringLiterals;
 ShowImageGraphicsImageLabel::ShowImageGraphicsImageLabel(QWidget *parent)
     : QLabel(parent)
 {
