@@ -5,7 +5,6 @@
 */
 
 #include "removeuserfromrolejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "role/removeuserfromrolejob.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RemoveUserFromRoleJobTest)
 using namespace RocketChatRestApi;
 RemoveUserFromRoleJobTest::RemoveUserFromRoleJobTest(QObject *parent)
@@ -27,6 +27,9 @@ void RemoveUserFromRoleJobTest::shouldHaveDefaultValue()
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.roleId().isEmpty());
+    QVERIFY(job.roleName().isEmpty());
+    QVERIFY(!job.useRC80());
 }
 
 void RemoveUserFromRoleJobTest::shouldGenerateRequest()
@@ -40,18 +43,34 @@ void RemoveUserFromRoleJobTest::shouldGenerateRequest()
 
 void RemoveUserFromRoleJobTest::shouldGenerateJson()
 {
-    RemoveUserFromRoleJob job;
+    {
+        RemoveUserFromRoleJob job;
+        job.setUseRC80(false);
 
-    const QString username = u"foo1"_s;
-    job.setUsername(username);
-    const QString rolename = u"role1"_s;
-    job.setRoleName(rolename);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleName":"%1","username":"%2"})").arg(rolename, username).toLatin1());
+        const QString username = u"foo1"_s;
+        job.setUsername(username);
+        const QString rolename = u"role1"_s;
+        job.setRoleName(rolename);
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleName":"%1","username":"%2"})").arg(rolename, username).toLatin1());
+    }
+    {
+        RemoveUserFromRoleJob job;
+        job.setUseRC80(true);
+
+        const QString username = u"foo1"_s;
+        job.setUsername(username);
+        const QString rolename = u"role1"_s;
+        job.setRoleName(rolename);
+        const QString roleId = u"roleId1"_s;
+        job.setRoleId(roleId);
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleId":"%1","username":"%2"})").arg(roleId, username).toLatin1());
+    }
 }
 
 void RemoveUserFromRoleJobTest::shouldNotStarting()
 {
     RemoveUserFromRoleJob job;
+    job.setUseRC80(false);
 
     RestApiMethod method;
     method.setServerUrl(u"http://www.kde.org"_s);
@@ -72,6 +91,12 @@ void RemoveUserFromRoleJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString rolename = u"role1"_s;
     job.setRoleName(rolename);
+    QVERIFY(job.canStart());
+
+    job.setUseRC80(true);
+    QVERIFY(!job.canStart());
+    const QString roleId = u"roleId1"_s;
+    job.setRoleId(roleId);
     QVERIFY(job.canStart());
 }
 
