@@ -148,7 +148,7 @@ void SearchMessageWidget::slotSearchMessagesFailed()
 
 void SearchMessageWidget::slotLoadHistory()
 {
-    messageSearch(mSearchLineEdit->text(), mRoomId, true, mOffset);
+    messageSearch(mSearchLineEdit->text(), mRoomId, false, mOffset);
     mOffset += numberOfElment;
 }
 
@@ -165,7 +165,7 @@ void SearchMessageWidget::slotSearchMessages(const QString &str)
         clearSearchModel();
         mSearchMessageFilterProxyModel->setSearchText(str);
         mSearchLineEdit->addCompletionItem(str);
-        messageSearch(str, mRoomId, true);
+        messageSearch(str, mRoomId, false);
         mOffset = numberOfElment;
     }
 }
