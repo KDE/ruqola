@@ -1,16 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolawidgets
-    timestampinmessages/timestampinmessagesformatcombobox.h
-    timestampinmessages/timestampinmessagesformatcombobox.cpp
-    timestampinmessages/timestampinmessagestimezonecombobox.h
-    timestampinmessages/timestampinmessagestimezonecombobox.cpp
-    timestampinmessages/timestampinmessagesutils.h
-    timestampinmessages/timestampinmessagesutils.cpp
-    myaccount/myaccountfeaturepreviewconfigurewidget.h
-    myaccount/myaccountfeaturepreviewconfigurewidget.cpp
-)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(
@@ -567,6 +557,8 @@ target_sources(
         myaccount/myaccountpersonalaccesscreatewidget.cpp
         myaccount/myaccountmanagedeviceconfigurewidget.cpp
         myaccount/myaccountmanagedeviceconfigurewidget.h
+        myaccount/myaccountfeaturepreviewconfigurewidget.h
+        myaccount/myaccountfeaturepreviewconfigurewidget.cpp
         notificationhistory/notificationhistorydialog.cpp
         notificationhistory/notificationhistorydialog.h
         notificationhistory/notificationhistorywidget.cpp
@@ -1006,6 +998,12 @@ target_sources(
         timestampinmessages/timestampinmessagesdialog.cpp
         timestampinmessages/timestampinmessageswidget.h
         timestampinmessages/timestampinmessageswidget.cpp
+        timestampinmessages/timestampinmessagesformatcombobox.h
+        timestampinmessages/timestampinmessagesformatcombobox.cpp
+        timestampinmessages/timestampinmessagestimezonecombobox.h
+        timestampinmessages/timestampinmessagestimezonecombobox.cpp
+        timestampinmessages/timestampinmessagesutils.h
+        timestampinmessages/timestampinmessagesutils.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
