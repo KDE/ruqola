@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
 "PO-Revision-Date: 2026-01-14 18:15+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2853,7 +2853,7 @@ msgstr "La password digitata è stata utilizzata in precedenza"
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "È stato raggiunto il numero massimo di stanze per ospite."
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:53
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:73
 #, kde-format
 msgid "This user is not in this role."
 msgstr "L'utente non è in questo ruolo."

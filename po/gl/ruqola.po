@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
 "PO-Revision-Date: 2025-06-21 12:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -2866,7 +2866,7 @@ msgstr "O contrasinal que escribiu xa o usou previamente."
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Acadouse o número máximo de salas por persoa invitada."
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:53
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:73
 #, kde-format
 msgid "This user is not in this role."
 msgstr "A persoa usuaria non ten este rol."

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
-"PO-Revision-Date: 2026-01-11 00:22+0100\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
+"PO-Revision-Date: 2026-01-18 00:16+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2856,7 +2856,7 @@ msgstr "La contraseña introducida ya ha sido usada previamente"
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Se ha alcanzado el número máximo del salas por invitado."
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:53
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:73
 #, kde-format
 msgid "This user is not in this role."
 msgstr "El usuario no tiene este rol."
@@ -9859,9 +9859,7 @@ msgid "Manage Device"
 msgstr "Administrar dispositivos"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Timestamp in Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
 msgstr "Marca de tiempo en mensajes"
@@ -11803,10 +11801,8 @@ msgid "Implement Pending Typed database storage."
 msgstr "Implementado almacenamiento en base de datos  pendiente de tipos."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "Mejora en el soporte de jitsi."
+msgstr "Mejora en el soporte de RC 8.0.0"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format

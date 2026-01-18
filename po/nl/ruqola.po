@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
-"PO-Revision-Date: 2026-01-14 17:09+0100\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
+"PO-Revision-Date: 2026-01-17 11:07+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2855,7 +2855,7 @@ msgstr "Ingevoerde wachtwoord is eerder gebruikt"
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "het maximum aantal rooms per gast is bereikt."
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:53
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:73
 #, kde-format
 msgid "This user is not in this role."
 msgstr "Deze gebruiker heeft deze rol niet."
@@ -11791,10 +11791,8 @@ msgid "Implement Pending Typed database storage."
 msgstr "Implementeer wachtende getypte database-opslag."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "Jitsi-ondersteuning repareren."
+msgstr "Ondersteuning voor RC 8.0.0 repareren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format
