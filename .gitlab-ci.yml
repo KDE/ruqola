@@ -33,9 +33,9 @@ build_clazy:
   script:
     - git config --global --add safe.directory $CI_PROJECT_DIR
     - python3 -u ci-utilities/run-ci-build.py --project $CI_PROJECT_NAME --branch $CI_COMMIT_REF_NAME --platform Linux/Qt6/Shared --only-setup-environment
-    - mkdir -p /tmp/kate_build
-    - cd /tmp/kate_build
+    - mkdir -p /tmp/$CI_PROJECT_NAME-build
+    - cd /tmp/$CI_PROJECT_NAME-build
     # we don't care about clazy issues in tests
-    - cmake -DENABLE_PCH=OFF -DBUILD_TESTING=OFF -G Ninja -DCMAKE_INSTALL_PREFIX=$CI_PROJECT_DIR/_install -DKF6DocTools_FOUND=false $CI_PROJECT_DIR
+    - cmake -DENABLE_PCH=OFF -DBUILD_TESTING=OFF -G Ninja -DCMAKE_INSTALL_PREFIX=$CI_PROJECT_DIR/_install -DKF_SKIP_PO_PROCESSING=True -DKF6DocTools_FOUND=false $CI_PROJECT_DIR
     - ninja -k 0
   artifacts: null
