@@ -26,7 +26,7 @@ QString SearchMessageCommand::generateCommandText(SearchMessageCommand::SearchMe
     case Before:
         return u"before:"_s;
     case Order:
-        return u"order:"_s;
+        return u"order:desc"_s;
     case FromMe:
         return u"from:me"_s;
     case FromUserName:
