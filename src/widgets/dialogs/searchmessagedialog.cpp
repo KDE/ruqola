@@ -5,7 +5,6 @@
 */
 
 #include "searchmessagedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "room.h"
@@ -23,6 +22,7 @@ namespace
 {
 const char mySearchMessageDialogGroupName[] = "SearchMessageDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 SearchMessageDialog::SearchMessageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mSearchMessageWidget(new SearchMessageWidget(account, this))

@@ -5,7 +5,6 @@
 */
 
 #include "addusersinroomdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/addusersinroomdialog.h"
 #include "dialogs/addusersinroomwidget.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AddUsersInRoomDialogTest)
+using namespace Qt::Literals::StringLiterals;
 AddUsersInRoomDialogTest::AddUsersInRoomDialogTest(QObject *parent)
     : QObject(parent)
 {
