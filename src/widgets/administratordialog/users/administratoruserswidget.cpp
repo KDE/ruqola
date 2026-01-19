@@ -19,6 +19,9 @@
 #include "model/adminusersstatusmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
+#include "role/addusertorolejob.h"
+#include "role/removeuserfromrolejob.h"
+#include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
 #include "users/deleteuserjob.h"
 #include "users/resete2ekeyjob.h"
@@ -424,7 +427,39 @@ void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool ad
 {
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
     const QByteArray userId = modelIndex.data().toByteArray();
-    mRocketChatAccount->ddp()->setAdminStatus(userId, adminStatus);
+    if (mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
+        if (adminStatus) {
+            auto job = new RocketChatRestApi::AddUserToRoleJob(this);
+            job->setUseRC80(true);
+            job->setRoleId(u"admin"_s);
+            const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersAllModel::UserName);
+            const QString userName = modelIndexUserName.data().toString();
+            job->setUsername(userName);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::AddUserToRoleJob::addUsersToRoleDone, this, [this]() {
+                refreshLoadElements();
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AddUserToRoleJob job";
+            }
+        } else {
+            auto job = new RocketChatRestApi::RemoveUserFromRoleJob(this);
+            job->setUseRC80(true);
+            job->setRoleId(u"admin"_s);
+            const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersAllModel::UserName);
+            const QString userName = modelIndexUserName.data().toString();
+            job->setUsername(userName);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::RemoveUserFromRoleJob::removeUsersFromRoleDone, this, [this]() {
+                refreshLoadElements();
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RemoveUserFromRoleJob job";
+            }
+        }
+    } else {
+        mRocketChatAccount->ddp()->setAdminStatus(userId, adminStatus);
+    }
 }
 
 void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
