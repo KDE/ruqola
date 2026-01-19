@@ -6,8 +6,10 @@
 #include "searchmessagewithdelaylineedit.h"
 
 #include "rocketchataccount.h"
+#include <KLocalizedString>
 #include <QCompleter>
 #include <QStringListModel>
+#include <qmenu.h>
 #define MAX_COMPLETION_ITEMS 20
 using namespace Qt::Literals::StringLiterals;
 SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount *account, QWidget *parent)
@@ -16,6 +18,13 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
     , mCompleterListModel(new QStringListModel(this))
     , mCurrentRocketChatAccount(account)
 {
+    auto searchAction = addAction(QIcon::fromTheme(u"edit-find"_s), QLineEdit::LeadingPosition);
+    searchAction->setToolTip(i18nc("@info:tooltip", "Option"));
+    auto optionMenu = new QMenu(this);
+    auto regularExpressionAct = optionMenu->addAction(i18n("Regular Expression"));
+    regularExpressionAct->setCheckable(true);
+
+    searchAction->setMenu(optionMenu);
     mCompleter->setObjectName(u"mCompleter"_s);
     mCompleterListModel->setObjectName(u"mCompleterListModel"_s);
 
