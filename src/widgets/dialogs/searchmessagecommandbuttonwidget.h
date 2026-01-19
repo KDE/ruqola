@@ -25,5 +25,5 @@ private:
         QString toolTip;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QList<SearchMessageCommandButtonWidget::ButtonInfo> fillCommandLineText() const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPushButton *createPushButton(const QString &i18nStr, const QString &commandStr);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPushButton *createPushButton(const ButtonInfo &info);
 };

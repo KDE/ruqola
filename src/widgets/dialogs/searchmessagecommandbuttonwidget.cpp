@@ -22,7 +22,7 @@ SearchMessageCommandButtonWidget::SearchMessageCommandButtonWidget(QWidget *pare
     const QList<SearchMessageCommandButtonWidget::ButtonInfo> buttonsList = fillCommandLineText();
     Q_ASSERT(!buttonsList.isEmpty());
     for (const auto &info : std::as_const(buttonsList)) {
-        flowLayout->addWidget(createPushButton(info.i18n, info.identifier));
+        flowLayout->addWidget(createPushButton(info));
     }
 }
 
@@ -57,13 +57,14 @@ QList<SearchMessageCommandButtonWidget::ButtonInfo> SearchMessageCommandButtonWi
     return buttonInfo;
 }
 
-QPushButton *SearchMessageCommandButtonWidget::createPushButton(const QString &i18nStr, const QString &commandStr)
+QPushButton *SearchMessageCommandButtonWidget::createPushButton(const SearchMessageCommandButtonWidget::ButtonInfo &info)
 {
-    auto pushButton = new QPushButton(i18nStr, this);
-    pushButton->setObjectName(commandStr);
-    pushButton->setToolTip(commandStr);
-    connect(pushButton, &QPushButton::clicked, this, [this, commandStr]() {
-        Q_EMIT insertCommand(commandStr);
+    auto pushButton = new QPushButton(info.i18n, this);
+    pushButton->setObjectName(info.identifier);
+    pushButton->setToolTip(info.toolTip);
+    const QString identifier = info.identifier;
+    connect(pushButton, &QPushButton::clicked, this, [this, identifier]() {
+        Q_EMIT insertCommand(identifier);
     });
     return pushButton;
 }
