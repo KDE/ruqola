@@ -64,7 +64,8 @@ void ServerMenu::slotUpdateAccountMenu()
                 }
                 menu()->addAction(action);
                 if (mActionCollection) {
-                    mActionCollection->setDefaultShortcut(action, QKeySequence(u"CTRL+%1"_s.arg(i)));
+                    // Start shortcuts at 1 instead of 0 for better ergonomics (0 key is far from 1-9)
+                    mActionCollection->setDefaultShortcut(action, QKeySequence(u"CTRL+%1"_s.arg(i + 1)));
                 }
                 connect(action, &QAction::triggered, this, [accountName, accountManager]() {
                     accountManager->setCurrentAccount(accountName);
