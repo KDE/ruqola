@@ -394,6 +394,8 @@ target_sources(
         dialogs/searchmessagewithdelaylineedit.h
         dialogs/searchmessagecommandbuttonwidget.h
         dialogs/searchmessagecommandbuttonwidget.cpp
+        dialogs/searchmessagecommand.h
+        dialogs/searchmessagecommand.cpp
         dialogs/serverinfo/serverinfodialog.cpp
         dialogs/serverinfo/serverinfodialog.h
         dialogs/serverinfo/serverinfowidget.cpp

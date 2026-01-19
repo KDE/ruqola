@@ -1,0 +1,37 @@
+/*
+   SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+#include "searchmessagecommand.h"
+
+using namespace Qt::Literals::StringLiterals;
+SearchMessageCommand::SearchMessageCommand() = default;
+
+SearchMessageCommand::~SearchMessageCommand() = default;
+
+QString SearchMessageCommand::generateCommandText(SearchMessageCommand::SearchMessageCommandType type)
+{
+    switch (type) {
+    case Unknown:
+        return {};
+    case HasStar:
+        return u"has:star"_s;
+    case IsPinned:
+        return u"is:pinned"_s;
+    case HasUrl:
+        return u"has:url"_s;
+    case HasLocation:
+        return u"has:location"_s;
+    case Before:
+        return u"before:"_s;
+    case Order:
+        return u"order:"_s;
+    case FromMe:
+        return u"from:me"_s;
+    case FromUserName:
+        return u"from:user.name"_s;
+    }
+    return {};
+}
+#include "moc_searchmessagecommand.cpp"
