@@ -6,6 +6,7 @@
 
 #include "searchmessagecommandbuttonwidget.h"
 #include "common/flowlayout.h"
+#include "dialogs/searchmessagecommand.h"
 #include <KLocalizedString>
 #include <QPushButton>
 using namespace Qt::Literals::StringLiterals;
@@ -29,7 +30,17 @@ SearchMessageCommandButtonWidget::~SearchMessageCommandButtonWidget() = default;
 
 QList<SearchMessageCommandButtonWidget::ButtonInfo> SearchMessageCommandButtonWidget::fillCommandLineText() const
 {
-    return {};
+    const QList<SearchMessageCommandButtonWidget::ButtonInfo> buttonInfo = {
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::FromMe), i18nc("@action:button", "From Me")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::FromUserName), i18nc("@action:button", "From")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::Order), i18nc("@action:button", "Order")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::Before), i18nc("@action:button", "Before")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::HasLocation), i18nc("@action:button", "Has Location")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::HasUrl), i18nc("@action:button", "Has Url")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::IsPinned), i18nc("@action:button", "Is Pinned")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::HasStar), i18nc("@action:button", "Has Star")},
+    };
+    return buttonInfo;
 }
 
 QPushButton *SearchMessageCommandButtonWidget::createPushButton(const QString &i18nStr, const QString &commandStr)
