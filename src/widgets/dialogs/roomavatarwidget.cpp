@@ -5,7 +5,6 @@
 */
 
 #include "roomavatarwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QBuffer>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QImageReader>
 #include <QMenu>
 
+using namespace Qt::Literals::StringLiterals;
 RoomAvatarWidget::RoomAvatarWidget(QWidget *parent)
     : QPushButton(parent)
 {

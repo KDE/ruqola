@@ -7,11 +7,22 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageCommandButtonWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit SearchMessageCommandButtonWidget(QWidget *parent = nullptr);
     ~SearchMessageCommandButtonWidget() override;
+
+Q_SIGNALS:
+    void insertCommand(const QString &);
+
+private:
+    struct ButtonInfo {
+        QString identifier;
+        QString i18n;
+    };
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QList<SearchMessageCommandButtonWidget::ButtonInfo> fillCommandLineText() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPushButton *createPushButton(const QString &i18nStr, const QString &commandStr);
 };
