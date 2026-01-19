@@ -25,7 +25,6 @@
 #include "ruqolawidgets_selection_debug.h"
 #include <QAbstractTextDocumentLayout>
 #include <QDesktopServices>
-#include <QMessageBox>
 #include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>
