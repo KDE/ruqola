@@ -5,13 +5,13 @@
 */
 
 #include "searchmessagelinewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 SearchMessageLineWidget::SearchMessageLineWidget(QWidget *parent)
     : QWidget{parent}
     , mMainLayout(new QHBoxLayout(this))

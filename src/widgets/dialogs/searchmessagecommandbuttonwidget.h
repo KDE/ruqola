@@ -16,7 +16,7 @@ public:
     ~SearchMessageCommandButtonWidget() override;
 
 Q_SIGNALS:
-    void insertCommand(const QString &);
+    void insertSearchString(const QString &);
 
 private:
     struct ButtonInfo {

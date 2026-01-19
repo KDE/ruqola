@@ -21,6 +21,8 @@ public:
         HasUrl,
         HasLocation,
         Before,
+        After,
+        Day,
         Order,
         FromMe,
         FromUserName,
@@ -28,4 +30,5 @@ public:
     Q_ENUM(SearchMessageCommandType)
 
     [[nodiscard]] static QString generateCommandText(SearchMessageCommand::SearchMessageCommandType type);
+    [[nodiscard]] static bool mustBeUnique(SearchMessageCommand::SearchMessageCommandType type);
 };

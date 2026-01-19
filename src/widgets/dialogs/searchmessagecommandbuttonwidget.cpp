@@ -40,7 +40,9 @@ QList<SearchMessageCommandButtonWidget::ButtonInfo> SearchMessageCommandButtonWi
         {SearchMessageCommand::generateCommandText(SearchMessageCommand::Order),
          i18nc("@action:button", "Order:desc"),
          i18nc("@info:tooltip", "Sorts message by descending timestamp")},
-        {SearchMessageCommand::generateCommandText(SearchMessageCommand::Before), i18nc("@action:button", "Before"), i18nc("@info:tooltip", "")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::Before), i18nc("@action:button", "Before"), i18nc("@info:tooltip", "Filter by date")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::After), i18nc("@action:button", "After"), i18nc("@info:tooltip", "Filter by date")},
+        {SearchMessageCommand::generateCommandText(SearchMessageCommand::Day), i18nc("@action:button", "Day"), i18nc("@info:tooltip", "Filter by date")},
         {SearchMessageCommand::generateCommandText(SearchMessageCommand::HasLocation),
          i18nc("@action:button", "Has Location"),
          i18nc("@info:tooltip", "Finds messages that include a location.")},
@@ -64,7 +66,7 @@ QPushButton *SearchMessageCommandButtonWidget::createPushButton(const SearchMess
     pushButton->setToolTip(info.toolTip);
     const QString identifier = info.identifier;
     connect(pushButton, &QPushButton::clicked, this, [this, identifier]() {
-        Q_EMIT insertCommand(identifier);
+        Q_EMIT insertSearchString(identifier);
     });
     return pushButton;
 }

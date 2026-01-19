@@ -16,6 +16,7 @@ class CommonMessageFilterProxyModel;
 class RocketChatAccount;
 class Room;
 class CommonMessagesModel;
+class SearchMessageCommandButtonWidget;
 
 namespace TextEditTextToSpeech
 {
@@ -63,4 +64,5 @@ private:
     MessageListView *const mResultListWidget;
     RocketChatAccount *const mCurrentRocketChatAccount;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
+    SearchMessageCommandButtonWidget *const mSearchMessageCommandButtonWidget;
 };

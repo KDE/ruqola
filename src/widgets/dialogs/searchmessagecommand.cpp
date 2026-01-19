@@ -25,6 +25,10 @@ QString SearchMessageCommand::generateCommandText(SearchMessageCommand::SearchMe
         return u"has:location"_s;
     case Before:
         return u"before:"_s;
+    case After:
+        return u"after:"_s;
+    case Day:
+        return u"on:"_s;
     case Order:
         return u"order:desc"_s;
     case FromMe:
@@ -34,4 +38,10 @@ QString SearchMessageCommand::generateCommandText(SearchMessageCommand::SearchMe
     }
     return {};
 }
+
+bool SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType type)
+{
+    return type == HasStar || type == IsPinned || type == HasUrl || type == HasLocation || type == Order || type == FromMe || type == FromUserName;
+}
+
 #include "moc_searchmessagecommand.cpp"

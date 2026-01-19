@@ -18,6 +18,8 @@ public:
     ~SearchMessageWithDelayLineEdit() override;
     void addCompletionItem(const QString &str);
 
+    void insertSearchString(const QString &str);
+
 private:
     QStringList mListCompetion;
     QCompleter *const mCompleter;

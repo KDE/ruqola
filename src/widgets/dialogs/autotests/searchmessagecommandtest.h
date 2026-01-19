@@ -13,4 +13,7 @@ class SearchMessageCommandTest : public QObject
 public:
     explicit SearchMessageCommandTest(QObject *parent = nullptr);
     ~SearchMessageCommandTest() override = default;
+
+private Q_SLOTS:
+    void shouldGenerateText();
 };

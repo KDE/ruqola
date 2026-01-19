@@ -8,8 +8,8 @@
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QCompleter>
+#include <QMenu>
 #include <QStringListModel>
-#include <qmenu.h>
 #define MAX_COMPLETION_ITEMS 20
 using namespace Qt::Literals::StringLiterals;
 SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount *account, QWidget *parent)
@@ -19,12 +19,20 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
     , mCurrentRocketChatAccount(account)
 {
     auto searchAction = addAction(QIcon::fromTheme(u"edit-find"_s), QLineEdit::LeadingPosition);
+    searchAction->setObjectName(u"searchAction"_s);
     searchAction->setToolTip(i18nc("@info:tooltip", "Option"));
     auto optionMenu = new QMenu(this);
     auto regularExpressionAct = optionMenu->addAction(i18n("Regular Expression"));
     regularExpressionAct->setCheckable(true);
 
     searchAction->setMenu(optionMenu);
+
+#if 0 // TODO
+    auto searchExtraAction = addAction(QIcon::fromTheme(u"edit-find"_s), QLineEdit::TrailingPosition);
+    searchExtraAction->setObjectName(u"searchExtraAction"_s);
+    searchExtraAction->setToolTip(i18nc("@info:tooltip", "Option"));
+#endif
+
     mCompleter->setObjectName(u"mCompleter"_s);
     mCompleterListModel->setObjectName(u"mCompleterListModel"_s);
 
@@ -50,6 +58,12 @@ void SearchMessageWithDelayLineEdit::addCompletionItem(const QString &str)
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->setSearchListCompletion(mListCompetion);
     }
+}
+
+void SearchMessageWithDelayLineEdit::insertSearchString(const QString &str)
+{
+    // TODO insert string
+    qDebug() << " SearchMessageWithDelayLineEdit::insertSearchString " << str;
 }
 
 #include "moc_searchmessagewithdelaylineedit.cpp"
