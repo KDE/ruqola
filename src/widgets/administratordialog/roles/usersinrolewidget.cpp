@@ -56,7 +56,12 @@ void UsersInRoleWidget::slotAddUser()
         const auto users = dlg->userNames();
         for (const auto &user : users) {
             auto job = new RocketChatRestApi::AddUserToRoleJob(this);
-            job->setRoleName(mRoleId);
+            if (mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
+                job->setUseRC80(true);
+                job->setRoleId(mRoleId);
+            } else {
+                job->setRoleName(mRoleId);
+            }
             job->setUsername(user);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::AddUserToRoleJob::addUsersToRoleDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
@@ -84,7 +89,12 @@ void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::RemoveUserFromRoleJob(this);
-        job->setRoleName(mRoleName);
+        if (mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
+            job->setUseRC80(true);
+            job->setRoleId(mRoleId);
+        } else {
+            job->setRoleName(mRoleName);
+        }
         modelIndex = mTreeView->model()->index(index.row(), UsersInRoleModel::UserName);
         job->setUsername(modelIndex.data().toString());
 
