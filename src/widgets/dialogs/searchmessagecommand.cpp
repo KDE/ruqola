@@ -41,7 +41,7 @@ QString SearchMessageCommand::generateCommandText(SearchMessageCommand::SearchMe
 
 bool SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType type)
 {
-    return type == HasStar || type == IsPinned || type == HasUrl || type == HasLocation || type == Order || type == FromMe || type == FromUserName;
+    return type == HasStar || type == IsPinned || type == HasUrl || type == HasLocation || type == Order || type == FromMe;
 }
 
 #include "moc_searchmessagecommand.cpp"

@@ -28,4 +28,19 @@ void SearchMessageCommandTest::shouldGenerateText()
     QCOMPARE(SearchMessageCommand::generateCommandText(SearchMessageCommand::SearchMessageCommandType::FromUserName), u"from:user.name"_s);
 }
 
+void SearchMessageCommandTest::shouldVerifyNeedUnique()
+{
+    QVERIFY(!SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::Unknown));
+    QVERIFY(SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::HasStar));
+    QVERIFY(SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::IsPinned));
+    QVERIFY(SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::HasUrl));
+    QVERIFY(SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::HasLocation));
+    QVERIFY(!SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::Before));
+    QVERIFY(!SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::After));
+    QVERIFY(!SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::Day));
+    QVERIFY(SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::Order));
+    QVERIFY(SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::FromMe));
+    QVERIFY(!SearchMessageCommand::mustBeUnique(SearchMessageCommand::SearchMessageCommandType::FromUserName));
+}
+
 #include "moc_searchmessagecommandtest.cpp"

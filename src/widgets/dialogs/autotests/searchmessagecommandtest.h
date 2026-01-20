@@ -16,4 +16,5 @@ public:
 
 private Q_SLOTS:
     void shouldGenerateText();
+    void shouldVerifyNeedUnique();
 };

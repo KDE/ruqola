@@ -23,6 +23,7 @@ private:
         QString identifier;
         QString i18n;
         QString toolTip;
+        bool needSpace = false;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QList<SearchMessageCommandButtonWidget::ButtonInfo> fillCommandLineText() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPushButton *createPushButton(const ButtonInfo &info);
