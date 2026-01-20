@@ -23,9 +23,11 @@ TimeStampInMessagesWidget::TimeStampInMessagesWidget(QWidget *parent)
 
     mDateEdit->setObjectName(u"mDateEdit"_s);
     mainLayout->addRow(i18n("Date"), mDateEdit);
+    mDateEdit->setDate(QDate::currentDate());
 
     mTimeEdit->setObjectName(u"mTimeEdit"_s);
     mainLayout->addRow(i18n("Time"), mTimeEdit);
+    mTimeEdit->setTime(QTime::currentTime());
 
     mTimeStampInMessagesFormatComboBox->setObjectName(u"mTimeStampInMessagesFormatComboBox"_s);
     mainLayout->addRow(i18n("Format"), mTimeStampInMessagesFormatComboBox);

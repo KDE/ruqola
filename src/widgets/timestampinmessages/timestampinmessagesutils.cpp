@@ -15,6 +15,11 @@ QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t)
     return d;
 }
 
+static QString generateNumber(int value, int pad)
+{
+    return u"%1"_s.arg(value, pad, 10, u'0');
+}
+
 QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info)
 {
     if (info.format.isEmpty()) {
@@ -28,6 +33,14 @@ QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info
     const int minutes = info.time.minute();
     const int secondes = info.time.second();
     const int msec = info.time.msec();
+    const QString result = u"%1-%2-%3T%4:%5:%6.%7%8"_s.arg(generateNumber(year, 2),
+                                                           generateNumber(month, 2),
+                                                           generateNumber(day, 2),
+                                                           generateNumber(hours, 2),
+                                                           generateNumber(minutes, 2),
+                                                           generateNumber(secondes, 2),
+                                                           generateNumber(msec, 3),
+                                                           info.timeZone);
 
 #if 0
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -40,7 +53,7 @@ QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info
 #endif
 
     // TODO
-    return u"<t:%1:%2>"_s.arg(info.date.toString(), info.format);
+    return u"<t:%1:%2>"_s.arg(result, info.format);
 }
 
 bool TimeStampInMessagesUtils::TimeStampInfo::isValid() const
