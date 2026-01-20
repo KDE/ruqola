@@ -18,7 +18,9 @@ TimeStampInMessagesTimeZoneComboBox::~TimeStampInMessagesTimeZoneComboBox() = de
 void TimeStampInMessagesTimeZoneComboBox::initialize()
 {
     addItem(i18n("Locale"), QString());
-    // TODO add more
+    for (int i = -12; i <= 12; ++i) {
+        addItem(u"UTC%1"_s.arg(QString::number(i)), u"%1:00"_s.arg(QString::number(i)));
+    }
 }
 
 QString TimeStampInMessagesTimeZoneComboBox::currentTimeZone() const
