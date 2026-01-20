@@ -61,6 +61,10 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
             mSearchLineEdit,
             &SearchMessageWithDelayLineEdit::insertSearchString);
 
+    connect(mSearchLineEdit, &SearchMessageWithDelayLineEdit::searchCommandActionRequested, this, [this]() {
+        mSearchMessageCommandButtonWidget->setVisible(!mSearchMessageCommandButtonWidget->isVisible());
+    });
+
     auto labelRegularExpression = new QLabel(i18n("You can search using <a href=\"https://en.wikipedia.org/wiki/Regular_expression\">Regular "
                                                   "Expression</a>. e.g. <code>/^text$/i</code>"),
                                              this);

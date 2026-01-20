@@ -27,11 +27,10 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
 
     searchAction->setMenu(optionMenu);
 
-#if 0 // TODO
-    auto searchExtraAction = addAction(QIcon::fromTheme(u"edit-find"_s), QLineEdit::TrailingPosition);
+    auto searchExtraAction = addAction(QIcon::fromTheme(u"settings-configure"_s), QLineEdit::TrailingPosition);
     searchExtraAction->setObjectName(u"searchExtraAction"_s);
-    searchExtraAction->setToolTip(i18nc("@info:tooltip", "Option"));
-#endif
+    searchExtraAction->setToolTip(i18nc("@info:tooltip", "Show or Hide search option line"));
+    connect(searchExtraAction, &QAction::triggered, this, &SearchMessageWithDelayLineEdit::searchCommandActionRequested);
 
     mCompleter->setObjectName(u"mCompleter"_s);
     mCompleterListModel->setObjectName(u"mCompleterListModel"_s);

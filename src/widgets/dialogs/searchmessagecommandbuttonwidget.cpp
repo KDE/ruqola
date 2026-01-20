@@ -24,6 +24,7 @@ SearchMessageCommandButtonWidget::SearchMessageCommandButtonWidget(QWidget *pare
     for (const auto &info : std::as_const(buttonsList)) {
         flowLayout->addWidget(createPushButton(info));
     }
+    hide();
 }
 
 SearchMessageCommandButtonWidget::~SearchMessageCommandButtonWidget() = default;

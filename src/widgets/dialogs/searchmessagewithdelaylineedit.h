@@ -20,6 +20,9 @@ public:
 
     void insertSearchString(const QString &str);
 
+Q_SIGNALS:
+    void searchCommandActionRequested();
+
 private:
     QStringList mListCompetion;
     QCompleter *const mCompleter;
