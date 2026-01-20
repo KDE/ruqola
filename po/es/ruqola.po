@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-18 00:43+0000\n"
+"POT-Creation-Date: 2026-01-20 00:42+0000\n"
 "PO-Revision-Date: 2026-01-18 00:16+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3092,8 +3092,8 @@ msgstr "Eliminar emoji"
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:108
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:118
+#: widgets/administratordialog/users/administratoruserswidget.cpp:298
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3107,7 +3107,7 @@ msgstr "Añadir…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:303
+#: widgets/administratordialog/users/administratoruserswidget.cpp:305
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3119,9 +3119,9 @@ msgstr "Modificar…"
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:112
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:122
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
-#: widgets/administratordialog/users/administratoruserswidget.cpp:340
+#: widgets/administratordialog/users/administratoruserswidget.cpp:342
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3330,7 +3330,7 @@ msgid "Show Moderation Messages"
 msgstr "Mostrar mensajes de moderación"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:191
+#: widgets/dialogs/searchmessagewidget.cpp:201
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:143
@@ -3340,7 +3340,7 @@ msgid "Loading…"
 msgstr "Cargando…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:195
+#: widgets/dialogs/searchmessagewidget.cpp:205
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
@@ -3348,7 +3348,7 @@ msgid "No Message found"
 msgstr "No se encontró ningún mensaje"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:201
+#: widgets/dialogs/searchmessagewidget.cpp:211
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3701,7 +3701,7 @@ msgid "Users in Role"
 msgstr "Usuarios en el rol"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:38
-#: widgets/administratordialog/users/administratoruserswidget.cpp:81
+#: widgets/administratordialog/users/administratoruserswidget.cpp:83
 #: widgets/dialogs/addusersinroomwidget.cpp:25
 #: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:44
@@ -3716,26 +3716,26 @@ msgctxt "@title:window"
 msgid "Add Users in Role"
 msgstr "Añadir usuarios al rol"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:82
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:87
 #, kde-format
 msgid "Do you want to remove this user \"%1\"?"
 msgstr "¿Quiere eliminar este usuario «%1»?"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:83
-#: widgets/administratordialog/users/administratoruserswidget.cpp:238
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:88
+#: widgets/administratordialog/users/administratoruserswidget.cpp:240
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Eliminar usuario"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:121
-#: widgets/administratordialog/users/administratoruserswidget.cpp:353
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:131
+#: widgets/administratordialog/users/administratoruserswidget.cpp:355
 #, kde-format
 msgid "No user found"
 msgstr "No se encontró ningún usuario"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:126
-#: widgets/administratordialog/users/administratoruserswidget.cpp:358
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:136
+#: widgets/administratordialog/users/administratoruserswidget.cpp:360
 #: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4177,54 +4177,54 @@ msgstr "Todos"
 msgid "Activated"
 msgstr "Activado"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:237
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "¿Quiere eliminar este usuario?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:290
+#: widgets/administratordialog/users/administratoruserswidget.cpp:292
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Invitar…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:312
+#: widgets/administratordialog/users/administratoruserswidget.cpp:314
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Desactivar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:312
+#: widgets/administratordialog/users/administratoruserswidget.cpp:314
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Activo"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:321
+#: widgets/administratordialog/users/administratoruserswidget.cpp:323
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Eliminar administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:321
+#: widgets/administratordialog/users/administratoruserswidget.cpp:323
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Convertir en administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:329
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Reiniciar clave E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:333
+#: widgets/administratordialog/users/administratoruserswidget.cpp:335
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Reiniciar Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:436
+#: widgets/administratordialog/users/administratoruserswidget.cpp:470
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4240,24 +4240,24 @@ msgstr ""
 "capaz de restaurar el acceso a habitaciones cifradas que no tengan ningún "
 "miembro conectado."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:440
+#: widgets/administratordialog/users/administratoruserswidget.cpp:474
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Reiniciar clave E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:472
+#: widgets/administratordialog/users/administratoruserswidget.cpp:506
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "La clave extremo a extremo para %1 ha sido reiniciada."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:472
+#: widgets/administratordialog/users/administratoruserswidget.cpp:506
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Reiniciar E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:485
+#: widgets/administratordialog/users/administratoruserswidget.cpp:519
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4266,14 +4266,14 @@ msgstr ""
 "Reiniciar el factor de autenticación en dos pasos (TOTP) cerrará la sesión "
 "del usuario. El usuario podrá configurar la autenticación de nuevo después."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:486
-#: widgets/administratordialog/users/administratoruserswidget.cpp:517
+#: widgets/administratordialog/users/administratoruserswidget.cpp:520
+#: widgets/administratordialog/users/administratoruserswidget.cpp:551
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Reiniciar TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:517
+#: widgets/administratordialog/users/administratoruserswidget.cpp:551
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "La clave TOTP para %1 ha sido reiniciada"
@@ -8776,6 +8776,127 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Seleccionar avatar de la sala"
 
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:35
+#, fuzzy, kde-format
+#| msgid "From:"
+msgctxt "@action:button"
+msgid "From Me"
+msgstr "De:"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgctxt "@info:tooltip"
+msgid "Finds Messages sent by you."
+msgstr "Mensaje no encontrado."
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "From:"
+msgctxt "@action:button"
+msgid "From"
+msgstr "De:"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Finds Messages from a specific user. (Use the username format without space)"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Order:desc"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Sorts message by descending timestamp"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Before"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Filter by date"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#, kde-format
+msgctxt "@action:button"
+msgid "After"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#, fuzzy, kde-format
+#| msgid "Delay:"
+msgctxt "@action:button"
+msgid "Day"
+msgstr "Retraso:"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Translation"
+msgctxt "@action:button"
+msgid "Has Location"
+msgstr "Traducción"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Finds messages that include a location."
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Has Url"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Finds messages that contain a link"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Message Pinned"
+msgctxt "@action:button"
+msgid "Is Pinned"
+msgstr "Mensaje fijado"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Displays pinned messages in the current room."
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start"
+msgctxt "@action:button"
+msgid "Has Star"
+msgstr "Iniciar"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Message has been starred"
+msgctxt "@info:tooltip"
+msgid "Shows messages you've starred."
+msgstr "El mensaje se ha destacado"
+
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -8794,13 +8915,13 @@ msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Buscar mensajes…"
 
-#: widgets/dialogs/searchmessagewidget.cpp:51
+#: widgets/dialogs/searchmessagewidget.cpp:53
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Buscar mensajes"
 
-#: widgets/dialogs/searchmessagewidget.cpp:54
+#: widgets/dialogs/searchmessagewidget.cpp:64
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
@@ -8809,6 +8930,20 @@ msgstr ""
 "Puede buscar usando <a href=\"https://en.wikipedia.org/wiki/"
 "Regular_expression\">expresiones regulares</a>. Por ejemplo: <code>/^texto$/"
 "i</code>"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:33
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@info:tooltip"
+msgid "Option"
+msgstr "Opciones"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
+#, fuzzy, kde-format
+#| msgid "Regular Expressions"
+msgid "Regular Expression"
+msgstr "Expresiones regulares"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format

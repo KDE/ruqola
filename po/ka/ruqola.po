@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-18 00:43+0000\n"
+"POT-Creation-Date: 2026-01-20 00:42+0000\n"
 "PO-Revision-Date: 2026-01-16 05:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3079,8 +3079,8 @@ msgstr "Emoji-ის წაშლა"
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:108
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:118
+#: widgets/administratordialog/users/administratoruserswidget.cpp:298
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3094,7 +3094,7 @@ msgstr "დამატება…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:303
+#: widgets/administratordialog/users/administratoruserswidget.cpp:305
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3106,9 +3106,9 @@ msgstr "შეცვლა…"
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:112
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:122
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
-#: widgets/administratordialog/users/administratoruserswidget.cpp:340
+#: widgets/administratordialog/users/administratoruserswidget.cpp:342
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3317,7 +3317,7 @@ msgid "Show Moderation Messages"
 msgstr "მოდერაციის შეტყობინებების ჩვენება"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:191
+#: widgets/dialogs/searchmessagewidget.cpp:201
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:143
@@ -3327,7 +3327,7 @@ msgid "Loading…"
 msgstr "ჩატვირთვა…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:195
+#: widgets/dialogs/searchmessagewidget.cpp:205
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
@@ -3335,7 +3335,7 @@ msgid "No Message found"
 msgstr "შეტყობინებების გარეშე."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:201
+#: widgets/dialogs/searchmessagewidget.cpp:211
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3685,7 +3685,7 @@ msgid "Users in Role"
 msgstr "მომხმარებლები როლში"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:38
-#: widgets/administratordialog/users/administratoruserswidget.cpp:81
+#: widgets/administratordialog/users/administratoruserswidget.cpp:83
 #: widgets/dialogs/addusersinroomwidget.cpp:25
 #: widgets/directory/directorywidget.cpp:40
 #: widgets/room/usersinroomwidget.cpp:44
@@ -3700,26 +3700,26 @@ msgctxt "@title:window"
 msgid "Add Users in Role"
 msgstr "დაამატეთ მომხმარებლები როლში"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:82
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:87
 #, kde-format
 msgid "Do you want to remove this user \"%1\"?"
 msgstr "გნებავთ, წაშალოთ ეს მომხმარებელი \"%1\"?"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:83
-#: widgets/administratordialog/users/administratoruserswidget.cpp:238
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:88
+#: widgets/administratordialog/users/administratoruserswidget.cpp:240
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "მომხმარებლის წაშლა"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:121
-#: widgets/administratordialog/users/administratoruserswidget.cpp:353
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:131
+#: widgets/administratordialog/users/administratoruserswidget.cpp:355
 #, kde-format
 msgid "No user found"
 msgstr "ვერ ვიპოვე მომხმარებელი"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:126
-#: widgets/administratordialog/users/administratoruserswidget.cpp:358
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:136
+#: widgets/administratordialog/users/administratoruserswidget.cpp:360
 #: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4161,54 +4161,54 @@ msgstr "&ყველა"
 msgid "Activated"
 msgstr "გააქტიურებულია"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:237
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "გნებავთ, წაშალოთ ეს მომხმარებელი?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:290
+#: widgets/administratordialog/users/administratoruserswidget.cpp:292
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "მოწვევა…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:312
+#: widgets/administratordialog/users/administratoruserswidget.cpp:314
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "დეაქტივაცია"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:312
+#: widgets/administratordialog/users/administratoruserswidget.cpp:314
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "აქტიური"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:321
+#: widgets/administratordialog/users/administratoruserswidget.cpp:323
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "ადმინისტრატორის წაშლა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:321
+#: widgets/administratordialog/users/administratoruserswidget.cpp:323
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "ადმინისტრატორად გახდომა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:329
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "E2E გასაღების ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:333
+#: widgets/administratordialog/users/administratoruserswidget.cpp:335
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Totp-ის ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:436
+#: widgets/administratordialog/users/administratoruserswidget.cpp:470
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4223,24 +4223,24 @@ msgstr ""
 "წევრი ჰყავს ხაზზე. E2E დაშიფვრის ბუნების გამო, Rocket.Chat-ს არ შეუძლია "
 "აღადგინოს წვდომა დაშიფრულ არხებთან, რომლებსაც ხაზზე მყოფი წევრები არ გააჩნია."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:440
+#: widgets/administratordialog/users/administratoruserswidget.cpp:474
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "E2E გასაღების ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:472
+#: widgets/administratordialog/users/administratoruserswidget.cpp:506
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1-ის გამჭოლი გასაღები საწყის მნიშვნელობაზე დაბრუნდა."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:472
+#: widgets/administratordialog/users/administratoruserswidget.cpp:506
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "E2E-ის ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:485
+#: widgets/administratordialog/users/administratoruserswidget.cpp:519
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4249,14 +4249,14 @@ msgstr ""
 "მიმდინარე ორფაქტორიანი TOTP-ის ჩამოყრა მომხმარებელს სისტემიდან გააგდებს. ამ "
 "მომხმარებელს მოგვიანებით შეეძლება, 2 ფაქტორი ისევ ჩართოს."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:486
-#: widgets/administratordialog/users/administratoruserswidget.cpp:517
+#: widgets/administratordialog/users/administratoruserswidget.cpp:520
+#: widgets/administratordialog/users/administratoruserswidget.cpp:551
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "TOTP-ის ჩამოყრა"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:517
+#: widgets/administratordialog/users/administratoruserswidget.cpp:551
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "TOTP გასაღები %1-თვის საწყის მნიშვნელობაზე დაბრუნდა"
@@ -8721,6 +8721,127 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "აირჩეთ ოთახის ავატარი"
 
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:35
+#, fuzzy, kde-format
+#| msgid "From:"
+msgctxt "@action:button"
+msgid "From Me"
+msgstr "საიდან:"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgctxt "@info:tooltip"
+msgid "Finds Messages sent by you."
+msgstr "შეტყობინება ვერ ვიპოვე."
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "From:"
+msgctxt "@action:button"
+msgid "From"
+msgstr "საიდან:"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Finds Messages from a specific user. (Use the username format without space)"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Order:desc"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Sorts message by descending timestamp"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Before"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Filter by date"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#, kde-format
+msgctxt "@action:button"
+msgid "After"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#, fuzzy, kde-format
+#| msgid "Delay:"
+msgctxt "@action:button"
+msgid "Day"
+msgstr "დაყოვნება:"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Translation"
+msgctxt "@action:button"
+msgid "Has Location"
+msgstr "თარგმანი"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Finds messages that include a location."
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Has Url"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Finds messages that contain a link"
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Message Pinned"
+msgctxt "@action:button"
+msgid "Is Pinned"
+msgstr "შეტყობინება მიჭიკარტებულია"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Displays pinned messages in the current room."
+msgstr ""
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start"
+msgctxt "@action:button"
+msgid "Has Star"
+msgstr "დაწყება"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Message has been starred"
+msgctxt "@info:tooltip"
+msgid "Shows messages you've starred."
+msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
+
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -8739,13 +8860,13 @@ msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "შეტყობინებებში ძებნა…"
 
-#: widgets/dialogs/searchmessagewidget.cpp:51
+#: widgets/dialogs/searchmessagewidget.cpp:53
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "შეტყობინებებში ძებნა"
 
-#: widgets/dialogs/searchmessagewidget.cpp:54
+#: widgets/dialogs/searchmessagewidget.cpp:64
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
@@ -8753,6 +8874,20 @@ msgid ""
 msgstr ""
 "შეგიძლიათ <a href=\"https://en.wikipedia.org/wiki/Regular_expression"
 "\">რეგულარული გამოსახულებებითაც</a> ეძებოთ. მაგ: <code>/^text$/i</code>"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:33
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@info:tooltip"
+msgid "Option"
+msgstr "პარამეტრები"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
+#, fuzzy, kde-format
+#| msgid "Regular Expressions"
+msgid "Regular Expression"
+msgstr "რეგულარული გამოსახულებები"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
