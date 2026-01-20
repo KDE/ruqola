@@ -62,8 +62,11 @@ void SearchMessageWithDelayLineEdit::addCompletionItem(const QString &str)
 
 void SearchMessageWithDelayLineEdit::insertSearchString(const QString &str)
 {
-    // TODO insert string
-    qDebug() << " SearchMessageWithDelayLineEdit::insertSearchString " << str;
+    if (!text().isEmpty()) {
+        insert(u' ' + str);
+    } else {
+        insert(str);
+    }
 }
 
 #include "moc_searchmessagewithdelaylineedit.cpp"
