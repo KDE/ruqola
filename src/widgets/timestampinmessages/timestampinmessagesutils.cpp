@@ -20,6 +20,25 @@ QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info
     if (info.format.isEmpty()) {
         return {};
     }
+    const int year = info.date.year();
+    const int month = info.date.month();
+    const int day = info.date.day();
+
+    const int hours = info.time.hour();
+    const int minutes = info.time.minute();
+    const int secondes = info.time.second();
+    const int msec = info.time.msec();
+
+#if 0
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    const ms = String(date.getMilliseconds()).padStart(3, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${ms}${offset}`;
+#endif
+
     // TODO
     return u"<t:%1:%2>"_s.arg(info.date.toString(), info.format);
 }
