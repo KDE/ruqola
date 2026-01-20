@@ -15,6 +15,7 @@ struct LIBRUQOLAWIDGETS_EXPORT TimeStampInfo {
     QDate date;
     QTime time;
     QString timeZone;
+    [[nodiscard]] bool isValid() const;
 };
 [[nodiscard]] LIBRUQOLAWIDGETS_EXPORT QString generateTimeStampStr(const TimeStampInfo &info);
 };

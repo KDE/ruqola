@@ -17,6 +17,14 @@ QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t)
 
 QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info)
 {
+    if (info.format.isEmpty()) {
+        return {};
+    }
     // TODO
     return u"<t:%1:%2>"_s.arg(info.date.toString(), info.format);
+}
+
+bool TimeStampInMessagesUtils::TimeStampInfo::isValid() const
+{
+    return !format.isEmpty();
 }

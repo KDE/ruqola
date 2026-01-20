@@ -15,5 +15,20 @@ TimeStampInMessagesUtilsTest::TimeStampInMessagesUtilsTest(QObject *parent)
 
 void TimeStampInMessagesUtilsTest::shouldGenerateTimeStampStr()
 {
+    QFETCH(TimeStampInMessagesUtils::TimeStampInfo, info);
+    QFETCH(QString, result);
+
+    QCOMPARE(TimeStampInMessagesUtils::generateTimeStampStr(info), result);
+}
+
+void TimeStampInMessagesUtilsTest::shouldGenerateTimeStampStr_data()
+{
+    QTest::addColumn<TimeStampInMessagesUtils::TimeStampInfo>("info");
+    QTest::addColumn<QString>("result");
+
+    TimeStampInMessagesUtils::TimeStampInfo emptyInfo;
+
+    QTest::addRow("empty") << emptyInfo << QString();
+
     // TODO
 }
