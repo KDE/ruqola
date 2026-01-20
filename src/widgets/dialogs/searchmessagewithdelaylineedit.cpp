@@ -22,8 +22,16 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
     searchAction->setObjectName(u"searchAction"_s);
     searchAction->setToolTip(i18nc("@info:tooltip", "Option"));
     auto optionMenu = new QMenu(this);
-    auto regularExpressionAct = optionMenu->addAction(i18n("Regular Expression"));
-    regularExpressionAct->setCheckable(true);
+    mRegularExpressionAct = optionMenu->addAction(i18n("Regular Expression"));
+    mRegularExpressionAct->setCheckable(true);
+
+    mIgnoreCaseAct = optionMenu->addAction(i18n("Ignore Camel Case"));
+    mIgnoreCaseAct->setCheckable(true);
+    mIgnoreCaseAct->setEnabled(false);
+
+    connect(mRegularExpressionAct, &QAction::triggered, this, [this](bool checked) {
+        mIgnoreCaseAct->setEnabled(checked);
+    });
 
     searchAction->setMenu(optionMenu);
 
@@ -66,6 +74,15 @@ void SearchMessageWithDelayLineEdit::insertSearchString(const QString &str)
     } else {
         insert(str);
     }
+}
+
+SearchMessageWithDelayLineEdit::SearchRegularExpressionInfo SearchMessageWithDelayLineEdit::searchRegularExpressionInfo() const
+{
+    const SearchMessageWithDelayLineEdit::SearchRegularExpressionInfo info{
+        .useRegular = mRegularExpressionAct->isChecked(),
+        .ignoreUpperCase = mIgnoreCaseAct->isChecked(),
+    };
+    return info;
 }
 
 #include "moc_searchmessagewithdelaylineedit.cpp"

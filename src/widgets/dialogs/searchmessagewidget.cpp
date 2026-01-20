@@ -176,10 +176,22 @@ void SearchMessageWidget::slotSearchMessages(const QString &str)
 {
     if (mSearchText != str) {
         mSearchText = str;
+        QString newStr;
+        const SearchMessageWithDelayLineEdit::SearchRegularExpressionInfo info = mSearchLineEdit->searchRegularExpressionInfo();
+        if (info.useRegular) {
+            newStr = u"/%1/"_s.arg(str);
+            if (info.ignoreUpperCase) {
+                newStr += u'i';
+            }
+        } else {
+            newStr = str;
+        }
+
         clearSearchModel();
-        mSearchMessageFilterProxyModel->setSearchText(str);
-        mSearchLineEdit->addCompletionItem(str);
-        messageSearch(str, mRoomId, false);
+        mSearchMessageFilterProxyModel->setSearchText(newStr);
+        mSearchLineEdit->addCompletionItem(newStr);
+        messageSearch(newStr, mRoomId, false);
+        qDebug() << " messageSearch " << newStr;
         mOffset = numberOfElment;
     }
 }

@@ -27,6 +27,10 @@ void SearchMessageWithDelayLineEditTest::shouldHaveDefaultValues()
     auto mCompleterListModel = w.findChild<QStringListModel *>(u"mCompleterListModel"_s);
     QVERIFY(mCompleterListModel);
     QCOMPARE(mCompleterListModel->rowCount(), 0);
+
+    const SearchMessageWithDelayLineEdit::SearchRegularExpressionInfo info;
+    QVERIFY(!info.useRegular);
+    QVERIFY(!info.ignoreUpperCase);
 }
 
 #include "moc_searchmessagewithdelaylineedittest.cpp"

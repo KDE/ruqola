@@ -14,11 +14,17 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWithDelayLineEdit : public Sear
 {
     Q_OBJECT
 public:
+    struct SearchRegularExpressionInfo {
+        bool useRegular = false;
+        bool ignoreUpperCase = false;
+    };
     explicit SearchMessageWithDelayLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchMessageWithDelayLineEdit() override;
     void addCompletionItem(const QString &str);
 
     void insertSearchString(const QString &str);
+
+    [[nodiscard]] SearchMessageWithDelayLineEdit::SearchRegularExpressionInfo searchRegularExpressionInfo() const;
 
 Q_SIGNALS:
     void searchCommandActionRequested();
@@ -28,4 +34,6 @@ private:
     QCompleter *const mCompleter;
     QStringListModel *const mCompleterListModel;
     RocketChatAccount *const mCurrentRocketChatAccount;
+    QAction *mRegularExpressionAct = nullptr;
+    QAction *mIgnoreCaseAct = nullptr;
 };
