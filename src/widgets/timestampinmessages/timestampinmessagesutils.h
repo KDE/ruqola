@@ -18,5 +18,5 @@ struct LIBRUQOLAWIDGETS_EXPORT TimeStampInfo {
 };
 [[nodiscard]] LIBRUQOLAWIDGETS_EXPORT QString generateTimeStampStr(const TimeStampInfo &info);
 };
-
+Q_DECLARE_TYPEINFO(TimeStampInMessagesUtils::TimeStampInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t);
