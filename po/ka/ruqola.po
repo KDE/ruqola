@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:42+0000\n"
-"PO-Revision-Date: 2026-01-16 05:02+0100\n"
+"POT-Creation-Date: 2026-01-21 00:45+0000\n"
+"PO-Revision-Date: 2026-01-20 05:52+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3317,7 +3317,7 @@ msgid "Show Moderation Messages"
 msgstr "მოდერაციის შეტყობინებების ჩვენება"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:201
+#: widgets/dialogs/searchmessagewidget.cpp:217
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:143
@@ -3327,7 +3327,7 @@ msgid "Loading…"
 msgstr "ჩატვირთვა…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:205
+#: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
@@ -3335,7 +3335,7 @@ msgid "No Message found"
 msgstr "შეტყობინებების გარეშე."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:211
+#: widgets/dialogs/searchmessagewidget.cpp:227
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -5509,7 +5509,7 @@ msgstr ""
 "ორივე, მხოლოდ, ადმინისტრატორებისთვისაა ხილული."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:36
 #, kde-format
 msgid "TimeZone"
 msgstr "დროის სარტყელი"
@@ -8721,126 +8721,120 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "აირჩეთ ოთახის ავატარი"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "From:"
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "საიდან:"
+msgstr "ჩემგან"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "შეტყობინება ვერ ვიპოვე."
+msgstr "პოულობს თქვენს მიერ გაგზავნილ შეტყობინებებს."
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "From:"
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "საიდან:"
+msgstr "ვისგან"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
+"ეძებს შეტყობინებას კონკრეტული მომხმარებლისგან. (გამოიყენეთ მომხმარებლის "
+"სახელის ფორმატი ჰარეს გარეშე)"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "მიმდევრობა: დაღმ"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
-#, kde-format
-msgctxt "@action:button"
-msgid "Before"
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Filter by date"
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
-#, kde-format
-msgctxt "@action:button"
-msgid "After"
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Delay:"
-msgctxt "@action:button"
-msgid "Day"
-msgstr "დაყოვნება:"
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Translation"
-msgctxt "@action:button"
-msgid "Has Location"
-msgstr "თარგმანი"
+msgstr "ალაგებს შეტყობინებას დაღმავალი დროის შტამპით"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
-msgctxt "@info:tooltip"
-msgid "Finds messages that include a location."
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
-#, kde-format
 msgctxt "@action:button"
-msgid "Has Url"
-msgstr ""
+msgid "Before"
+msgstr "სადამდე"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Finds messages that contain a link"
-msgstr ""
-
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
-msgctxt "@action:button"
-msgid "Is Pinned"
-msgstr "შეტყობინება მიჭიკარტებულია"
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Displays pinned messages in the current room."
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
-msgctxt "@action:button"
-msgid "Has Star"
-msgstr "დაწყება"
-
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#| msgid "Filter by date"
+msgctxt "@info:tooltip"
+msgid "Filter by date as %1"
+msgstr "თარიღით გაფილტვრა"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
+#, kde-format
+msgctxt "@action:button"
+msgid "After"
+msgstr "შემდეგ"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#, kde-format
+msgctxt "@action:button"
+msgid "Day"
+msgstr "დღე"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
+#, kde-format
+msgctxt "@action:button"
+msgid "Has Location"
+msgstr "აქვს მდებარეობა"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Finds messages that include a location."
+msgstr "პოულობს შეტყობინებებს, რომლებიც შეიცავს მდებარეობას."
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Has Url"
+msgstr "აქვს url"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Finds messages that contain a link"
+msgstr "ეძებს შეტყობინებებს, რომლებიც ბმულს შეიცავენ"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
+#, kde-format
+msgctxt "@action:button"
+msgid "Is Pinned"
+msgstr "მიჭიკარტებულია"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Displays pinned messages in the current room."
+msgstr "მიმდინარე ოთახში მიმაგრებული შეტყობინებების ჩვენება."
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
+#, kde-format
+msgctxt "@action:button"
+msgid "Has Star"
+msgstr "აქვს ვარსკვლავი"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
+msgstr "აჩვენებს შეტყობინებებს, რომლებსაც თქვენ ვარსკვლავი დაუსვით."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -8866,7 +8860,7 @@ msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "შეტყობინებებში ძებნა"
 
-#: widgets/dialogs/searchmessagewidget.cpp:64
+#: widgets/dialogs/searchmessagewidget.cpp:68
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
@@ -8876,18 +8870,28 @@ msgstr ""
 "\">რეგულარული გამოსახულებებითაც</a> ეძებოთ. მაგ: <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:33
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "პარამეტრები"
+msgstr "პარამეტრი"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "რეგულარული გამოსახულებები"
+msgstr "რეგულარულ გამოსახულება"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Camel Case"
+msgstr "მომხმარებლის იგნორირება"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show or Hide search option line"
+msgstr ""
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9075,7 +9079,7 @@ msgid "Video: %1"
 msgstr "ვიდეო: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10675,50 +10679,50 @@ msgstr "შეტყობინების გაგზავნა"
 msgid "Send Message"
 msgstr "შეტყობინების გაგზავნა"
 
-#: widgets/room/messagelinewidget.cpp:216
+#: widgets/room/messagelinewidget.cpp:220
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "ბრძანება ჩავარდა. გნებავთ მისი კოპირება ბუფერში ?"
 
-#: widgets/room/messagelinewidget.cpp:217
+#: widgets/room/messagelinewidget.cpp:221
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "ბრძანების შეცდომა"
 
-#: widgets/room/messagelinewidget.cpp:274
+#: widgets/room/messagelinewidget.cpp:278
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "გადავაკეთო ეს დიდი ტექსტი მიმაგრებულ ფაილად?"
 
-#: widgets/room/messagelinewidget.cpp:275
+#: widgets/room/messagelinewidget.cpp:279
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "შეტყობინება ძალიან დიდია"
 
-#: widgets/room/messagelinewidget.cpp:379
+#: widgets/room/messagelinewidget.cpp:383
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "შეტყობინება %1 დისკუსიაში"
 
-#: widgets/room/messagelinewidget.cpp:379
+#: widgets/room/messagelinewidget.cpp:383
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "შეტყობინების გაგზავნა %1-ში…"
 
-#: widgets/room/messagelinewidget.cpp:529
+#: widgets/room/messagelinewidget.cpp:533
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "მონიშნული ფაილი ძალიან დიდია (მაქსიმალური ზომაა %1)"
 
-#: widgets/room/messagelinewidget.cpp:530
+#: widgets/room/messagelinewidget.cpp:534
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "ფაილის ატვირთვა"
 
-#: widgets/room/messagelinewidget.cpp:535
+#: widgets/room/messagelinewidget.cpp:539
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "სერვერმა ამ ფაილს ავტორიზაცია არ მიანიჭა (არასწორი mimetype)"
@@ -11804,12 +11808,12 @@ msgstr "ენა"
 msgid "Date"
 msgstr "თარიღი"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
 #, kde-format
 msgid "Time"
 msgstr "დრო"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
 #, kde-format
 msgid "Format"
 msgstr "ფორმატი"

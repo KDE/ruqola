@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:42+0000\n"
+"POT-Creation-Date: 2026-01-21 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -3328,7 +3328,7 @@ msgid "Show Moderation Messages"
 msgstr "मॉडरेशन संदेश दिखाएं"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:201
+#: widgets/dialogs/searchmessagewidget.cpp:217
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:143
@@ -3338,7 +3338,7 @@ msgid "Loading…"
 msgstr "लोड हो रहा है…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:205
+#: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
@@ -3346,7 +3346,7 @@ msgid "No Message found"
 msgstr "कोई संदेश नहीं मिला"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:211
+#: widgets/dialogs/searchmessagewidget.cpp:227
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -5515,7 +5515,7 @@ msgstr ""
 "दोनों ही केवल प्रशासकों के लिए दिखाई देते हैं।"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:36
 #, kde-format
 msgid "TimeZone"
 msgstr "समयक्षेत्र"
@@ -8761,73 +8761,75 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "कक्ष अवतार का चयन करें"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:35
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From Me"
 msgstr "से:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Message not found."
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
 msgstr "संदेश नहीं मिला."
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:38
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From"
 msgstr "से:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
-#, kde-format
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Filter channels (%1)"
 msgctxt "@info:tooltip"
-msgid "Filter by date"
-msgstr ""
+msgid "Filter by date as %1"
+msgstr "चैनल फ़िल्टर करें (%1)"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Day"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Translation"
@@ -8835,38 +8837,38 @@ msgctxt "@action:button"
 msgid "Has Location"
 msgstr "अनुवाद"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgctxt "@action:button"
 msgid "Is Pinned"
 msgstr "संदेश पिन किया गया"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Start"
@@ -8874,7 +8876,7 @@ msgctxt "@action:button"
 msgid "Has Star"
 msgstr "शुरू"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Message has been starred"
@@ -8906,7 +8908,7 @@ msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "संदेश खोजें"
 
-#: widgets/dialogs/searchmessagewidget.cpp:64
+#: widgets/dialogs/searchmessagewidget.cpp:68
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
@@ -8916,7 +8918,6 @@ msgstr ""
 "का</a> उपयोग करके खोज सकते हैं। उदाहरण के लिए <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:33
 #, fuzzy, kde-format
 #| msgid "Options"
 msgctxt "@info:tooltip"
@@ -8928,6 +8929,19 @@ msgstr "विकल्प"
 #| msgid "Regular Expressions"
 msgid "Regular Expression"
 msgstr "नियमित अभिव्यक्तियाँ"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Camel Case"
+msgstr "उपयोगकर्ता की अनदेखी करें"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show or Hide search option line"
+msgstr ""
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9124,7 +9138,7 @@ msgid "Video: %1"
 msgstr "वीडियो: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10740,50 +10754,50 @@ msgstr "मेसेज भेजें"
 msgid "Send Message"
 msgstr "मेसेज भेजें"
 
-#: widgets/room/messagelinewidget.cpp:216
+#: widgets/room/messagelinewidget.cpp:220
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:217
+#: widgets/room/messagelinewidget.cpp:221
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:274
+#: widgets/room/messagelinewidget.cpp:278
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "क्या आप इस बड़े पाठ को अनुलग्नक के रूप में परिवर्तित करना चाहते हैं?"
 
-#: widgets/room/messagelinewidget.cpp:275
+#: widgets/room/messagelinewidget.cpp:279
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "संदेश बहुत बड़ा"
 
-#: widgets/room/messagelinewidget.cpp:379
+#: widgets/room/messagelinewidget.cpp:383
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "संदेश%1 थ्रेड में"
 
-#: widgets/room/messagelinewidget.cpp:379
+#: widgets/room/messagelinewidget.cpp:383
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "%1 में संदेश भेजें…"
 
-#: widgets/room/messagelinewidget.cpp:529
+#: widgets/room/messagelinewidget.cpp:533
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "चयनित फ़ाइल बहुत बड़ी है (अधिकतम आकार %1)"
 
-#: widgets/room/messagelinewidget.cpp:530
+#: widgets/room/messagelinewidget.cpp:534
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "फ़ाइल अपलोड"
 
-#: widgets/room/messagelinewidget.cpp:535
+#: widgets/room/messagelinewidget.cpp:539
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "सर्वर इस फ़ाइल को अधिकृत नहीं करता (अमान्य mimetype)"
@@ -11881,13 +11895,13 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "TimeZone"
 msgid "Time"
 msgstr "समयक्षेत्र"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "Alias Format"
 msgid "Format"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:42+0000\n"
+"POT-Creation-Date: 2026-01-21 00:45+0000\n"
 "PO-Revision-Date: 2026-01-16 12:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3332,7 +3332,7 @@ msgid "Show Moderation Messages"
 msgstr "Mostra la moderació de missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:201
+#: widgets/dialogs/searchmessagewidget.cpp:217
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:143
@@ -3342,7 +3342,7 @@ msgid "Loading…"
 msgstr "S'està carregant…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:205
+#: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
@@ -3350,7 +3350,7 @@ msgid "No Message found"
 msgstr "No s'ha trobat el missatge"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:211
+#: widgets/dialogs/searchmessagewidget.cpp:227
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -5537,7 +5537,7 @@ msgstr ""
 "tots dos visibles només per als administradors."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:36
 #, kde-format
 msgid "TimeZone"
 msgstr "Zona horària"
@@ -8773,112 +8773,114 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Tria l'avatar de la sala"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:35
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From Me"
 msgstr "De:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Message not found."
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
 msgstr "No s'ha trobat el missatge."
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:38
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From"
 msgstr "De:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
-#, kde-format
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Filter channels (%1)"
 msgctxt "@info:tooltip"
-msgid "Filter by date"
-msgstr ""
+msgid "Filter by date as %1"
+msgstr "Filtre de canals (%1)"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Delay:"
 msgctxt "@action:button"
 msgid "Day"
 msgstr "Retard:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@action:button"
 msgid "Has Location"
 msgstr "Traducció"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgctxt "@action:button"
 msgid "Is Pinned"
 msgstr "Missatge fixat"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Start"
@@ -8886,7 +8888,7 @@ msgctxt "@action:button"
 msgid "Has Star"
 msgstr "Inicia"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Message has been starred"
@@ -8918,7 +8920,7 @@ msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Busca missatges"
 
-#: widgets/dialogs/searchmessagewidget.cpp:64
+#: widgets/dialogs/searchmessagewidget.cpp:68
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
@@ -8928,7 +8930,6 @@ msgstr ""
 "Expressió_regular\">Expressions regulars</a>. P. ex., <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:33
 #, fuzzy, kde-format
 #| msgid "Options"
 msgctxt "@info:tooltip"
@@ -8940,6 +8941,19 @@ msgstr "Opcions"
 #| msgid "Regular Expressions"
 msgid "Regular Expression"
 msgstr "Expressions regulars"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Camel Case"
+msgstr "Ignora usuari"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show or Hide search option line"
+msgstr ""
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9127,7 +9141,7 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10740,50 +10754,50 @@ msgstr "Envia un missatge"
 msgid "Send Message"
 msgstr "Envia un missatge"
 
-#: widgets/room/messagelinewidget.cpp:216
+#: widgets/room/messagelinewidget.cpp:220
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "L'ordre ha fallat. Voleu copiar l'ordre al porta-retalls?"
 
-#: widgets/room/messagelinewidget.cpp:217
+#: widgets/room/messagelinewidget.cpp:221
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "S'ha produït un error d'ordre"
 
-#: widgets/room/messagelinewidget.cpp:274
+#: widgets/room/messagelinewidget.cpp:278
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Voleu convertir este text llarg en un adjunt?"
 
-#: widgets/room/messagelinewidget.cpp:275
+#: widgets/room/messagelinewidget.cpp:279
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Missatge massa llarg"
 
-#: widgets/room/messagelinewidget.cpp:379
+#: widgets/room/messagelinewidget.cpp:383
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Missatge %1 del fil"
 
-#: widgets/room/messagelinewidget.cpp:379
+#: widgets/room/messagelinewidget.cpp:383
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Envia un missatge en %1…"
 
-#: widgets/room/messagelinewidget.cpp:529
+#: widgets/room/messagelinewidget.cpp:533
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "El fitxer seleccionat és massa gran (la mida màxima és %1)"
 
-#: widgets/room/messagelinewidget.cpp:530
+#: widgets/room/messagelinewidget.cpp:534
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Pujada de fitxer"
 
-#: widgets/room/messagelinewidget.cpp:535
+#: widgets/room/messagelinewidget.cpp:539
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no ha autoritzat este fitxer (tipus MIME no vàlid)"
@@ -11869,12 +11883,12 @@ msgstr "Configuració regional"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
 #, kde-format
 msgid "Time"
 msgstr "Hora"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
 #, kde-format
 msgid "Format"
 msgstr "Format"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:42+0000\n"
-"PO-Revision-Date: 2026-01-16 06:28+0100\n"
+"POT-Creation-Date: 2026-01-21 00:45+0000\n"
+"PO-Revision-Date: 2026-01-20 07:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3329,7 +3329,7 @@ msgid "Show Moderation Messages"
 msgstr "Pokaži sporočila moderiranja"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:201
+#: widgets/dialogs/searchmessagewidget.cpp:217
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:143
@@ -3339,7 +3339,7 @@ msgid "Loading…"
 msgstr "Nalaganje…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:205
+#: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:158
 #, kde-format
@@ -3347,7 +3347,7 @@ msgid "No Message found"
 msgstr "Ni zadetkov med sporočili"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:211
+#: widgets/dialogs/searchmessagewidget.cpp:227
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -5529,7 +5529,7 @@ msgstr ""
 "oboje vidno samo skrbnikom."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:36
 #, kde-format
 msgid "TimeZone"
 msgstr "Časovni pas"
@@ -8755,126 +8755,120 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Izberite avatarja sobe"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "From"
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "Iz"
+msgstr "Od mene"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "Sporočila ni mogoče najti."
+msgstr "Najde sporočila, ki ste jih poslali."
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "From"
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "Iz"
+msgstr "Od"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
+"Najde sporočila določenega uporabnika. (Uporabite obliko uporabniškega imena "
+"brez presledka)"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "Vrstni red:padajoč"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
-#, kde-format
-msgctxt "@action:button"
-msgid "Before"
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Filter by date"
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
-#, kde-format
-msgctxt "@action:button"
-msgid "After"
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Delay:"
-msgctxt "@action:button"
-msgid "Day"
-msgstr "Zamik:"
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Translation"
-msgctxt "@action:button"
-msgid "Has Location"
-msgstr "Prevod"
+msgstr "Razvrsti sporočilo po padajočem časovnem žigu"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
-msgctxt "@info:tooltip"
-msgid "Finds messages that include a location."
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
-#, kde-format
 msgctxt "@action:button"
-msgid "Has Url"
-msgstr ""
+msgid "Before"
+msgstr "Pred"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Finds messages that contain a link"
-msgstr ""
-
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
-msgctxt "@action:button"
-msgid "Is Pinned"
-msgstr "Sporočilo pripeto"
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Displays pinned messages in the current room."
-msgstr ""
-
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
-msgctxt "@action:button"
-msgid "Has Star"
-msgstr "Začni"
-
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#| msgid "Filter by date"
+msgctxt "@info:tooltip"
+msgid "Filter by date as %1"
+msgstr "Filtriraj po datumu"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
+#, kde-format
+msgctxt "@action:button"
+msgid "After"
+msgstr "Po"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#, kde-format
+msgctxt "@action:button"
+msgid "Day"
+msgstr "Dan"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
+#, kde-format
+msgctxt "@action:button"
+msgid "Has Location"
+msgstr "Ima lokacijo"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Finds messages that include a location."
+msgstr "Najde sporočila, ki vključujejo lokacijo."
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Has Url"
+msgstr "Ima Url"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Finds messages that contain a link"
+msgstr "Najde sporočila, ki vsebujejo povezavo"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
+#, kde-format
+msgctxt "@action:button"
+msgid "Is Pinned"
+msgstr "Je pripeto"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Displays pinned messages in the current room."
+msgstr "Prikaže pripeta sporočila v trenutni sobi."
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
+#, kde-format
+msgctxt "@action:button"
+msgid "Has Star"
+msgstr "Ima zvezdico"
+
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "Sporočilo je bilo označeno z zvezdico"
+msgstr "Prikaže sporočila, ki ste jih označili z zvezdico."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -8900,7 +8894,7 @@ msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Išči sporočila"
 
-#: widgets/dialogs/searchmessagewidget.cpp:64
+#: widgets/dialogs/searchmessagewidget.cpp:68
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
@@ -8910,18 +8904,28 @@ msgstr ""
 "\">regularnim izrazom</a>. npr. <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:33
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Možnosti"
+msgstr "Možnost"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "Regularni izrazi"
+msgstr "Regularni izraz"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Camel Case"
+msgstr "Prezri uporabnika"
+
+#: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show or Hide search option line"
+msgstr ""
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9113,7 +9117,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:506
+#: widgets/room/messagelinewidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10722,50 +10726,50 @@ msgstr "Pošlji sporočilo"
 msgid "Send Message"
 msgstr "Pošlji sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:216
+#: widgets/room/messagelinewidget.cpp:220
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Ukaz ni uspel. Ali želite kopirati ukaz na odložišče?"
 
-#: widgets/room/messagelinewidget.cpp:217
+#: widgets/room/messagelinewidget.cpp:221
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Napaka ukaza"
 
-#: widgets/room/messagelinewidget.cpp:274
+#: widgets/room/messagelinewidget.cpp:278
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Ali želite pretvoriti to obširno besedilo kot prilogo?"
 
-#: widgets/room/messagelinewidget.cpp:275
+#: widgets/room/messagelinewidget.cpp:279
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Sporočilo je preveliko"
 
-#: widgets/room/messagelinewidget.cpp:379
+#: widgets/room/messagelinewidget.cpp:383
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Sporočilo %1 v niti"
 
-#: widgets/room/messagelinewidget.cpp:379
+#: widgets/room/messagelinewidget.cpp:383
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Pošlji sporočilo v %1…"
 
-#: widgets/room/messagelinewidget.cpp:529
+#: widgets/room/messagelinewidget.cpp:533
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Izbrana datoteka je prevelika (največja velikost je %1)"
 
-#: widgets/room/messagelinewidget.cpp:530
+#: widgets/room/messagelinewidget.cpp:534
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Prenos datoteke tja"
 
-#: widgets/room/messagelinewidget.cpp:535
+#: widgets/room/messagelinewidget.cpp:539
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
@@ -11855,12 +11859,12 @@ msgstr "Lokalno"
 msgid "Date"
 msgstr "Datum"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:28
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
 #, kde-format
 msgid "Time"
 msgstr "Čas"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:31
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
 #, kde-format
 msgid "Format"
 msgstr "Oblika"
