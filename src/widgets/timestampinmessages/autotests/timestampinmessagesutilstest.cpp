@@ -31,12 +31,21 @@ void TimeStampInMessagesUtilsTest::shouldGenerateTimeStampStr_data()
         QTest::addRow("empty") << emptyInfo << QString();
     }
     {
-        const TimeStampInMessagesUtils::TimeStampInfo emptyInfo{
+        const TimeStampInMessagesUtils::TimeStampInfo info{
             .format = u"f"_s,
             .date = QDate(2026, 12, 25),
             .time = QTime(1, 5, 6, 10),
             .timeZone = u"-10:00"_s,
         };
-        QTest::addRow("test1") << emptyInfo << u"<t:2026-12-25T01:05:06.010-10:00:f>"_s;
+        QTest::addRow("test1") << info << u"<t:2026-12-25T01:05:06.010-10:00:f>"_s;
+    }
+    {
+        const TimeStampInMessagesUtils::TimeStampInfo info{
+            .format = u"f"_s,
+            .date = QDate(2026, 12, 25),
+            .time = QTime(1, 5, 6, 10),
+            .timeZone = u"-10:00"_s,
+        };
+        QTest::addRow("test1") << info << u"<t:2026-12-25T01:05:06.010-10:00:f>"_s;
     }
 }
