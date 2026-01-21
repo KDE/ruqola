@@ -41,11 +41,20 @@ void TimeStampInMessagesUtilsTest::shouldGenerateTimeStampStr_data()
     }
     {
         const TimeStampInMessagesUtils::TimeStampInfo info{
-            .format = TimeStampInMessagesUtils::FormatType::FullDateTime,
+            .format = TimeStampInMessagesUtils::FormatType::LongDate,
             .date = QDate(2026, 12, 25),
             .time = QTime(1, 5, 6, 10),
             .timeZone = u"-10:00"_s,
         };
-        QTest::addRow("test1") << info << u"<t:2026-12-25T01:05:06.010-10:00:f>"_s;
+        QTest::addRow("test2") << info << u"<t:2026-12-25T01:05:06.010-10:00:D>"_s;
+    }
+    {
+        const TimeStampInMessagesUtils::TimeStampInfo info{
+            .format = TimeStampInMessagesUtils::FormatType::RelativeTime,
+            .date = QDate(2026, 11, 25),
+            .time = QTime(1, 6, 10, 10),
+            .timeZone = u"-10:00"_s,
+        };
+        QTest::addRow("test3") << info << u"<t:2026-11-25T01:06:10.010-10:00:R>"_s;
     }
 }
