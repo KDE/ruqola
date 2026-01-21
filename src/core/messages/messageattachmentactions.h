@@ -7,6 +7,7 @@
 
 #include "libruqolacore_export.h"
 #include "messages/messageattachmentaction.h"
+#include <QList>
 #include <QMetaType>
 class QDebug;
 class QJsonObject;
