@@ -15,7 +15,7 @@ MessageAttachmentFieldTest::MessageAttachmentFieldTest(QObject *parent)
 
 void MessageAttachmentFieldTest::shouldHaveDefaultValues()
 {
-    MessageAttachmentField field;
+    const MessageAttachmentField field;
     QVERIFY(field.title().isEmpty());
     QVERIFY(field.value().isEmpty());
 }
