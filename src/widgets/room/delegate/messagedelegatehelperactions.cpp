@@ -153,8 +153,8 @@ MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOpti
         buttonLayout.url = act.url();
         const QSize buttonSize = option.fontMetrics.size(Qt::TextSingleLine, buttonLayout.text);
         buttonLayout.buttonRect = QRectF(x, 0, buttonSize.width() + 2 * DelegatePaintUtil::margin(), buttonSize.height());
-        layout.buttonList.append(std::move(buttonLayout));
         x += buttonLayout.buttonRect.width() + DelegatePaintUtil::margin();
+        layout.buttonList.append(std::move(buttonLayout));
     }
     return layout;
 }
