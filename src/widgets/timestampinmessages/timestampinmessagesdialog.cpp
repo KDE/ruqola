@@ -13,7 +13,7 @@ TimeStampInMessagesDialog::TimeStampInMessagesDialog(QWidget *parent)
     : QDialog(parent)
     , mTimeStampInMessagesWidget(new TimeStampInMessagesWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Add New WebDAV Server"));
+    setWindowTitle(i18nc("@title:window", "Add TimeStamp"));
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
