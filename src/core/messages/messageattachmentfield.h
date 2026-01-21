@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 class QJsonObject;
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT MessageAttachmentField
 {
@@ -30,5 +31,4 @@ private:
     QString mValue;
 };
 Q_DECLARE_TYPEINFO(MessageAttachmentField, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachmentField &t);
