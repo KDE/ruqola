@@ -86,3 +86,5 @@ bool TimeStampInMessagesUtils::TimeStampInfo::isValid() const
 {
     return format != FormatType::Unknown;
 }
+
+#include "moc_timestampinmessagesutils.cpp"

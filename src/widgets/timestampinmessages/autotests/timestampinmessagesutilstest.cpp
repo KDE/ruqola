@@ -58,3 +58,5 @@ void TimeStampInMessagesUtilsTest::shouldGenerateTimeStampStr_data()
         QTest::addRow("test3") << info << u"<t:2026-11-25T01:06:10.010-10:00:R>"_s;
     }
 }
+
+#include "moc_timestampinmessagesutilstest.cpp"
