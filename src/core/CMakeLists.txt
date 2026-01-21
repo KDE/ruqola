@@ -1,12 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolacore
-    localdatabase/localroomsubscriptionsdatabase.h
-    localdatabase/localroomsubscriptionsdatabase.cpp
-    ownuser/featurepreviewpreferences.h
-    ownuser/featurepreviewpreferences.cpp
-)
+add_library(libruqolacore)
 
 target_sources(
     libruqolacore
@@ -114,6 +108,10 @@ target_sources(
         messages/messageattachmentfield.cpp
         messages/messageattachmentfield.h
         messages/messageattachment.h
+        messages/messageattachmentaction.h
+        messages/messageattachmentaction.cpp
+        messages/messageattachmentactions.h
+        messages/messageattachmentactions.cpp
         messages/message.cpp
         messages/message.h
         messages/systemmessagetypeutil.h
@@ -354,6 +352,8 @@ target_sources(
         ownuser/ownuser.h
         ownuser/ownuserpreferences.cpp
         ownuser/ownuserpreferences.h
+        ownuser/featurepreviewpreferences.h
+        ownuser/featurepreviewpreferences.cpp
         parserocketchaturlutils.cpp
         parserocketchaturlutils.h
         rocketchaturlutils.h
@@ -489,6 +489,8 @@ target_sources(
         localdatabase/globaldatabase.cpp
         localdatabase/localroompendingtypedinfodatabase.h
         localdatabase/localroompendingtypedinfodatabase.cpp
+        localdatabase/localroomsubscriptionsdatabase.h
+        localdatabase/localroomsubscriptionsdatabase.cpp
         managelocaldatabase.h
         managelocaldatabase.cpp
         customemojiiconmanager.h
