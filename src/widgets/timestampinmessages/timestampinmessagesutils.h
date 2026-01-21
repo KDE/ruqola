@@ -35,7 +35,7 @@ public:
         QString timeZone;
         [[nodiscard]] bool isValid() const;
     };
-    [[nodiscard]] static LIBRUQOLAWIDGETS_EXPORT QString generateTimeStampStr(const TimeStampInfo &info);
+    [[nodiscard]] static QString generateTimeStampStr(const TimeStampInfo &info);
 };
 Q_DECLARE_TYPEINFO(TimeStampInMessagesUtils::TimeStampInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t);
