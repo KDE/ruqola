@@ -17,6 +17,7 @@ void MessageAttachmentActionsTest::shouldHaveDefaultValues()
 {
     const MessageAttachmentActions acts;
     QCOMPARE(acts.alignment(), MessageAttachmentActions::AlignmentButton::Unknown);
+    QVERIFY(!acts.isValid());
 }
 
 void MessageAttachmentActionsTest::shouldParseAlignment()

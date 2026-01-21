@@ -13,6 +13,11 @@ MessageAttachmentActions::MessageAttachmentActions() = default;
 
 MessageAttachmentActions::~MessageAttachmentActions() = default;
 
+bool MessageAttachmentActions::isValid() const
+{
+    return !mActions.isEmpty() && mAlignment != AlignmentButton::Unknown;
+}
+
 void MessageAttachmentActions::parse(const QJsonObject &obj)
 {
     mAlignment = convertStringToAlignmentButton(obj["button_alignment"_L1].toString());

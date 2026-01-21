@@ -13,6 +13,11 @@ MessageAttachmentAction::MessageAttachmentAction() = default;
 
 MessageAttachmentAction::~MessageAttachmentAction() = default;
 
+bool MessageAttachmentAction::isValid() const
+{
+    return !mType.isEmpty();
+}
+
 void MessageAttachmentAction::parse(const QJsonObject &obj)
 {
     mMsg = obj["msg"_L1].toString();

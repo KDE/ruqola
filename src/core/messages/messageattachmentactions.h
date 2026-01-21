@@ -34,6 +34,8 @@ public:
 
     [[nodiscard]] AlignmentButton convertStringToAlignmentButton(const QString &str) const;
 
+    [[nodiscard]] bool isValid() const;
+
 private:
     AlignmentButton mAlignment = AlignmentButton::Unknown;
     QList<MessageAttachmentAction> mActions;
