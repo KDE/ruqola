@@ -21,6 +21,8 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Implement Offline Mode (experimental)."),
         kli18n("Implement Pending Typed database storage."),
         kli18n("Fix RC 8.0.0 support."),
+        kli18n("Add Attachment Actions Support."),
+        kli18n("Add TimeStamp support."),
     };
     return info;
 }
