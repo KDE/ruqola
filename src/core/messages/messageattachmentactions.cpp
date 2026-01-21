@@ -16,7 +16,13 @@ MessageAttachmentActions::~MessageAttachmentActions() = default;
 void MessageAttachmentActions::parse(const QJsonObject &obj)
 {
     mAlignment = convertStringToAlignmentButton(obj["button_alignment"_L1].toString());
-    // TODO load actions
+    const QJsonArray array = obj["actions"_L1].toArray();
+    mActions.reserve(array.count());
+    for (const auto &a : array) {
+        MessageAttachmentAction act;
+        act.parse(a.toObject());
+        mActions.append(act);
+    }
 }
 
 MessageAttachmentActions::AlignmentButton MessageAttachmentActions::alignment() const

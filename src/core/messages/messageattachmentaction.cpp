@@ -6,11 +6,19 @@
 
 #include "messageattachmentaction.h"
 #include <QDebug>
+#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentAction::MessageAttachmentAction() = default;
 
 MessageAttachmentAction::~MessageAttachmentAction() = default;
+
+void MessageAttachmentAction::parse(const QJsonObject &obj)
+{
+    mMsg = obj["msg"_L1].toString();
+    mText = obj["text"_L1].toString();
+    mType = obj["type"_L1].toString();
+}
 
 QString MessageAttachmentAction::text() const
 {

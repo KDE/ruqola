@@ -15,6 +15,7 @@ public:
     MessageAttachmentAction();
     ~MessageAttachmentAction();
 
+    void parse(const QJsonObject &obj);
     [[nodiscard]] QString text() const;
     void setText(const QString &newText);
 

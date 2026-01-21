@@ -185,6 +185,7 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
     if (const bool show = messageAttach.showAttachment()) {
         obj["show_attachment"_L1] = show;
     }
+    // TODO add mMessageAttachmentAction
     return obj;
 }
 
@@ -221,6 +222,7 @@ MessageAttachment MessageAttachment::deserialize(const QJsonObject &o)
     att.setCollapsed(o.value("collapsed"_L1).toBool());
     att.setAttachmentType(o["attachmentType"_L1].toVariant().value<AttachmentType>());
     att.setShowAttachment(o["show_attachment"_L1].toBool());
+    // TODO add mMessageAttachmentAction
     att.generateTitle();
     return att;
 }
@@ -339,6 +341,16 @@ QString MessageAttachment::fixTitle(const QString &title) const
         newTitle = newTitle.left(80) + u"..."_s;
     }
     return newTitle;
+}
+
+MessageAttachmentAction MessageAttachment::messageAttachmentAction() const
+{
+    return mMessageAttachmentAction;
+}
+
+void MessageAttachment::setMessageAttachmentAction(const MessageAttachmentAction &newMessageAttachmentAction)
+{
+    mMessageAttachmentAction = newMessageAttachmentAction;
 }
 
 QString MessageAttachment::format() const
@@ -511,7 +523,8 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
         && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mAuthorName == other.authorName())
         && (mMimeType == other.mimeType()) && (mText == other.text()) && (mAttachmentFields == other.attachmentFields()) && (mCollapsed == other.collapsed())
         && (mAuthorIcon == other.authorIcon()) && (mImageUrlPreview == other.imageUrlPreview()) && (mAttachmentSize == other.attachmentSize())
-        && (mAttachmentGeneratedTitle == other.attachmentGeneratedTitle()) && (mFormat == other.format());
+        && (mAttachmentGeneratedTitle == other.attachmentGeneratedTitle()) && (mFormat == other.format())
+        && (mMessageAttachmentAction == other.messageAttachmentAction());
 }
 
 QDebug operator<<(QDebug d, const MessageAttachment &t)
@@ -533,6 +546,7 @@ QDebug operator<<(QDebug d, const MessageAttachment &t)
     d.space() << "attachment size" << t.attachmentSize();
     d.space() << "attachmentGeneratedTitle" << t.attachmentGeneratedTitle();
     d.space() << "format" << t.format();
+    d.space() << "mMessageAttachmentAction" << t.messageAttachmentAction();
     return d;
 }
 
