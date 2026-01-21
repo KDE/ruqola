@@ -24,7 +24,7 @@ void MessageAttachmentActionsTest::shouldParseAlignment()
 {
     const MessageAttachmentActions acts;
     QCOMPARE(acts.convertStringToAlignmentButton(u"horizontal"_s), MessageAttachmentActions::AlignmentButton::Horizontal);
-    QCOMPARE(acts.convertStringToAlignmentButton(u"vertical"_s), MessageAttachmentActions::AlignmentButton::Horizontal);
+    QCOMPARE(acts.convertStringToAlignmentButton(u"vertical"_s), MessageAttachmentActions::AlignmentButton::Vertical);
     QCOMPARE(acts.convertStringToAlignmentButton(u"foo"_s), MessageAttachmentActions::AlignmentButton::Unknown);
     QCOMPARE(acts.convertStringToAlignmentButton(QString()), MessageAttachmentActions::AlignmentButton::Unknown);
 }
