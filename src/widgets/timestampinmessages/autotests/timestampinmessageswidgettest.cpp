@@ -42,7 +42,7 @@ void TimeStampInMessagesWidgetTest::shouldHaveTimeStampInfoDefaultValues()
 {
     const TimeStampInMessagesUtils::TimeStampInfo info;
 
-    QVERIFY(info.format.isEmpty());
+    QCOMPARE(info.format, TimeStampInMessagesUtils::FormatType::Unknown);
     QVERIFY(!info.date.isValid());
     QVERIFY(!info.time.isValid());
     QVERIFY(info.timeZone.isEmpty());

@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessagesformatcombobox.h"
+
 #include <KLocalizedString>
 using namespace Qt::Literals::StringLiterals;
 TimeStampInMessagesFormatComboBox::TimeStampInMessagesFormatComboBox(QWidget *parent)
@@ -16,18 +17,18 @@ TimeStampInMessagesFormatComboBox::~TimeStampInMessagesFormatComboBox() = defaul
 
 void TimeStampInMessagesFormatComboBox::initialize()
 {
-    addItem(i18n("Short Time"), u"t"_s);
-    addItem(i18n("Long Time"), u"T"_s);
-    addItem(i18n("Short Date"), u"d"_s);
-    addItem(i18n("Long Date"), u"D"_s);
-    addItem(i18n("Full Date and Time"), u"f"_s);
-    addItem(i18n("Full Date and Time (long)"), u"F"_s);
-    addItem(i18n("Relative time"), u"R"_s);
+    addItem(i18n("Short Time"), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::ShortTime));
+    addItem(i18n("Long Time"), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongTime));
+    addItem(i18n("Short Date"), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::ShortDate));
+    addItem(i18n("Long Date"), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongDate));
+    addItem(i18n("Full Date and Time"), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::FullDateTime));
+    addItem(i18n("Full Date and Time (long)"), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongFullDateTime));
+    addItem(i18n("Relative time"), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::RelativeTime));
 }
 
-QString TimeStampInMessagesFormatComboBox::currentFormat() const
+TimeStampInMessagesUtils::FormatType TimeStampInMessagesFormatComboBox::currentFormat() const
 {
-    return currentData().toString();
+    return currentData().value<TimeStampInMessagesUtils::FormatType>();
 }
 
 #include "moc_timestampinmessagesformatcombobox.cpp"

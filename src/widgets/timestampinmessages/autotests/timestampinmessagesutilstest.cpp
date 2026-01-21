@@ -32,7 +32,7 @@ void TimeStampInMessagesUtilsTest::shouldGenerateTimeStampStr_data()
     }
     {
         const TimeStampInMessagesUtils::TimeStampInfo info{
-            .format = u"f"_s,
+            .format = TimeStampInMessagesUtils::FormatType::FullDateTime,
             .date = QDate(2026, 12, 25),
             .time = QTime(1, 5, 6, 10),
             .timeZone = u"-10:00"_s,
@@ -41,7 +41,7 @@ void TimeStampInMessagesUtilsTest::shouldGenerateTimeStampStr_data()
     }
     {
         const TimeStampInMessagesUtils::TimeStampInfo info{
-            .format = u"f"_s,
+            .format = TimeStampInMessagesUtils::FormatType::FullDateTime,
             .date = QDate(2026, 12, 25),
             .time = QTime(1, 5, 6, 10),
             .timeZone = u"-10:00"_s,

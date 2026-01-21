@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessagesutils.h"
+#include "ruqolawidgets_debug.h"
 using namespace Qt::Literals::StringLiterals;
 //./apps/meteor/client/lib/utils/timestamp/conversion.ts
 QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t)
@@ -15,6 +16,31 @@ QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t)
     return d;
 }
 
+QString TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType type)
+{
+    switch (type) {
+    case TimeStampInMessagesUtils::FormatType::ShortTime:
+        return u"t"_s;
+    case TimeStampInMessagesUtils::FormatType::LongTime:
+        return u"T"_s;
+    case TimeStampInMessagesUtils::FormatType::ShortDate:
+        return u"d"_s;
+    case TimeStampInMessagesUtils::FormatType::LongDate:
+        return u"D"_s;
+    case TimeStampInMessagesUtils::FormatType::FullDateTime:
+        return u"f"_s;
+    case TimeStampInMessagesUtils::FormatType::LongFullDateTime:
+        return u"F"_s;
+    case TimeStampInMessagesUtils::FormatType::RelativeTime:
+        return u"R"_s;
+    case TimeStampInMessagesUtils::FormatType::Unknown: {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid format it's a bug";
+        return {};
+    }
+    }
+    return {};
+}
+
 static QString generateNumber(int value, int pad)
 {
     return u"%1"_s.arg(value, pad, 10, u'0');
@@ -22,7 +48,7 @@ static QString generateNumber(int value, int pad)
 
 QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info)
 {
-    if (info.format.isEmpty()) {
+    if (info.format == FormatType::Unknown) {
         return {};
     }
     const int year = info.date.year();
@@ -53,10 +79,10 @@ QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info
 #endif
 
     // TODO
-    return u"<t:%1:%2>"_s.arg(result, info.format);
+    return u"<t:%1:%2>"_s.arg(result, convertFormatTypeToString(info.format));
 }
 
 bool TimeStampInMessagesUtils::TimeStampInfo::isValid() const
 {
-    return !format.isEmpty();
+    return format != FormatType::Unknown;
 }

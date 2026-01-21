@@ -19,13 +19,13 @@ void TimeStampInMessagesFormatComboBoxTest::shouldHaveDefaultValues()
     QVERIFY(w.count() > 0);
     QCOMPARE(w.count(), 7);
 
-    QCOMPARE(w.itemData(0).toString(), u"t"_s);
-    QCOMPARE(w.itemData(1).toString(), u"T"_s);
-    QCOMPARE(w.itemData(2).toString(), u"d"_s);
-    QCOMPARE(w.itemData(3).toString(), u"D"_s);
-    QCOMPARE(w.itemData(4).toString(), u"f"_s);
-    QCOMPARE(w.itemData(5).toString(), u"F"_s);
-    QCOMPARE(w.itemData(6).toString(), u"R"_s);
+    QCOMPARE(w.itemData(0), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::ShortTime));
+    QCOMPARE(w.itemData(1), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongTime));
+    QCOMPARE(w.itemData(2), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::ShortDate));
+    QCOMPARE(w.itemData(3), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongDate));
+    QCOMPARE(w.itemData(4), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::FullDateTime));
+    QCOMPARE(w.itemData(5), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongFullDateTime));
+    QCOMPARE(w.itemData(6), QVariant::fromValue(TimeStampInMessagesUtils::FormatType::RelativeTime));
 }
 
 #include "moc_timestampinmessagesformatcomboboxtest.cpp"

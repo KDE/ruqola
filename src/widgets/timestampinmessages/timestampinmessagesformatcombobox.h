@@ -5,6 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "timestampinmessages/timestampinmessagesutils.h"
 #include <QComboBox>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TimeStampInMessagesFormatComboBox : public QComboBox
@@ -14,7 +15,7 @@ public:
     explicit TimeStampInMessagesFormatComboBox(QWidget *parent = nullptr);
     ~TimeStampInMessagesFormatComboBox() override;
 
-    [[nodiscard]] QString currentFormat() const;
+    [[nodiscard]] TimeStampInMessagesUtils::FormatType currentFormat() const;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
