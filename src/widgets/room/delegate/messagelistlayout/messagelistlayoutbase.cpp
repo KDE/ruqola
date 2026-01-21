@@ -113,6 +113,8 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                 }
             }
             attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
+
+            // TODO add attachmentsActionRectList
         }
         int topBlock = topAttachment;
         QRect blocksRect;

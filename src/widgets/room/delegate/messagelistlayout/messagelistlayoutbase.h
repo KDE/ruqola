@@ -76,6 +76,9 @@ public:
         // Attachments
         QList<QRect> attachmentsRectList;
 
+        // AttachmentsAction
+        QList<QRect> attachmentsActionRectList;
+
         // Blocks
         QList<QRect> blocksRectList;
 

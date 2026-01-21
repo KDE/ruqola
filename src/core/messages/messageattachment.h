@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "messageattachmentaction.h"
+#include "messageattachmentactions.h"
 #include "messageattachmentfield.h"
 #include <QList>
 class LIBRUQOLACORE_EXPORT MessageAttachment
@@ -99,13 +99,15 @@ public:
     [[nodiscard]] QString format() const;
     void setFormat(const QString &newFormat);
 
-    [[nodiscard]] MessageAttachmentAction messageAttachmentAction() const;
-    void setMessageAttachmentAction(const MessageAttachmentAction &newMessageAttachmentAction);
+    [[nodiscard]] MessageAttachmentActions messageAttachmentActions() const;
+    void setMessageAttachmentActions(const MessageAttachmentActions &newMessageAttachmentAction);
+
+    [[nodiscard]] bool hasMessageAttachmentActions() const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString fixTitle(const QString &title) const;
-    MessageAttachmentAction mMessageAttachmentAction;
+    MessageAttachmentActions mMessageAttachmentActions;
     QList<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = AttachmentType::Unknown;
     QString mColor;

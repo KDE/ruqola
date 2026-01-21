@@ -343,14 +343,19 @@ QString MessageAttachment::fixTitle(const QString &title) const
     return newTitle;
 }
 
-MessageAttachmentAction MessageAttachment::messageAttachmentAction() const
+bool MessageAttachment::hasMessageAttachmentActions() const
 {
-    return mMessageAttachmentAction;
+    return mMessageAttachmentActions.isValid();
 }
 
-void MessageAttachment::setMessageAttachmentAction(const MessageAttachmentAction &newMessageAttachmentAction)
+MessageAttachmentActions MessageAttachment::messageAttachmentActions() const
 {
-    mMessageAttachmentAction = newMessageAttachmentAction;
+    return mMessageAttachmentActions;
+}
+
+void MessageAttachment::setMessageAttachmentActions(const MessageAttachmentActions &newMessageAttachmentAction)
+{
+    mMessageAttachmentActions = newMessageAttachmentAction;
 }
 
 QString MessageAttachment::format() const
@@ -524,7 +529,7 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
         && (mMimeType == other.mimeType()) && (mText == other.text()) && (mAttachmentFields == other.attachmentFields()) && (mCollapsed == other.collapsed())
         && (mAuthorIcon == other.authorIcon()) && (mImageUrlPreview == other.imageUrlPreview()) && (mAttachmentSize == other.attachmentSize())
         && (mAttachmentGeneratedTitle == other.attachmentGeneratedTitle()) && (mFormat == other.format())
-        && (mMessageAttachmentAction == other.messageAttachmentAction());
+        && (mMessageAttachmentActions == other.messageAttachmentActions());
 }
 
 QDebug operator<<(QDebug d, const MessageAttachment &t)
@@ -546,7 +551,7 @@ QDebug operator<<(QDebug d, const MessageAttachment &t)
     d.space() << "attachment size" << t.attachmentSize();
     d.space() << "attachmentGeneratedTitle" << t.attachmentGeneratedTitle();
     d.space() << "format" << t.format();
-    d.space() << "mMessageAttachmentAction" << t.messageAttachmentAction();
+    d.space() << "mMessageAttachmentActions" << t.messageAttachmentActions();
     return d;
 }
 
