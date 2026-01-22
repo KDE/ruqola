@@ -55,7 +55,7 @@ void RESTAuthenticationManager::callLoginImpl(const QJsonArray &params, Authenti
     info.anonymous = true;
     // TODO: verify mIndex
     info.messageObj = generateJsonMethod(info.methodName, QJsonDocument(params), mIndex++);
-    job->setMethodCallJobInfo(std::move(info));
+    job->setMethodCallJobInfo(info);
     mRestApiConnection->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, method](const QJsonObject &replyObject) {
