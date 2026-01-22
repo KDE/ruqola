@@ -100,6 +100,20 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
                                                               const QStyleOptionViewItem &option,
                                                               const QModelIndex &index)
 {
+    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+        const QPoint pos = mouseEvent->pos();
+        const ActionsLayout layout = layoutActions(act, option, attachmentsRect.width());
+        for (const ButtonLayout &button : layout.buttonList) {
+            if (button.buttonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+                const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+                Q_ASSERT(message);
+                // qDebug() << " message->roomId" << message->roomId();
+                // qDebug() << " message->messageId" << message->messageId();
+                // TODO
+                return true;
+            }
+        }
+    }
     return false;
 }
 
