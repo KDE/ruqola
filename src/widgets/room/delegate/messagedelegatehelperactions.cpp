@@ -81,7 +81,6 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
                                                     const QStyleOptionViewItem &option,
                                                     const QModelIndex &index)
 {
-    Q_UNUSED(index);
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
         const ActionsLayout layout = layoutActions(block, option, blocksRect.width());
