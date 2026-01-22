@@ -113,12 +113,15 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
             attType = AttachmentType::NormalText;
         }
     }
-    setAttachmentType(attType);
     mCollapsed = attachment.value("collapsed"_L1).toBool();
     if (attachment.contains("actions"_L1)) {
         mMessageAttachmentActions.parse(attachment);
+        if (attType == AttachmentType::Unknown) {
+            attType = AttachmentType::Actions;
+        }
     }
 
+    setAttachmentType(attType);
     generateTitle();
 }
 

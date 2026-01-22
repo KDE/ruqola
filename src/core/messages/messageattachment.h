@@ -23,6 +23,7 @@ public:
         Video,
         Audio,
         Image,
+        Actions,
     };
     Q_ENUM(AttachmentType)
     void parseAttachment(const QJsonObject &o);

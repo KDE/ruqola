@@ -215,6 +215,8 @@ MessageAttachmentDelegateHelperBase *MessageListDelegate::attachmentsHelper(cons
         return mHelperAttachmentSound.data();
     case MessageAttachment::AttachmentType::NormalText:
         return mHelperAttachmentText.data();
+    case MessageAttachment::AttachmentType::Actions:
+        return nullptr;
     case MessageAttachment::AttachmentType::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "It's an unknown attachment ! It's a bug for sure";
         break;
