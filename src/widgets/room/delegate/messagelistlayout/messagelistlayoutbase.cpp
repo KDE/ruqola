@@ -113,11 +113,10 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                     topAttachment += attSize.height();
                 }
                 if (msgAttach.hasMessageAttachmentActions()) {
-                    qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCC";
                     const auto actions = msgAttach.messageAttachmentActions();
                     const MessageAttachmentDelegateHelperActions *helper = delegate->helperAttachmentActions();
                     const QSize attachmentsActionSize = helper ? helper->sizeHint(actions, index, maxWidth, option) : QSize(0, 0);
-                    layout.attachmentsRectList.append(
+                    layout.attachmentsActionRectList.append(
                         QRect(layout.senderRect.x(), topAttachment, attachmentsActionSize.width(), attachmentsActionSize.height()));
                     topAttachment += attachmentsActionSize.height();
                 }
