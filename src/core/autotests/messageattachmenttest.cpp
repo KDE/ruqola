@@ -21,7 +21,7 @@ MessageAttachmentTest::MessageAttachmentTest(QObject *parent)
 
 void MessageAttachmentTest::shouldHaveDefaultValue()
 {
-    MessageAttachment attachment;
+    const MessageAttachment attachment;
     QVERIFY(attachment.description().isEmpty());
     QVERIFY(attachment.title().isEmpty());
     QVERIFY(attachment.link().isEmpty());
@@ -38,6 +38,7 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(!attachment.hasDescription());
     QCOMPARE(attachment.attachmentSize(), -1);
     QVERIFY(attachment.format().isEmpty());
+    QVERIFY(!attachment.messageAttachmentActions().isValid());
 }
 
 void MessageAttachmentTest::shouldSerializeData()
