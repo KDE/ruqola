@@ -268,7 +268,7 @@ void MessageAttachment::setAuthorName(const QString &authorName)
 
 bool MessageAttachment::isValid() const
 {
-    return !mAttachmentId.isEmpty() && (!mLink.isEmpty() || !mText.isEmpty() || !mAttachmentFields.isEmpty());
+    return !mAttachmentId.isEmpty() && (!mLink.isEmpty() || !mText.isEmpty() || !mAttachmentFields.isEmpty() || mMessageAttachmentActions.isValid());
 }
 
 bool MessageAttachment::canDownloadAttachment() const
