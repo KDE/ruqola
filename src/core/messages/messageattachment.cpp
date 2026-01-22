@@ -512,7 +512,7 @@ void MessageAttachment::setLink(const QString &link)
     if (link.endsWith(".gif"_L1)) { // Gify doesn't set mimetype
         mIsAnimatedImage = true;
     } else {
-        QUrl url(link);
+        const QUrl url(link);
         if (url.fileName().endsWith(QLatin1StringView(
                 ".gif"))) { // Gify can return
                             // https://media2.giphy.com/media/Id66GDfKacJzxSvhqV/giphy.gif?cid=e1bb72ffh1nt4tll6fw7bab09yqqznaupcxewcw2av5m59yi&rid=giphy.gif&ct=g
