@@ -57,9 +57,11 @@ void MessageDelegateHelperActions::draw(const Block &block,
     }
 }
 
-QSize MessageDelegateHelperActions::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageDelegateHelperActions::sizeHint(const Block &block,
+                                             [[maybe_unused]] const QModelIndex &index,
+                                             int maxWidth,
+                                             const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ActionsLayout layout = layoutActions(block, option, maxWidth);
     if (layout.buttonList.isEmpty()) {
         return {};

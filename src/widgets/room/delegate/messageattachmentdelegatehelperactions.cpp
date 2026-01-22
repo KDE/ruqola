@@ -61,7 +61,19 @@ QSize MessageAttachmentDelegateHelperActions::sizeHint(const MessageAttachmentAc
                                                        int maxWidth,
                                                        const QStyleOptionViewItem &option) const
 {
-    return {};
+    Q_UNUSED(index);
+    // TODO alignment
+    const ActionsLayout layout = layoutActions(act, option, maxWidth);
+    if (layout.buttonList.isEmpty()) {
+        return {};
+    }
+    const int height = layout.buttonList.at(0).buttonRect.height() + DelegatePaintUtil::margin();
+    const auto buttons = layout.buttonList;
+    int width = 0;
+    for (const auto &b : buttons) {
+        width += b.buttonRect.width();
+    }
+    return {qMax(0, static_cast<int>(width)), height};
 }
 
 bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttachmentActions &act,
