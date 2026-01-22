@@ -116,8 +116,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     setAttachmentType(attType);
     mCollapsed = attachment.value("collapsed"_L1).toBool();
     if (attachment.contains("actions"_L1)) {
-        qDebug() << " att action " << attachment.value("actions"_L1);
-        // TODO add actions
+        mMessageAttachmentActions.parse(attachment);
     }
 
     generateTitle();
