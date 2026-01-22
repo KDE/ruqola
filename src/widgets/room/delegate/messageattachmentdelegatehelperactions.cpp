@@ -10,6 +10,7 @@
 #include "dialogs/showvideodialog.h"
 #include "misc/messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -57,23 +58,40 @@ void MessageAttachmentDelegateHelperActions::draw(const MessageAttachmentActions
 }
 
 QSize MessageAttachmentDelegateHelperActions::sizeHint(const MessageAttachmentActions &act,
-                                                       const QModelIndex &index,
+                                                       [[maybe_unused]] const QModelIndex &index,
                                                        int maxWidth,
                                                        const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index);
-    // TODO alignment
     const ActionsLayout layout = layoutActions(act, option, maxWidth);
     if (layout.buttonList.isEmpty()) {
         return {};
     }
-    const int height = layout.buttonList.at(0).buttonRect.height() + DelegatePaintUtil::margin();
-    const auto buttons = layout.buttonList;
-    int width = 0;
-    for (const auto &b : buttons) {
-        width += b.buttonRect.width();
+    switch (act.alignment()) {
+    case MessageAttachmentActions::AlignmentButton::Horizontal: {
+        const int height = layout.buttonList.at(0).buttonRect.height() + DelegatePaintUtil::margin();
+        const auto buttons = layout.buttonList;
+        int width = 0;
+        for (const auto &b : buttons) {
+            width += b.buttonRect.width();
+        }
+        return {qMax(0, static_cast<int>(width)), height};
     }
-    return {qMax(0, static_cast<int>(width)), height};
+    case MessageAttachmentActions::AlignmentButton::Vertical: {
+        const auto buttons = layout.buttonList;
+        int height = 0;
+        int width = 0;
+        for (const auto &b : buttons) {
+            width = qMax(width, static_cast<int>(b.buttonRect.width()));
+            height += b.buttonRect.height();
+        }
+        return {qMax(0, static_cast<int>(width)), height};
+    }
+    case MessageAttachmentActions::AlignmentButton::Unknown: {
+        qCWarning(RUQOLAWIDGETS_LOG) << "MessageAttachmentActions::AlignmentButton::Unknown it's a bug";
+        return {};
+    }
+    }
+    return {};
 }
 
 bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttachmentActions &act,
