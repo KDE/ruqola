@@ -238,7 +238,7 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
             //   - When logging in with user and password -> invalid username or password
             //   - When resuming an older login with an invalid / expired auth token -> invalid or expired token
             //   - When logging in with an invalid / expired OAuth token (e.g. google, facebook, etc.) -> invalid or expired token
-            if (errorCode.isDouble() && errorCode.toInt() == 403) {
+            if (errorCode.isDouble() && (errorCode.toInt() == 403 || errorCode.toInt() == 401)) {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Invalid username or password.";
                 setLoginStatus(AuthenticationManager::LoginFailedInvalidUserOrPassword);
             } else if (errorCode.isString() && errorCode.toString() == sl("totp-required")) {
@@ -262,6 +262,7 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
                 setLoginStatus(AuthenticationManager::LoginFailedLoginAppNotAllowedToLogin);
             } else {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Generic error during login. Couldn't process" << response;
+
                 setLoginStatus(AuthenticationManager::GenericError);
             }
             return;
