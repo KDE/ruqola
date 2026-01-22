@@ -62,6 +62,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setMuteFocusedConversations(replyObject.value("muteFocusedConversations"_L1).toBool(false));
 
     // featuresPreview
+    mFeaturePreviewPreferences.parseFeaturePreview(replyObject.value("featuresPreview"_L1).toArray());
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -73,7 +74,8 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite() && mRoomListSortOrder == other.roomListSortOrder()
         && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail() && mRoomListDisplay == other.roomListDisplay()
         && mNewMessageNotification == other.newMessageNotification() && mNewRoomNotification == other.newRoomNotification()
-        && mNotificationsSoundVolume == other.notificationsSoundVolume() && mMuteFocusedConversations == other.muteFocusedConversations();
+        && mNotificationsSoundVolume == other.notificationsSoundVolume() && mMuteFocusedConversations == other.muteFocusedConversations()
+        && mFeaturePreviewPreferences == other.featurePreviewPreferences();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
