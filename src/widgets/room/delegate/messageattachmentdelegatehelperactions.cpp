@@ -7,8 +7,10 @@
 #include "messageattachmentdelegatehelperactions.h"
 
 #include "common/delegatepaintutil.h"
+#include "connection.h"
 #include "dialogs/showvideodialog.h"
 #include "misc/messageattachmentdownloadandsavejob.h"
+#include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
@@ -108,8 +110,28 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
                 const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
                 Q_ASSERT(message);
                 // qDebug() << " message->roomId" << message->roomId();
-                // qDebug() << " message->messageId" << message->messageId();
-                // TODO
+                qDebug() << " act->msg" << button.message;
+                qDebug() << " act->msg" << button.text;
+                auto job = new RocketChatRestApi::MethodCallJob(this);
+                QJsonArray params;
+                QJsonObject obj;
+                obj["msg"_L1] = button.message;
+                obj["rid"_L1] = QString::fromLatin1(message->roomId());
+                obj["_id"_L1] = u"foo"_s; // TODO fix me
+                // {\"_id\":\"ocq2cYp9Ekd4W2uEQ\",\"rid\":\"H7Q9djXQ4iShzD9T2jYJat6TN6C3TTSMjk\",\"msg\":\"/auto-reply status\"}
+                params.append(obj);
+                const QString methodName = u"sendMessage"_s;
+                const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
+                    .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
+                    .methodName = methodName,
+                    .anonymous = false,
+                };
+                job->setMethodCallJobInfo(info);
+                // qDebug() << " info " << info;
+                mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                if (!job->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start sendMessage job (from RocketChatRestApi::MethodCallJob)";
+                }
                 return true;
             }
         }
@@ -127,10 +149,10 @@ MessageAttachmentDelegateHelperActions::layoutActions(const MessageAttachmentAct
     const MessageAttachmentActions::AlignmentButton alignment = act.alignment();
     const bool horizontal = (alignment == MessageAttachmentActions::AlignmentButton::Horizontal);
     const auto actions = act.actions();
-    for (const auto &act : actions) {
+    for (const auto &action : actions) {
         ButtonLayout buttonLayout;
-        buttonLayout.text = act.text();
-        buttonLayout.message = act.msg();
+        buttonLayout.text = action.text();
+        buttonLayout.message = action.msg();
         const QSize buttonSize = option.fontMetrics.size(Qt::TextSingleLine, buttonLayout.text);
         if (horizontal) {
             buttonLayout.buttonRect = QRectF(x, y, buttonSize.width() + 2 * DelegatePaintUtil::margin(), buttonSize.height());

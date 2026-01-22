@@ -621,6 +621,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (message->attachments()) {
         const auto attachments = message->attachments()->messageAttachments();
         int attachmentIdx = 0;
+        int attachmentActionsIdx = 0;
         for (const MessageAttachment &att : attachments) {
             const MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
             if (helper) {
@@ -634,12 +635,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             }
             ++attachmentIdx;
             if (att.hasMessageAttachmentActions()) {
-                int attachmentActionsIdx = 0;
                 mHelperAttachmentActions.get()->draw(att.messageAttachmentActions(),
                                                      painter,
                                                      layout.attachmentsActionRectList.at(attachmentActionsIdx),
                                                      index,
                                                      option);
+                ++attachmentActionsIdx;
             }
         }
     }
@@ -853,6 +854,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         if (message->attachments()) {
             const auto attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
+            int attachmentActionsIdx = 0;
             for (const MessageAttachment &att : attachments) {
                 MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
                 if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(attachmentIdx), option, index)) {
@@ -862,8 +864,11 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
                 if (att.hasMessageAttachmentActions()) {
                     const auto attachmentActions = att.messageAttachmentActions();
-                    // mHelperAttachmentActions->get()->handleMouseEvent(att, mev, layout.attachmentsRectList.at(attachmentIdx), option, index)) {
-                    // TODO add attachmentsActionRectList
+                    if (mHelperAttachmentActions
+                            ->handleMouseEvent(attachmentActions, mev, layout.attachmentsRectList.at(attachmentActionsIdx), option, index)) {
+                        return true;
+                    }
+                    attachmentActionsIdx++;
                 }
             }
         }
