@@ -633,18 +633,11 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             ++attachmentIdx;
             if (att.hasMessageAttachmentActions()) {
                 int attachmentActionsIdx = 0;
-                const auto attachmentActions = att.messageAttachmentActions().actions();
-                for (const MessageAttachmentAction &act : attachmentActions) {
-#ifdef DEBUG_ATTACHMENT_ACTION_PAINTING
-                    painter->save();
-                    painter->setPen(QPen(Qt::green));
-                    painter->drawRect(layout.attachmentsActionRectList.at(attachmentActionsIdx));
-                    painter->restore();
-#endif
-                    // Alignment ?
-                    mHelperAttachmentActions.get()->draw(act, painter, layout.attachmentsActionRectList.at(attachmentActionsIdx), index, option);
-                    ++attachmentActionsIdx;
-                }
+                mHelperAttachmentActions.get()->draw(att.messageAttachmentActions(),
+                                                     painter,
+                                                     layout.attachmentsActionRectList.at(attachmentActionsIdx),
+                                                     index,
+                                                     option);
             }
         }
     }
@@ -732,6 +725,11 @@ QByteArray MessageListDelegate::cacheIdentifier(const QModelIndex &index) const
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
     return message->messageId();
+}
+
+MessageAttachmentDelegateHelperActions *MessageListDelegate::helperAttachmentActions() const
+{
+    return mHelperAttachmentActions.get();
 }
 
 MessageDelegateHelperUrlPreview *MessageListDelegate::helperUrlPreview() const

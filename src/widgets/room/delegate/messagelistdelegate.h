@@ -96,6 +96,8 @@ public:
 
     [[nodiscard]] MessageDelegateHelperUrlPreview *helperUrlPreview() const;
 
+    [[nodiscard]] MessageAttachmentDelegateHelperActions *helperAttachmentActions() const;
+
     void removeMessageCache(const Message *message);
 
     void setEnableEmojiMenu(bool b);

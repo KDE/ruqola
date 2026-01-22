@@ -29,15 +29,34 @@ MessageAttachmentDelegateHelperActions::MessageAttachmentDelegateHelperActions(R
 
 MessageAttachmentDelegateHelperActions::~MessageAttachmentDelegateHelperActions() = default;
 
-void MessageAttachmentDelegateHelperActions::draw(const MessageAttachmentAction &act,
+void MessageAttachmentDelegateHelperActions::draw(const MessageAttachmentActions &act,
                                                   QPainter *painter,
                                                   QRect messageRect,
-                                                  const QModelIndex &index,
+                                                  [[maybe_unused]] const QModelIndex &index,
                                                   const QStyleOptionViewItem &option) const
 {
+    const ActionsLayout layout = layoutActions(act, option, messageRect.width());
+    for (const auto &button : std::as_const(layout.buttonList)) {
+        // Draw button
+        const QPen origPen = painter->pen();
+        const QBrush origBrush = painter->brush();
+        const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
+        QColor backgroundColor = option.palette.color(QPalette::Highlight);
+        backgroundColor.setAlpha(60);
+        const QBrush buttonBrush(backgroundColor);
+        const QRectF buttonRect = button.buttonRect.translated(messageRect.topLeft());
+        // Rounded rect
+        painter->setPen(buttonPen);
+        painter->setBrush(buttonBrush);
+        painter->drawRoundedRect(buttonRect, 5, 5);
+        painter->setBrush(origBrush);
+        painter->setPen(origPen);
+        const QRectF r = buttonRect.adjusted((buttonRect.width() - button.buttonRect.width()) / 2, 0, 0, 0);
+        painter->drawText(r, Qt::AlignVCenter | Qt::AlignHCenter, button.text);
+    }
 }
 
-QSize MessageAttachmentDelegateHelperActions::sizeHint(const MessageAttachmentAction &act,
+QSize MessageAttachmentDelegateHelperActions::sizeHint(const MessageAttachmentActions &act,
                                                        const QModelIndex &index,
                                                        int maxWidth,
                                                        const QStyleOptionViewItem &option) const
@@ -45,11 +64,38 @@ QSize MessageAttachmentDelegateHelperActions::sizeHint(const MessageAttachmentAc
     return {};
 }
 
-bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttachmentAction &act,
+bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttachmentActions &act,
                                                               QMouseEvent *mouseEvent,
                                                               QRect attachmentsRect,
                                                               const QStyleOptionViewItem &option,
                                                               const QModelIndex &index)
 {
     return false;
+}
+
+MessageAttachmentDelegateHelperActions::ActionsLayout
+MessageAttachmentDelegateHelperActions::layoutActions(const MessageAttachmentActions &act, const QStyleOptionViewItem &option, int attachmentsWidth) const
+{
+    ActionsLayout layout;
+
+    qreal x = 0;
+    qreal y = 0;
+    const MessageAttachmentActions::AlignmentButton alignment = act.alignment();
+    const bool horizontal = (alignment == MessageAttachmentActions::AlignmentButton::Horizontal);
+    const auto actions = act.actions();
+    for (const auto &act : actions) {
+        ButtonLayout buttonLayout;
+        buttonLayout.text = act.text();
+        buttonLayout.message = act.msg();
+        const QSize buttonSize = option.fontMetrics.size(Qt::TextSingleLine, buttonLayout.text);
+        if (horizontal) {
+            buttonLayout.buttonRect = QRectF(x, y, buttonSize.width() + 2 * DelegatePaintUtil::margin(), buttonSize.height());
+            x += buttonLayout.buttonRect.width() + DelegatePaintUtil::margin();
+        } else {
+            buttonLayout.buttonRect = QRectF(x, y, buttonSize.width() + 2 * DelegatePaintUtil::margin(), buttonSize.height());
+            y += buttonLayout.buttonRect.height() + DelegatePaintUtil::margin();
+        }
+        layout.buttonList.append(std::move(buttonLayout));
+    }
+    return layout;
 }

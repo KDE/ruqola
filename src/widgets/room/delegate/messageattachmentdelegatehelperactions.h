@@ -17,11 +17,24 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperActions : pub
 public:
     explicit MessageAttachmentDelegateHelperActions(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageAttachmentDelegateHelperActions() override;
-    void draw(const MessageAttachmentAction &act, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
-    [[nodiscard]] QSize sizeHint(const MessageAttachmentAction &act, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
-    [[nodiscard]] virtual bool handleMouseEvent(const MessageAttachmentAction &act,
+    void draw(const MessageAttachmentActions &act, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    [[nodiscard]] QSize sizeHint(const MessageAttachmentActions &act, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
+    [[nodiscard]] virtual bool handleMouseEvent(const MessageAttachmentActions &act,
                                                 QMouseEvent *mouseEvent,
                                                 QRect attachmentsRect,
                                                 const QStyleOptionViewItem &option,
                                                 const QModelIndex &index);
+
+private:
+    struct ButtonLayout {
+        QString text;
+        QString message;
+        QRectF buttonRect;
+    };
+    struct ActionsLayout {
+        QList<ButtonLayout> buttonList;
+    };
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ActionsLayout layoutActions(const MessageAttachmentActions &act,
+                                                                         const QStyleOptionViewItem &option,
+                                                                         int attachmentsWidth) const;
 };

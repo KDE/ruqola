@@ -136,9 +136,8 @@ void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
 }
 
 MessageDelegateHelperActions::ActionsLayout
-MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
+MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth) const
 {
-    Q_UNUSED(blockRectWidth)
     ActionsLayout layout;
 
     qreal x = 0;

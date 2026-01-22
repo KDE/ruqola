@@ -8,6 +8,7 @@
 
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
+#include "room/delegate/messageattachmentdelegatehelperactions.h"
 #include "room/delegate/messagelistdelegate.h"
 #include "ruqolaserverconfig.h"
 
@@ -111,10 +112,17 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                     attachmentsSize = QSize(qMax(attachmentsSize.width(), attSize.width()), attSize.height() + attachmentsSize.height());
                     topAttachment += attSize.height();
                 }
+                if (msgAttach.hasMessageAttachmentActions()) {
+                    qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCC";
+                    const auto actions = msgAttach.messageAttachmentActions();
+                    const MessageAttachmentDelegateHelperActions *helper = delegate->helperAttachmentActions();
+                    const QSize attachmentsActionSize = helper ? helper->sizeHint(actions, index, maxWidth, option) : QSize(0, 0);
+                    layout.attachmentsRectList.append(
+                        QRect(layout.senderRect.x(), topAttachment, attachmentsActionSize.width(), attachmentsActionSize.height()));
+                    topAttachment += attachmentsActionSize.height();
+                }
             }
             attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
-
-            // TODO add attachmentsActionRectList
         }
         int topBlock = topAttachment;
         QRect blocksRect;
