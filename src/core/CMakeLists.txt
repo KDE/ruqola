@@ -553,6 +553,8 @@ target_sources(
         ruqolacommandlineparser.h
         quicksearch/ruqolaquicksearchmessagesettings.cpp
         quicksearch/ruqolaquicksearchmessagesettings.h
+        timestamp/timestampinmessagesconverter.h
+        timestamp/timestampinmessagesconverter.cpp
         emoji.qrc
 )
 

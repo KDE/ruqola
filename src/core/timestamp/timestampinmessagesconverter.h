@@ -1,0 +1,16 @@
+/*
+   SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+#pragma once
+#include "libruqola_private_export.h"
+
+class LIBRUQOLACORE_TESTS_EXPORT TimeStampInMessagesConverter
+{
+public:
+    TimeStampInMessagesConverter();
+    ~TimeStampInMessagesConverter();
+
+    [[nodiscard]] QString generateTimeStamp(const QString &str) const;
+};
