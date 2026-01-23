@@ -5,6 +5,7 @@
 */
 
 #include "timestampinmessagesconverter.h"
+#include <QRegularExpression>
 
 TimeStampInMessagesConverter::TimeStampInMessagesConverter() = default;
 
@@ -12,5 +13,7 @@ TimeStampInMessagesConverter::~TimeStampInMessagesConverter() = default;
 
 QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) const
 {
+    // TODO extract date info
+    // TODO use regularexpression <t:<date>:<format>>
     return {};
 }
