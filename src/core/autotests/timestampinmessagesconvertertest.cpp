@@ -7,7 +7,7 @@
 #include "timestamp/timestampinmessagesconverter.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(TimeStampInMessagesConverterTest)
-
+using namespace Qt::Literals::StringLiterals;
 TimeStampInMessagesConverterTest::TimeStampInMessagesConverterTest(QObject *parent)
     : QObject{parent}
 {
@@ -18,6 +18,7 @@ void TimeStampInMessagesConverterTest::shouldConvertTimeStampInMessages_data()
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("convertedText");
     QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("test1") << u"<t:2026-01-23T13:57:56.873:t>"_s << QString();
 }
 
 void TimeStampInMessagesConverterTest::shouldConvertTimeStampInMessages()
