@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-22 00:58+0000\n"
-"PO-Revision-Date: 2026-01-21 06:44-0300\n"
+"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"PO-Revision-Date: 2026-01-22 10:04-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -10550,94 +10550,94 @@ msgstr "Entrar"
 msgid "Link Preview"
 msgstr "Visualização do link"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:422
+#: widgets/room/delegate/messagelistdelegate.cpp:424
 #, kde-format
 msgid "User Info"
 msgstr "Informação do usuário"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:432
+#: widgets/room/delegate/messagelistdelegate.cpp:434
 #: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Iniciar uma conversa privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Mostrar mensagem original"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traduzir mensagem"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:688
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensagem"
 msgstr[1] "%1 mensagens"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "No message yet"
 msgstr "Nenhuma mensagem ainda"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1012
+#: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Seguindo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1016
+#: widgets/room/delegate/messagelistdelegate.cpp:1021
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Mensagem fixada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1020
+#: widgets/room/delegate/messagelistdelegate.cpp:1025
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Mensagem recebeu estrela"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1024
+#: widgets/room/delegate/messagelistdelegate.cpp:1029
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Mensagem possui um texto traduzido"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1028
+#: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Responder no tópico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1032
+#: widgets/room/delegate/messagelistdelegate.cpp:1037
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Adicionar reação"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Parar"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11795,12 +11795,10 @@ msgid "Unfollow Message"
 msgstr "Não seguir mensagem"
 
 #: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Insert TimeStamp"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr "Inserir marca de tempo"
+msgstr "Adicionar marca de tempo"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
 #, kde-format
@@ -11920,16 +11918,12 @@ msgid "Fix RC 8.0.0 support."
 msgstr "Corrige suporte ao RC 8.0.0."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Adiciona suporte para ações do AI Rocket Chat."
+msgstr "Adiciona suporte para ações de anexo."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Adicionar suporte a reporte de usuário"
+msgstr "Adiciona suporte para marca de tempo."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

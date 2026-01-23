@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-22 00:58+0000\n"
-"PO-Revision-Date: 2026-01-21 11:14+0300\n"
+"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"PO-Revision-Date: 2026-01-22 12:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -10507,94 +10507,94 @@ msgstr "Katıl"
 msgid "Link Preview"
 msgstr "Bağlantı Önizlemesi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:422
+#: widgets/room/delegate/messagelistdelegate.cpp:424
 #, kde-format
 msgid "User Info"
 msgstr "Kullanıcı Bilgisi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:432
+#: widgets/room/delegate/messagelistdelegate.cpp:434
 #: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Özel Bir Konuşma Başlat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Özgün İletiyi Göster"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "İletiyi Çevir"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:688
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 yanıt"
 msgstr[1] "%1 yanıt"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 ileti"
 msgstr[1] "%1 ileti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "No message yet"
 msgstr "Henüz ileti yok"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1012
+#: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Takip ediliyor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1016
+#: widgets/room/delegate/messagelistdelegate.cpp:1021
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "İleti sabitlendi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1020
+#: widgets/room/delegate/messagelistdelegate.cpp:1025
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "İleti yıldızlandı"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1024
+#: widgets/room/delegate/messagelistdelegate.cpp:1029
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "İletide çevrilmiş metin var"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1028
+#: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Dizide yanıtla"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1032
+#: widgets/room/delegate/messagelistdelegate.cpp:1037
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Tepki ekle"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Durdur"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11750,9 +11750,7 @@ msgid "Unfollow Message"
 msgstr "İletiyi Takipten Çıkar"
 
 #: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Insert TimeStamp"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr "Zaman Damgası Ekle"
@@ -11875,16 +11873,12 @@ msgid "Fix RC 8.0.0 support."
 msgstr "RC 8.0.0 desteğini onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Rocket.Chat yapay zekâ eylemleri desteği ekle"
+msgstr "İlişik eylemleri desteği ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Kullanıcıyı bildirme desteği ekle"
+msgstr "Zaman damgası desteği ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

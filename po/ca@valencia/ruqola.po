@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-22 00:58+0000\n"
-"PO-Revision-Date: 2026-01-16 12:06+0100\n"
+"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"PO-Revision-Date: 2026-01-22 10:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -8774,25 +8774,22 @@ msgid "Select Room Avatar"
 msgstr "Tria l'avatar de la sala"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "De:"
+msgstr "De mi"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "No s'ha trobat el missatge."
+msgstr "Busca missatges enviats per a tu."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "De:"
+msgstr "De"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
@@ -8800,101 +8797,94 @@ msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
+"Busca missatges d'un usuari específic. (Utilitzeu el format de nom d'usuari "
+"sense espai)"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "Order:desc"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
+msgstr "Ordena els missatges per marca horària descendent"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "Abans"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "Filtre de canals (%1)"
+msgstr "Filtra per data com a %1"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "Després"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "Retard:"
+msgstr "Dia"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "Traducció"
+msgstr "Té ubicació"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "Busca missatges que inclouen una ubicació."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "Té URL"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "Busca missatges que contenen un enllaç"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "Missatge fixat"
+msgstr "Està fixat"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "Mostra els missatges fixats en la sala actual."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "Inicia"
+msgstr "Té una estrela"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "El missatge s'ha destacat"
+msgstr "Mostra els missatges que heu destacat."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -8930,30 +8920,26 @@ msgstr ""
 "Expressió_regular\">Expressions regulars</a>. P. ex., <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Opcions"
+msgstr "Opció"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "Expressions regulars"
+msgstr "Expressió regular"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Camel Case"
-msgstr "Ignora usuari"
+msgstr "Ignora les majúscules per parts"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "Mostra o oculta la línia d'opcions de busca"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -10588,94 +10574,94 @@ msgstr "Unix-te"
 msgid "Link Preview"
 msgstr "Visualització prèvia de l'enllaç"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:422
+#: widgets/room/delegate/messagelistdelegate.cpp:424
 #, kde-format
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:432
+#: widgets/room/delegate/messagelistdelegate.cpp:434
 #: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Inicia una conversa privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Mostra el missatge original"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traduïx el missatge"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:688
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 missatge"
 msgstr[1] "%1 missatges"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "No message yet"
 msgstr "Encara no hi ha cap missatge"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1012
+#: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "S'està seguint"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1016
+#: widgets/room/delegate/messagelistdelegate.cpp:1021
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "El missatge s'ha fixat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1020
+#: widgets/room/delegate/messagelistdelegate.cpp:1025
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1024
+#: widgets/room/delegate/messagelistdelegate.cpp:1029
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "El missatge té un text traduït"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1028
+#: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Resposta al fil"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1032
+#: widgets/room/delegate/messagelistdelegate.cpp:1037
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Afig una reacció"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Para"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11832,12 +11818,10 @@ msgid "Unfollow Message"
 msgstr "Deixa de seguir el missatge"
 
 #: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Insert TimeStamp"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr "Inserix una marca horària"
+msgstr "Addició de marca horària"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
 #, kde-format
@@ -11957,16 +11941,12 @@ msgid "Fix RC 8.0.0 support."
 msgstr "Corregix la implementació del RC 8.0.0."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Afig la implementació d'accions d'IA de Rocket Chat."
+msgstr "Afig la implementació d'accions d'adjunts."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Afig el suport d'informació d'un usuari"
+msgstr "Afig la implementació de marques horàries"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

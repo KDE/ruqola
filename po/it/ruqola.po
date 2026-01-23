@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-22 00:58+0000\n"
-"PO-Revision-Date: 2026-01-14 18:15+0100\n"
+"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"PO-Revision-Date: 2026-01-22 15:31+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -8776,25 +8776,22 @@ msgid "Select Room Avatar"
 msgstr "Seleziona avatar della stanza"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "Da:"
+msgstr "Da me"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "Messaggio non trovato."
+msgstr "Trova i messaggi inviati da te."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "Da:"
+msgstr "Da"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
@@ -8802,101 +8799,94 @@ msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
+"Trova i messaggi di un utente specifico. (Utilizza il formato del nome "
+"utente senza spazi)"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "Ordine:decrescente"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
+msgstr "Ordina i messaggi in base alla marca temporale decrescente"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "Prima"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "Filtra i canali (%1)"
+msgstr "Filtra per data come %1"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "Dopo"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "Ritardo:"
+msgstr "Giorno"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "Traduzione"
+msgstr "Ha la posizione"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "Trova i messaggi che includono una posizione."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "Ha l'URL"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "Trova i messaggi che contengono un collegamento"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "Messaggio appuntato"
+msgstr "È appuntato"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "Visualizza i messaggi aggiunti nella stanza attuale."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "Avvia"
+msgstr "Ha la stella"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "Il messaggio ha ricevuto una stella"
+msgstr "Mostra i messaggi che hai contrassegnato con una stella."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -8933,30 +8923,26 @@ msgstr ""
 "code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Opzioni"
+msgstr "Opzione"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "Espressioni regolari"
+msgstr "Espressione regolare"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Camel Case"
-msgstr "Ignora utente"
+msgstr "Ignora iniziali in maiuscolo"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "Mostra o nascondi la riga delle opzioni di ricerca"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -10588,94 +10574,94 @@ msgstr "Unisciti"
 msgid "Link Preview"
 msgstr "Anteprima collegamenti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:422
+#: widgets/room/delegate/messagelistdelegate.cpp:424
 #, kde-format
 msgid "User Info"
 msgstr "Informazioni sull'utente"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:432
+#: widgets/room/delegate/messagelistdelegate.cpp:434
 #: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Inizia una conversazione privata"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Mostra il messaggio originale"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:448
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traduci messaggio"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:692
+#: widgets/room/delegate/messagelistdelegate.cpp:688
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "Una risposta"
 msgstr[1] "%1 risposte"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "Un messaggio"
 msgstr[1] "%1 messaggi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:698
 #, kde-format
 msgid "No message yet"
 msgstr "Ancora nessun messaggio"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1012
+#: widgets/room/delegate/messagelistdelegate.cpp:1017
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Seguito"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1016
+#: widgets/room/delegate/messagelistdelegate.cpp:1021
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Il messaggio è stato appuntato"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1020
+#: widgets/room/delegate/messagelistdelegate.cpp:1025
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Il messaggio ha ricevuto una stella"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1024
+#: widgets/room/delegate/messagelistdelegate.cpp:1029
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Il messaggio ha un testo tradotto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1028
+#: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Rispondi nella conversazione"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1032
+#: widgets/room/delegate/messagelistdelegate.cpp:1037
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Aggiungi reazione"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Ferma"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11832,12 +11818,10 @@ msgid "Unfollow Message"
 msgstr "Non seguire il messaggio"
 
 #: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Insert TimeStamp"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr "Inserisci marca temporale"
+msgstr "Aggiungi marca temporale"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
 #, kde-format
@@ -11955,22 +11939,16 @@ msgstr ""
 "di digitazione."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "Corregge il supporto jitsi."
+msgstr "Corregge il supporto RC 8.0.0."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Aggiunge il supporto delle azioni IA di Rocket Chat."
+msgstr "Aggiunge il supporto per le azioni sugli allegati."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Aggiunge il supporto per la segnalazione degli utenti"
+msgstr "Aggiunge il supporto per la marca temporale."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
