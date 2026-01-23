@@ -13,4 +13,8 @@ class TimeStampInMessagesConverterTest : public QObject
 public:
     explicit TimeStampInMessagesConverterTest(QObject *parent = nullptr);
     ~TimeStampInMessagesConverterTest() override = default;
+
+private Q_SLOTS:
+    void shouldConvertTimeStampInMessages_data();
+    void shouldConvertTimeStampInMessages();
 };
