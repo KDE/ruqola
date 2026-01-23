@@ -26,11 +26,12 @@ QDebug operator<<(QDebug d, const FeaturePreviewPreferences &t)
 
 void FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array)
 {
+    // qDebug() << " FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array) " << array;
     // TODO clear before ?
     for (const auto &v : array) {
         const QJsonObject o = v.toObject();
         const QString name = o["name"_L1].toString();
-        const bool value = (o["value"_L1] == "true"_L1);
+        const bool value = o["value"_L1].toBool();
         if (name == "enable-timestamp-message-parser"_L1) {
             assignSettingValue(value, EnableTimestampMessageParser);
         }
