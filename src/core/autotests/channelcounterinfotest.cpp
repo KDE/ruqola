@@ -57,6 +57,7 @@ void ChannelCounterInfoTest::shouldLoadChannelCounter()
         qDebug() << "ACTUAL " << r;
         qDebug() << "EXPECTED " << *channelcounter;
     }
+    delete channelcounter;
     QVERIFY(equalOwner);
 }
 

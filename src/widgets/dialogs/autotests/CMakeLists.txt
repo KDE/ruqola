@@ -24,6 +24,12 @@ macro(add_ruqoladialog_test _source)
             DISABLE_PRECOMPILE_HEADERS
                 ON
     )
+    set_tests_properties(
+        ${_name}
+        PROPERTIES
+            ENVIRONMENT
+                "LSAN_OPTIONS=suppressions=${CMAKE_SOURCE_DIR}/sanitizers.supp"
+    )
 endmacro()
 
 add_ruqoladialog_test(uploadfiledialogtest.cpp)

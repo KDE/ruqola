@@ -27,6 +27,12 @@ macro(add_ruqolaroom_test _source)
             DISABLE_PRECOMPILE_HEADERS
                 ON
     )
+    set_tests_properties(
+        ${_name}
+        PROPERTIES
+            ENVIRONMENT
+                "LSAN_OPTIONS=suppressions=${CMAKE_SOURCE_DIR}/sanitizers.supp"
+    )
 endmacro()
 
 add_ruqolaroom_test(roomwidgettest.cpp testdata.cpp)

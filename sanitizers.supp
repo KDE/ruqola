@@ -7,3 +7,7 @@ leak:getdelim
 leak:g_malloc
 leak:libfontconfig
 leak:libdbus
+leak:libffmpegmediaplugin
+leak:libqtexttospeech_speechd
+leak:libQt6TextToSpeech
+leak:TextEmoticonsCore::EmojiModelManager::~EmojiModelManager
