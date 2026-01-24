@@ -63,6 +63,7 @@ void ReactionsTest::shouldParseReactions()
         qDebug() << "originalReactions " << originalReactions;
         qDebug() << "expectedReactions " << expectedReactions;
     }
+    delete expectedReactions;
     QVERIFY(emojiIsEqual);
 }
 
