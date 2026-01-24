@@ -40,6 +40,7 @@ void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldLoadJson()
         qDebug() << " result " << result;
         qDebug() << " inputElement " << inputElement;
     }
+    delete inputElement;
     QVERIFY(equal);
 }
 
