@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-18 00:16+0100\n"
+"PO-Revision-Date: 2026-01-25 00:39+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -8777,25 +8777,22 @@ msgid "Select Room Avatar"
 msgstr "Seleccionar avatar de la sala"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "De:"
+msgstr "Mios"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "Mensaje no encontrado."
+msgstr "Encuentra mensajes mandados por ti."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "De:"
+msgstr "De"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
@@ -8803,101 +8800,94 @@ msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
+"Encuentra mensajes de un usuario concreto (Formato de nombre de usuario sin "
+"espacios)."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "Orden:descendiente"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
+msgstr "Ordena mensajes por orden descendiente de marca de tiempo"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "Antes"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "Filtrar canales (%1)"
+msgstr "Filtrar por fecha como %1"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "Después"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "Retraso:"
+msgstr "Día"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "Traducción"
+msgstr "Tiene localización"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "Encuentra mensajes que incluyen una localización."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "Tiene URL"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "Encuentra mensajes que contienen un enlace"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "Mensaje fijado"
+msgstr "Está fijado"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "Muestra mensajes fijados en la sala actual."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "Iniciar"
+msgstr "Tiene estrella"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "El mensaje se ha destacado"
+msgstr "Muestra mensajes que has  marcado."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -8934,30 +8924,26 @@ msgstr ""
 "i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Opciones"
+msgstr "Opción"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "Expresiones regulares"
+msgstr "Expresión regular"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Camel Case"
-msgstr "Ignorar usuario"
+msgstr "Ignorar mayúsculas"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "Muestra u oculta la línea de opciones de búsqueda"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -11836,9 +11822,7 @@ msgid "Unfollow Message"
 msgstr "Dejar de seguir mensaje"
 
 #: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Insert TimeStamp"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr "Introduzca marca de tiempo"
@@ -11961,16 +11945,12 @@ msgid "Fix RC 8.0.0 support."
 msgstr "Mejora en el soporte de RC 8.0.0"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Añadidas acciones de IA a Rocket Chat."
+msgstr "Añadidas acciones de adjuntos."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Añade soporte para reportar usuarios"
+msgstr "Añadido soporte para marcas de tiempo."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

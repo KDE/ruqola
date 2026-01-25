@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-22 12:34+0100\n"
+"PO-Revision-Date: 2026-01-23 07:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -11880,9 +11880,7 @@ msgid "Unfollow Message"
 msgstr "Ne plus suivre un message"
 
 #: widgets/timestampinmessages/timestampinmessagesdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Insert TimeStamp"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr "Insérer l'horodatage"
@@ -12007,16 +12005,12 @@ msgid "Fix RC 8.0.0 support."
 msgstr "Correction de la prise en charge de la version RC 8.0.0"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Ajouter la prise en charge des actions avec IA pour Rocket.Chat."
+msgstr "Ajouter la prise en charge des actions d'ajout de pièces jointes."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Ajouter la prise en charge du signalement d'utilisateurs"
+msgstr "Ajouter la prise en charge de l'horodatage."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
