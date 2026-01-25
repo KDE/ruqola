@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 02:59+0000\n"
-"PO-Revision-Date: 2025-10-05 10:17+0400\n"
+"PO-Revision-Date: 2026-01-24 12:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -12190,7 +12190,7 @@ msgstr "إضافة ملحقات الأدوات"
 #: widgets/whatsnew/whatsnewtranslations.cpp:155
 #, kde-format
 msgid "Plugin: Add screenshot button (near send message button)"
-msgstr "البرنامج المساعد: إضافة زر لقطة الشاشة (بالقرب من زر إرسال رسالة)"
+msgstr "ملحق: إضافة زر لقطة الشاشة (بالقرب من زر إرسال رسالة)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:156
 #, kde-format
