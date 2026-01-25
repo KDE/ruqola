@@ -5,7 +5,7 @@
 */
 #pragma once
 #include "libruqola_private_export.h"
-
+#include <QString>
 class LIBRUQOLACORE_TESTS_EXPORT TimeStampInMessagesConverter
 {
 public:
