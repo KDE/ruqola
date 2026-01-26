@@ -6,6 +6,7 @@
 
 #include "timestampinmessagesconverter.h"
 #include <QRegularExpression>
+using namespace Qt::Literals::StringLiterals;
 
 TimeStampInMessagesConverter::TimeStampInMessagesConverter() = default;
 
@@ -13,6 +14,20 @@ TimeStampInMessagesConverter::~TimeStampInMessagesConverter() = default;
 
 QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) const
 {
+    if (str.isEmpty()) {
+        return {};
+    }
+    const static QRegularExpression reg(u"<t:(.*):(.*)>"_s);
+
+    QRegularExpressionMatchIterator roomIterator = reg.globalMatch(str);
+    while (roomIterator.hasNext()) {
+        const QRegularExpressionMatch match = roomIterator.next();
+        const QStringView format = match.capturedView(1);
+        const QStringView word = match.capturedView(2);
+        qDebug() << "word " << word << " format " << format;
+    }
+
+    // TODO
     // TODO extract date info
     // TODO use regularexpression <t:<date>:<format>>
     return {};
