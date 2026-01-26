@@ -71,4 +71,17 @@ void TimeStampInMessagesUtilsTest::shouldConvertFormatTypeToString()
     QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::Unknown), QString());
 }
 
+void TimeStampInMessagesUtilsTest::shouldConvertStringToFormatType()
+{
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(u"f"_s), TimeStampInMessagesUtils::FormatType::FullDateTime);
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(u"F"_s), TimeStampInMessagesUtils::FormatType::LongFullDateTime);
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(u"d"_s), TimeStampInMessagesUtils::FormatType::ShortDate);
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(u"D"_s), TimeStampInMessagesUtils::FormatType::LongDate);
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(u"t"_s), TimeStampInMessagesUtils::FormatType::ShortTime);
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(u"T"_s), TimeStampInMessagesUtils::FormatType::LongTime);
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(u"R"_s), TimeStampInMessagesUtils::FormatType::RelativeTime);
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(QString()), TimeStampInMessagesUtils::FormatType::Unknown);
+    QCOMPARE(TimeStampInMessagesUtils::convertStringToFormatType(u"foo"_s), TimeStampInMessagesUtils::FormatType::Unknown);
+}
+
 #include "moc_timestampinmessagesutilstest.cpp"
