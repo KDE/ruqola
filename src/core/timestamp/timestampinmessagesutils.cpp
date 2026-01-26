@@ -41,6 +41,28 @@ QString TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesU
     return {};
 }
 
+TimeStampInMessagesUtils::FormatType convertStringToFormatType(const QString &str)
+{
+    if (str == u't') {
+        return TimeStampInMessagesUtils::FormatType::ShortTime;
+    } else if (str == u'T') {
+        return TimeStampInMessagesUtils::FormatType::LongTime;
+    } else if (str == u'd') {
+        return TimeStampInMessagesUtils::FormatType::ShortDate;
+    } else if (str == u'D') {
+        return TimeStampInMessagesUtils::FormatType::LongDate;
+    } else if (str == u'f') {
+        return TimeStampInMessagesUtils::FormatType::FullDateTime;
+    } else if (str == u'F') {
+        return TimeStampInMessagesUtils::FormatType::LongFullDateTime;
+    } else if (str == u'R') {
+        return TimeStampInMessagesUtils::FormatType::RelativeTime;
+    } else {
+        qCWarning(RUQOLA_LOG) << "Invalid format it's a bug";
+        return TimeStampInMessagesUtils::FormatType::Unknown;
+    }
+}
+
 static QString generateNumber(int value, int pad)
 {
     return u"%1"_s.arg(value, pad, 10, u'0');

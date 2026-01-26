@@ -27,6 +27,7 @@ public:
     Q_ENUM(FormatType)
 
     [[nodiscard]] static QString convertFormatTypeToString(TimeStampInMessagesUtils::FormatType type);
+    [[nodiscard]] static TimeStampInMessagesUtils::FormatType convertStringToFormatType(const QString &str);
 
     struct LIBRUQOLACORE_EXPORT TimeStampInfo {
         TimeStampInMessagesUtils::FormatType format = FormatType::Unknown;
