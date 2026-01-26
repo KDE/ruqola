@@ -555,6 +555,8 @@ target_sources(
         quicksearch/ruqolaquicksearchmessagesettings.h
         timestamp/timestampinmessagesconverter.h
         timestamp/timestampinmessagesconverter.cpp
+        timestamp/timestampinmessagesutils.h
+        timestamp/timestampinmessagesutils.cpp
         emoji.qrc
 )
 

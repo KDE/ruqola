@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessagesutilstest.h"
-#include "timestampinmessages/timestampinmessagesutils.h"
+#include "timestamp/timestampinmessagesutils.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(TimeStampInMessagesUtilsTest)
 using namespace Qt::Literals::StringLiterals;

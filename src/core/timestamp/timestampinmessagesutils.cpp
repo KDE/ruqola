@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessagesutils.h"
-#include "ruqolawidgets_debug.h"
+#include "ruqola_debug.h"
 using namespace Qt::Literals::StringLiterals;
 //./apps/meteor/client/lib/utils/timestamp/conversion.ts
 QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t)
@@ -34,7 +34,7 @@ QString TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesU
     case TimeStampInMessagesUtils::FormatType::RelativeTime:
         return u"R"_s;
     case TimeStampInMessagesUtils::FormatType::Unknown: {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid format it's a bug";
+        qCWarning(RUQOLA_LOG) << "Invalid format it's a bug";
         return {};
     }
     }

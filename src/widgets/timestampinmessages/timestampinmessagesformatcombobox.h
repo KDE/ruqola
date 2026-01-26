@@ -5,7 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
-#include "timestampinmessages/timestampinmessagesutils.h"
+#include "timestamp/timestampinmessagesutils.h"
 #include <QComboBox>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TimeStampInMessagesFormatComboBox : public QComboBox

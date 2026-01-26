@@ -4,13 +4,13 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
-#include "libruqolawidgets_export.h"
+#include "libruqolacore_export.h"
 #include <QDate>
 #include <QMetaType>
 #include <QObject>
 #include <QTime>
 class QDebug;
-class LIBRUQOLAWIDGETS_EXPORT TimeStampInMessagesUtils
+class LIBRUQOLACORE_EXPORT TimeStampInMessagesUtils
 {
     Q_GADGET
 public:
@@ -28,7 +28,7 @@ public:
 
     [[nodiscard]] static QString convertFormatTypeToString(TimeStampInMessagesUtils::FormatType type);
 
-    struct LIBRUQOLAWIDGETS_EXPORT TimeStampInfo {
+    struct LIBRUQOLACORE_EXPORT TimeStampInfo {
         TimeStampInMessagesUtils::FormatType format = FormatType::Unknown;
         QDate date;
         QTime time;
@@ -38,4 +38,4 @@ public:
     [[nodiscard]] static QString generateTimeStampStr(const TimeStampInfo &info);
 };
 Q_DECLARE_TYPEINFO(TimeStampInMessagesUtils::TimeStampInfo, Q_RELOCATABLE_TYPE);
-LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TimeStampInMessagesUtils::TimeStampInfo &t);

@@ -6,7 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
-#include "timestampinmessagesutils.h"
+#include "timestamp/timestampinmessagesutils.h"
 #include <QWidget>
 class QDebug;
 class QDateEdit;
