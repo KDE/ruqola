@@ -18,7 +18,7 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
         return {};
     }
 
-    static QRegularExpression reg(u"<t:([^>]*?)(?::([tTRfFdD]))?>"_s);
+    static QRegularExpression reg(u"<t:([^>]*?)(?::([tTdDFfR]))?>"_s);
 
     QRegularExpressionMatchIterator roomIterator = reg.globalMatch(str);
     while (roomIterator.hasNext()) {
