@@ -25,7 +25,7 @@ void TimeStampInMessagesConverterTest::shouldConvertTimeStampInMessages()
 {
     QFETCH(QString, input);
     QFETCH(QString, convertedText);
-    TimeStampInMessagesConverter converter;
+    const TimeStampInMessagesConverter converter;
     QCOMPARE(converter.generateTimeStamp(input), convertedText);
 }
 
