@@ -18,4 +18,5 @@ public:
 private Q_SLOTS:
     void shouldGenerateTimeStampStr();
     void shouldGenerateTimeStampStr_data();
+    void shouldConvertFormatTypeToString();
 };

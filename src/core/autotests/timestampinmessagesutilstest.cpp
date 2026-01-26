@@ -59,4 +59,16 @@ void TimeStampInMessagesUtilsTest::shouldGenerateTimeStampStr_data()
     }
 }
 
+void TimeStampInMessagesUtilsTest::shouldConvertFormatTypeToString()
+{
+    QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::FullDateTime), u'f');
+    QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::LongFullDateTime), u'F');
+    QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::LongDate), u'D');
+    QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::LongTime), u'T');
+    QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::ShortDate), u'd');
+    QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::LongDate), u'D');
+    QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::RelativeTime), u'R');
+    QCOMPARE(TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesUtils::FormatType::Unknown), QString());
+}
+
 #include "moc_timestampinmessagesutilstest.cpp"

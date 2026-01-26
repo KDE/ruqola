@@ -41,7 +41,7 @@ QString TimeStampInMessagesUtils::convertFormatTypeToString(TimeStampInMessagesU
     return {};
 }
 
-TimeStampInMessagesUtils::FormatType convertStringToFormatType(const QString &str)
+TimeStampInMessagesUtils::FormatType TimeStampInMessagesUtils::convertStringToFormatType(const QString &str)
 {
     if (str == u't') {
         return TimeStampInMessagesUtils::FormatType::ShortTime;
