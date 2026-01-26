@@ -17,15 +17,16 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
     if (str.isEmpty()) {
         return {};
     }
-    static QRegularExpression reg(u"<t:(.*):(.*)>"_s);
+
+    static QRegularExpression reg(u"<t:(.*):([tR])>"_s);
     // TODO verify
-    reg.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
+    // reg.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
 
     QRegularExpressionMatchIterator roomIterator = reg.globalMatch(str);
     while (roomIterator.hasNext()) {
         const QRegularExpressionMatch match = roomIterator.next();
-        const QStringView format = match.capturedView(1);
-        const QStringView word = match.capturedView(2);
+        const QStringView format = match.captured(1);
+        const QStringView word = match.captured(2);
         qDebug() << "word " << word << " format " << format;
     }
 
