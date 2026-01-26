@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 02:59+0000\n"
-"PO-Revision-Date: 2026-01-05 10:09+0100\n"
+"PO-Revision-Date: 2026-01-25 13:08+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: apps/main.cpp:58 core/notifications/notification.cpp:36
 #, kde-format
@@ -8228,7 +8228,7 @@ msgstr "Isilarazi %1 eta %2 aipamenak"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show badge for mentions"
-msgstr "Erakutsi entseina aipamenetarako"
+msgstr "Erakutsi ikur txikia aipamenetarako"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:40
 #, kde-format
@@ -8240,7 +8240,7 @@ msgstr "Alertak jaso"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Display badge for direct mentions only"
-msgstr "Azaldu entseina zuzeneko aipamenetarako bakarrik"
+msgstr "Erakutsi ikur txikia zuzeneko aipamenetarako bakarrik"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:65
 #, kde-format
