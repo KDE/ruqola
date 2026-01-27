@@ -1,3 +1,4 @@
+
 /*
    SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
 
@@ -5,6 +6,7 @@
 */
 #pragma once
 #include "libruqola_private_export.h"
+#include "timestampinmessagesutils.h"
 #include <QString>
 class LIBRUQOLACORE_TESTS_EXPORT TimeStampInMessagesConverter
 {
@@ -13,4 +15,5 @@ public:
     ~TimeStampInMessagesConverter();
 
     [[nodiscard]] QString generateTimeStamp(const QString &str) const;
+    [[nodiscard]] QString convertTimeStamp(const QString &dateTime, TimeStampInMessagesUtils::FormatType type) const;
 };
