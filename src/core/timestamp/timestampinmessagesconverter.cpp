@@ -35,35 +35,35 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
     return {};
 }
 
-QString TimeStampInMessagesConverter::convertTimeStamp(const QString &dateTime, TimeStampInMessagesUtils::FormatType type) const
+QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type) const
 {
     QString dateTimeStr;
     switch (type) {
     case TimeStampInMessagesUtils::FormatType::FullDateTime:
-        dateTimeStr = QDateTime::fromString(dateTime).toString(Qt::DateFormat::ISODate);
+        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODate);
         break;
     case TimeStampInMessagesUtils::FormatType::LongFullDateTime:
-        dateTimeStr = QDateTime::fromString(dateTime).toString(Qt::DateFormat::ISODateWithMs);
+        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::LongDate:
         // TODO
-        dateTimeStr = QDateTime::fromString(dateTime).toString(Qt::DateFormat::ISODate);
+        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODate);
         break;
     case TimeStampInMessagesUtils::FormatType::ShortDate:
         // TODO
-        dateTimeStr = QDateTime::fromString(dateTime).toString(Qt::DateFormat::ISODateWithMs);
+        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::LongTime:
         // TODO
-        dateTimeStr = QDateTime::fromString(dateTime).toString(Qt::DateFormat::ISODateWithMs);
+        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::ShortTime:
         // TODO
-        dateTimeStr = QDateTime::fromString(dateTime).toString(Qt::DateFormat::ISODateWithMs);
+        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::RelativeTime:
         // TODO
-        dateTimeStr = QDateTime::fromString(dateTime).toString(Qt::DateFormat::ISODateWithMs);
+        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::Unknown:
         break;

@@ -8,6 +8,7 @@
 #include "libruqola_private_export.h"
 #include "timestampinmessagesutils.h"
 #include <QString>
+class QDateTime;
 class LIBRUQOLACORE_TESTS_EXPORT TimeStampInMessagesConverter
 {
 public:
@@ -15,5 +16,5 @@ public:
     ~TimeStampInMessagesConverter();
 
     [[nodiscard]] QString generateTimeStamp(const QString &str) const;
-    [[nodiscard]] QString convertTimeStamp(const QString &dateTime, TimeStampInMessagesUtils::FormatType type) const;
+    [[nodiscard]] QString convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type) const;
 };
