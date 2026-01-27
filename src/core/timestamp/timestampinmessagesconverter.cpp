@@ -18,13 +18,13 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
         return {};
     }
 
-    static QRegularExpression reg(u"<t:([^>]*?)(?::([tTdDFfR]))?>"_s);
+    const static QRegularExpression reg(u"<t:([^>]*?)(?::([tTdDFfR]))?>"_s);
 
     QRegularExpressionMatchIterator roomIterator = reg.globalMatch(str);
     while (roomIterator.hasNext()) {
         const QRegularExpressionMatch match = roomIterator.next();
-        const QStringView format = match.captured(1);
-        const QStringView word = match.captured(2);
+        const QStringView format = match.capturedView(1);
+        const QStringView word = match.capturedView(2);
         qDebug() << "word " << word << " format " << format;
     }
 
