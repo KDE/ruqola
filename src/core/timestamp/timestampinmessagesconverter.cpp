@@ -24,9 +24,12 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
     QRegularExpressionMatchIterator roomIterator = reg.globalMatch(str);
     while (roomIterator.hasNext()) {
         const QRegularExpressionMatch match = roomIterator.next();
-        const QStringView format = match.capturedView(1);
-        const QStringView word = match.capturedView(2);
-        qDebug() << "word " << word << " format " << format;
+        const QStringView dateTime = match.capturedView(1);
+        const QStringView format = match.capturedView(2);
+
+        const QString result =
+            convertTimeStamp(QDateTime::fromString(dateTime.toString()), TimeStampInMessagesUtils::convertStringToFormatType(format.toString()));
+        qDebug() << "dateTime " << dateTime << " format " << format << " result " << result;
     }
 
     // TODO
