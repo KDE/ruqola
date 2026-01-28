@@ -17,4 +17,7 @@ public:
 private Q_SLOTS:
     void shouldConvertTimeStampInMessages_data();
     void shouldConvertTimeStampInMessages();
+
+    void shouldConvertTimeStamp_data();
+    void shouldConvertTimeStamp();
 };

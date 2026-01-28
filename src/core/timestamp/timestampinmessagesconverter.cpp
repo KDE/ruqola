@@ -66,7 +66,7 @@ QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime
         dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::Unknown:
-        break;
+        return {};
     }
 
     return u"`%1`"_s.arg(dateTimeStr);

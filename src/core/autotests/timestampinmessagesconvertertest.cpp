@@ -32,4 +32,23 @@ void TimeStampInMessagesConverterTest::shouldConvertTimeStampInMessages()
     QCOMPARE(converter.generateTimeStamp(input), convertedText);
 }
 
+void TimeStampInMessagesConverterTest::shouldConvertTimeStamp_data()
+{
+    QTest::addColumn<QDateTime>("dateTime");
+    QTest::addColumn<TimeStampInMessagesUtils::FormatType>("format");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("empty") << QDateTime() << TimeStampInMessagesUtils::FormatType::Unknown << QString();
+}
+
+void TimeStampInMessagesConverterTest::shouldConvertTimeStamp()
+{
+    QFETCH(QDateTime, dateTime);
+    QFETCH(TimeStampInMessagesUtils::FormatType, format);
+    QFETCH(QString, result);
+
+    const TimeStampInMessagesConverter converter;
+    QCOMPARE(converter.convertTimeStamp(dateTime, format), result);
+}
+
 #include "moc_timestampinmessagesconvertertest.cpp"
