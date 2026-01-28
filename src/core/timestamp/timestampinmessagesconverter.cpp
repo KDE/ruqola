@@ -46,8 +46,7 @@ QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime
         dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::LongDate:
-        // TODO
-        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODate);
+        dateTimeStr = dateTime.toString(u"dd/MM/yyyy HH:mm"_s);
         break;
     case TimeStampInMessagesUtils::FormatType::ShortDate:
         // TODO

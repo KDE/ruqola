@@ -39,6 +39,8 @@ void TimeStampInMessagesConverterTest::shouldConvertTimeStamp_data()
     QTest::addColumn<QString>("result");
 
     QTest::newRow("empty") << QDateTime() << TimeStampInMessagesUtils::FormatType::Unknown << QString();
+    QTest::newRow("empty-test1") << QDateTime(QDate(2024, 5, 5), QTime(5, 5, 5)) << TimeStampInMessagesUtils::FormatType::Unknown << QString();
+    QTest::newRow("test1") << QDateTime(QDate(2024, 5, 5), QTime(5, 5, 5)) << TimeStampInMessagesUtils::FormatType::LongDate << u"`05/05/2024 05:05`"_s;
 }
 
 void TimeStampInMessagesConverterTest::shouldConvertTimeStamp()
