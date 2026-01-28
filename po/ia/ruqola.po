@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:43+0000\n"
-"PO-Revision-Date: 2026-01-22 16:03+0100\n"
+"PO-Revision-Date: 2026-01-27 16:33+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -7690,7 +7690,7 @@ msgid "Accessibility"
 msgstr "Accessibilitate"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
 msgstr "Plugins"
@@ -7835,9 +7835,7 @@ msgid "DataBase Room Subscriptions"
 msgstr "Information de Base de Datos"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Copia"
@@ -8403,9 +8401,9 @@ msgid "Timezone:"
 msgstr "Fuso horari:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Local Time:"
-msgstr "Tempore Local"
+msgstr "Tempore Local:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #, kde-format
@@ -8621,8 +8619,7 @@ msgid "Finds Messages sent by you."
 msgstr "Message non trovate."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
 msgstr "Ex"
@@ -8663,7 +8660,7 @@ msgid "Filter by date as %1"
 msgstr "Filtra Canales (%1)"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "After"
 msgstr "Postea"
@@ -9402,8 +9399,7 @@ msgid "Import Accounts"
 msgstr "Importa Contos"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancella"
@@ -10466,8 +10462,7 @@ msgid "Add reaction"
 msgstr "Adde reaction"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Stoppa"
@@ -10495,11 +10490,10 @@ msgid "Insert TimeStamp"
 msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
-#, fuzzy, kde-format
-#| msgid "AI Actions"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Altere actiones"
+msgstr "Ulterior Actiones"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11006,10 +11000,9 @@ msgstr "(Aperi dialogo Externe...)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Nulle salas trovate"
+msgstr "Nulle usatores trovate."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -11453,8 +11446,7 @@ msgid "Work Online"
 msgstr "Travaliar in linea"
 
 #: widgets/ruqolamainwindow.cpp:1445
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
 msgstr "Travaliar Foras de linea"
@@ -11640,9 +11632,9 @@ msgid "Add TimeStamp"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Short Time"
-msgstr "Tempore breve (%1)"
+msgstr "Tempore breve"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
 #, fuzzy, kde-format
@@ -11651,15 +11643,14 @@ msgid "Long Time"
 msgstr "Fuso horari"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Short Date"
-msgstr "Data breve:"
+msgstr "Data breve"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Long Date"
-msgstr "Data longe:"
+msgstr "Data longe"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
@@ -11692,8 +11683,7 @@ msgid "Time"
 msgstr "Tempore"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
 msgstr "Formato"
 
