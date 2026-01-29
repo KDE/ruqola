@@ -6976,7 +6976,7 @@ msgid ""
 msgstr ""
 "Esta opció de configuració desactiva completament el sistema de "
 "notificacions; els sons, les notificacions d'escriptori, les notificacions "
-"mòbils i els correus electrònics s'pararan!"
+"mòbils i els correus electrònics es pararan!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:33
 #, kde-format
