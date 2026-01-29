@@ -18,11 +18,10 @@ void TimeStampInMessagesConverterTest::shouldConvertTimeStampInMessages_data()
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("convertedText");
     QTest::newRow("empty") << QString() << QString();
-    QTest::newRow("test1") << u"<t:2026-01-23T13:57:56.873:t>"_s << u"`2026-01-23T13:57:56.873`"_s;
-    QTest::newRow("test2") << u"<t:2026-01-23T13:57:56.873:t> foo <t:2025-08-23T13:57:56.873:R>"_s
-                           << u"`2026-01-23T13:57:56.873` foo `2025-08-23T13:57:56.873`"_s;
-    QTest::newRow("test3") << u"<t:2022-01-23T13:58:56.873:d>"_s << u"`2022-01-23T13:58:56.873`"_s;
-    QTest::newRow("test4") << u"<t:2022-01-23T13:58:56.873:D>"_s << u"`23/01/2022 13:58`"_s;
+    QTest::newRow("test1") << u"<t:2026-01-23T13:57:56.873:t>"_s << u"`13:57`"_s;
+    QTest::newRow("test2") << u"<t:2026-01-23T13:57:56.873:t> foo <t:2025-08-23T13:57:56.873:R>"_s << u"`13:57` foo `2025-08-23T13:57:56.873`"_s;
+    QTest::newRow("test3") << u"<t:2022-01-23T13:58:56.873:d>"_s << u"`2022-01-23`"_s;
+    QTest::newRow("test4") << u"<t:2022-01-23T13:58:56.873:D>"_s << u"`23/01/2022`"_s;
 }
 
 void TimeStampInMessagesConverterTest::shouldConvertTimeStampInMessages()
@@ -41,7 +40,7 @@ void TimeStampInMessagesConverterTest::shouldConvertTimeStamp_data()
 
     QTest::newRow("empty") << QDateTime() << TimeStampInMessagesUtils::FormatType::Unknown << QString();
     QTest::newRow("empty-test1") << QDateTime(QDate(2024, 5, 5), QTime(5, 5, 5)) << TimeStampInMessagesUtils::FormatType::Unknown << QString();
-    QTest::newRow("test1") << QDateTime(QDate(2024, 5, 5), QTime(5, 5, 5)) << TimeStampInMessagesUtils::FormatType::LongDate << u"`05/05/2024 05:05`"_s;
+    QTest::newRow("test1") << QDateTime(QDate(2024, 5, 5), QTime(5, 5, 5)) << TimeStampInMessagesUtils::FormatType::LongDate << u"`05/05/2024`"_s;
 }
 
 void TimeStampInMessagesConverterTest::shouldConvertTimeStamp()
