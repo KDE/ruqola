@@ -21,21 +21,21 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
 
     const static QRegularExpression reg(u"<t:([^>]*?)(?::([tTdDFfR]))?>"_s);
 
+    QString newStr = str;
     QRegularExpressionMatchIterator roomIterator = reg.globalMatch(str);
     while (roomIterator.hasNext()) {
         const QRegularExpressionMatch match = roomIterator.next();
         const QStringView dateTime = match.capturedView(1);
         const QStringView format = match.capturedView(2);
 
-        const QString result =
-            convertTimeStamp(QDateTime::fromString(dateTime.toString()), TimeStampInMessagesUtils::convertStringToFormatType(format.toString()));
+        const QString result = convertTimeStamp(QDateTime::fromString(dateTime.toString(), u"yyyy-MM-ddThh:mm:ss.zzz"_s),
+                                                TimeStampInMessagesUtils::convertStringToFormatType(format.toString()));
         qDebug() << "dateTime " << dateTime << " format " << format << " result " << result;
+        qDebug() << "match.captured(0) " << match.captured(0) << " QDateTime::fromString(dateTime.toString()) " << QDateTime::fromString(dateTime.toString());
+        qDebug() << " QDateTime::fromString(dateTime.toString(), udd_s) " << QDateTime::fromString(dateTime.toString(), u"yyyy-MM-ddThh:mm:ss.zzz"_s);
+        newStr.replace(match.captured(0), result);
     }
-
-    // TODO
-    // TODO extract date info
-    // TODO use regularexpression <t:<date>:<format>>
-    return {};
+    return newStr;
 }
 
 QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type) const
@@ -49,7 +49,7 @@ QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime
         dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::LongDate:
-        dateTimeStr = dateTime.toString(u"dd/MM/yyyy HH:mm"_s);
+        dateTimeStr = dateTime.toString(u"dd/MM/yyyy hh:mm"_s);
         break;
     case TimeStampInMessagesUtils::FormatType::ShortDate:
         // TODO
