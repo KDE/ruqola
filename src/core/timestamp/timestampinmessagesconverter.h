@@ -17,4 +17,5 @@ public:
 
     [[nodiscard]] QString generateTimeStamp(const QString &str) const;
     [[nodiscard]] QString convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type) const;
+    [[nodiscard]] QString regularExpressionStr() const;
 };

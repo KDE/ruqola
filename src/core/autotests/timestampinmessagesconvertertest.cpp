@@ -53,4 +53,10 @@ void TimeStampInMessagesConverterTest::shouldConvertTimeStamp()
     QCOMPARE(converter.convertTimeStamp(dateTime, format), result);
 }
 
+void TimeStampInMessagesConverterTest::shouldRegularExpressionStrValue()
+{
+    const TimeStampInMessagesConverter converter;
+    QCOMPARE(converter.regularExpressionStr(), u"<t:([^>]*?)(?::([tTdDFfR]))?>"_s);
+}
+
 #include "moc_timestampinmessagesconvertertest.cpp"

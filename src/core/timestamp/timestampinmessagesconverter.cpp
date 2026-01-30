@@ -13,13 +13,18 @@ TimeStampInMessagesConverter::TimeStampInMessagesConverter() = default;
 
 TimeStampInMessagesConverter::~TimeStampInMessagesConverter() = default;
 
+QString TimeStampInMessagesConverter::regularExpressionStr() const
+{
+    return u"<t:([^>]*?)(?::([tTdDFfR]))?>"_s;
+}
+
 QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) const
 {
     if (str.isEmpty()) {
         return {};
     }
 
-    const static QRegularExpression reg(u"<t:([^>]*?)(?::([tTdDFfR]))?>"_s);
+    const static QRegularExpression reg(regularExpressionStr());
 
     QString newStr = str;
     QRegularExpressionMatchIterator roomIterator = reg.globalMatch(str);

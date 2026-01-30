@@ -20,4 +20,6 @@ private Q_SLOTS:
 
     void shouldConvertTimeStamp_data();
     void shouldConvertTimeStamp();
+
+    void shouldRegularExpressionStrValue();
 };
