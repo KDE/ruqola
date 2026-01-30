@@ -8,6 +8,7 @@
 #include "messagecache.h"
 #include "ruqola_texttohtml_debug.h"
 #include "ruqolablockcmarksupport.h"
+#include "timestamp/timestampinmessagesconverter.h"
 #include "utils.h"
 
 #include <KSyntaxHighlighting/Theme>
@@ -38,8 +39,8 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
     }
 
     QString quotedMessage;
-
     QString str = settings.str;
+
     // TODO we need to look at room name too as we can have it when we use "direct reply"
     if (str.contains("[ ](http"_L1)
         && (settings.maximumRecursiveQuotedText == -1 || (settings.maximumRecursiveQuotedText > recusiveIndex))) { // ## is there a better way?
@@ -135,6 +136,8 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
             }
         }
     }
+    const TimeStampInMessagesConverter timeStampConverter;
+    str = timeStampConverter.generateTimeStamp(str);
 
     // Need to escaped text (avoid to interpret html code)
     auto newsettings = new TextConverter::ConvertMessageTextSettings{
