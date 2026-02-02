@@ -71,6 +71,7 @@ static QString generateNumber(int value, int pad)
 QString TimeStampInMessagesUtils::generateTimeStampStr(const TimeStampInfo &info)
 {
     if (info.format == FormatType::Unknown) {
+        qCWarning(RUQOLA_LOG) << "Invalid format it's a bug";
         return {};
     }
     const int year = info.date.year();
