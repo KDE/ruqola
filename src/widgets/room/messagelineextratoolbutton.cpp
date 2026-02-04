@@ -83,15 +83,15 @@ void MessageLineExtraToolButton::updateTimeStampSupport()
         mMenu->addAction(mTimeStampAction);
     } else {
         // Check if we have it
+        // TODO
+        /*
+        if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
+            mMenu->addAction(mTimeStampAction);
+        } else {
+            mMenu->removeAction(mTimeStampAction);
+        }
+        */
     }
-    // TODO
-    /*
-    if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
-        mMenu->addAction(mTimeStampAction);
-    } else {
-        mMenu->removeAction(mTimeStampAction);
-    }
-    */
 }
 
 void MessageLineExtraToolButton::slotActionButtonChanged()
