@@ -192,8 +192,6 @@ void MessageLineWidget::insertTimeStamp()
         const TimeStampInMessagesUtils::TimeStampInfo timeStampInfo = dlg->timeStampInfo();
         const QString result = TimeStampInMessagesUtils::generateTimeStampStr(timeStampInfo);
         setText(result);
-        qDebug() << " result " << result;
-        // TODO
     }
     delete dlg;
 }
