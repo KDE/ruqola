@@ -5,7 +5,6 @@
 */
 
 #include "myaccountpreferenceconfigurewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/soundconfigurewidget.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(MyAccountPreferenceConfigureWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 MyAccountPreferenceConfigureWidgetTest::MyAccountPreferenceConfigureWidgetTest(QObject *parent)
     : QObject(parent)
 {
@@ -145,6 +145,14 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(notificationsSoundVolumeLabel);
     QCOMPARE(notificationsSoundVolumeLabel->textFormat(), Qt::PlainText);
     QVERIFY(!notificationsSoundVolumeLabel->text().isEmpty());
+
+    auto mCallRingerVolume = soundWidget->findChild<QSpinBox *>(u"mCallRingerVolume"_s);
+    QVERIFY(mCallRingerVolume);
+
+    auto callRingerVolumeLabel = soundWidget->findChild<QLabel *>(u"callRingerVolumeLabel"_s);
+    QVERIFY(callRingerVolumeLabel);
+    QCOMPARE(callRingerVolumeLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!callRingerVolumeLabel->text().isEmpty());
 }
 
 #include "moc_myaccountpreferenceconfigurewidgettest.cpp"

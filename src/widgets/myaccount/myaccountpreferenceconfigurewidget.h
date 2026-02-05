@@ -52,7 +52,7 @@ private:
     NotificationDesktopSoundPreferenceModel *const mSoundModel;
     QCheckBox *const mMuteFocusedConversations;
     QSpinBox *const mNotificationsSoundVolume;
-
+    QSpinBox *const mCallRingerVolume;
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;
 };
