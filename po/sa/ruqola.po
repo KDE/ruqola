@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -9122,7 +9122,7 @@ msgid "Video: %1"
 msgstr "विडियो: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:510
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10737,50 +10737,50 @@ msgstr "सन्देशं प्रेषयन्तु"
 msgid "Send Message"
 msgstr "सन्देशं प्रेषयतु"
 
-#: widgets/room/messagelinewidget.cpp:220
+#: widgets/room/messagelinewidget.cpp:218
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:221
+#: widgets/room/messagelinewidget.cpp:219
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:278
+#: widgets/room/messagelinewidget.cpp:276
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "किं भवन्तः एतत् महत् पाठं संलग्नकरूपेण परिवर्तयितुम् इच्छन्ति?"
 
-#: widgets/room/messagelinewidget.cpp:279
+#: widgets/room/messagelinewidget.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "सन्देशः अतीव विशालः"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "थ्रेड् मध्ये %1 सन्देशः"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "%1 इत्यत्र सन्देशं प्रेषयन्तु..."
 
-#: widgets/room/messagelinewidget.cpp:533
+#: widgets/room/messagelinewidget.cpp:531
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "चयनिता सञ्चिका अतीव विशाला अस्ति (अधिकतमः आकारः %1) ।"
 
-#: widgets/room/messagelinewidget.cpp:534
+#: widgets/room/messagelinewidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "सञ्चिका अपलोड्"
 
-#: widgets/room/messagelinewidget.cpp:539
+#: widgets/room/messagelinewidget.cpp:537
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "सर्वरः एतां सञ्चिकां न अधिकृतयति (अवैधं mimetype)"

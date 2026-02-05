@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
 "PO-Revision-Date: 2026-01-22 21:09+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -9183,7 +9183,7 @@ msgid "Video: %1"
 msgstr "Відео: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:510
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10801,52 +10801,52 @@ msgstr "Надіслати повідомлення"
 msgid "Send Message"
 msgstr "Надіслати повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:220
+#: widgets/room/messagelinewidget.cpp:218
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 "Не вдалося виконати команду. Хочете скопіювати команду до буфера обміну "
 "даними?"
 
-#: widgets/room/messagelinewidget.cpp:221
+#: widgets/room/messagelinewidget.cpp:219
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Помилка команди"
 
-#: widgets/room/messagelinewidget.cpp:278
+#: widgets/room/messagelinewidget.cpp:276
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Хочете перетворити цей значний фрагмент тексту на долучення?"
 
-#: widgets/room/messagelinewidget.cpp:279
+#: widgets/room/messagelinewidget.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Надто велике повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Повідомлення %1 у гілці"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Надіслати повідомлення у %1…"
 
-#: widgets/room/messagelinewidget.cpp:533
+#: widgets/room/messagelinewidget.cpp:531
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Вибраний файл є надто великим (максимальний розмір — %1)"
 
-#: widgets/room/messagelinewidget.cpp:534
+#: widgets/room/messagelinewidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Вивантаження файла"
 
-#: widgets/room/messagelinewidget.cpp:539
+#: widgets/room/messagelinewidget.cpp:537
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME)"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -8922,7 +8922,7 @@ msgid "Video: %1"
 msgstr "影片：%1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:510
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10484,50 +10484,50 @@ msgstr "傳送訊息"
 msgid "Send Message"
 msgstr "傳送訊息"
 
-#: widgets/room/messagelinewidget.cpp:220
+#: widgets/room/messagelinewidget.cpp:218
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "指令失敗。您要將指令複製到剪貼簿嗎？"
 
-#: widgets/room/messagelinewidget.cpp:221
+#: widgets/room/messagelinewidget.cpp:219
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "指令錯誤"
 
-#: widgets/room/messagelinewidget.cpp:278
+#: widgets/room/messagelinewidget.cpp:276
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "您要將此份長文轉為附件嗎？"
 
-#: widgets/room/messagelinewidget.cpp:279
+#: widgets/room/messagelinewidget.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "訊息太大"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "對話串中的訊息 %1"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "在 %1 中傳送訊息…"
 
-#: widgets/room/messagelinewidget.cpp:533
+#: widgets/room/messagelinewidget.cpp:531
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "所選檔案太大（上限 %1）"
 
-#: widgets/room/messagelinewidget.cpp:534
+#: widgets/room/messagelinewidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "檔案上傳"
 
-#: widgets/room/messagelinewidget.cpp:539
+#: widgets/room/messagelinewidget.cpp:537
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "伺服器未授權此檔案（無效的 MIME 類型）"

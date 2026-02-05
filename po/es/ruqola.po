@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
 "PO-Revision-Date: 2026-01-25 00:39+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -9131,7 +9131,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:510
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10743,51 +10743,51 @@ msgstr "Enviar mensaje"
 msgid "Send Message"
 msgstr "Enviar mensaje"
 
-#: widgets/room/messagelinewidget.cpp:220
+#: widgets/room/messagelinewidget.cpp:218
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 "La instrucción falló. ¿Quiere copiar la instrucción en el portapapeles?"
 
-#: widgets/room/messagelinewidget.cpp:221
+#: widgets/room/messagelinewidget.cpp:219
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Error en la instrucción"
 
-#: widgets/room/messagelinewidget.cpp:278
+#: widgets/room/messagelinewidget.cpp:276
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "¿Desea convertir este texto grande en un adjunto?"
 
-#: widgets/room/messagelinewidget.cpp:279
+#: widgets/room/messagelinewidget.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "El mensaje es demasiado grande"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Mensaje %1 en el hilo"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Enviar un mensaje en %1…"
 
-#: widgets/room/messagelinewidget.cpp:533
+#: widgets/room/messagelinewidget.cpp:531
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "El archivo seleccionado es demasiado grande (Tamaño máximo %1)"
 
-#: widgets/room/messagelinewidget.cpp:534
+#: widgets/room/messagelinewidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Subida del archivo"
 
-#: widgets/room/messagelinewidget.cpp:539
+#: widgets/room/messagelinewidget.cpp:537
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no autoriza este archivo (tipo mime no soportado)"

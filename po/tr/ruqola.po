@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:43+0000\n"
+"POT-Creation-Date: 2026-02-05 00:43+0000\n"
 "PO-Revision-Date: 2026-01-22 12:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -9066,7 +9066,7 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:510
+#: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10673,50 +10673,50 @@ msgstr "İletiyi gönder"
 msgid "Send Message"
 msgstr "İletiyi Gönder"
 
-#: widgets/room/messagelinewidget.cpp:220
+#: widgets/room/messagelinewidget.cpp:218
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Komut başarısız oldu. Komutu panoya kopyalamak istiyor musunuz?"
 
-#: widgets/room/messagelinewidget.cpp:221
+#: widgets/room/messagelinewidget.cpp:219
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Komut Hatası"
 
-#: widgets/room/messagelinewidget.cpp:278
+#: widgets/room/messagelinewidget.cpp:276
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Bu büyük metni bir eke dönüştürmek istiyor musunuz?"
 
-#: widgets/room/messagelinewidget.cpp:279
+#: widgets/room/messagelinewidget.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "İleti Pek Büyük"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Dizideki %1 Kişisine İleti Gönder"
 
-#: widgets/room/messagelinewidget.cpp:383
+#: widgets/room/messagelinewidget.cpp:381
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "%1 içinde bir ileti gönder…"
 
-#: widgets/room/messagelinewidget.cpp:533
+#: widgets/room/messagelinewidget.cpp:531
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Seçili dosya pek büyük (En büyük boyut %1)"
 
-#: widgets/room/messagelinewidget.cpp:534
+#: widgets/room/messagelinewidget.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Dosya Karşıya Yükle"
 
-#: widgets/room/messagelinewidget.cpp:539
+#: widgets/room/messagelinewidget.cpp:537
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Sunucu, bu dosya türünü yetkilendirmedi (geçersiz MIME türü)"
