@@ -24,6 +24,7 @@ MyAccountFeaturePreviewConfigureWidget::MyAccountFeaturePreviewConfigureWidget(R
 
     mTimeStampCheckBox->setObjectName(u"mTimeStampCheckBox"_s);
     mainLayout->addWidget(mTimeStampCheckBox);
+    mainLayout->addStretch(1);
 }
 
 MyAccountFeaturePreviewConfigureWidget::~MyAccountFeaturePreviewConfigureWidget() = default;
