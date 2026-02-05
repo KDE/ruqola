@@ -74,8 +74,12 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     }
     mMyAccountFeaturePreviewConfigureWidget->setObjectName(u"mMyAccountFeaturePreviewConfigureWidget"_s);
     const int pagePreviewIndex = tabWidget->addTab(mMyAccountFeaturePreviewConfigureWidget, i18n("Feature Preview"));
-    if (account && !account->ownUserPreferences().hasFeaturePreview()) {
-        tabWidget->setTabVisible(pagePreviewIndex, false);
+    if (account) {
+        if (!account->ownUserPreferences().hasFeaturePreview()) {
+            tabWidget->setTabVisible(pagePreviewIndex, false);
+        } else if (account->hasAtLeastVersion(8, 0, 0)) {
+            tabWidget->setTabVisible(pagePreviewIndex, false);
+        }
     }
 
     if (account && account->offlineMode()) {
