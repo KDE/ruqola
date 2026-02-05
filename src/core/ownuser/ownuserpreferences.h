@@ -103,6 +103,12 @@ public:
 
     [[nodiscard]] bool serverHasFeaturePreview() const;
 
+    [[nodiscard]] int callRingerVolume() const;
+    void setCallRingerVolume(int newCallRingerVolume);
+
+    [[nodiscard]] int masterVolume() const;
+    void setMasterVolume(int newMasterVolume);
+
 private:
     FeaturePreviewPreferences mFeaturePreviewPreferences;
     QStringList mHighlightWords;
@@ -115,6 +121,8 @@ private:
     RoomListDisplay mRoomListDisplay = RoomListDisplay::Unknown;
     int mIdleTimeLimit = -1;
     int mNotificationsSoundVolume = -1;
+    int mCallRingerVolume = -1;
+    int mMasterVolume = -1;
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
     bool mHideRoles = false;

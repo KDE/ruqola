@@ -33,6 +33,8 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(p.showFavorite());
     QCOMPARE(p.roomListSortOrder(), OwnUserPreferences::RoomListSortOrder::Unknown);
     QCOMPARE(p.roomListDisplay(), OwnUserPreferences::RoomListDisplay::Unknown);
+    QCOMPARE(p.callRingerVolume(), -1);
+    QCOMPARE(p.notificationsSoundVolume(), -1);
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()

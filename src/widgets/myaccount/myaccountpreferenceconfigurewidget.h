@@ -53,6 +53,7 @@ private:
     QCheckBox *const mMuteFocusedConversations;
     QSpinBox *const mNotificationsSoundVolume;
     QSpinBox *const mCallRingerVolume;
+    QSpinBox *const mMasterVolume;
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;
 };

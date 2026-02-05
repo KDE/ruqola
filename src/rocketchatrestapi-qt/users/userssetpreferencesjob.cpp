@@ -150,6 +150,12 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (mUsersSetPreferencesInfo.notificationsSoundVolume != -1) {
         dataObj["notificationsSoundVolume"_L1] = mUsersSetPreferencesInfo.notificationsSoundVolume;
     }
+    if (mUsersSetPreferencesInfo.voipRingerVolume != -1) {
+        dataObj["voipRingerVolume"_L1] = mUsersSetPreferencesInfo.voipRingerVolume;
+    }
+    if (mUsersSetPreferencesInfo.masterVolume != -1) {
+        dataObj["masterVolume"_L1] = mUsersSetPreferencesInfo.masterVolume;
+    }
 
     jsonObj["data"_L1] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);

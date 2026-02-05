@@ -153,6 +153,14 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(callRingerVolumeLabel);
     QCOMPARE(callRingerVolumeLabel->textFormat(), Qt::PlainText);
     QVERIFY(!callRingerVolumeLabel->text().isEmpty());
+
+    auto mMasterVolume = soundWidget->findChild<QSpinBox *>(u"mMasterVolume"_s);
+    QVERIFY(mMasterVolume);
+
+    auto masterVolumeLabel = soundWidget->findChild<QLabel *>(u"masterVolumeLabel"_s);
+    QVERIFY(masterVolumeLabel);
+    QCOMPARE(masterVolumeLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!masterVolumeLabel->text().isEmpty());
 }
 
 #include "moc_myaccountpreferenceconfigurewidgettest.cpp"

@@ -60,7 +60,8 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setNewRoomNotification(replyObject.value("newRoomNotification"_L1).toString().toLatin1());
     setNotificationsSoundVolume(replyObject.value("notificationsSoundVolume"_L1).toInt());
     setMuteFocusedConversations(replyObject.value("muteFocusedConversations"_L1).toBool(false));
-
+    setCallRingerVolume(replyObject.value("voipRingerVolume"_L1).toInt(-1));
+    setMasterVolume(replyObject.value("masterVolume"_L1).toInt(-1));
     // featuresPreview
     mFeaturePreviewPreferences.parseFeaturePreview(replyObject.value("featuresPreview"_L1).toArray());
 }
@@ -75,7 +76,8 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail() && mRoomListDisplay == other.roomListDisplay()
         && mNewMessageNotification == other.newMessageNotification() && mNewRoomNotification == other.newRoomNotification()
         && mNotificationsSoundVolume == other.notificationsSoundVolume() && mMuteFocusedConversations == other.muteFocusedConversations()
-        && mFeaturePreviewPreferences == other.featurePreviewPreferences();
+        && mFeaturePreviewPreferences == other.featurePreviewPreferences() && mMasterVolume == other.masterVolume()
+        && mCallRingerVolume == other.callRingerVolume();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -312,6 +314,8 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d.space() << "notificationsSoundVolume" << t.notificationsSoundVolume();
     d.space() << "muteFocusedConversations" << t.muteFocusedConversations();
     d.space() << "featurePreviewPreferences" << t.featurePreviewPreferences();
+    d.space() << "callRingerVolume" << t.callRingerVolume();
+    d.space() << "masterVolume" << t.masterVolume();
     return d;
 }
 
@@ -333,6 +337,26 @@ FeaturePreviewPreferences OwnUserPreferences::featurePreviewPreferences() const
 bool OwnUserPreferences::serverHasFeaturePreview() const
 {
     return mFeaturePreviewPreferences.serverHasFeaturePreview();
+}
+
+int OwnUserPreferences::callRingerVolume() const
+{
+    return mCallRingerVolume;
+}
+
+void OwnUserPreferences::setCallRingerVolume(int newCallRingerVolume)
+{
+    mCallRingerVolume = newCallRingerVolume;
+}
+
+int OwnUserPreferences::masterVolume() const
+{
+    return mMasterVolume;
+}
+
+void OwnUserPreferences::setMasterVolume(int newMasterVolume)
+{
+    mMasterVolume = newMasterVolume;
 }
 
 #include "moc_ownuserpreferences.cpp"

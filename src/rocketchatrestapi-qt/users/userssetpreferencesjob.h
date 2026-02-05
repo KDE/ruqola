@@ -45,6 +45,8 @@ public:
         QString sidebarViewMode;
         int idleTimeLimit = -1;
         int notificationsSoundVolume = -1;
+        int voipRingerVolume = -1;
+        int masterVolume = -1;
         State muteFocusedConversations = State::Unknown;
 
         // Add more

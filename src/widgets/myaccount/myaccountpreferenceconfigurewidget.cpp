@@ -46,6 +46,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mMuteFocusedConversations(new QCheckBox(i18nc("@option:check", "Mute Focused Conversations"), this))
     , mNotificationsSoundVolume(new QSpinBox(this))
     , mCallRingerVolume(new QSpinBox(this))
+    , mMasterVolume(new QSpinBox(this))
     , mRocketChatAccount(account)
 {
     mUseEmojis->setObjectName(u"mUseEmojis"_s);
@@ -163,6 +164,15 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mCallRingerVolume->setObjectName(u"mCallRingerVolume"_s);
     connect(mCallRingerVolume, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     createLayout(callRingerVolumeLabel, mCallRingerVolume, soundWidgetLayout);
+
+    auto masterVolumeLabel = new QLabel(i18nc("@label:textbox", "Master volume:"), this);
+    masterVolumeLabel->setObjectName(u"masterVolumeLabel"_s);
+    masterVolumeLabel->setTextFormat(Qt::PlainText);
+
+    mMasterVolume->setRange(0, 100);
+    mMasterVolume->setObjectName(u"mMasterVolume"_s);
+    connect(mMasterVolume, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    createLayout(masterVolumeLabel, mMasterVolume, soundWidgetLayout);
 
     if (mRocketChatAccount) {
         mSoundModel->setCustomSoundManager(mRocketChatAccount->customSoundManager());
@@ -318,7 +328,8 @@ void MyAccountPreferenceConfigureWidget::save()
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
         info.idleTimeLimit = mIdleTimeLimit->value();
         info.notificationsSoundVolume = mNotificationsSoundVolume->value();
-        // TODO add callringervolume
+        info.voipRingerVolume = mCallRingerVolume->value();
+        info.masterVolume = mMasterVolume->value();
         info.enableAutoAway = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mAutomaticAway->isChecked());
         info.muteFocusedConversations =
             RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mMuteFocusedConversations->isChecked());
@@ -354,6 +365,8 @@ void MyAccountPreferenceConfigureWidget::load()
     mSoundNewMessageNotification->setCurrentSound(ownUserPreferences.newMessageNotification());
     mMuteFocusedConversations->setChecked(ownUserPreferences.muteFocusedConversations());
     mNotificationsSoundVolume->setValue(ownUserPreferences.notificationsSoundVolume());
+    mCallRingerVolume->setValue(ownUserPreferences.callRingerVolume());
+    mMasterVolume->setValue(ownUserPreferences.masterVolume());
     mChanged = false;
 }
 
