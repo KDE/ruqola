@@ -18,7 +18,7 @@ OwnUserPreferencesTest::OwnUserPreferencesTest(QObject *parent)
 
 void OwnUserPreferencesTest::shouldHaveDefaultValues()
 {
-    OwnUserPreferences p;
+    const OwnUserPreferences p;
     QVERIFY(p.highlightWords().isEmpty());
     QVERIFY(p.emailNotificationMode().isEmpty());
     QVERIFY(p.desktopNotifications().isEmpty());
