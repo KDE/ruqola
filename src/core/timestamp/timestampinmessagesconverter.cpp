@@ -36,10 +36,8 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
         QDateTime dateTime = QDateTime::fromString(dateTimeCaptured.toString(), u"yyyy-MM-ddThh:mm:ss.zzz"_s);
 
         if (!dateTime.isValid()) {
-            qDebug() << " date time is invalid *******";
             dateTime = QDateTime::fromString(dateTimeCaptured.toString(), u"yyyy-MM-ddThh:mm:ss.zzzttt"_s);
-            qDebug() << " dateTime " << dateTime;
-            // TODO look at time zone.
+            // qDebug() << " dateTime " << dateTime;
         }
         const QString result = convertTimeStamp(dateTime, TimeStampInMessagesUtils::convertStringToFormatType(format.toString()));
         // qDebug() << "dateTime " << dateTime << " format " << format << " result " << result;
