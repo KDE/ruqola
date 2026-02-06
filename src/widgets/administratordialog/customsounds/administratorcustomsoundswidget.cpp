@@ -107,47 +107,91 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
 {
     QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
     if (dlg->exec()) {
-#if 0 // TODO add
+        /// api/v1/method.call/uploadCustomSound when we upload new sound file
+        ///
+#if 0
+        NEED TO IMPLEMENT stream-notify-all  QJsonObject({"collection":"stream-notify-all","fields":{"args":[["updateCustomSound",[{"soundData":{"_id":"6985ce1fd5a24b2ff76acf15","extension":"mp3","name":"vvvvvvvvvvv","newFile":true,"random":839}}]]],"eventName":"public-info"},"id":"id","msg":"changed"})
+        NEED TO IMPLEMENT stream-notify-all  QJsonObject({"collection":"stream-notify-all","fields":{"args":[["updateCustomSound",[{"soundData":{"_id":"6985ce1fd5a24b2ff76acf15","extension":"mp3","name":"vvvvvvvvvvv","newFile":true,"random":839}}]]],"eventName":"public-info"},"id":"id","msg":"changed"})
+
+#endif
+
         auto job = new RocketChatRestApi::MethodCallJob(this);
-        RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
-        loadHistoryInfo.methodName = u"insertOrUpdateSound"_s;
-        loadHistoryInfo.anonymous = false;
-        loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
-        job->setMethodCallJobInfo(loadHistoryInfo);
+        RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+        info.methodName = u"insertOrUpdateSound"_s;
+        info.anonymous = false;
+        QJsonArray params;
+        QJsonObject obj;
+        obj["newFile"_L1] = true;
+        obj["name"_L1] = dlg->customSoundInfo().name;
+        obj["extension"_L1] = dlg->customSoundInfo().name;
+        params.append(obj);
+        //{"message":"{\"msg\":\"method\",\"id\":\"34\",\"method\":\"insertOrUpdateSound\",
+        // \"params\":[{\"name\":\"vvvvvvvvvvv\",\"extension\":\"mp3\",\"newFile\":true}]}"}
+        // TODO add
+        info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+
+        job->setMethodCallJobInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
-            const QJsonObject obj = root.value("result"_L1).toObject();
-            // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
-            mRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
+            // TODO upload file
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start insertOrUpdateSound job";
         }
-#endif
-        // TODO
     }
     delete dlg;
 }
 
 void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
 {
-#if 0
-    // method.call/uploadCustomSound
-    // Comment for the moment. there is not restapi yet.
-    return;
-#else
     QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
-    // TODO add option
     if (dlg->exec()) {
-        // TODO
+#if 1
+        /// api/v1/method.call/uploadCustomSound when we upload new sound file
+        ///
+
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
+        const QByteArray soundIdentifier = modelIndex.data().toByteArray();
+
+        //{"message":"{\"msg\":\"method\",\"id\":\"19\",\"method\":\"insertOrUpdateSound\",\"params\"
+        // :[{\"_id\":\"6985976bd5a24b2ff76aceed\",\"name\":\"sdfgh\",\"extension\":\"sdf\",
+        //\"previousName\":\"sdf\",\"previousExtension\":\"mp3\",
+        // \"previousSound\":{\"_id\":\"6985976bd5a24b2ff76aceed\",\"name\":\"sdf\",\"extension\":\"mp3\",
+        // \"_updatedAt\":\"2026-02-06T07:25:31.351Z\"},\"newFile\":false}]}"}
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+        info.methodName = u"insertOrUpdateSound"_s;
+        info.anonymous = false;
+        QJsonArray params;
+        QJsonObject obj;
+        obj["newFile"_L1] = false;
+        QJsonObject previewSound;
+        obj["previousSound"_L1] = previewSound;
+        params.append(obj);
+        // TODO add
+        info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+        job->setMethodCallJobInfo(info);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+            // TODO upload file
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start insertOrUpdateSound job";
+        }
+#endif
     }
     delete dlg;
-#endif
 }
 
 void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &index)
 {
+#if 0
+    NEED TO IMPLEMENT stream-notify-all  QJsonObject({"collection":"stream-notify-all","fields":{"args":[["deleteCustomSound",[{"soundData":{"_id":"664455f73b610b8aa5d35ba6","_updatedAt":{"$date":1715754487794},"extension":"mp3","name":"test1"}}]]],"eventName":"public-info"},"id":"id","msg":"changed"})
+    NEED TO IMPLEMENT stream-notify-all  QJsonObject({"collection":"stream-notify-all","fields":{"args":[["deleteCustomSound",[{"soundData":{"_id":"664455f73b610b8aa5d35ba6","_updatedAt":{"$date":1715754487794},"extension":"mp3","name":"test1"}}]]],"eventName":"public-info"},"id":"id","msg":"changed"})
+
+#endif
     if (KMessageBox::warningTwoActions(this,
                                        i18n("Do you want to remove this sound?"),
                                        i18nc("@title", "Remove Custom Sound"),
