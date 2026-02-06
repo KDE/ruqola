@@ -24,6 +24,7 @@
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
+#include <qfileinfo.h>
 
 using namespace Qt::Literals::StringLiterals;
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccount *account, QWidget *parent)
@@ -122,12 +123,14 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
         QJsonArray params;
         QJsonObject obj;
         obj["newFile"_L1] = true;
-        obj["name"_L1] = dlg->customSoundInfo().name;
-        obj["extension"_L1] = dlg->customSoundInfo().name;
+        const auto customSoundInfo = dlg->customSoundInfo();
+        const QFileInfo fileInfo(customSoundInfo.fileNameUrl.toLocalFile());
+        fileInfo.completeSuffix();
+        obj["name"_L1] = customSoundInfo.name;
+        obj["extension"_L1] = fileInfo.completeSuffix();
         params.append(obj);
         //{"message":"{\"msg\":\"method\",\"id\":\"34\",\"method\":\"insertOrUpdateSound\",
         // \"params\":[{\"name\":\"vvvvvvvvvvv\",\"extension\":\"mp3\",\"newFile\":true}]}"}
-        // TODO add
         info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
 
         job->setMethodCallJobInfo(info);
@@ -135,6 +138,7 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
         // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
             // TODO upload file
+            qDebug() << "root " << root;
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start insertOrUpdateSound job";
