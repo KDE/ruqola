@@ -245,8 +245,9 @@ DirectoryWidget::DirectoryType DirectoryWidget::type() const
 void DirectoryWidget::slotJoin()
 {
     const QModelIndex initialIndex = mTreeView->selectionModel()->currentIndex();
-    if (initialIndex.isValid()) {
-        slotOpen(initialIndex);
+    const QModelIndex indexToSource = mProxyModelModel->mapToSource(initialIndex);
+    if (indexToSource.isValid()) {
+        slotOpen(indexToSource);
     }
 }
 
