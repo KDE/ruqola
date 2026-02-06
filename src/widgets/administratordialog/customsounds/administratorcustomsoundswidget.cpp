@@ -150,6 +150,9 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
 void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
 {
     QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
+    const QModelIndex nameModelIndex = mModel->index(index.row(), AdminCustomSoundModel::Name);
+    const AdministratorCustomSoundsCreateWidget::CustomSoundInfo originalCustomSoundInfo{.name = nameModelIndex.data().toString(), .fileNameUrl = {}};
+    dlg->setCustomSoundInfo(originalCustomSoundInfo);
     if (dlg->exec()) {
 #if 1
         /// api/v1/method.call/uploadCustomSound when we upload new sound file
