@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"POT-Creation-Date: 2026-02-06 00:44+0000\n"
 "PO-Revision-Date: 2026-01-25 13:08+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -688,8 +688,8 @@ msgstr "Bat ere ez"
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
 #: widgets/dialogs/showvideowidget.cpp:124
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:286
 #, kde-format
 msgid "Default"
 msgstr "Lehenetsia"
@@ -1233,7 +1233,7 @@ msgstr "Rola"
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:295
 #, kde-format
 msgid "Disabled"
 msgstr "Ezgaituta"
@@ -1427,19 +1427,19 @@ msgstr[0] "segundo 1"
 msgstr[1] "%1 segundo"
 
 #: core/model/notificationpreferencemodel.cpp:54
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
 #, kde-format
 msgid "All Messages"
 msgstr "Mezu guztiak"
 
 #: core/model/notificationpreferencemodel.cpp:60
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Mentions"
 msgstr "Aipamenak"
 
 #: core/model/notificationpreferencemodel.cpp:66
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
 #, kde-format
 msgid "Nothing"
 msgstr "Ezer ez"
@@ -2953,7 +2953,7 @@ msgstr "Ikusezin egoera ezgaituta dago"
 msgid "%1 is already in use."
 msgstr "%1 lehendik erabiltzen ari da."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:162
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:168
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Parametro baliogabeak"
@@ -10140,37 +10140,37 @@ msgctxt "@option:check"
 msgid "Mute Focused Conversations"
 msgstr "Isilarazi fokua duten elkarrizketak"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Highlight words:"
 msgstr "Nabarmendu hitzak:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "Erabili ',' hitzak bereizteko"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "Bereizi hitz bakoitza ',' erabiliz."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:77
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Desktop notification:"
 msgstr "Mahaigaineko jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
 msgstr "Bultzada jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:96
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
@@ -10178,13 +10178,13 @@ msgstr ""
 "Jaso e-posta bat zure kontuan saio-sarrera berri bat antzematen den "
 "bakoitzean."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:115
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Idle Time Limit:"
 msgstr "Jarduera ezaren muga:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:119
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -10193,37 +10193,49 @@ msgstr ""
 "Egoera aldendura aldatu arteko denbora bitartea. Balioa segundotan egon "
 "behar da."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:134
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Room Notification:"
 msgstr "Gela berriaren jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:138
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:140
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Message Notification:"
 msgstr "Mezu berriaren jakinarazpena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:150
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
 msgstr "Jakinarazpenen soinuaren bolumena:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Call ringer volume:"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Master volume:"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr "Zama-jaitsi nire datuak (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "Esportatu nire datuak (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -10232,29 +10244,29 @@ msgstr ""
 "Zure datuen fitxategia sortuko da. Prest dagoenean, hura zama-jaisteko "
 "esteka bat bidaliko da zure e-postara."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
 #, kde-format
 msgctxt "@title:window"
 msgid "Download File Requested"
 msgstr "Fitxategia zama-jaistea eskatu da"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:285
 #, kde-format
 msgid "Default (%1)"
 msgstr "Lehenetsia (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:293
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "Lehenetsia (Aipamen/DM oro)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:294
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "Aipamen/DM oro"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:298
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""

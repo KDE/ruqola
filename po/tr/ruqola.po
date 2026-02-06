@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"POT-Creation-Date: 2026-02-06 00:44+0000\n"
 "PO-Revision-Date: 2026-01-22 12:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -687,8 +687,8 @@ msgstr "Yok"
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
 #: widgets/dialogs/showvideowidget.cpp:124
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:286
 #, kde-format
 msgid "Default"
 msgstr "Öntanımlı"
@@ -1217,7 +1217,7 @@ msgstr "Rol"
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:295
 #, kde-format
 msgid "Disabled"
 msgstr "Devre Dışı"
@@ -1411,19 +1411,19 @@ msgstr[0] "1 saniye"
 msgstr[1] "%1 saniye"
 
 #: core/model/notificationpreferencemodel.cpp:54
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
 #, kde-format
 msgid "All Messages"
 msgstr "Tüm İletiler"
 
 #: core/model/notificationpreferencemodel.cpp:60
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Mentions"
 msgstr "Değinmeler"
 
 #: core/model/notificationpreferencemodel.cpp:66
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
 #, kde-format
 msgid "Nothing"
 msgstr "Hiçbir şey"
@@ -2920,7 +2920,7 @@ msgstr "Görünmez durumu devre dışı"
 msgid "%1 is already in use."
 msgstr "%1, halihazırda kullanımda."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:162
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:168
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Geçersiz parametreler"
@@ -10072,49 +10072,49 @@ msgctxt "@option:check"
 msgid "Mute Focused Conversations"
 msgstr "Odaklı konuşmaları sessize al"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Highlight words:"
 msgstr "Sözcükleri vurgula:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "Sözcükleri ayırmak için “,” kullan"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "Her bir sözcüğü “,” ile ayır."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:77
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Desktop notification:"
 msgstr "Masaüstü bildirimi:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
 msgstr "Anlık bildirim:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:96
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
 msgstr "Hesabınıza yeni bir oturum açıldığında bir e-posta bildirimi alın."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:115
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Idle Time Limit:"
 msgstr "Boşta zaman sınırı:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:119
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -10123,37 +10123,49 @@ msgstr ""
 "Durumun uzakta olarak değiştirileceği zaman periyodu. Değer, saniye türünden "
 "olmalıdır."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:134
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Room Notification:"
 msgstr "Yeni oda bildirimi:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:138
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:140
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Message Notification:"
 msgstr "Yeni ileti bildirimi:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:150
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
 msgstr "Bildirim sesi düzeyi:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Call ringer volume:"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Master volume:"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr "Verimi İndir (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "Verimi Dışa Aktar (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -10162,29 +10174,29 @@ msgstr ""
 "Veri dosyanız üretilecek. Hazır olduğunda, indirmeniz için e-posta "
 "adresinize bir bağlantı gönderilecektir."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
 #, kde-format
 msgctxt "@title:window"
 msgid "Download File Requested"
 msgstr "Dosya İndirme İstendi"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:285
 #, kde-format
 msgid "Default (%1)"
 msgstr "Öntanımlı (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:293
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "Öntanımlı (Her Değinme/Dİ)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:294
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "Her Değinme/Dİ"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:298
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Rocket.Chat yöneticiniz, e-posta bildirimlerini devre dışı bıraktı"

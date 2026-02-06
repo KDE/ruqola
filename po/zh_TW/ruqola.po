@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:43+0000\n"
+"POT-Creation-Date: 2026-02-06 00:44+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -689,8 +689,8 @@ msgstr "無"
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
 #: widgets/dialogs/showvideowidget.cpp:124
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:286
 #, kde-format
 msgid "Default"
 msgstr "預設"
@@ -1218,7 +1218,7 @@ msgstr "角色"
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:295
 #, kde-format
 msgid "Disabled"
 msgstr "已停用"
@@ -1411,19 +1411,19 @@ msgid_plural "%1 seconds"
 msgstr[0] "%1 秒"
 
 #: core/model/notificationpreferencemodel.cpp:54
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:244
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
 #, kde-format
 msgid "All Messages"
 msgstr "所有訊息"
 
 #: core/model/notificationpreferencemodel.cpp:60
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:246
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
 #, kde-format
 msgid "Mentions"
 msgstr "提及"
 
 #: core/model/notificationpreferencemodel.cpp:66
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:248
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
 #, kde-format
 msgid "Nothing"
 msgstr "無"
@@ -2906,7 +2906,7 @@ msgstr ""
 msgid "%1 is already in use."
 msgstr "%1 已被使用。"
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:162
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:168
 #, kde-format
 msgid "Invalid parameters"
 msgstr "無效的參數"
@@ -9891,115 +9891,127 @@ msgctxt "@option:check"
 msgid "Mute Focused Conversations"
 msgstr "讓聚焦的對話靜音"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Highlight words:"
 msgstr "突顯單詞："
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:65
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Use ',' for separating words"
 msgstr "用 ',' 來分隔單詞"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
 msgstr "用 ',' 分隔每個詞。"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:77
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Desktop notification:"
 msgstr "桌面通知："
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
 msgstr "推送通知："
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:96
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
 msgstr "每次偵測到帳戶新登入時都要收到一封通知郵件。"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:115
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Idle Time Limit:"
 msgstr "閒置時間閒置："
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:119
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "閒置多久之後將狀態改為離席。單位為秒。"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:134
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Room Notification:"
 msgstr "新聊天室通知："
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:138
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:140
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Message Notification:"
 msgstr "新訊息通知："
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:150
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
 msgstr "通知音量："
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Call ringer volume:"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Master volume:"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr "下載我的資料 (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "匯出我的資料 (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:237
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr "將會產生您的資料檔。準備就緒時下載連結會傳送到您的電子郵件。"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:238
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
 #, kde-format
 msgctxt "@title:window"
 msgid "Download File Requested"
 msgstr "已請求下載檔案"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:285
 #, kde-format
 msgid "Default (%1)"
 msgstr "預設（%1）"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:273
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:293
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "預設（每次提及/私訊）"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:294
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "每次提及/私訊"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:298
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "您的 Rocket.Chat 管理員已停用電子郵件通知"
