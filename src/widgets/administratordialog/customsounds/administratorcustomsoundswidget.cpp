@@ -156,16 +156,12 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
         == KMessageBox::PrimaryAction) {
         const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
         const QByteArray soundIdentifier = modelIndex.data().toByteArray();
-        mRocketChatAccount->ddp()->deleteCustomSound(soundIdentifier);
-#if 0
         auto job = new RocketChatRestApi::MethodCallJob(this);
         RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
         info.methodName = u"deleteCustomSound"_s;
         info.anonymous = false;
-        QJsonObject obj;
-        // TODO
         const QJsonArray params{{QString::fromLatin1(soundIdentifier)}};
-        info.messageObj = QJsonArray(soundIdentifier);
+        info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
         job->setMethodCallJobInfo(std::move(info));
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
@@ -176,8 +172,6 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start MethodCallJob deleteCustomSound job";
         }
-#endif
-        // TODO use method.call/deleteCustomSound
     }
 }
 
