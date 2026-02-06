@@ -47,7 +47,6 @@ AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget() = default;
 
 void AdministratorCustomSoundsWidget::slotCustomSoundAdded()
 {
-    // TODO
 }
 
 void AdministratorCustomSoundsWidget::slotCustomSoundUpdated()
@@ -105,7 +104,7 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
 
 void AdministratorCustomSoundsWidget::slotAddCustomSound()
 {
-#if 1
+#if 0
     // TODO use method.call/insertOrUpdateSound
     // Comment for the moment. there is not restapi yet.
     return;
@@ -120,7 +119,7 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
 
 void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
 {
-#if 1
+#if 0
     // method.call/uploadCustomSound
     // Comment for the moment. there is not restapi yet.
     return;
