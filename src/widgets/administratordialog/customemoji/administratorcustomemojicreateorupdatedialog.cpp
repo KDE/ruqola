@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomemojicreateorupdatedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -20,6 +19,7 @@ namespace
 {
 const char myConfigAdministratorCustomEmojiCreateDialogGroupName[] = "AdministratorCustomEmojiCreateDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 AdministratorCustomEmojiCreateOrUpdateDialog::AdministratorCustomEmojiCreateOrUpdateDialog(QWidget *parent)
     : QDialog(parent)
     , mCreateWidget(new AdministratorCustomEmojiCreateOrUpdateWidget(this))

@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomsoundswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorcustomsoundscreatedialog.h"
 #include "connection.h"
@@ -25,6 +24,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPointer>
 #include <QTreeView>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
 {

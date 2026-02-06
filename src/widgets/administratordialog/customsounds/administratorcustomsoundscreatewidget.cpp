@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomsoundscreatewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))

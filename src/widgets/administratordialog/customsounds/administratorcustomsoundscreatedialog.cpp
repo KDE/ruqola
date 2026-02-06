@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomsoundscreatedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -20,6 +19,7 @@ namespace
 const char myConfigAdministratorCustomSoundsCreateDialogGroupName[] = "AdministratorCustomSoundsCreateDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWidget *parent)
     : QDialog(parent)
     , mCreateWidget(new AdministratorCustomSoundsCreateWidget(this))

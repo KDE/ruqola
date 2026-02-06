@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomemojicreateorupdatewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLineEditEventHandler>
 #include <QFormLayout>
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KStatefulBrush>
 #include <KUrlRequester>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateWidget(QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
