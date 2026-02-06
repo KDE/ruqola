@@ -26,6 +26,7 @@ AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWi
     KLineEditEventHandler::catchReturnKey(mName);
 
     mSelectFile->setObjectName(u"mSelectFile"_s);
+    // TODO add filters name mSelectFile->setNameFilters()
 
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("File:"), mSelectFile);

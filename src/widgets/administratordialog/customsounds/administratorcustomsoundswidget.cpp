@@ -15,6 +15,7 @@
 #include "model/admincustomsoundmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
+#include "rocketchatbackend.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -104,17 +105,29 @@ void AdministratorCustomSoundsWidget::slotLoadElements(int offset, int count, co
 
 void AdministratorCustomSoundsWidget::slotAddCustomSound()
 {
-#if 0
-    // TODO use method.call/insertOrUpdateSound
-    // Comment for the moment. there is not restapi yet.
-    return;
-#else
     QPointer<AdministratorCustomSoundsCreateDialog> dlg = new AdministratorCustomSoundsCreateDialog(this);
     if (dlg->exec()) {
+#if 0 // TODO add
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
+        loadHistoryInfo.methodName = u"insertOrUpdateSound"_s;
+        loadHistoryInfo.anonymous = false;
+        loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
+        job->setMethodCallJobInfo(loadHistoryInfo);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+            const QJsonObject obj = root.value("result"_L1).toObject();
+            // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
+            mRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start insertOrUpdateSound job";
+        }
+#endif
         // TODO
     }
     delete dlg;
-#endif
 }
 
 void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &index)
