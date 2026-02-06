@@ -154,6 +154,7 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
     const AdministratorCustomSoundsCreateWidget::CustomSoundInfo originalCustomSoundInfo{.name = nameModelIndex.data().toString(), .fileNameUrl = {}};
     dlg->setCustomSoundInfo(originalCustomSoundInfo);
     if (dlg->exec()) {
+        const AdministratorCustomSoundsCreateWidget::CustomSoundInfo newCustomInfo = dlg->customSoundInfo();
 #if 1
         /// api/v1/method.call/uploadCustomSound when we upload new sound file
         ///
@@ -173,7 +174,13 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
         QJsonArray params;
         QJsonObject obj;
         obj["newFile"_L1] = false;
+        obj["_id"_L1] = QString::fromLatin1(soundIdentifier);
+        obj["name"_L1] = newCustomInfo.name;
+        obj["extension"_L1] = newCustomInfo.name; // TODO extension
         QJsonObject previewSound;
+        previewSound["_id"_L1] = QString::fromLatin1(soundIdentifier);
+        previewSound["name"_L1] = originalCustomSoundInfo.name;
+        previewSound["extension"_L1] = originalCustomSoundInfo.name; // TODO extension
         obj["previousSound"_L1] = previewSound;
         params.append(obj);
         // TODO add
