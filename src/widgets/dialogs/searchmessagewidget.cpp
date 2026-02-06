@@ -191,7 +191,7 @@ void SearchMessageWidget::slotSearchMessages(const QString &str)
         mSearchMessageFilterProxyModel->setSearchText(newStr);
         mSearchLineEdit->addCompletionItem(newStr);
         messageSearch(newStr, mRoomId, false);
-        qDebug() << " messageSearch " << newStr;
+        // qDebug() << " messageSearch " << newStr;
         mOffset = numberOfElment;
     }
 }
