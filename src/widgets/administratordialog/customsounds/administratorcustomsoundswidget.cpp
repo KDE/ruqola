@@ -126,8 +126,11 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
         const auto customSoundInfo = dlg->customSoundInfo();
         const QFileInfo fileInfo(customSoundInfo.fileNameUrl.toLocalFile());
         fileInfo.completeSuffix();
-        obj["name"_L1] = customSoundInfo.name;
-        obj["extension"_L1] = fileInfo.completeSuffix();
+        const QString customSoundInfoName = customSoundInfo.name;
+        const QString customSoundInfoExtension = fileInfo.completeSuffix();
+
+        obj["name"_L1] = customSoundInfoName;
+        obj["extension"_L1] = customSoundInfoExtension;
         params.append(obj);
         //{"message":"{\"msg\":\"method\",\"id\":\"34\",\"method\":\"insertOrUpdateSound\",
         // \"params\":[{\"name\":\"vvvvvvvvvvv\",\"extension\":\"mp3\",\"newFile\":true}]}"}
@@ -136,29 +139,39 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
         job->setMethodCallJobInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
-            // TODO upload file
-            qDebug() << "root " << root;
-            auto uploadSoundFileJob = new RocketChatRestApi::MethodCallJob(this);
-            RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-            info.methodName = u"uploadCustomSound"_s;
-            info.anonymous = false;
-            QJsonArray params;
-            QJsonObject obj;
-            obj["name"_L1] = {};
-            obj["extension"_L1] = {};
-            obj["newFile"_L1] = true;
-            // TODO convert file as base64 ?
+        connect(job,
+                &RocketChatRestApi::MethodCallJob::methodCallDone,
+                this,
+                [this, customSoundInfoExtension, customSoundInfoName, fileInfo](const QJsonObject &root) {
+                    // TODO upload file
+                    qDebug() << "root " << root;
+                    const QString soundIdentifier = root["result"_L1].toString();
+                    auto uploadSoundFileJob = new RocketChatRestApi::MethodCallJob(this);
+                    RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+                    info.methodName = u"uploadCustomSound"_s;
+                    info.anonymous = false;
+                    QJsonArray params;
+                    QJsonObject obj;
+                    obj["name"_L1] = customSoundInfoName;
+                    obj["extension"_L1] = customSoundInfoExtension;
+                    obj["newFile"_L1] = true;
+                    obj["_id"_L1] = soundIdentifier;
+                    // obj["random"_L1] = "todo";
+                    // TODO convert file as base64 ?
 
-            params.append(obj);
-            info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
-            uploadSoundFileJob->setMethodCallJobInfo(info);
-            mRocketChatAccount->restApi()->initializeRestApiJob(uploadSoundFileJob);
-            connect(uploadSoundFileJob, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) { });
-            if (!uploadSoundFileJob->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start uploadSoundFileJob job";
-            }
-        });
+                    // TODO readall file params.append()
+                    params.append(obj);
+                    info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+                    uploadSoundFileJob->setMethodCallJobInfo(info);
+                    qDebug() << " info.messageObj " << info.messageObj;
+                    mRocketChatAccount->restApi()->initializeRestApiJob(uploadSoundFileJob);
+                    connect(uploadSoundFileJob, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+                        qDebug() << " RESULT " << root;
+                    });
+                    if (!uploadSoundFileJob->start()) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start uploadSoundFileJob job";
+                    }
+                });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start insertOrUpdateSound job";
         }
