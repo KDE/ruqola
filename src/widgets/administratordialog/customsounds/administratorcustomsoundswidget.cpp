@@ -139,6 +139,25 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
             // TODO upload file
             qDebug() << "root " << root;
+            auto uploadSoundFileJob = new RocketChatRestApi::MethodCallJob(this);
+            RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+            info.methodName = u"uploadCustomSound"_s;
+            info.anonymous = false;
+            QJsonArray params;
+            QJsonObject obj;
+            obj["name"_L1] = {};
+            obj["extension"_L1] = {};
+            obj["newFile"_L1] = true;
+            // TODO convert file as base64 ?
+
+            params.append(obj);
+            info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+            uploadSoundFileJob->setMethodCallJobInfo(info);
+            mRocketChatAccount->restApi()->initializeRestApiJob(uploadSoundFileJob);
+            connect(uploadSoundFileJob, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) { });
+            if (!uploadSoundFileJob->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start uploadSoundFileJob job";
+            }
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start insertOrUpdateSound job";
