@@ -191,6 +191,9 @@ void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, [[may
         parser.parse(arguments);
         parseCommandLine(&parser);
     }
+    if (!isVisible()) {
+        show();
+    }
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
     KWindowSystem::updateStartupId(windowHandle());
     KWindowSystem::activateWindow(windowHandle());
