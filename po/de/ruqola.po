@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 00:44+0000\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3161,7 +3161,7 @@ msgid "The custom emoji name and their aliases should be different."
 msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
-#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:30
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:32
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:29
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:29
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:33
@@ -3186,7 +3186,7 @@ msgid "Alias:"
 msgstr "Alias:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:53
-#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:31
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:33
 #, kde-format
 msgid "File:"
 msgstr "Datei:"
@@ -3227,7 +3227,7 @@ msgid "Remove Emoji"
 msgstr "Entfernen"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:240
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3240,7 +3240,7 @@ msgid "Add…"
 msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:178
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:242
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3254,7 +3254,7 @@ msgid "Modify…"
 msgstr "Ändern ..."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:182
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:246
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3277,20 +3277,26 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "Neuen Benutzer erstellen"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:33
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
+#, kde-format
+msgctxt "@item:inlistbox File type selection filter"
+msgid "mp3 file"
+msgstr ""
+
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Status:"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:65
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "No Discussion found"
 msgid "No custom sound found"
 msgstr "Keine Diskussion gefunden"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:71
 #, fuzzy, kde-format
 #| msgid "%1 room (Total: %2)"
 #| msgid_plural "%1 rooms (Total: %2)"
@@ -3299,13 +3305,13 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 Raum (Gesamt: %2)"
 msgstr[1] "%1 Räume (Gesamt: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:140
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:210
 #, fuzzy, kde-format
 #| msgid "Do you want to ignore this user?"
 msgid "Do you want to remove this sound?"
 msgstr "Möchten Sie diesen Benutzer ignorieren?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:211
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"

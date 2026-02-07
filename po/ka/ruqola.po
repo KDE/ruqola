@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-06 00:44+0000\n"
-"PO-Revision-Date: 2026-01-22 06:20+0100\n"
+"POT-Creation-Date: 2026-02-07 00:43+0000\n"
+"PO-Revision-Date: 2026-02-06 06:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3015,7 +3015,7 @@ msgid "The custom emoji name and their aliases should be different."
 msgstr "ემოჯის სახელი და მისი მეტსახელები უნდა განსხვავდებოდნენ."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
-#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:30
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:32
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:29
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:29
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:33
@@ -3040,7 +3040,7 @@ msgid "Alias:"
 msgstr "მეტსახელი:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:53
-#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:31
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:33
 #, kde-format
 msgid "File:"
 msgstr "ფაილი:"
@@ -3075,7 +3075,7 @@ msgid "Remove Emoji"
 msgstr "Emoji-ის წაშლა"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:176
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:240
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3088,7 +3088,7 @@ msgid "Add…"
 msgstr "დამატება…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:178
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:242
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3101,7 +3101,7 @@ msgid "Modify…"
 msgstr "შეცვლა…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:182
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:246
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3121,30 +3121,36 @@ msgctxt "@title:window"
 msgid "Create New Sound"
 msgstr "ახალი ხმის შექმნა"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:33
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
+#, kde-format
+msgctxt "@item:inlistbox File type selection filter"
+msgid "mp3 file"
+msgstr ""
+
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "მორგებული ხმების ძებნა"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:65
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
 #, kde-format
 msgid "No custom sound found"
 msgstr "მორგებული ხმები ვერ ვიპოვე"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:71
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 მორგებული ხმა (სულ: %2)"
 msgstr[1] "%1 custom sounds (Total: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:140
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:210
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "გნებავთ, წაშალოთ ეს ხმა?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:211
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -10148,13 +10154,13 @@ msgstr "გაფრთხილებების ხმის სიძლი�
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr ""
+msgstr "ზარის დამრეკის ხმა:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "ძირითადი ხმა:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
