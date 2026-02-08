@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:43+0000\n"
-"PO-Revision-Date: 2026-02-06 08:20-0300\n"
+"POT-Creation-Date: 2026-02-08 00:43+0000\n"
+"PO-Revision-Date: 2026-02-07 06:33-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -3081,7 +3081,7 @@ msgid "Remove Emoji"
 msgstr "Remover emoji"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:240
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:272
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3094,7 +3094,7 @@ msgid "Add…"
 msgstr "Adicionar…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:242
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:274
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3107,7 +3107,7 @@ msgid "Modify…"
 msgstr "Modificar…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:246
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:278
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3131,7 +3131,7 @@ msgstr "Criar novo som"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "arquivo mp3"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -3151,12 +3151,12 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 som personalizado (total: %2)"
 msgstr[1] "%1 sons personalizados (total: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:210
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:242
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Deseja excluir este som?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:211
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:243
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -12565,15 +12565,21 @@ msgstr "Correção da exibição do tamanho de arquivo anexo."
 msgid "Save local translation to local database."
 msgstr "Salvar tradução local no banco de dados local."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:219
+#: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, kde-format
 msgid "Fix remove room (in local database)."
 msgstr "Correção de remoção de sala (no banco de dados local)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:219
+#: widgets/whatsnew/whatsnewtranslations.cpp:221
 #, kde-format
 msgid "Fix export database."
 msgstr "Correção da exportação do banco de dados."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:222
+#, fuzzy, kde-format
+#| msgid "Custom Sounds"
+msgid "Fix upload Custom Sound"
+msgstr "Sons personalizados"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

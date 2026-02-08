@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:43+0000\n"
-"PO-Revision-Date: 2026-02-06 06:21+0100\n"
+"POT-Creation-Date: 2026-02-08 00:43+0000\n"
+"PO-Revision-Date: 2026-02-07 02:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3075,7 +3075,7 @@ msgid "Remove Emoji"
 msgstr "Emoji-ის წაშლა"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:240
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:272
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3088,7 +3088,7 @@ msgid "Add…"
 msgstr "დამატება…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:242
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:274
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3101,7 +3101,7 @@ msgid "Modify…"
 msgstr "შეცვლა…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:246
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:278
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3125,7 +3125,7 @@ msgstr "ახალი ხმის შექმნა"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "MP3 ფაილი"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -3145,12 +3145,12 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 მორგებული ხმა (სულ: %2)"
 msgstr[1] "%1 custom sounds (Total: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:210
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:242
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "გნებავთ, წაშალოთ ეს ხმა?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:211
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:243
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -12515,15 +12515,21 @@ msgstr "გასწორდა მიმაგრებული ფაილ�
 msgid "Save local translation to local database."
 msgstr "ლოკალური თარგმანის შენახვა ლოკალურ მონაცემთა ბაზაში."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:219
+#: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, kde-format
 msgid "Fix remove room (in local database)."
 msgstr "გასწორდა ოთახის წაშლა (ლოკალურ მონაცემთა ბაზებში)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:219
+#: widgets/whatsnew/whatsnewtranslations.cpp:221
 #, kde-format
 msgid "Fix export database."
 msgstr "გასწორდა მონაცემთა ბაზის გატანა."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:222
+#, fuzzy, kde-format
+#| msgid "Custom Sounds"
+msgid "Fix upload Custom Sound"
+msgstr "მორგებული ხმები"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
