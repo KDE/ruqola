@@ -184,7 +184,7 @@ void RoomWidget::slotAddWebDavServer()
             qDebug() << " replyObject " << replyObject;
         });
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getRoomByTypeAndName job";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start addWebdavAccount job";
         }
     }
 }
