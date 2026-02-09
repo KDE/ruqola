@@ -108,7 +108,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             }
 #endif
             const qint64 firstDateTime = info.roomModel->firstTimestamp();
-            qDebug() << "firstDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "firstDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
             if (firstDateTime != 0) {
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << firstDateTime;
                 syncMessage(info.roomId, /*info.lastSeenAt*/ firstDateTime);
