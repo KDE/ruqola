@@ -96,7 +96,9 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                                              << " number of message " << lstMessages.count();
             // Check on network if message change. => we need to add timestamp.
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
-            mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
+            if (!lstMessages.isEmpty()) {
+                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
+            }
             // FIXME: don't use  info.lastSeenAt until we store room information in database
             // We need to use last message timeStamp
 #if ADD_OFFLINE_SUPPORT
