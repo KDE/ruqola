@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-08 00:43+0000\n"
-"PO-Revision-Date: 2026-02-06 08:45+0100\n"
+"PO-Revision-Date: 2026-02-08 11:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3140,7 +3140,7 @@ msgstr "Creeu un so nou"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "Fitxer mp3"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -12600,7 +12600,6 @@ msgid "Fix export database."
 msgstr "Corregix l'exportació de la base de dades."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:222
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Fix upload Custom Sound"
-msgstr "Sons personalitzats"
+msgstr "Corregix la pujada de sons personalitzats"

@@ -3822,7 +3822,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
-msgstr ""
+msgstr "刷新"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:70
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:51
@@ -4433,7 +4433,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Make sure you have correct SMTP settings to use this feature"
-msgstr ""
+msgstr "要使用此功能，请确保您正确地设置了 SMTP。"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
 #, kde-format
@@ -4444,7 +4444,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of allowed domains"
-msgstr ""
+msgstr "允许的域名列表，以逗号分隔"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:191
 #, kde-format
@@ -4455,7 +4455,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgstr "屏蔽的域名列表，以逗号分隔"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:195
 #, kde-format
@@ -4466,7 +4466,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
-msgstr ""
+msgstr "屏蔽的用户 (不区分大小写) 列表，以逗号分隔"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:199
 #, kde-format
@@ -4671,7 +4671,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Tracks custom events related to actions a user does on messages."
-msgstr ""
+msgstr "订阅与用户对消息的操作有关的自定义事件。"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
 #, kde-format
@@ -4679,7 +4679,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
-msgstr ""
+msgstr "订阅与频道或组的操作 (创建,离开,删除) 相关的自定义事件。"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:45
 #, kde-format
@@ -4688,6 +4688,7 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"订阅与用户相关的动作相关的自定义事件 (密码重置时间,个人资料图片更改等) 。"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
 #, kde-format
