@@ -49,10 +49,12 @@ AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget() = default;
 
 void AdministratorCustomSoundsWidget::slotCustomSoundAdded()
 {
+    qDebug() << " void AdministratorCustomSoundsWidget::slotCustomSoundAdded() not implement yet";
 }
 
 void AdministratorCustomSoundsWidget::slotCustomSoundUpdated()
 {
+    qDebug() << " void AdministratorCustomSoundsWidget::slotCustomSoundUpdated() not implement yet";
     // TODO
 }
 
@@ -145,6 +147,11 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
                 [this, customSoundInfoExtension, customSoundInfoName, fileInfo](const QJsonObject &root) {
                     // TODO upload file
                     qDebug() << "root " << root;
+                    QFile f(fileInfo.absoluteFilePath());
+                    if (!f.open(QIODevice::ReadOnly)) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open file";
+                        return;
+                    }
                     const QString soundIdentifier = root["result"_L1].toString();
                     auto uploadSoundFileJob = new RocketChatRestApi::MethodCallJob(this);
                     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
@@ -156,14 +163,18 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
                     obj["extension"_L1] = customSoundInfoExtension;
                     obj["newFile"_L1] = true;
                     obj["_id"_L1] = soundIdentifier;
-                    // obj["random"_L1] = "todo";
-                    // TODO convert file as base64 ?
 
-                    // TODO readall file params.append()
+                    const QByteArray ba = f.readAll();
+                    params.append(QString::fromLatin1(ba));
+                    // TODO use correct info here.
+                    params.append(QString::fromLatin1("audio/mpeg"_ba));
+
+                    // TODO change it
+                    obj["random"_L1] = QString::number(45);
                     params.append(obj);
                     info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
                     uploadSoundFileJob->setMethodCallJobInfo(info);
-                    qDebug() << " info.messageObj " << info.messageObj;
+                    // qDebug() << " info.messageObj " << info.messageObj;
                     mRocketChatAccount->restApi()->initializeRestApiJob(uploadSoundFileJob);
                     connect(uploadSoundFileJob, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
                         qDebug() << " RESULT " << root;
