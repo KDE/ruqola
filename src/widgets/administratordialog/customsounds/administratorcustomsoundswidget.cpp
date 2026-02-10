@@ -49,11 +49,13 @@ AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget() = default;
 
 void AdministratorCustomSoundsWidget::slotCustomSoundAdded()
 {
+    slotLoadElements();
     qDebug() << " void AdministratorCustomSoundsWidget::slotCustomSoundAdded() not implement yet";
 }
 
 void AdministratorCustomSoundsWidget::slotCustomSoundUpdated()
 {
+    slotLoadElements();
     qDebug() << " void AdministratorCustomSoundsWidget::slotCustomSoundUpdated() not implement yet";
     // TODO
 }
@@ -226,7 +228,6 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
         previewSound["extension"_L1] = originalCustomSoundInfo.name; // TODO extension
         obj["previousSound"_L1] = previewSound;
         params.append(obj);
-        // TODO add
         info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
         job->setMethodCallJobInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
