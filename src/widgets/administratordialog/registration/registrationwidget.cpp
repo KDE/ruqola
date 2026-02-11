@@ -5,11 +5,11 @@
 */
 
 #include "registrationwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RegistrationWidget::RegistrationWidget(QWidget *parent)
     : QWidget{parent}
 {
