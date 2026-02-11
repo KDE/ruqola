@@ -5,7 +5,10 @@
 */
 
 #include "featurepreviewwidget.h"
+#include "connection.h"
+#include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QVBoxLayout>
@@ -44,6 +47,28 @@ FeaturePreviewWidget::~FeaturePreviewWidget() = default;
 void FeaturePreviewWidget::initialize()
 {
     // TODO mAllowFeaturePreview->setChecked...
+}
+
+void FeaturePreviewWidget::save()
+{
+#if 0
+    auto job = new RocketChatRestApi::MethodCallJob(this);
+    const QJsonArray params{{QString::fromLatin1(fileId)}};
+    const QString methodName{u"saveSettings"_s};
+    const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
+        .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
+        .methodName = methodName,
+        .anonymous = false,
+    };
+    job->setMethodCallJobInfo(std::move(info));
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
+        mRocketChatAccount->roomFiles(mRoomId, mRoomType);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start saveSettings job";
+    }
+#endif
 }
 
 #include "moc_featurepreviewwidget.cpp"

@@ -17,6 +17,8 @@ public:
     ~FeaturePreviewWidget() override;
     void initialize();
 
+    void save();
+
 private:
     QCheckBox *const mAllowFeaturePreview;
     QCheckBox *const mQuickReactions;
