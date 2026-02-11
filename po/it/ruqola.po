@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-08 00:43+0000\n"
-"PO-Revision-Date: 2026-01-22 15:31+0100\n"
+"POT-Creation-Date: 2026-02-11 00:45+0000\n"
+"PO-Revision-Date: 2026-02-08 14:39+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -3086,7 +3086,7 @@ msgid "Remove Emoji"
 msgstr "Rimuovi emoji"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:272
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3099,7 +3099,7 @@ msgid "Add…"
 msgstr "Aggiungi..."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:274
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:286
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3112,7 +3112,7 @@ msgid "Modify…"
 msgstr "Modifica…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:278
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:290
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3136,7 +3136,7 @@ msgstr "Crea nuovo suono"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "File mp3"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -3144,24 +3144,24 @@ msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Cerca suoni personalizzati"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
 #, kde-format
 msgid "No custom sound found"
 msgstr "Nessuna suono personalizzato trovato"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:71
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:75
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "Un suono personalizzato (totali: %2)"
 msgstr[1] "%1 suoni personalizzati (totali: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:242
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:254
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Vuoi rimuovere questo suono?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:243
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:255
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -10217,13 +10217,13 @@ msgstr "Volume del suono delle notifiche:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr ""
+msgstr "Volume della suoneria:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "Volume principale:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
@@ -12610,10 +12610,9 @@ msgid "Fix export database."
 msgstr "Corregge l'esportazione della banca dati."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:222
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Fix upload Custom Sound"
-msgstr "Suoni personalizzati"
+msgstr "Corregge il caricamento dei suoni personalizzati"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

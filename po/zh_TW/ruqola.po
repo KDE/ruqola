@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-08 00:43+0000\n"
+"POT-Creation-Date: 2026-02-11 00:45+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3047,7 +3047,7 @@ msgid "Remove Emoji"
 msgstr "移除表情符號"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:272
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3060,7 +3060,7 @@ msgid "Add…"
 msgstr "新增…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:274
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:286
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3073,7 +3073,7 @@ msgid "Modify…"
 msgstr "變更…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:278
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:290
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3105,23 +3105,23 @@ msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "搜尋自訂音效"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
 #, kde-format
 msgid "No custom sound found"
 msgstr "找不到自訂音效"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:71
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:75
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 個自訂音效 (總共：%2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:242
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:254
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "您確定要移除這個音效嗎？"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:243
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:255
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
