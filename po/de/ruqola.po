@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the ruqola package.
 # SPDX-FileCopyrightText: 2019, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2020, 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:45+0000\n"
-"PO-Revision-Date: 2023-05-10 20:24+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"PO-Revision-Date: 2026-02-07 13:34+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -156,7 +157,7 @@ msgstr "Waqar Ahmed"
 #: apps/main.cpp:80
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr "Fehlerkorrekturen (kompilieren, Netzwerk-Abstürze ...)"
+msgstr "Fehlerkorrekturen (kompilieren, Netzwerk-Abstürze …)"
 
 #: apps/main.cpp:81
 #, fuzzy, kde-format
@@ -663,7 +664,7 @@ msgstr "Alle Benutzer des Kanals [#channel] einladen, diesem Kanal beizutreten"
 #: core/commands/command.cpp:103
 #, kde-format
 msgid "Join the given channel"
-msgstr "Angegebenen Kanal betreten"
+msgstr "Dem angegebenen Kanal beitreten"
 
 #: core/commands/command.cpp:105
 #, kde-format
@@ -688,7 +689,7 @@ msgstr "Direktnachricht an jemanden senden"
 #: core/commands/command.cpp:113
 #, kde-format
 msgid "Mute someone in the room"
-msgstr "Jemanden im Raum stumm schalten"
+msgstr "Jemanden im Raum stummschalten"
 
 #: core/commands/command.cpp:115
 #, kde-format
@@ -838,7 +839,7 @@ msgstr "Thema wurde gelöscht von: %1"
 #: core/messages/message.cpp:791
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
-msgstr "%2 ändert das Thema zu: <i>%1</i>"
+msgstr "%2 hat das Thema geändert zu: <i>%1</i>"
 
 #: core/messages/message.cpp:794
 #, kde-format
@@ -848,12 +849,12 @@ msgstr ""
 #: core/messages/message.cpp:796
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
-msgstr "%2 ändert den Raumnamen zu: <a href=\"ruqola:/room/%1\">#%1</a>"
+msgstr "%2 hat den Raumnamen geändert zu: <a href=\"ruqola:/room/%1\">#%1</a>"
 
 #: core/messages/message.cpp:798
 #, kde-format
 msgid "%2 removed user %1"
-msgstr "%2 entfernter den Benutzer %1"
+msgstr "%2 hat den Benutzer %1 entfernt"
 
 #: core/messages/message.cpp:801
 #, kde-format
@@ -863,7 +864,7 @@ msgstr "Die Beschreibung wurde durch %1 gelöscht"
 #: core/messages/message.cpp:803
 #, kde-format
 msgid "%2 changed room description to %1"
-msgstr "%2 ändert die Raumbeschreibung zu %1"
+msgstr "%2 hat die Raumbeschreibung zu %1 geändert"
 
 #: core/messages/message.cpp:807
 #, kde-format
@@ -873,7 +874,7 @@ msgstr "Die Ankündigung wurde durch %1 gelöscht"
 #: core/messages/message.cpp:809
 #, kde-format
 msgid "%2 changed room announcement to %1"
-msgstr "%2 ändert die Raumankündigung zu %1"
+msgstr "%2 hat die Raumankündigung zu %1 geändert"
 
 #: core/messages/message.cpp:812
 #, kde-format
@@ -2172,7 +2173,7 @@ msgstr "Google"
 #: plugins/authentication/password/passwordpluginauthentication.cpp:35
 #, kde-format
 msgid "Login/Password"
-msgstr "Anmelden/Passwort"
+msgstr "Anmeldung/Passwort"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:38
 #: widgets/common/authenticationloginwidget.cpp:35
@@ -3357,7 +3358,7 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Status:"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:18
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
@@ -3365,14 +3366,14 @@ msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Nachricht gelöscht"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Nennungen"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:17
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Total Messages"
 msgctxt "@option:check"
@@ -9050,7 +9051,7 @@ msgstr "Nachrichten-Status:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Play Sound"
-msgstr "Klang abspielen"
+msgstr "Klang wiedergeben"
 
 #: widgets/dialogs/playsounddialog.cpp:42
 #, fuzzy, kde-format
@@ -9494,7 +9495,7 @@ msgstr "Bild speichern"
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
-msgstr[0] "%1 Nachricht im Raum( Gesamt: %2)"
+msgstr[0] "%1 Nachricht im Raum (Gesamt: %2)"
 msgstr[1] "%1 Nachrichten im Raum (Gesamt: %2)"
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:24

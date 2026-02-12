@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3349,7 +3349,7 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Stav:"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:18
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "All Messages"
@@ -3357,14 +3357,14 @@ msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Všetky správy"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Conversation"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Konverzácia"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:17
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@option:check"

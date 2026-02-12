@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3330,7 +3330,7 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Remover o Estado do Utilizador Personalizado"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:18
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Allow user creation"
@@ -3338,14 +3338,14 @@ msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Permitir a criação de utilizadores"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Reactions"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Reacções"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:17
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Total Messages"
 msgctxt "@option:check"

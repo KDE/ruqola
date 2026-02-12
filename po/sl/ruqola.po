@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2026-02-08 08:24+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3205,20 +3205,20 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Odstrani stanje uporabnika po meri"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:18
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Dovoli predogled zmožnosti"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
 #, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Hitre reakcije"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:17
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"

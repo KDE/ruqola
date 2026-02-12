@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2026-02-09 20:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -3180,20 +3180,20 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Özel Kullanıcı Durumunu Kaldır"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:15
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:18
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Özellik önizlemesine izin ver"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:16
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
 #, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Tez Tepkiler"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:17
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
@@ -12516,170 +12516,3 @@ msgstr "Veri tabanını dışa aktarmayı düzelt"
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Özel sesler yüklemeyi onar"
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Eki Aç?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "<filename>%1</filename> eki açılsın mı?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Aç"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "“%1” ile &Aç"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "&Birlikte Aç…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "&Farklı Kaydet…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Dosyayı Kaydet"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Dosya Kaydedilirken Hata"
-
-#~ msgctxt "@title:window"
-#~ msgid "Description"
-#~ msgstr "Açıklama"
-
-#~ msgctxt "@action"
-#~ msgid "Show Description…"
-#~ msgstr "Açıklamayı Göster…"
-
-#~ msgid "Restart is necessary for applying the changes."
-#~ msgstr "Değişikliklerin uygulanması için yeniden başlatma gereklidir."
-
-#~ msgid "..."
-#~ msgstr "…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Yapılandır"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "Sürüm denetimini devre dışı bırak"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Yeni Sürümü Denetle"
-
-#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
-#~ msgstr ""
-#~ "Kullandığınız sürüm 6 aydan daha eski, güncel sürüme yükseltmeniz "
-#~ "önerilir."
-
-#~ msgid ""
-#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
-#~ msgstr ""
-#~ "Kullandığınız sürüm 1 yıldan daha eski, güncel sürüme yükseltmeniz "
-#~ "önerilir."
-
-#~ msgctxt "@title:window"
-#~ msgid "Check New Version"
-#~ msgstr "Yeni Sürümü Denetle"
-
-#~ msgid ""
-#~ "A new version found. Click <a href=\"%1\">here</a> for downloading it."
-#~ msgstr ""
-#~ "Yeni bir sürüm bulundu. İndirmek için <a href=\"%1\">buraya</a> tıklayın."
-
-#~ msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
-#~ msgstr ""
-#~ "Bulunan yeni sürüm yok. Yapı, <a href=\"%1\">burada</a> bulunabilir."
-
-#~ msgid "Check New Version"
-#~ msgstr "Yeni Sürümü Denetle"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Version:"
-#~ msgstr "Sürüm:"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in %1"
-#~ msgstr "Neler Yeni: %1"
-
-#~ msgid "(Show News)"
-#~ msgstr "(Haberleri Göster)"
-
-#~ msgid "What's new in %2. %1"
-#~ msgstr "%2 bünyesinde neler yeni. %1"
-
-#~ msgid "All Versions"
-#~ msgstr "Tüm Sürümler"
-
-#~ msgid "Version %1"
-#~ msgstr "Sürüm %1"
-
-#~ msgid "Important changes since last version:"
-#~ msgstr "Son sürümden bu yana önemli değişiklikler:"
-
-#~ msgid "Some of the new features in this release of Ruqola include:"
-#~ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
-
-#~ msgid "Some bug fixing:"
-#~ msgstr "Hata düzeltmeleri:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Kalın"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Yatık"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Üzeri çizili"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Kod bloku"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Metin alıntısı"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Bağlantı ekle"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Restore"
-#~ msgstr "Geri Yükle"
-
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Kaldır…"
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Onu kaldırmak istiyor musunuz?"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Kaldır"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Yapay Zekâ Metin Eklentilerini Yapılandı"
-
-#~ msgid "Ask AI…"
-#~ msgstr "Yapay Zekâya Sor…"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Roka’yı Yapılandır"
