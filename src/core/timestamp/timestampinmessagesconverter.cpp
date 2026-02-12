@@ -5,6 +5,7 @@
 */
 
 #include "timestampinmessagesconverter.h"
+#include <KLocalizedString>
 #include <QDateTime>
 #include <QRegularExpression>
 using namespace Qt::Literals::StringLiterals;
@@ -49,7 +50,15 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
     return newStr;
 }
 
-QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type) const
+QString TimeStampInMessagesConverter::calculateRelativeTime(const QDateTime &dateTime, const QDateTime &currentDateTime)
+{
+    if (dateTime == currentDateTime) {
+        return i18n("Now");
+    }
+    return {};
+}
+
+QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type)
 {
     QString dateTimeStr;
     switch (type) {
@@ -60,20 +69,19 @@ QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime
         dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
         break;
     case TimeStampInMessagesUtils::FormatType::LongDate:
-        dateTimeStr = dateTime.date().toString(u"dd/MM/yyyy"_s);
+        dateTimeStr = dateTime.toString(u"dd/MM/yyyy hh:mm"_s);
         break;
     case TimeStampInMessagesUtils::FormatType::ShortDate:
         dateTimeStr = dateTime.date().toString(Qt::DateFormat::ISODate);
         break;
     case TimeStampInMessagesUtils::FormatType::LongTime:
-        dateTimeStr = dateTime.time().toString(Qt::DateFormat::ISODateWithMs);
+        dateTimeStr = dateTime.time().toString(Qt::DateFormat::ISODate);
         break;
     case TimeStampInMessagesUtils::FormatType::ShortTime:
         dateTimeStr = dateTime.time().toString(u"hh:mm"_s);
         break;
     case TimeStampInMessagesUtils::FormatType::RelativeTime:
-        // TODO
-        dateTimeStr = dateTime.toString(Qt::DateFormat::ISODateWithMs);
+        dateTimeStr = calculateRelativeTime(dateTime, QDateTime::currentDateTime());
         break;
     case TimeStampInMessagesUtils::FormatType::Unknown:
         return {};
