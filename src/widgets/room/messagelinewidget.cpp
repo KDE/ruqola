@@ -30,6 +30,7 @@
 
 #include <KIO/Global>
 #include <QClipboard>
+#include <QColorSpace>
 #include <QDir>
 #include <QGuiApplication>
 #include <QHBoxLayout>
@@ -647,7 +648,9 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
     } else if (mimeData->hasImage()) {
         QTemporaryFile tempFile(QDir::tempPath() + "/XXXXXX.png"_L1);
         if (tempFile.open()) {
-            const auto image = mimeData->imageData().value<QImage>();
+            auto image = mimeData->imageData().value<QImage>();
+            // Strip ICC color profile to prevent libpng crash on invalid profiles (SIGSEGV in png_icc_check_header)
+            image.setColorSpace(QColorSpace());
             QImageWriter writer(&tempFile, "PNG");
             if (writer.write(image)) {
                 const QUrl url = QUrl::fromLocalFile(tempFile.fileName());
