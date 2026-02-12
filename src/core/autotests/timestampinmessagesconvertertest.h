@@ -22,4 +22,7 @@ private Q_SLOTS:
     void shouldConvertTimeStamp();
 
     void shouldRegularExpressionStrValue();
+
+    void shouldCalculateRelativeTime_data();
+    void shouldCalculateRelativeTime();
 };
