@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2026-02-11 20:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1975,6 +1975,11 @@ msgstr "نشّط وضع التنقيح"
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "نظّف قاعدة البيانات (استخدم بحذر)"
+
+#: core/timestamp/timestampinmessagesconverter.cpp:56
+#, kde-format
+msgid "Now"
+msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11836,39 +11841,46 @@ msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr "أدرج الختم الزمني"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, kde-format
-msgid "Short Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
+#, fuzzy, kde-format
+#| msgid "Short Time"
+msgid "Short Time (%1)"
 msgstr "الوقت القصير"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
-#, kde-format
-msgid "Long Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
+#, fuzzy, kde-format
+#| msgid "Long Time"
+msgid "Long Time (%1)"
 msgstr "الوقت الطويل"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, kde-format
-msgid "Short Date"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
+#, fuzzy, kde-format
+#| msgid "Short Date"
+msgid "Short Date (%1)"
 msgstr "التاريخ القصير"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
-#, kde-format
-msgid "Long Date"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
+#, fuzzy, kde-format
+#| msgid "Long Date"
+msgid "Long Date (%1)"
 msgstr "التاريخ الطويل"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
-msgid "Full Date and Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
+#, fuzzy, kde-format
+#| msgid "Full Date and Time"
+msgid "Full Date and Time (%1)"
 msgstr "كامل الوقت والتاريخ"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
-#, kde-format
-msgid "Full Date and Time (long)"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
+#, fuzzy, kde-format
+#| msgid "Full Date and Time (long)"
+msgid "Full Date and Time (long) (%1)"
 msgstr "كامل التاريخ والوقت (طويل)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, kde-format
-msgid "Relative time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
+#, fuzzy, kde-format
+#| msgid "Relative time"
+msgid "Relative time (%1)"
 msgstr "الوقت النسبي"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20

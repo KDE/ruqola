@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2084,6 +2084,11 @@ msgstr "Aktiv"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
+msgstr ""
+
+#: core/timestamp/timestampinmessagesconverter.cpp:56
+#, kde-format
+msgid "Now"
 msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
@@ -12493,41 +12498,43 @@ msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, kde-format
-msgid "Short Time"
-msgstr ""
-
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
-#, fuzzy, kde-format
-#| msgid "Timezone:"
-msgid "Long Time"
-msgstr "Zeitzone:"
-
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Message"
-msgid "Short Date"
-msgstr "Nachricht"
-
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
 #, kde-format
-msgid "Long Date"
+msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
-msgid "Full Date and Time"
-msgstr ""
-
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
-#, kde-format
-msgid "Full Date and Time (long)"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Timezone:"
+msgid "Long Time (%1)"
+msgstr "Zeitzone:"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Short Date (%1)"
+msgstr "Nachricht"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
+#, fuzzy, kde-format
+#| msgid "Default"
+msgid "Long Date (%1)"
+msgstr "Voreinstellung"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
+#, fuzzy, kde-format
+#| msgid "Filter Channels (CTRL + K)"
+msgid "Full Date and Time (%1)"
+msgstr "Kanäle filtern (Strg+K)"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
-msgid "Relative time"
+msgid "Full Date and Time (long) (%1)"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
+#, kde-format
+msgid "Relative time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2026-02-08 08:24+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1967,6 +1967,11 @@ msgstr "Aktiviran način odpravljanja napak"
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Počisti podatkovno bazo (Uporabljajte previdno)"
+
+#: core/timestamp/timestampinmessagesconverter.cpp:56
+#, kde-format
+msgid "Now"
+msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11827,39 +11832,46 @@ msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr "Dodaj časovni žig"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, kde-format
-msgid "Short Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
+#, fuzzy, kde-format
+#| msgid "Short Time"
+msgid "Short Time (%1)"
 msgstr "Kratek čas"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
-#, kde-format
-msgid "Long Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
+#, fuzzy, kde-format
+#| msgid "Long Time"
+msgid "Long Time (%1)"
 msgstr "Dolg čas"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, kde-format
-msgid "Short Date"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
+#, fuzzy, kde-format
+#| msgid "Short Date"
+msgid "Short Date (%1)"
 msgstr "Kratek datum"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
-#, kde-format
-msgid "Long Date"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
+#, fuzzy, kde-format
+#| msgid "Long Date"
+msgid "Long Date (%1)"
 msgstr "Dolg datum"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
-msgid "Full Date and Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
+#, fuzzy, kde-format
+#| msgid "Full Date and Time"
+msgid "Full Date and Time (%1)"
 msgstr "Polni datum in čas"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
-#, kde-format
-msgid "Full Date and Time (long)"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
+#, fuzzy, kde-format
+#| msgid "Full Date and Time (long)"
+msgid "Full Date and Time (long) (%1)"
 msgstr "Polni datum in čas (dolg)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, kde-format
-msgid "Relative time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
+#, fuzzy, kde-format
+#| msgid "Relative time"
+msgid "Relative time (%1)"
 msgstr "Relativni čas"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20

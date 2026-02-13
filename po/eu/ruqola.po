@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
-"PO-Revision-Date: 2026-01-25 13:08+0100\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
+"PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -764,12 +764,12 @@ msgstr "Deia amaitu da"
 #: core/customsound/customsoundsmanager.cpp:146
 #, kde-format
 msgid "Dialtone"
-msgstr "Markatze tonua"
+msgstr "Markatze-tonua"
 
 #: core/customsound/customsoundsmanager.cpp:154
 #, kde-format
 msgid "Ringtone"
-msgstr "Txirrin-hotsa"
+msgstr "Txirrin-doinua"
 
 #: core/discussions/discussion.cpp:86
 #, kde-format
@@ -1974,6 +1974,11 @@ msgstr "Aktibatu arazteko modua"
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Garbitu datu-basea (Kontuz erabili)"
+
+#: core/timestamp/timestampinmessagesconverter.cpp:56
+#, kde-format
+msgid "Now"
+msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11844,41 +11849,44 @@ msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, kde-format
-msgid "Short Time"
-msgstr ""
-
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
-#, fuzzy, kde-format
-#| msgid "Local Time:"
-msgid "Long Time"
-msgstr "Ordu lokala:"
-
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Report date"
-msgid "Short Date"
-msgstr "Txostenaren data"
-
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
 #, kde-format
-msgid "Long Date"
+msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
-msgid "Full Date and Time"
-msgstr ""
-
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
-#, kde-format
-msgid "Full Date and Time (long)"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Local Time:"
+msgid "Long Time (%1)"
+msgstr "Ordu lokala:"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
+#, fuzzy, kde-format
+#| msgid "Report date"
+msgid "Short Date (%1)"
+msgstr "Txostenaren data"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
+#, fuzzy, kde-format
+#| msgid "Default (%1)"
+msgid "Long Date (%1)"
+msgstr "Lehenetsia (%1)"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Filter channels (%1)"
+msgid "Full Date and Time (%1)"
+msgstr "Iragazi kanalak (%1)"
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
-msgid "Relative time"
+msgid "Full Date and Time (long) (%1)"
+msgstr ""
+
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
+#, kde-format
+msgid "Relative time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20

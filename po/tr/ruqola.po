@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2026-02-09 20:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -1957,6 +1957,11 @@ msgstr "Hata ayıklama kipini etkinleştir"
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Veritabanını temizle (Dikkatli kullanın)"
+
+#: core/timestamp/timestampinmessagesconverter.cpp:56
+#, kde-format
+msgid "Now"
+msgstr ""
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11773,39 +11778,46 @@ msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr "Zaman Damgası Ekle"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:20
-#, kde-format
-msgid "Short Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
+#, fuzzy, kde-format
+#| msgid "Short Time"
+msgid "Short Time (%1)"
 msgstr "Kısa Zaman"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
-#, kde-format
-msgid "Long Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
+#, fuzzy, kde-format
+#| msgid "Long Time"
+msgid "Long Time (%1)"
 msgstr "Uzun Zaman"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, kde-format
-msgid "Short Date"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
+#, fuzzy, kde-format
+#| msgid "Short Date"
+msgid "Short Date (%1)"
 msgstr "Kısa Tarih"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
-#, kde-format
-msgid "Long Date"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
+#, fuzzy, kde-format
+#| msgid "Long Date"
+msgid "Long Date (%1)"
 msgstr "Uzun Tarih"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
-msgid "Full Date and Time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
+#, fuzzy, kde-format
+#| msgid "Full Date and Time"
+msgid "Full Date and Time (%1)"
 msgstr "Tam Tarih ve Zaman"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
-#, kde-format
-msgid "Full Date and Time (long)"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
+#, fuzzy, kde-format
+#| msgid "Full Date and Time (long)"
+msgid "Full Date and Time (long) (%1)"
 msgstr "Tam Tarih ve Zaman (Uzun)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, kde-format
-msgid "Relative time"
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
+#, fuzzy, kde-format
+#| msgid "Relative time"
+msgid "Relative time (%1)"
 msgstr "Göreceli Zaman"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
