@@ -5,11 +5,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "timestampinmessagesutils.h"
 #include <QString>
 class QDateTime;
-class LIBRUQOLACORE_TESTS_EXPORT TimeStampInMessagesConverter
+class LIBRUQOLACORE_EXPORT TimeStampInMessagesConverter
 {
 public:
     TimeStampInMessagesConverter();
