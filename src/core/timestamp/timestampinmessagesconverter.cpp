@@ -8,6 +8,8 @@
 #include <KLocalizedString>
 #include <QDateTime>
 #include <QRegularExpression>
+#include <chrono>
+using namespace std::chrono_literals;
 using namespace Qt::Literals::StringLiterals;
 
 TimeStampInMessagesConverter::TimeStampInMessagesConverter() = default;
@@ -54,6 +56,18 @@ QString TimeStampInMessagesConverter::calculateRelativeTime(const QDateTime &dat
 {
     if (dateTime == currentDateTime) {
         return i18n("Now");
+    }
+    const auto diff = (currentDateTime - dateTime);
+    if (diff < 60s) {
+        return i18np("%1 second", "%1 seconds", static_cast<int>(diff.count() / 1000));
+    }
+    constexpr auto minutes = 60 * 60s;
+    if (diff < minutes) {
+        return i18np("%1 minute", "%1 minutes", static_cast<int>(diff / 60s));
+    }
+    constexpr auto hours = 24 * 60 * 60s;
+    if (diff < hours) {
+        return i18np("%1 hour", "%1 hours", static_cast<int>(diff / (60 * 60s)));
     }
     return {};
 }

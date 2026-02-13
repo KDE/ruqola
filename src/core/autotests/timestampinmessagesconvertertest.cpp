@@ -71,6 +71,36 @@ void TimeStampInMessagesConverterTest::shouldCalculateRelativeTime_data()
         QDateTime dt = QDateTime::currentDateTime();
         QTest::addRow("now") << dt << dt << u"Now"_s;
     }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 3, 0));
+
+        QTest::addRow("3 seconds") << testDateTime << currentDateTime << u"3 seconds"_s;
+    }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 2, 4));
+
+        QTest::addRow("59 seconds") << testDateTime << currentDateTime << u"59 seconds"_s;
+    }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 0, 3));
+
+        QTest::addRow("3 minutes") << testDateTime << currentDateTime << u"3 minutes"_s;
+    }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 12, 12), QTime(2, 3, 3));
+
+        QTest::addRow("1 hour") << testDateTime << currentDateTime << u"1 hour"_s;
+    }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 12, 11), QTime(11, 3, 3));
+
+        QTest::addRow("16 hours") << testDateTime << currentDateTime << u"16 hours"_s;
+    }
 }
 
 void TimeStampInMessagesConverterTest::shouldCalculateRelativeTime()
