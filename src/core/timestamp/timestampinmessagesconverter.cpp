@@ -69,6 +69,28 @@ QString TimeStampInMessagesConverter::calculateRelativeTime(const QDateTime &dat
     if (diff < hours) {
         return i18np("%1 hour", "%1 hours", static_cast<int>(diff / (60 * 60s)));
     }
+    constexpr auto days = 30 * 24 * 60 * 60s;
+    if (diff < days) {
+        return i18np("%1 day", "%1 days", dateTime.date().daysTo(currentDateTime.date()));
+    }
+    if ((currentDateTime.date().year() - dateTime.date().year()) <= 1) {
+        const auto currentMonth = currentDateTime.date().month();
+        const auto dateMonth = dateTime.date().month();
+        auto diff = 0;
+        if (currentMonth > dateMonth) {
+            if ((currentDateTime.date().year() - dateTime.date().year()) == 1) {
+                return i18np("%1 year", "%1 years", 1);
+            } else {
+                diff = currentMonth - dateMonth;
+            }
+        } else {
+            diff = 12 - (dateMonth - currentMonth);
+        }
+        return i18np("%1 month", "%1 months", diff);
+    } else {
+        return i18np("%1 year", "%1 years", currentDateTime.date().year() - dateTime.date().year());
+    }
+
     return {};
 }
 

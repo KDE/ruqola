@@ -101,6 +101,44 @@ void TimeStampInMessagesConverterTest::shouldCalculateRelativeTime_data()
 
         QTest::addRow("16 hours") << testDateTime << currentDateTime << u"16 hours"_s;
     }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 12, 6), QTime(11, 3, 3));
+
+        QTest::addRow("6 days") << testDateTime << currentDateTime << u"6 days"_s;
+    }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2025, 12, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 11, 6), QTime(11, 3, 3));
+
+        QTest::addRow("1 month") << testDateTime << currentDateTime << u"1 month"_s;
+    }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2026, 2, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 11, 6), QTime(11, 3, 3));
+
+        QTest::addRow("3 months") << testDateTime << currentDateTime << u"3 months"_s;
+    }
+
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2026, 12, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 11, 6), QTime(11, 3, 3));
+
+        QTest::addRow("1 year") << testDateTime << currentDateTime << u"1 year"_s;
+    }
+
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2027, 1, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 11, 6), QTime(11, 3, 3));
+
+        QTest::addRow("2 years") << testDateTime << currentDateTime << u"2 years"_s;
+    }
+    {
+        const QDateTime currentDateTime = QDateTime(QDate(2035, 1, 12), QTime(3, 3, 3));
+        const QDateTime testDateTime = QDateTime(QDate(2025, 11, 6), QTime(11, 3, 3));
+
+        QTest::addRow("10 years") << testDateTime << currentDateTime << u"10 years"_s;
+    }
 }
 
 void TimeStampInMessagesConverterTest::shouldCalculateRelativeTime()
