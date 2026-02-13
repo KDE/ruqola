@@ -1,4 +1,3 @@
-
 /*
    SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
 
