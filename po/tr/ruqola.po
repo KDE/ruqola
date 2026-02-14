@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:43+0000\n"
-"PO-Revision-Date: 2026-02-09 20:02+0300\n"
+"POT-Creation-Date: 2026-02-14 00:43+0000\n"
+"PO-Revision-Date: 2026-02-13 18:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -1958,10 +1958,57 @@ msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Veritabanını temizle (Dikkatli kullanın)"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:56
+#: core/timestamp/timestampinmessagesconverter.cpp:58
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "Şimdi"
+
+#: core/timestamp/timestampinmessagesconverter.cpp:62
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "1 saniye"
+msgstr[1] "%1 saniye"
+
+#: core/timestamp/timestampinmessagesconverter.cpp:66
+#, kde-format
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/timestamp/timestampinmessagesconverter.cpp:70
+#, kde-format
+msgid "%1 hour"
+msgid_plural "%1 hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/timestamp/timestampinmessagesconverter.cpp:74
+#, kde-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/timestamp/timestampinmessagesconverter.cpp:82
+#: core/timestamp/timestampinmessagesconverter.cpp:91
+#, fuzzy, kde-format
+#| msgid "year"
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] "yıl"
+msgstr[1] "yıl"
+
+#: core/timestamp/timestampinmessagesconverter.cpp:89
+#, fuzzy, kde-format
+#| msgid "month"
+msgid "%1 month"
+msgid_plural "%1 months"
+msgstr[0] "ay"
+msgstr[1] "ay"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -7558,7 +7605,7 @@ msgid "Username or email:"
 msgstr "Kullanıcı adı veya e-posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1106
+#: widgets/ruqolamainwindow.cpp:1109
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7568,7 +7615,7 @@ msgstr ""
 "Kısa bir süre içinde bir e-posta almazsanız yeniden deneyin."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1107
+#: widgets/ruqolamainwindow.cpp:1110
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -11300,279 +11347,279 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Odada %1 kullanıcı (Toplam: %2)"
 msgstr[1] "Odada %1 kullanıcı (Toplam: %2)"
 
-#: widgets/ruqolamainwindow.cpp:236
+#: widgets/ruqolamainwindow.cpp:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Yeni bildirimleri göster"
 
-#: widgets/ruqolamainwindow.cpp:238
+#: widgets/ruqolamainwindow.cpp:241
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Yeni Bildirimleri Göster"
 
-#: widgets/ruqolamainwindow.cpp:437
+#: widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Sunucu Ekle…"
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:445
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Sunucu Bilgisi…"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Geçerli Sunucu Oturumunu Kapat"
 
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:453
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Sonraki Okunmamış Kanala Atla"
 
-#: widgets/ruqolamainwindow.cpp:455
+#: widgets/ruqolamainwindow.cpp:458
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Yeni Bir Kanal Oluştur…"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:462
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Doğrudan İleti Oluştur…"
 
-#: widgets/ruqolamainwindow.cpp:463
+#: widgets/ruqolamainwindow.cpp:466
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Tartışma Oluştur…"
 
-#: widgets/ruqolamainwindow.cpp:467
+#: widgets/ruqolamainwindow.cpp:470
 #, kde-format
 msgid "Create Team…"
 msgstr "Takım Oluştur…"
 
-#: widgets/ruqolamainwindow.cpp:475
+#: widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Okunmamışlar En Üstte"
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:486
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Son İletiye Göre"
 
-#: widgets/ruqolamainwindow.cpp:489
+#: widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Abecesel"
 
-#: widgets/ruqolamainwindow.cpp:495
+#: widgets/ruqolamainwindow.cpp:498
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Kanal Günlüğünü Göster"
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:502
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Sunucu Hatalarını Göster"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:546
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Tüm Kanalları Okundu Olarak İmle"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:551
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Yeni Kullanıcı Kaydet…"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:555
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Hesabım…"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:559
 #, kde-format
 msgid "administration"
 msgstr "Yönetim"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:560
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Yönetici…"
 
-#: widgets/ruqolamainwindow.cpp:563
+#: widgets/ruqolamainwindow.cpp:566
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Sunucu Ayarları…"
 
-#: widgets/ruqolamainwindow.cpp:570
+#: widgets/ruqolamainwindow.cpp:573
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Uygulamalar…"
 
-#: widgets/ruqolamainwindow.cpp:575
+#: widgets/ruqolamainwindow.cpp:578
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "İstenen Uygulamalar…"
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:583
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "İstenen Uygulamalar…"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:588
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Özel Uygulamalar…"
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:593
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Odaya Katıl…"
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:597
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Takıma Katıl…"
 
-#: widgets/ruqolamainwindow.cpp:598
+#: widgets/ruqolamainwindow.cpp:601
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Özel Bir Konuşma Aç…"
 
-#: widgets/ruqolamainwindow.cpp:619
+#: widgets/ruqolamainwindow.cpp:622
 #, kde-format
 msgid "&Next Server"
 msgstr "&Sonraki Sunucu"
 
-#: widgets/ruqolamainwindow.cpp:624
+#: widgets/ruqolamainwindow.cpp:627
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Önceki Sunucu"
 
-#: widgets/ruqolamainwindow.cpp:633
+#: widgets/ruqolamainwindow.cpp:636
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Durum:"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:651
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Önceki Seçili Kanal"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:658
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Sonraki Seçili Kanal"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:688
 #, kde-format
 msgid "Show Notify History"
 msgstr "Bildiri Geçmişini Göster"
 
-#: widgets/ruqolamainwindow.cpp:689
+#: widgets/ruqolamainwindow.cpp:692
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat Bilgisini Göster"
 
-#: widgets/ruqolamainwindow.cpp:693
+#: widgets/ruqolamainwindow.cpp:696
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Oda Avatarını Göster"
 
-#: widgets/ruqolamainwindow.cpp:698
+#: widgets/ruqolamainwindow.cpp:701
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Sık Kullanılan Odayı Göster"
 
-#: widgets/ruqolamainwindow.cpp:715
+#: widgets/ruqolamainwindow.cpp:718
 #, kde-format
 msgid "What's new"
 msgstr "Neler yeni"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:722
 #, kde-format
 msgid "Import Accounts"
 msgstr "Hesaplar İçe Aktar"
 
-#: widgets/ruqolamainwindow.cpp:723
+#: widgets/ruqolamainwindow.cpp:726
 #, kde-format
 msgid "Export Accounts"
 msgstr "Hesapları Dışa Aktar"
 
-#: widgets/ruqolamainwindow.cpp:740
+#: widgets/ruqolamainwindow.cpp:743
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Orta"
 
-#: widgets/ruqolamainwindow.cpp:748
+#: widgets/ruqolamainwindow.cpp:751
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Sıkıştırılmış"
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:760
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Genişletilmiş"
 
-#: widgets/ruqolamainwindow.cpp:765
+#: widgets/ruqolamainwindow.cpp:768
 #, kde-format
 msgid "Clear history"
 msgstr "Geçmişi Temizle"
 
-#: widgets/ruqolamainwindow.cpp:810
+#: widgets/ruqolamainwindow.cpp:813
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Takım Oluştur"
 
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1010
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "%1 günlük dosyasına yazılamıyor"
 
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1010
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kanal Günlüğünü Göster"
 
-#: widgets/ruqolamainwindow.cpp:1178
+#: widgets/ruqolamainwindow.cpp:1181
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Durum"
 
-#: widgets/ruqolamainwindow.cpp:1265
+#: widgets/ruqolamainwindow.cpp:1268
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11581,19 +11628,19 @@ msgstr ""
 "<qt>Bu, menü çubuğunu tümüyle gizleyecektir. %1 ile yeniden "
 "gösterebilirsiniz.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1268
+#: widgets/ruqolamainwindow.cpp:1271
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Menü Çubuğunu Gizle"
 
-#: widgets/ruqolamainwindow.cpp:1442
+#: widgets/ruqolamainwindow.cpp:1445
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Çevrimiçi Olarak Çalış"
 
-#: widgets/ruqolamainwindow.cpp:1445
+#: widgets/ruqolamainwindow.cpp:1448
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
@@ -11779,46 +11826,39 @@ msgid "Add TimeStamp"
 msgstr "Zaman Damgası Ekle"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Short Time"
+#, kde-format
 msgid "Short Time (%1)"
-msgstr "Kısa Zaman"
+msgstr "Kısa Zaman (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, fuzzy, kde-format
-#| msgid "Long Time"
+#, kde-format
 msgid "Long Time (%1)"
-msgstr "Uzun Zaman"
+msgstr "Uzun Zaman (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, fuzzy, kde-format
-#| msgid "Short Date"
+#, kde-format
 msgid "Short Date (%1)"
-msgstr "Kısa Tarih"
+msgstr "Kısa Tarih (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, fuzzy, kde-format
-#| msgid "Long Date"
+#, kde-format
 msgid "Long Date (%1)"
-msgstr "Uzun Tarih"
+msgstr "Uzun Tarih (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
-#, fuzzy, kde-format
-#| msgid "Full Date and Time"
+#, kde-format
 msgid "Full Date and Time (%1)"
-msgstr "Tam Tarih ve Zaman"
+msgstr "Tam Tarih ve Zaman (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
-#, fuzzy, kde-format
-#| msgid "Full Date and Time (long)"
+#, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr "Tam Tarih ve Zaman (Uzun)"
+msgstr "Tam Tarih ve Zaman (Uzun) (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
-#, fuzzy, kde-format
-#| msgid "Relative time"
+#, kde-format
 msgid "Relative time (%1)"
-msgstr "Göreceli Zaman"
+msgstr "Göreceli Zaman (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
 #, kde-format
