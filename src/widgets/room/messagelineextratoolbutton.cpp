@@ -52,6 +52,7 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
                 &MessageLineExtraToolButton::slotActionButtonChanged);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineExtraToolButton::updateWebDavSupport);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &MessageLineExtraToolButton::updateWebDavSupport);
+        connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &MessageLineExtraToolButton::updateTimeStampSupport);
     }
     setVisible(mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0));
 
@@ -82,15 +83,11 @@ void MessageLineExtraToolButton::updateTimeStampSupport()
     if (mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
         mMenu->addAction(mTimeStampAction);
     } else {
-        // Check if we have it
-        // TODO
-        /*
-        if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
+        if (mCurrentRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
             mMenu->addAction(mTimeStampAction);
         } else {
             mMenu->removeAction(mTimeStampAction);
         }
-        */
     }
 }
 
