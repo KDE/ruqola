@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-14 00:43+0000\n"
-"PO-Revision-Date: 2026-02-13 09:27+0200\n"
+"PO-Revision-Date: 2026-02-14 08:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1977,9 +1977,7 @@ msgid "Now"
 msgstr "Зараз"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:62
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 секунда"
@@ -1991,49 +1989,47 @@ msgstr[3] "%1 секунда"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 хвилина"
+msgstr[1] "%1 хвилини"
+msgstr[2] "%1 хвилин"
+msgstr[3] "%1 хвилина"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:70
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 година"
+msgstr[1] "%1 години"
+msgstr[2] "%1 годин"
+msgstr[3] "%1 година"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:74
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 день"
+msgstr[1] "%1 дні"
+msgstr[2] "%1 днів"
+msgstr[3] "%1 день"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:82
 #: core/timestamp/timestampinmessagesconverter.cpp:91
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "рік"
-msgstr[1] "рік"
-msgstr[2] "рік"
-msgstr[3] "рік"
+msgstr[0] "%1 рік"
+msgstr[1] "%1 роки"
+msgstr[2] "%1 років"
+msgstr[3] "%1 рік"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:89
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "місяць"
-msgstr[1] "місяць"
-msgstr[2] "місяць"
-msgstr[3] "місяць"
+msgstr[0] "%1 місяць"
+msgstr[1] "%1 місяці"
+msgstr[2] "%1 місяців"
+msgstr[3] "%1 місяць"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format

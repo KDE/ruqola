@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-14 00:43+0000\n"
-"PO-Revision-Date: 2026-02-13 05:27+0100\n"
+"PO-Revision-Date: 2026-02-14 03:54+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1962,51 +1962,47 @@ msgid "Now"
 msgstr "ახლა"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:62
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "1 წამი"
+msgstr[0] "%1 წამი"
 msgstr[1] "%1 წამი"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:66
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 წუთი"
+msgstr[1] "%1 წუთი"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:70
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 საათი"
+msgstr[1] "%1 საათი"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:74
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 დღე"
+msgstr[1] "%1 დღე"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:82
 #: core/timestamp/timestampinmessagesconverter.cpp:91
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "წელი"
-msgstr[1] "წელი"
+msgstr[0] "%1 წელი"
+msgstr[1] "%1 წელი"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:89
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "თვე"
-msgstr[1] "თვე"
+msgstr[0] "%1 თვე"
+msgstr[1] "%1 თვე"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
