@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-14 00:43+0000\n"
-"PO-Revision-Date: 2026-02-13 16:55+0400\n"
+"PO-Revision-Date: 2026-02-15 21:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1982,12 +1982,10 @@ msgid "Now"
 msgstr "الآن"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:62
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "صفر"
+msgstr[0] "0 ثانية"
 msgstr[1] "ثانية واحدة"
 msgstr[2] "ثانيتين"
 msgstr[3] "%1 ثواني"
@@ -1998,59 +1996,57 @@ msgstr[5] "%1 ثانية"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 دقيقة"
+msgstr[1] "دقيقة واحدة"
+msgstr[2] "دقيقتان"
+msgstr[3] "%1 دقائق"
+msgstr[4] "%1 دقيقة"
+msgstr[5] "%1 دقيقة"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:70
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 ساعة"
+msgstr[1] "ساعة واحدة"
+msgstr[2] "ساعتان"
+msgstr[3] "%1 ساعات"
+msgstr[4] "%1 ساعة"
+msgstr[5] "%1 ساعة"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:74
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 يوم"
+msgstr[1] "يوم واحد"
+msgstr[2] "يومان"
+msgstr[3] "%1 أيام"
+msgstr[4] "%1 يومًا"
+msgstr[5] "%1 يوم"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:82
 #: core/timestamp/timestampinmessagesconverter.cpp:91
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "سنة"
-msgstr[1] "سنة"
-msgstr[2] "سنة"
-msgstr[3] "سنة"
-msgstr[4] "سنة"
-msgstr[5] "سنة"
+msgstr[0] "%1 سنة"
+msgstr[1] "سنة واحدة"
+msgstr[2] "سنتان"
+msgstr[3] "%1 سنوات"
+msgstr[4] "%1 سنة"
+msgstr[5] "%1 سنة"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:89
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "شهر"
-msgstr[1] "شهر"
-msgstr[2] "شهر"
-msgstr[3] "شهر"
-msgstr[4] "شهر"
-msgstr[5] "شهر"
+msgstr[0] "%1 شهر"
+msgstr[1] "شهر واحد"
+msgstr[2] "شهران"
+msgstr[3] "%1 أشهر"
+msgstr[4] "%1 شهرًا"
+msgstr[5] "%1 شهر"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
