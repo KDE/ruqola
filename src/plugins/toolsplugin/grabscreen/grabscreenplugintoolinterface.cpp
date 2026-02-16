@@ -69,6 +69,7 @@ void GrabScreenPluginToolInterface::sendFile(const UploadFileDialog::UploadFileI
     info.threadMessageId = mInfo.tmid;
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
+    info.rc80Server = Ruqola::self()->rocketChatAccount()->hasAtLeastVersion(8, 0, 0);
     // Make sure that we don't switch account
     Ruqola::self()->setCurrentAccount(mInfo.accountName);
 
