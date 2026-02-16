@@ -72,7 +72,6 @@ void GrabScreenPluginTool::showConfigureDialog(QWidget *parent) const
 {
     GrabScreenPluginToolConfigureDialog d(parent);
     d.exec();
-    // TODO
 }
 #include "grabscreenplugintool.moc"
 
