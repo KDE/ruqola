@@ -5,13 +5,13 @@
 */
 
 #include "grabscreenplugintoolutil.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "grabscreenplugin_debug.h"
 
 #include <QDir>
 #include <QStandardPaths>
 
+using namespace Qt::Literals::StringLiterals;
 QString GrabScreenPluginToolUtil::picturePath(const QString &accountName)
 {
     const QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + u"/ruqola/"_s + accountName;

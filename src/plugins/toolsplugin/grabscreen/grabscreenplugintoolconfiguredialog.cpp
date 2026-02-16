@@ -4,13 +4,13 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "grabscreenplugintoolconfiguredialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "grabscreenplugintoolconfigurewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 GrabScreenPluginToolConfigureDialog::GrabScreenPluginToolConfigureDialog(QWidget *parent)
     : QDialog(parent)
     , mGrabScreenPluginToolConfigureWidget(new GrabScreenPluginToolConfigureWidget(this))

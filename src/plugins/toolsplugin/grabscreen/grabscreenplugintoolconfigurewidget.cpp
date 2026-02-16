@@ -5,7 +5,6 @@
 */
 
 #include "grabscreenplugintoolconfigurewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "grabscreenplugintoolconfig.h"
 #include <KLocalization>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QSpinBox>
 
+using namespace Qt::Literals::StringLiterals;
 GrabScreenPluginToolConfigureWidget::GrabScreenPluginToolConfigureWidget(QWidget *parent)
     : PluginToolConfigureWidget(parent)
     , mDelay(new QSpinBox(this))
