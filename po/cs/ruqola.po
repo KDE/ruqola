@@ -1964,15 +1964,13 @@ msgstr ""
 #: core/timestamp/timestampinmessagesconverter.cpp:58
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "Nyní"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:62
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "1 sekunda"
+msgstr[0] "%1 sekunda"
 msgstr[1] "%1 sekundy"
 msgstr[2] "%1 sekund"
 
@@ -1980,44 +1978,42 @@ msgstr[2] "%1 sekund"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 minuta"
+msgstr[1] "%1 minuty"
+msgstr[2] "%1 minut"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:70
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 hodina"
+msgstr[1] "%1 hodiny"
+msgstr[2] "%1 hodin"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:74
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 den"
+msgstr[1] "%1 dny"
+msgstr[2] "%1 dnů"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:82
 #: core/timestamp/timestampinmessagesconverter.cpp:91
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "rok"
-msgstr[1] "rok"
-msgstr[2] "rok"
+msgstr[0] "%1 rok"
+msgstr[1] "%1 roky"
+msgstr[2] "%1 let"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:89
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "měsíc"
-msgstr[1] "měsíc"
-msgstr[2] "měsíc"
+msgstr[0] "%1 měsíc"
+msgstr[1] "%1 měsíce"
+msgstr[2] "%1 měsíců"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -11630,7 +11626,7 @@ msgstr ""
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Short Time (%1)"
-msgstr ""
+msgstr "Krátké datum (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, fuzzy, kde-format
@@ -11645,10 +11641,9 @@ msgid "Short Date (%1)"
 msgstr "Zkrácené datum"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, fuzzy, kde-format
-#| msgid "Long Date"
+#, kde-format
 msgid "Long Date (%1)"
-msgstr "Dlouhé datum"
+msgstr "Dlouhé datum (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
 #, fuzzy, kde-format
