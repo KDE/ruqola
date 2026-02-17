@@ -150,6 +150,10 @@ void TextConverterTest::shouldConvertText_data()
                "#707d8a'><code>&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;line&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n");
     // We don't need to convert #1
     QTest::newRow("href + #") << QStringLiteral("[test #1](http://www.kde.org)") << QStringLiteral("<p><a href=\"http://www.kde.org\">test #1</a></p>\n");
+
+    // Bug we convert url with emoji
+    QTest::newRow("url emoji") << QStringLiteral("http://www.kde.org/:b:/s/bla")
+                               << QStringLiteral("<p><a href=\"http://www.kde.org/:b:/s/bla\">http://www.kde.org/:b:/s/bla</a></p>\n");
 }
 
 void TextConverterTest::shouldConvertText()
