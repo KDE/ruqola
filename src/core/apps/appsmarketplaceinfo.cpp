@@ -6,10 +6,10 @@
 
 #include "appsmarketplaceinfo.h"
 
-#include "ktexttohtmlfork/ruqolaktexttohtml.h"
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
+#include <KTextToHTML>
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -462,8 +462,8 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!mPrivacyPolicySummary.isEmpty()) {
-        const RuqolaKTextToHTML::Options convertFlags = RuqolaKTextToHTML::HighlightText | RuqolaKTextToHTML::ConvertPhoneNumbers;
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Privacy Summary")) + RuqolaKTextToHTML::convertToHtml(mPrivacyPolicySummary, convertFlags) + u"<br/><br/>"_s;
+        const KTextToHTML::Options convertFlags = KTextToHTML::HighlightText | KTextToHTML::ConvertPhoneNumbers;
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Privacy Summary")) + KTextToHTML::convertToHtml(mPrivacyPolicySummary, convertFlags) + u"<br/><br/>"_s;
     }
 
     str += permissionsDescription();

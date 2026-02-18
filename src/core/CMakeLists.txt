@@ -85,9 +85,6 @@ target_sources(
         inputtextmanager.h
         invite/inviteinfo.cpp
         invite/inviteinfo.h
-        ktexttohtmlfork/ruqolaktexttohtml.cpp
-        ktexttohtmlfork/ruqolaktexttohtml.h
-        ktexttohtmlfork/ruqolaktexttohtml_p.h
         libruqola_private_export.h
         listmessages.cpp
         listmessages.h
