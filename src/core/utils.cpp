@@ -380,7 +380,7 @@ QIcon Utils::iconFromAccount(RocketChatAccount *account)
     if (!iconFaviconUrl.isEmpty()) {
         const QIcon iconFavicon{iconFaviconUrl};
         if (!iconFavicon.isNull()) {
-            icon = std::move(iconFavicon);
+            icon = iconFavicon;
         }
     }
     return icon;
