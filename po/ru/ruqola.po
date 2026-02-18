@@ -2,23 +2,23 @@
 # This file is distributed under the same license as the ruqola package.
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2019.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 # SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-14 00:43+0000\n"
-"PO-Revision-Date: 2025-04-09 14:38+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
+"POT-Creation-Date: 2026-02-18 00:45+0000\n"
+"PO-Revision-Date: 2026-02-17 17:32+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -252,205 +252,210 @@ msgstr "Сводка по конфиденциальности"
 msgid "Permissions"
 msgstr "Права доступа"
 
-#: core/apps/appsmarketplaceinfo.cpp:611
+#: core/apps/appsmarketplaceinfo.cpp:613
 #, kde-format
 msgid "Access messages"
 msgstr "Доступ к сообщениям"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:615
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Отправка и изменение сообщений"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:617
 #, kde-format
 msgid "Access room information"
 msgstr "Доступ к информации о комнате"
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:619
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Создание и изменение комнат"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:621
 #, kde-format
 msgid "Access to this server network"
 msgstr "Доступ к сети этого сервера"
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:623
 #, kde-format
 msgid "Access user information"
 msgstr "Доступ к информации о пользователе"
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:625
 #, kde-format
 msgid "Modify user information"
 msgstr "Изменение информации о пользователе"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:627
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Регистрация новых команд с косой чертой"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:629
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Регистрация и ведение запланированных заданий"
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:631
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Регистрация новых конечных точек HTTP"
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:633
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Доступ к параметрам на этом сервере"
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:635
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Изменение параметров на этом сервере"
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:637
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Отправка файлов на этот сервер"
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:639
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Доступ к отправленным на этот сервер файлам"
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:641
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Взаимодействие с облачными службами от имени этого сервера"
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Доступ к минимальной информации об этой серверной среде"
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Доступ к информации о нескольких отделах Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Доступ к информации об отделе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Изменение информации об отделе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Изменение информации о комнате Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Доступ к информации о комнате Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Изменение информации о сообщении Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Доступ к информации о сообщении Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Изменение информации о посетителе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Доступ к информации о посетителе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Доступ к информации о статусе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:663
+#: core/apps/appsmarketplaceinfo.cpp:665
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Взаимодействие с интерфейсом пользователя"
 
-#: core/apps/appsmarketplaceinfo.cpp:665
+#: core/apps/appsmarketplaceinfo.cpp:667
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Хранение внутренних данных в базе данных"
 
-#: core/apps/appsmarketplaceinfo.cpp:667
+#: core/apps/appsmarketplaceinfo.cpp:669
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Изменение конфигурации настраиваемых полей Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:677
+#: core/apps/appsmarketplaceinfo.cpp:679
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Возможность записи параметров программ OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:679
+#: core/apps/appsmarketplaceinfo.cpp:681
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Возможность чтения параметров программ OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:681
+#: core/apps/appsmarketplaceinfo.cpp:683
 #, fuzzy, kde-format
 #| msgid "Allow to write oauth app settings"
 msgid "Allow to write video conference settings"
 msgstr "Возможность записи параметров программ OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:683
+#: core/apps/appsmarketplaceinfo.cpp:685
 #, fuzzy, kde-format
 #| msgid "Allow to read oauth app settings"
 msgid "Allow to read video conference settings"
 msgstr "Возможность чтения параметров программ OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:685
+#: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:689
 #, fuzzy, kde-format
 #| msgid "Allow to write role"
 msgid "Allow to register button"
 msgstr "Возможность записи роли"
 
-#: core/apps/appsmarketplaceinfo.cpp:693
+#: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
 msgid "Allow to send email"
 msgstr "Возможность отправки эл. почты"
 
-#: core/apps/appsmarketplaceinfo.cpp:695
+#: core/apps/appsmarketplaceinfo.cpp:697
 #, kde-format
 msgid "Allow to write role"
 msgstr "Возможность записи роли"
 
-#: core/apps/appsmarketplaceinfo.cpp:697
+#: core/apps/appsmarketplaceinfo.cpp:699
 #, kde-format
 msgid "Allow to read role"
 msgstr "Возможность чтения роли"
 
-#: core/apps/appsmarketplaceinfo.cpp:699
+#: core/apps/appsmarketplaceinfo.cpp:701
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Mute Focused Conversations"
 msgid "Out Bound Communication"
 msgstr "Отключить уведомления для разговоров в фокусе"
+
+#: core/apps/appsmarketplaceinfo.cpp:703
+#, kde-format
+msgid "View all rooms in the workspace"
+msgstr ""
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -2189,21 +2194,19 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новый запрос доступен здесь:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgid "AI Actions"
-msgstr "Запрос к приложению…"
+msgstr "Действия ИИ"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
 #, kde-format
 msgid "Summarize Unreads"
-msgstr ""
+msgstr "Обобщить непрочитанные"
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:41
 #, kde-format
 msgid "Ask to AI"
-msgstr ""
+msgstr "Спросить у ИИ"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
 #, kde-format
@@ -2213,32 +2216,28 @@ msgstr "Сделать снимок экрана"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr ""
+msgstr "Это средство позволяет создавать снимки экрана."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Настройка учётной записи"
+msgstr "Настройка снимка экрана"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Задержка:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "%1 секунда"
-msgstr[1] "%1 секунды"
-msgstr[2] "%1 секунд"
-msgstr[3] "1 секунда"
+msgstr[0] "%v секунда"
+msgstr[1] "%v секунды"
+msgstr[2] "%v секунд"
+msgstr[3] "%v секунда"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
@@ -3098,11 +3097,9 @@ msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:90
 #: widgets/myaccount/myaccountconfigurewidget.cpp:76
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow Feature Preview"
+#, kde-format
 msgid "Feature Preview"
-msgstr "Разрешить предпросмотр возможностей"
+msgstr "Предварительный просмотр возможностей"
 
 #: widgets/administratordialog/administratorwidget.cpp:93
 #, kde-format
@@ -3314,12 +3311,10 @@ msgid "Allow Feature Preview"
 msgstr "Разрешить предпросмотр возможностей"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
-msgstr "Реакции"
+msgstr "Быстрые реакции"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #, fuzzy, kde-format
@@ -5101,37 +5096,29 @@ msgstr ""
 "после создания присоединить пользователей CAS к комнатам их команды и отдела."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Direct Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in direct messages"
-msgstr "Включить для личных сообщений"
+msgstr "Включить в личных сообщениях"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Public Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in public channels"
-msgstr "Включить для общедоступных каналов"
+msgstr "Включить в общедоступных каналах"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Teams"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in teams"
-msgstr "Включить для команд"
+msgstr "Включить в командах"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable logging"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable mobile ringing"
-msgstr "Вести журнал"
+msgstr "Включить звонок на мобильном устройстве"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
@@ -5772,7 +5759,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:170
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Ограничение на добавление всех пользователей в канал"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
@@ -6938,29 +6925,25 @@ msgid "Maximum message age in direct messages"
 msgstr "Максимальный возраст сообщений в личных сообщениях"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:233
-#, fuzzy, kde-format
-#| msgid "Enterprise"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Enterprise"
 msgstr "Корпоративные параметры"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:236
-#, fuzzy, kde-format
-#| msgid "Enterprise License"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Need to activate enterprise license"
-msgstr "Корпоративная лицензия"
+msgstr "Требуется активация корпоративной лицензии"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Применить"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Отмена"
@@ -6969,7 +6952,7 @@ msgstr "Отмена"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Восстановить значение по умолчанию для сервера"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
@@ -7102,12 +7085,10 @@ msgid "Disable Workspace Sync"
 msgstr "Отключить синхронизацию рабочего пространства"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Отключить монитор сеансов"
+msgstr "Отключить упоминания команд"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:28
 #, kde-format
@@ -7186,6 +7167,8 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"Этот параметр отключает функцию упоминания команд. Пользователи не смогут "
+"упоминать команду по имени в сообщении и уведомлять её участников."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:18
 #, kde-format
@@ -7839,7 +7822,7 @@ msgstr "Показывать учётную запись в текущей ко�
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr ""
+msgstr "Включить преобразование текста в речь"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:31
 #, kde-format
@@ -7948,12 +7931,12 @@ msgstr "Включить интеграцию с комнатами Plasma"
 #: widgets/configuredialog/configurepluginswidget.cpp:51
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Плагины инструментов"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:58
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "Модули текста"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
@@ -8013,7 +7996,7 @@ msgstr "Специальные возможности"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr ""
+msgstr "Модули"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:19
 #, kde-format
@@ -8099,9 +8082,7 @@ msgid "Database Info"
 msgstr "Сведения о базе данных"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "Сообщения"
 
@@ -8112,17 +8093,14 @@ msgid "Json"
 msgstr "JSON"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:59
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgid "DataBase Messages"
-msgstr "Конфиденциальные сообщения"
+msgstr "База данных сообщений"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete my Account"
+#, kde-format
 msgid "DataBase Accounts"
-msgstr "Удалить мою учётную запись"
+msgstr "Базы данных учётных записей"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:65
 #, fuzzy, kde-format
@@ -8132,18 +8110,14 @@ msgid "DataBase Rooms"
 msgstr "Сведения о базе данных"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:68
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
+#, kde-format
 msgid "DataBase Global"
-msgstr "Сведения о базе данных"
+msgstr "Глобальная база данных"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Database Info"
+#, kde-format
 msgid "DataBase E2E"
-msgstr "Сведения о базе данных"
+msgstr "База данных E2E"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
@@ -8739,7 +8713,7 @@ msgstr "Часовой пояс:"
 #: widgets/dialogs/directchannelinfowidget.cpp:136
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Местное время:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #, kde-format
@@ -9145,11 +9119,10 @@ msgid "License:"
 msgstr "Лицензия:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No license"
 msgid "None"
-msgstr "Нет"
+msgstr "Отсутствует"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:22
 #, kde-format
@@ -9230,11 +9203,9 @@ msgid "Copy Location to Clipboard"
 msgstr "Копировать расположение в буфер обмена"
 
 #: widgets/dialogs/showimagedialog.cpp:152
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search Applications"
+#, kde-format
 msgid "Other Application..."
-msgstr "Поиск приложений"
+msgstr "Другое приложение…"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -9538,12 +9509,10 @@ msgid "Disable Encryption"
 msgstr "Отключение шифрования"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Disable Encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Disable Encryption"
-msgstr "Отключение шифрования"
+msgstr "Отключить шифрование"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -9877,8 +9846,7 @@ msgid "Decrease Font"
 msgstr "Уменьшить размер шрифта"
 
 #: widgets/misc/clickablewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Удалить"
@@ -10764,21 +10732,18 @@ msgstr "Зашифровать сообщения"
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
-msgstr ""
+msgstr "Отладка"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
-#, fuzzy, kde-format
-#| msgid "Impossible to open file"
+#, kde-format
 msgid "Impossible to open %1"
-msgstr "Невозможно открыть файл"
+msgstr "Невозможно открыть «%1»"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error saving file"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
-msgstr "Ошибка при сохранении файла"
+msgstr "Ошибка открытия файла"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
@@ -10893,12 +10858,10 @@ msgid "Speak Text"
 msgstr "Зачитать текст"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDav Server"
-msgstr "Добавление сервера"
+msgstr "Добавить сервер WebDAV"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
 #, kde-format
@@ -11194,10 +11157,9 @@ msgid "Markdown Url"
 msgstr "Адрес Markdown"
 
 #: widgets/room/newmessageindicator.cpp:33
-#, fuzzy, kde-format
-#| msgid "Send Message"
+#, kde-format
 msgid "New Message"
-msgstr "Отправить сообщение"
+msgstr "Новое сообщение"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11258,12 +11220,10 @@ msgid "E2E Enabled"
 msgstr "Сквозное шифрование включено"
 
 #: widgets/room/roomheaderwidget.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "Запрос к приложению…"
+msgstr "Действия ИИ"
 
 #: widgets/room/roomheaderwidget.cpp:145
 #, kde-format
@@ -11426,10 +11386,9 @@ msgstr "(Открыть внешнее диалоговое окно…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Пользователей не найдено"
+msgstr "Не найдено ни одного пользователя."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -12135,29 +12094,24 @@ msgid "Return the number of account."
 msgstr "Вернуть номер учётной записи."
 
 #: widgets/webdav/webdavaddserverdialog.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add New WebDAV Server"
-msgstr "Добавление сервера"
+msgstr "Добавление нового сервера WebDAV"
 
 #: widgets/webdav/webdavaddserverdialog.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add WebDAV Server"
-msgstr "Добавление сервера"
+msgstr "Добавить сервер WebDAV"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "URL‑адрес:"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "User Name:"
+#, kde-format
 msgid "UserName:"
 msgstr "Имя пользователя:"
 
@@ -12689,10 +12643,9 @@ msgstr ""
 "возникновении ошибки"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
-#, fuzzy, kde-format
-#| msgid "Allow to activate/desactivate apps market."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
-msgstr "Возможность активации и деактивации рынка программ"
+msgstr "Разрешено  активировать и деактивировать магазин приложений."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:169
 #, kde-format
@@ -12715,47 +12668,39 @@ msgid "Fix download languages apps."
 msgstr "Исправление загрузки языковых приложений"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:181
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Add AI plugin"
-msgstr "Добавить автоприсоединение"
+msgstr "Добавить модуль ИИ"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:182
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to dnd image."
-msgstr "Возможность отправки эл. почты"
+msgstr "Разрешить перетаскивание изображения."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, fuzzy, kde-format
-#| msgid "Add restore button in administrator server settings dialog."
+#, kde-format
 msgid "Add restore button in administration settings."
-msgstr ""
-"Добавление кнопки восстановления параметров в диалоге параметров "
-"администратора сервера"
+msgstr "Добавлена кнопка восстановления в настройках администрирования."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:184
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to activate plugins."
-msgstr "Возможность записи роли"
+msgstr "Разрешить активацию модулей."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
 msgid "Add Open With button in show image."
-msgstr ""
+msgstr "Добавить кнопку «Открыть с помощью» в просмотре изображения."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:186
-#, fuzzy, kde-format
-#| msgid "Change Text Format"
+#, kde-format
 msgid "Add Quick Text Format."
-msgstr "Изменить формат текста"
+msgstr "Добавить формат быстрого текста."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Add Extension message line button."
-msgstr ""
+msgstr "Кнопка строки сообщения «Добавить расширение»."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, fuzzy, kde-format
@@ -12768,81 +12713,75 @@ msgstr "Добавление сервера"
 #, kde-format
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
+"Показывать сведения о комнате (курсивом), если набрано сообщение, но ещё не "
+"отправлено."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Allow to add emoticon from popup menu."
-msgstr ""
+msgstr "Разрешить добавление смайликов из всплывающего меню."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:194
-#, fuzzy, kde-format
-#| msgid "Fix show avatar url."
+#, kde-format
 msgid "Fix show date info."
-msgstr "Исправление показа адреса аватара"
+msgstr "Исправлено отображение информации о дате."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Возможность показа параметров рынка программ"
+msgstr "Исправлено сохранение параметров приложения."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "Исправлен выбор текста во вложении."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:197
 #, kde-format
 msgid "Fix display user."
-msgstr ""
+msgstr "Исправлено отображение пользователя."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:198
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Исправление перевода сообщений в прямых каналах"
+msgstr "Показ меню перевода в диалоге цепочки сообщений."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:199
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Реализация поддержки приложения Rocket.Chat"
+msgstr "Добавлена поддержка действий AI Rocket Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:200
-#, fuzzy, kde-format
-#| msgid "Add restore button in administrator server settings dialog."
+#, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
-"Добавление кнопки восстановления параметров в диалоге параметров "
-"администратора сервера"
+"Исправлены кнопки «Применить», «Восстановить» и «Отмена» в диалоге "
+"администрирования."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:201
-#, fuzzy, kde-format
-#| msgid "Search users..."
+#, kde-format
 msgid "Fix search users."
-msgstr "Поиск пользователей…"
+msgstr "Исправлен поиск пользователей."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:202
 #, kde-format
 msgid "Fix extract language from code block."
-msgstr ""
+msgstr "Исправлено определение языка в блоке кода."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:203
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
-msgstr ""
+msgstr "Исправлена информация о вложении в диалоге «Показать журнал канала»."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:204
-#, fuzzy, kde-format
-#| msgid "Fix single application on Windows/MacOs"
+#, kde-format
 msgid "Fix icon on windows."
-msgstr "Исправление проблемы с одиночным экземпляром программы в Windows/MacOs"
+msgstr "Исправлен значок в Windows."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:205
-#, fuzzy, kde-format
-#| msgid "Show File Attachments…"
+#, kde-format
 msgid "Fix show file attachment size."
-msgstr "Показать вложенные файлы…"
+msgstr "Исправлено отображение размера вложенного файла."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, kde-format
