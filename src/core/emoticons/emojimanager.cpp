@@ -221,6 +221,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
 
 void EmojiManager::replaceEmojis(QString *str)
 {
+    // FIXME: we don't want to replace string to emoji in an url
     Q_ASSERT(str);
     if (mReplacePatternDirty) {
         // build a regexp pattern for all the possible emoticons we want to replace
