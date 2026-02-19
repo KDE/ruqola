@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:45+0000\n"
-"PO-Revision-Date: 2026-02-14 12:46+0100\n"
+"PO-Revision-Date: 2026-02-18 11:14+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -445,7 +445,7 @@ msgstr "Communicatie buiten het onderwerp"
 #: core/apps/appsmarketplaceinfo.cpp:703
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "Alle rooms in de werkruimte bekijken"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
