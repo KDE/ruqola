@@ -11,11 +11,6 @@
 #include "timestamp/timestampinmessagesconverter.h"
 #include "utils.h"
 
-#include <KSyntaxHighlighting/Theme>
-#include <TextUtils/TextUtilsSyntaxHighlighter>
-#include <TextUtils/TextUtilsSyntaxHighlightingManager>
-
-#include <KColorScheme>
 using namespace Qt::Literals::StringLiterals;
 
 static QString convertMessageText2(TextConverter::ConvertMessageTextSettings *settings, int &numberOfTextSearched, int hightLightStringIndex)
