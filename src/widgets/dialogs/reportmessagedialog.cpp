@@ -31,7 +31,6 @@ ReportMessageDialog::ReportMessageDialog(QWidget *parent)
 
     mReportMessageWidget->setObjectName(u"mReportMessageWidget"_s);
     mainLayout->addWidget(mReportMessageWidget);
-    mainLayout->addStretch(1);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(u"button"_s);
