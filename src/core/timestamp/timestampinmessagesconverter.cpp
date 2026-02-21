@@ -57,26 +57,26 @@ QString TimeStampInMessagesConverter::calculateRelativeTime(const QDateTime &dat
     if (dateTime == currentDateTime) {
         return i18n("Now");
     }
-    const auto diff = (currentDateTime - dateTime);
-    if (diff < 60s) {
-        return i18np("%1 second", "%1 seconds", static_cast<int>(diff.count() / 1000));
+    const auto diffDateTime = (currentDateTime - dateTime);
+    if (diffDateTime < 60s) {
+        return i18np("%1 second", "%1 seconds", static_cast<int>(diffDateTime.count() / 1000));
     }
     constexpr auto minutes = 60 * 60s;
-    if (diff < minutes) {
-        return i18np("%1 minute", "%1 minutes", static_cast<int>(diff / 60s));
+    if (diffDateTime < minutes) {
+        return i18np("%1 minute", "%1 minutes", static_cast<int>(diffDateTime / 60s));
     }
     constexpr auto hours = 24 * 60 * 60s;
-    if (diff < hours) {
-        return i18np("%1 hour", "%1 hours", static_cast<int>(diff / (60 * 60s)));
+    if (diffDateTime < hours) {
+        return i18np("%1 hour", "%1 hours", static_cast<int>(diffDateTime / (60 * 60s)));
     }
     constexpr auto days = 30 * 24 * 60 * 60s;
-    if (diff < days) {
+    if (diffDateTime < days) {
         return i18np("%1 day", "%1 days", dateTime.date().daysTo(currentDateTime.date()));
     }
     if ((currentDateTime.date().year() - dateTime.date().year()) <= 1) {
         const auto currentMonth = currentDateTime.date().month();
         const auto dateMonth = dateTime.date().month();
-        auto diff = 0;
+        qint64 diff = 0;
         if (currentMonth > dateMonth) {
             if ((currentDateTime.date().year() - dateTime.date().year()) == 1) {
                 return i18np("%1 year", "%1 years", 1);
