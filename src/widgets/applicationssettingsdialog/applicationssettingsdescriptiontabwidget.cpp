@@ -59,15 +59,13 @@ void ApplicationsSettingsDescriptionTabWidget::setDescription(const QString &des
     mDescriptionWidget->setDescription(desc);
 }
 
-void ApplicationsSettingsDescriptionTabWidget::setApplicationId(const QByteArray &appId)
+void ApplicationsSettingsDescriptionTabWidget::setShowLogAndSettingsInfo(const QByteArray &appId, bool state)
 {
     mVersionWidget->setApplicationId(appId);
-    mLogsWidget->setApplicationId(appId);
-    mSettingsWidget->setApplicationId(appId);
-}
-
-void ApplicationsSettingsDescriptionTabWidget::setShowLogAndSettingsInfo(bool state)
-{
+    if (state) {
+        mLogsWidget->setApplicationId(appId);
+        mSettingsWidget->setApplicationId(appId);
+    }
     mTabWidget->setTabVisible(mTabWidget->indexOf(mLogsWidget), state);
     mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), state);
 }

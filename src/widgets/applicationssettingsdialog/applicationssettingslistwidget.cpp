@@ -121,8 +121,7 @@ void ApplicationsSettingsListWidget::slotUpdateDescription(const QModelIndex &in
             && !index.data(AppsMarketPlaceModel::RequestedApps).toBool();
         const bool showVersion = mCurrentRocketChatAccount->isAdministrator() && !index.data(AppsMarketPlaceModel::Private).toBool();
         mApplicationsSettingsDescriptionTabWidget->setDescription(description);
-        mApplicationsSettingsDescriptionTabWidget->setApplicationId(appId);
-        mApplicationsSettingsDescriptionTabWidget->setShowLogAndSettingsInfo(showLogAndSettings);
+        mApplicationsSettingsDescriptionTabWidget->setShowLogAndSettingsInfo(appId, showLogAndSettings);
         mApplicationsSettingsDescriptionTabWidget->setShowVersionInfo(showVersion);
         mApplicationsSettingsDescriptionTabWidget->show();
     } else {

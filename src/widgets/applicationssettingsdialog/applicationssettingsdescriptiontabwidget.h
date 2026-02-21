@@ -22,9 +22,7 @@ public:
     ~ApplicationsSettingsDescriptionTabWidget() override;
     void setDescription(const QString &desc);
 
-    void setApplicationId(const QByteArray &appId);
-
-    void setShowLogAndSettingsInfo(bool state);
+    void setShowLogAndSettingsInfo(const QByteArray &appId, bool state);
 
     void setShowVersionInfo(bool state);
 
