@@ -31,7 +31,10 @@ ApplicationsSettingsVersionWidget::ApplicationsSettingsVersionWidget(RocketChatA
 
 void ApplicationsSettingsVersionWidget::setApplicationId(const QByteArray &appId)
 {
-    mAppId = appId;
+    if (mAppId != appId) {
+        mAppId = appId;
+        fetchInfo();
+    }
 }
 
 ApplicationsSettingsVersionWidget::~ApplicationsSettingsVersionWidget() = default;
@@ -40,12 +43,12 @@ void ApplicationsSettingsVersionWidget::showEvent(QShowEvent *event)
 {
     if (!event->spontaneous() && !mWasInitialized) {
         mWasInitialized = true;
-        initialize();
+        fetchInfo();
     }
     QWidget::showEvent(event);
 }
 
-void ApplicationsSettingsVersionWidget::initialize()
+void ApplicationsSettingsVersionWidget::fetchInfo()
 {
     if (mRocketChatAccount) {
         mTextBrowser->setText(u"<b><i>%1</i></b>"_s.arg(i18n("Fetching version information in progress...")));

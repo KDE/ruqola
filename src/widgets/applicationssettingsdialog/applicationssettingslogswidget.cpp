@@ -38,7 +38,7 @@ void ApplicationsSettingsLogsWidget::showEvent(QShowEvent *event)
 {
     if (!event->spontaneous() && !mWasInitialized) {
         mWasInitialized = true;
-        initialize();
+        fetchInfo();
     }
     QWidget::showEvent(event);
 }
@@ -73,7 +73,7 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
     mTextBrowser->setHtml(message);
 }
 
-void ApplicationsSettingsLogsWidget::initialize()
+void ApplicationsSettingsLogsWidget::fetchInfo()
 {
     if (mRocketChatAccount) {
         auto job = new RocketChatRestApi::AppInfoJob(this);
@@ -89,7 +89,10 @@ void ApplicationsSettingsLogsWidget::initialize()
 
 void ApplicationsSettingsLogsWidget::setApplicationId(const QByteArray &appId)
 {
-    mAppId = appId;
+    if (mAppId != appId) {
+        mAppId = appId;
+        fetchInfo();
+    }
 }
 
 #include "moc_applicationssettingslogswidget.cpp"
