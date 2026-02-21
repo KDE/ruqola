@@ -12995,7 +12995,7 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ "mistake which is quite hard to find in formatted text."
 #~ msgstr ""
 #~ "Face secur que plus que un spatio non pote esser typate, que isto es un "
-#~ "error commun que es difficile de trovar in texto formattate."
+#~ "error commun que es difficile de trovar in texto fnormatate."
 
 #~ msgid "&Suppress double spaces"
 #~ msgstr "&Supprime duple spatios"
