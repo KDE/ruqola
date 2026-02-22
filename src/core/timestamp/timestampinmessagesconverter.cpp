@@ -95,7 +95,7 @@ QString TimeStampInMessagesConverter::calculateRelativeTime(const QDateTime &dat
     return {};
 }
 
-QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type)
+QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type, bool withQuote)
 {
     QString dateTimeStr;
     switch (type) {
@@ -123,6 +123,9 @@ QString TimeStampInMessagesConverter::convertTimeStamp(const QDateTime &dateTime
     case TimeStampInMessagesUtils::FormatType::Unknown:
         return {};
     }
-
-    return u"`%1`"_s.arg(dateTimeStr);
+    if (withQuote) {
+        return u"`%1`"_s.arg(dateTimeStr);
+    } else {
+        return dateTimeStr;
+    }
 }

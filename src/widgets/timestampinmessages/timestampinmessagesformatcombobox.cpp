@@ -19,19 +19,20 @@ TimeStampInMessagesFormatComboBox::~TimeStampInMessagesFormatComboBox() = defaul
 void TimeStampInMessagesFormatComboBox::initialize()
 {
     const QDateTime dt(QDate(2026, 02, 12), QTime(7, 8, 36));
-    addItem(i18n("Short Time (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::ShortTime)),
+    addItem(i18n("Short Time (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::ShortTime, false)),
             QVariant::fromValue(TimeStampInMessagesUtils::FormatType::ShortTime));
-    addItem(i18n("Long Time (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::LongTime)),
+    addItem(i18n("Long Time (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::LongTime, false)),
             QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongTime));
-    addItem(i18n("Short Date (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::ShortDate)),
+    addItem(i18n("Short Date (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::ShortDate, false)),
             QVariant::fromValue(TimeStampInMessagesUtils::FormatType::ShortDate));
-    addItem(i18n("Long Date (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::LongDate)),
+    addItem(i18n("Long Date (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::LongDate, false)),
             QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongDate));
-    addItem(i18n("Full Date and Time (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::FullDateTime)),
+    addItem(i18n("Full Date and Time (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::FullDateTime, false)),
             QVariant::fromValue(TimeStampInMessagesUtils::FormatType::FullDateTime));
-    addItem(i18n("Full Date and Time (long) (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::LongFullDateTime)),
+    addItem(i18n("Full Date and Time (long) (%1)",
+                 TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::LongFullDateTime, false)),
             QVariant::fromValue(TimeStampInMessagesUtils::FormatType::LongFullDateTime));
-    addItem(i18n("Relative time (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::RelativeTime)),
+    addItem(i18n("Relative time (%1)", TimeStampInMessagesConverter::convertTimeStamp(dt, TimeStampInMessagesUtils::FormatType::RelativeTime, false)),
             QVariant::fromValue(TimeStampInMessagesUtils::FormatType::RelativeTime));
 }
 
