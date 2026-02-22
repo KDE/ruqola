@@ -61,7 +61,6 @@ void ApplicationsSettingsDescriptionTabWidget::setDescription(const QString &des
 
 void ApplicationsSettingsDescriptionTabWidget::setShowLogAndSettingsInfo(const QByteArray &appId, bool state)
 {
-    mVersionWidget->setApplicationId(appId);
     if (state) {
         mLogsWidget->setApplicationId(appId);
         mSettingsWidget->setApplicationId(appId);
@@ -70,8 +69,11 @@ void ApplicationsSettingsDescriptionTabWidget::setShowLogAndSettingsInfo(const Q
     mTabWidget->setTabVisible(mTabWidget->indexOf(mSettingsWidget), state);
 }
 
-void ApplicationsSettingsDescriptionTabWidget::setShowVersionInfo(bool state)
+void ApplicationsSettingsDescriptionTabWidget::setShowVersionInfo(const QByteArray &appId, bool state)
 {
+    if (state) {
+        mVersionWidget->setApplicationId(appId);
+    }
     mTabWidget->setTabVisible(mTabWidget->indexOf(mVersionWidget), state);
 }
 

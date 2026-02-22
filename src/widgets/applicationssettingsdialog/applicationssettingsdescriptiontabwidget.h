@@ -24,7 +24,7 @@ public:
 
     void setShowLogAndSettingsInfo(const QByteArray &appId, bool state);
 
-    void setShowVersionInfo(bool state);
+    void setShowVersionInfo(const QByteArray &appId, bool state);
 
 private:
     QTabWidget *const mTabWidget;
