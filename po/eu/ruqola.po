@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:45+0000\n"
+"POT-Creation-Date: 2026-02-22 00:45+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -7476,17 +7476,17 @@ msgstr "Zaharren eguneratutakoa"
 msgid "All Status"
 msgstr "Egoera denak"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:54
 #, kde-format
 msgid "Fetching version information in progress..."
 msgstr "Bertsioari buruzko informazioa eskuratzen…"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:74
 #, kde-format
 msgid "No release information provided"
 msgstr "Ez da kaleratze-informaziorik hornitu"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:84
 #, kde-format
 msgid "No version info found."
 msgstr "Ez da bertsioari buruzko informaziorik aurkitu."
@@ -8752,7 +8752,7 @@ msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Mezuaren berri ematea"
 
-#: widgets/dialogs/reportmessagedialog.cpp:45
+#: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
 msgctxt "@action:button"

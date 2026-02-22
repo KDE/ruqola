@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:45+0000\n"
+"POT-Creation-Date: 2026-02-22 00:45+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -7490,17 +7490,17 @@ msgstr "Ostatnio uaktualnione"
 msgid "All Status"
 msgstr "Wszystkie dostępności"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:54
 #, kde-format
 msgid "Fetching version information in progress..."
 msgstr "Pobieranie szczegółów o wersji w trakcie…"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:74
 #, kde-format
 msgid "No release information provided"
 msgstr "Nie podano szczegółów wydania"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:84
 #, kde-format
 msgid "No version info found."
 msgstr "Nie znaleziono szczegółowej wersji."
@@ -8778,7 +8778,7 @@ msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Zgłoś wiadomość"
 
-#: widgets/dialogs/reportmessagedialog.cpp:45
+#: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
 msgctxt "@action:button"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:45+0000\n"
-"PO-Revision-Date: 2026-02-15 11:22+0100\n"
+"POT-Creation-Date: 2026-02-22 00:45+0000\n"
+"PO-Revision-Date: 2026-02-21 11:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -448,7 +448,7 @@ msgstr "Comunicación saliente"
 #: core/apps/appsmarketplaceinfo.cpp:703
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "Ver todas las salas en el espacio de trabajo"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -7483,17 +7483,17 @@ msgstr "Los actualizados más antiguamente"
 msgid "All Status"
 msgstr "Todos los estados"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:54
 #, kde-format
 msgid "Fetching version information in progress..."
 msgstr "Obteniendo la información de versión en progreso…"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:74
 #, kde-format
 msgid "No release information provided"
 msgstr "No se ha proporcionado información de lanzamiento"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:84
 #, kde-format
 msgid "No version info found."
 msgstr "No se encontró información de la versión."
@@ -8757,7 +8757,7 @@ msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Notificar mensaje"
 
-#: widgets/dialogs/reportmessagedialog.cpp:45
+#: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
 msgctxt "@action:button"

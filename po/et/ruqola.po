@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:45+0000\n"
+"POT-Creation-Date: 2026-02-22 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7823,17 +7823,17 @@ msgstr ""
 msgid "All Status"
 msgstr "Olek:"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:54
 #, kde-format
 msgid "Fetching version information in progress..."
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:74
 #, kde-format
 msgid "No release information provided"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:84
 #, fuzzy, kde-format
 #| msgid "No Mention found"
 msgid "No version info found."
@@ -9208,7 +9208,7 @@ msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Sõnumist teatamine"
 
-#: widgets/dialogs/reportmessagedialog.cpp:45
+#: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, fuzzy, kde-format
 #| msgid "Report a Bug"

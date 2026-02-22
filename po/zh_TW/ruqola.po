@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:45+0000\n"
+"POT-Creation-Date: 2026-02-22 00:45+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -7278,17 +7278,17 @@ msgstr "最久以前更新"
 msgid "All Status"
 msgstr "所有狀態"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:51
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:54
 #, kde-format
 msgid "Fetching version information in progress..."
 msgstr "正在取得版本資訊…"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:74
 #, kde-format
 msgid "No release information provided"
 msgstr "找不到釋出資訊"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:81
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:84
 #, kde-format
 msgid "No version info found."
 msgstr "找不到版本資訊。"
@@ -8537,7 +8537,7 @@ msgctxt "@title:window"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/dialogs/reportmessagedialog.cpp:45
+#: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
 msgctxt "@action:button"
