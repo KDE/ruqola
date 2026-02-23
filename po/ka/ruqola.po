@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-22 00:45+0000\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
 "PO-Revision-Date: 2026-02-18 05:30+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1961,48 +1961,48 @@ msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "მონაცემთა ბაზის გასუფთავება (გამოიყენეთ სიფრთხილით)"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:58
+#: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
 msgstr "ახლა"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:62
+#: core/timestamp/timestampinmessagesconverter.cpp:63
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 წამი"
 msgstr[1] "%1 წამი"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:66
+#: core/timestamp/timestampinmessagesconverter.cpp:67
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 წუთი"
 msgstr[1] "%1 წუთი"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:70
+#: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
 msgstr[0] "%1 საათი"
 msgstr[1] "%1 საათი"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:74
+#: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 დღე"
 msgstr[1] "%1 დღე"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:82
-#: core/timestamp/timestampinmessagesconverter.cpp:91
+#: core/timestamp/timestampinmessagesconverter.cpp:83
+#: core/timestamp/timestampinmessagesconverter.cpp:92
 #, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] "%1 წელი"
 msgstr[1] "%1 წელი"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:89
+#: core/timestamp/timestampinmessagesconverter.cpp:90
 #, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
@@ -11859,7 +11859,7 @@ msgstr "სრული თარიღი და დრო (%1)"
 msgid "Full Date and Time (long) (%1)"
 msgstr "სრული თარიღი და დრო (გრძელი) (%1)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
 msgstr "ფარდობითი დრო (%1)"

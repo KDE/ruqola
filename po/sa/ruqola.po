@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-22 00:45+0000\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1975,12 +1975,12 @@ msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr ""
 
-#: core/timestamp/timestampinmessagesconverter.cpp:58
+#: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
 msgstr ""
 
-#: core/timestamp/timestampinmessagesconverter.cpp:62
+#: core/timestamp/timestampinmessagesconverter.cpp:63
 #, fuzzy, kde-format
 #| msgid "1 second"
 #| msgid_plural "%1 seconds"
@@ -1989,29 +1989,29 @@ msgid_plural "%1 seconds"
 msgstr[0] "१ द्वितीयः"
 msgstr[1] "%1 सेकण्ड्"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:66
+#: core/timestamp/timestampinmessagesconverter.cpp:67
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/timestamp/timestampinmessagesconverter.cpp:70
+#: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/timestamp/timestampinmessagesconverter.cpp:74
+#: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/timestamp/timestampinmessagesconverter.cpp:82
-#: core/timestamp/timestampinmessagesconverter.cpp:91
+#: core/timestamp/timestampinmessagesconverter.cpp:83
+#: core/timestamp/timestampinmessagesconverter.cpp:92
 #, fuzzy, kde-format
 #| msgid "year"
 msgid "%1 year"
@@ -2019,7 +2019,7 @@ msgid_plural "%1 years"
 msgstr[0] "वर्ष"
 msgstr[1] "वर्ष"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:89
+#: core/timestamp/timestampinmessagesconverter.cpp:90
 #, fuzzy, kde-format
 #| msgid "month"
 msgid "%1 month"
@@ -11937,7 +11937,7 @@ msgstr "फ़िल्टर चैनल्स् (%1) ."
 msgid "Full Date and Time (long) (%1)"
 msgstr ""
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
 msgstr ""

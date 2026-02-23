@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-22 00:45+0000\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
 "PO-Revision-Date: 2026-02-18 07:24+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1973,12 +1973,12 @@ msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Počisti podatkovno bazo (Uporabljajte previdno)"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:58
+#: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
 msgstr "Zdaj"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:62
+#: core/timestamp/timestampinmessagesconverter.cpp:63
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
@@ -1987,7 +1987,7 @@ msgstr[1] "%1 sekunda"
 msgstr[2] "%1 sekundi"
 msgstr[3] "%1 sekunde"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:66
+#: core/timestamp/timestampinmessagesconverter.cpp:67
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
@@ -1996,7 +1996,7 @@ msgstr[1] "%1 minuta"
 msgstr[2] "%1 minuti"
 msgstr[3] "%1 minute"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:70
+#: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
@@ -2005,7 +2005,7 @@ msgstr[1] "%1 ura"
 msgstr[2] "%1 uri"
 msgstr[3] "%1 ure"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:74
+#: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
@@ -2014,8 +2014,8 @@ msgstr[1] "%1 dan"
 msgstr[2] "%1 dneva"
 msgstr[3] "%1 dni"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:82
-#: core/timestamp/timestampinmessagesconverter.cpp:91
+#: core/timestamp/timestampinmessagesconverter.cpp:83
+#: core/timestamp/timestampinmessagesconverter.cpp:92
 #, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
@@ -2024,7 +2024,7 @@ msgstr[1] "%1 leto"
 msgstr[2] "%1 leti"
 msgstr[3] "%1 leta"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:89
+#: core/timestamp/timestampinmessagesconverter.cpp:90
 #, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
@@ -11922,7 +11922,7 @@ msgstr "Polni datum in čas (%1)"
 msgid "Full Date and Time (long) (%1)"
 msgstr "Polni datum in čas (dolg) (%1)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
 msgstr "Relativni čas (%1)"
