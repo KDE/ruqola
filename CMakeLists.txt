@@ -1,20 +1,20 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(RUQOLA_VERSION "2.6.90")
+cmake_minimum_required(VERSION 3.27 FATAL_ERROR)
+set(RUQOLA_VERSION "2.7.40")
 # TODO: update it in each release version
-set(RUQOLA_RELEASE_VERSION "26.03.30") # yy.MM.dd
+set(RUQOLA_RELEASE_VERSION "26.08.30") # yy.MM.dd
 
 # Use true if stable version => we will check specific version
 set(RUQOLA_STABLE_VERSION false)
 
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.9.0")
-set(KF_MIN_VERSION "6.19.0")
+set(KF_MIN_VERSION "6.22.0")
 set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 # Do NOT add quote
-set(RUQOLA_DEV_VERSION rc1)
+set(RUQOLA_DEV_VERSION alpha)
 
 # add an extra space
 if(DEFINED RUQOLA_DEV_VERSION)
@@ -163,7 +163,7 @@ if(UNITY_SUPPORT)
     set(HAVE_UNITY_SUPPORT true)
 endif()
 
-set(KTEXTADDONS_MIN_VERSION "1.9.0")
+set(KTEXTADDONS_MIN_VERSION "1.9.1")
 set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "${KTEXTADDONS_MIN_VERSION}")
 set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
