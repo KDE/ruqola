@@ -259,7 +259,7 @@ void RocketChatBackend::slotLoginStatusChanged()
 
 void RocketChatBackend::slotPrivateInfoDone([[maybe_unused]] const QJsonObject &data)
 {
-    qDebug() << "parse private info not implemented . Needed ? "; // << data;
+    qCDebug(RUQOLA_BACKEND_LOG) << "parse private info not implemented . Needed ? "; // << data;
 }
 
 void RocketChatBackend::parseServerVersionDone(const QString &version)
@@ -427,7 +427,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: uiInteraction " << object;
             }
             // TODO implement it
-            qDebug() << "uiInteraction********* " << contents;
+            qCDebug(RUQOLA_BACKEND_LOG) << "uiInteraction********* " << contents;
             if (mRocketChatAccount) {
                 Q_EMIT mRocketChatAccount->showUiInteraction(contents);
             }
@@ -452,9 +452,9 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 const QByteArray roomId = model->updateRoom(roomData);
                 mRocketChatAccount->updateRoomInDatabase(roomId);
                 mRocketChatAccount->updateUserInRoom(roomData);
-                qDebug() << " rooms-changed***************************************************************************";
+                // qDebug() << " rooms-changed***************************************************************************";
             } else if (actionName == "inserted"_L1) {
-                qDebug() << " inserted***************************************************************************";
+                // qDebug() << " inserted***************************************************************************";
                 qCDebug(RUQOLA_BACKEND_LOG) << "****************************************** insert new Room !!!!!" << contents;
                 const QJsonObject roomData = contents[1].toObject();
                 const QByteArray roomId = model->insertRoom(roomData);
@@ -465,7 +465,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else if (actionName == "removed"_L1) {
                 qCDebug(RUQOLA_BACKEND_LOG) << "Remove channel" << contents;
                 const QJsonObject roomData = contents[1].toObject();
-                qDebug() << "roomData " << roomData;
+                // qDebug() << "roomData " << roomData;
                 Q_ASSERT(false);
                 model->removeRoom(QByteArray());
             } else {
@@ -515,7 +515,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             const QJsonObject roomData = contents[0].toObject();
             mRocketChatAccount->addMessage(roomData);
             qCDebug(RUQOLA_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
-            qDebug() << "stream-notify-user : Message  " << eventname << " contents " << contents;
+            // qDebug() << "stream-notify-user : Message  " << eventname << " contents " << contents;
         } else if (eventname.endsWith("/userData"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -529,7 +529,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
 
         } else if (eventname.endsWith("/video-conference"_L1)) {
-            qDebug() << " *******************************************************************" << eventname << " contents " << contents;
+            // qDebug() << " *******************************************************************" << eventname << " contents " << contents;
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -613,10 +613,10 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else {
                 qCDebug(RUQOLA_BACKEND_LOG) << "Delete message" << object;
             }
-            qDebug() << " DELETE MESSAGE Bulk not IMPLEMENTED yet";
+            qCDebug(RUQOLA_BACKEND_LOG) << " DELETE MESSAGE Bulk not IMPLEMENTED yet";
             QString roomId = eventname;
             roomId.remove(u"/deleteMessageBulk"_s);
-            qDebug() << "UNIMPLEMENT!!!!!! deleteMessageBulk " << collection << " object " << object;
+            qCDebug(RUQOLA_BACKEND_LOG) << "UNIMPLEMENT!!!!!! deleteMessageBulk " << collection << " object " << object;
             // QJsonObject({"collection":"stream-notify-room","fields":{"args":[{"excludePinned":false,"ignoreDiscussion":true,"rid":"QgCf8GcnXYW5QXiHN","ts":{"$gt":{"$date":946681200000},"$lt":{"$date":1599602400000}},"users":[]}],"eventName":"QgCf8GcnXYW5QXiHN/deleteMessageBulk"},"id":"id","msg":"changed"})
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
@@ -677,7 +677,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else if (eventname == "updateCustomSound"_L1) {
             mRocketChatAccount->updateCustomSound(contents);
         } else {
-            qDebug() << " NEED TO IMPLEMENT stream-notify-all " << object;
+            qCDebug(RUQOLA_BACKEND_LOG) << " NEED TO IMPLEMENT stream-notify-all " << object;
         }
         //{"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"LmShBQiqaCJDbgduR","_updatedAt":{"$date":1603350386481},"extension":"mp3","name":"ss"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"}
     } else if (collection == "stream-stdout"_L1) {

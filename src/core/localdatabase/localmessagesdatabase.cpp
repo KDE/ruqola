@@ -91,8 +91,8 @@ void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QByt
 
 QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements)
 {
-    qDebug() << " startId " << QDateTime::fromMSecsSinceEpoch(startId) << "endId " << QDateTime::fromMSecsSinceEpoch(endId) << " numberOfElement "
-             << numberElements;
+    qCDebug(RUQOLA_DATABASE_LOG) << " startId " << QDateTime::fromMSecsSinceEpoch(startId) << "endId " << QDateTime::fromMSecsSinceEpoch(endId)
+                                 << " numberOfElement " << numberElements;
     QString query = u"SELECT * FROM MESSAGES"_s;
 
     if (startId != -1) {
@@ -109,7 +109,7 @@ QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qi
         query += u" LIMIT :limit"_s;
     }
 
-    qDebug() << " query " << query;
+    qCDebug(RUQOLA_DATABASE_LOG) << " query " << query;
 
     return query;
 }
@@ -170,7 +170,7 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
     if (numberElements != -1) {
         resultQuery.bindValue(u":limit"_s, numberElements);
     }
-    qDebug() << " :startId " << QDateTime::fromMSecsSinceEpoch(startId) << " :endId" << QDateTime::fromMSecsSinceEpoch(endId);
+    qCDebug(RUQOLA_DATABASE_LOG) << " :startId " << QDateTime::fromMSecsSinceEpoch(startId) << " :endId" << QDateTime::fromMSecsSinceEpoch(endId);
     if (!resultQuery.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Impossible to execute query: " << resultQuery.lastError() << " query: " << query;
         return {};
