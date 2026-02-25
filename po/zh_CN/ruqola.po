@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"POT-Creation-Date: 2026-02-25 02:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/ruqola/ruqola.pot\n"
-"X-Crowdin-File-ID: 49360\n"
+"X-Crowdin-File: /kf6-stable/messages/ruqola/ruqola.pot\n"
+"X-Crowdin-File-ID: 53692\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -28,9 +28,10 @@ msgid "Rocket Chat Client"
 msgstr ""
 
 #: apps/main.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2025 Ruqola authors"
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr ""
+msgstr "Copyright © 2020-2025 Ruqola authors"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -9217,9 +9218,10 @@ msgid "Impossible to create zip file."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Impossible to open %1"
 msgid "Impossible to export account."
-msgstr ""
+msgstr "无法打开 %1"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -10359,10 +10361,12 @@ msgid "Stop"
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Quote Text"
 msgctxt "@info:tooltip"
 msgid "Speak Text"
-msgstr ""
+msgstr "引用文本"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
 #, kde-format
@@ -12237,3 +12241,11 @@ msgstr ""
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr ""
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "删除线"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "插入链接"
