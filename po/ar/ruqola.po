@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 02:44+0000\n"
-"PO-Revision-Date: 2026-01-24 12:29+0400\n"
+"PO-Revision-Date: 2026-02-18 17:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -29,10 +29,9 @@ msgid "Rocket Chat Client"
 msgstr "عميل روكت تشات"
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "حقوق الطبع والنشر © 2020-2025 مُؤلفو رقولة"
+msgstr "حقوق الطبع والنشر © 2020-2026 مُؤلفو رقولة"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -404,27 +403,24 @@ msgid "Allow to read oauth app settings"
 msgstr "اسمح بقراءة إعدادات تطبيق أوث"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "اسمح بكتابة إعدادات تطبيق أوث"
+msgstr "اسمح بكتابة إعدادات مؤتمر الفيديو"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "اسمح بقراءة إعدادات تطبيق أوث"
+msgstr "اسمح بقراءة إعدادات مؤتمر الفيديو"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "اسمح بتغيير إعدادات مزود خدمة مؤتمرات الفيديو"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "اسمح بكتابة دور"
+msgstr "اسمح بزر التسجيل"
 
 #: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
@@ -442,16 +438,14 @@ msgid "Allow to read role"
 msgstr "اسمح بقراءة دور"
 
 #: core/apps/appsmarketplaceinfo.cpp:701
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mute Focused Conversations"
+#, kde-format
 msgid "Out Bound Communication"
-msgstr "اكتم المحادثات المركزة"
+msgstr "الاتصالات الصادرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:703
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "اعرض جميع الغرف في مساحة العمل"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1942,10 +1936,9 @@ msgid "Start with specific account"
 msgstr "ابدأ بحساب محدد"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, fuzzy, kde-format
-#| msgid "Account Name:"
+#, kde-format
 msgid "Account Name"
-msgstr "اسم الحساب:"
+msgstr "اسم الحساب"
 
 #: core/ruqolacommandlineparser.cpp:53
 #, kde-format
@@ -1954,10 +1947,9 @@ msgid "Show Message"
 msgstr "اعرض الرسالة"
 
 #: core/ruqolacommandlineparser.cpp:53
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "الرّسالة"
+msgstr "رابط الرّسالة"
 
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
@@ -1972,38 +1964,33 @@ msgid "Lists the available options for user feedback"
 msgstr "يسرد الخيارات المتاحة لمشاركة بياناتك"
 
 #: core/ruqolacommandlineparser.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Start a Call"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "ابدأ مكالمة"
+msgstr "ابدأ غير متّصل"
 
 #: core/ruqolacommandlineparser.cpp:62
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "مُنشط"
+msgstr "نشّط وضع التنقيح"
 
 #: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "نظّف قاعدة البيانات (استخدم بحذر)"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "الآن"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "صفر"
+msgstr[0] "0 ثانية"
 msgstr[1] "ثانية واحدة"
 msgstr[2] "ثانيتين"
 msgstr[3] "%1 ثواني"
@@ -2014,59 +2001,57 @@ msgstr[5] "%1 ثانية"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 دقيقة"
+msgstr[1] "دقيقة واحدة"
+msgstr[2] "دقيقتان"
+msgstr[3] "%1 دقائق"
+msgstr[4] "%1 دقيقة"
+msgstr[5] "%1 دقيقة"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 ساعة"
+msgstr[1] "ساعة واحدة"
+msgstr[2] "ساعتان"
+msgstr[3] "%1 ساعات"
+msgstr[4] "%1 ساعة"
+msgstr[5] "%1 ساعة"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 يوم"
+msgstr[1] "يوم واحد"
+msgstr[2] "يومان"
+msgstr[3] "%1 أيام"
+msgstr[4] "%1 يومًا"
+msgstr[5] "%1 يوم"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "سنة"
-msgstr[1] "سنة"
-msgstr[2] "سنة"
-msgstr[3] "سنة"
-msgstr[4] "سنة"
-msgstr[5] "سنة"
+msgstr[0] "%1 سنة"
+msgstr[1] "سنة واحدة"
+msgstr[2] "سنتان"
+msgstr[3] "%1 سنوات"
+msgstr[4] "%1 سنة"
+msgstr[5] "%1 سنة"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:90
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "شهر"
-msgstr[1] "شهر"
-msgstr[2] "شهر"
-msgstr[3] "شهر"
-msgstr[4] "شهر"
-msgstr[5] "شهر"
+msgstr[0] "%1 شهر"
+msgstr[1] "شهر واحد"
+msgstr[2] "شهران"
+msgstr[3] "%1 أشهر"
+msgstr[4] "%1 شهرًا"
+msgstr[5] "%1 شهر"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -3237,7 +3222,7 @@ msgstr "أنشئ صوتًا جديدًا"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "ملف إم بي 3"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -3323,11 +3308,10 @@ msgid "Quick Reactions"
 msgstr "تفاعلات سريعة"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "إجمالي الرسائل"
+msgstr "ختم زمني في الرسائل"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -7863,12 +7847,10 @@ msgid "Animate GIFs"
 msgstr "الرسوم المتحركة GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "مكّن قاعدة البيانات المحلية التجريبية"
+msgstr "مكّن قاعدة البيانات المحلية"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -8067,18 +8049,15 @@ msgstr "قاعدة البيانات E2E"
 #: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
-msgstr ""
+msgstr "غرفة قاعدة البيانات معلومات مكتوبة قيد الانتظار"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase Room Subscriptions"
-msgstr "غرف قاعدة البيانات"
+msgstr "اشتراكات غرفة قاعدة البيانات"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "انسخ"
@@ -8864,127 +8843,115 @@ msgid "Select Room Avatar"
 msgstr "حدد الصورة الرمزية"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "من:"
+msgstr "مني"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "لم يُعثر على الرّسالة."
+msgstr "تبحث عن الرسائل التي أرسلتها."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "من:"
+msgstr "من"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
-msgstr ""
+msgstr "تبحث عن الرسائل من مستخدم معين. (استخدم تنسيق اسم المستخدم بدون مسافة)"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "الترتيب: تنازلي"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
+msgstr "فرز الرسائل حسب التوقيت الزمني التنازلي"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "قبل"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "رشّح القنوات (%1)"
+msgstr "تصفية حسب التاريخ كـ %1"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "بعد"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "التأخير:"
+msgstr "اليوم"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "الترجمة"
+msgstr "تحتوي موقعًا"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "تبحث عن الرسائل التي تتضمن موقعًا."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "تحتوي رابطًا"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "تبحث عن الرسائل التي تحتوي على رابط"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "ثُبتت الرسالة"
+msgstr "مثبتة"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "تعرض الرسائل المثبتة في الغرفة الحالية."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "ابدأ"
+msgstr "عليها نجمة"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "لقد عُلّمت الرسالة"
+msgstr "تظهر الرسائل التي وضعت عليها نجوم"
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -9021,30 +8988,26 @@ msgstr ""
 "code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "الخيارات"
+msgstr "الخيار"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "التعابير النمطيّة"
+msgstr "تعبير نمطيّ"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Camel Case"
-msgstr "تجاهل المستخدم"
+msgstr "تجاهل حالة الحروف الكبيرة والصغيرة"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "أظهر أو أخفِ سطر خيار البحث"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9603,10 +9566,9 @@ msgid "Impossible to create zip file."
 msgstr "من المستحيل إنشاء ملف مضغوط."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "من المستحيل تصدير البيانات."
+msgstr "من المستحيل تصدير الحساب."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -9614,28 +9576,24 @@ msgid "Export Done."
 msgstr "انتهى التصدير."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, fuzzy, kde-format
-#| msgid "Account %1: export config done."
+#, kde-format
 msgid "<b>Account %1:</b> export config done."
-msgstr "الحساب %1: انتهى تصدير الإعدادات"
+msgstr "<b>حساب %1:</b> انتهى تصدير الإعدادات"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export cache done."
-msgstr "الحساب %1: انتهى تصدير الخبيئة"
+msgstr "<b>حساب %1:</b> انتهى تصدير الخبيئة"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, fuzzy, kde-format
-#| msgid "Account %1: export logs done."
+#, kde-format
 msgid "<b>Account %1:</b> export logs done."
-msgstr "الحساب %1: انتهى تصدير السجلات"
+msgstr "<b>حساب %1:</b> انتهى تصدير السجلات"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export database done."
-msgstr "الحساب %1: انتهى تصدير الخبيئة"
+msgstr "<b>حساب %1:</b> انتهى تصدير قاعدة البيانات"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
@@ -9650,7 +9608,7 @@ msgstr "صُدرت الحسابات."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "ملف Zip المولّد: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9702,8 +9660,7 @@ msgid "Import Accounts"
 msgstr "استورد حسابات"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ألغِ"
@@ -10105,11 +10062,10 @@ msgid "Manage Device"
 msgstr "أدر الجهاز"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Hide \"User Join\" messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "أخفِ رسائل ”انضم مستخدم“"
+msgstr "الختم الزمني في الرسائل"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10326,13 +10282,13 @@ msgstr "مستوى صوت الإشعارات:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr ""
+msgstr "مستوى صوت رنين الهاتف:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "الصوت الرئيس:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
@@ -10769,12 +10725,10 @@ msgid "Message has been starred"
 msgstr "لقد عُلّمت الرسالة"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1029
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "لقد عُلّمت الرسالة"
+msgstr "الرسالة تحتوي على نص مترجم"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
@@ -10792,15 +10746,13 @@ msgstr "أضف تفاعل"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "أوقف"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
-msgstr "نطق النص"
+msgstr "انطق النص"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
 #, kde-format
@@ -10812,7 +10764,7 @@ msgstr "أضف خادم WebDav"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "أدرج الختم الزمني"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -11771,18 +11723,16 @@ msgid "Hide menu bar"
 msgstr "أخفِ شريط القائمة"
 
 #: widgets/ruqolamainwindow.cpp:1445
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "متصل"
+msgstr "اعمل متّصلًا"
 
 #: widgets/ruqolamainwindow.cpp:1448
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "غير متّصل"
+msgstr "اعمل بلا اتّصال"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11961,68 +11911,62 @@ msgstr "لا تتبع الرسالة"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr ""
+msgstr "أدرج الختم الزمني"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Short Time (%1)"
-msgstr ""
+msgstr "الوقت القصير (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "الوقت الطويل (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
 #, kde-format
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "التاريخ القصير (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, fuzzy, kde-format
-#| msgid "Default (%1)"
+#, kde-format
 msgid "Long Date (%1)"
-msgstr "المبدئيّ (%1)"
+msgstr "التاريخ الطويل (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgid "Full Date and Time (%1)"
-msgstr "رشّح القنوات (%1)"
+msgstr "كامل الوقت والتاريخ (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr ""
+msgstr "كامل التاريخ والوقت (طويل) (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
-msgstr ""
+msgstr "الوقت النسبي (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "التوقيت المحلي:"
+msgstr "المحلية"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "التاريخ"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "المنطقة الزمنية"
+msgstr "الوقت"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
-msgstr "تنسيق الاسم المستعار"
+msgstr "التنسيق"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
@@ -12064,46 +12008,35 @@ msgstr "أضف حسابًا…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "انسخ كتلة الرمز بسهولة أكبر."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "تحسين قائمة المستخدمين في الغرفة"
+msgstr "تحسين واجهة المستخدم لتحويل النص إلى كلام."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "اعرض المرفقات - %1"
+msgstr "أظهر حقول المرفقات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "تنفيذ الوضع غير المتصل بالإنترنت (تجريبي)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
-msgstr ""
+msgstr "تنفيذ تخزين قاعدة البيانات المكتوبة المعلقة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "إصلاح التعامل مع جيتسي."
+msgstr "إصلاح دعم RC 8.0.0."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "إضافة إجراءات الذكاء الاصطناعي لروكت تشات."
+msgstr "إضافة إجراءات المرفقات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "إضافة الإبلاغ عن مستخدم"
+msgstr "إضافة الختم الزمني"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -12699,24 +12632,22 @@ msgstr "إصلاح إظهار حجم المرفقات."
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "حفظ الترجمة المحلية في قاعدة البيانات المحلية."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr ""
+msgstr "إصلاح إزالة الغرفة (في قاعدة البيانات المحلية)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:221
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Fix export database."
-msgstr "تاريخ التبليغ"
+msgstr "إصلاح تصدير قاعدة البيانات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:222
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Fix upload Custom Sound"
-msgstr "الأصوات المخصصة"
+msgstr "إصلاح تحميل الصوت المخصص"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"

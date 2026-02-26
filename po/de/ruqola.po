@@ -12597,8 +12597,7 @@ msgid "Time"
 msgstr "Zeitzone:"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Format"
 msgstr "Format"
 
