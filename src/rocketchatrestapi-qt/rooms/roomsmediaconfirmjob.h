@@ -34,6 +34,9 @@ public:
     [[nodiscard]] QString description() const;
     void setDescription(const QString &newDescription);
 
+    [[nodiscard]] QByteArray tmid() const;
+    void setTmid(const QByteArray &newTmid);
+
 Q_SIGNALS:
     void roomsMediaConfirmDone();
 
@@ -41,6 +44,7 @@ private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     QByteArray mFileId;
+    QByteArray mTmid;
     QString mDescription;
 };
 }

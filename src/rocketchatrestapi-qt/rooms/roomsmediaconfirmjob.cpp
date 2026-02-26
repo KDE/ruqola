@@ -46,6 +46,16 @@ void RoomsMediaConfirmJob::onPostRequestResponse(const QString &replyErrorString
     }
 }
 
+QByteArray RoomsMediaConfirmJob::tmid() const
+{
+    return mTmid;
+}
+
+void RoomsMediaConfirmJob::setTmid(const QByteArray &newTmid)
+{
+    mTmid = newTmid;
+}
+
 QString RoomsMediaConfirmJob::description() const
 {
     return mDescription;
@@ -98,6 +108,9 @@ QJsonDocument RoomsMediaConfirmJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj["description"_L1] = mDescription;
+    if (!mTmid.isEmpty()) {
+        jsonObj["tmid"_L1] = QString::fromLatin1(mTmid);
+    }
     // TODO jsonObj["msg"_L1] = QString::fromLatin1(mFileId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData**************** " << postData;

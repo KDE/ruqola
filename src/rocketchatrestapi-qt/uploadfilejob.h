@@ -21,6 +21,7 @@ public:
         QByteArray fileId;
         QString description;
         QString messageText;
+        QByteArray threadMessageId;
         void parse(const QJsonObject &obj);
     };
 
