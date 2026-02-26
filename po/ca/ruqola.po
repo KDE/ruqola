@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:44+0000\n"
-"PO-Revision-Date: 2026-02-18 12:57+0100\n"
+"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"PO-Revision-Date: 2026-02-25 08:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1797,6 +1797,7 @@ msgstr "D'acord"
 msgid "%1 ended the OTR session."
 msgstr "%1 ha finalitzat la sessió OTR."
 
+# skip-rule: punctuation-period
 #: core/otr/otrnotificationjob.cpp:100
 #, kde-format
 msgid "%1 wants to start OTR. Do you want to accept?"
@@ -12659,44 +12660,16 @@ msgid "Fix upload Custom Sound"
 msgstr "Corregeix la pujada de sons personalitzats"
 
 #~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Obro l'adjunt?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Obro l'adjunt <filename>%1</filename>?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Obre"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Obre amb «%1»"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Obre &amb…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Desa &com a…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Desa el fitxer"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Error en desar el fitxer"
-
-#~ msgctxt "@title:window"
 #~ msgid "Description"
 #~ msgstr "Descripció"
 
 #~ msgctxt "@action"
 #~ msgid "Show Description…"
 #~ msgstr "Mostra la descripció…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Error en desar el fitxer"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Cal reiniciar per a aplicar els canvis."
@@ -12726,6 +12699,58 @@ msgstr "Corregeix la pujada de sons personalitzats"
 #~ msgstr ""
 #~ "Aquesta versió té més d'un any d'antiguitat, us animem completament que "
 #~ "l'actualitzeu."
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Obro l'adjunt?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Obro l'adjunt <filename>%1</filename>?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Obre"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Obre amb «%1»"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "Obre &amb…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "Desa &com a…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "Desa el fitxer"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Negreta"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Cursiva"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Barrat"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Bloc de codi"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Cita de text"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Inserció d'un enllaç"
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12775,27 +12800,3 @@ msgstr "Corregeix la pujada de sons personalitzats"
 
 #~ msgid "Some bug fixing:"
 #~ msgstr "Correcció d'errors:"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Negreta"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Cursiva"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Barrat"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Bloc de codi"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Cita de text"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Insereix un enllaç"

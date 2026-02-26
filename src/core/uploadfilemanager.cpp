@@ -60,9 +60,10 @@ void UploadFileManager::confirmMedia(const RocketChatRestApi::UploadFileJob::Con
     job->setFileId(info.fileId);
     job->setRoomId(info.roomId);
     job->setDescription(info.description);
+    job->setTmid(info.threadMessageId);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsMediaConfirmJob::roomsMediaConfirmDone, this, []() {
-        qDebug() << " media confirm ********";
+        qCDebug(RUQOLA_LOG) << " Confirm Media Done!";
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMediaConfirmJob job";

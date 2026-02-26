@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:44+0000\n"
-"PO-Revision-Date: 2025-10-10 21:34+0200\n"
+"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"PO-Revision-Date: 2025-10-05 08:28+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -423,7 +423,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Allow to write role"
 msgid "Allow to register button"
-msgstr "Tillåt att skriva roll"
+msgstr "Allow to write role"
 
 #: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
@@ -433,12 +433,12 @@ msgstr "Tillåt att skicka e-post"
 #: core/apps/appsmarketplaceinfo.cpp:697
 #, kde-format
 msgid "Allow to write role"
-msgstr "Tillåt att skriva roll"
+msgstr "Allow to write role"
 
 #: core/apps/appsmarketplaceinfo.cpp:699
 #, kde-format
 msgid "Allow to read role"
-msgstr "Tillåt att läsa roll"
+msgstr "Allow to read role"
 
 #: core/apps/appsmarketplaceinfo.cpp:701
 #, fuzzy, kde-format
@@ -771,7 +771,7 @@ msgstr "(Senaste meddelande: %1)"
 #: core/job/extractserverinfojob.cpp:27
 #, kde-format
 msgid "Missing server url."
-msgstr "Saknar serverwebbadress."
+msgstr "Saknar serverwebbadress.."
 
 #: core/job/extractserverinfojob.cpp:35
 #, kde-format
@@ -1809,13 +1809,13 @@ msgstr "%1 nekade till OTR-sessionen."
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> is typing..."
-msgstr "<strong>%1</strong> skriver ..."
+msgstr "<strong>%1</strong> skriver..."
 
 #: core/receivetypingnotificationmanager.cpp:72
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
-msgstr "<strong>%1</strong> skriver ..."
+msgstr "<strong>%1</strong> skriver..."
 
 #: core/rocketchataccount.cpp:702
 #, kde-format
@@ -1951,10 +1951,11 @@ msgstr "Listar tillgängliga alternativ för användaråterkoppling"
 
 #: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
-#| msgid "Offline"
+#| msgctxt "@title:window"
+#| msgid "Start a Call"
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Nerkopplad"
+msgstr "Starta ett samtal"
 
 #: core/ruqolacommandlineparser.cpp:62
 #, fuzzy, kde-format
@@ -2177,7 +2178,7 @@ msgstr "Fråga till AI"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
 #, kde-format
 msgid "Create a screenshot"
-msgstr "Skapa en skärmbild"
+msgstr "Create a screenshot"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
@@ -5276,7 +5277,7 @@ msgid ""
 "content."
 msgstr ""
 "Underrätta personer, och markera omnämnanden av användare, kanal, och grupp "
-"i krypterat innehåll."
+"i krypterat innehåll.."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
 #, kde-format
@@ -7359,7 +7360,7 @@ msgstr "Avinstallera program"
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:65
 #, kde-format
 msgid "%1 Caller: %2"
-msgstr "%1 anropar: %2"
+msgstr "%1 Den som anropar: %2"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
 #, kde-format
@@ -7448,7 +7449,7 @@ msgstr "All status"
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:54
 #, kde-format
 msgid "Fetching version information in progress..."
-msgstr "Hämtning av versionsinformation pågår..."
+msgstr "Hämtning av versionsinformation pågår......"
 
 #: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:74
 #, kde-format
@@ -7464,7 +7465,7 @@ msgstr "Ingen versionsinformation hittades."
 #, kde-format
 msgid "%1 app enabled"
 msgid_plural "%1 apps enabled"
-msgstr[0] "%1 program aktiverad"
+msgstr[0] "%1 program aktiverat"
 msgstr[1] "%1 program aktiverade"
 
 #: widgets/applicationssettingsdialog/appscountinfowidget.cpp:54
@@ -8028,7 +8029,9 @@ msgid "DataBase Room Subscriptions"
 msgstr "Databas rum"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Copy"
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Kopiera"
@@ -9376,7 +9379,7 @@ msgstr "Avkoda krypteringsnyckel"
 #, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Aktivera kryptering"
+msgstr "Inaktivera kryptering"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
 #, kde-format
@@ -9398,7 +9401,7 @@ msgstr ""
 "privata gruppen.\n"
 "Kryptering kan återaktiveras senare. Fortsätt med försiktighet.\n"
 "Om ingen kan komma åt det krypterade innehållet kan krypteringsnycklarna "
-"nollställas istället."
+"nollställas istället.."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -9407,7 +9410,7 @@ msgid ""
 "access to previously encrypted content may be lost."
 msgstr ""
 "Alternativt gör nollställning av krypteringsnycklar att kryptering förblir "
-"aktiverad men åtkomst till tidigare krypterat innehåll kan gå förlorad."
+"aktiverad men åtkomst till tidigare krypterat innehåll kan gå förlorad.."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
 #, kde-format
@@ -9785,7 +9788,7 @@ msgstr "Kompakt"
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "Your passwords do no match."
-msgstr "Lösenorden stämmer inte överens."
+msgstr "Lösenorden stämmer inte överens.."
 
 #: widgets/misc/passwordconfirmwidget.cpp:38
 #, kde-format
@@ -10029,10 +10032,10 @@ msgstr "Hantera enhet"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
 #, fuzzy, kde-format
-#| msgid "Total Messages"
+#| msgid "Hide \"User Join\" messages"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Totalt antal meddelande"
+msgstr "Dölj meddelanden om att användare går med"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10793,7 +10796,7 @@ msgstr "Skicka meddelande"
 #: widgets/room/messagelinewidget.cpp:218
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
-msgstr "Kommandot misslyckades. Vill du kopiera kommandot till klippbordet?"
+msgstr "Kommandot misslyckades. Vill du kopiera kommandot till klippbordet? ?"
 
 #: widgets/room/messagelinewidget.cpp:219
 #, kde-format
@@ -11349,7 +11352,7 @@ msgstr "Ta bort från rum"
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
-msgstr "Blockera inte användare"
+msgstr "Sluta blockera användare"
 
 #: widgets/room/usersinroommenu.cpp:184
 #, kde-format
@@ -11683,10 +11686,10 @@ msgstr "Dölj menyrad"
 
 #: widgets/ruqolamainwindow.cpp:1445
 #, fuzzy, kde-format
-#| msgid "Offline"
+#| msgid "Online"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Nerkopplad"
+msgstr "Uppkopplad"
 
 #: widgets/ruqolamainwindow.cpp:1448
 #, fuzzy, kde-format
@@ -11880,16 +11883,14 @@ msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Long Time (%1)"
-msgstr "Lokal tid:"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Short Date (%1)"
-msgstr "Rapportdatum"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
 #, fuzzy, kde-format
@@ -11977,7 +11978,7 @@ msgstr "Lägg till konto…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Copy block code more easily."
-msgstr "Kopiera kodblock enklare."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 #, fuzzy
@@ -12405,7 +12406,7 @@ msgstr "Rätta färglagd text i citerat meddelande."
 #: widgets/whatsnew/whatsnewtranslations.cpp:142
 #, kde-format
 msgid "Fix open discussion channel"
-msgstr "Rätta öppen sStarta diskussion"
+msgstr "Rätta öppen diskussionskanal"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:143
 #, kde-format
@@ -12646,44 +12647,20 @@ msgid "Fix upload Custom Sound"
 msgstr "Egna ljud"
 
 #~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Öppna bilaga?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Öppna bilaga <filename>%1</filename>?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Öppna"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "Ö&ppna med '%1'"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Öppna &med…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Spara s&om…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Spara fil"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Fel när filen skulle sparas"
-
-#~ msgctxt "@title:window"
 #~ msgid "Description"
 #~ msgstr "Beskrivning"
 
 #~ msgctxt "@action"
 #~ msgid "Show Description…"
 #~ msgstr "Visa beskrivning…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Fel när filen skulle sparas"
+
+#~ msgctxt "@option:check"
+#~ msgid "Enable experimental local database"
+#~ msgstr "Aktivera experimentell lokal databas"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Omstart krävs för att ändringarna ska verkställas."
@@ -12712,6 +12689,58 @@ msgstr "Egna ljud"
 #~ "Versionen är äldre än 1 år. Vi uppmuntrar dig starkt att uppgradera."
 
 #~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Öppna bilaga?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Öppna bilaga <filename>%1</filename>?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Öppna"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "Ö&ppna med '%1'"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "Öppna &med…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "Spara s&om…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "Spara fil"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Fetstil"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Kursiv"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Överstruken"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Kodblock"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Citerad text"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Infoga länk"
+
+#~ msgctxt "@title:window"
 #~ msgid "Check New Version"
 #~ msgstr "Kontrollera ny version"
 
@@ -12719,7 +12748,7 @@ msgstr "Egna ljud"
 #~ "A new version found. Click <a href=\"%1\">here</a> for downloading it."
 #~ msgstr ""
 #~ "En ny version hittades. Klicka <a href=\"%1\">här</a> för att ladda ner "
-#~ "den."
+#~ "den.."
 
 #~ msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
 #~ msgstr "Ingen ny version hittades. Bygge finns <a href=\"%1\">här</a>."
@@ -12756,117 +12785,12 @@ msgstr "Egna ljud"
 #~ msgid "Some bug fixing:"
 #~ msgstr "En del felrättning:"
 
-#~ msgctxt "@option:check"
-#~ msgid "Enable experimental local database"
-#~ msgstr "Aktivera experimentell lokal databas"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Fetstil"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Kursiv"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Överstruken"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Kodblock"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Citerad text"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Infoga länk"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Återställ"
 
-#, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Remove"
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Ta bort"
-
-#, fuzzy
-#~| msgid "Do you want to remove \"%1\"?"
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Vill du ta bort \"%1\"?"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Ta bort"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Activities"
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Anpassa aktiviteter"
-
-#, fuzzy
-#~| msgid "Ask to AI"
-#~ msgid "Ask AI…"
-#~ msgstr "Fråga till AI"
-
-#, fuzzy
-#~| msgid "Configure"
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Anpassa"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Engine"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Anpassa gränssnitt"
-
-#, fuzzy
-#~| msgid "Loading…"
 #~ msgid "Loading..."
-#~ msgstr "Läser in…"
-
-#~ msgid "No new version found."
-#~ msgstr "Ingen ny version hittades."
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Bifoga fil"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Omöjligt att öppna logg."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Visa logg"
-
-#~ msgid "Private"
-#~ msgstr "Privat"
-
-#~ msgid "Installed"
-#~ msgstr "Installerat"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "Stor blå knapp"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Gå med i förvalda kanaler"
+#~ msgstr "Läser in..."
 
 #~ msgid "Starred Messages"
 #~ msgstr "Stjärnmärkta meddelanden"
@@ -12883,10 +12807,26 @@ msgstr "Egna ljud"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Olästa meddelanden i tråd"
 
-#, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Markera som läst)"
+#~ msgid "System Messages"
+#~ msgstr "Systemmeddelanden"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Gå med i förvalda kanaler"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Verifierad"
+
+#~ msgid "Private"
+#~ msgstr "Privat"
+
+#~ msgid "Installed"
+#~ msgstr "Installerat"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Markera som läst"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Användarnamn eller e-post:"
@@ -12919,29 +12859,28 @@ msgstr "Egna ljud"
 #~ msgid "Server Url:"
 #~ msgstr "Serverwebbadress:"
 
-#~ msgid "Message %1"
-#~ msgstr "Meddelande %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Markera som läst"
-
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Återställ"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Alla användare i laget kan skriva meddelanden"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Verifierad"
+#~ msgid "Message %1"
+#~ msgstr "Meddelande %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Systemmeddelanden"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Markera som läst)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Omöjligt att öppna logg."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Visa logg"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "Stor blå knapp"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Nollställ TOTP"
@@ -13242,6 +13181,9 @@ msgstr "Egna ljud"
 
 #~ msgid "Close"
 #~ msgstr "Stäng"
+
+#~ msgid "Configure..."
+#~ msgstr "Anpassa..."
 
 #~ msgid "Archive cannot be opened in read mode."
 #~ msgstr "Arkivet kan inte öppnas i läsläge."
@@ -13668,6 +13610,10 @@ msgstr "Egna ljud"
 #~ "Error: Unable to extract additional Bing information from web version."
 #~ msgstr ""
 #~ "Fel: Kan inte extrahera ytterligare Bing information från webbversionen."
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Anpassa gränssnitt"
 
 #~ msgid "Use Free License Key"
 #~ msgstr "Använd fri licensnyckel"

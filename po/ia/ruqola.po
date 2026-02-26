@@ -2,13 +2,12 @@
 # This file is distributed under the same license as the ruqola package.
 #
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 giovanni <g.sora@tiscali.it>
-# giovanni <g.sora@tiscali.it>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:44+0000\n"
-"PO-Revision-Date: 2026-02-19 16:20+0100\n"
+"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"PO-Revision-Date: 2026-02-25 12:10+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1939,7 +1938,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
-msgstr "Lista le optiones disponibile per responsa de usator"
+msgstr "Lista le optiones disponibile per responsa al usator"
 
 #: core/ruqolacommandlineparser.cpp:60
 #, kde-format
@@ -1962,7 +1961,7 @@ msgstr ""
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "Nunc"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
 #, kde-format
@@ -1975,22 +1974,22 @@ msgstr[1] "%1 secundas"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minuta"
+msgstr[1] "%1 minutas"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 hora"
+msgstr[1] "%1 horas"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 die"
+msgstr[1] "%1 dies"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
@@ -2366,7 +2365,7 @@ msgstr "Non poteva cambiar nomine"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:261
 #, kde-format
 msgid "Could not change username"
-msgstr "Non poteva cambiar nomine de usator"
+msgstr "Non potev cambiar nomine de usator"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:263
 #, kde-format
@@ -7109,7 +7108,7 @@ msgstr "Habilitate"
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
-msgstr[0] "%1 Requesta"
+msgstr[0] "Require"
 msgstr[1] "%1 Requestas"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
@@ -8548,7 +8547,7 @@ msgstr "Reporta Message"
 #, kde-format
 msgctxt "@action:button"
 msgid "Report"
-msgstr "Reporta"
+msgstr "Reporto"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -10023,7 +10022,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "Volumine principal:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
@@ -12367,40 +12366,6 @@ msgid "Fix upload Custom Sound"
 msgstr "Corrige incargar Sonos personalisate"
 
 #~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Aperir Attachamento?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Aperir Attachamento <filename>%1</filename>?<nl/>"
-
-#, fuzzy
-#~| msgid "Open…"
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Aperi..."
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Aperi con '%1'"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "A&peri con..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "S&alva como..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Salveguarda file"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Error durante que il salveguardava "
-
-#~ msgctxt "@title:window"
 #~ msgid "Description"
 #~ msgstr "Description"
 
@@ -12408,14 +12373,19 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ msgid "Show Description…"
 #~ msgstr "Monstra Description..."
 
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Error durante que il salveguardava "
+
+#~ msgid "Restart is necessary for applying the changes."
+#~ msgstr "Reinitiar si necessari per applicar le modificationes."
+
 #~ msgid "..."
 #~ msgstr "..."
 
-#, fuzzy
-#~| msgid "Configure..."
 #~ msgctxt "@info:tooltip"
 #~ msgid "Configure"
-#~ msgstr "Configura..."
+#~ msgstr "Configura"
 
 #~ msgctxt "@action"
 #~ msgid "Disable version check"
@@ -12434,6 +12404,58 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ msgstr ""
 #~ "Tu version es plus vetere de 1 anno, nos fortemente  te incoragia a "
 #~ "actualisar."
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Aperir Attachamento?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Aperir Attachamento <filename>%1</filename>?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Aperi"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Aperi con '%1'"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "A&peri con..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "S&alva como..."
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "Salveguarda file"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Grasse"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Italic"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Colpa a transverso"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Bloco de codice"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Cita Texto"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Inserta ligamine"
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12466,10 +12488,8 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ msgid "What's new in %2. %1"
 #~ msgstr "Que es de novo in %2. %1"
 
-#, fuzzy
-#~| msgid "All Version"
 #~ msgid "All Versions"
-#~ msgstr "Tote Version"
+#~ msgstr "Omne Versiones"
 
 #~ msgid "Version %1"
 #~ msgstr "Version %1"
@@ -12480,105 +12500,12 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ msgid "Some bug fixing:"
 #~ msgstr "Alcun correction de faltas (bug)"
 
-#, fuzzy
-#~| msgid "Bold"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Grasse"
-
-#, fuzzy
-#~| msgid "Italic"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Italic"
-
-#, fuzzy
-#~| msgid "Strike-out"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Strike Out"
-
-#, fuzzy
-#~| msgid "Code Block"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Bloco de codice"
-
-#, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Quote"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Cita"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Inserta"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Restabili"
 
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Remove…"
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Tu vole remover  lo ?"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Remove"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Configura plugins de texto de AI"
-
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Configura…"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Configura"
-
-#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Cargante..."
-
-#~ msgid "No new version found."
-#~ msgstr "Nulle nove version trovate"
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Attacha File"
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Monstra registro"
-
-#~ msgid "Private"
-#~ msgstr "Private"
-
-#~ msgid "Installed"
-#~ msgstr "Installate"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Uni canales predefinite"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Messages con stella"
@@ -12595,8 +12522,26 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Messages de topicos non legite"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Marca como legite)"
+#~ msgid "System Messages"
+#~ msgstr "Messages de systema"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Uni canales predefinite"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Verificate"
+
+#~ msgid "Private"
+#~ msgstr "Private"
+
+#~ msgid "Installed"
+#~ msgstr "Installate"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Marca como legite"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Nomine de usator o E-Posta:"
@@ -12621,64 +12566,50 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ msgid "Server Url:"
 #~ msgstr "URL de servitor:"
 
-#~ msgid "Message %1"
-#~ msgstr "Message %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marca como legite"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Refixa E2E"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Omne usatores in iste equipa pote scriber messages"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Verificate"
+#~ msgid "Message %1"
+#~ msgstr "Message %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Messages de systema"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Marca como legite)"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Monstra registro"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Selige toto"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Refixa TOTP"
 
-#~ msgid "Create"
-#~ msgstr "Crea"
+#~ msgid "Add..."
+#~ msgstr "Adde..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Fixa como Favorite"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Cerca Salas…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Copia message"
-
-#, fuzzy
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Cerca Salas…"
-
-#, fuzzy
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Cerca Usatores..."
-
-#~ msgid "Search channels…"
-#~ msgstr "Cerca canales…"
+#~ msgid "Modify..."
+#~ msgstr "Modifica..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Directorio - %1"
+
+#~ msgid "Search channels…"
+#~ msgstr "Cerca canales…"
+
+#~ msgid "Go to Message"
+#~ msgstr "Vade a message"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Pulsa hic per cargar plus ...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -12689,24 +12620,6 @@ msgstr "Corrige incargar Sonos personalisate"
 
 #~ msgid "Version 2.2"
 #~ msgstr "Version 2.2"
-
-#~ msgid "Version 2.3"
-#~ msgstr "Version 2.3"
-
-#~ msgid "Select All"
-#~ msgstr "Selige toto"
-
-#~ msgid "Go to Message"
-#~ msgstr "Vade a message"
-
-#~ msgid "Add..."
-#~ msgstr "Adde..."
-
-#~ msgid "Modify..."
-#~ msgstr "Modifica..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Pulsa hic per cargar plus ...)"
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Pulsa hic per cargar plus ...)"
@@ -13125,6 +13038,10 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ msgid "Export Autocorrection File"
 #~ msgstr "Exporta file de correction automatic"
 
+#~ msgctxt "@title:window"
+#~ msgid "Select Special Characters"
+#~ msgstr "Selige characteres special"
+
 #~ msgid "Select"
 #~ msgstr "Selige"
 
@@ -13155,6 +13072,9 @@ msgstr "Corrige incargar Sonos personalisate"
 
 #~ msgid "Close"
 #~ msgstr "Claude"
+
+#~ msgid "Configure..."
+#~ msgstr "Configura..."
 
 #~ msgid "Detect language"
 #~ msgstr "Releva linguage"
@@ -13370,6 +13290,13 @@ msgstr "Corrige incargar Sonos personalisate"
 
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Configura"
 
 #, fuzzy
 #~ msgid "Api Key:"

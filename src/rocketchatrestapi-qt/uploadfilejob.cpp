@@ -149,6 +149,7 @@ void UploadFileJob::slotUploadFinished()
                 confirmInfo.roomId = mUploadFileInfo.roomId;
                 confirmInfo.description = mUploadFileInfo.description;
                 confirmInfo.messageText = mUploadFileInfo.messageText;
+                confirmInfo.threadMessageId = mUploadFileInfo.threadMessageId;
                 Q_EMIT confirmMediaRequested(confirmInfo);
             }
             addLoggerInfo("UploadFileJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));

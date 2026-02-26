@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:44+0000\n"
-"PO-Revision-Date: 2026-02-18 17:22+0300\n"
+"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"PO-Revision-Date: 2025-12-23 11:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -29,9 +29,10 @@ msgid "Rocket Chat Client"
 msgstr "Rocket Chat İstemcisi"
 
 #: apps/main.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2025 Ruqola authors"
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "© 2020–2026 Roka yazarları"
+msgstr "© 2020–2025 Roka yazarları"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -385,7 +386,7 @@ msgstr "Kullanıcı arayüzüyle etkileşimde bulun"
 #: core/apps/appsmarketplaceinfo.cpp:667
 #, kde-format
 msgid "Store internal data in the database"
-msgstr "Veri tabanında içsel veri depola"
+msgstr "Veritabanında içsel veri depola"
 
 #: core/apps/appsmarketplaceinfo.cpp:669
 #, kde-format
@@ -403,24 +404,27 @@ msgid "Allow to read oauth app settings"
 msgstr "OAuth uygulama ayarlarını okumaya izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to write oauth app settings"
 msgid "Allow to write video conference settings"
-msgstr "Video konferans ayarlarını yazmaya izin ver"
+msgstr "OAuth uygulama ayarlarını yazmaya izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to read oauth app settings"
 msgid "Allow to read video conference settings"
-msgstr "Video konferans ayarlarını okumaya izin ver"
+msgstr "OAuth uygulama ayarlarını okumaya izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr "Video konferans sağlayıcısı ayarlarını değiştirmeye izin ver"
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:689
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to write role"
 msgid "Allow to register button"
-msgstr "Kaydolma düğmesine izin ver"
+msgstr "Rolü yazmaya izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
@@ -438,14 +442,16 @@ msgid "Allow to read role"
 msgstr "Rolü okumaya izin ver"
 
 #: core/apps/appsmarketplaceinfo.cpp:701
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mute Focused Conversations"
 msgid "Out Bound Communication"
-msgstr "Dışa Giden İletişim"
+msgstr "Odaklı konuşmaları sessize al"
 
 #: core/apps/appsmarketplaceinfo.cpp:703
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr "Çalışma alanındaki tüm odaları görüntüle"
+msgstr ""
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1918,9 +1924,10 @@ msgid "Start with specific account"
 msgstr "Belirli bir hesapla başlat"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account name:"
 msgid "Account Name"
-msgstr "Hesap Adı"
+msgstr "Hesap adı:"
 
 #: core/ruqolacommandlineparser.cpp:53
 #, kde-format
@@ -1929,9 +1936,10 @@ msgid "Show Message"
 msgstr "İletiyi göster"
 
 #: core/ruqolacommandlineparser.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message"
 msgid "Message Url"
-msgstr "İleti URL’si"
+msgstr "İleti"
 
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
@@ -1946,70 +1954,77 @@ msgid "Lists the available options for user feedback"
 msgstr "Kullanıcı bildirimi için kullanılabilir seçenekleri liste"
 
 #: core/ruqolacommandlineparser.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Start a Call"
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Çevrimdışı olarak başla"
+msgstr "Bir Arama Başlat"
 
 #: core/ruqolacommandlineparser.cpp:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Activated"
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Hata ayıklama kipini etkinleştir"
+msgstr "Etkinleştirildi"
 
 #: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr "Veritabanını temizle (Dikkatli kullanın)"
+msgstr ""
 
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr "Şimdi"
+msgstr ""
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "%1 saniye"
+msgstr[0] "1 saniye"
 msgstr[1] "%1 saniye"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:67
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] "%1 dakika"
-msgstr[1] "%1 dakika"
+msgstr[0] ""
+msgstr[1] ""
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] "%1 saat"
-msgstr[1] "%1 saat"
+msgstr[0] ""
+msgstr[1] ""
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] "%1 gün"
-msgstr[1] "%1 gün"
+msgstr[0] ""
+msgstr[1] ""
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "year"
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "%1 yıl"
-msgstr[1] "%1 yıl"
+msgstr[0] "yıl"
+msgstr[1] "yıl"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "month"
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "%1 ay"
-msgstr[1] "%1 ay"
+msgstr[0] "ay"
+msgstr[1] "ay"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -3165,7 +3180,7 @@ msgstr "Yeni Ses Oluştur"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr "MP3 dosyası"
+msgstr ""
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -3247,10 +3262,11 @@ msgid "Quick Reactions"
 msgstr "Tez Tepkiler"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Total Messages"
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "İletilerdeki zaman damgaları"
+msgstr "Toplam İleti"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -6086,8 +6102,8 @@ msgstr ""
 "Hesabını kaldıran kullanıcıların iletileriyle ne yapacağınızı belirleyin. "
 "İletileri ve Kullanıcı Adını Tut: Kullanıcının ileti ve dosya geçmişi "
 "Doğrudan İletilerden silinecek ve diğer odalarda tutulacaktır. Tüm İletileri "
-"Sil: Kullanıcıdan gelen tüm iletiler ve dosyalar veri tabanından silinecek "
-"ve artık kullanıcıyı bulmak olanaklı olmayacaktır. Kullanıcı ve İletiler "
+"Sil: Kullanıcıdan gelen tüm iletiler ve dosyalar veritabanından silinecek ve "
+"artık kullanıcıyı bulmak olanaklı olmayacaktır. Kullanıcı ve İletiler "
 "Arasındaki Bağlantıyı Kaldır: Bu seçenek, kullanıcının tüm iletilerini ve "
 "dosyalarını Rocket.Chat botuna atar ve Doğrudan İletiler silinir."
 
@@ -7787,10 +7803,12 @@ msgid "Animate GIFs"
 msgstr "GIF’leri oynat"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable experimental local database"
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Yerel veri tabanını etkinleştir"
+msgstr "Yerel veritabanını etkinleştir (deneysel)"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -7989,12 +8007,13 @@ msgstr "Veri Tabanı Uçtan Uca Şifreleme"
 #: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
-msgstr "Veri Tabanı Odası Bekleyen Tür Bilgisi"
+msgstr ""
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "DataBase Rooms"
 msgid "DataBase Room Subscriptions"
-msgstr "Veri Tabanı Oda Abonelikleri"
+msgstr "Veri Tabanı Odaları"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
@@ -8772,22 +8791,25 @@ msgid "Select Room Avatar"
 msgstr "Oda Avatarını Seç"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From:"
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "Benden"
+msgstr "Nereden:"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message not found."
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "Sizin gönderdiğiniz iletileri bulur."
+msgstr "İleti bulunamadı."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From:"
 msgctxt "@action:button"
 msgid "From"
-msgstr "Kimden"
+msgstr "Nereden:"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
@@ -8795,94 +8817,101 @@ msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
-"Belirli bir kullanıcının gönderdiği iletileri bulur (boşluk olmadan "
-"kullanıcı adını yazın)."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr "Sıra:Açıklama"
+msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr "İletileri azalan zaman damgasıyla sıralar."
+msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr "Önce"
+msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Filter channels (%1)"
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "%1 olarak tarihe göre süz"
+msgstr "Kanalları süz… (%1)"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr "Sonra"
+msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delay:"
 msgctxt "@action:button"
 msgid "Day"
-msgstr "Gün"
+msgstr "Gecikme:"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Translation"
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "Konum Var"
+msgstr "Çeviri"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr "Bir konumu içeren iletileri bulur."
+msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr "URL Var"
+msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr "Bir bağlantı içeren iletileri bulur."
+msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Pinned"
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "Sabitlenmiş"
+msgstr "İleti Sabitlendi"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr "Geçerli odada sabitlenmiş iletileri görüntüler."
+msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start"
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "Yıldızlı"
+msgstr "Başlat"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Message has been starred"
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "Yıldız koyduğunuz iletileri gösterir."
+msgstr "İleti yıldızlandı"
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -8918,26 +8947,30 @@ msgstr ""
 "kullanarak arama yapabilirsiniz; örneğin, <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Options"
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Seçenek"
+msgstr "Seçenekler"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Regular Expressions"
 msgid "Regular Expression"
-msgstr "Düzenli İfade"
+msgstr "Düzenli İfadeler"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
 msgid "Ignore Camel Case"
-msgstr "DeveBiçimi metinleri yok say"
+msgstr "Kullanıcı Yok Say"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr "Arama seçeneği satırını göster/gizle"
+msgstr ""
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9482,9 +9515,10 @@ msgid "Impossible to create zip file."
 msgstr "Zip dosyası oluşturmak olanaksız."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
 msgid "Impossible to export account."
-msgstr "Hesabı dışa aktarmak olanaksız."
+msgstr "Veriyi dışa aktarmak olanaksız."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -9492,24 +9526,28 @@ msgid "Export Done."
 msgstr "Dışa aktarma tamamlandı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account %1: export config done."
 msgid "<b>Account %1:</b> export config done."
-msgstr "<b>Hesap %1:</b> Yapılandırma dışa aktarıldı."
+msgstr "Hesap %1: Yapılandırma dışa aktarıldı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
 msgid "<b>Account %1:</b> export cache done."
-msgstr "<b>Hesap %1:</b> Önbellek dışa aktarıldı."
+msgstr "Hesap %1: Önbellek dışa aktarıldı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account %1: export logs done."
 msgid "<b>Account %1:</b> export logs done."
-msgstr "<b>Hesap %1:</b> Günlükler dışa aktarıldı."
+msgstr "Hesap %1: Günlükler dışa aktarıldı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
 msgid "<b>Account %1:</b> export database done."
-msgstr "<b>Hesap %1:</b> Veri tabanı dışa aktarıldı."
+msgstr "Hesap %1: Önbellek dışa aktarıldı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
@@ -9524,7 +9562,7 @@ msgstr "Hesaplar dışa aktarıldı."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr "Üretilen ZIP: %1"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9576,7 +9614,8 @@ msgid "Import Accounts"
 msgstr "Hesaplar İçe Aktar"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "İptal"
@@ -9985,10 +10024,11 @@ msgid "Manage Device"
 msgstr "Aygıtı Yönet"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide \"User Join\" messages"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "İletilerde zaman damgaları"
+msgstr "“Kullanıcı, katıldı” iletilerini gizle"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10204,13 +10244,13 @@ msgstr "Bildirim sesi düzeyi:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr "Arama zili ses yüksekliği:"
+msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr "Ana ses düzeyi:"
+msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
@@ -10642,10 +10682,12 @@ msgid "Message has been starred"
 msgstr "İleti yıldızlandı"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1029
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Message has been starred"
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "İletide çevrilmiş metin var"
+msgstr "İleti yıldızlandı"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
@@ -10663,10 +10705,12 @@ msgstr "Tepki ekle"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr "Durdur"
+msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Speak Text"
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Metni Konuş"
@@ -10681,7 +10725,7 @@ msgstr "WebDAV Sunucusu Ekle"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr "Zaman Damgası Ekle"
+msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -11636,16 +11680,18 @@ msgid "Hide menu bar"
 msgstr "Menü Çubuğunu Gizle"
 
 #: widgets/ruqolamainwindow.cpp:1445
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Online"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Çevrimiçi Olarak Çalış"
+msgstr "Çevrimiçi"
 
 #: widgets/ruqolamainwindow.cpp:1448
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Offline"
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Çevrimdışı Olarak Çalış"
+msgstr "Çevrimdışı"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11824,62 +11870,68 @@ msgstr "İletiyi Takipten Çıkar"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr "Zaman Damgası Ekle"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Short Time (%1)"
-msgstr "Kısa Zaman (%1)"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Long Time (%1)"
-msgstr "Uzun Zaman (%1)"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
 #, kde-format
 msgid "Short Date (%1)"
-msgstr "Kısa Tarih (%1)"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Default (%1)"
 msgid "Long Date (%1)"
-msgstr "Uzun Tarih (%1)"
+msgstr "Öntanımlı (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Filter channels (%1)"
 msgid "Full Date and Time (%1)"
-msgstr "Tam Tarih ve Zaman (%1)"
+msgstr "Kanalları süz… (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr "Tam Tarih ve Zaman (Uzun) (%1)"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
-msgstr "Göreceli Zaman (%1)"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Local Time:"
 msgid "Locale"
-msgstr "Yerel:"
+msgstr "Yerel zaman:"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr "Tarih"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "TimeZone"
 msgid "Time"
-msgstr "Zaman"
+msgstr "Zaman Dilimi"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Alias Format"
 msgid "Format"
-msgstr "Biçim"
+msgstr "Arma Biçimi"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
@@ -11924,37 +11976,48 @@ msgid "Copy block code more easily."
 msgstr "Kod bloklarını daha kolay kopyala"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
+#, fuzzy
+#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Metin konuşma arayüzünü iyileştir"
+msgstr "Odadaki kullanıcı listesini iyileştir"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
+#, fuzzy
+#| msgctxt "@title:window"
+#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Ek alanlarını göster"
+msgstr "Ekleri Göster — %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Implement Offline Mode (experimental)."
-msgstr "Çevrimdışı kipi gerçekle (deneysel)"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
-msgstr "Bekleyen türdeki veri tabanı depolaması gerçeklendi"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
+#, fuzzy
+#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "RC 8.0.0 desteğini onar"
+msgstr "Jitsi desteğini onar"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
+#, fuzzy
+#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "İlişik eylemleri desteği ekle"
+msgstr "Rocket.Chat yapay zekâ eylemleri desteği ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
+#, fuzzy
+#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Zaman damgası desteği ekle"
+msgstr "Kullanıcıyı bildirme desteği ekle"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
-msgstr "İletileri yerel veri tabanında depola (deneysel)"
+msgstr "İletileri yerel veritabanında depola (deneysel)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
@@ -12553,19 +12616,188 @@ msgstr "Dosya eki boyutunu göstermeyi onar"
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, kde-format
 msgid "Save local translation to local database."
-msgstr "Yerel çeviriyi yerel veri tabanına kaydet"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr "Oda kaldırmayı onar (yerel veri tabanında)"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:221
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report date"
 msgid "Fix export database."
-msgstr "Veri tabanını dışa aktarmayı düzelt"
+msgstr "Bildirim tarihi"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:222
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom Sounds"
 msgid "Fix upload Custom Sound"
-msgstr "Özel sesler yüklemeyi onar"
+msgstr "Özel Sesler"
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Açıklama"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Açıklamayı Göster…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Dosya Kaydedilirken Hata"
+
+#~ msgid "Restart is necessary for applying the changes."
+#~ msgstr "Değişikliklerin uygulanması için yeniden başlatma gereklidir."
+
+#~ msgid "..."
+#~ msgstr "…"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Configure"
+#~ msgstr "Yapılandır"
+
+#~ msgctxt "@action"
+#~ msgid "Disable version check"
+#~ msgstr "Sürüm denetimini devre dışı bırak"
+
+#~ msgctxt "@action"
+#~ msgid "Check new Version"
+#~ msgstr "Yeni Sürümü Denetle"
+
+#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
+#~ msgstr ""
+#~ "Kullandığınız sürüm 6 aydan daha eski, güncel sürüme yükseltmeniz "
+#~ "önerilir."
+
+#~ msgid ""
+#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
+#~ msgstr ""
+#~ "Kullandığınız sürüm 1 yıldan daha eski, güncel sürüme yükseltmeniz "
+#~ "önerilir."
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Eki Aç?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "<filename>%1</filename> eki açılsın mı?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Aç"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "“%1” ile &Aç"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "&Birlikte Aç…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "&Farklı Kaydet…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "Dosyayı Kaydet"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Kalın"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Yatık"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Üzeri çizili"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Kod bloku"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Metin alıntısı"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Bağlantı ekle"
+
+#~ msgctxt "@title:window"
+#~ msgid "Check New Version"
+#~ msgstr "Yeni Sürümü Denetle"
+
+#~ msgid ""
+#~ "A new version found. Click <a href=\"%1\">here</a> for downloading it."
+#~ msgstr ""
+#~ "Yeni bir sürüm bulundu. İndirmek için <a href=\"%1\">buraya</a> tıklayın."
+
+#~ msgid "No new version found. Build can be found <a href=\"%1\">here</a>."
+#~ msgstr ""
+#~ "Bulunan yeni sürüm yok. Yapı, <a href=\"%1\">burada</a> bulunabilir."
+
+#~ msgid "Check New Version"
+#~ msgstr "Yeni Sürümü Denetle"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Version:"
+#~ msgstr "Sürüm:"
+
+#~ msgctxt "@title:window"
+#~ msgid "What's new in %1"
+#~ msgstr "Neler Yeni: %1"
+
+#~ msgid "(Show News)"
+#~ msgstr "(Haberleri Göster)"
+
+#~ msgid "What's new in %2. %1"
+#~ msgstr "%2 bünyesinde neler yeni. %1"
+
+#~ msgid "All Versions"
+#~ msgstr "Tüm Sürümler"
+
+#~ msgid "Version %1"
+#~ msgstr "Sürüm %1"
+
+#~ msgid "Important changes since last version:"
+#~ msgstr "Son sürümden bu yana önemli değişiklikler:"
+
+#~ msgid "Some of the new features in this release of Ruqola include:"
+#~ msgstr "Roka’nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
+
+#~ msgid "Some bug fixing:"
+#~ msgstr "Hata düzeltmeleri:"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Restore"
+#~ msgstr "Geri Yükle"
+
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Kaldır…"
+
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Onu kaldırmak istiyor musunuz?"
+
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Kaldır"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Yapay Zekâ Metin Eklentilerini Yapılandı"
+
+#~ msgid "Ask AI…"
+#~ msgstr "Yapay Zekâya Sor…"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Roka’yı Yapılandır"
