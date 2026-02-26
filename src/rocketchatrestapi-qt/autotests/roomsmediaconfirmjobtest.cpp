@@ -27,6 +27,7 @@ void RoomsMediaConfirmJobTest::shouldHaveDefaultValue()
     QVERIFY(job.fileId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
     verifyDefaultValue(&job);
+    QVERIFY(job.tmid().isEmpty());
     QVERIFY(job.description().isEmpty());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -50,16 +51,39 @@ void RoomsMediaConfirmJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.mediaConfirm/roomid1/fileId1"_s));
         QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
     }
+    {
+        RoomsMediaConfirmJob job;
+        job.setRoomId("roomid2"_ba);
+        job.setFileId("fileId2"_ba);
+        job.setTmid("tmid1"_ba);
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.mediaConfirm/roomid2/fileId2"_s));
+        QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
+    }
 }
 
 void RoomsMediaConfirmJobTest::shouldGenerateJson()
 {
-    RoomsMediaConfirmJob job;
+    {
+        RoomsMediaConfirmJob job;
 
-    const QString description(u"descr"_s);
-    job.setDescription(description);
+        const QString description(u"descr"_s);
+        job.setDescription(description);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"description":"%1"})").arg(description).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"description":"%1"})").arg(description).toLatin1());
+    }
+    {
+        RoomsMediaConfirmJob job;
+
+        const QString description(u"descr"_s);
+        job.setDescription(description);
+        const QByteArray tmid = "tmid3"_ba;
+        job.setTmid(tmid);
+
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 QStringLiteral(R"({"description":"%1","tmid":"%2"})").arg(description, QString::fromLatin1(tmid)).toLatin1());
+    }
 }
 
 void RoomsMediaConfirmJobTest::shouldNotStarting()
