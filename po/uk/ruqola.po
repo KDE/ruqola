@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
-"PO-Revision-Date: 2025-10-07 22:19+0300\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"PO-Revision-Date: 2026-02-18 08:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -31,10 +31,9 @@ msgid "Rocket Chat Client"
 msgstr "Клієнт спілкування Rocket"
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "© Автори Ruqola, 2020–2025"
+msgstr "© Автори Ruqola, 2020–2026"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -408,27 +407,24 @@ msgid "Allow to read oauth app settings"
 msgstr "Дозволити читання параметрів oauth програми"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Дозволити запис параметрів oauth програми"
+msgstr "Дозволити записування параметрів відеоконференції"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Дозволити читання параметрів oauth програми"
+msgstr "Дозволити читання параметрів відеоконференції"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Дозволити зміну параметрів надавача послуг відеоконференції"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Дозволити роль писання"
+msgstr "Дозволити реєстрацію кнопки"
 
 #: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
@@ -446,16 +442,14 @@ msgid "Allow to read role"
 msgstr "Дозволити роль читання"
 
 #: core/apps/appsmarketplaceinfo.cpp:701
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mute Focused Conversations"
+#, kde-format
 msgid "Out Bound Communication"
-msgstr "Вимикати сповіщення для фокусованих спілкувань"
+msgstr "Зовнішнє спілкування"
 
 #: core/apps/appsmarketplaceinfo.cpp:703
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "Переглянути усі кімнати у робочому просторі"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1948,10 +1942,9 @@ msgid "Show Message"
 msgstr "Показати повідомлення"
 
 #: core/ruqolacommandlineparser.cpp:53
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "Повідомлення"
+msgstr "Адреса повідомлення"
 
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
@@ -1966,35 +1959,30 @@ msgid "Lists the available options for user feedback"
 msgstr "Показати доступні варіанти для відгуків користувача"
 
 #: core/ruqolacommandlineparser.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Start a Call"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Почати виклик"
+msgstr "Запуск в автономному режимі"
 
 #: core/ruqolacommandlineparser.cpp:62
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Задіяно"
+msgstr "Задіяти діагностичний режим"
 
 #: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Очистити базу даних (обережно!)"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "Зараз"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 секунда"
@@ -2006,49 +1994,47 @@ msgstr[3] "%1 секунда"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 хвилина"
+msgstr[1] "%1 хвилини"
+msgstr[2] "%1 хвилин"
+msgstr[3] "%1 хвилина"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 година"
+msgstr[1] "%1 години"
+msgstr[2] "%1 годин"
+msgstr[3] "%1 година"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 день"
+msgstr[1] "%1 дні"
+msgstr[2] "%1 днів"
+msgstr[3] "%1 день"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "рік"
-msgstr[1] "рік"
-msgstr[2] "рік"
-msgstr[3] "рік"
+msgstr[0] "%1 рік"
+msgstr[1] "%1 роки"
+msgstr[2] "%1 років"
+msgstr[3] "%1 рік"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:90
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "місяць"
-msgstr[1] "місяць"
-msgstr[2] "місяць"
-msgstr[3] "місяць"
+msgstr[0] "%1 місяць"
+msgstr[1] "%1 місяці"
+msgstr[2] "%1 місяців"
+msgstr[3] "%1 місяць"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -3229,7 +3215,7 @@ msgstr "Створити звук"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "файл MP3"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -3313,11 +3299,10 @@ msgid "Quick Reactions"
 msgstr "Швидкі реакції"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "Загалом повідомлень"
+msgstr "Часова позначка у повідомленнях"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -7909,11 +7894,10 @@ msgid "Animate GIFs"
 msgstr "Анімувати GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Use local dataBase"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Скористатися локальною базою даних"
+msgstr "Увімкнути локальну базу даних"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -8113,18 +8097,15 @@ msgstr "E2E бази даних"
 #: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
-msgstr ""
+msgstr "Дані бази даних черги введення у кімнаті"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase Room Subscriptions"
-msgstr "Кімнати бази даних"
+msgstr "Підписки на кімнати у базі даних"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Копіювати"
@@ -8916,22 +8897,19 @@ msgid "Select Room Avatar"
 msgstr "Виберіть аватар кімнати"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "Від"
+msgstr "Від мене"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "Повідомлення не знайдено."
+msgstr "Знайти ваші повідомлення."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
 msgstr "Від"
@@ -8942,101 +8920,94 @@ msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
+"Знайти повідомлення від певного користувача. (Скористайтеся форматом імені "
+"користувача без пробілів)"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "Порядок:спадання"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
+msgstr "Упорядкувати повідомлення за часовою позначкою за спаданням"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "До"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "Фільтрувати канали (%1)"
+msgstr "Фільтрувати за датою як %1"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "Після"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "Затримка:"
+msgstr "День"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "Переклад"
+msgstr "Містить місце перебування"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "Знайти повідомлення, до яких включено місце перебування."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "Містить адресу"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "Знайти повідомлення, які містять посилання"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "Повідомлення пришпилено"
+msgstr "Є пришпиленим"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "Показати пришпилені повідомлення у поточній кімнаті."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "Почати"
+msgstr "Позначено"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "Повідомлення позначено зіркою"
+msgstr "Показати позначені вами повідомлення."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -9072,30 +9043,26 @@ msgstr ""
 "Regular_expression\">формальних виразів</a>. Приклад: <code>/^текст$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Параметри"
+msgstr "Параметр"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "Формальні вирази"
+msgstr "Формальний вираз"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Camel Case"
-msgstr "Ігнорування користувача"
+msgstr "Ігнорування зміну регістру символів"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "Показати або приховати рядок параметрів пошуку"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9650,10 +9617,9 @@ msgid "Impossible to create zip file."
 msgstr "Не вдалося створити файл zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Не вдалося експортувати дані."
+msgstr "Не вдалося експортувати дані облікового запису."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -9661,28 +9627,24 @@ msgid "Export Done."
 msgstr "Експортування виконано."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, fuzzy, kde-format
-#| msgid "Account %1: export config done."
+#, kde-format
 msgid "<b>Account %1:</b> export config done."
-msgstr "Обліковий запис %1: виконано експортування налаштувань."
+msgstr "<b>Обліковий запис %1:</b> виконано експортування налаштувань."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export cache done."
-msgstr "Обліковий запис %1: виконано експортування кешу."
+msgstr "<b>Обліковий запис %1:</b> виконано експортування кешу."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, fuzzy, kde-format
-#| msgid "Account %1: export logs done."
+#, kde-format
 msgid "<b>Account %1:</b> export logs done."
-msgstr "Обліковий запис %1: виконано експортування журналу."
+msgstr "<b>Обліковий запис %1:</b> виконано експортування журналу."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export database done."
-msgstr "Обліковий запис %1: виконано експортування кешу."
+msgstr "<b>Обліковий запис %1:</b> виконано експортування бази даних."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
@@ -9697,7 +9659,7 @@ msgstr "Облікові записи експортовано."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "Створений ZIP: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9749,8 +9711,7 @@ msgid "Import Accounts"
 msgstr "Імпортування облікових записів"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Скасувати"
@@ -10156,11 +10117,10 @@ msgid "Manage Device"
 msgstr "Керування пристроєм"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Hide \"User Join\" messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Приховати повідомлення «Користувач долучився»"
+msgstr "Часова позначка у повідомленнях"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10380,13 +10340,13 @@ msgstr "Гучність звуку сповіщення:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr ""
+msgstr "Гучність дзвінка:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "Головна гучність:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
@@ -10822,12 +10782,10 @@ msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1029
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "Повідомлення позначено зіркою"
+msgstr "У повідомленні міститься перекладений текст"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
@@ -10842,16 +10800,13 @@ msgid "Add reaction"
 msgstr "Додати реакцію"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Зупинити"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Декламувати текст"
@@ -10866,7 +10821,7 @@ msgstr "Додати сервер WebDav"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "Вставити позначку часу"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -11827,18 +11782,16 @@ msgid "Hide menu bar"
 msgstr "Приховати смужку меню"
 
 #: widgets/ruqolamainwindow.cpp:1445
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "У мережі"
+msgstr "Працювати у мережі"
 
 #: widgets/ruqolamainwindow.cpp:1448
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Поза мережею"
+msgstr "Працювати автономно"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -12018,68 +11971,62 @@ msgstr "Не стежити за повідомленням"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr ""
+msgstr "Додати позначку часу"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Short Time (%1)"
-msgstr ""
+msgstr "Час скорочено (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "Час повністю (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
 #, kde-format
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "Дата скорочено (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, fuzzy, kde-format
-#| msgid "Default (%1)"
+#, kde-format
 msgid "Long Date (%1)"
-msgstr "Типовий (%1)"
+msgstr "Дата повністю (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgid "Full Date and Time (%1)"
-msgstr "Фільтрувати канали (%1)"
+msgstr "Дата і час повністю (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr ""
+msgstr "Дата і час повністю (повністю) (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
-msgstr ""
+msgstr "Відносний час (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "Місцевий час:"
+msgstr "Місцевий"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "Часовий пояс"
+msgstr "Час"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
-msgstr "Формат альтернатив"
+msgstr "Формат"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
@@ -12121,46 +12068,35 @@ msgstr "Додати обліковий запис…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Полегшено копіювання блоків коду."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Удосконалено список користувачів у кімнаті."
+msgstr "Удосконалено інтерфейс озвучення тексту."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Показ долучень — %1"
+msgstr "Реалізовано показ полів долучень."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "Реалізовано автономний режим (експериментальна можливість)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
-msgstr ""
+msgstr "Реалізовано сховище у базі даних для черги введення."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "Виправлено підтримку jitsi."
+msgstr "Виправлено підтримку RC 8.0.0."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Додано підтримку дій Rocket Chat з ШІ."
+msgstr "Додано підтримку дій з долученнями."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Додано підтримку скарг на користувача"
+msgstr "Додано підтримку часових позначок."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -12781,68 +12717,22 @@ msgstr "Виправлено показ розміру файлового дол
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "Реалізовано збереження локального перекладу до локальної бази даних."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr ""
+msgstr "Виправлено вилучення кімнати (у локальній базі даних)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:221
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Fix export database."
-msgstr "Дата скарги"
+msgstr "Виправлено експортування бази даних."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:222
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Fix upload Custom Sound"
-msgstr "Нетипові звуки"
-
-#~ msgctxt "@title:window"
-#~ msgid "Description"
-#~ msgstr "Опис"
-
-#~ msgctxt "@action"
-#~ msgid "Show Description…"
-#~ msgstr "Показати опис…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Помилка під час збереження файла"
-
-#~ msgctxt "@option:check"
-#~ msgid "Enable experimental local database"
-#~ msgstr "Увімкнути експериментальну локальну базу даних"
-
-#~ msgid "Restart is necessary for applying the changes."
-#~ msgstr "Для застосування змін слід перезапустити програму."
-
-#~ msgid "..."
-#~ msgstr "…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Налаштувати"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "Вимкнути перевірку версій"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Шукати нову версію"
-
-#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
-#~ msgstr ""
-#~ "Ваша версія застаріла на понад 6 місяців. Ми рекомендуємо її оновити."
-
-#~ msgid ""
-#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
-#~ msgstr ""
-#~ "Ваша версія застаріла на понад 1 рік. Ми наполегливо рекомендуємо її "
-#~ "оновити."
+msgstr "Виправлено вивантаження нетипових звуків"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
@@ -12872,29 +12762,45 @@ msgstr "Нетипові звуки"
 #~ msgid "Save File"
 #~ msgstr "Збереження файла"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Напівжирний"
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Помилка під час збереження файла"
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Опис"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Показати опис…"
+
+#~ msgid "Restart is necessary for applying the changes."
+#~ msgstr "Для застосування змін слід перезапустити програму."
+
+#~ msgid "..."
+#~ msgstr "…"
 
 #~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Курсив"
+#~ msgid "Configure"
+#~ msgstr "Налаштувати"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Перекреслений"
+#~ msgctxt "@action"
+#~ msgid "Disable version check"
+#~ msgstr "Вимкнути перевірку версій"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Блок коду"
+#~ msgctxt "@action"
+#~ msgid "Check new Version"
+#~ msgstr "Шукати нову версію"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Текст цитати"
+#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
+#~ msgstr ""
+#~ "Ваша версія застаріла на понад 6 місяців. Ми рекомендуємо її оновити."
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Вставити посилання"
+#~ msgid ""
+#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
+#~ msgstr ""
+#~ "Ваша версія застаріла на понад 1 рік. Ми наполегливо рекомендуємо її "
+#~ "оновити."
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12941,12 +12847,102 @@ msgstr "Нетипові звуки"
 #~ msgid "Some bug fixing:"
 #~ msgstr "Виправлення деяких вад:"
 
+#~ msgctxt "@option:check"
+#~ msgid "Enable experimental local database"
+#~ msgstr "Увімкнути експериментальну локальну базу даних"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Напівжирний"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Курсив"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Закреслений"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Блок коду"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Текст цитати"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Вставити посилання"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Відновити"
 
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Вилучити…"
+
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Хочете вилучити?"
+
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Вилучення"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Налаштовування текстових додатків ШІ"
+
+#~ msgid "Ask AI…"
+#~ msgstr "Запитати у ШІ…"
+
+#~ msgctxt "@action"
+#~ msgid "Configure…"
+#~ msgstr "Налаштувати…"
+
+#~| msgctxt "@title:window"
+#~| msgid "Configure Engine"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Налаштування ШІ Openai"
+
+#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Завантаження…"
+
+#~ msgid "No new version found."
+#~ msgstr "Нової версії не знайдено."
+
+#~ msgid "Add screenshot button"
+#~ msgstr "Додано кнопку знімків екрана"
+
+#~ msgctxt "@info:shell"
+#~ msgid "Attach File"
+#~ msgstr "Долучити файл"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Не вдалося відкрити журнал."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Показати журнал"
+
+#~ msgid "Private"
+#~ msgstr "Особисте"
+
+#~ msgid "Installed"
+#~ msgstr "Встановлено"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Долучитися до типових каналів"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Повідомлення із зіркою"
@@ -12963,26 +12959,11 @@ msgstr "Нетипові звуки"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Повідомлення з непрочитаних гілок"
 
-#~ msgid "System Messages"
-#~ msgstr "Повідомлення системи"
+#~ msgid "@option:check"
+#~ msgstr "@option:check"
 
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Долучитися до типових каналів"
-
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Перевірено"
-
-#~ msgid "Private"
-#~ msgstr "Особисте"
-
-#~ msgid "Installed"
-#~ msgstr "Встановлено"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Позначити як непрочитане"
+#~ msgid "(Mark as Read)"
+#~ msgstr "(Позначити як прочитане)"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Користувач або адреса ел. пошти:"
@@ -13015,53 +12996,64 @@ msgstr "Нетипові звуки"
 #~ msgid "Server Url:"
 #~ msgstr "Адреса сервера:"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "All users in this team can write messages"
-#~ msgstr "Писати повідомлення можуть усі користувачі у цій команді"
+#~ msgid "Impossible to access to server."
+#~ msgstr "Неможливо отримати доступ до сервера."
 
 #~ msgid "Message %1"
 #~ msgstr "Повідомлення %1"
 
-#~ msgid "(Mark As Read)"
-#~ msgstr "(Позначити як непрочитане)"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Позначити як непрочитане"
 
-#~ msgid "Impossible to open log."
-#~ msgstr "Не вдалося відкрити журнал."
+#~| msgctxt "@title:window"
+#~| msgid "Reset E2E"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Reset"
+#~ msgstr "Скинути"
 
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Показати журнал"
+#~ msgctxt "@info:tooltip"
+#~ msgid "All users in this team can write messages"
+#~ msgstr "Писати повідомлення можуть усі користувачі у цій команді"
 
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Перевірено"
 
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgid "Select All"
-#~ msgstr "Вибрати все"
+#~ msgid "System Messages"
+#~ msgstr "Повідомлення системи"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Скинути TOTP"
 
-#~ msgid "Add..."
-#~ msgstr "Додати…"
+#~ msgid "Create"
+#~ msgstr "Створити"
 
-#~ msgid "Modify..."
-#~ msgstr "Змінити…"
+#~ msgid "Set as Favorite"
+#~ msgstr "Зробити улюбленим"
 
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Каталог – %1"
+#~ msgid "Search rooms…"
+#~ msgstr "Шукати кімнати…"
+
+#~ msgid "Copy Message"
+#~ msgstr "Копіювати повідомлення"
+
+#~| msgid "Search rooms…"
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Шукати кімнати…"
+
+#~| msgid "Search users…"
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Шукати користувачів…"
 
 #~ msgid "Search channels…"
 #~ msgstr "Шукати канали…"
 
-#~ msgid "Go to Message"
-#~ msgstr "Перейти до повідомлення"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Натисніть тут, щоб завантажити ще…)"
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Каталог – %1"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -13073,9 +13065,27 @@ msgstr "Нетипові звуки"
 #~ msgid "Version 2.2"
 #~ msgstr "Версія 2.2"
 
+#~ msgid "Version 2.3"
+#~ msgstr "Версія 2.3"
+
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Що нового у Ruqola"
+
+#~ msgid "Select All"
+#~ msgstr "Вибрати все"
+
+#~ msgid "Go to Message"
+#~ msgstr "Перейти до повідомлення"
+
+#~ msgid "Add..."
+#~ msgstr "Додати…"
+
+#~ msgid "Modify..."
+#~ msgstr "Змінити…"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Натисніть тут, щоб завантажити ще…)"
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Натисніть тут, щоб завантажити ще…)"
@@ -13575,9 +13585,6 @@ msgstr "Нетипові звуки"
 #~ msgid "Close"
 #~ msgstr "Закрити"
 
-#~ msgid "Configure..."
-#~ msgstr "Налаштувати…"
-
 #~ msgid "Detect language"
 #~ msgstr "Визначення мови"
 
@@ -13779,10 +13786,6 @@ msgstr "Нетипові звуки"
 
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Налаштовування рушія"
 
 #~ msgid "Use Free License Key"
 #~ msgstr "Скористатися безкоштовним ліцензійним ключем"

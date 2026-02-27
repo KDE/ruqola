@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
-"PO-Revision-Date: 2024-12-26 21:43+0100\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -30,9 +30,9 @@ msgstr "Rocket Chat Kliento"
 
 #: apps/main.cpp:64
 #, fuzzy, kde-format
-#| msgid "Copyright © 2020-2024 Ruqola authors"
+#| msgid "Copyright © 2020-2025 Ruqola authors"
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "Kopirajto © 2020-2024 Ruqola aŭtoroj"
+msgstr "Kopirajto © 2020-2025 aŭtoroj de Ruqola"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -175,15 +175,14 @@ msgid "The following accounts are available:"
 msgstr "La jenaj kontoj disponeblas:"
 
 #: core/accountmanager.cpp:303
-#, fuzzy, kde-format
-#| msgid "Invalid token"
+#, kde-format
 msgid "Invalid invite token"
-msgstr "Nevalida ĵetono"
+msgstr "Nevalida invit-ĵetono"
 
 #: core/accountmanager.cpp:304
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
-msgstr ""
+msgstr "Invit-ĵetono estas nevalida. Kontokreado nuligita."
 
 #: core/apps/appsmarketplaceinfo.cpp:113
 #, kde-format
@@ -423,9 +422,9 @@ msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:689
 #, fuzzy, kde-format
-#| msgid "Allow to send email"
+#| msgid "Allow to write role"
 msgid "Allow to register button"
-msgstr "Permesi sendi retpoŝton"
+msgstr "Permesi skribi rolon"
 
 #: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
@@ -433,16 +432,14 @@ msgid "Allow to send email"
 msgstr "Permesi sendi retpoŝton"
 
 #: core/apps/appsmarketplaceinfo.cpp:697
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to write role"
-msgstr "Permesi sendi retpoŝton"
+msgstr "Permesi skribi rolon"
 
 #: core/apps/appsmarketplaceinfo.cpp:699
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to read role"
-msgstr "Permesi sendi retpoŝton"
+msgstr "Permesi legi rolon"
 
 #: core/apps/appsmarketplaceinfo.cpp:701
 #, fuzzy, kde-format
@@ -1954,11 +1951,10 @@ msgstr "Listigas la disponeblajn elekteblojn por uzant-sugestoj"
 
 #: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Start a Call"
+#| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Komenci Vokon"
+msgstr "Senrete"
 
 #: core/ruqolacommandlineparser.cpp:62
 #, fuzzy, kde-format
@@ -2181,10 +2177,9 @@ msgid "Ask to AI"
 msgstr ""
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
-#, fuzzy, kde-format
-#| msgid "Created at"
+#, kde-format
 msgid "Create a screenshot"
-msgstr "Kreita je"
+msgstr "Krei ekrankopion"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
@@ -3528,7 +3523,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
-msgstr "Forigi Ĉiujn Mesaĝojn"
+msgstr "Forigi Ĉiuj Mesaĝoj"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:136
 #, kde-format
@@ -3554,12 +3549,10 @@ msgstr "Forigi Ĉiujn Raportojn"
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
 #: widgets/room/messagelistview.cpp:335
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
-msgstr "Kopii ligilon"
+msgstr "Kopii Elekton"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
@@ -5268,8 +5261,7 @@ msgid "Access unencrypted content in encrypted rooms"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Mencioj"
@@ -6883,7 +6875,6 @@ msgstr "Apliki"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
 #, fuzzy, kde-format
-#| msgctxt "@action"
 #| msgid "Cancel"
 msgctxt "@info:tooltip"
 msgid "Cancel"
@@ -7266,10 +7257,9 @@ msgid "Permissions"
 msgstr "Permesoj"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "No version info found."
+#, kde-format
 msgid "No permissions information found."
-msgstr "Neniu versi-informo trovita"
+msgstr "Neniu permes-informo trovita."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:27
 #, kde-format
@@ -7348,27 +7338,22 @@ msgid "Ask Application…"
 msgstr "Demandi Aplikaĵon…"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:76
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Install"
+#, kde-format
 msgctxt "@action"
 msgid "Uninstall"
-msgstr "Instali"
+msgstr "Malinstali"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:84
-#, fuzzy, kde-format
-#| msgid "Disabled"
+#, kde-format
 msgctxt "@action"
 msgid "Disable"
-msgstr "Malŝaltita"
+msgstr "Malŝalti"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:89
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action"
 msgid "Enable"
-msgstr "Ebligi"
+msgstr "Ŝalti"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
@@ -7378,18 +7363,15 @@ msgid "Copy Text"
 msgstr "Kopii tekston"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:170
-#, fuzzy, kde-format
-#| msgid "Do you want to unarchive this room?"
+#, kde-format
 msgid "Do you want to uninstall this application?"
-msgstr "Ĉu vi volas malarkivi ĉi tiun ĉambron?"
+msgstr "Ĉu vi volas malinstali ĉi tiun aplikon?"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Installed Applications…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Uninstall Application"
-msgstr "Instalitaj Aplikaĵoj…"
+msgstr "Malinstali Aplikaĵon"
 
 #: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:65
 #, kde-format
@@ -7447,9 +7429,7 @@ msgid "Application does not have settings."
 msgstr "Apliko ne trovita"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Cancel"
+#, kde-format
 msgid "Cancel"
 msgstr "Nuligi"
 
@@ -8047,9 +8027,9 @@ msgstr "Forigi mian Konton"
 #: widgets/databasedialog/exploredatabasedialog.cpp:65
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Delete Rooms"
+#| msgid "Database Info"
 msgid "DataBase Rooms"
-msgstr "Forigi Ĉambrojn"
+msgstr "Informoj pri datumbazo"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:68
 #, fuzzy, kde-format
@@ -8073,9 +8053,9 @@ msgstr ""
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Delete Rooms"
+#| msgid "Database Info"
 msgid "DataBase Room Subscriptions"
-msgstr "Forigi Ĉambrojn"
+msgstr "Informoj pri datumbazo"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, fuzzy, kde-format
@@ -8917,7 +8897,6 @@ msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
 #, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
 #| msgid "Translation"
 msgctxt "@action:button"
 msgid "Has Location"
@@ -9134,18 +9113,14 @@ msgid "Other Application..."
 msgstr "Serĉi Aplikaĵojn"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show previous image"
-msgstr "Montri Mesaĝon"
+msgstr "Montri antaŭan bildon"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Show Message"
+#, kde-format
 msgid "Show next image"
-msgstr "Montri Mesaĝon"
+msgstr "Montri sekvan bildon"
 
 #: widgets/dialogs/showimagewidget.cpp:68
 #, kde-format
@@ -9197,9 +9172,7 @@ msgid "Show Starred Messages - %1"
 msgstr "Montri Stelatajn Mesaĝojn - %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Following"
+#, kde-format
 msgid "Following"
 msgstr "Sekvante"
 
@@ -9261,7 +9234,7 @@ msgstr "Aliĝi al Teamo - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
-msgstr "Kuniĝo"
+msgstr "Aliĝi"
 
 #: widgets/directory/directorydialog.cpp:65
 #, kde-format
@@ -9426,20 +9399,18 @@ msgid "Decode Encryption Key"
 msgstr "Malkodi Ĉifradan Ŝlosilon"
 
 #: widgets/encryption/e2edisabledialog.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Disable Encryption"
-msgstr "Ebligita E2E-ĉifrado"
+msgstr "Malebligi Ĉifradon"
 
 #: widgets/encryption/e2edisabledialog.cpp:30
 #, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#| msgctxt "@title:window"
+#| msgid "Disable Encryption"
 msgctxt "@action:button"
 msgid "Disable Encryption"
-msgstr "Ebligita E2E-ĉifrado"
+msgstr "Malebligi Ĉifradon"
 
 #: widgets/encryption/e2edisablewidget.cpp:23
 #, kde-format
@@ -9459,11 +9430,9 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Decode Encryption Key"
+#, kde-format
 msgid "Reset encryption keys"
-msgstr "Malkodi Ĉifradan Ŝlosilon"
+msgstr "Restarigi ĉifradajn ŝlosilojn"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:20
 #, kde-format
@@ -9472,19 +9441,16 @@ msgid "Decode Key"
 msgstr "Malkodi Ŝlosilon"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:32
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
-msgstr "Ebligita E2E-ĉifrado"
+msgstr "Ebligi Ĉifradon"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Click here to enter your e2e password."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Please enter your E2EE password"
-msgstr "Klaku tie ĉi por enigi vian e2e-pasvorton."
+msgstr "Bonvolu enigi vian E2EE-pasvorton"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:31
 #, kde-format
@@ -9515,16 +9481,13 @@ msgid "Save Encryption Key"
 msgstr "Konservi Ĉifradan Ŝlosilon"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:26
-#, fuzzy, kde-format
-#| msgid "Application not found"
+#, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
-msgstr "Apliko ne trovita"
+msgstr "Traduko de Apliko"
 
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translation"
+#, kde-format
 msgid "Translation"
 msgstr "Traduko"
 
@@ -9682,7 +9645,6 @@ msgstr "Importi Kontojn"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
 #, fuzzy, kde-format
-#| msgctxt "@action"
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
@@ -9930,11 +9892,10 @@ msgid "Reset E2E Key"
 msgstr "Restarigi E2E-Ŝlosilon"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Modify…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Modify"
-msgstr "Modifi…"
+msgstr "Modifi"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:34
 #, kde-format
@@ -10086,10 +10047,10 @@ msgstr "Administri Aparato"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
 #, fuzzy, kde-format
-#| msgid "Hide \"User Join\" messages"
+#| msgid "Total Messages"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Kaŝi mesaĝojn de \"Uzanto-Aliĝo\"."
+msgstr "Tutaj Mesaĝoj"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10792,10 +10753,11 @@ msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, fuzzy, kde-format
-#| msgid "Mentions"
+#| msgctxt "@title:window"
+#| msgid "Ask Application"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Mencioj"
+msgstr "Demandi Aplikaĵon"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11243,18 +11205,15 @@ msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
 
 #: widgets/room/roomwidget.cpp:575
-#, fuzzy, kde-format
-#| msgid "Direct Messages can not be archived"
+#, kde-format
 msgid "Encrypted content cannot be searched."
-msgstr "Rektaj Mesaĝoj ne povas esti arkivitaj"
+msgstr "Ĉifritan enhavon ne eblas priserĉi."
 
 #: widgets/room/roomwidget.cpp:575
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
-msgstr "Serĉi Mesaĝojn"
+msgstr "Serĉi Mesaĝoj"
 
 #: widgets/room/roomwidget.cpp:594
 #, kde-format
@@ -11293,10 +11252,9 @@ msgid "Disconnected"
 msgstr "Malkonektita"
 
 #: widgets/room/usersinroomcombobox.cpp:31
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owners"
-msgstr "Posedanto"
+msgstr "Posedantoj"
 
 #: widgets/room/usersinroomdialog.cpp:29
 #, kde-format
@@ -11342,7 +11300,7 @@ msgstr "Ĉu vi volas silentigi ĉi tiun uzanton?"
 #, kde-format
 msgctxt "@title"
 msgid "Mute User"
-msgstr "Silentigi Uzanton"
+msgstr "Silentigi uzanton"
 
 #: widgets/room/usersinroommenu.cpp:74
 #, kde-format
@@ -11540,7 +11498,7 @@ msgstr "Alfabete"
 #: widgets/ruqolamainwindow.cpp:498
 #, kde-format
 msgid "Show Channel Log"
-msgstr "Montri Kanalan Protokolon"
+msgstr "Montru Kanalan Protokolon"
 
 #: widgets/ruqolamainwindow.cpp:502
 #, kde-format
@@ -11753,10 +11711,10 @@ msgstr "Kaŝi menubreton"
 
 #: widgets/ruqolamainwindow.cpp:1445
 #, fuzzy, kde-format
-#| msgid "Online"
+#| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Rete"
+msgstr "Senrete"
 
 #: widgets/ruqolamainwindow.cpp:1448
 #, fuzzy, kde-format
@@ -11951,14 +11909,16 @@ msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "TimeZone"
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "Horzono"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report date"
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "Raporta dato"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
 #, fuzzy, kde-format
@@ -12079,9 +12039,9 @@ msgstr "Ripari subtenon de jitsi."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 #, fuzzy
-#| msgid "Implement Rocket.Chat Marketplace."
+#| msgid "Implement Rocket.Chat application support."
 msgid "Add Attachment Actions Support."
-msgstr "Realigi Rocket.Chat-Merkaton."
+msgstr "Realigi aplikaĵan subtenon por Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
@@ -12486,10 +12446,9 @@ msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:153
-#, fuzzy, kde-format
-#| msgid "Improve mentions support."
+#, kde-format
 msgid "Implement invite RC url support"
-msgstr "Plibonigi subtenon de mencioj."
+msgstr "Realigi subtenon de RC-URL por invito."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:154
 #, kde-format
@@ -12507,16 +12466,14 @@ msgid "Show images from attachment dialog box"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:157
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat Marketplace."
+#, kde-format
 msgid "Implement Rocket.Chat application support."
-msgstr "Realigi Rocket.Chat-Merkaton."
+msgstr "Realigi aplikaĵan subtenon por Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:158
-#, fuzzy, kde-format
-#| msgid "Implement Url Preview"
+#, kde-format
 msgid "Implement command preview."
-msgstr "Efektivigi Url Antaŭrigardon"
+msgstr "Efektivigi antaŭrigardon de komando."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:159
 #, kde-format
@@ -12531,7 +12488,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Allow to search file from username and filename."
-msgstr ""
+msgstr "Permesi serĉi dosieron el uzantnomo kaj dosiernomo."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
@@ -12549,9 +12506,10 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to write role"
 msgid "Allow to activate/deactivate apps market."
-msgstr ""
+msgstr "Permesi skribi rolon"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:169
 #, kde-format
@@ -12594,9 +12552,9 @@ msgstr "Aldoni restaŭran butonon en dialogo de administranta servil-agordo"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:184
 #, fuzzy, kde-format
-#| msgid "Allow to send email"
+#| msgid "Allow to write role"
 msgid "Allow to activate plugins."
-msgstr "Permesi sendi retpoŝton"
+msgstr "Permesi skribi rolon"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
@@ -12616,9 +12574,10 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, fuzzy, kde-format
-#| msgid "Allow to send email"
+#| msgctxt "@title:window"
+#| msgid "Add Server"
 msgid "Allow to Add WebDav Server."
-msgstr "Permesi sendi retpoŝton"
+msgstr "Aldoni Servilon"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
@@ -12660,9 +12619,9 @@ msgstr "Ripari traduki mesaĝon en rekta kanalo."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:199
 #, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat Marketplace."
+#| msgid "Implement Rocket.Chat application support."
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Realigi Rocket.Chat-Merkaton."
+msgstr "Realigi aplikaĵan subtenon por Rocket.Chat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:200
 #, fuzzy, kde-format
@@ -12721,42 +12680,6 @@ msgid "Fix upload Custom Sound"
 msgstr "Propraj Sonoj"
 
 #~ msgctxt "@title:window"
-#~ msgid "Description"
-#~ msgstr "Priskribo"
-
-#~ msgctxt "@action"
-#~ msgid "Show Description…"
-#~ msgstr "Montri Priskribon…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Eraro dum konservado de dosiero"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Agordi Ruqola"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "Malebligi versiokontrolon"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Kontroli pri nova versio"
-
-#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
-#~ msgstr ""
-#~ "Via versio estas pli malnova ol 6 monatoj, ni instigas vin ĝisdatigi."
-
-#~ msgid ""
-#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
-#~ msgstr ""
-#~ "Via versio estas pli malnova ol 1 jaro, ni forte instigas vin ĝisdatigi."
-
-#~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
 #~ msgstr "Ĉu malfermi kunsendaĵon?"
 
@@ -12779,6 +12702,80 @@ msgstr "Propraj Sonoj"
 #~ msgctxt "@title:window"
 #~ msgid "Save File"
 #~ msgstr "Konservi dosieron"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Eraro dum konservado de dosiero"
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Priskribo"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Montri Priskribon…"
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Configure Notification…"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Configure"
+#~ msgstr "Agordi Sciigon…"
+
+#~ msgctxt "@action"
+#~ msgid "Disable version check"
+#~ msgstr "Malebligi versiokontrolon"
+
+#~ msgctxt "@action"
+#~ msgid "Check new Version"
+#~ msgstr "Kontroli pri nova versio"
+
+#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
+#~ msgstr ""
+#~ "Via versio estas pli malnova ol 6 monatoj, ni instigas vin ĝisdatigi."
+
+#~ msgid ""
+#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
+#~ msgstr ""
+#~ "Via versio estas pli malnova ol 1 jaro, ni forte instigas vin ĝisdatigi."
+
+#~ msgctxt "@title:window"
+#~ msgid "Check New Version"
+#~ msgstr "Kontroli pri Nova Versio"
+
+#~ msgid "Check New Version"
+#~ msgstr "Kontroli pri Nova Versio"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Version:"
+#~ msgstr "Versio:"
+
+#~ msgctxt "@title:window"
+#~ msgid "What's new in %1"
+#~ msgstr "Kio estas nova en %1"
+
+#~ msgid "(Show News)"
+#~ msgstr "(Montri Novaĵojn)"
+
+#~ msgid "What's new in %2. %1"
+#~ msgstr "Kio estas nova en %2. %1"
+
+#, fuzzy
+#~| msgid "All Version"
+#~ msgid "All Versions"
+#~ msgstr "Ĉiuj Versioj"
+
+#~ msgid "Version %1"
+#~ msgstr "Versio %1"
+
+#~ msgid "Important changes since last version:"
+#~ msgstr "Gravaj ŝanĝoj ekde la lasta versio:"
+
+#~ msgid "Some of the new features in this release of Ruqola include:"
+#~ msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
+
+#~ msgid "Some bug fixing:"
+#~ msgstr "Iu erarkorektado:"
 
 #, fuzzy
 #~| msgid "Bold"
@@ -12819,44 +12816,36 @@ msgstr "Propraj Sonoj"
 #~ msgstr "Invita ligilo:"
 
 #, fuzzy
-#~| msgid "Check New Version"
-#~ msgctxt "@title:window"
-#~ msgid "Check New Version"
-#~ msgstr "Kontroli pri Nova Versio"
-
-#~ msgid "Check New Version"
-#~ msgstr "Kontroli pri Nova Versio"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Version:"
-#~ msgstr "Versio:"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in %1"
-#~ msgstr "Kio estas nova en %1"
-
-#~ msgid "(Show News)"
-#~ msgstr "(Montri Novaĵojn)"
-
-#~ msgid "What's new in %2. %1"
-#~ msgstr "Kio estas nova en %2. %1"
+#~| msgctxt "@action"
+#~| msgid "Remove"
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Forigi"
 
 #, fuzzy
-#~| msgid "All Version"
-#~ msgid "All Versions"
-#~ msgstr "Ĉiuj Versioj"
+#~| msgid "Do you want to remove \"%1\"?"
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Ĉu vi volas forigi \"%1\"?"
 
-#~ msgid "Version %1"
-#~ msgstr "Versio %1"
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Forigi"
 
-#~ msgid "Important changes since last version:"
-#~ msgstr "Gravaj ŝanĝoj ekde la lasta versio:"
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Activities"
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Agordi Aktivecojn"
 
-#~ msgid "Some of the new features in this release of Ruqola include:"
-#~ msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
-
-#~ msgid "Some bug fixing:"
-#~ msgstr "Iu erarkorektado:"
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Agordi Ruqola"
 
 #, fuzzy
 #~| msgid "Loading…"

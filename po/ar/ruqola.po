@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
 "PO-Revision-Date: 2026-02-18 17:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -12650,43 +12650,6 @@ msgid "Fix upload Custom Sound"
 msgstr "إصلاح تحميل الصوت المخصص"
 
 #~ msgctxt "@title:window"
-#~ msgid "Description"
-#~ msgstr "الوصف"
-
-#~ msgctxt "@action"
-#~ msgid "Show Description…"
-#~ msgstr "اعرض الوصف…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "خطأ في حفظ الملف"
-
-#~ msgid "Restart is necessary for applying the changes."
-#~ msgstr "إعادة التّشغيل مطلوبة لتطبيق التّغييرات."
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "اضبط"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "عطل التحقق من الإصدارة"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "تحقق من الإصدار الجديد"
-
-#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
-#~ msgstr "الإصدار الخاص بك أقدم من 6 أشهر، ونحن نشجعك على الترقية."
-
-#~ msgid ""
-#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
-#~ msgstr "الإصدار الخاص بك أقدم من عام واحد، ونحن نشجعك بشدة على الترقية."
-
-#~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
 #~ msgstr "هل افتح المرفق؟"
 
@@ -12714,29 +12677,42 @@ msgstr "إصلاح تحميل الصوت المخصص"
 #~ msgid "Save File"
 #~ msgstr "احفظ الملف"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "ثخين"
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "خطأ في حفظ الملف"
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "الوصف"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "اعرض الوصف…"
+
+#~ msgid "Restart is necessary for applying the changes."
+#~ msgstr "إعادة التّشغيل مطلوبة لتطبيق التّغييرات."
+
+#~ msgid "..."
+#~ msgstr "..."
 
 #~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "مائل"
+#~ msgid "Configure"
+#~ msgstr "اضبط"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "مشطوب"
+#~ msgctxt "@action"
+#~ msgid "Disable version check"
+#~ msgstr "عطل التحقق من الإصدارة"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "كتلة شفرة"
+#~ msgctxt "@action"
+#~ msgid "Check new Version"
+#~ msgstr "تحقق من الإصدار الجديد"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "اقتباس"
+#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
+#~ msgstr "الإصدار الخاص بك أقدم من 6 أشهر، ونحن نشجعك على الترقية."
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "أدرج رابط"
+#~ msgid ""
+#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
+#~ msgstr "الإصدار الخاص بك أقدم من عام واحد، ونحن نشجعك بشدة على الترقية."
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12782,11 +12758,74 @@ msgstr "إصلاح تحميل الصوت المخصص"
 #~ msgstr "إصلاح بعض الأخطاء:"
 
 #~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "ثخين"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "مائل"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "مشطوب"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "كتلة شفرة"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "اقتباس"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "أدرج رابط"
+
+#~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "استعد"
 
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "أزل…"
+
+#~ msgid "Do you want to remove it?"
+#~ msgstr "أتريد إزالته؟"
+
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "أزل"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "اضبط ملحقات الذكاء الاصطناعي النصية"
+
+#~ msgid "Ask AI…"
+#~ msgstr "اسأل الذكاء الاصطناعي…"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "اضبط رقولة"
+
+#, fuzzy
+#~| msgid "Loading…"
 #~ msgid "Loading..."
-#~ msgstr "يحمّل…"
+#~ msgstr "يحمل…"
+
+#~ msgid "No new version found."
+#~ msgstr "لا يوجد إصدار جديد."
+
+#, fuzzy
+#~| msgid "Attach File"
+#~ msgctxt "@info:shell"
+#~ msgid "Attach File"
+#~ msgstr "إرفاق ملفّ"
+
+#~ msgid "Private"
+#~ msgstr "خاص"
 
 #, fuzzy
 #~| msgid "Search messages"
@@ -12795,19 +12834,9 @@ msgstr "إصلاح تحميل الصوت المخصص"
 #~ msgstr "ابحث في الرسائل"
 
 #, fuzzy
-#~| msgid "Verified"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "متحقّق منه"
-
-#~ msgid "Private"
-#~ msgstr "خاص"
-
-#, fuzzy
-#~| msgid "Mark As Read"
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "علّمها كمقروءة"
+#~| msgid "(Mark As Read)"
+#~ msgid "(Mark as Read)"
+#~ msgstr "(علّم كمقروءة)"
 
 #~ msgctxt "@title Preferences page name"
 #~ msgid "Account"
@@ -12830,11 +12859,40 @@ msgstr "إصلاح تحميل الصوت المخصص"
 #~ msgid "Message %1"
 #~ msgstr "الرّسالة"
 
-#~ msgid "(Mark As Read)"
-#~ msgstr "(علّم كمقروءة)"
+#, fuzzy
+#~| msgid "Mark As Read"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "علّمها كمقروءة"
 
-#~ msgid "Modify..."
-#~ msgstr "عدّل..."
+#, fuzzy
+#~| msgid "Verified"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "متحقّق منه"
+
+#~ msgid "Create"
+#~ msgstr "أنشئ"
+
+#, fuzzy
+#~| msgid "Search users..."
+#~ msgid "Search rooms…"
+#~ msgstr "ابحث في المستخدمين..."
+
+#~ msgid "Copy Message"
+#~ msgstr "انسخ الرِّسالة"
+
+#, fuzzy
+#~| msgid "Search users..."
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "ابحث في المستخدمين..."
+
+#, fuzzy
+#~| msgid "Search users..."
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "ابحث في المستخدمين..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
@@ -12852,6 +12910,17 @@ msgstr "إصلاح تحميل الصوت المخصص"
 
 #~ msgid "Version 2.2"
 #~ msgstr "الإصدارة 2.2"
+
+#, fuzzy
+#~| msgid "Version 2.0"
+#~ msgid "Version 2.3"
+#~ msgstr "الإصدارة 2.0"
+
+#~ msgid "Select All"
+#~ msgstr "حدّد الكلّ"
+
+#~ msgid "Modify..."
+#~ msgstr "عدّل..."
 
 #~ msgid "Droplet"
 #~ msgstr "قطرة"

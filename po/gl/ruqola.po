@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
-"PO-Revision-Date: 2025-05-23 10:35+0200\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"PO-Revision-Date: 2025-06-21 12:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -1957,11 +1957,10 @@ msgstr "Lista todas as opcións dispoñíbeis de comentarios."
 
 #: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Start a Call"
+#| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Iniciar unha chamada"
+msgstr "Sen conexión"
 
 #: core/ruqolacommandlineparser.cpp:62
 #, fuzzy, kde-format
@@ -2167,21 +2166,19 @@ msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Atopará unha nova solicitude en:<br /><a href='%1'>%1</a> </qt>"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgid "AI Actions"
-msgstr "Pedir a aplicación"
+msgstr "Accións da IA"
 
 #: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
 #, kde-format
 msgid "Summarize Unreads"
-msgstr ""
+msgstr "Resumir o non lido"
 
 #: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:41
 #, kde-format
 msgid "Ask to AI"
-msgstr ""
+msgstr "Preguntar á IA"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
 #, kde-format
@@ -2191,30 +2188,26 @@ msgstr "Facer unha captura de pantalla"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr ""
+msgstr "Esta ferramenta permite facer unha captura de pantalla."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure my Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Grab Screen"
-msgstr "Configurar a conta"
+msgstr "Configurar a captura de pantalla"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Atraso:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] "1 segundo"
-msgstr[1] "%1 segundos"
+msgstr[0] "%v segundo"
+msgstr[1] "%v segundos"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
@@ -5736,7 +5729,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:170
 #, kde-format
 msgid "User Limit for Adding All Users to Channel"
-msgstr ""
+msgstr "Límite de xente para engadir toda á canle"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
@@ -6913,15 +6906,13 @@ msgid "Need to activate enterprise license"
 msgstr "Licenza para empresas"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:252
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Apply"
 msgstr "Aplicar"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:263
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel"
 msgstr "Cancelar"
@@ -6930,7 +6921,7 @@ msgstr "Cancelar"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr ""
+msgstr "Restaurar o valor predeterminado do servidor."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
@@ -7062,12 +7053,10 @@ msgid "Disable Workspace Sync"
 msgstr "Desactivar a sincronización de espazos de traballo."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgctxt "@option:check"
 msgid "Disable Teams Mention"
-msgstr "Desactivar o seguimento de sesións."
+msgstr "Desactivar a mención de equipos."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:28
 #, kde-format
@@ -7146,6 +7135,8 @@ msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
 "mention a Team by name in a message and get its members notified."
 msgstr ""
+"Esta opción desactiva a funcionalidade de mención de equipos. Non se poderá "
+"mencionar equipos por nome nunha mensaxe para notificar á xente do equipo."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:18
 #, kde-format
@@ -7902,12 +7893,12 @@ msgstr "Activar a integración coas actividades de Plasma."
 #: widgets/configuredialog/configurepluginswidget.cpp:51
 #, kde-format
 msgid "Tools Plugins"
-msgstr ""
+msgstr "Complementos de ferramentas"
 
 #: widgets/configuredialog/configurepluginswidget.cpp:58
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "Complementos de texto"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
@@ -7967,7 +7958,7 @@ msgstr "Accesibilidade"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
-msgstr ""
+msgstr "Complementos"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:19
 #, kde-format
@@ -8080,9 +8071,9 @@ msgstr "Eliminar a miña conta"
 #: widgets/databasedialog/exploredatabasedialog.cpp:65
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Delete Rooms"
+#| msgid "Database Info"
 msgid "DataBase Rooms"
-msgstr "Eliminar salas"
+msgstr "Información da base de datos"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:68
 #, fuzzy, kde-format
@@ -8106,9 +8097,9 @@ msgstr ""
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Delete Rooms"
+#| msgid "Database Info"
 msgid "DataBase Room Subscriptions"
-msgstr "Eliminar salas"
+msgstr "Información da base de datos"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, fuzzy, kde-format
@@ -8684,7 +8675,7 @@ msgstr "Fuso horario:"
 #: widgets/dialogs/directchannelinfowidget.cpp:136
 #, kde-format
 msgid "Local Time:"
-msgstr ""
+msgstr "Hora local:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #, kde-format
@@ -8948,10 +8939,11 @@ msgid "After"
 msgstr ""
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delay:"
 msgctxt "@action:button"
 msgid "Day"
-msgstr ""
+msgstr "Atraso:"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
 #, fuzzy, kde-format
@@ -9084,11 +9076,10 @@ msgid "License:"
 msgstr "Licenza:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "No license"
 msgid "None"
-msgstr "Ningún"
+msgstr "Ningunha"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:22
 #, kde-format
@@ -10130,10 +10121,10 @@ msgstr "Xestionar o dispositivo"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
 #, fuzzy, kde-format
-#| msgid "Hide \"User Join\" messages"
+#| msgid "Total Messages"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Agochar as mensaxes de persoas que se unen"
+msgstr "Mensaxes totais"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10845,10 +10836,10 @@ msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, fuzzy, kde-format
-#| msgid "Mentions"
+#| msgid "AI Actions"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Mencións"
+msgstr "Accións da IA"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, kde-format
@@ -11192,12 +11183,10 @@ msgid "E2E Enabled"
 msgstr "Cifraxe de extremo a extremo activada."
 
 #: widgets/room/roomheaderwidget.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Ask Application"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
-msgstr "Pedir a aplicación"
+msgstr "Accións da IA"
 
 #: widgets/room/roomheaderwidget.cpp:145
 #, kde-format
@@ -11360,10 +11349,9 @@ msgstr "(abrir un diálogo externo…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
 #: widgets/room/usersinroomtreeview.cpp:41
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Users Found."
-msgstr "Non se atopou ningunha persoa usuaria."
+msgstr "Non se atopou a ninguén."
 
 #: widgets/room/usersinroommenu.cpp:41
 #, kde-format
@@ -11800,10 +11788,10 @@ msgstr "Agochar a barra de menú"
 
 #: widgets/ruqolamainwindow.cpp:1445
 #, fuzzy, kde-format
-#| msgid "Online"
+#| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "En liña"
+msgstr "Sen conexión"
 
 #: widgets/ruqolamainwindow.cpp:1448
 #, fuzzy, kde-format
@@ -11998,14 +11986,16 @@ msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Local Time:"
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "Hora local:"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report date"
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "Data do informe"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
 #, fuzzy, kde-format
@@ -12031,9 +12021,10 @@ msgid "Relative time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Local Time:"
 msgid "Locale"
-msgstr ""
+msgstr "Hora local:"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
@@ -12128,9 +12119,9 @@ msgstr "Corrixir a compatibilidade con Jitsi."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
 #, fuzzy
-#| msgid "Implement Rocket.Chat application support."
+#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Implementar a compatibilidade con aplicacións de Rocket.Chat."
+msgstr "Permitir accións de conversa de Rocket de IA."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
@@ -12623,8 +12614,7 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr "Permitir copiar a liña de ordes no portapapeis ao produciuse un erro."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
-#, fuzzy, kde-format
-#| msgid "Allow to activate/desactivate apps market."
+#, kde-format
 msgid "Allow to activate/deactivate apps market."
 msgstr "Permitir activar ou desactivar o mercado de aplicacións."
 
@@ -12649,31 +12639,24 @@ msgid "Fix download languages apps."
 msgstr "Corrección das aplicación de descarga de idiomas."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:181
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Add AI plugin"
-msgstr "Engadir a unión automática"
+msgstr "Engadir un complemento de IA"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:182
-#, fuzzy, kde-format
-#| msgid "Allow to send email"
+#, kde-format
 msgid "Allow to dnd image."
-msgstr "Permitir enviar mensaxes de correo electrónico."
+msgstr "Permitir arrastrar e soltar imaxes."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, fuzzy, kde-format
-#| msgid "Add restore button in administrator server settings dialog."
+#, kde-format
 msgid "Add restore button in administration settings."
-msgstr ""
-"Engada un botón de restaurar no diálogo de configuración do servidor de "
-"administración."
+msgstr "Engada un botón de restaurar na configuración de administración."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:184
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to activate plugins."
-msgstr "Permitir escribir roles."
+msgstr "Permitir activar complementos."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
@@ -12693,9 +12676,10 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, fuzzy, kde-format
-#| msgid "Allow to read role"
+#| msgctxt "@title:window"
+#| msgid "Add Server"
 msgid "Allow to Add WebDav Server."
-msgstr "Permitir ler roles."
+msgstr "Engadir un servidor"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
@@ -12708,53 +12692,46 @@ msgid "Allow to add emoticon from popup menu."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:194
-#, fuzzy, kde-format
-#| msgid "Fix show avatar url."
+#, kde-format
 msgid "Fix show date info."
-msgstr "Corrixir amosar o URL de avatar."
+msgstr "Corrixir como se amosa a información da data."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, fuzzy, kde-format
-#| msgid "Allow to show application market settings"
+#, kde-format
 msgid "Fix save application settings."
-msgstr "Permitir amosar a configuración de mercado das aplicacións."
+msgstr "Corrixir como se garda a configuración das aplicacións."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:196
 #, kde-format
 msgid "Fix text selection in attachment."
-msgstr ""
+msgstr "Corrixir a selección de texto en anexos."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:197
 #, kde-format
 msgid "Fix display user."
-msgstr ""
+msgstr "Corrixir como se amosan as persoas usuarias."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:198
-#, fuzzy, kde-format
-#| msgid "Fix translate message in direct channel."
+#, kde-format
 msgid "Display translate menu in thread dialog."
-msgstr "Corrixir a tradución de mensaxes en canles directas."
+msgstr "Amosar o menú de traducir no diálogo de fío."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:199
-#, fuzzy, kde-format
-#| msgid "Implement Rocket.Chat application support."
+#, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Implementar a compatibilidade con aplicacións de Rocket.Chat."
+msgstr "Permitir accións de conversa de Rocket de IA."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:200
-#, fuzzy, kde-format
-#| msgid "Add restore button in administrator server settings dialog."
+#, kde-format
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr ""
-"Engada un botón de restaurar no diálogo de configuración do servidor de "
+"Aquelas os botóns de aplicar, restaurar e cancelar no diálogo de "
 "administración."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:201
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgid "Fix search users."
-msgstr "Buscar entre a xente…"
+msgstr "Corrixir a busca de xente."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:202
 #, kde-format
@@ -12801,58 +12778,12 @@ msgid "Fix upload Custom Sound"
 msgstr "Sons personalizados"
 
 #~ msgctxt "@title:window"
-#~ msgid "Description"
-#~ msgstr "Descrición"
-
-#~ msgctxt "@action"
-#~ msgid "Show Description…"
-#~ msgstr "Amosar a descrición…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Erro ao gardar o ficheiro"
-
-#, fuzzy
-#~| msgid "Add..."
-#~ msgid "..."
-#~ msgstr "Engadir…"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Configurar Ruqola"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "Desactivar a comprobación da versión"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Comprobar se hai unha nova versión"
-
-#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
-#~ msgstr "A súa versión ten máis de 6 meses, recomendámoslle anovala."
-
-#~ msgid ""
-#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
-#~ msgstr ""
-#~ "A súa versión ten máis dun ano, recomendámoslle encarecidamente anovala."
-
-#~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
 #~ msgstr "Abrir o anexo?"
 
 #~ msgctxt "@info"
 #~ msgid "Open attachment <filename>%1</filename>?<nl/>"
 #~ msgstr "Abrir o anexo <filename>%1</filename>?<nl/>"
-
-#, fuzzy
-#~| msgid "Open…"
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Abrir…"
 
 #~ msgctxt "@action:button"
 #~ msgid "&Open With '%1'"
@@ -12870,43 +12801,43 @@ msgstr "Sons personalizados"
 #~ msgid "Save File"
 #~ msgstr "Gardar o ficheiro"
 
-#, fuzzy
-#~| msgid "Bold"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Grosa"
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Erro ao gardar o ficheiro"
 
-#, fuzzy
-#~| msgid "Italic"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Cursiva"
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Descrición"
 
-#, fuzzy
-#~| msgid "Strike-out"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Riscar"
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Amosar a descrición…"
 
-#, fuzzy
-#~| msgid "Code Block"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Bloque de código"
+#~ msgid "Restart is necessary for applying the changes."
+#~ msgstr "Necesítase reiniciar para aplicar os cambios."
 
-#, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Quote"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Citar"
+#~ msgid "..."
+#~ msgstr "…"
 
-#, fuzzy
-#~| msgctxt "@label:textbox"
-#~| msgid "Invite Link:"
 #~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Ligazón de invitación:"
+#~ msgid "Configure"
+#~ msgstr "Configurar"
+
+#~ msgctxt "@action"
+#~ msgid "Disable version check"
+#~ msgstr "Desactivar a comprobación da versión"
+
+#~ msgctxt "@action"
+#~ msgid "Check new Version"
+#~ msgstr "Comprobar se hai unha nova versión"
+
+#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
+#~ msgstr "A súa versión ten máis de 6 meses, recomendámoslle anovala."
+
+#~ msgid ""
+#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
+#~ msgstr ""
+#~ "A súa versión ten máis dun ano, recomendámoslle encarecidamente anovala."
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12956,12 +12887,117 @@ msgstr "Sons personalizados"
 #~ msgid "Some bug fixing:"
 #~ msgstr "Algunhas correccións de fallos:"
 
+#, fuzzy
+#~| msgid "Bold"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Grosa"
+
+#, fuzzy
+#~| msgid "Italic"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Cursiva"
+
+#, fuzzy
+#~| msgid "Strike-out"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Riscar"
+
+#, fuzzy
+#~| msgid "Code Block"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Bloque de código"
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Quote"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Citar"
+
+#, fuzzy
+#~| msgctxt "@label:textbox"
+#~| msgid "Invite Link:"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Ligazón de invitación:"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Restaurar"
 
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Remove"
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Retirar"
+
+#, fuzzy
+#~| msgid "Do you want to remove \"%1\"?"
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Quere retirar «%1»?"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Retirar"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Activities"
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Configurar as actividades"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Configurar Ruqola"
+
+#, fuzzy
+#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Cargando…"
+
+#~ msgid "No new version found."
+#~ msgstr "Non se atopou ningunha versión nova."
+
+#~ msgid "Add screenshot button"
+#~ msgstr "Botón de engadir captura de pantalla."
+
+#~ msgctxt "@info:shell"
+#~ msgid "Attach File"
+#~ msgstr "Anexar un ficheiro"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Non é posíbel abrir o rexistro."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Amosar o rexistro"
+
+#~ msgid "Private"
+#~ msgstr "Privada"
+
+#~ msgid "Installed"
+#~ msgstr "Instalada"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Unirse ás canles predeterminadas."
 
 #~ msgid "Starred Messages"
 #~ msgstr "Mensaxes vixiadas"
@@ -12978,26 +13014,10 @@ msgstr "Sons personalizados"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Mensaxes de fíos sen ler"
 
-#~ msgid "System Messages"
-#~ msgstr "Mensaxes do sistema"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Unirse ás canles predeterminadas."
-
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Verificada."
-
-#~ msgid "Private"
-#~ msgstr "Privada"
-
-#~ msgid "Installed"
-#~ msgstr "Instalada"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marcar como lida"
+#, fuzzy
+#~| msgid "(Mark As Read)"
+#~ msgid "(Mark as Read)"
+#~ msgstr "(marcar como lida)"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Nome de persoa usuaria ou enderezo de correo electrónico:"
@@ -13030,61 +13050,27 @@ msgstr "Sons personalizados"
 #~ msgid "Server Url:"
 #~ msgstr "URL do servidor:"
 
+#~ msgid "Message %1"
+#~ msgstr "Mensaxe %1"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Marcar como lida"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Reset E2E"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Reset"
+#~ msgstr "Restabelecer a cifraxe de extremo a extremo"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "A xente do equipo pode escribir mensaxes."
 
-#~ msgid "Message %1"
-#~ msgstr "Mensaxe %1"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Verificada."
 
-#~ msgid "(Mark As Read)"
-#~ msgstr "(marcar como lida)"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Non é posíbel abrir o rexistro."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Amosar o rexistro"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgid "Select All"
-#~ msgstr "Seleccionar todo"
-
-#~ msgid "Reset TOTP"
-#~ msgstr "Restabelecer o pase momentáneo"
-
-#~ msgid "Modify..."
-#~ msgstr "Modificar…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Directorio — %1"
-
-#~ msgid "Search channels…"
-#~ msgstr "Buscar nas canles…"
-
-#~ msgid "Go to Message"
-#~ msgstr "Ir á mensaxe"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(prema aquí para cargar máis…)"
-
-#~ msgctxt "Action which allows to search room/user/team"
-#~ msgid "Directory…"
-#~ msgstr "Directorio…"
-
-#~ msgid "Version 2.0"
-#~ msgstr "Versión 2.0"
-
-#~ msgid "Version 2.2"
-#~ msgstr "Versión 2.2"
-
-#~ msgctxt "@title:window"
-#~ msgid "What's new in Ruqola"
-#~ msgstr "Novidades de Ruqola"
+#~ msgid "System Messages"
+#~ msgstr "Mensaxes do sistema"

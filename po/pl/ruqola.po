@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -1959,11 +1959,10 @@ msgstr "Wymień dostępne możliwości informacji zwrotnej"
 
 #: core/ruqolacommandlineparser.cpp:60
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Start a Call"
+#| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Rozpocznij rozmowę"
+msgstr "Niedostępny"
 
 #: core/ruqolacommandlineparser.cpp:62
 #, fuzzy, kde-format
@@ -8078,9 +8077,7 @@ msgid "DataBase Room Subscriptions"
 msgstr "Pokoje DataBase"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Skopiuj"
@@ -10095,10 +10092,10 @@ msgstr "Zarządzaj urządzeniem"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
 #, fuzzy, kde-format
-#| msgid "Hide \"User Join\" messages"
+#| msgid "Total Messages"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Ukryj wiadomości \"Użytkownik dołączył\""
+msgstr "Wszystkie wiadomości"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10755,12 +10752,10 @@ msgid "Message has been starred"
 msgstr "Dodano gwiazdę do wiadomości"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1029
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "Dodano gwiazdę do wiadomości"
+msgstr "Wiadomość ma przetłumaczony tekst"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
@@ -10775,16 +10770,13 @@ msgid "Add reaction"
 msgstr "Dodaj reakcję"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Zatrzymaj"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Wypowiedz tekst"
@@ -11756,10 +11748,10 @@ msgstr "Ukryj pasek menu"
 
 #: widgets/ruqolamainwindow.cpp:1445
 #, fuzzy, kde-format
-#| msgid "Online"
+#| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Dostępny"
+msgstr "Niedostępny"
 
 #: widgets/ruqolamainwindow.cpp:1448
 #, fuzzy, kde-format
@@ -11954,14 +11946,16 @@ msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Local Time:"
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "Czas lokalny:"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report date"
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "Data zgłoszenia"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
 #, fuzzy, kde-format
@@ -12049,13 +12043,11 @@ msgstr "Dodaj konto…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Szybsze kopiowanie bloków kodu."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Ulepszenie listy użytkowników w pokoju."
+msgstr "Ulepszono interfejs użytkownika od tekstu na mowę."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
 #, fuzzy
@@ -12704,7 +12696,7 @@ msgstr "Naprawiono pokazywanie rozmiaru załącznika."
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "Zapisywanie lokalnych tłumaczeń do lokalnej bazy danych."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, kde-format
@@ -12722,46 +12714,6 @@ msgstr "Data zgłoszenia"
 #| msgid "Custom Sounds"
 msgid "Fix upload Custom Sound"
 msgstr "Własne dźwięki"
-
-#~ msgctxt "@title:window"
-#~ msgid "Description"
-#~ msgstr "Opis"
-
-#~ msgctxt "@action"
-#~ msgid "Show Description…"
-#~ msgstr "Pokaż opis…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Błąd zapisywania pliku"
-
-#~ msgid "Restart is necessary for applying the changes."
-#~ msgstr "Wymagane jest ponowne uruchomienie do zastosowania zmian."
-
-#~ msgid "..."
-#~ msgstr "…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Ustawienia"
-
-#~ msgctxt "@action"
-#~ msgid "Disable version check"
-#~ msgstr "Wyłącz sprawdzenie wersji"
-
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Sprawdź, czy jest nowa wersja"
-
-#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
-#~ msgstr ""
-#~ "Twoja wersja jest starsza niż 6 miesięcy, więc zalecamy jej uaktualnienie."
-
-#~ msgid ""
-#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
-#~ msgstr ""
-#~ "Twoja wersja jest starsza niż 1 rok, więc bardzo zalecamy jej "
-#~ "uaktualnienie."
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
@@ -12791,29 +12743,45 @@ msgstr "Własne dźwięki"
 #~ msgid "Save File"
 #~ msgstr "Zapisz plik"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Pogrubienie"
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Błąd zapisywania pliku"
+
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Opis"
+
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Pokaż opis…"
+
+#~ msgid "Restart is necessary for applying the changes."
+#~ msgstr "Wymagane jest ponowne uruchomienie do zastosowania zmian."
+
+#~ msgid "..."
+#~ msgstr "…"
 
 #~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Kursywa"
+#~ msgid "Configure"
+#~ msgstr "Ustawienia"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Przekreślenie"
+#~ msgctxt "@action"
+#~ msgid "Disable version check"
+#~ msgstr "Wyłącz sprawdzenie wersji"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Blok kodu"
+#~ msgctxt "@action"
+#~ msgid "Check new Version"
+#~ msgstr "Sprawdź, czy jest nowa wersja"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Zacytuj tekst"
+#~ msgid "Your version is older than 6 months, we encourage you to upgrade."
+#~ msgstr ""
+#~ "Twoja wersja jest starsza niż 6 miesięcy, więc zalecamy jej uaktualnienie."
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Wstaw odnośnik"
+#~ msgid ""
+#~ "Your version is older than 1 year, we strongly encourage you to upgrade."
+#~ msgstr ""
+#~ "Twoja wersja jest starsza niż 1 rok, więc bardzo zalecamy jej "
+#~ "uaktualnienie."
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12862,14 +12830,121 @@ msgstr "Własne dźwięki"
 #~ msgid "Some bug fixing:"
 #~ msgstr "Naprawa błędów:"
 
+#, fuzzy
+#~| msgid "Bold"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Pogrubienie"
+
+#, fuzzy
+#~| msgid "Italic"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Kursywa"
+
+#, fuzzy
+#~| msgid "Strike-out"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Przekreślenie"
+
+#, fuzzy
+#~| msgid "Code Block"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Blok kodu"
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Quote"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Cytuj"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Wstaw"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Przywróć"
 
 #, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Remove"
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Usuń"
+
+#, fuzzy
+#~| msgid "Do you want to remove \"%1\"?"
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Czy usunąć \"%1\"?"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Usuń"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Activities"
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Ustawienia aktywności"
+
+#, fuzzy
+#~| msgid "Configure"
+#~ msgctxt "@action"
+#~ msgid "Configure…"
+#~ msgstr "Ustawienia"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Ustawienia Ruqoli"
+
+#, fuzzy
 #~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Wczytywanie…"
+
+#~ msgid "No new version found."
+#~ msgstr "Żadna nowa wersja nie jest jeszcze dostępna."
+
+#, fuzzy
+#~| msgid "Attach File"
+#~ msgctxt "@info:shell"
+#~ msgid "Attach File"
+#~ msgstr "Załącz plik"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Nie można otworzyć dziennika."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Pokaż dziennik"
+
+#~ msgid "Private"
+#~ msgstr "Prywatny"
+
+#~ msgid "Installed"
+#~ msgstr "Wgrane"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "DużyNiebieskiPrzycisk"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Połącz domyślne kanały"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Wiadomości wyróżnione"
@@ -12886,26 +12961,10 @@ msgstr "Własne dźwięki"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Oznacz wiadomości wątku jako nieprzeczytane"
 
-#~ msgid "System Messages"
-#~ msgstr "Wiadomości systemowe"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Połącz domyślne kanały"
-
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Potwierdzony"
-
-#~ msgid "Private"
-#~ msgstr "Prywatny"
-
-#~ msgid "Installed"
-#~ msgstr "Wgrane"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Oznacz jako przeczytany"
+#, fuzzy
+#~| msgid "(Mark As Read)"
+#~ msgid "(Mark as Read)"
+#~ msgstr "(Oznacz jako przeczytana)"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Nazwa użytkownika lub e-mail:"
@@ -12938,53 +12997,64 @@ msgstr "Własne dźwięki"
 #~ msgid "Server Url:"
 #~ msgstr "Adres URL serwera:"
 
+#~ msgid "Message %1"
+#~ msgstr "Wiadomość %1"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Oznacz jako przeczytany"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Reset E2E"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Reset"
+#~ msgstr "Wyzeruj klucz E2E"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Wszyscy użytkownicy w tym zespole mogą pisać wiadomości"
 
-#~ msgid "Message %1"
-#~ msgstr "Wiadomość %1"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Potwierdzony"
 
-#~ msgid "(Mark As Read)"
-#~ msgstr "(Oznacz jako przeczytana)"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Nie można otworzyć dziennika."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Pokaż dziennik"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "DużyNiebieskiPrzycisk"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgid "Select All"
-#~ msgstr "Zaznacz wszystko"
+#~ msgid "System Messages"
+#~ msgstr "Wiadomości systemowe"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Wyzeruj TOTP"
 
-#~ msgid "Add..."
-#~ msgstr "Dodaj..."
+#~ msgid "Create"
+#~ msgstr "Utwórz"
 
-#~ msgid "Modify..."
-#~ msgstr "Zmień..."
+#~ msgid "Set as Favorite"
+#~ msgstr "Ustaw jako ulubiony"
 
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Katalog - %1"
+#~ msgid "Search rooms…"
+#~ msgstr "Poszukaj pokojów…"
+
+#~ msgid "Copy Message"
+#~ msgstr "Skopiuj wiadomość"
+
+#, fuzzy
+#~| msgid "Search rooms…"
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Poszukaj pokojów…"
+
+#, fuzzy
+#~| msgid "Search users…"
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Poszukaj użytkowników…"
 
 #~ msgid "Search channels…"
 #~ msgstr "Poszukaj kanałów…"
 
-#~ msgid "Go to Message"
-#~ msgstr "Przejdź do wiadomości"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Naciśnij tutaj, aby wczytać więcej...)"
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Katalog - %1"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -12996,9 +13066,27 @@ msgstr "Własne dźwięki"
 #~ msgid "Version 2.2"
 #~ msgstr "Wersja 2.2"
 
+#~ msgid "Version 2.3"
+#~ msgstr "Wersja 2.3"
+
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Co nowego w Ruqoli"
+
+#~ msgid "Select All"
+#~ msgstr "Zaznacz wszystko"
+
+#~ msgid "Go to Message"
+#~ msgstr "Przejdź do wiadomości"
+
+#~ msgid "Add..."
+#~ msgstr "Dodaj..."
+
+#~ msgid "Modify..."
+#~ msgstr "Zmień..."
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Naciśnij tutaj, aby wczytać więcej...)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -13515,12 +13603,6 @@ msgstr "Własne dźwięki"
 #~ msgid "Close"
 #~ msgstr "Zamknij"
 
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgid "Configure..."
-#~ msgstr "Ustawienia Ruqoli"
-
 #~ msgid "Detect language"
 #~ msgstr "Wykryj język"
 
@@ -13724,13 +13806,6 @@ msgstr "Własne dźwięki"
 
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Ustawienia Ruqoli"
 
 #~ msgid "Use Free License Key"
 #~ msgstr "Użyj darmowego klucza licencji"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
-"PO-Revision-Date: 2026-02-17 21:05+0200\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"PO-Revision-Date: 2026-02-18 08:41+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -31,10 +31,9 @@ msgid "Rocket Chat Client"
 msgstr "Клиент Rocket Chat"
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "© Авторы Ruqola, 2020–2025"
+msgstr "© Авторы Ruqola, 2020–2029"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -408,27 +407,24 @@ msgid "Allow to read oauth app settings"
 msgstr "Возможность чтения параметров программ OAuth"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Возможность записи параметров программ OAuth"
+msgstr "Разрешить настройки видеоконференций"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Возможность чтения параметров программ OAuth"
+msgstr "Разрешить чтение параметров видеоконференций"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Разрешить изменение параметров видеоконференций"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Возможность записи роли"
+msgstr "Кнопка «Разрешить регистрацию»"
 
 #: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
@@ -446,16 +442,14 @@ msgid "Allow to read role"
 msgstr "Возможность чтения роли"
 
 #: core/apps/appsmarketplaceinfo.cpp:701
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mute Focused Conversations"
+#, kde-format
 msgid "Out Bound Communication"
-msgstr "Отключить уведомления для разговоров в фокусе"
+msgstr "Исходящая связь"
 
 #: core/apps/appsmarketplaceinfo.cpp:703
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "Показывать все каналы в рабочем пространстве"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1942,10 +1936,9 @@ msgid "Start with specific account"
 msgstr "Запустить с указанной учётной записью"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, fuzzy, kde-format
-#| msgid "Account Name:"
+#, kde-format
 msgid "Account Name"
-msgstr "Имя учётной записи:"
+msgstr "Имя учётной записи"
 
 #: core/ruqolacommandlineparser.cpp:53
 #, kde-format
@@ -1954,10 +1947,9 @@ msgid "Show Message"
 msgstr "Показать сообщение"
 
 #: core/ruqolacommandlineparser.cpp:53
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "Сообщение"
+msgstr "URL сообщения"
 
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
@@ -1972,89 +1964,82 @@ msgid "Lists the available options for user feedback"
 msgstr "Показать доступные варианты обратной связи"
 
 #: core/ruqolacommandlineparser.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Start a Call"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Начало вызова"
+msgstr "Запуск в автономном режиме"
 
 #: core/ruqolacommandlineparser.cpp:62
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "В активном состоянии"
+msgstr "Включить режим отладки"
 
 #: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Очистка базы данных (использовать с осторожностью)"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "Сейчас"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 секунда"
 msgstr[1] "%1 секунды"
 msgstr[2] "%1 секунд"
-msgstr[3] "1 секунда"
+msgstr[3] "%1 секунда"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:67
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 минута"
+msgstr[1] "%1 минуты"
+msgstr[2] "%1 минут"
+msgstr[3] "%1 минута"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 час"
+msgstr[1] "%1 часа"
+msgstr[2] "%1 часов"
+msgstr[3] "%1 час"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 день"
+msgstr[1] "%1 дня"
+msgstr[2] "%1 дней"
+msgstr[3] "%1 день"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "год"
-msgstr[1] "год"
-msgstr[2] "год"
-msgstr[3] "год"
+msgstr[0] "%1 год"
+msgstr[1] "%1 года"
+msgstr[2] "%1 лет"
+msgstr[3] "%1 год"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:90
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "месяц"
-msgstr[1] "месяц"
-msgstr[2] "месяц"
-msgstr[3] "месяц"
+msgstr[0] "%1 месяц"
+msgstr[1] "%1 месяца"
+msgstr[2] "%1 месяцев"
+msgstr[3] "%1 месяц"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -3234,7 +3219,7 @@ msgstr "Создание нового звука"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "файл mp3"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -3318,11 +3303,10 @@ msgid "Quick Reactions"
 msgstr "Быстрые реакции"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "Всего сообщений"
+msgstr "Время в сообщениях"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -7916,12 +7900,10 @@ msgid "Animate GIFs"
 msgstr "Анимировать GIF-изображения"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Включить экспериментальную локальную базу данных"
+msgstr "Включить локальную базу данных"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -8121,18 +8103,15 @@ msgstr "База данных E2E"
 #: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
-msgstr ""
+msgstr "Информация о наборе текста в ожидании в базе данных Room"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase Room Subscriptions"
-msgstr "Базы данных комнат"
+msgstr "База данных подписок комнат"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Копировать"
@@ -8919,25 +8898,22 @@ msgid "Select Room Avatar"
 msgstr "Выбор аватара комнаты"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "От:"
+msgstr "От меня"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "Сообщение не найдено."
+msgstr "Поиск отправленных вами сообщений"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "От:"
+msgstr "От"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
@@ -8945,101 +8921,94 @@ msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
+"Поиск сообщений от определённого пользователя. (Используйте имя пользователя "
+"без пробелов)"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "Порядок: по убыванию"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
+msgstr "Сортировка сообщений по убыванию метки времени"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "Ранее"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "Фильтровать каналы (%1)"
+msgstr "Фильтр по дате как «%1»"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "После"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "Задержка:"
+msgstr "День"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "Перевод"
+msgstr "Есть местоположение"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "Поиск сообщений, содержащих местоположение."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "Ссылка"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "Поиск сообщений, содержащих ссылку"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "Сообщение закреплено"
+msgstr "Закреплёно"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "Показать закреплённые сообщения в текущей комнате."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "Начать"
+msgstr "С отметкой"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "Сообщение отмечено звёздочкой"
+msgstr "Показать отмеченные сообщения."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -9076,30 +9045,26 @@ msgstr ""
 "code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Параметры"
+msgstr "Параметр"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "Регулярные выражения"
+msgstr "Регулярное выражение"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Camel Case"
-msgstr "Игнорирование пользователя"
+msgstr "Не учитывать Верблюжью Нотацию"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "Показ или скрытие строки поиска"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9655,10 +9620,9 @@ msgid "Impossible to create zip file."
 msgstr "Невозможно создать ZIP-файл."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Невозможно выполнить экспорт данных."
+msgstr "Невозможно экспортировать учётную запись."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -9666,28 +9630,24 @@ msgid "Export Done."
 msgstr "Экспорт завершён."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, fuzzy, kde-format
-#| msgid "Account %1: export config done."
+#, kde-format
 msgid "<b>Account %1:</b> export config done."
-msgstr "Учётная запись %1: экспорт конфигурации завершён."
+msgstr "<b>Учётная запись «%1»:</b> экспорт настроек завершён."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export cache done."
-msgstr "Учётная запись %1: экспорт кэша завершён."
+msgstr "<b>Учётная запись «%1»:</b> кэш экспортирован."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, fuzzy, kde-format
-#| msgid "Account %1: export logs done."
+#, kde-format
 msgid "<b>Account %1:</b> export logs done."
-msgstr "Учётная запись %1: экспорт журнала завершён."
+msgstr "<b>Учётная запись «%1»:</b> журналы экспортированы."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export database done."
-msgstr "Учётная запись %1: экспорт кэша завершён."
+msgstr "<b>Учётная запись «%1»:</b> база данных экспортирована."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
@@ -9702,7 +9662,7 @@ msgstr "Учётные записи экспортированы."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "Созданный архив Zip: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9754,8 +9714,7 @@ msgid "Import Accounts"
 msgstr "Импорт учётных записей"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Отмена"
@@ -10160,11 +10119,10 @@ msgid "Manage Device"
 msgstr "Управление устройством"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Hide \"User Join\" messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Скрыть сообщения «Пользователь присоединился»"
+msgstr "Отметки времени в сообщениях"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10382,13 +10340,13 @@ msgstr "Громкость звука уведомлений:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr ""
+msgstr "Громкость звонка вызова:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "Основная громкость:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
@@ -10823,12 +10781,10 @@ msgid "Message has been starred"
 msgstr "Сообщение отмечено звёздочкой"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1029
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "Сообщение отмечено звёздочкой"
+msgstr "У сообщения есть перевод"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
@@ -10846,15 +10802,13 @@ msgstr "Добавить реакцию"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "Остановить"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
-msgstr "Зачитать текст"
+msgstr "Озвучить текст"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
 #, kde-format
@@ -10866,7 +10820,7 @@ msgstr "Добавить сервер WebDAV"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "Вставить отметку времени"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -11825,18 +11779,16 @@ msgid "Hide menu bar"
 msgstr "Скрытие строки меню"
 
 #: widgets/ruqolamainwindow.cpp:1445
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "В сети"
+msgstr "Работать в сети"
 
 #: widgets/ruqolamainwindow.cpp:1448
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Не в сети"
+msgstr "Работать автономно"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -12016,68 +11968,62 @@ msgstr "Прекратить отслеживание сообщения"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr ""
+msgstr "Добавление метки времени"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Short Time (%1)"
-msgstr ""
+msgstr "Краткий формат времени (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "Полный формат времени (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
 #, kde-format
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "Краткий формат даты (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, fuzzy, kde-format
-#| msgid "Default (%1)"
+#, kde-format
 msgid "Long Date (%1)"
-msgstr "По умолчанию (%1)"
+msgstr "Полный формат даты (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgid "Full Date and Time (%1)"
-msgstr "Фильтровать каналы (%1)"
+msgstr "Полная дата и время (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr ""
+msgstr "Полная дата и время (подробно) (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
-msgstr ""
+msgstr "Относительное время (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "Местное время:"
+msgstr "Локаль"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "Часовой пояс"
+msgstr "Время"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
-msgstr "Формат псевдонима"
+msgstr "Формат"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
@@ -12119,46 +12065,35 @@ msgstr "Добавить учётную запись…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Упрощено копирование блочного кода."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Улучшение списка пользователей в комнате"
+msgstr "Улучшен интерфейс синтеза речи."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Показ вложений — %1"
+msgstr "Показ полей вложений."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "Реализован автономный режим (экспериментальный)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
-msgstr ""
+msgstr "Реализовано хранение базы данных ввода текста в ожидании."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "Исправление поддержки jitsi"
+msgstr "Исправлена поддержка RC 8.0.0."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "Добавлена поддержка действий AI Rocket Chat."
+msgstr "Добавлена поддержка действий с вложениями."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "Добавление поддержки жалоб на пользователей"
+msgstr "Добавлена поддержка меток времени."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -12701,7 +12636,7 @@ msgstr "Кнопка строки сообщения «Добавить расш
 #: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
 msgid "Allow to Add WebDav Server."
-msgstr "Разрешить добавление сервера WebDav."
+msgstr "Разрешено добавление сервера WebDAV."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
@@ -12780,24 +12715,56 @@ msgstr "Исправлено отображение размера вложен�
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "Сохранение локального перевода в локальной базе данных."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr ""
+msgstr "Исправлено удаление комнаты (в локальной базе данных)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:221
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Fix export database."
-msgstr "Дата жалобы"
+msgstr "Исправлен экспорт базы данных."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:222
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Fix upload Custom Sound"
-msgstr "Нестандартные звуки"
+msgstr "Исправлена загрузка пользовательских звуков"
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Открыть вложение?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Открыть вложение <filename>%1</filename>?<nl/>"
+
+#, fuzzy
+#~| msgid "Open..."
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Открыть..."
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Открыть с помощью «%1»"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "Открыть с &помощью…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "Сохранить &как..."
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "Сохранение файла"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Ошибка при сохранении файла"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"
@@ -12807,19 +12774,14 @@ msgstr "Нестандартные звуки"
 #~ msgid "Show Description…"
 #~ msgstr "Показать описание…"
 
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Ошибка при сохранении файла"
-
-#~ msgid "Restart is necessary for applying the changes."
-#~ msgstr "Для применения изменений требуется перезапуск."
-
+#, fuzzy
 #~ msgid "..."
-#~ msgstr "…"
+#~ msgstr "Добавить..."
 
+#, fuzzy
 #~ msgctxt "@info:tooltip"
 #~ msgid "Configure"
-#~ msgstr "Настройка"
+#~ msgstr "Настроить уведомление…"
 
 #~ msgctxt "@action"
 #~ msgid "Disable version check"
@@ -12839,58 +12801,6 @@ msgstr "Нестандартные звуки"
 #~ msgstr ""
 #~ "Эта версия программы не обновлялась более года, настоятельно "
 #~ "рекомендуется выполнить обновление."
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Открыть вложение?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Открыть вложение <filename>%1</filename>?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Открыть"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Открыть с помощью «%1»"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Открыть с &помощью…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Сохранить &как..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Сохранение файла"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Полужирный"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Курсив"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Зачёркнутый"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Блок кода"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Цитата"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Вставить ссылку"
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12921,6 +12831,8 @@ msgstr "Нестандартные звуки"
 #~ msgid "What's new in %2. %1"
 #~ msgstr "Новое в %2. %1"
 
+#, fuzzy
+#~| msgid "All Version"
 #~ msgid "All Versions"
 #~ msgstr "Все версии"
 
@@ -12936,12 +12848,117 @@ msgstr "Нестандартные звуки"
 #~ msgid "Some bug fixing:"
 #~ msgstr "Исправление некоторых ошибок:"
 
+#, fuzzy
+#~| msgid "Bold"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Полужирный"
+
+#, fuzzy
+#~| msgid "Italic"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Курсив"
+
+#, fuzzy
+#~| msgid "Strike-out"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Перечёркнутый"
+
+#, fuzzy
+#~| msgid "Code Block"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Блок кода"
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Quote"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Цитировать"
+
+#, fuzzy
+#~| msgctxt "@label:textbox"
+#~| msgid "Invite Link:"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Ссылка с приглашением:"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Восстановить"
 
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Remove"
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Удалить"
+
+#, fuzzy
+#~| msgid "Do you want to remove \"%1\"?"
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Удалить «%1»?"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Удалить"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Activities"
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Настройка комнат Plasma"
+
+#, fuzzy
+#~ msgctxt "@action"
+#~ msgid "Configure…"
+#~ msgstr "Настройка Ruqola"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Настройка нестандартных смайликов"
+
 #~ msgid "Loading..."
 #~ msgstr "Загрузка…"
+
+#, fuzzy
+#~ msgid "No new version found."
+#~ msgstr "Информация о версии не найдена."
+
+#, fuzzy
+#~ msgctxt "@info:shell"
+#~ msgid "Attach File"
+#~ msgstr "Прикрепить файл"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Невозможно открыть журнал."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Показ журнала"
+
+#~ msgid "Private"
+#~ msgstr "Закрытые"
+
+#~ msgid "Installed"
+#~ msgstr "Установленные"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Присоединиться к каналам по умолчанию"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Сообщения со звёздочкой"
@@ -12958,26 +12975,9 @@ msgstr "Нестандартные звуки"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Непрочитанные сообщения в ветках"
 
-#~ msgid "System Messages"
-#~ msgstr "Системные сообщения"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Присоединиться к каналам по умолчанию"
-
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Проверено"
-
-#~ msgid "Private"
-#~ msgstr "Закрытые"
-
-#~ msgid "Installed"
-#~ msgstr "Установленные"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Отметить как прочитанное"
+#, fuzzy
+#~ msgid "(Mark as Read)"
+#~ msgstr "(Отметить как прочитанное)"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Имя пользователя или адрес эл. почты:"
@@ -13010,59 +13010,67 @@ msgstr "Нестандартные звуки"
 #~ msgid "Server Url:"
 #~ msgstr "Адрес сервера:"
 
+#~ msgid "Message %1"
+#~ msgstr "Сообщение %1"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Отметить как прочитанное"
+
+#, fuzzy
+#~ msgctxt "@info:tooltip"
+#~ msgid "Reset"
+#~ msgstr "Сброс сквозного шифрования"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Все пользователи в этой команде могут писать сообщения"
 
-#~ msgid "Message %1"
-#~ msgstr "Сообщение %1"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Проверено"
 
-#~ msgid "(Mark As Read)"
-#~ msgstr "(Отметить как прочитанное)"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Невозможно открыть журнал."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Показ журнала"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgid "Select All"
-#~ msgstr "Выбрать все"
+#~ msgid "System Messages"
+#~ msgstr "Системные сообщения"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Сбросить TOTP"
 
-#~ msgid "Add..."
-#~ msgstr "Добавить..."
+#, fuzzy
+#~ msgid "Create"
+#~ msgstr "Создать"
 
-#~ msgid "Modify..."
-#~ msgstr "Изменить..."
+#, fuzzy
+#~ msgid "Set as Favorite"
+#~ msgstr "Добавить в избранное"
+
+#, fuzzy
+#~ msgid "Search rooms…"
+#~ msgstr "Поиск комнат…"
+
+#, fuzzy
+#~ msgid "Copy Message"
+#~ msgstr "Копировать сообщение"
+
+#, fuzzy
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Поиск комнат…"
+
+#, fuzzy
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Поиск пользователей…"
+
+#, fuzzy
+#~ msgid "Search channels…"
+#~ msgstr "Поиск каналов"
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Каталог — %1"
 
 #, fuzzy
-#~| msgid "Search Channels"
-#~ msgid "Search channels…"
-#~ msgstr "Поиск каналов"
-
-#~ msgid "Go to Message"
-#~ msgstr "Перейти к сообщению"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
-
-#, fuzzy
-#~| msgctxt "Action which allows to search room/user/team"
-#~| msgid "Directory..."
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
 #~ msgstr "Каталог..."
@@ -13071,16 +13079,33 @@ msgstr "Нестандартные звуки"
 #~ msgstr "Версия 2.0"
 
 #, fuzzy
-#~| msgid "Version 2.0"
 #~ msgid "Version 2.2"
+#~ msgstr "Версия 2.0"
+
+#, fuzzy
+#~ msgid "Version 2.3"
 #~ msgstr "Версия 2.0"
 
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Новое в Ruqola"
 
+#~ msgid "Select All"
+#~ msgstr "Выбрать все"
+
+#~ msgid "Go to Message"
+#~ msgstr "Перейти к сообщению"
+
+#~ msgid "Add..."
+#~ msgstr "Добавить..."
+
+#~ msgid "Modify..."
+#~ msgstr "Изменить..."
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
+
 #, fuzzy
-#~| msgid "(Click here for Loading more...)"
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Щёлкните здесь, чтобы загрузить ещё…)"
 
@@ -13124,12 +13149,10 @@ msgstr "Нестандартные звуки"
 #~ msgstr "Загрузить изображение…"
 
 #, fuzzy
-#~| msgid "Download Image..."
 #~ msgid "Download Video..."
 #~ msgstr "Загрузить изображение…"
 
 #, fuzzy
-#~| msgid "Download Image..."
 #~ msgid "Download Sound..."
 #~ msgstr "Загрузить изображение…"
 
@@ -13207,7 +13230,6 @@ msgstr "Нестандартные звуки"
 #~ msgstr "Начало прямого вызова"
 
 #, fuzzy
-#~| msgid "Cozy"
 #~ msgctxt "Message Style"
 #~ msgid "Cozy"
 #~ msgstr "Уютный"
@@ -13376,10 +13398,6 @@ msgstr "Нестандартные звуки"
 #~ msgstr "Закрыть"
 
 #, fuzzy
-#~ msgid "Configure..."
-#~ msgstr "Настроить уведомление…"
-
-#, fuzzy
 #~ msgid "Italian"
 #~ msgstr "Курсив"
 
@@ -13390,11 +13408,6 @@ msgstr "Нестандартные звуки"
 #, fuzzy
 #~ msgid "Vietnamese"
 #~ msgstr "Имя файла:"
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Настройка нестандартных смайликов"
 
 #, fuzzy
 #~ msgid "Libre Translate"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -428,14 +428,16 @@ msgid "Allow to read oauth app settings"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgid "Allow to write video conference settings"
-msgstr ""
+msgstr "Rakendust ei leitud"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgid "Allow to read video conference settings"
-msgstr ""
+msgstr "Rakendust ei leitud"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
@@ -1325,9 +1327,9 @@ msgstr ""
 
 #: core/model/adminuserspendingmodel.cpp:58
 #, fuzzy, kde-format
-#| msgid "Add Users"
+#| msgid "User is not activated"
 msgid "Activate"
-msgstr "Kasutajate lisamine"
+msgstr "Kasutaja ei ole aktiveeritud"
 
 #: core/model/adminuserspendingmodel.cpp:78
 #, fuzzy, kde-format
@@ -2107,10 +2109,10 @@ msgstr "Pole võrgus"
 
 #: core/ruqolacommandlineparser.cpp:62
 #, fuzzy, kde-format
-#| msgid "Add Users"
+#| msgid "User is not activated"
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Kasutajate lisamine"
+msgstr "Kasutaja ei ole aktiveeritud"
 
 #: core/ruqolacommandlineparser.cpp:64
 #, kde-format
@@ -4165,10 +4167,11 @@ msgid "Just invited people can access this channel."
 msgstr "Kirjutada võivad ainult autoriseeritud isikud."
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
 msgctxt "@option:check"
 msgid "Direct"
-msgstr ""
+msgstr "Otsesõnum kellelegi"
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
@@ -4555,9 +4558,9 @@ msgstr "Kõik"
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:36
 #, fuzzy, kde-format
-#| msgid "Add Users"
+#| msgid "User is not activated"
 msgid "Activated"
-msgstr "Kasutajate lisamine"
+msgstr "Kasutaja ei ole aktiveeritud"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, fuzzy, kde-format
@@ -7752,29 +7755,31 @@ msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:79
 #, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Applications"
-msgstr "Diskussioonide otsimine ..."
+msgstr "Rakendust ei leitud"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
-msgstr ""
+msgstr "Rakendust ei leitud"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:85
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
-msgstr ""
+msgstr "Rakendust ei leitud"
 
 #: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
 #, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#| msgid "Application not found"
 msgctxt "@info:placeholder"
 msgid "Search Private Applications"
-msgstr "Diskussioonide otsimine ..."
+msgstr "Rakendust ei leitud"
 
 #: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:53
 #, fuzzy, kde-format
@@ -8201,10 +8206,11 @@ msgid "Mark channel as read when writing a reply"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Download"
 msgctxt "@option:check"
 msgid "Enable system tray icon"
-msgstr ""
+msgstr "Laadi alla"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
@@ -8426,9 +8432,9 @@ msgstr "Konto kustutamine"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:65
 #, fuzzy, kde-format
-#| msgid "Delete Room"
+#| msgid "User Info"
 msgid "DataBase Rooms"
-msgstr "Toa kustutamine"
+msgstr "Kasutaja teave"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:68
 #, fuzzy, kde-format
@@ -8449,9 +8455,9 @@ msgstr ""
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
 #, fuzzy, kde-format
-#| msgid "Delete Room"
+#| msgid "User Info"
 msgid "DataBase Room Subscriptions"
-msgstr "Toa kustutamine"
+msgstr "Kasutaja teave"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
 #, fuzzy, kde-format
@@ -9577,9 +9583,9 @@ msgstr ""
 
 #: widgets/dialogs/showimagedialog.cpp:152
 #, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#| msgid "Application not found"
 msgid "Other Application..."
-msgstr "Diskussioonide otsimine ..."
+msgstr "Rakendust ei leitud"
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, fuzzy, kde-format
@@ -9750,10 +9756,11 @@ msgid "Search teams…"
 msgstr "Lõimede otsimine ..."
 
 #: widgets/directory/directorywidget.cpp:80
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%2 added %1 to the conversation"
 msgctxt "@action"
 msgid "Join…"
-msgstr ""
+msgstr "%2 lisas %1 vestlusse"
 
 #: widgets/directory/directorywidget.cpp:83
 #, fuzzy, kde-format
@@ -10579,11 +10586,10 @@ msgstr "Faili otsimine ..."
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
 #, fuzzy, kde-format
-#| msgid "1 message"
-#| msgid_plural "%1 messages"
+#| msgid "All Messages"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "1 sõnum"
+msgstr "Kõik sõnumid"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format
@@ -11316,10 +11322,11 @@ msgstr "Vasta lõimes"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1037
 #, fuzzy, kde-format
-#| msgid "Mentions"
+#| msgctxt "@title:window"
+#| msgid "Add Account"
 msgctxt "@info:tooltip"
 msgid "Add reaction"
-msgstr "Mainimised"
+msgstr "Konto lisamine"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
@@ -11349,10 +11356,10 @@ msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, fuzzy, kde-format
-#| msgid "Mentions"
+#| msgid "Application not found"
 msgctxt "@info:tooltip"
 msgid "More Actions"
-msgstr "Mainimised"
+msgstr "Rakendust ei leitud"
 
 #: widgets/room/messagelinewidget.cpp:75
 #, fuzzy, kde-format
@@ -11382,10 +11389,10 @@ msgstr "Tee videosõnum"
 
 #: widgets/room/messagelinewidget.cpp:97 widgets/room/messagelinewidget.cpp:104
 #, fuzzy, kde-format
-#| msgid "Search Messages"
+#| msgid "Search Messages..."
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
-msgstr "Sõnumite otsimine"
+msgstr "Otsi sõnumeid ..."
 
 #: widgets/room/messagelinewidget.cpp:99
 #, fuzzy, kde-format
@@ -11453,9 +11460,9 @@ msgstr "Sõnum kinnistatud"
 
 #: widgets/room/messagelinewidget.cpp:381
 #, fuzzy, kde-format
-#| msgid "Search Messages"
+#| msgid "Search Messages..."
 msgid "Send a message in %1…"
-msgstr "Sõnumite otsimine"
+msgstr "Otsi sõnumeid ..."
 
 #: widgets/room/messagelinewidget.cpp:531
 #, kde-format
@@ -12256,16 +12263,18 @@ msgid "Applications…"
 msgstr "Rakendust ei leitud"
 
 #: widgets/ruqolamainwindow.cpp:578
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgctxt "@action"
 msgid "Requested Applications…"
-msgstr ""
+msgstr "Rakendust ei leitud"
 
 #: widgets/ruqolamainwindow.cpp:583
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgctxt "@action"
 msgid "Installed Applications…"
-msgstr ""
+msgstr "Rakendust ei leitud"
 
 #: widgets/ruqolamainwindow.cpp:588
 #, fuzzy, kde-format
@@ -12436,10 +12445,10 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:1445
 #, fuzzy, kde-format
-#| msgid "Online"
+#| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Võrgus"
+msgstr "Pole võrgus"
 
 #: widgets/ruqolamainwindow.cpp:1448
 #, fuzzy, kde-format
@@ -12656,14 +12665,16 @@ msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "TimeZone:"
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "Ajavöönd:"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report Message"
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "Anna sõnumist teada"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
 #, fuzzy, kde-format
@@ -13089,9 +13100,10 @@ msgid "Fix duplicated messages in search message dialog."
 msgstr "Välju kanalilt"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Quit Channel"
 msgid "Add delegate in search rooms in team dialog."
-msgstr ""
+msgstr "Välju kanalilt"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
@@ -13125,9 +13137,10 @@ msgid "Add color to the text in the account tab"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:129
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgid "Allow to show private installed applications"
-msgstr ""
+msgstr "Rakendust ei leitud"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:134
 #, fuzzy, kde-format
@@ -13178,9 +13191,10 @@ msgid "Fix open discussion channel"
 msgstr "Diskussiooni avamine"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:143
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Application not found"
 msgid "Allow to show application market settings"
-msgstr ""
+msgstr "Rakendust ei leitud"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:151
 #, kde-format
@@ -13254,9 +13268,10 @@ msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:168
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Deleted"
 msgid "Allow to activate/deactivate apps market."
-msgstr ""
+msgstr "Sõnum kustutatud"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:169
 #, kde-format
@@ -13319,9 +13334,9 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, fuzzy, kde-format
-#| msgid "Message Deleted"
+#| msgid "Add as Leader"
 msgid "Allow to Add WebDav Server."
-msgstr "Sõnum kustutatud"
+msgstr "Lisa juhina"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
@@ -13420,42 +13435,6 @@ msgid "Fix upload Custom Sound"
 msgstr "Kohandatud olek:"
 
 #, fuzzy
-#~| msgid "Description"
-#~ msgctxt "@title:window"
-#~ msgid "Description"
-#~ msgstr "Kirjeldus"
-
-#, fuzzy
-#~| msgid "Show Mentions..."
-#~ msgctxt "@action"
-#~ msgid "Show Description…"
-#~ msgstr "Näita mainimisi ..."
-
-#, fuzzy
-#~| msgid "Error saving file"
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Tõrge faili salvestamisel"
-
-#, fuzzy
-#~| msgid "Add..."
-#~ msgid "..."
-#~ msgstr "Lisa ..."
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Configure"
-#~ msgstr "Ruqola seadistamine"
-
-#, fuzzy
-#~| msgid "Server Version:"
-#~ msgctxt "@action"
-#~ msgid "Check new Version"
-#~ msgstr "Serveri versioon:"
-
-#, fuzzy
 #~| msgid "Save Attachment"
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
@@ -13480,16 +13459,40 @@ msgstr "Kohandatud olek:"
 #~ msgstr "Faili salvestamine"
 
 #, fuzzy
-#~| msgid "Speak Text"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Kõnele teksti"
+#~| msgid "Error saving file"
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Tõrge faili salvestamisel"
 
 #, fuzzy
-#~| msgid "Invite Link:"
+#~| msgid "Description"
+#~ msgctxt "@title:window"
+#~ msgid "Description"
+#~ msgstr "Kirjeldus"
+
+#, fuzzy
+#~| msgid "Show Mentions..."
+#~ msgctxt "@action"
+#~ msgid "Show Description…"
+#~ msgstr "Näita mainimisi ..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgid "..."
+#~ msgstr "Lisa ..."
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
 #~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Kutselink:"
+#~ msgid "Configure"
+#~ msgstr "Ruqola seadistamine"
+
+#, fuzzy
+#~| msgid "Server Version:"
+#~ msgctxt "@action"
+#~ msgid "Check new Version"
+#~ msgstr "Serveri versioon:"
 
 #, fuzzy
 #~| msgid "Version %1"
@@ -13529,9 +13532,86 @@ msgstr "Kohandatud olek:"
 #~ msgstr "Vigade parandamine"
 
 #, fuzzy
+#~| msgid "Speak Text"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Kõnele teksti"
+
+#, fuzzy
+#~| msgid "Invite Link:"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Kutselink:"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Eemalda"
+
+#, fuzzy
+#~| msgid "Do you want to remove this account '%1'?"
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Kas eemaldada konto \"%1\"?"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Eemalda"
+
+#, fuzzy
+#~| msgid "Configure Accounts"
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Kontode seadistamine"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@action"
+#~ msgid "Configure…"
+#~ msgstr "Ruqola seadistamine"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Ruqola seadistamine"
+
+#, fuzzy
 #~| msgid "Loading..."
 #~ msgid "Loading..."
 #~ msgstr "Laadimine ..."
+
+#, fuzzy
+#~| msgid "No Mention found"
+#~ msgid "No new version found."
+#~ msgstr "Ühtegi mainimist ei leitud"
+
+#, fuzzy
+#~| msgid "Attach Files"
+#~ msgctxt "@info:shell"
+#~ msgid "Attach File"
+#~ msgstr "Failide manustamine"
+
+#, fuzzy
+#~| msgid "No Channel found"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Ühtegi kanalit ei leitud"
+
+#, fuzzy
+#~| msgid "Private:"
+#~ msgid "Private"
+#~ msgstr "Privaatne:"
+
+#, fuzzy
+#~| msgid "Quit Channel"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Välju kanalilt"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Tärniga sõnumid"
@@ -13551,31 +13631,8 @@ msgstr "Kohandatud olek:"
 #~ msgstr "Lõimesõnumid"
 
 #, fuzzy
-#~| msgid "Send Message"
-#~ msgid "System Messages"
-#~ msgstr "Sõnumi saatmine"
-
-#, fuzzy
-#~| msgid "Quit Channel"
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Välju kanalilt"
-
-#, fuzzy
-#~| msgid "Not authorized"
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Pole autoriseeritud"
-
-#, fuzzy
-#~| msgid "Private:"
-#~ msgid "Private"
-#~ msgstr "Privaatne:"
-
-#, fuzzy
 #~| msgid "Mark As Read"
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
+#~ msgid "(Mark as Read)"
 #~ msgstr "Märgi loetuks"
 
 #, fuzzy
@@ -13618,39 +13675,64 @@ msgstr "Kohandatud olek:"
 
 #, fuzzy
 #~| msgid "Mark As Read"
-#~ msgid "(Mark As Read)"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
 #~ msgstr "Märgi loetuks"
 
 #, fuzzy
-#~| msgid "No Channel found"
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Ühtegi kanalit ei leitud"
+#~| msgid "Get Avatar"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Reset"
+#~ msgstr "Hangi avatar"
 
-#~ msgid "Select All"
-#~ msgstr "Vali kõik"
+#, fuzzy
+#~| msgid "Not authorized"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Pole autoriseeritud"
+
+#, fuzzy
+#~| msgid "Send Message"
+#~ msgid "System Messages"
+#~ msgstr "Sõnumi saatmine"
 
 #, fuzzy
 #~| msgid "Get Avatar"
 #~ msgid "Reset TOTP"
 #~ msgstr "Hangi avatar"
 
-#~ msgid "Add..."
-#~ msgstr "Lisa ..."
+#~ msgid "Create"
+#~ msgstr "Loo"
 
-#~ msgid "Modify..."
-#~ msgstr "Muuda ..."
+#~ msgid "Set as Favorite"
+#~ msgstr "Määra lemmikuks"
+
+#, fuzzy
+#~| msgid "Search Rooms"
+#~ msgid "Search rooms…"
+#~ msgstr "Toa otsimine"
+
+#, fuzzy
+#~| msgid "Go to Message"
+#~ msgid "Copy Message"
+#~ msgstr "Liikumine sõnumile"
+
+#, fuzzy
+#~| msgid "Search Rooms"
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Toa otsimine"
+
+#, fuzzy
+#~| msgid "Search Users..."
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Otsi kasutajaid ..."
 
 #, fuzzy
 #~| msgid "Search Channel"
 #~ msgid "Search channels…"
 #~ msgstr "Kanali otsimine"
-
-#~ msgid "Go to Message"
-#~ msgstr "Liikumine sõnumile"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Klõpsa siia, et juurde laadida ...)"
 
 #, fuzzy
 #~| msgid "Version %1"
@@ -13661,6 +13743,26 @@ msgstr "Kohandatud olek:"
 #~| msgid "Version %1"
 #~ msgid "Version 2.2"
 #~ msgstr "Versioon %1"
+
+#, fuzzy
+#~| msgid "Version %1"
+#~ msgid "Version 2.3"
+#~ msgstr "Versioon %1"
+
+#~ msgid "Select All"
+#~ msgstr "Vali kõik"
+
+#~ msgid "Go to Message"
+#~ msgstr "Liikumine sõnumile"
+
+#~ msgid "Add..."
+#~ msgstr "Lisa ..."
+
+#~ msgid "Modify..."
+#~ msgstr "Muuda ..."
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Klõpsa siia, et juurde laadida ...)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -13970,12 +14072,6 @@ msgstr "Kohandatud olek:"
 #~ msgstr "Sulge"
 
 #, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgid "Configure..."
-#~ msgstr "Ruqola seadistamine"
-
-#, fuzzy
 #~| msgid "Version %1"
 #~ msgid "Persian"
 #~ msgstr "Versioon %1"
@@ -13984,13 +14080,6 @@ msgstr "Kohandatud olek:"
 #~| msgid "File:"
 #~ msgid "Vietnamese"
 #~ msgstr "Fail:"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Ruqola seadistamine"
 
 #, fuzzy
 #~| msgctxt "@title:window"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
 "PO-Revision-Date: 2026-02-21 13:50+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -12750,16 +12750,44 @@ msgid "Fix upload Custom Sound"
 msgstr "Corriger le téléchargement du son personnalisé"
 
 #~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Ouvrir la pièce jointe ?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Ouvrir la pièce jointe <filename>%1</filename> ? <nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Ouvrir"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Ouvrir avec « %1 »"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "Ou&vrir avec..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "Enregistrer &sous..."
+
+#~ msgctxt "@title:window"
+#~ msgid "Save File"
+#~ msgstr "Enregistrer un fichier"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Erreur lors de l'enregistrement du fichier"
+
+#~ msgctxt "@title:window"
 #~ msgid "Description"
 #~ msgstr "Description"
 
 #~ msgctxt "@action"
 #~ msgid "Show Description…"
 #~ msgstr "Afficher une description..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Erreur lors de l'enregistrement du fichier"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Un redémarrage est nécessaire l'application des modifications."
@@ -12789,58 +12817,6 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgstr ""
 #~ "Votre version date de plus de une année. Il vous est très fortement "
 #~ "recommandé de faire une mise à niveau."
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Ouvrir la pièce jointe ?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Ouvrir la pièce jointe <filename>%1</filename> ? <nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Ouvrir"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Ouvrir avec « %1 »"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Ou&vrir avec..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Enregistrer &sous..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Enregistrer un fichier"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Gras"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Italique"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Barré"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Bloc de code"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Texte de citation"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Insérer un lien"
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12892,11 +12868,96 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgstr "Quelques correction de bogues :"
 
 #~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Gras"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Italique"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Barré"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Bloc de code"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Texte de citation"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Insérer un lien"
+
+#~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Restaurer"
 
+#~ msgctxt "@action"
+#~ msgid "Remove…"
+#~ msgstr "Supprimer..."
+
+#~ msgid "Do you want to remove it?"
+#~ msgstr "Voulez-vous vraiment le supprimer ?"
+
+#~ msgctxt "@title"
+#~ msgid "Remove"
+#~ msgstr "Supprimer"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure AI text plugins"
+#~ msgstr "Configurer les modules externes d'IA pour le texte"
+
+#~ msgid "Ask AI…"
+#~ msgstr "Demander à l'IA..."
+
+#~ msgctxt "@action"
+#~ msgid "Configure…"
+#~ msgstr "Configurer..."
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Engine"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Openai IA"
+#~ msgstr "Configurer un moteur"
+
+#, fuzzy
+#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Chargement en cours..."
+
+#~ msgid "No new version found."
+#~ msgstr "Aucune nouvelle version n'a été trouvée."
+
+#~ msgctxt "@info:shell"
+#~ msgid "Attach File"
+#~ msgstr "Joindre un fichier"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Impossible d'ouvrir un journal."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Afficher un journal"
+
+#~ msgid "Private"
+#~ msgstr "Privé"
+
+#~ msgid "Installed"
+#~ msgstr "Installé"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "Gros bouton bleu"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Rejoindre les canaux par défaut"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Messages avec étoiles"
@@ -12913,26 +12974,8 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Messages du fil de discussions non lus"
 
-#~ msgid "System Messages"
-#~ msgstr "Messages du système"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Rejoindre les canaux par défaut"
-
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Vérifié"
-
-#~ msgid "Private"
-#~ msgstr "Privé"
-
-#~ msgid "Installed"
-#~ msgstr "Installé"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marquer comme lu"
+#~ msgid "(Mark as Read)"
+#~ msgstr "(Marquer comme lu)"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Nom d'utilisateur ou courriel :"
@@ -12965,53 +13008,64 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "Server Url:"
 #~ msgstr "URL du serveur :"
 
+#~ msgid "Message %1"
+#~ msgstr "Message %1"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Marquer comme lu"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Reset E2E"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Reset"
+#~ msgstr "Ré-initialiser la clé « E2E »"
+
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Tous les utilisateurs de cette équipe peuvent écrire des messages."
 
-#~ msgid "Message %1"
-#~ msgstr "Message %1"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Vérifié"
 
-#~ msgid "(Mark As Read)"
-#~ msgstr "(Marquer comme lu)"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Impossible d'ouvrir un journal."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Afficher un journal"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "Gros bouton bleu"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgid "Select All"
-#~ msgstr "Tout sélectionner"
+#~ msgid "System Messages"
+#~ msgstr "Messages du système"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Ré-initialiser « TOTP »"
 
-#~ msgid "Add..."
-#~ msgstr "Ajouter..."
+#~ msgid "Create"
+#~ msgstr "Créer"
 
-#~ msgid "Modify..."
-#~ msgstr "Modifier..."
+#~ msgid "Set as Favorite"
+#~ msgstr "Marquer comme favori"
 
-#~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Dossier - %1"
+#~ msgid "Search rooms…"
+#~ msgstr "Rechercher des salons..."
+
+#~ msgid "Copy Message"
+#~ msgstr "Copier le message"
+
+#, fuzzy
+#~| msgid "Search rooms…"
+#~ msgctxt "Placeholder"
+#~ msgid "Search rooms…"
+#~ msgstr "Rechercher des salons..."
+
+#, fuzzy
+#~| msgid "Search users…"
+#~ msgctxt "Placeholder"
+#~ msgid "Search users…"
+#~ msgstr "Rechercher des utilisateurs..."
 
 #~ msgid "Search channels…"
 #~ msgstr "Rechercher des canaux..."
 
-#~ msgid "Go to Message"
-#~ msgstr "Aller au message"
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Cliquez ici pour en charger davantage...)"
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Dossier - %1"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -13023,9 +13077,27 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "Version 2.2"
 #~ msgstr "Version 2.2"
 
+#~ msgid "Version 2.3"
+#~ msgstr "Version 2.3"
+
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Quoi de neuf dans Ruqola"
+
+#~ msgid "Select All"
+#~ msgstr "Tout sélectionner"
+
+#~ msgid "Go to Message"
+#~ msgstr "Aller au message"
+
+#~ msgid "Add..."
+#~ msgstr "Ajouter..."
+
+#~ msgid "Modify..."
+#~ msgstr "Modifier..."
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Cliquez ici pour en charger davantage...)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -13490,9 +13562,6 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "Close"
 #~ msgstr "Fermer"
 
-#~ msgid "Configure..."
-#~ msgstr "Configurer..."
-
 #~ msgid "Detect language"
 #~ msgstr "Détecter une langue"
 
@@ -13701,10 +13770,6 @@ msgstr "Corriger le téléchargement du son personnalisé"
 
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Configurer un moteur"
 
 #~ msgid "Use Free License Key"
 #~ msgstr "Utiliser une clé de licence libre"
