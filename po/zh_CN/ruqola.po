@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr ""
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "Copyright © 2020-2025 Ruqola authors"
+msgstr ""
 
 #: apps/main.cpp:66
 #, kde-format
@@ -9218,10 +9217,9 @@ msgid "Impossible to create zip file."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to open %1"
+#, kde-format
 msgid "Impossible to export account."
-msgstr "无法打开 %1"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -10361,12 +10359,10 @@ msgid "Stop"
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Quote Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
-msgstr "引用文本"
+msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
 #, kde-format
@@ -12241,11 +12237,3 @@ msgstr ""
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr ""
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "删除线"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "插入链接"
