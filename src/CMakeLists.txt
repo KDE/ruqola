@@ -30,7 +30,7 @@ if(APPLE)
             MACOSX_BUNDLE_GUI_IDENTIFIER
                 "org.kde.ruqola"
             MACOSX_BUNDLE_COPYRIGHT
-                "2020-2025 The Ruqola Developers"
+                "2020-2026 The Ruqola Developers"
     )
 endif()
 
