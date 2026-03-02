@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 02:44+0000\n"
-"PO-Revision-Date: 2025-10-09 00:23+0200\n"
+"PO-Revision-Date: 2026-03-01 04:37+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -29,10 +29,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket Chat -ის კლიენტი"
 
 #: apps/main.cpp:64
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "© 2020-2025 Ruqola-ის ავტორები. ყველა უფლება დაცულია"
+msgstr "© 2020-2026 Ruqola-ის ავტორები. ყველა უფლება დაცულია"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -404,27 +403,24 @@ msgid "Allow to read oauth app settings"
 msgstr "OAuth აპის პარამეტრების წაკითხვის დაშვება"
 
 #: core/apps/appsmarketplaceinfo.cpp:683
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "OAuth აპის პარამეტრების ჩაწერის დაშვება"
+msgstr "ვიდეოკონფერენციის პარამეტრების შენახვის დაშვება"
 
 #: core/apps/appsmarketplaceinfo.cpp:685
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "OAuth აპის პარამეტრების წაკითხვის დაშვება"
+msgstr "ვიდეოკონფერენციის პარამეტრების წაკითხვის დაშვება"
 
 #: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "ვიდეოკონფერენციის პროვაიდერის პარამეტრების შეცვლის დაშვება"
 
 #: core/apps/appsmarketplaceinfo.cpp:689
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "როლის ჩაწერის უფლება"
+msgstr "რეგისტრაციის ღილაკის დაშვება"
 
 #: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
@@ -442,16 +438,14 @@ msgid "Allow to read role"
 msgstr "როლის წაკითხვის უფლება"
 
 #: core/apps/appsmarketplaceinfo.cpp:701
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mute Focused Conversations"
+#, kde-format
 msgid "Out Bound Communication"
-msgstr "ფოკუსის მქონე საუბრების დადუმება"
+msgstr "საზღვრებსგარეთ კომუნიკაცია"
 
 #: core/apps/appsmarketplaceinfo.cpp:703
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "ყველა ოთახის ნახვა სამუშაო სივრცეში"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1922,10 +1916,9 @@ msgid "Start with specific account"
 msgstr "მითითებული ანგარიშით გაშვება"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, fuzzy, kde-format
-#| msgid "Account Name:"
+#, kde-format
 msgid "Account Name"
-msgstr "ანგარიშის სახელი:"
+msgstr "ანგარიშის სახელი"
 
 #: core/ruqolacommandlineparser.cpp:53
 #, kde-format
@@ -1934,10 +1927,9 @@ msgid "Show Message"
 msgstr "შეტყობინების ჩვენება"
 
 #: core/ruqolacommandlineparser.cpp:53
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "შეტყობინება"
+msgstr "შეტყობინების Url"
 
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
@@ -1952,77 +1944,70 @@ msgid "Lists the available options for user feedback"
 msgstr "მომხმარებლის უკუკავშირის ხელმისაწვდომი ვარიანტები"
 
 #: core/ruqolacommandlineparser.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Start a Call"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "ზარის დაწყება"
+msgstr "გაშვება ინტერნეტგარეშე რეჟიმში"
 
 #: core/ruqolacommandlineparser.cpp:62
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "გააქტიურებულია"
+msgstr "გამართვის რეჟიმის გააქტიურება"
 
 #: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "მონაცემთა ბაზის გასუფთავება (გამოიყენეთ სიფრთხილით)"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "ახლა"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "1 წამი"
+msgstr[0] "%1 წამი"
 msgstr[1] "%1 წამი"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:67
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 წუთი"
+msgstr[1] "%1 წუთი"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 საათი"
+msgstr[1] "%1 საათი"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 დღე"
+msgstr[1] "%1 დღე"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
-msgstr[0] "წელი"
-msgstr[1] "წელი"
+msgstr[0] "%1 წელი"
+msgstr[1] "%1 წელი"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:90
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
-msgstr[0] "თვე"
-msgstr[1] "თვე"
+msgstr[0] "%1 თვე"
+msgstr[1] "%1 თვე"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -3193,7 +3178,7 @@ msgstr "ახალი ხმის შექმნა"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "mp3 ფაილი"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
 #, kde-format
@@ -3275,11 +3260,10 @@ msgid "Quick Reactions"
 msgstr "სწრაფი რეაქციები"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "შეტყობინებები სულ"
+msgstr "დროის შტამპი შეტყობინებებში"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -7815,8 +7799,7 @@ msgid "Animate GIFs"
 msgstr "GIF-ების ანიმაცია"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Use local dataBase"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
 msgstr "ლოკალური ბაზის გამოყენება"
@@ -8018,18 +8001,15 @@ msgstr "მონაცემთა ბაზის გამჭოლი და
 #: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
-msgstr ""
+msgstr "მონაცემთა ბაზის ოთახში დარჩენილი აკრეფილი ინფორმაცია"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase Room Subscriptions"
-msgstr "მონაცემთა ბაზის ოთახები"
+msgstr "მონაცემთა ბაზის ოთახის გამოწერები"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "კოპირება"
@@ -8800,25 +8780,22 @@ msgid "Select Room Avatar"
 msgstr "აირჩეთ ოთახის ავატარი"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "საიდან:"
+msgstr "ჩემგან"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "შეტყობინება ვერ ვიპოვე."
+msgstr "პოულობს თქვენს მიერ გაგზავნილ შეტყობინებებს."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "საიდან:"
+msgstr "ვისგან"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
@@ -8826,101 +8803,94 @@ msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
+"ეძებს შეტყობინებას კონკრეტული მომხმარებლისგან. (გამოიყენეთ მომხმარებლის "
+"სახელის ფორმატი ჰარეს გარეშე)"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
-msgstr ""
+msgstr "მიმდევრობა: დაღმ"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr ""
+msgstr "ალაგებს შეტყობინებას დაღმავალი დროის შტამპით"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "წინ"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "არხების გაფილტვრა (%1)"
+msgstr "თარიღით გაფილტვრა, როგორც %1"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "შემდეგ"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "დაყოვნება:"
+msgstr "დღე"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "თარგმანი"
+msgstr "აქვს მდებარეობა"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "პოულობს შეტყობინებებს, რომლებიც შეიცავს მდებარეობას."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "აქვს url"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "ეძებს შეტყობინებებს, რომლებიც ბმულს შეიცავენ"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "შეტყობინება მიჭიკარტებულია"
+msgstr "მიჭიკარტებულია"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "მიმდინარე ოთახში მიმაგრებული შეტყობინებების ჩვენება."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "დაწყება"
+msgstr "აქვს ვარსკვლავი"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
+msgstr "აჩვენებს შეტყობინებებს, რომლებსაც ვარსკვლავი დაუსვით."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -8956,30 +8926,26 @@ msgstr ""
 "\">რეგულარული გამოსახულებებითაც</a> ეძებოთ. მაგ: <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "პარამეტრები"
+msgstr "პარამეტრი"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "რეგულარული გამოსახულებები"
+msgstr "რეგულარული გამოსახულება"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Camel Case"
-msgstr "მომხმარებლის იგნორირება"
+msgstr "აქლემრეგისტრის იგნორი"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "ძებნის ვარიანტის ხაზის დამალვა, ან ჩვენება"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9524,10 +9490,9 @@ msgid "Impossible to create zip file."
 msgstr "Zip ფაილის შექმნა შეუძლებელია."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "მონაცემების გატანა შეუძლებელია."
+msgstr "ანგარიშის გატანა შეუძლებელია."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -9535,28 +9500,24 @@ msgid "Export Done."
 msgstr "გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, fuzzy, kde-format
-#| msgid "Account %1: export config done."
+#, kde-format
 msgid "<b>Account %1:</b> export config done."
-msgstr "ანგარიში %1: კონფიგურაციის გატანა დასრულდა."
+msgstr "<b>ანგარიში %1:</b> კონფიგურაციის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export cache done."
-msgstr "ანგარიში %1: კეშის გატანა დასრულდა."
+msgstr "<b>ანგარიში %1:</b> კეშის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, fuzzy, kde-format
-#| msgid "Account %1: export logs done."
+#, kde-format
 msgid "<b>Account %1:</b> export logs done."
-msgstr "ანგარიში %1: ჟურნალის გატანა დასრულდა."
+msgstr "<b>ანგარიში %1:</b> ჟურნალის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export database done."
-msgstr "ანგარიში %1: კეშის გატანა დასრულდა."
+msgstr "<b>ანგარიში %1:</b> მონაცემთა ბაზის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
@@ -9571,7 +9532,7 @@ msgstr "ანგარიშები გატანილია."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "შექმნილი Zip: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9623,8 +9584,7 @@ msgid "Import Accounts"
 msgstr "ანგარიშების შემოტანა"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:32
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "გაუქმება"
@@ -10027,11 +9987,10 @@ msgid "Manage Device"
 msgstr "მოწყობილობის მართვა"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Hide \"User Join\" messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "\"მომხმარებელი შემოვიდა\" შეტყობინებების დამალვა"
+msgstr "დროის შტამპი შეტყობინებებში"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10247,13 +10206,13 @@ msgstr "გაფრთხილებების ხმის სიძლი�
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr ""
+msgstr "ზარის დამრეკის ხმა:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "მთავარი ხმა:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
 #, kde-format
@@ -10684,12 +10643,10 @@ msgid "Message has been starred"
 msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1029
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
+msgstr "შეტყობინებას აქვს ნათარგმნი ტექსტი"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1033
 #, kde-format
@@ -10704,19 +10661,16 @@ msgid "Add reaction"
 msgstr "რეაქციის დამატება"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr "შეჩერება"
+msgstr "გაჩერება"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1043
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
-msgstr "ტექსტის წაკითხვა"
+msgstr "ტექსტის წარმოთქმა"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
 #, kde-format
@@ -10728,7 +10682,7 @@ msgstr "WebDav სერვერის დამატება"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "დროის შტამპის ჩასმა"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -11683,18 +11637,16 @@ msgid "Hide menu bar"
 msgstr "მენიუს ზოლის დამალვა"
 
 #: widgets/ruqolamainwindow.cpp:1445
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "ონლაინ"
+msgstr "ონლაინ-მუშაობა"
 
 #: widgets/ruqolamainwindow.cpp:1448
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "გათიშული"
+msgstr "ოფლაინ მუშაობა"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11874,66 +11826,60 @@ msgstr "შეტყობინების მიყოლის გაუქ�
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr ""
+msgstr "დროის შტამპის დამატება"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Short Time (%1)"
-msgstr ""
+msgstr "მოკლე დრო (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "დიდი დრო (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
 #, kde-format
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "მოკლე თარიღი (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, fuzzy, kde-format
-#| msgid "Default (%1)"
+#, kde-format
 msgid "Long Date (%1)"
-msgstr "ნაგულისხმევი (%1)"
+msgstr "გრძელი თარიღი (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgid "Full Date and Time (%1)"
-msgstr "არხების გაფილტვრა (%1)"
+msgstr "სრული თარიღი და დრო (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr ""
+msgstr "სრული თარიღი და დრო (გრძელი) (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
-msgstr ""
+msgstr "ფარდობით დრო (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "ლოკალური დრო:"
+msgstr "ენა"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "თარიღი"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "დროის სარტყელი"
+msgstr "დრო"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
 msgstr "ფორმატი"
 
@@ -11977,46 +11923,35 @@ msgstr "ანგარიშის დამატება…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "კოდის ბლოკის უფრო ადვილად კოპირება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "გაუმჯობესდა ოთახში მომხმარებლების სია."
+msgstr "გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "მიმაგრებული ფაილების ჩვენება - %1"
+msgstr "მიმაგრებული ფაილის ველების ჩვენება."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "ხაზგარეშე რეჟიმი (ექსპერიმენტული)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
-msgstr ""
+msgstr "განხორციელდა რიგში მყოფი აკრეფილი მონაცემთა ბაზის საცავი."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
-msgstr "JITSI-ის მხარდაჭერის გასწორება."
+msgstr "გასწორდა RC 8.0.0-ის მხარდაჭერა."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Add AI Rocket Chat Actions support."
 msgid "Add Attachment Actions Support."
-msgstr "დაემატა ხი-ით Rocket Chat-ის ქმედებების მხარდაჭერა."
+msgstr "დაემატა ქმედებების მხარდაჭერა მიმაგრებული ფაილებისთვის."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
-msgstr "მომხმარებლის დარეპორტების მხარდაჭერის დამატება"
+msgstr "დაემატა დროის შტამპის მხარდაჭერა."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -12634,24 +12569,22 @@ msgstr "გასწორდა მიმაგრებული ფაილ�
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "ლოკალური თარგმანის შენახვა ლოკალურ მონაცემთა ბაზაში."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr ""
+msgstr "გასწორდა ოთახის წაშლა (ლოკალურ მონაცემთა ბაზებში)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:221
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Fix export database."
-msgstr "ანგარიშის თარიღი"
+msgstr "გასწორდა მონაცემთა ბაზის გატანა."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:222
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Fix upload Custom Sound"
-msgstr "მორგებული ხმები"
+msgstr "გასწორდა მორგებული ხმების ატვირთვა"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"
