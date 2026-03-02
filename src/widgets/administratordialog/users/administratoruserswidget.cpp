@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -241,11 +241,14 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::DeleteUserJob(this);
-        RocketChatRestApi::UserBaseJob::UserInfo info;
-        info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
+        qDebug() << " index " << index;
         const QByteArray userId = index.data().toByteArray();
-        info.userIdentifier = QString::fromLatin1(userId);
+        const RocketChatRestApi::UserBaseJob::UserInfo info{
+            .userIdentifier = QString::fromLatin1(userId),
+            .userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId,
+        };
         job->setUserInfo(info);
+        qDebug() << "info  " << info;
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::DeleteUserJob::deleteUserDone, this, [this, userId]() {
             slotDeleteUserDone(userId);
