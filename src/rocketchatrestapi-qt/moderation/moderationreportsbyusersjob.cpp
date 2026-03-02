@@ -73,11 +73,12 @@ QNetworkRequest ModerationReportsByUsersJob::request() const
 
     QUrlQuery queryUrl;
     if (mModerationReportsByUsersInfo.isValid()) {
-        queryUrl.addQueryItem(u"oldest"_s, mModerationReportsByUsersInfo.mOldest.toString(Qt::ISODate));
-        queryUrl.addQueryItem(u"latest"_s, mModerationReportsByUsersInfo.mLatest.toString(Qt::ISODate));
+        queryUrl.addQueryItem(u"oldest"_s, mModerationReportsByUsersInfo.mOldest.date().toString(Qt::ISODate) + u"T00:00:00.000Z"_s);
+        queryUrl.addQueryItem(u"latest"_s, mModerationReportsByUsersInfo.mLatest.date().toString(Qt::ISODate) + u"T23:59:59.999Z"_s);
         if (!mModerationReportsByUsersInfo.mSelector.isEmpty()) {
             queryUrl.addQueryItem(u"selector"_s, mModerationReportsByUsersInfo.mSelector);
         }
+        queryUrl.addQueryItem(u"sort"_s, u"{\"reports.ts\":1}"_s);
     }
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);

@@ -5,7 +5,6 @@
 */
 
 #include "moderationreportsbyusersjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderation/moderationreportsbyusersjob.h"
 
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ModerationReportsByUsersJobTest)
 using namespace RocketChatRestApi;
 ModerationReportsByUsersJobTest::ModerationReportsByUsersJobTest(QObject *parent)
@@ -46,7 +46,9 @@ void ModerationReportsByUsersJobTest::shouldGenerateRequest()
         info.mOldest = QDateTime(QDate(2022, 1, 5), QTime(5, 10, 3));
         job.setModerationReportsByUsersInfo(info);
         RuqolaRestApiHelper::verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/moderation.reportsByUsers?oldest=2022-01-05T05:10:03&latest=2023-01-05T05:10:03"_s));
+        QCOMPARE(
+            request.url().toDisplayString(),
+            u"http://www.kde.org/api/v1/moderation.reportsByUsers?oldest=2022-01-05T00:00:00.000Z&latest=2023-01-05T23:59:59.999Z&sort=%7B%22reports.ts%22:1%7D"_s);
     }
 }
 
