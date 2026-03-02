@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -9,13 +9,14 @@
 #include <QWidget>
 class QDateEdit;
 class QToolButton;
+class QDebug;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorModerationRangeWidget : public QWidget
 {
     Q_OBJECT
 public:
     struct DateTimeRange {
-        QDateTime fromDate;
-        QDateTime toDate;
+        QDate fromDate;
+        QDate toDate;
         [[nodiscard]] bool isValid() const;
     };
     explicit AdministratorModerationRangeWidget(QWidget *parent = nullptr);
@@ -25,6 +26,7 @@ public:
 
 Q_SIGNALS:
     void rangeChanged();
+    void allRequested();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initializeMenu();
@@ -33,5 +35,4 @@ private:
     QDateEdit *const mToDate;
     QToolButton *const mFilterDate;
 };
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorModerationRangeWidget::DateTimeRange &t);

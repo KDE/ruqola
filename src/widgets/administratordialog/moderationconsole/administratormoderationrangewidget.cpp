@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -52,9 +52,10 @@ AdministratorModerationRangeWidget::~AdministratorModerationRangeWidget() = defa
 
 AdministratorModerationRangeWidget::DateTimeRange AdministratorModerationRangeWidget::range() const
 {
-    AdministratorModerationRangeWidget::DateTimeRange r;
-    r.fromDate = QDateTime(mFromDate->date(), QTime(0, 0, 0));
-    r.toDate = QDateTime(mToDate->date(), QTime(23, 59, 59));
+    const AdministratorModerationRangeWidget::DateTimeRange r{
+        .fromDate = mFromDate->date(),
+        .toDate = mToDate->date(),
+    };
     return r;
 }
 
@@ -74,6 +75,12 @@ void AdministratorModerationRangeWidget::slotRangeChanged()
 void AdministratorModerationRangeWidget::initializeMenu()
 {
     auto menu = new QMenu(mFilterDate);
+    auto allAction = new QAction(i18nc("@action", "All"), menu);
+    menu->addAction(allAction);
+    connect(allAction, &QAction::triggered, this, [this]() {
+        Q_EMIT allRequested();
+    });
+
     auto todayAction = new QAction(i18nc("@action", "Today"), menu);
     menu->addAction(todayAction);
     connect(todayAction, &QAction::triggered, this, [this]() {

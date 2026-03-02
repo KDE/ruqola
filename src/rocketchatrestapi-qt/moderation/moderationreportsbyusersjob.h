@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -18,8 +18,8 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT ModerationReportsByUsersJob : public RestAp
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT ModerationReportsByUsersInfo {
-        QDateTime mLatest;
-        QDateTime mOldest;
+        QDate mLatest;
+        QDate mOldest;
         QString mSelector;
         [[nodiscard]] bool isValid() const
         {
