@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -68,8 +68,8 @@ QNetworkRequest ModerationUserReportsJob::request() const
 
     QUrlQuery queryUrl;
     if (mModerationUserReportsInfo.isValid()) {
-        queryUrl.addQueryItem(u"oldest"_s, mModerationUserReportsInfo.mOldest.toString(Qt::ISODate));
-        queryUrl.addQueryItem(u"latest"_s, mModerationUserReportsInfo.mLatest.toString(Qt::ISODate));
+        queryUrl.addQueryItem(u"oldest"_s, mModerationUserReportsInfo.mOldest.toString(Qt::ISODate) + u"T00:00:00.000Z"_s);
+        queryUrl.addQueryItem(u"latest"_s, mModerationUserReportsInfo.mLatest.toString(Qt::ISODate) + u"T23:59:59.999Z"_s);
         if (!mModerationUserReportsInfo.mSelector.isEmpty()) {
             queryUrl.addQueryItem(u"selector"_s, mModerationUserReportsInfo.mSelector);
         }

@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -79,8 +79,10 @@ void ModerationReportedUserConsoleTreeWidget::slotLoadElements(int offset, int c
     auto job = new RocketChatRestApi::ModerationUserReportsJob(this);
 
     RocketChatRestApi::ModerationUserReportsJob::ModerationUserReportsInfo info;
-    info.mOldest = mModerationRanges.fromDate;
-    info.mLatest = mModerationRanges.toDate;
+    if (mModerationRanges.isValid()) {
+        info.mOldest = mModerationRanges.fromDate;
+        info.mLatest = mModerationRanges.toDate;
+    }
     info.mSelector = searchName;
 
     RocketChatRestApi::QueryParameters parameters;

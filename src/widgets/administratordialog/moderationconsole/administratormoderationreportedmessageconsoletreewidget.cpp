@@ -1,16 +1,14 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "administratormoderationreportedmessageconsoletreewidget.h"
-using namespace Qt::Literals::StringLiterals;
-
 #include "moderationreportedmessageconsoletreewidget.h"
-
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorModerationReportedMessageConsoleTreeWidget::AdministratorModerationReportedMessageConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mModerationConsoleTreeWidget(new ModerationReportedMessageConsoleTreeWidget(account, this))
@@ -28,6 +26,9 @@ AdministratorModerationReportedMessageConsoleTreeWidget::AdministratorModeration
     mainLayout->addWidget(mModerationConsoleTreeWidget);
     connect(mAdministratorModerationRangeWidget, &AdministratorModerationRangeWidget::rangeChanged, this, [this]() {
         mModerationConsoleTreeWidget->setModerationRanges(mAdministratorModerationRangeWidget->range());
+    });
+    connect(mAdministratorModerationRangeWidget, &AdministratorModerationRangeWidget::allRequested, this, [this]() {
+        mModerationConsoleTreeWidget->setModerationRanges({});
     });
 }
 

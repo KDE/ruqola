@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -28,6 +28,9 @@ AdministratorModerationReportedUserConsoleTreeWidget::AdministratorModerationRep
     mainLayout->addWidget(mModerationConsoleTreeWidget);
     connect(mAdministratorModerationRangeWidget, &AdministratorModerationRangeWidget::rangeChanged, this, [this]() {
         mModerationConsoleTreeWidget->setModerationRanges(mAdministratorModerationRangeWidget->range());
+    });
+    connect(mAdministratorModerationRangeWidget, &AdministratorModerationRangeWidget::allRequested, this, [this]() {
+        mModerationConsoleTreeWidget->setModerationRanges({});
     });
 }
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -42,8 +42,8 @@ void ModerationReportsByUsersJobTest::shouldGenerateRequest()
         ModerationReportsByUsersJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
         ModerationReportsByUsersJob::ModerationReportsByUsersInfo info;
-        info.mLatest = QDateTime(QDate(2023, 1, 5), QTime(5, 10, 3));
-        info.mOldest = QDateTime(QDate(2022, 1, 5), QTime(5, 10, 3));
+        info.mLatest = QDate(2023, 1, 5);
+        info.mOldest = QDate(2022, 1, 5);
         job.setModerationReportsByUsersInfo(info);
         RuqolaRestApiHelper::verifyAuthentication(&job, request);
         QCOMPARE(
