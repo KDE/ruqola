@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -126,16 +126,18 @@ void CustomUserStatusTreeWidget::editClicked()
     dlg->setUserStatusInfo(userStatusinfo);
     if (dlg->exec()) {
         const AdministratorCustomUserStatusCreateWidget::UserStatusInfo info = dlg->userStatusInfo();
-        RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo statusUpdateInfo;
-        statusUpdateInfo.name = info.name;
-        statusUpdateInfo.statusType = Utils::presenceStatusToString(info.statusType);
-        statusUpdateInfo.identifier = userStatus.identifier();
+        if (userStatusinfo != info) {
+            RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo statusUpdateInfo;
+            statusUpdateInfo.name = info.name;
+            statusUpdateInfo.statusType = Utils::presenceStatusToString(info.statusType);
+            statusUpdateInfo.identifier = userStatus.identifier();
 
-        auto job = new RocketChatRestApi::CustomUserStatusUpdateJob(this);
-        job->setStatusUpdateInfo(statusUpdateInfo);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        if (!job->start()) {
-            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start CustomUserStatusUpdateJob";
+            auto job = new RocketChatRestApi::CustomUserStatusUpdateJob(this);
+            job->setStatusUpdateInfo(statusUpdateInfo);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            if (!job->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start CustomUserStatusUpdateJob";
+            }
         }
     }
     delete dlg;

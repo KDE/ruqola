@@ -1,11 +1,10 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "administratorinviteswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorinvitesfilterproxymodel.h"
 #include "connection.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mInviteTreeView(new InviteTreeView(this))
