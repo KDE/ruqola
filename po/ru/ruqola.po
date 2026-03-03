@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"POT-Creation-Date: 2026-03-03 00:46+0000\n"
 "PO-Revision-Date: 2026-02-18 08:41+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -3370,37 +3370,44 @@ msgctxt "@label:textbox"
 msgid "To:"
 msgstr "Получатель:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:77
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
+#, fuzzy, kde-format
+#| msgid "All"
+msgctxt "@action"
+msgid "All"
+msgstr "Все"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Today"
 msgstr "Сегодня"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:87
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:94
 #, kde-format
 msgctxt "@action"
 msgid "Yesterday"
 msgstr "Вчера"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:104
 #, kde-format
 msgctxt "@action"
 msgid "This week"
 msgstr "На этой неделе"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:114
 #, kde-format
 msgctxt "@action"
 msgid "Previous week"
 msgstr "На прошлой неделе"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:117
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "This month"
 msgstr "В этом месяце"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:128
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Previous month"
@@ -3476,7 +3483,7 @@ msgid "See messages"
 msgstr "Просмотреть сообщения"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3489,14 +3496,14 @@ msgid "Delete all Messages"
 msgstr "Удалить все сообщения"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:147
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Деактивировать пользователя"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3508,7 +3515,7 @@ msgstr ""
 "комнат без возможности восстановления."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3548,13 +3555,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Удаление всех сообщений"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:136
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Просмотреть жалобы"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -3562,7 +3569,7 @@ msgstr ""
 "Будут удалены все жалобы. Сообщения, на которые поданы жалобы, останутся без "
 "изменений."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
