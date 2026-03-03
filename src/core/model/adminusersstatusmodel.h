@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT AdminUsersStatusModel : public AdminUsersBaseModel
 {
     Q_OBJECT
 public:
-    enum AdminUsersAllRoles {
+    enum AdminUsersAllRoles { // Keep order
         Name,
         UserName,
         Email,

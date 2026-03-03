@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -14,20 +14,20 @@ class LIBRUQOLACORE_EXPORT AdminUsersAllModel : public AdminUsersBaseModel
 {
     Q_OBJECT
 public:
-    enum AdminUsersAllRoles {
+    enum AdminUsersStatusRoles { // Keep order
         Name,
         UserName,
         Email,
         Roles,
-        Status,
         UserId,
+        Administrator,
+        Status,
         ActiveUserDisplay,
         ActiveUser,
-        Administrator,
         RegistrationStatus,
         LastColumn = RegistrationStatus,
     };
-    Q_ENUM(AdminUsersAllRoles)
+    Q_ENUM(AdminUsersStatusRoles)
 
     explicit AdminUsersAllModel(QObject *parent = nullptr);
     ~AdminUsersAllModel() override;
