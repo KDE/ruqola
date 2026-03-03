@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"POT-Creation-Date: 2026-03-03 02:55+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3155,7 +3155,7 @@ msgstr "Kendu Emojia"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:118
-#: widgets/administratordialog/users/administratoruserswidget.cpp:298
+#: widgets/administratordialog/users/administratoruserswidget.cpp:301
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3169,7 +3169,7 @@ msgstr "Gehitu…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:305
+#: widgets/administratordialog/users/administratoruserswidget.cpp:308
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3183,7 +3183,7 @@ msgstr "Aldatu…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
-#: widgets/administratordialog/users/administratoruserswidget.cpp:342
+#: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3350,37 +3350,44 @@ msgctxt "@label:textbox"
 msgid "To:"
 msgstr "Nori:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:77
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
+#, fuzzy, kde-format
+#| msgid "All"
+msgctxt "@action"
+msgid "All"
+msgstr "Guztiak"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Today"
 msgstr "Gaur"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:87
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:94
 #, kde-format
 msgctxt "@action"
 msgid "Yesterday"
 msgstr "Atzo"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:104
 #, kde-format
 msgctxt "@action"
 msgid "This week"
 msgstr "Aste honetan"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:114
 #, kde-format
 msgctxt "@action"
 msgid "Previous week"
 msgstr "Aurreko astean"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:117
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "This month"
 msgstr "Hilabete honetan"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:128
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Previous month"
@@ -3452,7 +3459,7 @@ msgid "See messages"
 msgstr "Ikusi mezuak"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3465,14 +3472,14 @@ msgid "Delete all Messages"
 msgstr "Ezabatu mezu guztiak"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:147
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Desaktibatu erabiltzailea"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3482,7 +3489,7 @@ msgstr ""
 "Berri emandako mezu guztiak haien geletatik betiko ezabatuko dira."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3522,13 +3529,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Ezabatu mezu guztiak"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:136
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Ikusi txostenak"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -3536,7 +3543,7 @@ msgstr ""
 "Txosten guztiak ezabatuko dira eta berri emandako mezuek ez dute eraginik "
 "izango."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -3796,13 +3803,13 @@ msgid "Remove User"
 msgstr "Kendu erabiltzailea"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:131
-#: widgets/administratordialog/users/administratoruserswidget.cpp:355
+#: widgets/administratordialog/users/administratoruserswidget.cpp:358
 #, kde-format
 msgid "No user found"
 msgstr "Ez da erabiltzaileri aurkitu"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
-#: widgets/administratordialog/users/administratoruserswidget.cpp:360
+#: widgets/administratordialog/users/administratoruserswidget.cpp:363
 #: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4249,49 +4256,49 @@ msgstr "Aktibatuta"
 msgid "Do you want to remove this user?"
 msgstr "Erabiltzaile hori kendu nahi duzu?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:292
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Gonbidatu…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Desaktibatu"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Aktibo"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Kendu administratzailea"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Egin administratzaile"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:329
+#: widgets/administratordialog/users/administratoruserswidget.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Berrezarri E2E gakoa"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:335
+#: widgets/administratordialog/users/administratoruserswidget.cpp:338
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Berrezarri Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:470
+#: widgets/administratordialog/users/administratoruserswidget.cpp:473
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4307,24 +4314,24 @@ msgstr ""
 "eta, Rocket.Chat-ek ezingo du lehengoratu lerroan erabiltzailerik ez duen "
 "zifratutako geletarako sarbidea."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:474
+#: widgets/administratordialog/users/administratoruserswidget.cpp:477
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Berrezarri E2E gakoa"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:506
+#: widgets/administratordialog/users/administratoruserswidget.cpp:509
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1(e)rako E2E gakoa berrezarri da."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:506
+#: widgets/administratordialog/users/administratoruserswidget.cpp:509
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Berrezarri E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:519
+#: widgets/administratordialog/users/administratoruserswidget.cpp:522
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4333,14 +4340,14 @@ msgstr ""
 "Uneko Bi faktoreko TOTP berrezartzeak erabiltzailearen saioa itxiko du. "
 "Erabiltzaileak beranduago Bi faktorekoa berriz ezarri ahal izango du."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:520
-#: widgets/administratordialog/users/administratoruserswidget.cpp:551
+#: widgets/administratordialog/users/administratoruserswidget.cpp:523
+#: widgets/administratordialog/users/administratoruserswidget.cpp:554
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Berrezarri TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:551
+#: widgets/administratordialog/users/administratoruserswidget.cpp:554
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1(e)rako TOTP gakoa berrezarri da"

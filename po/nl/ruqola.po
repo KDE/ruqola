@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 02:44+0000\n"
+"POT-Creation-Date: 2026-03-03 02:55+0000\n"
 "PO-Revision-Date: 2026-02-25 12:22+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3146,7 +3146,7 @@ msgstr "Emoji verwijderen"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:118
-#: widgets/administratordialog/users/administratoruserswidget.cpp:298
+#: widgets/administratordialog/users/administratoruserswidget.cpp:301
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3160,7 +3160,7 @@ msgstr "Toevoegen…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:305
+#: widgets/administratordialog/users/administratoruserswidget.cpp:308
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3174,7 +3174,7 @@ msgstr "Wijzigen…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
-#: widgets/administratordialog/users/administratoruserswidget.cpp:342
+#: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3340,37 +3340,44 @@ msgctxt "@label:textbox"
 msgid "To:"
 msgstr "Aan:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:77
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
+#, fuzzy, kde-format
+#| msgid "All"
+msgctxt "@action"
+msgid "All"
+msgstr "Alles"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:84
 #, kde-format
 msgctxt "@action"
 msgid "Today"
 msgstr "Vandaag"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:87
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:94
 #, kde-format
 msgctxt "@action"
 msgid "Yesterday"
 msgstr "Gisteren"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:104
 #, kde-format
 msgctxt "@action"
 msgid "This week"
 msgstr "Deze week"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:114
 #, kde-format
 msgctxt "@action"
 msgid "Previous week"
 msgstr "Vorige week"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:117
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "This month"
 msgstr "Deze maand"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:128
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Previous month"
@@ -3442,7 +3449,7 @@ msgid "See messages"
 msgstr "Zie meldingen"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3455,14 +3462,14 @@ msgid "Delete all Messages"
 msgstr "Alle berichten verwijderen"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:147
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Gebruiker deactiveren"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3473,7 +3480,7 @@ msgstr ""
 "respectievelijke room."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3514,13 +3521,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Alle berichten verwijderen"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:136
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Zie rapporten"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:196
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -3528,7 +3535,7 @@ msgstr ""
 "Alle rapporten zullen verwijderd worden en de gerapporteerde berichten "
 "zullen niet beïnvloed worden."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -3788,13 +3795,13 @@ msgid "Remove User"
 msgstr "Gebruiker verwijderen"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:131
-#: widgets/administratordialog/users/administratoruserswidget.cpp:355
+#: widgets/administratordialog/users/administratoruserswidget.cpp:358
 #, kde-format
 msgid "No user found"
 msgstr "Geen gebruiker gevonden"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
-#: widgets/administratordialog/users/administratoruserswidget.cpp:360
+#: widgets/administratordialog/users/administratoruserswidget.cpp:363
 #: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4241,49 +4248,49 @@ msgstr "Geactiveerd"
 msgid "Do you want to remove this user?"
 msgstr "Wilt u deze gebruiker verwijderen?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:292
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Uitnodigen…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Deactiveren"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "Actief"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Admin verwijderen"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Beheerder maken"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:329
+#: widgets/administratordialog/users/administratoruserswidget.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "E2E-sleutel resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:335
+#: widgets/administratordialog/users/administratoruserswidget.cpp:338
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Totp resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:470
+#: widgets/administratordialog/users/administratoruserswidget.cpp:473
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4299,24 +4306,24 @@ msgstr ""
 "zal Rocket.Chat niet in staat zijn toegang te herstellen tot een "
 "versleutelde room die geen lid online heeft."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:474
+#: widgets/administratordialog/users/administratoruserswidget.cpp:477
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "E2E-sleutel resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:506
+#: widgets/administratordialog/users/administratoruserswidget.cpp:509
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "E2E-sleutel voor %1 is gereset."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:506
+#: widgets/administratordialog/users/administratoruserswidget.cpp:509
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "E2E resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:519
+#: widgets/administratordialog/users/administratoruserswidget.cpp:522
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4325,14 +4332,14 @@ msgstr ""
 "De huidige Twee-factor TOTP zal de gebruiker afmelden. De gebruiker zal in "
 "staat zijn om de Twee-factor later opnieuw in te stellen."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:520
-#: widgets/administratordialog/users/administratoruserswidget.cpp:551
+#: widgets/administratordialog/users/administratoruserswidget.cpp:523
+#: widgets/administratordialog/users/administratoruserswidget.cpp:554
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "TOTP resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:551
+#: widgets/administratordialog/users/administratoruserswidget.cpp:554
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "TOTP-sleutel voor %1 is gereset"
