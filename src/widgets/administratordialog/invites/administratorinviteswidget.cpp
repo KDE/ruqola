@@ -21,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mInviteTreeView(new InviteTreeView(this))

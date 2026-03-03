@@ -23,6 +23,10 @@ public:
         {
             return !name.isEmpty() && statusType != User::PresenceStatus::Unknown;
         }
+        [[nodiscard]] bool operator==(const UserStatusInfo &other) const
+        {
+            return name == other.name && statusType == other.statusType;
+        }
     };
 
     explicit AdministratorCustomUserStatusCreateWidget(QWidget *parent = nullptr);

@@ -14,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QPointer>
 #include <QTextStream>
+using namespace Qt::Literals::StringLiterals;
 #if HAVE_TEXT_CUSTOM_EDITOR
 ViewLogPlainTextEdit::ViewLogPlainTextEdit(QWidget *parent)
     : TextCustomEditor::PlainTextEditorWidget(new ViewLogPlainTextEditor(parent), parent)
