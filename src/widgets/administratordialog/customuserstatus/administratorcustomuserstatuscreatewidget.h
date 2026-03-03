@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -22,6 +22,10 @@ public:
         [[nodiscard]] bool isValid() const
         {
             return !name.isEmpty() && statusType != User::PresenceStatus::Unknown;
+        }
+        [[nodiscard]] bool operator==(const UserStatusInfo &other) const
+        {
+            return name == other.name && statusType == other.statusType;
         }
     };
 

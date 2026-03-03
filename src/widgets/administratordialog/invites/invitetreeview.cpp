@@ -1,17 +1,17 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "invitetreeview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/admininvitemodel.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
 
+using namespace Qt::Literals::StringLiterals;
 InviteTreeView::InviteTreeView(QWidget *parent)
     : QTreeView(parent)
 {
