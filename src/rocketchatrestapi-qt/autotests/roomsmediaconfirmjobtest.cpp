@@ -57,7 +57,7 @@ void RoomsMediaConfirmJobTest::shouldGenerateRequest()
         job.setFileId("fileId2"_ba);
         job.setTmid("tmid1"_ba);
         QNetworkRequest request = QNetworkRequest(QUrl());
-        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        verifyAuthentication(&job, request);
         QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.mediaConfirm/roomid2/fileId2"_s));
         QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
     }
