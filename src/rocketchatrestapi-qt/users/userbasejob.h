@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -8,7 +8,7 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
-
+class QDebug;
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT UserBaseJob : public RestApiAbstractJob
@@ -20,6 +20,7 @@ public:
         UserId,
         UserName,
     };
+    Q_ENUM(UserInfoType);
 
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UserInfo {
         QString userIdentifier;
@@ -41,3 +42,4 @@ protected:
     UserInfo mUserInfo;
 };
 }
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UserBaseJob::UserInfo &t);

@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -25,7 +25,7 @@ bool AdminUsersAllModel::setData(const QModelIndex &id, const QVariant &value, i
         return false;
     }
     switch (role) {
-    case AdminUsersAllRoles::ActiveUser: {
+    case AdminUsersStatusRoles::ActiveUser: {
         const int idx = id.row();
         User &user = mUsers[idx];
         user.setActive(value.toBool());
@@ -33,14 +33,14 @@ bool AdminUsersAllModel::setData(const QModelIndex &id, const QVariant &value, i
         Q_EMIT dataChanged(newIndex, newIndex);
         return true;
     }
-    case AdminUsersAllRoles::Name:
-    case AdminUsersAllRoles::UserName:
-    case AdminUsersAllRoles::Email:
-    case AdminUsersAllRoles::Roles:
-    case AdminUsersAllRoles::Status:
-    case AdminUsersAllRoles::UserId:
-    case AdminUsersAllRoles::ActiveUserDisplay:
-    case AdminUsersAllRoles::Administrator:
+    case AdminUsersStatusRoles::Name:
+    case AdminUsersStatusRoles::UserName:
+    case AdminUsersStatusRoles::Email:
+    case AdminUsersStatusRoles::Roles:
+    case AdminUsersStatusRoles::Status:
+    case AdminUsersStatusRoles::UserId:
+    case AdminUsersStatusRoles::ActiveUserDisplay:
+    case AdminUsersStatusRoles::Administrator:
         return false;
     }
     return false;
@@ -63,7 +63,7 @@ QString AdminUsersAllModel::createRegistrationStatus(const User &user) const
 QVariant AdminUsersAllModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<AdminUsersAllRoles>(section)) {
+        switch (static_cast<AdminUsersStatusRoles>(section)) {
         case AdminUsersAllModel::Name:
             return i18n("Name");
         case AdminUsersAllModel::UserName:
@@ -80,7 +80,7 @@ QVariant AdminUsersAllModel::headerData(int section, Qt::Orientation orientation
             return i18n("Registration status");
         case AdminUsersAllModel::UserId:
         case AdminUsersAllModel::ActiveUser:
-        case AdminUsersAllRoles::Administrator:
+        case AdminUsersStatusRoles::Administrator:
             return {};
         }
     }
@@ -95,7 +95,7 @@ int AdminUsersAllModel::columnCount([[maybe_unused]] const QModelIndex &parent) 
 
 QList<int> AdminUsersAllModel::hideColumns() const
 {
-    return {AdminUsersAllRoles::UserId, AdminUsersAllRoles::ActiveUser, AdminUsersAllRoles::Administrator};
+    return {AdminUsersStatusRoles::UserId, AdminUsersStatusRoles::ActiveUser, AdminUsersStatusRoles::Administrator};
 }
 
 QVariant AdminUsersAllModel::data(const QModelIndex &index, int role) const
@@ -109,28 +109,28 @@ QVariant AdminUsersAllModel::data(const QModelIndex &index, int role) const
 
     const User &user = mUsers.at(index.row());
     const int col = index.column();
-    switch (static_cast<AdminUsersAllRoles>(col)) {
-    case AdminUsersAllRoles::Name: {
+    switch (static_cast<AdminUsersStatusRoles>(col)) {
+    case AdminUsersStatusRoles::Name: {
         const QString name = user.name();
         return name.isEmpty() ? user.userName() : name;
     }
-    case AdminUsersAllRoles::UserName:
+    case AdminUsersStatusRoles::UserName:
         return user.userName();
-    case AdminUsersAllRoles::Email:
+    case AdminUsersStatusRoles::Email:
         return user.userEmailsInfo().email;
-    case AdminUsersAllRoles::Roles:
+    case AdminUsersStatusRoles::Roles:
         return user.i18nRoles().join(u',');
-    case AdminUsersAllRoles::Status:
+    case AdminUsersStatusRoles::Status:
         return Utils::displaytextFromPresenceStatus(user.status());
-    case AdminUsersAllRoles::ActiveUserDisplay:
+    case AdminUsersStatusRoles::ActiveUserDisplay:
         return user.active() ? i18n("Active") : i18n("Disabled");
-    case AdminUsersAllRoles::ActiveUser:
+    case AdminUsersStatusRoles::ActiveUser:
         return user.active();
-    case AdminUsersAllRoles::UserId:
+    case AdminUsersStatusRoles::UserId:
         return user.userId();
-    case AdminUsersAllRoles::Administrator:
+    case AdminUsersStatusRoles::Administrator:
         return user.roles().contains(u"admin"_s);
-    case AdminUsersAllRoles::RegistrationStatus:
+    case AdminUsersStatusRoles::RegistrationStatus:
         return createRegistrationStatus(user);
     }
     return {};

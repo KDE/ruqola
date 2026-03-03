@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -29,7 +29,7 @@ QVariant AdminUsersStatusModel::headerData(int section, Qt::Orientation orientat
         case AdminUsersStatusModel::Roles:
             return i18n("Role");
         case AdminUsersStatusModel::UserId:
-        case AdminUsersAllRoles::Administrator:
+        case AdminUsersStatusModel::Administrator:
             return {};
         }
     }
@@ -55,7 +55,6 @@ QVariant AdminUsersStatusModel::data(const QModelIndex &index, int role) const
     if (role != Qt::DisplayRole) {
         return {};
     }
-
     const User &user = mUsers.at(index.row());
     const int col = index.column();
     switch (static_cast<AdminUsersAllRoles>(col)) {

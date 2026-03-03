@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -72,6 +72,13 @@ void UserBaseJob::generateJson(QJsonObject &jsonObj) const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UserBaseJob::UserInfoType::Unknown is a bug !";
         break;
     }
+}
+
+QDebug operator<<(QDebug d, const RocketChatRestApi::UserBaseJob::UserInfo &t)
+{
+    d.space() << "userIdentifier:" << t.userIdentifier;
+    d.space() << "userInfoType:" << t.userInfoType;
+    return d;
 }
 
 #include "moc_userbasejob.cpp"
