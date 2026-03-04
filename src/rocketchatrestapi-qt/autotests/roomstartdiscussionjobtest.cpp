@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2019-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -30,6 +30,7 @@ void RoomStartDiscussionJobTest::shouldHaveDefaultValue()
     QVERIFY(job.parentMessageId().isEmpty());
     QVERIFY(job.discussionName().isEmpty());
     QVERIFY(job.replyMessage().isEmpty());
+    QVERIFY(job.topic().isEmpty());
     QVERIFY(job.users().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
@@ -70,6 +71,12 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")
                  .arg(QLatin1StringView(pRid), replyMessage, discussionName)
+                 .toLatin1());
+    const QString topic = u"topic"_s;
+    job.setTopic(topic);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","topic":"%4","users":["aaa","bbb","ddd"]})")
+                 .arg(QLatin1StringView(pRid), replyMessage, discussionName, topic)
                  .toLatin1());
 }
 

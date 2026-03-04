@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2019-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -44,6 +44,9 @@ public:
     [[nodiscard]] bool encrypted() const;
     void setEncrypted(bool newEncrypted);
 
+    [[nodiscard]] QString topic() const;
+    void setTopic(const QString &newTopic);
+
 Q_SIGNALS:
     void startDiscussionDone(const QJsonObject &replyObject);
 
@@ -57,6 +60,7 @@ private:
     QString mDiscussionName;
     QByteArray mParentMessageId;
     QString mReplyMessage;
+    QString mTopic;
     bool mEncrypted = false;
 };
 }

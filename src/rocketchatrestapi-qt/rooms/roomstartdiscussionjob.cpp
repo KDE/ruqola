@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2019-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -47,6 +47,16 @@ void RoomStartDiscussionJob::onPostRequestResponse(const QString &replyErrorStri
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("RoomStartDiscussionJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+QString RoomStartDiscussionJob::topic() const
+{
+    return mTopic;
+}
+
+void RoomStartDiscussionJob::setTopic(const QString &newTopic)
+{
+    mTopic = newTopic;
 }
 
 bool RoomStartDiscussionJob::encrypted() const
@@ -144,6 +154,9 @@ QJsonDocument RoomStartDiscussionJob::json() const
     QJsonObject jsonObj;
     jsonObj["prid"_L1] = QLatin1StringView(mParentRoomId);
     jsonObj["t_name"_L1] = mDiscussionName;
+    if (!mTopic.isEmpty()) {
+        jsonObj["topic"_L1] = mTopic;
+    }
     if (!mParentMessageId.isEmpty()) {
         jsonObj["pmid"_L1] = QLatin1StringView(mParentMessageId);
     }
