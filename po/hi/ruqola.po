@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:46+0000\n"
+"POT-Creation-Date: 2026-03-04 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -3141,11 +3141,11 @@ msgstr "इमोजी हटाएँ"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:118
-#: widgets/administratordialog/users/administratoruserswidget.cpp:298
+#: widgets/administratordialog/users/administratoruserswidget.cpp:301
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3154,12 +3154,12 @@ msgstr "जोड़ना…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:286
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:305
+#: widgets/administratordialog/users/administratoruserswidget.cpp:308
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3167,13 +3167,13 @@ msgstr "संशोधित करें…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:290
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
-#: widgets/administratordialog/users/administratoruserswidget.cpp:342
+#: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3246,13 +3246,13 @@ msgstr "स्थिति:"
 msgid "Presence"
 msgstr "उपस्थिति"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:153
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:155
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:213
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "क्या आप \"%1\" को हटाना चाहते हैं?"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:154
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:156
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom User Status"
@@ -3794,13 +3794,13 @@ msgid "Remove User"
 msgstr "उपयोगकर्ता हटाएँ"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:131
-#: widgets/administratordialog/users/administratoruserswidget.cpp:355
+#: widgets/administratordialog/users/administratoruserswidget.cpp:358
 #, kde-format
 msgid "No user found"
 msgstr "कोई उपयोगकर्ता नहीं मिला"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
-#: widgets/administratordialog/users/administratoruserswidget.cpp:360
+#: widgets/administratordialog/users/administratoruserswidget.cpp:363
 #: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4247,49 +4247,49 @@ msgstr "सक्रिय"
 msgid "Do you want to remove this user?"
 msgstr "क्या आप इस उपयोगकर्ता को हटाना चाहते हैं?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:292
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "आमंत्रित करना…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "निष्क्रिय करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "सक्रिय"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "व्यवस्थापक हटाएँ"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "एडमिन बनाएं"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:329
+#: widgets/administratordialog/users/administratoruserswidget.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "E2E कुंजी रीसेट करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:335
+#: widgets/administratordialog/users/administratoruserswidget.cpp:338
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "रीसेट टॉप"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:470
+#: widgets/administratordialog/users/administratoruserswidget.cpp:473
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4304,24 +4304,24 @@ msgstr ""
 "प्रकृति के कारण, Rocket.Chat किसी भी एन्क्रिप्टेड कमरे तक पहुंच बहाल करने में सक्षम नहीं "
 "होगा जिसमें कोई सदस्य ऑनलाइन नहीं है।"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:474
+#: widgets/administratordialog/users/administratoruserswidget.cpp:477
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "E2E कुंजी रीसेट करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:506
+#: widgets/administratordialog/users/administratoruserswidget.cpp:509
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1 के लिए E2E कुंजी रीसेट कर दी गई है."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:506
+#: widgets/administratordialog/users/administratoruserswidget.cpp:509
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "E2E रीसेट करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:519
+#: widgets/administratordialog/users/administratoruserswidget.cpp:522
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4330,14 +4330,14 @@ msgstr ""
 "वर्तमान टू फैक्टर TOTP को रीसेट करने से उपयोगकर्ता लॉग आउट हो जाएगा। उपयोगकर्ता बाद में "
 "फिर से टू फैक्टर सेट कर सकेगा।"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:520
-#: widgets/administratordialog/users/administratoruserswidget.cpp:551
+#: widgets/administratordialog/users/administratoruserswidget.cpp:523
+#: widgets/administratordialog/users/administratoruserswidget.cpp:554
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "TOTP रीसेट करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:551
+#: widgets/administratordialog/users/administratoruserswidget.cpp:554
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1 के लिए TOTP कुंजी रीसेट कर दी गई है"

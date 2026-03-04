@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:46+0000\n"
+"POT-Creation-Date: 2026-03-04 00:45+0000\n"
 "PO-Revision-Date: 2026-02-18 17:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3173,11 +3173,11 @@ msgstr "أزل الرموز التعبيرية"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:169
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:118
-#: widgets/administratordialog/users/administratoruserswidget.cpp:298
+#: widgets/administratordialog/users/administratoruserswidget.cpp:301
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3186,12 +3186,12 @@ msgstr "أضف…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:286
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:305
+#: widgets/administratordialog/users/administratoruserswidget.cpp:308
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3199,13 +3199,13 @@ msgstr "عدّل…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:290
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
-#: widgets/administratordialog/users/administratoruserswidget.cpp:342
+#: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3282,13 +3282,13 @@ msgstr "الحالة:"
 msgid "Presence"
 msgstr "الحضور"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:153
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:155
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:213
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "أتريد إزالة \"%1\"؟"
 
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:154
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:156
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom User Status"
@@ -3833,13 +3833,13 @@ msgid "Remove User"
 msgstr "أزِل مستخدم"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:131
-#: widgets/administratordialog/users/administratoruserswidget.cpp:355
+#: widgets/administratordialog/users/administratoruserswidget.cpp:358
 #, kde-format
 msgid "No user found"
 msgstr "لم يعثر على أي مستخدم"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
-#: widgets/administratordialog/users/administratoruserswidget.cpp:360
+#: widgets/administratordialog/users/administratoruserswidget.cpp:363
 #: widgets/directory/directorywidget.cpp:217
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4294,49 +4294,49 @@ msgstr "مُنشط"
 msgid "Do you want to remove this user?"
 msgstr "هل تريد إزالة هذا المستخدم؟"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:292
+#: widgets/administratordialog/users/administratoruserswidget.cpp:295
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "ادعُ…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "ألغِ التنشيط"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:314
+#: widgets/administratordialog/users/administratoruserswidget.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Active"
 msgstr "نشّط"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "أزل من الإشراف"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:323
+#: widgets/administratordialog/users/administratoruserswidget.cpp:326
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "اجعله مشرفًا"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:329
+#: widgets/administratordialog/users/administratoruserswidget.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "صفّر مفتاح التعمية من طرف لطرف"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:335
+#: widgets/administratordialog/users/administratoruserswidget.cpp:338
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "صفّر كلمة السر المستندة على الوقت"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:470
+#: widgets/administratordialog/users/administratoruserswidget.cpp:473
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4351,24 +4351,24 @@ msgstr ""
 "تعمية من طرف لطرف، فلن يتمكن روكت تشات من استعادة الوصول إلى أي غرفة مشفرة "
 "ليس بها عضو متصل بالإنترنت."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:474
+#: widgets/administratordialog/users/administratoruserswidget.cpp:477
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "صفّر مفتاح التعمية من طرف لطرف"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:506
+#: widgets/administratordialog/users/administratoruserswidget.cpp:509
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "صُفّر مفتاح تعمية من طرف لطرف لـ%1"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:506
+#: widgets/administratordialog/users/administratoruserswidget.cpp:509
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "صفّر تعمية من طرف لطرف"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:519
+#: widgets/administratordialog/users/administratoruserswidget.cpp:522
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4378,14 +4378,14 @@ msgstr ""
 "تسجيل خروج المستخدم. سيكون المستخدم قادرًا على الاستيثاق الثنائي مرة أخرى "
 "لاحقًا."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:520
-#: widgets/administratordialog/users/administratoruserswidget.cpp:551
+#: widgets/administratordialog/users/administratoruserswidget.cpp:523
+#: widgets/administratordialog/users/administratoruserswidget.cpp:554
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "صفّر كلمة السر المستندة على الوقت"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:551
+#: widgets/administratordialog/users/administratoruserswidget.cpp:554
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "صُفّرت كلمة السر المستندة على الوقت لـ%1"
