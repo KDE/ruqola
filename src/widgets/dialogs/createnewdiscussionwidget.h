@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -30,6 +30,9 @@ public:
     void setMessage(const QString &name);
     [[nodiscard]] QString message() const;
 
+    void setTopic(const QString &topic);
+    [[nodiscard]] QString topic() const;
+
     [[nodiscard]] QList<QByteArray> usersId() const;
 
     [[nodiscard]] QByteArray channelId() const;
@@ -39,6 +42,7 @@ Q_SIGNALS:
 private:
     ChannelSearchWidget *const mChannelSearchWidget;
     QLineEdit *const mDiscussionNameLineEdit;
+    QLineEdit *const mTopicLineEdit;
     AddUsersWidget *const mUsers;
     KTextEdit *const mMessageTextEdit;
 };

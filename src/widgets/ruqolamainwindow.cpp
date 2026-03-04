@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -854,6 +854,7 @@ void RuqolaMainWindow::slotCreateDiscussion()
         job->setParentMessageId(dlg->messageId());
         job->setReplyMessage(info.message);
         job->setUsers(info.users);
+        job->setTopic(info.topic);
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoomStartDiscussionJob";
         }

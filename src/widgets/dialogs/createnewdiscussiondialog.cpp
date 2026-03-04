@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -77,6 +77,7 @@ CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscu
     info.message = mCreateNewDiscussionWidget->message();
     info.users = mCreateNewDiscussionWidget->usersId();
     info.discussionName = mCreateNewDiscussionWidget->discussionName();
+    info.topic = mCreateNewDiscussionWidget->topic();
     return info;
 }
 

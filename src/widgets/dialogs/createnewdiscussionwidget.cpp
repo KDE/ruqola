@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -20,6 +20,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     : QWidget(parent)
     , mChannelSearchWidget(new ChannelSearchWidget(account, this))
     , mDiscussionNameLineEdit(new QLineEdit(this))
+    , mTopicLineEdit(new QLineEdit(this))
     , mUsers(new AddUsersWidget(account, this))
     , mMessageTextEdit(new KTextEdit(this))
 {
@@ -44,6 +45,16 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     KLineEditEventHandler::catchReturnKey(mDiscussionNameLineEdit);
     mDiscussionNameLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mDiscussionNameLineEdit);
+
+    auto topicName = new QLabel(i18nc("@label:textbox", "Topic"), this);
+    topicName->setObjectName(u"topicName"_s);
+    topicName->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(topicName);
+
+    mTopicLineEdit->setObjectName(u"mTopicLineEdit"_s);
+    KLineEditEventHandler::catchReturnKey(mTopicLineEdit);
+    mTopicLineEdit->setClearButtonEnabled(true);
+    mainLayout->addWidget(mTopicLineEdit);
 
     auto usersLabel = new QLabel(i18nc("@label:textbox", "Invite Users"), this);
     usersLabel->setObjectName(u"usersLabel"_s);
@@ -104,6 +115,16 @@ QString CreateNewDiscussionWidget::message() const
 QList<QByteArray> CreateNewDiscussionWidget::usersId() const
 {
     return mUsers->userIds();
+}
+
+void CreateNewDiscussionWidget::setTopic(const QString &topic)
+{
+    mTopicLineEdit->setText(topic);
+}
+
+QString CreateNewDiscussionWidget::topic() const
+{
+    return mTopicLineEdit->text();
 }
 
 #include "moc_createnewdiscussionwidget.cpp"

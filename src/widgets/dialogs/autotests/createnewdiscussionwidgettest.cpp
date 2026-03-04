@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -46,6 +46,15 @@ void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDiscussionNameLineEdit);
     QVERIFY(mDiscussionNameLineEdit->text().isEmpty());
     QVERIFY(mDiscussionNameLineEdit->isClearButtonEnabled());
+
+    auto topicName = w.findChild<QLabel *>(u"topicName"_s);
+    QVERIFY(topicName);
+    QVERIFY(!topicName->text().isEmpty());
+
+    auto mTopicLineEdit = w.findChild<QLineEdit *>(u"mTopicLineEdit"_s);
+    QVERIFY(mTopicLineEdit);
+    QVERIFY(mTopicLineEdit->text().isEmpty());
+    QVERIFY(mTopicLineEdit->isClearButtonEnabled());
 
     auto usersLabel = w.findChild<QLabel *>(u"usersLabel"_s);
     QVERIFY(usersLabel);

@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -19,6 +19,7 @@ public:
         QList<QByteArray> users;
         QString discussionName;
         QString channelName;
+        QString topic;
         QString message;
         QByteArray channelId;
     };
