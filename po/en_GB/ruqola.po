@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -2589,7 +2589,7 @@ msgid "Invalid role"
 msgstr "Invalid role"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:174
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:187
 #, kde-format
 msgid "Invalid room"
 msgstr "Invalid room"
@@ -7680,7 +7680,7 @@ msgid "Username or email:"
 msgstr "Username or email:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1109
+#: widgets/ruqolamainwindow.cpp:1110
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7690,7 +7690,7 @@ msgstr ""
 "If you do not receive an email shortly, please come back and try again."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1110
+#: widgets/ruqolamainwindow.cpp:1111
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8475,7 +8475,7 @@ msgid "Topic:"
 msgstr "Topic:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:45
-#: widgets/dialogs/createnewdiscussionwidget.cpp:53
+#: widgets/dialogs/createnewdiscussionwidget.cpp:64
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
@@ -8573,31 +8573,38 @@ msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "Create Discussion - %1"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:30
+#: widgets/dialogs/createnewdiscussionwidget.cpp:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Channel or Group parent"
 msgstr "Channel or Group parent"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:38
+#: widgets/dialogs/createnewdiscussionwidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Discussion Name"
 msgstr "Discussion Name"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:48
+#: widgets/dialogs/createnewdiscussionwidget.cpp:49
+#, fuzzy, kde-format
+#| msgid "Topic"
+msgctxt "@label:textbox"
+msgid "Topic"
+msgstr "Topic"
+
+#: widgets/dialogs/createnewdiscussionwidget.cpp:59
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Invite Users"
 msgstr "Invite Users"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:56
+#: widgets/dialogs/createnewdiscussionwidget.cpp:67
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Message"
 msgstr "Message"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:63
+#: widgets/dialogs/createnewdiscussionwidget.cpp:74
 #, kde-format
 msgctxt "@info:placeholder"
 msgid ""
@@ -11742,25 +11749,25 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Create Team"
 
-#: widgets/ruqolamainwindow.cpp:1010
+#: widgets/ruqolamainwindow.cpp:1011
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1010
+#: widgets/ruqolamainwindow.cpp:1011
 #, fuzzy, kde-format
 #| msgid "Show Channel Log"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Show Channel Log"
 
-#: widgets/ruqolamainwindow.cpp:1181
+#: widgets/ruqolamainwindow.cpp:1182
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1268
+#: widgets/ruqolamainwindow.cpp:1269
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11769,20 +11776,20 @@ msgstr ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1271
+#: widgets/ruqolamainwindow.cpp:1272
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Hide menu bar"
 
-#: widgets/ruqolamainwindow.cpp:1445
+#: widgets/ruqolamainwindow.cpp:1446
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Offline"
 
-#: widgets/ruqolamainwindow.cpp:1448
+#: widgets/ruqolamainwindow.cpp:1449
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"

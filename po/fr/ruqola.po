@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-02-21 13:50+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -2582,7 +2582,7 @@ msgid "Invalid role"
 msgstr "Rôle non valable"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:174
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:187
 #, kde-format
 msgid "Invalid room"
 msgstr "Salon non valable"
@@ -7723,7 +7723,7 @@ msgid "Username or email:"
 msgstr "Nom d'utilisateur ou courriel :"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1109
+#: widgets/ruqolamainwindow.cpp:1110
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7734,7 +7734,7 @@ msgstr ""
 "essayer."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1110
+#: widgets/ruqolamainwindow.cpp:1111
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8505,7 +8505,7 @@ msgid "Topic:"
 msgstr "Sujet :"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:45
-#: widgets/dialogs/createnewdiscussionwidget.cpp:53
+#: widgets/dialogs/createnewdiscussionwidget.cpp:64
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
@@ -8600,31 +8600,38 @@ msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "Créer une discussion - %1"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:30
+#: widgets/dialogs/createnewdiscussionwidget.cpp:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Channel or Group parent"
 msgstr "Parent du canal ou du groupe"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:38
+#: widgets/dialogs/createnewdiscussionwidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Discussion Name"
 msgstr "Nom de la discussion"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:48
+#: widgets/dialogs/createnewdiscussionwidget.cpp:49
+#, fuzzy, kde-format
+#| msgid "Topic"
+msgctxt "@label:textbox"
+msgid "Topic"
+msgstr "Sujet"
+
+#: widgets/dialogs/createnewdiscussionwidget.cpp:59
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Invite Users"
 msgstr "Inviter des utilisateurs"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:56
+#: widgets/dialogs/createnewdiscussionwidget.cpp:67
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Message"
 msgstr "Message"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:63
+#: widgets/dialogs/createnewdiscussionwidget.cpp:74
 #, kde-format
 msgctxt "@info:placeholder"
 msgid ""
@@ -11739,24 +11746,24 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Créer une équipe"
 
-#: widgets/ruqolamainwindow.cpp:1010
+#: widgets/ruqolamainwindow.cpp:1011
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Impossible d'écrire dans le fichier %1 de journal"
 
-#: widgets/ruqolamainwindow.cpp:1010
+#: widgets/ruqolamainwindow.cpp:1011
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Afficher le journal du canal"
 
-#: widgets/ruqolamainwindow.cpp:1181
+#: widgets/ruqolamainwindow.cpp:1182
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "État"
 
-#: widgets/ruqolamainwindow.cpp:1268
+#: widgets/ruqolamainwindow.cpp:1269
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11765,19 +11772,19 @@ msgstr ""
 "<qt>Ceci masquera totalement la barre de menus. Vous pouvez l'afficher à "
 "nouveau en saisissant %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1271
+#: widgets/ruqolamainwindow.cpp:1272
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Masquer la barre de menus"
 
-#: widgets/ruqolamainwindow.cpp:1445
+#: widgets/ruqolamainwindow.cpp:1446
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Travailler en mode connecté"
 
-#: widgets/ruqolamainwindow.cpp:1448
+#: widgets/ruqolamainwindow.cpp:1449
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"

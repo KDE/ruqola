@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2556,7 +2556,7 @@ msgid "Invalid role"
 msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:174
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:187
 #, kde-format
 msgid "Invalid room"
 msgstr "無效的聊天室"
@@ -7473,7 +7473,7 @@ msgid "Username or email:"
 msgstr "使用者名稱或電子郵件："
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1109
+#: widgets/ruqolamainwindow.cpp:1110
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7483,7 +7483,7 @@ msgstr ""
 "如果您沒有收到該郵件，請回來再試一次。"
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1110
+#: widgets/ruqolamainwindow.cpp:1111
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8242,7 +8242,7 @@ msgid "Topic:"
 msgstr "主題："
 
 #: widgets/dialogs/createnewchannelwidget.cpp:45
-#: widgets/dialogs/createnewdiscussionwidget.cpp:53
+#: widgets/dialogs/createnewdiscussionwidget.cpp:64
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
@@ -8332,31 +8332,38 @@ msgctxt "@title:window"
 msgid "Create Discussion - %1"
 msgstr "建立討論區 - %1"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:30
+#: widgets/dialogs/createnewdiscussionwidget.cpp:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Channel or Group parent"
 msgstr "頻道或群組上層"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:38
+#: widgets/dialogs/createnewdiscussionwidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Discussion Name"
 msgstr "討論名稱"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:48
+#: widgets/dialogs/createnewdiscussionwidget.cpp:49
+#, fuzzy, kde-format
+#| msgid "Topic"
+msgctxt "@label:textbox"
+msgid "Topic"
+msgstr "主題"
+
+#: widgets/dialogs/createnewdiscussionwidget.cpp:59
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Invite Users"
 msgstr "邀請使用者"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:56
+#: widgets/dialogs/createnewdiscussionwidget.cpp:67
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Message"
 msgstr "訊息"
 
-#: widgets/dialogs/createnewdiscussionwidget.cpp:63
+#: widgets/dialogs/createnewdiscussionwidget.cpp:74
 #, kde-format
 msgctxt "@info:placeholder"
 msgid ""
@@ -11415,43 +11422,43 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立團隊"
 
-#: widgets/ruqolamainwindow.cpp:1010
+#: widgets/ruqolamainwindow.cpp:1011
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "無法寫入紀錄檔 %1"
 
-#: widgets/ruqolamainwindow.cpp:1010
+#: widgets/ruqolamainwindow.cpp:1011
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "顯示頻道紀錄"
 
-#: widgets/ruqolamainwindow.cpp:1181
+#: widgets/ruqolamainwindow.cpp:1182
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態"
 
-#: widgets/ruqolamainwindow.cpp:1268
+#: widgets/ruqolamainwindow.cpp:1269
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1271
+#: widgets/ruqolamainwindow.cpp:1272
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "隱藏選單列"
 
-#: widgets/ruqolamainwindow.cpp:1445
+#: widgets/ruqolamainwindow.cpp:1446
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "回到線上"
 
-#: widgets/ruqolamainwindow.cpp:1448
+#: widgets/ruqolamainwindow.cpp:1449
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
