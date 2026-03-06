@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2022-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -67,9 +67,9 @@ QString MessageListLayoutBase::senderText(const Message *message) const
                 displayName = message->username();
             }
         }
-        return u'@' + displayName;
+        return displayName;
     } else {
-        return u'@' + message->username();
+        return message->username();
     }
 }
 

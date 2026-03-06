@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020 David Faure <faure@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -109,7 +109,7 @@ void MessageListDelegateTest::layoutChecks()
     const MessageListLayoutBase::Layout layout = delegate.doLayout(option, index);
 
     // THEN
-    QCOMPARE(layout.senderText, u"@dfaure"_s);
+    QCOMPARE(layout.senderText, u"dfaure"_s);
     QCOMPARE(layout.timeStampText, u"04:07"_s);
     QVERIFY(option.rect.contains(layout.usableRect));
 
