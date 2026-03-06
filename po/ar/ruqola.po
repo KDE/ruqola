@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-05 00:44+0000\n"
-"PO-Revision-Date: 2026-02-18 17:46+0400\n"
+"PO-Revision-Date: 2026-03-05 09:27+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3376,8 +3376,7 @@ msgid "To:"
 msgstr "إلى:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "All"
+#, kde-format
 msgctxt "@action"
 msgid "All"
 msgstr "الكلّ"
