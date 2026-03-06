@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -25,7 +25,7 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
     mRegularExpressionAct = optionMenu->addAction(i18n("Regular Expression"));
     mRegularExpressionAct->setCheckable(true);
 
-    mIgnoreCaseAct = optionMenu->addAction(i18n("Ignore Camel Case"));
+    mIgnoreCaseAct = optionMenu->addAction(i18n("Ignore Case"));
     mIgnoreCaseAct->setCheckable(true);
     mIgnoreCaseAct->setEnabled(false);
 
