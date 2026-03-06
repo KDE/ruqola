@@ -1,4 +1,4 @@
-/*
+﻿/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -85,35 +85,48 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
 
     const QString name = user.name();
+    QFont f = font();
+    f.setBold(true);
     if (!name.isEmpty()) {
         auto nameLabel = new QLabel(this);
+
         nameLabel->setText(name);
         nameLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mFormLayout->addRow(i18n("Name:"), nameLabel);
+        auto label = new QLabel(i18n("Name:"), this);
+        label->setFont(f);
+        mFormLayout->addRow(label, nameLabel);
     }
 
     const QString userName = user.userName();
     if (!userName.isEmpty()) {
         auto userNameLabel = new QLabel(userName, this);
         userNameLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mFormLayout->addRow(i18n("Username:"), userNameLabel);
+        auto label = new QLabel(i18n("Username:"), this);
+        label->setFont(f);
+        mFormLayout->addRow(label, userNameLabel);
     }
 
     auto statusLabel = new QLabel(Utils::displaytextFromPresenceStatus(user.status()), this);
     statusLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mFormLayout->addRow(i18n("Status:"), statusLabel);
+    auto label = new QLabel(i18n("Status:"), this);
+    label->setFont(f);
+    mFormLayout->addRow(label, statusLabel);
 
     const QString statusText = user.statusText();
     if (!statusText.isEmpty()) {
         auto customStatusLabel = new QLabel(statusText, this);
         customStatusLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mFormLayout->addRow(i18n("Custom Status:"), customStatusLabel);
+        auto label = new QLabel(i18n("Custom Status:"), this);
+        label->setFont(f);
+        mFormLayout->addRow(label, customStatusLabel);
     }
 
     if (!user.bio().isEmpty()) {
         auto bioLabel = new QLabel(user.bio(), this);
         bioLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mFormLayout->addRow(i18n("Bio:"), bioLabel);
+        auto label = new QLabel(i18n("Bio:"), this);
+        label->setFont(f);
+        mFormLayout->addRow(label, bioLabel);
     }
 
     auto timeZoneLabel = new QLabel(this);
@@ -125,7 +138,9 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
     timeZoneLabel->setText(urlStr);
     timeZoneLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mFormLayout->addRow(i18n("Timezone:"), timeZoneLabel);
+    label = new QLabel(i18n("Timezone:"), this);
+    label->setFont(f);
+    mFormLayout->addRow(label, timeZoneLabel);
 
     QDateTime dt = QDateTime::currentDateTimeUtc();
     constexpr int hours = 60 * 60;
@@ -133,7 +148,9 @@ void DirectChannelInfoWidget::setUser(const User &user)
 
     auto localTimeLabel = new QLabel(this);
     localTimeLabel->setText(dt.time().toString());
-    mFormLayout->addRow(i18n("Local Time:"), localTimeLabel);
+    label = new QLabel(i18n("Local Time:"), this);
+    label->setFont(f);
+    mFormLayout->addRow(label, localTimeLabel);
 
     const QStringList roles{user.roles()};
 
@@ -150,21 +167,28 @@ void DirectChannelInfoWidget::setUser(const User &user)
         }
         rolesLabel->setText(newRolesList.join(u", "_s));
         rolesLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mFormLayout->addRow(i18n("Roles:"), rolesLabel);
+        label = new QLabel(i18n("Roles:"), this);
+        label->setFont(f);
+
+        mFormLayout->addRow(label, rolesLabel);
     }
 
     const auto createdAt = user.createdAt();
     if (createdAt.isValid()) {
         auto createAtLabel = new QLabel(createdAt.date().toString(), this);
         createAtLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mFormLayout->addRow(i18n("Created At:"), createAtLabel);
+        label = new QLabel(i18n("Created At:"), this);
+        label->setFont(f);
+        mFormLayout->addRow(label, createAtLabel);
     }
 
     const auto lastLogin = user.lastLogin();
     if (lastLogin.isValid()) {
         auto lastLoginLabel = new QLabel(lastLogin.toString(), this);
         lastLoginLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        mFormLayout->addRow(i18n("Last Login:"), lastLoginLabel);
+        label = new QLabel(i18n("Last Login:"), this);
+        label->setFont(f);
+        mFormLayout->addRow(label, lastLoginLabel);
     }
 
     const auto userEmailsInfo = user.userEmailsInfo();
@@ -175,7 +199,9 @@ void DirectChannelInfoWidget::setUser(const User &user)
         emailsInfoLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
         emailsInfoLabel->setTextFormat(Qt::RichText);
         emailsInfoLabel->setOpenExternalLinks(true);
-        mFormLayout->addRow(i18n("Email:"), emailsInfoLabel);
+        label = new QLabel(i18n("Email:"), this);
+        label->setFont(f);
+        mFormLayout->addRow(label, emailsInfoLabel);
     }
 }
 
