@@ -47,3 +47,5 @@ void LoginManager::login(const QString &serverUrl, QNetworkAccessManager *networ
         delete mRestApiMethod;
     }
 }
+
+#include "moc_loginmanager.cpp"
