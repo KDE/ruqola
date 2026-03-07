@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 02:40+0000\n"
+"POT-Creation-Date: 2026-03-07 02:40+0000\n"
 "PO-Revision-Date: 2026-03-03 10:31+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3092,7 +3092,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:92
+#: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3236,7 +3236,7 @@ msgstr "Gebruikersstatus bewerken"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:104
+#: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3598,7 +3598,7 @@ msgstr "Moderatiegebruikers tonen"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
-#: widgets/dialogs/directchannelinfowidget.cpp:178
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3607,7 +3607,7 @@ msgstr "E-mail:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:153
+#: widgets/dialogs/directchannelinfowidget.cpp:170
 #, kde-format
 msgid "Roles:"
 msgstr "Rollen:"
@@ -4177,7 +4177,7 @@ msgid "Mark email as verified"
 msgstr "E-mail markeren als geverifieerd"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:99
+#: widgets/dialogs/directchannelinfowidget.cpp:104
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4199,7 +4199,7 @@ msgid "Password:"
 msgstr "Wachtwoord:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/dialogs/directchannelinfowidget.cpp:116
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #, kde-format
 msgid "Bio:"
 msgstr "Bio:"
@@ -8625,42 +8625,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Gebruikersinformatie"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:119
 #, kde-format
 msgid "Custom Status:"
 msgstr "Aangepaste status:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:128
+#: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Timezone:"
 msgstr "Tijdzone:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:136
+#: widgets/dialogs/directchannelinfowidget.cpp:151
 #, kde-format
 msgid "Local Time:"
 msgstr "Lokale tijd:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:160
+#: widgets/dialogs/directchannelinfowidget.cpp:180
 #, kde-format
 msgid "Created At:"
 msgstr "Aangemaakt op:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:167
+#: widgets/dialogs/directchannelinfowidget.cpp:189
 #, kde-format
 msgid "Last Login:"
 msgstr "Laatste keer aangemeld:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "Verified"
 msgstr "Geverifieerd"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "Not verified"
 msgstr "Niet geverifieerd"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -8997,9 +8997,11 @@ msgid "Regular Expression"
 msgstr "Reguliere expressie"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "Camel Case negeren"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "Gebruiker negeren"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12656,6 +12658,9 @@ msgstr "Exporteren van database repareren."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Eigen geluid uploaden oplossen"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Camel Case negeren"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"

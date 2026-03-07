@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 02:40+0000\n"
+"POT-Creation-Date: 2026-03-07 02:40+0000\n"
 "PO-Revision-Date: 2026-03-05 15:02+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -3118,7 +3118,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:92
+#: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3266,7 +3266,7 @@ msgstr "Изменение статуса пользователя"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:104
+#: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3632,7 +3632,7 @@ msgstr "Показ пользователей для модерации"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
-#: widgets/dialogs/directchannelinfowidget.cpp:178
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3641,7 +3641,7 @@ msgstr "Адрес эл. почты:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:153
+#: widgets/dialogs/directchannelinfowidget.cpp:170
 #, kde-format
 msgid "Roles:"
 msgstr "Роли:"
@@ -4217,7 +4217,7 @@ msgid "Mark email as verified"
 msgstr "Отметить адрес эл. почты как проверенный"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:99
+#: widgets/dialogs/directchannelinfowidget.cpp:104
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4239,7 +4239,7 @@ msgid "Password:"
 msgstr "Пароль:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/dialogs/directchannelinfowidget.cpp:116
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #, kde-format
 msgid "Bio:"
 msgstr "Био:"
@@ -8683,42 +8683,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Сведения о пользователе"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:119
 #, kde-format
 msgid "Custom Status:"
 msgstr "Нестандартный статус:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:128
+#: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Timezone:"
 msgstr "Часовой пояс:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:136
+#: widgets/dialogs/directchannelinfowidget.cpp:151
 #, kde-format
 msgid "Local Time:"
 msgstr "Местное время:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:160
+#: widgets/dialogs/directchannelinfowidget.cpp:180
 #, kde-format
 msgid "Created At:"
 msgstr "Создано:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:167
+#: widgets/dialogs/directchannelinfowidget.cpp:189
 #, kde-format
 msgid "Last Login:"
 msgstr "Последний вход:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "Verified"
 msgstr "Проверено"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "Not verified"
 msgstr "Не проверено"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -9062,9 +9062,11 @@ msgid "Regular Expression"
 msgstr "Регулярное выражение"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "Игнорировать горбатый регистр"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "Игнорирование пользователя"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12739,6 +12741,9 @@ msgstr "Исправление экспорта базы данных"
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Исправление отправки нестандартных звуков"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Игнорировать горбатый регистр"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 02:40+0000\n"
+"POT-Creation-Date: 2026-03-07 02:40+0000\n"
 "PO-Revision-Date: 2026-03-05 09:27+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3119,7 +3119,7 @@ msgstr "يجب أن يكون اسم الرموز التعبيرية المخصص
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:92
+#: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3271,7 +3271,7 @@ msgstr "حرر حالة المستخدم"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:104
+#: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3636,7 +3636,7 @@ msgstr "أظهر مستخدمي الإشراف"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
-#: widgets/dialogs/directchannelinfowidget.cpp:178
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3645,7 +3645,7 @@ msgstr "البريد الإلكترونيّ:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/dialogs/directchannelinfowidget.cpp:153
+#: widgets/dialogs/directchannelinfowidget.cpp:170
 #, kde-format
 msgid "Roles:"
 msgstr "الأدوار:"
@@ -4223,7 +4223,7 @@ msgid "Mark email as verified"
 msgstr "علّم البريد الإلكتروني أنه مُتحقق منه"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
-#: widgets/dialogs/directchannelinfowidget.cpp:99
+#: widgets/dialogs/directchannelinfowidget.cpp:104
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4245,7 +4245,7 @@ msgid "Password:"
 msgstr "كلمة السر:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:66
-#: widgets/dialogs/directchannelinfowidget.cpp:116
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #, kde-format
 msgid "Bio:"
 msgstr "السيرة الذاتية:"
@@ -8630,42 +8630,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:119
 #, kde-format
 msgid "Custom Status:"
 msgstr "الحالة المخصصة:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:128
+#: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Timezone:"
 msgstr "المنطقة الزمنية:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:136
+#: widgets/dialogs/directchannelinfowidget.cpp:151
 #, kde-format
 msgid "Local Time:"
 msgstr "التوقيت المحلي:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:160
+#: widgets/dialogs/directchannelinfowidget.cpp:180
 #, kde-format
 msgid "Created At:"
 msgstr "أُنشئ في:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:167
+#: widgets/dialogs/directchannelinfowidget.cpp:189
 #, kde-format
 msgid "Last Login:"
 msgstr "آخر ولوج:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "Verified"
 msgstr "متحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "Not verified"
 msgstr "لم يُتحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:173
+#: widgets/dialogs/directchannelinfowidget.cpp:197
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -9005,9 +9005,11 @@ msgid "Regular Expression"
 msgstr "تعبير نمطيّ"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "تجاهل حالة الحروف الكبيرة والصغيرة"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "تجاهل المستخدم"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12654,6 +12656,9 @@ msgstr "إصلاح تصدير قاعدة البيانات."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "إصلاح تحميل الصوت المخصص"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "تجاهل حالة الحروف الكبيرة والصغيرة"
 
 #~ msgctxt "@title:window"
 #~ msgid "Description"
