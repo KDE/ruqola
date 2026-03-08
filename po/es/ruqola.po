@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-07 02:40+0000\n"
-"PO-Revision-Date: 2026-03-01 01:17+0100\n"
+"PO-Revision-Date: 2026-03-08 00:08+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3342,8 +3342,7 @@ msgid "To:"
 msgstr "Para:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "All"
+#, kde-format
 msgctxt "@action"
 msgid "All"
 msgstr "Todos"
@@ -9002,11 +9001,9 @@ msgid "Regular Expression"
 msgstr "Expresión regular"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Case"
-msgstr "Ignorar usuario"
+msgstr "Ignorar mayúsculas y minúsculas"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12673,6 +12670,3 @@ msgstr "Corrección al exportar la base de datos."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Mejora en la subida de sonidos personalizados"
-
-#~ msgid "Ignore Camel Case"
-#~ msgstr "Ignorar mayúsculas"
