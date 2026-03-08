@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2026-03-05 09:34+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -9066,9 +9066,11 @@ msgid "Regular Expression"
 msgstr "Формальний вираз"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "Ігнорування зміну регістру символів"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "Ігнорування користувача"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12745,6 +12747,9 @@ msgstr "Виправлено експортування бази даних."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Виправлено вивантаження нетипових звуків"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Ігнорування зміну регістру символів"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

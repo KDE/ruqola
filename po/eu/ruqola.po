@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -9017,7 +9017,7 @@ msgstr "Adierazpen erregularrak"
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Ignore User"
-msgid "Ignore Camel Case"
+msgid "Ignore Case"
 msgstr "Ezikusi erabiltzailea"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
@@ -12687,6 +12687,12 @@ msgstr "Esportatu datu-basea zuzentzea."
 #| msgid "Custom Sounds"
 msgid "Fix upload Custom Sound"
 msgstr "Neurrira ipinitako soinuak"
+
+#, fuzzy
+#~| msgctxt "@title"
+#~| msgid "Ignore User"
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Ezikusi erabiltzailea"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

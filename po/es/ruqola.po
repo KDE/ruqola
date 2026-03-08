@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
-"PO-Revision-Date: 2026-02-21 11:57+0100\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
+"PO-Revision-Date: 2026-03-08 00:07+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3341,8 +3341,7 @@ msgid "To:"
 msgstr "Para:"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "All"
+#, kde-format
 msgctxt "@action"
 msgid "All"
 msgstr "Todos"
@@ -8562,8 +8561,7 @@ msgid "Discussion Name"
 msgstr "Nombre de la discusión"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Tema"
@@ -9008,9 +9006,11 @@ msgid "Regular Expression"
 msgstr "Expresión regular"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "Ignorar mayúsculas"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "Ignorar usuario"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12677,3 +12677,6 @@ msgstr "Corrección al exportar la base de datos."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Mejora en la subida de sonidos personalizados"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Ignorar mayúsculas"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
-"PO-Revision-Date: 2026-03-05 09:27+0400\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
+"PO-Revision-Date: 2026-03-07 11:48+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -8566,11 +8566,10 @@ msgid "Discussion Name"
 msgstr "اسم المناقشة"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
-msgstr "موضوع"
+msgstr "الموضوع"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:59
 #, kde-format
@@ -9012,9 +9011,11 @@ msgid "Regular Expression"
 msgstr "تعبير نمطيّ"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "تجاهل حالة الحروف الكبيرة والصغيرة"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "تجاهل المستخدم"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12661,6 +12662,9 @@ msgstr "إصلاح تصدير قاعدة البيانات."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "إصلاح تحميل الصوت المخصص"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "تجاهل حالة الحروف الكبيرة والصغيرة"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

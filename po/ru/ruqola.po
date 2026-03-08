@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2026-03-06 14:07+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -9068,9 +9068,11 @@ msgid "Regular Expression"
 msgstr "Регулярное выражение"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "Игнорировать горбатый регистр"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "Игнорирование пользователя"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12745,6 +12747,9 @@ msgstr "Исправление экспорта базы данных"
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Исправление отправки нестандартных звуков"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Игнорировать горбатый регистр"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

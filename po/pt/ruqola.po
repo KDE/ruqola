@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -9643,7 +9643,7 @@ msgstr "Expressões Regulares"
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Ignore User"
-msgid "Ignore Camel Case"
+msgid "Ignore Case"
 msgstr "Ignorar o Utilizador"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
@@ -13623,6 +13623,12 @@ msgstr "Mensagem de Relatório"
 #| msgid "Custom Sounds"
 msgid "Fix upload Custom Sound"
 msgstr "Sons Personalizados"
+
+#, fuzzy
+#~| msgctxt "@title"
+#~| msgid "Ignore User"
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Ignorar o Utilizador"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -9477,7 +9477,7 @@ msgstr "Diskussioonide otsimine ..."
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
 #, fuzzy, kde-format
 #| msgid "Ignore User"
-msgid "Ignore Camel Case"
+msgid "Ignore Case"
 msgstr "Eira kasutajat"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
@@ -13446,6 +13446,11 @@ msgstr "Anna sõnumist teada"
 #| msgid "Custom Status:"
 msgid "Fix upload Custom Sound"
 msgstr "Kohandatud olek:"
+
+#, fuzzy
+#~| msgid "Ignore User"
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Eira kasutajat"
 
 #, fuzzy
 #~| msgid "Save Attachment"

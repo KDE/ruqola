@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2026-03-05 12:40+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -9002,9 +9002,11 @@ msgid "Regular Expression"
 msgstr "Reguliere expressie"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "Camel Case negeren"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "Gebruiker negeren"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12662,6 +12664,9 @@ msgstr "Exporteren van database repareren."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Eigen geluid uploaden oplossen"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Camel Case negeren"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"

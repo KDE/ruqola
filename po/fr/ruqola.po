@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
-"PO-Revision-Date: 2026-03-04 10:21+0100\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
+"PO-Revision-Date: 2026-03-06 08:57+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -8612,8 +8612,7 @@ msgid "Discussion Name"
 msgstr "Nom de la discussion"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Sujet"
@@ -9058,9 +9057,11 @@ msgid "Regular Expression"
 msgstr "Expression rationnelle"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, kde-format
-msgid "Ignore Camel Case"
-msgstr "Ignorer le cas du chameau"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignore User"
+msgid "Ignore Case"
+msgstr "Ignorer un utilisateur"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -12761,6 +12762,9 @@ msgstr "Correction de l'exportation de la base de données."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Corriger le téléchargement du son personnalisé"
+
+#~ msgid "Ignore Camel Case"
+#~ msgstr "Ignorer le cas du chameau"
 
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
