@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-07 02:40+0000\n"
-"PO-Revision-Date: 2026-03-03 10:32+0300\n"
+"PO-Revision-Date: 2026-03-08 15:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -8966,11 +8966,9 @@ msgid "Regular Expression"
 msgstr "Düzenli İfadeler"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Case"
-msgstr "Kullanıcı Yok Say"
+msgstr "BÜYÜK/küçük Harf Duyarsız"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
