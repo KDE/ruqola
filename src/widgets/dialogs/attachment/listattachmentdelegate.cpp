@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "listattachmentdelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "model/filesforroommodel.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStyle>
 #include <TextAddonsWidgets/SaveFileUtils>
 
+using namespace Qt::Literals::StringLiterals;
 ListAttachmentDelegate::ListAttachmentDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
     , mDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
@@ -85,7 +85,10 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 void ListAttachmentDelegate::saveAttachment(const QStyleOptionViewItem &option, const File *file)
 {
     auto parentWidget = const_cast<QWidget *>(option.widget);
-    const QString fileName = TextAddonsWidgets::SaveFileUtils::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl(file->url()));
+    const QString path = QUrl::fromPercentEncoding(file->url().toLatin1());
+
+    const QString fileName =
+        TextAddonsWidgets::SaveFileUtils::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl::fromLocalFile(path));
 
     if (!fileName.isEmpty()) {
         mRocketChatAccount->downloadFile(file->url(), QUrl::fromLocalFile(fileName));

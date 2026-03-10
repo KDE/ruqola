@@ -42,7 +42,9 @@ void MessageAttachmentDelegateHelperOpenFileJob::runApplication(const KService::
         return;
     }
     tempDir->setAutoRemove(false); // can't delete them, same problem as in messagelib ViewerPrivate::attachmentOpenWith
-    const QString tempFile = tempDir->filePath(QUrl::fromLocalFile(mLink).fileName());
+    const QString path = QUrl::fromPercentEncoding(mLink.toLatin1());
+    const QFileInfo fileInfo(path);
+    const QString tempFile = tempDir->filePath(fileInfo.fileName());
     const QUrl fileUrl = QUrl::fromLocalFile(tempFile);
 
     const QUrl downloadUrl = mRocketChatAccount->urlForLink(mLink);
