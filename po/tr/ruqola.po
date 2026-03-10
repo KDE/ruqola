@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-07 02:40+0000\n"
-"PO-Revision-Date: 2026-03-08 15:15+0300\n"
+"PO-Revision-Date: 2026-03-09 22:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1747,7 +1747,7 @@ msgstr "Sahip"
 #: core/model/usersmodel.cpp:77 core/utils.cpp:95 core/utils.cpp:360
 #, kde-format
 msgid "Offline"
-msgstr "Çevrimdışı"
+msgstr "Çevrim dışı"
 
 #: core/notifications/notification.cpp:81
 #, kde-format
@@ -2049,7 +2049,7 @@ msgstr "Bot"
 #: core/utils.cpp:89 core/utils.cpp:354
 #, kde-format
 msgid "Online"
-msgstr "Çevrimiçi"
+msgstr "Çevrim içi"
 
 #: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
@@ -3994,7 +3994,7 @@ msgstr "Toplam Karşıya Yükleme"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, kde-format
 msgid "Online Users"
-msgstr "Çevrimiçi Kullanıcılar"
+msgstr "Çevrim İçi Kullanıcılar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
 #, kde-format
@@ -4004,7 +4004,7 @@ msgstr "Uzaktaki Kullanıcılar"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
 #, kde-format
 msgid "Offline Users"
-msgstr "Çevrimdışı Kullanıcılar"
+msgstr "Çevrim Dışı Kullanıcılar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
 #, kde-format
@@ -7764,7 +7764,7 @@ msgstr "Ö&zel yazıtipleri kullan"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set status to \"Online\" on startup"
-msgstr "Başlangıçta, hesapları “Çevrimiçi” yap"
+msgstr "Başlangıçta, hesapları “Çevrim İçi” yap"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
@@ -10167,7 +10167,7 @@ msgstr "Kendiliğinden uzakta durumunu etkinleştir"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Offline Email notification:"
-msgstr "Çevrimdışı e-posta bildirimi:"
+msgstr "Çevrim dışı e-posta bildirimi:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -11994,7 +11994,7 @@ msgstr "Ekleri Göster — %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "Çevrim dışı kipi gerçekle (deneysel)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
