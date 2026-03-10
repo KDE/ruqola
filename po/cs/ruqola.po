@@ -8792,11 +8792,9 @@ msgid "Regular Expression"
 msgstr "Regulární výraz"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignore User"
+#, kde-format
 msgid "Ignore Case"
-msgstr "Ignorovat uživatele"
+msgstr "Nerozlišovat malá/velká"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format

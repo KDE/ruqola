@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:44+0000\n"
-"PO-Revision-Date: 2026-03-08 15:15+0300\n"
+"PO-Revision-Date: 2026-03-09 22:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1741,7 +1741,7 @@ msgstr "Sahip"
 #: core/model/usersmodel.cpp:77 core/utils.cpp:95 core/utils.cpp:360
 #, kde-format
 msgid "Offline"
-msgstr "Çevrimdışı"
+msgstr "Çevrim dışı"
 
 #: core/notifications/notification.cpp:81
 #, kde-format
@@ -1949,7 +1949,7 @@ msgstr "Kullanıcı bildirimi için kullanılabilir seçenekleri liste"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Çevrimdışı olarak başla"
+msgstr "Çevrim dışı olarak başla"
 
 #: core/ruqolacommandlineparser.cpp:62
 #, kde-format
@@ -2034,7 +2034,7 @@ msgstr "Bot"
 #: core/utils.cpp:89 core/utils.cpp:354
 #, kde-format
 msgid "Online"
-msgstr "Çevrimiçi"
+msgstr "Çevrim içi"
 
 #: core/utils.cpp:91 core/utils.cpp:356 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
@@ -3978,7 +3978,7 @@ msgstr "Toplam Karşıya Yükleme"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, kde-format
 msgid "Online Users"
-msgstr "Çevrimiçi Kullanıcılar"
+msgstr "Çevrim İçi Kullanıcılar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
 #, kde-format
@@ -3988,7 +3988,7 @@ msgstr "Uzaktaki Kullanıcılar"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
 #, kde-format
 msgid "Offline Users"
-msgstr "Çevrimdışı Kullanıcılar"
+msgstr "Çevrim Dışı Kullanıcılar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
 #, kde-format
@@ -4270,9 +4270,9 @@ msgid ""
 msgstr ""
 "Geçerli Uçtan Uca Şifreleme’yi sıfırlamak kullanıcı oturumunu kapatır. "
 "Kullanıcı yeniden oturum açtığında, Rocket.Chat yeni bir anahtar üretecek ve "
-"bir veya birden çok kullanıcının çevrimiçi olduğu herhangi şifreli bir odaya "
-"erişimini geri sağlayacaktır. Uçtan uca şifrelemenin doğasından ötürü, "
-"Rocket.Chat, içinde çevrimiçi üye olmayan hiçbir odaya erişiminizi geri "
+"bir veya birden çok kullanıcının çevrim içi olduğu herhangi şifreli bir "
+"odaya erişimini geri sağlayacaktır. Uçtan uca şifrelemenin doğasından ötürü, "
+"Rocket.Chat, içinde çevrim içi üye olmayan hiçbir odaya erişiminizi geri "
 "sağlayamaz."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:477
@@ -7748,7 +7748,7 @@ msgstr "Ö&zel yazıtipleri kullan"
 #, kde-format
 msgctxt "@option:check"
 msgid "Set status to \"Online\" on startup"
-msgstr "Başlangıçta, hesapları “Çevrimiçi” yap"
+msgstr "Başlangıçta, hesapları “Çevrim İçi” yap"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
@@ -9874,9 +9874,9 @@ msgid ""
 msgstr ""
 "Bu seçenek, geçerli uçtan uca şifreleme anahtarınızı kaldırır ve oturumunuzu "
 "kapatır. Yeniden oturum açtığınızda, Rocket.Chat yeni bir anahtar üretecek "
-"ve bir veya birden çok kullanıcının çevrimiçi olduğu herhangi şifreli bir "
+"ve bir veya birden çok kullanıcının çevrim içi olduğu herhangi şifreli bir "
 "odaya erişiminizi geri sağlayacaktır. Uçtan uca şifrelemenin doğasından "
-"ötürü, Rocket.Chat, içinde çevrimiçi üye olmayan hiçbir odaya erişiminizi "
+"ötürü, Rocket.Chat, içinde çevrim içi üye olmayan hiçbir odaya erişiminizi "
 "geri sağlayamaz."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
@@ -10135,7 +10135,7 @@ msgstr "Kendiliğinden uzakta durumunu etkinleştir"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Offline Email notification:"
-msgstr "Çevrimdışı e-posta bildirimi:"
+msgstr "Çevrim dışı e-posta bildirimi:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -10370,7 +10370,7 @@ msgstr "İletiye Git"
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
 msgid "Network is offline mode."
-msgstr "Ağ çevrimdışı."
+msgstr "Ağ çevrim dışı."
 
 #: widgets/otr/otrwidget.cpp:20
 #, kde-format
@@ -11651,13 +11651,13 @@ msgstr "Menü Çubuğunu Gizle"
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Çevrimiçi Olarak Çalış"
+msgstr "Çevrim İçi Olarak Çalış"
 
 #: widgets/ruqolamainwindow.cpp:1449
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Çevrimdışı Olarak Çalış"
+msgstr "Çevrim Dışı Olarak Çalış"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -11945,7 +11945,7 @@ msgstr "Ek alanlarını göster"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Implement Offline Mode (experimental)."
-msgstr "Çevrimdışı kipi gerçekle (deneysel)"
+msgstr "Çevrim dışı kipi gerçekle (deneysel)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Implement Pending Typed database storage."
