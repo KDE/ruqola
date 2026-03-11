@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 02:40+0000\n"
+"POT-Creation-Date: 2026-03-11 02:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -8480,19 +8480,19 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Kanali teave"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:88
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:91
 #, fuzzy, kde-format
 #| msgid "Save Attachment"
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Manuse salvestamine"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:116
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Kas tõesti kustutada see fail?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:114
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:117
 #, fuzzy, kde-format
 #| msgid "Delete File"
 msgctxt "@title"
@@ -11214,13 +11214,13 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
 #, fuzzy, kde-format
 #| msgid "Failed to extract import file."
 msgid "Impossible to open %1"
 msgstr "Importfaili lahtipakkimine nurjus."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
 #, fuzzy, kde-format
 #| msgid "Error saving file"
 msgctxt "@title:window"

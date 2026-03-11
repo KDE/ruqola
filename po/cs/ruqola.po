@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 02:40+0000\n"
+"POT-Creation-Date: 2026-03-11 02:45+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -8043,18 +8043,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Informace o kanálu"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:88
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Uložit přílohu"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:116
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Chcete odstranit tento soubor?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:114
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:117
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -10571,13 +10571,13 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Ladění"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "Nelze otevřít soubor"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:76
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error saving file"
