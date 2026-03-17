@@ -127,8 +127,12 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
                     .anonymous = false,
                 };
                 job->setMethodCallJobInfo(info);
-                // qDebug() << " info " << info;
+                qDebug() << " info " << info;
                 mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObj) {
+                    qDebug() << " RocketChatRestApi::MethodCallJob::methodCallDone******************** sendmessage" << replyObj;
+                });
+
                 if (!job->start()) {
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start sendMessage job (from RocketChatRestApi::MethodCallJob)";
                 }
