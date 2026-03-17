@@ -14,16 +14,7 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{
-        kli18n("Copy block code more easily."),
-        kli18n("Improve Text To Speech user interface."),
-        kli18n("Show attachment fields."),
-        kli18n("Implement Offline Mode (experimental)."),
-        kli18n("Implement Pending Typed database storage."),
-        kli18n("Fix RC 8.0.0 support."),
-        kli18n("Add Attachment Actions Support."),
-        kli18n("Add TimeStamp support."),
-    };
+    const QList<KLazyLocalizedString> info{};
     return info;
 }
 QList<TextAddonsWidgets::WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
@@ -210,16 +201,33 @@ QList<TextAddonsWidgets::WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo(
 
     {
         TextAddonsWidgets::WhatsNewInfo info;
-        QStringList lst;
-        for (const KLazyLocalizedString &l : lastNewFeatures()) {
-            lst += l.toString();
-        }
-        info.setNewFeatures(lst);
+        info.setNewFeatures({
+            i18n("Copy block code more easily."),
+            i18n("Improve Text To Speech user interface."),
+            i18n("Show attachment fields."),
+            i18n("Implement Offline Mode (experimental)."),
+            i18n("Implement Pending Typed database storage."),
+            i18n("Fix RC 8.0.0 support."),
+            i18n("Add Attachment Actions Support."),
+            i18n("Add TimeStamp support."),
+        });
         info.setVersion(u"2.7"_s);
         info.setBugFixings({i18n("Save local translation to local database."),
                             i18n("Fix remove room (in local database)."),
                             i18n("Fix export database."),
                             i18n("Fix upload Custom Sound")});
+
+        listInfo.append(std::move(info));
+    }
+    {
+        TextAddonsWidgets::WhatsNewInfo info;
+        QStringList lst;
+        for (const KLazyLocalizedString &l : lastNewFeatures()) {
+            lst += l.toString();
+        }
+        info.setNewFeatures(lst);
+        info.setVersion(u"2.8"_s);
+        info.setBugFixings({});
 
         listInfo.append(std::move(info));
     }
