@@ -324,7 +324,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     const QString collection = object.value("collection"_L1).toString();
     // qDebug() << " void RocketChatBackend::slotAdded(const QJsonObject &object)" << object;
     if (collection == "stream-room-messages"_L1) {
-        qCDebug(RUQOLA_BACKEND_LOG) << mRocketChatAccount->accountName() << ":stream-room-messages : " << object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << mRocketChatAccount->accountName() << ":stream-room-messages : " << object;
     } else if (collection == "users"_L1) {
         const QJsonObject fields = object.value("fields"_L1).toObject();
         const QString username = fields.value("username"_L1).toString();
@@ -349,7 +349,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     } else if (collection == "rooms"_L1) {
         qCDebug(RUQOLA_BACKEND_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == "stream-notify-user"_L1) {
-        // qDebug() << "stream-notify-user: " << object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user: " << object;
     } else if (collection == "stream-notify-all"_L1) {
         // void RocketChatBackend::slotChanged(const QJsonObject &object)
         // QJsonObject({"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"oikq5aYewRkYBGebK","_updatedAt":{"$date":1603350166714},"extension":"mp3","name":"test"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"})
