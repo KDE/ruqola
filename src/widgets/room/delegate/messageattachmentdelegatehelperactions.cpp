@@ -110,8 +110,7 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
                 const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
                 Q_ASSERT(message);
                 // qDebug() << " message->roomId" << message->roomId();
-                qDebug() << " act->msg" << button.message;
-                qDebug() << " act->msg" << button.text;
+                qDebug() << " act->msg" << button.message << "button.text " << button.text;
                 auto job = new RocketChatRestApi::MethodCallJob(this);
                 QJsonArray params;
                 QJsonObject obj;
