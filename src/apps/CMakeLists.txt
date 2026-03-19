@@ -26,6 +26,7 @@ else()
 endif()
 
 file(GLOB_RECURSE RUQOLA_ICONS "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png")
+set(appIcons)
 ecm_add_app_icon(appIcons ICONS "${RUQOLA_ICONS}")
 target_sources(ruqola PRIVATE ${appIcons})
 
