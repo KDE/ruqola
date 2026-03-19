@@ -178,7 +178,7 @@ set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
 find_package(
     Qt6
-    ${REQUIRED_QT_VERSION}
+    ${QT_REQUIRED_VERSION}
     REQUIRED
     COMPONENTS
         Core
@@ -435,7 +435,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 if(BUILD_TESTING)
-    find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
+    find_package(Qt6 ${QT_REQUIRED_VERSION} REQUIRED COMPONENTS Test)
     add_definitions(-DBUILD_TESTING)
 endif()
 
