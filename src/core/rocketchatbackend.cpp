@@ -395,7 +395,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
     const QJsonArray contents = fields.value("args"_L1).toArray();
 
     if (collection == "stream-room-messages"_L1) {
-        qCDebug(RUQOLA_BACKEND_LOG) << " RocketChatBackend::slotChanged stream-room-messages " << contents;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " RocketChatBackend::slotChanged stream-room-messages " << contents;
         processIncomingMessages(contents, false);
     } else if (collection == "users"_L1) {
         if (mRocketChatAccount->ruqolaLogger()) {
@@ -514,7 +514,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             const QJsonObject roomData = contents[0].toObject();
             mRocketChatAccount->addMessage(roomData);
-            qCDebug(RUQOLA_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
+            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
             // qDebug() << "stream-notify-user : Message  " << eventname << " contents " << contents;
         } else if (eventname.endsWith("/userData"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
