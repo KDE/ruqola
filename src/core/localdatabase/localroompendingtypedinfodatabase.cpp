@@ -108,7 +108,10 @@ QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalRoomPend
 
     const QString query = u"SELECT * FROM ROOMPENDINGTYPED"_s;
     QSqlQuery resultQuery(db);
-    resultQuery.prepare(query);
+    if (!resultQuery.prepare(query)) {
+        qCWarning(RUQOLA_DATABASE_LOG) << " Invalid query" << query << " resultQuery " << resultQuery.lastError().text();
+        return {};
+    }
     if (!resultQuery.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Impossible to execute query: " << resultQuery.lastError() << " query: " << query;
         return info;

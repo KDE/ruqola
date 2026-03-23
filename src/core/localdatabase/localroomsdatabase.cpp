@@ -127,7 +127,10 @@ QList<QByteArray> LocalRoomsDatabase::loadRooms(const QString &accountName)
 
     const QString query = u"SELECT * FROM ROOMS"_s;
     QSqlQuery resultQuery(db);
-    resultQuery.prepare(query);
+    if (!resultQuery.prepare(query)) {
+        qCWarning(RUQOLA_DATABASE_LOG) << " Invalid query" << query << " resultQuery " << resultQuery.lastError().text();
+        return {};
+    }
     if (!resultQuery.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Impossible to execute query: " << resultQuery.lastError() << " query: " << query;
         return infos;

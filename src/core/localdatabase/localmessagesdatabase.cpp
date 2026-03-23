@@ -158,7 +158,10 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
     Q_ASSERT(db.isOpen());
     const QString query = LocalMessagesDatabase::generateQueryStr(startId, endId, numberElements);
     QSqlQuery resultQuery(db);
-    resultQuery.prepare(query);
+    if (!resultQuery.prepare(query)) {
+        qCWarning(RUQOLA_DATABASE_LOG) << " Invalid query" << query << " resultQuery " << resultQuery.lastError().text();
+        return {};
+    }
     if (startId != -1) {
         resultQuery.bindValue(u":startId"_s, startId);
         if (endId != -1) {
