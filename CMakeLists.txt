@@ -323,6 +323,11 @@ endif()
 
 if(TARGET KF6::TextAutoGenerateText)
     set(HAVE_TEXT_AUTOGENERATE_TEXT TRUE)
+    if(${KF6TextAutoGenerateText_VERSION} VERSION_GREATER_EQUAL 2.0.49)
+        if(OPTION_ADD_INTERNAL_PLUGIN)
+            set(HAVE_TEXTAUTOGENERATE_INTERNAL_TOOLS TRUE)
+        endif()
+    endif()
 endif()
 
 find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
