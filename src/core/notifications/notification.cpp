@@ -34,7 +34,7 @@ Notification::~Notification()
 void Notification::createTrayIcon()
 {
     setToolTipTitle(i18n("Ruqola"));
-    setIconByPixmap(QIcon(u":/icons/systray.png"_s));
+    setIconByPixmap(QIcon(u":/icons/ruqola-symbolic.svg"_s));
     setCategory(KStatusNotifierItem::Communications);
 }
 
