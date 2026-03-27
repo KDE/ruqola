@@ -557,6 +557,13 @@ target_sources(
         emoji.qrc
 )
 
+if(HAVE_TEXTAUTOGENERATE_INTERNAL_TOOLS)
+    # target_sources(
+    #     libruqolacore
+    #     PRIVATE
+    # )
+endif()
+
 target_sources(
     libruqolacore
     PRIVATE
