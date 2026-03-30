@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-18 00:45+0000\n"
-"PO-Revision-Date: 2026-03-08 10:07+0100\n"
+"PO-Revision-Date: 2026-03-29 13:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -5604,7 +5604,7 @@ msgstr ""
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:36
 #, kde-format
 msgid "TimeZone"
-msgstr "Zona horària"
+msgstr "Fus horari"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
 #, kde-format
@@ -5613,28 +5613,28 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
-"Estableix la zona horària predeterminada que s'emprarà en mostrar els "
-"taulers o enviar correus"
+"Estableix el fus horari predeterminat que s'emprarà en mostrar els taulers o "
+"enviar correus"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
 msgid "Server Timezone"
-msgstr "Servidor de zona horària"
+msgstr "Servidor de fus horari"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
 #, kde-format
 msgid "Custom Timezone"
-msgstr "Zona horària personalitzada"
+msgstr "Fus horari personalitzat"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
 msgid "User's current Timezone"
-msgstr "Zona horària actual de l'usuari"
+msgstr "Fus horari actual de l'usuari"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr "Zona horària predeterminada per a informació"
+msgstr "Fus horari predeterminat per a informació"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:121
 #, kde-format
@@ -8637,7 +8637,7 @@ msgstr "Estat personalitzat:"
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Timezone:"
-msgstr "Zona horària:"
+msgstr "Fus horari:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:151
 #, kde-format
