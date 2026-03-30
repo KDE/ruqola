@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "config-ruqola.h"
 #include "textconverter.h"
 #include <TextUtils/TextUtilsBlockCMarkSupport>
 class RuqolaBlockCMarkSupport : public TextUtils::TextUtilsBlockCMarkSupport
@@ -17,6 +18,16 @@ public:
     void setSettings(TextConverter::ConvertMessageTextSettings *newSettings);
 
 protected:
+#if HAVE_TEXTAUTOGENERATE_NEW_CMARK_SUPPORT
+    [[nodiscard]] QString addHighlighter(const QString &str,
+                                         const QString &language,
+                                         const QString &searchText,
+                                         const QByteArray &uuid,
+                                         int &blockCodeIndex,
+                                         int &numberOfTextSearched,
+                                         int hightLightStringIndex,
+                                         bool allowInsertText = false) override;
+#else
     [[nodiscard]] QString addHighlighter(const QString &str,
                                          const QString &language,
                                          const QString &searchText,
@@ -24,6 +35,7 @@ protected:
                                          int &blockCodeIndex,
                                          int &numberOfTextSearched,
                                          int hightLightStringIndex) override;
+#endif
 
 private:
     TextConverter::ConvertMessageTextSettings *mSettings = nullptr;
