@@ -314,6 +314,9 @@ endif()
 
 if(TARGET KF6::TextAutoGenerateText)
     set(HAVE_TEXT_AUTOGENERATE_TEXT TRUE)
+    if(${KF6TextAutoGenerateText_VERSION} VERSION_GREATER_EQUAL 2.0.51)
+        set(HAVE_TEXTAUTOGENERATE_NEW_CMARK_SUPPORT TRUE)
+    endif()
 endif()
 
 find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
