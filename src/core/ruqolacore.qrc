@@ -5,6 +5,6 @@
 <RCC>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
-        <file alias="ruqola-symbolic.svg">icons/ruqola-symbolic.svg</file>
+        <file alias="ruqola-symbolic.svg">icons/22-apps-ruqola-symbolic.svg</file>
     </qresource>
 </RCC>

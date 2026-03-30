@@ -34,7 +34,13 @@ Notification::~Notification()
 void Notification::createTrayIcon()
 {
     setToolTipTitle(i18n("Ruqola"));
+
+    // use icon name on Linux so that recoloring works
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+    setIconByName(u"ruqola-symbolic"_s);
+#else
     setIconByPixmap(QIcon(u":/icons/ruqola-symbolic.svg"_s));
+#endif
     setCategory(KStatusNotifierItem::Communications);
 }
 

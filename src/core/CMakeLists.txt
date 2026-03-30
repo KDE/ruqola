@@ -884,3 +884,5 @@ install(
     LIBRARY
         NAMELINK_SKIP
 )
+
+ecm_install_icons(ICONS icons/22-apps-ruqola-symbolic.svg DESTINATION ${KDE_INSTALL_DATADIR}/ruqola/icons)
