@@ -289,16 +289,6 @@ QString generateRichTextCMark(const QString &str,
 }
 }
 
-#if HAVE_TEXTAUTOGENERATE_NEW_CMARK_SUPPORT
-QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
-                                                const QString &language,
-                                                [[maybe_unused]] const QString &searchText,
-                                                [[maybe_unused]] const QByteArray &uuid,
-                                                int &blockCodeIndex,
-                                                int &numberOfTextSearched,
-                                                int hightLightStringIndex,
-                                                bool allowInsertText)
-#else
 QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
                                                 const QString &language,
                                                 [[maybe_unused]] const QString &searchText,
@@ -306,7 +296,6 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
                                                 int &blockCodeIndex,
                                                 int &numberOfTextSearched,
                                                 int hightLightStringIndex)
-#endif
 {
     if (!mSettings) {
         qCWarning(RUQOLA_TEXTTOHTML_CMARK_LOG) << " TextConverter::ConvertMessageTextSettings is null. IT's a bug";
@@ -320,9 +309,6 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
     QString highlighted;
     QTextStream stream(&highlighted);
     TextUtils::TextUtilsSyntaxHighlighter highlighter(&stream);
-#if HAVE_TEXTAUTOGENERATE_NEW_CMARK_SUPPORT
-    highlighter.setAllowInsertText(allowInsertText);
-#endif
     const auto useHighlighter = TextUtils::TextUtilsSyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
 
     if (useHighlighter) {
