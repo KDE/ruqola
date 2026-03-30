@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-11 02:45+0000\n"
-"PO-Revision-Date: 2026-03-07 19:01+0100\n"
+"PO-Revision-Date: 2026-03-29 13:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3279,7 +3279,7 @@ msgstr "Reaccions ràpides"
 #, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "Marca horària als missatges"
+msgstr "Marca de temps en els missatges"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
 #, kde-format
@@ -4651,7 +4651,7 @@ msgstr "Rols predeterminats per als usuaris"
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
-msgstr "Configureu l'administració del servidor - %1"
+msgstr "Configureu l'administració del servidor – %1"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #, kde-format
@@ -5606,7 +5606,7 @@ msgstr ""
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:36
 #, kde-format
 msgid "TimeZone"
-msgstr "Zona horària"
+msgstr "Fus horari"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
 #, kde-format
@@ -5615,28 +5615,28 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
-"Establix la zona horària predeterminada que s'emprarà en mostrar els taulers "
-"o enviar correus"
+"Establix el fus horari predeterminat que s'emprarà en mostrar els taulers o "
+"enviar correus"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
 msgid "Server Timezone"
-msgstr "Servidor de zona horària"
+msgstr "Servidor de fus horari"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
 #, kde-format
 msgid "Custom Timezone"
-msgstr "Zona horària personalitzada"
+msgstr "Fus horari personalitzat"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
 msgid "User's current Timezone"
-msgstr "Zona horària actual de l'usuari"
+msgstr "Fus horari actual de l'usuari"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr "Zona horària predeterminada per a informació"
+msgstr "Fus horari predeterminat per a informació"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:121
 #, kde-format
@@ -8406,7 +8406,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
-msgstr "Crea missatges directes - %1"
+msgstr "Crea missatges directes – %1"
 
 #: widgets/dialogs/createdirectmessagesdialog.cpp:46
 #: widgets/dialogs/createnewchanneldialog.cpp:42
@@ -8544,7 +8544,7 @@ msgstr "Federat:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
-msgstr "Crea un debat - %1"
+msgstr "Crea un debat – %1"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:30
 #, kde-format
@@ -8633,7 +8633,7 @@ msgstr "Estat personalitzat:"
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Timezone:"
-msgstr "Zona horària:"
+msgstr "Fus horari:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:151
 #, kde-format
@@ -8876,7 +8876,7 @@ msgstr "Order:desc"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
-msgstr "Ordena els missatges per marca horària descendent"
+msgstr "Ordena els missatges per marca de temps descendent"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
@@ -9058,7 +9058,7 @@ msgstr "Fitxers"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
-msgstr "Mostra els adjunts - %1"
+msgstr "Mostra els adjunts – %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:39
 #, kde-format
@@ -9155,19 +9155,19 @@ msgstr[1] "%1 missatges a la sala (Total: %2)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Mentions Messages - %1"
-msgstr "Mostra els missatges que mencionen - %1"
+msgstr "Mostra els missatges que mencionen – %1"
 
 #: widgets/dialogs/showpinnedmessagesdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
-msgstr "Mostra els missatges fixats - %1"
+msgstr "Mostra els missatges fixats – %1"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Starred Messages - %1"
-msgstr "Mostra els missatges destacats - %1"
+msgstr "Mostra els missatges destacats – %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
@@ -9214,13 +9214,13 @@ msgstr "Nom del fitxer:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Room - %1"
-msgstr "Uniu-vos a una sala - %1"
+msgstr "Uniu-vos a una sala – %1"
 
 #: widgets/directory/directorydialog.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Private Conversation - %1"
-msgstr "Obri una conversa privada - %1"
+msgstr "Obri una conversa privada – %1"
 
 #: widgets/directory/directorydialog.cpp:38
 #, kde-format
@@ -9309,7 +9309,7 @@ msgstr "Obri un debat"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Discussions - %1"
-msgstr "Mostra els debats - %1"
+msgstr "Mostra els debats – %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:41
 #, kde-format
@@ -10060,7 +10060,7 @@ msgstr "Gestioneu el dispositiu"
 #, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Marca horària als missatges"
+msgstr "Marca de temps en els missatges"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10755,7 +10755,7 @@ msgstr "Afig un servidor WebDAV"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr "Inserix una marca horària"
+msgstr "Inserix una marca de temps"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -11899,7 +11899,7 @@ msgstr "Deixa de seguir el missatge"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr "Addició de marca horària"
+msgstr "Addició de marca de temps"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
@@ -12024,7 +12024,7 @@ msgstr "Afig la implementació d'accions d'adjunts."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 msgid "Add TimeStamp support."
-msgstr "Afig la implementació de marques horàries."
+msgstr "Afig la implementació de marques de temps."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
