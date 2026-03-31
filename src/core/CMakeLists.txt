@@ -558,10 +558,12 @@ target_sources(
 )
 
 if(HAVE_TEXTAUTOGENERATE_INTERNAL_TOOLS)
-    # target_sources(
-    #     libruqolacore
-    #     PRIVATE
-    # )
+    target_sources(
+        libruqolacore
+        PRIVATE
+            internaltools/ruqolatoolinternalinterface.h
+            internaltools/ruqolatoolinternalinterface.cpp
+    )
 endif()
 
 target_sources(
