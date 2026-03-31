@@ -43,6 +43,7 @@ Ruqola::Ruqola(QObject *parent)
     mAccountManager = new AccountManager(this);
 #if HAVE_TEXTAUTOGENERATE_INTERNAL_TOOLS
     mManager->setTextAutoGenerateTextToolInternalInterface(new RuqolaToolInternalInterface(this));
+    mManager->setHaveInsertText(true);
 #endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     TextAutoCorrectionCore::TextAutoCorrectionSettings::self()->setSharedConfig(KSharedConfig::openConfig());
