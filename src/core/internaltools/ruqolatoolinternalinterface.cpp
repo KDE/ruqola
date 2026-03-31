@@ -14,5 +14,6 @@ RuqolaToolInternalInterface::~RuqolaToolInternalInterface() = default;
 
 TextAutoGenerateText::TextAutoGenerateTextToolInternalJob *RuqolaToolInternalInterface::callTool(const QByteArray &toolName)
 {
+    Q_UNUSED(toolName)
     return {};
 }
