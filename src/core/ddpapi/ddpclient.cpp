@@ -147,6 +147,8 @@ void DDPClient::subscribeRoomMessage(const QByteArray &roomId)
         u"deleteMessage"_s,
         u"deleteMessageBulk"_s,
         u"user-activity"_s,
+        u"messagesImported"_s,
+        u"messagesRead"_s,
     };
     for (const QString &str : listStreamNotifierRoom) {
         const QJsonArray params2{QJsonValue(u"%1/%2"_s.arg(rId, str))};
