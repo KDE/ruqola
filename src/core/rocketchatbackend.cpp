@@ -734,6 +734,7 @@ void RocketChatBackend::subscribeRegistration()
         u"banners"_s,
         u"force_logout"_s,
         u"uiInteraction"_s,
+        u"webdav"_s,
     };
     for (const QString &str : listStreamNotifierUser) {
         QJsonArray params;
