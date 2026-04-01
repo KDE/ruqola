@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1733,7 +1733,7 @@ msgstr ""
 msgid "Offline"
 msgstr ""
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:87
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr ""

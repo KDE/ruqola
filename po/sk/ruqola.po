@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1856,7 +1856,7 @@ msgstr "Vlastník"
 msgid "Offline"
 msgstr "Nepripojený"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:87
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "%1 has %2 Unread Message"

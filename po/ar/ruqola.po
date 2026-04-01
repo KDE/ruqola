@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2026-03-08 09:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1761,7 +1761,7 @@ msgstr "مالك"
 msgid "Offline"
 msgstr "غير متّصل"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:87
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%2 رسالة غير مقروءة في %1"

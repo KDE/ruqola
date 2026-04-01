@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2026-03-29 13:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1748,7 +1748,7 @@ msgstr "Propietari"
 msgid "Offline"
 msgstr "Desconnectat"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:87
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 té %2 missatge/s sense llegir"

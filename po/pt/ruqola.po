@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1834,7 +1834,7 @@ msgstr "Dono"
 msgid "Offline"
 msgstr "Desligado"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:87
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 Tem %2 Mensagens Não Lidas"

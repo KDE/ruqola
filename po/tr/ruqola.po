@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2026-03-09 22:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1743,7 +1743,7 @@ msgstr "Sahip"
 msgid "Offline"
 msgstr "Çevrim dışı"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:87
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 kişisinin %2 okunmamış iletisi var"
