@@ -119,6 +119,7 @@ void LocalDatabaseManager::setDatabaseLogger(RocketChatRestApi::AbstractLogger *
     mGlobalDatabase->setDatabaseLogger(logger);
     mE2EDatabase->setDatabaseLogger(logger);
     mRoomPendingTypedInfoDatabase->setDatabaseLogger(logger);
+    mRoomSubscriptionsDatabase->setDatabaseLogger(logger);
 }
 
 LocalMessagesDatabase *LocalDatabaseManager::messagesDatabase() const
