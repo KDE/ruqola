@@ -166,7 +166,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTeamChannelsButton->setIcon(QIcon::fromTheme(u"irc-channel-active"_s));
     mTeamChannelsButton->setToolTip(i18nc("@info:tooltip", "Team Channels"));
 #ifndef QT_NO_ACCESSIBILITY
-    mListOfUsersButton->setAccessibleName(i18n("Team Channels"));
+    mTeamChannelsButton->setAccessibleName(i18n("Team Channels"));
 #endif
 
     buttonLayout->addWidget(mTeamChannelsButton, 0, Qt::AlignTop);
@@ -201,7 +201,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
                 mPluginButton = new QToolButton(this);
                 mPluginButton->setAutoRaise(true);
                 const QString desc = plugin->description();
-                if (desc.isEmpty()) {
+                if (!desc.isEmpty()) {
                     mPluginButton->setText(desc);
                 }
                 mPluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));

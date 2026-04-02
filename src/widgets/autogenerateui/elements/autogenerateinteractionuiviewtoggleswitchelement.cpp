@@ -57,10 +57,11 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::serializeElement(QJsonObj
     }
     o["options"_L1] = options;
     if (!mInitialOptions.isEmpty()) {
+        QJsonArray initialOptions;
         for (const auto &r : std::as_const(mInitialOptions)) {
-            options.append(r->serialize());
+            initialOptions.append(r->serialize());
         }
-        o["initialOptions"_L1] = options;
+        o["initialOptions"_L1] = initialOptions;
     }
 }
 

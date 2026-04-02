@@ -171,10 +171,11 @@ void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJs
     }
     o["options"_L1] = options;
     if (!mInitialOptions.isEmpty()) {
+        QJsonArray initialOptions;
         for (const auto &r : std::as_const(mInitialOptions)) {
-            options.append(r->serialize());
+            initialOptions.append(r->serialize());
         }
-        o["initialOptions"_L1] = options;
+        o["initialOptions"_L1] = initialOptions;
     }
     if (mMaxSelectItems != -1) {
         o["maxSelectItems"_L1] = mMaxSelectItems;

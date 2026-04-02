@@ -181,7 +181,7 @@ QString generateRichTextCMark(const QString &str,
         }
 
         for (const QString &word : highlightWords) {
-            const QRegularExpression exp(u"(\\b%1\\b)"_s.arg(word), QRegularExpression::CaseInsensitiveOption);
+            const QRegularExpression exp(u"(\\b%1\\b)"_s.arg(QRegularExpression::escape(word)), QRegularExpression::CaseInsensitiveOption);
             QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
             int offset = 0;
             while (userIterator.hasNext()) {
@@ -220,7 +220,7 @@ QString generateRichTextCMark(const QString &str,
             lstPos.append(std::move(pos));
         }
 
-        const QRegularExpression exp(u"(%1)"_s.arg(searchedText), QRegularExpression::CaseInsensitiveOption);
+        const QRegularExpression exp(u"(%1)"_s.arg(QRegularExpression::escape(searchedText)), QRegularExpression::CaseInsensitiveOption);
         QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
         int offset = 0;
         while (userIterator.hasNext()) {
