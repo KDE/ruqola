@@ -1050,7 +1050,7 @@ void Connection::getPinnedMessages(Utils::ListMessagesInfo &&info)
     parameters.setOffset(info.offset);
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
-
+    parameters.setSorting(map);
     job->setQueryParameters(parameters);
     connect(job, &GetPinnedMessagesJob::getPinnedMessagesDone, this, &Connection::getPinnedMessagesDone);
     if (!job->start()) {
@@ -1107,6 +1107,7 @@ void Connection::getSnippetedMessages(Utils::ListMessagesInfo &&info)
 
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
+    parameters.setSorting(map);
     job->setQueryParameters(parameters);
     connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &Connection::getSnippetedMessagesDone);
     if (!job->start()) {
