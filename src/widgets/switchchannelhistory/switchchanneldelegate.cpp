@@ -44,7 +44,7 @@ void SwitchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     int xPos = 0;
     const Utils::AvatarInfo info = index.data(SwitchChannelHistoryModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
+        const QRect displayRect(option.rect.x() + margin, option.rect.y(), option.rect.height(), option.rect.height());
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
         if (!pix.isNull()) {
             drawDecoration(painter, option, displayRect, pix);
