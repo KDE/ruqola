@@ -126,8 +126,8 @@ const CustomEmojisInfo &AdminCustomEmojiModel::customEmojis() const
 void AdminCustomEmojiModel::setCustomEmojis(const CustomEmojisInfo &newCustomEmojis)
 {
     clear();
-    if (!mCustomEmojiList.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
+    if (!newCustomEmojis.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, newCustomEmojis.count() - 1);
         mCustomEmojiList = newCustomEmojis;
         endInsertRows();
     }

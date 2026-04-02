@@ -127,8 +127,8 @@ const DeviceInfos &DeviceInfoModel::deviceInfos() const
 void DeviceInfoModel::setDeviceInfos(const DeviceInfos &newDeviceInfos)
 {
     clear();
-    if (!mDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
+    if (!newDeviceInfos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, newDeviceInfos.count() - 1);
         mDeviceInfos = newDeviceInfos;
         endInsertRows();
     }

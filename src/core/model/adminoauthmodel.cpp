@@ -129,8 +129,8 @@ void AdminOauthModel::removeOauth(const QString &identifier)
 void AdminOauthModel::addMoreOauth(const OauthInfo &info)
 {
     const int numberOfElement = mAdminOauth.count();
-    mAdminOauth.append(info);
     beginInsertRows(QModelIndex(), numberOfElement, numberOfElement);
+    mAdminOauth.append(info);
     endInsertRows();
 }
 

@@ -101,8 +101,8 @@ const CustomSoundsInfo &AdminCustomSoundModel::customSounds() const
 void AdminCustomSoundModel::setCustomSounds(const CustomSoundsInfo &newCustomSounds)
 {
     clear();
-    if (!mCustomSounds.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCustomSounds.count() - 1);
+    if (!newCustomSounds.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, newCustomSounds.count() - 1);
         mCustomSounds = newCustomSounds;
         endInsertRows();
     }

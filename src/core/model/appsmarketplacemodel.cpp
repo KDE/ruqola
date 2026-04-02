@@ -48,13 +48,15 @@ void AppsMarketPlaceModel::clearInstalledAppsInformation()
 
 void AppsMarketPlaceModel::removeApp(const QString &appId)
 {
-    for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
-        if (info.appId() == appId.toLatin1()) {
+    const QByteArray appIdBytes = appId.toLatin1();
+    for (int i = 0, count = mAppsMarketPlaceInfos.count(); i < count; ++i) {
+        AppsMarketPlaceInfo &info = mAppsMarketPlaceInfos[i];
+        if (info.appId() == appIdBytes) {
+            beginResetModel();
             info.clearInstalledInfo();
             if (!info.isValid()) {
-                mAppsMarketPlaceInfos.removeAll(info);
+                mAppsMarketPlaceInfos.removeAt(i);
             }
-            beginResetModel();
             endResetModel();
             break;
         }
@@ -65,8 +67,8 @@ void AppsMarketPlaceModel::updateAppStatus(const QString &appId, const QString &
 {
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
         if (info.appId() == appId.toLatin1()) {
-            info.changeApplicationStatus(status);
             beginResetModel();
+            info.changeApplicationStatus(status);
             endResetModel();
             break;
         }

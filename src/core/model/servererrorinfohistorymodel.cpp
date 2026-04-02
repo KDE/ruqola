@@ -68,8 +68,8 @@ void ServerErrorInfoHistoryModel::insertServerErrorInfos(const QList<ServerError
 void ServerErrorInfoHistoryModel::addServerErrorInfo(const ServerErrorInfo &info)
 {
     const int numberOfElement = mServerErrorInfo.count();
+    beginInsertRows(QModelIndex(), numberOfElement, numberOfElement);
     mServerErrorInfo.append(info);
-    beginInsertRows(QModelIndex(), numberOfElement, mServerErrorInfo.count() - 1);
     endInsertRows();
 }
 
