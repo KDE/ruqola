@@ -624,7 +624,11 @@ void DDPClient::pong()
 {
     QJsonObject pong;
     pong["msg"_L1] = u"pong"_s;
-    mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
+    const QByteArray serialized = QJsonDocument(pong).toJson(QJsonDocument::Compact);
+    const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialized));
+    if (bytes < serialized.length()) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "pong: ERROR! I couldn't send all of my message.";
+    }
 }
 
 void DDPClient::executeSubsCallBack(const QJsonObject &root)
