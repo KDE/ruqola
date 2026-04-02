@@ -33,10 +33,11 @@ void E2eCopyPasswordWidgetTest::shouldHaveDefaultValues()
 
     auto passwordLabel = w.findChild<QLabel *>("passwordLabel"_L1);
     QVERIFY(passwordLabel);
-    QCOMPARE(passwordLabel->textFormat(), Qt::RichText);
+    QCOMPARE(passwordLabel->textFormat(), Qt::PlainText);
     QCOMPARE(passwordLabel->textInteractionFlags(), Qt::TextBrowserInteraction);
 
     auto passwordLayout = w.findChild<QHBoxLayout *>("passwordLayout"_L1);
+    QVERIFY(passwordLayout);
     QCOMPARE(passwordLayout->contentsMargins(), QMargins{});
 
     auto copyToolButton = w.findChild<QToolButton *>("copyToolButton"_L1);

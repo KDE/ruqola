@@ -43,7 +43,7 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget
 
     auto passwordLabel = new QLabel(this);
     passwordLabel->setObjectName("passwordLabel"_L1);
-    passwordLabel->setTextFormat(Qt::RichText);
+    passwordLabel->setTextFormat(Qt::PlainText);
     passwordLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
 
     QFont labFont = passwordLabel->font();
