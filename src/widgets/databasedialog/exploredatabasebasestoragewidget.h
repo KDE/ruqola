@@ -8,7 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QSqlTableModel>
 #include <QWidget>
-#include <memory.h>
+#include <memory>
 class QTableView;
 class RocketChatAccount;
 class JsonPlainTextEditWidget;
