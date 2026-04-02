@@ -77,9 +77,6 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     auto desktopNotificationLabel = new QLabel(i18nc("@label:textbox", "Desktop notification:"), this);
     desktopNotificationLabel->setObjectName(u"desktopNotificationLabel"_s);
     desktopNotificationLabel->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(desktopNotificationLabel);
-
-    mainLayout->addWidget(mDesktopNotification);
     createLayout(desktopNotificationLabel, mDesktopNotification, mainLayout);
 
     mEmailNotificationLabel->setObjectName(u"emailNotificationLabel"_s);
