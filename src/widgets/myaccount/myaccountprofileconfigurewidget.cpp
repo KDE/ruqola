@@ -117,7 +117,7 @@ void MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation()
     auto job = new RocketChatRestApi::UsersLogoutOtherClientsJob(this);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::UsersLogoutOtherClientsJob::usersLogoutOtherClientsDone, this, []() {
-        qDebug() << " UsersLogoutOtherClientsJob::usersLogoutOtherClientsDone";
+        qCDebug(RUQOLAWIDGETS_LOG) << "UsersLogoutOtherClientsJob::usersLogoutOtherClientsDone";
         // TODO ?
     });
     if (!job->start()) {
@@ -222,7 +222,7 @@ void MyAccountProfileConfigureWidget::save()
         dlg->setRocketChatAccount(mRocketChatAccount);
         if (dlg->exec()) {
             const QString code = dlg->code();
-            qWarning() << " Code not used yet ! Implement it";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Code not used yet! Implement it";
             // TODO use code !
         }
         delete dlg;
