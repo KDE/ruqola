@@ -123,7 +123,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
             }
             auto job = new NotifierJob;
             NotificationInfo newNotification = info;
-            if (mCurrentAccount->accountName() != info.accountName()) {
+            if (mCurrentAccount && mCurrentAccount->accountName() != info.accountName()) {
                 newNotification.setForceShowAccountName(true);
             }
             job->setInfo(newNotification);
@@ -169,7 +169,7 @@ AccountManager::MigrateDatabaseType AccountManager::needToHandleDataMigration() 
         return MigrateDatabaseType::All;
     } else if (RuqolaGlobalConfig::self()->databaseVersion() == 1 && currentDataBaseVersion == 2) {
         return MigrateDatabaseType::DatabaseWithoutLogger;
-    } else if (RuqolaGlobalConfig::self()->databaseVersion() == 2 && currentDataBaseVersion <= 3) {
+    } else if (RuqolaGlobalConfig::self()->databaseVersion() == 2 && currentDataBaseVersion == 3) {
         return MigrateDatabaseType::DatabaseWithoutLogger;
     }
     return MigrateDatabaseType::None;
@@ -221,7 +221,7 @@ void AccountManager::loadAccount()
         if (needDatabaseMigration == AccountManager::MigrateDatabaseType::All) {
             lst += LocalDatabaseUtils::localMessageLoggerPath();
         }
-        qDebug() << " Delete database : " << lst;
+        qCDebug(RUQOLA_LOG) << " Delete database : " << lst;
         for (const QString &path : std::as_const(lst)) {
             QDir dir(path);
             if (dir.exists()) {
@@ -481,6 +481,9 @@ void AccountManager::removeDirectory(const QString &directory)
 void AccountManager::removeAccount(const QString &accountName, bool removeLogFiles)
 {
     auto account = mRocketChatAccountModel->removeAccount(accountName);
+    if (account) {
+        disconnectAccount(account);
+    }
     if (mRocketChatAccountModel->accountNumber() > 0) {
         mCurrentAccount = mRocketChatAccountModel->account(0);
         removeDatabaseAccount(accountName);

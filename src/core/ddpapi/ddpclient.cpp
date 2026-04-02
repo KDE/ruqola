@@ -432,8 +432,9 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 
     json["params"_L1] = newParams;
     qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << mUid;
-    const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
-    if (bytes < json.length()) {
+    const QByteArray serialized = QJsonDocument(json).toJson(QJsonDocument::Compact);
+    const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialized));
+    if (bytes < serialized.length()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCWarning(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     } else {
@@ -603,7 +604,6 @@ void DDPClient::onSslErrors(const QList<QSslError> &errors)
 
 void DDPClient::onWSclosed()
 {
-    qDebug();
     const bool normalClose = mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeNormal;
     if (normalClose) {
         qCDebug(RUQOLA_RECONNECT_LOG) << "DDP: Normal close, set status to LoggedOutAndCleanedUp, emit disconnectedByServer";
@@ -625,7 +625,11 @@ void DDPClient::pong()
 {
     QJsonObject pong;
     pong["msg"_L1] = u"pong"_s;
-    mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
+    const QByteArray serialized = QJsonDocument(pong).toJson(QJsonDocument::Compact);
+    const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialized));
+    if (bytes < serialized.length()) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "pong: ERROR! I couldn't send all of my message.";
+    }
 }
 
 void DDPClient::executeSubsCallBack(const QJsonObject &root)
@@ -653,7 +657,6 @@ void DDPClient::loadPermissionsAdministrator(qint64 timeStamp)
         // "params": [ { "$date": 1480377601 } ]
         params["$date"_L1] = timeStamp;
     }
-    qDebug() << " params " << params;
     method(u"permissions/get"_s, params, MethodRequestedType::PermissionsAdministrator);
 }
 

@@ -72,11 +72,14 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QByteArray
 QByteArray LocalRoomsDatabase::jsonRoom(const QString &accountName, const QString &roomId)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(accountName, db)) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Could not initialize database from " << accountName << " roomId " << roomId;
+    if (!checkDataBase(accountName, db)) {
+        qCDebug(RUQOLA_DATABASE_LOG) << "Database not found for: " << accountName << " roomId " << roomId;
         return {};
     }
-    QSqlQuery query(LocalDatabaseUtils::jsonRoom().arg(roomId), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::jsonRoom());
+    query.addBindValue(roomId);
+    query.exec();
     QByteArray value;
     // We have one element
     if (query.first()) {

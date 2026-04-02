@@ -69,7 +69,10 @@ QByteArray LocalAccountsDatabase::jsonAccount(const QString &accountName)
     if (!initializeDataBase(accountName, db)) {
         return {};
     }
-    QSqlQuery query(LocalDatabaseUtils::jsonAccount().arg(accountName), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::jsonAccount());
+    query.addBindValue(accountName);
+    query.exec();
     QByteArray value;
     // We have one element
     if (query.first()) {

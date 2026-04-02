@@ -465,9 +465,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else if (actionName == "removed"_L1) {
                 qCDebug(RUQOLA_BACKEND_LOG) << "Remove channel" << contents;
                 const QJsonObject roomData = contents[1].toObject();
-                // qDebug() << "roomData " << roomData;
-                Q_ASSERT(false);
-                model->removeRoom(QByteArray());
+                const QByteArray roomId = roomData.value("_id"_L1).toString().toLatin1();
+                if (!roomId.isEmpty()) {
+                    model->removeRoom(roomId);
+                } else {
+                    qCWarning(RUQOLA_LOG) << "rooms-changed/removed: roomId is empty, cannot remove room";
+                }
             } else {
                 qWarning() << "rooms-changed invalid actionName " << actionName;
             }

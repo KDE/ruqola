@@ -29,8 +29,8 @@ void AdminUsersBaseModel::insertElement(const QJsonObject &obj)
     user.parseUserRestApi(userObj, {});
     if (user.isValid()) {
         const int numberOfElement = mUsers.count();
+        beginInsertRows(QModelIndex(), numberOfElement, numberOfElement);
         mUsers.appendUser(user); // TODO useful ?
-        beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
         endInsertRows();
         checkFullList(); // TODO verify it
     }

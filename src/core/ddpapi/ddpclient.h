@@ -266,7 +266,7 @@ private:
      *   When a method response is received by the client, it will be dispatched
      *   to the corresponding manager iff the method call id matches.
      */
-    QHash<int, QPair<DDPManager *, int>> mMethodResponseHash;
+    QHash<quint64, QPair<DDPManager *, int>> mMethodResponseHash;
 
     bool mConnected = false;
 

@@ -114,8 +114,8 @@ const ModerationReportedUserInfos &ModerationReportedUserModel::moderationInfos(
 void ModerationReportedUserModel::setModerationInfos(const ModerationReportedUserInfos &newDeviceInfos)
 {
     clear();
-    if (!mModerationInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
+    if (!newDeviceInfos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, newDeviceInfos.count() - 1);
         mModerationInfos = newDeviceInfos;
         endInsertRows();
     }

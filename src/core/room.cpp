@@ -179,6 +179,9 @@ int Room::userMentions() const
 
 void Room::setUserMentions(int userMentions)
 {
+    if (mUserMentions == userMentions) {
+        return;
+    }
     mUserMentions = userMentions;
     // Send needAttention only if we have alert.
     if (mUserMentions > 0) {
@@ -313,7 +316,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         const QJsonArray &uidsArray = json["uids"_L1].toArray();
         const auto &u0 = uidsArray[0].toString().toLatin1();
         const auto &u1 = uidsArray[1].toString().toLatin1();
-        setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
+        if (mRocketChatAccount) {
+            setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
+        }
 
         QStringList lstUids;
         lstUids.reserve(uidsArray.count());
@@ -1231,7 +1236,7 @@ void Room::setE2EKey(const QString &e2EKey)
     } else {
         mRoomEncryptionKey = new RoomEncryptionKey;
         mRoomEncryptionKey->setE2EKey(e2EKey);
-        Q_EMIT encryptionKeyIdChanged();
+        Q_EMIT encryptionKeyChanged();
     }
 }
 
@@ -1280,6 +1285,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setJoinCodeRequired(o["joinCodeRequired"_L1].toBool());
     r->setUpdatedAt(static_cast<qint64>(o["updatedAt"_L1].toDouble()));
     r->setLastSeenAt(static_cast<qint64>(o["lastSeenAt"_L1].toDouble()));
+    r->setLastMessageAt(static_cast<qint64>(o["lastMessageAt"_L1].toDouble(-1)));
     r->setNumberMessages(static_cast<qint64>(o["msgs"_L1].toInt()));
 
     r->setMutedUsers(extractStringList(o, "muted"_L1));
@@ -1374,6 +1380,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o["updatedAt"_L1] = r->updatedAt();
     if (r->lastSeenAt() != -1) {
         o["lastSeenAt"_L1] = r->lastSeenAt();
+    }
+    if (r->lastMessageAt() != -1) {
+        o["lastMessageAt"_L1] = r->lastMessageAt();
     }
     if (r->readOnly()) {
         o["ro"_L1] = true;

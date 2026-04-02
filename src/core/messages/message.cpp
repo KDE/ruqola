@@ -102,7 +102,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         } else if (type == "e2e"_L1) {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::EncryptedText;
-            qDebug() << " encrypted message !!!!" << mText;
+            qCDebug(RUQOLA_LOG) << " encrypted message !!!!";
         } else {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::System;
@@ -1219,10 +1219,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (message.mEditedAt != -1) {
         o["editedAt"_L1] = message.mEditedAt;
     }
-    if (message.threadLastMessage() > -1) {
-        o["tlm"_L1] = message.threadLastMessage();
-    }
-
     if (!message.mEditedByUsername.isEmpty()) {
         o["editedByUsername"_L1] = message.mEditedByUsername;
     }
@@ -1365,7 +1361,7 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "Mentions:" << t.mentions();
     d.space() << "mMessageType:" << t.messageType();
     d.space() << "mRole:" << t.role();
-    if (t.reactions() && t.reactions()->isEmpty()) {
+    if (t.reactions() && !t.reactions()->isEmpty()) {
         d.space() << "mReaction:" << *t.reactions();
     }
     d.space() << "mUnread:" << t.unread();

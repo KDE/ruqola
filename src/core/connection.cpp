@@ -121,13 +121,7 @@ void Connection::initializeCookies()
 {
     const QString url = serverUrl();
     if (!url.isEmpty()) {
-        QString host;
-        const QList<QStringView> lsthost = QStringView(url).split(u"//"_s);
-        if (lsthost.count() < 2) {
-            host = url;
-        } else {
-            host = lsthost.at(1).toString();
-        }
+        const QString host = QUrl(url).host();
 
         if (!mUserId.isEmpty()) {
             QNetworkCookie userIdCookie;
@@ -726,7 +720,7 @@ void Connection::muteUser(const QByteArray &roomId, const QString &userName, boo
         job->setUserName(userName);
         job->setRoomId(roomId);
         if (!job->start()) {
-            qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMuteUserJob job";
+            qCWarning(RUQOLA_LOG) << "Impossible to start RoomsUnmuteUserJob job";
         }
     }
 }
@@ -1056,7 +1050,7 @@ void Connection::getPinnedMessages(Utils::ListMessagesInfo &&info)
     parameters.setOffset(info.offset);
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
-
+    parameters.setSorting(map);
     job->setQueryParameters(parameters);
     connect(job, &GetPinnedMessagesJob::getPinnedMessagesDone, this, &Connection::getPinnedMessagesDone);
     if (!job->start()) {
@@ -1113,6 +1107,7 @@ void Connection::getSnippetedMessages(Utils::ListMessagesInfo &&info)
 
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
+    parameters.setSorting(map);
     job->setQueryParameters(parameters);
     connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &Connection::getSnippetedMessagesDone);
     if (!job->start()) {

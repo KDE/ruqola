@@ -47,12 +47,13 @@ void SwitchChannelHistoryModel::addHistory(const SwitchChannelInfo &info)
             return;
         }
     }
+    beginResetModel();
     if (mSwichChannelsInfo.count() > 10) {
         mSwichChannelsInfo.takeFirst();
     }
     mSwichChannelsInfo.removeAll(info);
     mSwichChannelsInfo.prepend(info);
-    Q_EMIT dataChanged(createIndex(0, 0), createIndex(mSwichChannelsInfo.size() - 1, 1), {});
+    endResetModel();
 }
 
 bool SwitchChannelHistoryModel::SwitchChannelInfo::operator==(const SwitchChannelInfo &other) const

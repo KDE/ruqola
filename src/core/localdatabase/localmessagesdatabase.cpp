@@ -45,7 +45,7 @@ void LocalMessagesDatabase::deleteDatabaseFromRoomId(const QString &accountName,
         if (!QFile(fileName).remove()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Impossible to remove: " << fileName;
         } else {
-            qCWarning(RUQOLA_DATABASE_LOG) << fileName << " was removed";
+            qCDebug(RUQOLA_DATABASE_LOG) << fileName << " was removed";
         }
     }
 }

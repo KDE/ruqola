@@ -101,7 +101,10 @@ qint64 GlobalDatabase::timeStamp(const QString &accountName, const QByteArray &r
         return -1;
     }
     const QString identifier = generateIdentifier(accountName, roomId, type);
-    QSqlQuery query(LocalDatabaseUtils::timestampGlobal().arg(identifier), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::timestampGlobal());
+    query.addBindValue(identifier);
+    query.exec();
     qint64 value = -1;
     // We have one element
     if (query.first()) {

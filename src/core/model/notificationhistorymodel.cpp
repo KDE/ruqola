@@ -92,8 +92,8 @@ void NotificationHistoryModel::addNotification(const NotificationInfo &info)
         return;
     }
     const int numberOfElement = mNotificationInfo.count();
+    beginInsertRows(QModelIndex(), numberOfElement, numberOfElement);
     mNotificationInfo.append(info);
-    beginInsertRows(QModelIndex(), numberOfElement, mNotificationInfo.count() - 1);
     endInsertRows();
 }
 

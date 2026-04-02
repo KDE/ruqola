@@ -97,7 +97,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setAdminStatus(con
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadCustomSound(const QByteArray &sound, quint64 id)
 {
-    // TODO fix me
+    // TODO: the server expects the binary sound data encoded as the params payload.
+    // The correct wire format is not yet implemented; sound is currently unused.
+    Q_UNUSED(sound)
     const QJsonArray params{{}};
 
     return generateMethod(u"uploadCustomSound"_s, params, id);
@@ -178,8 +180,8 @@ RocketChatMessage::searchRoomUsers(const QByteArray &roomId, const QString &patt
     QJsonArray params;
     params.append(pattern);
 
-    const QJsonArray exceptionJson = QJsonArray::fromStringList(exceptions.split(u','));
-    params.append(std::move(exceptionJson));
+    const QJsonArray exceptionJson = exceptions.isEmpty() ? QJsonArray{} : QJsonArray::fromStringList(exceptions.split(u','));
+    params.append(exceptionJson);
 
     QJsonObject secondParams;
     if (searchRoom) {
