@@ -114,7 +114,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteCustomSound(
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::listCustomSounds(quint64 id)
 {
-    const QJsonArray params;
+    const QJsonArray params{{}};
 
     return generateMethod(u"listCustomSounds"_s, params, id);
 }
