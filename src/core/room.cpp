@@ -1236,7 +1236,7 @@ void Room::setE2EKey(const QString &e2EKey)
     } else {
         mRoomEncryptionKey = new RoomEncryptionKey;
         mRoomEncryptionKey->setE2EKey(e2EKey);
-        Q_EMIT encryptionKeyIdChanged();
+        Q_EMIT encryptionKeyChanged();
     }
 }
 
