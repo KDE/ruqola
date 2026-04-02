@@ -56,7 +56,6 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
     }
     setVisible(mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0));
 
-    mCurrentRocketChatAccount = account;
     updateWebDavSupport();
     updateTimeStampSupport();
 }
