@@ -29,7 +29,7 @@ void ExploreDatabaseMessagesStorageWidget::slotLoadModelFromDataBase(const QStri
     if (mModel) {
         setModel(mModel.get());
     } else {
-        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
+        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "messages model is nullptr" << accountName;
     }
 }
 

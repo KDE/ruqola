@@ -31,7 +31,6 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     mainLayout->addWidget(mPasswordLineEdit);
 
     mResetPasswordButton->setObjectName(u"mResetPasswordButton"_s);
-    mainLayout->addWidget(mPasswordLineEdit);
     mainLayout->addWidget(mResetPasswordButton);
     KLineEditEventHandler::catchReturnKey(mPasswordLineEdit->lineEdit());
     connect(mResetPasswordButton, &QPushButton::clicked, this, &PasswordLineEditWidget::slotResetPasswordButton);

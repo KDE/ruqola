@@ -33,7 +33,7 @@ void ExploreDatabaseRoomsPendingTypedInfoStorageWidget::slotLoadModelFromDataBas
     if (mModel) {
         setModel(mModel.get());
     } else {
-        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
+        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "pending typed info model is nullptr" << accountName;
     }
 }
 
