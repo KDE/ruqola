@@ -62,15 +62,15 @@ void LocalDatabaseUtilsTest::shouldCheckDataBase()
     QCOMPARE(LocalDatabaseUtils::updateAccount(), u"INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?)"_s);
     QCOMPARE(LocalDatabaseUtils::insertReplaceGlobal(), u"INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)"_s);
     QCOMPARE(LocalDatabaseUtils::removeGlobal(), u"DELETE FROM GLOBAL WHERE identifier = ?"_s);
-    QCOMPARE(LocalDatabaseUtils::timestampGlobal(), u"SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\""_s);
+    QCOMPARE(LocalDatabaseUtils::timestampGlobal(), u"SELECT timestamp FROM GLOBAL WHERE identifier = ?"_s);
     QCOMPARE(LocalDatabaseUtils::deleteMessageFromLogs(), u"DELETE FROM LOGS WHERE messageId = ?"_s);
     QCOMPARE(LocalDatabaseUtils::insertReplaceMessageFromLogs(), u"INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"_s);
-    QCOMPARE(LocalDatabaseUtils::jsonAccount(), u"SELECT json FROM ACCOUNT WHERE accountName = \"%1\""_s);
+    QCOMPARE(LocalDatabaseUtils::jsonAccount(), u"SELECT json FROM ACCOUNT WHERE accountName = ?"_s);
     QCOMPARE(LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo(), u"INSERT OR REPLACE INTO ROOMPENDINGTYPED VALUES (?, ?)"_s);
     QCOMPARE(LocalDatabaseUtils::deleteRoomPendingTypedInfo(), u"DELETE FROM ROOMPENDINGTYPED WHERE roomId = ?"_s);
     QCOMPARE(LocalDatabaseUtils::deleteRoomSubscription(), u"DELETE FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = ?"_s);
     QCOMPARE(LocalDatabaseUtils::insertRoomSubscription(), u"INSERT OR REPLACE INTO ROOMSUBSCRIPTIONS VALUES (?, ?)"_s);
-    QCOMPARE(LocalDatabaseUtils::roomIdFromSubscription(), u"SELECT roomId FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = \"%1\""_s);
+    QCOMPARE(LocalDatabaseUtils::roomIdFromSubscription(), u"SELECT roomId FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = ?"_s);
 }
 
 #include "moc_localdatabaseutilstest.cpp"

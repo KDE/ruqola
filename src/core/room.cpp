@@ -1285,7 +1285,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setJoinCodeRequired(o["joinCodeRequired"_L1].toBool());
     r->setUpdatedAt(static_cast<qint64>(o["updatedAt"_L1].toDouble()));
     r->setLastSeenAt(static_cast<qint64>(o["lastSeenAt"_L1].toDouble()));
-    r->setLastMessageAt(static_cast<qint64>(o["lastMessageAt"_L1].toDouble()));
+    r->setLastMessageAt(static_cast<qint64>(o["lastMessageAt"_L1].toDouble(-1)));
     r->setNumberMessages(static_cast<qint64>(o["msgs"_L1].toInt()));
 
     r->setMutedUsers(extractStringList(o, "muted"_L1));
