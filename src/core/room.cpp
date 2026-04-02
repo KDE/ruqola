@@ -179,6 +179,9 @@ int Room::userMentions() const
 
 void Room::setUserMentions(int userMentions)
 {
+    if (mUserMentions == userMentions) {
+        return;
+    }
     mUserMentions = userMentions;
     // Send needAttention only if we have alert.
     if (mUserMentions > 0) {
