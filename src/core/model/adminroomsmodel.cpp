@@ -149,7 +149,7 @@ void AdminRoomsModel::checkFullList()
 void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mAdminRooms.count();
-    mAdminRooms.parseMoreRooms(obj, RoomsInfo::ParseType::Directory);
+    mAdminRooms.parseMoreRooms(obj, RoomsInfo::ParseType::Administrator);
     beginInsertRows(QModelIndex(), numberOfElement, mAdminRooms.count() - 1);
     endInsertRows();
     checkFullList();
