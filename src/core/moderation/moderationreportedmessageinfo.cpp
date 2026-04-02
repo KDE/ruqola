@@ -32,7 +32,7 @@ QDebug operator<<(QDebug d, const ModerationReportedMessageInfo &t)
 // "success":true,"total":1})
 bool ModerationReportedMessageInfo::operator==(const ModerationReportedMessageInfo &other) const
 {
-    return mUserId == other.mUserId && mName == other.mName && mUserName == other.mUserName && mUserId == other.mUserId && mCount == other.mCount
+    return mUserId == other.mUserId && mName == other.mName && mUserName == other.mUserName && mMsgId == other.mMsgId && mCount == other.mCount
         && mIsUserDeleted == other.mIsUserDeleted && mMessage == other.mMessage && mCreatedAt == other.mCreatedAt && mRoomList == other.mRoomList;
 }
 
