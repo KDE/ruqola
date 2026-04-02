@@ -410,7 +410,7 @@ void MessageAttachment::generateAttachmentFieldsText()
             ++i;
         }
         result += u"</tr></table></qt>"_s;
-        mAttachmentFieldsText += result;
+        mAttachmentFieldsText = result;
     }
 }
 
