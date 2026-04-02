@@ -91,7 +91,6 @@ QJsonDocument OauthAppsDeleteJob::json() const
     QJsonObject jsonObj;
     jsonObj["appId"_L1] = mIdentifier;
     const QJsonDocument postData = QJsonDocument(jsonObj);
-    qDebug() << " postData " << postData;
     return postData;
 }
 

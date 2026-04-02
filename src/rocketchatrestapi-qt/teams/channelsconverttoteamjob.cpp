@@ -70,7 +70,7 @@ bool ChannelsConvertToTeamJob::canStart() const
         return false;
     }
     if (mChannelId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelsConvertToTeamJob: mTeamId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelsConvertToTeamJob: mChannelId is empty";
         return false;
     }
     return true;
