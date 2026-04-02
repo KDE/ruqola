@@ -1285,6 +1285,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setJoinCodeRequired(o["joinCodeRequired"_L1].toBool());
     r->setUpdatedAt(static_cast<qint64>(o["updatedAt"_L1].toDouble()));
     r->setLastSeenAt(static_cast<qint64>(o["lastSeenAt"_L1].toDouble()));
+    r->setLastMessageAt(static_cast<qint64>(o["lastMessageAt"_L1].toDouble()));
     r->setNumberMessages(static_cast<qint64>(o["msgs"_L1].toInt()));
 
     r->setMutedUsers(extractStringList(o, "muted"_L1));
@@ -1379,6 +1380,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o["updatedAt"_L1] = r->updatedAt();
     if (r->lastSeenAt() != -1) {
         o["lastSeenAt"_L1] = r->lastSeenAt();
+    }
+    if (r->lastMessageAt() != -1) {
+        o["lastMessageAt"_L1] = r->lastMessageAt();
     }
     if (r->readOnly()) {
         o["ro"_L1] = true;
