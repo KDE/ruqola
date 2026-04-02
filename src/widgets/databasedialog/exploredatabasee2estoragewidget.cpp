@@ -27,7 +27,7 @@ void ExploreDatabaseE2EStorageWidget::slotLoadModelFromDataBase(const QString &a
     if (mModel) {
         setModel(mModel.get());
     } else {
-        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "rooms model is nullptr" << accountName;
+        qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "e2e model is nullptr" << accountName;
     }
     */
 }
