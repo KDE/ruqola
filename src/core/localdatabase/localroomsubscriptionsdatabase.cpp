@@ -97,7 +97,10 @@ QByteArray LocalRoomSubscriptionsDatabase::roomId(const QString &accountName, co
     if (!initializeDataBase(accountName, db)) {
         return {};
     }
-    QSqlQuery query(LocalDatabaseUtils::roomIdFromSubscription().arg(subscriptionId), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::roomIdFromSubscription());
+    query.addBindValue(QString::fromLatin1(subscriptionId));
+    query.exec();
     // We have one element
     QByteArray roomId;
     if (query.first()) {

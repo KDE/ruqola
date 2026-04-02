@@ -101,7 +101,7 @@ QString LocalDatabaseUtils::deleteRoom()
 
 QString LocalDatabaseUtils::jsonRoom()
 {
-    return u"SELECT json FROM ROOMS WHERE roomId = \"%1\""_s;
+    return u"SELECT json FROM ROOMS WHERE roomId = ?"_s;
 }
 
 QString LocalDatabaseUtils::insertReplaceRoom()
@@ -131,7 +131,7 @@ QString LocalDatabaseUtils::removeGlobal()
 
 QString LocalDatabaseUtils::timestampGlobal()
 {
-    return u"SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\""_s;
+    return u"SELECT timestamp FROM GLOBAL WHERE identifier = ?"_s;
 }
 
 QString LocalDatabaseUtils::deleteMessageFromLogs()
@@ -151,7 +151,7 @@ qint64 LocalDatabaseUtils::currentTimeStamp()
 
 QString LocalDatabaseUtils::jsonAccount()
 {
-    return u"SELECT json FROM ACCOUNT WHERE accountName = \"%1\""_s;
+    return u"SELECT json FROM ACCOUNT WHERE accountName = ?"_s;
 }
 
 QString LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo()
@@ -176,5 +176,5 @@ QString LocalDatabaseUtils::insertRoomSubscription()
 
 QString LocalDatabaseUtils::roomIdFromSubscription()
 {
-    return u"SELECT roomId FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = \"%1\""_s;
+    return u"SELECT roomId FROM ROOMSUBSCRIPTIONS WHERE subscriptionId = ?"_s;
 }
