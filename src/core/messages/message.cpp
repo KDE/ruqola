@@ -102,7 +102,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         } else if (type == "e2e"_L1) {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::EncryptedText;
-            qDebug() << " encrypted message !!!!" << mText;
+            qCDebug(RUQOLA_LOG) << " encrypted message !!!!";
         } else {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::System;

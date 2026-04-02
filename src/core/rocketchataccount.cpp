@@ -167,9 +167,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     // Initialize
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mAccountTimeStamp = globalRoomsTimeStamp();
-        qDebug() << " mAccountTimeStamp " << mAccountTimeStamp;
+        qCDebug(RUQOLA_LOG) << "mAccountTimeStamp" << mAccountTimeStamp;
         if (mAccountTimeStamp != -1) {
-            qDebug() << " datetime : " << QDateTime::fromMSecsSinceEpoch(mAccountTimeStamp);
+            qCDebug(RUQOLA_LOG) << "datetime:" << QDateTime::fromMSecsSinceEpoch(mAccountTimeStamp);
         }
     }
     mServerConfigInfo = new ServerConfigInfo(this, this);
@@ -1629,7 +1629,7 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
     // QJsonArray(["app/statusUpdate",[{"appId":"ebb7f05b-ea65-4565-880b-8c2360f14500","status":"manually_enabled"}]])
     // QJsonArray([["app/removed",["ebb7f05b-ea65-4565-880b-8c2360f14500"]]])
     // QJsonArray([["app/added",["ebb7f05b-ea65-4565-880b-8c2360f14500"]]])
-    qDebug() << " RocketChatAccount::updateApps " << contents;
+    qCDebug(RUQOLA_LOG) << "RocketChatAccount::updateApps" << contents;
     const auto count{contents.count()};
     for (auto i = 0; i < count; ++i) {
         const QJsonArray array = contents.at(i).toArray();
@@ -1653,9 +1653,9 @@ void RocketChatAccount::updateApps(const QJsonArray &contents)
                         mAppsMarketPlaceModel->updateAppStatus(obj["appId"_L1].toString(), obj["status"_L1].toString());
                     }
                 } else if (type == "app/updated"_L1) {
-                    qDebug() << " NEED TO IMPLEMENT app/updated";
+                    qCWarning(RUQOLA_LOG) << "NEED TO IMPLEMENT app/updated";
                 } else if (type == "app/settingUpdated"_L1) {
-                    qDebug() << " NEED TO IMPLEMENT app/settingUpdated";
+                    qCWarning(RUQOLA_LOG) << "NEED TO IMPLEMENT app/settingUpdated";
                 } else if (type == "app/added"_L1) {
                     updateInstalledApps();
                     updateCountApplications();
@@ -1692,21 +1692,21 @@ void RocketChatAccount::updateCustomSound(const QJsonArray &replyArray)
 
 void RocketChatAccount::deleteUser(const QJsonArray &replyArray)
 {
-    qDebug() << " void RocketChatAccount::deleteUser(const QJsonObject &replyObject)" << replyArray;
+    qCDebug(RUQOLA_LOG) << "RocketChatAccount::deleteUser" << replyArray;
 }
 
 void RocketChatAccount::deleteCustomUserStatus(const QJsonArray &replyArray)
 {
-    qDebug() << " void RocketChatAccount::deleteCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
     mCustomUserStatuses.deleteCustomUserStatuses(replyArray);
     Q_EMIT customUserStatusChanged();
+    qCDebug(RUQOLA_LOG) << "RocketChatAccount::deleteCustomUserStatus" << replyArray;
 }
 
 void RocketChatAccount::updateCustomUserStatus(const QJsonArray &replyArray)
 {
     mCustomUserStatuses.updateCustomUserStatues(replyArray);
     Q_EMIT customUserStatusChanged();
-    qDebug() << " void RocketChatAccount::updateCustomUserStatus(const QJsonObject &replyObject)" << replyArray;
+    qCDebug(RUQOLA_LOG) << "RocketChatAccount::updateCustomUserStatus" << replyArray;
 }
 
 QByteArray RocketChatAccount::userId() const
@@ -2216,7 +2216,7 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
         } else if (obj.contains("rid"_L1)) {
             const QString roomId = obj["rid"_L1].toString();
             const QString etag = obj["etag"_L1].toString();
-            qDebug() << "need to update room avatar " << accountName() << "room" << roomId << "etag " << etag;
+            qCDebug(RUQOLA_LOG) << "need to update room avatar" << accountName() << "room" << roomId << "etag" << etag;
             const Utils::AvatarInfo info{
                 .etag = etag, // Etag
                 .identifier = roomId, // roomId
@@ -2709,7 +2709,7 @@ void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 
 void RocketChatAccount::updateUserData(const QJsonArray &contents)
 {
-    qDebug() << " void RocketChatAccount::updateUserData(const QJsonArray &contents)" << contents;
+    qCDebug(RUQOLA_LOG) << "RocketChatAccount::updateUserData" << contents;
     for (const auto &array : contents) {
         const QJsonObject updateJson = array["diff"_L1].toObject();
         const QStringList keys = updateJson.keys();
@@ -2803,7 +2803,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 Q_EMIT ownUserPreferencesChanged();
             } else if (key == "e2e.private_key"_L1) {
                 // TODO update private key!!!!!
-                qDebug() << " e2e.private_key changed !!! " << updateJson.value(key).toString();
+                qCDebug(RUQOLA_LOG) << "e2e.private_key changed" << updateJson.value(key).toString();
             } else {
                 const static QRegularExpression bannerRegularExpression(u"banners.(.*).read"_s);
                 QRegularExpressionMatch rmatch;
@@ -3447,7 +3447,7 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
 void RocketChatAccount::loadRoomsFromDatabase()
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        qDebug() << "GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp timeStamp****************************** " << mAccountTimeStamp;
+        qCDebug(RUQOLA_LOG) << "loadRoomsFromDatabase timeStamp" << mAccountTimeStamp;
         if (mAccountTimeStamp > -1) {
             RoomModel *model = roomModel();
             const auto roomsInfo = mLocalDatabaseManager->loadRooms(accountName());
@@ -3531,7 +3531,7 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
                 if (timeStamp == -1) {
                     const QByteArray roomId = model->addRoom(room);
                     if (roomId.isEmpty()) {
-                        qDebug() << "insert room root : " << root;
+                        qCWarning(RUQOLA_LOG) << "insert room: roomId is empty, root:" << root;
                         Q_ASSERT(false);
                     } else {
                         insertRoomSubscription(subscriptionId, roomId);
@@ -3627,7 +3627,7 @@ void RocketChatAccount::createJitsiConfCall(const QJsonObject &root)
 void RocketChatAccount::openDirectChannel(const QJsonObject &root)
 {
     const QJsonObject obj = root.value("result"_L1).toObject();
-    qDebug() << " void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)" << obj;
+    qCDebug(RUQOLA_LOG) << "openDirectChannel result" << obj;
     if (!obj.isEmpty()) {
         const QByteArray rid = obj.value("rid"_L1).toString().toLatin1();
         if (!rid.isEmpty()) {

@@ -602,7 +602,6 @@ void DDPClient::onSslErrors(const QList<QSslError> &errors)
 
 void DDPClient::onWSclosed()
 {
-    qDebug();
     const bool normalClose = mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeNormal;
     if (normalClose) {
         qCDebug(RUQOLA_RECONNECT_LOG) << "DDP: Normal close, set status to LoggedOutAndCleanedUp, emit disconnectedByServer";
@@ -656,7 +655,6 @@ void DDPClient::loadPermissionsAdministrator(qint64 timeStamp)
         // "params": [ { "$date": 1480377601 } ]
         params["$date"_L1] = timeStamp;
     }
-    qDebug() << " params " << params;
     method(u"permissions/get"_s, params, MethodRequestedType::PermissionsAdministrator);
 }
 

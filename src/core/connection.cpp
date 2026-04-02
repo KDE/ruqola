@@ -726,7 +726,7 @@ void Connection::muteUser(const QByteArray &roomId, const QString &userName, boo
         job->setUserName(userName);
         job->setRoomId(roomId);
         if (!job->start()) {
-            qCWarning(RUQOLA_LOG) << "Impossible to start RoomsMuteUserJob job";
+            qCWarning(RUQOLA_LOG) << "Impossible to start RoomsUnmuteUserJob job";
         }
     }
 }
