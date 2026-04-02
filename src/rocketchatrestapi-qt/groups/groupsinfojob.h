@@ -27,7 +27,7 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void channelInfoDone(const QJsonObject &replyObjectj, const QString &roomId);
+    void groupInfoDone(const QJsonObject &replyObjectj, const QString &roomId);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

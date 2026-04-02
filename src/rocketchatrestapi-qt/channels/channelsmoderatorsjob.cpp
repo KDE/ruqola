@@ -38,11 +38,11 @@ void ChannelsModeratorsJob::onGetRequestResponse(const QString &replyErrorString
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("channelFilesDone success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelFilesDone(replyObject, channelGroupInfo());
+        addLoggerInfo("channelModeratorsDone success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT channelModeratorsDone(replyObject, channelGroupInfo());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("channelFilesDone problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("channelModeratorsDone problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
