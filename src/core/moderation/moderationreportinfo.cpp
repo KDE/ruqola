@@ -51,8 +51,10 @@ qint64 ModerationReportInfo::timeStamp() const
 void ModerationReportInfo::setTimeStamp(qint64 newTimeStamp)
 {
     mTimeStamp = newTimeStamp;
-    QLocale l;
-    mTimeStampDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mTimeStamp), QLocale::LongFormat);
+    if (mTimeStamp != -1) {
+        QLocale l;
+        mTimeStampDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mTimeStamp), QLocale::LongFormat);
+    }
 }
 
 QString ModerationReportInfo::description() const
