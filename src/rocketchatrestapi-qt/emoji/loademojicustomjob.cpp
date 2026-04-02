@@ -62,12 +62,12 @@ bool LoadEmojiCustomJob::hasQueryParameterSupport() const
 QNetworkRequest LoadEmojiCustomJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::LoadEmojiCustom);
-    QNetworkRequest req(url);
     QUrlQuery queryUrl;
     addQueryParameter(queryUrl);
     if (!queryUrl.isEmpty()) {
         url.setQuery(queryUrl);
     }
+    QNetworkRequest req(url);
     addAuthRawHeader(req);
     return req;
 }
