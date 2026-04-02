@@ -1361,7 +1361,7 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "Mentions:" << t.mentions();
     d.space() << "mMessageType:" << t.messageType();
     d.space() << "mRole:" << t.role();
-    if (t.reactions() && t.reactions()->isEmpty()) {
+    if (t.reactions() && !t.reactions()->isEmpty()) {
         d.space() << "mReaction:" << *t.reactions();
     }
     d.space() << "mUnread:" << t.unread();
