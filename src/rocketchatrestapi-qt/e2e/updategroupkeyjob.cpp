@@ -88,7 +88,7 @@ QJsonDocument UpdateGroupKeyJob::json() const
     QJsonObject jsonObj;
     jsonObj["uid"_L1] = mUpdateGroupInfo.uid;
     jsonObj["rid"_L1] = mUpdateGroupInfo.roomId;
-    jsonObj["key"_L1] = mUpdateGroupInfo.uid;
+    jsonObj["key"_L1] = mUpdateGroupInfo.key;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

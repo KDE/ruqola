@@ -142,7 +142,6 @@ void UploadFileJob::slotUploadFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject.value("success"_L1).toBool()) {
-            qDebug() << " replyObject " << replyObject;
             if (mUploadFileInfo.rc80Server) {
                 UploadFileJob::ConfirmMediaInfo confirmInfo;
                 confirmInfo.parse(replyObject.value("file"_L1).toObject());

@@ -84,7 +84,7 @@ bool AcceptSuggestedGroupKeyJob::canStart() const
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RejectSuggestedGroupKeyJob: roomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "AcceptSuggestedGroupKeyJob: roomId is empty";
         return false;
     }
     return true;

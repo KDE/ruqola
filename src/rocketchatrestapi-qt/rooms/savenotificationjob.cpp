@@ -76,7 +76,7 @@ QString SaveNotificationJob::unreadAlert() const
 
 void SaveNotificationJob::setUnreadAlert(const QString &unreadAlert)
 {
-    mSettingsWillBeChanged = mSettingsWillBeChanged & UnreadAlert;
+    mSettingsWillBeChanged |= UnreadAlert;
     mUnreadAlert = unreadAlert;
 }
 

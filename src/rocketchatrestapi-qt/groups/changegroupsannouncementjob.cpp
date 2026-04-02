@@ -38,11 +38,11 @@ void ChangeGroupsAnnouncementJob::onPostRequestResponse(const QString &replyErro
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChangeGroupsDescriptionJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("ChangeGroupsAnnouncementJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeGroupsAnnouncement();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChangeGroupsDescriptionJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("ChangeGroupsAnnouncementJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

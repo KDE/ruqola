@@ -28,7 +28,7 @@ bool RoomsCleanHistoryJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelCleanHistoryJob::start");
+    addStartRestApiInfo("RoomsCleanHistoryJob::start");
     submitPostRequest(json());
 
     return true;
@@ -39,11 +39,11 @@ void RoomsCleanHistoryJob::onPostRequestResponse(const QString &replyErrorString
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelCleanHistoryJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("RoomsCleanHistoryJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT cleanHistoryDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelCleanHistoryJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("RoomsCleanHistoryJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

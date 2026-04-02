@@ -10,6 +10,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <QUrlQuery>
 
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
@@ -66,6 +67,7 @@ QNetworkRequest GetUsersOfRoomWithoutKey::request() const
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
+    addRequestAttribute(request);
     return request;
 }
 

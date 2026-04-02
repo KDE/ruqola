@@ -68,7 +68,7 @@ bool GroupsConvertToTeamJob::canStart() const
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsConvertToTeamJob: mTeamId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsConvertToTeamJob: mRoomId is empty";
         return false;
     }
     return true;

@@ -67,7 +67,7 @@ bool GroupRemoveModeratorJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupRemoveModeratorJob: remove userid is empty";
         return false;
     }
-    if (hasIdentifier()) {
+    if (!hasIdentifier()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupRemoveModeratorJob: RoomId is empty";
         return false;
     }
