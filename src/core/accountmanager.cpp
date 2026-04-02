@@ -169,7 +169,7 @@ AccountManager::MigrateDatabaseType AccountManager::needToHandleDataMigration() 
         return MigrateDatabaseType::All;
     } else if (RuqolaGlobalConfig::self()->databaseVersion() == 1 && currentDataBaseVersion == 2) {
         return MigrateDatabaseType::DatabaseWithoutLogger;
-    } else if (RuqolaGlobalConfig::self()->databaseVersion() == 2 && currentDataBaseVersion <= 3) {
+    } else if (RuqolaGlobalConfig::self()->databaseVersion() == 2 && currentDataBaseVersion == 3) {
         return MigrateDatabaseType::DatabaseWithoutLogger;
     }
     return MigrateDatabaseType::None;
