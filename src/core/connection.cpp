@@ -121,13 +121,7 @@ void Connection::initializeCookies()
 {
     const QString url = serverUrl();
     if (!url.isEmpty()) {
-        QString host;
-        const QList<QStringView> lsthost = QStringView(url).split(u"//"_s);
-        if (lsthost.count() < 2) {
-            host = url;
-        } else {
-            host = lsthost.at(1).toString();
-        }
+        const QString host = QUrl(url).host();
 
         if (!mUserId.isEmpty()) {
             QNetworkCookie userIdCookie;
