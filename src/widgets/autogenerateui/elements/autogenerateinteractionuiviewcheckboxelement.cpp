@@ -104,7 +104,7 @@ QVariant AutoGenerateInteractionUiViewCheckboxElement::currentValue() const
 
 void AutoGenerateInteractionUiViewCheckboxElement::setCurrentValue(const QVariant &v)
 {
-    mCheckBox->setCheckable(v.toBool());
+    mCheckBox->setChecked(v.toBool());
 }
 
 #include "moc_autogenerateinteractionuiviewcheckboxelement.cpp"
