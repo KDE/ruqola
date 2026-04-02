@@ -123,7 +123,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
             }
             auto job = new NotifierJob;
             NotificationInfo newNotification = info;
-            if (mCurrentAccount->accountName() != info.accountName()) {
+            if (mCurrentAccount && mCurrentAccount->accountName() != info.accountName()) {
                 newNotification.setForceShowAccountName(true);
             }
             job->setInfo(newNotification);
