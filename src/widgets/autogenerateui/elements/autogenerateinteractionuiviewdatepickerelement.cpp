@@ -72,7 +72,7 @@ QVariant AutoGenerateInteractionUiViewDatePickerElement::currentValue() const
 
 void AutoGenerateInteractionUiViewDatePickerElement::setCurrentValue(const QVariant &v)
 {
-    mDateTime->setDateTime(QDateTime::fromString(v.toString()));
+    mDateTime->setDate(QDate::fromString(v.toString(), "yyyy-MM-dd"_L1));
 }
 
 void AutoGenerateInteractionUiViewDatePickerElement::serializeElement(QJsonObject &o) const
