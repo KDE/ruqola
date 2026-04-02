@@ -201,7 +201,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
                 mPluginButton = new QToolButton(this);
                 mPluginButton->setAutoRaise(true);
                 const QString desc = plugin->description();
-                if (desc.isEmpty()) {
+                if (!desc.isEmpty()) {
                     mPluginButton->setText(desc);
                 }
                 mPluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));

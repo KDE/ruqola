@@ -146,7 +146,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
                 auto pluginButton = new QToolButton(this);
                 pluginButton->setAutoRaise(true);
                 const QString desc = plugin->description();
-                if (desc.isEmpty()) {
+                if (!desc.isEmpty()) {
                     pluginButton->setText(desc);
                 }
                 pluginButton->setIcon(QIcon::fromTheme(plugin->iconName()));
