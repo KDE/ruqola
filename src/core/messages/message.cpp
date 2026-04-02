@@ -1219,10 +1219,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (message.mEditedAt != -1) {
         o["editedAt"_L1] = message.mEditedAt;
     }
-    if (message.threadLastMessage() > -1) {
-        o["tlm"_L1] = message.threadLastMessage();
-    }
-
     if (!message.mEditedByUsername.isEmpty()) {
         o["editedByUsername"_L1] = message.mEditedByUsername;
     }
