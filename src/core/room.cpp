@@ -316,7 +316,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         const QJsonArray &uidsArray = json["uids"_L1].toArray();
         const auto &u0 = uidsArray[0].toString().toLatin1();
         const auto &u1 = uidsArray[1].toString().toLatin1();
-        setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
+        if (mRocketChatAccount) {
+            setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
+        }
 
         QStringList lstUids;
         lstUids.reserve(uidsArray.count());
