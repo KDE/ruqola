@@ -6,6 +6,7 @@
 
 #include "authenticationmanager.h"
 
+#include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
@@ -39,9 +40,6 @@ void AuthenticationManager::initializePluginList()
         AuthenticationManagerInfo info;
         const KPluginMetaData data = i.previous();
 
-        // 1) get plugin data => name/description etc.
-        info.pluginData = createPluginMetaData(data);
-        // 2) look at if plugin is activated
         info.data = data;
         info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
         info.metaDataFileName = data.fileName();
@@ -61,9 +59,11 @@ void AuthenticationManager::initializePluginList()
 
 void AuthenticationManager::loadPlugin(AuthenticationManagerInfo *item)
 {
-    if (auto plugin = KPluginFactory::instantiatePlugin<PluginAuthentication>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
-        item->plugin = plugin;
-        mPluginDataList.append(item->pluginData);
+    auto result = KPluginFactory::instantiatePlugin<PluginAuthentication>(item->data, this, QVariantList() << item->metaDataFileNameBaseName);
+    if (result.plugin) {
+        item->plugin = result.plugin;
+    } else {
+        qCWarning(RUQOLA_LOG) << "Failed to load authentication plugin" << item->metaDataFileName << result.errorString;
     }
 }
 
@@ -131,14 +131,6 @@ QList<PluginAuthentication *> AuthenticationManager::pluginsList() const
         }
     }
     return lst;
-}
-
-PluginUtilData AuthenticationManager::createPluginMetaData(const KPluginMetaData &metaData)
-{
-    PluginUtilData pluginData;
-    pluginData.mName = metaData.name();
-    pluginData.mIdentifier = metaData.pluginId();
-    return pluginData;
 }
 
 #include "moc_authenticationmanager.cpp"

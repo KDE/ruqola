@@ -109,9 +109,7 @@ private:
     explicit AuthenticationManager(QObject *parent = nullptr);
     LIBRUQOLACORE_NO_EXPORT void initializePluginList();
     LIBRUQOLACORE_NO_EXPORT void loadPlugin(AuthenticationManagerInfo *item);
-    LIBRUQOLACORE_NO_EXPORT PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QList<AuthenticationManagerInfo> mPluginList;
-    QList<PluginUtilData> mPluginDataList;
 };
 Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodTypes)
 Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodType)
