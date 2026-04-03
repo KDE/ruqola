@@ -100,7 +100,7 @@ void TeamChannelsWidget::initializeTeamRoomsList()
 void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
     const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
-    mTeamRoomsModel->setTeamRooms(std::move(teamRooms));
+    mTeamRoomsModel->setTeamRooms(teamRooms);
 }
 
 void TeamChannelsWidget::slotTextChanged(const QString &str)
@@ -110,6 +110,9 @@ void TeamChannelsWidget::slotTextChanged(const QString &str)
 
 void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
+    if (!mRoom) {
+        return;
+    }
     QMenu menu(this);
     QModelIndex index = mListView->indexAt(pos);
     // TODO Remove add-team-channel when we will depend against RC 7.0
