@@ -20,6 +20,7 @@
 #include "toolspluginmanager.h"
 #include <KLocalizedString>
 #include <QLabel>
+#include <QMenu>
 #include <QToolButton>
 #include <QVBoxLayout>
 
@@ -136,6 +137,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mAIActionButton->setPopupMode(QToolButton::InstantPopup);
     mAIActionButton->setIcon(QIcon::fromTheme(u"irc-operator"_s));
     buttonLayout->addWidget(mAIActionButton, 0, Qt::AlignTop);
+    mAIActionButton->setMenu(new QMenu(mAIActionButton));
     // Disable by default
     mAIActionButton->hide();
 
