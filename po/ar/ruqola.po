@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 02:45+0000\n"
+"POT-Creation-Date: 2026-04-03 02:40+0000\n"
 "PO-Revision-Date: 2026-03-08 09:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -211,7 +211,7 @@ msgstr "الوصف"
 msgid "Version"
 msgstr "الإصدارة"
 
-#: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:34
+#: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:35
 #, kde-format
 msgid "Categories"
 msgstr "الفئات"
@@ -690,8 +690,8 @@ msgstr "لا شيء"
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
 #: widgets/dialogs/showvideowidget.cpp:124
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:278
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:286
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:283
 #, kde-format
 msgid "Default"
 msgstr "المبدئيّ"
@@ -1220,7 +1220,7 @@ msgstr "الدّور"
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:295
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:292
 #, kde-format
 msgid "Disabled"
 msgstr "معطّل"
@@ -1325,7 +1325,7 @@ msgstr "نوع القناة"
 msgid "Belongs To"
 msgstr "ينتمي إلى"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:610
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1418,19 +1418,19 @@ msgstr[4] "%1 ثانية"
 msgstr[5] "%1 ثانية"
 
 #: core/model/notificationpreferencemodel.cpp:54
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:264
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
 #, kde-format
 msgid "All Messages"
 msgstr "كل الرسائل"
 
 #: core/model/notificationpreferencemodel.cpp:60
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:266
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:263
 #, kde-format
 msgid "Mentions"
 msgstr "الإشارات"
 
 #: core/model/notificationpreferencemodel.cpp:66
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:268
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:265
 #, kde-format
 msgid "Nothing"
 msgstr "لا شيء"
@@ -1467,7 +1467,7 @@ msgstr "الاستيثاق الثنائي"
 msgid "Last token part"
 msgstr "أخر جزء من الرمز"
 
-#: core/model/roommodel.cpp:540
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1478,7 +1478,7 @@ msgstr[3] "%1 إشارات"
 msgstr[4] "%1 إشارة"
 msgstr[5] "%1 إشارة"
 
-#: core/model/roommodel.cpp:544
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1489,7 +1489,7 @@ msgstr[3] "%1 إشارات للمجموعة"
 msgstr[4] "%1 إشارة للمجموعة"
 msgstr[5] "%1 إشارة للمجموعة"
 
-#: core/model/roommodel.cpp:548
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1500,7 +1500,7 @@ msgstr[3] "%1 رسائل مسلسلة غير مقروءة"
 msgstr[4] "%1 رسالة مسلسلة غير مقروءة"
 msgstr[5] "%1 رسالة مسلسلة غير مقروءة"
 
-#: core/model/roommodel.cpp:552
+#: core/model/roommodel.cpp:551
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1511,52 +1511,52 @@ msgstr[3] "%1 رسائل غير مقروءة"
 msgstr[4] "%1 رسالة غير مقروءة"
 msgstr[5] "%1 رسالة غير مقروءة"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:577
 #, kde-format
 msgid "Teams Room"
 msgstr "غرفة فرق"
 
-#: core/model/roommodel.cpp:584
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Private Room"
 msgstr "غرفة خاصة"
 
-#: core/model/roommodel.cpp:586
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Discussion Room"
 msgstr "غرفة مناقشة"
 
-#: core/model/roommodel.cpp:590
+#: core/model/roommodel.cpp:589
 #, kde-format
 msgid "Channel Room"
 msgstr "غرفة قناة"
 
-#: core/model/roommodel.cpp:604 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "غير المقروء"
 
-#: core/model/roommodel.cpp:606
+#: core/model/roommodel.cpp:605
 #, kde-format
 msgid "Favorites"
 msgstr "المفضّلة"
 
-#: core/model/roommodel.cpp:608
+#: core/model/roommodel.cpp:607
 #, kde-format
 msgid "Teams"
 msgstr "الفرق"
 
-#: core/model/roommodel.cpp:612
+#: core/model/roommodel.cpp:611
 #, kde-format
 msgid "Discussions"
 msgstr "مناقشات"
 
-#: core/model/roommodel.cpp:614
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "Private Messages"
 msgstr "رسائل خاصة"
 
-#: core/model/roommodel.cpp:616 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "مجهول"
@@ -1751,7 +1751,7 @@ msgstr "انضمّ  إلى هذا الفريق"
 msgid "(Autojoin)"
 msgstr "(انضمام آليّ)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1159
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1164
 #, kde-format
 msgid "Owner"
 msgstr "مالك"
@@ -1861,27 +1861,27 @@ msgstr "أضيف حساب"
 msgid "A new account was added."
 msgstr "أضيف حساب جديد"
 
-#: core/room.cpp:1162
+#: core/room.cpp:1167
 #, kde-format
 msgid "Leader"
 msgstr "قائد"
 
-#: core/room.cpp:1165
+#: core/room.cpp:1170
 #, kde-format
 msgid "Moderator"
 msgstr "وسيط"
 
-#: core/room.cpp:1555
+#: core/room.cpp:1564
 #, kde-format
 msgid "Channel is read only."
 msgstr "القناة للقراءة فقط."
 
-#: core/room.cpp:1558
+#: core/room.cpp:1567
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "لقد حظرت هذه القناة."
 
-#: core/room.cpp:1561
+#: core/room.cpp:1570
 #, kde-format
 msgid "Channel was blocked."
 msgstr "حُظرت القناة."
@@ -2274,13 +2274,13 @@ msgstr "المستخدم ليس مشرفًا."
 msgid "User is not an owner."
 msgstr "المستخدم ليس مالكًا."
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:62
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "توجد قناة تحمل اسم '%1'"
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:65
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:64
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:66
 #, kde-format
@@ -10241,74 +10241,74 @@ msgctxt "@label:textbox"
 msgid "Desktop notification:"
 msgstr "إشعار سطح المكتب:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:89
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:86
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Push notification:"
 msgstr "إشعار فوري:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:96
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:93
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
 msgstr "استلم رسالة بريد إلكتروني في كل مرة يُكتشف فيها ولوج جديد على حسابك."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:115
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Idle Time Limit:"
 msgstr "مهلة السكون:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:121
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:118
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr "الفترة الزمنية حتى تتغير الحالة إلى بعيد. يجب أن تكون القيمة بالثواني."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:134
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Room Notification:"
 msgstr "إشعار غرفة جديد:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:140
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:137
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Message Notification:"
 msgstr "إشعار رسالة جديدة:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:150
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:147
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Notifications sound volume:"
 msgstr "مستوى صوت الإشعارات:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:156
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
 msgstr "مستوى صوت رنين الهاتف:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:168
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
 msgstr "الصوت الرئيس:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Download my Data (HTML)"
 msgstr "نزّل بياناتي (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:206
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Export my Data (JSON)"
 msgstr "صدّر بياناتي (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:257
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:254
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -10317,29 +10317,29 @@ msgstr ""
 "سيُولد ملف بياناتك. سيرسل رابط لتنزيله إلى عنوان بريدك الإلكتروني عندما يكون "
 "جاهزاً."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:258
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
 #, kde-format
 msgctxt "@title:window"
 msgid "Download File Requested"
 msgstr "نزّل الملف المطلوب"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:277
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:285
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:274
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
 #, kde-format
 msgid "Default (%1)"
 msgstr "المبدئيّ (%1)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:293
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:290
 #, kde-format
 msgid "Default (Every Mention/DM)"
 msgstr "المبدئي (كل إشارة/رسالة مباشرة)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:294
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:291
 #, kde-format
 msgid "Every Mention/DM"
 msgstr "كل إشارة/رسالة مباشرة"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:298
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:295
 #, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "عطل مسؤول روكت تشات الخاص بك إشعارات البريد الإلكتروني"
