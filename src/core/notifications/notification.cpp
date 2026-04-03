@@ -71,19 +71,17 @@ void Notification::updateNotification(bool hasAlert, int unreadNumber, const QSt
 void Notification::createToolTip()
 {
     QString str;
-    bool firstElement = true;
     bool hasAlert = false;
     int unreadMessage = 0;
     for (const auto &[key, value] : mListTrayIcon.asKeyValueRange()) {
-        if (firstElement && !str.isEmpty()) {
-            firstElement = false;
-            str += u'\n';
-        }
         const TrayInfo trayInfo = value;
         if (trayInfo.hasAlert) {
             hasAlert = trayInfo.hasAlert;
         }
         if (trayInfo.unreadMessage != 0) {
+            if (!str.isEmpty()) {
+                str += u'\n';
+            }
             str += i18n("%1 has %2 Unread Message", key, trayInfo.unreadMessage);
             unreadMessage += trayInfo.unreadMessage;
         }

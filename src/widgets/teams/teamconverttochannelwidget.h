@@ -18,7 +18,6 @@ public:
     ~TeamConvertToChannelWidget() override;
     [[nodiscard]] QList<QByteArray> roomIdsToDelete() const;
     void setTeamRooms(const QList<TeamRoom> &rooms);
-    void setTeamName(const QString &name);
 
 private:
     TeamSelectDeletedRoomWidget *const mTeamSelectDeletedRoomWidget;

@@ -388,9 +388,9 @@ void AppsMarketPlaceInfo::setModifiedDate(qint64 newModifiedDate)
 
 QString AppsMarketPlaceInfo::applicationInformations() const
 {
-    QString str = u"<b>%1</b><br/>"_s.arg(mAppName);
+    QString str = u"<b>%1</b><br/>"_s.arg(mAppName.toHtmlEscaped());
     if (!mShortDescription.isEmpty()) {
-        str += mShortDescription + u"<br/><br/>"_s;
+        str += mShortDescription.toHtmlEscaped() + u"<br/><br/>"_s;
     } else {
         str += u"<br/>"_s;
     }
@@ -407,7 +407,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         newDescription = mAuthorName;
     }
 
-    str += u"<b>%1</b><br/>"_s.arg(i18n("Description")) + newDescription + u"<br/><br/>"_s;
+    str += u"<b>%1</b><br/>"_s.arg(i18n("Description")) + newDescription.toHtmlEscaped() + u"<br/><br/>"_s;
 
     QString versionnfo;
     if (mInstalledInfo.isValid() && !mInstalledInfo.version().isEmpty()) {
@@ -416,14 +416,15 @@ QString AppsMarketPlaceInfo::applicationInformations() const
         versionnfo = mVersion;
     }
 
-    str += u"<b>%1</b><br/>"_s.arg(i18n("Version")) + versionnfo + u"<br/><br/>"_s;
+    str += u"<b>%1</b><br/>"_s.arg(i18n("Version")) + versionnfo.toHtmlEscaped() + u"<br/><br/>"_s;
 
     if (!mCategories.isEmpty()) {
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Categories")) + mCategories.join(u", "_s) + u"<br/><br/>"_s;
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Categories")) + mCategories.join(u", "_s).toHtmlEscaped() + u"<br/><br/>"_s;
     }
     if (!mDocumentationUrl.isEmpty()) {
-        const QString url = mDocumentationUrl.startsWith(u"http"_s) ? mDocumentationUrl : u"https://%1"_s.arg(mDocumentationUrl);
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Documentation")) + u"<a href=\"%2\">%1</a>"_s.arg(mDocumentationUrl, url) + u"<br/><br/>"_s;
+        const QString escapedDocUrl = mDocumentationUrl.toHtmlEscaped();
+        const QString url = mDocumentationUrl.startsWith(u"http"_s) ? escapedDocUrl : u"https://%1"_s.arg(escapedDocUrl);
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Documentation")) + u"<a href=\"%2\">%1</a>"_s.arg(escapedDocUrl, url) + u"<br/><br/>"_s;
     }
 
     QString authorName;
@@ -434,7 +435,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!authorName.isEmpty()) {
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Author")) + authorName + u"<br/><br/>"_s;
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Author")) + authorName.toHtmlEscaped() + u"<br/><br/>"_s;
     }
 
     QString homePage;
@@ -445,8 +446,9 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!homePage.isEmpty()) {
-        const QString url = homePage.startsWith(u"http"_s) ? homePage : u"https://%1"_s.arg(homePage);
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Homepage")) + u"<a href=\"%2\">%1</a>"_s.arg(homePage, url) + u"<br/><br/>"_s;
+        const QString escapedHomePage = homePage.toHtmlEscaped();
+        const QString url = homePage.startsWith(u"http"_s) ? escapedHomePage : u"https://%1"_s.arg(escapedHomePage);
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Homepage")) + u"<a href=\"%2\">%1</a>"_s.arg(escapedHomePage, url) + u"<br/><br/>"_s;
     }
 
     QString support;
@@ -457,8 +459,9 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!support.isEmpty()) {
-        const QString url = support.startsWith(u"http"_s) ? support : u"mailto://%1"_s.arg(support);
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Support")) + u"<a href=\"%2\">%1</a>"_s.arg(support, url) + u"<br/><br/>"_s;
+        const QString escapedSupport = support.toHtmlEscaped();
+        const QString url = support.startsWith(u"http"_s) ? escapedSupport : u"mailto://%1"_s.arg(escapedSupport);
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Support")) + u"<a href=\"%2\">%1</a>"_s.arg(escapedSupport, url) + u"<br/><br/>"_s;
     }
 
     if (!mPrivacyPolicySummary.isEmpty()) {
