@@ -269,9 +269,9 @@ QString RocketChatAccountSettings::authToken() const
 void RocketChatAccountSettings::setAuthToken(const QString &authToken)
 {
     if (mAuthToken != authToken) {
-        qCDebug(RUQOLA_LOG) << "Setting token to" << authToken;
         mAuthToken = authToken;
         mSetting->setValue("authToken"_L1, authToken);
+        mSetting->sync();
     }
 }
 
