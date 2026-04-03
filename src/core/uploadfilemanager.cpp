@@ -38,7 +38,7 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
     connect(job, &RocketChatRestApi::UploadFileJob::uploadFinished, this, [info, jobIdentifier, this]() {
         if (info.deleteTemporaryFile) {
             QFile f(info.filenameUrl.toLocalFile());
-            if (f.remove()) {
+            if (!f.remove()) {
                 qCWarning(RUQOLA_LOG) << "Impossible to delete file" << f.fileName();
             }
         }
@@ -74,7 +74,7 @@ void UploadFileManager::removeFile(const RocketChatRestApi::UploadFileJob::Uploa
 {
     if (info.deleteTemporaryFile) {
         QFile f(info.filenameUrl.toLocalFile());
-        if (f.remove()) {
+        if (!f.remove()) {
             qCWarning(RUQOLA_LOG) << "Impossible to delete file" << f.fileName();
         }
     }

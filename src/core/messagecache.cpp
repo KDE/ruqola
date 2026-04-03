@@ -87,6 +87,7 @@ void MessageCache::slotGetThreadMessagesDone(const QJsonObject &obj, const QByte
 
 void MessageCache::slotGetSingleMessageDone(const QJsonObject &obj, const QByteArray &messageId)
 {
+    mMessageJobs.remove(messageId);
     if (obj.contains("result"_L1)) {
         const QJsonObject msgObject = obj["result"_L1].toObject();
         if (msgObject.isEmpty()) {
@@ -98,12 +99,10 @@ void MessageCache::slotGetSingleMessageDone(const QJsonObject &obj, const QByteA
             const QByteArray msgId = message->messageId();
             Q_ASSERT(messageId == msgId);
             mMessages.insert(msgId, message);
-            mMessageJobs.remove(messageId);
-            // qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC " << *message;
             Q_EMIT messageLoaded(msgId);
         }
     } else {
-        qDebug() << " Message " << messageId << " invalid" << obj;
+        qCWarning(RUQOLA_LOG) << " Message " << messageId << " invalid" << obj;
     }
 }
 
