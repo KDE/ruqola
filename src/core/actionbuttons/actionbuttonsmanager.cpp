@@ -36,6 +36,11 @@ void ActionButtonsManager::fetchActionButtons()
     }
 }
 
+bool ActionButtonsManager::hasActionButtons() const
+{
+    return !mActionButtons.isEmpty();
+}
+
 QList<ActionButton> ActionButtonsManager::actionButtons() const
 {
     return mActionButtons;

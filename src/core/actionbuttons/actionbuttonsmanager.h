@@ -25,6 +25,7 @@ public:
 
     void fetchActionButtons();
 
+    [[nodiscard]] bool hasActionButtons() const;
 Q_SIGNALS:
     void actionButtonsChanged();
 
