@@ -315,6 +315,7 @@ void RoomHeaderWidget::setIsDiscussion(bool isDiscussion)
 void RoomHeaderWidget::setRoom(Room *room)
 {
     mRoom = room;
+    slotActionButtonChanged();
     mChannelActionPopupMenu->setRoom(room);
     const auto avatarInfo = room->avatarInfo();
     if (avatarInfo.isValid()) {
@@ -349,6 +350,7 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomHeaderWidget::slotOfflineModeChanged);
         slotOfflineModeChanged();
 #endif
+        slotActionButtonChanged();
     }
 }
 
