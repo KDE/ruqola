@@ -316,7 +316,7 @@ quint64 DDPClient::videoConferenceCall(const QString &roomId, const QString &cal
 quint64 DDPClient::informTypingStatus(const QByteArray &roomId, bool typing, const QString &userName)
 {
     if (!mWebSocket) { // seems to happen when the server is restarted
-        return -1;
+        return 0;
     }
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, mUid);
     const qint64 bytes = mWebSocket->sendTextMessage(result.result);
@@ -333,6 +333,9 @@ quint64 DDPClient::informTypingStatus(const QByteArray &roomId, bool typing, con
 
 quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, MethodRequestedType methodRequestedType, DDPClient::MessageType messageType)
 {
+    if (!mWebSocket) {
+        return 0;
+    }
     const qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
@@ -371,6 +374,9 @@ QJsonObject DDPClient::generateJsonObject(const QString &method, const QJsonArra
 quint64
 DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult &result, MethodRequestedType methodRequestedType, DDPClient::MessageType messageType)
 {
+    if (!mWebSocket) {
+        return 0;
+    }
     const qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
@@ -412,7 +418,7 @@ void DDPClient::unsubscribe(quint64 registerId)
 quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 {
     if (!mWebSocket) { // seems to happen when the server is restarted
-        return -1;
+        return 0;
     }
     const quint64 registerId = mUid;
     QJsonObject json;
