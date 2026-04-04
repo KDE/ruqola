@@ -31,4 +31,5 @@ private:
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     KMessageWidget *const mFailedError;
     QPushButton *const mConnectionPushButton;
+    bool mConnectionInProgress = false;
 };

@@ -34,6 +34,7 @@ void ExtractServerInfoJob::start()
     connect(ddpClient, &DDPClient::wsClosedSocketError, this, [this, ddpClient]() {
         Q_EMIT errorConnection(i18n("Socket was unexpectedly closed."));
         ddpClient->deleteLater();
+        deleteLater();
     });
     connect(ddpClient, &DDPClient::socketError, this, [this, ddpClient]([[maybe_unused]] QAbstractSocket::SocketError error, const QString &strError) {
         Q_EMIT errorConnection(strError);

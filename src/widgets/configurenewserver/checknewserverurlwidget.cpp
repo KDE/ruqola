@@ -54,7 +54,9 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
         slotTestConnection();
     });
     connect(mServerUrl, &QLineEdit::textChanged, this, [this](const QString &str) {
-        mConnectionPushButton->setEnabled(!str.trimmed().isEmpty());
+        if (!mConnectionInProgress) {
+            mConnectionPushButton->setEnabled(!str.trimmed().isEmpty());
+        }
     });
 
     connect(mServerUrl, &QLineEdit::returnPressed, this, [this]() {
@@ -90,17 +92,20 @@ void CheckNewServerUrlWidget::slotTestConnection()
 {
     const QString serverUrl{mServerUrl->text().trimmed()};
     if (!serverUrl.isEmpty()) {
+        mConnectionInProgress = true;
         mFailedError->hide();
         mBusyIndicatorWidget->show();
         auto job = new ExtractServerInfoJob(this);
         job->setServerUrl(serverUrl);
         connect(job, &ExtractServerInfoJob::errorConnection, this, [this](const QString &errorStr) {
+            mConnectionInProgress = false;
             mConnectionPushButton->setEnabled(true);
             mBusyIndicatorWidget->hide();
             slotErrorConnection(errorStr);
         });
         connect(job, &ExtractServerInfoJob::serverInfoFound, this, [this](const ExtractServerInfoJob::ServerInfo &info) {
-            Q_EMIT serverUrlFound(std::move(info));
+            mConnectionInProgress = false;
+            Q_EMIT serverUrlFound(info);
             mBusyIndicatorWidget->hide();
         });
         job->start();
