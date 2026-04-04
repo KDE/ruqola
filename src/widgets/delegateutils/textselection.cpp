@@ -114,7 +114,7 @@ QString TextSelection::selectedText(Format format) const
                 }
             }
 
-            if (message->urls()) {
+            if (message->urls() && mMessageUrlHelperFactory) {
                 const auto messageUrls = message->urls()->messageUrls();
                 for (const auto &url : messageUrls) {
                     if (url.showPreview()) {
@@ -124,7 +124,6 @@ QString TextSelection::selectedText(Format format) const
                                 str += u'\n';
                             }
                             selectionText(ordered, format, row, index, doc, str, {}, url);
-                            break;
                         }
                     }
                 }
@@ -385,14 +384,16 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
         return;
     }
     if (msgUrl.hasHtmlDescription()) {
-        QTextDocument *doc = mMessageUrlHelperFactory->documentForUrlPreview(msgUrl);
-        selectWord(index, charPos, doc);
+        QTextDocument *doc = factory->documentForUrlPreview(msgUrl);
+        if (doc) {
+            selectWord(index, charPos, doc);
 
-        MessageUrlSelection selection;
-        selection.fromCharPos = mStartPos;
-        selection.toCharPos = mEndPos;
-        selection.messageUrl = msgUrl;
-        mMessageUrlSelection.append(std::move(selection));
+            MessageUrlSelection selection;
+            selection.fromCharPos = mStartPos;
+            selection.toCharPos = mEndPos;
+            selection.messageUrl = msgUrl;
+            mMessageUrlSelection.append(std::move(selection));
+        }
     }
 }
 
@@ -420,11 +421,12 @@ void TextSelection::selectMessage(const QModelIndex &index)
                         selection.fromCharPos = 0;
                         selection.toCharPos = doc->characterCount() - 1;
                         mAttachmentSelection.append(std::move(selection));
+                        break;
                     }
                 }
             }
         }
-        if (message->urls()) {
+        if (message->urls() && mMessageUrlHelperFactory) {
             const auto urls = message->urls()->messageUrls();
             for (const auto &url : urls) {
                 if (url.hasHtmlDescription()) {
