@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-03 02:40+0000\n"
+"POT-Creation-Date: 2026-04-04 02:43+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -230,249 +230,249 @@ msgstr "Versioon %1"
 msgid "Categories"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:426
+#: core/apps/appsmarketplaceinfo.cpp:427
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Documentation"
 msgstr "Autentimisviis"
 
-#: core/apps/appsmarketplaceinfo.cpp:437
+#: core/apps/appsmarketplaceinfo.cpp:438
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: core/apps/appsmarketplaceinfo.cpp:449
+#: core/apps/appsmarketplaceinfo.cpp:451
 #, kde-format
 msgid "Homepage"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:461
+#: core/apps/appsmarketplaceinfo.cpp:464
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Support"
 msgstr "Veast teatamine"
 
-#: core/apps/appsmarketplaceinfo.cpp:466
+#: core/apps/appsmarketplaceinfo.cpp:469
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Privacy Summary"
 msgstr "Privaatne:"
 
-#: core/apps/appsmarketplaceinfo.cpp:477
+#: core/apps/appsmarketplaceinfo.cpp:480
 #: widgets/administratordialog/administratorwidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Permissions"
 msgstr "Versioon %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:613
+#: core/apps/appsmarketplaceinfo.cpp:616
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Access messages"
 msgstr "Kõik sõnumid"
 
-#: core/apps/appsmarketplaceinfo.cpp:615
+#: core/apps/appsmarketplaceinfo.cpp:618
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Send and modify messages"
 msgstr "Otsi sõnumeid ..."
 
-#: core/apps/appsmarketplaceinfo.cpp:617
+#: core/apps/appsmarketplaceinfo.cpp:620
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access room information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:619
+#: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Create and modify rooms"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:621
+#: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Access to this server network"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:623
+#: core/apps/appsmarketplaceinfo.cpp:626
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access user information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:625
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Modify user information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:627
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Register new slash commands"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:629
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:631
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:633
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Access settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:635
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Modify settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:637
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Upload files to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:639
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:641
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:643
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:645
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:647
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Access Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:649
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:651
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:653
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access Livechat room information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:655
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:657
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Access Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:659
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:661
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:663
+#: core/apps/appsmarketplaceinfo.cpp:666
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Access Livechat status information"
 msgstr "Kontoteave"
 
-#: core/apps/appsmarketplaceinfo.cpp:665
+#: core/apps/appsmarketplaceinfo.cpp:668
 #, kde-format
 msgid "Interact with the UI"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:667
+#: core/apps/appsmarketplaceinfo.cpp:670
 #, kde-format
 msgid "Store internal data in the database"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:669
+#: core/apps/appsmarketplaceinfo.cpp:672
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:679
+#: core/apps/appsmarketplaceinfo.cpp:682
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:681
+#: core/apps/appsmarketplaceinfo.cpp:684
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:683
+#: core/apps/appsmarketplaceinfo.cpp:686
 #, kde-format
 msgid "Allow to write video conference settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:685
+#: core/apps/appsmarketplaceinfo.cpp:688
 #, kde-format
 msgid "Allow to read video conference settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:687
+#: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:689
+#: core/apps/appsmarketplaceinfo.cpp:692
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Allow to register button"
 msgstr "Sõnum kustutatud"
 
-#: core/apps/appsmarketplaceinfo.cpp:695
+#: core/apps/appsmarketplaceinfo.cpp:698
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Allow to send email"
 msgstr "Sõnum kustutatud"
 
-#: core/apps/appsmarketplaceinfo.cpp:697
+#: core/apps/appsmarketplaceinfo.cpp:700
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Allow to write role"
 msgstr "Sõnum kustutatud"
 
-#: core/apps/appsmarketplaceinfo.cpp:699
+#: core/apps/appsmarketplaceinfo.cpp:702
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Allow to read role"
 msgstr "Sõnum kustutatud"
 
-#: core/apps/appsmarketplaceinfo.cpp:701
+#: core/apps/appsmarketplaceinfo.cpp:704
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Out Bound Communication"
 msgstr "Krüptitud vestlus"
 
-#: core/apps/appsmarketplaceinfo.cpp:703
+#: core/apps/appsmarketplaceinfo.cpp:706
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr ""
@@ -1882,7 +1882,7 @@ msgstr "Omanik"
 msgid "Offline"
 msgstr "Pole võrgus"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:79
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 ei ole lugenud %2 sõnumit"
@@ -4994,7 +4994,7 @@ msgid "Accounts"
 msgstr "Konto"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:85
+#: widgets/room/roomheaderwidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgid "Encryption"
@@ -11734,82 +11734,82 @@ msgstr "Näita mainimisi ..."
 msgid "(Show Less Info…)"
 msgstr "Näita mainimisi ..."
 
-#: widgets/room/roomheaderwidget.cpp:65
+#: widgets/room/roomheaderwidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Lemmikud"
 
-#: widgets/room/roomheaderwidget.cpp:67
+#: widgets/room/roomheaderwidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgid "Favorite"
 msgstr "Lemmikud"
 
-#: widgets/room/roomheaderwidget.cpp:83
+#: widgets/room/roomheaderwidget.cpp:84
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:135
+#: widgets/room/roomheaderwidget.cpp:136
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Rakendust ei leitud"
 
-#: widgets/room/roomheaderwidget.cpp:145
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Call"
-msgstr ""
-
 #: widgets/room/roomheaderwidget.cpp:147
 #, kde-format
+msgctxt "@info:tooltip"
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:156
+#: widgets/room/roomheaderwidget.cpp:149
+#, kde-format
+msgid "Call"
+msgstr ""
+
+#: widgets/room/roomheaderwidget.cpp:158
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Kanali teave"
 
-#: widgets/room/roomheaderwidget.cpp:158 widgets/room/roomheaderwidget.cpp:304
+#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:306
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Channel's Information"
 msgstr "Kanali teave"
-
-#: widgets/room/roomheaderwidget.cpp:167
-#, fuzzy, kde-format
-#| msgid "Quit Channel"
-msgctxt "@info:tooltip"
-msgid "Team Channels"
-msgstr "Välju kanalilt"
 
 #: widgets/room/roomheaderwidget.cpp:169
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
+msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Välju kanalilt"
 
-#: widgets/room/roomheaderwidget.cpp:179
+#: widgets/room/roomheaderwidget.cpp:171
+#, fuzzy, kde-format
+#| msgid "Quit Channel"
+msgid "Team Channels"
+msgstr "Välju kanalilt"
+
+#: widgets/room/roomheaderwidget.cpp:181
 #, fuzzy, kde-format
 #| msgid "Show List of Users"
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Näita kasutajate loendit"
 
-#: widgets/room/roomheaderwidget.cpp:181
+#: widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Show List of Users"
 msgstr "Näita kasutajate loendit"
 
-#: widgets/room/roomheaderwidget.cpp:192
+#: widgets/room/roomheaderwidget.cpp:194
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11817,14 +11817,14 @@ msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Sõnumite otsimine"
 
-#: widgets/room/roomheaderwidget.cpp:194
+#: widgets/room/roomheaderwidget.cpp:196
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages…"
 msgstr "Sõnumite otsimine"
 
-#: widgets/room/roomheaderwidget.cpp:304
+#: widgets/room/roomheaderwidget.cpp:306
 #, kde-format
 msgid "Team's Information"
 msgstr ""
@@ -12544,48 +12544,48 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Toa otsimine"
 
-#: widgets/teams/teamchannelswidget.cpp:118
+#: widgets/teams/teamchannelswidget.cpp:121
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
 msgid "Add Existing Room"
 msgstr "Kasutajate lisamine tuppa"
 
-#: widgets/teams/teamchannelswidget.cpp:120
+#: widgets/teams/teamchannelswidget.cpp:123
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Privaattuba:"
 
-#: widgets/teams/teamchannelswidget.cpp:126
+#: widgets/teams/teamchannelswidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Eemalda toast"
 
-#: widgets/teams/teamchannelswidget.cpp:126
+#: widgets/teams/teamchannelswidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Konto lisamine"
 
-#: widgets/teams/teamchannelswidget.cpp:133
+#: widgets/teams/teamchannelswidget.cpp:136
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Eemalda toast"
 
-#: widgets/teams/teamchannelswidget.cpp:168
+#: widgets/teams/teamchannelswidget.cpp:171
 #, fuzzy, kde-format
 #| msgid "Do you want to leave this channel?"
 msgid "Would you like to remove this Channel from team?"
 msgstr "Kas tõesti lahkuda sellelt kanalilt?"
 
-#: widgets/teams/teamchannelswidget.cpp:169
+#: widgets/teams/teamchannelswidget.cpp:172
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title"
