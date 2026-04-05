@@ -13,4 +13,7 @@ class RuqolaSwitchOfflineModeWidget : public QWidget
 public:
     explicit RuqolaSwitchOfflineModeWidget(QWidget *parent = nullptr);
     ~RuqolaSwitchOfflineModeWidget() override;
+
+Q_SIGNALS:
+    void switchOfflineMode();
 };
