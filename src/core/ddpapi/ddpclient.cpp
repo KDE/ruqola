@@ -531,7 +531,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qCDebug(RUQOLA_DDPAPI_LOG) << mDDPClientAccountParameter->accountName << "Unsubscribe element" << message << id;
             const QJsonObject errorObj = root["error"_L1].toObject();
             if (!errorObj.isEmpty()) {
-                qWarning() << mDDPClientAccountParameter->accountName << "Error unsubscribing from" << id;
+                qWarning() << mDDPClientAccountParameter->accountName << "Error unsubscribing from" << id << "message:" << message;
                 qWarning() << mDDPClientAccountParameter->accountName << "ERROR: " << errorObj["error"_L1].toString();
                 qWarning() << mDDPClientAccountParameter->accountName << "Message: " << errorObj["message"_L1].toString();
                 qWarning() << mDDPClientAccountParameter->accountName << "Reason: " << errorObj["reason"_L1].toString();
