@@ -26,7 +26,7 @@ RuqolaLoginWidgetTest::RuqolaLoginWidgetTest(QObject *parent)
 
 void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 {
-    RuqolaLoginWidget w;
+    const RuqolaLoginWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
