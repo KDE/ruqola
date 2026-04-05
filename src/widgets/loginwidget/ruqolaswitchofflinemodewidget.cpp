@@ -5,7 +5,10 @@
 */
 
 #include "ruqolaswitchofflinemodewidget.h"
+#include <KLocalizedString>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
 
 using namespace Qt::Literals::StringLiterals;
 RuqolaSwitchOfflineModeWidget::RuqolaSwitchOfflineModeWidget(QWidget *parent)
