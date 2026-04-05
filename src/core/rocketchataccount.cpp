@@ -588,6 +588,11 @@ Connection *RocketChatAccount::restApi()
             // Transient error, try again, with an increasing delay
             qCDebug(RUQOLA_RECONNECT_LOG) << "networkError" << accountName();
             forceDisconnect();
+#if HAVE_NETWORKMANAGER
+            if (NetworkManager::status() == NetworkManager::Status::Disconnected) {
+                return;
+            }
+#endif
             autoReconnectDelayed();
         });
 
