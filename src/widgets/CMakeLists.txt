@@ -717,6 +717,8 @@ target_sources(
         loginwidget/ruqolaloginstackwidget.cpp
         loginwidget/ruqolaloginbutton.h
         loginwidget/ruqolaloginbutton.cpp
+        loginwidget/ruqolaswitchofflinemodewidget.h
+        loginwidget/ruqolaswitchofflinemodewidget.cpp
         ruqolacentralwidget.cpp
         ruqolacentralwidget.h
         ruqolamainwidget.cpp

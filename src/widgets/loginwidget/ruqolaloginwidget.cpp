@@ -94,7 +94,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::settingsIsValid, this, [this](bool state) {
 #if HAVE_NETWORKMANAGER
         mLoginButton->setEnabled(state && (NetworkManager::status() == NetworkManager::Status::Connected));
-
 #else
         mLoginButton->setEnabled(state);
 #endif
