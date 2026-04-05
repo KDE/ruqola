@@ -25,8 +25,6 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
         return u"account"_s;
     case CommandLineName::MessageUrl:
         return u"messageurl"_s;
-    case CommandLineName::LoginDdpApi:
-        return u"loginddpapi"_s;
 #if HAVE_KUSERFEEDBACK
     case CommandLineName::FeedBack:
         return u"feedback"_s;
@@ -51,7 +49,6 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
                                          i18n("Account Name")));
     parser->addOption(
         QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::MessageUrl), i18nc("@info:shell", "Show Message"), i18n("Message Url")));
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::LoginDdpApi), i18nc("@info:shell", "Use ddp api for login")));
 #if HAVE_KUSERFEEDBACK
     parser->addOption(
         QCommandLineOption(commandLineFromEnum(CommandLineName::FeedBack), i18nc("@info:shell", "Lists the available options for user feedback")));

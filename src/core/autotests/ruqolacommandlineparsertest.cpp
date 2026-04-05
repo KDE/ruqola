@@ -19,7 +19,6 @@ void RuqolaCommandLineParserTest::shouldVerifyCommandLineFromEnumValues()
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListAccount), u"list-accounts"_s);
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Account), u"account"_s);
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::MessageUrl), u"messageurl"_s);
-    QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::LoginDdpApi), u"loginddpapi"_s);
 #if HAVE_KUSERFEEDBACK
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::FeedBack), u"feedback"_s);
 #endif

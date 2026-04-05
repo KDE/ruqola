@@ -559,7 +559,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotUserAutoCompleterDone(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void slotListCommandDone(const QJsonObject &obj);
 
-    LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotUpdateCommands();
     LIBRUQOLACORE_NO_EXPORT void slotRegisterUserDone();
     LIBRUQOLACORE_NO_EXPORT void slotRoomNeedAttention();

@@ -97,9 +97,7 @@ Connection::Connection(QObject *parent)
     mNetworkAccessManager->setCookieJar(mCookieJar);
     connect(mNetworkAccessManager, &QNetworkAccessManager::finished, this, &Connection::slotResult);
     connect(mNetworkAccessManager, &QNetworkAccessManager::sslErrors, this, &Connection::slotSslErrors);
-    if (Ruqola::useRestApiLogin()) {
-        connect(mRESTAuthenticationManager, &RESTAuthenticationManager::loginStatusChanged, this, &Connection::loginStatusChanged);
-    }
+    connect(mRESTAuthenticationManager, &RESTAuthenticationManager::loginStatusChanged, this, &Connection::loginStatusChanged);
 }
 
 Connection::~Connection()

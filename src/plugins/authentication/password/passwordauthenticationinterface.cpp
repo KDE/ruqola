@@ -28,29 +28,16 @@ bool PasswordAuthenticationInterface::login()
 {
     auto settings = mAccount->settings();
     if (!settings->authToken().isEmpty() && !settings->tokenExpired()) {
-        if (Ruqola::useRestApiLogin()) {
-            mAccount->restApi()->authenticationManager()->setAuthToken(settings->authToken());
-            if (!mAccount->restApi()->authenticationManager()->login()) {
-                return false;
-            }
-        } else {
-            mAccount->ddp()->authenticationManager()->setAuthToken(settings->authToken());
-            if (!mAccount->ddp()->authenticationManager()->login()) {
-                return false;
-            }
+        mAccount->restApi()->authenticationManager()->setAuthToken(settings->authToken());
+        if (!mAccount->restApi()->authenticationManager()->login()) {
+            return false;
         }
         return true;
     }
 
     if (!settings->twoFactorAuthenticationCode().isEmpty()) {
-        if (Ruqola::useRestApiLogin()) {
-            if (!mAccount->restApi()->authenticationManager()->sendOTP(settings->twoFactorAuthenticationCode())) {
-                return false;
-            }
-        } else {
-            if (!mAccount->ddp()->authenticationManager()->sendOTP(settings->twoFactorAuthenticationCode())) {
-                return false;
-            }
+        if (!mAccount->restApi()->authenticationManager()->sendOTP(settings->twoFactorAuthenticationCode())) {
+            return false;
         }
         return true;
     }
@@ -59,25 +46,13 @@ bool PasswordAuthenticationInterface::login()
         return false;
     }
 
-    if (Ruqola::useRestApiLogin()) {
-        if (mAccount->ruqolaServerConfig()->ldapEnabled()) {
-            if (!mAccount->restApi()->authenticationManager()->loginLDAP(settings->userName(), settings->password())) {
-                return false;
-            }
-        } else {
-            if (!mAccount->restApi()->authenticationManager()->loginPassword(settings->userName(), settings->password())) {
-                return false;
-            }
+    if (mAccount->ruqolaServerConfig()->ldapEnabled()) {
+        if (!mAccount->restApi()->authenticationManager()->loginLDAP(settings->userName(), settings->password())) {
+            return false;
         }
     } else {
-        if (mAccount->ruqolaServerConfig()->ldapEnabled()) {
-            if (!mAccount->ddp()->authenticationManager()->loginLDAP(settings->userName(), settings->password())) {
-                return false;
-            }
-        } else {
-            if (!mAccount->ddp()->authenticationManager()->loginPassword(settings->userName(), settings->password())) {
-                return false;
-            }
+        if (!mAccount->restApi()->authenticationManager()->loginPassword(settings->userName(), settings->password())) {
+            return false;
         }
     }
     return true;

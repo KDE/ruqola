@@ -133,11 +133,6 @@ public:
     void deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpManager, int operationId);
 
     /**
-     * @brief Calls method to log in the user with valid username and password
-     */
-    void login();
-
-    /**
      * @brief Tries logging in if the client is connected or just sets a flag
      *   so a login will be tried on connection.
      */

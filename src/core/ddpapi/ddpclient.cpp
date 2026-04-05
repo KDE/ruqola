@@ -549,22 +549,9 @@ void DDPClient::onTextMessageReceived(const QString &message)
     }
 }
 
-void DDPClient::login()
-{
-    if (!Ruqola::useRestApiLogin()) {
-        if (auto interface = mDDPClientAccountParameter->defaultAuthenticationInterface) {
-            interface->login();
-        } else {
-            qCWarning(RUQOLA_DDPAPI_LOG) << "No plugins loaded. Please verify your installation.";
-        }
-    }
-}
-
 void DDPClient::enqueueLogin()
 {
-    if (isConnected()) {
-        login();
-    } else {
+    if (!isConnected()) {
         // if the connection is already in, it's enough to wait for the web socket to connect
         mLoginEnqueued = true;
         if (!mWebSocket->isValid()) {
@@ -590,12 +577,6 @@ void DDPClient::onWSConnected()
         qCWarning(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << serialize;
-    }
-    if (!Ruqola::useRestApiLogin()) {
-        if (mLoginEnqueued) {
-            login();
-            mLoginEnqueued = false;
-        }
     }
 }
 

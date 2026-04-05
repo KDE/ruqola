@@ -61,9 +61,6 @@ public:
 
     [[nodiscard]] bool debug() const;
 
-    [[nodiscard]] static bool useRestApiLogin();
-    static void setUseRestApiLogin(bool newUseRestApiLogin);
-
     [[nodiscard]] QWidget *parentWidget() const;
     void setParentWidget(QWidget *newParentWidget);
 

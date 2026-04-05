@@ -133,9 +133,6 @@ int main(int argc, char *argv[])
     }
     (void)Ruqola::self();
 
-    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::LoginDdpApi))) {
-        Ruqola::self()->setUseRestApiLogin(false);
-    }
 #if ADD_OFFLINE_SUPPORT
     if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Offline))) {
         Ruqola::self()->setOfflineMode(true);

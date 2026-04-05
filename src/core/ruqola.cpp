@@ -90,18 +90,6 @@ bool Ruqola::debug() const
     return mDebug;
 }
 
-static bool sUseRestApiLogin = true;
-
-bool Ruqola::useRestApiLogin()
-{
-    return sUseRestApiLogin;
-}
-
-void Ruqola::setUseRestApiLogin(bool newUseRestApiLogin)
-{
-    sUseRestApiLogin = newUseRestApiLogin;
-}
-
 QWidget *Ruqola::parentWidget() const
 {
     return mParentWidget;

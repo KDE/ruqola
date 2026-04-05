@@ -17,7 +17,6 @@ public:
         ListAccount,
         Account,
         MessageUrl,
-        LoginDdpApi,
 #if HAVE_KUSERFEEDBACK
         FeedBack,
 #endif

@@ -655,11 +655,7 @@ DDPClient *RocketChatAccount::ddp()
     if (!mDdp && accountEnabled()) {
         qCDebug(RUQOLA_RECONNECT_LOG) << "creating new DDPClient" << accountName();
         mDdp.reset(new DDPClient(this));
-        if (Ruqola::useRestApiLogin()) {
-            connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotDDpLoginStatusChanged);
-        } else {
-            connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
-        }
+        connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotDDpLoginStatusChanged);
         connect(mDdp.get(), &DDPClient::connectedChanged, this, &RocketChatAccount::ddpConnectedChanged);
         connect(mDdp.get(), &DDPClient::changed, mRocketChatBackend, &RocketChatBackend::slotChanged);
         connect(mDdp.get(), &DDPClient::added, mRocketChatBackend, &RocketChatBackend::slotAdded);
@@ -687,16 +683,9 @@ DDPClient *RocketChatAccount::ddp()
 
 AuthenticationManager::LoginStatus RocketChatAccount::loginStatus() const
 {
-    if (Ruqola::useRestApiLogin()) {
-        if (mRestApi) {
-            if (mRestApi->authenticationManager()) {
-                return mRestApi->authenticationManager()->loginStatus();
-            }
-        }
-    } else {
-        // TODO: DDP API should exist as soon as the hostname is known
-        if (mDdp) {
-            return mDdp->authenticationManager()->loginStatus();
+    if (mRestApi) {
+        if (mRestApi->authenticationManager()) {
+            return mRestApi->authenticationManager()->loginStatus();
         }
     }
     return AuthenticationManager::LoggedOut;
@@ -742,32 +731,27 @@ void RocketChatAccount::tryLogin()
     qCDebug(RUQOLA_RECONNECT_LOG) << accountName() << "attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
     Q_ASSERT(ddp());
 
-    if (Ruqola::useRestApiLogin()) {
-        if (auto interface = mDefaultAuthenticationInterface) {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI login" << accountName();
-            if (!interface->login()) {
-                qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI impossible to login" << accountName();
-                return;
-            }
-
-            // Normally, DDP is already connected at this point, and not yet logged in (it waits for the REST auth token)
-            // But if it's in another state, recreate it.
-            // Ex: we just changed networks, there's no NetworkManager support, the DDP socket
-            // is stuck forever, and the user clicked logout to try and repair that... but it's stuck logging out.
-            const auto ddpStatus = ddp()->authenticationManager()->loginStatus();
-            if (ddpStatus == AuthenticationManager::LogoutOngoing || ddpStatus == AuthenticationManager::LogoutCleanUpOngoing) {
-                qCDebug(RUQOLA_RECONNECT_LOG) << "DDP seems stuck, recreating it";
-                mRoomModel->clear();
-                mDdp.reset();
-                ddp();
-            }
-
-        } else {
-            qCWarning(RUQOLA_RECONNECT_LOG) << "No plugins loaded. Please verify your installation.";
+    if (auto interface = mDefaultAuthenticationInterface) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI login" << accountName();
+        if (!interface->login()) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "RESTAPI impossible to login" << accountName();
+            return;
         }
+
+        // Normally, DDP is already connected at this point, and not yet logged in (it waits for the REST auth token)
+        // But if it's in another state, recreate it.
+        // Ex: we just changed networks, there's no NetworkManager support, the DDP socket
+        // is stuck forever, and the user clicked logout to try and repair that... but it's stuck logging out.
+        const auto ddpStatus = ddp()->authenticationManager()->loginStatus();
+        if (ddpStatus == AuthenticationManager::LogoutOngoing || ddpStatus == AuthenticationManager::LogoutCleanUpOngoing) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "DDP seems stuck, recreating it";
+            mRoomModel->clear();
+            mDdp.reset();
+            ddp();
+        }
+
     } else {
-        // ddp() creates a new DDPClient object if it doesn't exist.
-        ddp()->enqueueLogin();
+        qCWarning(RUQOLA_RECONNECT_LOG) << "No plugins loaded. Please verify your installation.";
     }
 
     // In the meantime, load cache...
@@ -1537,11 +1521,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
-        if (Ruqola::useRestApiLogin()) {
-            restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
-        } else {
-            ddp()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
-        }
+        restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
         return;
     }
     mLstPluginAuthenticationInterface.clear();
@@ -2313,13 +2293,8 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 void RocketChatAccount::slotReconnectToDdpServer() // connected to DDPClient::disconnectedByServer
 {
     mRoomModel->clear();
-    if (Ruqola::useRestApiLogin()) {
-        if (mRestApi && mRestApi->authenticationManager()->isLoggedIn()) {
-            qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnect only ddpclient";
-            ddp()->enqueueLogin();
-        }
-    } else {
-        // ddp() creates a new DDPClient object if it doesn't exist.
+    if (mRestApi && mRestApi->authenticationManager()->isLoggedIn()) {
+        qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnect only ddpclient";
         ddp()->enqueueLogin();
     }
 }
@@ -2538,9 +2513,6 @@ void RocketChatAccount::slotDDpLoginStatusChanged()
         disconnect(mDdp.get(), nullptr, this, nullptr);
         mDdp.release()->deleteLater();
     }
-    if (!Ruqola::useRestApiLogin()) {
-        slotLoginStatusChanged();
-    }
     Q_EMIT ddpLoginStatusChanged();
     if (!mRestApi && !mDdp) {
         logoutCompleted();
@@ -2601,19 +2573,6 @@ bool RocketChatAccount::e2EPasswordMustBeSave() const
 void RocketChatAccount::setE2EPasswordMustBeSave(bool newE2EPasswordMustBeSave)
 {
     mE2EPasswordMustBeSave = newE2EPasswordMustBeSave;
-}
-
-void RocketChatAccount::slotLoginStatusChanged() // only used in DDP-only mode (!useRestApiLogin)
-{
-    if (loginStatus() == AuthenticationManager::LoggedIn) {
-        // Reset it.
-        mDelayReconnect = 100;
-        qCDebug(RUQOLA_RECONNECT_LOG) << "Successfully logged in!";
-    } else if (loginStatus() == AuthenticationManager::LoginFailedInvalidUserOrPassword) {
-        // clear auth token to refresh it with the next login
-        mSettings->setAuthToken({});
-    }
-    Q_EMIT loginStatusChanged();
 }
 
 void RocketChatAccount::registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo)
