@@ -21,6 +21,9 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
+#if HAVE_NETWORKMANAGER
+#include <NetworkManagerQt/Manager>
+#endif
 
 using namespace Qt::Literals::StringLiterals;
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
@@ -88,7 +91,14 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mFailedError->hide();
     mLoginButton->setAutoDefault(true);
     mLoginButton->setEnabled(false);
-    connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::settingsIsValid, mLoginButton, &QPushButton::setEnabled);
+    connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::settingsIsValid, this, [this](bool state) {
+#if HAVE_NETWORKMANAGER
+        mLoginButton->setEnabled(state && (NetworkManager::status() == NetworkManager::Status::Connected));
+
+#else
+        mLoginButton->setEnabled(state);
+#endif
+    });
 }
 
 RuqolaLoginWidget::~RuqolaLoginWidget() = default;
