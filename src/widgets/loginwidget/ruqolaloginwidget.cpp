@@ -60,7 +60,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addWidget(mTwoFactorAuthenticationWidget);
 
     mLoginButton->setObjectName(u"mLoginButton"_s);
-    mLoginButton->setLoginInProgress(false);
     connect(mLoginButton, &RuqolaLoginButton::loginRequested, this, &RuqolaLoginWidget::slotLogin);
     connect(mLoginButton, &RuqolaLoginButton::cancelLoginRequested, this, &RuqolaLoginWidget::slotCancelLogin);
     connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::tryLogin, this, &RuqolaLoginWidget::slotLogin);

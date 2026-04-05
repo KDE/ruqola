@@ -9,6 +9,7 @@
 RuqolaLoginButton::RuqolaLoginButton(QWidget *parent)
     : QPushButton(parent)
 {
+    updateButtonText();
     connect(this, &QPushButton::clicked, this, [this]() {
         if (mLoginInProgress) {
             Q_EMIT cancelLoginRequested();
@@ -27,7 +28,14 @@ bool RuqolaLoginButton::loginInProgress() const
 
 void RuqolaLoginButton::setLoginInProgress(bool newLoginInProgress)
 {
-    mLoginInProgress = newLoginInProgress;
+    if (mLoginInProgress != newLoginInProgress) {
+        mLoginInProgress = newLoginInProgress;
+        updateButtonText();
+    }
+}
+
+void RuqolaLoginButton::updateButtonText()
+{
     if (mLoginInProgress) {
         setText(i18nc("@action:button", "Cancel"));
     } else {

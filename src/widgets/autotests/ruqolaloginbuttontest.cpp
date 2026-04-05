@@ -18,4 +18,7 @@ void RuqolaLoginButtonTest::shouldHaveDefaultValues()
 {
     const RuqolaLoginButton b;
     QVERIFY(!b.loginInProgress());
+    QVERIFY(!b.text().isEmpty());
 }
+
+#include "moc_ruqolaloginbuttontest.cpp"

@@ -23,5 +23,6 @@ Q_SIGNALS:
     void cancelLoginRequested();
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateButtonText();
     bool mLoginInProgress = false;
 };
