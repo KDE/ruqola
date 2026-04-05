@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-04 00:45+0000\n"
+"POT-Creation-Date: 2026-04-05 00:44+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -7964,7 +7964,7 @@ msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "Zerbitzariaren URLa:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:112
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:117
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Zerbitzarira konektatzea huts egin du: %1"
