@@ -17,3 +17,5 @@ TextAutoGenerateText::TextAutoGenerateTextToolInternalJob *RuqolaToolInternalInt
     Q_UNUSED(toolName)
     return {};
 }
+
+#include "moc_ruqolatoolinternalinterface.cpp"
