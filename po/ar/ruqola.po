@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-04 02:43+0000\n"
+"POT-Creation-Date: 2026-04-05 02:40+0000\n"
 "PO-Revision-Date: 2026-03-08 09:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -7963,7 +7963,7 @@ msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "عنوان الخادم:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:112
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:117
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "فشل الاتصال بالخادم: %1"

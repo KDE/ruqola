@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-04 02:43+0000\n"
+"POT-Creation-Date: 2026-04-05 02:40+0000\n"
 "PO-Revision-Date: 2026-03-07 15:14+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -7967,7 +7967,7 @@ msgctxt "@label:textbox"
 msgid "Server URL:"
 msgstr "URL del server:"
 
-#: widgets/configurenewserver/checknewserverurlwidget.cpp:112
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:117
 #, kde-format
 msgid "Failed to connect to server: %1"
 msgstr "Connessione al server non riuscita: %1"
