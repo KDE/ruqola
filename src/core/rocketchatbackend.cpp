@@ -776,7 +776,7 @@ void RocketChatBackend::subscribeRegistration()
         u"voip.statuschanged"_s,
         u"user-status"_s,
         u"permissions-changed"_s,
-        u"private-settings-changed"_s,
+        // u"private-settings-changed"_s,
         u"omnichannel.priority-changed"_s,
     };
     for (const QString &str : listStreamNotifierLogged) {
@@ -795,8 +795,8 @@ void RocketChatBackend::subscribeRegistration()
         mRocketChatAccount->ddp()->subscribe(u"stream-apps"_s, params);
     }
     {
-        const QJsonArray params{QJsonValue(u"apps-engine"_s)};
-        mRocketChatAccount->ddp()->subscribe(u"stream-apps-engine"_s, params);
+        // const QJsonArray params{QJsonValue(u"apps-engine"_s)};
+        // mRocketChatAccount->ddp()->subscribe(u"stream-apps-engine"_s, params);
     }
 }
 
