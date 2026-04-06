@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:44+0000\n"
+"POT-Creation-Date: 2026-04-06 00:43+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -504,7 +504,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr "A one-time password is required to complete the login procedure."
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Login failed: Invalid OTP code."
@@ -1823,7 +1823,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> are typing..."
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:696
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1832,12 +1832,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:704 core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected"
 msgstr "Not connected"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:711
 #, kde-format
 msgid "Not connected yet"
 msgstr "Not connected yet"
@@ -1914,30 +1914,30 @@ msgstr "Direct message"
 msgid "Omnichannel"
 msgstr "Omnichannel"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Return lists of accounts"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Start with specific account"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:49
 #, kde-format
 msgid "Account Name"
 msgstr "Account Name"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Show Message"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:51
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Message Url"
@@ -1946,30 +1946,24 @@ msgstr "Message"
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
 msgctxt "@info:shell"
-msgid "Use ddp api for login"
-msgstr "Use ddp api for login"
-
-#: core/ruqolacommandlineparser.cpp:57
-#, kde-format
-msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Lists the available options for user feedback"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:57
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Offline"
 
-#: core/ruqolacommandlineparser.cpp:62
+#: core/ruqolacommandlineparser.cpp:59
 #, fuzzy, kde-format
 #| msgid "Activated"
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Activated"
 
-#: core/ruqolacommandlineparser.cpp:64
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
@@ -9707,20 +9701,20 @@ msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "Import Accounts"
 
-#: widgets/loginwidget/ruqolaloginbutton.cpp:32
+#: widgets/loginwidget/ruqolaloginbutton.cpp:40
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: widgets/loginwidget/ruqolaloginbutton.cpp:34
+#: widgets/loginwidget/ruqolaloginbutton.cpp:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Login"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:50
+#: widgets/loginwidget/ruqolaloginwidget.cpp:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9730,40 +9724,53 @@ msgstr ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:177
+#: widgets/loginwidget/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Login Failed: invalid username or password"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Installation Problem found. No plugins found here."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:200
+#: widgets/loginwidget/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Login Failed: generic error"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:207
+#: widgets/loginwidget/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Login Failed: Login has been temporarily blocked For IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:214
+#: widgets/loginwidget/ruqolaloginwidget.cpp:222
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Login Failed: Login has been temporarily blocked For User."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:221
+#: widgets/loginwidget/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Login Failed: User is not activated."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:228
+#: widgets/loginwidget/ruqolaloginwidget.cpp:236
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Login Failed: App user is not allowed to login."
+
+#: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "Not network found."
+msgstr "No room found"
+
+#: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Network is offline mode."
+msgctxt "@action:button"
+msgid "Switch Offline Mode"
+msgstr "Network is offline mode."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -12769,6 +12776,10 @@ msgstr "Report date"
 msgid "Fix upload Custom Sound"
 msgstr "Custom Sounds"
 
+#~ msgctxt "@info:shell"
+#~ msgid "Use ddp api for login"
+#~ msgstr "Use ddp api for login"
+
 #, fuzzy
 #~| msgctxt "@title"
 #~| msgid "Ignore User"
@@ -12965,11 +12976,6 @@ msgstr "Custom Sounds"
 #~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Loading…"
-
-#, fuzzy
-#~| msgid "No room found"
-#~ msgid "No new version found."
-#~ msgstr "No room found"
 
 #, fuzzy
 #~| msgid "Attach File"

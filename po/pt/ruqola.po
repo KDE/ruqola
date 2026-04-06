@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:44+0000\n"
+"POT-Creation-Date: 2026-04-06 00:43+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -558,7 +558,7 @@ msgstr ""
 "autenticação."
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "A autenticação falhou: O código OTP é inválido."
@@ -1909,19 +1909,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:696
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:704 core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected"
 msgstr "Não ligado"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:711
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -2002,33 +2002,33 @@ msgstr "Mensagem directa a alguém"
 msgid "Omnichannel"
 msgstr "Omnicanal"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:46
 #, fuzzy, kde-format
 #| msgid "Return the number of account."
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Devolver o número da conta."
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:49
 #, fuzzy, kde-format
 #| msgid "Account Name:"
 msgid "Account Name"
 msgstr "Nome da Conta:"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:51
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Seguir a Mensagem"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:51
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Message Url"
@@ -2037,30 +2037,24 @@ msgstr "Mensagem"
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
 msgctxt "@info:shell"
-msgid "Use ddp api for login"
-msgstr ""
-
-#: core/ruqolacommandlineparser.cpp:57
-#, kde-format
-msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:57
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Desligado"
 
-#: core/ruqolacommandlineparser.cpp:62
+#: core/ruqolacommandlineparser.cpp:59
 #, fuzzy, kde-format
 #| msgid "Active"
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Activo"
 
-#: core/ruqolacommandlineparser.cpp:64
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
@@ -10309,21 +10303,21 @@ msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "Importar as Contas"
 
-#: widgets/loginwidget/ruqolaloginbutton.cpp:32
+#: widgets/loginwidget/ruqolaloginbutton.cpp:40
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: widgets/loginwidget/ruqolaloginbutton.cpp:34
+#: widgets/loginwidget/ruqolaloginbutton.cpp:42
 #, fuzzy, kde-format
 #| msgid "Login"
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Entrar"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:50
+#: widgets/loginwidget/ruqolaloginwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid ""
 #| "You have enabled second factor authentication.\n"
@@ -10336,47 +10330,59 @@ msgstr ""
 "Activou a autenticação multi-factor.\n"
 "Por favor introduza o código gerado ou um código de segurança."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:177
+#: widgets/loginwidget/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "A Autenticação Falhou: utilizador ou senha inválidos"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Foi detectado um problema de instalação. Não foram encontrados 'plugins' "
 "aqui."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:200
+#: widgets/loginwidget/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "A Autenticação Falhou: erro genérico"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:207
+#: widgets/loginwidget/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "A Autenticação Falhou: A conta foi temporariamente bloqueada pelo seu IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:214
+#: widgets/loginwidget/ruqolaloginwidget.cpp:222
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "A Autenticação Falhou: A conta foi temporariamente bloqueada pelo seu "
 "Utilizador."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:221
+#: widgets/loginwidget/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "A Autenticação Falhou: O utilizador não está activo."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:228
+#: widgets/loginwidget/ruqolaloginwidget.cpp:236
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
 "A Autenticação Falhou: Não é permitido ao utilizador da aplicação autenticar-"
 "se."
+
+#: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "Not network found."
+msgstr "Nenhuma sala encontrada"
+
+#: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
+#, kde-format
+msgctxt "@action:button"
+msgid "Switch Offline Mode"
+msgstr ""
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -13838,11 +13844,6 @@ msgstr "Sons Personalizados"
 #~| msgid "Loading..."
 #~ msgid "Loading..."
 #~ msgstr "A carregar..."
-
-#, fuzzy
-#~| msgid "No room found"
-#~ msgid "No new version found."
-#~ msgstr "Nenhuma sala encontrada"
 
 #, fuzzy
 #~| msgid "Save File"

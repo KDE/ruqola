@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:44+0000\n"
+"POT-Creation-Date: 2026-04-06 00:43+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -499,7 +499,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr "Aby ukończyć logowanie, wymagane jest jednorazowe hasło."
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Nie udało się zalogować: Nieprawidłowy kod OTP."
@@ -1825,7 +1825,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pisze..."
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:696
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1834,12 +1834,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:704 core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected"
 msgstr "Niepodłączony"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:711
 #, kde-format
 msgid "Not connected yet"
 msgstr "Jeszcze niepodłączony"
@@ -1916,30 +1916,30 @@ msgstr "Wiadomość bezpośrednia"
 msgid "Omnichannel"
 msgstr "Kanał Omni"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Zwróć listę kont"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Rozpocznij z danym kontem"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:49
 #, kde-format
 msgid "Account Name"
 msgstr "Nazwa konta"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Pokaż wiadomość"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:51
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Message Url"
@@ -1948,30 +1948,24 @@ msgstr "Wiadomość"
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
 msgctxt "@info:shell"
-msgid "Use ddp api for login"
-msgstr "Użyj ddp api do logowania"
-
-#: core/ruqolacommandlineparser.cpp:57
-#, kde-format
-msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Wymień dostępne możliwości informacji zwrotnej"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:57
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Niedostępny"
 
-#: core/ruqolacommandlineparser.cpp:62
+#: core/ruqolacommandlineparser.cpp:59
 #, fuzzy, kde-format
 #| msgid "Activated"
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Włączone"
 
-#: core/ruqolacommandlineparser.cpp:64
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
@@ -9698,20 +9692,20 @@ msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "Zaimportuj konta"
 
-#: widgets/loginwidget/ruqolaloginbutton.cpp:32
+#: widgets/loginwidget/ruqolaloginbutton.cpp:40
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: widgets/loginwidget/ruqolaloginbutton.cpp:34
+#: widgets/loginwidget/ruqolaloginbutton.cpp:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Logowanie"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:50
+#: widgets/loginwidget/ruqolaloginwidget.cpp:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9721,41 +9715,54 @@ msgstr ""
 "Włączyłeś uwierzytelnianie drugiego stopnia.\n"
 "Wpisz utworzony kod lub kod zapasowy."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:177
+#: widgets/loginwidget/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Nie udało się zalogować: niepoprawna nazwa użytkownika lub hasło"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Napotkano usterkę wgrywania. Nie znaleziono tutaj wtyczek."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:200
+#: widgets/loginwidget/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Nie udało się zalogować: błąd ogólny"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:207
+#: widgets/loginwidget/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Nie udało się wejść: Tymczasowo zablokowano dostęp dla IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:214
+#: widgets/loginwidget/ruqolaloginwidget.cpp:222
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Nie udało się wejść: Tymczasowo zablokowano dostęp dla użytkownika."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:221
+#: widgets/loginwidget/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Nie udało się wejść: Użytkownik nie został włączony."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:228
+#: widgets/loginwidget/ruqolaloginwidget.cpp:236
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
 "Nie udało się wejść: Użytkownik programu nie ma pozwolenia na zalogowanie."
+
+#: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "No new version found."
+msgid "Not network found."
+msgstr "Żadna nowa wersja nie jest jeszcze dostępna."
+
+#: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Network is offline mode."
+msgctxt "@action:button"
+msgid "Switch Offline Mode"
+msgstr "Sieć działa w trybie odłączonym."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -12733,6 +12740,10 @@ msgstr "Data zgłoszenia"
 msgid "Fix upload Custom Sound"
 msgstr "Własne dźwięki"
 
+#~ msgctxt "@info:shell"
+#~ msgid "Use ddp api for login"
+#~ msgstr "Użyj ddp api do logowania"
+
 #, fuzzy
 #~| msgctxt "@title"
 #~| msgid "Ignore User"
@@ -12937,9 +12948,6 @@ msgstr "Własne dźwięki"
 #~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Wczytywanie…"
-
-#~ msgid "No new version found."
-#~ msgstr "Żadna nowa wersja nie jest jeszcze dostępna."
 
 #, fuzzy
 #~| msgid "Attach File"

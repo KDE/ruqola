@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:44+0000\n"
+"POT-Creation-Date: 2026-04-06 00:43+0000\n"
 "PO-Revision-Date: 2026-03-29 13:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -499,7 +499,7 @@ msgstr ""
 "de sessió."
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Ha fallat l'inici de la sessió: codi OTP no vàlid."
@@ -1819,7 +1819,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:696
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1828,12 +1828,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:704 core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:711
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
@@ -1910,30 +1910,30 @@ msgstr "Missatge directe"
 msgid "Omnichannel"
 msgstr "Omnicanal"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Retorna la llista de comptes"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:48
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Comença amb un compte específic"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:49
 #, kde-format
 msgid "Account Name"
 msgstr "Nom del compte"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Mostra el missatge"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:51
 #, kde-format
 msgid "Message Url"
 msgstr "URL del missatge"
@@ -1941,28 +1941,22 @@ msgstr "URL del missatge"
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
 msgctxt "@info:shell"
-msgid "Use ddp api for login"
-msgstr "Fa servir l'API DDP per a iniciar sessió"
-
-#: core/ruqolacommandlineparser.cpp:57
-#, kde-format
-msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Llista les opcions disponibles per als comentaris dels usuaris"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Inicia en desconnexió"
 
-#: core/ruqolacommandlineparser.cpp:62
+#: core/ruqolacommandlineparser.cpp:59
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Activa el mode de depuració"
 
-#: core/ruqolacommandlineparser.cpp:64
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
@@ -9650,19 +9644,19 @@ msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "Importació de comptes"
 
-#: widgets/loginwidget/ruqolaloginbutton.cpp:32
+#: widgets/loginwidget/ruqolaloginbutton.cpp:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: widgets/loginwidget/ruqolaloginbutton.cpp:34
+#: widgets/loginwidget/ruqolaloginbutton.cpp:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Inici de sessió"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:50
+#: widgets/loginwidget/ruqolaloginwidget.cpp:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9672,47 +9666,60 @@ msgstr ""
 "Heu activat un segon factor d'autenticació.\n"
 "Introduïu el codi generat o un codi de reserva."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:177
+#: widgets/loginwidget/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Ha fallat l'inici de la sessió: nom d'usuari o contrasenya no vàlids"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#: widgets/loginwidget/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "S'ha trobat un problema d'instal·lació. Aquí no s'ha trobat cap connector."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:200
+#: widgets/loginwidget/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Ha fallat l'inici de la sessió: error genèric"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:207
+#: widgets/loginwidget/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Ha fallat l'inici de la sessió: temporalment s'ha bloquejat l'inici de "
 "sessió per IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:214
+#: widgets/loginwidget/ruqolaloginwidget.cpp:222
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Ha fallat l'inici de la sessió: temporalment s'ha bloquejat l'inici de "
 "sessió per usuari."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:221
+#: widgets/loginwidget/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Ha fallat l'inici de la sessió: l'usuari no està activat."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:228
+#: widgets/loginwidget/ruqolaloginwidget.cpp:236
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
 "Ha fallat l'inici de la sessió: l'usuari de l'aplicació no té permès iniciar "
 "la sessió."
+
+#: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "No user found"
+msgid "Not network found."
+msgstr "No s'ha trobat cap usuari"
+
+#: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Network is offline mode."
+msgctxt "@action:button"
+msgid "Switch Offline Mode"
+msgstr "La xarxa està en mode desconnectat."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -12677,6 +12684,10 @@ msgstr "Corregeix l'exportació de la base de dades."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Corregeix la pujada de sons personalitzats"
+
+#~ msgctxt "@info:shell"
+#~ msgid "Use ddp api for login"
+#~ msgstr "Fa servir l'API DDP per a iniciar sessió"
 
 #~ msgid "Ignore Camel Case"
 #~ msgstr "Ignora les majúscules per parts"
