@@ -923,7 +923,7 @@ msgstr "إجراء مجهول!"
 #: core/messages/message.cpp:848
 #, kde-format
 msgid "Welcome %1!"
-msgstr "مرحباً %1!"
+msgstr "مرحبًا %1!"
 
 #: core/messages/message.cpp:850
 #, kde-format
