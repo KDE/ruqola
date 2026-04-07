@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-05 02:40+0000\n"
-"PO-Revision-Date: 2026-03-09 22:06+0300\n"
+"PO-Revision-Date: 2026-04-06 19:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3783,7 +3783,7 @@ msgstr "Kullanıcıyı Kaldır"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:358
 #, kde-format
 msgid "No user found"
-msgstr "Kullanıcı bulunamadı"
+msgstr "Bulunan kullanıcı yok"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
@@ -9248,7 +9248,7 @@ msgstr "Oda bulunamadı"
 #: widgets/directory/directorywidget.cpp:200
 #, kde-format
 msgid "No User found"
-msgstr "Kullanıcı bulunamadı"
+msgstr "Bulunan kullanıcı yok"
 
 #: widgets/directory/directorywidget.cpp:202
 #, kde-format
