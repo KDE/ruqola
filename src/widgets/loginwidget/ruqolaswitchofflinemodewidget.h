@@ -5,9 +5,10 @@
 */
 
 #pragma once
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
-class RuqolaSwitchOfflineModeWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaSwitchOfflineModeWidget : public QWidget
 {
     Q_OBJECT
 public:

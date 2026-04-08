@@ -27,7 +27,9 @@ macro(add_ruqolawidget_test _source)
 endmacro()
 
 add_ruqolawidget_test(ruqolacentralwidgettest.cpp)
+
 add_ruqolawidget_test(ruqolaloginwidgettest.cpp)
 add_ruqolawidget_test(ruqolamainwidgettest.cpp)
 add_ruqolawidget_test(ruqolamainwindowtest.cpp)
 add_ruqolawidget_test(ruqolaloginbuttontest.cpp)
+add_ruqolawidget_test(ruqolaswitchofflinemodewidgettest.cpp)
