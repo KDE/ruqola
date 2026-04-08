@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-06 00:43+0000\n"
-"PO-Revision-Date: 2026-03-08 03:57+0100\n"
+"PO-Revision-Date: 2026-04-07 05:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -9648,17 +9648,15 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "შესვლის შეცდომა: აპის მომხმარებელს შესვლის უფლება არ აქვს."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No new version found."
+#, kde-format
 msgid "Not network found."
-msgstr "ახალი ვერსია აღმოჩენილი არაა."
+msgstr "ქსელი აღმოჩენილი არაა."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "ქსელი გათიშულ რეჟიმშია."
+msgstr "გადართვა ქსელგარეშე რეჟიმზე"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
