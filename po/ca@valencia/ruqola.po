@@ -3,15 +3,15 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023, 2026 Antoni Bella Pérez <antonibella5@yahoo.com>
 # SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-05 02:40+0000\n"
-"PO-Revision-Date: 2026-03-29 13:26+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2026-04-06 22:18+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -102,7 +102,7 @@ msgstr "Till Adam"
 #: apps/main.cpp:75
 #, kde-format
 msgid "Windows compile bug fixing"
-msgstr "Correcció de l'error de compilació a Windows"
+msgstr "Esmena de l'error de compilació a Windows"
 
 #: apps/main.cpp:76
 #, kde-format
@@ -9226,7 +9226,7 @@ msgstr "Obri una conversa privada – %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Team - %1"
-msgstr "Uniu-vos a un equip -%1"
+msgstr "Uniu-vos a un equip – %1"
 
 #: widgets/directory/directorydialog.cpp:62
 #, kde-format
@@ -9584,8 +9584,7 @@ msgstr "<b>Compte %1:</b> s'ha efectuat l'exportació de la base de dades."
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
-"El directori «%1» no s'ha pogut afegir al fitxer de còpia de seguretat."
+msgstr "La carpeta «%1» no s'ha pogut afegir al fitxer de còpia de seguretat."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:41
 #, kde-format
@@ -12312,7 +12311,7 @@ msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
 "it doesn't grow forever."
 msgstr ""
-"Suprimix els fitxers més antics d'alguns directoris de la memòria cau («file-"
+"Suprimix els fitxers més antics d'algunes carpetes de la memòria cau («file-"
 "upload» i «media») perquè no cresca per sempre."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:111
