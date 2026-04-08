@@ -39,6 +39,7 @@ void RuqolaLoginButtonTest::shouldEmitSignal()
     spyCancelLoginRequested.clear();
 
     b.setLoginInProgress(true);
+    QVERIFY(!b.text().isEmpty());
     QVERIFY(b.loginInProgress());
     QTest::mouseClick(&b, Qt::LeftButton);
     QCOMPARE(spyLoginRequested.count(), 0);
@@ -48,6 +49,7 @@ void RuqolaLoginButtonTest::shouldEmitSignal()
     spyCancelLoginRequested.clear();
 
     b.setLoginInProgress(false);
+    QVERIFY(!b.text().isEmpty());
     QVERIFY(!b.loginInProgress());
     QTest::mouseClick(&b, Qt::LeftButton);
     QCOMPARE(spyLoginRequested.count(), 1);
