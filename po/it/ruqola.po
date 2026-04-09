@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-06 00:43+0000\n"
-"PO-Revision-Date: 2026-03-07 15:14+0100\n"
+"PO-Revision-Date: 2026-04-06 17:25+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -9709,17 +9709,15 @@ msgstr ""
 "l'accesso."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No new version found."
+#, kde-format
 msgid "Not network found."
-msgstr "Nessuna nuova versione trovata."
+msgstr "Nessuna rete trovata."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "La rete è in modalità non in linea."
+msgstr "Attiva la modalità non in linea"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
