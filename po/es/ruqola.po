@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-06 00:43+0000\n"
-"PO-Revision-Date: 2026-03-15 00:23+0100\n"
+"PO-Revision-Date: 2026-04-11 18:17+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -9713,17 +9713,15 @@ msgstr ""
 "iniciar sesión."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "Not network found."
-msgstr "No se encontró ningún usuario"
+msgstr "No se encontró ninguna red."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "La red está en modo sin conexión."
+msgstr "Cambiar a modo desconectado"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -12690,7 +12688,3 @@ msgstr "Corrección al exportar la base de datos."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Mejora en la subida de sonidos personalizados"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Use ddp api for login"
-#~ msgstr "Uso de ddp api para el inicio de sesión"
