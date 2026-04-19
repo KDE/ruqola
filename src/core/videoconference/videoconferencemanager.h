@@ -8,8 +8,8 @@
 
 #include "libruqolacore_export.h"
 #include "videoconference/videoconference.h"
-#include <QJsonArray>
 #include <QObject>
+class QJsonArray;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT VideoConferenceManager : public QObject
 {

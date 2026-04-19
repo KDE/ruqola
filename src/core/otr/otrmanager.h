@@ -8,8 +8,8 @@
 
 #include "libruqolacore_export.h"
 #include "otr.h"
-#include <QJsonArray>
 #include <QObject>
+class QJsonArray;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT OtrManager : public QObject
 {

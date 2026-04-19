@@ -8,8 +8,8 @@
 
 #include "libruqola_private_export.h"
 
-#include <QJsonArray>
-
+class QJsonArray;
+class QJsonObject;
 namespace AuthenticationManagerUtils
 {
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QJsonArray loginResume(const QString &token);

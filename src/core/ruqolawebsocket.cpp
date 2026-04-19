@@ -5,7 +5,6 @@
 */
 
 #include "ruqolawebsocket.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 #include "ruqola_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QWebSocket>
 
+using namespace Qt::Literals::StringLiterals;
 RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
     : AbstractWebSocket(parent)
     , mLogger(logger)

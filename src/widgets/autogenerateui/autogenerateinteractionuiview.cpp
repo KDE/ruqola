@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiview.h"
 #include <QDialogButtonBox>
+#include <QJsonArray>
 #include <QJsonObject>
 #include <QPushButton>
 #include <QVBoxLayout>

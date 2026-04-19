@@ -10,6 +10,7 @@
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
+#include <QJsonArray>
 
 OtrManager::OtrManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)

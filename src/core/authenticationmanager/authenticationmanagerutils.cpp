@@ -7,6 +7,7 @@
 #include "authenticationmanagerutils.h"
 #include "utils.h"
 
+#include <QJsonArray>
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 

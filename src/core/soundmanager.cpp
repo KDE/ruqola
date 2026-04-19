@@ -5,11 +5,11 @@
 */
 
 #include "soundmanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QAudioOutput>
 #include <QMediaPlayer>
 
+using namespace Qt::Literals::StringLiterals;
 SoundManager::SoundManager(QObject *parent)
     : QObject{parent}
     , mPlayer(new QMediaPlayer(this))

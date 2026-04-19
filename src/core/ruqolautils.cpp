@@ -7,7 +7,6 @@
  */
 
 #include "ruqolautils.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 #include "ruqola_debug.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <PlasmaActivities/ResourceInstance>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 RuqolaUtils::RuqolaUtils() = default;
 
 RuqolaUtils::~RuqolaUtils() = default;

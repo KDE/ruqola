@@ -6,6 +6,7 @@
 
 #include "notificationinfo.h"
 #include "ruqola_debug.h"
+#include <QJsonArray>
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 NotificationInfo::NotificationInfo() = default;

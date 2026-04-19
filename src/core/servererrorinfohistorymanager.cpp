@@ -5,10 +5,10 @@
 */
 
 #include "servererrorinfohistorymanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/servererrorinfohistorymodel.h"
 
+using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoHistoryManager::ServerErrorInfoHistoryManager(QObject *parent)
     : QObject{parent}
     , mServerErrorInfoHistoryModel(new ServerErrorInfoHistoryModel(this))

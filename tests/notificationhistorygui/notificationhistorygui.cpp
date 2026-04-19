@@ -9,11 +9,13 @@
 #include "notificationhistorymanager.h"
 #include <QApplication>
 #include <QDebug>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QPushButton>
 #include <QStandardPaths>
 #include <QTextEdit>
 #include <QVBoxLayout>
+
 using namespace Qt::Literals::StringLiterals;
 NotificationHistoryGui::NotificationHistoryGui(QWidget *parent)
     : QWidget{parent}

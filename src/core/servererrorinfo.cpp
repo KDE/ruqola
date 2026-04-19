@@ -5,10 +5,10 @@
 */
 
 #include "servererrorinfo.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QLocale>
 
+using namespace Qt::Literals::StringLiterals;
 quint64 ServerErrorInfo::identifierId = 0;
 ServerErrorInfo::ServerErrorInfo()
 {

@@ -8,6 +8,8 @@
 #include "authenticationmanager/authenticationmanagerutils.h"
 #include "ruqola_authentication_debug.h"
 #include "utils.h"
+#include <QJsonArray>
+
 #define sl(x) QStringLiteral(x)
 using namespace Qt::Literals::StringLiterals;
 AuthenticationManagerBase::AuthenticationManagerBase(QObject *parent)

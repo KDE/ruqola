@@ -5,7 +5,6 @@
 */
 
 #include "connection.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "privateutils.h"
@@ -85,6 +84,7 @@ using namespace Qt::Literals::StringLiterals;
 
 using namespace std::chrono_literals;
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 
 Connection::Connection(QObject *parent)
     : QObject(parent)

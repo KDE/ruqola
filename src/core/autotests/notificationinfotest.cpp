@@ -5,8 +5,10 @@
 */
 #include "notificationinfotest.h"
 #include "notificationinfo.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(NotificationInfoTest)

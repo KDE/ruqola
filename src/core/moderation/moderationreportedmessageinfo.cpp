@@ -7,6 +7,7 @@
 #include "moderationreportedmessageinfo.h"
 
 #include "utils.h"
+#include <QJsonArray>
 #include <QJsonObject>
 
 QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportedMessageInfo, Ruqola_ModerationReportedMessageInfo)

@@ -5,13 +5,13 @@
 */
 
 #include "ruqolalogger.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QFileInfo>
 
+using namespace Qt::Literals::StringLiterals;
 RuqolaLogger::RuqolaLogger(const QString &accountName, QObject *parent)
     : RocketChatRestApi::AbstractLogger(parent)
 {

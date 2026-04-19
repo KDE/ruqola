@@ -7,9 +7,11 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonArray>
+#include <QDateTime>
 #include <QPixmap>
 class QDebug;
+class QJsonArray;
+
 class LIBRUQOLACORE_EXPORT NotificationInfo
 {
     Q_GADGET

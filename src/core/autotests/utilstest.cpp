@@ -7,6 +7,7 @@
 #include "utilstest.h"
 
 #include "utils.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QTest>
 

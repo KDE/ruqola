@@ -9,8 +9,10 @@
 #include "customusers/customuserstatuses.h"
 #include "ruqola_autotest_helper.h"
 #include "utils.h"
+#include <QJsonArray>
 #include <QJsonObject>
 #include <QTest>
+
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(CustomUserStatusesTest)
 

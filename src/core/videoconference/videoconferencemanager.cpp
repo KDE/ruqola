@@ -13,7 +13,9 @@
 #include "ruqolautils.h"
 #include "video-conference/videoconferencejoinjob.h"
 #include "videoconferencenotificationjob.h"
+#include <QJsonArray>
 #include <QJsonObject>
+
 using namespace Qt::Literals::StringLiterals;
 VideoConferenceManager::VideoConferenceManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}

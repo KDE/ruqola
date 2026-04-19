@@ -17,8 +17,10 @@
 #include <QCryptographicHash>
 #include <QDateTime>
 #include <QIcon>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+
 #include <QRegularExpression>
 
 #include <TextEmoticonsCore/EmoticonUnicodeUtils>

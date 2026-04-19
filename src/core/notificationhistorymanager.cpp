@@ -5,10 +5,10 @@
 */
 
 #include "notificationhistorymanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/notificationhistorymodel.h"
 
+using namespace Qt::Literals::StringLiterals;
 NotificationHistoryManager::NotificationHistoryManager(QObject *parent)
     : QObject{parent}
     , mNotificationHistoryModel(new NotificationHistoryModel(this))

@@ -6,8 +6,10 @@
 
 #include "authenticationmanagerutilstest.h"
 #include "authenticationmanager/authenticationmanagerutils.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(AuthenticationManagerUtilsTest)

@@ -7,9 +7,11 @@
 #include "otrtest.h"
 #include "otr/otr.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
+
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(OtrTest)
 

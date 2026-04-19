@@ -5,13 +5,13 @@
 */
 
 #include "typingnotification.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QTimer>
 
 extern LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs;
 LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs = 2000;
 
+using namespace Qt::Literals::StringLiterals;
 TypingNotification::TypingNotification(QObject *parent)
     : QObject(parent)
     , mTimer(new QTimer(this))

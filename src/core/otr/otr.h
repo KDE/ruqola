@@ -8,8 +8,8 @@
 
 #include "libruqolacore_export.h"
 
-#include <QJsonArray>
-
+class QJsonArray;
+class QJsonObject;
 struct CryptoSettings {
     QString mCrypt;
     [[nodiscard]] bool operator==(const CryptoSettings &other) const;
