@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include <QObject>
-#include <texttranslator_version.h>
 namespace TextTranslator
 {
 class TranslatorEnginePlugin;

@@ -6,6 +6,7 @@
 #include "messagetranslations.h"
 
 #include "ruqola_message_memory_debug.h"
+#include <QJsonArray>
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;

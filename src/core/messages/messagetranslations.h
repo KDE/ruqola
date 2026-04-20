@@ -7,8 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonArray>
 #include <QMap>
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT MessageTranslations : public QSharedData
 {
 public:

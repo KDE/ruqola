@@ -8,12 +8,11 @@
 
 #pragma once
 
-class QObject;
-
 #include "authenticationmanager/authenticationmanagerbase.h"
 #include "libruqolacore_export.h"
 
 class DDPClient;
+class QObject;
 
 /**
  * @class DDPManager

@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include <QMetaType>
-#include <QString>
 #include <QStringList>
 
 class QJsonObject;

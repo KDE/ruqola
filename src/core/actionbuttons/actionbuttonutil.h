@@ -6,7 +6,7 @@
 #pragma once
 #include "actionbutton.h"
 #include "libruqolacore_export.h"
-#include "room.h"
+class Room;
 namespace ActionButtonUtil
 {
 [[nodiscard]] LIBRUQOLACORE_EXPORT ActionButton::RoomTypeFilter convertRoomTypeToActionButtonRoomTypeFilter(Room *r);

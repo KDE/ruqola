@@ -6,7 +6,6 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QString>
 #include <QStringList>
 
 class QJsonObject;

@@ -5,12 +5,12 @@
 */
 
 #include "translatorenginemanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <TextTranslator/TranslatorEngineClient>
 #include <TextTranslator/TranslatorEngineLoader>
 #include <TextTranslator/TranslatorEnginePlugin>
 #include <TextTranslator/TranslatorUtil>
+using namespace Qt::Literals::StringLiterals;
 TranslatorEngineManager::TranslatorEngineManager(QObject *parent)
     : QObject{parent}
 {

@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "actionbuttonutil.h"
+#include "room.h"
 using namespace Qt::Literals::StringLiterals;
 
 ActionButton::RoomTypeFilter ActionButtonUtil::convertRoomTypeToActionButtonRoomTypeFilter(Room *r)
