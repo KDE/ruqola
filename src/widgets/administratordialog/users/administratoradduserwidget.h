@@ -8,8 +8,7 @@
 
 #include <QWidget>
 
-#include "users/userscreatejob.h"
-
+#include "createupdateuserinfo.h"
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QCheckBox;

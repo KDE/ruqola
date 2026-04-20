@@ -4,10 +4,10 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoradduserwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/rolescombobox.h"
 #include "rocketchataccount.h"
+
 #include "user.h"
 #include <KAuthorized>
 #include <KLineEditEventHandler>
@@ -17,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPlainTextEdit>
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)

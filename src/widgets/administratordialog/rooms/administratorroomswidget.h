@@ -7,13 +7,13 @@
 #pragma once
 
 #include "administratorroomseditbasewidget.h"
-#include "administratorroomsselectroomtypewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
 #include "model/adminroomsfilterproxymodel.h"
 #include "room.h"
 #include "rooms/saveroomsettingsjob.h"
 class QWidget;
+class AdministratorRoomsSelectRoomTypeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT

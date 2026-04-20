@@ -5,9 +5,9 @@
 */
 
 #include "administratorroomswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorroomseditdialog.h"
+#include "administratorroomsselectroomtypewidget.h"
 #include "channels/channeldeletejob.h"
 #include "connection.h"
 #include "directmessage/deletedmjob.h"
@@ -29,6 +29,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTreeView>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorRoomsWidget::AdministratorRoomsWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
     , mSelectRoomType(new AdministratorRoomsSelectRoomTypeWidget(this))
