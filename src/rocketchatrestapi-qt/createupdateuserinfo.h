@@ -8,7 +8,7 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include <QJsonDocument>
-#include <QString>
+
 #include <QStringList>
 namespace RocketChatRestApi
 {

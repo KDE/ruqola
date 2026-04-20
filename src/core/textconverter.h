@@ -12,7 +12,7 @@
 #include "messages/message.h"
 #include <QList>
 #include <QMap>
-#include <QString>
+
 #include <QStringList>
 
 class EmojiManager;
