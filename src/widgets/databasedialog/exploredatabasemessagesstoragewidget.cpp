@@ -7,6 +7,7 @@
 #include "exploredatabasetimestampdelegate.h"
 #include "exploredatabasetooltipdelegate.h"
 #include "localdatabase/localdatabasemanager.h"
+#include "localdatabase/localmessagesdatabase.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
 

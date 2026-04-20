@@ -8,8 +8,8 @@
 
 #include "exploredatabasebasestoragewidget.h"
 #include "libruqolawidgets_private_export.h"
-#include "localdatabase/localmessagesdatabase.h"
 class RocketChatAccount;
+class LocalMessagesDatabase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseMessagesStorageWidget : public ExploreDatabaseBaseStorageWidget
 {
     Q_OBJECT
