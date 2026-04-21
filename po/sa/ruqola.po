@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-20 00:47+0000\n"
+"POT-Creation-Date: 2026-04-21 00:45+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3080,7 +3080,7 @@ msgstr "कस्टम् इमोजी नाम तेषां उपन�
 #: widgets/administratordialog/roles/roleeditwidget.cpp:36
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:26
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:45
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
@@ -3151,7 +3151,7 @@ msgstr "संयोजयति…"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
 #: widgets/administratordialog/users/administratoruserswidget.cpp:308
 #, kde-format
 msgctxt "@action"
@@ -3165,7 +3165,7 @@ msgstr "परिवर्तनं कुर्वन्तु..."
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:69
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:70
 #: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
@@ -3240,7 +3240,7 @@ msgid "Presence"
 msgstr "उपस्थिति"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:155
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:213
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:214
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "किं भवान् \"%1\" अपसारयितुम् इच्छति?"
@@ -3590,7 +3590,7 @@ msgid "Show Moderation Users"
 msgstr "मॉडरेशन उपयोक्तारः दर्शयतु"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/dialogs/directchannelinfowidget.cpp:202
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
@@ -3599,7 +3599,7 @@ msgid "Email:"
 msgstr "ईमेल :"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:72
 #: widgets/dialogs/directchannelinfowidget.cpp:170
 #, kde-format
 msgid "Roles:"
@@ -3915,18 +3915,18 @@ msgctxt "@option:check"
 msgid "Omnichannel"
 msgstr "सर्वचैनल"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:44
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:78
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:79
 #, kde-format
 msgid "No room found"
 msgstr "न स्थानं लब्धम्"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:83
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
 #: widgets/directory/directorywidget.cpp:214
 #, kde-format
 msgid "%1 room (Total: %2)"
@@ -3934,7 +3934,7 @@ msgid_plural "%1 rooms (Total: %2)"
 msgstr[0] "%1 कक्षः (कुलः %2)"
 msgstr[1] "%1 कक्ष्याः (कुलः %2)"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:214
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
@@ -4145,31 +4145,31 @@ msgctxt "@title:window"
 msgid "Edit User"
 msgstr "उपयोक्तारं सम्पादयतु"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Welcome Email"
 msgstr "स्वागतं ईमेल प्रेषयन्तु"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
 msgid "Require Password Change"
 msgstr "गुप्तशब्द परिवर्तनस्य आवश्यकता भवति"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Set random password and send by email"
 msgstr "यादृच्छिकगुप्तशब्दं सेट् कृत्वा ईमेलद्वारा प्रेषयन्तु"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:32
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:33
 #, kde-format
 msgctxt "@option:check"
 msgid "Mark email as verified"
 msgstr "ईमेलं सत्यापितं इति चिह्नं कुर्वन्तु"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:104
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
@@ -4178,12 +4178,12 @@ msgstr "ईमेलं सत्यापितं इति चिह्नं
 msgid "Username:"
 msgstr "उपयोक्तृनाम :"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #, kde-format
 msgid "Status Message:"
 msgstr "स्थितिसन्देशः :"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
 #: widgets/common/authenticationloginwidget.cpp:50
 #: widgets/dialogs/channelinfoeditablewidget.cpp:79
 #: widgets/webdav/webdavaddserverwidget.cpp:37
@@ -4191,13 +4191,13 @@ msgstr "स्थितिसन्देशः :"
 msgid "Password:"
 msgstr "समाभाष्:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
 #: widgets/dialogs/directchannelinfowidget.cpp:127
 #, kde-format
 msgid "Bio:"
 msgstr "आसीत्‌:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:68
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:85
 #, kde-format
 msgid "Nickname:"
