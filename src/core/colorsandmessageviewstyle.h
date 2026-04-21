@@ -8,8 +8,6 @@
 #include "config-ruqola.h"
 #include <TextUtils/TextUtilsColorsAndMessageViewStyle>
 
-#include <KColorScheme>
-
 #include "libruqolacore_export.h"
 
 class LIBRUQOLACORE_EXPORT ColorsAndMessageViewStyle : public TextUtils::TextUtilsColorsAndMessageViewStyle
