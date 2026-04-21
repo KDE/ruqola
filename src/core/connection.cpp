@@ -81,6 +81,7 @@
 #include <QNetworkCookieJar>
 #include <QNetworkReply>
 #include <QTimer>
+#include <QUrl>
 
 using namespace std::chrono_literals;
 using namespace RocketChatRestApi;

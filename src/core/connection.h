@@ -20,12 +20,12 @@
 #include "utils.h"
 #include <QObject>
 #include <QSslError>
-#include <QUrl>
 
 class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
 class RESTAuthenticationManager;
+class QUrl;
 namespace RocketChatRestApi
 {
 class RestApiAbstractJob;
