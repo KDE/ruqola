@@ -23,6 +23,7 @@
 
 #include <QRegularExpression>
 
+#include <QUrl>
 #include <TextEmoticonsCore/EmoticonUnicodeUtils>
 
 using namespace Qt::Literals::StringLiterals;

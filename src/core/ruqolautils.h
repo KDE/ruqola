@@ -9,9 +9,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QUrl>
 class QString;
-
+class Url;
 class LIBRUQOLACORE_EXPORT RuqolaUtils
 {
 public:

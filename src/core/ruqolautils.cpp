@@ -7,6 +7,7 @@
  */
 
 #include "ruqolautils.h"
+#include <QUrl>
 
 #include "config-ruqola.h"
 #include "ruqola_debug.h"

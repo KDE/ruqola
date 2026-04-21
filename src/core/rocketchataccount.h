@@ -29,8 +29,8 @@
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
 #include <QObject>
-#include <QUrl>
 #include <TextEmoticonsCore/CustomEmoji>
+class QUrl;
 class TypingNotification;
 class ActionButtonsManager;
 class UsersModel;

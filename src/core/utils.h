@@ -9,9 +9,9 @@
 #include "libruqola_private_export.h"
 #include "user.h"
 
-#include <QUrl>
 class QJsonArray;
 class QJsonObject;
+class QUrl;
 
 class RocketChatAccount;
 

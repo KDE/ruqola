@@ -112,6 +112,7 @@
 #include "model/switchchannelhistorymodel.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
+#include <QUrl>
 
 using namespace Qt::Literals::StringLiterals;
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)

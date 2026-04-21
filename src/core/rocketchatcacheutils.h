@@ -8,7 +8,7 @@
 #include "libruqola_private_export.h"
 #include "managerdatapaths.h"
 #include <QString>
-#include <QUrl>
+class QUrl;
 namespace RocketChatCacheUtils
 {
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString fileCachePath(const QUrl &url,

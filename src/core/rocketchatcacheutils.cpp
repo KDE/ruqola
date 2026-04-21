@@ -7,6 +7,7 @@
 #include "rocketchatcacheutils.h"
 
 #include <QDebug>
+#include <QUrl>
 #include <QUrlQuery>
 
 using namespace Qt::Literals::StringLiterals;
