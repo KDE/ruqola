@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-21 00:45+0000\n"
+"POT-Creation-Date: 2026-04-22 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1728,7 +1728,7 @@ msgstr ""
 msgid "Owner"
 msgstr ""
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:97 core/utils.cpp:362
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:363
 #, kde-format
 msgid "Offline"
 msgstr ""
@@ -1804,19 +1804,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:696
+#: core/rocketchataccount.cpp:697
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:704 core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:705 core/rocketchataccount.cpp:718
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:711
+#: core/rocketchataccount.cpp:712
 #, kde-format
 msgid "Not connected yet"
 msgstr ""
@@ -2007,17 +2007,17 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:91 core/utils.cpp:356
+#: core/utils.cpp:92 core/utils.cpp:357
 #, kde-format
 msgid "Online"
 msgstr ""
 
-#: core/utils.cpp:93 core/utils.cpp:358 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:359 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr ""
 
-#: core/utils.cpp:95 core/utils.cpp:360 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:361 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr ""
