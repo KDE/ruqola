@@ -6,7 +6,7 @@
 
 #include "parserocketchaturlutils.h"
 #include "ruqola_debug.h"
-#include <QUrl>
+
 #include <QUrlQuery>
 using namespace Qt::Literals::StringLiterals;
 // https://developer.rocket.chat/getting-started/deep-linking
