@@ -5,7 +5,7 @@
 */
 
 #include "resizablepixmaplabel.h"
-#include <QDebug>
+// #include <QDebug>
 #include <QScreen>
 
 ResizablePixmapLabel::ResizablePixmapLabel(QWidget *parent)

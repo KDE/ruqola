@@ -7,7 +7,7 @@
 #include "completionlistview.h"
 
 #include <QApplication>
-#include <QDebug>
+// #include <QDebug>
 #include <QKeyEvent>
 #include <QScreen>
 #include <QScrollBar>
