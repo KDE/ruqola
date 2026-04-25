@@ -6,10 +6,10 @@
 #pragma once
 
 #include "librocketchatrestapi-qt_export.h"
-#include <QJsonDocument>
 #include <QMetaType>
 
 #include <QStringList>
+class QJsonDocument;
 namespace RocketChatRestApi
 {
 struct LIBROCKETCHATRESTAPI_QT_EXPORT CreateChannelTeamInfo {
