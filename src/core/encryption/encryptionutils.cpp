@@ -10,7 +10,6 @@
 #include <QByteArray>
 // https://docs.rocket.chat/customer-center/security-center/end-to-end-encryption-specifications
 
-#include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>

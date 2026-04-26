@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "notificationwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KNotification>
 #include <KNotificationReplyAction>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QPushButton>
 
+using namespace Qt::Literals::StringLiterals;
 NotificationWidget::NotificationWidget(QWidget *parent)
     : QWidget(parent)
     , mLineEdit(new QLineEdit(this))
