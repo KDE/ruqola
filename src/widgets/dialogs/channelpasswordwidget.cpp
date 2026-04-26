@@ -5,7 +5,6 @@
 */
 
 #include "channelpasswordwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KAuthorized>
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QHBoxLayout>
 #include <QLabel>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     : QWidget(parent)
     , mPasswordLineEdit(new KPasswordLineEdit(this))

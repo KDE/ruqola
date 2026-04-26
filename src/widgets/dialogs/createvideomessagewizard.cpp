@@ -5,7 +5,6 @@
 */
 
 #include "createvideomessagewizard.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "createvideomessagewidget.h"
 #include "showvideowidget.h"
@@ -24,6 +23,7 @@ namespace
 {
 const char myConfigCreateVideoMessageWizardGroupName[] = "CreateVideoMessageWizard";
 }
+using namespace Qt::Literals::StringLiterals;
 CreateVideoMessageWizard::CreateVideoMessageWizard(RocketChatAccount *account, QWidget *parent)
     : QWizard(parent)
     , mCreateVideoMessagePage(new CreateVideoMessagePage(this))

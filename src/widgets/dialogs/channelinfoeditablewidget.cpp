@@ -5,7 +5,6 @@
 */
 
 #include "channelinfoeditablewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channelinfoprunewidget.h"
 #include "connection.h"
@@ -28,6 +27,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPointer>
 #include <QPushButton>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mRoom(room)

@@ -5,7 +5,6 @@
 */
 
 #include "channelinforeadonlywidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "room.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mNameReadOnly(new QLabel(this))

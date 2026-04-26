@@ -5,7 +5,6 @@
 */
 
 #include "createsoundmessagewizard.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "createsoundmessagewidget.h"
 #include "playsoundwidget.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 CreateSoundMessageWizard::CreateSoundMessageWizard(RocketChatAccount *account, QWidget *parent)
     : QWizard(parent)
     , mCreateSoundMessagePage(new CreateSoundMessagePage(this))

@@ -5,7 +5,6 @@
 */
 
 #include "channelrolesinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "roles/roles.h"
 #include "room.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QGroupBox>
 #include <QLabel>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelRolesInfoWidget::ChannelRolesInfoWidget(QWidget *parent)
     : QWidget{parent}
     , mFormLayout(new QFormLayout())

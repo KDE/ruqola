@@ -5,12 +5,12 @@
 */
 
 #include "channelsearchwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channelsearchnamelineresultwidget.h"
 #include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 ChannelSearchWidget::ChannelSearchWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))

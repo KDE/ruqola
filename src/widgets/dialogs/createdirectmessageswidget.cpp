@@ -5,7 +5,6 @@
 */
 
 #include "createdirectmessageswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/adduserswidget.h"
 #include "rocketchataccount.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mUsers(new AddUsersWidget(account, this))

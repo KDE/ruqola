@@ -5,7 +5,6 @@
 */
 
 #include "serverinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "ruqolaserverconfig.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 
+using namespace Qt::Literals::StringLiterals;
 ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAccountName(new QLabel(this))

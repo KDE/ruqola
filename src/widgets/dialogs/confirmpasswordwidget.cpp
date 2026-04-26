@@ -5,7 +5,6 @@
 */
 
 #include "confirmpasswordwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KAuthorized>
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ConfirmPasswordWidget::ConfirmPasswordWidget(QWidget *parent)
     : QWidget{parent}
     , mPasswordLineEdit(new KPasswordLineEdit(this))

@@ -5,7 +5,6 @@
 */
 
 #include "createnewdiscussiondialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "createnewdiscussionwidget.h"
 #include "rocketchataccount.h"
@@ -22,6 +21,7 @@ namespace
 {
 char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mCreateNewDiscussionWidget(new CreateNewDiscussionWidget(account, this))

@@ -5,7 +5,6 @@
 */
 
 #include "resetpassworddialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "resetpasswordwidget.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ResetPasswordDialog::ResetPasswordDialog(QWidget *parent)
     : QDialog(parent)
     , mResetPasswordWidget(new ResetPasswordWidget(this))

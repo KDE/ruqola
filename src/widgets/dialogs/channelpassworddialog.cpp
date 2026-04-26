@@ -5,7 +5,6 @@
 */
 
 #include "channelpassworddialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channelpasswordwidget.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelPasswordDialog::ChannelPasswordDialog(QWidget *parent)
     : QDialog(parent)
     , mChannelPasswordWidget(new ChannelPasswordWidget(this))

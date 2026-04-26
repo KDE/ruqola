@@ -5,7 +5,6 @@
 */
 
 #include "adduserscompletionlineedit.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/completionlistview.h"
 #include "common/usercompletiondelegate.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 
 using namespace std::chrono_literals;
 
+using namespace Qt::Literals::StringLiterals;
 AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
     , mRocketChatAccount(account)

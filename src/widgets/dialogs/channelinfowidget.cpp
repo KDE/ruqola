@@ -5,7 +5,6 @@
 */
 
 #include "channelinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channelinfoeditablewidget.h"
 #include "channelinforeadonlywidget.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelInfoWidget::ChannelInfoWidget(Room *room, RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))

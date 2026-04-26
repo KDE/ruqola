@@ -5,7 +5,6 @@
 */
 
 #include "channelinfoprunewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "retentioninfo.h"
 #include "room.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSpinBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     : QWidget(parent)
     , mExcludePinnedMessages(new QCheckBox(i18nc("@option:check", "Exclude pinned messages"), this))

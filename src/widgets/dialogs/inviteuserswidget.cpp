@@ -5,7 +5,6 @@
 */
 
 #include "inviteuserswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -26,6 +25,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QToolButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mInviteUserLineEdit(new QLineEdit(this))

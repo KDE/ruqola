@@ -5,7 +5,6 @@
 */
 
 #include "createnewchanneldialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -20,6 +19,7 @@ namespace
 {
 const char myCreateNewChannelDialogGroupName[] = "CreateNewChannelDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 CreateNewChannelDialog::CreateNewChannelDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mCreateNewChannelWidget(new CreateNewChannelWidget(account, this))

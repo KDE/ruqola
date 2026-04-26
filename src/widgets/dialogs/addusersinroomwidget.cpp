@@ -5,7 +5,6 @@
 */
 
 #include "addusersinroomwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "adduserscompletionlineedit.h"
 #include "misc/adduserswidget.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AddUsersInRoomWidget::AddUsersInRoomWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAddUsersWidget(new AddUsersWidget(account, this))

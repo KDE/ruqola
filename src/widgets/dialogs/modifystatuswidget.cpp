@@ -5,7 +5,6 @@
 */
 
 #include "modifystatuswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/statuscombobox.h"
 #include <KLineEditEventHandler>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     : QWidget(parent)
     , mStatusCombobox(new StatusCombobox(this))

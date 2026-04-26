@@ -5,13 +5,13 @@
 */
 
 #include "channelsearchnamelineresultwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QToolButton>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelSearchNameLineResultWidget::ChannelSearchNameLineResultWidget(QWidget *parent)
     : QWidget(parent)
     , mLabel(new QLabel(this))

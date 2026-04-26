@@ -5,7 +5,6 @@
 */
 
 #include "channelnamevalidlineedit.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KStatefulBrush>
 #include <chrono>
 using namespace std::chrono_literals;
+using namespace Qt::Literals::StringLiterals;
 
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, QWidget *parent)
     : SearchWithDelayLineEdit(parent)

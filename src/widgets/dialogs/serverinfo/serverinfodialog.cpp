@@ -5,13 +5,13 @@
 */
 
 #include "serverinfodialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "serverinfowidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ServerInfoDialog::ServerInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mServerInfoWidget(new ServerInfoWidget(account, this))

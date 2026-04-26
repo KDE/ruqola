@@ -5,7 +5,6 @@
 */
 
 #include "inviteusersdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "inviteuserswidget.h"
 
@@ -21,6 +20,7 @@ namespace
 {
 const char myInviteUsersDialogGroupName[] = "InviteUsersDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 InviteUsersDialog::InviteUsersDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mInviteUsersWidget(new InviteUsersWidget(account, this))

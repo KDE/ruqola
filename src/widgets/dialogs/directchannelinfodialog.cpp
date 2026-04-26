@@ -5,7 +5,6 @@
 */
 
 #include "directchannelinfodialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directchannelinfowidget.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 DirectChannelInfoDialog::DirectChannelInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mDirectChannelInfoWidget(new DirectChannelInfoWidget(account, this))

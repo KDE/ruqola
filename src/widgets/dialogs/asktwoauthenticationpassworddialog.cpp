@@ -5,7 +5,6 @@
 */
 
 #include "asktwoauthenticationpassworddialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "asktwoauthenticationpasswordwidget.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *parent)
     : QDialog(parent)
     , mAskTwoAuthicationPasswordWidget(new AskTwoAuthenticationPasswordWidget(this))

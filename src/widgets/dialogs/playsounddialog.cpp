@@ -5,13 +5,13 @@
 */
 
 #include "playsounddialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "playsoundwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 PlaySoundDialog::PlaySoundDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mSoundWidget(new PlaySoundWidget(account, this))

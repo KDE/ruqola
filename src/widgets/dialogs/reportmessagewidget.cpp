@@ -5,7 +5,6 @@
 */
 
 #include "reportmessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KTextEdit>
 #include <QHBoxLayout>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     : QWidget(parent)
     , mMessageLineEdit(new KTextEdit(this))

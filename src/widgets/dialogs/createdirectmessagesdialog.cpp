@@ -5,7 +5,6 @@
 */
 
 #include "createdirectmessagesdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "createdirectmessageswidget.h"
 #include "rocketchataccount.h"
@@ -24,6 +23,7 @@ namespace
 {
 const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectMessagesDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mCreateDirectMessagesWidget(new CreateDirectMessagesWidget(account, this))

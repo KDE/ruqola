@@ -5,7 +5,6 @@
 */
 
 #include "createnewdiscussionwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channelsearchwidget.h"
 #include "misc/adduserswidget.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mChannelSearchWidget(new ChannelSearchWidget(account, this))

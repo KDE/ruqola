@@ -5,7 +5,6 @@
 */
 
 #include "configurenotificationwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/soundconfigurewidget.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
@@ -20,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QGroupBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mDisableNotification(new QCheckBox(i18nc("@option:check", "Disable Notification"), this))

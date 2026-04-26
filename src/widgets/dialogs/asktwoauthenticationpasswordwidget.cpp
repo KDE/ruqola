@@ -5,11 +5,11 @@
 */
 
 #include "asktwoauthenticationpasswordwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/twoauthenticationpasswordwidget.h"
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AskTwoAuthenticationPasswordWidget::AskTwoAuthenticationPasswordWidget(QWidget *parent)
     : QWidget(parent)
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))

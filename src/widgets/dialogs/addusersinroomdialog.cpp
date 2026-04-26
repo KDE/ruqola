@@ -5,7 +5,6 @@
 */
 
 #include "addusersinroomdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "addusersinroomwidget.h"
 #include <KConfigGroup>
@@ -20,6 +19,7 @@ namespace
 {
 const char myConfigAddUsersInRoomDialogGroupName[] = "AddUsersInRoomDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 AddUsersInRoomDialog::AddUsersInRoomDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mAddUsersInRoomWidget(new AddUsersInRoomWidget(account, this))

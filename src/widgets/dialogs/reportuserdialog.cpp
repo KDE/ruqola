@@ -5,7 +5,6 @@
 */
 
 #include "reportuserdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "reportuserwidget.h"
 
@@ -21,6 +20,7 @@ namespace
 {
 const char myReportUserDialogGroupName[] = "ReportUserDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ReportUserDialog::ReportUserDialog(QWidget *parent)
     : QDialog(parent)
     , mReportUserWidget(new ReportUserWidget(this))

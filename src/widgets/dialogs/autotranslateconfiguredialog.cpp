@@ -5,13 +5,13 @@
 */
 
 #include "autotranslateconfiguredialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "autotranslateconfigurewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mAutoTranslateConfigureWidget(new AutoTranslateConfigureWidget(account, this))

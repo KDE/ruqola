@@ -5,7 +5,6 @@
 */
 
 #include "channelinfodialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channelinfowidget.h"
 #include "room.h"
@@ -24,6 +23,7 @@ namespace
 const char myConfigChannelInfoDialogGroupName[] = "ChannelInfoDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 ChannelInfoDialog::ChannelInfoDialog(Room *room, RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mChannelInfoWidget(new ChannelInfoWidget(room, account, this))

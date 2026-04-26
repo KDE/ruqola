@@ -5,7 +5,6 @@
 */
 
 #include "playsoundwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
@@ -27,6 +26,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTime>
 #include <QToolButton>
 
+using namespace Qt::Literals::StringLiterals;
 PlaySoundWidget::PlaySoundWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mMediaPlayer(new QMediaPlayer(this))

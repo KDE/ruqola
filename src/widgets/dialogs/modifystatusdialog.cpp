@@ -5,13 +5,13 @@
 */
 
 #include "modifystatusdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "modifystatuswidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
     : QDialog(parent)
     , mModifyStatusWidget(new ModifyStatusWidget(this))

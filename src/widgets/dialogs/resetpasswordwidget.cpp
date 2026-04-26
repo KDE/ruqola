@@ -5,7 +5,6 @@
 */
 
 #include "resetpasswordwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KEmailAddress>
 #include <KLineEditEventHandler>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 ResetPasswordWidget::ResetPasswordWidget(QWidget *parent)
     : QWidget{parent}
     , mEmail(new QLineEdit(this))

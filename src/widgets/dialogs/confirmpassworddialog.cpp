@@ -5,7 +5,6 @@
 */
 
 #include "confirmpassworddialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "confirmpasswordwidget.h"
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
     : QDialog(parent)
     , mConfirmPasswordWidget(new ConfirmPasswordWidget(this))

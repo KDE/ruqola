@@ -5,7 +5,6 @@
 */
 
 #include "createnewchannelwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channelnamevalidlineedit.h"
 #include "channelnamevalidlinewidget.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mChannelName(new ChannelNameValidLineWidget(account, this))

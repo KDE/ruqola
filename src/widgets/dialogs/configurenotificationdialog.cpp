@@ -5,13 +5,13 @@
 */
 
 #include "configurenotificationdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configurenotificationwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ConfigureNotificationDialog::ConfigureNotificationDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mConfigureNoticationWidget(new ConfigureNotificationWidget(account, this))

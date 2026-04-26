@@ -5,7 +5,6 @@
 */
 
 #include "autotranslateconfigurewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "autotranslate/translatesavesettingsjob.h"
 #include "model/autotranslatelanguagesmodel.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAutoTranslate(new QCheckBox(i18nc("@option:check", "Auto-Translate"), this))
