@@ -5,7 +5,6 @@
 */
 
 #include "usersinroomflowwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/flowlayout.h"
 #include "model/usersforroomfilterproxymodel.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <QLabel>
 
+using namespace Qt::Literals::StringLiterals;
 #define MAX_NUMBER_USER 70
 UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)

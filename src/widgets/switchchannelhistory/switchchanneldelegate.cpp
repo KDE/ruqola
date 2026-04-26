@@ -5,7 +5,6 @@
 */
 
 #include "switchchanneldelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
@@ -19,6 +18,7 @@ namespace
 constexpr uint padding = 4;
 }
 
+using namespace Qt::Literals::StringLiterals;
 SwitchChannelDelegate::SwitchChannelDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))

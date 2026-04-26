@@ -5,7 +5,6 @@
 */
 
 #include "servererrorinfomessagehistorydialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "servererrorinfomessagehistorywidget.h"
 #include <KConfigGroup>
@@ -20,6 +19,7 @@ namespace
 {
 const char myServerErrorInfoMessageHistoryDialogConfigGroupName[] = "ServerErrorInfoMessageHistoryDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoMessageHistoryDialog::ServerErrorInfoMessageHistoryDialog(QWidget *parent)
     : QDialog(parent)
     , mServerErrorInfoMessageHistoryWidget(new ServerErrorInfoMessageHistoryWidget(this))

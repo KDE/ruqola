@@ -5,7 +5,6 @@
 */
 
 #include "usersinroomdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "usersinroomwidget.h"
 
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 #include <QWindow>
 
+using namespace Qt::Literals::StringLiterals;
 namespace
 {
 const char myUsersInRoomDialogGroupName[] = "UsersInRoomDialog";

@@ -5,7 +5,6 @@
 */
 
 #include "roomwidgetbase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "commandpreviewwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
@@ -24,6 +23,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     : QWidget(parent)
     , mUploadFileProgressStatusListWidget(new UploadFileProgressStatusListWidget(this))

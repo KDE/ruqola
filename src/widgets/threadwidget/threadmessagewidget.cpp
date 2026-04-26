@@ -5,7 +5,6 @@
 */
 
 #include "threadmessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/followmessagejob.h"
 #include "chat/unfollowmessagejob.h"
@@ -32,6 +31,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mThreadPreview(new QLabel(this))

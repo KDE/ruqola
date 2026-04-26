@@ -5,13 +5,13 @@
 */
 
 #include "searchteamwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "searchteamcompletionlineedit.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
 
+using namespace Qt::Literals::StringLiterals;
 SearchTeamWidget::SearchTeamWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchLine(new SearchTeamCompletionLineEdit(account, this))

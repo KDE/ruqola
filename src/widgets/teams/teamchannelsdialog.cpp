@@ -5,7 +5,6 @@
 */
 
 #include "teamchannelsdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teamchannelswidget.h"
 #include <KConfigGroup>
@@ -19,6 +18,7 @@ namespace
 {
 const char myTeamChannelsDialogConfigGroupName[] = "TeamChannelsDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 TeamChannelsDialog::TeamChannelsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mTeamChannelsWidget(new TeamChannelsWidget(account, this))

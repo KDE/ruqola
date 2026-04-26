@@ -5,11 +5,11 @@
 */
 
 #include "usersinroomcombobox.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/usersforroomfilterproxymodel.h"
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 UsersInRoomComboBox::UsersInRoomComboBox(bool hasOwnerSupport, QWidget *parent)
     : QComboBox(parent)
 {

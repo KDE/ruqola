@@ -5,7 +5,6 @@
 */
 
 #include "searchteamdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "searchteamwidget.h"
 #include <KLocalizedString>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 SearchTeamDialog::SearchTeamDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mSearchTeamWidget(new SearchTeamWidget(account, this))

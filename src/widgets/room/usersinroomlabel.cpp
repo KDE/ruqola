@@ -5,7 +5,6 @@
 */
 
 #include "usersinroomlabel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "room.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QHBoxLayout>
 #include <QIcon>
 
+using namespace Qt::Literals::StringLiterals;
 UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     : QWidget(parent)
     , mIconLabel(new QLabel(this))

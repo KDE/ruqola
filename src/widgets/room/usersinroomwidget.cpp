@@ -5,7 +5,6 @@
 */
 
 #include "usersinroomwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/usersforroommodeldelegate.h"
 #include "dialogs/directchannelinfodialog.h"
@@ -22,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mListView(new UsersInRoomListView(this))

@@ -5,7 +5,6 @@
 */
 
 #include "teamselectdeletedroomwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
     : QWidget(parent)
     , mListView(new QListView(this))

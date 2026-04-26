@@ -5,7 +5,6 @@
 */
 
 #include "teamconverttochanneldialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teamconverttochannelwidget.h"
 #include <KConfigGroup>
@@ -19,6 +18,7 @@ namespace
 {
 const char myTeamConvertToChannelDialogConfigGroupName[] = "TeamConvertToChannelDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 TeamConvertToChannelDialog::TeamConvertToChannelDialog(QWidget *parent)
     : QDialog(parent)
     , mTeamConvertToChannelWidget(new TeamConvertToChannelWidget(this))

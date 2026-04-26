@@ -5,7 +5,6 @@
 */
 
 #include "switchchanneltreeviewmanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "switchchanneltreeview.h"
 #include <QScrollBar>
 
+using namespace Qt::Literals::StringLiterals;
 SwitchChannelTreeViewManager::SwitchChannelTreeViewManager(QObject *parent)
     : QObject{parent}
     , mSwitcherChannelTreeView(new SwitchChannelTreeView(nullptr)) // TODO use parent ???

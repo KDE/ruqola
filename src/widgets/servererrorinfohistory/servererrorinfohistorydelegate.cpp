@@ -5,7 +5,6 @@
 */
 
 #include "servererrorinfohistorydelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPainter>
 #include <QToolTip>
 
+using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoHistoryDelegate::ServerErrorInfoHistoryDelegate(QListView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
 {

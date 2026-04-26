@@ -5,7 +5,6 @@
 */
 
 #include "teamsearchroomdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teamsearchroomwidget.h"
 
@@ -21,6 +20,7 @@ namespace
 {
 const char myTeamSearchRoomDialogConfigGroupName[] = "TeamSearchRoomDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 TeamSearchRoomDialog::TeamSearchRoomDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mTeamSearchRoomWidget(new TeamSearchRoomWidget(account, this))

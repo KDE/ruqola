@@ -5,12 +5,12 @@
 */
 
 #include "teamsearchroomforteamwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 TeamSearchRoomForTeamWidget::TeamSearchRoomForTeamWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchRoomLineEdit(new AddTeamRoomCompletionLineEdit(account, this))

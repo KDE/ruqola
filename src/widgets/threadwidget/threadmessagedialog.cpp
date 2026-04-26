@@ -5,7 +5,6 @@
 */
 
 #include "threadmessagedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -22,6 +21,7 @@ namespace
 static const char myThreadMessageDialogGroupName[] = "ThreadMessageDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mThreadMessageWidget(new ThreadMessageWidget(account, this))

@@ -5,13 +5,13 @@
 */
 
 #include "teamconverttochannelwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teamselectdeletedroomwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
     : QWidget(parent)
     , mTeamSelectDeletedRoomWidget(new TeamSelectDeletedRoomWidget(this))

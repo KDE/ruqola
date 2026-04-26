@@ -5,7 +5,6 @@
 */
 
 #include "teamselectdeletedroomdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teamselectdeletedroomwidget.h"
 #include <KConfigGroup>
@@ -19,6 +18,7 @@ namespace
 {
 const char myTeamSelectDeletedRoomDialogConfigGroupName[] = "TeamSelectDeletedRoomDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 TeamSelectDeletedRoomDialog::TeamSelectDeletedRoomDialog(QWidget *parent)
     : QDialog(parent)
     , mTeamSelectDeletedRoomWidget(new TeamSelectDeletedRoomWidget(this))

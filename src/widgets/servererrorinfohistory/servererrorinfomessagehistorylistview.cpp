@@ -5,7 +5,6 @@
 */
 
 #include "servererrorinfomessagehistorylistview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/servererrorinfohistorymodel.h"
 #include "servererrorinfohistorydelegate.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 
+using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoMessageHistoryListView::ServerErrorInfoMessageHistoryListView(QWidget *parent)
     : MessageListViewBase(parent)
     , mListServerErrorInfosDelegate(new ServerErrorInfoHistoryDelegate(this, this))

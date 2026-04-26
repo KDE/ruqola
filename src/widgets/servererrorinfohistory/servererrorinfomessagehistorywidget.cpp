@@ -5,7 +5,6 @@
 */
 
 #include "servererrorinfomessagehistorywidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/serverscombobox.h"
 #include "model/servererrorinfohistoryfilterproxymodel.h"
@@ -23,6 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))

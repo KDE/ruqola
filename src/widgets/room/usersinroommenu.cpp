@@ -5,7 +5,6 @@
 */
 
 #include "usersinroommenu.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "dialogs/directchannelinfodialog.h"
@@ -20,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QAction>
 #include <QMenu>
 
+using namespace Qt::Literals::StringLiterals;
 UsersInRoomMenu::UsersInRoomMenu(QObject *parent)
     : QObject(parent)
 {

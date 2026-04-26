@@ -5,7 +5,6 @@
 */
 
 #include "ruqolamainwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
@@ -32,6 +31,7 @@ namespace
 {
 const char myRuqolaMainWidgetGroupName[] = "RuqolaMainWidget";
 }
+using namespace Qt::Literals::StringLiterals;
 RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     : QWidget(parent)
     , mSplitter(new QSplitter(this))

@@ -4,13 +4,13 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "switchchanneltreeview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
 #include "switchchanneldelegate.h"
 #include <QKeyEvent>
 
+using namespace Qt::Literals::StringLiterals;
 SwitchChannelTreeView::SwitchChannelTreeView(QWidget *parent)
     : QTreeView(parent)
     , mSwitchChannelDelegate(new SwitchChannelDelegate(this))
