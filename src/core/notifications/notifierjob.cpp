@@ -5,7 +5,6 @@
 */
 
 #include "notifierjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KNotificationReplyAction>
 #include <KWindowSystem>
 
+using namespace Qt::Literals::StringLiterals;
 NotifierJob::NotifierJob(QObject *parent)
     : QObject(parent)
 {
@@ -47,7 +47,7 @@ void NotifierJob::start()
 
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
         replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply…"));
-        QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [this](const QString &text) {
+        connect(replyAction.get(), &KNotificationReplyAction::replied, this, [this](const QString &text) {
             // qDebug() << " mInfo " << mInfo;
             Q_EMIT sendReply(text, mInfo.roomId(), mInfo.tmId());
             // qDebug() << " reply " << text;
