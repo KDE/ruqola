@@ -638,6 +638,7 @@ if(TARGET Plasma::Activities)
 endif()
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
+install(FILES settings/ruqolaglobalconfig.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 if(UNITY_SUPPORT)
     target_sources(
