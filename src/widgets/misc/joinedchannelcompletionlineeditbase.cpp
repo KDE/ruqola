@@ -5,7 +5,6 @@
 */
 
 #include "joinedchannelcompletionlineeditbase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/completionlistview.h"
 #include "joinedchannelcompletiondelegate.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <chrono>
 
 using namespace std::chrono_literals;
+using namespace Qt::Literals::StringLiterals;
 
 JoinedChannelCompletionLineEditBase::JoinedChannelCompletionLineEditBase(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)

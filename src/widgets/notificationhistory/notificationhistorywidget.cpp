@@ -5,7 +5,6 @@
 */
 
 #include "notificationhistorywidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/serverscombobox.h"
 #include "model/notificationhistorymodel.h"
@@ -25,6 +24,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     : QWidget{parent}
     , mListNotificationsListView(new NotificationHistoryListView(this))

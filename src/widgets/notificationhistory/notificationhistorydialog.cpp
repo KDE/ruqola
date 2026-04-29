@@ -5,7 +5,6 @@
 */
 
 #include "notificationhistorydialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "notificationhistorywidget.h"
 
@@ -22,6 +21,7 @@ namespace
 const char myNotificationHistoryDialogConfigGroupName[] = "NotificationHistoryDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 NotificationHistoryDialog::NotificationHistoryDialog(QWidget *parent)
     : QDialog(parent)
     , mNotificationHistoryWidget(new NotificationHistoryWidget(this))

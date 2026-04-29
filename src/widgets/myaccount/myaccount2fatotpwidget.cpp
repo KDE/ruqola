@@ -5,7 +5,6 @@
 */
 
 #include "myaccount2fatotpwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
@@ -20,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QScreen>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mQRCode(Prison::Barcode::create(Prison::QRCode))

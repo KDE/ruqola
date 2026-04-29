@@ -5,7 +5,6 @@
 */
 
 #include "messagelistdelegatebase.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
@@ -22,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMimeData>
 #include <QMouseEvent>
 
+using namespace Qt::Literals::StringLiterals;
 MessageListDelegateBase::MessageListDelegateBase(QAbstractItemView *view, QObject *parent)
     : QItemDelegate{parent}
     , MessageListTextUi(new TextSelectionImpl, view)

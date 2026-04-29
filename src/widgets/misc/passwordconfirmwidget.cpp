@@ -5,7 +5,6 @@
 */
 
 #include "passwordconfirmwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/passwordvalidatewidget.h"
 
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 
+using namespace Qt::Literals::StringLiterals;
 PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     : QWidget(parent)
     , mNewPasswordLineEdit(new KPasswordLineEdit(this))

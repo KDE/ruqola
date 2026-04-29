@@ -5,7 +5,6 @@
 */
 
 #include "notificationhistorydelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "common/delegatepaintutil.h"
@@ -23,6 +22,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPainter>
 #include <QToolTip>
 
+using namespace Qt::Literals::StringLiterals;
 NotificationHistoryDelegate::NotificationHistoryDelegate(QListView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
 {

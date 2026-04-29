@@ -5,7 +5,6 @@
 */
 
 #include "passwordlineeditwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/resetpassworddialog.h"
 #include <KAuthorized>
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPointer>
 #include <QPushButton>
 
+using namespace Qt::Literals::StringLiterals;
 PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     : QWidget(parent)
     , mPasswordLineEdit(new KPasswordLineEdit(this))

@@ -5,13 +5,13 @@
 */
 
 #include "clickablewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
 #include <QHBoxLayout>
 #include <QIcon>
 
+using namespace Qt::Literals::StringLiterals;
 ClickableWidget::ClickableWidget(const QString &userName, QWidget *parent)
     : QWidget(parent)
     , mName(userName)

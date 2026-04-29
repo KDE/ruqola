@@ -5,7 +5,6 @@
 */
 
 #include "prunemessageswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/adduserswidget.h"
 
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mInclusive(new QCheckBox(i18nc("@option:check", "Inclusive"), this))

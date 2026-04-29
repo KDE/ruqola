@@ -6,7 +6,6 @@
  */
 
 #include "accountsoverviewwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "colorsandmessageviewstyle.h"
@@ -24,6 +23,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QIcon>
 #include <QTabBar>
 
+using namespace Qt::Literals::StringLiterals;
 namespace
 {
 struct UnreadAlert {

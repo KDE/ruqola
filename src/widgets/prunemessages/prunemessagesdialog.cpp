@@ -5,7 +5,6 @@
 */
 
 #include "prunemessagesdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "prunemessageswidget.h"
 
@@ -23,6 +22,7 @@ namespace
 const char myPruneMessagesDialogConfigGroupName[] = "PruneMessagesDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 PruneMessagesDialog::PruneMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mPruneMessageWidget(new PruneMessagesWidget(account, this))
