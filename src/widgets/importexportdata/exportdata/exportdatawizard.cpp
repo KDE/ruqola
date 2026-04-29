@@ -5,7 +5,6 @@
 */
 
 #include "exportdatawizard.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "exportdatafinishpage.h"
 #include "exportdataselectaccountpage.h"
@@ -20,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTimer>
 #include <QWindow>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
 
 namespace

@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "listdiscussiondelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
@@ -25,6 +24,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
 
+using namespace Qt::Literals::StringLiterals;
 ListDiscussionDelegate::ListDiscussionDelegate(QListView *view, RocketChatAccount *account, QObject *parent)
     : MessageListDelegateBase(view, parent)
     , mRocketChatAccount(account)

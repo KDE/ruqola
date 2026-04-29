@@ -4,7 +4,6 @@
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "e2edisabledialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "e2edisablewidget.h"
 #include <KLocalizedString>
@@ -12,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 E2eDisableDialog::E2eDisableDialog(QWidget *parent)
     : QDialog(parent)
     , mE2eDisableWidget(new E2eDisableWidget(this))

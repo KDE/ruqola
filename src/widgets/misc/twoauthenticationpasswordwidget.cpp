@@ -5,7 +5,6 @@
 */
 
 #include "twoauthenticationpasswordwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "2fa/user2fasendemailcodejob.h"
 #include "connection.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QHBoxLayout>
 #include <QPushButton>
+using namespace Qt::Literals::StringLiterals;
 
 TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent)
     : QWidget(parent)

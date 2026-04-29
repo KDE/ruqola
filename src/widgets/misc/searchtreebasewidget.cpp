@@ -5,7 +5,6 @@
 */
 
 #include "searchtreebasewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/searchwithdelaylineedit.h"
 #include "model/custombasemodel.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTreeView>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mLabelResultSearch(new QLabel(this))

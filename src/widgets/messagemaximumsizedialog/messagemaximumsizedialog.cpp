@@ -5,7 +5,6 @@
 */
 
 #include "messagemaximumsizedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messagemaximumsizewidget.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 MessageMaximumSizeDialog::MessageMaximumSizeDialog(QWidget *parent)
     : QDialog(parent)
     , mMessageMaximumSizeWidget(new MessageMaximumSizeWidget(this))

@@ -5,13 +5,13 @@
 */
 
 #include "messagemaximumsizewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 MessageMaximumSizeWidget::MessageMaximumSizeWidget(QWidget *parent)
     : QWidget{parent}
     , mFileName(new QLineEdit(this))

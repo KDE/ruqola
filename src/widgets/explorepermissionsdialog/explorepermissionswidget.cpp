@@ -5,7 +5,6 @@
 */
 
 #include "explorepermissionswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "explorepermissionswidgetfilterproxymodel.h"
 #include "model/permissionsmodel.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTreeView>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     : QWidget{parent}
     , mTreeView(new QTreeView(this))

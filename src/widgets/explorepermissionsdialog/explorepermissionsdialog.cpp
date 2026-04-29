@@ -5,7 +5,6 @@
 */
 
 #include "explorepermissionsdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "explorepermissionswidget.h"
 #include <KConfigGroup>
@@ -19,6 +18,7 @@ namespace
 {
 const char myExplorePermissionDialogConfigGroupName[] = "ExplorePermissionDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ExplorePermissionsDialog::ExplorePermissionsDialog(QWidget *parent)
     : QDialog(parent)
     , mExplorePermissionWidget(new ExplorePermissionsWidget(this))

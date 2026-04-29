@@ -5,13 +5,13 @@
 */
 
 #include "exportmessageswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QComboBox>
 #include <QDateEdit>
 #include <QFormLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
     : QWidget(parent)
     , mFromDate(new QDateEdit(QDate::currentDate(), this))

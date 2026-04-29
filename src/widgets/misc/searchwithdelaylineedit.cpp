@@ -5,11 +5,11 @@
 */
 
 #include "searchwithdelaylineedit.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QTimer>
 
+using namespace Qt::Literals::StringLiterals;
 SearchWithDelayLineEdit::SearchWithDelayLineEdit(QWidget *parent)
     : QLineEdit(parent)
     , mSearchTimer(new QTimer(this))

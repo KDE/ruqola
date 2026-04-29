@@ -5,7 +5,6 @@
 */
 
 #include "forwardmessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mForwardMessageAddChannelCompletionLineEdit(new ForwardMessageAddChannelCompletionLineEdit(account, this))

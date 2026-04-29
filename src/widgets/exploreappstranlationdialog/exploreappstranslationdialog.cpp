@@ -5,7 +5,6 @@
 */
 
 #include "exploreappstranslationdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "exploreappstranslationwidget.h"
 #include <KConfigGroup>
@@ -19,6 +18,7 @@ namespace
 {
 const char myExploreAppsTranslationDialogConfigGroupName[] = "ExploreAppsTranslationDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ExploreAppsTranslationDialog::ExploreAppsTranslationDialog(QWidget *parent)
     : QDialog(parent)
     , mExploreAppsTranslationWidget(new ExploreAppsTranslationWidget(this))

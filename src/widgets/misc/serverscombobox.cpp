@@ -5,10 +5,10 @@
 */
 
 #include "serverscombobox.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 ServersComboBox::ServersComboBox(QWidget *parent)
     : QComboBox(parent)
 {

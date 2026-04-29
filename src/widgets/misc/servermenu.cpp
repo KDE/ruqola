@@ -5,7 +5,6 @@
 */
 
 #include "servermenu.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QActionGroup>
 #include <QMenu>
 
+using namespace Qt::Literals::StringLiterals;
 ServerMenu::ServerMenu(QWidget *parent)
     : KActionMenu(parent)
 {
