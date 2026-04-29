@@ -5,7 +5,6 @@
 */
 
 #include "exportmessagesdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "exportmessageswidget.h"
 #include <KConfigGroup>
@@ -20,6 +19,7 @@ namespace
 {
 const char myExportMessagesDialogConfigGroupName[] = "ExportMessagesDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
     : QDialog(parent)
     , mExportMessagesWidget(new ExportMessagesWidget(this))

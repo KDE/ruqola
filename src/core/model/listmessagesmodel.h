@@ -7,8 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+using namespace Qt::Literals::StringLiterals;
 #include "messagesmodel.h"
-
 class LIBRUQOLACORE_EXPORT ListMessagesModel : public MessagesModel
 {
     Q_OBJECT

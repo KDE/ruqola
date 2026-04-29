@@ -12,7 +12,7 @@
 #include "messages/message.h"
 #include <QAbstractListModel>
 #include <QPointer>
-
+using namespace Qt::Literals::StringLiterals;
 class RocketChatAccount;
 class LoadRecentHistoryManager;
 class Room;

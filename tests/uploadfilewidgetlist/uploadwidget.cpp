@@ -8,6 +8,7 @@
 #include "room/uploadfileprogressstatuslistwidget.h"
 #include <QPushButton>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 int UploadWidget::identifier = 0;
 UploadWidget::UploadWidget(QWidget *parent)
     : QWidget{parent}

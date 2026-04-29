@@ -10,6 +10,7 @@
 #include <KLocalizedString>
 #include <QEvent>
 #include <QPainter>
+using namespace Qt::Literals::StringLiterals;
 UsersInRoomTreeView::UsersInRoomTreeView(QWidget *parent)
     : QTreeView(parent)
     , mUsersForRoomListHeadingsProxyModel(new UsersForRoomListHeadingsProxyModel(this))

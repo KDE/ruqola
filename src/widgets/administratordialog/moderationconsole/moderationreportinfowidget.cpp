@@ -5,7 +5,6 @@
 */
 
 #include "moderationreportinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/moderationreportinfofilterproxymodel.h"
 #include "model/moderationreportinfomodel.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 ModerationReportInfoWidget::ModerationReportInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mListNotificationsListView(new ModerationReportInfoListView(account, this))

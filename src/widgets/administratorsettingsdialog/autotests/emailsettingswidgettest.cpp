@@ -5,7 +5,6 @@
 */
 
 #include "emailsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/email/emailsettingswidget.h"
 #include "settingswidgetshelper.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QSpinBox>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(EmailSettingsWidgetTest)
 EmailSettingsWidgetTest::EmailSettingsWidgetTest(QObject *parent)
     : QObject{parent}

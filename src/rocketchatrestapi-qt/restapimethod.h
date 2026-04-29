@@ -10,7 +10,6 @@
 #include "restapiutil.h"
 #include <QString>
 #include <QUrl>
-using namespace Qt::Literals::StringLiterals;
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT RestApiMethod

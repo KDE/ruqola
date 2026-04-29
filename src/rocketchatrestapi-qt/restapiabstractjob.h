@@ -14,7 +14,6 @@
 class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkRequest;
-using namespace Qt::Literals::StringLiterals;
 namespace RocketChatRestApi
 {
 class RestApiMethod;

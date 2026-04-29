@@ -18,7 +18,6 @@
 class EmojiManager;
 class Message;
 class MessageCache;
-using namespace Qt::Literals::StringLiterals;
 namespace TextConverter
 {
 struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {

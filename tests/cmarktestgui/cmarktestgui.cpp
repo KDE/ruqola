@@ -12,6 +12,7 @@
 #include <QPushButton>
 #include <QTextEdit>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 CMarkTestGui::CMarkTestGui(QWidget *parent)
     : QWidget{parent}
     , mTextEdit(new QTextEdit(this))

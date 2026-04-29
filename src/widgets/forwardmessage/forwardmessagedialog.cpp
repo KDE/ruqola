@@ -5,7 +5,6 @@
 */
 
 #include "forwardmessagedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "forwardmessagewidget.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ForwardMessageDialog::ForwardMessageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mForwardMessageWidget(new ForwardMessageWidget(account, this))
