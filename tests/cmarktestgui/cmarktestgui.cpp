@@ -5,7 +5,6 @@
 */
 
 #include "cmarktestgui.h"
-#include "messages/message.h"
 #include "textconverter.h"
 #include <QApplication>
 #include <QLabel>
