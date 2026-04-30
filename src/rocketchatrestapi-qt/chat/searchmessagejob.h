@@ -44,8 +44,10 @@ public:
 Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
 
+protected:
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) final;
+
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     [[nodiscard]] LIBROCKETCHATRESTAPI_QT_NO_EXPORT QString convertSearchText() const;
     QString mRoomId;
     QString mSearchText;

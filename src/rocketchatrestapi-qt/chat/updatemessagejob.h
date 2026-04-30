@@ -37,8 +37,10 @@ Q_SIGNALS:
     void updateMessageDone();
     void updateMessageFailed(const QString &str);
 
+protected:
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) final;
+
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     QByteArray mMessageId;
     QString mUpdatedText;

@@ -39,8 +39,10 @@ public:
 Q_SIGNALS:
     void syncMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
 
+protected:
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) final;
+
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
     QDateTime mLastUpdate;
 };
