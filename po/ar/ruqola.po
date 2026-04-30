@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:45+0000\n"
+"POT-Creation-Date: 2026-04-30 00:43+0000\n"
 "PO-Revision-Date: 2026-04-09 11:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -11297,7 +11297,7 @@ msgid "(Open External Dialog…)"
 msgstr "(افتح مربع حوار خارجي…)"
 
 #: widgets/room/usersinroomlistview.cpp:22
-#: widgets/room/usersinroomtreeview.cpp:41
+#: widgets/room/usersinroomtreeview.cpp:42
 #, kde-format
 msgid "No Users Found."
 msgstr "لم يعثر على أي مستخدم"
