@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-30 00:43+0000\n"
-"PO-Revision-Date: 2026-04-06 19:50+0300\n"
+"PO-Revision-Date: 2026-05-02 18:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -2293,7 +2293,7 @@ msgstr "Dosya bulunamadı “%1”"
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
-msgstr "Özel emoji veya onun armalarından bir tanesi halihazırda kullanımda."
+msgstr "Özel emoji veya onun armalarından bir tanesi hâlihazırda kullanımda."
 
 #: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:48
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:404
@@ -2395,7 +2395,7 @@ msgstr "E-posta göndermeye çalışırken hata: %1"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 #, kde-format
 msgid "'%1' is already in use :("
-msgstr "%1 halihazırda kullanımda :("
+msgstr "%1 hâlihazırda kullanımda :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
@@ -2735,7 +2735,7 @@ msgstr "Kişisel Erişim Jetonları, şu anda devre dışı"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:419
 #, kde-format
 msgid "A token with this name already exists"
-msgstr "Bu adda bir jeton halihazırda var"
+msgstr "Bu adda bir jeton hâlihazırda var"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:421
 #, kde-format
@@ -2804,17 +2804,17 @@ msgstr "Özel grup, arşivlenmiş"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:444
 #, kde-format
 msgid "User is already an owner"
-msgstr "Kullanıcı, halihazırda bir sahip"
+msgstr "Kullanıcı, hâlihazırda bir sahip"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:446
 #, kde-format
 msgid "User is already a leader"
-msgstr "Kullanıcı, halihazırda bir lider"
+msgstr "Kullanıcı, hâlihazırda bir lider"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:448
 #, kde-format
 msgid "User is already a moderator"
-msgstr "Kullanıcı, halihazırda bir moderatör"
+msgstr "Kullanıcı, hâlihazırda bir moderatör"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:450
 #, kde-format
@@ -2862,7 +2862,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:466
 #, kde-format
 msgid "A role with this name already exists"
-msgstr "Bu adda bir rol halihazırda var"
+msgstr "Bu adda bir rol hâlihazırda var"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:468
 #, kde-format
@@ -2922,7 +2922,7 @@ msgstr "Kanal, takıma dönüştürülemiyor."
 #: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:101
 #, kde-format
 msgid "Team already exists."
-msgstr "Takım halihazırda var."
+msgstr "Takım hâlihazırda var."
 
 #: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:121
 #, kde-format
@@ -2965,7 +2965,7 @@ msgstr "Görünmez durumu devre dışı"
 #: rocketchatrestapi-qt/users/userscreatejob.cpp:96
 #, kde-format
 msgid "%1 is already in use."
-msgstr "%1, halihazırda kullanımda."
+msgstr "%1, hâlihazırda kullanımda."
 
 #: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:168
 #, kde-format
@@ -8204,7 +8204,7 @@ msgstr "Gün olarak en yüksek ileti yaşı (öntanımlı: 30):"
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:65
 #, kde-format
 msgid "%1 name is already used."
-msgstr "%1 adı, halihazırda kullanılıyor."
+msgstr "%1 adı, hâlihazırda kullanılıyor."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:71
 #, kde-format
