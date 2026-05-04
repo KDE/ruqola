@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 cmake_minimum_required(VERSION 3.29)
-set(RUQOLA_VERSION "2.7.41")
+set(RUQOLA_VERSION "2.7.42")
 # TODO: update it in each release version
 set(RUQOLA_RELEASE_VERSION "26.08.30") # yy.MM.dd
 
@@ -172,7 +172,7 @@ if(UNITY_SUPPORT)
     set(HAVE_UNITY_SUPPORT true)
 endif()
 
-set(KTEXTADDONS_MIN_VERSION "2.0.0")
+set(KTEXTADDONS_MIN_VERSION "2.0.1")
 set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "${KTEXTADDONS_MIN_VERSION}")
 set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
