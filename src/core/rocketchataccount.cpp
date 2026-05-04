@@ -20,6 +20,7 @@
 #include "model/roommodel.h"
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccountsettings.h"
+#include "ruqola_database_debug.h"
 #include "ruqola_subscription_parsing_debug.h"
 #include "ruqolautils.h"
 
@@ -3402,6 +3403,9 @@ void RocketChatAccount::updateRoomInDatabase(const QByteArray &roomId)
     if (!roomId.isEmpty()) {
         if (auto r = mRoomModel->findRoom(roomId); r) {
             addRoomToDataBase(r);
+        } else {
+            qWarning() << "  Impossible to find " << roomId << " Not room added";
+            qCWarning(RUQOLA_DATABASE_LOG) << " Impossible to find " << roomId << " Not room added";
         }
     } else {
         Q_ASSERT(false);
