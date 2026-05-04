@@ -432,15 +432,20 @@ QByteArray RoomModel::updateRoom(const QJsonObject &roomData)
 #endif
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
+        bool roomFound = false;
         for (int i = 0; i < roomCount; ++i) {
             Room *room = mRoomsList.at(i);
             if (room->roomId() == rId) {
                 qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found:" << rId;
                 room->parseUpdateRoom(roomData);
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
-
+                roomFound = true;
                 break;
             }
+        }
+        if (!roomFound) {
+            qDebug() << " INSERT ROOM**************************";
+            rId = insertRoom(roomData);
         }
     } else {
         qCWarning(RUQOLA_ROOMS_LOG) << "RoomModel::updateRoom incorrect jsonobject " << roomData;
