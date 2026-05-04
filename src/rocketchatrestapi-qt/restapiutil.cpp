@@ -332,6 +332,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"subscriptions.read"_s;
     case RestApiUtil::RestApiUrlType::SubscriptionsUnRead:
         return u"subscriptions.unread"_s;
+    case RestApiUtil::RestApiUrlType::SubscriptionsGetOne:
+        return u"subscriptions.getOne"_s;
+    case RestApiUtil::RestApiUrlType::SubscriptionsGet:
+        return u"subscriptions.get"_s;
     case RestApiUtil::RestApiUrlType::RoomsGet:
         return u"rooms.get"_s;
     case RestApiUtil::RestApiUrlType::RoomsFavorite:
