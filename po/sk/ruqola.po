@@ -3406,13 +3406,12 @@ msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
 #: widgets/dialogs/searchmessagewidget.cpp:227
-#, fuzzy, kde-format
-#| msgid "%1 Message in room"
+#, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
-msgstr[0] "%1 správa v miestnosti"
+msgstr[0] "%1 správ v miestnosti"
 msgstr[1] "%1 správa v miestnosti"
-msgstr[2] "%1 správa v miestnosti"
+msgstr[2] "%1 správy v miestnosti"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:38
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:41
@@ -8666,13 +8665,12 @@ msgid "Generate New Link"
 msgstr "Stav:"
 
 #: widgets/dialogs/inviteuserswidget.cpp:114
-#, fuzzy, kde-format
-#| msgid "Your invite link will expire on %2 or after %1 use."
+#, kde-format
 msgid "Your invite link will expire on %2 or after %1 use."
 msgid_plural "Your invite link will expire on %2 or after %1 uses."
-msgstr[0] "Váš pozvánkový odkaz vyprší dňa %2 alebo po %1 použití."
+msgstr[0] "Váš pozvánkový odkaz vyprší dňa %2 alebo po %1 použitiach."
 msgstr[1] "Váš pozvánkový odkaz vyprší dňa %2 alebo po %1 použití."
-msgstr[2] "Váš pozvánkový odkaz vyprší dňa %2 alebo po %1 použití."
+msgstr[2] "Váš pozvánkový odkaz vyprší dňa %2 alebo po %1 použitiach."
 
 #: widgets/dialogs/inviteuserswidget.cpp:119
 #, kde-format
@@ -9035,13 +9033,12 @@ msgid "No Attachments found"
 msgstr "Žiadne prílohy nenájdené"
 
 #: widgets/dialogs/showattachmentwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "%1 Attachment in room (Total: %2)"
+#, kde-format
 msgid "%1 Attachment in room (Total: %2)"
 msgid_plural "%1 Attachments in room (Total: %2)"
-msgstr[0] "%1 príloha v miestnosti (Celkovo: %2)"
+msgstr[0] "%1 príloh v miestnosti (Celkovo: %2)"
 msgstr[1] "%1 príloha v miestnosti (Celkovo: %2)"
-msgstr[2] "%1 príloha v miestnosti (Celkovo: %2)"
+msgstr[2] "%1 prílohy v miestnosti (Celkovo: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
@@ -9110,13 +9107,12 @@ msgid "Save Image"
 msgstr "Uložiť obrázok"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "%1 Message in room (Total: %2)"
+#, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
-msgstr[0] "%1 správa v miestnosti (Celkovo: %2)"
+msgstr[0] "%1 správ v miestnosti (Celkovo: %2)"
 msgstr[1] "%1 správa v miestnosti (Celkovo: %2)"
-msgstr[2] "%1 správa v miestnosti (Celkovo: %2)"
+msgstr[2] "%1 správy v miestnosti (Celkovo: %2)"
 
 #: widgets/dialogs/showmentionsmessagesdialog.cpp:24
 #, kde-format
@@ -9292,13 +9288,12 @@ msgid "No Discussion found"
 msgstr "Nenašla sa žiadna diskusia"
 
 #: widgets/discussions/showdiscussionswidget.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1 Discussion in room (Total: %2)"
+#, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
-msgstr[0] "%1 diskusia v miestnosti (Celkovo: %2)"
+msgstr[0] "%1 diskusií v miestnosti (Celkovo: %2)"
 msgstr[1] "%1 diskusia v miestnosti (Celkovo: %2)"
-msgstr[2] "%1 diskusia v miestnosti (Celkovo: %2)"
+msgstr[2] "%1 diskusie v miestnosti (Celkovo: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:20
 #, kde-format
@@ -11376,13 +11371,12 @@ msgid "Report User"
 msgstr "Správa"
 
 #: widgets/room/usersinroomwidget.cpp:165
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
+#, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
-msgstr[0] "%1 používateľ v miestnosti (Celkovo: %2)"
+msgstr[0] "%1 používateľov v miestnosti (Celkovo: %2)"
 msgstr[1] "%1 používateľ v miestnosti (Celkovo: %2)"
-msgstr[2] "%1 používateľ v miestnosti (Celkovo: %2)"
+msgstr[2] "%1 používatelia v miestnosti (Celkovo: %2)"
 
 #: widgets/ruqolamainwindow.cpp:239
 #, kde-format
