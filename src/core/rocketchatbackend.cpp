@@ -162,7 +162,6 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
 {
     QHash<MessagesModel *, QList<Message>> dispatcher;
     QByteArray lastRoomId;
-    MessagesModel *messageModel = nullptr;
     Room *room = nullptr;
     for (const QJsonValue &v : messages) {
         const QJsonObject o = v.toObject();
@@ -177,6 +176,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         m.parseMessage(o, restApi, mRocketChatAccount->emojiManager());
         updateVideoConferenceInfo(m);
         const QByteArray roomId = m.roomId();
+        MessagesModel *messageModel = nullptr;
         if (roomId != lastRoomId) {
             messageModel = mRocketChatAccount->messageModelForRoom(roomId);
             room = mRocketChatAccount->room(roomId);
