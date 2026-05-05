@@ -95,11 +95,6 @@ QString RuqolaWebSocket::closeReason() const
     return mWebSocket->closeReason();
 }
 
-qint64 RuqolaWebSocket::sendBinaryMessage(const QByteArray &data)
-{
-    return mWebSocket->sendBinaryMessage(data);
-}
-
 void RuqolaWebSocket::ignoreSslErrors()
 {
     mWebSocket->ignoreSslErrors();

@@ -27,7 +27,6 @@ public:
     [[nodiscard]] QUrl requestUrl() const override;
     [[nodiscard]] QWebSocketProtocol::CloseCode closeCode() const override;
     [[nodiscard]] QString closeReason() const override;
-    qint64 sendBinaryMessage(const QByteArray &data) override;
     void ignoreSslErrors() override;
     [[nodiscard]] QWebSocketProtocol::Version version() const override;
 
