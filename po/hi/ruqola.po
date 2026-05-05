@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-30 00:43+0000\n"
+"POT-Creation-Date: 2026-05-05 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1335,7 +1335,7 @@ msgstr "चैनल प्रकार"
 msgid "Belongs To"
 msgstr "से संबंधित"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:614
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1473,80 +1473,80 @@ msgstr "दो कारक प्रमाणीकरण"
 msgid "Last token part"
 msgstr "अंतिम टोकन भाग"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 उल्लेख"
 msgstr[1] "%1 उल्लेख"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 समूह उल्लेख"
 msgstr[1] "%1 समूह उल्लेख"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 अपठित थ्रेडेड संदेश"
 msgstr[1] "%1 अपठित थ्रेडेड संदेश"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:556
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 अपठित संदेश"
 msgstr[1] "%1 अपठित संदेश"
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:582
 #, kde-format
 msgid "Teams Room"
 msgstr "टीम रूम"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:588
 #, kde-format
 msgid "Private Room"
 msgstr "निजी कमरा"
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Discussion Room"
 msgstr "चर्चा कक्ष"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:594
 #, kde-format
 msgid "Channel Room"
 msgstr "चैनल रूम"
 
-#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:608 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "अपठित ग"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:610
 #, kde-format
 msgid "Favorites"
 msgstr "पसंदीदा"
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Teams"
 msgstr "टीमें"
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:616
 #, kde-format
 msgid "Discussions"
 msgstr "चर्चाएँ"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:618
 #, kde-format
 msgid "Private Messages"
 msgstr "निजी संदेश"
 
-#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -1822,7 +1822,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:697
+#: core/rocketchataccount.cpp:698
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1831,12 +1831,12 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:705 core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:706 core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:712
+#: core/rocketchataccount.cpp:713
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
