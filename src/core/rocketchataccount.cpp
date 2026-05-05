@@ -3388,7 +3388,7 @@ void RocketChatAccount::roomsParsing(const QJsonObject &root)
                 restApi()->initializeRestApiJob(job);
 
                 connect(job, &RocketChatRestApi::SubscriptionGetOneJob::roomInfoDone, this, [this](const QJsonObject &room) {
-                    qDebug() << "SubscriptionGetOneJob*********** " << room;
+                    // qDebug() << "SubscriptionGetOneJob*********** " << room;
                     RoomModel *model = roomModel();
                     const QByteArray roomId = model->updateSubscriptionRoom(room);
                     const QByteArray subscriptionId = room["_id"_L1].toString().toLatin1();
