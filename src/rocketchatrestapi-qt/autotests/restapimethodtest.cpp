@@ -202,7 +202,7 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsRead), QUrl(u"http://www.kde.org/api/v1/subscriptions.read"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsUnRead), QUrl(u"http://www.kde.org/api/v1/subscriptions.unread"_s));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsGet), QUrl(u"http://www.kde.org/api/v1/subscriptions.get"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsGetAll), QUrl(u"http://www.kde.org/api/v1/subscriptions.get"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsGetOne), QUrl(u"http://www.kde.org/api/v1/subscriptions.getOne"_s));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsGet), QUrl(u"http://www.kde.org/api/v1/rooms.get"_s));
