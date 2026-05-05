@@ -23,6 +23,7 @@
 #include "ruqola_database_debug.h"
 #include "ruqola_subscription_parsing_debug.h"
 #include "ruqolautils.h"
+#include "subscriptions/subscriptiongetonejob.h"
 
 #include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
@@ -3382,6 +3383,21 @@ void RocketChatAccount::roomsParsing(const QJsonObject &root)
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
                 const QByteArray roomId = model->updateRoom(roomJson);
+                auto job = new RocketChatRestApi::SubscriptionGetOneJob(this);
+                job->setRoomId(roomId);
+                restApi()->initializeRestApiJob(job);
+
+                connect(job, &RocketChatRestApi::SubscriptionGetOneJob::roomInfoDone, this, [this](const QJsonObject &room) {
+                    qDebug() << "SubscriptionGetOneJob*********** " << room;
+                    RoomModel *model = roomModel();
+                    const QByteArray roomId = model->updateSubscriptionRoom(room);
+                    const QByteArray subscriptionId = room["_id"_L1].toString().toLatin1();
+                    insertRoomSubscription(subscriptionId, roomId);
+                    updateRoomInDatabase(roomId);
+                });
+                if (!job->start()) {
+                    qCWarning(RUQOLA_LOG) << "Impossible to start SubscriptionGetOneJob";
+                }
                 updateRoomInDatabase(roomId);
             }
         }
