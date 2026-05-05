@@ -18,7 +18,7 @@ public:
         QString roomName;
         QByteArray roomId;
         bool initial = false;
-        qint64 timeStamp = -1;
+        qint64 timeStamp = 0;
         qint64 lastSeenAt = -1;
     };
 

@@ -132,7 +132,9 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         qCDebug(RUQOLA_OFFLINE_MODE_LOG) << " no sync message in offline mode";
         return;
     } else if (info.timeStamp != 0) {
-        params.append(info.timeStamp);
+        QJsonObject dateObjectTimeStamp;
+        dateObjectTimeStamp["$date"_L1] = QJsonValue(info.timeStamp);
+        params.append(dateObjectTimeStamp);
 
         QJsonObject dateObjectEnd;
         dateObjectEnd["$date"_L1] = QJsonValue(endDateTime);
