@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-05 02:40+0000\n"
-"PO-Revision-Date: 2026-03-07 20:14+0100\n"
+"PO-Revision-Date: 2026-05-03 12:03+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -2176,12 +2176,12 @@ msgstr "Demander à l'IA"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
 #, kde-format
 msgid "Create a screenshot"
-msgstr "Créer une copie d'écran"
+msgstr "Créer une capture d'écran"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr "Cet outil permet de créer une copie d'écran."
+msgstr "Cet outil permet de créer une capture d'écran."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:18
 #, kde-format
@@ -12109,7 +12109,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Autoriser la copie d'image dans le presse-papier"
+msgstr "Autoriser la capture d'image dans le presse-papier"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
@@ -12520,8 +12520,8 @@ msgstr "Ajouter une prise en charge pour les modules externes d'outils"
 #, kde-format
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
-"Module externe : ajout d'un bouton de copie d'écran (Près du bouton d'envoi "
-"de messages)"
+"Module externe : ajout d'un bouton de capture d'écran (Près du bouton "
+"d'envoi de messages)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:153
 #, kde-format
