@@ -91,7 +91,9 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QList<QByteArray> &
     }
     auto messageModel = mRocketChatAccount->messageModelForRoom(roomId);
     for (const auto &messageId : messageIds) {
-        messageModel->deleteMessage(messageId);
+        if (messageModel) {
+            messageModel->deleteMessage(messageId);
+        }
         Room *room = mRocketChatAccount->room(roomId);
         if (room) {
             mRocketChatAccount->deleteMessageFromDatabase(room->roomId(), messageId);
