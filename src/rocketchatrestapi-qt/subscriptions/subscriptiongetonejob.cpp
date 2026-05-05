@@ -57,7 +57,7 @@ void SubscriptionGetOneJob::onGetRequestResponse(const QString &replyErrorString
     const QJsonObject replyObject = replyJson.object();
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("SubscriptionGetOneJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomInfoDone(replyObject);
+        Q_EMIT roomInfoDone(replyObject["subscription"_L1].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("SubscriptionGetOneJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
