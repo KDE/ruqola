@@ -380,6 +380,8 @@ target_sources(
         subscriptions/markroomasunreadjob.h
         subscriptions/subscriptiongetonejob.cpp
         subscriptions/subscriptiongetonejob.h
+        subscriptions/subscriptiongetalljob.cpp
+        subscriptions/subscriptiongetalljob.h
         teams/channelsconverttoteamjob.cpp
         teams/channelsconverttoteamjob.h
         teams/groupsconverttoteamjob.cpp
