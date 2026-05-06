@@ -314,6 +314,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     if (json.contains("uids"_L1)) {
         const QJsonArray &uidsArray = json["uids"_L1].toArray();
+        if (uidsArray.count() != 2) {
+            qCWarning(RUQOLA_LOG) << " Invalid uidsArray " << uidsArray;
+        }
         const auto &u0 = uidsArray[0].toString().toLatin1();
         const auto &u1 = uidsArray[1].toString().toLatin1();
         if (mRocketChatAccount) {
