@@ -82,7 +82,7 @@ bool Room::isEqual(const Room &other) const
         && (mAvatarETag == other.avatarETag()) && (mUids == other.uids()) && (mUserNames == other.userNames()) && (highlightsWord() == other.highlightsWord())
         && (mRetentionInfo == other.retentionInfo()) && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt())
         && (mGroupMentions == other.groupMentions()) && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates())
-        && e2EKey() == other.e2EKey() && e2eKeyId() == other.e2eKeyId();
+        && e2EKey() == other.e2EKey() && e2eKeyId() == other.e2eKeyId() && (autoTranslate() == other.autoTranslate());
 }
 
 QString Room::displayRoomName() const
