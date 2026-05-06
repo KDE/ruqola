@@ -3443,10 +3443,11 @@ void RocketChatAccount::loadRoomsFromDatabase()
                 model->deserializeRoom(QJsonDocument::fromJson(info).object());
             }
         }
+    } else {
+        mAccountTimeStamp = -1;
     }
 }
 
-#define ADD_LOAD_ROOMS_FROM_DATABASE 1
 void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
 {
     // 1) if removed => remove from database
@@ -3479,12 +3480,8 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             }
         }
     }
-#if ADD_LOAD_ROOMS_FROM_DATABASE
     loadRoomsFromDatabase();
     const qint64 timeStamp = mAccountTimeStamp;
-#else
-    const qint64 timeStamp = -1; // TODO Remove this line when load will be ok
-#endif
     if (!offlineMode()) {
         // We need to load all room after get subscription to update parameters
         QJsonObject params;
