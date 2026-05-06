@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 02:40+0000\n"
+"POT-Creation-Date: 2026-05-06 02:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -444,7 +444,7 @@ msgstr ""
 #: core/apps/appsmarketplaceinfo.cpp:706
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "查看工作区中的所有聊天室"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1322,7 +1322,7 @@ msgstr ""
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:609
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:614
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1459,76 +1459,76 @@ msgstr ""
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:544
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:548
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:552
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:556
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] ""
 
-#: core/model/roommodel.cpp:577
+#: core/model/roommodel.cpp:582
 #, kde-format
 msgid "Teams Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:588
 #, kde-format
 msgid "Private Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:590
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:594
 #, kde-format
 msgid "Channel Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:603 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:608 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr ""
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:610
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:612
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:616
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:618
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:615 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr ""
@@ -1804,19 +1804,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:704
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:712 core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected yet"
 msgstr ""
@@ -1925,7 +1925,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:shell"
 msgid "Use ddp api for login"
-msgstr ""
+msgstr "使用 ddp api 登录"
 
 #: core/ruqolacommandlineparser.cpp:57
 #, kde-format
@@ -4765,6 +4765,7 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"Piwik 所在的 URL，请确认不要漏了尾随的斜线号。例如：//piwik.rouvect.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:67
 #, kde-format
@@ -4775,7 +4776,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr ""
+msgstr "用于识别此站点的站点 ID。例如：17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:71
 #, kde-format
@@ -4791,13 +4792,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "跟踪时将站点域置于页面标题"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Track visitors across all subdomains"
-msgstr ""
+msgstr "跨越所有子域跟踪访问者"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
@@ -4845,7 +4846,7 @@ msgstr ""
 msgctxt "@info:tooltip"
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
-msgstr ""
+msgstr "您外部 SSO 服务的基本 URL 例如：https://sso.example.undef/sso/"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -4858,7 +4859,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
-msgstr ""
+msgstr "您外部 SSO 服务的登录 URL 例如：https://sso.example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:47
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:55
@@ -4880,7 +4881,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow CAS User creation from data provided by the CAS ticket."
-msgstr ""
+msgstr "允许从 CAS ticket 提供的数据创建 CAS 用户。"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:59
 #, kde-format
@@ -4895,6 +4896,8 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"登录时总是将外部 CAS 用户数据同步到可用属性。\n"
+"注意：创建账户时将总是同步属性。"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:70
 #, kde-format
@@ -5031,7 +5034,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
-msgstr ""
+msgstr "[Beware] 启用调试模式将在管理控制台中显示您的“纯文本密码”。"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:102
 #, kde-format
@@ -5140,7 +5143,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Enable option to create encrypted groups and be able to change groups and "
 "direct messages to be encrypted."
-msgstr ""
+msgstr "启用创建加密群组的选项，能够更改群组和直接消息是否加密。"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
 #, kde-format
@@ -5212,7 +5215,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Set it to -1 to remove the file size limitation."
-msgstr ""
+msgstr "将其设为 -1 以移除文件大小限制。"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:37
 #, kde-format
@@ -5223,20 +5226,20 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only authenticated users will have access"
-msgstr ""
+msgstr "只有经过认证的用户才有访问权限"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:44
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enabling this setting may cause image quality loss"
-msgstr ""
+msgstr "启用此设置可能导致图像质量损失"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
-msgstr ""
+msgstr "限制上传到聊天室的文件访问仅限聊天室成员"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:55
 #, kde-format
@@ -5244,7 +5247,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. Leave it blank for accepting all media "
 "types."
-msgstr ""
+msgstr "以逗号分隔的媒体类型列表。如果接受所有媒体类型，则留空。"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
@@ -5259,7 +5262,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
-msgstr ""
+msgstr "以逗号分隔的媒体类型列表。此设置优先于接受的媒体类型。"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:64
 #, kde-format
@@ -5267,7 +5270,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "File Upload Json Web Token Secret (Used to be able to access uploaded files "
 "without authentication)."
-msgstr ""
+msgstr "文件上传 Json Web 令牌密钥 (这样访问已上传的文件就不需要认证) 。"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:69
 #, kde-format
@@ -5348,7 +5351,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate usernames"
-msgstr ""
+msgstr "将用于验证用户名的 RegExp"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:58
 #, kde-format
@@ -5359,7 +5362,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "RegExp that will be used to validate channel names"
-msgstr ""
+msgstr "将用于验证频道名称的 RegExp"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
 #, kde-format
@@ -5449,7 +5452,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
-msgstr ""
+msgstr "设置显示仪表板或发送电子邮件时使用的默认时区"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
@@ -5511,6 +5514,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"您的 Rocket.Chat 中心流广播的 IP 地址或主机名，例如 192.168.1:3000 或 "
+"localhost:4000"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:149
 #, kde-format
@@ -5549,7 +5554,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Output upon a successful connection to the IRC server."
-msgstr ""
+msgstr "成功连接到 IRC 服务器时输出。"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:33
 #, kde-format
@@ -5562,7 +5567,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Attempt to integrate IRC support. Changing this value requires restarting "
 "Rocket.Chat."
-msgstr ""
+msgstr "尝试整合IRC 支持。更改此值需要重启 Rocket.Chat。"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
 #, kde-format
@@ -5573,7 +5578,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The port to bind to on the IRC host server."
-msgstr ""
+msgstr "要绑定到 IRC 主机服务器的端口。"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:53
 #, kde-format
@@ -5642,13 +5647,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attempt to utilize LDAP for authentication."
-msgstr ""
+msgstr "尝试使用 LDAP 进行身份验证。"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:37
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
-msgstr ""
+msgstr "访问 LDAP 的端口。例如：若是 LDAPS 就是 389 或 636"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:44
 #, kde-format
@@ -5656,7 +5661,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Try to reconnect automatically when connection is interrupted by some reason "
 "while executing operations."
-msgstr ""
+msgstr "当在执行操作时由于某些原因中断连接时，尝试自动重新连接。"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:47
 #, kde-format
@@ -5687,7 +5692,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "How many milliseconds wait for a search result before return an error"
-msgstr ""
+msgstr "在返回错误之前等待搜索结果的毫秒数"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:73
 #, kde-format
@@ -5729,7 +5734,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
-msgstr ""
+msgstr "一个接收所有捕获的异常的频道。留空则忽略异常。"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
 #, kde-format
@@ -5769,6 +5774,8 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"此处的文本将被作为 RegExp (new RegExp('text')) 来处理。留空以显示每次调用的追"
+"溯。"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:51
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
@@ -5804,7 +5811,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Message Pinning"
-msgstr ""
+msgstr "允许消息置顶"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:27
 #, kde-format
@@ -5858,7 +5865,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enter 0 to disable blocking."
-msgstr ""
+msgstr "输入 0 以禁用拦截。"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:55
 #, kde-format
@@ -5869,7 +5876,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Block Message Deleting After (n) Minutes."
-msgstr ""
+msgstr "阻止 (n) 分钟后拦截消息删除操作。"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
@@ -5882,13 +5889,13 @@ msgctxt "@info:tooltip"
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
-msgstr ""
+msgstr "这是一个已弃用的功能。它可能无法按预期运行，且不会获得新的更新。"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:72
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow Message Pinning"
-msgstr ""
+msgstr "允许消息置顶"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:82
 #, kde-format
@@ -5896,7 +5903,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
-msgstr ""
+msgstr "需要在“文件上传”设置中让“video/webm”作为接受的媒体类型。"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
 #, kde-format
@@ -5974,6 +5981,8 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
+"从图像文件 (jpeg、tiff 等) 中删除 EXIF 元数据。此设置不是追溯性的，所以文件在"
+"禁用此设置的过程中上传则仍含有 EXIF 数据。"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
 #, kde-format
@@ -5983,6 +5992,8 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
+"将使用缩略图而不是原始图像来减少带宽使用。可以使用附件名称旁边的图标下载原始"
+"分辨率图像。"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
 #, kde-format
@@ -6045,7 +6056,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
-msgstr ""
+msgstr "当一个用户发出网站链接时是否显示内嵌链接预览"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
 #, kde-format
@@ -6075,7 +6086,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
-msgstr ""
+msgstr "启用后，您会强制您的用户使用 PIN/BIOMETRY/FACEID 解锁应用程序。"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -6083,7 +6094,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
-msgstr ""
+msgstr "最近一次会话结束后多少秒后再要求密码。"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
@@ -6149,7 +6160,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
-msgstr ""
+msgstr "如果您想只在手机上启用 Apple 登录，您可以将所有字段留空。"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:67
 #, kde-format
@@ -6290,7 +6301,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr ""
+msgstr "例如：https://domain.com (不包括尾随斜线号)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:195
 #, kde-format
@@ -6373,13 +6384,13 @@ msgctxt "@info:tooltip"
 msgid ""
 "When enabled, users won't be able to update their passwords to some of their "
 "most recently used passwords."
-msgstr ""
+msgstr "如果启用，用户将无法更新他们的密码到他们最近使用过的密码。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Amount of most recently used passwords to prevent users from reusing."
-msgstr ""
+msgstr "最近使用过的密码数量，防止用户重用。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:42
 #, kde-format
@@ -6397,7 +6408,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Ensures that passwords must have at least this amount of characters. Use -1 "
 "to disable."
-msgstr ""
+msgstr "确保密码必须至少有这个数量的字符。使用 -1 禁用。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:56
 #, kde-format
@@ -6410,7 +6421,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Ensures that passwords do not have more than this amount of characters. Use "
 "-1 to disable."
-msgstr ""
+msgstr "确保密码数量不超过这个字符数。使用 -1 禁用。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:61
 #, kde-format
@@ -6423,14 +6434,14 @@ msgctxt "@info:tooltip"
 msgid ""
 "Ensures passwords do not contain the same character repeating next to each "
 "other."
-msgstr ""
+msgstr "确保密码不包含相邻的重复字符。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:68
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "The amount of times a character can be repeating before it is not allowed."
-msgstr ""
+msgstr "同一个字符能重复的最多次数。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
 #, kde-format
@@ -6441,25 +6452,25 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one lowercase character."
-msgstr ""
+msgstr "强制要求密码包含至少一个小写字符。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one uppercase character."
-msgstr ""
+msgstr "强制要求密码包含至少一个大写字符。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one numerical character."
-msgstr ""
+msgstr "强制要求密码包含至少一个数字字符。"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:84
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one special character."
-msgstr ""
+msgstr "强制要求密码包含至少一个特殊字符。"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:17
 #, kde-format
@@ -6610,7 +6621,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only files will be deleted, the messages themselves will stay in place."
-msgstr ""
+msgstr "仅文件将被删除，消息本身将保持不变。"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:66
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:75
@@ -6618,7 +6629,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Prune all messages older than this value, in days."
-msgstr ""
+msgstr "清理多少天以前的所有消息。"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:68
 #, kde-format
@@ -6693,7 +6704,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr ""
+msgstr "启用 Rocket.Chat 直接与 Slack 通讯。"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:34
 #, kde-format
@@ -6704,14 +6715,14 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
-msgstr ""
+msgstr "选择 SlackBridge 是否也应该将您的消息发回 Slack"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:44
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
-msgstr ""
+msgstr "从存在于 Slack 且该机器人已加入的所有频道发送消息"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:49
 #, kde-format
@@ -6720,6 +6731,8 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"使用别名从 Slack 导入消息；%s 将被替换为用户的用户名。如果为空，将不会使用别"
+"名。"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:50
 #, kde-format
@@ -6947,7 +6960,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
-msgstr ""
+msgstr "若 Jitsi 实例不使用任何身份验证机制，则建议启用。"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:86
 #, kde-format
@@ -7558,13 +7571,13 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable system tray icon"
-msgstr ""
+msgstr "启用系统托盘图标"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable logging"
-msgstr ""
+msgstr "启用日志记录"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
@@ -8037,7 +8050,7 @@ msgstr[0] ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: widgets/dialogs/channelsearchwidget.cpp:27
 #, kde-format
@@ -8079,13 +8092,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive alerts"
-msgstr ""
+msgstr "接收警报"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:59
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Display badge for direct mentions only"
-msgstr ""
+msgstr "仅显示直接提及标记"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:65
 #, kde-format
@@ -8212,7 +8225,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Only authorized users can write new messages, but the other users will be "
 "able to reply"
-msgstr ""
+msgstr "只有已授权的用户可以写新消息，但其他用户可以回复"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:62
 #, kde-format
@@ -8223,7 +8236,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
-msgstr ""
+msgstr "只有被邀请的人才能加入"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:68
 #, kde-format
@@ -8387,7 +8400,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy link"
-msgstr ""
+msgstr "复制链接"
 
 #: widgets/dialogs/inviteuserswidget.cpp:66
 #, kde-format
@@ -8700,7 +8713,7 @@ msgstr ""
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
 #, kde-format
 msgid "Ignore Case"
-msgstr ""
+msgstr "忽略大小写"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:40
 #, kde-format
@@ -9855,7 +9868,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Separate each word with ','."
-msgstr ""
+msgstr "每个词之间用“,”分隔。"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:77
 #, kde-format
@@ -9873,7 +9886,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Receive an email each time a new login is detected on your account."
-msgstr ""
+msgstr "每次在您的帐户上检测到新的登录时，都会收到一封电子邮件。"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
 #, kde-format
@@ -9886,7 +9899,7 @@ msgstr ""
 msgctxt "@info:tooltip"
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
-msgstr ""
+msgstr "状态变更至退出的期限。值必须以秒为单位。"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:131
 #, kde-format
@@ -10050,7 +10063,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
 #: widgets/room/messagelistview.cpp:716
@@ -10725,7 +10738,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
-msgstr ""
+msgstr "E2E 已启用"
 
 #: widgets/room/roomheaderwidget.cpp:136
 #, kde-format
@@ -10862,7 +10875,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Upload"
-msgstr ""
+msgstr "取消上传"
 
 #: widgets/room/usersinroomcombobox.cpp:25
 #, kde-format
