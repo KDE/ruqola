@@ -274,7 +274,9 @@ void RoomWidget::slotGenerateNewPassword()
         // TODO save it in kwalletmanagers ?
     }
     // Hide it.
-    mE2eSaveEncryptionKeyWidget->animatedHide();
+    if (mE2eSaveEncryptionKeyWidget) {
+        mE2eSaveEncryptionKeyWidget->animatedHide();
+    }
     delete dlg;
 }
 
