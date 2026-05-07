@@ -5,7 +5,6 @@
 */
 
 #include "userandchannelcompletiondelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QPainter>
 
+using namespace Qt::Literals::StringLiterals;
 UserAndChannelCompletionDelegate::UserAndChannelCompletionDelegate(QObject *parent)
     : QItemDelegate{parent}
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::UserAndRoom, this))

@@ -5,7 +5,6 @@
 */
 
 #include "commandpreviewwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "commandpreviewimagedelegate.h"
 #include "commands/previewcommandutils.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QStackedWidget>
 
+using namespace Qt::Literals::StringLiterals;
 CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
     : QWidget{parent}
     , mListView(new QListView(this))

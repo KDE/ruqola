@@ -5,7 +5,6 @@
 */
 
 #include "authenticationloginwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "misc/passwordlineeditwidget.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPointer>
 #include <QPushButton>
 
+using namespace Qt::Literals::StringLiterals;
 AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     : PluginAuthenticationConfigureWidget{parent}
     , mServerUrl(new QLineEdit(this))
