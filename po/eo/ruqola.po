@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 00:45+0000\n"
+"POT-Creation-Date: 2026-05-07 00:44+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1737,7 +1737,7 @@ msgstr "Aliĝis al ĉi tiu Teamo"
 msgid "(Autojoin)"
 msgstr "(Aŭtomata aliĝo)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1164
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Posedanto"
@@ -1845,27 +1845,27 @@ msgstr "Aldoniĝis Konto"
 msgid "A new account was added."
 msgstr "Nova konto estis aldonita."
 
-#: core/room.cpp:1167
+#: core/room.cpp:1170
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1170
+#: core/room.cpp:1173
 #, kde-format
 msgid "Moderator"
 msgstr "Moderiganto"
 
-#: core/room.cpp:1564
+#: core/room.cpp:1567
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalo estas nur legata."
 
-#: core/room.cpp:1567
+#: core/room.cpp:1570
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Vi blokis ĉi tiun kanalon."
 
-#: core/room.cpp:1570
+#: core/room.cpp:1573
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalo estis blokita."
