@@ -202,6 +202,7 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
     connect(newModel, &QAbstractItemModel::modelAboutToBeReset, this, &MessageListView::checkIfAtBottom);
     // Connect to rangeChanged rather than rowsInserted/rowsRemoved/modelReset.
     // This way it also catches the case of an item changing height (e.g. after async image loading)
+    disconnect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListView::maybeScrollToBottom);
     connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListView::maybeScrollToBottom);
 
     connect(newModel, &QAbstractItemModel::rowsInserted, this, &MessageListView::modelChanged);
