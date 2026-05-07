@@ -5,7 +5,6 @@
 */
 
 #include "bannersdismissjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "banner/bannersdismissjob.h"

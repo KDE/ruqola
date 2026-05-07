@@ -5,7 +5,6 @@
 */
 
 #include "channelgetallusermentionsjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelgetallusermentionsjob.h"

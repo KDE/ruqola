@@ -5,7 +5,6 @@
 */
 
 #include "leavechanneljobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/leavechanneljob.h"

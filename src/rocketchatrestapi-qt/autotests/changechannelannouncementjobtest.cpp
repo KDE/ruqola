@@ -5,7 +5,6 @@
 */
 
 #include "changechannelannouncementjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/changechannelannouncementjob.h"

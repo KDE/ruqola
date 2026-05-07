@@ -5,7 +5,6 @@
 */
 
 #include "facebookauthjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "authentication/facebookauthjob.h"

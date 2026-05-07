@@ -5,7 +5,6 @@
 */
 
 #include "getmentionedmessagesjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/getmentionedmessagesjob.h"

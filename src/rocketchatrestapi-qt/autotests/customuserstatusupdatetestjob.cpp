@@ -5,7 +5,6 @@
 */
 
 #include "customuserstatusupdatetestjob.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "custom/customuserstatusupdatejob.h"

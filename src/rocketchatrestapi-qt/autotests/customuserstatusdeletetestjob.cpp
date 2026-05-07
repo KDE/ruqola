@@ -5,7 +5,6 @@
 */
 
 #include "customuserstatusdeletetestjob.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "custom/customuserstatusdeletejob.h"

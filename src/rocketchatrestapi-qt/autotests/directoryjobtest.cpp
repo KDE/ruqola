@@ -5,7 +5,6 @@
 */
 
 #include "directoryjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "misc/directoryjob.h"

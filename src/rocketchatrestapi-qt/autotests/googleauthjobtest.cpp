@@ -5,7 +5,6 @@
 */
 
 #include "googleauthjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "authentication/googleauthjob.h"

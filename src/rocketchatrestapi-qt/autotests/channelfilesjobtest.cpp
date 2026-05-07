@@ -5,7 +5,6 @@
 */
 
 #include "channelfilesjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelfilesjob.h"

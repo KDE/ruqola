@@ -5,7 +5,6 @@
 */
 
 #include "getthreadmessagesjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/getthreadmessagesjob.h"

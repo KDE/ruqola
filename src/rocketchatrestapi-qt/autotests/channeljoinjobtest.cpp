@@ -5,7 +5,6 @@
 */
 
 #include "channeljoinjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channeljoinjob.h"

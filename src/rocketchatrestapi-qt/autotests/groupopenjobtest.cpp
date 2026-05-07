@@ -5,7 +5,6 @@
 */
 
 #include "groupopenjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupopenjob.h"
