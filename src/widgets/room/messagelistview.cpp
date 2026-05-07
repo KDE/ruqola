@@ -673,6 +673,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
             }
         });
+        menu.addAction(dismissReports);
 
         break;
     }
