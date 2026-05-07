@@ -867,7 +867,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 if (att.hasMessageAttachmentActions()) {
                     const auto attachmentActions = att.messageAttachmentActions();
                     if (mHelperAttachmentActions
-                            ->handleMouseEvent(attachmentActions, mev, layout.attachmentsRectList.at(attachmentActionsIdx), option, index)) {
+                            ->handleMouseEvent(attachmentActions, mev, layout.attachmentsActionRectList.at(attachmentActionsIdx), option, index)) {
                         return true;
                     }
                     attachmentActionsIdx++;
