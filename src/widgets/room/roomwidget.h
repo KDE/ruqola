@@ -118,6 +118,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void displayUiInteractionDialog(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddWebDavServer();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void showE2eDecodeEncryptionKeyWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void showE2eSaveEncryptionKeyWidget();
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
