@@ -386,9 +386,11 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
             int attachmentIdx = 0;
             for (const MessageAttachment &msgAttach : attachments) {
                 MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
-                url = helper->urlAt(option, msgAttach, layout.attachmentsRectList.at(attachmentIdx), pos);
-                if (!url.isEmpty()) {
-                    return url;
+                if (helper) {
+                    url = helper->urlAt(option, msgAttach, layout.attachmentsRectList.at(attachmentIdx), pos);
+                    if (!url.isEmpty()) {
+                        return url;
+                    }
                 }
                 attachmentIdx++;
             }
@@ -473,7 +475,7 @@ void MessageListDelegate::attachmentContextMenu(const QStyleOptionViewItem &opti
         int attachmentIdx = 0;
         for (const MessageAttachment &msgAttach : attachments) {
             MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
-            if (helper->contextMenu(info.pos, info.globalPos, msgAttach, layout.attachmentsRectList.at(attachmentIdx), option, menu)) {
+            if (helper && helper->contextMenu(info.pos, info.globalPos, msgAttach, layout.attachmentsRectList.at(attachmentIdx), option, menu)) {
                 return;
             }
             ++attachmentIdx;
