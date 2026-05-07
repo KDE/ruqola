@@ -1011,8 +1011,8 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
 #if USE_E2E_SUPPORT
-        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::createE2eSaveEncryptionKeyWidget);
-        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::createE2eDecodeEncryptionKeyWidget);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::showE2eSaveEncryptionKeyWidget);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::showE2eDecodeEncryptionKeyWidget);
 #endif
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::showUiInteraction, this, &RoomWidget::slotShowUiInteraction);
 #if ADD_OFFLINE_SUPPORT
@@ -1033,28 +1033,8 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 #endif
 
 #if USE_E2E_SUPPORT
-    auto showE2eDecodeEncryptionKeyWidget = [this] {
-        if (!mE2eDecodeEncryptionKeyWidget) {
-            createE2eDecodeEncryptionKeyWidget();
-        }
-        mE2eDecodeEncryptionKeyWidget->animatedShow();
-    };
-
-    auto showE2eSaveEncryptionKeyWidget = [this] {
-        if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {
-            if (!mE2eSaveEncryptionKeyWidget) {
-                createE2eSaveEncryptionKeyWidget();
-            }
-            mE2eSaveEncryptionKeyWidget->animatedShow();
-        }
-    };
-
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, [showE2eSaveEncryptionKeyWidget]() {
-        showE2eSaveEncryptionKeyWidget();
-    });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, [showE2eDecodeEncryptionKeyWidget]() {
-        showE2eDecodeEncryptionKeyWidget();
-    });
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::showE2eSaveEncryptionKeyWidget);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::needToDecryptE2EPassword, this, &RoomWidget::showE2eDecodeEncryptionKeyWidget);
     // Hide them
     if (mE2eSaveEncryptionKeyWidget && !mCurrentRocketChatAccount->e2EPasswordMustBeSave()) {
         mE2eSaveEncryptionKeyWidget->animatedHide();
@@ -1073,6 +1053,23 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
     mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);
     slotOfflineModeChanged();
+}
+void RoomWidget::showE2eSaveEncryptionKeyWidget()
+{
+    if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {
+        if (!mE2eSaveEncryptionKeyWidget) {
+            createE2eSaveEncryptionKeyWidget();
+        }
+        mE2eSaveEncryptionKeyWidget->animatedShow();
+    }
+}
+
+void RoomWidget::showE2eDecodeEncryptionKeyWidget()
+{
+    if (!mE2eDecodeEncryptionKeyWidget) {
+        createE2eDecodeEncryptionKeyWidget();
+    }
+    mE2eDecodeEncryptionKeyWidget->animatedShow();
 }
 
 void RoomWidget::slotLoginStatusChanged()
