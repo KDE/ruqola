@@ -5,7 +5,6 @@
 */
 
 #include "createdmjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "directmessage/createdmjob.h"

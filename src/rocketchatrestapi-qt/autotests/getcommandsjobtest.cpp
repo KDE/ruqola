@@ -5,7 +5,6 @@
 */
 
 #include "getcommandsjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "commands/getcommandsjob.h"

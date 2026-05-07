@@ -5,7 +5,6 @@
 */
 
 #include "generatepersonalaccesstokenjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "personalaccesstoken/generatepersonalaccesstokenjob.h"

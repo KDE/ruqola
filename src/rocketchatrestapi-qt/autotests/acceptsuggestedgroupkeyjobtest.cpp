@@ -5,7 +5,6 @@
 */
 
 #include "acceptsuggestedgroupkeyjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/resetowne2ekeyjob.h"

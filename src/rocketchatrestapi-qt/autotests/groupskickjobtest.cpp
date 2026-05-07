@@ -5,7 +5,6 @@
 */
 
 #include "groupskickjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupskickjob.h"

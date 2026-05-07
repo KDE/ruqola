@@ -5,7 +5,6 @@
 */
 
 #include "groupsconverttoteamjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"

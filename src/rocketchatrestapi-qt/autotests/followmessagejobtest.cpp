@@ -5,7 +5,6 @@
 */
 
 #include "followmessagejobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/followmessagejob.h"

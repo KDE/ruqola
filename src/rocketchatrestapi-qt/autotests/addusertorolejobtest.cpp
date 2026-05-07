@@ -5,7 +5,6 @@
 */
 
 #include "addusertorolejobtest.h"
-#include "restapimethod.h"
 
 #include "restapimethod.h"
 #include "role/addusertorolejob.h"

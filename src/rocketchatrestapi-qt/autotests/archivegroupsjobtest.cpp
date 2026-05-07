@@ -5,7 +5,6 @@
 */
 
 #include "archivegroupsjobtest.h"
-#include "restapimethod.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/archivegroupsjob.h"
