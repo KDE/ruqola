@@ -812,6 +812,9 @@ void RoomWidget::slotShowListOfUsersInRoom(bool checked)
 
 void RoomWidget::setRoomId(const QByteArray &roomId)
 {
+    if (mRoom) {
+        disconnect(mRoom, nullptr, this, nullptr);
+    }
     mRoomWidgetBase->setRoomId(roomId);
     mRoom = mCurrentRocketChatAccount->room(mRoomWidgetBase->roomId());
     if (mRoom) {
