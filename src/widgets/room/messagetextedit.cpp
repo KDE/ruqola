@@ -158,6 +158,7 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bo
         disconnect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
         disconnect(mCurrentInputTextManager, &InputTextManager::selectFirstTextCompleter, this, &MessageTextEdit::slotSelectFirstTextCompleter);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &MessageTextEdit::slotLoginChanged);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::updateMessageFailed, this, &MessageTextEdit::slotUpdateMessageFailed);
     }
     mCurrentRocketChatAccount = account;
     mCurrentInputTextManager = threadMessageDialog ? mCurrentRocketChatAccount->inputThreadMessageTextManager() : mCurrentRocketChatAccount->inputTextManager();
