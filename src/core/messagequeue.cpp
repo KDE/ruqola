@@ -13,7 +13,6 @@
 #include "ruqola.h"
 
 #include "authenticationmanager.h"
-#include "authenticationmanager/ddpauthenticationmanager.h"
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
 
