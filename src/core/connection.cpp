@@ -10,7 +10,6 @@
 #include "privateutils.h"
 #include "restapimethod.h"
 #include "rooms/roomsmembersorderedbyrolejob.h"
-#include "ruqola.h"
 #include "ruqola_debug.h"
 
 #include "downloadfilejob.h"
