@@ -76,7 +76,7 @@ void RoomsMembersOrderedByRoleJob::setRoomsMembersOrderedByRoleJobInfo(const Roo
 
 bool RoomsMembersOrderedByRoleJob::hasQueryParameterSupport() const
 {
-    return false;
+    return true;
 }
 
 QNetworkRequest RoomsMembersOrderedByRoleJob::request() const
