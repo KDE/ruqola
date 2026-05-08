@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-07 00:44+0000\n"
+"POT-Creation-Date: 2026-05-08 00:44+0000\n"
 "PO-Revision-Date: 2026-04-06 07:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3549,7 +3549,7 @@ msgstr "Odpusti vsa poročila"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:335
+#: widgets/room/messagelistview.cpp:336
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3558,7 +3558,7 @@ msgstr "Kopiraj izbiro"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
-#: widgets/room/messagelistview.cpp:337
+#: widgets/room/messagelistview.cpp:338
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3579,7 +3579,7 @@ msgstr "Govori besedilo"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/room/messagelistview.cpp:368
+#: widgets/room/messagelistview.cpp:369
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7521,7 +7521,7 @@ msgid "Mark as Unread"
 msgstr "Označi kot neprebrano"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:355
+#: widgets/room/messagelistview.cpp:356
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -10424,7 +10424,7 @@ msgid "Clear"
 msgstr "Počisti"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
-#: widgets/room/messagelistview.cpp:716
+#: widgets/room/messagelistview.cpp:718
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10652,33 +10652,33 @@ msgstr "Pridružite se"
 msgid "Link Preview"
 msgstr "Poveži predogled"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:424
+#: widgets/room/delegate/messagelistdelegate.cpp:426
 #, kde-format
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:434
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/delegate/messagelistdelegate.cpp:436
+#: widgets/room/messagelistview.cpp:460
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Začni zasebni pogovor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:450
-#: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
+#: widgets/room/delegate/messagelistdelegate.cpp:452
+#: widgets/room/messagelistview.cpp:568 widgets/room/messagelistview.cpp:628
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Pokaži izvirno sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:450
-#: widgets/room/messagelistview.cpp:567 widgets/room/messagelistview.cpp:627
+#: widgets/room/delegate/messagelistdelegate.cpp:452
+#: widgets/room/messagelistview.cpp:568 widgets/room/messagelistview.cpp:628
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:688
+#: widgets/room/delegate/messagelistdelegate.cpp:690
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10687,7 +10687,7 @@ msgstr[1] "%1 odgovora"
 msgstr[2] "%1 odgovori"
 msgstr[3] "%1 odgovorov"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:698
+#: widgets/room/delegate/messagelistdelegate.cpp:700
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10696,54 +10696,54 @@ msgstr[1] "%1 sporočili"
 msgstr[2] "%1 sporočila"
 msgstr[3] "%1 sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:698
+#: widgets/room/delegate/messagelistdelegate.cpp:700
 #, kde-format
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1017
+#: widgets/room/delegate/messagelistdelegate.cpp:1019
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Sledi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1021
+#: widgets/room/delegate/messagelistdelegate.cpp:1023
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Sporočilo je bilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1025
+#: widgets/room/delegate/messagelistdelegate.cpp:1027
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Sporočilo je bilo označeno z zvezdico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1029
+#: widgets/room/delegate/messagelistdelegate.cpp:1031
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Sporočilo ima prevedeno besedilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1033
+#: widgets/room/delegate/messagelistdelegate.cpp:1035
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1037
+#: widgets/room/delegate/messagelistdelegate.cpp:1039
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Dodaj reakcijo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1043
+#: widgets/room/delegate/messagelistdelegate.cpp:1045
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1043
+#: widgets/room/delegate/messagelistdelegate.cpp:1045
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -10880,168 +10880,168 @@ msgstr "Pridružili ste se novemu neposrednemu sporočilu"
 msgid "Start of conversation"
 msgstr "Začetek pogovora"
 
-#: widgets/room/messagelistview.cpp:346
+#: widgets/room/messagelistview.cpp:347
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Odpni sporočilo"
 
-#: widgets/room/messagelistview.cpp:346
+#: widgets/room/messagelistview.cpp:347
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Pripni sporočilo"
 
-#: widgets/room/messagelistview.cpp:355
+#: widgets/room/messagelistview.cpp:356
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Odstrani iz priljubljenih"
 
-#: widgets/room/messagelistview.cpp:362
+#: widgets/room/messagelistview.cpp:363
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: widgets/room/messagelistview.cpp:375
+#: widgets/room/messagelistview.cpp:376
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Označi sporočilo kot neprebrano"
 
-#: widgets/room/messagelistview.cpp:380
+#: widgets/room/messagelistview.cpp:381
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Pokaži polno nit"
 
-#: widgets/room/messagelistview.cpp:385
+#: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Uredi"
 
-#: widgets/room/messagelistview.cpp:390
+#: widgets/room/messagelistview.cpp:391
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citiraj"
 
-#: widgets/room/messagelistview.cpp:395
+#: widgets/room/messagelistview.cpp:396
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopiraj povezavo v sporočilo"
 
-#: widgets/room/messagelistview.cpp:400
+#: widgets/room/messagelistview.cpp:401
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Posreduj sporočilo"
 
-#: widgets/room/messagelistview.cpp:413
+#: widgets/room/messagelistview.cpp:414
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Ne sledi sporočilu"
 
-#: widgets/room/messagelistview.cpp:413
+#: widgets/room/messagelistview.cpp:414
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Sledi sporočilu"
 
-#: widgets/room/messagelistview.cpp:427
+#: widgets/room/messagelistview.cpp:428
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiraj URL"
 
-#: widgets/room/messagelistview.cpp:450 widgets/room/usersinroommenu.cpp:128
+#: widgets/room/messagelistview.cpp:451 widgets/room/usersinroommenu.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informacije o uporabniku"
 
-#: widgets/room/messagelistview.cpp:497
+#: widgets/room/messagelistview.cpp:498
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Začni razpravo"
 
-#: widgets/room/messagelistview.cpp:503
+#: widgets/room/messagelistview.cpp:504
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/messagelistview.cpp:637
+#: widgets/room/messagelistview.cpp:638
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Pogled poročil"
 
-#: widgets/room/messagelistview.cpp:660
+#: widgets/room/messagelistview.cpp:661
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Odpusti poročila"
 
-#: widgets/room/messagelistview.cpp:733
+#: widgets/room/messagelistview.cpp:735
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Poročaj sporočilo"
 
-#: widgets/room/messagelistview.cpp:963
+#: widgets/room/messagelistview.cpp:965
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ali želite izbrisati to sporočilo?"
 
-#: widgets/room/messagelistview.cpp:964
+#: widgets/room/messagelistview.cpp:966
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:1155
+#: widgets/room/messagelistview.cpp:1157
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Napaka prevajalca"
 
-#: widgets/room/messagetextedit.cpp:235
+#: widgets/room/messagetextedit.cpp:236
 #, kde-format
 msgid "Paste Image"
 msgstr "Prilepi sliko"
 
-#: widgets/room/messagetextedit.cpp:242
+#: widgets/room/messagetextedit.cpp:243
 #, kde-format
 msgid "Change Text Format"
 msgstr "Spremeni obliko besedila"
 
-#: widgets/room/messagetextedit.cpp:244
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Bold"
 msgstr "Krepko"
 
-#: widgets/room/messagetextedit.cpp:245
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Italic"
 msgstr "Ležeče"
 
-#: widgets/room/messagetextedit.cpp:246
+#: widgets/room/messagetextedit.cpp:247
 #, kde-format
 msgid "Strike-out"
 msgstr "Prečrtano"
 
-#: widgets/room/messagetextedit.cpp:248
+#: widgets/room/messagetextedit.cpp:249
 #, kde-format
 msgid "Code Block"
 msgstr "Blok kode"
 
-#: widgets/room/messagetextedit.cpp:250
+#: widgets/room/messagetextedit.cpp:251
 #, kde-format
 msgid "Markdown Url"
 msgstr "Url markdowna"
@@ -11190,39 +11190,39 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: '%1'"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:377
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:378
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:410
+#: widgets/room/roomwidget.cpp:412
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: widgets/room/roomwidget.cpp:411
+#: widgets/room/roomwidget.cpp:413
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:577
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Po šifriranih sporočilih ni mogoče iskati."
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:577
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Išči sporočilo"
 
-#: widgets/room/roomwidget.cpp:594
+#: widgets/room/roomwidget.cpp:596
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11230,7 +11230,7 @@ msgstr ""
 "Skrbnik delovnega prostora mora namestiti in konfigurirati aplikacije "
 "konferenčnih klicev."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:597
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
