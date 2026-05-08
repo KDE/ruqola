@@ -38,7 +38,6 @@ void RoomsMembersOrderedByRoleJobTest::shouldGenerateRequest()
         RestApiMethod method;
         method.setServerUrl(u"http://www.kde.org"_s);
         job.setRestApiMethod(&method);
-        const QByteArray roomId("bla");
         RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
         info.roomId = "room_id"_ba;
         info.count = 5;
@@ -53,7 +52,6 @@ void RoomsMembersOrderedByRoleJobTest::shouldGenerateRequest()
         RestApiMethod method;
         method.setServerUrl(u"http://www.kde.org"_s);
         job.setRestApiMethod(&method);
-        const QByteArray roomId("bla");
         RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
         info.roomId = "room_id"_ba;
         info.filter = "foo_filter1"_L1;
