@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 02:45+0000\n"
+"POT-Creation-Date: 2026-05-08 02:39+0000\n"
 "PO-Revision-Date: 2025-10-16 00:32+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -11339,39 +11339,39 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Automatiškai versti"
 
-#: widgets/room/messagetextedit.cpp:235
+#: widgets/room/messagetextedit.cpp:236
 #, fuzzy, kde-format
 #| msgid "Save Image"
 msgid "Paste Image"
 msgstr "Įrašyti paveikslą"
 
-#: widgets/room/messagetextedit.cpp:242
+#: widgets/room/messagetextedit.cpp:243
 #, fuzzy, kde-format
 #| msgid "Change Text"
 msgid "Change Text Format"
 msgstr "Keisti tekstą"
 
-#: widgets/room/messagetextedit.cpp:244
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Bold"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:245
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Italic"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:246
+#: widgets/room/messagetextedit.cpp:247
 #, kde-format
 msgid "Strike-out"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:248
+#: widgets/room/messagetextedit.cpp:249
 #, kde-format
 msgid "Code Block"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:250
+#: widgets/room/messagetextedit.cpp:251
 #, kde-format
 msgid "Markdown Url"
 msgstr ""
@@ -11530,49 +11530,49 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Kopijuoti nuorodą"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:377
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want really remove history?"
 msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:378
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Šalinti"
 
-#: widgets/room/roomwidget.cpp:410
+#: widgets/room/roomwidget.cpp:412
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: widgets/room/roomwidget.cpp:411
+#: widgets/room/roomwidget.cpp:413
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:577
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:577
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Ieškoti žinučių..."
 
-#: widgets/room/roomwidget.cpp:594
+#: widgets/room/roomwidget.cpp:596
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:597
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

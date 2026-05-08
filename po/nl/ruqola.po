@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 02:45+0000\n"
+"POT-Creation-Date: 2026-05-08 02:39+0000\n"
 "PO-Revision-Date: 2026-03-07 23:40+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -11001,37 +11001,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Fout van vertaler"
 
-#: widgets/room/messagetextedit.cpp:235
+#: widgets/room/messagetextedit.cpp:236
 #, kde-format
 msgid "Paste Image"
 msgstr "Afbeelding plakken"
 
-#: widgets/room/messagetextedit.cpp:242
+#: widgets/room/messagetextedit.cpp:243
 #, kde-format
 msgid "Change Text Format"
 msgstr "Tekstformaat wijzigen"
 
-#: widgets/room/messagetextedit.cpp:244
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Bold"
 msgstr "Vet"
 
-#: widgets/room/messagetextedit.cpp:245
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Italic"
 msgstr "Cursief"
 
-#: widgets/room/messagetextedit.cpp:246
+#: widgets/room/messagetextedit.cpp:247
 #, kde-format
 msgid "Strike-out"
 msgstr "Doorstrepen"
 
-#: widgets/room/messagetextedit.cpp:248
+#: widgets/room/messagetextedit.cpp:249
 #, kde-format
 msgid "Code Block"
 msgstr "Codeblok"
 
-#: widgets/room/messagetextedit.cpp:250
+#: widgets/room/messagetextedit.cpp:251
 #, kde-format
 msgid "Markdown Url"
 msgstr "Url in markdown"
@@ -11178,39 +11178,39 @@ msgstr "In een discussie antwoorden"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "In discussiebundeling antwoorden op bericht: '%1'"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:377
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Wilt u de geschiedenis verwijderen?"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:378
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geschiedenis verwijderen"
 
-#: widgets/room/roomwidget.cpp:410
+#: widgets/room/roomwidget.cpp:412
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: widgets/room/roomwidget.cpp:411
+#: widgets/room/roomwidget.cpp:413
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:577
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "In versleutelde inhoud kan niet gezocht worden."
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:577
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Bericht doorzoeken"
 
-#: widgets/room/roomwidget.cpp:594
+#: widgets/room/roomwidget.cpp:596
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11218,7 +11218,7 @@ msgstr ""
 "Een beheerder van werkruimte moet een toepassing voor een conferentieoproep "
 "installeren en configureren."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:597
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

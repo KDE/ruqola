@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 02:45+0000\n"
+"POT-Creation-Date: 2026-05-08 02:39+0000\n"
 "PO-Revision-Date: 2026-03-07 06:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -11000,37 +11000,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Napaka prevajalca"
 
-#: widgets/room/messagetextedit.cpp:235
+#: widgets/room/messagetextedit.cpp:236
 #, kde-format
 msgid "Paste Image"
 msgstr "Prilepi sliko"
 
-#: widgets/room/messagetextedit.cpp:242
+#: widgets/room/messagetextedit.cpp:243
 #, kde-format
 msgid "Change Text Format"
 msgstr "Spremeni obliko besedila"
 
-#: widgets/room/messagetextedit.cpp:244
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Bold"
 msgstr "Krepko"
 
-#: widgets/room/messagetextedit.cpp:245
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Italic"
 msgstr "Ležeče"
 
-#: widgets/room/messagetextedit.cpp:246
+#: widgets/room/messagetextedit.cpp:247
 #, kde-format
 msgid "Strike-out"
 msgstr "Prečrtano"
 
-#: widgets/room/messagetextedit.cpp:248
+#: widgets/room/messagetextedit.cpp:249
 #, kde-format
 msgid "Code Block"
 msgstr "Blok kode"
 
-#: widgets/room/messagetextedit.cpp:250
+#: widgets/room/messagetextedit.cpp:251
 #, kde-format
 msgid "Markdown Url"
 msgstr "Url markdowna"
@@ -11179,39 +11179,39 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: '%1'"
 
-#: widgets/room/roomwidget.cpp:375
+#: widgets/room/roomwidget.cpp:377
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:376
+#: widgets/room/roomwidget.cpp:378
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:410
+#: widgets/room/roomwidget.cpp:412
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: widgets/room/roomwidget.cpp:411
+#: widgets/room/roomwidget.cpp:413
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:577
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Po šifrirani vsebini ni mogoče iskati."
 
-#: widgets/room/roomwidget.cpp:575
+#: widgets/room/roomwidget.cpp:577
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Išči sporočilo"
 
-#: widgets/room/roomwidget.cpp:594
+#: widgets/room/roomwidget.cpp:596
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11219,7 +11219,7 @@ msgstr ""
 "Skrbnik delovnega prostora mora namestiti in konfigurirati aplikacije "
 "konferenčnih klicev."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:597
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
