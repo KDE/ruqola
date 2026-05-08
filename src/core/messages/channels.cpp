@@ -96,7 +96,7 @@ Channels *Channels::deserialize(const QJsonArray &channelsArray)
             .name = channel.value("name"_L1).toString(),
             .identifier = channel.value("_id"_L1).toString().toLatin1(),
         };
-        channels.append(std::move(info));
+        channels.append(info);
     }
     auto final = new Channels;
     final->setChannels(channels);
