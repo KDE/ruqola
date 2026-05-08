@@ -5,12 +5,12 @@
 */
 
 #include "roomsmembersorderedbyrolejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rooms/roomsmembersorderedbyrolejob.h"
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RoomsMembersOrderedByRoleJobTest)
 using namespace RocketChatRestApi;
 RoomsMembersOrderedByRoleJobTest::RoomsMembersOrderedByRoleJobTest(QObject *parent)
@@ -27,7 +27,7 @@ void RoomsMembersOrderedByRoleJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.roomsMembersOrderedByRoleJobInfo().isValid());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
-    QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
 }
 

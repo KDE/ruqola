@@ -460,10 +460,6 @@ void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int 
 void Connection::membersInRoomByRole(const QByteArray &roomId, const QString &filter, int offset, int count)
 {
     auto job = new RoomsMembersOrderedByRoleJob(this);
-    QueryParameters parameters;
-    parameters.setCount(count);
-    parameters.setOffset(offset);
-    job->setQueryParameters(parameters);
     connect(job, &RoomsMembersOrderedByRoleJob::roomsMembersOrderedByRoleDone, this, &Connection::channelMembersDone);
     initializeRestApiJob(job);
     RoomsMembersOrderedByRoleJob::RoomsMembersOrderedByRoleJobInfo info;
