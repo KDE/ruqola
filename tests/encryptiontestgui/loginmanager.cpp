@@ -6,7 +6,7 @@
 #include "loginmanager.h"
 #include "envutils.h"
 #include <QDebug>
-
+using namespace Qt::Literals::StringLiterals;
 LoginManager::LoginManager(QObject *parent)
     : QObject(parent)
 {

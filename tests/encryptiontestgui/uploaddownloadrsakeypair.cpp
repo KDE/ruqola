@@ -13,6 +13,7 @@
 
 using namespace EncryptionUtils;
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 void UploadDownloadRsaKeyPair::uploadKeys(const QString &authToken,
                                           const QString &url,
                                           const QString &userId,
