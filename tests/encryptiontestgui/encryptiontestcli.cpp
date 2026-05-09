@@ -19,7 +19,7 @@ curl -X POST http://localhost:3000/api/v1/login \
 #include <QDebug>
 
 // TODO we need to have VM
-
+using namespace Qt::Literals::StringLiterals;
 using namespace EncryptionUtils;
 
 const auto url = u"http://localhost:3000"_s;
