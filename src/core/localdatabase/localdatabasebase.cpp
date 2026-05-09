@@ -134,14 +134,14 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QBy
             return false;
         }
         const QString fileName = dbFileName(accountName, roomId);
-        const bool newDb = QFileInfo::exists(fileName);
+        const bool dbExists = QFileInfo::exists(fileName);
         db.setDatabaseName(fileName);
         if (!db.open()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << db.databaseName();
             return false;
         }
         QSqlQuery query(db);
-        if (!newDb) {
+        if (!dbExists) {
             query.exec(schemaDataBase());
             if (query.lastError().isValid()) {
                 qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
@@ -172,14 +172,14 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, QSqlDatab
             return false;
         }
         const QString fileName = dbFileName(accountName);
-        const bool newDb = QFileInfo::exists(fileName);
+        const bool dbExists = QFileInfo::exists(fileName);
         db.setDatabaseName(fileName);
         if (!db.open()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << db.databaseName();
             return false;
         }
         QSqlQuery query(db);
-        if (!newDb) {
+        if (!dbExists) {
             query.exec(schemaDataBase());
             if (query.lastError().isValid()) {
                 qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
