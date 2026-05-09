@@ -63,7 +63,7 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QByteArray
     QSqlQuery query(LocalDatabaseUtils::deleteRoom(), db);
     query.addBindValue(QString::fromLatin1(roomId));
     if (!query.exec()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMS table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
         mRuqolaLogger->dataSaveFromDatabase("Delete room " + roomId + " in account " + accountName.toUtf8());
     }

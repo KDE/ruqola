@@ -70,7 +70,7 @@ void LocalRoomSubscriptionsDatabase::deleteRoomSubscription(const QString &accou
     QSqlQuery query(LocalDatabaseUtils::deleteRoomSubscription(), db);
     query.addBindValue(QString::fromLatin1(subscriptionId));
     if (!query.exec()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMSUBSCRIPTIONS table" << db.databaseName() << query.lastError();
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMSUBSCRIPTIONS table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
         mRuqolaLogger->dataSaveFromDatabase("Delete subscriptionId " + subscriptionId + " in account " + accountName.toUtf8());
     }
