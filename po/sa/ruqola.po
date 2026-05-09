@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -12027,6 +12027,12 @@ msgstr "उपयोक्तृनाम"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "खाता योजयतु..."
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+#, fuzzy
+#| msgid "Network is offline mode."
+msgid "Improve offline Mode"
+msgstr "नेटवर्क् अफलाइन मोड् अस्ति।"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, kde-format

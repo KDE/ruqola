@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
 "PO-Revision-Date: 2026-05-02 18:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -11935,6 +11935,13 @@ msgstr "Kullanıcı adı:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Hesap Ekle…"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+#, fuzzy
+#| msgctxt "@action:button"
+#| msgid "Switch Offline Mode"
+msgid "Improve offline Mode"
+msgstr "Çevrim Dışı Kipe Geç"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, kde-format

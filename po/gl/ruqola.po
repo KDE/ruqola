@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
 "PO-Revision-Date: 2025-06-21 12:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -12106,6 +12106,12 @@ msgstr "Nome de persoa usuaria"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Engadir unha conta…"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:17
+#, fuzzy
+#| msgid "Network is offline mode."
+msgid "Improve offline Mode"
+msgstr "A rede está en modo sen conexión."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, kde-format
