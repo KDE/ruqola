@@ -4,13 +4,13 @@
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020, 2021, 2022, 2023.
 # Vinícius Santos <vinicius_maria@outlook.com>, 2020.
 # SPDX-FileCopyrightText: 2025, 2026 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
-# SPDX-FileCopyrightText: 2025, 2026 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-09 00:43+0000\n"
-"PO-Revision-Date: 2026-04-06 08:43-0300\n"
+"PO-Revision-Date: 2026-05-09 06:15-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -11982,11 +11982,8 @@ msgid "Add Account…"
 msgstr "Adicionar conta…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Switch Offline Mode"
 msgid "Improve offline Mode"
-msgstr "Alternar modo desconectado"
+msgstr "Melhorar modo desconectado"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, kde-format

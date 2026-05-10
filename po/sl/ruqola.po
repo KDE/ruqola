@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-09 00:43+0000\n"
-"PO-Revision-Date: 2026-04-06 07:51+0200\n"
+"PO-Revision-Date: 2026-05-09 08:01+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -9710,7 +9710,7 @@ msgstr "Ni najdenega omrežja."
 #, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "Preklopi odklopljeni način."
+msgstr "Preklopi odklopljeni način"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -12003,11 +12003,8 @@ msgid "Add Account…"
 msgstr "Dodaj račun…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:17
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Switch Offline Mode"
 msgid "Improve offline Mode"
-msgstr "Preklopi odklopljeni način."
+msgstr "Izboljšaj odklopljeni način"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, kde-format
