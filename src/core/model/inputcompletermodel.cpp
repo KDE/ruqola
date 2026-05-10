@@ -146,18 +146,14 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         const QJsonArray users = obj.value("users"_L1).toArray();
         bool needToAddAll = false;
         bool needToAddHere = false;
+        if (!mSearchInfo.searchString.isEmpty()) {
+            needToAddAll = InputCompleterModel::all().startsWith(mSearchInfo.searchString);
+            needToAddHere = InputCompleterModel::here().startsWith(mSearchInfo.searchString);
+        }
         for (int i = 0; i < users.size(); i++) {
             const QJsonObject o = users.at(i).toObject();
             ChannelUserCompleter user;
             user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
-            if (!mSearchInfo.searchString.isEmpty()) {
-                if (!needToAddAll && InputCompleterModel::all().startsWith(mSearchInfo.searchString)) {
-                    needToAddAll = true;
-                }
-                if (!needToAddHere && InputCompleterModel::here().startsWith(mSearchInfo.searchString)) {
-                    needToAddHere = true;
-                }
-            }
             // Verify that it's valid
             channelList.append(std::move(user));
         }
