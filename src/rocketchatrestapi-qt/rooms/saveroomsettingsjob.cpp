@@ -147,7 +147,9 @@ QJsonDocument SaveRoomSettingsJob::json() const
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::DefaultValue) {
         jsonObjFavorite["defaultValue"_L1] = mSaveRoomSettingsInfo.defaultValue;
     }
-    jsonObj["favorite"_L1] = jsonObjFavorite;
+    if (!jsonObjFavorite.isEmpty()) {
+        jsonObj["favorite"_L1] = jsonObjFavorite;
+    }
 
     jsonObj["roomType"_L1] = mSaveRoomSettingsInfo.roomType;
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::JoinCode) {
@@ -171,6 +173,7 @@ QJsonDocument SaveRoomSettingsJob::json() const
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
+    // qDebug() << " postData ****** " << postData;
     return postData;
 }
 
