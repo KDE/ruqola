@@ -33,10 +33,10 @@ ManageChannels::SearchChannelFound ManageChannels::searchOpenChannels(const QStr
     for (int roomIdx = 0, nRooms = roomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = roomModel->index(roomIdx, 0);
         const auto identifier = roomModelIndex.data(RoomModel::RoomId).toByteArray();
-        if (QString::fromLatin1(identifier) == roomId) {
+        if (identifier == roomId.toLatin1()) {
             if (roomModelIndex.data(RoomModel::RoomOpen).toBool()) {
                 result = ManageChannels::SearchChannelFound::ChannelOpened;
-                Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
+                Q_EMIT selectRoomByRoomIdRequested(identifier);
             } else {
                 result = ManageChannels::SearchChannelFound::ChannelHidden;
             }
