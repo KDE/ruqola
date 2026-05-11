@@ -20,9 +20,7 @@ class ActivitiesManager;
 #endif
 class RocketChatAccountModel;
 class RocketChatAccountFilterProxyModel;
-#if HAVE_TEXT_TO_SPEECH
 class TextToSpeechEnqueueManager;
-#endif
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
