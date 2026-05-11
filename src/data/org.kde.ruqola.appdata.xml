@@ -1385,6 +1385,7 @@
   </provides>
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
   <releases>
+    <release version="2.7.2" date="2026-05-11"/>
     <release version="2.7.1" date="2026-04-03"/>
     <release version="2.7.0" date="2026-03-08"/>
     <release version="2.6.1" date="2026-01-22"/>
