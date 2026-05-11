@@ -85,8 +85,10 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &par
         // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(rocketChatAccount->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
-        Q_EMIT mCurrentAccount->raiseWindow();
-        Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseInfo.roomId, parseInfo.roomIdType, parseInfo.channelType);
+        if (mCurrentAccount) {
+            Q_EMIT mCurrentAccount->raiseWindow();
+            Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseInfo.roomId, parseInfo.roomIdType, parseInfo.channelType);
+        }
         return true;
     }
     return false;
@@ -159,8 +161,10 @@ void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, 
     } else {
         linkRoom = u"ruqola:/user/%1"_s.arg(QString::fromLatin1(roomId));
     }
-    Q_EMIT mCurrentAccount->raiseWindow();
-    Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
+    if (mCurrentAccount) {
+        Q_EMIT mCurrentAccount->raiseWindow();
+        Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
+    }
 }
 
 AccountManager::MigrateDatabaseType AccountManager::needToHandleDataMigration() const
