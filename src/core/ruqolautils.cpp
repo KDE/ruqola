@@ -41,6 +41,7 @@ void RuqolaUtils::openUrl(const QString &url)
 
 void RuqolaUtils::openUrl(const QUrl &url)
 {
+    qDebug() << Q_FUNC_INFO << url;
     if (QDesktopServices::openUrl(url)) {
 #if HAVE_ACTIVITY_SUPPORT
         KActivities::ResourceInstance::notifyAccessed(url);
