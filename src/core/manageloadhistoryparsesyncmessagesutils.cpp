@@ -7,6 +7,7 @@
 #include "manageloadhistoryparsesyncmessagesutils.h"
 
 #include "rocketchataccount.h"
+#include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;
 
 ManageLoadHistoryParseSyncMessagesUtils::ManageLoadHistoryParseSyncMessagesUtils(RocketChatAccount *account)

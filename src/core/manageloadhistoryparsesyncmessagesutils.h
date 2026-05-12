@@ -7,10 +7,9 @@
 #pragma once
 #include "libruqola_private_export.h"
 #include "messages/message.h"
-#include <QJsonObject>
 #include <QList>
 class RocketChatAccount;
-
+class QJsonObject;
 class LIBRUQOLACORE_TESTS_EXPORT ManageLoadHistoryParseSyncMessagesUtils
 {
 public:
