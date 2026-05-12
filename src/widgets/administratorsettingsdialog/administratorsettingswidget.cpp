@@ -36,6 +36,7 @@
 #include "webdav/webdavsettingswidget.h"
 #include "webrtc/webrtcsettingswidget.h"
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QTabWidget>
 #include <QVBoxLayout>
 

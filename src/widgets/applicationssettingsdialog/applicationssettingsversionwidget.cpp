@@ -10,6 +10,7 @@ SPDX-License-Identifier: LGPL-2.0-or-later
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QShowEvent>
 #include <QTextBrowser>
 #include <QVBoxLayout>

@@ -11,6 +11,7 @@
 
 #include <QApplication>
 #include <QFileDialog>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QPlainTextEdit>

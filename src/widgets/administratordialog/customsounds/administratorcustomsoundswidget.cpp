@@ -19,12 +19,13 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QFileInfo>
+#include <QJsonArray>
 #include <QJsonObject>
 #include <QLabel>
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
-#include <qfileinfo.h>
 
 using namespace Qt::Literals::StringLiterals;
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccount *account, QWidget *parent)

@@ -16,7 +16,9 @@
 #include "ruqolawidgets_debug.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QLineEdit>
+
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;

@@ -7,6 +7,7 @@
 #include "replies.h"
 
 #include "ruqola_message_memory_debug.h"
+#include <QJsonArray>
 
 using namespace Qt::Literals::StringLiterals;
 Replies::Replies()

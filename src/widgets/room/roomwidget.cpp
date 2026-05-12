@@ -68,6 +68,7 @@
 #include "ruqolautils.h"
 #include <QDragEnterEvent>
 #include <QDropEvent>
+#include <QJsonArray>
 #include <QMimeData>
 #include <QPushButton>
 #include <QScrollBar>

@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonArray>
 #include <QList>
 #include <QSharedData>
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT Replies : public QSharedData
 {
 public:

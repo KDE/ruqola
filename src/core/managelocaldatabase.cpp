@@ -20,6 +20,7 @@
 #include "ruqola_loadhistory_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
+#include <QJsonArray>
 
 using namespace Qt::Literals::StringLiterals;
 #define USE_LOCALDATABASE

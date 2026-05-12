@@ -17,7 +17,9 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QLineEdit>
+
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;

@@ -9,8 +9,8 @@
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#include <QJsonArray>
 
-#include "chat/getmessagejob.h"
 #include "chat/getthreadmessagesjob.h"
 
 using namespace Qt::Literals::StringLiterals;

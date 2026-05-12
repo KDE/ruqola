@@ -12,9 +12,11 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QShowEvent>
 #include <QTextBrowser>
 #include <QVBoxLayout>
+
 using namespace Qt::Literals::StringLiterals;
 
 using namespace Qt::Literals::StringLiterals;

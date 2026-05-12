@@ -20,6 +20,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QDialogButtonBox>
+#include <QJsonArray>
 #include <QVBoxLayout>
 #include <QWindow>
 namespace

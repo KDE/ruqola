@@ -14,6 +14,7 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KSeparator>
+#include <QJsonArray>
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>

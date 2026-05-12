@@ -18,6 +18,7 @@
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
+#include <QJsonArray>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>

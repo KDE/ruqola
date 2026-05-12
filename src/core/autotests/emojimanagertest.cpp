@@ -10,6 +10,7 @@
 #include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
