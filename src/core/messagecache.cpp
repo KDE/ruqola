@@ -46,15 +46,6 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
     if (cachedMessage) {
         return cachedMessage;
     } else if (!mMessageJobs.contains(messageId)) {
-#ifdef USE_GET_MESSAGE_JOB
-        auto job = new RocketChatRestApi::GetMessageJob(this);
-        mMessageJobs.insert(messageId, job);
-        job->setMessageId(messageId);
-        connect(job, &RocketChatRestApi::GetMessageJob::getMessageDone, this, &MessageCache::slotGetMessageDone);
-        if (!startJob(job)) {
-            qCDebug(RUQOLA_LOG) << "Impossible to start GetMessageJob";
-        }
-#else
         auto job = new RocketChatRestApi::MethodCallJob(this);
 
         const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info = generateMethodCallInfo(messageId);
@@ -66,7 +57,6 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
         if (!startJob(job)) {
             qCWarning(RUQOLA_LOG) << "Impossible to start MethodCallJobInfo/getSingleMessage job";
         }
-#endif
     }
     return nullptr;
 }

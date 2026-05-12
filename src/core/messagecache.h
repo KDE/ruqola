@@ -47,11 +47,7 @@ private:
     mutable QMap<QByteArray, RocketChatRestApi::GetThreadMessagesJob *> mThreadMessageJobs;
     QCache<QByteArray, ThreadMessageModel> mThreadMessageModels;
 
-#ifdef USE_GET_MESSAGE_JOB
-    mutable QMap<QByteArray, RocketChatRestApi::GetMessageJob *> mMessageJobs;
-#else
     mutable QMap<QByteArray, RocketChatRestApi::MethodCallJob *> mMessageJobs;
-#endif
     QCache<QByteArray, Message> mMessages;
     RocketChatAccount *const mRocketChatAccount;
 };

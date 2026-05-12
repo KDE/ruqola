@@ -6,15 +6,12 @@
 
 #include "messagecachetest.h"
 
-#ifdef USE_GET_MESSAGE_JOB
-#include "chat/getmessagejob.h"
-#else
-#include "misc/methodcalljob.h"
-#endif
 #include "messagecache.h"
 #include "messages/message.h"
+#include "misc/methodcalljob.h"
 
 #include "rocketchatmessage.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QSignalSpy>
 #include <QTest>
@@ -45,21 +42,6 @@ protected:
 
     bool startJob(RocketChatRestApi::RestApiAbstractJob *job) override
     {
-#ifdef USE_GET_MESSAGE_JOB
-        if (auto getMsgJob = qobject_cast<RocketChatRestApi::GetMessageJob *>(job)) {
-            QTimer::singleShot(100, this, [getMsgJob]() {
-                const QByteArray content =
-                    "{ \"message\": "
-                    "{ \"msg\": \"message foo\","
-                    "  \"_id\": \"Co6LnNbu5TYcXPuMG\" } }";
-                const QJsonDocument doc = QJsonDocument::fromJson(content);
-                Q_EMIT getMsgJob->getMessageDone(doc.object(), getMsgJob->messageId(), getMsgJob->roomId());
-            });
-            ++mJobStarted;
-            return true;
-        }
-        return false;
-#else
         if (auto getMsgJob = qobject_cast<RocketChatRestApi::MethodCallJob *>(job)) {
             QTimer::singleShot(100, this, [getMsgJob]() {
                 const QByteArray content =
@@ -73,8 +55,6 @@ protected:
             return true;
         }
         return false;
-
-#endif
     }
 
 private:
