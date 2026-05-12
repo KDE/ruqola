@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-09 00:43+0000\n"
+"POT-Creation-Date: 2026-05-12 00:44+0000\n"
 "PO-Revision-Date: 2026-04-09 11:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -173,12 +173,12 @@ msgstr "ميزة جديدة"
 msgid "The following accounts are available:"
 msgstr "الحسابات التالية متاحة:"
 
-#: core/accountmanager.cpp:303
+#: core/accountmanager.cpp:307
 #, kde-format
 msgid "Invalid invite token"
 msgstr "رمز الدعوة غير صالح"
 
-#: core/accountmanager.cpp:304
+#: core/accountmanager.cpp:308
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "رمز الدعوة غير صالح. ألغي إنشاء الحساب."

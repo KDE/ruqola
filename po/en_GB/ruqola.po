@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-09 00:43+0000\n"
+"POT-Creation-Date: 2026-05-12 00:44+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -173,13 +173,13 @@ msgstr "New feature"
 msgid "The following accounts are available:"
 msgstr "The following accounts are available:"
 
-#: core/accountmanager.cpp:303
+#: core/accountmanager.cpp:307
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "Invalid token"
 
-#: core/accountmanager.cpp:304
+#: core/accountmanager.cpp:308
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
