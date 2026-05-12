@@ -5,12 +5,12 @@
 */
 
 #include "appsuiinteractionjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 AppsUiInteractionJob::AppsUiInteractionJob(QObject *parent)
     : RestApiAbstractJob(parent)
