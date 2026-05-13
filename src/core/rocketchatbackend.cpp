@@ -495,8 +495,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : Message: " << object;
             }
             const QJsonObject roomData = contents[0].toObject();
-            mRocketChatAccount->addMessage(roomData);
-            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
+            if (!roomData.isEmpty()) {
+                mRocketChatAccount->addMessage(roomData);
+                qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
+            } else {
+                qCWarning(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Invalid roomData value " << contents;
+            }
             // qDebug() << "stream-notify-user : Message  " << eventname << " contents " << contents;
         } else if (eventname.endsWith("/userData"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
@@ -556,15 +560,20 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             roomId.remove(u"/deleteMessage"_s);
             MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1());
             if (messageModel) {
-                const QByteArray messageId = contents.at(0).toObject()["_id"_L1].toString().toLatin1();
-                messageModel->deleteMessage(messageId);
-                const Room *room = mRocketChatAccount->room(roomId.toLatin1());
-                if (room) {
-                    mRocketChatAccount->deleteMessageFromDatabase(room->roomId(), messageId);
+                const QJsonObject objRemoveId = contents.at(0).toObject();
+                if (!objRemoveId.isEmpty()) {
+                    const QByteArray messageId = objRemoveId["_id"_L1].toString().toLatin1();
+                    messageModel->deleteMessage(messageId);
+                    const Room *room = mRocketChatAccount->room(roomId.toLatin1());
+                    if (room) {
+                        mRocketChatAccount->deleteMessageFromDatabase(room->roomId(), messageId);
+                    }
+                    // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
+                    MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
+                    threadMessageModel->deleteMessage(messageId);
+                } else {
+                    qCWarning(RUQOLA_MESSAGE_LOG) << "Invalid qjsonobject : " << contents;
                 }
-                // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
-                MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
-                threadMessageModel->deleteMessage(messageId);
             } else {
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }
