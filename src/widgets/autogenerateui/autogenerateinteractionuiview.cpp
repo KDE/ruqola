@@ -43,11 +43,15 @@ void AutoGenerateInteractionUiView::clear()
 void AutoGenerateInteractionUiView::parseView(const QJsonObject &json)
 {
     if (json.contains("close"_L1)) {
-        mCloseButton = new AutoGenerateInteractionUiViewButtonElement;
+        if (!mCloseButton) {
+            mCloseButton = new AutoGenerateInteractionUiViewButtonElement;
+        }
         mCloseButton->parse(json["close"_L1].toObject());
     }
     if (json.contains("submit"_L1)) {
-        mSubmitButton = new AutoGenerateInteractionUiViewButtonElement;
+        if (!mSubmitButton) {
+            mSubmitButton = new AutoGenerateInteractionUiViewButtonElement;
+        }
         mSubmitButton->parse(json["submit"_L1].toObject());
     }
     mShowIcon = json["showIcon"_L1].toBool();
