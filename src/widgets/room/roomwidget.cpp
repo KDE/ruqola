@@ -445,10 +445,8 @@ void RoomWidget::displayUiInteractionDialog(const QJsonObject &obj)
     auto dialog = new AutoGenerateInteractionUiDialog(mCurrentRocketChatAccount, this);
     if (dialog->parse(obj)) {
         dialog->exec();
-        delete dialog;
-    } else {
-        delete dialog;
     }
+    delete dialog;
 }
 
 void RoomWidget::slotShowUiInteraction(const QJsonArray &array)
