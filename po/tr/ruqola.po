@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:44+0000\n"
+"POT-Creation-Date: 2026-05-13 00:45+0000\n"
 "PO-Revision-Date: 2026-05-10 12:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -777,7 +777,7 @@ msgstr "Yuva, beklenmedik bir biçimde kapandı."
 
 #: core/messages/block/block.cpp:162 core/messages/message.cpp:886
 #: core/model/notificationhistorymodel.cpp:65
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
 msgid "Conference Call"
 msgstr "Video Konferans"
@@ -1204,7 +1204,7 @@ msgstr "Kullanıcı Adı"
 #: core/model/adminusersallmodel.cpp:72
 #: core/model/adminuserspendingmodel.cpp:70
 #: core/model/adminusersstatusmodel.cpp:28
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
 #: widgets/dialogs/configurenotificationwidget.cpp:116
 #, kde-format
 msgid "Email"
@@ -1538,7 +1538,7 @@ msgstr "Tartışmalar"
 msgid "Private Messages"
 msgstr "Özel İletiler"
 
-#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:319
 #, kde-format
 msgid "Unknown"
 msgstr "Bilinmiyor"
@@ -1733,7 +1733,7 @@ msgstr "Bu takıma katıldı"
 msgid "(Autojoin)"
 msgstr "(Otomatik Katılma)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:309 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Sahip"
@@ -1814,7 +1814,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:699
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1823,12 +1823,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#: core/rocketchataccount.cpp:714
+#: core/rocketchataccount.cpp:718
 #, kde-format
 msgid "Not connected yet"
 msgstr "Henüz bağlı değil"
@@ -3020,7 +3020,7 @@ msgid "View Log"
 msgstr "Günlüğü Görüntüle"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:136
 #, kde-format
 msgid "Oauth"
 msgstr "Oauth"
@@ -3109,7 +3109,7 @@ msgid "Remove Emoji"
 msgstr "Emojiyi Kaldır"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:285
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3122,7 +3122,7 @@ msgid "Add…"
 msgstr "Ekle…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:286
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:287
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3135,7 +3135,7 @@ msgid "Modify…"
 msgstr "Değiştir…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:290
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:291
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3161,30 +3161,30 @@ msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
 msgstr "MP3 dosyası"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:36
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Özel sesleri ara…"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:71
 #, kde-format
 msgid "No custom sound found"
 msgstr "Özel ses bulunamadı"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:75
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:76
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 özel ses (Toplam: %2)"
 msgstr[1] "%1 özel ses (Toplam: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:254
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:255
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Bu sesi kaldırmak istiyor musunuz?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:255
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:256
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -3246,7 +3246,7 @@ msgctxt "@option:check"
 msgid "Timestamp in Messages"
 msgstr "İletilerdeki zaman damgaları"
 
-#: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
+#: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search invite…"
@@ -3626,7 +3626,7 @@ msgstr "Yetkilendirme URL’si:"
 msgid "Access Token URL:"
 msgstr "Erişim Jetonu URL’si:"
 
-#: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
+#: widgets/administratordialog/oauth/administratoroauthwidget.cpp:39
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Oauth apps…"
@@ -4611,123 +4611,123 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Yönetici Sunucu Ayarları — %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
 #, kde-format
 msgid "Accounts"
 msgstr "Hesaplar"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
 #: widgets/room/roomheaderwidget.cpp:86
 #, kde-format
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #, kde-format
 msgid "Message"
 msgstr "İleti"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
 #, kde-format
 msgid "File Upload"
 msgstr "Dosya Karşıya Yükle"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
 #, kde-format
 msgid "Retention Policy"
 msgstr "Tutma Politikası"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
 #, kde-format
 msgid "General"
 msgstr "Genel"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Hız Sınırlayıcı"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:71
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:61
 #, kde-format
 msgid "Password"
 msgstr "Parola"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "Video Conference"
 msgstr "Video Konferans"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
 msgid "IRC Federation"
 msgstr "IRC Yönetimi"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "IRC"
 msgstr "IRC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "Layout"
 msgstr "Yerleşim"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
 #, kde-format
 msgid "Enterprise"
 msgstr "Kurumsal"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "User Data Download"
 msgstr "Kullanıcı Verisi İndirme"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Slack Köprüsü"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr "Günlükler"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
 #: widgets/dialogs/configurenotificationwidget.cpp:98
 #, kde-format
 msgid "Mobile"
 msgstr "Taşınabilir"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:132
 #, kde-format
 msgid "Troubleshoot"
 msgstr "Tanılar"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:134
 #, kde-format
 msgid "WebRTC"
 msgstr "WebRTC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:134
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:135
 #, kde-format
 msgid "CAS"
 msgstr "CAS"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:137
 #, kde-format
 msgid "Analytics"
 msgstr "Analitikler"
@@ -7327,12 +7327,12 @@ msgctxt "@title:window"
 msgid "Uninstall Application"
 msgstr "Uygulamayı Kaldır"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:65
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:67
 #, kde-format
 msgid "%1 Caller: %2"
 msgstr "%1 arayan: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
 #, kde-format
 msgid "No logs info found."
 msgstr "Günlük bilgisi bulunamadı."
@@ -7416,17 +7416,17 @@ msgstr "En Eski Güncellenen"
 msgid "All Status"
 msgstr "Tüm Durumlar"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:54
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:55
 #, kde-format
 msgid "Fetching version information in progress..."
 msgstr "Sürüm bilgisini alma işlemi sürüyor…"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:74
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:75
 #, kde-format
 msgid "No release information provided"
 msgstr "Sunulmuş yayım bilgisi yok"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:84
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:85
 #, kde-format
 msgid "No version info found."
 msgstr "Sürüm bilgisi bulunamadı."
@@ -8992,7 +8992,7 @@ msgstr "Metinler"
 msgid "Files"
 msgstr "Dosyalar"
 
-#: widgets/dialogs/showattachmentdialog.cpp:36
+#: widgets/dialogs/showattachmentdialog.cpp:37
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9837,19 +9837,19 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Yeni Kod Gönder"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:25
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Uçtan Uca Şifreleme Anahtarını Kaldır"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:26
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Modify"
 msgstr "Değişiklik Yap"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:34
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9868,7 +9868,7 @@ msgstr ""
 "Uçtan uca şifrelemeyi kullanmak istediğiniz diğer aygıtta parolayı girmeniz "
 "istenecektir."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:52
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:53
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
@@ -11127,39 +11127,39 @@ msgstr "Bir dizide yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu İletiyi Dizide Yanıtla: “%1”"
 
-#: widgets/room/roomwidget.cpp:377
+#: widgets/room/roomwidget.cpp:378
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:378
+#: widgets/room/roomwidget.cpp:379
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"
 
-#: widgets/room/roomwidget.cpp:412
+#: widgets/room/roomwidget.cpp:413
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: widgets/room/roomwidget.cpp:413
+#: widgets/room/roomwidget.cpp:414
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
 
-#: widgets/room/roomwidget.cpp:577
+#: widgets/room/roomwidget.cpp:578
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Şifreli içerikte arama yapılamaz."
 
-#: widgets/room/roomwidget.cpp:577
+#: widgets/room/roomwidget.cpp:578
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "İleti Ara"
 
-#: widgets/room/roomwidget.cpp:596
+#: widgets/room/roomwidget.cpp:597
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11167,7 +11167,7 @@ msgstr ""
 "Bir çalışma alanı yöneticisinin bir konferans araması uygulaması kurması ve "
 "yapılandırması gerekir."
 
-#: widgets/room/roomwidget.cpp:597
+#: widgets/room/roomwidget.cpp:598
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

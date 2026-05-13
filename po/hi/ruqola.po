@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:44+0000\n"
+"POT-Creation-Date: 2026-05-13 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -785,7 +785,7 @@ msgstr "सॉकेट अप्रत्याशित रूप से ब�
 
 #: core/messages/block/block.cpp:162 core/messages/message.cpp:886
 #: core/model/notificationhistorymodel.cpp:65
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
 msgid "Conference Call"
 msgstr "कांफ्रेंस कॉल"
@@ -1212,7 +1212,7 @@ msgstr "उपयोगकर्ता नाम"
 #: core/model/adminusersallmodel.cpp:72
 #: core/model/adminuserspendingmodel.cpp:70
 #: core/model/adminusersstatusmodel.cpp:28
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
 #: widgets/dialogs/configurenotificationwidget.cpp:116
 #, kde-format
 msgid "Email"
@@ -1546,7 +1546,7 @@ msgstr "चर्चाएँ"
 msgid "Private Messages"
 msgstr "निजी संदेश"
 
-#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:319
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -1741,7 +1741,7 @@ msgstr "इस टीम में शामिल हुए"
 msgid "(Autojoin)"
 msgstr "(ऑटोज्वाइन)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:309 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "मालिक"
@@ -1822,7 +1822,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:699
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1831,12 +1831,12 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:714
+#: core/rocketchataccount.cpp:718
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
@@ -3043,7 +3043,7 @@ msgid "View Log"
 msgstr "देखें प्रवेश"
 
 #: widgets/administratordialog/administratorwidget.cpp:87
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:136
 #, kde-format
 msgid "Oauth"
 msgstr "ओआथ"
@@ -3134,7 +3134,7 @@ msgid "Remove Emoji"
 msgstr "इमोजी हटाएँ"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:285
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3147,7 +3147,7 @@ msgid "Add…"
 msgstr "जोड़ना…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:286
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:287
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3160,7 +3160,7 @@ msgid "Modify…"
 msgstr "संशोधित करें…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:290
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:291
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3186,30 +3186,30 @@ msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
 msgstr ""
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:35
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:36
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "कस्टम ध्वनियाँ खोजें"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:71
 #, kde-format
 msgid "No custom sound found"
 msgstr "कोई कस्टम ध्वनि नहीं मिली"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:75
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:76
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 कस्टम ध्वनियाँ (कुल: %2)"
 msgstr[1] "%1 कस्टम ध्वनियाँ (कुल: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:254
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:255
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "क्या आप यह ध्वनि हटाना चाहते हैं?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:255
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:256
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -3274,7 +3274,7 @@ msgctxt "@option:check"
 msgid "Timestamp in Messages"
 msgstr "कुल संदेश"
 
-#: widgets/administratordialog/invites/administratorinviteswidget.cpp:41
+#: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search invite…"
@@ -3656,7 +3656,7 @@ msgstr "प्राधिकरण यूआरएल:"
 msgid "Access Token URL:"
 msgstr "एक्सेस टोकन यूआरएल:"
 
-#: widgets/administratordialog/oauth/administratoroauthwidget.cpp:37
+#: widgets/administratordialog/oauth/administratoroauthwidget.cpp:39
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Oauth apps…"
@@ -4637,123 +4637,123 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "व्यवस्थापक सर्वर सेटिंग्स - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
 #, kde-format
 msgid "Accounts"
 msgstr "हिसाब किताब"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
 #: widgets/room/roomheaderwidget.cpp:86
 #, kde-format
 msgid "Encryption"
 msgstr "कूटलेखन"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #, kde-format
 msgid "Message"
 msgstr "संदेश"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
 #, kde-format
 msgid "File Upload"
 msgstr "फ़ाइल अपलोड"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
 #, kde-format
 msgid "Retention Policy"
 msgstr "अवधारण नीति"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
 #, kde-format
 msgid "General"
 msgstr "सामान्य"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "Rate Limiter"
 msgstr "दर सीमक"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:71
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:61
 #, kde-format
 msgid "Password"
 msgstr "पासवर्ड"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "Video Conference"
 msgstr "वीडियो सम्मेलन"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
 msgid "IRC Federation"
 msgstr "आईआरसी फेडरेशन"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "IRC"
 msgstr "आईआरसी"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #, kde-format
 msgid "Webdav"
 msgstr "वेबडाव"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
 #, kde-format
 msgid "LDAP"
 msgstr "एलडीएपी"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "Layout"
 msgstr "लेआउट"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
 #, kde-format
 msgid "Enterprise"
 msgstr "उद्यम"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "User Data Download"
 msgstr "उपयोगकर्ता डेटा डाउनलोड करें"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #, kde-format
 msgid "Slack Bridge"
 msgstr "स्लैक ब्रिज"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:42
 #, kde-format
 msgid "Logs"
 msgstr "लॉग्स"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
 #: widgets/dialogs/configurenotificationwidget.cpp:98
 #, kde-format
 msgid "Mobile"
 msgstr "गतिमान"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:132
 #, kde-format
 msgid "Troubleshoot"
 msgstr "समस्याओं का निवारण"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:134
 #, kde-format
 msgid "WebRTC"
 msgstr "वेबआरटीसी"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:134
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:135
 #, kde-format
 msgid "CAS"
 msgstr "कैस"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:137
 #, kde-format
 msgid "Analytics"
 msgstr "एनालिटिक्स"
@@ -7362,13 +7362,13 @@ msgctxt "@title:window"
 msgid "Uninstall Application"
 msgstr "इंस्टॉल किए गए अनुप्रयोग…"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:65
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:67
 #, fuzzy, kde-format
 #| msgid "%1: %2"
 msgid "%1 Caller: %2"
 msgstr "%1: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:71
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "No version info found."
 msgid "No logs info found."
@@ -7456,17 +7456,17 @@ msgstr "सबसे हाल ही में अपडेट किया ग
 msgid "All Status"
 msgstr "सभी स्थिति"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:54
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:55
 #, kde-format
 msgid "Fetching version information in progress..."
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:74
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:75
 #, kde-format
 msgid "No release information provided"
 msgstr "कोई रिलीज़ जानकारी उपलब्ध नहीं कराई गई"
 
-#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:84
+#: widgets/applicationssettingsdialog/applicationssettingsversionwidget.cpp:85
 #, kde-format
 msgid "No version info found."
 msgstr "कोई संस्करण जानकारी नहीं मिली."
@@ -9062,7 +9062,7 @@ msgstr "ग्रंथों"
 msgid "Files"
 msgstr "फ़ाइलें"
 
-#: widgets/dialogs/showattachmentdialog.cpp:36
+#: widgets/dialogs/showattachmentdialog.cpp:37
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9921,20 +9921,20 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "नया कोड भेजें"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:25
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "E2E कुंजी रीसेट करें"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:26
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Modify…"
 msgctxt "@action:button"
 msgid "Modify"
 msgstr "संशोधित करें…"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:34
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:35
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9951,7 +9951,7 @@ msgstr ""
 "जगह पर स्टोर करना होगा। आपको इसे उन अन्य डिवाइस पर दर्ज करना होगा, जिन पर आप e2e "
 "एन्क्रिप्शन का उपयोग करना चाहते हैं।"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:52
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:53
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
@@ -11219,34 +11219,34 @@ msgstr "किसी थ्रेड में उत्तर देना"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "संदेश के लिए थ्रेड में उत्तर दें: '%1'"
 
-#: widgets/room/roomwidget.cpp:377
+#: widgets/room/roomwidget.cpp:378
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "क्या आप सचमुच इतिहास हटाना चाहते हैं?"
 
-#: widgets/room/roomwidget.cpp:378
+#: widgets/room/roomwidget.cpp:379
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "इतिहास हटाएँ"
 
-#: widgets/room/roomwidget.cpp:412
+#: widgets/room/roomwidget.cpp:413
 #, kde-format
 msgid "Export Messages"
 msgstr "संदेश निर्यात करें"
 
-#: widgets/room/roomwidget.cpp:413
+#: widgets/room/roomwidget.cpp:414
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "आपका ईमेल भेजने के लिए कतारबद्ध कर दिया गया है."
 
-#: widgets/room/roomwidget.cpp:577
+#: widgets/room/roomwidget.cpp:578
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "प्रत्यक्ष संदेश संग्रहीत नहीं किए जा सकते"
 
-#: widgets/room/roomwidget.cpp:577
+#: widgets/room/roomwidget.cpp:578
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11254,7 +11254,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "संदेश खोजें"
 
-#: widgets/room/roomwidget.cpp:596
+#: widgets/room/roomwidget.cpp:597
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11262,7 +11262,7 @@ msgstr ""
 "कार्यस्थान व्यवस्थापक को कॉन्फ़्रेंस कॉल एप्लिकेशन इंस्टॉल और कॉन्फ़िगर करने की आवश्यकता होती "
 "है।"
 
-#: widgets/room/roomwidget.cpp:597
+#: widgets/room/roomwidget.cpp:598
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
