@@ -171,7 +171,6 @@ QString UsersInRoomWidget::displayShowMessageInRoom() const
 
 void UsersInRoomWidget::loadMoreUsers()
 {
-    qDebug() << Q_FUNC_INFO;
     mRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType(), {}); // TODO add filter
 }
 

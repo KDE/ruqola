@@ -254,12 +254,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         // The uni is "/" when the last primary connection was closed.
         // Do not log out to keep the messages visible (and because we can't, without a connected socket).
         // TODO Login only if we were logged in at this point.
-        //
-        // DF: I see primaryConnectionChanged: uni= "/org/freedesktop/NetworkManager/ActiveConnection/3" regularly (with the office wifi)
-
-        qDebug() << "primaryConnectionChanged: uni=" << uni;
         if (uni != "/"_L1 && mDdp) {
-            qDebug() << "Disconnect and reconnect:" << accountName();
+            qCDebug(RUQOLA_RECONNECT_LOG) << "Disconnect and reconnect:" << accountName();
             forceDisconnect();
             reconnectToServer();
         }
@@ -1194,17 +1190,12 @@ void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::Room
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     const int offset = usersModelForRoom->numberUsersWithoutFilter();
     if (offset < usersModelForRoom->total()) {
-        qDebug() << "setLoadMoreFilesInProgress true";
         usersModelForRoom->setLoadMoreUsersInProgress(true);
         if (hasAtLeastVersion(7, 3, 0)) {
-            qDebug() << "membersInRoomByRole";
             restApi()->membersInRoomByRole(roomId, filter, offset, qMin(50, usersModelForRoom->total() - offset));
         } else {
-            qDebug() << "membersInRoom";
             restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, usersModelForRoom->total() - offset));
         }
-    } else {
-        qWarning() << "ben non" << offset << usersModelForRoom->total();
     }
 }
 

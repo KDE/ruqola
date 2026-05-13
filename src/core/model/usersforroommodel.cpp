@@ -25,7 +25,6 @@ UsersForRoomModel::~UsersForRoomModel() = default;
 
 void UsersForRoomModel::setUsers(const QList<User> &users)
 {
-    qDebug() << Q_FUNC_INFO << "new:" << users.count() << "currently have" << mUsers.count() << "users";
     if (mUsers.isEmpty()) {
         if (!users.isEmpty()) {
             beginInsertRows(QModelIndex(), 0, users.count() - 1);
@@ -39,9 +38,7 @@ void UsersForRoomModel::setUsers(const QList<User> &users)
                 mUsers << u;
             }
         }
-        qDebug() << "old" << numberOfElement << "new" << mUsers.count();
         if (mUsers.count() > numberOfElement) {
-            qDebug() << "beginInsertRows first=" << numberOfElement << "last" << mUsers.count() - 1;
             beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
             endInsertRows();
         }
@@ -136,7 +133,6 @@ QString UsersForRoomModel::generateDisplayName(const User &user) const
 
 void UsersForRoomModel::checkFullList()
 {
-    qDebug() << "setHasFullList" << mUsers.count() << mTotal;
     setHasFullList(mUsers.count() == mTotal);
 }
 
