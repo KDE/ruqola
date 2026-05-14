@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-13 00:45+0000\n"
+"POT-Creation-Date: 2026-05-14 00:43+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1552,7 +1552,7 @@ msgstr "Megbeszélések"
 msgid "Private Messages"
 msgstr "Személyes üzenetek"
 
-#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:319
+#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Ismeretlen"
@@ -1747,7 +1747,7 @@ msgstr "Csatlakozott ehhez a csapathoz"
 msgid "(Autojoin)"
 msgstr "(Automatikus csatlakozás)"
 
-#: core/model/usersforroommodel.cpp:309 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Tulajdonos"
@@ -1828,7 +1828,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:703
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1837,12 +1837,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
 #, kde-format
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:714
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -11378,19 +11378,19 @@ msgstr "Üzenetek exportálása"
 msgid "Your email has been queued for sending."
 msgstr "Az e-maile sorba lett állítva a küldéshez."
 
-#: widgets/room/roomwidget.cpp:578
+#: widgets/room/roomwidget.cpp:576
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "Közvetlen üzenetek nem archiválhatók"
 
-#: widgets/room/roomwidget.cpp:578
+#: widgets/room/roomwidget.cpp:576
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Üzenet keresése"
 
-#: widgets/room/roomwidget.cpp:597
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11398,7 +11398,7 @@ msgstr ""
 "A munkaterület adminisztrátorának telepítenie kell és be kell állítania egy "
 "konferenciahívás-alkalmazást."
 
-#: widgets/room/roomwidget.cpp:598
+#: widgets/room/roomwidget.cpp:596
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

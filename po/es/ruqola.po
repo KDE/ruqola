@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-13 00:45+0000\n"
+"POT-Creation-Date: 2026-05-14 00:43+0000\n"
 "PO-Revision-Date: 2026-05-09 21:13+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1542,7 +1542,7 @@ msgstr "Discusiones"
 msgid "Private Messages"
 msgstr "Mensajes privados"
 
-#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:319
+#: core/model/roommodel.cpp:620 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Desconocido"
@@ -1737,7 +1737,7 @@ msgstr "Se unió a este equipo"
 msgid "(Autojoin)"
 msgstr "(Unirse automáticamente)"
 
-#: core/model/usersforroommodel.cpp:309 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Propietario"
@@ -1818,7 +1818,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo…"
 
-#: core/rocketchataccount.cpp:703
+#: core/rocketchataccount.cpp:699
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1827,12 +1827,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:707 core/rocketchataccount.cpp:720
 #, kde-format
 msgid "Not connected"
 msgstr "No conectado"
 
-#: core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:714
 #, kde-format
 msgid "Not connected yet"
 msgstr "No conectado todavía"
@@ -11219,18 +11219,18 @@ msgstr "Exportar mensajes"
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
 
-#: widgets/room/roomwidget.cpp:578
+#: widgets/room/roomwidget.cpp:576
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "No es posible buscar en contenido cifrado."
 
-#: widgets/room/roomwidget.cpp:578
+#: widgets/room/roomwidget.cpp:576
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Buscar mensaje"
 
-#: widgets/room/roomwidget.cpp:597
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11238,7 +11238,7 @@ msgstr ""
 "Un administrador del espacio de trabajo necesita instalar y configurar una "
 "aplicación de llamadas de conferencia."
 
-#: widgets/room/roomwidget.cpp:598
+#: widgets/room/roomwidget.cpp:596
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
