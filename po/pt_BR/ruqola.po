@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:43+0000\n"
-"PO-Revision-Date: 2026-05-09 06:15-0300\n"
+"PO-Revision-Date: 2026-05-17 07:53-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -1938,7 +1938,7 @@ msgstr "URL da mensagem"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
-msgstr "Lista as opções disponíveis para comentários do usuário"
+msgstr "Lista as opções disponíveis para o feedback do usuário"
 
 #: core/ruqolacommandlineparser.cpp:57
 #, kde-format
@@ -7902,7 +7902,7 @@ msgstr "Tradução"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
-msgstr "Comentários do usuário"
+msgstr "Feedback do usuário"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:114
 #, kde-format
