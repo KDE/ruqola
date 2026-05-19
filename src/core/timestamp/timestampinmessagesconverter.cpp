@@ -39,7 +39,7 @@ QString TimeStampInMessagesConverter::generateTimeStamp(const QString &str) cons
         QDateTime dateTime = QDateTime::fromString(dateTimeCaptured.toString(), u"yyyy-MM-ddThh:mm:ss.zzz"_s);
 
         if (!dateTime.isValid()) {
-            dateTime = QDateTime::fromString(dateTimeCaptured.toString(), u"yyyy-MM-ddThh:mm:ss.zzzttt"_s);
+            dateTime = QDateTime::fromString(dateTimeCaptured.toString(), Qt::ISODateWithMs);
             // qDebug() << " dateTime " << dateTime;
             dateTime = dateTime.toLocalTime();
         }
