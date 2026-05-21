@@ -81,6 +81,9 @@
 #if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+#include <TextAddonsWidgets/OpenSavedFileFolderWidget>
+#endif
 
 using namespace Qt::Literals::StringLiterals;
 RoomWidget::RoomWidget(QWidget *parent)
@@ -91,6 +94,9 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
+#endif
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+    , mOpenSavedFileFolderWidget(new TextAddonsWidgets::OpenSavedFileFolderWidget(this))
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -132,6 +138,10 @@ RoomWidget::RoomWidget(QWidget *parent)
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mRoomWidgetLayout->addWidget(mTextToSpeechWidget);
     connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+#endif
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+    mOpenSavedFileFolderWidget->setObjectName(u"mOpenSavedFileFolderWidget"_s);
+    mRoomWidgetLayout->addWidget(mOpenSavedFileFolderWidget);
 #endif
 
     mRoomWidgetLayout->addWidget(mRoomWidgetBase);

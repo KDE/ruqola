@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 #include "messages/message.h"
 #include "room.h"
@@ -29,7 +30,12 @@ namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
 }
-
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+namespace TextAddonsWidgets
+{
+class OpenSavedFileFolderWidget;
+}
+#endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -140,4 +146,7 @@ private:
     E2eDecodeEncryptionKeyFailedWidget *mE2eDecodeEncryptionKeyFailedWidget = nullptr;
     E2eDecodeEncryptionKeyWidget *mE2eDecodeEncryptionKeyWidget = nullptr;
     QPointer<ShowThreadsDialog> mShowThreadsDialog;
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+    TextAddonsWidgets::OpenSavedFileFolderWidget *const mOpenSavedFileFolderWidget;
+#endif
 };
