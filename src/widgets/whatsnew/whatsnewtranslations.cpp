@@ -14,7 +14,10 @@ WhatsNewTranslations::~WhatsNewTranslations() = default;
 // Use by newFeaturesMD5
 QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
 {
-    const QList<KLazyLocalizedString> info{kli18n("Improve offline Mode")};
+    const QList<KLazyLocalizedString> info{
+        kli18n("Improve offline Mode"),
+        kli18n("Allow to open saved file."),
+    };
     return info;
 }
 QList<TextAddonsWidgets::WhatsNewInfo> WhatsNewTranslations::createWhatsNewInfo() const
