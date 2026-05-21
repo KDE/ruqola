@@ -24,6 +24,7 @@ void MessageAttachmentDownloadAndSaveJob::slotDownloadDone(const QString &path)
     switch (mInfo.actionType) {
     case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave:
         TextAddonsWidgets::SaveFileUtils::saveFile(mInfo.parentWidget, path, saveFileString());
+        Q_EMIT mRocketChatAccount->openSavedFileFolderDone({QUrl::fromLocalFile(path)}, RocketChatAccount::FileType::File);
         break;
     case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadOnly:
         Q_EMIT attachmentFileDownloadDone(path);

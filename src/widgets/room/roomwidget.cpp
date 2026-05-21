@@ -37,7 +37,6 @@
 #include "misc/methodcalljob.h"
 #include "plugintextmessagewidget.h"
 #include "prunemessages/prunemessagesdialog.h"
-#include "rocketchataccount.h"
 #include "rocketchatbackend.h"
 #include "roomutil.h"
 #include "ruqolawidgets_debug.h"
@@ -1027,6 +1026,9 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 #if ADD_OFFLINE_SUPPORT
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomWidget::slotOfflineModeChanged);
 #endif
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openSavedFileFolderDone, this, &RoomWidget::slotOpenSavedFileFolderDone);
+#endif
     }
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
@@ -1039,6 +1041,9 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 #if ADD_OFFLINE_SUPPORT
     connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomWidget::slotOfflineModeChanged);
+#endif
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::openSavedFileFolderDone, this, &RoomWidget::slotOpenSavedFileFolderDone);
 #endif
 
 #if USE_E2E_SUPPORT
@@ -1063,6 +1068,27 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);
     slotOfflineModeChanged();
 }
+
+void RoomWidget::slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType)
+{
+    TextAddonsWidgets::OpenSavedFileFolderWidget::FileType openSavedFileType = TextAddonsWidgets::OpenSavedFileFolderWidget::FileType::Unknown;
+    switch (fileType) {
+    case RocketChatAccount::FileType::Unknown:
+        openSavedFileType = TextAddonsWidgets::OpenSavedFileFolderWidget::FileType::Unknown;
+        break;
+    case RocketChatAccount::FileType::Attachment:
+        openSavedFileType = TextAddonsWidgets::OpenSavedFileFolderWidget::FileType::Attachment;
+        break;
+    case RocketChatAccount::FileType::Pdf:
+        openSavedFileType = TextAddonsWidgets::OpenSavedFileFolderWidget::FileType::Pdf;
+        break;
+    case RocketChatAccount::FileType::File:
+        openSavedFileType = TextAddonsWidgets::OpenSavedFileFolderWidget::FileType::File;
+        break;
+    }
+    mOpenSavedFileFolderWidget->setUrls(urls, openSavedFileType);
+}
+
 void RoomWidget::showE2eSaveEncryptionKeyWidget()
 {
     if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {

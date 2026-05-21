@@ -140,6 +140,14 @@ public:
     };
     Q_ENUM(RoleType)
 
+    enum class FileType : uint8_t {
+        Unknown = 0,
+        Attachment,
+        File,
+        Pdf,
+    };
+    Q_ENUM(FileType)
+
     [[nodiscard]] QList<TextEmoticonsCore::CustomEmoji> customEmojies() const;
 
     void reconnectToServer();
@@ -505,6 +513,7 @@ Q_SIGNALS:
     void privateSettingLoaded(const QJsonObject &obj);
     void appsCountLoadDone();
     void offlineModeChanged();
+    void openSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void deleteRoomFromDatabase(const QByteArray &roomId);

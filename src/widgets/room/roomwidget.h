@@ -9,6 +9,7 @@
 #include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 #include "messages/message.h"
+#include "rocketchataccount.h"
 #include "room.h"
 #include "roomheaderwidget.h"
 #include <QPointer>
@@ -126,6 +127,9 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void showE2eDecodeEncryptionKeyWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void showE2eSaveEncryptionKeyWidget();
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType);
+#endif
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
