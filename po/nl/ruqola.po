@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-22 00:43+0000\n"
-"PO-Revision-Date: 2026-05-10 18:22+0200\n"
+"PO-Revision-Date: 2026-05-22 11:16+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: apps/main.cpp:60 core/notifications/notification.cpp:36
 #, kde-format
@@ -12003,10 +12003,8 @@ msgid "Improve offline Mode"
 msgstr "Offline-modus verbeteren"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Meerdere bestanden verzenden toestaan."
+msgstr "Toestaan opgeslagen bestand te openen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

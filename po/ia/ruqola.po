@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-22 00:43+0000\n"
-"PO-Revision-Date: 2026-04-27 17:21+0200\n"
+"PO-Revision-Date: 2026-05-22 12:14+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -11750,10 +11750,8 @@ msgid "Improve offline Mode"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to read role"
 msgid "Allow to open saved file."
-msgstr "Permitte leger rolo"
+msgstr "Permitte aperir file salveguardate."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

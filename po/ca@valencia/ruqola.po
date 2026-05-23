@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-22 00:43+0000\n"
-"PO-Revision-Date: 2026-05-09 12:11+0200\n"
+"PO-Revision-Date: 2026-05-22 09:27+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -12008,10 +12008,8 @@ msgid "Improve offline Mode"
 msgstr "Millora el mode desconnectat"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Permet enviar múltiples fitxers."
+msgstr "Permet obrir un fitxer guardat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format

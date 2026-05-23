@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-22 00:43+0000\n"
-"PO-Revision-Date: 2026-05-17 07:53-0300\n"
+"PO-Revision-Date: 2026-05-22 05:53-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -11986,10 +11986,8 @@ msgid "Improve offline Mode"
 msgstr "Melhorar modo desconectado"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Permite o envio de múltiplos arquivos."
+msgstr "Permite abrir arquivo salvo."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
