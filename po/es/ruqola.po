@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the ruqola package.
 #
 # SPDX-FileCopyrightText: 2019 Manuel Alcaraz <manuelalcarazzam@gmail.com>
-# SPDX-FileCopyrightText: 2019, 2020 Eloy Cuadra <ecuadra@eloihr.net>
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2019-2020 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2020-2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-22 00:43+0000\n"
-"PO-Revision-Date: 2026-05-09 21:13+0100\n"
+"PO-Revision-Date: 2026-05-23 20:47+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12013,10 +12013,8 @@ msgid "Improve offline Mode"
 msgstr "Mejoras en modo desconectado"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Permitir el envío de múltiples archivos."
+msgstr "Permitir la apertura de archivos guardados."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
