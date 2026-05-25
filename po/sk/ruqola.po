@@ -11966,10 +11966,8 @@ msgid "Improve offline Mode"
 msgstr "Zlepšiť režim offline"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Povoliť odosielanie viacerých súborov."
+msgstr "Povoliť otvorenie uloženého súboru."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:28
 #, kde-format
