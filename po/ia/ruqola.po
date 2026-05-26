@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-22 00:43+0000\n"
-"PO-Revision-Date: 2026-05-22 12:14+0200\n"
+"PO-Revision-Date: 2026-05-25 17:23+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language-Team: Interlingua <kde-i18n-it@kde.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1250,7 +1250,7 @@ msgstr "Activation"
 #: core/model/adminuserspendingmodel.cpp:58
 #, kde-format
 msgid "Resend Welcome Email"
-msgstr "Reinvia eposta de benvenite"
+msgstr "Reinvia eposta de benvenita"
 
 #: core/model/adminuserspendingmodel.cpp:58
 #, kde-format
@@ -4129,7 +4129,7 @@ msgstr "Modifica usator"
 #, kde-format
 msgctxt "@option:check"
 msgid "Send Welcome Email"
-msgstr "Invia eposta de benvenite"
+msgstr "Invia eposta de benvenita"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:31
 #, kde-format
@@ -12005,7 +12005,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewtranslations.cpp:98
 #, kde-format
 msgid "Add welcome page."
-msgstr "Adde pagina de Benvenite"
+msgstr "Adde pagina de Benvenita"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:99
 #, kde-format
