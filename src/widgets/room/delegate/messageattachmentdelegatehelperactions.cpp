@@ -127,9 +127,9 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
                     .anonymous = false,
                 };
                 job->setMethodCallJobInfo(info);
-                qDebug() << " info " << info;
+                // qDebug() << " info " << info;
                 mRocketChatAccount->restApi()->initializeRestApiJob(job);
-                connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObj) {
+                connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObj) {
                     qDebug() << " RocketChatRestApi::MethodCallJob::methodCallDone******************** sendmessage" << replyObj;
                 });
 
@@ -143,8 +143,9 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
     return false;
 }
 
-MessageAttachmentDelegateHelperActions::ActionsLayout
-MessageAttachmentDelegateHelperActions::layoutActions(const MessageAttachmentActions &act, const QStyleOptionViewItem &option, int attachmentsWidth) const
+MessageAttachmentDelegateHelperActions::ActionsLayout MessageAttachmentDelegateHelperActions::layoutActions(const MessageAttachmentActions &act,
+                                                                                                            const QStyleOptionViewItem &option,
+                                                                                                            [[maybe_unused]] int attachmentsWidth) const
 {
     ActionsLayout layout;
 
