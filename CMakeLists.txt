@@ -339,6 +339,17 @@ if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 2.0.65)
     set(HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET TRUE)
 endif()
 
+if(
+    ${KF6CoreAddons_VERSION}
+        VERSION_GREATER_EQUAL
+        6.26.0
+    AND ${KF6TextAddonsWidgets_VERSION}
+        VERSION_GREATER_EQUAL
+        2.0.67
+)
+    set(HAVE_WHATSNEWSNGSUPPORT TRUE)
+endif()
+
 # shall we use DBus?
 # enabled per default on Linux & BSD systems
 set(USE_DBUS_DEFAULT OFF)
