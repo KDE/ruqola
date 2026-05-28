@@ -6,7 +6,6 @@
 
 #include "ruqolacentralwidgettest.h"
 #include "config-ruqola.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqolacentralwidget.h"
 #if 0
@@ -20,6 +19,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(RuqolaCentralWidgetTest)
 RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
     : QObject(parent)

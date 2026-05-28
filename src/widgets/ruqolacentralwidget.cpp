@@ -6,7 +6,6 @@
 
 #include "ruqolacentralwidget.h"
 #include "accountmanager.h"
-#include "config-ruqola.h"
 #include "loginwidget/ruqolaloginwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -16,11 +15,17 @@
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include "servererrorinfohistorymanager.h"
 #include "welcome/welcomewidget.h"
+
+#if HAVE_WHATSNEWSNGSUPPORT
+#include <TextAddonsWidgets/WhatsNewMessageNgWidget>
+#else
 #include "whatsnew/whatsnewtranslations.h"
+#include <TextAddonsWidgets/WhatsNewMessageWidget>
+#endif
+
 #include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
-#include <TextAddonsWidgets/WhatsNewMessageWidget>
 
 using namespace Qt::Literals::StringLiterals;
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
@@ -34,20 +39,37 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mMainLayout->setContentsMargins({});
     mMainLayout->setObjectName(u"mainlayout"_s);
     mMainLayout->setSpacing(0);
-
-    WhatsNewTranslations translations;
-    const QString newFeaturesMD5 = translations.newFeaturesMD5();
+    QString newFeaturesMD5;
+#if HAVE_WHATSNEWSNGSUPPORT
+    const KAboutData aboutData = KAboutData::fromAppStreamForApplication();
+    mReleasesInfo = aboutData.releases();
+    if (!mReleasesInfo.isEmpty()) {
+        newFeaturesMD5 = mReleasesInfo.constFirst().untranslatedDescription();
+    }
+#else
+    const WhatsNewTranslations translations;
+    newFeaturesMD5 = translations.newFeaturesMD5();
+#endif
     if (!newFeaturesMD5.isEmpty()) {
         const QString previousNewFeaturesMD5 = RuqolaGlobalConfig::self()->previousNewFeaturesMD5();
         if (!previousNewFeaturesMD5.isEmpty()) {
             const bool hasNewFeature = (previousNewFeaturesMD5 != newFeaturesMD5);
             if (hasNewFeature) {
+#if HAVE_WHATSNEWSNGSUPPORT
+                auto whatsNewMessageWidget = new TextAddonsWidgets::WhatsNewMessageNgWidget(this);
+                whatsNewMessageWidget->setReleases(mReleasesInfo);
+                whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
+                mMainLayout->addWidget(whatsNewMessageWidget);
+                RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
+                whatsNewMessageWidget->animatedShow();
+#else
                 auto whatsNewMessageWidget = new TextAddonsWidgets::WhatsNewMessageWidget(this);
                 whatsNewMessageWidget->setWhatsNewInfos(translations.createWhatsNewInfo());
                 whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
                 mMainLayout->addWidget(whatsNewMessageWidget);
                 RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
                 whatsNewMessageWidget->animatedShow();
+#endif
             }
         } else {
             RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
@@ -84,6 +106,13 @@ void RuqolaCentralWidget::createServerErrorInfoMessageWidget()
     mServerErrorInfoMessageWidget->setObjectName(u"mServerErrorInfoMessageWidget"_s);
     mMainLayout->insertWidget(0, mServerErrorInfoMessageWidget);
 }
+
+#if HAVE_WHATSNEWSNGSUPPORT
+QList<KAboutRelease> RuqolaCentralWidget::releasesInfo() const
+{
+    return mReleasesInfo;
+}
+#endif
 
 void RuqolaCentralWidget::slotNewErrorInfo()
 {

@@ -6,7 +6,11 @@
 
 #pragma once
 
+#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
+#if HAVE_WHATSNEWSNGSUPPORT
+#include <KAboutData>
+#endif
 #include "room.h"
 #include <QAbstractSocket>
 #include <QPointer>
@@ -18,7 +22,6 @@ class RocketChatAccount;
 class ServerErrorInfoMessageWidget;
 class QVBoxLayout;
 class WelcomeWidget;
-
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
@@ -31,6 +34,10 @@ public:
     void selectNextUnreadChannel();
     [[nodiscard]] Room::RoomType roomType() const;
     [[nodiscard]] Room *room() const;
+#if HAVE_WHATSNEWSNGSUPPORT
+    [[nodiscard]] QList<KAboutRelease> releasesInfo() const;
+#endif
+
 Q_SIGNALS:
     void channelSelected();
     void loginPageActivated(bool showLoginPage);
@@ -43,6 +50,9 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotNewErrorInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void createServerErrorInfoMessageWidget();
 
+#if HAVE_WHATSNEWSNGSUPPORT
+    QList<KAboutRelease> mReleasesInfo;
+#endif
     QStackedWidget *const mStackedWidget;
     RuqolaMainWidget *const mRuqolaMainWidget;
     RuqolaLoginWidget *const mRuqolaLoginWidget;
