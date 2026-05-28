@@ -1521,9 +1521,9 @@
           <li>Add channel list style (Condensed/Medium/Extended)</li>
           <li>Add forward message</li>
           <li>Improve mentions support</li>
-          <li>Add support for deep linking <a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Deep Linking</a></li>
+          <li>Add support for deep linking</li>
           <li>Implement block actions</li>
-          <li>Implement personal token authentication. <a href=\"https://bugs.kde.org/show_bug.cgi?id=481400\">Bug 481400</a></li>
+          <li>Implement personal token authentication.</li>
           <li>Add Plasma Activities Support</li>
           <li>Add Report User Support</li>
           <li>Implement Channel Sound Notification</li>
