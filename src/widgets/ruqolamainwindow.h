@@ -36,11 +36,18 @@ namespace TextAddonsWidgets
 class VerifyNewVersionWidget;
 }
 #endif
+#if HAVE_WHATSNEWSNGSUPPORT
+#include <KAboutData>
+#endif
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
 public:
-    explicit RuqolaMainWindow(QWidget *parent = nullptr);
+    explicit RuqolaMainWindow(
+#if HAVE_WHATSNEWSNGSUPPORT
+        const QList<KAboutRelease> &releases,
+#endif
+        QWidget *parent = nullptr);
     ~RuqolaMainWindow() override;
 
     void slotActivateRequested(const QStringList &arguments, const QString &workingDirectory);

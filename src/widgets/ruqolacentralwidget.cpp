@@ -18,6 +18,7 @@
 
 #if HAVE_WHATSNEWSNGSUPPORT
 #include <TextAddonsWidgets/WhatsNewMessageNgWidget>
+#include <TextAddonsWidgets/WhatsNewNgUtils>
 #else
 #include "whatsnew/whatsnewtranslations.h"
 #include <TextAddonsWidgets/WhatsNewMessageWidget>
@@ -28,7 +29,11 @@
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
-RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
+RuqolaCentralWidget::RuqolaCentralWidget(
+#if HAVE_WHATSNEWSNGSUPPORT
+    const QList<KAboutRelease> &releases,
+#endif
+    QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))
     , mRuqolaMainWidget(new RuqolaMainWidget(this))
@@ -41,10 +46,9 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mMainLayout->setSpacing(0);
     QString newFeaturesMD5;
 #if HAVE_WHATSNEWSNGSUPPORT
-    const KAboutData aboutData = KAboutData::fromAppStreamForApplication();
-    mReleasesInfo = aboutData.releases();
+    mReleasesInfo = releases;
     if (!mReleasesInfo.isEmpty()) {
-        newFeaturesMD5 = mReleasesInfo.constFirst().untranslatedDescription();
+        newFeaturesMD5 = TextAddonsWidgets::WhatsNewNgUtils::createMD5(mReleasesInfo.constFirst().untranslatedDescription());
     }
 #else
     const WhatsNewTranslations translations;

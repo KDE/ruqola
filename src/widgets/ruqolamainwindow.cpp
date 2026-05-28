@@ -112,9 +112,18 @@ const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 const int ruqolaVersion = 3;
 }
 using namespace Qt::Literals::StringLiterals;
-RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
+RuqolaMainWindow::RuqolaMainWindow(
+#if HAVE_WHATSNEWSNGSUPPORT
+    const QList<KAboutRelease> &releases,
+#endif
+    QWidget *parent)
     : KXmlGuiWindow(parent)
-    , mMainWidget(new RuqolaCentralWidget(this))
+    , mMainWidget(new RuqolaCentralWidget(
+#if HAVE_WHATSNEWSNGSUPPORT
+          releases,
+#endif
+
+          this))
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
     , mSwitchChannelTreeManager(new SwitchChannelTreeViewManager(this))
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)

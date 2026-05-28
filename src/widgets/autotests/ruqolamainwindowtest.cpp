@@ -37,7 +37,7 @@ static void switchToMainWidget(RuqolaMainWindow &w)
 
 void RuqolaMainWindowTest::shouldHaveDefaultValues()
 {
-    RuqolaMainWindow w;
+    RuqolaMainWindow w({});
     auto mSplitter = w.findChild<QSplitter *>(u"mSplitter"_s);
     QVERIFY(mSplitter);
     switchToMainWidget(w);
@@ -61,7 +61,7 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
     // Save
     QList<int> actualSizes;
     {
-        RuqolaMainWindow w;
+        RuqolaMainWindow w({});
         switchToMainWidget(w);
         w.resize(800, 800);
         w.show();
@@ -73,7 +73,7 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
     }
     // Restore
     {
-        RuqolaMainWindow w;
+        RuqolaMainWindow w({});
         switchToMainWidget(w);
         QCOMPARE(w.size(), QSize(800, 800));
         w.show();

@@ -29,7 +29,7 @@ RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
 
 void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 {
-    RuqolaCentralWidget w;
+    RuqolaCentralWidget w({});
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainlayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -41,10 +41,12 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(u"mServerErrorInfoMessageWidget"_s);
     QVERIFY(mServerErrorInfoMessageWidget);
 #endif
+#if !HAVE_WHATSNEWSNGSUPPORT
     auto whatsNewMessageWidget = w.findChild<TextAddonsWidgets::WhatsNewMessageWidget *>(u"whatsNewMessageWidget"_s);
     if (WhatsNewTranslations().lastNewFeatures().isEmpty()) {
         QVERIFY(!whatsNewMessageWidget);
     }
+#endif
 }
 
 #include "moc_ruqolacentralwidgettest.cpp"

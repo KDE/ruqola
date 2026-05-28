@@ -49,19 +49,26 @@ int main(int argc, char *argv[])
     KIconTheme::initTheme();
     const QApplication app(argc, argv);
     app.setWindowIcon(QIcon(u":/ruqola/ruqola.svg"_s));
-
+    app.setDesktopFileName(u"org.kde.ruqola"_s);
     KStyleManager::initStyle();
 #if !WITH_DBUS
     KDSingleApplication sapp;
 #endif
     KLocalizedString::setApplicationDomain("ruqola"_ba);
 
+#if HAVE_WHATSNEWSNGSUPPORT
+    KAboutData aboutData = KAboutData::fromAppStreamForApplication();
+    aboutData.setCopyrightStatement(i18n("Copyright © 2020-2026 Ruqola authors"));
+    aboutData.setVersion(RUQOLA_VERSION);
+    aboutData.setComponentName(u"ruqola"_s);
+#else
     KAboutData aboutData(u"ruqola"_s,
                          i18n("Ruqola"),
                          QStringLiteral(RUQOLA_VERSION),
                          i18n("Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
                          i18n("Copyright © 2020-2026 Ruqola authors"));
+#endif
 
     aboutData.addAuthor(i18nc("@info:credit", "Laurent Montel"), i18n("Maintainer"), u"montel@kde.org"_s);
     aboutData.addAuthor(i18nc("@info:credit", "Riccardo Iaconelli"), i18n("Original Author"), u"riccardo@kde.org"_s);
@@ -170,7 +177,11 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    auto mw = new RuqolaMainWindow();
+    auto mw = new RuqolaMainWindow(
+#if HAVE_WHATSNEWSNGSUPPORT
+        aboutData.releases()
+#endif
+    );
 #if WITH_DBUS
     QObject::connect(&service, &KDBusService::activateRequested, mw, &RuqolaMainWindow::slotActivateRequested);
 #else

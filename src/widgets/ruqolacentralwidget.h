@@ -26,7 +26,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit RuqolaCentralWidget(QWidget *parent = nullptr);
+    explicit RuqolaCentralWidget(
+#if HAVE_WHATSNEWSNGSUPPORT
+        const QList<KAboutRelease> &releases,
+#endif
+        QWidget *parent = nullptr);
     ~RuqolaCentralWidget() override;
     [[nodiscard]] QByteArray roomId() const;
 
