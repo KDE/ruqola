@@ -345,7 +345,7 @@ if(
         6.26.0
     AND ${KF6TextAddonsWidgets_VERSION}
         VERSION_GREATER_EQUAL
-        2.0.68
+        2.0.69
 )
     set(HAVE_WHATSNEWSNGSUPPORT TRUE)
 endif()
