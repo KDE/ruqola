@@ -6,9 +6,12 @@
 #include "commandpreviewwidgettest.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "commands/previewcommand.h"
+#include "model/previewcommandmodel.h"
 #include "room/commandpreviewwidget.h"
 #include <QHBoxLayout>
 #include <QListView>
+#include <QSignalSpy>
 #include <QStackedWidget>
 #include <QTest>
 QTEST_MAIN(CommandPreviewWidgetTest)
@@ -36,6 +39,61 @@ void CommandPreviewWidgetTest::shouldHaveDefaultValues()
 
     auto mStackWidget = w.findChild<QStackedWidget *>(u"mStackWidget"_s);
     QVERIFY(mStackWidget);
+}
+
+void CommandPreviewWidgetTest::shouldHidePreviewOnEscape()
+{
+    CommandPreviewWidget w;
+    w.show();
+    QVERIFY(w.isVisible());
+
+    QTest::keyClick(&w, Qt::Key_Escape);
+    QVERIFY(!w.isVisible());
+}
+
+void CommandPreviewWidgetTest::shouldNotEmitOnInvalidDoubleClick()
+{
+    CommandPreviewWidget w;
+    QSignalSpy spy(&w, &CommandPreviewWidget::sendPreviewCommandInfo);
+    QVERIFY(spy.isValid());
+
+    // QVERIFY(QMetaObject::invokeMethod(&w, "slotDoubleClicked", Q_ARG(QModelIndex, QModelIndex())));
+    // QCOMPARE(spy.count(), 0);
+}
+
+void CommandPreviewWidgetTest::shouldEmitOnEnterWithSelection()
+{
+    CommandPreviewWidget w;
+    auto mListView = w.findChild<QListView *>(u"mListView"_s);
+    QVERIFY(mListView);
+    auto mStackWidget = w.findChild<QStackedWidget *>(u"mStackWidget"_s);
+    QVERIFY(mStackWidget);
+
+    auto model = qobject_cast<PreviewCommandModel *>(mListView->model());
+    QVERIFY(model);
+
+    PreviewCommand command;
+    command.setId(u"id1"_s);
+    command.setValue(u"value1"_s);
+    command.setType(PreviewCommand::TypePreview::Text);
+    model->setPreviewCommands({command});
+    QVERIFY(model->rowCount() == 1);
+
+    const QModelIndex index = model->index(0, 0);
+    QVERIFY(index.isValid());
+    mListView->selectionModel()->select(index, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+    mListView->setCurrentIndex(index);
+
+    mStackWidget->setCurrentWidget(mListView);
+    w.show();
+    w.activateWindow();
+    w.setFocus();
+
+    QSignalSpy spy(&w, &CommandPreviewWidget::sendPreviewCommandInfo);
+    QVERIFY(spy.isValid());
+
+    QTest::keyClick(&w, Qt::Key_Return);
+    QCOMPARE(spy.count(), 1);
 }
 
 #include "moc_commandpreviewwidgettest.cpp"

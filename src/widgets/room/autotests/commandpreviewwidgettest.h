@@ -16,4 +16,7 @@ public:
     ~CommandPreviewWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldHidePreviewOnEscape();
+    void shouldNotEmitOnInvalidDoubleClick();
+    void shouldEmitOnEnterWithSelection();
 };
