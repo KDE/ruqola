@@ -1408,9 +1408,9 @@
           <li>Add Attachment Actions Support</li>
           <li>Add TimeStamp support</li>
           <li>Save local translation to local database</li>
-        <li>Fix remove room (in local database)</li>
-        <li>Fix export database</li>
-        <li>Fix upload Custom Sound</li>
+          <li>Fix remove room (in local database)</li>
+          <li>Fix export database</li>
+          <li>Fix upload Custom Sound</li>
         </ul>
       </description>
     </release>
@@ -1575,14 +1575,14 @@
           <li>Show Server Error Info in Specific DialogBox</li>
           <li>Allow to Copy Image in Clipboard</li>
           <li>Improve debug support (Allow to show current account permissions)</li>
-          <li>Add support for quoted text (text which starts by \'>\')</li>
-            <li>Show leader/moderator/owner in channel info</li>
-            <li>Video/Sound Message support (kf6 only)</li>
-            <li>Import/Export Accounts</li>
-            <li>Fix avatar support</li>
-            <li>Fix emoji support (use new ktextaddons/textemoticons)</li>
-            <li>Fix animated gif in reactions</li>
-            <li>Fix kf6 support</li>
+          <li>Add support for quoted text (text which starts by \'&gt;\')</li>
+          <li>Show leader/moderator/owner in channel info</li>
+          <li>Video/Sound Message support (kf6 only)</li>
+          <li>Import/Export Accounts</li>
+          <li>Fix avatar support</li>
+          <li>Fix emoji support (use new ktextaddons/textemoticons)</li>
+          <li>Fix animated gif in reactions</li>
+          <li>Fix kf6 support</li>
         </ul>
       </description>
     </release>
