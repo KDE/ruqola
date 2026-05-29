@@ -877,7 +877,14 @@ void RoomWidget::connectRoom()
 
 void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
 {
+    if (numberOfMessage <= 0) {
+        return;
+    }
     MessagesModel *roomMessageModel = mCurrentRocketChatAccount->messageModelForRoom(mRoomWidgetBase->roomId());
+    if (!roomMessageModel) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "No message model for room" << mRoomWidgetBase->roomId();
+        return;
+    }
     if (roomMessageModel->rowCount() >= numberOfMessage) {
         const QByteArray messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
