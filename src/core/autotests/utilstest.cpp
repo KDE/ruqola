@@ -260,6 +260,11 @@ void UtilsTest::shouldTestUserActivity_data()
     QTest::addColumn<bool>("status");
     QTest::newRow("empty") << QJsonArray() << false;
     {
+        const QJsonDocument doc = QJsonDocument::fromJson("[\"bla\"]");
+        const QJsonArray array = doc.array();
+        QTest::newRow("single-element") << array << false;
+    }
+    {
         const QJsonDocument doc = QJsonDocument::fromJson("[\"bla\",[\"user-typing\"],{}]");
         const QJsonArray array = doc.array();
         QTest::newRow("test1") << array << true;

@@ -407,7 +407,7 @@ QString Utils::createUniqueAccountName(const QStringList &list, const QString &a
 
 bool Utils::userActivity(const QJsonArray &contents)
 {
-    if (contents.toVariantList().isEmpty()) {
+    if (contents.size() < 2) {
         return false;
     }
     // const QString val = contents.toVariantList().at(1).toString();
