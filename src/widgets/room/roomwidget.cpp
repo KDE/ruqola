@@ -1040,6 +1040,12 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
 
+    if (!mCurrentRocketChatAccount) {
+        mRoomHeaderWidget->setCurrentRocketChatAccount(nullptr);
+        mUsersInRoomFlowWidget->setCurrentRocketChatAccount(nullptr);
+        return;
+    }
+
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);

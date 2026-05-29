@@ -181,11 +181,21 @@ void MessageListView::setChannelSelected(Room *room)
     if (oldModel) {
         oldModel->deactivate();
     }
+    if (!room || !mCurrentRocketChatAccount) {
+        setRoom(nullptr);
+        QListView::setModel(nullptr);
+        return;
+    }
     setRoom(room);
     TextUtils::TextUtilsBlockCodeManager::self()->clear();
     const QByteArray roomId = room->roomId();
     mCurrentRocketChatAccount->switchingToRoom(roomId);
     MessagesModel *model = mCurrentRocketChatAccount->messageModelForRoom(roomId);
+    if (!model) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "No model for room" << roomId;
+        QListView::setModel(nullptr);
+        return;
+    }
     setModel(model);
     model->activate();
 }
@@ -197,6 +207,9 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
         disconnect(oldModel, nullptr, this, nullptr);
     }
     QListView::setModel(newModel);
+    if (!newModel) {
+        return;
+    }
     connect(newModel, &QAbstractItemModel::rowsAboutToBeInserted, this, &MessageListView::checkIfAtBottom);
     connect(newModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &MessageListView::checkIfAtBottom);
     connect(newModel, &QAbstractItemModel::modelAboutToBeReset, this, &MessageListView::checkIfAtBottom);
@@ -404,6 +417,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
 
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    if (!message || !mCurrentRocketChatAccount) {
+        return;
+    }
 
     const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
     const bool messageIsFollowing = threadMessageId.isEmpty()
@@ -815,6 +831,9 @@ void MessageListView::slotSelectAll(const QModelIndex &index)
 
 void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checked)
 {
+    if (!index.isValid() || !index.model()) {
+        return;
+    }
     auto model = const_cast<QAbstractItemModel *>(index.model());
     model->setData(index, checked, MessagesModel::ShowTranslatedMessage);
 }
@@ -822,6 +841,9 @@ void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checke
 void MessageListView::slotDebugMessage(const QModelIndex &index)
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    if (!message) {
+        return;
+    }
     ShowDebugDialog d(this);
     d.setPlainText(QString::fromUtf8(Message::serialize(*message, false)));
     d.exec();
@@ -921,6 +943,9 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
 void MessageListView::slotShowFullThread(const QModelIndex &index)
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    if (!message || !mCurrentRocketChatAccount) {
+        return;
+    }
     const QByteArray threadMessageId = message->threadMessageId();
     QString threadMessagePreview = index.data(MessagesModel::ThreadMessagePreview).toString();
     const bool threadIsFollowing = threadMessageId.isEmpty()
@@ -981,6 +1006,9 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
 void MessageListView::slotTextToSpeech(const QModelIndex &index)
 {
 #if HAVE_TEXT_TO_SPEECH
+    if (!mCurrentRocketChatAccount || !mRoom) {
+        return;
+    }
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
     if (messageType != Message::VideoConference) {
         QString message = mMessageListDelegate->selectedText();
