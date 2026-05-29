@@ -64,16 +64,23 @@ void CommandPreviewWidget::keyPressEvent(QKeyEvent *e)
         e->accept();
         hidePreview();
     } else if (key == Qt::Key_Return || key == Qt::Key_Enter) {
-        const QModelIndexList selectedIndexes = mListView->selectionModel()->selectedIndexes();
+        const auto selectionModel = mListView->selectionModel();
+        const QModelIndexList selectedIndexes = selectionModel ? selectionModel->selectedIndexes() : QModelIndexList{};
         if (!selectedIndexes.isEmpty()) {
             slotDoubleClicked(selectedIndexes.constFirst());
+            e->accept();
+        } else {
+            QWidget::keyPressEvent(e);
         }
+    } else {
+        QWidget::keyPressEvent(e);
     }
 }
 
 void CommandPreviewWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount != account) {
+        ++mPreviewRequestToken;
         mCurrentRocketChatAccount = account;
         mCommandPreviewLoadingWidget->stop();
         hidePreview();
@@ -83,6 +90,7 @@ void CommandPreviewWidget::setCurrentRocketChatAccount(RocketChatAccount *accoun
 void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info)
 {
     if (mCurrentRocketChatAccount) {
+        const int requestToken = ++mPreviewRequestToken;
         auto job = new RocketChatRestApi::PreviewsCommandJob(this);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setPreviewsCommandInfo(info);
@@ -90,7 +98,12 @@ void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::Previe
         setVisible(true);
         mStackWidget->setCurrentWidget(mCommandPreviewLoadingWidget);
         mCommandPreviewLoadingWidget->start();
-        connect(job, &RocketChatRestApi::PreviewsCommandJob::previewsCommandDone, this, &CommandPreviewWidget::slotParsePreviewCommandItems);
+        connect(job, &RocketChatRestApi::PreviewsCommandJob::previewsCommandDone, this, [this, requestToken](const QJsonObject &replyObject) {
+            if (requestToken != mPreviewRequestToken) {
+                return;
+            }
+            slotParsePreviewCommandItems(replyObject);
+        });
 
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
@@ -100,6 +113,8 @@ void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::Previe
 
 void CommandPreviewWidget::hidePreview()
 {
+    ++mPreviewRequestToken;
+    mCommandPreviewLoadingWidget->stop();
     setVisible(false);
     mPreviewCommandModel->clear();
 }

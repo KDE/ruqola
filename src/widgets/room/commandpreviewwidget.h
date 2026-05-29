@@ -55,4 +55,5 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QStackedWidget *const mStackWidget;
     CommandPreviewLoadingWidget *const mCommandPreviewLoadingWidget;
+    int mPreviewRequestToken = 0;
 };
