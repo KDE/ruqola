@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:43+0000\n"
+"POT-Creation-Date: 2026-05-30 00:45+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3537,7 +3537,7 @@ msgstr "Mostrar as Mensagens de Menção - %1"
 #: widgets/dialogs/searchmessagewidget.cpp:217
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
-#: widgets/room/commandpreviewwidget.cpp:143
+#: widgets/room/commandpreviewwidget.cpp:161
 #: widgets/room/usersinroomwidget.cpp:156
 #, fuzzy, kde-format
 #| msgid "Loading..."
@@ -3682,7 +3682,7 @@ msgstr "Relatórios"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:88
-#: widgets/room/messagelistview.cpp:336
+#: widgets/room/messagelistview.cpp:349
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, fuzzy, kde-format
 #| msgid "Copy link"
@@ -3692,7 +3692,7 @@ msgstr "Copiar a ligação"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:90
-#: widgets/room/messagelistview.cpp:338
+#: widgets/room/messagelistview.cpp:351
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, fuzzy, kde-format
 #| msgid "Copy Message"
@@ -3715,7 +3715,7 @@ msgstr "Falar o Texto"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/room/messagelistview.cpp:369
+#: widgets/room/messagelistview.cpp:382
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, fuzzy, kde-format
 #| msgid "Select All"
@@ -8029,7 +8029,7 @@ msgid "Mark as Unread"
 msgstr "Marcar como Não-Lido"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:356
+#: widgets/room/messagelistview.cpp:369
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
 msgctxt "@action"
@@ -11186,7 +11186,7 @@ msgid "Clear"
 msgstr "Limpar"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:81
-#: widgets/room/messagelistview.cpp:718
+#: widgets/room/messagelistview.cpp:734
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -11455,7 +11455,7 @@ msgid "User Info"
 msgstr "Informações do Utilizador"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:436
-#: widgets/room/messagelistview.cpp:460
+#: widgets/room/messagelistview.cpp:476
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
@@ -11463,7 +11463,7 @@ msgid "Start a Private Conversation"
 msgstr "Iniciar uma Conversação Privada"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:452
-#: widgets/room/messagelistview.cpp:568 widgets/room/messagelistview.cpp:628
+#: widgets/room/messagelistview.cpp:584 widgets/room/messagelistview.cpp:644
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
@@ -11471,7 +11471,7 @@ msgid "Show Original Message"
 msgstr "Mostrar a Mensagem Original"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:452
-#: widgets/room/messagelistview.cpp:568 widgets/room/messagelistview.cpp:628
+#: widgets/room/messagelistview.cpp:584 widgets/room/messagelistview.cpp:644
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
@@ -11701,151 +11701,151 @@ msgstr "Juntou-se a uma nova mensagem directa"
 msgid "Start of conversation"
 msgstr "Início da Conversação"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:360
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Soltar a Mensagem"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:360
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Fixar a Mensagem"
 
-#: widgets/room/messagelistview.cpp:356
+#: widgets/room/messagelistview.cpp:369
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Remover como Favorito"
 
-#: widgets/room/messagelistview.cpp:363
+#: widgets/room/messagelistview.cpp:376
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "Apagar"
 
-#: widgets/room/messagelistview.cpp:376
+#: widgets/room/messagelistview.cpp:389
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Marcar as Mensagens como Não-Lidas"
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:394
 #, fuzzy, kde-format
 #| msgid "Show Full Thread"
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Mostrar o Tópico Completo"
 
-#: widgets/room/messagelistview.cpp:386
+#: widgets/room/messagelistview.cpp:399
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "Editar"
 
-#: widgets/room/messagelistview.cpp:391
+#: widgets/room/messagelistview.cpp:404
 #, fuzzy, kde-format
 #| msgid "Quote"
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citação"
 
-#: widgets/room/messagelistview.cpp:396
+#: widgets/room/messagelistview.cpp:409
 #, fuzzy, kde-format
 #| msgid "Copy Link To Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Copiar a Localização para a Mensagem"
 
-#: widgets/room/messagelistview.cpp:401
+#: widgets/room/messagelistview.cpp:414
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Seguir a Mensagem"
 
-#: widgets/room/messagelistview.cpp:414
+#: widgets/room/messagelistview.cpp:430
 #, fuzzy, kde-format
 #| msgid "Unfollow Message"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Não Seguir a Mensagem"
 
-#: widgets/room/messagelistview.cpp:414
+#: widgets/room/messagelistview.cpp:430
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Seguir a Mensagem"
 
-#: widgets/room/messagelistview.cpp:428
+#: widgets/room/messagelistview.cpp:444
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copiar o URL"
 
-#: widgets/room/messagelistview.cpp:451 widgets/room/usersinroommenu.cpp:128
+#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:128
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informações do Utilizador"
 
-#: widgets/room/messagelistview.cpp:498
+#: widgets/room/messagelistview.cpp:514
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Iniciar uma Discussão"
 
-#: widgets/room/messagelistview.cpp:504
+#: widgets/room/messagelistview.cpp:520
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Responder no Tópico"
 
-#: widgets/room/messagelistview.cpp:638
+#: widgets/room/messagelistview.cpp:654
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Relatórios"
 
-#: widgets/room/messagelistview.cpp:661
+#: widgets/room/messagelistview.cpp:677
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Relatórios"
 
-#: widgets/room/messagelistview.cpp:735
+#: widgets/room/messagelistview.cpp:751
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Mensagem de Relatório"
 
-#: widgets/room/messagelistview.cpp:965
+#: widgets/room/messagelistview.cpp:990
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Deseja apagar esta mensagem?"
 
-#: widgets/room/messagelistview.cpp:966
+#: widgets/room/messagelistview.cpp:991
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Remover a Mensagem"
 
-#: widgets/room/messagelistview.cpp:1157
+#: widgets/room/messagelistview.cpp:1185
 #, fuzzy, kde-format
 #| msgid "Translator Error"
 msgctxt "@title:window"
