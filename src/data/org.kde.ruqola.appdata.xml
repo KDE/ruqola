@@ -1409,7 +1409,8 @@
           <li xml:lang="sk">Možnosť otvorenia uloženého súboru.</li>
           <li xml:lang="sl">Dovoli odpiranje shranjene datoteke.</li>
           <li xml:lang="tr">Kaydedilen dosyanın açılmasına izin ver.</li>
-          <li xml:lang="uk">Уможливлено відкриття збереженого файла.</li>
+	  <li xml:lang="uk">Уможливлено відкриття збереженого файла.</li>
+	  <li>Allow to rotate image in show image dialog</li>
         </ul>
       </description>
     </release>
