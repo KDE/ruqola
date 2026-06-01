@@ -2296,7 +2296,7 @@
           <li xml:lang="sl">Implementira podatke o čakajočih uporabnikih (skrbniški način)</li>
           <li xml:lang="tr">Bekleyen kullanıcılar bilgisini gerçekle (yönetici kipi)</li>
           <li xml:lang="uk">Реалізовано показ даних щодо користувачів у черзі (режим адміністратора)</li>
-          <li>Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support</li>
+          <li>Use cmark-rc for markdown support</li>
           <li xml:lang="ca">Usa «cmark-rc» (https://github.com/dfaure/cmark-rc) per a implementar el Markdown</li>
           <li xml:lang="ca-valencia">Utilitza «cmark-rc» (https://github.com/dfaure/cmark-rc) per a implementar Markdown</li>
           <li xml:lang="es">Uso de cmark-rc (https://github.com/dfaure/cmark-rc)  para el soporte Markdown</li>
