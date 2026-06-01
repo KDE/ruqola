@@ -14,6 +14,7 @@
 #include "rooms/roomsimagesjob.h"
 #include "showimagegraphicsview.h"
 #include "showimageprevnextimagewidget.h"
+#include <KSeparator>
 #include <TextAddonsWidgets/SaveFileUtils>
 
 #include "ruqolawidgets_showimage_debug.h"
@@ -27,6 +28,7 @@
 #include <QMimeData>
 #include <QPushButton>
 #include <QSlider>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -93,6 +95,28 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     fitToViewButton->setObjectName(u"fitToViewButton"_s);
     zoomLayout->addWidget(fitToViewButton);
     connect(fitToViewButton, &QPushButton::clicked, mImageGraphicsView, &ShowImageGraphicsView::fitToView);
+
+    auto separator = new KSeparator(Qt::Orientation::Vertical, this);
+    separator->setObjectName(u"separator"_s);
+    zoomLayout->addWidget(separator);
+
+    auto rotateLeftToolButton = new QToolButton(this);
+    rotateLeftToolButton->setToolTip(i18nc("@info:tooltip", "Rotate Left"));
+    rotateLeftToolButton->setObjectName(u"rotateLeftButton"_s);
+    rotateLeftToolButton->setIcon(QIcon::fromTheme(u"object-rotate-left"_s));
+    zoomLayout->addWidget(rotateLeftToolButton);
+    connect(rotateLeftToolButton, &QToolButton::clicked, this, [this]() {
+        mImageGraphicsView->rotateImage(-90);
+    });
+
+    auto rotateRightButton = new QToolButton(this);
+    rotateRightButton->setToolTip(i18nc("@info:tooltip", "Rotate Right"));
+    rotateRightButton->setObjectName(u"rotateRightButton"_s);
+    rotateRightButton->setIcon(QIcon::fromTheme(u"object-rotate-right"_s));
+    zoomLayout->addWidget(rotateRightButton);
+    connect(rotateRightButton, &QToolButton::clicked, this, [this]() {
+        mImageGraphicsView->rotateImage(+90);
+    });
 
     connect(mZoomSpin, &QDoubleSpinBox::valueChanged, this, [this](double value) {
         mImageGraphicsView->setZoom(static_cast<qreal>(value));
