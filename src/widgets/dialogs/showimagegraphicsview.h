@@ -37,6 +37,8 @@ public:
 
     void fitToView();
 
+    void rotateImage(qreal angle);
+
 protected:
     void wheelEvent(QWheelEvent *e) override;
 

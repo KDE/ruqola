@@ -230,4 +230,10 @@ void ShowImageGraphicsView::fitToView()
     centerOn(mGraphicsPixmapItem);
 }
 
+void ShowImageGraphicsView::rotateImage(qreal angle)
+{
+    qDebug() << " void ShowImageGraphicsView::rotateImage(qreal angle)";
+    rotate(angle);
+}
+
 #include "moc_showimagegraphicsview.cpp"
