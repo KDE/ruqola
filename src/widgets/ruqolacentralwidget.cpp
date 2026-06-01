@@ -65,6 +65,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(
                 whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
                 mMainLayout->addWidget(whatsNewMessageWidget);
                 RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
+                RuqolaGlobalConfig::self()->save();
                 whatsNewMessageWidget->animatedShow();
 #else
                 auto whatsNewMessageWidget = new TextAddonsWidgets::WhatsNewMessageWidget(this);
@@ -72,11 +73,13 @@ RuqolaCentralWidget::RuqolaCentralWidget(
                 whatsNewMessageWidget->setObjectName(u"whatsNewMessageWidget"_s);
                 mMainLayout->addWidget(whatsNewMessageWidget);
                 RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
+                RuqolaGlobalConfig::self()->save();
                 whatsNewMessageWidget->animatedShow();
 #endif
             }
         } else {
             RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
+            RuqolaGlobalConfig::self()->save();
         }
     }
 
