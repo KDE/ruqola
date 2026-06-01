@@ -17,6 +17,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
     const QList<KLazyLocalizedString> info{
         kli18n("Improve offline Mode"),
         kli18n("Allow to open saved file."),
+        kli18n("Allow to rotate image in show image dialog."),
     };
     return info;
 }
