@@ -5,10 +5,11 @@
 */
 
 #include "showimagewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/showimagegraphicsview.h"
 #include "dialogs/showimagewidget.h"
+
+#include <KSeparator>
 
 #include <QDoubleSpinBox>
 #include <QGraphicsView>
@@ -16,10 +17,12 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QSlider>
 #include <QTest>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 QTEST_MAIN(ShowImageWidgetTest)
 
+using namespace Qt::Literals::StringLiterals;
 ShowImageWidgetTest::ShowImageWidgetTest(QObject *parent)
     : QObject(parent)
 {
@@ -77,9 +80,15 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!w.imageInfo().isAnimatedImage);
     QVERIFY(!w.imageInfo().pixmap.isNull());
 
-    auto fitToViewButton = w.findChild<QPushButton *>(u"fitToViewButton"_s);
-    QVERIFY(fitToViewButton);
-    QVERIFY(!fitToViewButton->text().isEmpty());
+    auto rotateLeftButton = w.findChild<QToolButton *>(u"rotateLeftButton"_s);
+    QVERIFY(rotateLeftButton);
+
+    auto rotateRightButton = w.findChild<QToolButton *>(u"rotateRightButton"_s);
+    QVERIFY(rotateRightButton);
+
+    auto separator = w.findChild<KSeparator *>(u"separator"_s);
+    QVERIFY(separator);
+    QCOMPARE(separator->orientation(), Qt::Orientation::Vertical);
 }
 
 #include "moc_showimagewidgettest.cpp"
