@@ -68,6 +68,7 @@ Comment[sk]=Upozornenie
 Comment[sl]=Obvestilo
 Comment[sv]=Underrättelse
 Comment[tr]=Bildirim
+Comment[ug]=ئۇقتۇرۇش
 Comment[uk]=Сповіщення
 Comment[zh_TW]=通知
 
@@ -341,6 +342,7 @@ Name[sk]=Pridaný nový účet
 Name[sl]=Nov račun dodan
 Name[sv]=Nytt konto tillagt
 Name[tr]=Yeni Hesap Eklendi
+Name[ug]=يېڭى ھېساب قوشۇلدى
 Name[uk]=Додано новий обліковий запис
 Name[zh_TW]=帳戶已新增
 Action=Popup
