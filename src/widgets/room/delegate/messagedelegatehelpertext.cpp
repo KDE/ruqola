@@ -302,7 +302,10 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
     const auto messageId = message->messageId();
-    Q_ASSERT(!messageId.isEmpty());
+    if (messageId.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_SELECTION_LOG) << "messageId is not define. It's a bug !";
+        return nullptr;
+    }
 
     auto it = mDocumentCache.find(messageId);
     if (it != mDocumentCache.end()) {
