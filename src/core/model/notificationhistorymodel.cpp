@@ -68,7 +68,7 @@ QString NotificationHistoryModel::generateMessage(const NotificationInfo &info) 
     case NotificationInfo::NotificationType::ConferenceCall:
         return i18n("Conference Call");
     case NotificationInfo::NotificationType::NewRoom:
-        return i18n("New Room");
+        return i18n("Room \"%1\" was added", info.roomName());
     }
     return {};
 }
