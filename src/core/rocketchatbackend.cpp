@@ -437,14 +437,10 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_BACKEND_LOG) << "****************************************** insert new Room !!!!!" << contents;
                 const QJsonObject roomData = contents[1].toObject();
                 const QByteArray roomId = model->insertRoom(roomData);
-                qDebug() << " gfghgffdghfdghgfhfghgfhgdf" << roomId;
                 if (auto r = model->findRoom(roomId); r) {
                     mRocketChatAccount->addRoomToDataBase(r);
-                    qDebug() << " cccccsdfsdfsdfsdfsdfsdfsdfdsfdsfsdfsdf";
-                    qDebug() << " cccccsdfsdfsdfsdfsdfsdfsdfdsfdsfsdfsdf1111 " << r;
                     mRocketChatAccount->addNewRoomNotification(r);
                 }
-                qDebug() << " CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc";
                 mRocketChatAccount->playNewRoomNotification();
 
             } else if (actionName == "removed"_L1) {
