@@ -173,9 +173,11 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
 
     const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
-    layout.senderText = u'@' + userName;
-    layout.senderFont = option.font;
-    layout.senderFont.setBold(true);
+    if (!userName.isEmpty()) {
+        layout.senderText = u'@' + userName;
+        layout.senderFont = option.font;
+        layout.senderFont.setBold(true);
+    }
 
     // Timestamp
     layout.timeStampText = index.data(NotificationHistoryModel::Time).toString();
