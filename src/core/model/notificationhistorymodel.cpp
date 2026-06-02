@@ -52,6 +52,10 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
         return info.messageId();
     case RoomName:
         return info.roomName();
+    case Identifier:
+        return info.uniqueIdentifier();
+    case NotificationType:
+        return QVariant::fromValue(info.notificationType());
     }
     return {};
 }

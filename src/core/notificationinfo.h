@@ -78,6 +78,8 @@ public:
     [[nodiscard]] bool forceShowAccountName() const;
     void setForceShowAccountName(bool newForceShowAccountName);
 
+    [[nodiscard]] QByteArray uniqueIdentifier() const;
+
 private:
     QByteArray mMessageId;
     QString mAccountName;

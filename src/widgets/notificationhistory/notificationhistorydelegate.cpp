@@ -224,7 +224,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
 
 QByteArray NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
 {
-    const QByteArray identifier = index.data(NotificationHistoryModel::MessageId).toByteArray();
+    const QByteArray identifier = index.data(NotificationHistoryModel::Identifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());
     return identifier;
 }

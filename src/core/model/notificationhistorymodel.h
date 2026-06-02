@@ -28,6 +28,8 @@ public:
         SenderName,
         SenderUserName,
         MessageId,
+        NotificationType,
+        Identifier,
     };
     Q_ENUM(NotificationHistoryRoles)
 

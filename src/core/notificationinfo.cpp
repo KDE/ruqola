@@ -245,4 +245,15 @@ void NotificationInfo::setForceShowAccountName(bool newForceShowAccountName)
     mForceShowAccountName = newForceShowAccountName;
 }
 
+QByteArray NotificationInfo::uniqueIdentifier() const
+{
+    QByteArray identifier;
+    if (mNotificationType == NotificationInfo::NotificationType::NewRoom) {
+        identifier = "newroom" + mRoomId;
+    } else {
+        identifier = mMessageId;
+    }
+    return identifier;
+}
+
 #include "moc_notificationinfo.cpp"

@@ -3051,9 +3051,7 @@ void RocketChatAccount::addNewRoomNotification(Room *r)
     info.setNotificationType(NotificationInfo::NotificationType::NewRoom);
     info.setRoomId(r->roomId());
     info.setChannelType(Room::roomFromRoomType(r->channelType()));
-    info.setMessageId(r->roomId());
     NotificationHistoryManager::self()->addNotification(info);
-    // TODO
 }
 
 // Only for debugging permissions. (debug mode)
