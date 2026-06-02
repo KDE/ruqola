@@ -31,6 +31,7 @@ public:
 
 Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QByteArray &messageId, const QByteArray &roomId);
+    void showNotifyNewRoom(const QString &accountName, const QByteArray &roomId);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QString &messageText);
@@ -38,6 +39,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowMessage(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterAccount(const QString &accountName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSwitchToRoom(const QModelIndex &index);
     NotificationHistoryListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;

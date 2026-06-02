@@ -20,6 +20,7 @@ public:
 
 Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QByteArray &messageId, const QByteArray &roomId);
+    void showNotifyNewRoom(const QString &accountName, const QByteArray &roomId);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

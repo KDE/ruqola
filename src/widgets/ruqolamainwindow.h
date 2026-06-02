@@ -140,6 +140,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotWorkOfflineMode();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateOfflineAction();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowNotifyNewRoom(const QString &accountName, const QByteArray &roomId);
 
     bool mReallyClose{false};
 

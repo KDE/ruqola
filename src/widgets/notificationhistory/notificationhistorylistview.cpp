@@ -78,9 +78,16 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             menu.addSeparator();
-            menu.addAction(i18nc("@action", "Go to Message"), this, [this, index]() {
-                Q_EMIT showMessage(index);
-            });
+            if (index.data(NotificationHistoryModel::NotificationType).value<NotificationInfo::NotificationType>()
+                == NotificationInfo::NotificationType::NewRoom) {
+                menu.addAction(i18nc("@action", "Go to Message"), this, [this, index]() {
+                    Q_EMIT switchToRoom(index);
+                });
+            } else {
+                menu.addAction(i18nc("@action", "Switch To New Room"), this, [this, index]() {
+                    Q_EMIT showMessage(index);
+                });
+            }
             menu.addSeparator();
             auto copyAction = new QAction(&menu);
             copyAction->setIcon(QIcon::fromTheme(u"edit-copy"_s));

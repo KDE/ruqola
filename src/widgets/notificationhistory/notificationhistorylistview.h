@@ -27,6 +27,7 @@ protected:
 
 Q_SIGNALS:
     void showMessage(const QModelIndex &index);
+    void switchToRoom(const QModelIndex &index);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void clearCache();

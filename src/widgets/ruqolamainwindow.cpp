@@ -1334,6 +1334,12 @@ void RuqolaMainWindow::slotFullScreen(bool t)
     }
 }
 
+void RuqolaMainWindow::slotShowNotifyNewRoom(const QString &accountName, const QByteArray &roomId)
+{
+    Ruqola::self()->setCurrentAccount(accountName);
+    Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId);
+}
+
 void RuqolaMainWindow::slotShowNotifyMessage(const QString &accountName, const QByteArray &messageId, const QByteArray &roomId)
 {
     Ruqola::self()->setCurrentAccount(accountName);
@@ -1346,6 +1352,7 @@ void RuqolaMainWindow::slotOpenNotificationHistory()
     NotificationHistoryDialog dlg(this);
     dlg.addServerList(Ruqola::self()->accountManager()->accountDisplayInfoSorted());
     connect(&dlg, &NotificationHistoryDialog::showNotifyMessage, this, &RuqolaMainWindow::slotShowNotifyMessage);
+    connect(&dlg, &NotificationHistoryDialog::showNotifyNewRoom, this, &RuqolaMainWindow::slotShowNotifyNewRoom);
     dlg.exec();
 }
 

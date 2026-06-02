@@ -73,6 +73,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     connect(mListNotificationsListView, &QListView::doubleClicked, this, &NotificationHistoryWidget::slotShowMessage);
     connect(mListNotificationsListView, &NotificationHistoryListView::showMessage, this, &NotificationHistoryWidget::slotShowMessage);
+    connect(mListNotificationsListView, &NotificationHistoryListView::switchToRoom, this, &NotificationHistoryWidget::slotSwitchToRoom);
 
     connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
@@ -94,6 +95,19 @@ void NotificationHistoryWidget::slotTextChanged(const QString &str)
 {
     mNotificationFilterProxyModel->setFilterString(str);
     mListNotificationsListView->setSearchText(str);
+}
+
+void NotificationHistoryWidget::slotSwitchToRoom(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        const QByteArray roomId = index.data(NotificationHistoryModel::RoomId).toByteArray();
+        const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
+        if (!accountName.isEmpty() && !roomId.isEmpty()) {
+            Q_EMIT showNotifyNewRoom(accountName, roomId);
+        } else {
+            qCWarning(RUQOLAWIDGETS_LOG) << " Problem with index. AccountName " << accountName << " roomId : " << roomId;
+        }
+    }
 }
 
 void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
