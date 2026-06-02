@@ -36,6 +36,7 @@
 #include "encryption/e2ekeymanager.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
+#include "notificationhistorymanager.h"
 #include "previewurlcachemanager.h"
 #include "serverconfiginfo.h"
 #include "soundmanager.h"
@@ -2088,6 +2089,10 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
             // Nothing
             break;
         }
+        case NotificationInfo::NotificationType::NewRoom: {
+            // Nothing
+            break;
+        }
         }
 
         Q_EMIT notification(info);
@@ -3035,6 +3040,20 @@ void RocketChatAccount::deleteRoomFromDatabase(const QByteArray &roomId)
 void RocketChatAccount::addRoomToDataBase(Room *r)
 {
     mLocalDatabaseManager->addRoom(accountName(), r);
+}
+
+void RocketChatAccount::addNewRoomNotification(Room *r)
+{
+    NotificationInfo info;
+    info.setAccountName(accountName());
+    info.setDateTime(QDateTime::currentDateTime());
+    info.setRoomName(r->displayRoomName());
+    info.setNotificationType(NotificationInfo::NotificationType::NewRoom);
+    info.setRoomId(r->roomId());
+    info.setChannelType(Room::roomFromRoomType(r->channelType()));
+    info.setMessageId(r->roomId());
+    NotificationHistoryManager::self()->addNotification(info);
+    // TODO
 }
 
 // Only for debugging permissions. (debug mode)

@@ -446,6 +446,7 @@ public:
     void insertRoomSubscription(const QByteArray &subscriptionId, const QByteArray &roomId);
     void deleteRoomSubscription(const QByteArray &subscriptionId);
 
+    void addNewRoomNotification(Room *r);
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

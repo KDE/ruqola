@@ -186,9 +186,12 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
 
 bool NotificationInfo::isValid() const
 {
-    bool valid = !mSenderId.isEmpty() && !mChannelType.isEmpty();
+    const bool valid = !mSenderId.isEmpty() && !mChannelType.isEmpty();
     if (mNotificationType == NotificationType::ConferenceCall) {
         return valid;
+    }
+    if (mNotificationType == NotificationType::NewRoom) {
+        return !mChannelType.isEmpty();
     }
     return valid && !mMessage.isEmpty();
 }

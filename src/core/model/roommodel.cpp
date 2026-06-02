@@ -295,11 +295,12 @@ QByteArray RoomModel::insertRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
     r->parseInsertRoom(room);
+    const QByteArray roomId = r->roomId();
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room" << r->name() << r->roomId() << r->topic();
     if (addRoom(r)) {
         return r->roomId();
     }
-    return {};
+    return roomId;
 }
 
 QByteArray RoomModel::addRoom(const QJsonObject &room)

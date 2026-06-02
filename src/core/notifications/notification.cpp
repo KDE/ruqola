@@ -8,7 +8,6 @@
  */
 
 #include "notification.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_notification_debug.h"
 #if HAVE_UNITY_SUPPORT
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <QIcon>
 
+using namespace Qt::Literals::StringLiterals;
 Notification::Notification(QObject *parent)
     : KStatusNotifierItem(parent)
 {

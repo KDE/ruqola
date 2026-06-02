@@ -22,6 +22,7 @@ public:
     enum class NotificationType : uint8_t {
         StandardMessage,
         ConferenceCall,
+        NewRoom,
     };
     Q_ENUM(NotificationType);
 

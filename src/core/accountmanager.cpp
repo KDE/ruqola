@@ -144,6 +144,9 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
         case NotificationInfo::NotificationType::ConferenceCall: {
             break;
         }
+        case NotificationInfo::NotificationType::NewRoom: {
+            break;
+        }
         }
     });
     connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
