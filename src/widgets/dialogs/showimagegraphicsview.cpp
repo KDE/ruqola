@@ -232,7 +232,6 @@ void ShowImageGraphicsView::fitToView()
 
 void ShowImageGraphicsView::rotateImage(qreal angle)
 {
-    qDebug() << " void ShowImageGraphicsView::rotateImage(qreal angle)";
     rotate(angle);
 }
 
