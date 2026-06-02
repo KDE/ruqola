@@ -5,11 +5,11 @@
 */
 
 #include "applicationspermissionwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QTextEdit>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 ApplicationsPermissionWidget::ApplicationsPermissionWidget(QWidget *parent)
     : QWidget{parent}
     , mTextEdit(new QTextEdit(this))

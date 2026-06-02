@@ -50,6 +50,7 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
             mTabWidget->setTabVisible(settingsTabIndex, false);
         }
     }
+    mTabWidget->setTabBarAutoHide(true);
 }
 
 ApplicationsSettingsDescriptionTabWidget::~ApplicationsSettingsDescriptionTabWidget() = default;
