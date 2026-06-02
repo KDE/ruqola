@@ -1409,8 +1409,8 @@
           <li xml:lang="sk">Možnosť otvorenia uloženého súboru.</li>
           <li xml:lang="sl">Dovoli odpiranje shranjene datoteke.</li>
           <li xml:lang="tr">Kaydedilen dosyanın açılmasına izin ver.</li>
-	  <li xml:lang="uk">Уможливлено відкриття збереженого файла.</li>
-	  <li>Allow to rotate image in show image dialog</li>
+          <li xml:lang="uk">Уможливлено відкриття збереженого файла.</li>
+          <li>Allow to rotate image in show image dialog</li>
         </ul>
       </description>
     </release>
@@ -2297,16 +2297,6 @@
           <li xml:lang="tr">Bekleyen kullanıcılar bilgisini gerçekle (yönetici kipi)</li>
           <li xml:lang="uk">Реалізовано показ даних щодо користувачів у черзі (режим адміністратора)</li>
           <li>Use cmark-rc for markdown support</li>
-          <li xml:lang="ca">Usa «cmark-rc» (https://github.com/dfaure/cmark-rc) per a implementar el Markdown</li>
-          <li xml:lang="ca-valencia">Utilitza «cmark-rc» (https://github.com/dfaure/cmark-rc) per a implementar Markdown</li>
-          <li xml:lang="es">Uso de cmark-rc (https://github.com/dfaure/cmark-rc)  para el soporte Markdown</li>
-          <li xml:lang="ka">მარკდაუნისთვის cmark-rc-ის (https://github.com/dfaure/cmark-rc) გამოყენება</li>
-          <li xml:lang="nl">Cmark-rc gebruiken (https://github.com/dfaure/cmark-rc) voor ondersteuning van markdown</li>
-          <li xml:lang="pt-BR">Uso do cmark-rc (https://github.com/dfaure/cmark-rc) para suporte a markdown</li>
-          <li xml:lang="sk">Použitie cmark-rc (https://github.com/dfaure/cmark-rc) na podporu markdown</li>
-          <li xml:lang="sl">Uporabi cmark-rc (https://github.com/dfaure/cmark-rc) za podporo markdowna</li>
-          <li xml:lang="tr">Markdown desteği için cmark-rc (https://github.com/dfaure/cmark-rc) kullan</li>
-          <li xml:lang="uk">Використано cmark-rc (https://github.com/dfaure/cmark-rc) для реалізації підтримки markdown</li>
           <li>Delete oldest files from some cache directories (file-upload and media) so it doesn't grow forever</li>
           <li xml:lang="ca">Suprimeix els fitxers més antics d'alguns directoris de la memòria cau («file-upload» i «media») perquè no creixi per sempre</li>
           <li xml:lang="ca-valencia">Suprimix els fitxers més antics d'algunes carpetes de la memòria cau («file-upload» i «media») perquè no cresca per sempre</li>
