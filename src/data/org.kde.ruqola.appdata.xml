@@ -178,6 +178,7 @@
       <li xml:lang="sl">Neposredno sporočilo</li>
       <li xml:lang="sv">Direktmeddelande</li>
       <li xml:lang="tr">Doğrudan İleti</li>
+      <li xml:lang="ug">بىۋاسىتە ئۇچۇر</li>
       <li xml:lang="uk">Безпосереднє повідомлення</li>
       <li xml:lang="zh-TW">私訊</li>
       <li>group channel</li>
@@ -208,6 +209,7 @@
       <li xml:lang="sl">skupinski kanal</li>
       <li xml:lang="sv">gruppkanal</li>
       <li xml:lang="tr">grup kanalı</li>
+      <li xml:lang="ug">گۇرۇپپا قانىلى</li>
       <li xml:lang="uk">Групування каналів</li>
       <li xml:lang="zh-TW">群組頻道</li>
       <li>channel</li>
@@ -240,6 +242,7 @@
       <li xml:lang="sl">kanal</li>
       <li xml:lang="sv">kanal</li>
       <li xml:lang="tr">kanal</li>
+      <li xml:lang="ug">قانال</li>
       <li xml:lang="uk">Канали</li>
       <li xml:lang="zh-TW">頻道</li>
       <li>Support autotranslate (when RC has it)</li>
@@ -1392,6 +1395,7 @@
           <li xml:lang="ca">Millora el mode desconnectat</li>
           <li xml:lang="ca-valencia">Millora el mode desconnectat</li>
           <li xml:lang="es">Mejoras en modo desconectado</li>
+          <li xml:lang="fr">Améliorer le mode déconnecté</li>
           <li xml:lang="ka">გაუმჯობესდა ხაზგარეშე რეჟიმი</li>
           <li xml:lang="nl">Offline-modus verbeteren</li>
           <li xml:lang="pt-BR">Melhorar modo desconectado</li>
@@ -1403,6 +1407,7 @@
           <li xml:lang="ca">Permet obrir un fitxer desat.</li>
           <li xml:lang="ca-valencia">Permet obrir un fitxer guardat.</li>
           <li xml:lang="es">Permitir la apertura de archivos guardados.</li>
+          <li xml:lang="fr">Autoriser l'ouverture du fichier enregistré.</li>
           <li xml:lang="ka">შენახული ფაილის გახსნის დაშვება.</li>
           <li xml:lang="nl">Toestaan opgeslagen bestand te openen.</li>
           <li xml:lang="pt-BR">Permite abrir arquivo salvo.</li>
@@ -1410,8 +1415,8 @@
           <li xml:lang="sl">Dovoli odpiranje shranjene datoteke.</li>
           <li xml:lang="tr">Kaydedilen dosyanın açılmasına izin ver.</li>
           <li xml:lang="uk">Уможливлено відкриття збереженого файла.</li>
-	  <li>Allow to rotate image in show image dialog</li>
-	  <li>Add new room info in notification history dialog.</li>
+          <li>Allow to rotate image in show image dialog</li>
+          <li>Add new room info in notification history dialog.</li>
         </ul>
       </description>
     </release>
@@ -1425,6 +1430,7 @@
           <li xml:lang="ca">Copia blocs de codi més fàcilment</li>
           <li xml:lang="ca-valencia">Copia blocs de codi amb més facilitat</li>
           <li xml:lang="es">Facilitada la copia de bloques de código</li>
+          <li xml:lang="fr">Copier le code en bloc plus facilement</li>
           <li xml:lang="ka">კოდის ბლოკის უფრო ადვილად კოპირება</li>
           <li xml:lang="nl">Blokcode gemakkelijker kopiëren</li>
           <li xml:lang="pt-BR">Copia código de bloco mais facilmente</li>
@@ -1436,6 +1442,7 @@
           <li xml:lang="ca">Millora la interfície d'usuari del text a veu</li>
           <li xml:lang="ca-valencia">Millora la interfície d'usuari del text a veu</li>
           <li xml:lang="es">Mejoras en la interfaz de usuario de texto a habla</li>
+          <li xml:lang="fr">Améliorer l'interface utilisateur pour la synthèse vocale</li>
           <li xml:lang="ka">გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი</li>
           <li xml:lang="nl">Verbeter gebruikersinterface van tekst-naar-spraak</li>
           <li xml:lang="pt-BR">Melhora a interface de usuário de texto para fala</li>
@@ -1447,6 +1454,7 @@
           <li xml:lang="ca">Mostra els camps dels adjunts</li>
           <li xml:lang="ca-valencia">Mostra els camps dels adjunts</li>
           <li xml:lang="es">Mostrar campos adjuntos</li>
+          <li xml:lang="fr">Afficher les champs de pièce jointe</li>
           <li xml:lang="ka">მიმაგრებული ფაილის ველების ჩვენება</li>
           <li xml:lang="nl">Bijlagevelden tonen</li>
           <li xml:lang="pt-BR">Exibir campos de anexos</li>
@@ -1458,6 +1466,7 @@
           <li xml:lang="ca">Implementa el mode desconnectat (experimental)</li>
           <li xml:lang="ca-valencia">Implementa el mode desconnectat (experimental)</li>
           <li xml:lang="es">Modo desconectado implementado (experimental)</li>
+          <li xml:lang="fr">Implémenter le mode déconnecté (Expérimental)</li>
           <li xml:lang="ka">ხაზგარეშე რეჟიმი (ექსპერიმენტული)</li>
           <li xml:lang="nl">Implementeert offline modus (experimenteel)</li>
           <li xml:lang="pt-BR">Modo offline implementado (experimental)</li>
