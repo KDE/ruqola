@@ -53,7 +53,7 @@ CheckOptions:
       value: 'Q_ASSERT;QVERIFY;QCOMPARE;AKVERIFY'
     - key:  CheckFunctionCalls
       value: true
-    - key:  StringCompareLikeFuctions
+    - key:  StringCompareLikeFunctions
       value: 'QString::compare;QString::localeAwareCompare'
     - key: WarnOnSizeOfIntegerExpression
       value: 1
