@@ -80,11 +80,11 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
             menu.addSeparator();
             if (index.data(NotificationHistoryModel::NotificationType).value<NotificationInfo::NotificationType>()
                 == NotificationInfo::NotificationType::NewRoom) {
-                menu.addAction(i18nc("@action", "Go to Message"), this, [this, index]() {
+                menu.addAction(i18nc("@action", "Switch To New Room"), this, [this, index]() {
                     Q_EMIT switchToRoom(index);
                 });
             } else {
-                menu.addAction(i18nc("@action", "Switch To New Room"), this, [this, index]() {
+                menu.addAction(i18nc("@action", "Go to Message"), this, [this, index]() {
                     Q_EMIT showMessage(index);
                 });
             }
