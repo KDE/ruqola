@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-03 01:00+0000\n"
-"PO-Revision-Date: 2026-06-02 05:18+0200\n"
+"PO-Revision-Date: 2026-06-03 05:47+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1416,7 +1416,7 @@ msgstr[1] "%1 წამი"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "დაემატა ოთახი \"%1\""
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -10396,7 +10396,7 @@ msgstr "შეტყობინებაზე გადასვლა"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "გადართვა ახალ ოთახზე"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -11976,7 +11976,7 @@ msgstr "გამოსახულების შებრუნების �
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
-msgstr ""
+msgstr "ახალი ოთახის ინფორმაციის დამატება გაფრთხილებების ისტორიის დიალოგში."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

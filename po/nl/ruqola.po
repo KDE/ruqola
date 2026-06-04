@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-03 01:00+0000\n"
-"PO-Revision-Date: 2026-05-22 11:16+0200\n"
+"PO-Revision-Date: 2026-06-03 11:19+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1419,7 +1419,7 @@ msgstr[1] "%1 seconden"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "Room \"%1\" was toegevoegd"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -9143,17 +9143,16 @@ msgid "Fit to View"
 msgstr "Laten passen om te bekijken"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Snelheidsbegrenzer"
+msgstr "Linksom draaien"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Rechtsom draaien"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -10456,7 +10455,7 @@ msgstr "Naar bericht gaan"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Schakel om naar nieuwe room"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -12031,14 +12030,14 @@ msgid "Allow to open saved file."
 msgstr "Toestaan opgeslagen bestand te openen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "Dubbele meldingen repareren in dialoog van zoekmelding."
+msgstr "In dialoog voor tonen van afbeelding draaien toestaan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
 msgstr ""
+"Voeg nieuwe roominformatie toe in de dialoog van de geschiedenis van "
+"meldingen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

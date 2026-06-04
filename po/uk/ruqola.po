@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-03 01:00+0000\n"
-"PO-Revision-Date: 2026-06-02 08:36+0300\n"
+"PO-Revision-Date: 2026-06-03 09:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1422,7 +1422,7 @@ msgstr[3] "%1 секунда"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "Додано кімнату «%1»"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -10530,7 +10530,7 @@ msgstr "Перейти до повідомлення"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Перемкнутися на нову кімнату"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -12120,7 +12120,7 @@ msgstr "Уможливлено обертання зображення у вік
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
-msgstr ""
+msgstr "Додано відомості щодо нових кімнат до вікна журналу сповіщень"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format

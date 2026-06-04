@@ -5269,7 +5269,8 @@ msgctxt "@info:tooltip"
 msgid ""
 "File Upload Json Web Token Secret (Used to be able to access uploaded files "
 "without authentication)."
-msgstr "文件上传 Json Web 令牌密钥 (这样访问已上传的文件就不需要认证) 。"
+msgstr ""
+"文件上传 JSON Web Token 密钥 (用于在无需身份认证的情况下访问已上传的文件) 。"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:69
 #, kde-format
