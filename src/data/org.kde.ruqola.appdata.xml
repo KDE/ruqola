@@ -1416,6 +1416,13 @@
           <li xml:lang="tr">Kaydedilen dosyanın açılmasına izin ver.</li>
           <li xml:lang="uk">Уможливлено відкриття збереженого файла.</li>
           <li>Allow to rotate image in show image dialog</li>
+          <li xml:lang="ca">Permet girar una imatge en el diàleg de mostrar imatges</li>
+          <li xml:lang="ca-valencia">Permet girar una imatge en el diàleg de mostrar imatges</li>
+          <li xml:lang="ka">გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში</li>
+          <li xml:lang="pt-BR">Permitir rotação da imagem na caixa de diálogo de exibição de imagem</li>
+          <li xml:lang="sl">Dovoli vrtenje slike v pogovornem oknu za prikaz slike</li>
+          <li xml:lang="tr">Görsel görüntüleme iletişim kutusunda görseli döndürmeye olanak tanı</li>
+          <li xml:lang="uk">Уможливлено обертання зображення у вікні показу зображення</li>
           <li>Add new room info in notification history dialog.</li>
         </ul>
       </description>
@@ -2307,6 +2314,13 @@
           <li xml:lang="tr">Bekleyen kullanıcılar bilgisini gerçekle (yönetici kipi)</li>
           <li xml:lang="uk">Реалізовано показ даних щодо користувачів у черзі (режим адміністратора)</li>
           <li>Use cmark-rc for markdown support</li>
+          <li xml:lang="ca">Usa «cmark-rc» per a implementar el Markdown</li>
+          <li xml:lang="ca-valencia">Utilitza «cmark-rc» per a implementar Markdown</li>
+          <li xml:lang="ka">მარკდაუნისთვის cmark-rc-ის გამოყენება</li>
+          <li xml:lang="pt-BR">Usar cmark-rc para suporte a Markdown</li>
+          <li xml:lang="sl">Uporabi cmark-rc za podporo markdowna</li>
+          <li xml:lang="tr">Markdown desteği için cmark-rc kullan</li>
+          <li xml:lang="uk">Для підтримки markdown використано cmark-rc</li>
           <li>Delete oldest files from some cache directories (file-upload and media) so it doesn't grow forever</li>
           <li xml:lang="ca">Suprimeix els fitxers més antics d'alguns directoris de la memòria cau («file-upload» i «media») perquè no creixi per sempre</li>
           <li xml:lang="ca-valencia">Suprimix els fitxers més antics d'algunes carpetes de la memòria cau («file-upload» i «media») perquè no cresca per sempre</li>
