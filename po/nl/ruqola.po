@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-03 01:00+0000\n"
+"POT-Creation-Date: 2026-06-05 00:44+0000\n"
 "PO-Revision-Date: 2026-06-03 11:19+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -10445,17 +10445,17 @@ msgid "Clear"
 msgstr "Wissen"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#, kde-format
+msgctxt "@action"
+msgid "Switch To New Room"
+msgstr "Schakel om naar nieuwe room"
+
+#: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
 msgstr "Naar bericht gaan"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#, kde-format
-msgctxt "@action"
-msgid "Switch To New Room"
-msgstr "Schakel om naar nieuwe room"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format

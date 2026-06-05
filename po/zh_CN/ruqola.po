@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-03 01:00+0000\n"
+"POT-Creation-Date: 2026-06-05 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -10095,16 +10095,16 @@ msgid "Clear"
 msgstr "清除"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#, kde-format
+msgctxt "@action"
+msgid "Switch To New Room"
+msgstr ""
+
+#: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
-msgstr ""
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#, kde-format
-msgctxt "@action"
-msgid "Switch To New Room"
 msgstr ""
 
 #: widgets/offlinewidget/offlinewidget.cpp:17

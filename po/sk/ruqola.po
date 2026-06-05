@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-03 01:00+0000\n"
+"POT-Creation-Date: 2026-06-05 00:44+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -10405,17 +10405,17 @@ msgid "Clear"
 msgstr "Vyčistiť"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#, kde-format
+msgctxt "@action"
+msgid "Switch To New Room"
+msgstr ""
+
+#: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
 msgstr "Správa"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#, kde-format
-msgctxt "@action"
-msgid "Switch To New Room"
-msgstr ""
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format

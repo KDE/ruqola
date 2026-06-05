@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-03 01:00+0000\n"
-"PO-Revision-Date: 2026-05-23 09:52+0200\n"
+"POT-Creation-Date: 2026-06-05 00:44+0000\n"
+"PO-Revision-Date: 2026-06-03 22:50+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -9198,17 +9198,16 @@ msgid "Fit to View"
 msgstr "Adapter à l'affichage"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Limiteur de taux"
+msgstr "Faire pivoter vers la gauche"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Faire pivoter vers la droite"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -10511,17 +10510,17 @@ msgid "Clear"
 msgstr "Effacer"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#, kde-format
+msgctxt "@action"
+msgid "Switch To New Room"
+msgstr ""
+
+#: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
 msgstr "Aller au message"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#, kde-format
-msgctxt "@action"
-msgid "Switch To New Room"
-msgstr ""
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -12099,12 +12098,10 @@ msgid "Allow to open saved file."
 msgstr "Autoriser l'ouverture du fichier enregistré."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
 msgstr ""
-"Correction de la traduction de messages dans la boite de recherche de "
-"messages."
+"Autoriser la rotation de l'image dans la boite de dialogue d'affichage de "
+"l'image."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
