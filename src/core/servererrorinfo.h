@@ -8,6 +8,7 @@
 #include "libruqolacore_export.h"
 #include <QDateTime>
 
+class QDebug;
 class LIBRUQOLACORE_EXPORT ServerErrorInfo
 {
     Q_GADGET
@@ -28,15 +29,18 @@ public:
 
     [[nodiscard]] QString dateTimeStr() const;
 
+    [[nodiscard]] QString details() const;
+    void setDetails(const QString &newDetails);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void createUniqueIdentifier();
     static quint64 identifierId;
     QString mAccountName;
     QString mMessage;
+    QString mDetails;
     QDateTime mDateTime;
     QByteArray mIdentifier;
     QString mDateTimeStr;
 };
 Q_DECLARE_TYPEINFO(ServerErrorInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServerErrorInfo &t);

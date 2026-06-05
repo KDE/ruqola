@@ -24,6 +24,7 @@ QDebug operator<<(QDebug d, const ServerErrorInfo &t)
     d.space() << "Message" << t.message();
     d.space() << "DateTime" << t.dateTime();
     d.space() << "identifier" << t.identifier();
+    d.space() << "details" << t.details();
     return d;
 }
 
@@ -70,6 +71,16 @@ void ServerErrorInfo::createUniqueIdentifier()
 {
     identifierId++;
     mIdentifier = QByteArray::number(identifierId);
+}
+
+QString ServerErrorInfo::details() const
+{
+    return mDetails;
+}
+
+void ServerErrorInfo::setDetails(const QString &newDetails)
+{
+    mDetails = newDetails;
 }
 
 QString ServerErrorInfo::dateTimeStr() const
