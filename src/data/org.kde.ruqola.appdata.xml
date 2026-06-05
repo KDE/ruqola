@@ -1419,11 +1419,20 @@
           <li xml:lang="ca">Permet girar una imatge en el diàleg de mostrar imatges</li>
           <li xml:lang="ca-valencia">Permet girar una imatge en el diàleg de mostrar imatges</li>
           <li xml:lang="ka">გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში</li>
+          <li xml:lang="nl">In dialoog voor tonen van afbeelding draaien toestaan</li>
           <li xml:lang="pt-BR">Permitir rotação da imagem na caixa de diálogo de exibição de imagem</li>
           <li xml:lang="sl">Dovoli vrtenje slike v pogovornem oknu za prikaz slike</li>
           <li xml:lang="tr">Görsel görüntüleme iletişim kutusunda görseli döndürmeye olanak tanı</li>
           <li xml:lang="uk">Уможливлено обертання зображення у вікні показу зображення</li>
           <li>Add new room info in notification history dialog.</li>
+          <li xml:lang="ca">Afegeix informació nova de sala al diàleg de l'historial de notificacions.</li>
+          <li xml:lang="ca-valencia">Afig informació nova de sala al diàleg de l'historial de notificacions.</li>
+          <li xml:lang="ka">დაემატა ახალი ოთახის ინფორმაცია გაფრთხილებების ისტორიის დიალოგში.</li>
+          <li xml:lang="nl">Voeg nieuwe roominformatie toe in de dialoog van de geschiedenis van meldingen</li>
+          <li xml:lang="pt-BR">Adicionar novas informações da sala na janela do histórico de notificações.</li>
+          <li xml:lang="sl">Dodaj podatke o novi sobi v pogovorno okno zgodovine obvestil.</li>
+          <li xml:lang="tr">Bildirim geçmişi iletişim kutusuna yeni oda bilgisini ekle</li>
+          <li xml:lang="uk">Додано відомості щодо нових кімнат до вікна журналу сповіщень</li>
         </ul>
       </description>
     </release>
@@ -2317,6 +2326,7 @@
           <li xml:lang="ca">Usa «cmark-rc» per a implementar el Markdown</li>
           <li xml:lang="ca-valencia">Utilitza «cmark-rc» per a implementar Markdown</li>
           <li xml:lang="ka">მარკდაუნისთვის cmark-rc-ის გამოყენება</li>
+          <li xml:lang="nl">Cmark-rc gebruiken voor ondersteuning van markdown</li>
           <li xml:lang="pt-BR">Usar cmark-rc para suporte a Markdown</li>
           <li xml:lang="sl">Uporabi cmark-rc za podporo markdowna</li>
           <li xml:lang="tr">Markdown desteği için cmark-rc kullan</li>
