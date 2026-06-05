@@ -49,7 +49,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginStatusChanged();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotJobFailedInfo(const QString &messageError, const QString &accountName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotJobFailedInfo(const QString &messageError, const QString &descriptionError, const QString &accountName);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotNewErrorInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void createServerErrorInfoMessageWidget();

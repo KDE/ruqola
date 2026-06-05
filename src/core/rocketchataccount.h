@@ -468,7 +468,7 @@ Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void jobFailed(const QString &message, const QString &accountName);
+    void jobFailed(const QString &message, const QString &descriptionError, const QString &accountName);
     void userStatusUpdated(User::PresenceStatus status, const QString &customText, const QString &accountName);
     void publicSettingChanged();
     void serverVersionChanged();
@@ -581,7 +581,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void updateCustomEmojiList(bool fetchListCustom);
     LIBRUQOLACORE_NO_EXPORT void loadRoles();
     LIBRUQOLACORE_NO_EXPORT void slotAwayStatusChanged(bool away);
-    LIBRUQOLACORE_NO_EXPORT void slotJobFailed(const QString &str);
+    LIBRUQOLACORE_NO_EXPORT void slotJobFailed(const QString &str, const QString &descriptionError);
     LIBRUQOLACORE_NO_EXPORT void checkLicenses();
     LIBRUQOLACORE_NO_EXPORT void parsePublicSettings();
     LIBRUQOLACORE_NO_EXPORT void licenseGetModules();

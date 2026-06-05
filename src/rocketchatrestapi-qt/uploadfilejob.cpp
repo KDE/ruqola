@@ -55,7 +55,7 @@ bool UploadFileJob::start()
     auto file = new QFile(fileNameAsLocalFile);
     if (!file->open(QIODevice::ReadOnly)) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mUploadFileInfo.filenameUrl;
-        Q_EMIT failed(i18n("File not found \'%1\'", fileNameAsLocalFile));
+        Q_EMIT failed(i18n("File not found \'%1\'", fileNameAsLocalFile), {});
         delete file;
         deleteLater();
         return false;
@@ -162,7 +162,7 @@ void UploadFileJob::slotUploadFinished()
                 }
                 // Don't report cancel job when we canceled job
                 if (reply->error() != QNetworkReply::OperationCanceledError) {
-                    Q_EMIT failed(mReply->errorString() + u'\n' + errorStr(replyObject));
+                    Q_EMIT failed(mReply->errorString(), errorStr(replyObject));
                 }
             } else {
                 emitFailedMessage(reply->errorString(), replyObject);

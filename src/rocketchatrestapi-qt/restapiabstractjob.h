@@ -72,7 +72,7 @@ public:
     void setAuthCode(const QString &newAuthCode);
 
 Q_SIGNALS:
-    void failed(const QString &str);
+    void failed(const QString &serverErrorStr, const QString &descriptionError);
 
 protected:
     [[nodiscard]] QString errorStr(const QJsonObject &replyObject);

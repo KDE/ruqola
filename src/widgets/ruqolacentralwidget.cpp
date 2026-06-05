@@ -129,11 +129,12 @@ void RuqolaCentralWidget::slotNewErrorInfo()
     mServerErrorInfoMessageWidget->animatedShow();
 }
 
-void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const QString &accountName)
+void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const QString &descriptionError, const QString &accountName)
 {
     ServerErrorInfo info;
     info.setAccountName(accountName);
-    info.setMessage(messageError);
+    const QString infoError = messageError + (!descriptionError.isEmpty() ? u'\n' + descriptionError : QString());
+    info.setMessage(infoError);
     ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info));
 }
 

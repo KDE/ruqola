@@ -45,7 +45,7 @@ void GroupRemoveOwnerJob::onPostRequestResponse(const QString &replyErrorString,
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("GroupRemoveOwnerJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
         if (replyObject["errorType"_L1].toString() == "error-remove-last-owner"_L1) {
-            Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."));
+            Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."), {});
         }
     }
 }

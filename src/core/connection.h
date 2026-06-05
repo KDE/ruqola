@@ -154,7 +154,7 @@ Q_SIGNALS:
 
     void usersAutocompleteDone(const QJsonObject &obj);
 
-    void failed(const QString &str);
+    void failed(const QString &str, const QString &descriptionError);
     void networkError();
 
     void runCommandDone();

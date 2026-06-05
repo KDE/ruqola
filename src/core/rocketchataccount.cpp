@@ -607,9 +607,9 @@ Connection *RocketChatAccount::restApi()
     return mRestApi.get();
 }
 
-void RocketChatAccount::slotJobFailed(const QString &str)
+void RocketChatAccount::slotJobFailed(const QString &str, const QString &descriptionError)
 {
-    Q_EMIT jobFailed(str, accountName());
+    Q_EMIT jobFailed(str, descriptionError, accountName());
 }
 
 const BannerInfos &RocketChatAccount::bannerInfos() const

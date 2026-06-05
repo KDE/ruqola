@@ -42,7 +42,7 @@ bool SetAvatarJob::start()
         auto file = new QFile(fileNameAsLocalFile);
         if (!file->open(QIODevice::ReadOnly)) {
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mAvatarInfo.mImageUrl;
-            Q_EMIT failed(i18n("File not found \'%1\'", fileNameAsLocalFile));
+            Q_EMIT failed(i18n("File not found \'%1\'", fileNameAsLocalFile), {});
             delete file;
             deleteLater();
             return false;

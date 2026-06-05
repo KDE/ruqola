@@ -198,9 +198,9 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
 void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, const QJsonObject &replyObject)
 {
     if (replyObject.isEmpty()) {
-        Q_EMIT failed(replyErrorString);
+        Q_EMIT failed(replyErrorString, {});
     } else {
-        Q_EMIT failed(replyErrorString + u'\n' + errorStr(replyObject));
+        Q_EMIT failed(replyErrorString, errorStr(replyObject));
     }
 }
 
