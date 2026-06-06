@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-05 00:44+0000\n"
-"PO-Revision-Date: 2026-05-21 11:03+0400\n"
+"PO-Revision-Date: 2026-06-05 14:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1420,7 +1420,7 @@ msgstr[5] "%1 ثانية"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "أُضيفت الغرفة \"%1\""
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -9156,17 +9156,16 @@ msgid "Fit to View"
 msgstr "ناسب العرض"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "معدل الطلبات"
+msgstr "دوّر لليسار"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "دوّر لليمين"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -10465,7 +10464,7 @@ msgstr "امحُ"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "بدّل إلى غرفة جديدة"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
@@ -12052,20 +12051,16 @@ msgid "Improve offline Mode"
 msgstr "تحسين وضع عدم الاتّصال"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "السماح بإرسال ملفات متعددة."
+msgstr "اسمح بفتح ملف محفوظ."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "إصلاح الرسائل المكررة في مربع حوار رسائل البحث."
+msgstr "اسمح بتدوير الصورة في حوار عرض الصورة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
-msgstr ""
+msgstr "أضف معلومات الغرفة الجديدة في حوار سجل الإشعارات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:30
 #, kde-format
