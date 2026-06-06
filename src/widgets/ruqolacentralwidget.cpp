@@ -48,6 +48,9 @@ RuqolaCentralWidget::RuqolaCentralWidget(
     , mTextMessageWidget(new TextAddonsWidgets::TextMessageWidget(mRuqolaMainWidget))
 #endif
 {
+#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
+    mTextMessageWidget->setTextFormat(Qt::RichText);
+#endif
     mMainLayout->setContentsMargins({});
     mMainLayout->setObjectName(u"mainlayout"_s);
     mMainLayout->setSpacing(0);
@@ -145,7 +148,8 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const Q
     ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info));
 #if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
     if (!descriptionError.isEmpty()) {
-        mTextMessageWidget->showMessage(descriptionError, {}, KMessageWidget::Error);
+        const QString message = u"<b>%1</b><br/>%2"_s.arg(accountName, descriptionError);
+        mTextMessageWidget->showMessage(message, {}, KMessageWidget::Error);
     }
 #endif
 }
