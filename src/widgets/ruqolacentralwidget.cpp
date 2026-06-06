@@ -24,6 +24,10 @@
 #include <TextAddonsWidgets/WhatsNewMessageWidget>
 #endif
 
+#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
+#include <TextAddonsWidgets/TextMessageWidget>
+#endif
+
 #include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -40,6 +44,9 @@ RuqolaCentralWidget::RuqolaCentralWidget(
     , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
     , mRuqolaWelcomeWidget(new WelcomeWidget(this))
     , mMainLayout(new QVBoxLayout(this))
+#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
+    , mTextMessageWidget(new TextAddonsWidgets::TextMessageWidget(this))
+#endif
 {
     mMainLayout->setContentsMargins({});
     mMainLayout->setObjectName(u"mainlayout"_s);

@@ -39,12 +39,6 @@ class VerifyNewVersionWidget;
 #if HAVE_WHATSNEWSNGSUPPORT
 #include <KAboutData>
 #endif
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
-namespace TextAddonsWidgets
-{
-class TextMessageWidget;
-}
-#endif
 
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
@@ -221,8 +215,5 @@ private:
     ChangeFontSizeMenu *mChangeFontSizeAction = nullptr;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     TextAddonsWidgets::VerifyNewVersionWidget *const mVerifyNewVersionWidget;
-#endif
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
-    TextAddonsWidgets::TextMessageWidget *const mTextMessageWidget;
 #endif
 };
