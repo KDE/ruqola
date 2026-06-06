@@ -35,7 +35,7 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
     case AccountName:
         return info.accountName();
     case MessageStr:
-        return info.message();
+        return info.generateMessage();
     case Identifier:
         return info.identifier();
     case DateTime:

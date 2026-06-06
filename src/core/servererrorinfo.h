@@ -32,6 +32,8 @@ public:
     [[nodiscard]] QString details() const;
     void setDetails(const QString &newDetails);
 
+    [[nodiscard]] QString generateMessage() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void createUniqueIdentifier();
     static quint64 identifierId;

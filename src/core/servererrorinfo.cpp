@@ -88,4 +88,9 @@ QString ServerErrorInfo::dateTimeStr() const
     return mDateTimeStr;
 }
 
+QString ServerErrorInfo::generateMessage() const
+{
+    return mMessage + (mDetails.isEmpty() ? QString() : u"\n" + mDetails);
+}
+
 #include "moc_servererrorinfo.cpp"
