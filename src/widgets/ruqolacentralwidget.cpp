@@ -143,6 +143,12 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const Q
     info.setDetails(descriptionError);
     info.setMessage(messageError);
     ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info));
+#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
+    if (!messageError.isEmpty()) {
+        qDebug() << " EERRRRR " << descriptionError;
+        mTextMessageWidget->showMessage(messageError, {}, KMessageWidget::Error);
+    }
+#endif
 }
 
 void RuqolaCentralWidget::slotSocketError([[maybe_unused]] QAbstractSocket::SocketError error, const QString &errorString)
