@@ -62,6 +62,10 @@
 #include <TextAddonsWidgets/WhatsNewDialog>
 #endif
 
+#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
+#include <TextAddonsWidgets/TextMessageWidget>
+#endif
+
 #include "rooms/roomstartdiscussionjob.h"
 #include <KActionCollection>
 #include <KColorSchemeManager>
@@ -129,7 +133,9 @@ RuqolaMainWindow::RuqolaMainWindow(
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     , mVerifyNewVersionWidget(new TextAddonsWidgets::VerifyNewVersionWidget(this))
 #endif
-
+#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
+    , mTextMessageWidget(new TextAddonsWidgets::TextMessageWidget(this))
+#endif
 {
     Ruqola::self()->setParentWidget(mMainWidget);
     mMainWidget->setObjectName(u"mMainWidget"_s);
