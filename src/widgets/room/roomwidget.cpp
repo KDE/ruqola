@@ -1081,7 +1081,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);
     slotOfflineModeChanged();
 }
-
+#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
 void RoomWidget::slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType)
 {
     TextAddonsWidgets::OpenSavedFileFolderWidget::FileType openSavedFileType = TextAddonsWidgets::OpenSavedFileFolderWidget::FileType::Unknown;
@@ -1101,6 +1101,7 @@ void RoomWidget::slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChat
     }
     mOpenSavedFileFolderWidget->setUrls(urls, openSavedFileType);
 }
+#endif
 
 void RoomWidget::showE2eSaveEncryptionKeyWidget()
 {
