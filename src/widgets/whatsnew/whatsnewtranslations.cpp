@@ -19,6 +19,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Allow to open saved file."),
         kli18n("Allow to rotate image in show image dialog."),
         kli18n("Add new room info in notification history dialog."),
+        kli18n("Use new textmessagewidget for error notification."),
     };
     return info;
 }

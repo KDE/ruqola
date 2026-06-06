@@ -1432,7 +1432,8 @@
           <li xml:lang="pt-BR">Adicionar novas informações da sala na janela do histórico de notificações.</li>
           <li xml:lang="sl">Dodaj podatke o novi sobi v pogovorno okno zgodovine obvestil.</li>
           <li xml:lang="tr">Bildirim geçmişi iletişim kutusuna yeni oda bilgisini ekle</li>
-          <li xml:lang="uk">Додано відомості щодо нових кімнат до вікна журналу сповіщень</li>
+	  <li xml:lang="uk">Додано відомості щодо нових кімнат до вікна журналу сповіщень</li>
+	  <li>Use new textmessagewidget for error notification</li>
         </ul>
       </description>
     </release>
