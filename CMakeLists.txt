@@ -350,6 +350,10 @@ if(
     set(HAVE_WHATSNEWSNGSUPPORT TRUE)
 endif()
 
+if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 2.0.82)
+    set(HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS TRUE)
+endif()
+
 # shall we use DBus?
 # enabled per default on Linux & BSD systems
 set(USE_DBUS_DEFAULT OFF)
