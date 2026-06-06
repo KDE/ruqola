@@ -144,9 +144,8 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const Q
     info.setMessage(messageError);
     ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info));
 #if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
-    if (!messageError.isEmpty()) {
-        qDebug() << " EERRRRR " << descriptionError;
-        mTextMessageWidget->showMessage(messageError, {}, KMessageWidget::Error);
+    if (!descriptionError.isEmpty()) {
+        mTextMessageWidget->showMessage(descriptionError, {}, KMessageWidget::Error);
     }
 #endif
 }
