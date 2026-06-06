@@ -45,7 +45,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(
     , mRuqolaWelcomeWidget(new WelcomeWidget(this))
     , mMainLayout(new QVBoxLayout(this))
 #if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
-    , mTextMessageWidget(new TextAddonsWidgets::TextMessageWidget(this))
+    , mTextMessageWidget(new TextAddonsWidgets::TextMessageWidget(mRuqolaMainWidget))
 #endif
 {
     mMainLayout->setContentsMargins({});

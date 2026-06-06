@@ -30,12 +30,13 @@ public:
 
     void selectNextUnreadChannel();
 
+    void showEvent(QShowEvent *event) override;
+
 Q_SIGNALS:
     void channelSelected();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void selectChannelRoom(const ChannelListView::ChannelSelectedInfo &roomInfo);
-    LIBRUQOLAWIDGETS_NO_EXPORT void showEvent(QShowEvent *event) override;
     LIBRUQOLAWIDGETS_NO_EXPORT void updateBannerInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMarkBannerAsRead(const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomPressed(const QByteArray &roomId);
