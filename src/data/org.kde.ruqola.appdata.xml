@@ -1392,6 +1392,7 @@
       <description>
         <ul>
           <li>Improve offline Mode</li>
+          <li xml:lang="ar">تحسين وضع عدم الاتّصال</li>
           <li xml:lang="ca">Millora el mode desconnectat</li>
           <li xml:lang="ca-valencia">Millora el mode desconnectat</li>
           <li xml:lang="es">Mejoras en modo desconectado</li>
@@ -1404,6 +1405,7 @@
           <li xml:lang="tr">Çevrim dışı kipini iyileştir</li>
           <li xml:lang="uk">Удосконалено автономний режим</li>
           <li>Allow to open saved file.</li>
+          <li xml:lang="ar">اسمح بفتح ملف محفوظ.</li>
           <li xml:lang="ca">Permet obrir un fitxer desat.</li>
           <li xml:lang="ca-valencia">Permet obrir un fitxer guardat.</li>
           <li xml:lang="es">Permitir la apertura de archivos guardados.</li>
@@ -1416,6 +1418,7 @@
           <li xml:lang="tr">Kaydedilen dosyanın açılmasına izin ver.</li>
           <li xml:lang="uk">Уможливлено відкриття збереженого файла.</li>
           <li>Allow to rotate image in show image dialog</li>
+          <li xml:lang="ar">اسمح بتدوير الصورة في حوار عرض الصورة</li>
           <li xml:lang="ca">Permet girar una imatge en el diàleg de mostrar imatges</li>
           <li xml:lang="ca-valencia">Permet girar una imatge en el diàleg de mostrar imatges</li>
           <li xml:lang="ka">გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში</li>
@@ -1425,6 +1428,7 @@
           <li xml:lang="tr">Görsel görüntüleme iletişim kutusunda görseli döndürmeye olanak tanı</li>
           <li xml:lang="uk">Уможливлено обертання зображення у вікні показу зображення</li>
           <li>Add new room info in notification history dialog.</li>
+          <li xml:lang="ar">أضف معلومات الغرفة الجديدة في حوار سجل الإشعارات.</li>
           <li xml:lang="ca">Afegeix informació nova de sala al diàleg de l'historial de notificacions.</li>
           <li xml:lang="ca-valencia">Afig informació nova de sala al diàleg de l'historial de notificacions.</li>
           <li xml:lang="ka">დაემატა ახალი ოთახის ინფორმაცია გაფრთხილებების ისტორიის დიალოგში.</li>
@@ -1432,8 +1436,8 @@
           <li xml:lang="pt-BR">Adicionar novas informações da sala na janela do histórico de notificações.</li>
           <li xml:lang="sl">Dodaj podatke o novi sobi v pogovorno okno zgodovine obvestil.</li>
           <li xml:lang="tr">Bildirim geçmişi iletişim kutusuna yeni oda bilgisini ekle</li>
-	  <li xml:lang="uk">Додано відомості щодо нових кімнат до вікна журналу сповіщень</li>
-	  <li>Use new textmessagewidget for error notification</li>
+          <li xml:lang="uk">Додано відомості щодо нових кімнат до вікна журналу сповіщень</li>
+          <li>Use new textmessagewidget for error notification</li>
         </ul>
       </description>
     </release>
@@ -1444,6 +1448,7 @@
       <description>
         <ul>
           <li>Copy block code more easily</li>
+          <li xml:lang="ar">انسخ كتلة الرمز بسهولة أكبر</li>
           <li xml:lang="ca">Copia blocs de codi més fàcilment</li>
           <li xml:lang="ca-valencia">Copia blocs de codi amb més facilitat</li>
           <li xml:lang="es">Facilitada la copia de bloques de código</li>
@@ -1456,6 +1461,7 @@
           <li xml:lang="tr">Kod bloğunu daha kolay kopyala</li>
           <li xml:lang="uk">Полегшено копіювання блоків коду</li>
           <li>Improve Text To Speech user interface</li>
+          <li xml:lang="ar">تحسين واجهة المستخدم لتحويل النص إلى كلام</li>
           <li xml:lang="ca">Millora la interfície d'usuari del text a veu</li>
           <li xml:lang="ca-valencia">Millora la interfície d'usuari del text a veu</li>
           <li xml:lang="es">Mejoras en la interfaz de usuario de texto a habla</li>
@@ -1468,6 +1474,7 @@
           <li xml:lang="tr">Metinden konuşmaya kullanıcı arayüzünü iyileştir</li>
           <li xml:lang="uk">Удосконалено інтерфейс озвучення тексту</li>
           <li>Show attachment fields</li>
+          <li xml:lang="ar">أظهر حقول المرفقات</li>
           <li xml:lang="ca">Mostra els camps dels adjunts</li>
           <li xml:lang="ca-valencia">Mostra els camps dels adjunts</li>
           <li xml:lang="es">Mostrar campos adjuntos</li>
@@ -1480,6 +1487,7 @@
           <li xml:lang="tr">Ek alanlarını göster</li>
           <li xml:lang="uk">Реалізовано показ полів долучень</li>
           <li>Implement Offline Mode (experimental)</li>
+          <li xml:lang="ar">تنفيذ الوضع غير المتصل بالإنترنت (تجريبي)</li>
           <li xml:lang="ca">Implementa el mode desconnectat (experimental)</li>
           <li xml:lang="ca-valencia">Implementa el mode desconnectat (experimental)</li>
           <li xml:lang="es">Modo desconectado implementado (experimental)</li>
@@ -1492,6 +1500,7 @@
           <li xml:lang="tr">Çevrim dışı kipini gerçekle (deneysel)</li>
           <li xml:lang="uk">Реалізовано автономний режим (експериментальна можливість)</li>
           <li>Implement Pending Typed database storage</li>
+          <li xml:lang="ar">تنفيذ تخزين قاعدة البيانات المكتوبة المعلقة</li>
           <li xml:lang="ca">Implementa l'emmagatzematge a la base de dades del tecleig pendent</li>
           <li xml:lang="ca-valencia">Implementa l'emmagatzematge a la base de dades del tecleig pendent</li>
           <li xml:lang="es">Implementado almacenamiento en base de datos  pendiente de tipos</li>
@@ -1503,6 +1512,7 @@
           <li xml:lang="tr">Bekleyen yazılan veri tabanı depolamasını gerçekle</li>
           <li xml:lang="uk">Реалізовано сховище у базі даних для черги введення</li>
           <li>Fix RC 8.0.0 support</li>
+          <li xml:lang="ar">إصلاح دعم RC 8.0.0</li>
           <li xml:lang="ca">Corregeix la implementació del RC 8.0.0</li>
           <li xml:lang="ca-valencia">Corregix la implementació del RC 8.0.0</li>
           <li xml:lang="es">Mejora en el soporte de RC 80.0</li>
@@ -1514,6 +1524,7 @@
           <li xml:lang="tr">RC 8.0.0 desteğini düzelt</li>
           <li xml:lang="uk">Виправлено підтримку RC 8.0.0</li>
           <li>Add Attachment Actions Support</li>
+          <li xml:lang="ar">إضافة إجراءات المرفقات</li>
           <li xml:lang="ca">Afegeix la implementació d'accions d'adjunts</li>
           <li xml:lang="ca-valencia">Afig la implementació d'accions d'adjunts</li>
           <li xml:lang="es">Añadidas acciones de adjuntos</li>
@@ -1525,6 +1536,7 @@
           <li xml:lang="tr">Ek eylemleri desteği ekle</li>
           <li xml:lang="uk">Додано підтримку дій з долученнями</li>
           <li>Add TimeStamp support</li>
+          <li xml:lang="ar">إضافة الختم الزمني</li>
           <li xml:lang="ca">Afegeix la implementació de marques horàries</li>
           <li xml:lang="ca-valencia">Afig la implementació de marques de temps</li>
           <li xml:lang="es">Añadido soporte para marcas de tiempo</li>
@@ -1536,6 +1548,7 @@
           <li xml:lang="tr">Zaman damgası desteği ekle</li>
           <li xml:lang="uk">Додано підтримку часових позначок</li>
           <li>Save local translation to local database</li>
+          <li xml:lang="ar">حفظ الترجمة المحلية في قاعدة البيانات المحلية</li>
           <li xml:lang="ca">Desa la traducció local a la base de dades local</li>
           <li xml:lang="ca-valencia">Guarda la traducció local a la base de dades local</li>
           <li xml:lang="es">Guardar traducción local a base de datos local</li>
@@ -1547,6 +1560,7 @@
           <li xml:lang="tr">Yerel çeviriyi yerel veri tabanına kaydet</li>
           <li xml:lang="uk">Реалізовано збереження локального перекладу до локальної бази даних</li>
           <li>Fix remove room (in local database)</li>
+          <li xml:lang="ar">إصلاح إزالة الغرفة (في قاعدة البيانات المحلية)</li>
           <li xml:lang="ca">Corregeix l'eliminació de sala (a la base de dades local)</li>
           <li xml:lang="ca-valencia">Corregix l'eliminació de sala (a la base de dades local)</li>
           <li xml:lang="es">Corrección al eliminar sala (en base de datos local)</li>
@@ -1558,6 +1572,7 @@
           <li xml:lang="tr">Odayı kaldırmayı düzelt (yerel veri tabanında)</li>
           <li xml:lang="uk">Виправлено вилучення кімнати (у локальній базі даних)</li>
           <li>Fix export database</li>
+          <li xml:lang="ar">إصلاح تصدير قاعدة البيانات</li>
           <li xml:lang="ca">Corregeix l'exportació de la base de dades</li>
           <li xml:lang="ca-valencia">Corregix l'exportació de la base de dades</li>
           <li xml:lang="es">Corrección al exportar la base de datos</li>
@@ -1569,6 +1584,7 @@
           <li xml:lang="tr">Veri tabanı dışa aktarımını düzelt</li>
           <li xml:lang="uk">Виправлено експортування бази даних</li>
           <li>Fix upload Custom Sound</li>
+          <li xml:lang="ar">إصلاح تحميل الصوت المخصص</li>
           <li xml:lang="ca">Corregeix la pujada de sons personalitzats</li>
           <li xml:lang="ca-valencia">Corregix la pujada de sons personalitzats</li>
           <li xml:lang="es">Mejora en la subida de sonidos personalizados</li>
@@ -1587,6 +1603,7 @@
       <description>
         <ul>
           <li>Add AI plugin</li>
+          <li xml:lang="ar">أضف ملحقة الذكاء الاصطناعي</li>
           <li xml:lang="ca">Afegeix un connector d'IA</li>
           <li xml:lang="ca-valencia">Afig un connector d'IA</li>
           <li xml:lang="es">Añadido complemento AI</li>
@@ -1598,6 +1615,7 @@
           <li xml:lang="tr">Yapay zekâ eklentisi ekle</li>
           <li xml:lang="uk">Додано додаток ШІ</li>
           <li>Allow to dnd image</li>
+          <li xml:lang="ar">السماح بتحويل الصور إلى نمط سجون وتنانين</li>
           <li xml:lang="ca">Permet «dnd» una imatge</li>
           <li xml:lang="ca-valencia">Permet «dnd» una imatge</li>
           <li xml:lang="es">Permite imagen "No molestar"</li>
@@ -1609,6 +1627,7 @@
           <li xml:lang="tr">Görselin sürüklenip bırakılmasına izin ver</li>
           <li xml:lang="uk">Дозволено зображення «Не турбувати»</li>
           <li>Add restore button in administration settings</li>
+          <li xml:lang="ar">إضافة زر استعادة في إعدادات الإدارة</li>
           <li xml:lang="ca">Afegeix el botó de restauració a la configuració d'administració</li>
           <li xml:lang="ca-valencia">Afig el botó de restauració a la configuració d'administració</li>
           <li xml:lang="es">Añade botón restaurar en las preferencias de administración</li>
@@ -1620,6 +1639,7 @@
           <li xml:lang="tr">Yönetim ayarlarına geri yükle düğmesi ekle</li>
           <li xml:lang="uk">Додано кнопку відновлення на сторінку параметрів адміністрування</li>
           <li>Allow to activate plugins</li>
+          <li xml:lang="ar">اسمح بتفعيل الملحقات</li>
           <li xml:lang="ca">Permet activar els connectors</li>
           <li xml:lang="ca-valencia">Permet activar els connectors</li>
           <li xml:lang="es">Permite activar complementos</li>
@@ -1631,6 +1651,7 @@
           <li xml:lang="tr">Eklentilerin etkinleştirilmesine izin ver</li>
           <li xml:lang="uk">Дозволити активацію додатків</li>
           <li>Add Open With button in show image</li>
+          <li xml:lang="ar">إضافة زر ”افتح باستخدام“ في إظهار الصورة</li>
           <li xml:lang="ca">Afegeix el botó Obre amb en mostrar una imatge</li>
           <li xml:lang="ca-valencia">Afig el botó «Obri amb» en mostrar una imatge</li>
           <li xml:lang="es">Añadido «Abrir con» en mostrar imagen</li>
@@ -1642,6 +1663,7 @@
           <li xml:lang="tr">Görsel göstermeye “Birlikte Aç” düğmesi ekle</li>
           <li xml:lang="uk">На панель показу зображення додано кнопку «Відкрити за допомогою»</li>
           <li>Add Quick Text Format</li>
+          <li xml:lang="ar">إضافة تنسيق سريع للنص</li>
           <li xml:lang="ca">Afegeix el format del text ràpid</li>
           <li xml:lang="ca-valencia">Afig el format ràpid del text</li>
           <li xml:lang="es">Añadido formato rápido de texto</li>
@@ -1653,6 +1675,7 @@
           <li xml:lang="tr">Hızlı metin biçimlendirmesi ekle</li>
           <li xml:lang="uk">Додано швидке форматування тексту</li>
           <li>Add Extension message line button</li>
+          <li xml:lang="ar">أضف زر سطر رسالة التمديد</li>
           <li xml:lang="ca">Afegeix l'extensió de botó de línia de missatge</li>
           <li xml:lang="ca-valencia">Afig l'extensió de botó de línia de missatge</li>
           <li xml:lang="es">Añadida línea de extensión del mensaje</li>
@@ -1664,6 +1687,7 @@
           <li xml:lang="tr">Uzantı ileti satırı düğmesi ekle</li>
           <li xml:lang="uk">Додати кнопку рядка повідомлення розширення</li>
           <li>Allow to Add WebDav Server</li>
+          <li xml:lang="ar">اسمح بإضافة خادم WebDav</li>
           <li xml:lang="ca">Permet afegir un servidor WebDav</li>
           <li xml:lang="ca-valencia">Permet afegir un servidor WebDAV</li>
           <li xml:lang="es">Soporte para añadir servidor WebDav</li>
@@ -1675,6 +1699,7 @@
           <li xml:lang="tr">WebDav sunucusu eklenmesine izin ver</li>
           <li xml:lang="uk">Дозволити додавання сервера WebDav</li>
           <li>Show room info (italic text) when there is some pending message typed</li>
+          <li xml:lang="ar">عرض معلومات الغرفة (نص مائل) عندما يكون هناك رسالة معلقة مكتوبة</li>
           <li xml:lang="ca">Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge escrit pendent</li>
           <li xml:lang="ca-valencia">Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge escrit pendent</li>
           <li xml:lang="es">Mostrar información de la sala (texto en cursiva) cuando hay algún mensaje siendo escrito</li>
@@ -1686,6 +1711,7 @@
           <li xml:lang="tr">Yazılan bazı bekleyen iletiler olduğunda oda bilgisini (yatık metin) göster</li>
           <li xml:lang="uk">Реалізовано показ відомостей щодо кімнати (курсивом), якщо виконується введення якогось повідомлення з черги</li>
           <li>Allow to add emoticon from popup menu</li>
+          <li xml:lang="ar">السماح بإضافة رموز تعبيرية من القائمة المنبثقة</li>
           <li xml:lang="ca">Permet afegir emoticones des d'un menú emergent</li>
           <li xml:lang="ca-valencia">Permet afegir emoticones des d'un menú emergent</li>
           <li xml:lang="es">Soporte para añadir emoticono desde el menú emergente</li>
@@ -1697,6 +1723,7 @@
           <li xml:lang="tr">Açılır menüden ifade eklenmesine izin ver</li>
           <li xml:lang="uk">Уможливлено додавання емоційки з контекстного меню</li>
           <li>Fix show date info</li>
+          <li xml:lang="ar">إصلاح عرض معلومات التاريخ</li>
           <li xml:lang="ca">Corregeix la visualització de la informació de la data</li>
           <li xml:lang="ca-valencia">Corregix la visualització de la informació de la data</li>
           <li xml:lang="es">Arreglada información al mostrar fecha</li>
@@ -1708,6 +1735,7 @@
           <li xml:lang="tr">Tarih bilgisi göstermeyi düzelt</li>
           <li xml:lang="uk">Виправлено показ даних щодо дати</li>
           <li>Fix save application settings</li>
+          <li xml:lang="ar">إصلاح حفظ إعدادات التطبيق</li>
           <li xml:lang="ca">Corregeix el desament de la configuració de l'aplicació</li>
           <li xml:lang="ca-valencia">Corregix la guardada de la configuració de l'aplicació</li>
           <li xml:lang="es">Corrección al guardar preferencias de aplicación</li>
@@ -1719,6 +1747,7 @@
           <li xml:lang="tr">Uygulama ayarlarını kaydetmeyi düzelt</li>
           <li xml:lang="uk">Виправлено збереження параметрів роботи програми</li>
           <li>Fix text selection in attachment</li>
+          <li xml:lang="ar">إصلاح تحديد النصف في المرفقات</li>
           <li xml:lang="ca">Corregeix la selecció de text de l'adjunt</li>
           <li xml:lang="ca-valencia">Corregix la selecció de text de l'adjunt</li>
           <li xml:lang="es">Corrección de la selección de texto en adjuntos</li>
@@ -1730,6 +1759,7 @@
           <li xml:lang="tr">Ekteki metin seçimini düzelt</li>
           <li xml:lang="uk">Виправлено позначення тексту у долученні</li>
           <li>Fix display user</li>
+          <li xml:lang="ar">إصلاح عرض المستخدم</li>
           <li xml:lang="ca">Corregeix la visualització de l'usuari</li>
           <li xml:lang="ca-valencia">Corregix la visualització de l'usuari</li>
           <li xml:lang="es">Corrección en el usuario mostrado</li>
@@ -1741,6 +1771,7 @@
           <li xml:lang="tr">Kullanıcı görüntülemeyi düzelt</li>
           <li xml:lang="uk">Виправлено показ користувача</li>
           <li>Display translate menu in thread dialog</li>
+          <li xml:lang="ar">عرض قائمة الترجمة في مربع الحوار</li>
           <li xml:lang="ca">Mostra el menú de traducció en el diàleg dels fils</li>
           <li xml:lang="ca-valencia">Mostra el menú de traducció en el diàleg dels fils</li>
           <li xml:lang="es">Mostrar menú de traducción en el diálogo de hilos</li>
@@ -1752,6 +1783,7 @@
           <li xml:lang="tr">İleti dizisi penceresinde çeviri menüsünü göster</li>
           <li xml:lang="uk">Реалізовано показ меню перекладу у вікні гілки</li>
           <li>Add AI Rocket Chat Actions support</li>
+          <li xml:lang="ar">إضافة إجراءات الذكاء الاصطناعي لروكت تشات</li>
           <li xml:lang="ca">Afegeix la implementació d'accions d'IA de Rocket Chat</li>
           <li xml:lang="ca-valencia">Afig la implementació d'accions d'IA de Rocket Chat</li>
           <li xml:lang="es">Añadido soporte para acciones AI en Rocket Chat</li>
@@ -1763,6 +1795,7 @@
           <li xml:lang="tr">Yapay zekâ Rocket.Chat eylemleri desteği ekle</li>
           <li xml:lang="uk">Додано підтримку дій Rocket Chat з ШІ</li>
           <li>Fix apply, restore, cancel buttons in administration dialog</li>
+          <li xml:lang="ar">إصلاح أزرار التطبيق والاستعادة والإلغاء في مربع حوار الإدارة</li>
           <li xml:lang="ca">Corregeix els botons «aplica», «restaura», «cancel·la» en el diàleg d'administració</li>
           <li xml:lang="ca-valencia">Corregix els botons «aplica», «restaura», «cancel·la» en el diàleg d'administració</li>
           <li xml:lang="es">Corrección en los botones aplicar, restaurar y cancelar en el diálogo de administración</li>
@@ -1774,6 +1807,7 @@
           <li xml:lang="tr">Yönetim penceresindeki uygula, geri yükle, iptal et düğmelerini düzelt</li>
           <li xml:lang="uk">Виправлено кнопки застосування, відновлення та скасування у вікні адміністрування</li>
           <li>Fix search users</li>
+          <li xml:lang="ar">إصلاح البحث عن المستخدمين</li>
           <li xml:lang="ca">Corregeix la cerca d'usuaris</li>
           <li xml:lang="ca-valencia">Corregix la busca d'usuaris</li>
           <li xml:lang="es">Corrección al buscar usuarios</li>
@@ -1785,6 +1819,7 @@
           <li xml:lang="tr">Kullanıcı aramayı düzelt</li>
           <li xml:lang="uk">Виправлено пошук користувачів</li>
           <li>Fix extract language from code block</li>
+          <li xml:lang="ar">إصلاح لغة الاستخراج من كتلة التعليمات البرمجية</li>
           <li xml:lang="ca">Corregeix el llenguatge d'extracció a partir del bloc de codi</li>
           <li xml:lang="ca-valencia">Corregix el llenguatge d'extracció a partir del bloc de codi</li>
           <li xml:lang="es">Corrección al extraer lenguaje de un bloque de código</li>
@@ -1796,6 +1831,7 @@
           <li xml:lang="tr">Kod bloğundan dil çıkarmayı düzelt</li>
           <li xml:lang="uk">Виправлено видобування мови з блоку програмного коду</li>
           <li>Fix attachment info in \"Show Channel Log\" dialog</li>
+          <li xml:lang="ar">إصلاح معلومات المرفق في مربع الحوار أظهر سجل القناة“</li>
           <li xml:lang="ca">Corregeix la informació dels adjunts al diàleg «Mostra el registre del canal»</li>
           <li xml:lang="ca-valencia">Corregix la informació dels adjunts al diàleg «Mostra el registre del canal»</li>
           <li xml:lang="es">Corrección de la información de adjuntos en el diálogo «Mostrar registro del canal»</li>
@@ -1807,6 +1843,7 @@
           <li xml:lang="tr">“Kanal Günlüğünü Göster” penceresindeki ek bilgisini düzelt</li>
           <li xml:lang="uk">Виправлено відомості щодо долучення у вікні «Показати журнал каналу»</li>
           <li>Fix icon on windows</li>
+          <li xml:lang="ar">إصلاح أيقونة في ويندوز</li>
           <li xml:lang="ca">Corregeix una icona al Windows</li>
           <li xml:lang="ca-valencia">Corregix una icona en Windows</li>
           <li xml:lang="es">Corrección del icono en Windows</li>
@@ -1818,6 +1855,7 @@
           <li xml:lang="tr">Windows üzerindeki simgeyi düzelt</li>
           <li xml:lang="uk">Виправлено піктограму у Windows</li>
           <li>Fix show file attachment size</li>
+          <li xml:lang="ar">إصلاح إظهار حجم المرفقات</li>
           <li xml:lang="ca">Corregeix la visualització de la mida del fitxer adjunt</li>
           <li xml:lang="ca-valencia">Corregix la visualització de la mida del fitxer adjunt</li>
           <li xml:lang="es">Corrección al mostrar el tamaño de un archivo adjunto</li>
@@ -1838,6 +1876,7 @@
       <description>
         <ul>
           <li>Add support for tools plugins</li>
+          <li xml:lang="ar">إضافة ملحقات الأدوات</li>
           <li xml:lang="ca">Afegeix la implementació dels connectors d'eines</li>
           <li xml:lang="ca-valencia">Afig la implementació dels connectors d'eines</li>
           <li xml:lang="es">Añadir soporte para complementos de herramientas</li>
@@ -1849,6 +1888,7 @@
           <li xml:lang="tr">Araçlar eklentileri için destek ekle</li>
           <li xml:lang="uk">Додано підтримку для додатків інструментів</li>
           <li>Plugin: Add screenshot button (near send message button)</li>
+          <li xml:lang="ar">ملحق: إضافة زر لقطة الشاشة (بالقرب من زر إرسال رسالة)</li>
           <li xml:lang="ca">Connector: afegeix un botó de captura de pantalla (prop del botó d'enviament de missatge)</li>
           <li xml:lang="ca-valencia">Connector: afig un botó de captura de pantalla (prop del botó d'enviament de missatge)</li>
           <li xml:lang="es">Complemento: Añadido botón de captura de pantalla (al lado del botón de enviar un mensaje)</li>
@@ -1860,6 +1900,7 @@
           <li xml:lang="tr">Eklenti: Ekran görüntüsü düğmesi ekle (ileti gönder düğmesinin yanına)</li>
           <li xml:lang="uk">Додаток: додано кнопку знімків екрана (поряд із кнопкою надсилання повідомлення)</li>
           <li>Implement invite RC url support</li>
+          <li xml:lang="ar">إتاحة دعوة عنوان لـ RC</li>
           <li xml:lang="ca">Implementa el suport d'URL d'invitació RC</li>
           <li xml:lang="ca-valencia">Implementa el suport d'URL d'invitació RC</li>
           <li xml:lang="es">Implementado el soporte para invitar a través de RC URL</li>
@@ -1871,6 +1912,7 @@
           <li xml:lang="tr">Davet etme RC URL desteğini gerçekle</li>
           <li xml:lang="uk">Реалізовано підтримку адрес RC запрошень</li>
           <li>Implement verify if a new Ruqola version exist</li>
+          <li xml:lang="ar">تنفيذ التحقق من وجود نسخة رقولة جديدة</li>
           <li xml:lang="ca">Implementa la verificació de si existeix una versió nova del Ruqola</li>
           <li xml:lang="ca-valencia">Implementa la verificació de si existix una versió nova de Ruqola</li>
           <li xml:lang="es">Implementado la verificación de nuevas versiones de Ruqola disponibles</li>
@@ -1882,6 +1924,7 @@
           <li xml:lang="tr">Yeni bir Roka sürümünün olup olmadığını doğrulamayı gerçekle</li>
           <li xml:lang="uk">Реалізовано перевірку наявності нової версії Ruqola</li>
           <li>Allow to search threads by unread/following</li>
+          <li xml:lang="ar">اسمح بالبحث عن سلاسل المحادثات حسب عدم قراءتها/متابعتها</li>
           <li xml:lang="ca">Permet cercar fils per seguits/no llegits</li>
           <li xml:lang="ca-valencia">Permet buscar fils per seguits/no llegits</li>
           <li xml:lang="es">Permitido buscar en hilos por no leído/siguiendo</li>
@@ -1893,6 +1936,7 @@
           <li xml:lang="tr">İlmeklerin okunmamış/takip edilen durumuna göre aranmasına izin ver</li>
           <li xml:lang="uk">Уможливлено пошук гілок за непрочитаними/відстежуваними</li>
           <li>Show images from attachment dialog box</li>
+          <li xml:lang="ar">عرض الصور من صندوق حوار المرفق</li>
           <li xml:lang="ca">Mostra les imatges del quadre de diàleg de l'adjunt</li>
           <li xml:lang="ca-valencia">Mostra les imatges del diàleg de l'adjunt</li>
           <li xml:lang="es">Mostrar imágenes desde el diálogo de adjuntos</li>
@@ -1904,6 +1948,7 @@
           <li xml:lang="tr">Ek penceresinden görselleri göster</li>
           <li xml:lang="uk">Показувати зображення з панелі долучення</li>
           <li>Implement Rocket.Chat application support</li>
+          <li xml:lang="ar">إتاحة دعم تطبيق روكت تشات</li>
           <li xml:lang="ca">Implementa el suport d'aplicacions Rocket.Chat</li>
           <li xml:lang="ca-valencia">Implementa el suport d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Implementado soporte para la aplicación Rocket.Chat</li>
@@ -1915,6 +1960,7 @@
           <li xml:lang="tr">Rocket.Chat uygulama desteğini gerçekle</li>
           <li xml:lang="uk">Реалізовано підтримку програм Rocket.Chat</li>
           <li>Implement command preview</li>
+          <li xml:lang="ar">تنفيذ معاينة الأمر</li>
           <li xml:lang="ca">Implementa la previsualització d'odres</li>
           <li xml:lang="ca-valencia">Implementa la previsualització d'odres</li>
           <li xml:lang="es">Implementado la vista previa de órdenes</li>
@@ -1926,6 +1972,7 @@
           <li xml:lang="tr">Komut önizlemeyi gerçekle</li>
           <li xml:lang="uk">Реалізовано попередній перегляд команди</li>
           <li>Debug: explore translation from RC server</li>
+          <li xml:lang="ar">التنقيح: استكشاف الترجمة من خادم روكت تشات</li>
           <li xml:lang="ca">Depuració: explora la traducció des del servidor RC</li>
           <li xml:lang="ca-valencia">Depuració: explora la traducció des del servidor RC</li>
           <li xml:lang="es">Depuración: explorar traducción desde el servidor RC</li>
@@ -1937,6 +1984,7 @@
           <li xml:lang="tr">Hata ayıklama: RC sunucusundan çeviriyi keşfet</li>
           <li xml:lang="uk">Діагностика: вивчення перекладу з сервера RC</li>
           <li>Implement plugin UI support (Create dialog box for configure settings)</li>
+          <li xml:lang="ar">تنفيذ واجهة المستخدم الإضافية (إنشاء مربع حوار لضبط الإعدادات)</li>
           <li xml:lang="ca">Implementa el suport de la IU de connectors (crea el quadre de diàleg per a configurar les opcions)</li>
           <li xml:lang="ca-valencia">Implementa el suport de la IU de connectors (crea el diàleg per a configurar les opcions)</li>
           <li xml:lang="es">Implementado el soporte de complementos UI (Creado diálogo para configurar preferencias)</li>
@@ -1948,6 +1996,7 @@
           <li xml:lang="tr">Eklenti kullanıcı arayüzü desteğini gerçekle (ayarları yapılandırmak için pencere oluştur)</li>
           <li xml:lang="uk">Реалізовано підтримку додатків інтерфейсу користувача (створено панель для налаштовування параметрів)</li>
           <li>Allow to search file from username and filename</li>
+          <li xml:lang="ar">السماح بالبحث في الملف من اسم المستخدم واسم الملف</li>
           <li xml:lang="ca">Permet cercar fitxers a partir del nom d'usuari i el nom de fitxer</li>
           <li xml:lang="ca-valencia">Permet buscar fitxers a partir del nom d'usuari i el nom de fitxer</li>
           <li xml:lang="es">Permitido buscar archivo por nombre de usuario y nombre de archivo</li>
@@ -1959,6 +2008,7 @@
           <li xml:lang="tr">Kullanıcı adı ve dosya adına göre dosya aranmasına izin ver</li>
           <li xml:lang="uk">Уможливлено пошук файла за іменем користувача і назвою файла</li>
           <li>Fix copy action text when we copy a text selection</li>
+          <li xml:lang="ar">إصلاح نص إجراء النسخ عندما نقوم بنسخ تحديد النص</li>
           <li xml:lang="ca">Corregeix el text de l'acció de còpia quan es copia una selecció de text</li>
           <li xml:lang="ca-valencia">Corregix el text de l'acció de còpia quan es copia una selecció de text</li>
           <li xml:lang="es">Arreglada la acción de copia de texto cuando se copia una selección de texto</li>
@@ -1970,6 +2020,7 @@
           <li xml:lang="tr">Bir metin seçimi kopyalandığında kopyalama eylemi metnini düzelt</li>
           <li xml:lang="uk">Виправлено текст дії з копіювання, якщо копіюють позначений фрагмент тексту</li>
           <li>A command start with '/' and not /* or // </li>
+          <li xml:lang="ar">أمر يبدأ بـ '/' وليس /* أو //</li>
           <li xml:lang="ca">Una ordre comença per «/» i no /* ni //</li>
           <li xml:lang="ca-valencia">Una ordre comença per «/» i no /* ni //</li>
           <li xml:lang="es">La órdenes empiezan por «/» y no por «/*» o «//»</li>
@@ -1981,6 +2032,7 @@
           <li xml:lang="tr">Bir komut “/” ile başlar; /* veya // ile değil</li>
           <li xml:lang="uk">Команда розпочинається з «/», а не з /* або //</li>
           <li>Allow to put command line in clipboard when an error occurred</li>
+          <li xml:lang="ar">السماح بوضع سطر الأوامر في الحافظة عند حدوث خطأ</li>
           <li xml:lang="ca">Permet posar la línia d'ordres al porta-retalls quan s'ha produït un error</li>
           <li xml:lang="ca-valencia">Permet posar la línia d'ordres al porta-retalls quan s'ha produït un error</li>
           <li xml:lang="es">Permitido poner la línea de orden en el portapapeles cuando ocurre un error</li>
@@ -1992,6 +2044,7 @@
           <li xml:lang="tr">Bir hata oluştuğunda komut satırının panoya alınmasına izin ver</li>
           <li xml:lang="uk">Надано змогу копіювати рядок команди до буфера обміну даними, якщо сталася помилка</li>
           <li>Allow to activate/deactivate apps market</li>
+          <li xml:lang="ar">اسمح بتنشيط/إلغاء تنشيط سوق التطبيقات</li>
           <li xml:lang="ca">Permet activar/desactivar el mercat d'aplicacions</li>
           <li xml:lang="ca-valencia">Permet activar/desactivar el mercat d'aplicacions</li>
           <li xml:lang="es">Permitido activar/desactivar la tienda de aplicaciones</li>
@@ -2003,6 +2056,7 @@
           <li xml:lang="tr">Uygulama pazarının etkinleştirilmesine/devre dışı bırakılmasına izin ver</li>
           <li xml:lang="uk">Надано змогу вмикати і вимикати крамницю програм</li>
           <li>Improve list of user in room</li>
+          <li xml:lang="ar">تحسين قائمة المستخدمين في الغرفة</li>
           <li xml:lang="ca">Millora la llista d'usuaris de la sala</li>
           <li xml:lang="ca-valencia">Millora la llista d'usuaris de la sala</li>
           <li xml:lang="es">Mejorada la lista de usuarios en salas</li>
@@ -2014,6 +2068,7 @@
           <li xml:lang="tr">Odadaki kullanıcı listesini iyileştir</li>
           <li xml:lang="uk">Удосконалено список користувачів у кімнаті</li>
           <li>Search in encrypted room is not possible</li>
+          <li xml:lang="ar">البحث في الغرف المعماة غير ممكن</li>
           <li xml:lang="ca">No és possible la cerca en una sala encriptada</li>
           <li xml:lang="ca-valencia">No és possible la busca en una sala encriptada</li>
           <li xml:lang="es">La búsqueda en salas cifradas no es posible</li>
@@ -2025,6 +2080,7 @@
           <li xml:lang="tr">Şifrelenmiş odada arama yapmak mümkün değildir</li>
           <li xml:lang="uk">Пошук у зашифрованій кімнаті неможливий</li>
           <li>Show roles for users in rooms</li>
+          <li xml:lang="ar">عرض الأدوار للمستخدمين في الغرفة</li>
           <li xml:lang="ca">Mostra els rols del d'usuaris de les sales</li>
           <li xml:lang="ca-valencia">Mostra els rols del d'usuaris de les sales</li>
           <li xml:lang="es">Mostrar los roles de usuarios en salas</li>
@@ -2036,6 +2092,7 @@
           <li xml:lang="tr">Odalardaki kullanıcılar için rolleri göster</li>
           <li xml:lang="uk">Реалізовано показ ролей користувачів у кімнатах</li>
           <li>Fix dark mode support</li>
+          <li xml:lang="ar">إصلاح الوضع الداكن</li>
           <li xml:lang="ca">Corregeix la implementació del mode fosc</li>
           <li xml:lang="ca-valencia">Corregix la implementació del mode fosc</li>
           <li xml:lang="es">Corrección en el soporte de modo oscuro</li>
@@ -2047,6 +2104,7 @@
           <li xml:lang="tr">Koyu kip desteğini düzelt</li>
           <li xml:lang="uk">Виправлено підтримку темного режиму</li>
           <li>Fix download languages apps</li>
+          <li xml:lang="ar">إصلاح تنزيل تطبيقات لغات</li>
           <li xml:lang="ca">Corregeix les aplicacions de baixada d'idiomes</li>
           <li xml:lang="ca-valencia">Corregix les aplicacions de baixada d'idiomes</li>
           <li xml:lang="es">Corrección al descargar aplicaciones de lenguaje</li>
@@ -2064,6 +2122,7 @@
       <description>
         <ul>
           <li>Allow to clean up room history when room was not opened from long time</li>
+          <li xml:lang="ar">السماح بتنظيف سجل الغرفة عندما لا تُفتح الغرفة منذ وقت طويل</li>
           <li xml:lang="ca">Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa temps</li>
           <li xml:lang="ca-valencia">Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa temps</li>
           <li xml:lang="es">Permitido limpiar la historia de una sala cuando la sala no se ha abierto en un plazo largo de tiempo</li>
@@ -2075,6 +2134,7 @@
           <li xml:lang="tr">Oda uzun süre açılmadığında oda geçmişinin temizlenmesine izin ver</li>
           <li xml:lang="uk">Дозволити чищення журналу кімнати, якщо кімнату не відчиняли досить довго</li>
           <li>Add restore button in administrator server settings dialog</li>
+          <li xml:lang="ar">إضافة زر استعادة في مربع حوار إعدادات خادم المسؤول</li>
           <li xml:lang="ca">Afegeix el botó de restauració en el diàleg de configuració d'administració del servidor</li>
           <li xml:lang="ca-valencia">Afig el botó de restauració en el diàleg de configuració d'administració del servidor</li>
           <li xml:lang="es">Añadido botón de restaurar en el diálogo de preferencias de administrador de servidor</li>
@@ -2086,6 +2146,7 @@
           <li xml:lang="tr">Yönetici sunucu ayarları penceresine geri yükle düğmesi ekle</li>
           <li xml:lang="uk">Додано кнопку відновлення у вікні параметрів адміністратора сервера</li>
           <li>Improve changing password (show validation info)</li>
+          <li xml:lang="ar">تحسين تغيير كلمة السر (إظهار معلومات التحقق من الصحة)</li>
           <li xml:lang="ca">Millora el canvi de contrasenya (mostra la informació de validació)</li>
           <li xml:lang="ca-valencia">Millora el canvi de contrasenya (mostra la informació de validació)</li>
           <li xml:lang="es">Mejorado el cambio de contraseña (muestra información de validación)</li>
@@ -2097,6 +2158,7 @@
           <li xml:lang="tr">Parola değiştirmeyi iyileştir (doğrulama bilgisini göster)</li>
           <li xml:lang="uk">Удосконалено зміну пароля (показ даних щодо коректності)</li>
           <li>Improve register new account (Add reason support)</li>
+          <li xml:lang="ar">تحسين تسجيل حساب جديد (إضافة السبب)</li>
           <li xml:lang="ca">Millora el registre d'un compte nou (afegir la implementació del motiu)</li>
           <li xml:lang="ca-valencia">Millora el registre d'un compte nou (afegir la implementació del motiu)</li>
           <li xml:lang="es">Mejorado el registro de nuevas cuentas (Añadido soporte para razón)</li>
@@ -2108,6 +2170,7 @@
           <li xml:lang="tr">Yeni hesap kaydetmeyi iyileştir (gerekçe desteği ekle)</li>
           <li xml:lang="uk">Удосконалено реєстрацію нового облікового запису (додано підтримку причини)</li>
           <li>Implement mute/unmute user</li>
+          <li xml:lang="ar">تنفيذ كتم/إلغاء كتم صوت المستخدم</li>
           <li xml:lang="ca">Implementa silenciar/deixar de silenciar un usuari</li>
           <li xml:lang="ca-valencia">Implementa silenciar/deixar de silenciar un usuari</li>
           <li xml:lang="es">Implementado el silenciado de usuarios</li>
@@ -2119,6 +2182,7 @@
           <li xml:lang="tr">Kullanıcıyı sessize almayı/sesini açmayı gerçekle</li>
           <li xml:lang="uk">Реалізовано вимикання та вмикання повідомлень від користувача</li>
           <li>Add color to the text in the account tab</li>
+          <li xml:lang="ar">أضف لون إلى النص الموجود في لسان الحساب</li>
           <li xml:lang="ca">Afegeix color al text en la pestanya dels comptes</li>
           <li xml:lang="ca-valencia">Afig color al text en la pestanya dels comptes</li>
           <li xml:lang="es">Añadido color al texto en la pestaña de cuenta</li>
@@ -2130,6 +2194,7 @@
           <li xml:lang="tr">Hesap sekmesindeki metne renk ekle</li>
           <li xml:lang="uk">Додано колір до тексту на вкладці облікових записів</li>
           <li>Allow to show private installed applications</li>
+          <li xml:lang="ar">السماح بإظهار التطبيقات الخاصة المثبتة</li>
           <li xml:lang="ca">Permet mostrar les aplicacions privades instal·lades</li>
           <li xml:lang="ca-valencia">Permet mostrar les aplicacions privades instal·lades</li>
           <li xml:lang="es">Permite mostrar las aplicaciones instaladas de manera privada</li>
@@ -2141,6 +2206,7 @@
           <li xml:lang="tr">Özel kurulu uygulamaların gösterilmesine izin ver</li>
           <li xml:lang="uk">Дозволити показ приватно встановлених програм</li>
           <li>Fix editing message</li>
+          <li xml:lang="ar">إصلاح رسالة التحرير</li>
           <li xml:lang="ca">Corregeix l'edició de missatges</li>
           <li xml:lang="ca-valencia">Corregix l'edició de missatges</li>
           <li xml:lang="es">Corrección al editar mensajes</li>
@@ -2152,6 +2218,7 @@
           <li xml:lang="tr">İletiyi düzenlemeyi düzelt</li>
           <li xml:lang="uk">Виправлено редагування повідомлень</li>
           <li>Show permissions in Rocket.Chat Marketplace</li>
+          <li xml:lang="ar">اعرض الأذونات في متجر روكت تشات</li>
           <li xml:lang="ca">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="ca-valencia">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Mostrar permisos en tienda Rocket.Chat</li>
@@ -2163,6 +2230,7 @@
           <li xml:lang="tr">Rocket.Chat Mağazası’ndaki izinleri göster</li>
           <li xml:lang="uk">Показ прав доступу у крамниці Rocket.Chat</li>
           <li>Fix reconnect server</li>
+          <li xml:lang="ar">إصلاح إعادة الاتصال بالخادم</li>
           <li xml:lang="ca">Corregeix la reconnexió del servidor</li>
           <li xml:lang="ca-valencia">Corregix tornar a connectar del servidor</li>
           <li xml:lang="es">Corrección al reconectar al servidor</li>
@@ -2174,6 +2242,7 @@
           <li xml:lang="tr">Sunucuya yeniden bağlanmayı düzelt</li>
           <li xml:lang="uk">Виправлено повторне з'єднання з сервером</li>
           <li>Fix single application on Windows/MacOs</li>
+          <li xml:lang="ar">إصلاح تطبيق واحد على نظامي التشغيل Windows/MacOs</li>
           <li xml:lang="ca">Corregeix l'aplicació individual a Windows/MacOs</li>
           <li xml:lang="ca-valencia">Corregix l'aplicació individual a Windows/MacOs</li>
           <li xml:lang="es">Corrección el la aplicación en Windows/MacOs</li>
@@ -2185,6 +2254,7 @@
           <li xml:lang="tr">Windows/macOS üzerinde tek uygulama çalıştırmayı düzelt</li>
           <li xml:lang="uk">Виправлено проблему із єдиним екземпляром програми у Windows/MacOs</li>
           <li>Fix select created room/discussion/teams</li>
+          <li xml:lang="ar">إصلاح تحديد الغرفة/المناقشة/الفرق المنشئة</li>
           <li xml:lang="ca">Corregeix la selecció de sales/debats/equips creats</li>
           <li xml:lang="ca-valencia">Corregix la selecció de sales/debats/equips creats</li>
           <li xml:lang="es">Corrección al seleccionar sala/discusión/equipo creados</li>
@@ -2196,6 +2266,7 @@
           <li xml:lang="tr">Oluşturulan oda/tartışma/takımları seçmeyi düzelt</li>
           <li xml:lang="uk">Виправлено позначення створених кімнат, обговорень та команд</li>
           <li>Fix filter discussion in administrator mode</li>
+          <li xml:lang="ar">إصلاح مناقشة التصفية في وضع المسؤول</li>
           <li xml:lang="ca">Corregeix el filtre de debats en mode d'administrador</li>
           <li xml:lang="ca-valencia">Corregix el filtre de debats en mode administrador</li>
           <li xml:lang="es">Corrección al filtrar discusión en modo administrador</li>
@@ -2207,6 +2278,7 @@
           <li xml:lang="tr">Yönetici kipinde tartışma filtrelemeyi düzelt</li>
           <li xml:lang="uk">Виправлено фільтрування обговорень у режимі адміністратора</li>
           <li>Fix message video support</li>
+          <li xml:lang="ar">إصلاح رسائل الفيديو</li>
           <li xml:lang="ca">Corregeix la implementació dels missatges de vídeo</li>
           <li xml:lang="ca-valencia">Corregix la implementació dels missatges de vídeo</li>
           <li xml:lang="es">Corrección en el soporte de mensajes de vídeos</li>
@@ -2218,6 +2290,7 @@
           <li xml:lang="tr">İleti video desteğini düzelt</li>
           <li xml:lang="uk">Виправлено підтримку відео у повідомленнях</li>
           <li>Fix highlight text in quoted message</li>
+          <li xml:lang="ar">إصلاح تمييز النص في الرسالة المقتبسة</li>
           <li xml:lang="ca">Corregeix el text ressaltat en un missatge citat</li>
           <li xml:lang="ca-valencia">Corregix el text ressaltat en un missatge citat</li>
           <li xml:lang="es">Corrección al destacar texto en mensaje entrecomillado</li>
@@ -2229,6 +2302,7 @@
           <li xml:lang="tr">Alıntılanan iletideki metin vurgulamayı düzelt</li>
           <li xml:lang="uk">Виправлено підсвічування тексту у цитованому повідомленні</li>
           <li>Fix open discussion channel</li>
+          <li xml:lang="ar">إصلاح قناة المناقشة المفتوحة</li>
           <li xml:lang="ca">Corregeix l'obertura d'un canal de debat</li>
           <li xml:lang="ca-valencia">Corregix l'obertura d'un canal de debat</li>
           <li xml:lang="es">Corrección al abrir canal de discusión</li>
@@ -2240,6 +2314,7 @@
           <li xml:lang="tr">Tartışma kanalını açmayı düzelt</li>
           <li xml:lang="uk">Виправлено канал відкритого спілкування</li>
           <li>Allow to show application market settings</li>
+          <li xml:lang="ar">السماح بإظهار إعدادات سوق التطبيقات</li>
           <li xml:lang="ca">Permet mostrar la configuració del mercat d'aplicacions</li>
           <li xml:lang="ca-valencia">Permet mostrar la configuració del mercat d'aplicacions</li>
           <li xml:lang="es">Permite mostrar las preferencias de la tienda de aplicaciones</li>
@@ -2258,6 +2333,7 @@
       <description>
         <ul>
           <li>Implement Rocket.Chat Marketplace</li>
+          <li xml:lang="ar">تنفيذ متجر روكت تشات</li>
           <li xml:lang="ca">Implementa el mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="ca-valencia">Implementa el mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Implementada la tienda Rocket.Chat</li>
@@ -2269,6 +2345,7 @@
           <li xml:lang="tr">Rocket.Chat Mağazası’nı gerçekle</li>
           <li xml:lang="uk">Реалізовано ринок програм Rocket.Chat</li>
           <li>Allow to clean room history</li>
+          <li xml:lang="ar">السماح بتنظيف سجل الغرفة</li>
           <li xml:lang="ca">Permet netejar l'historial de les sales</li>
           <li xml:lang="ca-valencia">Permet netejar l'historial de les sales</li>
           <li xml:lang="es">Permite limpiar la historia de salas</li>
@@ -2280,6 +2357,7 @@
           <li xml:lang="tr">Oda geçmişinin temizlenmesine izin ver</li>
           <li xml:lang="uk">Уможливлено очищення журналу кімнати</li>
           <li>Allow to check new version</li>
+          <li xml:lang="ar">السماح بالتحقق من الإصدار الجديد</li>
           <li xml:lang="ca">Permet comprovar si hi ha una versió nova</li>
           <li xml:lang="ca-valencia">Permet comprovar si hi ha una versió nova</li>
           <li xml:lang="es">Permite comprobar nuevas versiones</li>
@@ -2291,6 +2369,7 @@
           <li xml:lang="tr">Yeni sürümün denetlenmesine izin ver</li>
           <li xml:lang="uk">Уможливити пошук нової версії</li>
           <li>Implement moderation (administrator mode)</li>
+          <li xml:lang="ar">تنفيذ الإشراف (وضع المسؤول)</li>
           <li xml:lang="ca">Implementa la moderació (mode d'administrador)</li>
           <li xml:lang="ca-valencia">Implementa la moderació (mode administrador)</li>
           <li xml:lang="es">Implementada moderación (modo administrador)</li>
@@ -2302,6 +2381,7 @@
           <li xml:lang="tr">Moderasyonu gerçekle (yönetici kipi)</li>
           <li xml:lang="uk">Реалізовано модерацію (режим адміністратора)</li>
           <li>Add welcome page</li>
+          <li xml:lang="ar">إضافة صفحة الترحيب</li>
           <li xml:lang="ca">Afegeix la pàgina de benvinguda</li>
           <li xml:lang="ca-valencia">Afig la pàgina de benvinguda</li>
           <li xml:lang="es">Añadida página de bienvenida</li>
@@ -2313,6 +2393,7 @@
           <li xml:lang="tr">Karşılama sayfası ekle</li>
           <li xml:lang="uk">Додано сторінку вітання</li>
           <li>Implement pending users info (administrator mode)</li>
+          <li xml:lang="ar">تنفيذ معلومات المستخدمين المعلقة (وضع المسؤول)</li>
           <li xml:lang="ca">Implementa la informació sobre els usuaris pendents (mode d'administrador)</li>
           <li xml:lang="ca-valencia">Implementa la informació sobre els usuaris pendents (mode administrador)</li>
           <li xml:lang="es">Implementada la información de usuarios pendiente (modo administrador)</li>
@@ -2324,6 +2405,7 @@
           <li xml:lang="tr">Bekleyen kullanıcılar bilgisini gerçekle (yönetici kipi)</li>
           <li xml:lang="uk">Реалізовано показ даних щодо користувачів у черзі (режим адміністратора)</li>
           <li>Use cmark-rc for markdown support</li>
+          <li xml:lang="ar">استخدم cmark-rc لتوفير ماركدون</li>
           <li xml:lang="ca">Usa «cmark-rc» per a implementar el Markdown</li>
           <li xml:lang="ca-valencia">Utilitza «cmark-rc» per a implementar Markdown</li>
           <li xml:lang="ka">მარკდაუნისთვის cmark-rc-ის გამოყენება</li>
@@ -2333,6 +2415,7 @@
           <li xml:lang="tr">Markdown desteği için cmark-rc kullan</li>
           <li xml:lang="uk">Для підтримки markdown використано cmark-rc</li>
           <li>Delete oldest files from some cache directories (file-upload and media) so it doesn't grow forever</li>
+          <li xml:lang="ar">حذف الملفات الأقدم من بعض أدلة خبيئة رفع الملفات والوسائط حتى لا تتوسع إلى الأبد</li>
           <li xml:lang="ca">Suprimeix els fitxers més antics d'alguns directoris de la memòria cau («file-upload» i «media») perquè no creixi per sempre</li>
           <li xml:lang="ca-valencia">Suprimix els fitxers més antics d'algunes carpetes de la memòria cau («file-upload» i «media») perquè no cresca per sempre</li>
           <li xml:lang="es">Borra los archivos más antiguos de algunos directorios de caché (archivos compartidos y medios) para que no crezcan para siempre</li>
@@ -2344,6 +2427,7 @@
           <li xml:lang="tr">Sonsuza kadar büyümemesi için bazı önbellek dizinlerindeki (dosya yükleme ve ortam) en eski dosyaları sil</li>
           <li xml:lang="uk">Вилучати найстаріші файли з каталогів кешу (отримання файлів і мультимедійних даних), щоб каталоги нескінченно не зростали у розмірі</li>
           <li>Clean market application model after 30 minutes (reduce memory footprint)</li>
+          <li xml:lang="ar">نموذج تطبيق السوق النظيف بعد 30 دقيقة (تقليل مساحة الذاكرة)</li>
           <li xml:lang="ca">Neteja el model d'aplicacions del mercat després de 30 minuts (redueix la petjada de memòria)</li>
           <li xml:lang="ca-valencia">Neteja el model d'aplicacions del mercat després de 30 minuts (reduïx la petjada de memòria)</li>
           <li xml:lang="es">Limpiar modelo de tienda de aplicaciones tras 30 minutos (reduce uso de memoria)</li>
@@ -2355,6 +2439,7 @@
           <li xml:lang="tr">30 dakika sonra mağaza uygulama modelini temizle (bellek ayak izini azaltır)</li>
           <li xml:lang="uk">Спорожнити модель ринку програм за 30 хвилин (зменшує використання пам'яті)</li>
           <li>Fix show discussion name in completion</li>
+          <li xml:lang="ar">إصلاح إظهار اسم المناقشة عند الاكتمال</li>
           <li xml:lang="ca">Corregeix la visualització del nom del debat a la compleció</li>
           <li xml:lang="ca-valencia">Corregix la visualització del nom del debat a la compleció</li>
           <li xml:lang="es">Corrección al mostrar el nombre de la discusión al completar</li>
@@ -2366,6 +2451,7 @@
           <li xml:lang="tr">Tamamlamada tartışma adı göstermeyi düzelt</li>
           <li xml:lang="uk">Виправлено показ назви обговорення при доповненні</li>
           <li>Fix duplicated messages in search message dialog</li>
+          <li xml:lang="ar">إصلاح الرسائل المكررة في مربع حوار رسائل البحث</li>
           <li xml:lang="ca">Corregeix els missatges duplicats en el diàleg de cerca de missatges</li>
           <li xml:lang="ca-valencia">Corregix els missatges duplicats en el diàleg de busca de missatges</li>
           <li xml:lang="es">Corrección de mensajes duplicados en el diálogo de búsqueda de mensaje</li>
@@ -2377,6 +2463,7 @@
           <li xml:lang="tr">İleti arama penceresindeki yinelenen iletileri düzelt</li>
           <li xml:lang="uk">Виправлено дублювання повідомлень у вікні пошуку повідомлень</li>
           <li>Add delegate in search rooms in team dialog</li>
+          <li xml:lang="ar">إضافة مندوب في غرف البحث في حوار الفريق</li>
           <li xml:lang="ca">Afegeix un delegat a la cerca de sales en el diàleg d'equip</li>
           <li xml:lang="ca-valencia">Afig un delegat a la busca de sales en el diàleg d'equip</li>
           <li xml:lang="es">Añade delegación en la búsqueda de salas en el diálogo de equipos</li>
@@ -2394,6 +2481,7 @@
       <description>
         <ul>
           <li>Allow to increase/decrease font (CTRL++/CTRL+-)</li>
+          <li xml:lang="ar">السماح بزيادة/تقليل حجم الخط (CTRL++/CTRL+-)</li>
           <li xml:lang="ca">Permet augmentar/disminuir la lletra (CTRL++/CTRL+-)</li>
           <li xml:lang="ca-valencia">Permet augmentar o disminuir la lletra («Ctrl++» o «Ctrl+-»)</li>
           <li xml:lang="es">Permite incrementar/decrementar la fuente (CTRL++/CTRL+-)</li>
@@ -2405,6 +2493,7 @@
           <li xml:lang="tr">Yazıtipini büyütmeye/küçültmeye izin ver (CTRL++ / CTRL+−)</li>
           <li xml:lang="uk">Умовжливлено збільшення і зменшення шрифту (CTRL++/CTRL+-)</li>
           <li>Add channel list style (Condensed/Medium/Extended)</li>
+          <li xml:lang="ar">إضافة نمط قائمة القنوات (مكثف/متوسط/موسع)</li>
           <li xml:lang="ca">Afegeix un estil de llista de canals (condensada/mitjana/ampliada)</li>
           <li xml:lang="ca-valencia">Afig un estil de llista de canals (condensada, mitjana o ampliada)</li>
           <li xml:lang="es">Añadido estilo de la lista de canales (Condensado/Medio/Extendido)</li>
@@ -2416,6 +2505,7 @@
           <li xml:lang="tr">Kanal listesi stili ekle (Sıkışık/Orta/Genişletilmiş)</li>
           <li xml:lang="uk">Додати стиль списку каналу (стиснений/середній/розгорнутий)</li>
           <li>Add forward message</li>
+          <li xml:lang="ar">إضافة رسالة إلى الأمام</li>
           <li xml:lang="ca">Afegeix els missatges reenviats</li>
           <li xml:lang="ca-valencia">Afig els missatges reenviats</li>
           <li xml:lang="es">Añadido reenviar mensaje</li>
@@ -2427,6 +2517,7 @@
           <li xml:lang="tr">İletiyi yönlendirme ekle</li>
           <li xml:lang="uk">Додати переспрямування повідомлення</li>
           <li>Improve mentions support</li>
+          <li xml:lang="ar">تحسين الإشارات</li>
           <li xml:lang="ca">Millora la implementació de les mencions</li>
           <li xml:lang="ca-valencia">Millora la implementació de les mencions</li>
           <li xml:lang="es">Mejorado el soporte de menciones</li>
@@ -2438,6 +2529,7 @@
           <li xml:lang="tr">Söz etme desteğini iyileştir</li>
           <li xml:lang="uk">Удосконалено підтримку згадок</li>
           <li>Add support for deep linking</li>
+          <li xml:lang="ar">إضافة الارتباط العميق الارتباط العميق</li>
           <li xml:lang="ca">Afegeix la implementació per a l'enllaçament profund</li>
           <li xml:lang="ca-valencia">Afig la implementació per a l'enllaçament profund</li>
           <li xml:lang="es">Añadido el soporte para enlaces profundos</li>
@@ -2449,6 +2541,7 @@
           <li xml:lang="tr">Derin bağlantı (deep linking) için destek ekle</li>
           <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
           <li>Implement block actions</li>
+          <li xml:lang="ar">تنفيذ إجراءات الحظر</li>
           <li xml:lang="ca">Implementa accions de bloqueig</li>
           <li xml:lang="ca-valencia">Implementa accions de bloqueig</li>
           <li xml:lang="es">Implementado bloqueo de acciones</li>
@@ -2460,6 +2553,7 @@
           <li xml:lang="tr">Engelleme eylemlerini gerçekle</li>
           <li xml:lang="uk">Реалізовано дії з блокування</li>
           <li>Implement personal token authentication.</li>
+          <li xml:lang="ar">تنفيذ الاستيثاق بالرمز الشخصي</li>
           <li xml:lang="ca">Implementa l'autenticació de testimonis personals.</li>
           <li xml:lang="ca-valencia">Implementa l'autenticació de testimonis personals.</li>
           <li xml:lang="es">Implementado la autenticación por token personal.</li>
@@ -2471,6 +2565,7 @@
           <li xml:lang="tr">Kişisel jeton kimlik doğrulamasını gerçekle.</li>
           <li xml:lang="uk">Реалізовано розпізнавання за особистим жетоном.</li>
           <li>Add Plasma Activities Support</li>
+          <li xml:lang="ar">إضافة التعامل مع أنشطة البلازما</li>
           <li xml:lang="ca">Afegeix el suport d'activitats del Plasma</li>
           <li xml:lang="ca-valencia">Afig el suport d'activitats de Plasma</li>
           <li xml:lang="es">Añadido soporte para actividades Plasma</li>
@@ -2482,6 +2577,7 @@
           <li xml:lang="tr">Plasma Etkinlikler desteği ekle</li>
           <li xml:lang="uk">Додано підтримку просторів дій Плазми</li>
           <li>Add Report User Support</li>
+          <li xml:lang="ar">إضافة الإبلاغ عن مستخدم</li>
           <li xml:lang="ca">Afegeix el suport d'informació d'un usuari</li>
           <li xml:lang="ca-valencia">Afig el suport d'informació d'un usuari</li>
           <li xml:lang="es">Añadido soporte para reportar usuarios</li>
@@ -2493,6 +2589,7 @@
           <li xml:lang="tr">Kullanıcıyı rapor etme desteği ekle</li>
           <li xml:lang="uk">Додано підтримку скарг на користувача</li>
           <li>Implement Channel Sound Notification</li>
+          <li xml:lang="ar">تنفيذ إشعار صوت القناة</li>
           <li xml:lang="ca">Implementa la notificació de so de canal</li>
           <li xml:lang="ca-valencia">Implementa la notificació de so de canal</li>
           <li xml:lang="es">Implementada el sonido de notificación de canal</li>
@@ -2504,6 +2601,7 @@
           <li xml:lang="tr">Kanal sesli bildirimini gerçekle</li>
           <li xml:lang="uk">Реалізовано звукові сповіщення щодо дій на каналі</li>
           <li>Implement New Room Sound Notification</li>
+          <li xml:lang="ar">تنفيذ الإشعار الصوتي للغرفة الجديدة</li>
           <li xml:lang="ca">Implementa la notificació de so de sala nova</li>
           <li xml:lang="ca-valencia">Implementa la notificació de so de sala nova</li>
           <li xml:lang="es">Implementado el sonido de notificación de nueva sala</li>
@@ -2515,6 +2613,7 @@
           <li xml:lang="tr">Yeni oda sesli bildirimini gerçekle</li>
           <li xml:lang="uk">Реалізовано нове звукове сповіщення щодо кімнати</li>
           <li>Implement Sorted/Unsorted markdown list</li>
+          <li xml:lang="ar">تنفيذ قائمة تخفيض الأسعار المصنفة/غير المصنفة</li>
           <li xml:lang="ca">Implementa la llista ordenada/desordenada en Markdown</li>
           <li xml:lang="ca-valencia">Implementa la llista ordenada/desordenada en Markdown</li>
           <li xml:lang="es">Implementadas las listas ordenadas/desordenadas en Markdown</li>
@@ -2526,6 +2625,7 @@
           <li xml:lang="tr">Sıralı/Sırasız Markdown listesini gerçekle</li>
           <li xml:lang="uk">Реалізовано упорядковані і неупорядковані списки Markdown</li>
           <li>Fix dark mode support</li>
+          <li xml:lang="ar">إصلاح الوضع الداكن</li>
           <li xml:lang="ca">Corregeix la implementació del mode fosc</li>
           <li xml:lang="ca-valencia">Corregix la implementació del mode fosc</li>
           <li xml:lang="es">Corrección en el soporte de modo oscuro</li>
@@ -2537,6 +2637,7 @@
           <li xml:lang="tr">Koyu kip desteğini düzelt</li>
           <li xml:lang="uk">Виправлено підтримку темного режиму</li>
           <li>Fix jitsi support</li>
+          <li xml:lang="ar">إصلاح التعامل مع جيتسي</li>
           <li xml:lang="ca">Corregeix la implementació del Jitsi</li>
           <li xml:lang="ca-valencia">Corregix la implementació de Jitsi</li>
           <li xml:lang="es">Corrección en el soporte de Jitsi</li>
@@ -2548,6 +2649,7 @@
           <li xml:lang="tr">Jitsi desteğini düzelt</li>
           <li xml:lang="uk">Виправлено підтримку jitsi</li>
           <li>Fix translate message in direct channel</li>
+          <li xml:lang="ar">إصلاح ترجمة الرسالة في القناة المباشرة</li>
           <li xml:lang="ca">Corregeix el missatge de traducció al canal directe</li>
           <li xml:lang="ca-valencia">Corregix el missatge de traducció en el canal directe</li>
           <li xml:lang="es">Corrección en la traducción de mensaje en canales directos</li>
@@ -2559,6 +2661,7 @@
           <li xml:lang="tr">Doğrudan kanaldaki ileti çevirisini düzelt</li>
           <li xml:lang="uk">Виправлено переклад повідомлень у безпосередньому каналі</li>
           <li>Don't show @here/@all as user</li>
+          <li xml:lang="ar">لا تظهر @هنا/@الكل كمستخدم</li>
           <li xml:lang="ca">No mostra @here/@all com a usuari</li>
           <li xml:lang="ca-valencia">No mostra @here/@all com a usuari</li>
           <li xml:lang="es">No mostrar @here/@all como usuario</li>
@@ -2570,6 +2673,7 @@
           <li xml:lang="tr">@here/@all ögelerini kullanıcı olarak gösterme</li>
           <li xml:lang="uk">Вимкнено показ @here/@all як користувача</li>
           <li>Reduce memory footprint</li>
+          <li xml:lang="ar">تقليل مساحة الذاكرة</li>
           <li xml:lang="ca">Redueix el consum de memòria</li>
           <li xml:lang="ca-valencia">Reduïx el consum de memòria</li>
           <li xml:lang="es">Reducido el uso de memoria</li>
@@ -2581,6 +2685,7 @@
           <li xml:lang="tr">Bellek ayak izini azalt</li>
           <li xml:lang="uk">Зменшити споживання пам'яті</li>
           <li>Use RESTAPI for logging</li>
+          <li xml:lang="ar">استخدم RESTAPI للتسجيل</li>
           <li xml:lang="ca">Fa servir RESTAPI per al registre</li>
           <li xml:lang="ca-valencia">Utilitza RESTAPI per al registre</li>
           <li xml:lang="es">Uso de RESTAPI para los registros</li>
@@ -2592,6 +2697,7 @@
           <li xml:lang="tr">Günlükleme için RESTAPI kullan</li>
           <li xml:lang="uk">Використати RESTAPI для ведення журналу</li>
           <li>Allow to send multi files</li>
+          <li xml:lang="ar">السماح بإرسال ملفات متعددة</li>
           <li xml:lang="ca">Permet enviar diversos fitxers</li>
           <li xml:lang="ca-valencia">Permet enviar múltiples fitxers</li>
           <li xml:lang="es">Permitido añadir múltiples mensajes</li>
@@ -2603,6 +2709,7 @@
           <li xml:lang="tr">Çoklu dosya gönderilmesine izin ver</li>
           <li xml:lang="uk">Уможливлено надсилання декількох файлів одночасно</li>
           <li>Fix preview url</li>
+          <li xml:lang="ar">إصلاح رابط المعاينة</li>
           <li xml:lang="ca">Corregeix l'URL de la vista prèvia</li>
           <li xml:lang="ca-valencia">Corregix l'URL de la vista prèvia</li>
           <li xml:lang="es">Arreglada URL de vista previa</li>
@@ -2629,6 +2736,7 @@
       <description>
         <ul>
           <li>Add Moderation Console (Administration, RC server 6.2)</li>
+          <li xml:lang="ar">إضافة وحدة تحكم الإشراف (الإدارة، خادم RC 6.2)</li>
           <li xml:lang="ca">Afegeix la consola de moderació (Administració, RC servidor 6.2)</li>
           <li xml:lang="ca-valencia">Afig la consola de moderació (Administració, RC servidor 6.2)</li>
           <li xml:lang="es">Añadida consola de moderación (Administración, servidor RC 6.2)</li>
@@ -2640,6 +2748,7 @@
           <li xml:lang="tr">Moderasyon konsolu ekle (Yönetim, RC sunucusu 6.2)</li>
           <li xml:lang="uk">Додано консоль модерування (адміністрування, сервер RC 6.2)</li>
           <li>Implement message style</li>
+          <li xml:lang="ar">تنفيذ نمط الرسالة</li>
           <li xml:lang="ca">Implementa els estils dels missatges</li>
           <li xml:lang="ca-valencia">Implementa els estils dels missatges</li>
           <li xml:lang="es">Implementado estilo de mensaje</li>
@@ -2651,6 +2760,7 @@
           <li xml:lang="tr">İleti biçemi gerçekle</li>
           <li xml:lang="uk">Реалізовано стиль повідомлень</li>
           <li>Implement Url Preview</li>
+          <li xml:lang="ar">تنفيذ معاينة عناوين الإنترنت</li>
           <li xml:lang="ca">Implementa la previsualització d'URL</li>
           <li xml:lang="ca-valencia">Implementa la previsualització dels URL</li>
           <li xml:lang="es">Implementada vista previa de URL</li>
@@ -2662,6 +2772,7 @@
           <li xml:lang="tr">URL önizlemeyi gerçekle</li>
           <li xml:lang="uk">Реалізовано попередній перегляд адрес</li>
           <li>Fix markdown support (header + check mark)</li>
+          <li xml:lang="ar">إصلاح ماركدون (الترويسة ومربع الاختيار)</li>
           <li xml:lang="ca">Corregeix la implementació del Markdown (capçalera + marca de selecció)</li>
           <li xml:lang="ca-valencia">Corregix la implementació de Markdown (capçalera + marca de selecció)</li>
           <li xml:lang="es">Corrección en el soporte Markdown (cabecera + marca de comprobado)</li>
@@ -2673,6 +2784,7 @@
           <li xml:lang="tr">Markdown desteğini düzelt (başlık + onay işareti)</li>
           <li xml:lang="uk">Виправлено підтримку markdown (заголовок + позначка)</li>
           <li>Fix mem leak</li>
+          <li xml:lang="ar">إصلاح تسرب الذاكرة</li>
           <li xml:lang="ca">Corregeix una fuita de memòria</li>
           <li xml:lang="ca-valencia">Corregix una fuita de memòria</li>
           <li xml:lang="es">Corregido uso excesivo de memoria</li>
@@ -2684,6 +2796,7 @@
           <li xml:lang="tr">Bellek sızıntısını düzelt</li>
           <li xml:lang="uk">Виправлено виток пам'яті</li>
           <li>Cache message size (optimization)</li>
+          <li xml:lang="ar">حجم خبيئة الرسائل (تحسين)</li>
           <li xml:lang="ca">Mida de la memòria cau dels missatges (optimització)</li>
           <li xml:lang="ca-valencia">Mida de la memòria cau dels missatges (optimització)</li>
           <li xml:lang="es">Cachear tamaño de mensaje (optimización)</li>
@@ -2695,6 +2808,7 @@
           <li xml:lang="tr">İleti boyutunu önbelleğe al (eniyileme)</li>
           <li xml:lang="uk">Реалізовано кешування розміру повідомлень (оптимізація)</li>
           <li>Improve select room or user in message line edit (show icon, inform if user is in channel)</li>
+          <li xml:lang="ar">تحسين تحديد الغرفة أو المستخدم في تحرير سطر الرسالة (إظهار الرمز، إبلاغ ما إذا كان المستخدم في القناة)</li>
           <li xml:lang="ca">Millora la selecció de la sala o l'usuari en editar la línia del missatge (mostra la icona, informa si l'usuari està en el canal)</li>
           <li xml:lang="ca-valencia">Millora la selecció de la sala o l'usuari en editar la línia del missatge (mostra la icona, informa si l'usuari està en el canal)</li>
           <li xml:lang="es">Mejorada la selección de sala o usuario en la línea de edición de mensaje (muestra icono e informa si el usuario está en el canal)</li>
@@ -2706,6 +2820,7 @@
           <li xml:lang="tr">İleti satırı düzenlemesinde oda veya kullanıcı seçmeyi iyileştir (simge göster, kullanıcı kanaldaysa bilgilendir)</li>
           <li xml:lang="uk">Удосконалено засіб вибору кімнати або користувача у рядку редагування повідомлення (показ піктограми, інформування про те, що користувач присутній на каналі)</li>
           <li>Fix show commands in message line edit (Hide action when room doesn't support it)</li>
+          <li xml:lang="ar">إصلاح أوامر العرض في تحرير سطر الرسالة (إخفاء الإجراء عندما لا تتيحه الغرفة)</li>
           <li xml:lang="ca">Corregeix la visualització d'ordres en l'edició de la línia de missatges (oculta l'acció quan la sala no ho admet)</li>
           <li xml:lang="ca-valencia">Corregix la visualització d'ordres en l'edició de la línia de missatges (oculta l'acció quan la sala no ho admet)</li>
           <li xml:lang="es">Corrección al mostrar órdenes en la línea de edición de mensaje (Ocultar acción cuando la sala no lo soporta)</li>
@@ -2717,6 +2832,7 @@
           <li xml:lang="tr">İleti satırı düzenlemesinde komutları göstermeyi düzelt (Oda desteklemediğinde eylemi gizle)</li>
           <li xml:lang="uk">Виправлено показ команд у рядку редагування повідомлень (приховування дій, підтримки яких у кімнаті не передбачено)</li>
           <li>Fix download sound/video file when it's not in cache</li>
+          <li xml:lang="ar">إصلاح مشكلة تنزيل ملف الصوت/الفيديو عندما لا يكون في خبيئة</li>
           <li xml:lang="ca">Corregeix la baixada del fitxer de so/vídeo quan no està en la memòria cau</li>
           <li xml:lang="ca-valencia">Corregix la baixada del fitxer de so/vídeo quan no està en la memòria cau</li>
           <li xml:lang="es">Corrección de la descarga de archivos de sonido/vídeo cuando no está en la caché</li>
@@ -2728,6 +2844,7 @@
           <li xml:lang="tr">Önbellekte olmadığında ses/video dosyasını indirmeyi düzelt</li>
           <li xml:lang="uk">Виправити отриманий файл звукових даних або відео, коли він не перебуває у кеші</li>
           <li>Fix list of authentication method</li>
+          <li xml:lang="ar">إصلاح قائمة طريقة الاستيثاق</li>
           <li xml:lang="ca">Corregeix la llista de mètodes d'autenticació</li>
           <li xml:lang="ca-valencia">Corregix la llista de mètodes d'autenticació</li>
           <li xml:lang="es">Corrección en la lista de métodos de autenticación</li>
@@ -2739,6 +2856,7 @@
           <li xml:lang="tr">Kimlik doğrulama yöntemleri listesini düzelt</li>
           <li xml:lang="uk">Виправлено список способів розпізнавання</li>
           <li>Fix show avatar url</li>
+          <li xml:lang="ar">إصلاح رابط إظهار الصورة الرمزية</li>
           <li xml:lang="ca">Corregeix la visualització dels URL dels avatars</li>
           <li xml:lang="ca-valencia">Corregix la visualització dels URL dels avatars</li>
           <li xml:lang="es">Corrección al mostrar la URL del avatar</li>
@@ -2757,6 +2875,7 @@
       <description>
         <ul>
           <li>Store Message in Local Database (experimental)</li>
+          <li xml:lang="ar">تخزين الرسالة في قاعدة البيانات المحلية (تجريبي)</li>
           <li xml:lang="ca">Emmagatzema els missatges a la base de dades local (experimental)</li>
           <li xml:lang="ca-valencia">Emmagatzema els missatges en la base de dades local (experimental)</li>
           <li xml:lang="es">Almacenar mensaje en la base de datos local (experimental)</li>
@@ -2768,6 +2887,7 @@
           <li xml:lang="tr">İletiyi yerel veri tabanında depola (deneysel)</li>
           <li xml:lang="uk">Зберігати повідомлення у локальній базі даних (експериментальна можливість)</li>
           <li>Download Server Icon from Server</li>
+          <li xml:lang="ar">تنزيل أيقونة الخادم من الخادم</li>
           <li xml:lang="ca">Baixa la icona del servidor des del servidor</li>
           <li xml:lang="ca-valencia">Baixa la icona del servidor des del servidor</li>
           <li xml:lang="cs">Stáhnout ikonu serveru ze serveru</li>
@@ -2780,6 +2900,7 @@
           <li xml:lang="tr">Sunucu simgesini sunucudan indir</li>
           <li xml:lang="uk">Отримувати піктограму сервера з сервера</li>
           <li>Show Server Error Info in Specific DialogBox</li>
+          <li xml:lang="ar">إظهار معلومات خطأ الخادم في مربع حوار محدد</li>
           <li xml:lang="ca">Mostra la informació d'error del servidor en un quadre de diàleg específic</li>
           <li xml:lang="ca-valencia">Mostra la informació d'error del servidor en un diàleg específic</li>
           <li xml:lang="es">Mostrar información de error del servidor en un diálogo específico</li>
@@ -2791,6 +2912,7 @@
           <li xml:lang="tr">Sunucu hatası bilgisini belirli bir iletişim kutusunda göster</li>
           <li xml:lang="uk">Показувати дані помилки сервера у відповідному вікні</li>
           <li>Allow to Copy Image in Clipboard</li>
+          <li xml:lang="ar">السماح بنسخ الصورة في الحافظة</li>
           <li xml:lang="ca">Permet copiar la imatge al porta-retalls</li>
           <li xml:lang="ca-valencia">Permet copiar la imatge a dins del porta-retalls</li>
           <li xml:lang="cs">Povolit zkování obrázku do schránky</li>
@@ -2803,6 +2925,7 @@
           <li xml:lang="tr">Görselin panoya kopyalanmasına izin ver</li>
           <li xml:lang="uk">Дозволити копіювання зображення до буфера</li>
           <li>Improve debug support (Allow to show current account permissions)</li>
+          <li xml:lang="ar">تحسين تصحيح الأخطاء (السماح بعرض أذونات الحساب الحالي)</li>
           <li xml:lang="ca">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="ca-valencia">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="es">Mejorado el soporte de depuración (Permite mostrar los permisos actuales de la cuenta)</li>
@@ -2814,6 +2937,7 @@
           <li xml:lang="tr">Hata ayıklama desteğini iyileştir (geçerli hesap izinlerinin gösterilmesine izin ver)</li>
           <li xml:lang="uk">Удосконалено підтримку діагностики (уможливлено показ поточних права доступу облікового запису)</li>
           <li>Add support for quoted text (text which starts by \'&gt;\')</li>
+          <li xml:lang="ar">إضافة التعامل مع النص المقتبس (النص الذي يبدأ بـ \'&gt;\')</li>
           <li xml:lang="ca">Afegeix la implementació per al text citat (text que comença amb «&gt;»)</li>
           <li xml:lang="ca-valencia">Afig la implementació per al text citat (text que comença amb «&gt;»)</li>
           <li xml:lang="es">Añadido soporte para texto entrecomillado (texto que empieza por \'&gt;\')</li>
@@ -2825,6 +2949,7 @@
           <li xml:lang="tr">Alıntılanan metin için destek ekle (“&gt;” ile başlayan metinler)</li>
           <li xml:lang="uk">Додано підтримку цитованого тексту (тексту, який починається з «&gt;»)</li>
           <li>Show leader/moderator/owner in channel info</li>
+          <li xml:lang="ar">إظهار القائد/المشرف/المالك في معلومات القناة</li>
           <li xml:lang="ca">Mostra el líder/moderador/propietari a la informació del canal</li>
           <li xml:lang="ca-valencia">Mostra el líder/moderador/propietari en la informació del canal</li>
           <li xml:lang="es">Mostrar líder/moderador/propietario en la información del canal</li>
@@ -2836,6 +2961,7 @@
           <li xml:lang="tr">Kanal bilgisinde lideri/denetçiyi/sahibini göster</li>
           <li xml:lang="uk">Показувати лідера, модератора та власника у даних каналу</li>
           <li>Video/Sound Message support (kf6 only)</li>
+          <li xml:lang="ar">إتاحة الرسائل الصوتية/الفيديو (kf6 فقط)</li>
           <li xml:lang="ca">Implementació de missatges de vídeo/so (només KF6)</li>
           <li xml:lang="ca-valencia">Implementació de missatges de vídeo i so (només KF6)</li>
           <li xml:lang="es">Soporte para mensajes de vídeo/sonido (solo KF6)</li>
@@ -2847,6 +2973,7 @@
           <li xml:lang="tr">Video/Sesli ileti desteği (yalnızca kf6)</li>
           <li xml:lang="uk">Підтримка звукових та відеоповідомлень (лише kf6)</li>
           <li>Import/Export Accounts</li>
+          <li xml:lang="ar">حسابات الاستيراد/التصدير</li>
           <li xml:lang="ca">Importació/exportació de comptes</li>
           <li xml:lang="ca-valencia">Importació/exportació de comptes</li>
           <li xml:lang="es">Importar/Exportar cuentas</li>
@@ -2858,6 +2985,7 @@
           <li xml:lang="tr">Hesapları içe/dışa aktar</li>
           <li xml:lang="uk">Імпортувати/Експортувати облікові записи</li>
           <li>Fix avatar support</li>
+          <li xml:lang="ar">إصلاح الصورة الرمزية</li>
           <li xml:lang="ca">Corregeix la implementació dels avatars</li>
           <li xml:lang="ca-valencia">Corregix la implementació dels avatars</li>
           <li xml:lang="es">Corrección en el soporte de avatares</li>
@@ -2869,6 +2997,7 @@
           <li xml:lang="tr">Profil resmi desteğini düzelt</li>
           <li xml:lang="uk">Виправлено підтримку аватарів</li>
           <li>Fix emoji support (use new ktextaddons/textemoticons)</li>
+          <li xml:lang="ar">إصلاح الرموز التعبيرية (استخدم ktextaddons/textemoticons الجديدة)</li>
           <li xml:lang="ca">Corregeix la implementació dels emojis (usa el ktextaddons/textemoticons nou)</li>
           <li xml:lang="ca-valencia">Corregix la implementació dels emoji (utilitza el ktextaddons/textemoticons nou)</li>
           <li xml:lang="es">Corrección en el soporte de Emojis (usando nuevos ktextaddons/textemoticons)</li>
@@ -2880,6 +3009,7 @@
           <li xml:lang="tr">Emoji desteğini düzelt (yeni ktextaddons/textemoticons kullan)</li>
           <li xml:lang="uk">Виправлено підтримку емоційок (використано нові ktextaddons/textemoticons)</li>
           <li>Fix animated gif in reactions</li>
+          <li xml:lang="ar">إصلاح الصورة المتحركة في التفاعلات</li>
           <li xml:lang="ca">Corregeix els GIF animats a les reaccions</li>
           <li xml:lang="ca-valencia">Corregix els GIF animats en les reaccions</li>
           <li xml:lang="es">Corrección en los gif animados en reacciones</li>
@@ -2891,6 +3021,7 @@
           <li xml:lang="tr">Tepkilerdeki hareketli GIF desteğini düzelt</li>
           <li xml:lang="uk">Виправлено анімований gif у реакціях</li>
           <li>Fix kf6 support</li>
+          <li xml:lang="ar">إصلاح التوافق مع kf6</li>
           <li xml:lang="ca">Corregeix la implementació dels KF6</li>
           <li xml:lang="ca-valencia">Corregix la implementació dels KF6</li>
           <li xml:lang="cs">Oprava podpory kf6</li>
