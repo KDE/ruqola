@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-07 00:44+0000\n"
-"PO-Revision-Date: 2026-06-03 11:19+0200\n"
+"PO-Revision-Date: 2026-06-07 15:20+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12041,7 +12041,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
-msgstr ""
+msgstr "Gebruik het nieuwe widget voor tekstberichten voor foutmeldingen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format

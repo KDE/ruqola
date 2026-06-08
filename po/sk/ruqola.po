@@ -1414,7 +1414,7 @@ msgstr[2] "%1 sekúnd"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "Miestnosť „%1“ bola pridaná"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -9106,17 +9106,16 @@ msgid "Fit to View"
 msgstr "Prispôsobiť zobrazeniu"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Rate Limiter"
+msgstr "Otočiť doľava"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Otočiť doprava"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -10408,7 +10407,7 @@ msgstr "Vyčistiť"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Prepnúť na novú miestnosť"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
@@ -11994,18 +11993,16 @@ msgid "Allow to open saved file."
 msgstr "Povoliť otvorenie uloženého súboru."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "Opustiť kanál"
+msgstr "Umožnenie otočenia obrázka v dialógu zobrazenia obrázka."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
-msgstr ""
+msgstr "Pridanie informácií o novej miestnosti v dialógu histórie oznámení."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
-msgstr ""
+msgstr "Použitie nového textmessagewidget na oznámenie chyby."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
