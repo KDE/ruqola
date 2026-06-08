@@ -28,10 +28,12 @@ ServerErrorInfoHistoryModel *ServerErrorInfoHistoryManager::serverErrorInfoHisto
     return mServerErrorInfoHistoryModel;
 }
 
-void ServerErrorInfoHistoryManager::addServerErrorInfo(const ServerErrorInfo &info)
+void ServerErrorInfoHistoryManager::addServerErrorInfo(const ServerErrorInfo &info, bool showMessageWidget)
 {
     mServerErrorInfoHistoryModel->addServerErrorInfo(info);
-    Q_EMIT newServerErrorInfo();
+    if (showMessageWidget) {
+        Q_EMIT newServerErrorInfo();
+    }
 }
 
 #include "moc_servererrorinfohistorymanager.cpp"

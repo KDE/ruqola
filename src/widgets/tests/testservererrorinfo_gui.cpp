@@ -33,7 +33,7 @@ int main(int argc, char **argv)
         info.setAccountName(accountName);
         const QString str = u"Message: %1"_s.arg(QString::number(i));
         info.setMessage(str);
-        ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
+        ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info, true);
         AccountManager::AccountDisplayInfo serverInfo;
         serverInfo.name = accountName;
         infos << serverInfo;

@@ -29,7 +29,7 @@ TestServerErrorInfoMessageHistoryWidget::TestServerErrorInfoMessageHistoryWidget
         ServerErrorInfo info;
         info.setAccountName(accountName->text());
         info.setMessage(messageStr->text());
-        ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
+        ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info, true);
     });
 }
 

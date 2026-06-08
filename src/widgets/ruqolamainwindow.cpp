@@ -420,7 +420,7 @@ bool RuqolaMainWindow::hasBannerInfo() const
 void RuqolaMainWindow::readConfig()
 {
     KSharedConfig::Ptr config = KSharedConfig::openStateConfig();
-    KConfigGroup group = KConfigGroup(config, QLatin1StringView(myRuqolaMainWindowGroupName));
+    const KConfigGroup group = KConfigGroup(config, QLatin1StringView(myRuqolaMainWindowGroupName));
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);

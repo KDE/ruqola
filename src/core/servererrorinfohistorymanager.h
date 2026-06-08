@@ -21,7 +21,7 @@ public:
 
     [[nodiscard]] ServerErrorInfoHistoryModel *serverErrorInfoHistoryModel() const;
 
-    void addServerErrorInfo(const ServerErrorInfo &info);
+    void addServerErrorInfo(const ServerErrorInfo &info, bool showMessageWidget);
 
 Q_SIGNALS:
     void newServerErrorInfo();

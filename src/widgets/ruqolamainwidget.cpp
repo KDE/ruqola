@@ -78,7 +78,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     connect(mChannelList, &ChannelListWidget::forceLineEditFocus, mRoomWidget, &RoomWidget::forceLineEditFocus);
     connect(mChannelList, &ChannelListWidget::selectMessageIdRequested, mRoomWidget, &RoomWidget::scrollToMessageId);
 
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
+    const KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
     if (TextAddonsWidgets::NeedUpdateVersionUtils::checkVersion()) {
         const auto status = TextAddonsWidgets::NeedUpdateVersionUtils::obsoleteVersionStatus(QStringLiteral(RUQOLA_RELEASE_VERSION), QDate::currentDate());
