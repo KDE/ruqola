@@ -1421,6 +1421,7 @@
           <li xml:lang="ar">اسمح بتدوير الصورة في حوار عرض الصورة</li>
           <li xml:lang="ca">Permet girar una imatge en el diàleg de mostrar imatges</li>
           <li xml:lang="ca-valencia">Permet girar una imatge en el diàleg de mostrar imatges</li>
+          <li xml:lang="es">Permite la rotación de imágenes en el diálogo mostrar imagen</li>
           <li xml:lang="ka">გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში</li>
           <li xml:lang="nl">In dialoog voor tonen van afbeelding draaien toestaan</li>
           <li xml:lang="pt-BR">Permitir rotação da imagem na caixa de diálogo de exibição de imagem</li>
@@ -1431,6 +1432,8 @@
           <li xml:lang="ar">أضف معلومات الغرفة الجديدة في حوار سجل الإشعارات.</li>
           <li xml:lang="ca">Afegeix informació nova de sala al diàleg de l'historial de notificacions.</li>
           <li xml:lang="ca-valencia">Afig informació nova de sala al diàleg de l'historial de notificacions.</li>
+          <li xml:lang="es">Añadida información de nueva sala en el diálogo histórico de notificaciones.</li>
+          <li xml:lang="he">נוספו פרטי החדר החדש בחלונית היסטוריית ההתראות.</li>
           <li xml:lang="ka">დაემატა ახალი ოთახის ინფორმაცია გაფრთხილებების ისტორიის დიალოგში.</li>
           <li xml:lang="nl">Voeg nieuwe roominformatie toe in de dialoog van de geschiedenis van meldingen</li>
           <li xml:lang="pt-BR">Adicionar novas informações da sala na janela do histórico de notificações.</li>
@@ -1540,6 +1543,7 @@
           <li xml:lang="ca">Afegeix la implementació de marques horàries</li>
           <li xml:lang="ca-valencia">Afig la implementació de marques de temps</li>
           <li xml:lang="es">Añadido soporte para marcas de tiempo</li>
+          <li xml:lang="he">נוספה תמיכה בחותמות זמן</li>
           <li xml:lang="ka">დაემატა დროის შტამპის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor tijdstempel toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para marca de tempo</li>
@@ -1787,6 +1791,7 @@
           <li xml:lang="ca">Afegeix la implementació d'accions d'IA de Rocket Chat</li>
           <li xml:lang="ca-valencia">Afig la implementació d'accions d'IA de Rocket Chat</li>
           <li xml:lang="es">Añadido soporte para acciones AI en Rocket Chat</li>
+          <li xml:lang="he">נוספה תמיכה בפעולות בינה מלאכותית ב־Rocket Chat</li>
           <li xml:lang="ka">დაემატა ხი-ით Rocket Chat-ის ქმედებების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor acties van Rocket Chat toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para ações do AI Rocket Chat</li>
@@ -1880,6 +1885,7 @@
           <li xml:lang="ca">Afegeix la implementació dels connectors d'eines</li>
           <li xml:lang="ca-valencia">Afig la implementació dels connectors d'eines</li>
           <li xml:lang="es">Añadir soporte para complementos de herramientas</li>
+          <li xml:lang="he">נוספה תמיכה בתוספי כלים</li>
           <li xml:lang="ka">დაემატა ხელსაწყოს დამატებების მხადაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor plug-ins voor hulpmiddelen toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para plugins de ferramentas</li>
@@ -1952,6 +1958,7 @@
           <li xml:lang="ca">Implementa el suport d'aplicacions Rocket.Chat</li>
           <li xml:lang="ca-valencia">Implementa el suport d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Implementado soporte para la aplicación Rocket.Chat</li>
+          <li xml:lang="he">מומשה תמיכה ביישום Rocket.Chat</li>
           <li xml:lang="ka">განხორციელდა Rocket.Chat-ის აპლიკაციის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor toepassing Rocket.Chat implementeren</li>
           <li xml:lang="pt-BR">Implementa suporte ao aplicativo Rocket.Chat</li>
@@ -2096,6 +2103,7 @@
           <li xml:lang="ca">Corregeix la implementació del mode fosc</li>
           <li xml:lang="ca-valencia">Corregix la implementació del mode fosc</li>
           <li xml:lang="es">Corrección en el soporte de modo oscuro</li>
+          <li xml:lang="he">תוקנה בתמיכה במצב כהה</li>
           <li xml:lang="ka">გასწორდა ბნელი რეჟიმის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor modus Donker repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao modo escuro</li>
@@ -2210,6 +2218,7 @@
           <li xml:lang="ca">Corregeix l'edició de missatges</li>
           <li xml:lang="ca-valencia">Corregix l'edició de missatges</li>
           <li xml:lang="es">Corrección al editar mensajes</li>
+          <li xml:lang="he">תוקנה עריכת הודעות</li>
           <li xml:lang="ka">გასწორდა შეტყობინების ჩასწორება</li>
           <li xml:lang="nl">Bewerken van bericht repareren</li>
           <li xml:lang="pt-BR">Corrige edição de mensagem</li>
@@ -2282,6 +2291,7 @@
           <li xml:lang="ca">Corregeix la implementació dels missatges de vídeo</li>
           <li xml:lang="ca-valencia">Corregix la implementació dels missatges de vídeo</li>
           <li xml:lang="es">Corrección en el soporte de mensajes de vídeos</li>
+          <li xml:lang="he">תוקנה התמיכה בהודעות וידאו</li>
           <li xml:lang="ka">გასწორდა შეტყობინების ვიდეოს მხარდაჭერა</li>
           <li xml:lang="nl">Reparatie van bericht ondersteuning van video</li>
           <li xml:lang="pt-BR">Corrige suporte a mensagens de vídeo</li>
@@ -2408,6 +2418,7 @@
           <li xml:lang="ar">استخدم cmark-rc لتوفير ماركدون</li>
           <li xml:lang="ca">Usa «cmark-rc» per a implementar el Markdown</li>
           <li xml:lang="ca-valencia">Utilitza «cmark-rc» per a implementar Markdown</li>
+          <li xml:lang="es">Uso de cmark-rc para el soporte Markdown</li>
           <li xml:lang="ka">მარკდაუნისთვის cmark-rc-ის გამოყენება</li>
           <li xml:lang="nl">Cmark-rc gebruiken voor ondersteuning van markdown</li>
           <li xml:lang="pt-BR">Usar cmark-rc para suporte a Markdown</li>
@@ -2521,6 +2532,7 @@
           <li xml:lang="ca">Millora la implementació de les mencions</li>
           <li xml:lang="ca-valencia">Millora la implementació de les mencions</li>
           <li xml:lang="es">Mejorado el soporte de menciones</li>
+          <li xml:lang="he">השתפרה התמיכה באזכורים</li>
           <li xml:lang="ka">გაუმჯობესდა ხსენებების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning van vermeldingen verbeteren</li>
           <li xml:lang="pt-BR">Melhora o suporte a menções</li>
@@ -2533,6 +2545,7 @@
           <li xml:lang="ca">Afegeix la implementació per a l'enllaçament profund</li>
           <li xml:lang="ca-valencia">Afig la implementació per a l'enllaçament profund</li>
           <li xml:lang="es">Añadido el soporte para enlaces profundos</li>
+          <li xml:lang="he">נוספה תמיכה בקישור עמוק</li>
           <li xml:lang="ka">დაემატა ღრმა ბმულების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
           <li xml:lang="pt-BR">Adiciona suporte para links diretos (deep linking)</li>
@@ -2581,6 +2594,7 @@
           <li xml:lang="ca">Afegeix el suport d'informació d'un usuari</li>
           <li xml:lang="ca-valencia">Afig el suport d'informació d'un usuari</li>
           <li xml:lang="es">Añadido soporte para reportar usuarios</li>
+          <li xml:lang="he">נוספה תמיכה בדיווח על משתמשים</li>
           <li xml:lang="ka">დაემატა მომხმარებლის შესახებ ანგარიშის გაგზავნის მხარდაჭერა</li>
           <li xml:lang="nl">Rapport over gebruikersondersteuning toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte a reporte de usuário</li>
@@ -2629,6 +2643,7 @@
           <li xml:lang="ca">Corregeix la implementació del mode fosc</li>
           <li xml:lang="ca-valencia">Corregix la implementació del mode fosc</li>
           <li xml:lang="es">Corrección en el soporte de modo oscuro</li>
+          <li xml:lang="he">תוקנה בתמיכה במצב כהה</li>
           <li xml:lang="ka">გასწორდა ბნელი რეჟიმის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor modus Donker repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao modo escuro</li>
@@ -2641,6 +2656,7 @@
           <li xml:lang="ca">Corregeix la implementació del Jitsi</li>
           <li xml:lang="ca-valencia">Corregix la implementació de Jitsi</li>
           <li xml:lang="es">Corrección en el soporte de Jitsi</li>
+          <li xml:lang="he">תוקנה התמיכה ב־Jitsi</li>
           <li xml:lang="ka">გასწორდა JITSI-ის მხარდაჭერა</li>
           <li xml:lang="nl">Jitsi-ondersteuning repareren</li>
           <li xml:lang="pt-BR">Corrige suporte a jitsi</li>
@@ -2848,6 +2864,7 @@
           <li xml:lang="ca">Corregeix la llista de mètodes d'autenticació</li>
           <li xml:lang="ca-valencia">Corregix la llista de mètodes d'autenticació</li>
           <li xml:lang="es">Corrección en la lista de métodos de autenticación</li>
+          <li xml:lang="he">תוקנה רשימת שיטות האימות</li>
           <li xml:lang="ka">გასწორდა ავთენტიკაციის მეთოდების ჩამონათვალი</li>
           <li xml:lang="nl">Lijst met authenticatiemethode repareren</li>
           <li xml:lang="pt-BR">Corrige lista de métodos de autenticação</li>
@@ -2860,6 +2877,7 @@
           <li xml:lang="ca">Corregeix la visualització dels URL dels avatars</li>
           <li xml:lang="ca-valencia">Corregix la visualització dels URL dels avatars</li>
           <li xml:lang="es">Corrección al mostrar la URL del avatar</li>
+          <li xml:lang="he">תיקון כתובת הצגת תמונה ייצוגית</li>
           <li xml:lang="ka">გასწორდა საჩვენებელი ავატარის ბმული</li>
           <li xml:lang="nl">Tonen van url van avatar repareren</li>
           <li xml:lang="pt-BR">Corrige exibição do URL do avatar</li>
@@ -2879,6 +2897,7 @@
           <li xml:lang="ca">Emmagatzema els missatges a la base de dades local (experimental)</li>
           <li xml:lang="ca-valencia">Emmagatzema els missatges en la base de dades local (experimental)</li>
           <li xml:lang="es">Almacenar mensaje en la base de datos local (experimental)</li>
+          <li xml:lang="he">אחסון הודעה במסד נתונים מקומי (ניסיוני)</li>
           <li xml:lang="ka">შეტყობინების ლოკალურ ბაზაში შენახვა (საცდელი)</li>
           <li xml:lang="nl">Berichten in lokale database opslaan (experimenteel)</li>
           <li xml:lang="pt-BR">Armazena mensagem no banco de dados local (experimental)</li>
@@ -2892,6 +2911,7 @@
           <li xml:lang="ca-valencia">Baixa la icona del servidor des del servidor</li>
           <li xml:lang="cs">Stáhnout ikonu serveru ze serveru</li>
           <li xml:lang="es">Descarga del icono de servidor desde el servidor</li>
+          <li xml:lang="he">הורדת סמל השרת מהשרת</li>
           <li xml:lang="ka">სერვერის ხატულის სერვერიდან გადმოწერა</li>
           <li xml:lang="nl">Pictogram van server downloaden van server</li>
           <li xml:lang="pt-BR">Baixa ícone do servidor a partir do servidor</li>
@@ -2904,6 +2924,7 @@
           <li xml:lang="ca">Mostra la informació d'error del servidor en un quadre de diàleg específic</li>
           <li xml:lang="ca-valencia">Mostra la informació d'error del servidor en un diàleg específic</li>
           <li xml:lang="es">Mostrar información de error del servidor en un diálogo específico</li>
+          <li xml:lang="he">הצגת פרטי שגיאות שרת בתיבת חלונית ייעודית</li>
           <li xml:lang="ka">სერვერის შეცდომის ინფორმაციის ჩვენება მითითებულ ფანჯარაში</li>
           <li xml:lang="nl">Informatie over serverfout tonen in specifiek dialoogvak </li>
           <li xml:lang="pt-BR">Mostra informações de erro do servidor em caixa de diálogo específica</li>
@@ -2917,6 +2938,7 @@
           <li xml:lang="ca-valencia">Permet copiar la imatge a dins del porta-retalls</li>
           <li xml:lang="cs">Povolit zkování obrázku do schránky</li>
           <li xml:lang="es">Permite copiar imagen en el portapapeles</li>
+          <li xml:lang="he">לאפשר להעתיק תמונה ללוח הגזירים</li>
           <li xml:lang="ka">გამოსახულების ბუფერში კოპირების დაშვება</li>
           <li xml:lang="nl">Afbeelding naar klembord kopiëren toestaan</li>
           <li xml:lang="pt-BR">Permite copiar imagem para a área de transferência</li>
@@ -2929,6 +2951,7 @@
           <li xml:lang="ca">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="ca-valencia">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="es">Mejorado el soporte de depuración (Permite mostrar los permisos actuales de la cuenta)</li>
+          <li xml:lang="he">התמיכה בניפוי שגיאות השתפרה (לאפשר להציג את הרשאות החשבון הנוכחי)</li>
           <li xml:lang="ka">გამართვის მხარდაჭერის გაუმჯობესება (მიმდინარე ანგარიშის წვდომების ჩვენების დაშვება)</li>
           <li xml:lang="nl">Ondersteunt voor debuggen verbeteren (sta toe de huidige toegangsrechten te bekijken)</li>
           <li xml:lang="pt-BR">Melhoria no suporte à depuração (permitir mostrar as permissões da conta atual)</li>
@@ -2941,6 +2964,7 @@
           <li xml:lang="ca">Afegeix la implementació per al text citat (text que comença amb «&gt;»)</li>
           <li xml:lang="ca-valencia">Afig la implementació per al text citat (text que comença amb «&gt;»)</li>
           <li xml:lang="es">Añadido soporte para texto entrecomillado (texto que empieza por \'&gt;\')</li>
+          <li xml:lang="he">נוספה תמיכה בטקסט מצוטט (טקסט שמתחיל ב־‚&gt;’)</li>
           <li xml:lang="ka">დაემატა ციტირებული ტექსტის (ტექსტის, რომელიც \'&gt;\'-ით იწყება) მხარდაჭერა</li>
           <li xml:lang="nl">Voeg ondersteuning toe voor geciteerde tekst (tekst die begint met \'&gt;\').</li>
           <li xml:lang="pt-BR">Adiciona suporte para texto citado (texto que começa com \'&gt;\')</li>
@@ -2965,6 +2989,7 @@
           <li xml:lang="ca">Implementació de missatges de vídeo/so (només KF6)</li>
           <li xml:lang="ca-valencia">Implementació de missatges de vídeo i so (només KF6)</li>
           <li xml:lang="es">Soporte para mensajes de vídeo/sonido (solo KF6)</li>
+          <li xml:lang="he">תמיכה בהודעות וידאו/שמע (kf6 בלבד)</li>
           <li xml:lang="ka">ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)</li>
           <li xml:lang="nl">Ondersteuning voor video/geluidsbericht (alleen kf6)</li>
           <li xml:lang="pt-BR">Suporte para mensagens de vídeo/som (somente kf6)</li>
@@ -2977,6 +3002,7 @@
           <li xml:lang="ca">Importació/exportació de comptes</li>
           <li xml:lang="ca-valencia">Importació/exportació de comptes</li>
           <li xml:lang="es">Importar/Exportar cuentas</li>
+          <li xml:lang="he">ייבוא/ייצוא חשבונות</li>
           <li xml:lang="ka">ანგარიშების გატანა/შემოტანა</li>
           <li xml:lang="nl">Accounts im-/exporteren</li>
           <li xml:lang="pt-BR">Importação/Exportação de contas</li>
@@ -2989,6 +3015,7 @@
           <li xml:lang="ca">Corregeix la implementació dels avatars</li>
           <li xml:lang="ca-valencia">Corregix la implementació dels avatars</li>
           <li xml:lang="es">Corrección en el soporte de avatares</li>
+          <li xml:lang="he">תוקנה תמיכה בתמונה ייצוגית</li>
           <li xml:lang="ka">ავატარის მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Ondersteuning voor avatar repareren</li>
           <li xml:lang="pt-BR">Corrige o suporte a avatar</li>
@@ -3001,6 +3028,7 @@
           <li xml:lang="ca">Corregeix la implementació dels emojis (usa el ktextaddons/textemoticons nou)</li>
           <li xml:lang="ca-valencia">Corregix la implementació dels emoji (utilitza el ktextaddons/textemoticons nou)</li>
           <li xml:lang="es">Corrección en el soporte de Emojis (usando nuevos ktextaddons/textemoticons)</li>
+          <li xml:lang="he">תוקנה תמיכה באמוג׳י (משתמש ב־ktextaddons/textemoticons החדש)</li>
           <li xml:lang="ka">ემოჯის მხარდაჭერის გასწორება (იყენებს ახალ ktextaddon/textemoticon)</li>
           <li xml:lang="nl">Ondersteuning voor emoji repareren (nieuwe ktextaddons/textemoticons gebruiken)</li>
           <li xml:lang="pt-BR">Corrige o suporte a emojis (usa os novos ktextaddons/textemoticons)</li>
@@ -3013,6 +3041,7 @@
           <li xml:lang="ca">Corregeix els GIF animats a les reaccions</li>
           <li xml:lang="ca-valencia">Corregix els GIF animats en les reaccions</li>
           <li xml:lang="es">Corrección en los gif animados en reacciones</li>
+          <li xml:lang="he">תוקנו gif מונפשים בתגובות הרגש</li>
           <li xml:lang="ka">რეაქციებში ანიმირებული GIF-ების მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Geanimeerde gif in reacties repareren</li>
           <li xml:lang="pt-BR">Corrige gif animados em reações</li>
@@ -3026,6 +3055,7 @@
           <li xml:lang="ca-valencia">Corregix la implementació dels KF6</li>
           <li xml:lang="cs">Oprava podpory kf6</li>
           <li xml:lang="es">Corrección al soporte de KF6</li>
+          <li xml:lang="he">תוקנה התמיכה ב־kf6</li>
           <li xml:lang="ka">KF6-ის მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Ondersteuning voor kf6 repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao kf6</li>
