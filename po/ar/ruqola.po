@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-07 00:44+0000\n"
-"PO-Revision-Date: 2026-06-05 14:00+0400\n"
+"PO-Revision-Date: 2026-06-08 20:35+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -12064,7 +12064,7 @@ msgstr "أضف معلومات الغرفة الجديدة في حوار سجل �
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
-msgstr ""
+msgstr "استخدام ودجة نصية جديدة لإشعارات الأخطاء"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:31
 #, kde-format
