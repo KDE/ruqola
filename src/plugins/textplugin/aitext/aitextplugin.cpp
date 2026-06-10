@@ -6,6 +6,7 @@
 
 #include "aitextplugin.h"
 #include "aitextinterface.h"
+#include "ruqola.h"
 #include <KPluginFactory>
 #include <TextAutoGenerateText/TextAutoGenerateMenuConfigureDialog>
 #include <TextAutoGenerateText/TextAutoGenerateMenuTextManager>
@@ -21,7 +22,9 @@ AiTextPlugin::~AiTextPlugin() = default;
 
 PluginTextInterface *AiTextPlugin::createInterface(QWidget *parentWidget, QObject *parent)
 {
-    return new AiTextInterface(mManager, parentWidget, parent);
+    auto interface = new AiTextInterface(mManager, parentWidget, parent);
+    interface->setManager(Ruqola::self()->textAutoGenerateManager());
+    return interface;
 }
 
 int AiTextPlugin::order() const

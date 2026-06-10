@@ -29,4 +29,9 @@ void AiTextInterface::setSelectedText(const QString &str)
     mMenuWidget->setSelectedText(str);
 }
 
+void AiTextInterface::setManager(TextAutoGenerateText::TextAutoGenerateManager *newManager)
+{
+    mMenuWidget->setManager(newManager);
+}
+
 #include "moc_aitextinterface.cpp"

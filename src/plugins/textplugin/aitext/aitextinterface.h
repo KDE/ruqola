@@ -10,6 +10,7 @@
 namespace TextAutoGenerateText
 {
 class TextAutoGenerateMenuWidget;
+class TextAutoGenerateManager;
 class TextAutoGenerateMenuTextManager;
 }
 class AiTextInterface : public PluginTextInterface
@@ -22,6 +23,8 @@ public:
     void addAction(QMenu *menu) override;
 
     void setSelectedText(const QString &str) override;
+
+    void setManager(TextAutoGenerateText::TextAutoGenerateManager *newManager);
 
 private:
     TextAutoGenerateText::TextAutoGenerateMenuWidget *const mMenuWidget;
