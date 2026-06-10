@@ -1443,6 +1443,7 @@
           <li xml:lang="tr">Bildirim geçmişi iletişim kutusuna yeni oda bilgisini ekle</li>
           <li xml:lang="uk">Додано відомості щодо нових кімнат до вікна журналу сповіщень</li>
           <li>Use new textmessagewidget for error notification</li>
+          <li xml:lang="ar">استخدام ودجة رسالة نصية جديدة للإشعارات الأخطاء</li>
           <li xml:lang="ca">Usa el «textmessagewidget» nou per a notificacions d'error</li>
           <li xml:lang="ca-valencia">Utilitza el «textmessagewidget» nou per a notificacions d'error</li>
           <li xml:lang="ka">ახალი textmessagewidget-ის გამოყენება შეცდომის შეტყობინებისთვის</li>
