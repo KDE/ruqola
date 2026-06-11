@@ -395,6 +395,10 @@ enum class RestApiUrlType {
 
     // rooms.membersOrderedByRole (7.3.0)
     RoomsMembersOrderedByRole,
+
+    // since 8.5.0
+    CustomSoundsCreate,
+    CustomSoundsUpdate,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

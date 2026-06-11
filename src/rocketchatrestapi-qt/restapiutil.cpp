@@ -639,6 +639,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"rooms.images"_s;
     case RestApiUtil::RestApiUrlType::RoomsMembersOrderedByRole:
         return u"rooms.membersOrderedByRole"_s;
+    case RestApiUtil::RestApiUrlType::CustomSoundsCreate:
+        return u"custom-sounds.create"_s;
+    case RestApiUtil::RestApiUrlType::CustomSoundsUpdate:
+        return u"custom-sounds.update"_s;
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

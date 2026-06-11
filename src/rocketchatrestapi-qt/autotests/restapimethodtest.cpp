@@ -392,6 +392,9 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Empty), QUrl(u"http://www.kde.org/api/v1/"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsImages), QUrl(u"http://www.kde.org/api/v1/rooms.images"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsMembersOrderedByRole), QUrl(u"http://www.kde.org/api/v1/rooms.membersOrderedByRole"_s));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsCreate), QUrl(u"http://www.kde.org/api/v1/custom-sounds.create"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsUpdate), QUrl(u"http://www.kde.org/api/v1/custom-sounds.update"_s));
 }
 
 #include "moc_restapimethodtest.cpp"
