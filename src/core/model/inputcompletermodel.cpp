@@ -37,7 +37,7 @@ ChannelUserCompleter InputCompleterModel::createHereChannel()
 {
     ChannelUserCompleter here;
     here.setName(InputCompleterModel::here());
-    here.setDescription(i18n("Notify all in this room"));
+    here.setDescription(i18n("Notify active users in this room"));
     here.setType(ChannelUserCompleter::ChannelUserCompleterType::Notification);
     return here;
 }
@@ -54,7 +54,7 @@ ChannelUserCompleter InputCompleterModel::createAllChannel()
 {
     ChannelUserCompleter all;
     all.setName(InputCompleterModel::all());
-    all.setDescription(i18n("Notify active users in this room"));
+    all.setDescription(i18n("Notify all in this room"));
     all.setType(ChannelUserCompleter::ChannelUserCompleterType::Notification);
     return all;
 }
