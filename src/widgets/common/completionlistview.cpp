@@ -7,13 +7,11 @@
 #include "completionlistview.h"
 
 #include <QApplication>
-// #include <QDebug>
 #include <QKeyEvent>
 #include <QScreen>
 #include <QScrollBar>
 
 CompletionListView::CompletionListView()
-
 {
     setUniformItemSizes(true);
     setWindowFlag(Qt::Popup);
