@@ -161,6 +161,8 @@ target_sources(
         custom/customuserstatuslistjob.h
         custom/customuserstatusupdatejob.cpp
         custom/customuserstatusupdatejob.h
+        custom/customsoundsgetonejob.cpp
+        custom/customsoundsgetonejob.h
         directmessage/createdmjob.cpp
         directmessage/createdmjob.h
         directmessage/deletedmjob.cpp
