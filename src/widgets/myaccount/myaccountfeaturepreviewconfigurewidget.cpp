@@ -16,6 +16,7 @@ MyAccountFeaturePreviewConfigureWidget::MyAccountFeaturePreviewConfigureWidget(R
     , mRocketChatAccount(account)
     // timestamp by default in RC 8.0.0 => remove it when we will depend against it
     , mTimeStampCheckBox(new QCheckBox(i18nc("@option:check", "Timestamp in messages"), this))
+    , mAddDraftCheckBox(new QCheckBox(i18nc("@option:check", "Draft Messages"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -24,6 +25,10 @@ MyAccountFeaturePreviewConfigureWidget::MyAccountFeaturePreviewConfigureWidget(R
 
     mTimeStampCheckBox->setObjectName(u"mTimeStampCheckBox"_s);
     mainLayout->addWidget(mTimeStampCheckBox);
+
+    mAddDraftCheckBox->setObjectName(u"mAddDraftCheckBox"_s);
+    mainLayout->addWidget(mAddDraftCheckBox);
+
     mainLayout->addStretch(1);
 }
 
