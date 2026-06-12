@@ -58,6 +58,7 @@ public:
     Q_ENUM(RoomRoles)
 
     enum class Section : uint8_t {
+        Draft,
         Unread,
         Favorites,
         Teams,
@@ -130,6 +131,7 @@ Q_SIGNALS:
     void openChanged(const QByteArray &roomId);
 
 private:
+    LIBRUQOLACORE_NO_EXPORT bool hasPendingMessageTyped(Room *r) const;
     LIBRUQOLACORE_NO_EXPORT Room *createNewRoom();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool userOffline(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;

@@ -194,10 +194,16 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomMentionsInfoType:
         return QVariant::fromValue(mentionsInfoType(r));
     case RoomModel::RoomHasPendingMessageTyped: {
-        return mRocketChatAccount ? mRocketChatAccount->accountRoomSettings()->hasPendingMessageTyped(r->roomId()) : false;
+        return hasPendingMessageTyped(r);
     }
     }
     return {};
+}
+
+bool RoomModel::hasPendingMessageTyped(Room *r) const
+{
+    const auto result = mRocketChatAccount ? mRocketChatAccount->accountRoomSettings()->hasPendingMessageTyped(r->roomId()) : false;
+    return result;
 }
 
 void RoomModel::addRoom(const QByteArray &roomID, const QString &roomName, bool selected)
@@ -495,6 +501,13 @@ MessagesModel *RoomModel::messageModel(const QByteArray &roomId) const
 
 RoomModel::Section RoomModel::section(Room *r) const
 {
+    // TODO For the moment disable it.
+#if 0
+    if (hasPendingMessageTyped(r)) {
+        return Section::Draft;
+    }
+#endif
+    // TODO add draft support
     const Room::RoomType roomType = r->channelType();
     if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
         if (!r->hideUnreadStatus()) {
@@ -617,6 +630,8 @@ QString RoomModel::sectionName(Section sectionId)
         return i18n("Discussions");
     case RoomModel::Section::PrivateMessages:
         return i18n("Private Messages");
+    case RoomModel::Section::Draft:
+        return i18n("Draft");
     case RoomModel::Section::Unknown:
         return i18n("Unknown");
     case RoomModel::Section::NSections:
