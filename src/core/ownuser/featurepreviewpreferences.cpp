@@ -34,6 +34,8 @@ void FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array)
         const bool value = o["value"_L1].toBool();
         if (name == "enable-timestamp-message-parser"_L1) {
             assignSettingValue(value, EnableTimestampMessageParser);
+        } else if (name == "sidebarDrafts"_L1) {
+            assignSettingValue(value, EnableDraftSupport);
         }
     }
 }
