@@ -5,14 +5,22 @@
 */
 
 #pragma once
-
+#include "config-ruqola.h"
 #include "inputtextmanager.h"
 #include <KTextEdit>
 
 #include "libruqolawidgets_private_export.h"
 #include <QPointer>
+
 class RocketChatAccount;
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+namespace TextAddonsWidgets
+{
 class CompletionListView;
+}
+#else
+class CompletionListView;
+#endif
 class UserAndChannelCompletionDelegate;
 /**
  * @brief The MessageTextEdit class is the widget used for typing messages to be sent.
@@ -74,9 +82,18 @@ private:
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;
-    CompletionListView *const mUserAndChannelCompletionListView;
-    CompletionListView *const mEmojiCompletionListView;
-    CompletionListView *const mCommandCompletionListView;
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionListView *const mUserAndChannelCompletionListView;
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionListView *const mEmojiCompletionListView;
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionListView *const mCommandCompletionListView;
     UserAndChannelCompletionDelegate *mUserAndChannelCompletionDelegate = nullptr;
     QByteArray mRoomId;
 };

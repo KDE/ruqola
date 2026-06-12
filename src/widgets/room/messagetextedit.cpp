@@ -8,6 +8,11 @@
 #include "config-ruqola.h"
 
 #include "common/commandcompletiondelegate.h"
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#include <TextAddonsWidgets/CompletionListView>
+#else
+#include "common/completionlistview.h"
+#endif
 #include "common/completionlistview.h"
 #include "common/emojicompletiondelegate.h"
 #include "common/userandchannelcompletiondelegate.h"
@@ -35,9 +40,21 @@ using namespace Qt::Literals::StringLiterals;
 
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
-    , mUserAndChannelCompletionListView(new CompletionListView)
-    , mEmojiCompletionListView(new CompletionListView)
-    , mCommandCompletionListView(new CompletionListView)
+    , mUserAndChannelCompletionListView(new
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+                                        TextAddonsWidgets::
+#endif
+                                            CompletionListView)
+    , mEmojiCompletionListView(new
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+                               TextAddonsWidgets::
+#endif
+                                   CompletionListView)
+    , mCommandCompletionListView(new
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+                                 TextAddonsWidgets::
+#endif
+                                     CompletionListView)
 {
     setTabChangesFocus(true);
     setAcceptRichText(false);
@@ -48,15 +65,36 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     mUserAndChannelCompletionDelegate = new UserAndChannelCompletionDelegate(mUserAndChannelCompletionListView);
     mUserAndChannelCompletionListView->setItemDelegate(mUserAndChannelCompletionDelegate);
     mUserAndChannelCompletionListView->setTextWidget(this);
-    connect(mUserAndChannelCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
+    connect(mUserAndChannelCompletionListView,
+            &
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+            TextAddonsWidgets::
+#endif
+                CompletionListView::complete,
+            this,
+            &MessageTextEdit::slotComplete);
 
     mEmojiCompletionListView->setItemDelegate(new EmojiCompletionDelegate(mEmojiCompletionListView));
     mEmojiCompletionListView->setTextWidget(this);
-    connect(mEmojiCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
+    connect(mEmojiCompletionListView,
+            &
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+            TextAddonsWidgets::
+#endif
+                CompletionListView::complete,
+            this,
+            &MessageTextEdit::slotComplete);
 
     mCommandCompletionListView->setItemDelegate(new CommandCompletionDelegate(mCommandCompletionListView));
     mCommandCompletionListView->setTextWidget(this);
-    connect(mCommandCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
+    connect(mCommandCompletionListView,
+            &
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+            TextAddonsWidgets::
+#endif
+                CompletionListView::complete,
+            this,
+            &MessageTextEdit::slotComplete);
     loadSpellCheckingSettings();
     connect(this, &MessageTextEdit::languageChanged, this, &MessageTextEdit::slotLanguageChanged);
     connect(this, &MessageTextEdit::checkSpellingChanged, this, &MessageTextEdit::slotSpellCheckingEnableChanged);
