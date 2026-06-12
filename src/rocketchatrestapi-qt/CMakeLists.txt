@@ -165,6 +165,8 @@ target_sources(
         custom/customsoundsgetonejob.h
         custom/customsoundsupdatejob.h
         custom/customsoundsupdatejob.cpp
+        custom/customsoundscreatejob.h
+        custom/customsoundscreatejob.cpp
         directmessage/createdmjob.cpp
         directmessage/createdmjob.h
         directmessage/deletedmjob.cpp
