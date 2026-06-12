@@ -5,13 +5,21 @@
 */
 
 #pragma once
-
+#include "config-ruqola.h"
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#include <TextAddonsWidgets/CompletionLineEdit>
+#else
 #include "common/completionlineedit.h"
+#endif
 #include "libruqolawidgets_private_export.h"
 class JoinedChannelModel;
 class QTimer;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT JoinedChannelCompletionLineEditBase : public CompletionLineEdit
+class LIBRUQOLAWIDGETS_TESTS_EXPORT JoinedChannelCompletionLineEditBase : public
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+                                                                          TextAddonsWidgets::
+#endif
+                                                                              CompletionLineEdit
 {
     Q_OBJECT
 public:

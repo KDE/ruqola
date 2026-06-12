@@ -13,7 +13,11 @@
 #include "multistaticselectlineeditproxymodel.h"
 
 MultiStaticSelectLineEdit::MultiStaticSelectLineEdit(QWidget *parent)
-    : CompletionLineEdit(parent)
+    :
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionLineEdit(parent)
     , mMultiStaticSelectLineEditModel(new MultiStaticSelectLineEditModel(this))
     , mMultiStaticSelectLineEditProxyModel(new MultiStaticSelectLineEditProxyModel(this))
 {

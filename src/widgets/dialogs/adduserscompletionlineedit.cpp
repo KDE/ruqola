@@ -23,7 +23,11 @@ using namespace std::chrono_literals;
 
 using namespace Qt::Literals::StringLiterals;
 AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
-    : CompletionLineEdit(parent)
+    :
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionLineEdit(parent)
     , mRocketChatAccount(account)
     , mSearchTimer(new QTimer(this))
 {

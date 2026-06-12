@@ -236,10 +236,6 @@ target_sources(
         common/authenticationbutton.cpp
         common/commandcompletiondelegate.cpp
         common/commandcompletiondelegate.h
-        common/completionlineedit.cpp
-        common/completionlineedit.h
-        common/completionlistview.cpp
-        common/completionlistview.h
         common/delegatepaintutil.cpp
         common/delegatepaintutil.h
         common/emojicompletiondelegate.cpp
@@ -1011,6 +1007,17 @@ target_sources(
         timestampinmessages/timestampinmessagestimezonecombobox.h
         timestampinmessages/timestampinmessagestimezonecombobox.cpp
 )
+
+if(NOT HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT)
+    target_sources(
+        libruqolawidgets
+        PRIVATE
+            common/completionlineedit.cpp
+            common/completionlineedit.h
+            common/completionlistview.cpp
+            common/completionlistview.h
+    )
+endif()
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(

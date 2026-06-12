@@ -25,8 +25,9 @@ macro(add_ruqolacommon_test _source)
                 ON
     )
 endmacro()
-
-add_ruqolacommon_test(completionlistviewtest.cpp)
+if(NOT HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT)
+    add_ruqolacommon_test(completionlistviewtest.cpp)
+endif()
 add_ruqolacommon_test(authenticationbuttontest.cpp)
 add_ruqolacommon_test(authenticationwidgettest.cpp)
 add_ruqolacommon_test(authenticationloginwidgettest.cpp)

@@ -6,13 +6,22 @@
 
 #pragma once
 
+#include "config-ruqola.h"
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#include <TextAddonsWidgets/CompletionLineEdit>
+#else
 #include "common/completionlineedit.h"
+#endif
 #include "libruqolawidgets_private_export.h"
 class QJsonObject;
 class InputCompleterModel;
 class ChannelCompleterFilterProxyModel;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public CompletionLineEdit
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+                                                                TextAddonsWidgets::
+#endif
+                                                                    CompletionLineEdit
 {
     Q_OBJECT
 public:

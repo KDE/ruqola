@@ -29,7 +29,11 @@ using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
 
 AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
-    : CompletionLineEdit(parent)
+    :
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionLineEdit(parent)
     , mTeamRoomCompleterModel(new TeamRoomCompleterModel(this))
     , mSearchTimer(new QTimer(this))
     , mRocketChatAccount(account)

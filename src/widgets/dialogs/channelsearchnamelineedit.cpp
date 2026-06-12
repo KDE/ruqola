@@ -19,7 +19,11 @@
 #include <QJsonObject>
 
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(RocketChatAccount *account, QWidget *parent)
-    : CompletionLineEdit(parent)
+    :
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionLineEdit(parent)
     , mChannelCompleterFilterProxyModel(new ChannelCompleterFilterProxyModel(this))
     , mChannelCompleterModel(new InputCompleterModel(account, this))
     , mRocketChatAccount(account)

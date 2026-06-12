@@ -24,7 +24,11 @@ using namespace std::chrono_literals;
 using namespace Qt::Literals::StringLiterals;
 
 JoinedChannelCompletionLineEditBase::JoinedChannelCompletionLineEditBase(RocketChatAccount *account, QWidget *parent)
-    : CompletionLineEdit(parent)
+    :
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionLineEdit(parent)
     , mJoinedChannelModel(new JoinedChannelModel(this))
     , mSearchTimer(new QTimer(this))
     , mRocketChatAccount(account)
