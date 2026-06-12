@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:44+0000\n"
+"POT-Creation-Date: 2026-06-12 00:43+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1424,7 +1424,7 @@ msgstr "Personalizado"
 #: core/model/inputcompletermodel.cpp:40
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
-msgid "Notify all in this room"
+msgid "Notify active users in this room"
 msgstr "O utilizador não está nessa sala"
 
 #: core/model/inputcompletermodel.cpp:48
@@ -1436,7 +1436,7 @@ msgstr "Nenhuma sala encontrada"
 #: core/model/inputcompletermodel.cpp:57
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
-msgid "Notify active users in this room"
+msgid "Notify all in this room"
 msgstr "O utilizador não está nessa sala"
 
 #: core/model/messagesmodel.cpp:268

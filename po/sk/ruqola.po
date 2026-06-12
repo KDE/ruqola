@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:44+0000\n"
+"POT-Creation-Date: 2026-06-12 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1346,8 +1346,8 @@ msgstr "Vlastné"
 
 #: core/model/inputcompletermodel.cpp:40
 #, kde-format
-msgid "Notify all in this room"
-msgstr "Upozorniť všetkých v tejto miestnosti"
+msgid "Notify active users in this room"
+msgstr "Upozorniť aktívnych používateľov v tejto miestnosti"
 
 #: core/model/inputcompletermodel.cpp:48
 #, kde-format
@@ -1356,8 +1356,8 @@ msgstr "Súkromné adresy"
 
 #: core/model/inputcompletermodel.cpp:57
 #, kde-format
-msgid "Notify active users in this room"
-msgstr "Upozorniť aktívnych používateľov v tejto miestnosti"
+msgid "Notify all in this room"
+msgstr "Upozorniť všetkých v tejto miestnosti"
 
 #: core/model/messagesmodel.cpp:268
 #, kde-format

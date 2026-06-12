@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:44+0000\n"
+"POT-Creation-Date: 2026-06-12 00:43+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1352,8 +1352,8 @@ msgstr "自訂"
 
 #: core/model/inputcompletermodel.cpp:40
 #, kde-format
-msgid "Notify all in this room"
-msgstr "通知聊天室中所有人"
+msgid "Notify active users in this room"
+msgstr "通知聊天室中所有活躍使用者"
 
 #: core/model/inputcompletermodel.cpp:48
 #, kde-format
@@ -1362,8 +1362,8 @@ msgstr "找不到結果。"
 
 #: core/model/inputcompletermodel.cpp:57
 #, kde-format
-msgid "Notify active users in this room"
-msgstr "通知聊天室中所有活躍使用者"
+msgid "Notify all in this room"
+msgstr "通知聊天室中所有人"
 
 #: core/model/messagesmodel.cpp:268
 #, kde-format

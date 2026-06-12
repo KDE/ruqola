@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:44+0000\n"
+"POT-Creation-Date: 2026-06-12 00:43+0000\n"
 "PO-Revision-Date: 2025-12-29 17:10+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1386,8 +1386,8 @@ msgstr "Tinkinta naudotojo būsena"
 
 #: core/model/inputcompletermodel.cpp:40
 #, kde-format
-msgid "Notify all in this room"
-msgstr "Pranešti visiems šiame kambaryje"
+msgid "Notify active users in this room"
+msgstr "Pranešti aktyviems naudotojams šiame kambaryje"
 
 #: core/model/inputcompletermodel.cpp:48
 #, kde-format
@@ -1396,8 +1396,8 @@ msgstr "Nerasta jokių rezultatų."
 
 #: core/model/inputcompletermodel.cpp:57
 #, kde-format
-msgid "Notify active users in this room"
-msgstr "Pranešti aktyviems naudotojams šiame kambaryje"
+msgid "Notify all in this room"
+msgstr "Pranešti visiems šiame kambaryje"
 
 #: core/model/messagesmodel.cpp:268
 #, kde-format

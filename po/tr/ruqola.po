@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:44+0000\n"
+"POT-Creation-Date: 2026-06-12 00:43+0000\n"
 "PO-Revision-Date: 2026-06-07 20:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1351,8 +1351,8 @@ msgstr "Özel"
 
 #: core/model/inputcompletermodel.cpp:40
 #, kde-format
-msgid "Notify all in this room"
-msgstr "Odadaki herkesi haberdar et"
+msgid "Notify active users in this room"
+msgstr "Odadaki etkin herkesi haberdar et"
 
 #: core/model/inputcompletermodel.cpp:48
 #, kde-format
@@ -1361,8 +1361,8 @@ msgstr "Sonuç bulunamadı."
 
 #: core/model/inputcompletermodel.cpp:57
 #, kde-format
-msgid "Notify active users in this room"
-msgstr "Odadaki etkin herkesi haberdar et"
+msgid "Notify all in this room"
+msgstr "Odadaki herkesi haberdar et"
 
 #: core/model/messagesmodel.cpp:268
 #, kde-format

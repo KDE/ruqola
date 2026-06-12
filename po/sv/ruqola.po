@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:44+0000\n"
+"POT-Creation-Date: 2026-06-12 00:43+0000\n"
 "PO-Revision-Date: 2025-10-10 21:34+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1354,8 +1354,8 @@ msgstr "Egen"
 
 #: core/model/inputcompletermodel.cpp:40
 #, kde-format
-msgid "Notify all in this room"
-msgstr "Underrätta alla i det här rummet"
+msgid "Notify active users in this room"
+msgstr "Underrätta aktiva användare i det här rummet"
 
 #: core/model/inputcompletermodel.cpp:48
 #, kde-format
@@ -1364,8 +1364,8 @@ msgstr "Inga resultat hittades."
 
 #: core/model/inputcompletermodel.cpp:57
 #, kde-format
-msgid "Notify active users in this room"
-msgstr "Underrätta aktiva användare i det här rummet"
+msgid "Notify all in this room"
+msgstr "Underrätta alla i det här rummet"
 
 #: core/model/messagesmodel.cpp:268
 #, kde-format

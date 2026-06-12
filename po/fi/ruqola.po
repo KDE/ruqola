@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:44+0000\n"
+"POT-Creation-Date: 2026-06-12 00:43+0000\n"
 "PO-Revision-Date: 2026-01-16 19:56+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1358,8 +1358,8 @@ msgstr "Mukautettu"
 
 #: core/model/inputcompletermodel.cpp:40
 #, kde-format
-msgid "Notify all in this room"
-msgstr "Ilmoita kaikille tässä huoneessa"
+msgid "Notify active users in this room"
+msgstr "Ilmoita huoneen aktiivisille käyttäjille"
 
 #: core/model/inputcompletermodel.cpp:48
 #, kde-format
@@ -1368,8 +1368,8 @@ msgstr "Tuloksia ei löytynyt."
 
 #: core/model/inputcompletermodel.cpp:57
 #, kde-format
-msgid "Notify active users in this room"
-msgstr "Ilmoita huoneen aktiivisille käyttäjille"
+msgid "Notify all in this room"
+msgstr "Ilmoita kaikille tässä huoneessa"
 
 #: core/model/messagesmodel.cpp:268
 #, kde-format

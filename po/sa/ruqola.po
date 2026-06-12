@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:44+0000\n"
+"POT-Creation-Date: 2026-06-12 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1359,8 +1359,8 @@ msgstr "आचारः"
 
 #: core/model/inputcompletermodel.cpp:40
 #, kde-format
-msgid "Notify all in this room"
-msgstr "अस्मिन् कक्षे सर्वेभ्यः सूचयन्तु"
+msgid "Notify active users in this room"
+msgstr "अस्मिन् कक्षे सक्रियप्रयोक्तृभ्यः सूचयन्तु"
 
 #: core/model/inputcompletermodel.cpp:48
 #, kde-format
@@ -1369,8 +1369,8 @@ msgstr "न परिणामः प्राप्तः।"
 
 #: core/model/inputcompletermodel.cpp:57
 #, kde-format
-msgid "Notify active users in this room"
-msgstr "अस्मिन् कक्षे सक्रियप्रयोक्तृभ्यः सूचयन्तु"
+msgid "Notify all in this room"
+msgstr "अस्मिन् कक्षे सर्वेभ्यः सूचयन्तु"
 
 #: core/model/messagesmodel.cpp:268
 #, kde-format
