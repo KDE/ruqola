@@ -41,6 +41,7 @@ void MyAccountFeaturePreviewConfigureWidget::load()
 
 void MyAccountFeaturePreviewConfigureWidget::save()
 {
+    //{"data":{"featuresPreview":[{"name":"secondarySidebar","value":false},{"name":"sidebarDrafts","value":false}]}}
     // TODO
 }
 
