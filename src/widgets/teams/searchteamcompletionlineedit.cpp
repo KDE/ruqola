@@ -5,8 +5,11 @@
 */
 
 #include "searchteamcompletionlineedit.h"
-
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#include <TextAddonsWidgets/CompletionListView>
+#else
 #include "common/completionlistview.h"
+#endif
 #include "connection.h"
 #include "model/teamcompletermodel.h"
 #include "rocketchataccount.h"

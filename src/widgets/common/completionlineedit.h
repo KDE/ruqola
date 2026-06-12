@@ -5,13 +5,20 @@
 */
 
 #pragma once
-
+#include "config-ruqola.h"
 #include <QLineEdit>
 
 #include "libruqolawidgets_private_export.h"
 
 class QAbstractItemModel;
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+namespace TextAddonsWidgets
+{
 class CompletionListView;
+}
+#else
+class CompletionListView;
+#endif
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CompletionLineEdit : public QLineEdit
 {
@@ -26,5 +33,8 @@ Q_SIGNALS:
     void complete(const QModelIndex &index);
 
 protected:
-    CompletionListView *const mCompletionListView;
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+    TextAddonsWidgets::
+#endif
+        CompletionListView *const mCompletionListView;
 };

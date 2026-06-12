@@ -5,7 +5,11 @@
 */
 
 #include "multistaticselectlineedit.h"
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#include <TextAddonsWidgets/CompletionListView>
+#else
 #include "common/completionlistview.h"
+#endif
 #include "multistaticselectlineeditproxymodel.h"
 
 MultiStaticSelectLineEdit::MultiStaticSelectLineEdit(QWidget *parent)

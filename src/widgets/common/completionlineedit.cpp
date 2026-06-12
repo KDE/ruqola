@@ -5,19 +5,34 @@
 */
 
 #include "completionlineedit.h"
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#include <TextAddonsWidgets/CompletionListView>
+#else
 #include "completionlistview.h"
+#endif
 #include <KLineEditEventHandler>
 
 CompletionLineEdit::CompletionLineEdit(QWidget *parent)
     : QLineEdit(parent)
-    , mCompletionListView(new CompletionListView)
+    , mCompletionListView(new
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+                          TextAddonsWidgets::
+#endif
+                              CompletionListView)
 {
     setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(this);
 
     mCompletionListView->setTextWidget(this);
 
-    connect(mCompletionListView, &CompletionListView::complete, this, &CompletionLineEdit::complete);
+    connect(mCompletionListView,
+            &
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+            TextAddonsWidgets::
+#endif
+                CompletionListView::complete,
+            this,
+            &CompletionLineEdit::complete);
 }
 
 CompletionLineEdit::~CompletionLineEdit()

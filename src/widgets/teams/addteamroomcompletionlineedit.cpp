@@ -7,7 +7,11 @@
 #include "addteamroomcompletionlineedit.h"
 #include "common/teamroomcompletiondelegate.h"
 
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#include <TextAddonsWidgets/CompletionListView>
+#else
 #include "common/completionlistview.h"
+#endif
 #include "connection.h"
 #include "model/teamroomcompletermodel.h"
 #include "rocketchataccount.h"

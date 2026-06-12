@@ -4,7 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "channelsearchnamelineedit.h"
+#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#include <TextAddonsWidgets/CompletionListView>
+#else
 #include "common/completionlistview.h"
+#endif
 #include "common/userandchannelcompletiondelegate.h"
 #include "connection.h"
 #include "model/channelcompleterfilterproxymodel.h"
