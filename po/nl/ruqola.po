@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-11 02:40+0000\n"
+"POT-Creation-Date: 2026-06-12 02:38+0000\n"
 "PO-Revision-Date: 2026-03-07 23:40+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1352,8 +1352,8 @@ msgstr "Aangepast"
 
 #: core/model/inputcompletermodel.cpp:40
 #, kde-format
-msgid "Notify all in this room"
-msgstr "Allen in deze room berichten"
+msgid "Notify active users in this room"
+msgstr "Actieve gebruikers in deze room berichten"
 
 #: core/model/inputcompletermodel.cpp:48
 #, kde-format
@@ -1362,8 +1362,8 @@ msgstr "Geen resultaat gevonden."
 
 #: core/model/inputcompletermodel.cpp:57
 #, kde-format
-msgid "Notify active users in this room"
-msgstr "Actieve gebruikers in deze room berichten"
+msgid "Notify all in this room"
+msgstr "Allen in deze room berichten"
 
 #: core/model/messagesmodel.cpp:268
 #, kde-format
