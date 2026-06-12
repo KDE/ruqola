@@ -399,6 +399,7 @@ enum class RestApiUrlType {
     // since 8.5.0
     CustomSoundsCreate,
     CustomSoundsUpdate,
+    CustomSoundsGetOne,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

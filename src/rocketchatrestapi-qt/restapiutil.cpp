@@ -643,6 +643,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"custom-sounds.create"_s;
     case RestApiUtil::RestApiUrlType::CustomSoundsUpdate:
         return u"custom-sounds.update"_s;
+    case RestApiUtil::RestApiUrlType::CustomSoundsGetOne:
+        return u"custom-sounds.getOne"_s;
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
