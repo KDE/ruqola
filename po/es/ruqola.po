@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-12 00:43+0000\n"
+"POT-Creation-Date: 2026-06-13 00:43+0000\n"
 "PO-Revision-Date: 2026-06-06 22:49+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1331,7 +1331,7 @@ msgstr "Tipo de canal"
 msgid "Belongs To"
 msgstr "Pertenece a"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:615
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:628
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1474,80 +1474,85 @@ msgstr "Autenticación de dos factores"
 msgid "Last token part"
 msgstr "Última parte del símbolo"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:558
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 mención"
 msgstr[1] "%1 menciones"
 
-#: core/model/roommodel.cpp:549
+#: core/model/roommodel.cpp:562
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 mención de grupo"
 msgstr[1] "%1 menciones de grupo"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:566
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 hilo de mensajes sin leer"
 msgstr[1] "%1 hilos de mensajes sin leer"
 
-#: core/model/roommodel.cpp:557
+#: core/model/roommodel.cpp:570
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 mensaje sin leer"
 msgstr[1] "%1 mensajes sin leer"
 
-#: core/model/roommodel.cpp:583
+#: core/model/roommodel.cpp:596
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala de Equipos"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:602
 #, kde-format
 msgid "Private Room"
 msgstr "Sala privada"
 
-#: core/model/roommodel.cpp:591
+#: core/model/roommodel.cpp:604
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de la discusión"
 
-#: core/model/roommodel.cpp:595
+#: core/model/roommodel.cpp:608
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala del canal"
 
-#: core/model/roommodel.cpp:609 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:622 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "No leído"
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:624
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:626
 #, kde-format
 msgid "Teams"
 msgstr "Equipos"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:630
 #, kde-format
 msgid "Discussions"
 msgstr "Discusiones"
 
-#: core/model/roommodel.cpp:619
+#: core/model/roommodel.cpp:632
 #, kde-format
 msgid "Private Messages"
 msgstr "Mensajes privados"
 
-#: core/model/roommodel.cpp:621 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:634
+#, kde-format
+msgid "Draft"
+msgstr ""
+
+#: core/model/roommodel.cpp:636 core/model/usersforroommodel.cpp:315
 #, kde-format
 msgid "Unknown"
 msgstr "Desconocido"
@@ -2293,6 +2298,8 @@ msgstr "Canal no válido"
 msgid "Invalid emoji provided."
 msgstr "El emoji proporcionado es inválido."
 
+#: rocketchatrestapi-qt/custom/customsoundscreatejob.cpp:40
+#: rocketchatrestapi-qt/custom/customsoundsupdatejob.cpp:41
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:40
 #: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:41
 #: rocketchatrestapi-qt/uploadfilejob.cpp:58
@@ -9266,8 +9273,8 @@ msgid "You are not authorized to view this page."
 msgstr "No está autorizado a ver esta página."
 
 #: widgets/directory/directorywidget.cpp:35
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:28
-#: widgets/teams/addteamroomcompletionlineedit.cpp:33
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:36
+#: widgets/teams/addteamroomcompletionlineedit.cpp:41
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
@@ -10091,6 +10098,13 @@ msgstr "Administrar dispositivos"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
 msgstr "Marca de tiempo en mensajes"
+
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgctxt "@option:check"
+msgid "Draft Messages"
+msgstr "Mensajes privados"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -11044,37 +11058,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Error de traductor"
 
-#: widgets/room/messagetextedit.cpp:236
+#: widgets/room/messagetextedit.cpp:274
 #, kde-format
 msgid "Paste Image"
 msgstr "Pegar imagen"
 
-#: widgets/room/messagetextedit.cpp:243
+#: widgets/room/messagetextedit.cpp:281
 #, kde-format
 msgid "Change Text Format"
 msgstr "Cambiar formato del texto"
 
-#: widgets/room/messagetextedit.cpp:245
+#: widgets/room/messagetextedit.cpp:283
 #, kde-format
 msgid "Bold"
 msgstr "Negrita"
 
-#: widgets/room/messagetextedit.cpp:246
+#: widgets/room/messagetextedit.cpp:284
 #, kde-format
 msgid "Italic"
 msgstr "Cursiva"
 
-#: widgets/room/messagetextedit.cpp:247
+#: widgets/room/messagetextedit.cpp:285
 #, kde-format
 msgid "Strike-out"
 msgstr "Tachado"
 
-#: widgets/room/messagetextedit.cpp:249
+#: widgets/room/messagetextedit.cpp:287
 #, kde-format
 msgid "Code Block"
 msgstr "Bloque de código"
 
-#: widgets/room/messagetextedit.cpp:251
+#: widgets/room/messagetextedit.cpp:289
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL de Markdown"
