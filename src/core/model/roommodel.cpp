@@ -543,13 +543,14 @@ MessagesModel *RoomModel::messageModel(const QByteArray &roomId) const
 
 RoomModel::Section RoomModel::section(Room *r) const
 {
-    // TODO For the moment disable it.
-#if 0
-    if (hasPendingMessageTyped(r)) {
-        return Section::Draft;
+    if (mRocketChatAccount
+        && mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
+        if (mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
+            if (hasPendingMessageTyped(r)) {
+                return Section::Draft;
+            }
+        }
     }
-#endif
-    // TODO add draft support
     const Room::RoomType roomType = r->channelType();
     if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
         if (!r->hideUnreadStatus()) {
