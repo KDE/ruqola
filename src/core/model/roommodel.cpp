@@ -363,9 +363,11 @@ bool RoomModel::addRoom(Room *room)
 
     connect(room, &Room::unreadChanged, this, [this, room] {
         emitRoomDataChanged(room, {RoomUnread, RoomSection, RoomUnreadToolTip, Qt::ToolTipRole});
+        Q_EMIT needToUpdateNotification();
     });
     connect(room, &Room::alertChanged, this, [this, room] {
         emitRoomDataChanged(room, {RoomAlert, RoomSection, RoomUnreadToolTip, RoomMentionsInfoType, Qt::ToolTipRole});
+        Q_EMIT needToUpdateNotification();
     });
     connect(room, &Room::favoriteChanged, this, [this, room] {
         emitRoomDataChanged(room, {RoomFavorite, RoomSection});
@@ -386,10 +388,10 @@ bool RoomModel::addRoom(Room *room)
         emitRoomDataChanged(room, {RoomSection, Qt::DisplayRole});
     });
 
-    connect(room, &Room::alertChanged, this, &RoomModel::needToUpdateNotification);
-    connect(room, &Room::unreadChanged, this, &RoomModel::needToUpdateNotification);
-    connect(room, &Room::openChanged, this, &RoomModel::needToUpdateNotification);
-    connect(room, &Room::openChanged, this, &RoomModel::openChanged);
+    connect(room, &Room::openChanged, this, [this](const QByteArray &roomId) {
+        Q_EMIT needToUpdateNotification();
+        Q_EMIT openChanged(roomId);
+    });
     connect(room, &Room::needAttention, this, &RoomModel::roomNeedAttention);
 
     return true;
