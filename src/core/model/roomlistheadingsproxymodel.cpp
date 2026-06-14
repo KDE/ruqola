@@ -144,8 +144,9 @@ QModelIndex RoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceI
         const auto &section = mSections.at(sectionId);
 
         const auto it = std::lower_bound(section.cbegin(), section.cend(), sourceIndex);
-        if (it != section.cend() && *it == sourceIndex)
+        if (it != section.cend() && *it == sourceIndex) {
             return createIndex(int(it - section.cbegin()), 0, sectionId);
+        }
     }
 
     return {};
@@ -234,8 +235,9 @@ void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const
         const auto oldSectionId = int(ourOldIndex.internalId());
         const auto newSectionId = int(sourceIndex.data(RoomModel::RoomSection).value<RoomModel::Section>());
 
-        if (oldSectionId == newSectionId)
+        if (oldSectionId == newSectionId) {
             continue;
+        }
 
         auto &oldSection = mSections.at(oldSectionId);
         auto &newSection = mSections.at(newSectionId);
@@ -274,11 +276,13 @@ void RoomListHeadingsProxyModel::rebuildSections()
 
 auto RoomListHeadingsProxyModel::type(const QModelIndex &index) const -> IndexType
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return IndexType::Root;
+    }
 
-    if (index.internalId() == sectionCount)
+    if (index.internalId() == sectionCount) {
         return IndexType::Section;
+    }
 
     return IndexType::Channel;
 }
