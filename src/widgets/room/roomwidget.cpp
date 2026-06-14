@@ -710,8 +710,14 @@ void RoomWidget::storeRoomSettings()
                 AccountRoomSettings::PendingTypedInfo info;
                 info.scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value();
                 mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
+                if (mRoom) {
+                    Q_EMIT mRoom->pendingTypedChanged();
+                }
             } else {
                 mCurrentRocketChatAccount->accountRoomSettings()->remove(mRoomWidgetBase->roomId());
+                if (mRoom) {
+                    Q_EMIT mRoom->pendingTypedChanged();
+                }
             }
         } else {
             const AccountRoomSettings::PendingTypedInfo info{
@@ -723,6 +729,9 @@ void RoomWidget::storeRoomSettings()
                 .scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value(),
             };
             mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
+            if (mRoom) {
+                Q_EMIT mRoom->pendingTypedChanged();
+            }
         }
     }
 }

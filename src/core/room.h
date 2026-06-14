@@ -352,6 +352,8 @@ Q_SIGNALS:
     void retentionInfoChanged();
     void teamInfoChanged();
 
+    void pendingTypedChanged();
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseCommonData(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT void parseDisplaySystemMessage(const QJsonObject &json);
