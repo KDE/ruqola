@@ -336,7 +336,7 @@ FeaturePreviewPreferences OwnUserPreferences::featurePreviewPreferences() const
 
 bool OwnUserPreferences::serverHasFeaturePreview() const
 {
-    return mFeaturePreviewPreferences.serverHasFeaturePreview();
+    return mFeaturePreviewPreferences.hasFeaturePreview();
 }
 
 int OwnUserPreferences::callRingerVolume() const

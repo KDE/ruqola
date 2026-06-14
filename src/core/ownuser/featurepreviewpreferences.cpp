@@ -15,69 +15,50 @@ FeaturePreviewPreferences::~FeaturePreviewPreferences() = default;
 
 bool FeaturePreviewPreferences::operator==(const FeaturePreviewPreferences &other) const
 {
-    return mFeaturePreviewTypes == other.featurePreviewTypes();
+    return mPreviewStatus == other.mPreviewStatus;
 }
 
 QDebug operator<<(QDebug d, const FeaturePreviewPreferences &t)
 {
-    d.space() << "FeaturePreviewType:" << t.featurePreviewTypes();
+    d.space() << "previewStatus:" << t.previewStatus();
     return d;
 }
 
 void FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array)
 {
-    // qDebug() << " FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array) " << array;
-    // TODO clear before ?
+    qDebug() << " FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array) " << array;
+    mPreviewStatus.clear();
     for (const auto &v : array) {
         const QJsonObject o = v.toObject();
         const QString name = o["name"_L1].toString();
         const bool value = o["value"_L1].toBool();
         if (name == "enable-timestamp-message-parser"_L1) {
-            assignSettingValue(value, EnableTimestampMessageParser);
+            mPreviewStatus[EnableTimestampMessageParser] = value;
         } else if (name == "sidebarDrafts"_L1) {
-            assignSettingValue(value, EnableDraftSupport);
+            mPreviewStatus[EnableDraftSupport] = value;
         }
     }
+    qDebug() << " CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << previewStatus();
 }
 
-void FeaturePreviewPreferences::assignSettingValue(bool value, FeaturePreviewType type)
+QMap<FeaturePreviewPreferences::FeaturePreviewType, bool> FeaturePreviewPreferences::previewStatus() const
 {
-    mServerHasFeaturePreview = true;
-    if (value) {
-        mFeaturePreviewTypes |= type;
-    } else {
-        mFeaturePreviewTypes &= ~type;
-    }
+    return mPreviewStatus;
 }
 
-bool FeaturePreviewPreferences::serverHasFeaturePreview() const
+void FeaturePreviewPreferences::setPreviewStatus(const QMap<FeaturePreviewType, bool> &newPreviewStatus)
 {
-    return mServerHasFeaturePreview;
-}
-
-void FeaturePreviewPreferences::setServerHasFeaturePreview(bool newServerHasFeaturePreview)
-{
-    mServerHasFeaturePreview = newServerHasFeaturePreview;
-}
-
-bool FeaturePreviewPreferences::hasFeature(FeaturePreviewType type) const
-{
-    return mFeaturePreviewTypes & type;
-}
-
-FeaturePreviewPreferences::FeaturePreviewTypes FeaturePreviewPreferences::featurePreviewTypes() const
-{
-    return mFeaturePreviewTypes;
-}
-
-void FeaturePreviewPreferences::setFeaturePreviewTypes(const FeaturePreviewTypes &newFeaturePreviewTypes)
-{
-    mFeaturePreviewTypes = newFeaturePreviewTypes;
+    mPreviewStatus = newPreviewStatus;
 }
 
 bool FeaturePreviewPreferences::hasFeaturePreview() const
 {
-    return mFeaturePreviewTypes != FeaturePreviewType::None;
+    return !mPreviewStatus.isEmpty();
+}
+
+bool FeaturePreviewPreferences::hasFeature(FeaturePreviewPreferences::FeaturePreviewType type) const
+{
+    return mPreviewStatus.value(type, false);
 }
 
 #include "moc_featurepreviewpreferences.cpp"

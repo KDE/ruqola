@@ -16,7 +16,6 @@ FeaturePreviewPreferencesTest::FeaturePreviewPreferencesTest(QObject *parent)
 void FeaturePreviewPreferencesTest::shouldHaveDefaultValues()
 {
     const FeaturePreviewPreferences preview;
-    QCOMPARE(preview.featurePreviewTypes(), FeaturePreviewPreferences::FeaturePreviewType::None);
     QVERIFY(!preview.hasFeaturePreview());
 }
 

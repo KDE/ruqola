@@ -77,8 +77,6 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     if (account) {
         if (!account->ownUserPreferences().hasFeaturePreview()) {
             tabWidget->setTabVisible(pagePreviewIndex, false);
-        } else if (account->hasAtLeastVersion(8, 0, 0)) {
-            tabWidget->setTabVisible(pagePreviewIndex, false);
         }
     }
 

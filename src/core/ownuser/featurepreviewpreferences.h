@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include <QMap>
 #include <QMetaType>
 class QDebug;
 class LIBRUQOLACORE_EXPORT FeaturePreviewPreferences
@@ -17,8 +18,7 @@ public:
         EnableTimestampMessageParser = 1,
         EnableDraftSupport = 2,
     };
-    Q_DECLARE_FLAGS(FeaturePreviewTypes, FeaturePreviewType)
-    Q_FLAG(FeaturePreviewTypes)
+    Q_ENUM(FeaturePreviewType)
 
     FeaturePreviewPreferences();
     ~FeaturePreviewPreferences();
@@ -26,20 +26,15 @@ public:
     [[nodiscard]] bool operator==(const FeaturePreviewPreferences &other) const;
     void parseFeaturePreview(const QJsonArray &array);
 
-    [[nodiscard]] FeaturePreviewTypes featurePreviewTypes() const;
-    void setFeaturePreviewTypes(const FeaturePreviewTypes &newFeaturePreviewTypes);
-
-    [[nodiscard]] bool hasFeature(FeaturePreviewType type) const;
+    [[nodiscard]] QMap<FeaturePreviewType, bool> previewStatus() const;
+    void setPreviewStatus(const QMap<FeaturePreviewType, bool> &newPreviewStatus);
 
     [[nodiscard]] bool hasFeaturePreview() const;
 
-    [[nodiscard]] bool serverHasFeaturePreview() const;
-    void setServerHasFeaturePreview(bool newServerHasFeaturePreview);
+    [[nodiscard]] bool hasFeature(FeaturePreviewPreferences::FeaturePreviewType type) const;
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, FeaturePreviewType type);
-    FeaturePreviewTypes mFeaturePreviewTypes = FeaturePreviewType::None;
-    bool mServerHasFeaturePreview = false;
+    QMap<FeaturePreviewType, bool> mPreviewStatus;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const FeaturePreviewPreferences &t);
