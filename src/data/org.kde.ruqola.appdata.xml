@@ -1452,7 +1452,8 @@
           <li xml:lang="sk">Použitie nového textmessagewidget na oznámenie chyby</li>
           <li xml:lang="sl">Uporabi novi gradnik textmessagewidget za obvestilo o napaki</li>
           <li xml:lang="tr">Hata bildirimleri için yeni textmessagewidget kullan</li>
-          <li xml:lang="uk">Для сповіщення про помилку використано новий textmessagewidget</li>
+	  <li xml:lang="uk">Для сповіщення про помилку використано новий textmessagewidget</li>
+	  <li>Implement Draft message sorting channel.</li>
         </ul>
       </description>
     </release>
