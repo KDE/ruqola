@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-13 00:43+0000\n"
-"PO-Revision-Date: 2026-06-07 09:47+0200\n"
+"PO-Revision-Date: 2026-06-13 09:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1551,7 +1551,7 @@ msgstr "Missatges privats"
 #: core/model/roommodel.cpp:634
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Esborrany"
 
 #: core/model/roommodel.cpp:636 core/model/usersforroommodel.cpp:315
 #, kde-format
@@ -10096,11 +10096,10 @@ msgid "Timestamp in messages"
 msgstr "Marca horària als missatges"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Missatges privats"
+msgstr "Esborranys"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format

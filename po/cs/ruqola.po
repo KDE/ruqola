@@ -1548,7 +1548,7 @@ msgstr "Soukromé zprávy"
 #: core/model/roommodel.cpp:634
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Koncept"
 
 #: core/model/roommodel.cpp:636 core/model/usersforroommodel.cpp:315
 #, kde-format
