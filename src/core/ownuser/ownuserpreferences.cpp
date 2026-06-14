@@ -339,6 +339,11 @@ bool OwnUserPreferences::serverHasFeaturePreview() const
     return mFeaturePreviewPreferences.hasFeaturePreview();
 }
 
+bool OwnUserPreferences::serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType type) const
+{
+    return mFeaturePreviewPreferences.serverHasPreviewFeature(type);
+}
+
 int OwnUserPreferences::callRingerVolume() const
 {
     return mCallRingerVolume;

@@ -39,8 +39,17 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
     mainLayout->addWidget(mTimestampInMessages);
     // Move in stable in RC 8.0.0
     if (account && account->hasAtLeastVersion(8, 0, 0)) {
+        if (!account->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
+            mTimestampInMessages->hide();
+        }
+        if (account->hasAtLeastVersion(8, 5, 0)) {
+            if (!account->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
+                mDraftMessages->hide();
+            }
+        } else {
+            mDraftMessages->hide();
+        }
         mQuickReactions->hide();
-        mTimestampInMessages->hide();
     }
 
     mainLayout->addStretch(1);

@@ -38,7 +38,6 @@ void FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array)
             mPreviewStatus[EnableDraftSupport] = value;
         }
     }
-    qDebug() << " CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << previewStatus();
 }
 
 QMap<FeaturePreviewPreferences::FeaturePreviewType, bool> FeaturePreviewPreferences::previewStatus() const
@@ -54,6 +53,11 @@ void FeaturePreviewPreferences::setPreviewStatus(const QMap<FeaturePreviewType, 
 bool FeaturePreviewPreferences::hasFeaturePreview() const
 {
     return !mPreviewStatus.isEmpty();
+}
+
+bool FeaturePreviewPreferences::serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType type) const
+{
+    return mPreviewStatus.contains(type);
 }
 
 bool FeaturePreviewPreferences::hasFeature(FeaturePreviewPreferences::FeaturePreviewType type) const

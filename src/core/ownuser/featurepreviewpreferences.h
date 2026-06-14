@@ -33,6 +33,8 @@ public:
 
     [[nodiscard]] bool hasFeature(FeaturePreviewPreferences::FeaturePreviewType type) const;
 
+    [[nodiscard]] bool serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType type) const;
+
 private:
     QMap<FeaturePreviewType, bool> mPreviewStatus;
 };

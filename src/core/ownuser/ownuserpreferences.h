@@ -102,6 +102,7 @@ public:
     [[nodiscard]] FeaturePreviewPreferences featurePreviewPreferences() const;
 
     [[nodiscard]] bool serverHasFeaturePreview() const;
+    [[nodiscard]] bool serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType type) const;
 
     [[nodiscard]] int callRingerVolume() const;
     void setCallRingerVolume(int newCallRingerVolume);
