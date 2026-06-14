@@ -48,11 +48,12 @@ MyAccountFeaturePreviewConfigureWidget::~MyAccountFeaturePreviewConfigureWidget(
 
 void MyAccountFeaturePreviewConfigureWidget::load()
 {
+    // qDebug() << " mRocketChatAccount->ownUserPreferences() " << mRocketChatAccount->ownUserPreferences().featurePreviewPreferences().previewStatus();
     if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
-        mAddDraftCheckBox->setCheckable(mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
+        mAddDraftCheckBox->setChecked(mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
     }
     if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
-        mAddDraftCheckBox->setCheckable(
+        mAddDraftCheckBox->setChecked(
             mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser));
     }
 }
