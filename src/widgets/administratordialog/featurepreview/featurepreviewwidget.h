@@ -23,5 +23,6 @@ private:
     QCheckBox *const mAllowFeaturePreview;
     QCheckBox *const mQuickReactions;
     QCheckBox *const mTimestampInMessages;
+    QCheckBox *const mDraftMessages;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -18,6 +18,7 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
     , mAllowFeaturePreview(new QCheckBox(i18nc("@option:check", "Allow Feature Preview"), this))
     , mQuickReactions(new QCheckBox(i18nc("@option:check", "Quick Reactions"), this))
     , mTimestampInMessages(new QCheckBox(i18nc("@option:check", "Timestamp in Messages"), this))
+    , mDraftMessages(new QCheckBox(i18nc("@option:check", "Draft Messages"), this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -30,6 +31,9 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
 
     mQuickReactions->setObjectName(u"mQuickReactions"_s);
     mainLayout->addWidget(mQuickReactions);
+
+    mDraftMessages->setObjectName(u"mDraftMessages"_s);
+    mainLayout->addWidget(mDraftMessages);
 
     mTimestampInMessages->setObjectName(u"mTimestampInMessages"_s);
     mainLayout->addWidget(mTimestampInMessages);
