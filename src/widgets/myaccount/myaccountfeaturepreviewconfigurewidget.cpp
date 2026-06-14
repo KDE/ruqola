@@ -29,6 +29,18 @@ MyAccountFeaturePreviewConfigureWidget::MyAccountFeaturePreviewConfigureWidget(R
     mAddDraftCheckBox->setObjectName(u"mAddDraftCheckBox"_s);
     mainLayout->addWidget(mAddDraftCheckBox);
 
+    if (account && account->hasAtLeastVersion(8, 0, 0)) {
+        if (!account->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
+            mTimeStampCheckBox->hide();
+        }
+        if (account->hasAtLeastVersion(8, 5, 0)) {
+            if (!account->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
+                mAddDraftCheckBox->hide();
+            }
+        } else {
+            mAddDraftCheckBox->hide();
+        }
+    }
     mainLayout->addStretch(1);
 }
 
@@ -36,7 +48,13 @@ MyAccountFeaturePreviewConfigureWidget::~MyAccountFeaturePreviewConfigureWidget(
 
 void MyAccountFeaturePreviewConfigureWidget::load()
 {
-    // TODO
+    if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
+        mAddDraftCheckBox->setCheckable(mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
+    }
+    if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
+        mAddDraftCheckBox->setCheckable(
+            mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser));
+    }
 }
 
 void MyAccountFeaturePreviewConfigureWidget::save()
