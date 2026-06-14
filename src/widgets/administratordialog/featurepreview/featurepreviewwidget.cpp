@@ -59,7 +59,16 @@ FeaturePreviewWidget::~FeaturePreviewWidget() = default;
 
 void FeaturePreviewWidget::initialize()
 {
-    // TODO mAllowFeaturePreview->setChecked...
+    if (!mRocketChatAccount) {
+        return;
+    }
+    if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
+        mDraftMessages->setChecked(mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
+    }
+    if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
+        mTimestampInMessages->setChecked(
+            mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser));
+    }
 }
 
 void FeaturePreviewWidget::save()
