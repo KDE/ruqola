@@ -25,6 +25,10 @@ private Q_SLOTS:
     void shouldMapSourceRows();
     void shouldReturnData();
     void shouldUpdateOnSectionUpdates();
+    void shouldUpdateOnUnreadChanges();
+    void shouldUpdateOnAlertChanges();
+    void shouldUpdateOnFavoriteChanges();
+    void shouldUpdateOnHideUnreadStatusChanges();
 
 private:
     QStandardItemModel mSourceModel;

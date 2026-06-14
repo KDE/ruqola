@@ -8,8 +8,12 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
+#include "model/roommodel.h"
 
+#include "notifications/notificationoptions.h"
+#include "ownuser/ownuserpreferences.h"
 #include "rocketchataccount.h"
+#include "room.h"
 #include <QStandardPaths>
 #include <QTest>
 
@@ -204,6 +208,119 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnSectionUpdates()
     // THEN
     const QStringList
         newExpected{u"Favorites"_s, u"Team 1"_s, u"Teams"_s, u"Team 2"_s, u"Private Messages"_s, u"PM 1"_s, u"Discussions"_s, u"Discuss 1"_s, u"Discuss 2"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+}
+
+void RoomListHeadingsProxyModelTest::shouldUpdateOnUnreadChanges()
+{
+    RocketChatAccount account(u"account"_s);
+    OwnUserPreferences ownUserPreferences;
+    ownUserPreferences.setShowUnread(true);
+    account.setOwnUserPreferences(ownUserPreferences);
+    QVERIFY(account.sortUnreadOnTop());
+
+    RoomModel sourceModel(&account);
+    auto *room = new Room(&account);
+    room->setRoomId("room1");
+    room->setName(u"Room 1"_s);
+    room->setChannelType(Room::RoomType::Channel);
+    QVERIFY(sourceModel.addRoom(room));
+
+    RoomListHeadingsProxyModel proxy;
+    proxy.setSourceModel(&sourceModel);
+
+    const QStringList initialExpected{u"Rooms"_s, u"Room 1"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpected));
+
+    room->setUnread(1);
+    QCOMPARE(sourceModel.index(0, 0).data(RoomModel::RoomSection).value<RoomModel::Section>(), RoomModel::Section::Unread);
+
+    const QStringList newExpected{u"Unread"_s, u"Room 1"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+}
+
+void RoomListHeadingsProxyModelTest::shouldUpdateOnAlertChanges()
+{
+    RocketChatAccount account(u"account"_s);
+    OwnUserPreferences ownUserPreferences;
+    ownUserPreferences.setShowUnread(true);
+    account.setOwnUserPreferences(ownUserPreferences);
+
+    RoomModel sourceModel(&account);
+    auto *room = new Room(&account);
+    room->setRoomId("room1");
+    room->setName(u"Room 1"_s);
+    room->setChannelType(Room::RoomType::Channel);
+    QVERIFY(sourceModel.addRoom(room));
+
+    RoomListHeadingsProxyModel proxy;
+    proxy.setSourceModel(&sourceModel);
+
+    const QStringList initialExpected{u"Rooms"_s, u"Room 1"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpected));
+
+    room->setAlert(true);
+    QCOMPARE(sourceModel.index(0, 0).data(RoomModel::RoomSection).value<RoomModel::Section>(), RoomModel::Section::Unread);
+
+    const QStringList newExpected{u"Unread"_s, u"Room 1"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+}
+
+void RoomListHeadingsProxyModelTest::shouldUpdateOnFavoriteChanges()
+{
+    RocketChatAccount account(u"account"_s);
+    OwnUserPreferences ownUserPreferences;
+    ownUserPreferences.setShowUnread(false);
+    ownUserPreferences.setShowFavorite(true);
+    account.setOwnUserPreferences(ownUserPreferences);
+
+    RoomModel sourceModel(&account);
+    auto *room = new Room(&account);
+    room->setRoomId("room1");
+    room->setName(u"Room 1"_s);
+    room->setChannelType(Room::RoomType::Channel);
+    QVERIFY(sourceModel.addRoom(room));
+
+    RoomListHeadingsProxyModel proxy;
+    proxy.setSourceModel(&sourceModel);
+
+    const QStringList initialExpected{u"Rooms"_s, u"Room 1"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpected));
+
+    room->setFavorite(true);
+    QCOMPARE(sourceModel.index(0, 0).data(RoomModel::RoomSection).value<RoomModel::Section>(), RoomModel::Section::Favorites);
+
+    const QStringList newExpected{u"Favorites"_s, u"Room 1"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+}
+
+void RoomListHeadingsProxyModelTest::shouldUpdateOnHideUnreadStatusChanges()
+{
+    RocketChatAccount account(u"account"_s);
+    OwnUserPreferences ownUserPreferences;
+    ownUserPreferences.setShowUnread(true);
+    account.setOwnUserPreferences(ownUserPreferences);
+
+    RoomModel sourceModel(&account);
+    auto *room = new Room(&account);
+    room->setRoomId("room1");
+    room->setName(u"Room 1"_s);
+    room->setChannelType(Room::RoomType::Channel);
+    room->setUnread(1);
+    QVERIFY(sourceModel.addRoom(room));
+
+    RoomListHeadingsProxyModel proxy;
+    proxy.setSourceModel(&sourceModel);
+
+    const QStringList initialExpected{u"Unread"_s, u"Room 1"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpected));
+
+    NotificationOptions notificationOptions = room->notificationOptions();
+    notificationOptions.setHideUnreadStatus(true);
+    room->setNotificationOptions(notificationOptions);
+    QCOMPARE(sourceModel.index(0, 0).data(RoomModel::RoomSection).value<RoomModel::Section>(), RoomModel::Section::Rooms);
+
+    const QStringList newExpected{u"Rooms"_s, u"Room 1"_s};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
 }
 

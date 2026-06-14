@@ -225,13 +225,20 @@ void RoomModel::addRoom(const QByteArray &roomID, const QString &roomName, bool 
 
 Room *RoomModel::createNewRoom()
 {
-    auto r = new Room(mRocketChatAccount, this);
-    connect(r, &Room::alertChanged, this, &RoomModel::needToUpdateNotification);
-    connect(r, &Room::unreadChanged, this, &RoomModel::needToUpdateNotification);
-    connect(r, &Room::openChanged, this, &RoomModel::needToUpdateNotification);
-    connect(r, &Room::openChanged, this, &RoomModel::openChanged);
-    connect(r, &Room::needAttention, this, &RoomModel::roomNeedAttention);
-    return r;
+    return new Room(mRocketChatAccount, this);
+}
+
+void RoomModel::emitRoomDataChanged(Room *room, const QList<int> &roles)
+{
+    if (!room) {
+        return;
+    }
+    const int row = mRoomsList.indexOf(room);
+    if (row < 0) {
+        return;
+    }
+    const QModelIndex idx = index(row, 0);
+    Q_EMIT dataChanged(idx, idx, roles);
 }
 
 void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread, bool &hasMentions) const
@@ -353,6 +360,38 @@ bool RoomModel::addRoom(Room *room)
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room at position" << roomCount << " room name " << room->name();
     mRoomsList.append(room);
     endInsertRows();
+
+    connect(room, &Room::unreadChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomUnread, RoomSection, RoomUnreadToolTip, Qt::ToolTipRole});
+    });
+    connect(room, &Room::alertChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomAlert, RoomSection, RoomUnreadToolTip, RoomMentionsInfoType, Qt::ToolTipRole});
+    });
+    connect(room, &Room::favoriteChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomFavorite, RoomSection});
+    });
+    connect(room, &Room::channelTypeChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomType, RoomSection, Qt::DisplayRole, RoomIcon});
+    });
+    connect(room, &Room::parentRidChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomSection, Qt::DisplayRole});
+    });
+    connect(room, &Room::teamInfoChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomTeamId, RoomTeamIsMain, RoomSection});
+    });
+    connect(room, &Room::notificationOptionsChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomSection, HideBadgeForMention, RoomUnreadToolTip, RoomMentionsInfoType, Qt::ToolTipRole});
+    });
+    connect(room, &Room::pendingTypedChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomSection, Qt::DisplayRole});
+    });
+
+    connect(room, &Room::alertChanged, this, &RoomModel::needToUpdateNotification);
+    connect(room, &Room::unreadChanged, this, &RoomModel::needToUpdateNotification);
+    connect(room, &Room::openChanged, this, &RoomModel::needToUpdateNotification);
+    connect(room, &Room::openChanged, this, &RoomModel::openChanged);
+    connect(room, &Room::needAttention, this, &RoomModel::roomNeedAttention);
+
     return true;
 }
 
