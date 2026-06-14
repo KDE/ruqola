@@ -394,6 +394,7 @@ bool RoomModel::addRoom(Room *room)
     });
     connect(room, &Room::needAttention, this, &RoomModel::roomNeedAttention);
 
+    Q_EMIT needToUpdateNotification();
     return true;
 }
 
