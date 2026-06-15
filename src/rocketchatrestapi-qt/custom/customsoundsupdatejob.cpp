@@ -93,7 +93,7 @@ const CustomSoundsUpdateJob::SoundInfo &CustomSoundsUpdateJob::soundInfo() const
     return mSoundInfo;
 }
 
-void CustomSoundsUpdateJob::setEmojiInfo(const SoundInfo &newEmojiInfo)
+void CustomSoundsUpdateJob::setSoundInfo(const SoundInfo &newEmojiInfo)
 {
     mSoundInfo = newEmojiInfo;
 }

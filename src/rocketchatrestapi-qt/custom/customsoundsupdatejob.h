@@ -34,7 +34,7 @@ public:
     [[nodiscard]] QNetworkRequest request() const override;
 
     [[nodiscard]] const SoundInfo &soundInfo() const;
-    void setEmojiInfo(const SoundInfo &newEmojiInfo);
+    void setSoundInfo(const SoundInfo &newEmojiInfo);
 
 Q_SIGNALS:
     void customSoundUpdateDone(const QJsonObject &replyObject);
