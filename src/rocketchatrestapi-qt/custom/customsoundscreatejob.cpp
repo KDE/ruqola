@@ -121,7 +121,7 @@ QNetworkRequest CustomSoundsCreateJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsCreate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request);
+    addRequestAttribute(request, false);
     return request;
 }
 
