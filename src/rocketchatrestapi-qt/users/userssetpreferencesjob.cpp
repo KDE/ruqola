@@ -156,6 +156,18 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (mUsersSetPreferencesInfo.masterVolume != -1) {
         dataObj["masterVolume"_L1] = mUsersSetPreferencesInfo.masterVolume;
     }
+    if (!mUsersSetPreferencesInfo.featuresPreview.isEmpty()) {
+        QJsonArray array;
+        QMapIterator<QString, bool> i(mUsersSetPreferencesInfo.featuresPreview);
+        while (i.hasNext()) {
+            i.next();
+            QJsonObject obj;
+            obj["name"_L1] = i.key();
+            obj["value"_L1] = i.value();
+            array.append(obj);
+        }
+        dataObj["featuresPreview"_L1] = array;
+    }
 
     jsonObj["data"_L1] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
@@ -193,6 +205,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d.space() << "receiveLoginDetectionEmail:" << t.receiveLoginDetectionEmail;
     d.space() << "notificationsSoundVolume:" << t.notificationsSoundVolume;
     d.space() << "muteFocusedConversations:" << t.muteFocusedConversations;
+    d.space() << "featuresPreview:" << t.featuresPreview;
     return d;
 }
 

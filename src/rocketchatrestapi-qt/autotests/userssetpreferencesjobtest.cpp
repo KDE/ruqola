@@ -5,7 +5,6 @@
 */
 
 #include "userssetpreferencesjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(UsersSetPreferencesJobTest)
 using namespace RocketChatRestApi;
 UsersSetPreferencesJobTest::UsersSetPreferencesJobTest(QObject *parent)
@@ -54,6 +54,26 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         job.setUsersSetPreferencesInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
                  QStringLiteral(R"({"data":{"desktopNotifications":"%2"},"userId":"%1"})").arg(QLatin1StringView(userId), desktopNotifications).toLatin1());
+    }
+    {
+        UsersSetPreferencesJob job;
+        UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+
+        const QByteArray userId = "foo"_ba;
+        info.userId = userId;
+        job.setUsersSetPreferencesInfo(info);
+
+        QMap<QString, bool> featuresPreview;
+        featuresPreview.insert("secondarySidebar"_L1, true);
+        featuresPreview.insert("sidebarDrafts"_L1, true);
+        info.featuresPreview = featuresPreview;
+        job.setUsersSetPreferencesInfo(info);
+
+        QCOMPARE(
+            job.json().toJson(QJsonDocument::Compact),
+            QStringLiteral(R"({"data":{"featuresPreview":[{"name":"secondarySidebar","value":true},{"name":"sidebarDrafts","value":true}]},"userId":"%1"})")
+                .arg(QLatin1StringView(userId))
+                .toLatin1());
     }
 }
 

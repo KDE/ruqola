@@ -48,6 +48,7 @@ public:
         int voipRingerVolume = -1;
         int masterVolume = -1;
         State muteFocusedConversations = State::Unknown;
+        QMap<QString, bool> featuresPreview;
 
         // Add more
     };
