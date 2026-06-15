@@ -107,7 +107,7 @@ bool CustomSoundsCreateJob::requireHttpAuthentication() const
 bool CustomSoundsCreateJob::canStart() const
 {
     if (!mSoundInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomSoundsCreateJob: mEmojiInfo is not valid";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomSoundsCreateJob: mSoundInfo is not valid";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
