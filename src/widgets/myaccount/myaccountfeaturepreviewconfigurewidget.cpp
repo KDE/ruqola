@@ -5,9 +5,7 @@
 */
 
 #include "myaccountfeaturepreviewconfigurewidget.h"
-#include "connection.h"
 #include "rocketchataccount.h"
-#include "ruqolawidgets_debug.h"
 #include "users/userssetpreferencesjob.h"
 #include <KLocalizedString>
 #include <QCheckBox>
