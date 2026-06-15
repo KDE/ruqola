@@ -11,6 +11,7 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QJsonArray>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *parent)
@@ -82,9 +83,30 @@ void FeaturePreviewWidget::initialize()
 
 void FeaturePreviewWidget::save()
 {
-#if 0
     auto job = new RocketChatRestApi::MethodCallJob(this);
-    const QJsonArray params{{QString::fromLatin1(fileId)}};
+    QJsonArray params;
+    QJsonArray previewFeatures;
+    {
+        QJsonObject obj;
+        obj["_id"_L1] = u"Accounts_AllowFeaturePreview"_s;
+        obj["value"_L1] = mAllowFeaturePreview->isChecked();
+        previewFeatures.append(obj);
+    }
+    {
+        QJsonObject obj;
+        obj["_id"_L1] = u"Accounts_Default_User_Preferences_featuresPreview"_s;
+        QJsonObject objValue;
+        if (mDraftMessages->isChecked()) {
+            QString value = QStringLiteral("[{\\\"name\\\":\\\"sidebarDrafts\\\",\\\"value\\\":true}]");
+            objValue["value"_L1] = value;
+        } else {
+            QString value = QStringLiteral("[{\\\"name\\\":\\\"sidebarDrafts\\\",\\\"value\\\":false}]");
+            objValue["value"_L1] = value;
+        }
+        obj["value"_L1] = objValue;
+        previewFeatures.append(obj);
+    }
+    params.append(previewFeatures);
     const QString methodName{u"saveSettings"_s};
     const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
         .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
@@ -93,13 +115,9 @@ void FeaturePreviewWidget::save()
     };
     job->setMethodCallJobInfo(std::move(info));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
-        mRocketChatAccount->roomFiles(mRoomId, mRoomType);
-    });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start saveSettings job";
     }
-#endif
 }
 
 #include "moc_featurepreviewwidget.cpp"
