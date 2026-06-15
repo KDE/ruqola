@@ -52,10 +52,19 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
         mQuickReactions->hide();
     }
 
+    connect(mAllowFeaturePreview, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotFeaturePreviewChanged);
     mainLayout->addStretch(1);
+    slotFeaturePreviewChanged(mAllowFeaturePreview->isChecked());
 }
 
 FeaturePreviewWidget::~FeaturePreviewWidget() = default;
+
+void FeaturePreviewWidget::slotFeaturePreviewChanged(bool checked)
+{
+    mQuickReactions->setEnabled(checked);
+    mTimestampInMessages->setEnabled(checked);
+    mDraftMessages->setEnabled(checked);
+}
 
 void FeaturePreviewWidget::initialize()
 {
