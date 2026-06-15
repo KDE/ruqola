@@ -5,7 +5,10 @@
 */
 
 #include "myaccountfeaturepreviewconfigurewidget.h"
+#include "connection.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
+#include "users/userssetpreferencesjob.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QVBoxLayout>
@@ -41,15 +44,25 @@ void MyAccountFeaturePreviewConfigureWidget::load()
         mAddDraftCheckBox->setChecked(mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
     }
     if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
-        mAddDraftCheckBox->setChecked(
+        mTimeStampCheckBox->setChecked(
             mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser));
     }
 }
 
 void MyAccountFeaturePreviewConfigureWidget::save()
 {
-    //{"data":{"featuresPreview":[{"name":"secondarySidebar","value":false},{"name":"sidebarDrafts","value":false}]}}
-    // TODO
+    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+    QMap<QString, bool> featuresPreview;
+    if (mAddDraftCheckBox->isVisible()) {
+        featuresPreview.insert("sidebarDrafts"_L1, mAddDraftCheckBox->isChecked());
+    }
+    if (mTimeStampCheckBox->isVisible()) {
+        // TODO
+        featuresPreview.insert("timeStamp"_L1, mAddDraftCheckBox->isChecked());
+    }
+    info.featuresPreview = featuresPreview;
+    info.userId = mRocketChatAccount->userId();
+    mRocketChatAccount->setUserPreferences(info);
 }
 
 void MyAccountFeaturePreviewConfigureWidget::initialize()
