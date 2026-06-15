@@ -1446,14 +1446,15 @@
           <li xml:lang="ar">استخدام ودجة رسالة نصية جديدة للإشعارات الأخطاء</li>
           <li xml:lang="ca">Usa el «textmessagewidget» nou per a notificacions d'error</li>
           <li xml:lang="ca-valencia">Utilitza el «textmessagewidget» nou per a notificacions d'error</li>
+          <li xml:lang="es">Uso de los nuevos widgets de mensajes de texto para las notificaciones de error</li>
           <li xml:lang="ka">ახალი textmessagewidget-ის გამოყენება შეცდომის შეტყობინებისთვის</li>
           <li xml:lang="nl">Gebruik het nieuwe widget voor tekstberichten voor foutmeldingen</li>
           <li xml:lang="pt-BR">Usar o novo textmessagewidget para notificação de erro</li>
           <li xml:lang="sk">Použitie nového textmessagewidget na oznámenie chyby</li>
           <li xml:lang="sl">Uporabi novi gradnik textmessagewidget za obvestilo o napaki</li>
           <li xml:lang="tr">Hata bildirimleri için yeni textmessagewidget kullan</li>
-	  <li xml:lang="uk">Для сповіщення про помилку використано новий textmessagewidget</li>
-	  <li>Implement Draft message sorting channel.</li>
+          <li xml:lang="uk">Для сповіщення про помилку використано новий textmessagewidget</li>
+          <li>Implement Draft message sorting channel.</li>
         </ul>
       </description>
     </release>
