@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
-"PO-Revision-Date: 2026-06-13 05:22-0300\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"PO-Revision-Date: 2026-06-15 06:23-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -2998,7 +2998,7 @@ msgstr "O status invisível está desativado"
 msgid "%1 is already in use."
 msgstr "%1 já está em uso."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:168
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:180
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Parâmetros inválidos"
@@ -3140,7 +3140,7 @@ msgid "Remove Emoji"
 msgstr "Remover emoji"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:290
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:314
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3153,7 +3153,7 @@ msgid "Add…"
 msgstr "Adicionar…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:292
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:316
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3166,7 +3166,7 @@ msgid "Modify…"
 msgstr "Modificar…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:296
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:320
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3198,24 +3198,24 @@ msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Pesquisar sons personalizados"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:73
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
 #, kde-format
 msgid "No custom sound found"
 msgstr "Nenhum som personalizado encontrado"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:78
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:75
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 som personalizado (total: %2)"
 msgstr[1] "%1 sons personalizados (total: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:260
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Deseja excluir este som?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:261
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:285
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -3258,27 +3258,27 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Excluir status do usuário personalizado"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:18
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Permitir visualização de destaque"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Reações rápidas"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
 msgstr "Marca de tempo nas mensagens"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
-#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
@@ -10077,7 +10077,7 @@ msgstr "Criptografia E2E"
 msgid "Manage Device"
 msgstr "Gerenciar dispositivo"
 
-#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
 #, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
@@ -12040,10 +12040,8 @@ msgid "Use new textmessagewidget for error notification."
 msgstr "Usar o novo textmessagewidget para notificação de erro."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Implementa estilo de mensagem"
+msgstr "Implementa canal de classificação de mensagens em rascunho."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:32
 #, kde-format

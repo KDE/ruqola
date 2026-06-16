@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-15 00:43+0000\n"
+"POT-Creation-Date: 2026-06-16 00:44+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3194,7 +3194,7 @@ msgstr "Kasutaja registreerimine on keelatud"
 msgid "%1 is already in use."
 msgstr "Kasutaja on juba omanik"
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:168
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:180
 #, fuzzy, kde-format
 #| msgid "Invalid arguments"
 msgid "Invalid parameters"
@@ -3351,7 +3351,7 @@ msgid "Remove Emoji"
 msgstr "Eemalda toast"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:290
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:314
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3364,7 +3364,7 @@ msgid "Add…"
 msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:292
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:316
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3378,7 +3378,7 @@ msgid "Modify…"
 msgstr "Muuda ..."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:296
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:320
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3413,13 +3413,13 @@ msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Kohandatud olek:"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:73
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
 #, fuzzy, kde-format
 #| msgid "No Discussion found"
 msgid "No custom sound found"
 msgstr "Ühtegi diskussiooni ei leitud"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:78
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -3428,13 +3428,13 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 sõnum toas (kokku: %2)"
 msgstr[1] "%1 sõnumit toas (kokku: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:260
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
 #, fuzzy, kde-format
 #| msgid "Do you want to ignore this user?"
 msgid "Do you want to remove this sound?"
 msgstr "Kas eirata seda kasutajat?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:261
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:285
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
@@ -3483,7 +3483,7 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Kasutaja kohandatud olek"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:18
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
@@ -3491,22 +3491,22 @@ msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Sõnum kustutatud"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Mainimised"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
 msgstr "Kõik sõnumid"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
-#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@option:check"
@@ -10636,7 +10636,7 @@ msgstr ""
 msgid "Manage Device"
 msgstr "Faili otsimine ..."
 
-#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:18
+#: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@option:check"
