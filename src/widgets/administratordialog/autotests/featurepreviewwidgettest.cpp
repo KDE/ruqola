@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "featurepreviewwidgettest.h"
+#include "administratordialog/featurepreview/featurepreviewmessagewidget.h"
 #include "administratordialog/featurepreview/featurepreviewwidget.h"
 #include <QCheckBox>
 #include <QTest>
@@ -32,6 +33,9 @@ void FeaturePreviewWidgetTest::shouldHaveDefaultValues()
 
     auto mTimestampInMessages = w.findChild<QCheckBox *>(u"mTimestampInMessages"_s);
     QVERIFY(mTimestampInMessages);
+
+    auto mPreviewMessageWidget = w.findChild<FeaturePreviewMessageWidget *>(u"mPreviewMessageWidget"_s);
+    QVERIFY(mPreviewMessageWidget);
 }
 
 #include "moc_featurepreviewwidgettest.cpp"

@@ -5,6 +5,7 @@
 */
 
 #include "featurepreviewwidget.h"
+#include "administratordialog/featurepreview/featurepreviewmessagewidget.h"
 #include "connection.h"
 #include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
@@ -21,6 +22,7 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
     , mTimestampInMessages(new QCheckBox(i18nc("@option:check", "Timestamp in Messages"), this))
     , mDraftMessages(new QCheckBox(i18nc("@option:check", "Draft Messages"), this))
     , mRocketChatAccount(account)
+    , mPreviewMessageWidget(new FeaturePreviewMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -55,6 +57,8 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
 
     connect(mAllowFeaturePreview, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotFeaturePreviewChanged);
     mainLayout->addStretch(1);
+    mPreviewMessageWidget->setObjectName(u"mPreviewMessageWidget"_s);
+    mainLayout->addWidget(mPreviewMessageWidget);
     slotFeaturePreviewChanged(mAllowFeaturePreview->isChecked());
 }
 

@@ -9,6 +9,7 @@
 #include <QWidget>
 class RocketChatAccount;
 class QCheckBox;
+class FeaturePreviewMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT FeaturePreviewWidget : public QWidget
 {
     Q_OBJECT
@@ -26,4 +27,5 @@ private:
     QCheckBox *const mTimestampInMessages;
     QCheckBox *const mDraftMessages;
     RocketChatAccount *const mRocketChatAccount;
+    FeaturePreviewMessageWidget *const mPreviewMessageWidget;
 };
