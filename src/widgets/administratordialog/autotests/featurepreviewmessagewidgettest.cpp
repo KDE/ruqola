@@ -19,3 +19,5 @@ void FeaturePreviewMessageWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QCOMPARE(w.position(), KMessageWidget::Footer);
 }
+
+#include "moc_featurepreviewmessagewidgettest.cpp"
