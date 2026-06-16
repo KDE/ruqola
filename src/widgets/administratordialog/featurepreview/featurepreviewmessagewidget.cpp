@@ -6,13 +6,26 @@
 
 #include "featurepreviewmessagewidget.h"
 #include <KLocalizedString>
+#include <QAction>
 
 FeaturePreviewMessageWidget::FeaturePreviewMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
     setMessageType(KMessageWidget::Information);
     setPosition(KMessageWidget::Footer);
+    setCloseButtonVisible(false);
     hide();
+
+    auto cancelAction = new QAction(i18nc("@action", "Cancel"), this);
+    addAction(cancelAction);
+    connect(cancelAction, &QAction::triggered, this, &FeaturePreviewMessageWidget::animatedHide);
+
+    auto saveAction = new QAction(i18nc("@action", "Save"), this);
+    addAction(saveAction);
+    connect(saveAction, &QAction::triggered, this, [this]() {
+        Q_EMIT saveSettings();
+        animatedHide();
+    });
 }
 
 FeaturePreviewMessageWidget::~FeaturePreviewMessageWidget() = default;

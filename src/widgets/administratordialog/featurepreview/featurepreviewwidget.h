@@ -21,7 +21,9 @@ public:
     void save();
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotNeedSaveSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFeaturePreviewChanged(bool checked);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSaveSettings();
     QCheckBox *const mAllowFeaturePreview;
     QCheckBox *const mQuickReactions;
     QCheckBox *const mTimestampInMessages;

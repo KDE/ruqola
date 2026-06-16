@@ -13,4 +13,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT FeaturePreviewMessageWidget : public KMessag
 public:
     explicit FeaturePreviewMessageWidget(QWidget *parent = nullptr);
     ~FeaturePreviewMessageWidget() override;
+
+Q_SIGNALS:
+    void saveSettings();
 };

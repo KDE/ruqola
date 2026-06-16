@@ -60,9 +60,25 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
     mPreviewMessageWidget->setObjectName(u"mPreviewMessageWidget"_s);
     mainLayout->addWidget(mPreviewMessageWidget);
     slotFeaturePreviewChanged(mAllowFeaturePreview->isChecked());
+
+    connect(mAllowFeaturePreview, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotNeedSaveSettings);
+    connect(mQuickReactions, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotNeedSaveSettings);
+    connect(mTimestampInMessages, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotNeedSaveSettings);
+    connect(mDraftMessages, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotNeedSaveSettings);
+    connect(mPreviewMessageWidget, &FeaturePreviewMessageWidget::saveSettings, this, &FeaturePreviewWidget::slotSaveSettings);
 }
 
 FeaturePreviewWidget::~FeaturePreviewWidget() = default;
+
+void FeaturePreviewWidget::slotSaveSettings()
+{
+    // TODO
+}
+
+void FeaturePreviewWidget::slotNeedSaveSettings()
+{
+    mPreviewMessageWidget->animatedShow();
+}
 
 void FeaturePreviewWidget::slotFeaturePreviewChanged(bool checked)
 {
